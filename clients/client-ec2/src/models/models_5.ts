@@ -633,7 +633,8 @@ export interface DescribeTagsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>key-pair</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>placement-group</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p>
+   *                   <code>resource-type</code> - The resource type. For a list of possible values, see
+   *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html">TagSpecification</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5116,6 +5117,36 @@ export interface DisableImageDeprecationResult {
 /**
  * @public
  */
+export interface DisableImageDeregistrationProtectionRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DisableImageDeregistrationProtectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: string;
+}
+
+/**
+ * @public
+ */
 export interface DisableIpamOrganizationAdminAccountRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -6488,6 +6519,43 @@ export interface EnableImageDeprecationResult {
 /**
  * @public
  */
+export interface EnableImageDeregistrationProtectionRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, enforces deregistration protection for 24 hours after deregistration
+   *       protection is disabled.</p>
+   * @public
+   */
+  WithCooldown?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface EnableImageDeregistrationProtectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: string;
+}
+
+/**
+ * @public
+ */
 export interface EnableIpamOrganizationAdminAccountRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -7118,15 +7186,15 @@ export interface AssociatedRole {
   CertificateS3BucketName?: string;
 
   /**
-   * <p>The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle
-   * 			is stored. The object key is formated as follows:  <code>role_arn</code>/<code>certificate_arn</code>.
+   * <p>The key of the Amazon S3 object where the certificate, certificate chain, and encrypted private key bundle
+   * 			are stored. The object key is formatted as follows: <code>role_arn</code>/<code>certificate_arn</code>.
    * 		</p>
    * @public
    */
   CertificateS3ObjectKey?: string;
 
   /**
-   * <p>The ID of the KMS customer master key (CMK) used to encrypt the private key.</p>
+   * <p>The ID of the KMS key used to encrypt the private key.</p>
    * @public
    */
   EncryptionKmsKeyId?: string;
@@ -8663,98 +8731,6 @@ export interface IpamDiscoveredAccount {
    */
   LastSuccessfulDiscoveryTime?: Date;
 }
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredAccountsResult {
-  /**
-   * <p>Discovered accounts.</p>
-   * @public
-   */
-  IpamDiscoveredAccounts?: IpamDiscoveredAccount[];
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredPublicAddressesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>An IPAM resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region for the IP address.</p>
-   * @public
-   */
-  AddressRegion: string | undefined;
-
-  /**
-   * <p>Filters.</p>
-   * @public
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of IPAM discovered public addresses to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamPublicAddressType = {
-  AMAZON_OWNED_EIP: "amazon-owned-eip",
-  BYOIP: "byoip",
-  EC2_PUBLIC_IP: "ec2-public-ip",
-  SERVICE_MANAGED_BYOIP: "service-managed-byoip",
-  SERVICE_MANAGED_IP: "service-managed-ip",
-} as const;
-
-/**
- * @public
- */
-export type IpamPublicAddressType = (typeof IpamPublicAddressType)[keyof typeof IpamPublicAddressType];
-
-/**
- * @public
- * @enum
- */
-export const IpamPublicAddressAssociationStatus = {
-  ASSOCIATED: "associated",
-  DISASSOCIATED: "disassociated",
-} as const;
-
-/**
- * @public
- */
-export type IpamPublicAddressAssociationStatus =
-  (typeof IpamPublicAddressAssociationStatus)[keyof typeof IpamPublicAddressAssociationStatus];
 
 /**
  * @internal

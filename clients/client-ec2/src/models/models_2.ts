@@ -8747,16 +8747,16 @@ export interface DeleteLaunchTemplateRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the <code>LaunchTemplateId</code> or the
-   *                 <code>LaunchTemplateName</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify either the <code>LaunchTemplateName</code> or the
-   *                 <code>LaunchTemplateId</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateName?: string;
@@ -8788,16 +8788,16 @@ export interface DeleteLaunchTemplateVersionsRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the <code>LaunchTemplateId</code> or the
-   *                 <code>LaunchTemplateName</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify either the <code>LaunchTemplateName</code> or the
-   *                 <code>LaunchTemplateId</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateName?: string;

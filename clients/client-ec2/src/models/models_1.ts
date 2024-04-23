@@ -7689,11 +7689,8 @@ export interface CreateLaunchTemplateRequest {
   /**
    * <p>The tags to apply to the launch template on creation. To tag the launch template, the
    *             resource type must be <code>launch-template</code>.</p>
-   *          <note>
-   *             <p>To specify the tags for the resources that are created when an instance is
-   *                 launched, you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch
-   *                     template data</a> structure.</p>
-   *          </note>
+   *          <p>To specify the tags for the resources that are created when an instance is
+   *             launched, you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template data</a> structure.</p>
    * @public
    */
   TagSpecifications?: TagSpecification[];
@@ -7826,26 +7823,29 @@ export interface CreateLaunchTemplateVersionRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the <code>LaunchTemplateId</code> or the
-   *                 <code>LaunchTemplateName</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify the <code>LaunchTemplateName</code> or the
-   *                 <code>LaunchTemplateId</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateName?: string;
 
   /**
-   * <p>The version number of the launch template version on which to base the new version.
-   *             The new version inherits the same launch parameters as the source version, except for
-   *             parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the
-   *             block device mapping are ignored when creating a new version unless they are explicitly
-   *             included.</p>
+   * <p>The version of the launch template on which to base the new version.
+   *             Snapshots applied to the block device mapping are ignored when creating a new version
+   *             unless they are explicitly included.</p>
+   *          <p>If you specify this parameter, the new version inherits the launch parameters from the
+   *             source version. If you specify additional launch parameters for the new version, they
+   *             overwrite any corresponding launch parameters inherited from the source version.</p>
+   *          <p>If you omit this parameter, the new version contains only the launch parameters
+   *             that you specify for the new version.</p>
    * @public
    */
   SourceVersion?: string;

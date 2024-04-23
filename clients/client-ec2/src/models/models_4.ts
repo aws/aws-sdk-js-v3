@@ -5597,8 +5597,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
   /**
    * <p>The ID of the launch template.</p>
    *          <p>To describe one or more versions of a specified launch template, you must specify
-   *             either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not
-   *             both.</p>
+   *             either the launch template ID or the launch template name, but not both.</p>
    *          <p>To describe all the latest or default launch template versions in your account, you
    *             must omit this parameter.</p>
    * @public
@@ -5608,8 +5607,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
   /**
    * <p>The name of the launch template.</p>
    *          <p>To describe one or more versions of a specified launch template, you must specify
-   *             either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not
-   *             both.</p>
+   *             either the launch template name or the launch template ID, but not both.</p>
    *          <p>To describe all the latest or default launch template versions in your account, you
    *             must omit this parameter.</p>
    * @public
@@ -7905,7 +7903,7 @@ export interface DescribeNetworkInterfacesRequest {
  */
 export interface DescribeNetworkInterfacesResult {
   /**
-   * <p>Information about one or more network interfaces.</p>
+   * <p>Information about the network interfaces.</p>
    * @public
    */
   NetworkInterfaces?: NetworkInterface[];

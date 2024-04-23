@@ -8292,6 +8292,7 @@ export interface DescribeIdFormatResult {
 export const ImageAttributeName = {
   blockDeviceMapping: "blockDeviceMapping",
   bootMode: "bootMode",
+  deregistrationProtection: "deregistrationProtection",
   description: "description",
   imdsSupport: "imdsSupport",
   kernel: "kernel",
@@ -8467,6 +8468,12 @@ export interface ImageAttribute {
    * @public
    */
   ImdsSupport?: AttributeValue;
+
+  /**
+   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
+   * @public
+   */
+  DeregistrationProtection?: AttributeValue;
 }
 
 /**
@@ -9066,6 +9073,24 @@ export interface Image {
    * @public
    */
   SourceInstanceId?: string;
+
+  /**
+   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
+   * @public
+   */
+  DeregistrationProtection?: string;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *       format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
+   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
+   *          <note>
+   *             <p>
+   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
+   *          </note>
+   * @public
+   */
+  LastLaunchedTime?: string;
 }
 
 /**

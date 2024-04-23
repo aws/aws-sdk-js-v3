@@ -6,6 +6,8 @@ import {
   AddressAttribute,
   AddressAttributeName,
   ByoipCidr,
+  CapacityReservation,
+  CapacityReservationInstancePlatform,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   IamInstanceProfileAssociation,
@@ -63,6 +65,7 @@ import {
   InstanceState,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  PublicIpv4PoolRange,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SnapshotAttributeName,
@@ -76,6 +79,111 @@ import {
 import { Purchase } from "./models_5";
 
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ProvisionPublicIpv4PoolCidrResult {
+  /**
+   * <p>The ID of the pool that you want to provision the CIDR to.</p>
+   * @public
+   */
+  PoolId?: string;
+
+  /**
+   * <p>Information about the address range of the public IPv4 pool.</p>
+   * @public
+   */
+  PoolAddressRange?: PublicIpv4PoolRange;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply to the Capacity Block during launch.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The ID of the Capacity Block offering.</p>
+   * @public
+   */
+  CapacityBlockOfferingId: string | undefined;
+
+  /**
+   * <p>The type of operating system for which to reserve capacity.</p>
+   * @public
+   */
+  InstancePlatform: CapacityReservationInstancePlatform | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockResult {
+  /**
+   * <p>The Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservation?: CapacityReservation;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseHostReservationRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>, and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
+   * @public
+   */
+  HostIdSet: string[] | undefined;
+
+  /**
+   * <p>The specified limit is checked against the total upfront cost of the reservation
+   *             (calculated as the offering's upfront cost multiplied by the host count). If the total
+   *             upfront cost is greater than the specified price limit, the request fails. This is used
+   *             to ensure that the purchase does not exceed the expected upfront cost of the purchase.
+   *             At this time, the only supported currency is <code>USD</code>. For example, to indicate
+   *             a limit price of USD 100, specify 100.00.</p>
+   * @public
+   */
+  LimitPrice?: string;
+
+  /**
+   * <p>The ID of the offering.</p>
+   * @public
+   */
+  OfferingId: string | undefined;
+
+  /**
+   * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+}
 
 /**
  * @public
@@ -2609,23 +2717,22 @@ export interface InstanceMarketOptionsRequest {
 }
 
 /**
- * <p>The launch template to use. You must specify either the launch template ID or launch
- *             template name in the request, but not both.</p>
+ * <p>Describes the launch template to use.</p>
  * @public
  */
 export interface LaunchTemplateSpecification {
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify the <code>LaunchTemplateId</code> or the
-   *                 <code>LaunchTemplateName</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify the <code>LaunchTemplateName</code> or the
-   *                 <code>LaunchTemplateId</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateName?: string;
@@ -2633,10 +2740,8 @@ export interface LaunchTemplateSpecification {
   /**
    * <p>The launch template version number, <code>$Latest</code>, or
    *             <code>$Default</code>.</p>
-   *          <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
-   *             template.</p>
-   *          <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the
-   *             launch template.</p>
+   *          <p>A value of <code>$Latest</code> uses the latest version of the launch template.</p>
+   *          <p>A value of <code>$Default</code> uses the default version of the launch template.</p>
    *          <p>Default: The default version of the launch template.</p>
    * @public
    */
@@ -3056,9 +3161,8 @@ export interface RunInstancesRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>The launch template to use to launch the instances. Any parameters that you specify in
-   *                 <a>RunInstances</a> override the same parameters in the launch template.
-   *             You can specify either the name or ID of a launch template, but not both.</p>
+   * <p>The launch template. Any additional parameters that you specify for the new instance
+   *             overwrite the corresponding parameters included in the launch template.</p>
    * @public
    */
   LaunchTemplate?: LaunchTemplateSpecification;

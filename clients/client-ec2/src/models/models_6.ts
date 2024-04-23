@@ -12,9 +12,6 @@ import {
   ApplianceModeSupportValue,
   AutoPlacement,
   ByoipCidr,
-  CapacityReservation,
-  CapacityReservationInstancePlatform,
-  CurrencyCodeValues,
   DnsSupportValue,
   EnaSrdSpecification,
   EndDateType,
@@ -145,7 +142,6 @@ import {
   LaunchTemplateConfig,
   LockState,
   Monitoring,
-  PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
   SnapshotTaskDetail,
@@ -155,15 +151,106 @@ import {
 import {
   InstanceFamilyCreditSpecification,
   IpamComplianceStatus,
+  IpamDiscoveredAccount,
   IpamOverlapStatus,
-  IpamPublicAddressAssociationStatus,
-  IpamPublicAddressType,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredAccountsResult {
+  /**
+   * <p>Discovered accounts.</p>
+   * @public
+   */
+  IpamDiscoveredAccounts?: IpamDiscoveredAccount[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredPublicAddressesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>An IPAM resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region for the IP address.</p>
+   * @public
+   */
+  AddressRegion: string | undefined;
+
+  /**
+   * <p>Filters.</p>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of IPAM discovered public addresses to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamPublicAddressType = {
+  AMAZON_OWNED_EIP: "amazon-owned-eip",
+  BYOIP: "byoip",
+  EC2_PUBLIC_IP: "ec2-public-ip",
+  SERVICE_MANAGED_BYOIP: "service-managed-byoip",
+  SERVICE_MANAGED_IP: "service-managed-ip",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPublicAddressType = (typeof IpamPublicAddressType)[keyof typeof IpamPublicAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamPublicAddressAssociationStatus = {
+  ASSOCIATED: "associated",
+  DISASSOCIATED: "disassociated",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPublicAddressAssociationStatus =
+  (typeof IpamPublicAddressAssociationStatus)[keyof typeof IpamPublicAddressAssociationStatus];
 
 /**
  * <p>The security group that the resource with the public IP address is in.</p>
@@ -6092,16 +6179,16 @@ export interface ModifyLaunchTemplateRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the <code>LaunchTemplateId</code> or the
-   *                 <code>LaunchTemplateName</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *          <p>You must specify either the <code>LaunchTemplateName</code> or the
-   *                 <code>LaunchTemplateId</code>, but not both.</p>
+   *          <p>You must specify either the launch template ID or the
+   *             launch template name, but not both.</p>
    * @public
    */
   LaunchTemplateName?: string;
@@ -9437,111 +9524,6 @@ export interface ProvisionPublicIpv4PoolCidrRequest {
    * @public
    */
   NetmaskLength: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionPublicIpv4PoolCidrResult {
-  /**
-   * <p>The ID of the pool that you want to provision the CIDR to.</p>
-   * @public
-   */
-  PoolId?: string;
-
-  /**
-   * <p>Information about the address range of the public IPv4 pool.</p>
-   * @public
-   */
-  PoolAddressRange?: PublicIpv4PoolRange;
-}
-
-/**
- * @public
- */
-export interface PurchaseCapacityBlockRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to apply to the Capacity Block during launch.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The ID of the Capacity Block offering.</p>
-   * @public
-   */
-  CapacityBlockOfferingId: string | undefined;
-
-  /**
-   * <p>The type of operating system for which to reserve capacity.</p>
-   * @public
-   */
-  InstancePlatform: CapacityReservationInstancePlatform | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseCapacityBlockResult {
-  /**
-   * <p>The Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservation?: CapacityReservation;
-}
-
-/**
- * @public
- */
-export interface PurchaseHostReservationRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>, and
-   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
-   *             supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
-   * @public
-   */
-  HostIdSet: string[] | undefined;
-
-  /**
-   * <p>The specified limit is checked against the total upfront cost of the reservation
-   *             (calculated as the offering's upfront cost multiplied by the host count). If the total
-   *             upfront cost is greater than the specified price limit, the request fails. This is used
-   *             to ensure that the purchase does not exceed the expected upfront cost of the purchase.
-   *             At this time, the only supported currency is <code>USD</code>. For example, to indicate
-   *             a limit price of USD 100, specify 100.00.</p>
-   * @public
-   */
-  LimitPrice?: string;
-
-  /**
-   * <p>The ID of the offering.</p>
-   * @public
-   */
-  OfferingId: string | undefined;
-
-  /**
-   * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
 }
 
 /**

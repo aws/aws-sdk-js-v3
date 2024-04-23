@@ -34,6 +34,10 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *       return empty results. After all instances that reference a deregistered AMI are terminated,
  *       specifying the ID of the image will eventually return an error indicating that the AMI ID
  *       cannot be found.</p>
+ *          <important>
+ *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
+ *          susceptible to throttling and timeouts.</p>
+ *          </important>
  *          <note>
  *             <p>The order of the elements in the response, including those within nested
  *          structures, might vary. Applications should not assume the elements appear in a
@@ -135,6 +139,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       DeprecationTime: "STRING_VALUE",
  * //       ImdsSupport: "v2.0",
  * //       SourceInstanceId: "STRING_VALUE",
+ * //       DeregistrationProtection: "STRING_VALUE",
+ * //       LastLaunchedTime: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

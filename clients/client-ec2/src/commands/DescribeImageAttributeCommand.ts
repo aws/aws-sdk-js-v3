@@ -40,7 +40,7 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * // const { EC2Client, DescribeImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeImageAttributeRequest
- *   Attribute: "description" || "kernel" || "ramdisk" || "launchPermission" || "productCodes" || "blockDeviceMapping" || "sriovNetSupport" || "bootMode" || "tpmSupport" || "uefiData" || "lastLaunchedTime" || "imdsSupport", // required
+ *   Attribute: "description" || "kernel" || "ramdisk" || "launchPermission" || "productCodes" || "blockDeviceMapping" || "sriovNetSupport" || "bootMode" || "tpmSupport" || "uefiData" || "lastLaunchedTime" || "imdsSupport" || "deregistrationProtection", // required
  *   ImageId: "STRING_VALUE", // required
  *   DryRun: true || false,
  * };
@@ -99,6 +99,7 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * //   UefiData: "<AttributeValue>",
  * //   LastLaunchedTime: "<AttributeValue>",
  * //   ImdsSupport: "<AttributeValue>",
+ * //   DeregistrationProtection: "<AttributeValue>",
  * // };
  *
  * ```

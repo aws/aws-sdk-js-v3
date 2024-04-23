@@ -43,6 +43,10 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  *             not specify any instance IDs at all, the call fails. If you describe instances and
  *             specify only instance IDs that are in an unaffected zone, the call works
  *             normally.</p>
+ *          <important>
+ *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
+ *                 susceptible to throttling and timeouts.</p>
+ *          </important>
  *          <note>
  *             <p>The order of the elements in the response, including those within nested
  *                 structures, might vary. Applications should not assume the elements appear in a
