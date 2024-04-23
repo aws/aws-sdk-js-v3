@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.561.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.560.0...v3.561.0) (2024-04-23)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces zero-setup file upload support for the RetrieveAndGenerate API. This allows you to chat with your data without setting up a Knowledge Base. ([39a8983](https://github.com/aws/aws-sdk-js-v3/commit/39a898331219d5d74030cb18d80f8899e3b92813))
+
+
+
+
+
 # [3.560.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.559.0...v3.560.0) (2024-04-22)
 
 

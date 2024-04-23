@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.561.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.560.0...v3.561.0) (2024-04-23)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release introduces Guardrails for Amazon Bedrock. ([7ddf8df](https://github.com/aws/aws-sdk-js-v3/commit/7ddf8dff0c955a07ec64d51168d30b8d787bf027))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

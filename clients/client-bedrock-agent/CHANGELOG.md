@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.561.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.560.0...v3.561.0) (2024-04-23)
+
+
+### Features
+
+* **client-bedrock-agent:** Introducing the ability to create multiple data sources per knowledge base, specify S3 buckets as data sources from external accounts, and exposing levers to define the deletion behavior of the underlying vector store data. ([bf837dc](https://github.com/aws/aws-sdk-js-v3/commit/bf837dc3551b3f093fac15069418185cf6d21ea3))
+
+
+
+
+
 # [3.560.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.559.0...v3.560.0) (2024-04-22)
 
 

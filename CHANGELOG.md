@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.561.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.560.0...v3.561.0) (2024-04-23)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces zero-setup file upload support for the RetrieveAndGenerate API. This allows you to chat with your data without setting up a Knowledge Base. ([39a8983](https://github.com/aws/aws-sdk-js-v3/commit/39a898331219d5d74030cb18d80f8899e3b92813))
+* **client-bedrock-agent:** Introducing the ability to create multiple data sources per knowledge base, specify S3 buckets as data sources from external accounts, and exposing levers to define the deletion behavior of the underlying vector store data. ([bf837dc](https://github.com/aws/aws-sdk-js-v3/commit/bf837dc3551b3f093fac15069418185cf6d21ea3))
+* **client-bedrock-runtime:** This release introduces Guardrails for Amazon Bedrock. ([7ddf8df](https://github.com/aws/aws-sdk-js-v3/commit/7ddf8dff0c955a07ec64d51168d30b8d787bf027))
+* **client-bedrock:** This release introduces Model Evaluation and Guardrails for Amazon Bedrock. ([48f0cbb](https://github.com/aws/aws-sdk-js-v3/commit/48f0cbb5c21cef236b0eb0fc7e09fbaf6bbf4618))
+* **client-cost-explorer:** Added additional metadata that might be applicable to your reservation recommendations. ([05fbb30](https://github.com/aws/aws-sdk-js-v3/commit/05fbb3099e696a549b3564aac9fe50be440bb8cc))
+* **client-ec2:** This release introduces EC2 AMI Deregistration Protection, a new AMI property that can be enabled by customers to protect an AMI against an unintended deregistration. This release also enables the AMI owners to view the AMI 'LastLaunchedTime' in DescribeImages API. ([4fcf9f7](https://github.com/aws/aws-sdk-js-v3/commit/4fcf9f7235d718e620e3fa4df1253aa1fd2dd453))
+* **client-workspaces-web:** Added InstanceType and MaxConcurrentSessions parameters on CreatePortal and UpdatePortal Operations as well as the ability to read Customer Managed Key & Additional Encryption Context parameters on supported resources (Portal, BrowserSettings, UserSettings, IPAccessSettings) ([ef5386c](https://github.com/aws/aws-sdk-js-v3/commit/ef5386ca9b454691d67e4fde01b179122844c329))
+* **clients:** update client endpoints as of 2024-04-23 ([28d2ed0](https://github.com/aws/aws-sdk-js-v3/commit/28d2ed09ad3fec52a7ba9389e07d27ceb56e0f01))
+
+
+
+
+
 # [3.560.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.559.0...v3.560.0) (2024-04-22)
 
 
