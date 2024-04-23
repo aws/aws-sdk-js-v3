@@ -302,6 +302,7 @@ export const se_CreateDataSourceCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      dataDeletionPolicy: [],
       dataSourceConfiguration: (_) => _json(_),
       description: [],
       name: [],
@@ -1033,6 +1034,7 @@ export const se_UpdateDataSourceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      dataDeletionPolicy: [],
       dataSourceConfiguration: (_) => _json(_),
       description: [],
       name: [],
@@ -2476,9 +2478,11 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
 const de_DataSource = (output: any, context: __SerdeContext): DataSource => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    dataDeletionPolicy: __expectString,
     dataSourceConfiguration: _json,
     dataSourceId: __expectString,
     description: __expectString,
+    failureReasons: _json,
     knowledgeBaseId: __expectString,
     name: __expectString,
     serverSideEncryptionConfiguration: _json,

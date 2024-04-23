@@ -2191,6 +2191,20 @@ export interface UpdateAgentAliasResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DataDeletionPolicy = {
+  DELETE: "DELETE",
+  RETAIN: "RETAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type DataDeletionPolicy = (typeof DataDeletionPolicy)[keyof typeof DataDeletionPolicy];
+
+/**
  * <p>Contains information about the S3 configuration of the data source.</p>
  * @public
  */
@@ -2206,6 +2220,12 @@ export interface S3DataSourceConfiguration {
    * @public
    */
   inclusionPrefixes?: string[];
+
+  /**
+   * <p>The account ID for the owner of the S3 bucket.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string;
 }
 
 /**
@@ -2359,6 +2379,12 @@ export interface CreateDataSourceRequest {
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
+   * <p>The deletion policy for the requested data source</p>
+   * @public
+   */
+  dataDeletionPolicy?: DataDeletionPolicy;
+
+  /**
    * <p>Contains details about the server-side encryption for the data source.</p>
    * @public
    */
@@ -2377,6 +2403,7 @@ export interface CreateDataSourceRequest {
  */
 export const DataSourceStatus = {
   AVAILABLE: "AVAILABLE",
+  DELETE_UNSUCCESSFUL: "DELETE_UNSUCCESSFUL",
   DELETING: "DELETING",
 } as const;
 
@@ -2447,6 +2474,12 @@ export interface DataSource {
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
 
   /**
+   * <p>The deletion policy for the data source.</p>
+   * @public
+   */
+  dataDeletionPolicy?: DataDeletionPolicy;
+
+  /**
    * <p>The time at which the data source was created.</p>
    * @public
    */
@@ -2457,6 +2490,12 @@ export interface DataSource {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The details of the failure reasons related to the data source.</p>
+   * @public
+   */
+  failureReasons?: string[];
 }
 
 /**
@@ -2653,6 +2692,12 @@ export interface UpdateDataSourceRequest {
    * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
+
+  /**
+   * <p>The data deletion policy of the updated data source.</p>
+   * @public
+   */
+  dataDeletionPolicy?: DataDeletionPolicy;
 
   /**
    * <p>Contains details about server-side encryption of the data source.</p>
@@ -3517,6 +3562,7 @@ export interface CreateKnowledgeBaseRequest {
 export const KnowledgeBaseStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",
+  DELETE_UNSUCCESSFUL: "DELETE_UNSUCCESSFUL",
   DELETING: "DELETING",
   FAILED: "FAILED",
   UPDATING: "UPDATING",

@@ -49,8 +49,10 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       inclusionPrefixes: [ // S3Prefixes
  *         "STRING_VALUE",
  *       ],
+ *       bucketOwnerAccountId: "STRING_VALUE",
  *     },
  *   },
+ *   dataDeletionPolicy: "RETAIN" || "DELETE",
  *   serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     kmsKeyArn: "STRING_VALUE",
  *   },
@@ -71,7 +73,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * //     knowledgeBaseId: "STRING_VALUE", // required
  * //     dataSourceId: "STRING_VALUE", // required
  * //     name: "STRING_VALUE", // required
- * //     status: "AVAILABLE" || "DELETING", // required
+ * //     status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL", // required
  * //     description: "STRING_VALUE",
  * //     dataSourceConfiguration: { // DataSourceConfiguration
  * //       type: "S3", // required
@@ -80,6 +82,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * //         inclusionPrefixes: [ // S3Prefixes
  * //           "STRING_VALUE",
  * //         ],
+ * //         bucketOwnerAccountId: "STRING_VALUE",
  * //       },
  * //     },
  * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
@@ -94,8 +97,12 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * //         },
  * //       },
  * //     },
+ * //     dataDeletionPolicy: "RETAIN" || "DELETE",
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     failureReasons: [ // FailureReasons
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

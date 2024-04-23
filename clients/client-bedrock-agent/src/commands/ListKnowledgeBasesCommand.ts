@@ -46,7 +46,7 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * //       knowledgeBaseId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED", // required
+ * //       status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],

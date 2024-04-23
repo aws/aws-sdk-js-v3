@@ -41,7 +41,7 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * const response = await client.send(command);
  * // { // DeleteKnowledgeBaseResponse
  * //   knowledgeBaseId: "STRING_VALUE", // required
- * //   status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED", // required
+ * //   status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required
  * // };
  *
  * ```

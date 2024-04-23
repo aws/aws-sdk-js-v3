@@ -181,7 +181,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //         },
  * //       },
  * //     },
- * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED", // required
+ * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     failureReasons: [ // FailureReasons
