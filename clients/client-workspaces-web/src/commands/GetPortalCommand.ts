@@ -56,6 +56,12 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * //     userAccessLoggingSettingsArn: "STRING_VALUE",
  * //     authenticationType: "STRING_VALUE",
  * //     ipAccessSettingsArn: "STRING_VALUE",
+ * //     customerManagedKey: "STRING_VALUE",
+ * //     additionalEncryptionContext: { // EncryptionContextMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     instanceType: "STRING_VALUE",
+ * //     maxConcurrentSessions: Number("int"),
  * //   },
  * // };
  *

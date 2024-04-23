@@ -72,6 +72,10 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * //         },
  * //       ],
  * //     },
+ * //     customerManagedKey: "STRING_VALUE",
+ * //     additionalEncryptionContext: { // EncryptionContextMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

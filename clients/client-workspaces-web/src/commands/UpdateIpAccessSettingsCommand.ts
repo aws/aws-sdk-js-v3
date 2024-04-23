@@ -68,6 +68,10 @@ export interface UpdateIpAccessSettingsCommandOutput extends UpdateIpAccessSetti
  * //     displayName: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     creationDate: new Date("TIMESTAMP"),
+ * //     customerManagedKey: "STRING_VALUE",
+ * //     additionalEncryptionContext: { // EncryptionContextMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

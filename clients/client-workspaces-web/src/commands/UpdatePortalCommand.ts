@@ -43,6 +43,8 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *   portalArn: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE",
  *   authenticationType: "STRING_VALUE",
+ *   instanceType: "STRING_VALUE",
+ *   maxConcurrentSessions: Number("int"),
  * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
@@ -63,6 +65,12 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * //     userAccessLoggingSettingsArn: "STRING_VALUE",
  * //     authenticationType: "STRING_VALUE",
  * //     ipAccessSettingsArn: "STRING_VALUE",
+ * //     customerManagedKey: "STRING_VALUE",
+ * //     additionalEncryptionContext: { // EncryptionContextMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     instanceType: "STRING_VALUE",
+ * //     maxConcurrentSessions: Number("int"),
  * //   },
  * // };
  *
@@ -85,6 +93,9 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>There is a throttling error.</p>

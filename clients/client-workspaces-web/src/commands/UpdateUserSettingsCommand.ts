@@ -97,6 +97,10 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * //         },
  * //       ],
  * //     },
+ * //     customerManagedKey: "STRING_VALUE",
+ * //     additionalEncryptionContext: { // EncryptionContextMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

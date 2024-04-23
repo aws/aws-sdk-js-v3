@@ -48,6 +48,8 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  *   },
  *   clientToken: "STRING_VALUE",
  *   authenticationType: "STRING_VALUE",
+ *   instanceType: "STRING_VALUE",
+ *   maxConcurrentSessions: Number("int"),
  * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);

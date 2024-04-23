@@ -50,6 +50,10 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  * //       "STRING_VALUE",
  * //     ],
  * //     browserPolicy: "STRING_VALUE",
+ * //     customerManagedKey: "STRING_VALUE",
+ * //     additionalEncryptionContext: { // EncryptionContextMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

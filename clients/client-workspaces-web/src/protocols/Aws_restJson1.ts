@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -462,6 +463,8 @@ export const se_CreatePortalCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customerManagedKey: [],
       displayName: [],
+      instanceType: [],
+      maxConcurrentSessions: [],
       tags: (_) => _json(_),
     })
   );
@@ -1302,6 +1305,8 @@ export const se_UpdatePortalCommand = async (
     take(input, {
       authenticationType: [],
       displayName: [],
+      instanceType: [],
+      maxConcurrentSessions: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2867,6 +2872,8 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
 
 // de_CookieSynchronizationConfiguration omitted.
 
+// de_EncryptionContextMap omitted.
+
 // de_IdentityProvider omitted.
 
 // de_IdentityProviderDetails omitted.
@@ -2880,8 +2887,10 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
  */
 const de_IpAccessSettings = (output: any, context: __SerdeContext): IpAccessSettings => {
   return take(output, {
+    additionalEncryptionContext: _json,
     associatedPortalArns: _json,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerManagedKey: __expectString,
     description: __expectString,
     displayName: __expectString,
     ipAccessSettingsArn: __expectString,
@@ -2928,12 +2937,16 @@ const de_IpAccessSettingsSummary = (output: any, context: __SerdeContext): IpAcc
  */
 const de_Portal = (output: any, context: __SerdeContext): Portal => {
   return take(output, {
+    additionalEncryptionContext: _json,
     authenticationType: __expectString,
     browserSettingsArn: __expectString,
     browserType: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customerManagedKey: __expectString,
     displayName: __expectString,
+    instanceType: __expectString,
     ipAccessSettingsArn: __expectString,
+    maxConcurrentSessions: __expectInt32,
     networkSettingsArn: __expectString,
     portalArn: __expectString,
     portalEndpoint: __expectString,
@@ -2968,7 +2981,9 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
     browserType: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     displayName: __expectString,
+    instanceType: __expectString,
     ipAccessSettingsArn: __expectString,
+    maxConcurrentSessions: __expectInt32,
     networkSettingsArn: __expectString,
     portalArn: __expectString,
     portalEndpoint: __expectString,
