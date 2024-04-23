@@ -49,7 +49,7 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *     text: "STRING_VALUE", // required
  *   },
  *   retrieveAndGenerateConfiguration: { // RetrieveAndGenerateConfiguration
- *     type: "KNOWLEDGE_BASE", // required
+ *     type: "KNOWLEDGE_BASE" || "EXTERNAL_SOURCES", // required
  *     knowledgeBaseConfiguration: { // KnowledgeBaseRetrieveAndGenerateConfiguration
  *       knowledgeBaseId: "STRING_VALUE", // required
  *       modelArn: "STRING_VALUE", // required
@@ -109,6 +109,27 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *       },
  *       generationConfiguration: { // GenerationConfiguration
  *         promptTemplate: { // PromptTemplate
+ *           textPromptTemplate: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     externalSourcesConfiguration: { // ExternalSourcesRetrieveAndGenerateConfiguration
+ *       modelArn: "STRING_VALUE", // required
+ *       sources: [ // ExternalSources // required
+ *         { // ExternalSource
+ *           sourceType: "S3" || "BYTE_CONTENT", // required
+ *           s3Location: { // S3ObjectDoc
+ *             uri: "STRING_VALUE", // required
+ *           },
+ *           byteContent: { // ByteContentDoc
+ *             identifier: "STRING_VALUE", // required
+ *             contentType: "STRING_VALUE", // required
+ *             data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
+ *           },
+ *         },
+ *       ],
+ *       generationConfiguration: { // ExternalSourcesGenerationConfiguration
+ *         promptTemplate: {
  *           textPromptTemplate: "STRING_VALUE",
  *         },
  *       },

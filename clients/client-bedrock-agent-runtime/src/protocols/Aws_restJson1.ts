@@ -42,10 +42,14 @@ import {
   ApiResult,
   Attribution,
   BadGatewayException,
+  ByteContentDoc,
   Citation,
   ConflictException,
   ContentBody,
   DependencyFailedException,
+  ExternalSource,
+  ExternalSourcesGenerationConfiguration,
+  ExternalSourcesRetrieveAndGenerateConfiguration,
   FilterAttribute,
   FunctionResult,
   GenerationConfiguration,
@@ -73,6 +77,7 @@ import {
   RetrieveAndGenerateSessionConfiguration,
   RetrievedReference,
   ReturnControlPayload,
+  S3ObjectDoc,
   ServiceQuotaExceededException,
   SessionState,
   ThrottlingException,
@@ -617,7 +622,56 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 };
 // se_ApiResult omitted.
 
+/**
+ * serializeAws_restJson1ByteContentDoc
+ */
+const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any => {
+  return take(input, {
+    contentType: [],
+    data: context.base64Encoder,
+    identifier: [],
+  });
+};
+
 // se_ContentBody omitted.
+
+/**
+ * serializeAws_restJson1ExternalSource
+ */
+const se_ExternalSource = (input: ExternalSource, context: __SerdeContext): any => {
+  return take(input, {
+    byteContent: (_) => se_ByteContentDoc(_, context),
+    s3Location: _json,
+    sourceType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ExternalSources
+ */
+const se_ExternalSources = (input: ExternalSource[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ExternalSource(entry, context);
+    });
+};
+
+// se_ExternalSourcesGenerationConfiguration omitted.
+
+/**
+ * serializeAws_restJson1ExternalSourcesRetrieveAndGenerateConfiguration
+ */
+const se_ExternalSourcesRetrieveAndGenerateConfiguration = (
+  input: ExternalSourcesRetrieveAndGenerateConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    generationConfiguration: _json,
+    modelArn: [],
+    sources: (_) => se_ExternalSources(_, context),
+  });
+};
 
 /**
  * serializeAws_restJson1FilterAttribute
@@ -727,6 +781,7 @@ const se_RetrievalFilterList = (input: RetrievalFilter[], context: __SerdeContex
  */
 const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    externalSourcesConfiguration: (_) => se_ExternalSourcesRetrieveAndGenerateConfiguration(_, context),
     knowledgeBaseConfiguration: (_) => se_KnowledgeBaseRetrieveAndGenerateConfiguration(_, context),
     type: [],
   });
@@ -737,6 +792,8 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 // se_RetrieveAndGenerateSessionConfiguration omitted.
 
 // se_ReturnControlInvocationResults omitted.
+
+// se_S3ObjectDoc omitted.
 
 // se_SessionAttributesMap omitted.
 

@@ -2265,6 +2265,116 @@ export interface PromptTemplate {
 }
 
 /**
+ * <p>Contains the generation configuration of the external source wrapper object.</p>
+ * @public
+ */
+export interface ExternalSourcesGenerationConfiguration {
+  /**
+   * <p>Contain the textPromptTemplate string for the external source wrapper object.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate;
+}
+
+/**
+ * <p>This property contains the document to chat with, along with its attributes.</p>
+ * @public
+ */
+export interface ByteContentDoc {
+  /**
+   * <p>The file name of the document contained in the wrapper object.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The MIME type of the document contained in the wrapper object.</p>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>The byte value of the file to upload, encoded as a Base-64 string.</p>
+   * @public
+   */
+  data: Uint8Array | undefined;
+}
+
+/**
+ * <p>The unique wrapper object of the document from the S3 location.</p>
+ * @public
+ */
+export interface S3ObjectDoc {
+  /**
+   * <p>The file location of the S3 wrapper object.</p>
+   * @public
+   */
+  uri: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalSourceType = {
+  BYTE_CONTENT: "BYTE_CONTENT",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type ExternalSourceType = (typeof ExternalSourceType)[keyof typeof ExternalSourceType];
+
+/**
+ * <p>The unique external source of the content contained in the wrapper object.</p>
+ * @public
+ */
+export interface ExternalSource {
+  /**
+   * <p>The source type of the external source wrapper object.</p>
+   * @public
+   */
+  sourceType: ExternalSourceType | undefined;
+
+  /**
+   * <p>The S3 location of the external source wrapper object.</p>
+   * @public
+   */
+  s3Location?: S3ObjectDoc;
+
+  /**
+   * <p>The identifier, contentType, and data of the external source wrapper object.</p>
+   * @public
+   */
+  byteContent?: ByteContentDoc;
+}
+
+/**
+ * <p>The configurations of the external source wrapper object in the retrieveAndGenerate function.</p>
+ * @public
+ */
+export interface ExternalSourcesRetrieveAndGenerateConfiguration {
+  /**
+   * <p>The modelArn used with the external source wrapper object in the retrieveAndGenerate function.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The document used with the external source wrapper object in the retrieveAndGenerate function.</p>
+   * @public
+   */
+  sources: ExternalSource[] | undefined;
+
+  /**
+   * <p>The prompt used with the external source wrapper object with the retrieveAndGenerate function.</p>
+   * @public
+   */
+  generationConfiguration?: ExternalSourcesGenerationConfiguration;
+}
+
+/**
  * <p>Contains configurations for response generation based on the knowledge base query results.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -2329,6 +2439,7 @@ export type SearchType = (typeof SearchType)[keyof typeof SearchType];
  * @enum
  */
 export const RetrieveAndGenerateType = {
+  EXTERNAL_SOURCES: "EXTERNAL_SOURCES",
   KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
 } as const;
 
@@ -2913,6 +3024,12 @@ export interface RetrieveAndGenerateConfiguration {
    * @public
    */
   knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration;
+
+  /**
+   * <p>The configuration used with the external source wrapper object in the retrieveAndGenerate function.</p>
+   * @public
+   */
+  externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration;
 }
 
 /**
@@ -3313,6 +3430,46 @@ export const PromptTemplateFilterSensitiveLog = (obj: PromptTemplate): any => ({
 /**
  * @internal
  */
+export const ExternalSourcesGenerationConfigurationFilterSensitiveLog = (
+  obj: ExternalSourcesGenerationConfiguration
+): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const ByteContentDocFilterSensitiveLog = (obj: ByteContentDoc): any => ({
+  ...obj,
+  ...(obj.identifier && { identifier: SENSITIVE_STRING }),
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExternalSourceFilterSensitiveLog = (obj: ExternalSource): any => ({
+  ...obj,
+  ...(obj.byteContent && { byteContent: ByteContentDocFilterSensitiveLog(obj.byteContent) }),
+});
+
+/**
+ * @internal
+ */
+export const ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog = (
+  obj: ExternalSourcesRetrieveAndGenerateConfiguration
+): any => ({
+  ...obj,
+  ...(obj.sources && { sources: obj.sources.map((item) => ExternalSourceFilterSensitiveLog(item)) }),
+  ...(obj.generationConfiguration && {
+    generationConfiguration: ExternalSourcesGenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfiguration): any => ({
   ...obj,
   ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
@@ -3433,6 +3590,11 @@ export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: Retrieve
   ...(obj.knowledgeBaseConfiguration && {
     knowledgeBaseConfiguration: KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog(
       obj.knowledgeBaseConfiguration
+    ),
+  }),
+  ...(obj.externalSourcesConfiguration && {
+    externalSourcesConfiguration: ExternalSourcesRetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.externalSourcesConfiguration
     ),
   }),
 });
