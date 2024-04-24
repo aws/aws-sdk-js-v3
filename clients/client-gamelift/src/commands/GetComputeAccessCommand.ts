@@ -31,26 +31,50 @@ export interface GetComputeAccessCommandInput extends GetComputeAccessInput {}
 export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Requests authorization to remotely connect to a compute resource in an Amazon GameLift fleet.
- *             Call this action to connect to an instance in a managed EC2 fleet if the fleet's game
- *             build uses Amazon GameLift server SDK 5.x or later. To connect to instances with game builds
- *             that use server SDK 4.x or earlier, call <a>GetInstanceAccess</a>.</p>
- *          <p>To request access to a compute, identify the specific EC2 instance and the fleet it
- *             belongs to. You can retrieve instances for a managed EC2 fleet by calling <a>ListCompute</a>. </p>
- *          <p>If successful, this operation returns a set of temporary Amazon Web Services credentials, including
- *             a two-part access key and a session token. Use these credentials with Amazon EC2 Systems Manager (SSM)
- *             to start a session with the compute. For more details, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli"> Starting a session (CLI)</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.</p>
+ * <p>
+ *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Requests authorization to remotely connect to a hosting resource in a Amazon GameLift managed
+ *             fleet. This operation is not used with Amazon GameLift Anywhere fleets</p>
+ *          <p>To request access, specify the compute name and the fleet ID. If successful, this
+ *             operation returns a set of temporary Amazon Web Services credentials, including a two-part access key
+ *             and a session token.</p>
+ *          <p>
+ *             <b>EC2 fleets</b>
+ *          </p>
+ *          <p>With an EC2 fleet (where compute type is <code>EC2</code>), use these credentials with
+ *             Amazon EC2 Systems Manager (SSM) to start a session with the compute. For more details, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli"> Starting a session (CLI)</a> in the <i>Amazon EC2 Systems Manager User
+ *                 Guide</i>.</p>
+ *          <p>
+ *             <b>Container fleets</b>
+ *          </p>
+ *          <p>With a container fleet (where compute type is <code>CONTAINER</code>), use
+ *             these credentials and the target value with SSM to connect to the fleet instance where
+ *             the container is running. After you're connected to the instance, use Docker commands to
+ *             interact with the container.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely connect to fleet
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely connect to fleet
  *                 instances</a>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug fleet
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug fleet
  *                 issues</a>
- *          </p>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-remote-access.html">
+ *                     Remotely connect to a container fleet</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +97,7 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * //     SecretAccessKey: "STRING_VALUE",
  * //     SessionToken: "STRING_VALUE",
  * //   },
+ * //   Target: "STRING_VALUE",
  * // };
  *
  * ```

@@ -27,39 +27,39 @@ export interface ListFleetsCommandInput extends ListFleetsInput {}
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this
- *             operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
- *             specify a Region in your request. You can filter the result set to find only those
- *             fleets that are deployed with a specific build or script. For fleets that have multiple
- *             locations, this operation retrieves fleets based on their home Region only.</p>
- *          <p>This operation can be used in the following ways: </p>
+ * <p>
+ *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can filter the
+ *             result set to find only those fleets that are deployed with a specific build or script.
+ *             For fleets that have multiple locations, this operation retrieves fleets based on their
+ *             home Region only.</p>
+ *          <p>You can use  operation in the following ways: </p>
  *          <ul>
  *             <li>
  *                <p>To get a list of all fleets in a Region, don't provide a build or script
- *                     identifier. </p>
+ *                     identifier.</p>
  *             </li>
  *             <li>
- *                <p>To get a list of all fleets where a specific custom game build is deployed,
- *                     provide the build ID.</p>
+ *                <p>To get a list of all fleets where a specific game build is deployed, provide
+ *                     the build ID.</p>
  *             </li>
  *             <li>
  *                <p>To get a list of all Realtime Servers fleets with a specific configuration script,
  *                     provide the script ID. </p>
  *             </li>
+ *             <li>
+ *                <p> To get a list of all fleets with a specific container group definition, provide
+ *                     the <code>ContainerGroupDefinition</code> ID. </p>
+ *             </li>
  *          </ul>
  *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *          <p>If successful, a list of fleet IDs that match the request parameters is returned. A
- *             NextToken value is also returned if there are more result pages to retrieve.</p>
+ *          <p>If successful, this operation returns a list of fleet IDs that match the request
+ *             parameters. A NextToken value is also returned if there are more result pages to
+ *             retrieve.</p>
  *          <note>
- *             <p>Fleet resources are not listed in a particular order.</p>
+ *             <p>Fleet IDs are returned in no particular order.</p>
  *          </note>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
- *                 fleets</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +69,7 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * const input = { // ListFleetsInput
  *   BuildId: "STRING_VALUE",
  *   ScriptId: "STRING_VALUE",
+ *   ContainerGroupDefinitionName: "STRING_VALUE",
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

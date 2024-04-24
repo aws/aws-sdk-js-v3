@@ -10,7 +10,7 @@ import {
   SearchGameSessionsInput,
   SearchGameSessionsOutput,
   SearchGameSessionsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_SearchGameSessionsCommand, se_SearchGameSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -33,7 +33,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
 /**
  * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
  *             into a specified order. </p>
- *          <p>This operation is not designed to continually track game session status because that practice can cause you to exceed your API limit and generate errors. Instead, configure an Amazon Simple Notification Service (Amazon SNS) topic to receive notifications from a matchmaker or game session placement queue.</p>
+ *          <p>This operation is not designed to continually track game session status because that practice can cause you to exceed your API limit and generate errors. Instead, configure an Amazon Simple Notification Service (Amazon SNS) topic to receive notifications from a matchmaker or a game session placement queue.</p>
  *          <p>When searching for game sessions, you specify exactly where you want to search and
  *             provide a search filter expression, a sort expression, or both. A search request can
  *             search only one fleet, but it can search all of a fleet's locations. </p>

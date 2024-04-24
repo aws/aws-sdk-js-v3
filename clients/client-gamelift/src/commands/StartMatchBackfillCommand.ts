@@ -11,7 +11,7 @@ import {
   StartMatchBackfillInputFilterSensitiveLog,
   StartMatchBackfillOutput,
   StartMatchBackfillOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StartMatchBackfillCommand, se_StartMatchBackfillCommand } from "../protocols/Aws_json1_1";
 
 /**

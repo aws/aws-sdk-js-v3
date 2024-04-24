@@ -57,6 +57,10 @@ import { AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/Ac
 import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "./commands/ClaimGameServerCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
+import {
+  CreateContainerGroupDefinitionCommandInput,
+  CreateContainerGroupDefinitionCommandOutput,
+} from "./commands/CreateContainerGroupDefinitionCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateFleetLocationsCommandInput,
@@ -99,6 +103,10 @@ import {
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
+import {
+  DeleteContainerGroupDefinitionCommandInput,
+  DeleteContainerGroupDefinitionCommandOutput,
+} from "./commands/DeleteContainerGroupDefinitionCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteFleetLocationsCommandInput,
@@ -142,6 +150,10 @@ import {
 import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "./commands/DescribeAliasCommand";
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "./commands/DescribeBuildCommand";
 import { DescribeComputeCommandInput, DescribeComputeCommandOutput } from "./commands/DescribeComputeCommand";
+import {
+  DescribeContainerGroupDefinitionCommandInput,
+  DescribeContainerGroupDefinitionCommandOutput,
+} from "./commands/DescribeContainerGroupDefinitionCommand";
 import {
   DescribeEC2InstanceLimitsCommandInput,
   DescribeEC2InstanceLimitsCommandOutput,
@@ -250,6 +262,10 @@ import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from ".
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
+import {
+  ListContainerGroupDefinitionsCommandInput,
+  ListContainerGroupDefinitionsCommandOutput,
+} from "./commands/ListContainerGroupDefinitionsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommandInput,
@@ -350,6 +366,7 @@ export type ServiceInputTypes =
   | ClaimGameServerCommandInput
   | CreateAliasCommandInput
   | CreateBuildCommandInput
+  | CreateContainerGroupDefinitionCommandInput
   | CreateFleetCommandInput
   | CreateFleetLocationsCommandInput
   | CreateGameServerGroupCommandInput
@@ -365,6 +382,7 @@ export type ServiceInputTypes =
   | CreateVpcPeeringConnectionCommandInput
   | DeleteAliasCommandInput
   | DeleteBuildCommandInput
+  | DeleteContainerGroupDefinitionCommandInput
   | DeleteFleetCommandInput
   | DeleteFleetLocationsCommandInput
   | DeleteGameServerGroupCommandInput
@@ -381,6 +399,7 @@ export type ServiceInputTypes =
   | DescribeAliasCommandInput
   | DescribeBuildCommandInput
   | DescribeComputeCommandInput
+  | DescribeContainerGroupDefinitionCommandInput
   | DescribeEC2InstanceLimitsCommandInput
   | DescribeFleetAttributesCommandInput
   | DescribeFleetCapacityCommandInput
@@ -414,6 +433,7 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListBuildsCommandInput
   | ListComputeCommandInput
+  | ListContainerGroupDefinitionsCommandInput
   | ListFleetsCommandInput
   | ListGameServerGroupsCommandInput
   | ListGameServersCommandInput
@@ -459,6 +479,7 @@ export type ServiceOutputTypes =
   | ClaimGameServerCommandOutput
   | CreateAliasCommandOutput
   | CreateBuildCommandOutput
+  | CreateContainerGroupDefinitionCommandOutput
   | CreateFleetCommandOutput
   | CreateFleetLocationsCommandOutput
   | CreateGameServerGroupCommandOutput
@@ -474,6 +495,7 @@ export type ServiceOutputTypes =
   | CreateVpcPeeringConnectionCommandOutput
   | DeleteAliasCommandOutput
   | DeleteBuildCommandOutput
+  | DeleteContainerGroupDefinitionCommandOutput
   | DeleteFleetCommandOutput
   | DeleteFleetLocationsCommandOutput
   | DeleteGameServerGroupCommandOutput
@@ -490,6 +512,7 @@ export type ServiceOutputTypes =
   | DescribeAliasCommandOutput
   | DescribeBuildCommandOutput
   | DescribeComputeCommandOutput
+  | DescribeContainerGroupDefinitionCommandOutput
   | DescribeEC2InstanceLimitsCommandOutput
   | DescribeFleetAttributesCommandOutput
   | DescribeFleetCapacityCommandOutput
@@ -523,6 +546,7 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListBuildsCommandOutput
   | ListComputeCommandOutput
+  | ListContainerGroupDefinitionsCommandOutput
   | ListFleetsCommandOutput
   | ListGameServerGroupsCommandOutput
   | ListGameServersCommandOutput

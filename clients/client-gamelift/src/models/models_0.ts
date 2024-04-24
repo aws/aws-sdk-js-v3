@@ -251,7 +251,7 @@ export interface Alias {
 }
 
 /**
- * <p>Amazon GameLift Anywhere configuration options for your Anywhere fleets.</p>
+ * <p>Amazon GameLift configuration options for your Anywhere fleets.</p>
  * @public
  */
 export interface AnywhereConfiguration {
@@ -504,7 +504,10 @@ export const CertificateType = {
 export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
 
 /**
- * <p>Determines whether a TLS/SSL certificate is generated for a fleet. This feature must
+ * <p>
+ *             <b>This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Determines whether a TLS/SSL certificate is generated for a fleet. This feature must
  *             be enabled when creating the fleet. All instances in a fleet share the same certificate.
  *             The certificate can be retrieved by calling the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html">Amazon GameLift Server
  *                 SDK</a> operation <code>GetInstanceCertificate</code>. </p>
@@ -850,6 +853,75 @@ export type ComputeStatus = (typeof ComputeStatus)[keyof typeof ComputeStatus];
  * @public
  * @enum
  */
+export const IpProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type IpProtocol = (typeof IpProtocol)[keyof typeof IpProtocol];
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p> Defines how an internal-facing container port is mapped to an external-facing connection
+ *       port on a fleet instance of compute type <code>CONTAINER</code>. Incoming traffic, such as a
+ *       game client, uses a connection port to connect to a process in the container fleet. Amazon GameLift
+ *       directs the inbound traffic to the container port that is assigned to the process, such as a
+ *       game session, running on a container.</p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerAttributes</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerPortMapping {
+  /**
+   * <p>The port opened on the container.</p>
+   * @public
+   */
+  ContainerPort?: number;
+
+  /**
+   * <p>The port opened on the fleet instance. This is also called the "host port".</p>
+   * @public
+   */
+  ConnectionPort?: number;
+
+  /**
+   * <p>The network protocol that this mapping supports.</p>
+   * @public
+   */
+  Protocol?: IpProtocol;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Describes attributes of containers that are deployed to a fleet with compute type
+ *         <code>CONTAINER</code>. </p>
+ * @public
+ */
+export interface ContainerAttributes {
+  /**
+   * <p>
+   *       Describes how container ports map to connection ports on the fleet instance.
+   *       Incoming traffic connects to a game via a connection port.
+   *       A <code>ContainerPortMapping</code> directs the traffic from a connection port to a port on the container that hosts the game session.
+   *     </p>
+   * @public
+   */
+  ContainerPortMappings?: ContainerPortMapping[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const EC2InstanceType = {
   c3_2xlarge: "c3.2xlarge",
   c3_4xlarge: "c3.4xlarge",
@@ -1034,8 +1106,24 @@ export const EC2InstanceType = {
 export type EC2InstanceType = (typeof EC2InstanceType)[keyof typeof EC2InstanceType];
 
 /**
- * <p>An Amazon GameLift compute resource for hosting your game servers. A compute can be an
- *             EC2instance in a managed EC2 fleet or a registered compute in an Anywhere fleet. </p>
+ * <p>
+ *             <b>This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>An Amazon GameLift compute resource for hosting your game servers. Computes in an Amazon GameLift
+ *             fleet differs depending on the fleet's compute type property as follows: </p>
+ *          <ul>
+ *             <li>
+ *                <p>For <code>EC2</code> fleets, a compute is an EC2 instance.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <code>ANYWHERE</code> fleets, a compute is a computing resource that you
+ *                     provide and is registered to the fleet.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <code>CONTAINER</code> fleets, a compute is a container that's registered
+ *                     to the fleet. </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface Compute {
@@ -1052,7 +1140,7 @@ export interface Compute {
   FleetArn?: string;
 
   /**
-   * <p>A descriptive label for the compute resource. For instances in a managed EC2 fleet, the compute name is an instance
+   * <p>A descriptive label for the compute resource. For instances in a managed EC2 fleet, the compute name is the same value as the <code>InstanceId</code>
    *             ID.</p>
    * @public
    */
@@ -1060,8 +1148,8 @@ export interface Compute {
 
   /**
    * <p>The ARN that is assigned to a compute resource and uniquely identifies it. ARNs are
-   *             unique across locations. Instances in managed EC2 fleets are not assigned a
-   *             ComputeARN.</p>
+   *             unique across locations. Instances in managed EC2 fleets are not assigned a Compute
+   *             ARN.</p>
    * @public
    */
   ComputeArn?: string;
@@ -1119,6 +1207,28 @@ export interface Compute {
    * @public
    */
   GameLiftServiceSdkEndpoint?: string;
+
+  /**
+   * <p> The endpoint of the Amazon GameLift Agent. </p>
+   * @public
+   */
+  GameLiftAgentEndpoint?: string;
+
+  /**
+   * <p>
+   *         The <code>InstanceID</code> of the <code>Instance</code> hosting the compute for Container and Managed EC2 fleets.
+   *       </p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>
+   *       Some attributes of a container.
+   *       </p>
+   * @public
+   */
+  ContainerAttributes?: ContainerAttributes;
 }
 
 /**
@@ -1127,6 +1237,7 @@ export interface Compute {
  */
 export const ComputeType = {
   ANYWHERE: "ANYWHERE",
+  CONTAINER: "CONTAINER",
   EC2: "EC2",
 } as const;
 
@@ -1134,6 +1245,936 @@ export const ComputeType = {
  * @public
  */
 export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+/**
+ * <p>
+ *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>The set of port numbers to open on each instance in a container fleet. Connection
+ *             ports are used by inbound traffic to connect with processes that are running in
+ *             containers on the fleet.</p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerGroupsConfiguration</a>, <a>ContainerGroupsAttributes</a>
+ *          </p>
+ * @public
+ */
+export interface ConnectionPortRange {
+  /**
+   * <p>Starting value for the port range.</p>
+   * @public
+   */
+  FromPort: number | undefined;
+
+  /**
+   * <p>Ending value for the port. Port numbers are end-inclusive. This value must be equal to
+   *             or greater than <code>FromPort</code>.</p>
+   * @public
+   */
+  ToPort: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerDependencyCondition = {
+  COMPLETE: "COMPLETE",
+  HEALTHY: "HEALTHY",
+  START: "START",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerDependencyCondition =
+  (typeof ContainerDependencyCondition)[keyof typeof ContainerDependencyCondition];
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>A container's dependency on another container in the same container group. The dependency
+ *       impacts how the dependent container is able to start or shut down based the status of the
+ *       other container.</p>
+ *          <p>For example, ContainerA is configured with the following dependency: a <code>START</code>
+ *       dependency on ContainerB. This means that ContainerA can't start until ContainerB has started.
+ *       It also means that ContainerA must shut down before ContainerB.</p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerDefinition</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerDependency {
+  /**
+   * <p>A descriptive label for the container definition that this container depends on.</p>
+   * @public
+   */
+  ContainerName: string | undefined;
+
+  /**
+   * <p>The condition that the dependency container must reach before the dependent container can
+   *       start. Valid conditions include: </p>
+   *          <ul>
+   *             <li>
+   *                <p>START - The dependency container must have started. </p>
+   *             </li>
+   *             <li>
+   *                <p>COMPLETE - The dependency container has run to completion (exits). Use this condition with
+   *           nonessential containers, such as those that run a script and then exit. The dependency
+   *           container can't be an essential container. </p>
+   *             </li>
+   *             <li>
+   *                <p>SUCCESS - The dependency container has run to completion and exited with a zero status. The
+   *           dependency container can't be an essential container. </p>
+   *             </li>
+   *             <li>
+   *                <p>HEALTHY - The dependency container has passed its Docker health check. Use this condition with
+   *           dependency containers that have health checks configured. This condition is confirmed at
+   *           container group startup only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Condition: ContainerDependencyCondition | undefined;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>An environment variable to set inside a container, in the form of a key-value pair.
+ *     </p>
+ *          <p>
+ *             <b>Related data type: </b>
+ *             <a>ContainerDefinition$Environment</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerEnvironment {
+  /**
+   * <p>The environment variable name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The environment variable value.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Instructions on when and how to check the health of a container in a container fleet. When
+ *       health check properties are set in a container definition, they override any Docker health
+ *       checks in the container image. For more information on container health checks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html#ECS-Type-HealthCheck-command">HealthCheck command</a> in the <i>Amazon Elastic Container Service API</i>.</p>
+ *          <p>The following example instructions tell the container to wait 100 seconds after launch
+ *       before counting failed health checks, then initiate the health check command every 60 seconds.
+ *       After issuing the health check command, wait 10 seconds for it to succeed. If it fails, retry
+ *       the command 3 times before considering the container to be unhealthy.</p>
+ *          <p>
+ *             <code>\{"Command": [ "CMD-SHELL", "ps cax | grep "processmanager" || exit 1" ], "Interval":
+ *         300, "Timeout": 30, "Retries": 5, "StartPeriod": 100 \}</code>
+ *          </p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerDefinition$HealthCheck</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerHealthCheck {
+  /**
+   * <p>A string array that specifies the command that the container runs to determine if it's
+   *       healthy.</p>
+   * @public
+   */
+  Command: string[] | undefined;
+
+  /**
+   * <p>The time period (in seconds) between each health check.</p>
+   * @public
+   */
+  Interval?: number;
+
+  /**
+   * <p>The time period (in seconds) to wait for a health check to succeed before a failed health
+   *       check is counted. </p>
+   * @public
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The number of times to retry a failed health check before the container is considered
+   *       unhealthy. The first run of the command does not count as a retry.</p>
+   * @public
+   */
+  Retries?: number;
+
+  /**
+   * <p>The optional grace period (in seconds) to give a container time to bootstrap before the
+   *       first failed health check counts toward the number of retries.</p>
+   * @public
+   */
+  StartPeriod?: number;
+}
+
+/**
+ * <p>Specifies how much memory is available to a container. You can't change this value after
+ *       you create this object. </p>
+ *          <p>
+ *             <b>Part of: </b>
+ *             <a>ContainerDefinition$MemoryLimits</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerMemoryLimits {
+  /**
+   * <p>The amount of memory that is reserved for a container. When the container group's shared
+   *       memory is under contention, the system attempts to maintain the container memory usage at this
+   *       soft limit. However, the container can use more memory when needed, if available. This
+   *       property is similar to the Amazon ECS container definition parameter <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#ContainerDefinition-memoryReservation">memoryreservation</a> (<i>Amazon Elastic Container Service Developer Guide</i>).</p>
+   * @public
+   */
+  SoftLimit?: number;
+
+  /**
+   * <p>The maximum amount of memory that the container can use. If a container attempts to exceed
+   *       this limit, the container is stopped. This property is similar to the Amazon ECS container
+   *       definition parameter <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_memory">memory</a> in the <i>Amazon Elastic Container Service Developer Guide.</i>
+   *          </p>
+   * @public
+   */
+  HardLimit?: number;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>A set of one or more port numbers that can be opened on the container.
+ *   </p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerPortConfiguration</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerPortRange {
+  /**
+   * <p>A starting value for the range of allowed port numbers.</p>
+   * @public
+   */
+  FromPort: number | undefined;
+
+  /**
+   * <p>An ending value for the range of allowed port numbers.
+   *     Port numbers are end-inclusive.
+   *     This value must be equal to or greater than <code>FromPort</code>.</p>
+   * @public
+   */
+  ToPort: number | undefined;
+
+  /**
+   * <p>The network protocol that these ports support. </p>
+   * @public
+   */
+  Protocol: IpProtocol | undefined;
+}
+
+/**
+ * <p>Defines ranges of ports that server processes can connect to.
+ *     </p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerDefinition$PortConfiguration</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerPortConfiguration {
+  /**
+   * <p>Specifies one or more ranges of ports on a container.
+   *       These ranges must not overlap.
+   *     </p>
+   * @public
+   */
+  ContainerPortRanges: ContainerPortRange[] | undefined;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Describes a container in a container fleet, the resources available to the container,
+ *       and the commands that are run when the container starts. Container properties can't be
+ *       updated. To change a property, create a new container group definition. See also
+ *         <a>ContainerDefinitionInput</a>. </p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerGroupDefinition</a>
+ *          </p>
+ *          <p>
+ *             <b>Returned by:</b>
+ *             <a>DescribeContainerGroupDefinition</a>, <a>ListContainerGroupDefinitions</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerDefinition {
+  /**
+   * <p>The container definition identifier. Container names are unique within a container group
+   *       definition. </p>
+   * @public
+   */
+  ContainerName: string | undefined;
+
+  /**
+   * <p>The URI to the image that $short; copied and deployed to a container fleet. For a more
+   *       specific identifier, see <code>ResolvedImageDigest</code>. </p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>A unique and immutable identifier for the container image that is deployed to a container
+   *       fleet. The digest is a SHA 256 hash of the container image manifest. </p>
+   * @public
+   */
+  ResolvedImageDigest?: string;
+
+  /**
+   * <p>The amount of memory that Amazon GameLift makes available to the container. If memory limits
+   *       aren't set for an individual container, the container shares the container group's total
+   *       memory allocation.</p>
+   *          <p>
+   *             <b>Related data type: </b>
+   *             <a>ContainerGroupDefinition$TotalMemoryLimit</a>
+   *          </p>
+   * @public
+   */
+  MemoryLimits?: ContainerMemoryLimits;
+
+  /**
+   * <p>Defines the ports that are available to assign to processes in the container. For
+   *       example, a game server process requires a container port to allow game clients to connect to
+   *       it. Container ports aren't directly accessed by inbound traffic. Amazon GameLift maps these container
+   *       ports to externally accessible connection ports, which are assigned as needed from the
+   *       container fleet's <code>ConnectionPortRange</code>. </p>
+   * @public
+   */
+  PortConfiguration?: ContainerPortConfiguration;
+
+  /**
+   * <p>The number of CPU units that are reserved for the container. Note: 1 vCPU unit equals
+   *       1024 CPU units. If no resources are reserved, the container shares the total CPU limit for the
+   *       container group.</p>
+   *          <p>
+   *             <b>Related data type: </b>
+   *             <a>ContainerGroupDefinition$TotalCpuLimit</a>
+   *          </p>
+   * @public
+   */
+  Cpu?: number;
+
+  /**
+   * <p>A configuration for a non-terminal health check. A container, which automatically restarts
+   *       if it stops functioning, also restarts if it fails this health check. If an essential
+   *       container in the daemon group fails a health check, the entire container group is restarted.
+   *       The essential container in the replica group doesn't use this health check mechanism, because
+   *       the Amazon GameLift Agent automatically handles the task.</p>
+   * @public
+   */
+  HealthCheck?: ContainerHealthCheck;
+
+  /**
+   * <p>A command that's passed to the container on startup. Each argument for the command is an
+   *       additional string in the array. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-command">ContainerDefinition::command</a> parameter in the <i>Amazon Elastic Container Service API
+   *         reference.</i>
+   *          </p>
+   * @public
+   */
+  Command?: string[];
+
+  /**
+   * <p>Indicates whether the container is vital to the container group. If an essential
+   *       container fails, the entire container group is restarted.</p>
+   * @public
+   */
+  Essential?: boolean;
+
+  /**
+   * <p>The entry point that's passed to the container on startup. If there are multiple
+   *       arguments, each argument is an additional string in the array. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-entryPoint">ContainerDefinition::entryPoint</a> parameter in the <i>Amazon Elastic Container Service API
+   *         Reference</i>. </p>
+   * @public
+   */
+  EntryPoint?: string[];
+
+  /**
+   * <p>The directory in the container where commands are run. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-workingDirectory">ContainerDefinition::workingDirectory</a> parameter in the <i>Amazon Elastic Container Service API
+   *         Reference</i>. </p>
+   * @public
+   */
+  WorkingDirectory?: string;
+
+  /**
+   * <p>A set of environment variables that's passed to the container on startup. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-environment">ContainerDefinition::environment</a> parameter in the <i>Amazon Elastic Container Service API
+   *         Reference</i>.</p>
+   * @public
+   */
+  Environment?: ContainerEnvironment[];
+
+  /**
+   * <p>Indicates that the container relies on the status of other containers in the same
+   *       container group during its startup and shutdown sequences. A container might have dependencies
+   *       on multiple containers.</p>
+   * @public
+   */
+  DependsOn?: ContainerDependency[];
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Describes a container's configuration, resources, and start instructions. Use this data
+ *       type to create a container group definition. For the properties of a container that's been
+ *       deployed to a fleet, see <a>ContainerDefinition</a>. You can't change these properties after you've created the container group definition. If you need a container group with different properties, then you must create a new one.
+ *       </p>
+ *          <p>
+ *             <b>Used with: </b>
+ *             <a>CreateContainerGroupDefinition</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerDefinitionInput {
+  /**
+   * <p>A string that uniquely identifies the container definition within a container
+   *       group.</p>
+   * @public
+   */
+  ContainerName: string | undefined;
+
+  /**
+   * <p>The location of a container image that $short; will copy and deploy to a container fleet.
+   *       Images in Amazon Elastic Container Registry private repositories are supported. The repository must be in the same
+   *       Amazon Web Services account and Amazon Web Services Region where you're creating the container group definition. For
+   *       limits on image size, see <a href="https://docs.aws.amazon.com/general/latest/gr/gamelift.html">Amazon GameLift endpoints and quotas</a>. You can use any of the following image URI formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Image ID only: <code>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
+   *             ID]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Image ID and digest: <code>[AWS account].dkr.ecr.[AWS
+   *             region].amazonaws.com/[repository ID]@[digest]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Image ID and tag: <code>[AWS account].dkr.ecr.[AWS region].amazonaws.com/[repository
+   *             ID]:[tag]</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>The amount of memory to make available to the container. If you don't specify memory
+   *       limits for this container, then it shares the container group's total memory allocation. </p>
+   *          <p>
+   *             <b>Related data type: </b>
+   *             <a>ContainerGroupDefinition$TotalMemoryLimit</a>
+   *          </p>
+   * @public
+   */
+  MemoryLimits?: ContainerMemoryLimits;
+
+  /**
+   * <p>A set of ports that Amazon GameLift can assign to processes in the container. All processes that
+   *       accept inbound traffic connections, including game server processes, must be assigned a port
+   *       from this set. The set of ports must be large enough to assign one to each process in the
+   *       container that needs one. If the container includes your game server, include enough ports to
+   *       assign one port to each concurrent server process (as defined in a container fleet's <a>RuntimeConfiguration</a>). For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-network">Networking for container
+   *         fleets</a>. </p>
+   *          <p>Container ports aren't directly accessed by inbound traffic. Amazon GameLift maps these container
+   *       ports to externally accessible connection ports, which are assigned as needed from the
+   *       container fleet's <code>ConnectionPortRange</code>.</p>
+   * @public
+   */
+  PortConfiguration?: ContainerPortConfiguration;
+
+  /**
+   * <p>The number of CPU units to reserve for this container. The container can use more resources
+   *       when needed, if available. Note: 1 vCPU unit equals 1024 CPU
+   *       units. If you don't reserve CPU units for this container, then it shares the total CPU limit
+   *       for the container group. This property is similar to the Amazon ECS container definition parameter
+   *        <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_environment">environment</a> (<i>Amazon Elastic Container Service Developer Guide).</i>
+   *          </p>
+   *          <p>
+   *             <b>Related data type: </b>
+   *             <a>ContainerGroupDefinition$TotalCpuLimit</a>
+   *          </p>
+   * @public
+   */
+  Cpu?: number;
+
+  /**
+   * <p>Configuration for a non-terminal health check. A container automatically restarts if it
+   *       stops functioning. This parameter lets you define additional reasons to consider a container
+   *       unhealthy and restart it. You can set a health check for any container except for the
+   *       essential container in the replica container group. If an essential container in the daemon
+   *       group fails a health check, the entire container group is restarted. </p>
+   * @public
+   */
+  HealthCheck?: ContainerHealthCheck;
+
+  /**
+   * <p>A command to pass to the container on startup. Add multiple arguments as additional
+   *       strings in the array. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-command">ContainerDefinition command</a> parameter in the <i>Amazon Elastic Container Service API
+   *         reference.</i>
+   *          </p>
+   * @public
+   */
+  Command?: string[];
+
+  /**
+   * <p>Specifies whether the container is vital for the container group to function properly.
+   *       If an essential container fails, it causes the entire container group to restart. Each
+   *       container group must have an essential container.</p>
+   *          <p>
+   *             <b>Replica container groups</b> - A replica group must have
+   *       exactly one essential container. Use the following to configure an essential replica
+   *       container:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Choose a container is running your game server and the Amazon GameLift Agent.</p>
+   *             </li>
+   *             <li>
+   *                <p>Include a port configuration. This container runs your game server processes, and each
+   *           process requires a container port to allow access to game clients.</p>
+   *             </li>
+   *             <li>
+   *                <p>Don't configure a health check. The Agent handles this task for the essential replica
+   *           container. </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Daemon container groups</b> - A daemon group must have at
+   *       least one essential container. </p>
+   *          <p>
+   *   </p>
+   * @public
+   */
+  Essential?: boolean;
+
+  /**
+   * <p>An entry point to pass to the container on startup. Add multiple arguments as additional
+   *       strings in the array. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-entryPoint">ContainerDefinition::entryPoint</a> parameter in the <i>Amazon Elastic Container Service API
+   *         Reference</i>. </p>
+   * @public
+   */
+  EntryPoint?: string[];
+
+  /**
+   * <p>The directory in the container where commands are run. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-workingDirectory">ContainerDefinition::workingDirectory parameter</a> in the <i>Amazon Elastic Container Service API
+   *         Reference</i>. </p>
+   * @public
+   */
+  WorkingDirectory?: string;
+
+  /**
+   * <p>A set of environment variables to pass to the container on startup. See the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html#ECS-Type-ContainerDefinition-environment">ContainerDefinition::environment</a> parameter in the <i>Amazon Elastic Container Service API
+   *         Reference</i>. </p>
+   * @public
+   */
+  Environment?: ContainerEnvironment[];
+
+  /**
+   * <p>Sets up dependencies between this container and the status of other containers in the same
+   *       container group. A container can have dependencies on multiple different containers. </p>
+   *          <p>You can use dependencies
+   *       to establish a startup/shutdown sequence across the container group. A container startup
+   *       dependency is reversed on shutdown.</p>
+   *          <p>For example, you might specify that SideCarContainerB has a <code>START</code> dependency
+   *       on SideCarContainerA. This dependency means that SideCarContainerB can't start until after
+   *       SideCarContainerA has started. This dependency is reversed on shutdown, which means that
+   *       SideCarContainerB must shut down before SideCarContainerA can shut down. </p>
+   * @public
+   */
+  DependsOn?: ContainerDependency[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerOperatingSystem = {
+  AMAZON_LINUX_2023: "AMAZON_LINUX_2023",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerOperatingSystem = (typeof ContainerOperatingSystem)[keyof typeof ContainerOperatingSystem];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerSchedulingStrategy = {
+  DAEMON: "DAEMON",
+  REPLICA: "REPLICA",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerSchedulingStrategy =
+  (typeof ContainerSchedulingStrategy)[keyof typeof ContainerSchedulingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerGroupDefinitionStatus = {
+  COPYING: "COPYING",
+  FAILED: "FAILED",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerGroupDefinitionStatus =
+  (typeof ContainerGroupDefinitionStatus)[keyof typeof ContainerGroupDefinitionStatus];
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>The properties that describe a container group resource. Container group definition
+ *       properties can't be updated. To change a property, create a new container group
+ *       definition.</p>
+ *          <p>
+ *             <b>Used with:</b>
+ *             <a>CreateContainerGroupDefinition</a>
+ *          </p>
+ *          <p>
+ *             <b>Returned by:</b>
+ *             <a>DescribeContainerGroupDefinition</a>, <a>ListContainerGroupDefinitions</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerGroupDefinition {
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to an Amazon GameLift <code>ContainerGroupDefinition</code> resource. It uniquely identifies
+   * the resource across all Amazon Web Services Regions. Format is
+   * <code>arn:aws:gamelift:<region>::containergroupdefinition/[container group definition name]</code>.</p>
+   * @public
+   */
+  ContainerGroupDefinitionArn?: string;
+
+  /**
+   * <p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>"1469498468.057"</code>).</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The platform required for all containers in the container group definition.</p>
+   * @public
+   */
+  OperatingSystem?: ContainerOperatingSystem;
+
+  /**
+   * <p>A descriptive identifier for the container group definition. The name value is unique in an Amazon Web Services Region.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The method for deploying the container group across fleet instances. A replica container
+   *       group might have multiple copies on each fleet instance. A daemon container group maintains
+   *       only one copy per fleet instance.</p>
+   * @public
+   */
+  SchedulingStrategy?: ContainerSchedulingStrategy;
+
+  /**
+   * <p>The amount of memory (in MiB) on a fleet instance to allocate for the container group. All
+   *       containers in the group share these resources. </p>
+   *          <p>You can set additional limits for each <a>ContainerDefinition</a> in
+   *       the group. If individual containers have limits, this value must meet the following
+   *       requirements: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Equal to or greater than the sum of all container-specific soft memory limits in the group.</p>
+   *             </li>
+   *             <li>
+   *                <p>Equal to or greater than any container-specific hard limits in the group.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more details on memory allocation, see the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet">Container fleet design
+   *         guide</a>.</p>
+   * @public
+   */
+  TotalMemoryLimit?: number;
+
+  /**
+   * <p>The amount of CPU units on a fleet instance to allocate for the container group. All
+   *       containers in the group share these resources. This property is an integer value in CPU units
+   *       (1 vCPU is equal to 1024 CPU units). </p>
+   *          <p>You can set additional limits for each <a>ContainerDefinition</a> in
+   *     the group. If individual containers have limits, this value must be equal to or greater than the sum of all
+   *   container-specific CPU limits in the group.</p>
+   *          <p>For more details on memory allocation, see the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet">Container fleet design
+   *     guide</a>.</p>
+   * @public
+   */
+  TotalCpuLimit?: number;
+
+  /**
+   * <p>
+   *     The set of container definitions that are included in the container group.
+   *   </p>
+   * @public
+   */
+  ContainerDefinitions?: ContainerDefinition[];
+
+  /**
+   * <p>Current status of the container group definition resource. Values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COPYING</code> -- Amazon GameLift is in the process of making copies of all container
+   *           images that are defined in the group. While in this state, the resource can't be used to
+   *           create a container fleet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READY</code> -- Amazon GameLift has copied the registry images for all containers that
+   *           are defined in the group. You can use a container group definition in this status to
+   *           create a container fleet. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> -- Amazon GameLift failed to create a valid container group definition
+   *           resource. For more details on the cause of the failure, see <code>StatusReason</code>. A
+   *           container group definition resource in failed status will be deleted within a few
+   *           minutes.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: ContainerGroupDefinitionStatus;
+
+  /**
+   * <p>Additional information about a container group definition that's in <code>FAILED</code>
+   *       status. Possible reasons include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An internal issue prevented Amazon GameLift from creating
+   *         the container group definition resource. Delete the failed resource and call
+   *       <a>CreateContainerGroupDefinition</a>again. </p>
+   *             </li>
+   *             <li>
+   *                <p>An access-denied message means that you don't have permissions to access the container image on ECR. See
+   *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html">
+   *           IAM permission examples</a>
+   *         for help setting up required IAM permissions for Amazon GameLift.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>ImageUri</code> value for at least one
+   *       of the containers in the container group definition was invalid or not found in the current
+   *       Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                <p>At least one
+   *         of the container images referenced in the container group definition exceeds the
+   *         allowed size. For size limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/gamelift.html">
+   *           Amazon GameLift endpoints and quotas</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>At least one of the container images referenced in the
+   *         container group definition uses a different operating system than the one defined for the container group.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StatusReason?: string;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>The properties of a container group that is deployed to a container fleet.</p>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerGroupsAttributes</a>
+ *          </p>
+ *          <p>
+ *             <b>Returned by:</b>
+ *             <a>DescribeFleetAttributes</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerGroupDefinitionProperty {
+  /**
+   * <p>The method for scheduling and maintaining copies of the container group across a container
+   *       fleet. </p>
+   * @public
+   */
+  SchedulingStrategy?: ContainerSchedulingStrategy;
+
+  /**
+   * <p>The unique identifier for the container group definition.</p>
+   * @public
+   */
+  ContainerGroupDefinitionName?: string;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Determines how many replica container groups that Amazon GameLift deploys to each instance in a
+ *       container fleet. </p>
+ *          <p>Amazon GameLift calculates the maximum possible replica groups per instance based on the instance
+ *       's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups
+ *       on each fleet instance based on the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If no desired value is set, Amazon GameLift places the calculated maximum. </p>
+ *             </li>
+ *             <li>
+ *                <p>If a desired number is set to a value higher than the calculated maximum, Amazon GameLift
+ *           places the calculated maximum.</p>
+ *             </li>
+ *             <li>
+ *                <p>If a desired number is set to a value lower than the calculated maximum, Amazon GameLift
+ *           places the desired number.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Part of:</b>
+ *             <a>ContainerGroupsConfiguration</a>, <a>ContainerGroupsAttributes</a>
+ *          </p>
+ *          <p>
+ *             <b>Returned by:</b>
+ *             <a>DescribeFleetAttributes</a>, <a>CreateFleet</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerGroupsPerInstance {
+  /**
+   * <p>The desired number of replica container groups to place on each fleet instance.</p>
+   * @public
+   */
+  DesiredReplicaContainerGroupsPerInstance?: number;
+
+  /**
+   * <p>The maximum possible number of replica container groups that each fleet instance can
+   *       have.</p>
+   * @public
+   */
+  MaxReplicaContainerGroupsPerInstance?: number;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>The properties of container groups that are running on a container fleet. Container group
+ *       properties for a fleet can't be changed.</p>
+ *          <p>
+ *             <b>Returned by:</b>
+ *             <a>DescribeFleetAttributes</a>, <a>CreateFleet</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerGroupsAttributes {
+  /**
+   * <p>A collection of properties that describe each container group in the fleet. A container fleet is deployed with
+   *   one or more <a>ContainerGroupDefinition</a> resources, which is where these properties are set.</p>
+   * @public
+   */
+  ContainerGroupDefinitionProperties?: ContainerGroupDefinitionProperty[];
+
+  /**
+   * <p>A set of ports that allow inbound traffic to connect to processes running in the fleet's
+   *       container groups. Amazon GameLift maps each connection port to a container port, which is assigned to
+   *       a specific container process. A fleet's connection port range can't be changed, but you can
+   *       control access to connection ports by updating a fleet's <code>EC2InboundPermissions</code>
+   *       with <a>UpdateFleetPortSettings</a>. </p>
+   * @public
+   */
+  ConnectionPortRange?: ConnectionPortRange;
+
+  /**
+   * <p>Details about the number of replica container groups that Amazon GameLift deploys to each instance in
+   *       the container fleet.</p>
+   * @public
+   */
+  ContainerGroupsPerInstance?: ContainerGroupsPerInstance;
+}
+
+/**
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Configuration details for a set of container groups, for use when creating a fleet with
+ *       compute type <code>CONTAINER</code>. </p>
+ *          <p>
+ *             <b>Used with:</b>
+ *             <a>CreateFleet</a>
+ *          </p>
+ * @public
+ */
+export interface ContainerGroupsConfiguration {
+  /**
+   * <p>The list of container group definition names to deploy to a new container fleet.</p>
+   * @public
+   */
+  ContainerGroupDefinitionNames: string[] | undefined;
+
+  /**
+   * <p>A set of ports to allow inbound traffic, including game clients, to connect to processes
+   *       running in the container fleet. </p>
+   *          <p>Connection ports are dynamically mapped to container ports, which are assigned to
+   *       individual processes running in a container. The connection port range must have enough ports
+   *       to map to all container ports across a fleet instance. To calculate the minimum connection
+   *       ports needed, use the following formula: </p>
+   *          <p>
+   *             <i>[Total number of container ports as defined for containers in the replica
+   *         container group] * [Desired or calculated number of replica container groups per instance] +
+   *         [Total number of container ports as defined for containers in the daemon container
+   *         group]</i>
+   *          </p>
+   *          <p>As a best practice, double the minimum number of connection ports.</p>
+   *          <note>
+   *             <p>Use the fleet's <code>EC2InboundPermissions</code> property to control external access to
+   *         connection ports. Set this property to the connection port numbers that you want to open
+   *         access to. See <a>IpPermission</a> for more details.</p>
+   *          </note>
+   * @public
+   */
+  ConnectionPortRange: ConnectionPortRange | undefined;
+
+  /**
+   * <p>The number of times to replicate the replica container group on each instance in a container
+   *       fleet. By default, Amazon GameLift calculates the maximum number of replica container groups that can
+   *       fit on a fleet instance (based on CPU and memory resources). Leave this parameter empty if you
+   *       want to use the maximum number, or specify a desired number to override the maximum. The
+   *       desired number is used if it's less than the maximum number.</p>
+   * @public
+   */
+  DesiredReplicaContainerGroupsPerInstance?: number;
+}
 
 /**
  * <p>A label that you can assign to a Amazon GameLift resource. </p>
@@ -1394,24 +2435,86 @@ export interface CreateBuildOutput {
 
 /**
  * @public
- * @enum
  */
-export const IpProtocol = {
-  TCP: "TCP",
-  UDP: "UDP",
-} as const;
+export interface CreateContainerGroupDefinitionInput {
+  /**
+   * <p>A descriptive identifier for the container group definition. The name value must be unique in an Amazon Web Services Region.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The method for deploying the container group across fleet instances. A replica container
+   *       group might have multiple copies on each fleet instance. A daemon container group has one copy
+   *       per fleet instance. Default value is <code>REPLICA</code>.</p>
+   * @public
+   */
+  SchedulingStrategy?: ContainerSchedulingStrategy;
+
+  /**
+   * <p>The maximum amount of memory (in MiB) to allocate to the container group. All containers in
+   *       the group share this memory. If you specify memory limits for individual containers, set this
+   *       parameter based on the following guidelines. The value must be (1) greater than the sum of the
+   *       soft memory limits for all containers in the group, and (2) greater than any individual
+   *       container's hard memory limit.</p>
+   * @public
+   */
+  TotalMemoryLimit: number | undefined;
+
+  /**
+   * <p>The maximum amount of CPU units to allocate to the container group. Set this parameter to an
+   *       integer value in CPU units (1 vCPU is equal to 1024 CPU units). All containers in the group
+   *       share this memory. If you specify CPU limits for individual containers, set this parameter
+   *       based on the following guidelines. The value must be equal to or greater than the sum of the
+   *       CPU limits for all containers in the group.</p>
+   * @public
+   */
+  TotalCpuLimit: number | undefined;
+
+  /**
+   * <p>Definitions for all containers in this group. Each container definition identifies the
+   *       container image and specifies configuration settings for the container. See the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-design-fleet.html">
+   *         Container fleet design guide</a> for container guidelines.</p>
+   * @public
+   */
+  ContainerDefinitions: ContainerDefinitionInput[] | undefined;
+
+  /**
+   * <p>The platform that is used by containers in the container group definition. All containers in
+   *       a group must run on the same operating system.</p>
+   * @public
+   */
+  OperatingSystem: ContainerOperatingSystem | undefined;
+
+  /**
+   * <p>A list of labels to assign to the container group definition resource. Tags are
+   *       developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
+   *       access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
+   *         <i>Amazon Web Services General Reference</i>. </p>
+   * @public
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
  */
-export type IpProtocol = (typeof IpProtocol)[keyof typeof IpProtocol];
+export interface CreateContainerGroupDefinitionOutput {
+  /**
+   * <p>The properties of the newly created container group definition resource. You use this resource
+   *     to create a container fleet.</p>
+   * @public
+   */
+  ContainerGroupDefinition?: ContainerGroupDefinition;
+}
 
 /**
  * <p>A range of IP addresses and port settings that allow inbound traffic to connect to
- *             server processes on an instance in a fleet. New game sessions are assigned an IP
- *             address/port number combination, which must fall into the fleet's allowed ranges. Fleets
- *             with custom game builds must have permissions explicitly set. For Realtime Servers fleets, Amazon GameLift
- *             automatically opens two port ranges, one for TCP messaging and one for UDP.</p>
+ *             processes on an instance in a fleet. Processes are assigned an IP address/port number
+ *             combination, which must fall into the fleet's allowed ranges. For container fleets, the
+ *             port settings must use the same port numbers as the fleet's connection ports. </p>
+ *          <p>For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging
+ *             and one for UDP.</p>
  * @public
  */
 export interface IpPermission {
@@ -1476,7 +2579,10 @@ export type InstanceRoleCredentialsProvider =
   (typeof InstanceRoleCredentialsProvider)[keyof typeof InstanceRoleCredentialsProvider];
 
 /**
- * <p>A remote location where a multi-location fleet can deploy game servers for game
+ * <p>
+ *             <b>This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>A remote location where a multi-location fleet can deploy game servers for game
  *             hosting. </p>
  * @public
  */
@@ -1533,9 +2639,9 @@ export interface ResourceCreationLimitPolicy {
 }
 
 /**
- * <p>A set of instructions for launching server processes on each instance in a fleet.
- *             Server processes run either an executable in a custom game build or a Realtime Servers script.
- *             Server process configurations are part of a fleet's runtime configuration.</p>
+ * <p>A set of instructions for launching server processes on fleet computes. Server
+ *             processes run either an executable in a custom game build or a Realtime Servers script. Server
+ *             process configurations are part of a fleet's runtime configuration.</p>
  * @public
  */
 export interface ServerProcess {
@@ -1572,20 +2678,24 @@ export interface ServerProcess {
 
   /**
    * <p>The number of server processes using this configuration that run concurrently on each
-   *             instance.</p>
+   *             instance or container..</p>
    * @public
    */
   ConcurrentExecutions: number | undefined;
 }
 
 /**
- * <p>A collection of server process configurations that describe the set of processes to
- *             run on each instance in a fleet. Server processes run either an executable in a custom
- *             game build or a Realtime Servers script. Amazon GameLift launches the configured processes, manages their
- *             life cycle, and replaces them as needed. Each instance checks regularly for an updated
- *             runtime configuration. </p>
- *          <p>A Amazon GameLift instance is limited to 50 processes running concurrently. To calculate the
- *             total number of processes in a runtime configuration, add the values of the
+ * <p>
+ *             <b>This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>A set of instructions that define the set of server processes to run on computes in a
+ *             fleet. Server processes run either an executable in a custom game build or a Realtime Servers
+ *             script. Amazon GameLift launches the processes, manages their life cycle, and replaces them as
+ *             needed. Computes check regularly for an updated runtime configuration. </p>
+ *          <p>On a container fleet, the Amazon GameLift Agent uses the runtime configuration to manage the
+ *             lifecycle of server processes in a replica container group.</p>
+ *          <p>An Amazon GameLift instance is limited to 50 processes running concurrently. To calculate the
+ *             total number of processes defined in a runtime configuration, add the values of the
  *                 <code>ConcurrentExecutions</code> parameter for each server process. Learn more
  *             about <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html"> Running Multiple
  *                 Processes on a Fleet</a>.</p>
@@ -1594,13 +2704,13 @@ export interface ServerProcess {
 export interface RuntimeConfiguration {
   /**
    * <p>A collection of server process configurations that identify what server processes to
-   *             run on each instance in a fleet.</p>
+   *             run on fleet computes.</p>
    * @public
    */
   ServerProcesses?: ServerProcess[];
 
   /**
-   * <p>The number of game sessions in status <code>ACTIVATING</code> to allow on an instance.
+   * <p>The number of game sessions in status <code>ACTIVATING</code> to allow on an instance or container.
    *             This setting limits the instance resources that can be used for new game activations at
    *             any one time.</p>
    * @public
@@ -1635,17 +2745,17 @@ export interface CreateFleetInput {
   Description?: string;
 
   /**
-   * <p>The unique identifier for a custom game server build to be deployed on fleet
-   *             instances. You can use either the build ID or ARN. The build must be uploaded to Amazon GameLift
-   *             and in <code>READY</code> status. This fleet property can't be changed after the fleet is created.</p>
+   * <p>The unique identifier for a custom game server build to be deployed to a fleet with
+   *             compute type <code>EC2</code>. You can use either the build ID or ARN. The build must be
+   *             uploaded to Amazon GameLift and in <code>READY</code> status. This fleet property can't be changed after the fleet is created.</p>
    * @public
    */
   BuildId?: string;
 
   /**
-   * <p>The unique identifier for a Realtime configuration script to be deployed on fleet
-   *             instances. You can use either the script ID or ARN. Scripts must be uploaded to Amazon GameLift
-   *             prior to creating the fleet. This fleet property can't be changed after the fleet is created.</p>
+   * <p>The unique identifier for a Realtime configuration script to be deployed to a fleet with
+   *             compute type <code>EC2</code>. You can use either the script ID or ARN. Scripts must be
+   *             uploaded to Amazon GameLift prior to creating the fleet. This fleet property can't be changed after the fleet is created.</p>
    * @public
    */
   ScriptId?: string;
@@ -1680,19 +2790,26 @@ export interface CreateFleetInput {
   LogPaths?: string[];
 
   /**
-   * <p>The Amazon GameLift-supported Amazon EC2 instance type to use for all fleet instances. Instance
-   *             type determines the computing resources that will be used to host your game servers,
-   *             including CPU, memory, storage, and networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed descriptions
-   *             of Amazon EC2 instance types.</p>
+   * <p>The Amazon GameLift-supported Amazon EC2 instance type to use with EC2 and container fleets.
+   *             Instance type determines the computing resources that will be used to host your game
+   *             servers, including CPU, memory, storage, and networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for
+   *             detailed descriptions of Amazon EC2 instance types.</p>
    * @public
    */
   EC2InstanceType?: EC2InstanceType;
 
   /**
-   * <p>The allowed IP address ranges and port settings that allow inbound traffic to access
-   *             game sessions on this fleet. If the fleet is hosting a custom game build, this property
-   *             must be set before players can connect to game sessions. For Realtime Servers fleets, Amazon GameLift
-   *             automatically sets TCP and UDP ranges. </p>
+   * <p>The IP address ranges and port settings that allow inbound traffic to access game
+   *             server processes and other processes on this fleet. Set this parameter for EC2 and container
+   *             fleets. You can leave this parameter empty when creating the fleet, but you must call
+   *             <a>UpdateFleetPortSettings</a> to set it before players can connect to game sessions.
+   *             As a best practice, we recommend
+   *             opening ports for remote access only when you need them and closing them when you're finished.
+   *             For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges.</p>
+   *          <p>To manage inbound access for a container fleet, set this parameter to the same port
+   *             numbers that you set for the fleet's connection port range. During the life of the
+   *             fleet, update this parameter to control which connection ports are open to inbound
+   *             traffic.</p>
    * @public
    */
   EC2InboundPermissions?: IpPermission[];
@@ -1719,13 +2836,13 @@ export interface CreateFleetInput {
   NewGameSessionProtectionPolicy?: ProtectionPolicy;
 
   /**
-   * <p>Instructions for how to launch and maintain server processes on instances in the
-   *             fleet. The runtime configuration defines one or more server process configurations, each
-   *             identifying a build executable or Realtime script file and the number of processes of
-   *             that type to run concurrently. </p>
+   * <p>Instructions for how to launch and run server processes on the fleet. Set runtime
+   *             configuration for EC2 fleets and container fleets. For an Anywhere fleets, set this
+   *             parameter only if the fleet is running the Amazon GameLift Agent. The runtime configuration
+   *             defines one or more server process configurations. Each server process identifies a game
+   *             executable or Realtime script file and the number of processes to run concurrently. </p>
    *          <note>
-   *             <p>The <code>RuntimeConfiguration</code> parameter is required unless the fleet is
-   *                 being configured using the older parameters <code>ServerLaunchPath</code> and
+   *             <p>This parameter replaces the parameters <code>ServerLaunchPath</code> and
    *                     <code>ServerLaunchParameters</code>, which are still supported for backward
    *                 compatibility.</p>
    *          </note>
@@ -1808,9 +2925,10 @@ export interface CreateFleetInput {
    * <p>A set of remote locations to deploy additional instances to and manage as part of the
    *             fleet. This parameter can only be used when creating fleets in Amazon Web Services Regions that
    *             support multiple locations. You can add any Amazon GameLift-supported Amazon Web Services Region as a remote
-   *             location, in the form of an Amazon Web Services Region code such as <code>us-west-2</code>. To create
-   *             a fleet with instances in the home Region only, don't use this parameter. </p>
-   *          <p>To use this parameter, Amazon GameLift requires you to use your home location in the
+   *             location, in the form of an Amazon Web Services Region code, such as <code>us-west-2</code> or Local
+   *             Zone code. To create a fleet with instances in the home Region only, don't set this
+   *             parameter. </p>
+   *          <p>When using this parameter, Amazon GameLift requires you to include your home location in the
    *             request.</p>
    * @public
    */
@@ -1826,9 +2944,28 @@ export interface CreateFleetInput {
   Tags?: Tag[];
 
   /**
-   * <p>The type of compute resource used to host your game servers. You can use your own
-   *             compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed
-   *             Amazon GameLift. By default, this property is set to <code>EC2</code>.</p>
+   * <p>The type of compute resource used to host your game servers. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EC2</code> – The game server build is deployed to Amazon EC2 instances for
+   *                     cloud hosting. This is the default setting.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONTAINER</code> – Container images with your game server build and
+   *                     supporting software are deployed to Amazon EC2 instances for cloud hosting. With this
+   *                     compute type, you must specify the <code>ContainerGroupsConfiguration</code>
+   *                     parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANYWHERE</code> – Game servers or container images with your game server
+   *                     and supporting software are deployed to compute resources that are provided and
+   *                     managed by you. With this compute type, you can also set the
+   *                         <code>AnywhereConfiguration</code> parameter.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ComputeType?: ComputeType;
@@ -1841,15 +2978,25 @@ export interface CreateFleetInput {
 
   /**
    * <p>Prompts Amazon GameLift to generate a shared credentials file for the IAM role
-   *             defined in <code>InstanceRoleArn</code>. The shared credentials file is stored on each
-   *             fleet instance and refreshed as needed. Use shared credentials for applications that are
-   *             deployed along with the game server executable, if the game server is integrated with
-   *             server SDK version 5.x. For more information about using shared
+   *             that's defined in <code>InstanceRoleArn</code>. The shared credentials file is stored on
+   *             each fleet instance and refreshed as needed. Use shared credentials for applications
+   *             that are deployed along with the game server executable, if the game server is
+   *             integrated with server SDK version 5.x. For more information about using shared
    *             credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html"> Communicate
    *                 with other Amazon Web Services resources from your fleets</a>.</p>
    * @public
    */
   InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider;
+
+  /**
+   * <p>The container groups to deploy to instances in the container fleet and other fleet-level
+   *             configuration settings. Use the <a>CreateContainerGroupDefinition</a> action
+   *             to create container groups. A container fleet must have exactly one replica container
+   *             group, and can optionally have one daemon container group. You can't change this
+   *             property after you create the fleet.</p>
+   * @public
+   */
+  ContainerGroupsConfiguration?: ContainerGroupsConfiguration;
 }
 
 /**
@@ -1888,9 +3035,29 @@ export const FleetAction = {
 export type FleetAction = (typeof FleetAction)[keyof typeof FleetAction];
 
 /**
- * <p>Describes a Amazon GameLift fleet of game hosting resources.</p>
+ * <p>
+ *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Describes an Amazon GameLift fleet of game hosting resources. Attributes differ based on
+ *             the fleet's compute type, as follows:</p>
+ *          <ul>
+ *             <li>
+ *                <p>EC2 fleet attributes identify a <code>Build</code> resource (for fleets with
+ *                     customer game server builds) or a <code>Script</code> resource (for Realtime Servers fleets).</p>
+ *             </li>
+ *             <li>
+ *                <p>Container fleets have <code>ContainerGroupsAttributes</code>, which identify
+ *                     the fleet's <code>ContainerGroupDefinition</code> resources.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon GameLift Anywhere fleets have an abbreviated set of attributes, because most fleet configurations
+ *                 are set directly on the fleet's computes. Attributes include fleet identifiers and descriptive
+ *                 properties, creation/termination time, and fleet status.</p>
+ *             </li>
+ *          </ul>
  *          <p>
- *             <b>Related actions</b>
+ *             <b>Returned by:</b>
+ *             <a>DescribeFleetAttributes</a>
  *          </p>
  * @public
  */
@@ -1909,17 +3076,18 @@ export interface FleetAttributes {
   FleetArn?: string;
 
   /**
-   * <p>Indicates whether to use On-Demand or Spot instances for this fleet. By default, this
-   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This fleet property can't be changed after the fleet is created.</p>
+   * <p>Indicates whether the fleet uses On-Demand or Spot instances. For more information,
+   *             see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This fleet property can't be changed after the fleet is created.</p>
    * @public
    */
   FleetType?: FleetType;
 
   /**
-   * <p>The Amazon EC2 instance type that determines the computing resources of each instance in
-   *             the fleet. Instance type defines the CPU, memory, storage, and networking capacity. See
-   *                 <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a>
-   *             for detailed descriptions.</p>
+   * <p>The Amazon EC2 instance type that the fleet uses. Instance type determines the computing
+   *             resources of each instance in the fleet, including CPU, memory, storage, and networking
+   *             capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance
+   *                 Types</a> for detailed descriptions. This attribute is used with
+   *             fleets where <code>ComputeType</code> is "EC2" or "Container".</p>
    * @public
    */
   InstanceType?: EC2InstanceType;
@@ -1952,35 +3120,26 @@ export interface FleetAttributes {
    * <p>Current status of the fleet. Possible fleet statuses include the following:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <b>NEW</b> -- A new fleet has been defined and desired
+   *                <p>NEW -- A new fleet has been defined and desired
    *                     instances is set to 1. </p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>DOWNLOADING/VALIDATING/BUILDING/ACTIVATING</b> --
+   *                <p>DOWNLOADING/VALIDATING/BUILDING/ACTIVATING --
    *                     Amazon GameLift is setting up the new fleet, creating new instances with the game build
    *                     or Realtime script and starting server processes.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>ACTIVE</b> -- Hosts can now accept game
-   *                     sessions.</p>
+   *                <p>ACTIVE -- Hosts can now accept game sessions.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>ERROR</b> -- An error occurred when downloading,
+   *                <p>ERROR -- An error occurred when downloading,
    *                     validating, building, or activating the fleet.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>DELETING</b> -- Hosts are responding to a delete
-   *                     fleet request.</p>
+   *                <p>DELETING -- Hosts are responding to a delete fleet request.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <b>TERMINATED</b> -- The fleet no longer
-   *                     exists.</p>
+   *                <p>TERMINATED -- The fleet no longer exists.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1988,7 +3147,8 @@ export interface FleetAttributes {
   Status?: FleetStatus;
 
   /**
-   * <p>A unique identifier for the build resource that is deployed on instances in this fleet.</p>
+   * <p>A unique identifier for the build resource that is deployed on instances in this fleet. This attribute is used with
+   *         fleets where <code>ComputeType</code> is "EC2".</p>
    * @public
    */
   BuildId?: string;
@@ -1996,13 +3156,14 @@ export interface FleetAttributes {
   /**
    * <p> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) associated with the Amazon GameLift build resource that is deployed on instances in
    *             this fleet. In a GameLift build ARN, the resource ID matches the <code>BuildId</code>
-   *             value.</p>
+   *             value. This attribute is used with fleets where <code>ComputeType</code> is "EC2".</p>
    * @public
    */
   BuildArn?: string;
 
   /**
-   * <p>A unique identifier for the Realtime script resource that is deployed on instances in this fleet.</p>
+   * <p>A unique identifier for the Realtime script resource that is deployed on instances in this fleet.
+   *             This attribute is used with fleets where <code>ComputeType</code> is "EC2".</p>
    * @public
    */
   ScriptId?: string;
@@ -2020,7 +3181,7 @@ export interface FleetAttributes {
    *             <b>This parameter is no longer used.</b> Server launch paths
    *             are now defined using the fleet's
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/RuntimeConfiguration.html">RuntimeConfiguration</a>
-   *             . Requests that use this parameter instead continue to be valid.</p>
+   *             . Requests that use this parameter continue to be valid.</p>
    * @public
    */
   ServerLaunchPath?: string;
@@ -2029,7 +3190,7 @@ export interface FleetAttributes {
    * <p>
    *             <b>This parameter is no longer used.</b> Server launch
    *             parameters are now defined using the fleet's runtime configuration
-   *             . Requests that use this parameter instead continue to be valid.</p>
+   *             . Requests that use this parameter continue to be valid.</p>
    * @public
    */
   ServerLaunchParameters?: string;
@@ -2045,7 +3206,8 @@ export interface FleetAttributes {
 
   /**
    * <p>The type of game session protection to set on all new instances that are started in
-   *             the fleet.</p>
+   *             the fleet.  This attribute is used with
+   *             fleets where <code>ComputeType</code> is "EC2" or "Container".</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2065,7 +3227,9 @@ export interface FleetAttributes {
 
   /**
    * <p>The operating system of the fleet's computing resources. A fleet's operating system is
-   *             determined by the OS of the build or script that is deployed on this fleet.</p>
+   *             determined by the OS of the build or script that is deployed on this fleet.
+   *             This attribute is used with
+   *             fleets where <code>ComputeType</code> is "EC2" or "Container".</p>
    * @public
    */
   OperatingSystem?: OperatingSystem;
@@ -2085,13 +3249,16 @@ export interface FleetAttributes {
   /**
    * <p>Name of a metric group that metrics for this fleet are added to. In Amazon CloudWatch,
    *             you can view aggregated metrics for fleets that are in a metric group. A fleet can be
-   *             included in only one metric group at a time.</p>
+   *             included in only one metric group at a time.  This attribute is used with
+   *             fleets where <code>ComputeType</code> is "EC2" or "Container".</p>
    * @public
    */
   MetricGroups?: string[];
 
   /**
-   * <p>A list of fleet activity that has been suspended using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a> . This includes fleet auto-scaling.</p>
+   * <p>A list of fleet activity that has been suspended using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>.
+   *             This includes fleet auto-scaling. This attribute is used with
+   *             fleets where <code>ComputeType</code> is "EC2" or "Container".</p>
    * @public
    */
   StoppedActions?: FleetAction[];
@@ -2102,16 +3269,15 @@ export interface FleetAttributes {
    *         processes--can use these permissions to interact with Amazon Web Services resources that you own or have access to.
    *         For more information about using the role with your game server builds, see
    *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-   *         Communicate with other Amazon Web Services resources from your fleets</a>.</p>
+   *         Communicate with other Amazon Web Services resources from your fleets</a>.  This attribute is used with
+   *             fleets where <code>ComputeType</code> is "EC2" or "Container".</p>
    * @public
    */
   InstanceRoleArn?: string;
 
   /**
-   * <p>Determines whether a TLS/SSL certificate is generated for a fleet. This feature must
-   *             be enabled when creating the fleet. All instances in a fleet share the same certificate.
-   *             The certificate can be retrieved by calling the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html">Amazon GameLift Server
-   *                 SDK</a> operation <code>GetInstanceCertificate</code>. </p>
+   * <p>Determines whether a TLS/SSL certificate is generated for a fleet. This feature must be enabled when creating the fleet.
+   *             All instances in a fleet share the same certificate.</p>
    * @public
    */
   CertificateConfiguration?: CertificateConfiguration;
@@ -2125,7 +3291,10 @@ export interface FleetAttributes {
   ComputeType?: ComputeType;
 
   /**
-   * <p>Amazon GameLift Anywhere configuration options for your Anywhere fleets.</p>
+   * <p>
+   *             <b>This property is used with the Amazon GameLift containers feature, which is currently in public preview.</b> A set of attributes that describe the container groups that are deployed on the fleet.
+   *             These attributes are included for fleets with compute type <code>CONTAINER</code> only.
+   *             This attribute is used with fleets where <code>ComputeType</code> is "Container".</p>
    * @public
    */
   AnywhereConfiguration?: AnywhereConfiguration;
@@ -2136,10 +3305,20 @@ export interface FleetAttributes {
    *                 deployed with the game server executable to communicate with other Amazon Web Services resources. This property is used
    *                 only when the game server is integrated with the
    *                 server SDK version 5.x. For more information about using shared credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html"> Communicate
-   *                     with other Amazon Web Services resources from your fleets</a>.</p>
+   *                     with other Amazon Web Services resources from your fleets</a>.
+   *                 This attribute is used with
+   *                 fleets where <code>ComputeType</code> is "EC2" or "Container".</p>
    * @public
    */
   InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider;
+
+  /**
+   * <p>A set of properties that describe the container groups that are deployed to the fleet.
+   *             These attributes are included for fleets with compute type
+   *             <code>CONTAINER</code>.</p>
+   * @public
+   */
+  ContainerGroupsAttributes?: ContainerGroupsAttributes;
 }
 
 /**
@@ -2222,6 +3401,30 @@ export interface CreateFleetOutput {
    * @public
    */
   LocationStates?: LocationState[];
+}
+
+/**
+ * <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
+ *       recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
+ *         backoffs and jitter</a>. </p>
+ * @public
+ */
+export class NotReadyException extends __BaseException {
+  readonly name: "NotReadyException" = "NotReadyException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotReadyException, __BaseException>) {
+    super({
+      name: "NotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotReadyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3598,7 +4801,7 @@ export interface CreateLocationInput {
 }
 
 /**
- * <p>Properties of a location</p>
+ * <p>Properties of a custom location for use in an Amazon GameLift Anywhere fleet. This data type is returned in response to a call to <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateLocation.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateLocation.html</a>.</p>
  * @public
  */
 export interface LocationModel {
@@ -4584,6 +5787,18 @@ export interface DeleteBuildInput {
 /**
  * @public
  */
+export interface DeleteContainerGroupDefinitionInput {
+  /**
+   * <p>The unique identifier for the container group definition to delete. You can use either the <code>Name</code> or <code>ARN</code>
+   *       value.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteFleetInput {
   /**
    * <p>A unique identifier for the fleet to be deleted. You can use either the fleet ID or ARN value.</p>
@@ -4851,7 +6066,11 @@ export interface DeregisterComputeInput {
   FleetId: string | undefined;
 
   /**
-   * <p>The name of the compute resource to remove from the specified Anywhere fleet.</p>
+   * <p>The unique identifier of the compute resource to deregister. For an Anywhere fleet
+   *             compute, use the registered compute name. For a container fleet, use the compute name
+   *             (for example,
+   *                 <code>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</code>)
+   *             or the compute ARN.</p>
    * @public
    */
   ComputeName: string | undefined;
@@ -4930,7 +6149,7 @@ export interface DescribeBuildOutput {
  */
 export interface DescribeComputeInput {
   /**
-   * <p>A unique identifier for the fleet that the compute is registered to. You can use either the fleet ID or ARN
+   * <p>A unique identifier for the fleet that the compute belongs to. You can use either the fleet ID or ARN
    *             value.</p>
    * @public
    */
@@ -4938,8 +6157,10 @@ export interface DescribeComputeInput {
 
   /**
    * <p>The unique identifier of the compute resource to retrieve properties for. For an
-   *             Anywhere fleet compute, use the registered compute name. For a managed EC2 fleet
-   *             instance, use the instance ID.</p>
+   *             Anywhere fleet compute, use the registered compute name. For an EC2 fleet instance, use
+   *             the instance ID. For a container fleet, use the compute name (for example,
+   *                 <code>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</code>)
+   *             or the compute ARN.</p>
    * @public
    */
   ComputeName: string | undefined;
@@ -4954,6 +6175,29 @@ export interface DescribeComputeOutput {
    * @public
    */
   Compute?: Compute;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContainerGroupDefinitionInput {
+  /**
+   * <p>The unique identifier for the container group definition to retrieve properties for. You can use either the <code>Name</code> or
+   *         <code>ARN</code> value.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContainerGroupDefinitionOutput {
+  /**
+   * <p>The properties of the requested container group definition resource.</p>
+   * @public
+   */
+  ContainerGroupDefinition?: ContainerGroupDefinition;
 }
 
 /**
@@ -5151,13 +6395,56 @@ export interface EC2InstanceCounts {
 }
 
 /**
- * <p>Current resource capacity settings in a specified fleet or location. The location
- *             value might refer to a fleet's remote location or its home Region. </p>
- *          <p>
- *             <b>Related actions</b>
+ * <p>
+ *             <b>This data type is used with the Amazon GameLift containers feature, which is currently in public preview.</b>
  *          </p>
+ *          <p>The number and status of replica container groups that are deployed across a fleet with
+ *       compute type <code>CONTAINER</code>. This information, combined with the number of server
+ *       processes being hosted per container group (see <code>RuntimeConfiguration</code>), tells you
+ *       how many game sessions the fleet is currently capable of hosting concurrently.</p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">DescribeFleetCapacity</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">DescribeFleetLocationCapacity</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>
+ *             <b>Returned by:</b>
+ *             <a>DescribeFleetCapacity</a>, <a>DescribeFleetLocationCapacity</a>
+ *          </p>
+ * @public
+ */
+export interface ReplicaContainerGroupCounts {
+  /**
+   * <p> The number of container groups that are starting up but have not yet registered. </p>
+   * @public
+   */
+  PENDING?: number;
+
+  /**
+   * <p>
+   *     The number of container groups that have active game sessions.
+   *   </p>
+   * @public
+   */
+  ACTIVE?: number;
+
+  /**
+   * <p>
+   *     The number of container groups that have no active game sessions.
+   *   </p>
+   * @public
+   */
+  IDLE?: number;
+
+  /**
+   * <p> The number of container groups that are in the process of shutting down. </p>
+   * @public
+   */
+  TERMINATING?: number;
+}
+
+/**
+ * <p>Current resource capacity settings for managed EC2 fleets and container fleets. For
+ *             multi-location fleets, location values might refer to a fleet's remote location or its
+ *             home Region. </p>
+ *          <p>
+ *             <b>Returned by:</b>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">DescribeFleetCapacity</a>, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">DescribeFleetLocationCapacity</a>, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>
  *          </p>
  * @public
  */
@@ -5175,7 +6462,7 @@ export interface FleetCapacity {
   FleetArn?: string;
 
   /**
-   * <p>The Amazon EC2 instance type that is used for all instances in a fleet. The instance type
+   * <p>The Amazon EC2 instance type that is used for instances in a fleet. Instance type
    *             determines the computing resources in use, including CPU, memory, storage, and
    *             networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud
    *                 Instance Types</a> for detailed descriptions.</p>
@@ -5184,8 +6471,8 @@ export interface FleetCapacity {
   InstanceType?: EC2InstanceType;
 
   /**
-   * <p>Resource capacity settings. Fleet capacity is measured in Amazon EC2 instances. Pending and
-   *             terminating counts are non-zero when the fleet capacity is adjusting to a scaling event
+   * <p>The current number of instances in the fleet, listed by instance status. Counts for pending and
+   *             terminating instances might be non-zero if the fleet is adjusting to a scaling event
    *             or if access to resources is temporarily affected.</p>
    * @public
    */
@@ -5197,6 +6484,13 @@ export interface FleetCapacity {
    * @public
    */
   Location?: string;
+
+  /**
+   * <p>
+   *             <b>This property is used with the Amazon GameLift containers feature, which is currently in public preview.</b> The number and status of replica container groups in a container fleet.</p>
+   * @public
+   */
+  ReplicaContainerGroupCounts?: ReplicaContainerGroupCounts;
 }
 
 /**
@@ -5562,6 +6856,12 @@ export interface Event {
    * @public
    */
   PreSignedLogUrl?: string;
+
+  /**
+   * <p>The number of times that this event occurred.</p>
+   * @public
+   */
+  Count?: number;
 }
 
 /**
@@ -5734,10 +7034,7 @@ export interface DescribeFleetLocationUtilizationInput {
 
 /**
  * <p>Current resource utilization statistics in a specified fleet or location. The location
- *             value might refer to a fleet's remote location or its home Region.</p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
+ *             value might refer to a fleet's remote location or its home region.</p>
  * @public
  */
 export interface FleetUtilization {
@@ -7199,8 +8496,8 @@ export interface DescribeRuntimeConfigurationInput {
  */
 export interface DescribeRuntimeConfigurationOutput {
   /**
-   * <p>Instructions that describe how server processes should be launched and maintained on
-   *             each instance in the fleet.</p>
+   * <p>Instructions that describe how server processes are launched and maintained on
+   *             computes in the fleet.</p>
    * @public
    */
   RuntimeConfiguration?: RuntimeConfiguration;
@@ -7785,15 +9082,18 @@ export interface DesiredPlayerSession {
  */
 export interface GetComputeAccessInput {
   /**
-   * <p>A unique identifier for the fleet that contains the compute resource you want to connect to. You can use either
-   *             the fleet ID or ARN value.</p>
+   * <p>A unique identifier for the fleet that holds the compute resource that you want to connect to. You can use either the
+   *             fleet ID or ARN value.</p>
    * @public
    */
   FleetId: string | undefined;
 
   /**
-   * <p>A unique identifier for the compute resource that you want to connect to. You can use
-   *             either a registered compute name or an instance ID.</p>
+   * <p>A unique identifier for the compute resource that you want to connect to. For an EC2
+   *             fleet compute, use the instance ID. For a container fleet, use the compute name (for
+   *             example,
+   *                 <code>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</code>)
+   *             or the compute ARN. </p>
    * @public
    */
   ComputeName: string | undefined;
@@ -7804,7 +9104,7 @@ export interface GetComputeAccessInput {
  */
 export interface GetComputeAccessOutput {
   /**
-   * <p>The ID of the fleet that contains the compute resource to be accessed.</p>
+   * <p>The ID of the fleet that holds the compute resource to be accessed.</p>
    * @public
    */
   FleetId?: string;
@@ -7836,6 +9136,13 @@ export interface GetComputeAccessOutput {
    * @public
    */
   Credentials?: AwsCredentials;
+
+  /**
+   * <p>(For container fleets only) The instance ID where the compute resource is
+   *             running.</p>
+   * @public
+   */
+  Target?: string;
 }
 
 /**
@@ -7849,8 +9156,11 @@ export interface GetComputeAuthTokenInput {
   FleetId: string | undefined;
 
   /**
-   * <p>The name of the compute resource you are requesting the authentication token
-   *             for.</p>
+   * <p>The name of the compute resource you are requesting the authentication token for. For
+   *             an Anywhere fleet compute, use the registered compute name. For an EC2 fleet instance,
+   *             use the instance ID. For a container fleet, use the compute name (for example,
+   *                 <code>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</code>)
+   *             or the compute ARN.</p>
    * @public
    */
   ComputeName: string | undefined;
@@ -7947,7 +9257,8 @@ export interface GetInstanceAccessInput {
 
 /**
  * <p>A set of credentials that allow remote access to an instance in an EC2 managed fleet.
- *             These credentials are returned in response to a call to <a>GetInstanceAccess</a>, which requests access for instances that are running
+ *             These credentials are returned in response to a call to
+ *             <a>GetInstanceAccess</a>, which requests access for instances that are running
  *             game servers with the Amazon GameLift server SDK version 4.x or earlier.</p>
  * @public
  */
@@ -7968,7 +9279,8 @@ export interface InstanceCredentials {
 
 /**
  * <p>Information and credentials that you can use to remotely connect to an instance in an
- *             EC2 managed fleet. This data type is returned in response to a call to <a>GetInstanceAccess</a>. </p>
+ *             EC2 managed fleet. This data type is returned in response to a call to
+ *             <a>GetInstanceAccess</a>. </p>
  * @public
  */
 export interface InstanceAccess {
@@ -8148,7 +9460,10 @@ export interface ListComputeInput {
   FleetId: string | undefined;
 
   /**
-   * <p>The name of a location to retrieve compute resources for.</p>
+   * <p>The name of a location to retrieve compute resources for. For an Amazon GameLift Anywhere
+   *             fleet, use a custom location. For a multi-location EC2 or container fleet, provide a
+   *             Amazon Web Services Region or Local Zone code (for example: <code>us-west-2</code> or
+   *             <code>us-west-2-lax-1</code>).</p>
    * @public
    */
   Location?: string;
@@ -8186,6 +9501,59 @@ export interface ListComputeOutput {
 /**
  * @public
  */
+export interface ListContainerGroupDefinitionsInput {
+  /**
+   * <p>The type of container group definitions to retrieve.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DAEMON</code> -- Daemon container groups run background processes and are deployed once
+   *           per fleet instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLICA</code> -- Replica container groups run your game server application and
+   *           supporting software. Replica groups might be deployed multiple times per fleet
+   *           instance.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchedulingStrategy?: ContainerSchedulingStrategy;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListContainerGroupDefinitionsOutput {
+  /**
+   * <p>A result set of container group definitions that match the request.</p>
+   * @public
+   */
+  ContainerGroupDefinitions?: ContainerGroupDefinition[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListFleetsInput {
   /**
    * <p>A unique identifier for the build to request fleets for. Use this parameter to return only fleets using a
@@ -8200,6 +9568,14 @@ export interface ListFleetsInput {
    * @public
    */
   ScriptId?: string;
+
+  /**
+   * <p>The container group definition name to request fleets for. Use this parameter to
+   *             return only fleets that are deployed with the specified container group
+   *             definition.</p>
+   * @public
+   */
+  ContainerGroupDefinitionName?: string;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -8800,718 +10176,6 @@ export interface ResumeGameServerGroupInput {
 }
 
 /**
- * @public
- */
-export interface ResumeGameServerGroupOutput {
-  /**
-   * <p>An object that describes the game server group resource, with the
-   *                 <code>SuspendedActions</code> property updated to reflect the resumed
-   *             activity.</p>
-   * @public
-   */
-  GameServerGroup?: GameServerGroup;
-}
-
-/**
- * @public
- */
-export interface SearchGameSessionsInput {
-  /**
-   * <p>A unique identifier for the fleet to search for active game sessions. You can use either the fleet ID or ARN
-   *             value. Each request must reference either a fleet ID or alias ID, but not both.</p>
-   * @public
-   */
-  FleetId?: string;
-
-  /**
-   * <p>A unique identifier for the alias associated with the fleet to search for active game sessions. You can use either
-   *             the alias ID or ARN value. Each request must reference either a fleet ID or alias ID,
-   *             but not both.</p>
-   * @public
-   */
-  AliasId?: string;
-
-  /**
-   * <p>A fleet location to search for game sessions. You can specify a fleet's home Region or
-   *             a remote location. Use the Amazon Web Services Region code format, such as <code>us-west-2</code>.
-   *         </p>
-   * @public
-   */
-  Location?: string;
-
-  /**
-   * <p>String containing the search criteria for the session search. If no filter expression
-   *             is included, the request returns results for all game sessions in the fleet that are in
-   *                 <code>ACTIVE</code> status.</p>
-   *          <p>A filter expression can contain one or multiple conditions. Each condition consists of
-   *             the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Operand</b> -- Name of a game session attribute.
-   *                     Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>,
-   *                         <code>gameSessionProperties</code>, <code>maximumSessions</code>,
-   *                         <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
-   *                         <code>hasAvailablePlayerSessions</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Comparator</b> -- Valid comparators are:
-   *                         <code>=</code>, <code><></code>, <code><</code>, <code>></code>,
-   *                         <code><=</code>, <code>>=</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Value</b> -- Value to be searched for. Values may
-   *                     be numbers, boolean values (true/false) or strings depending on the operand.
-   *                     String values are case sensitive and must be enclosed in single quotes. Special
-   *                     characters must be escaped. Boolean and string values can only be used with the
-   *                     comparators <code>=</code> and <code><></code>. For example, the following
-   *                     filter expression searches on <code>gameSessionName</code>:
-   *                         "<code>FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game
-   *                         1'"</code>. </p>
-   *             </li>
-   *          </ul>
-   *          <p>To chain multiple conditions in a single expression, use the logical keywords
-   *                 <code>AND</code>, <code>OR</code>, and <code>NOT</code> and parentheses as needed.
-   *             For example: <code>x AND y AND NOT z</code>, <code>NOT (x OR y)</code>.</p>
-   *          <p>Session search evaluates conditions from left to right using the following precedence
-   *             rules:</p>
-   *          <ol>
-   *             <li>
-   *                <p>
-   *                   <code>=</code>, <code><></code>, <code><</code>, <code>></code>,
-   *                         <code><=</code>, <code>>=</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Parentheses</p>
-   *             </li>
-   *             <li>
-   *                <p>NOT</p>
-   *             </li>
-   *             <li>
-   *                <p>AND</p>
-   *             </li>
-   *             <li>
-   *                <p>OR</p>
-   *             </li>
-   *          </ol>
-   *          <p>For example, this filter expression retrieves game sessions hosting at least ten
-   *             players that have an open player slot: <code>"maximumSessions>=10 AND
-   *                 hasAvailablePlayerSessions=true"</code>. </p>
-   * @public
-   */
-  FilterExpression?: string;
-
-  /**
-   * <p>Instructions on how to sort the search results. If no sort expression is included, the
-   *             request returns results in random order. A sort expression consists of the following
-   *             elements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Operand</b> -- Name of a game session attribute.
-   *                     Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>,
-   *                         <code>gameSessionProperties</code>, <code>maximumSessions</code>,
-   *                         <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
-   *                         <code>hasAvailablePlayerSessions</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Order</b> -- Valid sort orders are <code>ASC</code>
-   *                     (ascending) and <code>DESC</code> (descending).</p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, this sort expression returns the oldest active sessions first:
-   *                 <code>"SortExpression": "creationTimeMillis ASC"</code>. Results with a null value
-   *             for the sort operand are returned at the end of the list.</p>
-   * @public
-   */
-  SortExpression?: string;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or
-   *             is set higher than 20. </p>
-   * @public
-   */
-  Limit?: number;
-
-  /**
-   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface SearchGameSessionsOutput {
-  /**
-   * <p>A collection of objects containing game session properties for each session that
-   *             matches the request.</p>
-   * @public
-   */
-  GameSessions?: GameSession[];
-
-  /**
-   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface StartFleetActionsInput {
-  /**
-   * <p>A unique identifier for the fleet to restart actions on. You can use either the fleet ID or ARN value.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>List of actions to restart on the fleet.</p>
-   * @public
-   */
-  Actions: FleetAction[] | undefined;
-
-  /**
-   * <p>The fleet location to restart fleet actions for. Specify a location in the form of an
-   *             Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
-   * @public
-   */
-  Location?: string;
-}
-
-/**
- * @public
- */
-export interface StartFleetActionsOutput {
-  /**
-   * <p>A unique identifier for the fleet to restart actions on.</p>
-   * @public
-   */
-  FleetId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
-   * @public
-   */
-  FleetArn?: string;
-}
-
-/**
- * @public
- */
-export interface StartGameSessionPlacementInput {
-  /**
-   * <p>A unique identifier to assign to the new game session placement. This value is
-   *             developer-defined. The value must be unique across all Regions and cannot be
-   *             reused.</p>
-   * @public
-   */
-  PlacementId: string | undefined;
-
-  /**
-   * <p>Name of the queue to use to place the new game session. You can use either the queue
-   *             name or ARN value. </p>
-   * @public
-   */
-  GameSessionQueueName: string | undefined;
-
-  /**
-   * <p>A set of key-value pairs that can store custom data in a game session.
-   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
-   * @public
-   */
-  GameProperties?: GameProperty[];
-
-  /**
-   * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
-   * @public
-   */
-  MaximumPlayerSessionCount: number | undefined;
-
-  /**
-   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
-   * @public
-   */
-  GameSessionName?: string;
-
-  /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions. This information is used to try to place the new game session where it
-   *             can offer the best possible gameplay experience for the players. </p>
-   * @public
-   */
-  PlayerLatencies?: PlayerLatency[];
-
-  /**
-   * <p>Set of information on each player to create a player session for.</p>
-   * @public
-   */
-  DesiredPlayerSessions?: DesiredPlayerSession[];
-
-  /**
-   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <code>GameSession</code> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
-   * @public
-   */
-  GameSessionData?: string;
-}
-
-/**
- * @public
- */
-export interface StartGameSessionPlacementOutput {
-  /**
-   * <p>Object that describes the newly created game session placement. This object includes
-   *             all the information provided in the request, as well as start/end time stamps and
-   *             placement status. </p>
-   * @public
-   */
-  GameSessionPlacement?: GameSessionPlacement;
-}
-
-/**
- * @public
- */
-export interface StartMatchBackfillInput {
-  /**
-   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
-   *             UUID. Use this identifier to track the match backfill ticket status and retrieve match
-   *             results.</p>
-   * @public
-   */
-  TicketId?: string;
-
-  /**
-   * <p>Name of the matchmaker to use for this request. You can use either the configuration
-   *             name or ARN value. The ARN of the matchmaker that was used with the original game
-   *             session is listed in the <code>GameSession</code> object, <code>MatchmakerData</code>
-   *             property.</p>
-   * @public
-   */
-  ConfigurationName: string | undefined;
-
-  /**
-   * <p>A unique identifier for the game session. Use the game session ID. When using FlexMatch as a standalone matchmaking
-   *             solution, this parameter is not needed. </p>
-   * @public
-   */
-  GameSessionArn?: string;
-
-  /**
-   * <p>Match information on all players that are currently assigned to the game session. This
-   *             information is used by the matchmaker to find new players and add them to the existing
-   *             game.</p>
-   *          <p>You can include up to 199 <code>Players</code> in a <code>StartMatchBackfill</code>
-   *             request.</p>
-   *          <ul>
-   *             <li>
-   *                <p>PlayerID, PlayerAttributes, Team -- This information is maintained in the
-   *                         <code>GameSession</code> object, <code>MatchmakerData</code> property, for
-   *                     all players who are currently assigned to the game session. The matchmaker data
-   *                     is in JSON syntax, formatted as a string. For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">
-   *                         Match Data</a>. </p>
-   *                <p>The backfill request must specify the team membership for every player. Do not
-   *                     specify team if you are not using backfill.</p>
-   *             </li>
-   *             <li>
-   *                <p>LatencyInMs -- If the matchmaker uses player latency, include a latency value,
-   *                     in milliseconds, for the Region that the game session is currently in. Do not
-   *                     include latency values for any other Region.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Players: Player[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMatchBackfillOutput {
-  /**
-   * <p>Ticket representing the backfill matchmaking request. This object includes the
-   *             information in the request, ticket status, and match results as generated during the
-   *             matchmaking process.</p>
-   * @public
-   */
-  MatchmakingTicket?: MatchmakingTicket;
-}
-
-/**
- * @public
- */
-export interface StartMatchmakingInput {
-  /**
-   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
-   *             UUID. Use this identifier to track the matchmaking ticket status and retrieve match
-   *             results.</p>
-   * @public
-   */
-  TicketId?: string;
-
-  /**
-   * <p>Name of the matchmaking configuration to use for this request. Matchmaking
-   *             configurations must exist in the same Region as this request. You can use either the
-   *             configuration name or ARN value.</p>
-   * @public
-   */
-  ConfigurationName: string | undefined;
-
-  /**
-   * <p>Information on each player to be matched. This information must include a player ID,
-   *             and may contain player attributes and latency data to be used in the matchmaking
-   *             process. After a successful match, <code>Player</code> objects contain the name of the
-   *             team the player is assigned to.</p>
-   *          <p>You can include up to 10 <code>Players</code> in a <code>StartMatchmaking</code>
-   *             request.</p>
-   * @public
-   */
-  Players: Player[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMatchmakingOutput {
-  /**
-   * <p>Ticket representing the matchmaking request. This object include the information
-   *             included in the request, ticket status, and match results as generated during the
-   *             matchmaking process.</p>
-   * @public
-   */
-  MatchmakingTicket?: MatchmakingTicket;
-}
-
-/**
- * @public
- */
-export interface StopFleetActionsInput {
-  /**
-   * <p>A unique identifier for the fleet to stop actions on. You can use either the fleet ID or ARN value.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>List of actions to suspend on the fleet. </p>
-   * @public
-   */
-  Actions: FleetAction[] | undefined;
-
-  /**
-   * <p>The fleet location to stop fleet actions for. Specify a location in the form of an
-   *             Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
-   * @public
-   */
-  Location?: string;
-}
-
-/**
- * @public
- */
-export interface StopFleetActionsOutput {
-  /**
-   * <p>A unique identifier for the fleet to stop actions on.</p>
-   * @public
-   */
-  FleetId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
-   * @public
-   */
-  FleetArn?: string;
-}
-
-/**
- * @public
- */
-export interface StopGameSessionPlacementInput {
-  /**
-   * <p>A unique identifier for a game session placement to stop.</p>
-   * @public
-   */
-  PlacementId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopGameSessionPlacementOutput {
-  /**
-   * <p>Object that describes the canceled game session placement, with <code>CANCELLED</code>
-   *             status and an end time stamp. </p>
-   * @public
-   */
-  GameSessionPlacement?: GameSessionPlacement;
-}
-
-/**
- * @public
- */
-export interface StopMatchmakingInput {
-  /**
-   * <p>A unique identifier for a matchmaking ticket.</p>
-   * @public
-   */
-  TicketId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMatchmakingOutput {}
-
-/**
- * @public
- */
-export interface SuspendGameServerGroupInput {
-  /**
-   * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
-   * @public
-   */
-  GameServerGroupName: string | undefined;
-
-  /**
-   * <p>The activity to suspend for this game server group.</p>
-   * @public
-   */
-  SuspendActions: GameServerGroupAction[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SuspendGameServerGroupOutput {
-  /**
-   * <p>An object that describes the game server group resource, with the
-   *                 <code>SuspendedActions</code> property updated to reflect the suspended
-   *             activity.</p>
-   * @public
-   */
-  GameServerGroup?: GameServerGroup;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that uniquely identifies
-   *             the Amazon GameLift resource that you want to assign tags to. Amazon GameLift includes resource ARNs in
-   *             the data object for the resource. You can retrieve the ARN by calling a
-   *                 <code>List</code> or <code>Describe</code> operation for the resource type. </p>
-   * @public
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>A list of one or more tags to assign to the specified Amazon GameLift resource. Tags are
-   *             developer-defined and structured as key-value pairs. The maximum tag limit may be lower
-   *             than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-   *                 Tagging Amazon Web Services Resources</a> for tagging limits.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that uniquely identifies
-   *             the Amazon GameLift resource that you want to remove tags from. Amazon GameLift includes resource ARNs in
-   *             the data object for the resource. You can retrieve the ARN by calling a
-   *                 <code>List</code> or <code>Describe</code> operation for the resource type. </p>
-   * @public
-   */
-  ResourceARN: string | undefined;
-
-  /**
-   * <p>A list of one or more tag keys to remove from the specified Amazon GameLift resource. </p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateAliasInput {
-  /**
-   * <p>A unique identifier for the alias that you want to update. You can use either the
-   *             alias ID or ARN value.</p>
-   * @public
-   */
-  AliasId: string | undefined;
-
-  /**
-   * <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A human-readable description of the alias.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The routing configuration, including routing type and fleet target, for the
-   *             alias.</p>
-   * @public
-   */
-  RoutingStrategy?: RoutingStrategy;
-}
-
-/**
- * @public
- */
-export interface UpdateAliasOutput {
-  /**
-   * <p>The updated alias resource.</p>
-   * @public
-   */
-  Alias?: Alias;
-}
-
-/**
- * @public
- */
-export interface UpdateBuildInput {
-  /**
-   * <p>A unique identifier for the build to update. You can use either the build ID or ARN value. </p>
-   * @public
-   */
-  BuildId: string | undefined;
-
-  /**
-   * <p>A descriptive label associated with a build. Build names don't need to be unique. </p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>Version information associated with a build or script. Version strings don't need to be unique.</p>
-   * @public
-   */
-  Version?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateBuildOutput {
-  /**
-   * <p>The updated build resource.</p>
-   * @public
-   */
-  Build?: Build;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetAttributesInput {
-  /**
-   * <p>A unique identifier for the fleet to update attribute metadata for. You can use either the fleet ID or ARN
-   *             value.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A human-readable description of a fleet.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The game session protection policy to apply to all new game sessions created in this
-   *             fleet. Game sessions that already exist are not affected. You can set protection for
-   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>NoProtection</b> -- The game session can be
-   *                     terminated during a scale-down event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>FullProtection</b> -- If the game session is in an
-   *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
-   *                     event.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy;
-
-  /**
-   * <p>Policy settings that limit the number of game sessions an individual player can create
-   *             over a span of time. </p>
-   * @public
-   */
-  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
-
-  /**
-   * <p>The name of a metric group to add this fleet to. Use a metric group in Amazon
-   *             CloudWatch to aggregate the metrics from multiple fleets. Provide an existing metric
-   *             group name, or create a new metric group by providing a new name. A fleet can only be in
-   *             one metric group at a time.</p>
-   * @public
-   */
-  MetricGroups?: string[];
-
-  /**
-   * <p>Amazon GameLift Anywhere configuration options.</p>
-   * @public
-   */
-  AnywhereConfiguration?: AnywhereConfiguration;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetAttributesOutput {
-  /**
-   * <p>A unique identifier for the fleet that was updated.</p>
-   * @public
-   */
-  FleetId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
-   * @public
-   */
-  FleetArn?: string;
-}
-
-/**
  * @internal
  */
 export const AcceptMatchInputFilterSensitiveLog = (obj: AcceptMatchInput): any => ({
@@ -9529,9 +10193,106 @@ export const AwsCredentialsFilterSensitiveLog = (obj: AwsCredentials): any => ({
 /**
  * @internal
  */
+export const ContainerPortMappingFilterSensitiveLog = (obj: ContainerPortMapping): any => ({
+  ...obj,
+  ...(obj.ContainerPort && { ContainerPort: SENSITIVE_STRING }),
+  ...(obj.ConnectionPort && { ConnectionPort: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ContainerAttributesFilterSensitiveLog = (obj: ContainerAttributes): any => ({
+  ...obj,
+  ...(obj.ContainerPortMappings && {
+    ContainerPortMappings: obj.ContainerPortMappings.map((item) => ContainerPortMappingFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const ComputeFilterSensitiveLog = (obj: Compute): any => ({
   ...obj,
   ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.ContainerAttributes && {
+    ContainerAttributes: ContainerAttributesFilterSensitiveLog(obj.ContainerAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionPortRangeFilterSensitiveLog = (obj: ConnectionPortRange): any => ({
+  ...obj,
+  ...(obj.FromPort && { FromPort: SENSITIVE_STRING }),
+  ...(obj.ToPort && { ToPort: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ContainerPortRangeFilterSensitiveLog = (obj: ContainerPortRange): any => ({
+  ...obj,
+  ...(obj.FromPort && { FromPort: SENSITIVE_STRING }),
+  ...(obj.ToPort && { ToPort: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ContainerPortConfigurationFilterSensitiveLog = (obj: ContainerPortConfiguration): any => ({
+  ...obj,
+  ...(obj.ContainerPortRanges && {
+    ContainerPortRanges: obj.ContainerPortRanges.map((item) => ContainerPortRangeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ContainerDefinitionFilterSensitiveLog = (obj: ContainerDefinition): any => ({
+  ...obj,
+  ...(obj.PortConfiguration && {
+    PortConfiguration: ContainerPortConfigurationFilterSensitiveLog(obj.PortConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ContainerDefinitionInputFilterSensitiveLog = (obj: ContainerDefinitionInput): any => ({
+  ...obj,
+  ...(obj.PortConfiguration && {
+    PortConfiguration: ContainerPortConfigurationFilterSensitiveLog(obj.PortConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ContainerGroupDefinitionFilterSensitiveLog = (obj: ContainerGroupDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerGroupsAttributesFilterSensitiveLog = (obj: ContainerGroupsAttributes): any => ({
+  ...obj,
+  ...(obj.ConnectionPortRange && {
+    ConnectionPortRange: ConnectionPortRangeFilterSensitiveLog(obj.ConnectionPortRange),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ContainerGroupsConfigurationFilterSensitiveLog = (obj: ContainerGroupsConfiguration): any => ({
+  ...obj,
+  ...(obj.ConnectionPortRange && {
+    ConnectionPortRange: ConnectionPortRangeFilterSensitiveLog(obj.ConnectionPortRange),
+  }),
 });
 
 /**
@@ -9540,6 +10301,24 @@ export const ComputeFilterSensitiveLog = (obj: Compute): any => ({
 export const CreateBuildOutputFilterSensitiveLog = (obj: CreateBuildOutput): any => ({
   ...obj,
   ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerGroupDefinitionInputFilterSensitiveLog = (
+  obj: CreateContainerGroupDefinitionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerGroupDefinitionOutputFilterSensitiveLog = (
+  obj: CreateContainerGroupDefinitionOutput
+): any => ({
+  ...obj,
 });
 
 /**
@@ -9560,6 +10339,27 @@ export const CreateFleetInputFilterSensitiveLog = (obj: CreateFleetInput): any =
   ...(obj.EC2InboundPermissions && {
     EC2InboundPermissions: obj.EC2InboundPermissions.map((item) => IpPermissionFilterSensitiveLog(item)),
   }),
+  ...(obj.ContainerGroupsConfiguration && {
+    ContainerGroupsConfiguration: ContainerGroupsConfigurationFilterSensitiveLog(obj.ContainerGroupsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const FleetAttributesFilterSensitiveLog = (obj: FleetAttributes): any => ({
+  ...obj,
+  ...(obj.ContainerGroupsAttributes && {
+    ContainerGroupsAttributes: ContainerGroupsAttributesFilterSensitiveLog(obj.ContainerGroupsAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetOutputFilterSensitiveLog = (obj: CreateFleetOutput): any => ({
+  ...obj,
+  ...(obj.FleetAttributes && { FleetAttributes: FleetAttributesFilterSensitiveLog(obj.FleetAttributes) }),
 });
 
 /**
@@ -9629,6 +10429,25 @@ export const CreatePlayerSessionsOutputFilterSensitiveLog = (obj: CreatePlayerSe
 export const DescribeComputeOutputFilterSensitiveLog = (obj: DescribeComputeOutput): any => ({
   ...obj,
   ...(obj.Compute && { Compute: ComputeFilterSensitiveLog(obj.Compute) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeContainerGroupDefinitionOutputFilterSensitiveLog = (
+  obj: DescribeContainerGroupDefinitionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetAttributesOutputFilterSensitiveLog = (obj: DescribeFleetAttributesOutput): any => ({
+  ...obj,
+  ...(obj.FleetAttributes && {
+    FleetAttributes: obj.FleetAttributes.map((item) => FleetAttributesFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -9839,6 +10658,15 @@ export const ListComputeOutputFilterSensitiveLog = (obj: ListComputeOutput): any
 /**
  * @internal
  */
+export const ListContainerGroupDefinitionsOutputFilterSensitiveLog = (
+  obj: ListContainerGroupDefinitionsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RegisterComputeInputFilterSensitiveLog = (obj: RegisterComputeInput): any => ({
   ...obj,
   ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
@@ -9858,77 +10686,4 @@ export const RegisterComputeOutputFilterSensitiveLog = (obj: RegisterComputeOutp
 export const RequestUploadCredentialsOutputFilterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
   ...obj,
   ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchGameSessionsOutputFilterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
-  ...obj,
-  ...(obj.GameSessions && { GameSessions: obj.GameSessions.map((item) => GameSessionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartGameSessionPlacementInputFilterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
-  ...obj,
-  ...(obj.PlayerLatencies && {
-    PlayerLatencies: obj.PlayerLatencies.map((item) => PlayerLatencyFilterSensitiveLog(item)),
-  }),
-  ...(obj.DesiredPlayerSessions && {
-    DesiredPlayerSessions: obj.DesiredPlayerSessions.map((item) => DesiredPlayerSessionFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const StartGameSessionPlacementOutputFilterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
-  ...obj,
-  ...(obj.GameSessionPlacement && {
-    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
-  }),
-});
-
-/**
- * @internal
- */
-export const StartMatchBackfillInputFilterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
-  ...obj,
-  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartMatchBackfillOutputFilterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
-  ...obj,
-  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
-});
-
-/**
- * @internal
- */
-export const StartMatchmakingInputFilterSensitiveLog = (obj: StartMatchmakingInput): any => ({
-  ...obj,
-  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartMatchmakingOutputFilterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
-  ...obj,
-  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
-});
-
-/**
- * @internal
- */
-export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
-  ...obj,
-  ...(obj.GameSessionPlacement && {
-    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
-  }),
 });

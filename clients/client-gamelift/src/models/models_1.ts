@@ -1,30 +1,760 @@
 // smithy-typescript generated code
 import {
+  Alias,
+  AnywhereConfiguration,
   BackfillMode,
   BalancingStrategy,
+  Build,
+  DesiredPlayerSession,
+  DesiredPlayerSessionFilterSensitiveLog,
   FilterConfiguration,
+  FleetAction,
   FlexMatchMode,
   GameProperty,
   GameServer,
   GameServerGroup,
+  GameServerGroupAction,
   GameServerProtectionPolicy,
   GameServerUtilizationStatus,
   GameSession,
   GameSessionFilterSensitiveLog,
+  GameSessionPlacement,
+  GameSessionPlacementFilterSensitiveLog,
   GameSessionQueue,
   GameSessionQueueDestination,
   InstanceDefinition,
   IpPermission,
   IpPermissionFilterSensitiveLog,
   MatchmakingConfiguration,
+  MatchmakingTicket,
+  MatchmakingTicketFilterSensitiveLog,
+  Player,
+  PlayerFilterSensitiveLog,
+  PlayerLatency,
+  PlayerLatencyFilterSensitiveLog,
   PlayerLatencyPolicy,
   PlayerSessionCreationPolicy,
   PriorityConfiguration,
   ProtectionPolicy,
+  ResourceCreationLimitPolicy,
+  RoutingStrategy,
   RuntimeConfiguration,
   S3Location,
   Script,
+  Tag,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ResumeGameServerGroupOutput {
+  /**
+   * <p>An object that describes the game server group resource, with the
+   *                 <code>SuspendedActions</code> property updated to reflect the resumed
+   *             activity.</p>
+   * @public
+   */
+  GameServerGroup?: GameServerGroup;
+}
+
+/**
+ * @public
+ */
+export interface SearchGameSessionsInput {
+  /**
+   * <p>A unique identifier for the fleet to search for active game sessions. You can use either the fleet ID or ARN
+   *             value. Each request must reference either a fleet ID or alias ID, but not both.</p>
+   * @public
+   */
+  FleetId?: string;
+
+  /**
+   * <p>A unique identifier for the alias associated with the fleet to search for active game sessions. You can use either
+   *             the alias ID or ARN value. Each request must reference either a fleet ID or alias ID,
+   *             but not both.</p>
+   * @public
+   */
+  AliasId?: string;
+
+  /**
+   * <p>A fleet location to search for game sessions. You can specify a fleet's home Region or
+   *             a remote location. Use the Amazon Web Services Region code format, such as <code>us-west-2</code>.
+   *         </p>
+   * @public
+   */
+  Location?: string;
+
+  /**
+   * <p>String containing the search criteria for the session search. If no filter expression
+   *             is included, the request returns results for all game sessions in the fleet that are in
+   *                 <code>ACTIVE</code> status.</p>
+   *          <p>A filter expression can contain one or multiple conditions. Each condition consists of
+   *             the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Operand</b> -- Name of a game session attribute.
+   *                     Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>,
+   *                         <code>gameSessionProperties</code>, <code>maximumSessions</code>,
+   *                         <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
+   *                         <code>hasAvailablePlayerSessions</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Comparator</b> -- Valid comparators are:
+   *                         <code>=</code>, <code><></code>, <code><</code>, <code>></code>,
+   *                         <code><=</code>, <code>>=</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Value</b> -- Value to be searched for. Values may
+   *                     be numbers, boolean values (true/false) or strings depending on the operand.
+   *                     String values are case sensitive and must be enclosed in single quotes. Special
+   *                     characters must be escaped. Boolean and string values can only be used with the
+   *                     comparators <code>=</code> and <code><></code>. For example, the following
+   *                     filter expression searches on <code>gameSessionName</code>:
+   *                         "<code>FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game
+   *                         1'"</code>. </p>
+   *             </li>
+   *          </ul>
+   *          <p>To chain multiple conditions in a single expression, use the logical keywords
+   *                 <code>AND</code>, <code>OR</code>, and <code>NOT</code> and parentheses as needed.
+   *             For example: <code>x AND y AND NOT z</code>, <code>NOT (x OR y)</code>.</p>
+   *          <p>Session search evaluates conditions from left to right using the following precedence
+   *             rules:</p>
+   *          <ol>
+   *             <li>
+   *                <p>
+   *                   <code>=</code>, <code><></code>, <code><</code>, <code>></code>,
+   *                         <code><=</code>, <code>>=</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Parentheses</p>
+   *             </li>
+   *             <li>
+   *                <p>NOT</p>
+   *             </li>
+   *             <li>
+   *                <p>AND</p>
+   *             </li>
+   *             <li>
+   *                <p>OR</p>
+   *             </li>
+   *          </ol>
+   *          <p>For example, this filter expression retrieves game sessions hosting at least ten
+   *             players that have an open player slot: <code>"maximumSessions>=10 AND
+   *                 hasAvailablePlayerSessions=true"</code>. </p>
+   * @public
+   */
+  FilterExpression?: string;
+
+  /**
+   * <p>Instructions on how to sort the search results. If no sort expression is included, the
+   *             request returns results in random order. A sort expression consists of the following
+   *             elements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Operand</b> -- Name of a game session attribute.
+   *                     Valid values are <code>gameSessionName</code>, <code>gameSessionId</code>,
+   *                         <code>gameSessionProperties</code>, <code>maximumSessions</code>,
+   *                         <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
+   *                         <code>hasAvailablePlayerSessions</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Order</b> -- Valid sort orders are <code>ASC</code>
+   *                     (ascending) and <code>DESC</code> (descending).</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, this sort expression returns the oldest active sessions first:
+   *                 <code>"SortExpression": "creationTimeMillis ASC"</code>. Results with a null value
+   *             for the sort operand are returned at the end of the list.</p>
+   * @public
+   */
+  SortExpression?: string;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or
+   *             is set higher than 20. </p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchGameSessionsOutput {
+  /**
+   * <p>A collection of objects containing game session properties for each session that
+   *             matches the request.</p>
+   * @public
+   */
+  GameSessions?: GameSession[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartFleetActionsInput {
+  /**
+   * <p>A unique identifier for the fleet to restart actions on. You can use either the fleet ID or ARN value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>List of actions to restart on the fleet.</p>
+   * @public
+   */
+  Actions: FleetAction[] | undefined;
+
+  /**
+   * <p>The fleet location to restart fleet actions for. Specify a location in the form of an
+   *             Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
+   * @public
+   */
+  Location?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartFleetActionsOutput {
+  /**
+   * <p>A unique identifier for the fleet to restart actions on.</p>
+   * @public
+   */
+  FleetId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
+   * @public
+   */
+  FleetArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartGameSessionPlacementInput {
+  /**
+   * <p>A unique identifier to assign to the new game session placement. This value is
+   *             developer-defined. The value must be unique across all Regions and cannot be
+   *             reused.</p>
+   * @public
+   */
+  PlacementId: string | undefined;
+
+  /**
+   * <p>Name of the queue to use to place the new game session. You can use either the queue
+   *             name or ARN value. </p>
+   * @public
+   */
+  GameSessionQueueName: string | undefined;
+
+  /**
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
+   * @public
+   */
+  GameProperties?: GameProperty[];
+
+  /**
+   * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
+   * @public
+   */
+  MaximumPlayerSessionCount: number | undefined;
+
+  /**
+   * <p>A descriptive label that is associated with a game session. Session names do not need to be unique.</p>
+   * @public
+   */
+  GameSessionName?: string;
+
+  /**
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions. This information is used to try to place the new game session where it
+   *             can offer the best possible gameplay experience for the players. </p>
+   * @public
+   */
+  PlayerLatencies?: PlayerLatency[];
+
+  /**
+   * <p>Set of information on each player to create a player session for.</p>
+   * @public
+   */
+  DesiredPlayerSessions?: DesiredPlayerSession[];
+
+  /**
+   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
+   *     <code>GameSession</code> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * @public
+   */
+  GameSessionData?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartGameSessionPlacementOutput {
+  /**
+   * <p>Object that describes the newly created game session placement. This object includes
+   *             all the information provided in the request, as well as start/end time stamps and
+   *             placement status. </p>
+   * @public
+   */
+  GameSessionPlacement?: GameSessionPlacement;
+}
+
+/**
+ * @public
+ */
+export interface StartMatchBackfillInput {
+  /**
+   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
+   *             UUID. Use this identifier to track the match backfill ticket status and retrieve match
+   *             results.</p>
+   * @public
+   */
+  TicketId?: string;
+
+  /**
+   * <p>Name of the matchmaker to use for this request. You can use either the configuration
+   *             name or ARN value. The ARN of the matchmaker that was used with the original game
+   *             session is listed in the <code>GameSession</code> object, <code>MatchmakerData</code>
+   *             property.</p>
+   * @public
+   */
+  ConfigurationName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the game session. Use the game session ID. When using FlexMatch as a standalone matchmaking
+   *             solution, this parameter is not needed. </p>
+   * @public
+   */
+  GameSessionArn?: string;
+
+  /**
+   * <p>Match information on all players that are currently assigned to the game session. This
+   *             information is used by the matchmaker to find new players and add them to the existing
+   *             game.</p>
+   *          <p>You can include up to 199 <code>Players</code> in a <code>StartMatchBackfill</code>
+   *             request.</p>
+   *          <ul>
+   *             <li>
+   *                <p>PlayerID, PlayerAttributes, Team -- This information is maintained in the
+   *                         <code>GameSession</code> object, <code>MatchmakerData</code> property, for
+   *                     all players who are currently assigned to the game session. The matchmaker data
+   *                     is in JSON syntax, formatted as a string. For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data">
+   *                         Match Data</a>. </p>
+   *                <p>The backfill request must specify the team membership for every player. Do not
+   *                     specify team if you are not using backfill.</p>
+   *             </li>
+   *             <li>
+   *                <p>LatencyInMs -- If the matchmaker uses player latency, include a latency value,
+   *                     in milliseconds, for the Region that the game session is currently in. Do not
+   *                     include latency values for any other Region.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Players: Player[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMatchBackfillOutput {
+  /**
+   * <p>Ticket representing the backfill matchmaking request. This object includes the
+   *             information in the request, ticket status, and match results as generated during the
+   *             matchmaking process.</p>
+   * @public
+   */
+  MatchmakingTicket?: MatchmakingTicket;
+}
+
+/**
+ * @public
+ */
+export interface StartMatchmakingInput {
+  /**
+   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a
+   *             UUID. Use this identifier to track the matchmaking ticket status and retrieve match
+   *             results.</p>
+   * @public
+   */
+  TicketId?: string;
+
+  /**
+   * <p>Name of the matchmaking configuration to use for this request. Matchmaking
+   *             configurations must exist in the same Region as this request. You can use either the
+   *             configuration name or ARN value.</p>
+   * @public
+   */
+  ConfigurationName: string | undefined;
+
+  /**
+   * <p>Information on each player to be matched. This information must include a player ID,
+   *             and may contain player attributes and latency data to be used in the matchmaking
+   *             process. After a successful match, <code>Player</code> objects contain the name of the
+   *             team the player is assigned to.</p>
+   *          <p>You can include up to 10 <code>Players</code> in a <code>StartMatchmaking</code>
+   *             request.</p>
+   * @public
+   */
+  Players: Player[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMatchmakingOutput {
+  /**
+   * <p>Ticket representing the matchmaking request. This object include the information
+   *             included in the request, ticket status, and match results as generated during the
+   *             matchmaking process.</p>
+   * @public
+   */
+  MatchmakingTicket?: MatchmakingTicket;
+}
+
+/**
+ * @public
+ */
+export interface StopFleetActionsInput {
+  /**
+   * <p>A unique identifier for the fleet to stop actions on. You can use either the fleet ID or ARN value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>List of actions to suspend on the fleet. </p>
+   * @public
+   */
+  Actions: FleetAction[] | undefined;
+
+  /**
+   * <p>The fleet location to stop fleet actions for. Specify a location in the form of an
+   *             Amazon Web Services Region code, such as <code>us-west-2</code>.</p>
+   * @public
+   */
+  Location?: string;
+}
+
+/**
+ * @public
+ */
+export interface StopFleetActionsOutput {
+  /**
+   * <p>A unique identifier for the fleet to stop actions on.</p>
+   * @public
+   */
+  FleetId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
+   * @public
+   */
+  FleetArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface StopGameSessionPlacementInput {
+  /**
+   * <p>A unique identifier for a game session placement to stop.</p>
+   * @public
+   */
+  PlacementId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopGameSessionPlacementOutput {
+  /**
+   * <p>Object that describes the canceled game session placement, with <code>CANCELLED</code>
+   *             status and an end time stamp. </p>
+   * @public
+   */
+  GameSessionPlacement?: GameSessionPlacement;
+}
+
+/**
+ * @public
+ */
+export interface StopMatchmakingInput {
+  /**
+   * <p>A unique identifier for a matchmaking ticket.</p>
+   * @public
+   */
+  TicketId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMatchmakingOutput {}
+
+/**
+ * @public
+ */
+export interface SuspendGameServerGroupInput {
+  /**
+   * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
+   * @public
+   */
+  GameServerGroupName: string | undefined;
+
+  /**
+   * <p>The activity to suspend for this game server group.</p>
+   * @public
+   */
+  SuspendActions: GameServerGroupAction[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SuspendGameServerGroupOutput {
+  /**
+   * <p>An object that describes the game server group resource, with the
+   *                 <code>SuspendedActions</code> property updated to reflect the suspended
+   *             activity.</p>
+   * @public
+   */
+  GameServerGroup?: GameServerGroup;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that uniquely identifies
+   *             the Amazon GameLift resource that you want to assign tags to. Amazon GameLift includes resource ARNs in
+   *             the data object for the resource. You can retrieve the ARN by calling a
+   *                 <code>List</code> or <code>Describe</code> operation for the resource type. </p>
+   * @public
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of one or more tags to assign to the specified Amazon GameLift resource. Tags are
+   *             developer-defined and structured as key-value pairs. The maximum tag limit may be lower
+   *             than stated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+   *                 Tagging Amazon Web Services Resources</a> for tagging limits.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that uniquely identifies
+   *             the Amazon GameLift resource that you want to remove tags from. Amazon GameLift includes resource ARNs in
+   *             the data object for the resource. You can retrieve the ARN by calling a
+   *                 <code>List</code> or <code>Describe</code> operation for the resource type. </p>
+   * @public
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of one or more tag keys to remove from the specified Amazon GameLift resource. </p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAliasInput {
+  /**
+   * <p>A unique identifier for the alias that you want to update. You can use either the
+   *             alias ID or ARN value.</p>
+   * @public
+   */
+  AliasId: string | undefined;
+
+  /**
+   * <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A human-readable description of the alias.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The routing configuration, including routing type and fleet target, for the
+   *             alias.</p>
+   * @public
+   */
+  RoutingStrategy?: RoutingStrategy;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAliasOutput {
+  /**
+   * <p>The updated alias resource.</p>
+   * @public
+   */
+  Alias?: Alias;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBuildInput {
+  /**
+   * <p>A unique identifier for the build to update. You can use either the build ID or ARN value. </p>
+   * @public
+   */
+  BuildId: string | undefined;
+
+  /**
+   * <p>A descriptive label associated with a build. Build names don't need to be unique. </p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>Version information associated with a build or script. Version strings don't need to be unique.</p>
+   * @public
+   */
+  Version?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBuildOutput {
+  /**
+   * <p>The updated build resource.</p>
+   * @public
+   */
+  Build?: Build;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFleetAttributesInput {
+  /**
+   * <p>A unique identifier for the fleet to update attribute metadata for. You can use either the fleet ID or ARN
+   *             value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A human-readable description of a fleet.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The game session protection policy to apply to all new game sessions created in this
+   *             fleet. Game sessions that already exist are not affected. You can set protection for
+   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>NoProtection</b> -- The game session can be
+   *                     terminated during a scale-down event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FullProtection</b> -- If the game session is in an
+   *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
+   *                     event.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
+
+  /**
+   * <p>Policy settings that limit the number of game sessions an individual player can create
+   *             over a span of time. </p>
+   * @public
+   */
+  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
+
+  /**
+   * <p>The name of a metric group to add this fleet to. Use a metric group in Amazon
+   *             CloudWatch to aggregate the metrics from multiple fleets. Provide an existing metric
+   *             group name, or create a new metric group by providing a new name. A fleet can only be in
+   *             one metric group at a time.</p>
+   * @public
+   */
+  MetricGroups?: string[];
+
+  /**
+   * <p>Amazon GameLift Anywhere configuration options.</p>
+   * @public
+   */
+  AnywhereConfiguration?: AnywhereConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFleetAttributesOutput {
+  /**
+   * <p>A unique identifier for the fleet that was updated.</p>
+   * @public
+   */
+  FleetId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
+   * @public
+   */
+  FleetArn?: string;
+}
 
 /**
  * @public
@@ -580,10 +1310,10 @@ export interface UpdateRuntimeConfigurationInput {
   FleetId: string | undefined;
 
   /**
-   * <p>Instructions for launching server processes on each instance in the fleet. Server
-   *             processes run either a custom game build executable or a Realtime Servers script. The runtime
-   *             configuration lists the types of server processes to run on an instance, how to launch
-   *             them, and the number of processes to run concurrently.</p>
+   * <p>Instructions for launching server processes on fleet computes. Server processes run
+   *             either a custom game build executable or a Realtime Servers script. The runtime configuration lists
+   *             the types of server processes to run, how to launch them, and the number of processes to
+   *             run concurrently.</p>
    * @public
    */
   RuntimeConfiguration: RuntimeConfiguration | undefined;
@@ -594,8 +1324,8 @@ export interface UpdateRuntimeConfigurationInput {
  */
 export interface UpdateRuntimeConfigurationOutput {
   /**
-   * <p>The runtime configuration currently in use by all instances in the fleet. If the
-   *             update was successful, all property changes are shown. </p>
+   * <p>The runtime configuration currently in use by computes in the fleet. If the update is
+   *             successful, all property changes are shown. </p>
    * @public
    */
   RuntimeConfiguration?: RuntimeConfiguration;
@@ -684,6 +1414,79 @@ export interface ValidateMatchmakingRuleSetOutput {
    */
   Valid?: boolean;
 }
+
+/**
+ * @internal
+ */
+export const SearchGameSessionsOutputFilterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
+  ...obj,
+  ...(obj.GameSessions && { GameSessions: obj.GameSessions.map((item) => GameSessionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementInputFilterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
+  ...obj,
+  ...(obj.PlayerLatencies && {
+    PlayerLatencies: obj.PlayerLatencies.map((item) => PlayerLatencyFilterSensitiveLog(item)),
+  }),
+  ...(obj.DesiredPlayerSessions && {
+    DesiredPlayerSessions: obj.DesiredPlayerSessions.map((item) => DesiredPlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementOutputFilterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillInputFilterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillOutputFilterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
+  ...obj,
+  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingInputFilterSensitiveLog = (obj: StartMatchmakingInput): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingOutputFilterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
+  ...obj,
+  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
+});
+
+/**
+ * @internal
+ */
+export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
+});
 
 /**
  * @internal

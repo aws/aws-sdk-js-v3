@@ -10,6 +10,11 @@ import {
 } from "./commands/ClaimGameServerCommand";
 import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateBuildCommand, CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
+import {
+  CreateContainerGroupDefinitionCommand,
+  CreateContainerGroupDefinitionCommandInput,
+  CreateContainerGroupDefinitionCommandOutput,
+} from "./commands/CreateContainerGroupDefinitionCommand";
 import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateFleetLocationsCommand,
@@ -73,6 +78,11 @@ import {
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteBuildCommand, DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
+import {
+  DeleteContainerGroupDefinitionCommand,
+  DeleteContainerGroupDefinitionCommandInput,
+  DeleteContainerGroupDefinitionCommandOutput,
+} from "./commands/DeleteContainerGroupDefinitionCommand";
 import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteFleetLocationsCommand,
@@ -149,6 +159,11 @@ import {
   DescribeComputeCommandInput,
   DescribeComputeCommandOutput,
 } from "./commands/DescribeComputeCommand";
+import {
+  DescribeContainerGroupDefinitionCommand,
+  DescribeContainerGroupDefinitionCommandInput,
+  DescribeContainerGroupDefinitionCommandOutput,
+} from "./commands/DescribeContainerGroupDefinitionCommand";
 import {
   DescribeEC2InstanceLimitsCommand,
   DescribeEC2InstanceLimitsCommandInput,
@@ -302,6 +317,11 @@ import {
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListComputeCommand, ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
+import {
+  ListContainerGroupDefinitionsCommand,
+  ListContainerGroupDefinitionsCommandInput,
+  ListContainerGroupDefinitionsCommandOutput,
+} from "./commands/ListContainerGroupDefinitionsCommand";
 import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommand,
@@ -469,6 +489,7 @@ const commands = {
   ClaimGameServerCommand,
   CreateAliasCommand,
   CreateBuildCommand,
+  CreateContainerGroupDefinitionCommand,
   CreateFleetCommand,
   CreateFleetLocationsCommand,
   CreateGameServerGroupCommand,
@@ -484,6 +505,7 @@ const commands = {
   CreateVpcPeeringConnectionCommand,
   DeleteAliasCommand,
   DeleteBuildCommand,
+  DeleteContainerGroupDefinitionCommand,
   DeleteFleetCommand,
   DeleteFleetLocationsCommand,
   DeleteGameServerGroupCommand,
@@ -500,6 +522,7 @@ const commands = {
   DescribeAliasCommand,
   DescribeBuildCommand,
   DescribeComputeCommand,
+  DescribeContainerGroupDefinitionCommand,
   DescribeEC2InstanceLimitsCommand,
   DescribeFleetAttributesCommand,
   DescribeFleetCapacityCommand,
@@ -533,6 +556,7 @@ const commands = {
   ListAliasesCommand,
   ListBuildsCommand,
   ListComputeCommand,
+  ListContainerGroupDefinitionsCommand,
   ListFleetsCommand,
   ListGameServerGroupsCommand,
   ListGameServersCommand,
@@ -618,6 +642,23 @@ export interface GameLift {
     args: CreateBuildCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBuildCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateContainerGroupDefinitionCommand}
+   */
+  createContainerGroupDefinition(
+    args: CreateContainerGroupDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContainerGroupDefinitionCommandOutput>;
+  createContainerGroupDefinition(
+    args: CreateContainerGroupDefinitionCommandInput,
+    cb: (err: any, data?: CreateContainerGroupDefinitionCommandOutput) => void
+  ): void;
+  createContainerGroupDefinition(
+    args: CreateContainerGroupDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContainerGroupDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -847,6 +888,23 @@ export interface GameLift {
     args: DeleteBuildCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBuildCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteContainerGroupDefinitionCommand}
+   */
+  deleteContainerGroupDefinition(
+    args: DeleteContainerGroupDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContainerGroupDefinitionCommandOutput>;
+  deleteContainerGroupDefinition(
+    args: DeleteContainerGroupDefinitionCommandInput,
+    cb: (err: any, data?: DeleteContainerGroupDefinitionCommandOutput) => void
+  ): void;
+  deleteContainerGroupDefinition(
+    args: DeleteContainerGroupDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContainerGroupDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -1089,6 +1147,23 @@ export interface GameLift {
     args: DescribeComputeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeComputeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeContainerGroupDefinitionCommand}
+   */
+  describeContainerGroupDefinition(
+    args: DescribeContainerGroupDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContainerGroupDefinitionCommandOutput>;
+  describeContainerGroupDefinition(
+    args: DescribeContainerGroupDefinitionCommandInput,
+    cb: (err: any, data?: DescribeContainerGroupDefinitionCommandOutput) => void
+  ): void;
+  describeContainerGroupDefinition(
+    args: DescribeContainerGroupDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContainerGroupDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -1643,6 +1718,24 @@ export interface GameLift {
     args: ListComputeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListComputeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContainerGroupDefinitionsCommand}
+   */
+  listContainerGroupDefinitions(): Promise<ListContainerGroupDefinitionsCommandOutput>;
+  listContainerGroupDefinitions(
+    args: ListContainerGroupDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContainerGroupDefinitionsCommandOutput>;
+  listContainerGroupDefinitions(
+    args: ListContainerGroupDefinitionsCommandInput,
+    cb: (err: any, data?: ListContainerGroupDefinitionsCommandOutput) => void
+  ): void;
+  listContainerGroupDefinitions(
+    args: ListContainerGroupDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContainerGroupDefinitionsCommandOutput) => void
   ): void;
 
   /**

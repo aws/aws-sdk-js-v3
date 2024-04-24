@@ -31,15 +31,16 @@ export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPort
 export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
- *             range of IP addresses and port settings that incoming traffic can use to access server
- *             processes in the fleet. Game sessions that are running on instances in the fleet must
- *             use connections that fall in this range.</p>
- *          <p>This operation can be used in the following ways: </p>
+ * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify IP
+ *             addresses and port settings that incoming traffic can use to access server processes in
+ *             the fleet. Game server processes that are running in the fleet must use a port that
+ *             falls within this range. To connect to game server processes on a container fleet, the
+ *             port settings should include one or more of the fleet's connection ports. </p>
+ *          <p>Use this operation in the following ways: </p>
  *          <ul>
  *             <li>
- *                <p>To retrieve the inbound connection permissions for a fleet, identify the
- *                     fleet's unique identifier. </p>
+ *                <p>To retrieve the port settings for a fleet, identify the fleet's unique
+ *                     identifier. </p>
  *             </li>
  *             <li>
  *                <p>To check the status of recent updates to a fleet remote location, specify the
@@ -48,8 +49,8 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  *             </li>
  *          </ul>
  *          <p>If successful, a set of <code>IpPermission</code> objects is returned for the
- *             requested fleet ID. When a location is specified, a pending status is included. If the
- *             requested fleet has been deleted, the result set is empty.</p>
+ *             requested fleet ID. When specifying a location, this operation returns a pending status.
+ *             If the requested fleet has been deleted, the result set is empty.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>

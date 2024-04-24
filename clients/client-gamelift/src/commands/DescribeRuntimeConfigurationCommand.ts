@@ -32,10 +32,13 @@ export interface DescribeRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
- *             Amazon GameLift which server processes to run (and how) on each instance in the fleet.</p>
- *          <p>To get the runtime configuration that is currently in forces for a fleet, provide the
- *             fleet ID. </p>
+ * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration
+ *             determines which server processes run, and how, on computes in the fleet. For managed
+ *             EC2 fleets, the runtime configuration describes server processes that run on each fleet
+ *             instance. For container fleets, the runtime configuration describes server processes
+ *             that run in each replica container group. You can update a fleet's runtime configuration
+ *             at any time using <a>UpdateRuntimeConfiguration</a>.</p>
+ *          <p>To get the current runtime configuration for a fleet, provide the fleet ID. </p>
  *          <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the
  *             requested fleet. If the requested fleet has been deleted, the result set is
  *             empty.</p>

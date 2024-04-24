@@ -11,7 +11,7 @@ import {
   StartMatchmakingInputFilterSensitiveLog,
   StartMatchmakingOutput,
   StartMatchmakingOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StartMatchmakingCommand, se_StartMatchmakingCommand } from "../protocols/Aws_json1_1";
 
 /**

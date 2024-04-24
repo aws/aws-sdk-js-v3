@@ -26,6 +26,7 @@ export * from "./DescribeScalingPoliciesPaginator";
 export * from "./ListAliasesPaginator";
 export * from "./ListBuildsPaginator";
 export * from "./ListComputePaginator";
+export * from "./ListContainerGroupDefinitionsPaginator";
 export * from "./ListFleetsPaginator";
 export * from "./ListGameServerGroupsPaginator";
 export * from "./ListGameServersPaginator";

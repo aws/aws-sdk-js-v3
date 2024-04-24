@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ResumeGameServerGroupInput, ResumeGameServerGroupOutput } from "../models/models_0";
+import { ResumeGameServerGroupInput } from "../models/models_0";
+import { ResumeGameServerGroupOutput } from "../models/models_1";
 import { de_ResumeGameServerGroupCommand, se_ResumeGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
 /**

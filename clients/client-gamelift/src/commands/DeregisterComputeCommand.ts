@@ -27,8 +27,16 @@ export interface DeregisterComputeCommandInput extends DeregisterComputeInput {}
 export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput, __MetadataBearer {}
 
 /**
- * <p>Removes a compute resource from an Amazon GameLift Anywhere fleet. Deregistered computes can no
- *             longer host game sessions through Amazon GameLift.</p>
+ * <p>
+ *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Removes a compute resource from an Amazon GameLift Anywhere fleet or container fleet.
+ *             Deregistered computes can no longer host game sessions through Amazon GameLift.</p>
+ *          <p>For an Anywhere fleet or a container fleet that's running the Amazon GameLift Agent, the Agent
+ *             handles all compute registry tasks for you. For an Anywhere fleet that doesn't use the
+ *             Agent, call this operation to deregister fleet computes. </p>
+ *          <p>To deregister a compute, call this operation from the compute that's being
+ *             deregistered and specify the compute name and the fleet ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

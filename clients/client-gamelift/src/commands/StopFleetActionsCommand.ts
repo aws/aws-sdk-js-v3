@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StopFleetActionsInput, StopFleetActionsOutput } from "../models/models_0";
+import { StopFleetActionsInput, StopFleetActionsOutput } from "../models/models_1";
 import { de_StopFleetActionsCommand, se_StopFleetActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -46,7 +46,8 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  *             </li>
  *          </ul>
  *          <p>If successful, Amazon GameLift no longer initiates scaling events except in response to manual
- *             changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>.</p>
+ *             changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>. To restart fleet actions again, call
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartFleetActions.html">StartFleetActions</a>.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>

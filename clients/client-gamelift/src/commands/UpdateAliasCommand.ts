@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateAliasInput, UpdateAliasOutput } from "../models/models_0";
+import { UpdateAliasInput, UpdateAliasOutput } from "../models/models_1";
 import { de_UpdateAliasCommand, se_UpdateAliasCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -27,10 +27,9 @@ export interface UpdateAliasCommandInput extends UpdateAliasInput {}
 export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**
- * <p>Updates properties for an alias. To update properties, specify the alias ID to be
- *             updated and provide the information to be changed. To reassign an alias to another
- *             fleet, provide an updated routing strategy. If successful, the updated alias record is
- *             returned.</p>
+ * <p>Updates properties for an alias. Specify the unique identifier of the alias to be
+ *             updated and the new property values. When reassigning an alias to a new fleet, provide
+ *             an updated routing strategy. If successful, the updated alias record is returned.</p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>

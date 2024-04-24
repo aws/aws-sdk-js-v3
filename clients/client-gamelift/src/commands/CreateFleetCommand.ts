@@ -6,7 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { CreateFleetInput, CreateFleetInputFilterSensitiveLog, CreateFleetOutput } from "../models/models_0";
+import {
+  CreateFleetInput,
+  CreateFleetInputFilterSensitiveLog,
+  CreateFleetOutput,
+  CreateFleetOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -27,39 +32,148 @@ export interface CreateFleetCommandInput extends CreateFleetInput {}
 export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your custom game server or
- *             Realtime Servers. Use this operation to configure the computing resources for your fleet and
- *             provide instructions for running game servers on each instance.</p>
- *          <p>Most Amazon GameLift fleets can deploy instances to multiple locations, including the home
- *             Region (where the fleet is created) and an optional set of remote locations. Fleets that
- *             are created in the following Amazon Web Services Regions support multiple locations: us-east-1 (N.
- *             Virginia), us-west-2 (Oregon), eu-central-1 (Frankfurt), eu-west-1 (Ireland),
- *             ap-southeast-2 (Sydney), ap-northeast-1 (Tokyo), and ap-northeast-2 (Seoul). Fleets that
- *             are created in other Amazon GameLift Regions can deploy instances in the fleet's home Region
- *             only. All fleet instances use the same configuration regardless of location; however,
- *             you can adjust capacity settings and turn auto-scaling on/off for each location.</p>
- *          <p>To create a fleet, choose the hardware for your instances, specify a game server build
- *             or Realtime script to deploy, and provide a runtime configuration to direct Amazon GameLift how
- *             to start and run game servers on each instance in the fleet. Set permissions for inbound
- *             traffic to your game servers, and enable optional features as needed. When creating a
- *             multi-location fleet, provide a list of additional remote locations.</p>
- *          <p>If you need to debug your fleet, fetch logs, view performance metrics or other actions
- *             on the fleet, create the development fleet with port 22/3389 open. As a best practice,
- *             we recommend opening ports for remote access only when you need them and closing them
- *             when you're finished. </p>
- *          <p>If successful, this operation creates a new Fleet resource and places it in
- *                 <code>NEW</code> status, which prompts Amazon GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation
- *                 workflow</a>. You can track fleet creation by checking fleet status using <a>DescribeFleetAttributes</a> and <a>DescribeFleetLocationAttributes</a>/, or by monitoring fleet creation events
- *             using <a>DescribeFleetEvents</a>. </p>
- *          <p>When the fleet status changes to <code>ACTIVE</code>, you can enable automatic scaling
- *             with <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>. When the status of each remote location reaches
- *                 <code>ACTIVE</code>, you can set capacity by location using <a>UpdateFleetCapacity</a>.</p>
+ * <p>
+ *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ *          </p>
+ *          <p>Creates a fleet of compute resources to host your game servers. Use this operation to
+ *             set up the following types of fleets based on compute type: </p>
+ *          <p>
+ *             <b>Managed EC2 fleet</b>
+ *          </p>
+ *          <p>An EC2 fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances. Your game server build is
+ *             deployed to each fleet instance. Amazon GameLift manages the fleet's instances and controls the
+ *             lifecycle of game server processes, which host game sessions for players. EC2 fleets can
+ *             have instances in multiple locations. Each instance in the fleet is designated a
+ *                 <code>Compute</code>.</p>
+ *          <p>To create an EC2 fleet, provide these required parameters:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Either <code>BuildId</code> or <code>ScriptId</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ComputeType</code> set to <code>EC2</code> (the default value)</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>EC2InboundPermissions</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>EC2InstanceType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FleetType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Name</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>RuntimeConfiguration</code> with at least one <code>ServerProcesses</code>
+ *                     configuration</p>
+ *             </li>
+ *          </ul>
+ *          <p>If successful, this operation creates a new fleet resource and places it in
+ *                 <code>NEW</code> status while Amazon GameLift initiates the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation workflow</a>. To debug your fleet, fetch logs, view performance
+ *             metrics or other actions on the fleet, create a development fleet with port 22/3389
+ *             open. As a best practice, we recommend opening ports for remote access only when you
+ *             need them and closing them when you're finished. </p>
+ *          <p>When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling
+ *             on/off for each location.</p>
+ *          <p>
+ *             <b>Managed container fleet</b>
+ *          </p>
+ *          <p>A container fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances. Your container architecture
+ *             is deployed to each fleet instance based on the fleet configuration. Amazon GameLift manages the
+ *             containers on each fleet instance and controls the lifecycle of game server processes,
+ *             which host game sessions for players. Container fleets can have instances in multiple
+ *             locations. Each container on an instance that runs game server processes is registered
+ *             as a <code>Compute</code>.</p>
+ *          <p>To create a container fleet, provide these required parameters:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ComputeType</code> set to <code>CONTAINER</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ContainerGroupsConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>EC2InboundPermissions</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>EC2InstanceType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FleetType</code> set to <code>ON_DEMAND</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Name</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>RuntimeConfiguration</code> with at least one <code>ServerProcesses</code>
+ *                     configuration</p>
+ *             </li>
+ *          </ul>
+ *          <p>If successful, this operation creates a new fleet resource and places it in
+ *                 <code>NEW</code> status while Amazon GameLift initiates the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation workflow</a>. </p>
+ *          <p>When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling
+ *             on/off for each location.</p>
+ *          <p>
+ *             <b>Anywhere fleet</b>
+ *          </p>
+ *          <p>An Anywhere fleet represents compute resources that are not owned or managed by
+ *             Amazon GameLift. You might create an Anywhere fleet with your local machine for testing, or use
+ *             one to host game servers with on-premises hardware or other game hosting solutions. </p>
+ *          <p>To create an Anywhere fleet, provide these required parameters:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ComputeType</code> set to <code>ANYWHERE</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Locations</code> specifying a custom location</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Name</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>If successful, this operation creates a new fleet resource and places it in
+ *                 <code>ACTIVE</code> status. You can register computes with a fleet in
+ *                 <code>ACTIVE</code> status. </p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up
  *             fleets</a>
+ *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-build-fleet.html">Setting up a container fleet</a>
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug fleet creation issues</a>
@@ -129,11 +243,21 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
- *   ComputeType: "EC2" || "ANYWHERE",
+ *   ComputeType: "EC2" || "ANYWHERE" || "CONTAINER",
  *   AnywhereConfiguration: { // AnywhereConfiguration
  *     Cost: "STRING_VALUE", // required
  *   },
  *   InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
+ *   ContainerGroupsConfiguration: { // ContainerGroupsConfiguration
+ *     ContainerGroupDefinitionNames: [ // ContainerGroupDefinitionNameOrArnLimitedList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     ConnectionPortRange: { // ConnectionPortRange
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *     },
+ *     DesiredReplicaContainerGroupsPerInstance: Number("int"),
+ *   },
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
@@ -173,11 +297,27 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //     CertificateConfiguration: { // CertificateConfiguration
  * //       CertificateType: "DISABLED" || "GENERATED", // required
  * //     },
- * //     ComputeType: "EC2" || "ANYWHERE",
+ * //     ComputeType: "EC2" || "ANYWHERE" || "CONTAINER",
  * //     AnywhereConfiguration: { // AnywhereConfiguration
  * //       Cost: "STRING_VALUE", // required
  * //     },
  * //     InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
+ * //     ContainerGroupsAttributes: { // ContainerGroupsAttributes
+ * //       ContainerGroupDefinitionProperties: [ // ContainerGroupDefinitionPropertiesList
+ * //         { // ContainerGroupDefinitionProperty
+ * //           SchedulingStrategy: "REPLICA" || "DAEMON",
+ * //           ContainerGroupDefinitionName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ConnectionPortRange: { // ConnectionPortRange
+ * //         FromPort: Number("int"), // required
+ * //         ToPort: Number("int"), // required
+ * //       },
+ * //       ContainerGroupsPerInstance: { // ContainerGroupsPerInstance
+ * //         DesiredReplicaContainerGroupsPerInstance: Number("int"),
+ * //         MaxReplicaContainerGroupsPerInstance: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * //   LocationStates: [ // LocationStateList
  * //     { // LocationState
@@ -216,6 +356,11 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * @throws {@link NotFoundException} (client fault)
  *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
  *
+ * @throws {@link NotReadyException} (client fault)
+ *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
+ *       recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
+ *         backoffs and jitter</a>. </p>
+ *
  * @throws {@link TaggingFailedException} (client fault)
  *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
  *             or the maximum tag limit may have been exceeded. Resolve the issue before
@@ -251,7 +396,7 @@ export class CreateFleetCommand extends $Command
   })
   .s("GameLift", "CreateFleet", {})
   .n("GameLiftClient", "CreateFleetCommand")
-  .f(CreateFleetInputFilterSensitiveLog, void 0)
+  .f(CreateFleetInputFilterSensitiveLog, CreateFleetOutputFilterSensitiveLog)
   .ser(se_CreateFleetCommand)
   .de(de_CreateFleetCommand)
   .build() {}

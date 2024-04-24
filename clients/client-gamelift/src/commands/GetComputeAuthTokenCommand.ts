@@ -27,12 +27,26 @@ export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInpu
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Requests an authentication token from Amazon GameLift for a registered compute in an Anywhere
- *             fleet. The game servers that are running on the compute use this token to authenticate
- *             with the Amazon GameLift service. Each server process must provide a valid authentication token
- *             in its call to the Amazon GameLift server SDK action <code>InitSDK()</code>.</p>
- *          <p>Authentication tokens are valid for a limited time span. Use a mechanism to regularly
- *             request a fresh authentication token before the current token expires.</p>
+ * <p>Requests an authentication token from Amazon GameLift for a compute resource in an Amazon GameLift
+ *             Anywhere fleet or container fleet. Game servers that are running on the compute use this
+ *             token to communicate with the Amazon GameLift service, such as when calling the Amazon GameLift server
+ *             SDK action <code>InitSDK()</code>. Authentication tokens are valid for a limited time
+ *             span, so you need to request a fresh token before the current token expires.</p>
+ *          <p>Use this operation based on the fleet compute type:</p>
+ *          <ul>
+ *             <li>
+ *                <p>For <code>EC2</code> fleets, auth token retrieval and refresh is handled
+ *                     automatically. All game servers that are running on all fleet instances have
+ *                     access to a valid auth token.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <code>ANYWHERE</code> and <code>CONTAINER</code> fleets, if you're using
+ *                     the Amazon GameLift Agent, auth token retrieval and refresh is handled automatically for
+ *                     any container or Anywhere compute where the Agent is running. If you're not
+ *                     using the Agent, create a mechanism to retrieve and refresh auth tokens for
+ *                     computes that are running game server processes. </p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Learn more</b>
  *          </p>

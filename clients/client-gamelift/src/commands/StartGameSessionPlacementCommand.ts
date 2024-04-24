@@ -11,7 +11,7 @@ import {
   StartGameSessionPlacementInputFilterSensitiveLog,
   StartGameSessionPlacementOutput,
   StartGameSessionPlacementOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StartGameSessionPlacementCommand, se_StartGameSessionPlacementCommand } from "../protocols/Aws_json1_1";
 
 /**

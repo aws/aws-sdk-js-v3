@@ -10,7 +10,7 @@ import {
   StopGameSessionPlacementInput,
   StopGameSessionPlacementOutput,
   StopGameSessionPlacementOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StopGameSessionPlacementCommand, se_StopGameSessionPlacementCommand } from "../protocols/Aws_json1_1";
 
 /**

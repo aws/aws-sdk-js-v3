@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetAttributesInput, UpdateFleetAttributesOutput } from "../models/models_0";
+import { UpdateFleetAttributesInput, UpdateFleetAttributesOutput } from "../models/models_1";
 import { de_UpdateFleetAttributesCommand, se_UpdateFleetAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -27,11 +27,10 @@ export interface UpdateFleetAttributesCommandInput extends UpdateFleetAttributes
 export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a fleet's mutable attributes, including game session protection and resource
+ * <p>Updates a fleet's mutable attributes, such as game session protection and resource
  *             creation limits.</p>
  *          <p>To update fleet attributes, specify the fleet ID and the property values that you want
- *             to change. </p>
- *          <p>If successful, an updated <code>FleetAttributes</code> object is returned.</p>
+ *             to change. If successful, Amazon GameLift returns the identifiers for the updated fleet.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>

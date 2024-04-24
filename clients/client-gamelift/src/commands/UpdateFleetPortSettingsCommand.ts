@@ -31,13 +31,15 @@ export interface UpdateFleetPortSettingsCommandInput extends UpdateFleetPortSett
 export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Updates permissions that allow inbound traffic to connect to game sessions that are
- *             being hosted on instances in the fleet. </p>
+ * <p>Updates permissions that allow inbound traffic to connect to game sessions in the
+ *             fleet. </p>
  *          <p>To update settings, specify the fleet ID to be updated and specify the changes to be
  *             made. List the permissions you want to add in
  *                 <code>InboundPermissionAuthorizations</code>, and permissions you want to remove in
  *                 <code>InboundPermissionRevocations</code>. Permissions to be removed must match
  *             existing fleet permissions. </p>
+ *          <p>For a container fleet, inbound permissions must specify port numbers that are defined
+ *             in the fleet's connection port settings.</p>
  *          <p>If successful, the fleet ID for the updated fleet is returned. For fleets with remote
  *             locations, port setting updates can take time to propagate across all locations. You can
  *             check the status of updates in each location by calling

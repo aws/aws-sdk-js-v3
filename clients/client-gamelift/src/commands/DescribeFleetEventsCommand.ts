@@ -66,6 +66,7 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * //       Message: "STRING_VALUE",
  * //       EventTime: new Date("TIMESTAMP"),
  * //       PreSignedLogUrl: "STRING_VALUE",
+ * //       Count: Number("long"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
