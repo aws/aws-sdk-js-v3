@@ -47489,6 +47489,9 @@ const se_ModifyNetworkInterfaceAttributeRequest = (
       entries[loc] = value;
     });
   }
+  if (input[_APIAs] != null) {
+    entries[_APIAs] = input[_APIAs];
+  }
   return entries;
 };
 
@@ -62721,6 +62724,9 @@ const de_DescribeNetworkInterfaceAttributeResult = (
   }
   if (output[_sDC] != null) {
     contents[_SDC] = de_AttributeBooleanValue(output[_sDC], context);
+  }
+  if (output[_aPIA] != null) {
+    contents[_APIAs] = __parseBoolean(output[_aPIA]);
   }
   return contents;
 };

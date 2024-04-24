@@ -67,6 +67,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  *     UdpStreamTimeout: Number("int"),
  *     UdpTimeout: Number("int"),
  *   },
+ *   AssociatePublicIpAddress: true || false,
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
