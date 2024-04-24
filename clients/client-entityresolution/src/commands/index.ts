@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AddPolicyStatementCommand";
+export * from "./BatchDeleteUniqueIdCommand";
 export * from "./CreateIdMappingWorkflowCommand";
 export * from "./CreateIdNamespaceCommand";
 export * from "./CreateMatchingWorkflowCommand";

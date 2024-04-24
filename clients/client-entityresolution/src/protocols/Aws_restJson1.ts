@@ -33,6 +33,10 @@ import {
 
 import { AddPolicyStatementCommandInput, AddPolicyStatementCommandOutput } from "../commands/AddPolicyStatementCommand";
 import {
+  BatchDeleteUniqueIdCommandInput,
+  BatchDeleteUniqueIdCommandOutput,
+} from "../commands/BatchDeleteUniqueIdCommand";
+import {
   CreateIdMappingWorkflowCommandInput,
   CreateIdMappingWorkflowCommandOutput,
 } from "../commands/CreateIdMappingWorkflowCommand";
@@ -173,6 +177,28 @@ export const se_AddPolicyStatementCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchDeleteUniqueIdCommand
+ */
+export const se_BatchDeleteUniqueIdCommand = async (
+  input: BatchDeleteUniqueIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_i]: input[_iS]!,
+    [_u]: [
+      () => isSerializableHeaderValue(input[_uI]),
+      () => (input[_uI]! || []).map((_entry) => _entry as any).join(", "),
+    ],
+  });
+  b.bp("/matchingworkflows/{workflowName}/uniqueids");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -905,6 +931,30 @@ export const de_AddPolicyStatementCommand = async (
     arn: __expectString,
     policy: __expectString,
     token: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDeleteUniqueIdCommand
+ */
+export const de_BatchDeleteUniqueIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteUniqueIdCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    deleted: _json,
+    disconnectedUniqueIds: _json,
+    errors: _json,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2064,6 +2114,16 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_AwsAccountIdList omitted.
 
+// de_DeletedUniqueId omitted.
+
+// de_DeletedUniqueIdList omitted.
+
+// de_DeleteUniqueIdError omitted.
+
+// de_DeleteUniqueIdErrorsList omitted.
+
+// de_DisconnectedUniqueIdsList omitted.
+
 // de_ErrorDetails omitted.
 
 // de_IdMappingJobMetrics omitted.
@@ -2376,7 +2436,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _i = "inputsource";
+const _iS = "inputSource";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _pN = "providerName";
 const _tK = "tagKeys";
+const _u = "uniqueids";
+const _uI = "uniqueIds";

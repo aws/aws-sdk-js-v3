@@ -55,6 +55,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { AddPolicyStatementCommandInput, AddPolicyStatementCommandOutput } from "./commands/AddPolicyStatementCommand";
 import {
+  BatchDeleteUniqueIdCommandInput,
+  BatchDeleteUniqueIdCommandOutput,
+} from "./commands/BatchDeleteUniqueIdCommand";
+import {
   CreateIdMappingWorkflowCommandInput,
   CreateIdMappingWorkflowCommandOutput,
 } from "./commands/CreateIdMappingWorkflowCommand";
@@ -153,6 +157,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddPolicyStatementCommandInput
+  | BatchDeleteUniqueIdCommandInput
   | CreateIdMappingWorkflowCommandInput
   | CreateIdNamespaceCommandInput
   | CreateMatchingWorkflowCommandInput
@@ -194,6 +199,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddPolicyStatementCommandOutput
+  | BatchDeleteUniqueIdCommandOutput
   | CreateIdMappingWorkflowCommandOutput
   | CreateIdNamespaceCommandOutput
   | CreateMatchingWorkflowCommandOutput

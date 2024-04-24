@@ -8,6 +8,11 @@ import {
   AddPolicyStatementCommandOutput,
 } from "./commands/AddPolicyStatementCommand";
 import {
+  BatchDeleteUniqueIdCommand,
+  BatchDeleteUniqueIdCommandInput,
+  BatchDeleteUniqueIdCommandOutput,
+} from "./commands/BatchDeleteUniqueIdCommand";
+import {
   CreateIdMappingWorkflowCommand,
   CreateIdMappingWorkflowCommandInput,
   CreateIdMappingWorkflowCommandOutput,
@@ -170,6 +175,7 @@ import { EntityResolutionClient, EntityResolutionClientConfig } from "./EntityRe
 
 const commands = {
   AddPolicyStatementCommand,
+  BatchDeleteUniqueIdCommand,
   CreateIdMappingWorkflowCommand,
   CreateIdNamespaceCommand,
   CreateMatchingWorkflowCommand,
@@ -223,6 +229,23 @@ export interface EntityResolution {
     args: AddPolicyStatementCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddPolicyStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteUniqueIdCommand}
+   */
+  batchDeleteUniqueId(
+    args: BatchDeleteUniqueIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteUniqueIdCommandOutput>;
+  batchDeleteUniqueId(
+    args: BatchDeleteUniqueIdCommandInput,
+    cb: (err: any, data?: BatchDeleteUniqueIdCommandOutput) => void
+  ): void;
+  batchDeleteUniqueId(
+    args: BatchDeleteUniqueIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteUniqueIdCommandOutput) => void
   ): void;
 
   /**

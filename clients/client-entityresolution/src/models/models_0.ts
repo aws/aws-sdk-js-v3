@@ -242,6 +242,116 @@ export type AttributeMatchingModel = (typeof AttributeMatchingModel)[keyof typeo
 
 /**
  * @public
+ */
+export interface BatchDeleteUniqueIdInput {
+  /**
+   * <p>The name of the workflow.</p>
+   * @public
+   */
+  workflowName: string | undefined;
+
+  /**
+   * <p>The input source for the batch delete unique ID operation.</p>
+   * @public
+   */
+  inputSource?: string;
+
+  /**
+   * <p>The unique IDs to delete.</p>
+   * @public
+   */
+  uniqueIds: string[] | undefined;
+}
+
+/**
+ * <p>The deleted unique ID.</p>
+ * @public
+ */
+export interface DeletedUniqueId {
+  /**
+   * <p> The unique ID of the deleted item.</p>
+   * @public
+   */
+  uniqueId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeleteUniqueIdErrorType = {
+  SERVICE_ERROR: "SERVICE_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteUniqueIdErrorType = (typeof DeleteUniqueIdErrorType)[keyof typeof DeleteUniqueIdErrorType];
+
+/**
+ * <p>The Delete Unique Id error.</p>
+ * @public
+ */
+export interface DeleteUniqueIdError {
+  /**
+   * <p>The unique ID that could not be deleted.</p>
+   * @public
+   */
+  uniqueId: string | undefined;
+
+  /**
+   * <p> The error type for the batch delete unique ID operation.</p>
+   * @public
+   */
+  errorType: DeleteUniqueIdErrorType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeleteUniqueIdStatus = {
+  ACCEPTED: "ACCEPTED",
+  COMPLETED: "COMPLETED",
+} as const;
+
+/**
+ * @public
+ */
+export type DeleteUniqueIdStatus = (typeof DeleteUniqueIdStatus)[keyof typeof DeleteUniqueIdStatus];
+
+/**
+ * @public
+ */
+export interface BatchDeleteUniqueIdOutput {
+  /**
+   * <p>The status of the batch delete unique ID operation.</p>
+   * @public
+   */
+  status: DeleteUniqueIdStatus | undefined;
+
+  /**
+   * <p> The errors from deleting multiple unique IDs.</p>
+   * @public
+   */
+  errors: DeleteUniqueIdError[] | undefined;
+
+  /**
+   * <p>The unique IDs that were deleted.</p>
+   * @public
+   */
+  deleted: DeletedUniqueId[] | undefined;
+
+  /**
+   * <p>The unique IDs that were disconnected.</p>
+   * @public
+   */
+  disconnectedUniqueIds: string[] | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const IdMappingType = {

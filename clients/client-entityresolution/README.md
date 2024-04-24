@@ -223,6 +223,14 @@ AddPolicyStatement
 </details>
 <details>
 <summary>
+BatchDeleteUniqueId
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/BatchDeleteUniqueIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/BatchDeleteUniqueIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/BatchDeleteUniqueIdCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateIdMappingWorkflow
 </summary>
 
