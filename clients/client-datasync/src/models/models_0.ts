@@ -211,9 +211,6 @@ export class InvalidRequestException extends __BaseException {
 export interface Platform {
   /**
    * <p>The version of the DataSync agent.</p>
-   *          <important>
-   *             <p>On December 7, 2023, we discontinued version 1 DataSync agents. Check the DataSync console to see if you have affected agents. If you do, <a href="https://docs.aws.amazon.com/datasync/latest/userguide/replacing-agent.html">replace</a> those agents or <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deleting-agent.html">delete</a> them if they aren't in use. If you need more help, contact <a href="https://aws.amazon.com/contact-us/">Amazon Web Services Support</a>.</p>
-   *          </important>
    * @public
    */
   Version?: string;
@@ -2061,8 +2058,8 @@ export type VerifyMode = (typeof VerifyMode)[keyof typeof VerifyMode];
  * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
  *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
  *       options.</p>
- *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
- *       these options before starting your task.</p>
+ *          <p>Each option has a default value. Unless you need to, you don't have to configure any option before calling <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
+ *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
  * @public
  */
 export interface Options {
@@ -2086,6 +2083,8 @@ export interface Options {
    *                   <code>POINT_IN_TIME_CONSISTENT</code> (default) - At the end of the transfer,
    *             DataSync scans the entire source and destination to verify that both locations
    *           are fully synchronized.</p>
+   *                <p>If you use a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">manifest</a>, DataSync only scans and
+   *           verifies what's listed in the manifest.</p>
    *                <p>You can't use this option when transferring to S3 Glacier Flexible Retrieval
    *           or S3 Glacier Deep Archive storage classes. For more information, see
    *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
@@ -2410,18 +2409,44 @@ export interface Options {
 }
 
 /**
- * <p>Specifies the schedule you want your task to use for repeated executions. For more
- *       information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for
- *         Rules</a>.</p>
+ * @public
+ * @enum
+ */
+export const ScheduleStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
+
+/**
+ * <p>Configures your DataSync task to run on a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">schedule</a>
+ *       (at a minimum interval of 1 hour).</p>
  * @public
  */
 export interface TaskSchedule {
   /**
-   * <p>A cron expression that specifies when DataSync initiates a scheduled
-   *       transfer from a source to a destination location. </p>
+   * <p>Specifies your task schedule by using a cron expression in UTC time. For information about
+   *       cron expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html">
+   *                <i>Amazon EventBridge User
+   *           Guide</i>
+   *             </a>.</p>
    * @public
    */
   ScheduleExpression: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable your task schedule. Your schedule is enabled by
+   *       default, but there can be situations where you need to disable it. For example,
+   *       you might need to pause a recurring transfer or fix an issue with your task or perform maintenance on your storage system.</p>
+   *          <p>DataSync might disable your schedule automatically if your task fails repeatedly
+   *       with the same error. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_TaskScheduleDetails.html">TaskScheduleDetails</a>.</p>
+   * @public
+   */
+  Status?: ScheduleStatus;
 }
 
 /**
@@ -2621,59 +2646,53 @@ export interface TaskReportConfig {
  */
 export interface CreateTaskRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source location for the task.</p>
+   * <p>Specifies the ARN of your transfer's source location.</p>
    * @public
    */
   SourceLocationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services storage resource's location.
-   *     </p>
+   * <p>Specifies the ARN of your transfer's destination location. </p>
    * @public
    */
   DestinationLocationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to
-   *       monitor and log events in the task. </p>
+   * <p>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for
+   *       monitoring your task.</p>
    * @public
    */
   CloudWatchLogGroupArn?: string;
 
   /**
-   * <p>The name of a task. This value is a text reference that is used to identify the task in
-   *       the console. </p>
+   * <p>Specifies the name of your task.</p>
    * @public
    */
   Name?: string;
 
   /**
-   * <p>Specifies the configuration options for a task. Some options include preserving file or
-   *       object metadata and verifying data integrity.</p>
-   *          <p>You can also override these options before starting an individual run of a task (also
-   *       known as a <i>task execution</i>). For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
+   * <p>Specifies your task's settings, such as preserving file metadata, verifying data
+   *       integrity, among other options.</p>
    * @public
    */
   Options?: Options;
 
   /**
-   * <p>Specifies a list of filter rules that exclude specific data during your transfer. For more
-   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
+   * <p>Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more
+   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
   Excludes?: FilterRule[];
 
   /**
-   * <p>Specifies a schedule used to periodically transfer files from a source to a destination
-   *       location. The schedule should be specified in UTC time. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your
+   * <p>Specifies a schedule for when you want your task to run. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your
    *         task</a>.</p>
    * @public
    */
   Schedule?: TaskSchedule;
 
   /**
-   * <p>Specifies the tags that you want to apply to the Amazon Resource Name (ARN)
-   *       representing the task.</p>
+   * <p>Specifies the tags that you want to apply to your task.</p>
    *          <p>
    *             <i>Tags</i> are key-value pairs that help you manage, filter, and search
    *       for your DataSync resources.</p>
@@ -2682,8 +2701,8 @@ export interface CreateTaskRequest {
   Tags?: TagListEntry[];
 
   /**
-   * <p>Specifies a list of filter rules that include specific data during your transfer. For more
-   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
+   * <p>Specifies include filters define the files, objects, and folders in your source location
+   *       that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
   Includes?: FilterRule[];
@@ -4506,10 +4525,66 @@ export interface DescribeStorageSystemResourcesResponse {
  */
 export interface DescribeTaskRequest {
   /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the transfer task.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the transfer task that you want information
+   *       about.</p>
    * @public
    */
   TaskArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleDisabledBy = {
+  SERVICE: "SERVICE",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduleDisabledBy = (typeof ScheduleDisabledBy)[keyof typeof ScheduleDisabledBy];
+
+/**
+ * <p>Provides information about your DataSync
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">task schedule</a>.</p>
+ * @public
+ */
+export interface TaskScheduleDetails {
+  /**
+   * <p>Indicates the last time the status of your task schedule changed. For example, if DataSync automatically disables your schedule because of a repeated error, you can see
+   *       when the schedule was disabled.</p>
+   * @public
+   */
+  StatusUpdateTime?: Date;
+
+  /**
+   * <p>Provides a reason if the task schedule is disabled.</p>
+   *          <p>If your schedule is disabled by <code>USER</code>, you see a <code>Manually disabled by user.</code> message.</p>
+   *          <p>If your schedule is disabled by <code>SERVICE</code>, you see an error message to help you
+   *       understand why the task keeps failing. For information on resolving DataSync errors,
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">Troubleshooting issues with DataSync transfers</a>.</p>
+   * @public
+   */
+  DisabledReason?: string;
+
+  /**
+   * <p>Indicates how your task schedule was disabled.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>USER</code> - Your schedule was manually disabled by using the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateTask.html">UpdateTask</a> operation or DataSync console.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SERVICE</code> - Your schedule was automatically disabled by DataSync
+   *           because the task failed repeatedly with the same error.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DisabledBy?: ScheduleDisabledBy;
 }
 
 /**
@@ -4535,104 +4610,95 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  */
 export interface DescribeTaskResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the task that was described.</p>
+   * <p>The ARN of your task.</p>
    * @public
    */
   TaskArn?: string;
 
   /**
-   * <p>The status of the task that was described.</p>
-   *          <p>For detailed information about task execution statuses, see Understanding
-   *       Task Statuses in the <i>DataSync User Guide</i>.</p>
+   * <p>The status of your task. For information about what each status means, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-task-statuses.html#understand-task-creation-statuses">Task statuses</a>.</p>
    * @public
    */
   Status?: TaskStatus;
 
   /**
-   * <p>The name of the task that was described.</p>
+   * <p>The name of your task.</p>
    * @public
    */
   Name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the task execution that is transferring
-   *       files.</p>
+   * <p>The ARN of the most recent task execution.</p>
    * @public
    */
   CurrentTaskExecutionArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source file system's location.</p>
+   * <p>The ARN of your transfer's source location.</p>
    * @public
    */
   SourceLocationArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services storage resource's
-   *       location.</p>
+   * <p>The ARN of your transfer's destination location.</p>
    * @public
    */
   DestinationLocationArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that was used to
-   *       monitor and log events in the task.</p>
-   *          <p>For more information on these groups, see Working with Log Groups and Log
-   *       Streams in the <i>Amazon CloudWatch User Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring your
+   *       task.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/monitor-datasync.html">Monitoring DataSync with
+   *       Amazon CloudWatch</a>.</p>
    * @public
    */
   CloudWatchLogGroupArn?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the network interfaces created for your source
-   *       location. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">Network
-   *         interface requirements</a>.</p>
+   * <p>The ARNs of the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
+   *         interfaces</a> that DataSync created for your source location.</p>
    * @public
    */
   SourceNetworkInterfaceArns?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the network interfaces created for your destination
-   *       location. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">Network
-   *         interface requirements</a>.</p>
+   * <p>The ARNs of the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
+   *         interfaces</a> that DataSync created for your destination location.</p>
    * @public
    */
   DestinationNetworkInterfaceArns?: string[];
 
   /**
-   * <p>The configuration options that control the behavior of the
-   *         <code>StartTaskExecution</code> operation. Some options include preserving file or object
-   *       metadata and verifying data integrity.</p>
-   *          <p>You can override these options for each task execution. For more information, see
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
+   * <p>The task's settings. For example, what file metadata gets preserved, how data integrity
+   *       gets verified at the end of your transfer, bandwidth limits, among other options.</p>
    * @public
    */
   Options?: Options;
 
   /**
-   * <p>A list of filter rules that exclude specific data during your transfer. For more
-   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
+   * <p>The exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more
+   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
   Excludes?: FilterRule[];
 
   /**
-   * <p>The schedule used to periodically transfer files from a source to a destination
-   *       location.</p>
+   * <p>The schedule for when you want your task to run. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your
+   *       task</a>.</p>
    * @public
    */
   Schedule?: TaskSchedule;
 
   /**
-   * <p>Errors that DataSync encountered during execution of the task. You can
-   *       use this error code to help troubleshoot issues.</p>
+   * <p>If there's an issue with your task, you can use the error code to help you troubleshoot
+   *       the problem. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">Troubleshooting issues with DataSync transfers</a>.</p>
    * @public
    */
   ErrorCode?: string;
 
   /**
-   * <p>Detailed description of an error that was encountered during the task execution. You
-   *       can use this information to help troubleshoot issues. </p>
+   * <p>If there's an issue with your task, you can use the error details to help you
+   *       troubleshoot the problem. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/troubleshooting-datasync-locations-tasks.html">Troubleshooting issues with DataSync transfers</a>.</p>
    * @public
    */
   ErrorDetail?: string;
@@ -4644,25 +4710,31 @@ export interface DescribeTaskResponse {
   CreationTime?: Date;
 
   /**
-   * <p>A list of filter rules that include specific data during your transfer. For more
-   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
+   * <p>The include filters that define the files, objects, and folders in your source location
+   *       that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
   Includes?: FilterRule[];
 
   /**
-   * <p>The configuration of the manifest that lists the files or objects to transfer. For more
-   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+   * <p>The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
    * @public
    */
   ManifestConfig?: ManifestConfig;
 
   /**
-   * <p>The configuration of your task report, which provides detailed information about for your
-   *         DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Creating a task report</a>.</p>
+   * <p>The configuration of your task report, which provides detailed information about your
+   *         DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Monitoring your DataSync
+   *         transfers with task reports</a>.</p>
    * @public
    */
   TaskReportConfig?: TaskReportConfig;
+
+  /**
+   * <p>The details about your <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">task schedule</a>.</p>
+   * @public
+   */
+  ScheduleDetails?: TaskScheduleDetails;
 }
 
 /**
@@ -4834,8 +4906,8 @@ export interface DescribeTaskExecutionResponse {
    * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
    *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
-   *       these options before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any option before calling <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
+   *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
    * @public
    */
   Options?: Options;
@@ -5627,8 +5699,8 @@ export interface StartTaskExecutionRequest {
    * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
    *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
-   *       these options before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any option before calling <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
+   *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
    * @public
    */
   OverrideOptions?: Options;
@@ -6186,7 +6258,7 @@ export interface UpdateStorageSystemResponse {}
  */
 export interface UpdateTaskRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource name of the task to update.</p>
+   * <p>Specifies the ARN of the task that you want to update.</p>
    * @public
    */
   TaskArn: string | undefined;
@@ -6195,44 +6267,42 @@ export interface UpdateTaskRequest {
    * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
    *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
-   *       these options before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any option before calling <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
+   *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
    * @public
    */
   Options?: Options;
 
   /**
-   * <p>Specifies a list of filter rules that exclude specific data during your transfer. For more
-   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
+   * <p>Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more
+   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
   Excludes?: FilterRule[];
 
   /**
-   * <p>Specifies a schedule used to periodically transfer files from a source to a destination
-   *       location. You can configure your task to execute hourly, daily, weekly or on specific days of
-   *       the week. You control when in the day or hour you want the task to execute. The time you
-   *       specify is UTC time. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your task</a>.</p>
+   * <p>Specifies a schedule for when you want your task to run. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your
+   *       task</a>.</p>
    * @public
    */
   Schedule?: TaskSchedule;
 
   /**
-   * <p>The name of the task to update.</p>
+   * <p>Specifies the name of your task.</p>
    * @public
    */
   Name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource name of the Amazon CloudWatch log
-   *       group.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for
+   *       monitoring your task.</p>
    * @public
    */
   CloudWatchLogGroupArn?: string;
 
   /**
-   * <p>Specifies a list of filter rules that include specific data during your transfer. For more
-   *       information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering data transferred by DataSync</a>.</p>
+   * <p>Specifies include filters define the files, objects, and folders in your source location
+   *       that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying what DataSync transfers by using filters</a>.</p>
    * @public
    */
   Includes?: FilterRule[];
@@ -6276,8 +6346,8 @@ export interface UpdateTaskExecutionRequest {
    * <p>Indicates how your transfer task is configured. These options include how DataSync handles files, objects, and their associated metadata during your transfer. You
    *       also can specify how to verify data integrity, set bandwidth limits for your task, among other
    *       options.</p>
-   *          <p>Each option has a default value. Unless you need to, you don't have to configure any of
-   *       these options before starting your task.</p>
+   *          <p>Each option has a default value. Unless you need to, you don't have to configure any option before calling <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
+   *          <p>You also can override your task options for each task execution. For example, you might want to adjust the <code>LogLevel</code> for an individual execution.</p>
    * @public
    */
   Options: Options | undefined;

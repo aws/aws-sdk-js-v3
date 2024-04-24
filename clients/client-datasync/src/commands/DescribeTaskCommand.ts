@@ -27,7 +27,7 @@ export interface DescribeTaskCommandInput extends DescribeTaskRequest {}
 export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about an DataSync transfer task.</p>
+ * <p>Provides information about a <i>task</i>, which defines where and how DataSync transfers your data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +78,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * //   ],
  * //   Schedule: { // TaskSchedule
  * //     ScheduleExpression: "STRING_VALUE", // required
+ * //     Status: "ENABLED" || "DISABLED",
  * //   },
  * //   ErrorCode: "STRING_VALUE",
  * //   ErrorDetail: "STRING_VALUE",
@@ -125,6 +126,11 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * //         ReportLevel: "ERRORS_ONLY" || "SUCCESSES_AND_ERRORS",
  * //       },
  * //     },
+ * //   },
+ * //   ScheduleDetails: { // TaskScheduleDetails
+ * //     StatusUpdateTime: new Date("TIMESTAMP"),
+ * //     DisabledReason: "STRING_VALUE",
+ * //     DisabledBy: "USER" || "SERVICE",
  * //   },
  * // };
  *

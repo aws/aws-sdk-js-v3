@@ -283,6 +283,7 @@ import {
   TaskFilter,
   TaskReportConfig,
   TaskSchedule,
+  TaskScheduleDetails,
   Throughput,
   UntagResourceRequest,
   UpdateAgentRequest,
@@ -3085,6 +3086,7 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
     Name: __expectString,
     Options: _json,
     Schedule: _json,
+    ScheduleDetails: (_: any) => de_TaskScheduleDetails(_, context),
     SourceLocationArn: __expectString,
     SourceNetworkInterfaceArns: _json,
     Status: __expectString,
@@ -3412,6 +3414,17 @@ const de_ResourceMetrics = (output: any, context: __SerdeContext): ResourceMetri
 // de_TaskReportConfig omitted.
 
 // de_TaskSchedule omitted.
+
+/**
+ * deserializeAws_json1_1TaskScheduleDetails
+ */
+const de_TaskScheduleDetails = (output: any, context: __SerdeContext): TaskScheduleDetails => {
+  return take(output, {
+    DisabledBy: __expectString,
+    DisabledReason: __expectString,
+    StatusUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1Throughput
