@@ -10,6 +10,7 @@ export interface StaticCredsProfile extends Profile {
   aws_secret_access_key: string;
   aws_session_token?: string;
   aws_credential_scope?: string;
+  aws_account_id?: string;
 }
 
 /**
@@ -35,5 +36,6 @@ export const resolveStaticCredentials = (
     secretAccessKey: profile.aws_secret_access_key,
     sessionToken: profile.aws_session_token,
     credentialScope: profile.aws_credential_scope,
+    accountId: profile.aws_account_id,
   });
 };
