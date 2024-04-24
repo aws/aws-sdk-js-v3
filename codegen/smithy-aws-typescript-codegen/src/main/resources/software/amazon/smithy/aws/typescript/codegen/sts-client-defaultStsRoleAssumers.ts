@@ -81,7 +81,7 @@ export const getDefaultRoleAssumer = (
         logger: logger as any,
       });
     }
-    const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
+    const { Credentials, AssumedRoleUser } = await stsClient.send(new AssumeRoleCommand(params));
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new Error(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
     }
@@ -92,6 +92,7 @@ export const getDefaultRoleAssumer = (
       expiration: Credentials.Expiration,
       // TODO(credentialScope): access normally when shape is updated.
       credentialScope: (Credentials as any).CredentialScope,
+      accountId: AssumedRoleUser.Arn.split(":")[4],
     };
   };
 };
@@ -131,7 +132,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
         logger: logger as any,
       });
     }
-    const { Credentials } = await stsClient.send(new AssumeRoleWithWebIdentityCommand(params));
+    const { Credentials, AssumedRoleUser } = await stsClient.send(new AssumeRoleWithWebIdentityCommand(params));
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new Error(`Invalid response from STS.assumeRoleWithWebIdentity call with role ${params.RoleArn}`);
     }
@@ -142,6 +143,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       expiration: Credentials.Expiration,
       // TODO(credentialScope): access normally when shape is updated.
       credentialScope: (Credentials as any).CredentialScope,
+      accountId: AssumedRoleUser.Arn.split(":")[4],
     };
   };
 };
