@@ -437,7 +437,7 @@ Retrieves credentials from STS web identity federation support.
 
 ## S3 Multipart Upload
 
-In v2, the S3 client contains an [`upload()`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property)
+In v2, the S3 client has the `ManagedUpload` class that contains an [`upload()`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property)
 operation that supports uploading large objects with [multipart upload feature offered by S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html).
 
 In v3, [`@aws-sdk/lib-storage` package](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-storage) is available.
