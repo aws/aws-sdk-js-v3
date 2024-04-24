@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.562.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.561.0...v3.562.0) (2024-04-24)
+
+
+### Features
+
+* **client-ssm:** Add SSM DescribeInstanceProperties API to public AWS SDK. ([aef9d12](https://github.com/aws/aws-sdk-js-v3/commit/aef9d12aa193419265f6adcd137a66262c51838f))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm

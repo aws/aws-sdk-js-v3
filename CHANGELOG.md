@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.562.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.561.0...v3.562.0) (2024-04-24)
+
+
+### Features
+
+* **client-datasync:** This change allows users to disable and enable the schedules associated with their tasks. ([02eab1f](https://github.com/aws/aws-sdk-js-v3/commit/02eab1f97ff03ab15fb726a9459ecdc9165f85b6))
+* **client-ec2:** Launching capability for customers to enable or disable automatic assignment of public IPv4 addresses to their network interface ([6121a23](https://github.com/aws/aws-sdk-js-v3/commit/6121a23480f7be708bad3b2d4e50eeec7b5fe667))
+* **client-emr-containers:** EMRonEKS Service support for SecurityConfiguration enforcement for Spark Jobs. ([349915b](https://github.com/aws/aws-sdk-js-v3/commit/349915b5b6a1d8eb4765cc8e5781205b802044bb))
+* **client-entityresolution:** Support Batch Unique IDs Deletion. ([87c90f1](https://github.com/aws/aws-sdk-js-v3/commit/87c90f1e3dcda92811db6919992803c245da4163))
+* **client-gamelift:** Amazon GameLift releases container fleets support for public preview. Deploy Linux-based containerized game server software for hosting on Amazon GameLift. ([de6599f](https://github.com/aws/aws-sdk-js-v3/commit/de6599f5e1384e474496c33cb0805b606040a133))
+* **client-ssm:** Add SSM DescribeInstanceProperties API to public AWS SDK. ([aef9d12](https://github.com/aws/aws-sdk-js-v3/commit/aef9d12aa193419265f6adcd137a66262c51838f))
+* **clients:** update client endpoints as of 2024-04-24 ([a7b12cb](https://github.com/aws/aws-sdk-js-v3/commit/a7b12cb39dafac83dd81a3a95673b8aa37cf6616))
+
+
+
+
+
 # [3.561.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.560.0...v3.561.0) (2024-04-23)
 
 

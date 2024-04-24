@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.562.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.561.0...v3.562.0) (2024-04-24)
+
+
+### Features
+
+* **client-entityresolution:** Support Batch Unique IDs Deletion. ([87c90f1](https://github.com/aws/aws-sdk-js-v3/commit/87c90f1e3dcda92811db6919992803c245da4163))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 

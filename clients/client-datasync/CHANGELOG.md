@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.562.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.561.0...v3.562.0) (2024-04-24)
+
+
+### Features
+
+* **client-datasync:** This change allows users to disable and enable the schedules associated with their tasks. ([02eab1f](https://github.com/aws/aws-sdk-js-v3/commit/02eab1f97ff03ab15fb726a9459ecdc9165f85b6))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync
