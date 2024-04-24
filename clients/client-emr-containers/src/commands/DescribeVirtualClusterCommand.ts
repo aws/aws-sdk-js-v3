@@ -63,6 +63,7 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     securityConfigurationId: "STRING_VALUE",
  * //   },
  * // };
  *

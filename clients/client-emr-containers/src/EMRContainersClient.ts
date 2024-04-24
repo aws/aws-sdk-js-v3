@@ -60,6 +60,10 @@ import {
   CreateManagedEndpointCommandOutput,
 } from "./commands/CreateManagedEndpointCommand";
 import {
+  CreateSecurityConfigurationCommandInput,
+  CreateSecurityConfigurationCommandOutput,
+} from "./commands/CreateSecurityConfigurationCommand";
+import {
   CreateVirtualClusterCommandInput,
   CreateVirtualClusterCommandOutput,
 } from "./commands/CreateVirtualClusterCommand";
@@ -82,6 +86,10 @@ import {
   DescribeManagedEndpointCommandOutput,
 } from "./commands/DescribeManagedEndpointCommand";
 import {
+  DescribeSecurityConfigurationCommandInput,
+  DescribeSecurityConfigurationCommandOutput,
+} from "./commands/DescribeSecurityConfigurationCommand";
+import {
   DescribeVirtualClusterCommandInput,
   DescribeVirtualClusterCommandOutput,
 } from "./commands/DescribeVirtualClusterCommand";
@@ -95,6 +103,10 @@ import {
   ListManagedEndpointsCommandInput,
   ListManagedEndpointsCommandOutput,
 } from "./commands/ListManagedEndpointsCommand";
+import {
+  ListSecurityConfigurationsCommandInput,
+  ListSecurityConfigurationsCommandOutput,
+} from "./commands/ListSecurityConfigurationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -124,6 +136,7 @@ export type ServiceInputTypes =
   | CancelJobRunCommandInput
   | CreateJobTemplateCommandInput
   | CreateManagedEndpointCommandInput
+  | CreateSecurityConfigurationCommandInput
   | CreateVirtualClusterCommandInput
   | DeleteJobTemplateCommandInput
   | DeleteManagedEndpointCommandInput
@@ -131,11 +144,13 @@ export type ServiceInputTypes =
   | DescribeJobRunCommandInput
   | DescribeJobTemplateCommandInput
   | DescribeManagedEndpointCommandInput
+  | DescribeSecurityConfigurationCommandInput
   | DescribeVirtualClusterCommandInput
   | GetManagedEndpointSessionCredentialsCommandInput
   | ListJobRunsCommandInput
   | ListJobTemplatesCommandInput
   | ListManagedEndpointsCommandInput
+  | ListSecurityConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | ListVirtualClustersCommandInput
   | StartJobRunCommandInput
@@ -149,6 +164,7 @@ export type ServiceOutputTypes =
   | CancelJobRunCommandOutput
   | CreateJobTemplateCommandOutput
   | CreateManagedEndpointCommandOutput
+  | CreateSecurityConfigurationCommandOutput
   | CreateVirtualClusterCommandOutput
   | DeleteJobTemplateCommandOutput
   | DeleteManagedEndpointCommandOutput
@@ -156,11 +172,13 @@ export type ServiceOutputTypes =
   | DescribeJobRunCommandOutput
   | DescribeJobTemplateCommandOutput
   | DescribeManagedEndpointCommandOutput
+  | DescribeSecurityConfigurationCommandOutput
   | DescribeVirtualClusterCommandOutput
   | GetManagedEndpointSessionCredentialsCommandOutput
   | ListJobRunsCommandOutput
   | ListJobTemplatesCommandOutput
   | ListManagedEndpointsCommandOutput
+  | ListSecurityConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVirtualClustersCommandOutput
   | StartJobRunCommandOutput

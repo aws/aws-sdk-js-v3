@@ -73,6 +73,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       securityConfigurationId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

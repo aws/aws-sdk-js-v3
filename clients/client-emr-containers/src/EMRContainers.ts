@@ -18,6 +18,11 @@ import {
   CreateManagedEndpointCommandOutput,
 } from "./commands/CreateManagedEndpointCommand";
 import {
+  CreateSecurityConfigurationCommand,
+  CreateSecurityConfigurationCommandInput,
+  CreateSecurityConfigurationCommandOutput,
+} from "./commands/CreateSecurityConfigurationCommand";
+import {
   CreateVirtualClusterCommand,
   CreateVirtualClusterCommandInput,
   CreateVirtualClusterCommandOutput,
@@ -53,6 +58,11 @@ import {
   DescribeManagedEndpointCommandOutput,
 } from "./commands/DescribeManagedEndpointCommand";
 import {
+  DescribeSecurityConfigurationCommand,
+  DescribeSecurityConfigurationCommandInput,
+  DescribeSecurityConfigurationCommandOutput,
+} from "./commands/DescribeSecurityConfigurationCommand";
+import {
   DescribeVirtualClusterCommand,
   DescribeVirtualClusterCommandInput,
   DescribeVirtualClusterCommandOutput,
@@ -73,6 +83,11 @@ import {
   ListManagedEndpointsCommandInput,
   ListManagedEndpointsCommandOutput,
 } from "./commands/ListManagedEndpointsCommand";
+import {
+  ListSecurityConfigurationsCommand,
+  ListSecurityConfigurationsCommandInput,
+  ListSecurityConfigurationsCommandOutput,
+} from "./commands/ListSecurityConfigurationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -96,6 +111,7 @@ const commands = {
   CancelJobRunCommand,
   CreateJobTemplateCommand,
   CreateManagedEndpointCommand,
+  CreateSecurityConfigurationCommand,
   CreateVirtualClusterCommand,
   DeleteJobTemplateCommand,
   DeleteManagedEndpointCommand,
@@ -103,11 +119,13 @@ const commands = {
   DescribeJobRunCommand,
   DescribeJobTemplateCommand,
   DescribeManagedEndpointCommand,
+  DescribeSecurityConfigurationCommand,
   DescribeVirtualClusterCommand,
   GetManagedEndpointSessionCredentialsCommand,
   ListJobRunsCommand,
   ListJobTemplatesCommand,
   ListManagedEndpointsCommand,
+  ListSecurityConfigurationsCommand,
   ListTagsForResourceCommand,
   ListVirtualClustersCommand,
   StartJobRunCommand,
@@ -159,6 +177,23 @@ export interface EMRContainers {
     args: CreateManagedEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateManagedEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSecurityConfigurationCommand}
+   */
+  createSecurityConfiguration(
+    args: CreateSecurityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSecurityConfigurationCommandOutput>;
+  createSecurityConfiguration(
+    args: CreateSecurityConfigurationCommandInput,
+    cb: (err: any, data?: CreateSecurityConfigurationCommandOutput) => void
+  ): void;
+  createSecurityConfiguration(
+    args: CreateSecurityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSecurityConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -278,6 +313,23 @@ export interface EMRContainers {
   ): void;
 
   /**
+   * @see {@link DescribeSecurityConfigurationCommand}
+   */
+  describeSecurityConfiguration(
+    args: DescribeSecurityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSecurityConfigurationCommandOutput>;
+  describeSecurityConfiguration(
+    args: DescribeSecurityConfigurationCommandInput,
+    cb: (err: any, data?: DescribeSecurityConfigurationCommandOutput) => void
+  ): void;
+  describeSecurityConfiguration(
+    args: DescribeSecurityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSecurityConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeVirtualClusterCommand}
    */
   describeVirtualCluster(
@@ -355,6 +407,24 @@ export interface EMRContainers {
     args: ListManagedEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListManagedEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSecurityConfigurationsCommand}
+   */
+  listSecurityConfigurations(): Promise<ListSecurityConfigurationsCommandOutput>;
+  listSecurityConfigurations(
+    args: ListSecurityConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityConfigurationsCommandOutput>;
+  listSecurityConfigurations(
+    args: ListSecurityConfigurationsCommandInput,
+    cb: (err: any, data?: ListSecurityConfigurationsCommandOutput) => void
+  ): void;
+  listSecurityConfigurations(
+    args: ListSecurityConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityConfigurationsCommandOutput) => void
   ): void;
 
   /**

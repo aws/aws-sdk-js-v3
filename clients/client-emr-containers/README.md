@@ -252,6 +252,14 @@ CreateManagedEndpoint
 </details>
 <details>
 <summary>
+CreateSecurityConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr-containers/command/CreateSecurityConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/CreateSecurityConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/CreateSecurityConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateVirtualCluster
 </summary>
 
@@ -308,6 +316,14 @@ DescribeManagedEndpoint
 </details>
 <details>
 <summary>
+DescribeSecurityConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr-containers/command/DescribeSecurityConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/DescribeSecurityConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/DescribeSecurityConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeVirtualCluster
 </summary>
 
@@ -344,6 +360,14 @@ ListManagedEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr-containers/command/ListManagedEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/ListManagedEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/ListManagedEndpointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSecurityConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr-containers/command/ListSecurityConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/ListSecurityConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/ListSecurityConfigurationsCommandOutput/)
 
 </details>
 <details>

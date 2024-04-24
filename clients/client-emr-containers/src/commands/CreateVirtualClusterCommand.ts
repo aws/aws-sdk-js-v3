@@ -52,6 +52,7 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   securityConfigurationId: "STRING_VALUE",
  * };
  * const command = new CreateVirtualClusterCommand(input);
  * const response = await client.send(command);

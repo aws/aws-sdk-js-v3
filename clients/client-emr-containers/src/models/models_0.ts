@@ -5,6 +5,134 @@ import { EMRContainersServiceException as __BaseException } from "./EMRContainer
 
 /**
  * @public
+ * @enum
+ */
+export const CertificateProviderType = {
+  PEM: "PEM",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateProviderType = (typeof CertificateProviderType)[keyof typeof CertificateProviderType];
+
+/**
+ * <p>Configurations related to the TLS certificate for the security configuration.</p>
+ * @public
+ */
+export interface TLSCertificateConfiguration {
+  /**
+   * <p>The TLS certificate type. Acceptable values: <code>PEM</code> or
+   *          <code>Custom</code>.</p>
+   * @public
+   */
+  certificateProviderType?: CertificateProviderType;
+
+  /**
+   * <p>Secrets Manager ARN that contains the public TLS certificate contents, used for
+   *          communication between the user job and the system job.</p>
+   * @public
+   */
+  publicCertificateSecretArn?: string;
+
+  /**
+   * <p>Secrets Manager ARN that contains the private TLS certificate contents, used for
+   *          communication between the user job and the system job.</p>
+   * @public
+   */
+  privateCertificateSecretArn?: string;
+}
+
+/**
+ * <p>Configurations related to in-transit encryption for the security configuration.</p>
+ * @public
+ */
+export interface InTransitEncryptionConfiguration {
+  /**
+   * <p>TLS certificate-related configuration input for the security configuration.</p>
+   * @public
+   */
+  tlsCertificateConfiguration?: TLSCertificateConfiguration;
+}
+
+/**
+ * <p>Configurations related to encryption for the security configuration.</p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>In-transit encryption-related input for the security configuration.</p>
+   * @public
+   */
+  inTransitEncryptionConfiguration?: InTransitEncryptionConfiguration;
+}
+
+/**
+ * <p>Namespace inputs for the system job.</p>
+ * @public
+ */
+export interface SecureNamespaceInfo {
+  /**
+   * <p>The ID of the Amazon EKS cluster where Amazon EMR on EKS jobs run.</p>
+   * @public
+   */
+  clusterId?: string;
+
+  /**
+   * <p>The namespace of the Amazon EKS cluster where the system jobs run.</p>
+   * @public
+   */
+  namespace?: string;
+}
+
+/**
+ * <p>Lake Formation related configuration inputs for the security
+ *          configuration.</p>
+ * @public
+ */
+export interface LakeFormationConfiguration {
+  /**
+   * <p>The session tag to authorize Amazon EMR on EKS for API calls to Lake Formation.</p>
+   * @public
+   */
+  authorizedSessionTagValue?: string;
+
+  /**
+   * <p>The namespace input of the system job.</p>
+   * @public
+   */
+  secureNamespaceInfo?: SecureNamespaceInfo;
+
+  /**
+   * <p>The query engine IAM role ARN that is tied to the secure Spark job. The
+   *          <code>QueryEngine</code> role assumes the <code>JobExecutionRole</code> to execute all
+   *          the Lake Formation calls.</p>
+   * @public
+   */
+  queryEngineRoleArn?: string;
+}
+
+/**
+ * <p>Authorization-related configuration inputs for the security configuration.</p>
+ * @public
+ */
+export interface AuthorizationConfiguration {
+  /**
+   * <p>Lake Formation related configuration inputs for the security
+   *          configuration.</p>
+   * @public
+   */
+  lakeFormationConfiguration?: LakeFormationConfiguration;
+
+  /**
+   * <p>Encryption-related configuration input for the security configuration.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration;
+}
+
+/**
+ * @public
  */
 export interface CancelJobRunRequest {
   /**
@@ -402,6 +530,70 @@ export interface CreateManagedEndpointResponse {
 }
 
 /**
+ * <p>Configurations related to the security configuration for the request.</p>
+ * @public
+ */
+export interface SecurityConfigurationData {
+  /**
+   * <p>Authorization-related configuration input for the security configuration.</p>
+   * @public
+   */
+  authorizationConfiguration?: AuthorizationConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface CreateSecurityConfigurationRequest {
+  /**
+   * <p>The client idempotency token to use when creating the security configuration.</p>
+   * @public
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Security configuration input for the request.</p>
+   * @public
+   */
+  securityConfigurationData: SecurityConfigurationData | undefined;
+
+  /**
+   * <p>The tags to add to the security configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateSecurityConfigurationResponse {
+  /**
+   * <p>The ID of the security configuration.</p>
+   * @public
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the security configuration.</p>
+   * @public
+   */
+  arn?: string;
+}
+
+/**
  * <p>The information about the Amazon EKS cluster.</p>
  * @public
  */
@@ -516,6 +708,12 @@ export interface CreateVirtualClusterRequest {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The ID of the security configuration.</p>
+   * @public
+   */
+  securityConfigurationId?: string;
 }
 
 /**
@@ -781,6 +979,79 @@ export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
 /**
  * @public
  */
+export interface DescribeSecurityConfigurationRequest {
+  /**
+   * <p>The ID of the security configuration.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * <p>Inputs related to the security configuration. Security configurations in Amazon EMR on EKS are templates for different security setups. You can use security
+ *          configurations to configure the Lake Formation integration setup. You can also
+ *          create a security configuration to re-use a security setup each time you create a virtual
+ *          cluster.</p>
+ * @public
+ */
+export interface SecurityConfiguration {
+  /**
+   * <p>The ID of the security configuration.</p>
+   * @public
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the security configuration.</p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>The date and time that the job run was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the job run.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>Security configuration inputs for the request.</p>
+   * @public
+   */
+  securityConfigurationData?: SecurityConfigurationData;
+
+  /**
+   * <p>The tags to assign to the security configuration.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityConfigurationResponse {
+  /**
+   * <p>Details of the security configuration.</p>
+   * @public
+   */
+  securityConfiguration?: SecurityConfiguration;
+}
+
+/**
+ * @public
+ */
 export interface DescribeVirtualClusterRequest {
   /**
    * <p>The ID of the virtual cluster that will be described.</p>
@@ -856,6 +1127,12 @@ export interface VirtualCluster {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The ID of the security configuration.</p>
+   * @public
+   */
+  securityConfigurationId?: string;
 }
 
 /**
@@ -1117,6 +1394,52 @@ export interface ListManagedEndpointsRequest {
 
   /**
    * <p> The token for the next set of managed endpoints to return. </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityConfigurationsRequest {
+  /**
+   * <p>The date and time after which the security configuration was created.</p>
+   * @public
+   */
+  createdAfter?: Date;
+
+  /**
+   * <p>The date and time before which the security configuration was created.</p>
+   * @public
+   */
+  createdBefore?: Date;
+
+  /**
+   * <p>The maximum number of security configurations the operation can list.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of security configurations to return.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityConfigurationsResponse {
+  /**
+   * <p>The list of returned security configurations.</p>
+   * @public
+   */
+  securityConfigurations?: SecurityConfiguration[];
+
+  /**
+   * <p>The token for the next set of security configurations to return.</p>
    * @public
    */
   nextToken?: string;

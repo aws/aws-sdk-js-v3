@@ -35,6 +35,10 @@ import {
   CreateManagedEndpointCommandOutput,
 } from "../commands/CreateManagedEndpointCommand";
 import {
+  CreateSecurityConfigurationCommandInput,
+  CreateSecurityConfigurationCommandOutput,
+} from "../commands/CreateSecurityConfigurationCommand";
+import {
   CreateVirtualClusterCommandInput,
   CreateVirtualClusterCommandOutput,
 } from "../commands/CreateVirtualClusterCommand";
@@ -57,6 +61,10 @@ import {
   DescribeManagedEndpointCommandOutput,
 } from "../commands/DescribeManagedEndpointCommand";
 import {
+  DescribeSecurityConfigurationCommandInput,
+  DescribeSecurityConfigurationCommandOutput,
+} from "../commands/DescribeSecurityConfigurationCommand";
+import {
   DescribeVirtualClusterCommandInput,
   DescribeVirtualClusterCommandOutput,
 } from "../commands/DescribeVirtualClusterCommand";
@@ -71,6 +79,10 @@ import {
   ListManagedEndpointsCommandOutput,
 } from "../commands/ListManagedEndpointsCommand";
 import {
+  ListSecurityConfigurationsCommandInput,
+  ListSecurityConfigurationsCommandOutput,
+} from "../commands/ListSecurityConfigurationsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -83,6 +95,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { EMRContainersServiceException as __BaseException } from "../models/EMRContainersServiceException";
 import {
+  AuthorizationConfiguration,
   CloudWatchMonitoringConfiguration,
   Configuration,
   ConfigurationOverrides,
@@ -91,12 +104,15 @@ import {
   ContainerProvider,
   EksInfo,
   EKSRequestThrottledException,
+  EncryptionConfiguration,
   Endpoint,
   InternalServerException,
+  InTransitEncryptionConfiguration,
   JobDriver,
   JobRun,
   JobTemplate,
   JobTemplateData,
+  LakeFormationConfiguration,
   MonitoringConfiguration,
   ParametricCloudWatchMonitoringConfiguration,
   ParametricConfigurationOverrides,
@@ -106,9 +122,13 @@ import {
   ResourceNotFoundException,
   RetryPolicyConfiguration,
   S3MonitoringConfiguration,
+  SecureNamespaceInfo,
+  SecurityConfiguration,
+  SecurityConfigurationData,
   SparkSqlJobDriver,
   SparkSubmitJobDriver,
   TemplateParameterConfiguration,
+  TLSCertificateConfiguration,
   ValidationException,
   VirtualCluster,
 } from "../models/models_0";
@@ -187,6 +207,31 @@ export const se_CreateManagedEndpointCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateSecurityConfigurationCommand
+ */
+export const se_CreateSecurityConfigurationCommand = async (
+  input: CreateSecurityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/securityconfigurations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      name: [],
+      securityConfigurationData: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateVirtualClusterCommand
  */
 export const se_CreateVirtualClusterCommand = async (
@@ -204,6 +249,7 @@ export const se_CreateVirtualClusterCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       containerProvider: (_) => _json(_),
       name: [],
+      securityConfigurationId: [],
       tags: (_) => _json(_),
     })
   );
@@ -305,6 +351,22 @@ export const se_DescribeManagedEndpointCommand = async (
   b.bp("/virtualclusters/{virtualClusterId}/endpoints/{id}");
   b.p("id", () => input.id!, "{id}", false);
   b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeSecurityConfigurationCommand
+ */
+export const se_DescribeSecurityConfigurationCommand = async (
+  input: DescribeSecurityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/securityconfigurations/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -415,6 +477,27 @@ export const se_ListManagedEndpointsCommand = async (
     [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
     [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
     [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSecurityConfigurationsCommand
+ */
+export const se_ListSecurityConfigurationsCommand = async (
+  input: ListSecurityConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/securityconfigurations");
+  const query: any = map({
+    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -612,6 +695,29 @@ export const de_CreateManagedEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateSecurityConfigurationCommand
+ */
+export const de_CreateSecurityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSecurityConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateVirtualClusterCommand
  */
 export const de_CreateVirtualClusterCommand = async (
@@ -762,6 +868,27 @@ export const de_DescribeManagedEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeSecurityConfigurationCommand
+ */
+export const de_DescribeSecurityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSecurityConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    securityConfiguration: (_) => de_SecurityConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeVirtualClusterCommand
  */
 export const de_DescribeVirtualClusterCommand = async (
@@ -866,6 +993,28 @@ export const de_ListManagedEndpointsCommand = async (
   const doc = take(data, {
     endpoints: (_) => de_Endpoints(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSecurityConfigurationsCommand
+ */
+export const de_ListSecurityConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    securityConfigurations: (_) => de_SecurityConfigurations(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1105,6 +1254,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AuthorizationConfiguration omitted.
+
 // se_CloudWatchMonitoringConfiguration omitted.
 
 /**
@@ -1147,7 +1298,11 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_EksInfo omitted.
 
+// se_EncryptionConfiguration omitted.
+
 // se_EntryPointArguments omitted.
+
+// se_InTransitEncryptionConfiguration omitted.
 
 // se_JobDriver omitted.
 
@@ -1164,6 +1319,8 @@ const se_JobTemplateData = (input: JobTemplateData, context: __SerdeContext): an
     releaseLabel: [],
   });
 };
+
+// se_LakeFormationConfiguration omitted.
 
 // se_MonitoringConfiguration omitted.
 
@@ -1187,6 +1344,10 @@ const se_ParametricConfigurationOverrides = (input: ParametricConfigurationOverr
 
 // se_S3MonitoringConfiguration omitted.
 
+// se_SecureNamespaceInfo omitted.
+
+// se_SecurityConfigurationData omitted.
+
 // se_SensitivePropertiesMap omitted.
 
 // se_SparkSqlJobDriver omitted.
@@ -1200,6 +1361,10 @@ const se_ParametricConfigurationOverrides = (input: ParametricConfigurationOverr
 // se_TemplateParameterConfigurationMap omitted.
 
 // se_TemplateParameterInputMap omitted.
+
+// se_TLSCertificateConfiguration omitted.
+
+// de_AuthorizationConfiguration omitted.
 
 // de_Certificate omitted.
 
@@ -1248,6 +1413,8 @@ const de_ConfigurationOverrides = (output: any, context: __SerdeContext): Config
 
 // de_EksInfo omitted.
 
+// de_EncryptionConfiguration omitted.
+
 /**
  * deserializeAws_restJson1Endpoint
  */
@@ -1287,6 +1454,8 @@ const de_Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
 };
 
 // de_EntryPointArguments omitted.
+
+// de_InTransitEncryptionConfiguration omitted.
 
 // de_JobDriver omitted.
 
@@ -1371,6 +1540,8 @@ const de_JobTemplates = (output: any, context: __SerdeContext): JobTemplate[] =>
   return retVal;
 };
 
+// de_LakeFormationConfiguration omitted.
+
 // de_MonitoringConfiguration omitted.
 
 // de_ParametricCloudWatchMonitoringConfiguration omitted.
@@ -1398,6 +1569,37 @@ const de_ParametricConfigurationOverrides = (
 
 // de_S3MonitoringConfiguration omitted.
 
+// de_SecureNamespaceInfo omitted.
+
+/**
+ * deserializeAws_restJson1SecurityConfiguration
+ */
+const de_SecurityConfiguration = (output: any, context: __SerdeContext): SecurityConfiguration => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    id: __expectString,
+    name: __expectString,
+    securityConfigurationData: _json,
+    tags: _json,
+  }) as any;
+};
+
+// de_SecurityConfigurationData omitted.
+
+/**
+ * deserializeAws_restJson1SecurityConfigurations
+ */
+const de_SecurityConfigurations = (output: any, context: __SerdeContext): SecurityConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityConfiguration(entry, context);
+    });
+  return retVal;
+};
+
 // de_SensitivePropertiesMap omitted.
 
 // de_SparkSqlJobDriver omitted.
@@ -1412,6 +1614,8 @@ const de_ParametricConfigurationOverrides = (
 
 // de_TemplateParameterConfigurationMap omitted.
 
+// de_TLSCertificateConfiguration omitted.
+
 /**
  * deserializeAws_restJson1VirtualCluster
  */
@@ -1422,6 +1626,7 @@ const de_VirtualCluster = (output: any, context: __SerdeContext): VirtualCluster
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     id: __expectString,
     name: __expectString,
+    securityConfigurationId: __expectString,
     state: __expectString,
     tags: _json,
   }) as any;
