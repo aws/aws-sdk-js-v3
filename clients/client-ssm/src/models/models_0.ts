@@ -1036,86 +1036,104 @@ export interface TargetLocation {
  *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          </note>
  *          <p>Supported formats include the following.</p>
+ *          <p>
+ *             <b>For all Systems Manager capabilities:</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>Key=InstanceIds,Values=<instance-id-1>,<instance-id-2>,<instance-id-3></code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Key=tag:<my-tag-key>,Values=<my-tag-value-1>,<my-tag-value-2></code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Key=tag-key,Values=<my-tag-key-1>,<my-tag-key-2></code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Run Command and Maintenance window targets only</b>:
- *       <code>Key=resource-groups:Name,Values=<resource-group-name></code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Maintenance window targets only</b>:
- *       <code>Key=resource-groups:ResourceTypeFilters,Values=<resource-type-1>,<resource-type-2></code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Automation targets only</b>:
- *       <code>Key=ResourceGroup;Values=<resource-group-name></code>
+ *                   <code>Key=tag-key,Values=tag-value-1,tag-value-2</code>
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For example:</p>
+ *          <p>
+ *             <b>For Automation and Change Manager:</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE</code>
+ *                   <code>Key=tag:tag-key,Values=tag-value</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Key=tag:CostCenter,Values=CostCenter1,CostCenter2,CostCenter3</code>
+ *                   <code>Key=ResourceGroup,Values=resource-group-name</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Key=tag-key,Values=Name,Instance-Type,CostCenter</code>
+ *                   <code>Key=ParameterValues,Values=value-1,value-2,value-3</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>To target all instances in the Amazon Web Services Region:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=AWS::EC2::Instance,Values=*</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=InstanceIds,Values=*</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>For Run Command and Maintenance Windows:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Run Command and Maintenance window targets only</b>:
- *       <code>Key=resource-groups:Name,Values=ProductionResourceGroup</code>
- *                </p>
- *                <p>This example demonstrates how to target all resources in the resource group <b>ProductionResourceGroup</b> in your maintenance window.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Maintenance window targets only</b>:
- *       <code>Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC</code>
- *                </p>
- *                <p>This example demonstrates how to target only Amazon Elastic Compute Cloud (Amazon EC2)
- *      instances and VPCs in your maintenance window.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Automation targets only</b>:
- *       <code>Key=ResourceGroup,Values=MyResourceGroup</code>
+ *                   <code>Key=tag:tag-key,Values=tag-value-1,tag-value-2</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>State Manager association targets only</b>:
- *       <code>Key=InstanceIds,Values=*</code>
+ *                   <code>Key=resource-groups:Name,Values=resource-group-name</code>
  *                </p>
- *                <p>This example demonstrates how to target all managed instances in the Amazon Web Services Region where
- *      the association was created.</p>
+ *             </li>
+ *             <li>
+ *                <p>Additionally, Maintenance Windows support targeting resource types:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>For State Manager:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Key=tag:tag-key,Values=tag-value-1,tag-value-2</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>To target all instances in the Amazon Web Services Region:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>Key=InstanceIds,Values=*</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *          </ul>
  *          <p>For more information about how to send commands that target managed nodes using
@@ -2348,6 +2366,21 @@ export interface CreateDocumentRequest {
    *                      <code>amzn</code>
    *                   </p>
    *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWSEC2</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWSConfigRemediation</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWSSupport</code>
+   *                   </p>
+   *                </li>
    *             </ul>
    *          </important>
    * @public
@@ -2915,6 +2948,10 @@ export interface CreateMaintenanceWindowRequest {
    * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
    *    become active. <code>StartDate</code> allows you to delay activation of the maintenance window
    *    until the specified future date.</p>
+   *          <note>
+   *             <p>When using a rate schedule, if you provide a start date that occurs in the past, the
+   *     current date and time are used as the start date. </p>
+   *          </note>
    * @public
    */
   StartDate?: string;
@@ -8410,6 +8447,317 @@ export interface DescribeInstancePatchStatesForPatchGroupResult {
 
 /**
  * @public
+ * @enum
+ */
+export const InstancePropertyFilterOperator = {
+  BEGIN_WITH: "BeginWith",
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+} as const;
+
+/**
+ * @public
+ */
+export type InstancePropertyFilterOperator =
+  (typeof InstancePropertyFilterOperator)[keyof typeof InstancePropertyFilterOperator];
+
+/**
+ * <p>The filters to describe or get information about your managed nodes.</p>
+ * @public
+ */
+export interface InstancePropertyStringFilter {
+  /**
+   * <p>The filter key name to describe your managed nodes.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The filter key name to describe your managed nodes.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>The operator used by the filter call.</p>
+   * @public
+   */
+  Operator?: InstancePropertyFilterOperator;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstancePropertyFilterKey = {
+  ACTIVATION_IDS: "ActivationIds",
+  AGENT_VERSION: "AgentVersion",
+  ASSOCIATION_STATUS: "AssociationStatus",
+  DOCUMENT_NAME: "DocumentName",
+  IAM_ROLE: "IamRole",
+  INSTANCE_IDS: "InstanceIds",
+  PING_STATUS: "PingStatus",
+  PLATFORM_TYPES: "PlatformTypes",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type InstancePropertyFilterKey = (typeof InstancePropertyFilterKey)[keyof typeof InstancePropertyFilterKey];
+
+/**
+ * <p>Describes a filter for a specific list of managed nodes. You can filter node information by using tags. You specify tags by using a key-value mapping.</p>
+ * @public
+ */
+export interface InstancePropertyFilter {
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  key: InstancePropertyFilterKey | undefined;
+
+  /**
+   * <p>The filter values.</p>
+   * @public
+   */
+  valueSet: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstancePropertiesRequest {
+  /**
+   * <p>An array of instance property filters.</p>
+   * @public
+   */
+  InstancePropertyFilterList?: InstancePropertyFilter[];
+
+  /**
+   * <p>The request filters to use with the operator.</p>
+   * @public
+   */
+  FiltersWithOperator?: InstancePropertyStringFilter[];
+
+  /**
+   * <p>The maximum number of items to return for the call. The call also returns a token that you
+   *         can specify in a subsequent call to get the next set of results.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token provided by a previous request to use to return the next set of properties.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>An object containing various properties of a managed node.</p>
+ * @public
+ */
+export interface InstanceProperty {
+  /**
+   * <p>The value of the EC2 <code>Name</code> tag associated with the node. If a <code>Name</code> tag hasn't been applied to the node, this value is blank.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the managed node.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The instance type of the managed node. For example, t3.large.</p>
+   * @public
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The instance profile attached to the node. If an instance profile isn't attached to the node, this value is blank.</p>
+   * @public
+   */
+  InstanceRole?: string;
+
+  /**
+   * <p>The name of the key pair associated with the node. If a key pair isnt't associated with the node, this value is blank.</p>
+   * @public
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The current state of the node.</p>
+   * @public
+   */
+  InstanceState?: string;
+
+  /**
+   * <p>The CPU architecture of the node. For example, x86_64.</p>
+   * @public
+   */
+  Architecture?: string;
+
+  /**
+   * <p>The public IPv4 address assigned to the node. If a public IPv4 address isn't assigned to the node, this value is blank.</p>
+   * @public
+   */
+  IPAddress?: string;
+
+  /**
+   * <p>The timestamp for when the node was launched.</p>
+   * @public
+   */
+  LaunchTime?: Date;
+
+  /**
+   * <p>Connection status of the SSM Agent on the managed node.</p>
+   * @public
+   */
+  PingStatus?: PingStatus;
+
+  /**
+   * <p>The date and time when the SSM Agent last pinged the Systems Manager service.</p>
+   * @public
+   */
+  LastPingDateTime?: Date;
+
+  /**
+   * <p>The version of SSM Agent running on your managed node.</p>
+   * @public
+   */
+  AgentVersion?: string;
+
+  /**
+   * <p>The operating system platform type of the managed node. For example, Windows.</p>
+   * @public
+   */
+  PlatformType?: PlatformType;
+
+  /**
+   * <p>The name of the operating system platform running on your managed node.</p>
+   * @public
+   */
+  PlatformName?: string;
+
+  /**
+   * <p>The version of the OS platform running on your managed node.</p>
+   * @public
+   */
+  PlatformVersion?: string;
+
+  /**
+   * <p>The activation ID created by Systems Manager when the server or virtual machine (VM) was registered</p>
+   * @public
+   */
+  ActivationId?: string;
+
+  /**
+   * <p>The IAM role used in the hybrid activation to register the node with Systems Manager.</p>
+   * @public
+   */
+  IamRole?: string;
+
+  /**
+   * <p>The date the node was registered with Systems Manager.</p>
+   * @public
+   */
+  RegistrationDate?: Date;
+
+  /**
+   * <p>The type of managed node.</p>
+   * @public
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The fully qualified host name of the managed node.</p>
+   * @public
+   */
+  ComputerName?: string;
+
+  /**
+   * <p>The status of the State Manager association applied to the managed node.</p>
+   * @public
+   */
+  AssociationStatus?: string;
+
+  /**
+   * <p>The date the association was last run.</p>
+   * @public
+   */
+  LastAssociationExecutionDate?: Date;
+
+  /**
+   * <p>The last date the association was successfully run.</p>
+   * @public
+   */
+  LastSuccessfulAssociationExecutionDate?: Date;
+
+  /**
+   * <p>Status information about the aggregated associations.</p>
+   * @public
+   */
+  AssociationOverview?: InstanceAggregatedAssociationOverview;
+
+  /**
+   * <p>The ID of the source resource.</p>
+   * @public
+   */
+  SourceId?: string;
+
+  /**
+   * <p>The type of the source resource.</p>
+   * @public
+   */
+  SourceType?: SourceType;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInstancePropertiesResult {
+  /**
+   * <p>Properties for the managed instances.</p>
+   * @public
+   */
+  InstanceProperties?: InstanceProperty[];
+
+  /**
+   * <p>The token for the next set of properties to return. Use this token to get the next set of
+   *         results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The specified filter value isn't valid.</p>
+ * @public
+ */
+export class InvalidInstancePropertyFilterValue extends __BaseException {
+  readonly name: "InvalidInstancePropertyFilterValue" = "InvalidInstancePropertyFilterValue";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInstancePropertyFilterValue, __BaseException>) {
+    super({
+      name: "InvalidInstancePropertyFilterValue",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInstancePropertyFilterValue.prototype);
+  }
+}
+
+/**
+ * @public
  */
 export interface DescribeInventoryDeletionsRequest {
   /**
@@ -9205,232 +9553,6 @@ export interface ScheduledWindowExecution {
 }
 
 /**
- * @public
- */
-export interface DescribeMaintenanceWindowScheduleResult {
-  /**
-   * <p>Information about maintenance window executions scheduled for the specified time
-   *    range.</p>
-   * @public
-   */
-  ScheduledWindowExecutions?: ScheduledWindowExecution[];
-
-  /**
-   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeMaintenanceWindowsForTargetRequest {
-  /**
-   * <p>The managed node ID or key-value pair to retrieve information about.</p>
-   * @public
-   */
-  Targets: Target[] | undefined;
-
-  /**
-   * <p>The type of resource you want to retrieve information about. For example,
-   *     <code>INSTANCE</code>.</p>
-   * @public
-   */
-  ResourceType: MaintenanceWindowResourceType | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>The maintenance window to which the specified target belongs.</p>
- * @public
- */
-export interface MaintenanceWindowIdentityForTarget {
-  /**
-   * <p>The ID of the maintenance window.</p>
-   * @public
-   */
-  WindowId?: string;
-
-  /**
-   * <p>The name of the maintenance window.</p>
-   * @public
-   */
-  Name?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeMaintenanceWindowsForTargetResult {
-  /**
-   * <p>Information about the maintenance window targets and tasks a managed node is associated
-   *    with.</p>
-   * @public
-   */
-  WindowIdentities?: MaintenanceWindowIdentityForTarget[];
-
-  /**
-   * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeMaintenanceWindowTargetsRequest {
-  /**
-   * <p>The ID of the maintenance window whose targets should be retrieved.</p>
-   * @public
-   */
-  WindowId: string | undefined;
-
-  /**
-   * <p>Optional filters that can be used to narrow down the scope of the returned window targets.
-   *    The supported filter keys are <code>Type</code>, <code>WindowTargetId</code>, and
-   *     <code>OwnerInformation</code>.</p>
-   * @public
-   */
-  Filters?: MaintenanceWindowFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>The target registered with the maintenance window.</p>
- * @public
- */
-export interface MaintenanceWindowTarget {
-  /**
-   * <p>The ID of the maintenance window to register the target with.</p>
-   * @public
-   */
-  WindowId?: string;
-
-  /**
-   * <p>The ID of the target.</p>
-   * @public
-   */
-  WindowTargetId?: string;
-
-  /**
-   * <p>The type of target that is being registered with the maintenance window.</p>
-   * @public
-   */
-  ResourceType?: MaintenanceWindowResourceType;
-
-  /**
-   * <p>The targets, either managed nodes or tags.</p>
-   *          <p>Specify managed nodes using the following format:</p>
-   *          <p>
-   *             <code>Key=instanceids,Values=<instanceid1>,<instanceid2></code>
-   *          </p>
-   *          <p>Tags are specified using the following format:</p>
-   *          <p>
-   *             <code>Key=<tag name>,Values=<tag value></code>.</p>
-   * @public
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>A user-provided value that will be included in any Amazon CloudWatch Events events that are
-   *    raised while running tasks for these targets in this maintenance window.</p>
-   * @public
-   */
-  OwnerInformation?: string;
-
-  /**
-   * <p>The name for the maintenance window target.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A description for the target.</p>
-   * @public
-   */
-  Description?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeMaintenanceWindowTargetsResult {
-  /**
-   * <p>Information about the targets in the maintenance window.</p>
-   * @public
-   */
-  Targets?: MaintenanceWindowTarget[];
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeMaintenanceWindowTasksRequest {
-  /**
-   * <p>The ID of the maintenance window whose tasks should be retrieved.</p>
-   * @public
-   */
-  WindowId: string | undefined;
-
-  /**
-   * <p>Optional filters used to narrow down the scope of the returned tasks. The supported filter
-   *    keys are <code>WindowTaskId</code>, <code>TaskArn</code>, <code>Priority</code>, and
-   *     <code>TaskType</code>.</p>
-   * @public
-   */
-  Filters?: MaintenanceWindowFilter[];
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
  * @internal
  */
 export const CreateAssociationRequestFilterSensitiveLog = (obj: CreateAssociationRequest): any => ({
@@ -9596,23 +9718,4 @@ export const DescribeMaintenanceWindowsResultFilterSensitiveLog = (obj: Describe
   ...(obj.WindowIdentities && {
     WindowIdentities: obj.WindowIdentities.map((item) => MaintenanceWindowIdentityFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowTargetFilterSensitiveLog = (obj: MaintenanceWindowTarget): any => ({
-  ...obj,
-  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeMaintenanceWindowTargetsResultFilterSensitiveLog = (
-  obj: DescribeMaintenanceWindowTargetsResult
-): any => ({
-  ...obj,
-  ...(obj.Targets && { Targets: obj.Targets.map((item) => MaintenanceWindowTargetFilterSensitiveLog(item)) }),
 });

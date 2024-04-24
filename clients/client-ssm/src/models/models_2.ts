@@ -24,6 +24,8 @@ import {
   PatchSourceFilterSensitiveLog,
   RelatedOpsItem,
   ResourceDataSyncSource,
+  Runbook,
+  Tag,
   Target,
   TargetLocation,
 } from "./models_0";
@@ -41,10 +43,287 @@ import {
   OpsItemStatus,
   OpsResultAttribute,
   ResultAttribute,
-  StopType,
 } from "./models_1";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>Indicates that the Change Manager change template used in the change request was rejected or is
+ *    still in a pending state.</p>
+ * @public
+ */
+export class AutomationDefinitionNotApprovedException extends __BaseException {
+  readonly name: "AutomationDefinitionNotApprovedException" = "AutomationDefinitionNotApprovedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationDefinitionNotApprovedException, __BaseException>) {
+    super({
+      name: "AutomationDefinitionNotApprovedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationDefinitionNotApprovedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartChangeRequestExecutionRequest {
+  /**
+   * <p>The date and time specified in the change request to run the Automation runbooks.</p>
+   *          <note>
+   *             <p>The Automation runbooks specified for the runbook workflow can't run until all required
+   *     approvals for the change request have been received.</p>
+   *          </note>
+   * @public
+   */
+  ScheduledTime?: Date;
+
+  /**
+   * <p>The name of the change template document to run during the runbook workflow.</p>
+   * @public
+   */
+  DocumentName: string | undefined;
+
+  /**
+   * <p>The version of the change template document to run during the runbook workflow.</p>
+   * @public
+   */
+  DocumentVersion?: string;
+
+  /**
+   * <p>A key-value map of parameters that match the declared parameters in the change template
+   *    document.</p>
+   * @public
+   */
+  Parameters?: Record<string, string[]>;
+
+  /**
+   * <p>The name of the change request associated with the runbook workflow to be run.</p>
+   * @public
+   */
+  ChangeRequestName?: string;
+
+  /**
+   * <p>The user-provided idempotency token. The token must be unique, is case insensitive, enforces
+   *    the UUID format, and can't be reused.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Indicates whether the change request can be approved automatically without the need for
+   *    manual approvals.</p>
+   *          <p>If <code>AutoApprovable</code> is enabled in a change template, then setting
+   *     <code>AutoApprove</code> to <code>true</code> in <code>StartChangeRequestExecution</code>
+   *    creates a change request that bypasses approver review.</p>
+   *          <note>
+   *             <p>Change Calendar restrictions are not bypassed in this scenario. If the state of an
+   *     associated calendar is <code>CLOSED</code>, change freeze approvers must still grant permission
+   *     for this change request to run. If they don't, the change won't be processed until the calendar
+   *     state is again <code>OPEN</code>. </p>
+   *          </note>
+   * @public
+   */
+  AutoApprove?: boolean;
+
+  /**
+   * <p>Information about the Automation runbooks that are run during the runbook workflow.</p>
+   *          <note>
+   *             <p>The Automation runbooks specified for the runbook workflow can't run until all required
+   *     approvals for the change request have been received.</p>
+   *          </note>
+   * @public
+   */
+  Runbooks: Runbook[] | undefined;
+
+  /**
+   * <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for
+   *    a change request. Tags enable you to categorize a resource in different ways, such as by
+   *    purpose, owner, or environment. For example, you might want to tag a change request to identify
+   *    an environment or target Amazon Web Services Region. In this case, you could specify the following key-value
+   *    pairs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Key=Environment,Value=Production</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Key=Region,Value=us-east-2</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The time that the requester expects the runbook workflow related to the change request to
+   *    complete. The time is an estimate only that the requester provides for reviewers.</p>
+   * @public
+   */
+  ScheduledEndTime?: Date;
+
+  /**
+   * <p>User-provided details about the change. If no details are provided, content specified in the
+   *     <b>Template information</b> section of the associated change template
+   *    is added.</p>
+   * @public
+   */
+  ChangeDetails?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartChangeRequestExecutionResult {
+  /**
+   * <p>The unique ID of a runbook workflow operation. (A runbook workflow is a type of Automation
+   *    operation.) </p>
+   * @public
+   */
+  AutomationExecutionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartSessionRequest {
+  /**
+   * <p>The managed node to connect to for the session.</p>
+   * @public
+   */
+  Target: string | undefined;
+
+  /**
+   * <p>The name of the SSM document you want to use to define the type of session, input
+   *    parameters, or preferences for the session. For example, <code>SSM-SessionManagerRunShell</code>.
+   *    You can call the <a>GetDocument</a> API to verify the document exists before
+   *    attempting to start a session. If no document name is provided, a shell to the managed node is
+   *    launched by default. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html">Start a
+   *     session</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * @public
+   */
+  DocumentName?: string;
+
+  /**
+   * <p>The reason for connecting to the instance. This value is included in the details for the
+   *     Amazon CloudWatch Events event created when you start the session.</p>
+   * @public
+   */
+  Reason?: string;
+
+  /**
+   * <p>The values you want to specify for the parameters defined in the Session
+   *    document.</p>
+   * @public
+   */
+  Parameters?: Record<string, string[]>;
+}
+
+/**
+ * @public
+ */
+export interface StartSessionResponse {
+  /**
+   * <p>The ID of the session.</p>
+   * @public
+   */
+  SessionId?: string;
+
+  /**
+   * <p>An encrypted token value containing session and caller information. This token is used to
+   *    authenticate the connection to the managed node, and is valid only long enough to ensure the
+   *    connection is successful. Never share your session's token.</p>
+   * @public
+   */
+  TokenValue?: string;
+
+  /**
+   * <p>A URL back to SSM Agent on the managed node that the Session Manager client uses to send commands and
+   *    receive output from the node. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>
+   *          </p>
+   *          <p>
+   *             <b>region</b> represents the Region identifier for an
+   * 						Amazon Web Services Region supported by Amazon Web Services Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
+   * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager service endpoints</a> in the
+   *         <i>Amazon Web Services General Reference</i>.</p>
+   *          <p>
+   *             <b>session-id</b> represents the ID of a Session Manager session, such as
+   *     <code>1a2b3c4dEXAMPLE</code>.</p>
+   * @public
+   */
+  StreamUrl?: string;
+}
+
+/**
+ * <p>The specified target managed node for the session isn't fully configured for use with Session Manager.
+ *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
+ *     Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you
+ *    attempt to start a session on a managed node that is located in a different account or
+ *    Region</p>
+ * @public
+ */
+export class TargetNotConnected extends __BaseException {
+  readonly name: "TargetNotConnected" = "TargetNotConnected";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetNotConnected, __BaseException>) {
+    super({
+      name: "TargetNotConnected",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetNotConnected.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified update status operation isn't valid.</p>
+ * @public
+ */
+export class InvalidAutomationStatusUpdateException extends __BaseException {
+  readonly name: "InvalidAutomationStatusUpdateException" = "InvalidAutomationStatusUpdateException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAutomationStatusUpdateException, __BaseException>) {
+    super({
+      name: "InvalidAutomationStatusUpdateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAutomationStatusUpdateException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StopType = {
+  CANCEL: "Cancel",
+  COMPLETE: "Complete",
+} as const;
+
+/**
+ * @public
+ */
+export type StopType = (typeof StopType)[keyof typeof StopType];
 
 /**
  * @public
@@ -761,6 +1040,10 @@ export interface UpdateMaintenanceWindowRequest {
    * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
    *    become active. <code>StartDate</code> allows you to delay activation of the maintenance window
    *    until the specified future date.</p>
+   *          <note>
+   *             <p>When using a rate schedule, if you provide a start date that occurs in the past, the
+   *     current date and time are used as the start date. </p>
+   *          </note>
    * @public
    */
   StartDate?: string;
@@ -1050,12 +1333,16 @@ export interface UpdateMaintenanceWindowTaskRequest {
   TaskArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role for Amazon Web Services Systems Manager to assume when running a
-   *   maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's
-   *   service-linked role.  If no service-linked role for Systems Manager exists in your account, it is created when you run
-   *   <code>RegisterTaskWithMaintenanceWindow</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
-   *     service-linked roles for Systems Manager</a> in the in the <i>Amazon Web Services Systems Manager User Guide</i>:</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role for
+   *                 Amazon Web Services Systems Manager to assume when running a maintenance window task. If you do not specify a
+   *                 service role ARN, Systems Manager uses a service-linked role in your account. If no
+   *                 appropriate service-linked role for Systems Manager exists in your account, it is created when
+   *                 you run <code>RegisterTaskWithMaintenanceWindow</code>.</p>
+   *          <p>However, for an improved security posture, we strongly recommend creating a custom
+   *                 policy and custom service role for running your maintenance window tasks. The policy
+   *                 can be crafted to provide only the permissions needed for your particular
+   *                 maintenance window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting up maintenance windows</a> in the in the
+   *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
   ServiceRoleArn?: string;

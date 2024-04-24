@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartSessionRequest, StartSessionResponse } from "../models/models_1";
+import { StartSessionRequest, StartSessionResponse } from "../models/models_2";
 import { de_StartSessionCommand, se_StartSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

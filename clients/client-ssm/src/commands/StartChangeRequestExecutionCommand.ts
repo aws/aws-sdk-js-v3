@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_1";
+import { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_2";
 import { de_StartChangeRequestExecutionCommand, se_StartChangeRequestExecutionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

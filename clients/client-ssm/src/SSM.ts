@@ -228,6 +228,11 @@ import {
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "./commands/DescribeInstancePatchStatesForPatchGroupCommand";
 import {
+  DescribeInstancePropertiesCommand,
+  DescribeInstancePropertiesCommandInput,
+  DescribeInstancePropertiesCommandOutput,
+} from "./commands/DescribeInstancePropertiesCommand";
+import {
   DescribeInventoryDeletionsCommand,
   DescribeInventoryDeletionsCommandInput,
   DescribeInventoryDeletionsCommandOutput,
@@ -733,6 +738,7 @@ const commands = {
   DescribeInstancePatchesCommand,
   DescribeInstancePatchStatesCommand,
   DescribeInstancePatchStatesForPatchGroupCommand,
+  DescribeInstancePropertiesCommand,
   DescribeInventoryDeletionsCommand,
   DescribeMaintenanceWindowExecutionsCommand,
   DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
@@ -1569,6 +1575,24 @@ export interface SSM {
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstancePropertiesCommand}
+   */
+  describeInstanceProperties(): Promise<DescribeInstancePropertiesCommandOutput>;
+  describeInstanceProperties(
+    args: DescribeInstancePropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstancePropertiesCommandOutput>;
+  describeInstanceProperties(
+    args: DescribeInstancePropertiesCommandInput,
+    cb: (err: any, data?: DescribeInstancePropertiesCommandOutput) => void
+  ): void;
+  describeInstanceProperties(
+    args: DescribeInstancePropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstancePropertiesCommandOutput) => void
   ): void;
 
   /**

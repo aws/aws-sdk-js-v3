@@ -22,6 +22,7 @@ export * from "./Interfaces";
 export * from "./DescribeInstancePatchStatesForPatchGroupPaginator";
 export * from "./DescribeInstancePatchStatesPaginator";
 export * from "./DescribeInstancePatchesPaginator";
+export * from "./DescribeInstancePropertiesPaginator";
 export * from "./DescribeInventoryDeletionsPaginator";
 export * from "./DescribeMaintenanceWindowExecutionTaskInvocationsPaginator";
 export * from "./DescribeMaintenanceWindowExecutionTasksPaginator";

@@ -44,6 +44,7 @@ export * from "./DescribeInstanceInformationCommand";
 export * from "./DescribeInstancePatchStatesCommand";
 export * from "./DescribeInstancePatchStatesForPatchGroupCommand";
 export * from "./DescribeInstancePatchesCommand";
+export * from "./DescribeInstancePropertiesCommand";
 export * from "./DescribeInventoryDeletionsCommand";
 export * from "./DescribeMaintenanceWindowExecutionTaskInvocationsCommand";
 export * from "./DescribeMaintenanceWindowExecutionTasksCommand";

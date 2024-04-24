@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeMaintenanceWindowsForTargetRequest,
   DescribeMaintenanceWindowsForTargetResult,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DescribeMaintenanceWindowsForTargetCommand,
   se_DescribeMaintenanceWindowsForTargetCommand,

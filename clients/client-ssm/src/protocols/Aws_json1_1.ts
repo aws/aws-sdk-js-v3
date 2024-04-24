@@ -156,6 +156,10 @@ import {
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "../commands/DescribeInstancePatchStatesForPatchGroupCommand";
 import {
+  DescribeInstancePropertiesCommandInput,
+  DescribeInstancePropertiesCommandOutput,
+} from "../commands/DescribeInstancePropertiesCommand";
+import {
   DescribeInventoryDeletionsCommandInput,
   DescribeInventoryDeletionsCommandOutput,
 } from "../commands/DescribeInventoryDeletionsCommand";
@@ -522,6 +526,8 @@ import {
   DescribeInstancePatchStatesForPatchGroupResult,
   DescribeInstancePatchStatesRequest,
   DescribeInstancePatchStatesResult,
+  DescribeInstancePropertiesRequest,
+  DescribeInstancePropertiesResult,
   DescribeInventoryDeletionsRequest,
   DescribeInventoryDeletionsResult,
   DescribeMaintenanceWindowExecutionsRequest,
@@ -531,10 +537,7 @@ import {
   DescribeMaintenanceWindowExecutionTasksRequest,
   DescribeMaintenanceWindowExecutionTasksResult,
   DescribeMaintenanceWindowScheduleRequest,
-  DescribeMaintenanceWindowsForTargetRequest,
   DescribeMaintenanceWindowsRequest,
-  DescribeMaintenanceWindowTargetsRequest,
-  DescribeMaintenanceWindowTasksRequest,
   DocumentAlreadyExists,
   DocumentDescription,
   DocumentLimitExceeded,
@@ -550,6 +553,9 @@ import {
   InstanceInformationStringFilter,
   InstancePatchState,
   InstancePatchStateFilter,
+  InstanceProperty,
+  InstancePropertyFilter,
+  InstancePropertyStringFilter,
   InternalServerError,
   InvalidActivation,
   InvalidActivationId,
@@ -567,6 +573,7 @@ import {
   InvalidFilterValue,
   InvalidInstanceId,
   InvalidInstanceInformationFilterValue,
+  InvalidInstancePropertyFilterValue,
   InvalidInventoryRequestException,
   InvalidNextToken,
   InvalidOptionException,
@@ -647,7 +654,6 @@ import {
   Association,
   AssociationFilter,
   AssociationVersionInfo,
-  AutomationDefinitionNotApprovedException,
   AutomationDefinitionNotFoundException,
   AutomationDefinitionVersionNotFoundException,
   AutomationExecution,
@@ -665,6 +671,9 @@ import {
   ComplianceStringFilter,
   ComplianceTypeCountLimitExceededException,
   CustomSchemaCountLimitExceededException,
+  DescribeMaintenanceWindowsForTargetRequest,
+  DescribeMaintenanceWindowTargetsRequest,
+  DescribeMaintenanceWindowTasksRequest,
   DescribeOpsItemsRequest,
   DescribeOpsItemsResponse,
   DescribeParametersRequest,
@@ -730,7 +739,6 @@ import {
   InvalidAssociation,
   InvalidAutomationExecutionParametersException,
   InvalidAutomationSignalException,
-  InvalidAutomationStatusUpdateException,
   InvalidDocumentType,
   InvalidFilterOption,
   InvalidInventoryGroupException,
@@ -839,10 +847,7 @@ import {
   SessionFilter,
   StartAssociationsOnceRequest,
   StartAutomationExecutionRequest,
-  StartChangeRequestExecutionRequest,
-  StartSessionRequest,
   SubTypeCountLimitExceededException,
-  TargetNotConnected,
   TotalSizeLimitExceededException,
   UnsupportedCalendarException,
   UnsupportedFeatureRequiredException,
@@ -852,19 +857,24 @@ import {
 } from "../models/models_1";
 import {
   AssociationVersionLimitExceeded,
+  AutomationDefinitionNotApprovedException,
   DocumentReviews,
   DocumentVersionLimitExceeded,
   DuplicateDocumentContent,
   DuplicateDocumentVersionName,
   GetInventoryRequest,
   GetOpsSummaryRequest,
+  InvalidAutomationStatusUpdateException,
   InvalidUpdate,
   InventoryAggregator,
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
+  StartChangeRequestExecutionRequest,
+  StartSessionRequest,
   StatusUnchanged,
   StopAutomationExecutionRequest,
+  TargetNotConnected,
   TerminateSessionRequest,
   UnlabelParameterVersionRequest,
   UpdateAssociationRequest,
@@ -1469,6 +1479,19 @@ export const se_DescribeInstancePatchStatesForPatchGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeInstancePatchStatesForPatchGroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeInstancePropertiesCommand
+ */
+export const se_DescribeInstancePropertiesCommand = async (
+  input: DescribeInstancePropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeInstanceProperties");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3597,6 +3620,26 @@ export const de_DescribeInstancePatchStatesForPatchGroupCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeInstancePropertiesCommand
+ */
+export const de_DescribeInstancePropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstancePropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstancePropertiesResult(data, context);
+  const response: DescribeInstancePropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeInventoryDeletionsCommand
  */
 export const de_DescribeInventoryDeletionsCommand = async (
@@ -5696,6 +5739,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidInstanceInformationFilterValue":
     case "com.amazonaws.ssm#InvalidInstanceInformationFilterValue":
       throw await de_InvalidInstanceInformationFilterValueRes(parsedOutput, context);
+    case "InvalidInstancePropertyFilterValue":
+    case "com.amazonaws.ssm#InvalidInstancePropertyFilterValue":
+      throw await de_InvalidInstancePropertyFilterValueRes(parsedOutput, context);
     case "InvalidDeletionIdException":
     case "com.amazonaws.ssm#InvalidDeletionIdException":
       throw await de_InvalidDeletionIdExceptionRes(parsedOutput, context);
@@ -6692,6 +6738,22 @@ const de_InvalidInstanceInformationFilterValueRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InvalidInstanceInformationFilterValue({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1InvalidInstancePropertyFilterValueRes
+ */
+const de_InvalidInstancePropertyFilterValueRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidInstancePropertyFilterValue> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidInstancePropertyFilterValue({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -8177,6 +8239,8 @@ const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __Ser
 
 // se_DescribeInstancePatchStatesRequest omitted.
 
+// se_DescribeInstancePropertiesRequest omitted.
+
 // se_DescribeInventoryDeletionsRequest omitted.
 
 // se_DescribeMaintenanceWindowExecutionsRequest omitted.
@@ -8323,6 +8387,16 @@ const se_GetOpsSummaryRequest = (input: GetOpsSummaryRequest, context: __SerdeCo
 // se_InstancePatchStateFilterList omitted.
 
 // se_InstancePatchStateFilterValues omitted.
+
+// se_InstancePropertyFilter omitted.
+
+// se_InstancePropertyFilterList omitted.
+
+// se_InstancePropertyFilterValueSet omitted.
+
+// se_InstancePropertyStringFilter omitted.
+
+// se_InstancePropertyStringFilterList omitted.
 
 /**
  * serializeAws_json1_1InventoryAggregator
@@ -9651,6 +9725,19 @@ const de_DescribeInstancePatchStatesResult = (
 };
 
 /**
+ * deserializeAws_json1_1DescribeInstancePropertiesResult
+ */
+const de_DescribeInstancePropertiesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeInstancePropertiesResult => {
+  return take(output, {
+    InstanceProperties: (_: any) => de_InstanceProperties(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeInventoryDeletionsResult
  */
 const de_DescribeInventoryDeletionsResult = (
@@ -10348,6 +10435,52 @@ const de_InstancePatchStatesList = (output: any, context: __SerdeContext): Insta
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1InstanceProperties
+ */
+const de_InstanceProperties = (output: any, context: __SerdeContext): InstanceProperty[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InstanceProperty(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1InstanceProperty
+ */
+const de_InstanceProperty = (output: any, context: __SerdeContext): InstanceProperty => {
+  return take(output, {
+    ActivationId: __expectString,
+    AgentVersion: __expectString,
+    Architecture: __expectString,
+    AssociationOverview: _json,
+    AssociationStatus: __expectString,
+    ComputerName: __expectString,
+    IPAddress: __expectString,
+    IamRole: __expectString,
+    InstanceId: __expectString,
+    InstanceRole: __expectString,
+    InstanceState: __expectString,
+    InstanceType: __expectString,
+    KeyName: __expectString,
+    LastAssociationExecutionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastPingDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSuccessfulAssociationExecutionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    PingStatus: __expectString,
+    PlatformName: __expectString,
+    PlatformType: __expectString,
+    PlatformVersion: __expectString,
+    RegistrationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceType: __expectString,
+    SourceId: __expectString,
+    SourceType: __expectString,
+  }) as any;
+};
+
 // de_InternalServerError omitted.
 
 // de_InvalidActivation omitted.
@@ -10397,6 +10530,8 @@ const de_InstancePatchStatesList = (output: any, context: __SerdeContext): Insta
 // de_InvalidInstanceId omitted.
 
 // de_InvalidInstanceInformationFilterValue omitted.
+
+// de_InvalidInstancePropertyFilterValue omitted.
 
 // de_InvalidInventoryGroupException omitted.
 

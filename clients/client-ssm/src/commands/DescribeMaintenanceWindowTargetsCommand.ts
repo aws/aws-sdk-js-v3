@@ -9,7 +9,7 @@ import {
   DescribeMaintenanceWindowTargetsRequest,
   DescribeMaintenanceWindowTargetsResult,
   DescribeMaintenanceWindowTargetsResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DescribeMaintenanceWindowTargetsCommand,
   se_DescribeMaintenanceWindowTargetsCommand,

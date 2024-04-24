@@ -600,6 +600,14 @@ DescribeInstancePatchStatesForPatchGroup
 </details>
 <details>
 <summary>
+DescribeInstanceProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/DescribeInstancePropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DescribeInstancePropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DescribeInstancePropertiesCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeInventoryDeletions
 </summary>
 

@@ -186,6 +186,10 @@ import {
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "./commands/DescribeInstancePatchStatesForPatchGroupCommand";
 import {
+  DescribeInstancePropertiesCommandInput,
+  DescribeInstancePropertiesCommandOutput,
+} from "./commands/DescribeInstancePropertiesCommand";
+import {
   DescribeInventoryDeletionsCommandInput,
   DescribeInventoryDeletionsCommandOutput,
 } from "./commands/DescribeInventoryDeletionsCommand";
@@ -528,6 +532,7 @@ export type ServiceInputTypes =
   | DescribeInstancePatchStatesCommandInput
   | DescribeInstancePatchStatesForPatchGroupCommandInput
   | DescribeInstancePatchesCommandInput
+  | DescribeInstancePropertiesCommandInput
   | DescribeInventoryDeletionsCommandInput
   | DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput
   | DescribeMaintenanceWindowExecutionTasksCommandInput
@@ -672,6 +677,7 @@ export type ServiceOutputTypes =
   | DescribeInstancePatchStatesCommandOutput
   | DescribeInstancePatchStatesForPatchGroupCommandOutput
   | DescribeInstancePatchesCommandOutput
+  | DescribeInstancePropertiesCommandOutput
   | DescribeInventoryDeletionsCommandOutput
   | DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
   | DescribeMaintenanceWindowExecutionTasksCommandOutput
