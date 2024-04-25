@@ -38,6 +38,11 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *          <ul>
  *             <li>
  *                <p>
+ *                   <b>WAF policy</b> - This policy applies WAF web ACL
+ * 				protections to specified accounts and resources. </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <b>Shield Advanced policy</b> - This policy applies Shield Advanced
  * 				protection to specified accounts and resources. </p>
  *             </li>
@@ -46,6 +51,12 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *                   <b>Security Groups policy</b> - This type of policy gives you
  * 				control over security groups that are in use throughout your organization in
  * 				Organizations and lets you enforce a baseline set of rules across your organization. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Network ACL policy</b> - This type of policy gives you
+ * 				control over the network ACLs that are in use throughout your organization in
+ * 				Organizations and lets you enforce a baseline set of first and last network ACL rules across your organization. </p>
  *             </li>
  *             <li>
  *                <p>
@@ -85,7 +96,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *     PolicyName: "STRING_VALUE", // required
  *     PolicyUpdateToken: "STRING_VALUE",
  *     SecurityServicePolicyData: { // SecurityServicePolicyData
- *       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL", // required
+ *       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL" || "NETWORK_ACL_COMMON", // required
  *       ManagedServiceData: "STRING_VALUE",
  *       PolicyOption: { // PolicyOption
  *         NetworkFirewallPolicy: { // NetworkFirewallPolicy
@@ -93,6 +104,46 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *         },
  *         ThirdPartyFirewallPolicy: { // ThirdPartyFirewallPolicy
  *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ *         },
+ *         NetworkAclCommonPolicy: { // NetworkAclCommonPolicy
+ *           NetworkAclEntrySet: { // NetworkAclEntrySet
+ *             FirstEntries: [ // NetworkAclEntries
+ *               { // NetworkAclEntry
+ *                 IcmpTypeCode: { // NetworkAclIcmpTypeCode
+ *                   Code: Number("int"),
+ *                   Type: Number("int"),
+ *                 },
+ *                 Protocol: "STRING_VALUE", // required
+ *                 PortRange: { // NetworkAclPortRange
+ *                   From: Number("int"),
+ *                   To: Number("int"),
+ *                 },
+ *                 CidrBlock: "STRING_VALUE",
+ *                 Ipv6CidrBlock: "STRING_VALUE",
+ *                 RuleAction: "allow" || "deny", // required
+ *                 Egress: true || false, // required
+ *               },
+ *             ],
+ *             ForceRemediateForFirstEntries: true || false, // required
+ *             LastEntries: [
+ *               {
+ *                 IcmpTypeCode: {
+ *                   Code: Number("int"),
+ *                   Type: Number("int"),
+ *                 },
+ *                 Protocol: "STRING_VALUE", // required
+ *                 PortRange: {
+ *                   From: Number("int"),
+ *                   To: Number("int"),
+ *                 },
+ *                 CidrBlock: "STRING_VALUE",
+ *                 Ipv6CidrBlock: "STRING_VALUE",
+ *                 RuleAction: "allow" || "deny", // required
+ *                 Egress: true || false, // required
+ *               },
+ *             ],
+ *             ForceRemediateForLastEntries: true || false, // required
+ *           },
  *         },
  *       },
  *     },
@@ -140,7 +191,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * //     PolicyName: "STRING_VALUE", // required
  * //     PolicyUpdateToken: "STRING_VALUE",
  * //     SecurityServicePolicyData: { // SecurityServicePolicyData
- * //       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL", // required
+ * //       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL" || "NETWORK_ACL_COMMON", // required
  * //       ManagedServiceData: "STRING_VALUE",
  * //       PolicyOption: { // PolicyOption
  * //         NetworkFirewallPolicy: { // NetworkFirewallPolicy
@@ -148,6 +199,46 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * //         },
  * //         ThirdPartyFirewallPolicy: { // ThirdPartyFirewallPolicy
  * //           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ * //         },
+ * //         NetworkAclCommonPolicy: { // NetworkAclCommonPolicy
+ * //           NetworkAclEntrySet: { // NetworkAclEntrySet
+ * //             FirstEntries: [ // NetworkAclEntries
+ * //               { // NetworkAclEntry
+ * //                 IcmpTypeCode: { // NetworkAclIcmpTypeCode
+ * //                   Code: Number("int"),
+ * //                   Type: Number("int"),
+ * //                 },
+ * //                 Protocol: "STRING_VALUE", // required
+ * //                 PortRange: { // NetworkAclPortRange
+ * //                   From: Number("int"),
+ * //                   To: Number("int"),
+ * //                 },
+ * //                 CidrBlock: "STRING_VALUE",
+ * //                 Ipv6CidrBlock: "STRING_VALUE",
+ * //                 RuleAction: "allow" || "deny", // required
+ * //                 Egress: true || false, // required
+ * //               },
+ * //             ],
+ * //             ForceRemediateForFirstEntries: true || false, // required
+ * //             LastEntries: [
+ * //               {
+ * //                 IcmpTypeCode: {
+ * //                   Code: Number("int"),
+ * //                   Type: Number("int"),
+ * //                 },
+ * //                 Protocol: "STRING_VALUE", // required
+ * //                 PortRange: {
+ * //                   From: Number("int"),
+ * //                   To: Number("int"),
+ * //                 },
+ * //                 CidrBlock: "STRING_VALUE",
+ * //                 Ipv6CidrBlock: "STRING_VALUE",
+ * //                 RuleAction: "allow" || "deny", // required
+ * //                 Egress: true || false, // required
+ * //               },
+ * //             ],
+ * //             ForceRemediateForLastEntries: true || false, // required
+ * //           },
  * //         },
  * //       },
  * //     },

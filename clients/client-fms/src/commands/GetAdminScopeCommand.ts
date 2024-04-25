@@ -27,7 +27,7 @@ export interface GetAdminScopeCommandInput extends GetAdminScopeRequest {}
 export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified account's administrative scope. The admistrative scope defines the resources that an Firewall Manager administrator can manage.</p>
+ * <p>Returns information about the specified account's administrative scope. The administrative scope defines the resources that an Firewall Manager administrator can manage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +63,7 @@ export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __Met
  * //     },
  * //     PolicyTypeScope: { // PolicyTypeScope
  * //       PolicyTypes: [ // SecurityServiceTypeList
- * //         "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
+ * //         "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL" || "NETWORK_ACL_COMMON",
  * //       ],
  * //       AllPolicyTypesEnabled: true || false,
  * //     },

@@ -47,7 +47,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * //       PolicyId: "STRING_VALUE",
  * //       PolicyName: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
- * //       SecurityServiceType: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
+ * //       SecurityServiceType: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL" || "NETWORK_ACL_COMMON",
  * //       RemediationEnabled: true || false,
  * //       DeleteUnusedFMManagedResources: true || false,
  * //       PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",

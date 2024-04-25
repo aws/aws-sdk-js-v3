@@ -178,6 +178,11 @@ import {
   ListResourceSetsResponse,
   ListTagsForResourceRequest,
   ListThirdPartyFirewallFirewallPoliciesRequest,
+  NetworkAclCommonPolicy,
+  NetworkAclEntry,
+  NetworkAclEntrySet,
+  NetworkAclIcmpTypeCode,
+  NetworkAclPortRange,
   NetworkFirewallPolicy,
   OrganizationalUnitScope,
   Policy,
@@ -185,6 +190,7 @@ import {
   PolicyComplianceStatus,
   PolicyOption,
   PolicyTypeScope,
+  PossibleRemediationActions,
   ProtocolsListData,
   PutAdminAccountRequest,
   PutAppsListRequest,
@@ -200,6 +206,7 @@ import {
   ResourceSet,
   ResourceSetSummary,
   ResourceTag,
+  ResourceViolation,
   SecurityServicePolicyData,
   SecurityServiceType,
   Tag,
@@ -1817,6 +1824,18 @@ const se_GetProtectionStatusRequest = (input: GetProtectionStatusRequest, contex
 
 // se_ListThirdPartyFirewallFirewallPoliciesRequest omitted.
 
+// se_NetworkAclCommonPolicy omitted.
+
+// se_NetworkAclEntries omitted.
+
+// se_NetworkAclEntry omitted.
+
+// se_NetworkAclEntrySet omitted.
+
+// se_NetworkAclIcmpTypeCode omitted.
+
+// se_NetworkAclPortRange omitted.
+
 // se_NetworkFirewallPolicy omitted.
 
 // se_OrganizationalUnitIdList omitted.
@@ -1984,9 +2003,15 @@ const de_AppsListData = (output: any, context: __SerdeContext): AppsListData => 
 
 // de_ComplianceViolators omitted.
 
+// de_CreateNetworkAclAction omitted.
+
+// de_CreateNetworkAclEntriesAction omitted.
+
 // de_CustomerPolicyScopeIdList omitted.
 
 // de_CustomerPolicyScopeMap omitted.
+
+// de_DeleteNetworkAclEntriesAction omitted.
 
 // de_DisassociateThirdPartyFirewallResponse omitted.
 
@@ -2015,6 +2040,18 @@ const de_AppsListData = (output: any, context: __SerdeContext): AppsListData => 
 // de_EC2ReplaceRouteAction omitted.
 
 // de_EC2ReplaceRouteTableAssociationAction omitted.
+
+// de_EntriesDescription omitted.
+
+// de_EntriesWithConflicts omitted.
+
+// de_EntryDescription omitted.
+
+// de_EntryViolation omitted.
+
+// de_EntryViolationReasons omitted.
+
+// de_EntryViolations omitted.
 
 // de_EvaluationResult omitted.
 
@@ -2098,6 +2135,8 @@ const de_GetViolationDetailsResponse = (output: any, context: __SerdeContext): G
 
 // de_InvalidInputException omitted.
 
+// de_InvalidNetworkAclEntriesViolation omitted.
+
 // de_InvalidOperationException omitted.
 
 // de_InvalidTypeException omitted.
@@ -2149,6 +2188,18 @@ const de_ListResourceSetsResponse = (output: any, context: __SerdeContext): List
 // de_ListThirdPartyFirewallFirewallPoliciesResponse omitted.
 
 // de_MemberAccounts omitted.
+
+// de_NetworkAclCommonPolicy omitted.
+
+// de_NetworkAclEntries omitted.
+
+// de_NetworkAclEntry omitted.
+
+// de_NetworkAclEntrySet omitted.
+
+// de_NetworkAclIcmpTypeCode omitted.
+
+// de_NetworkAclPortRange omitted.
 
 // de_NetworkFirewallActionList omitted.
 
@@ -2244,7 +2295,15 @@ const de_PolicyComplianceStatusList = (output: any, context: __SerdeContext): Po
 
 // de_PossibleRemediationActionList omitted.
 
-// de_PossibleRemediationActions omitted.
+/**
+ * deserializeAws_json1_1PossibleRemediationActions
+ */
+const de_PossibleRemediationActions = (output: any, context: __SerdeContext): PossibleRemediationActions => {
+  return take(output, {
+    Actions: _json,
+    Description: __expectString,
+  }) as any;
+};
 
 // de_PreviousAppsList omitted.
 
@@ -2309,6 +2368,8 @@ const de_PutResourceSetResponse = (output: any, context: __SerdeContext): PutRes
 
 // de_RemediationActionWithOrder omitted.
 
+// de_ReplaceNetworkAclAssociationAction omitted.
+
 // de_Resource omitted.
 
 // de_ResourceIdList omitted.
@@ -2365,9 +2426,49 @@ const de_ResourceSetSummaryList = (output: any, context: __SerdeContext): Resour
 
 // de_ResourceTypeList omitted.
 
-// de_ResourceViolation omitted.
+/**
+ * deserializeAws_json1_1ResourceViolation
+ */
+const de_ResourceViolation = (output: any, context: __SerdeContext): ResourceViolation => {
+  return take(output, {
+    AwsEc2InstanceViolation: _json,
+    AwsEc2NetworkInterfaceViolation: _json,
+    AwsVPCSecurityGroupViolation: _json,
+    DnsDuplicateRuleGroupViolation: _json,
+    DnsRuleGroupLimitExceededViolation: _json,
+    DnsRuleGroupPriorityConflictViolation: _json,
+    FirewallSubnetIsOutOfScopeViolation: _json,
+    FirewallSubnetMissingVPCEndpointViolation: _json,
+    InvalidNetworkAclEntriesViolation: _json,
+    NetworkFirewallBlackHoleRouteDetectedViolation: _json,
+    NetworkFirewallInternetTrafficNotInspectedViolation: _json,
+    NetworkFirewallInvalidRouteConfigurationViolation: _json,
+    NetworkFirewallMissingExpectedRTViolation: _json,
+    NetworkFirewallMissingExpectedRoutesViolation: _json,
+    NetworkFirewallMissingFirewallViolation: _json,
+    NetworkFirewallMissingSubnetViolation: _json,
+    NetworkFirewallPolicyModifiedViolation: _json,
+    NetworkFirewallUnexpectedFirewallRoutesViolation: _json,
+    NetworkFirewallUnexpectedGatewayRoutesViolation: _json,
+    PossibleRemediationActions: (_: any) => de_PossibleRemediationActions(_, context),
+    RouteHasOutOfScopeEndpointViolation: _json,
+    ThirdPartyFirewallMissingExpectedRouteTableViolation: _json,
+    ThirdPartyFirewallMissingFirewallViolation: _json,
+    ThirdPartyFirewallMissingSubnetViolation: _json,
+  }) as any;
+};
 
-// de_ResourceViolations omitted.
+/**
+ * deserializeAws_json1_1ResourceViolations
+ */
+const de_ResourceViolations = (output: any, context: __SerdeContext): ResourceViolation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceViolation(entry, context);
+    });
+  return retVal;
+};
 
 // de_Route omitted.
 
@@ -2428,7 +2529,7 @@ const de_ViolationDetail = (output: any, context: __SerdeContext): ViolationDeta
     ResourceId: __expectString,
     ResourceTags: _json,
     ResourceType: __expectString,
-    ResourceViolations: _json,
+    ResourceViolations: (_: any) => de_ResourceViolations(_, context),
   }) as any;
 };
 

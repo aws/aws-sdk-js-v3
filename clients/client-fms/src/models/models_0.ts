@@ -96,7 +96,7 @@ export interface AdminAccountSummary {
   DefaultAdmin?: boolean;
 
   /**
-   * <p>The current status of the request to onboard a member account as an Firewall Manager administator.</p>
+   * <p>The current status of the request to onboard a member account as an Firewall Manager administrator.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -152,6 +152,7 @@ export interface OrganizationalUnitScope {
 export const SecurityServiceType = {
   DNS_FIREWALL: "DNS_FIREWALL",
   IMPORT_NETWORK_FIREWALL: "IMPORT_NETWORK_FIREWALL",
+  NETWORK_ACL_COMMON: "NETWORK_ACL_COMMON",
   NETWORK_FIREWALL: "NETWORK_FIREWALL",
   SECURITY_GROUPS_COMMON: "SECURITY_GROUPS_COMMON",
   SECURITY_GROUPS_CONTENT_AUDIT: "SECURITY_GROUPS_CONTENT_AUDIT",
@@ -832,7 +833,7 @@ export interface GetAdminAccountResponse {
  */
 export interface GetAdminScopeRequest {
   /**
-   * <p>The administator account that you want to get the details for.</p>
+   * <p>The administrator account that you want to get the details for.</p>
    * @public
    */
   AdminAccount: string | undefined;
@@ -849,7 +850,7 @@ export interface GetAdminScopeResponse {
   AdminScope?: AdminScope;
 
   /**
-   * <p>The current status of the request to onboard a member account as an Firewall Manager administator.</p>
+   * <p>The current status of the request to onboard a member account as an Firewall Manager administrator.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -954,6 +955,7 @@ export const ViolationReason = {
   FirewallSubnetMissingVPCEndpoint: "FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT",
   InternetGatewayMissingExpectedRoute: "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE",
   InternetTrafficNotInspected: "INTERNET_TRAFFIC_NOT_INSPECTED",
+  InvalidNetworkAclEntry: "INVALID_NETWORK_ACL_ENTRY",
   InvalidRouteConfiguration: "INVALID_ROUTE_CONFIGURATION",
   MissingExpectedRouteTable: "MISSING_EXPECTED_ROUTE_TABLE",
   MissingFirewall: "MISSING_FIREWALL",
@@ -1166,6 +1168,175 @@ export interface ResourceTag {
 }
 
 /**
+ * <p>ICMP protocol: The ICMP type and code.</p>
+ * @public
+ */
+export interface NetworkAclIcmpTypeCode {
+  /**
+   * <p>ICMP code. </p>
+   * @public
+   */
+  Code?: number;
+
+  /**
+   * <p>ICMP type. </p>
+   * @public
+   */
+  Type?: number;
+}
+
+/**
+ * <p>TCP or UDP protocols: The range of ports the rule applies to.</p>
+ * @public
+ */
+export interface NetworkAclPortRange {
+  /**
+   * <p>The beginning port number of the range. </p>
+   * @public
+   */
+  From?: number;
+
+  /**
+   * <p>The ending port number of the range. </p>
+   * @public
+   */
+  To?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkAclRuleAction = {
+  ALLOW: "allow",
+  DENY: "deny",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkAclRuleAction = (typeof NetworkAclRuleAction)[keyof typeof NetworkAclRuleAction];
+
+/**
+ * <p>Describes a rule in a network ACL.</p>
+ *          <p>Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining
+ * whether a packet should be allowed in or out of a subnet associated with the network ACL, Amazon Web Services processes the
+ *            entries in the network ACL according to the rule numbers, in ascending order. </p>
+ *          <p>When you manage an individual network ACL, you explicitly specify the rule numbers. When you specify the network ACL rules in a Firewall Manager policy,
+ *        you provide the rules to run first, in the order that you want them to run, and the rules to run last, in the order
+ *            that you want them to run. Firewall Manager assigns the rule numbers for you when you save the network ACL policy specification.</p>
+ * @public
+ */
+export interface NetworkAclEntry {
+  /**
+   * <p>ICMP protocol: The ICMP type and code.</p>
+   * @public
+   */
+  IcmpTypeCode?: NetworkAclIcmpTypeCode;
+
+  /**
+   * <p>The protocol number. A value of "-1" means all protocols. </p>
+   * @public
+   */
+  Protocol: string | undefined;
+
+  /**
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.</p>
+   * @public
+   */
+  PortRange?: NetworkAclPortRange;
+
+  /**
+   * <p>The IPv4 network range to allow or deny, in CIDR notation.</p>
+   * @public
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>The IPv6 network range to allow or deny, in CIDR notation.</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
+   * @public
+   */
+  RuleAction: NetworkAclRuleAction | undefined;
+
+  /**
+   * <p>Indicates whether the rule is an egress, or outbound, rule (applied to traffic leaving the subnet). If it's not
+   *    an egress rule, then it's an ingress, or inbound, rule.</p>
+   * @public
+   */
+  Egress: boolean | undefined;
+}
+
+/**
+ * <p>The configuration of the first and last rules for the network ACL policy, and the remediation settings for each. </p>
+ * @public
+ */
+export interface NetworkAclEntrySet {
+  /**
+   * <p>The rules that you want to run first in the Firewall Manager managed network ACLs. </p>
+   *          <note>
+   *             <p>Provide these in the order in which you want them to run. Firewall Manager will assign
+   *            the specific rule numbers for you, in the network ACLs that it creates. </p>
+   *          </note>
+   * @public
+   */
+  FirstEntries?: NetworkAclEntry[];
+
+  /**
+   * <p>Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy
+   *            violations that involve conflicts between the custom entries and the policy entries. </p>
+   *          <p>If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to
+   *        remediate. For more information about the remediation behavior, see
+   *    <a href="https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html">Network access control list (ACL) policies</a>
+   *        in the <i>Firewall Manager Developer Guide</i>.</p>
+   * @public
+   */
+  ForceRemediateForFirstEntries: boolean | undefined;
+
+  /**
+   * <p>The rules that you want to run last in the Firewall Manager managed network ACLs. </p>
+   *          <note>
+   *             <p>Provide these in the order in which you want them to run. Firewall Manager will assign
+   *            the specific rule numbers for you, in the network ACLs that it creates. </p>
+   *          </note>
+   * @public
+   */
+  LastEntries?: NetworkAclEntry[];
+
+  /**
+   * <p>Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy
+   *            violations that involve conflicts between the custom entries and the policy entries. </p>
+   *          <p>If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to
+   *        remediate. For more information about the remediation behavior, see
+   *    <a href="https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html">Network access control list (ACL) policies</a>
+   *        in the <i>Firewall Manager Developer Guide</i>.</p>
+   * @public
+   */
+  ForceRemediateForLastEntries: boolean | undefined;
+}
+
+/**
+ * <p>Defines a Firewall Manager network ACL policy. This is used in the <code>PolicyOption</code> of a <code>SecurityServicePolicyData</code> for a <code>Policy</code>, when
+ *            the <code>SecurityServicePolicyData</code> type is set to <code>NETWORK_ACL_COMMON</code>. </p>
+ *          <p>For information about network ACLs, see
+ *                                 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Control traffic to subnets using network ACLs</a>
+ *                                 in the <i>Amazon Virtual Private Cloud User Guide</i>. </p>
+ * @public
+ */
+export interface NetworkAclCommonPolicy {
+  /**
+   * <p>The definition of the first and last rules for the network ACL policy. </p>
+   * @public
+   */
+  NetworkAclEntrySet: NetworkAclEntrySet | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1208,7 +1379,7 @@ export interface ThirdPartyFirewallPolicy {
 }
 
 /**
- * <p>Contains the Network Firewall firewall policy options to configure the policy's deployment model and third-party firewall policy settings.</p>
+ * <p>Contains the settings to configure a network ACL policy, a Network Firewall firewall policy deployment model, or a third-party firewall policy.</p>
  * @public
  */
 export interface PolicyOption {
@@ -1223,6 +1394,12 @@ export interface PolicyOption {
    * @public
    */
   ThirdPartyFirewallPolicy?: ThirdPartyFirewallPolicy;
+
+  /**
+   * <p>Defines a Firewall Manager network ACL policy. </p>
+   * @public
+   */
+  NetworkAclCommonPolicy?: NetworkAclCommonPolicy;
 }
 
 /**
@@ -1343,7 +1520,7 @@ export interface SecurityServicePolicyData {
    *              Firewall Manager automatically distributes tags from the primary group to the security groups created by this policy. To use security group tag distribution, you must also set <code>revertManualSecurityGroupChanges</code> to <code>true</code>, otherwise Firewall Manager won't be able to create the policy. When you enable <code>revertManualSecurityGroupChanges</code>, Firewall Manager identifies and reports when the security groups created by this policy become non-compliant.
    *            </p>
    *                <p>
-   *              Firewall Manager won't distrubute system tags added by Amazon Web Services services into the replica security groups. System tags begin with the <code>aws:</code> prefix.
+   *              Firewall Manager won't distribute system tags added by Amazon Web Services services into the replica security groups. System tags begin with the <code>aws:</code> prefix.
    *            </p>
    *             </li>
    *             <li>
@@ -1511,8 +1688,7 @@ export interface SecurityServicePolicyData {
   ManagedServiceData?: string;
 
   /**
-   * <p>Contains the Network Firewall firewall policy options to configure a centralized deployment
-   *          model.</p>
+   * <p>Contains the settings to configure a network ACL policy, a Network Firewall firewall policy deployment model, or a third-party firewall policy.</p>
    * @public
    */
   PolicyOption?: PolicyOption;
@@ -1564,16 +1740,19 @@ export interface Policy {
    *                <p>WAF - <code>AWS::ApiGateway::Stage</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, and <code>AWS::CloudFront::Distribution</code>.</p>
    *             </li>
    *             <li>
-   *                <p> DNS Firewall, Network Firewall, and third-party firewall - <code>AWS::EC2::VPC</code>.</p>
+   *                <p>Shield Advanced - <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::ElasticLoadBalancing::LoadBalancer</code>, <code>AWS::EC2::EIP</code>, and <code>AWS::CloudFront::Distribution</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Shield Advanced - <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::ElasticLoadBalancing::LoadBalancer</code>, <code>AWS::EC2::EIP</code>, and <code>AWS::CloudFront::Distribution</code>.</p>
+   *                <p>Network ACL - <code>AWS::EC2::Subnet</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Security group usage audit - <code>AWS::EC2::SecurityGroup</code>.</p>
    *             </li>
    *             <li>
    *                <p>Security group content audit - <code>AWS::EC2::SecurityGroup</code>, <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Security group usage audit - <code>AWS::EC2::SecurityGroup</code>.</p>
+   *                <p>DNS Firewall, Network Firewall, and third-party firewall - <code>AWS::EC2::VPC</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2132,6 +2311,9 @@ export interface GetViolationDetailsRequest {
    *                <p>Security group content audit</p>
    *             </li>
    *             <li>
+   *                <p>Network ACL</p>
+   *             </li>
+   *             <li>
    *                <p>Third-party firewall</p>
    *             </li>
    *          </ul>
@@ -2463,6 +2645,147 @@ export interface FirewallSubnetMissingVPCEndpointViolation {
    * @public
    */
   SubnetAvailabilityZoneId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntryType = {
+  CustomEntry: "CUSTOM_ENTRY",
+  FMSManagedFirstEntry: "FMS_MANAGED_FIRST_ENTRY",
+  FMSManagedLastEntry: "FMS_MANAGED_LAST_ENTRY",
+} as const;
+
+/**
+ * @public
+ */
+export type EntryType = (typeof EntryType)[keyof typeof EntryType];
+
+/**
+ * <p>Describes a single rule in a network ACL.</p>
+ * @public
+ */
+export interface EntryDescription {
+  /**
+   * <p>Describes a rule in a network ACL.</p>
+   *          <p>Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining
+   * whether a packet should be allowed in or out of a subnet associated with the network ACL, Amazon Web Services processes the
+   *            entries in the network ACL according to the rule numbers, in ascending order. </p>
+   *          <p>When you manage an individual network ACL, you explicitly specify the rule numbers. When you specify the network ACL rules in a Firewall Manager policy,
+   *        you provide the rules to run first, in the order that you want them to run, and the rules to run last, in the order
+   *            that you want them to run. Firewall Manager assigns the rule numbers for you when you save the network ACL policy specification.</p>
+   * @public
+   */
+  EntryDetail?: NetworkAclEntry;
+
+  /**
+   * <p>The rule number for the entry. ACL entries are processed in ascending order by rule number. In a Firewall Manager network ACL policy, Firewall Manager
+   *    assigns rule numbers. </p>
+   * @public
+   */
+  EntryRuleNumber?: number;
+
+  /**
+   * <p>Specifies whether the entry is managed by Firewall Manager or by a user, and, for Firewall Manager-managed entries, specifies whether the entry
+   *            is among those that run first in the network ACL or those that run last. </p>
+   * @public
+   */
+  EntryType?: EntryType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntryViolationReason = {
+  EntryConflict: "ENTRY_CONFLICT",
+  IncorrectEntryOrder: "INCORRECT_ENTRY_ORDER",
+  MissingExpectedEntry: "MISSING_EXPECTED_ENTRY",
+} as const;
+
+/**
+ * @public
+ */
+export type EntryViolationReason = (typeof EntryViolationReason)[keyof typeof EntryViolationReason];
+
+/**
+ * <p>Detailed information about an entry violation in a network ACL. The violation is against the network ACL specification inside the
+ *            Firewall Manager network ACL policy. This data object is part of <code>InvalidNetworkAclEntriesViolation</code>.</p>
+ * @public
+ */
+export interface EntryViolation {
+  /**
+   * <p>The Firewall Manager-managed network ACL entry that is involved in the entry violation. </p>
+   * @public
+   */
+  ExpectedEntry?: EntryDescription;
+
+  /**
+   * <p>The evaluation location within the ordered list of entries where the <code>ExpectedEntry</code> should be, according to the network ACL policy specifications. </p>
+   * @public
+   */
+  ExpectedEvaluationOrder?: string;
+
+  /**
+   * <p>The evaluation location within the ordered list of entries where the <code>ExpectedEntry</code> is currently located. </p>
+   * @public
+   */
+  ActualEvaluationOrder?: string;
+
+  /**
+   * <p>The entry that's currently in the <code>ExpectedEvaluationOrder</code> location, in place of the expected entry. </p>
+   * @public
+   */
+  EntryAtExpectedEvaluationOrder?: EntryDescription;
+
+  /**
+   * <p>The list of entries that are in conflict with <code>ExpectedEntry</code>. </p>
+   * @public
+   */
+  EntriesWithConflicts?: EntryDescription[];
+
+  /**
+   * <p>Descriptions of the violations that Firewall Manager found for these entries. </p>
+   * @public
+   */
+  EntryViolationReasons?: EntryViolationReason[];
+}
+
+/**
+ * <p>Violation detail for the entries in a network ACL resource.</p>
+ * @public
+ */
+export interface InvalidNetworkAclEntriesViolation {
+  /**
+   * <p>The VPC where the violation was found. </p>
+   * @public
+   */
+  Vpc?: string;
+
+  /**
+   * <p>The subnet that's associated with the network ACL.</p>
+   * @public
+   */
+  Subnet?: string;
+
+  /**
+   * <p>The Availability Zone where the network ACL is in use. </p>
+   * @public
+   */
+  SubnetAvailabilityZone?: string;
+
+  /**
+   * <p>The network ACL containing the entry violations. </p>
+   * @public
+   */
+  CurrentAssociatedNetworkAcl?: string;
+
+  /**
+   * <p>Detailed information about the entry violations in the network ACL. </p>
+   * @public
+   */
+  EntryViolations?: EntryViolation[];
 }
 
 /**
@@ -3205,6 +3528,90 @@ export interface NetworkFirewallUnexpectedGatewayRoutesViolation {
 }
 
 /**
+ * <p>Information about the <code>CreateNetworkAcl</code> action in Amazon EC2. This is a remediation option in <code>RemediationAction</code>.</p>
+ * @public
+ */
+export interface CreateNetworkAclAction {
+  /**
+   * <p>Brief description of this remediation action. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The VPC that's associated with the remediation action.</p>
+   * @public
+   */
+  Vpc?: ActionTarget;
+
+  /**
+   * <p>Indicates whether it is possible for Firewall Manager to perform this remediation action. A false value indicates that auto remediation is disabled or Firewall Manager is unable to perform the action due to a conflict of some kind.</p>
+   * @public
+   */
+  FMSCanRemediate?: boolean;
+}
+
+/**
+ * <p>Information about the <code>CreateNetworkAclEntries</code> action in Amazon EC2. This is a remediation option in <code>RemediationAction</code>.</p>
+ * @public
+ */
+export interface CreateNetworkAclEntriesAction {
+  /**
+   * <p>Brief description of this remediation action. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The network ACL that's associated with the remediation action.</p>
+   * @public
+   */
+  NetworkAclId?: ActionTarget;
+
+  /**
+   * <p>Lists the entries that the remediation action would create.</p>
+   * @public
+   */
+  NetworkAclEntriesToBeCreated?: EntryDescription[];
+
+  /**
+   * <p>Indicates whether it is possible for Firewall Manager to perform this remediation action. A false value indicates that auto remediation is disabled or Firewall Manager is unable to perform the action due to a conflict of some kind.</p>
+   * @public
+   */
+  FMSCanRemediate?: boolean;
+}
+
+/**
+ * <p>Information about the <code>DeleteNetworkAclEntries</code> action in Amazon EC2. This is a remediation option in <code>RemediationAction</code>. </p>
+ * @public
+ */
+export interface DeleteNetworkAclEntriesAction {
+  /**
+   * <p>Brief description of this remediation action. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The network ACL that's associated with the remediation action.</p>
+   * @public
+   */
+  NetworkAclId?: ActionTarget;
+
+  /**
+   * <p>Lists the entries that the remediation action would delete.</p>
+   * @public
+   */
+  NetworkAclEntriesToBeDeleted?: EntryDescription[];
+
+  /**
+   * <p>Indicates whether it is possible for Firewall Manager to perform this remediation action. A false value indicates that auto remediation is disabled or Firewall Manager is unable to perform the action due to a conflict of some kind.</p>
+   * @public
+   */
+  FMSCanRemediate?: boolean;
+}
+
+/**
  * <p>The action of associating an EC2 resource, such as a subnet or internet gateway, with a route table.</p>
  * @public
  */
@@ -3449,6 +3856,36 @@ export interface FMSPolicyUpdateFirewallCreationConfigAction {
 }
 
 /**
+ * <p>Information about the <code>ReplaceNetworkAclAssociation</code> action in Amazon EC2. This is a remediation option in <code>RemediationAction</code>.</p>
+ * @public
+ */
+export interface ReplaceNetworkAclAssociationAction {
+  /**
+   * <p>Brief description of this remediation action. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Describes a remediation action target.</p>
+   * @public
+   */
+  AssociationId?: ActionTarget;
+
+  /**
+   * <p>The network ACL that's associated with the remediation action.</p>
+   * @public
+   */
+  NetworkAclId?: ActionTarget;
+
+  /**
+   * <p>Indicates whether it is possible for Firewall Manager to perform this remediation action. A false value indicates that auto remediation is disabled or Firewall Manager is unable to perform the action due to a conflict of some kind.</p>
+   * @public
+   */
+  FMSCanRemediate?: boolean;
+}
+
+/**
  * <p>Information about an individual action you can take to remediate a violation.</p>
  * @public
  */
@@ -3506,6 +3943,30 @@ export interface RemediationAction {
    * @public
    */
   FMSPolicyUpdateFirewallCreationConfigAction?: FMSPolicyUpdateFirewallCreationConfigAction;
+
+  /**
+   * <p>Information about the <code>CreateNetworkAcl</code> action in Amazon EC2.</p>
+   * @public
+   */
+  CreateNetworkAclAction?: CreateNetworkAclAction;
+
+  /**
+   * <p>Information about the <code>ReplaceNetworkAclAssociation</code> action in Amazon EC2. </p>
+   * @public
+   */
+  ReplaceNetworkAclAssociationAction?: ReplaceNetworkAclAssociationAction;
+
+  /**
+   * <p>Information about the <code>CreateNetworkAclEntries</code> action in Amazon EC2.</p>
+   * @public
+   */
+  CreateNetworkAclEntriesAction?: CreateNetworkAclEntriesAction;
+
+  /**
+   * <p>Information about the <code>DeleteNetworkAclEntries</code> action in Amazon EC2.</p>
+   * @public
+   */
+  DeleteNetworkAclEntriesAction?: DeleteNetworkAclEntriesAction;
 }
 
 /**
@@ -3852,12 +4313,6 @@ export interface ResourceViolation {
   DnsRuleGroupLimitExceededViolation?: DnsRuleGroupLimitExceededViolation;
 
   /**
-   * <p>A list of possible remediation action lists. Each individual possible remediation action is a list of individual remediation actions.</p>
-   * @public
-   */
-  PossibleRemediationActions?: PossibleRemediationActions;
-
-  /**
    * <p>Contains details about the firewall subnet that violates the policy scope.</p>
    * @public
    */
@@ -3892,6 +4347,18 @@ export interface ResourceViolation {
    * @public
    */
   FirewallSubnetMissingVPCEndpointViolation?: FirewallSubnetMissingVPCEndpointViolation;
+
+  /**
+   * <p>Violation detail for the entries in a network ACL resource.</p>
+   * @public
+   */
+  InvalidNetworkAclEntriesViolation?: InvalidNetworkAclEntriesViolation;
+
+  /**
+   * <p>A list of possible remediation action lists. Each individual possible remediation action is a list of individual remediation actions.</p>
+   * @public
+   */
+  PossibleRemediationActions?: PossibleRemediationActions;
 }
 
 /**
@@ -4409,15 +4876,7 @@ export interface PolicySummary {
 
   /**
    * <p>The type of resource protected by or in scope of the policy. This is in the format shown
-   *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>.
-   *             For WAF and Shield Advanced, examples include
-   *         <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> and
-   *         <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values
-   *       are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a
-   *       security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>,
-   *         <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security
-   *       group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an Network Firewall policy or DNS Firewall policy,
-   *           the value is <code>AWS::EC2::VPC</code>.</p>
+   *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>. </p>
    * @public
    */
   ResourceType?: string;

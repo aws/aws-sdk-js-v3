@@ -351,6 +351,126 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * //           ViolationTargetDescription: "STRING_VALUE",
  * //           NumberOfRuleGroupsAlreadyAssociated: Number("int"),
  * //         },
+ * //         FirewallSubnetIsOutOfScopeViolation: { // FirewallSubnetIsOutOfScopeViolation
+ * //           FirewallSubnetId: "STRING_VALUE",
+ * //           VpcId: "STRING_VALUE",
+ * //           SubnetAvailabilityZone: "STRING_VALUE",
+ * //           SubnetAvailabilityZoneId: "STRING_VALUE",
+ * //           VpcEndpointId: "STRING_VALUE",
+ * //         },
+ * //         RouteHasOutOfScopeEndpointViolation: { // RouteHasOutOfScopeEndpointViolation
+ * //           SubnetId: "STRING_VALUE",
+ * //           VpcId: "STRING_VALUE",
+ * //           RouteTableId: "STRING_VALUE",
+ * //           ViolatingRoutes: "<Routes>",
+ * //           SubnetAvailabilityZone: "STRING_VALUE",
+ * //           SubnetAvailabilityZoneId: "STRING_VALUE",
+ * //           CurrentFirewallSubnetRouteTable: "STRING_VALUE",
+ * //           FirewallSubnetId: "STRING_VALUE",
+ * //           FirewallSubnetRoutes: "<Routes>",
+ * //           InternetGatewayId: "STRING_VALUE",
+ * //           CurrentInternetGatewayRouteTable: "STRING_VALUE",
+ * //           InternetGatewayRoutes: "<Routes>",
+ * //         },
+ * //         ThirdPartyFirewallMissingFirewallViolation: { // ThirdPartyFirewallMissingFirewallViolation
+ * //           ViolationTarget: "STRING_VALUE",
+ * //           VPC: "STRING_VALUE",
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           TargetViolationReason: "STRING_VALUE",
+ * //         },
+ * //         ThirdPartyFirewallMissingSubnetViolation: { // ThirdPartyFirewallMissingSubnetViolation
+ * //           ViolationTarget: "STRING_VALUE",
+ * //           VPC: "STRING_VALUE",
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           TargetViolationReason: "STRING_VALUE",
+ * //         },
+ * //         ThirdPartyFirewallMissingExpectedRouteTableViolation: { // ThirdPartyFirewallMissingExpectedRouteTableViolation
+ * //           ViolationTarget: "STRING_VALUE",
+ * //           VPC: "STRING_VALUE",
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           CurrentRouteTable: "STRING_VALUE",
+ * //           ExpectedRouteTable: "STRING_VALUE",
+ * //         },
+ * //         FirewallSubnetMissingVPCEndpointViolation: { // FirewallSubnetMissingVPCEndpointViolation
+ * //           FirewallSubnetId: "STRING_VALUE",
+ * //           VpcId: "STRING_VALUE",
+ * //           SubnetAvailabilityZone: "STRING_VALUE",
+ * //           SubnetAvailabilityZoneId: "STRING_VALUE",
+ * //         },
+ * //         InvalidNetworkAclEntriesViolation: { // InvalidNetworkAclEntriesViolation
+ * //           Vpc: "STRING_VALUE",
+ * //           Subnet: "STRING_VALUE",
+ * //           SubnetAvailabilityZone: "STRING_VALUE",
+ * //           CurrentAssociatedNetworkAcl: "STRING_VALUE",
+ * //           EntryViolations: [ // EntryViolations
+ * //             { // EntryViolation
+ * //               ExpectedEntry: { // EntryDescription
+ * //                 EntryDetail: { // NetworkAclEntry
+ * //                   IcmpTypeCode: { // NetworkAclIcmpTypeCode
+ * //                     Code: Number("int"),
+ * //                     Type: Number("int"),
+ * //                   },
+ * //                   Protocol: "STRING_VALUE", // required
+ * //                   PortRange: { // NetworkAclPortRange
+ * //                     From: Number("int"),
+ * //                     To: Number("int"),
+ * //                   },
+ * //                   CidrBlock: "STRING_VALUE",
+ * //                   Ipv6CidrBlock: "STRING_VALUE",
+ * //                   RuleAction: "allow" || "deny", // required
+ * //                   Egress: true || false, // required
+ * //                 },
+ * //                 EntryRuleNumber: Number("int"),
+ * //                 EntryType: "FMS_MANAGED_FIRST_ENTRY" || "FMS_MANAGED_LAST_ENTRY" || "CUSTOM_ENTRY",
+ * //               },
+ * //               ExpectedEvaluationOrder: "STRING_VALUE",
+ * //               ActualEvaluationOrder: "STRING_VALUE",
+ * //               EntryAtExpectedEvaluationOrder: {
+ * //                 EntryDetail: {
+ * //                   IcmpTypeCode: {
+ * //                     Code: Number("int"),
+ * //                     Type: Number("int"),
+ * //                   },
+ * //                   Protocol: "STRING_VALUE", // required
+ * //                   PortRange: {
+ * //                     From: Number("int"),
+ * //                     To: Number("int"),
+ * //                   },
+ * //                   CidrBlock: "STRING_VALUE",
+ * //                   Ipv6CidrBlock: "STRING_VALUE",
+ * //                   RuleAction: "allow" || "deny", // required
+ * //                   Egress: true || false, // required
+ * //                 },
+ * //                 EntryRuleNumber: Number("int"),
+ * //                 EntryType: "FMS_MANAGED_FIRST_ENTRY" || "FMS_MANAGED_LAST_ENTRY" || "CUSTOM_ENTRY",
+ * //               },
+ * //               EntriesWithConflicts: [ // EntriesWithConflicts
+ * //                 {
+ * //                   EntryDetail: {
+ * //                     IcmpTypeCode: {
+ * //                       Code: Number("int"),
+ * //                       Type: Number("int"),
+ * //                     },
+ * //                     Protocol: "STRING_VALUE", // required
+ * //                     PortRange: {
+ * //                       From: Number("int"),
+ * //                       To: Number("int"),
+ * //                     },
+ * //                     CidrBlock: "STRING_VALUE",
+ * //                     Ipv6CidrBlock: "STRING_VALUE",
+ * //                     RuleAction: "allow" || "deny", // required
+ * //                     Egress: true || false, // required
+ * //                   },
+ * //                   EntryRuleNumber: Number("int"),
+ * //                   EntryType: "FMS_MANAGED_FIRST_ENTRY" || "FMS_MANAGED_LAST_ENTRY" || "CUSTOM_ENTRY",
+ * //                 },
+ * //               ],
+ * //               EntryViolationReasons: [ // EntryViolationReasons
+ * //                 "MISSING_EXPECTED_ENTRY" || "INCORRECT_ENTRY_ORDER" || "ENTRY_CONFLICT",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //         PossibleRemediationActions: { // PossibleRemediationActions
  * //           Description: "STRING_VALUE",
  * //           Actions: [ // PossibleRemediationActionList
@@ -423,6 +543,33 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * //                       Description: "STRING_VALUE",
  * //                       FirewallCreationConfig: "STRING_VALUE",
  * //                     },
+ * //                     CreateNetworkAclAction: { // CreateNetworkAclAction
+ * //                       Description: "STRING_VALUE",
+ * //                       Vpc: "<ActionTarget>",
+ * //                       FMSCanRemediate: true || false,
+ * //                     },
+ * //                     ReplaceNetworkAclAssociationAction: { // ReplaceNetworkAclAssociationAction
+ * //                       Description: "STRING_VALUE",
+ * //                       AssociationId: "<ActionTarget>",
+ * //                       NetworkAclId: "<ActionTarget>",
+ * //                       FMSCanRemediate: true || false,
+ * //                     },
+ * //                     CreateNetworkAclEntriesAction: { // CreateNetworkAclEntriesAction
+ * //                       Description: "STRING_VALUE",
+ * //                       NetworkAclId: "<ActionTarget>",
+ * //                       NetworkAclEntriesToBeCreated: [ // EntriesDescription
+ * //                         "<EntryDescription>",
+ * //                       ],
+ * //                       FMSCanRemediate: true || false,
+ * //                     },
+ * //                     DeleteNetworkAclEntriesAction: { // DeleteNetworkAclEntriesAction
+ * //                       Description: "STRING_VALUE",
+ * //                       NetworkAclId: "<ActionTarget>",
+ * //                       NetworkAclEntriesToBeDeleted: [
+ * //                         "<EntryDescription>",
+ * //                       ],
+ * //                       FMSCanRemediate: true || false,
+ * //                     },
  * //                   },
  * //                   Order: Number("int"),
  * //                 },
@@ -430,52 +577,6 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * //               IsDefaultAction: true || false,
  * //             },
  * //           ],
- * //         },
- * //         FirewallSubnetIsOutOfScopeViolation: { // FirewallSubnetIsOutOfScopeViolation
- * //           FirewallSubnetId: "STRING_VALUE",
- * //           VpcId: "STRING_VALUE",
- * //           SubnetAvailabilityZone: "STRING_VALUE",
- * //           SubnetAvailabilityZoneId: "STRING_VALUE",
- * //           VpcEndpointId: "STRING_VALUE",
- * //         },
- * //         RouteHasOutOfScopeEndpointViolation: { // RouteHasOutOfScopeEndpointViolation
- * //           SubnetId: "STRING_VALUE",
- * //           VpcId: "STRING_VALUE",
- * //           RouteTableId: "STRING_VALUE",
- * //           ViolatingRoutes: "<Routes>",
- * //           SubnetAvailabilityZone: "STRING_VALUE",
- * //           SubnetAvailabilityZoneId: "STRING_VALUE",
- * //           CurrentFirewallSubnetRouteTable: "STRING_VALUE",
- * //           FirewallSubnetId: "STRING_VALUE",
- * //           FirewallSubnetRoutes: "<Routes>",
- * //           InternetGatewayId: "STRING_VALUE",
- * //           CurrentInternetGatewayRouteTable: "STRING_VALUE",
- * //           InternetGatewayRoutes: "<Routes>",
- * //         },
- * //         ThirdPartyFirewallMissingFirewallViolation: { // ThirdPartyFirewallMissingFirewallViolation
- * //           ViolationTarget: "STRING_VALUE",
- * //           VPC: "STRING_VALUE",
- * //           AvailabilityZone: "STRING_VALUE",
- * //           TargetViolationReason: "STRING_VALUE",
- * //         },
- * //         ThirdPartyFirewallMissingSubnetViolation: { // ThirdPartyFirewallMissingSubnetViolation
- * //           ViolationTarget: "STRING_VALUE",
- * //           VPC: "STRING_VALUE",
- * //           AvailabilityZone: "STRING_VALUE",
- * //           TargetViolationReason: "STRING_VALUE",
- * //         },
- * //         ThirdPartyFirewallMissingExpectedRouteTableViolation: { // ThirdPartyFirewallMissingExpectedRouteTableViolation
- * //           ViolationTarget: "STRING_VALUE",
- * //           VPC: "STRING_VALUE",
- * //           AvailabilityZone: "STRING_VALUE",
- * //           CurrentRouteTable: "STRING_VALUE",
- * //           ExpectedRouteTable: "STRING_VALUE",
- * //         },
- * //         FirewallSubnetMissingVPCEndpointViolation: { // FirewallSubnetMissingVPCEndpointViolation
- * //           FirewallSubnetId: "STRING_VALUE",
- * //           VpcId: "STRING_VALUE",
- * //           SubnetAvailabilityZone: "STRING_VALUE",
- * //           SubnetAvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],
