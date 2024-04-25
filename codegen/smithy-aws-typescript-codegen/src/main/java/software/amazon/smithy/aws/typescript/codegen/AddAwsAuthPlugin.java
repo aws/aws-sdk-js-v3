@@ -211,14 +211,12 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                         if (isCredentialService(service)) {
                             writer
                                 .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
-                                .addDependency(AwsDependency.STS_CLIENT)
                                 .addRelativeImport("defaultProvider", "credentialDefaultProvider",
                                     Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
                                 .write("credentialDefaultProvider");
                         } else {
                             writer
                                 .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .addDependency(AwsDependency.STS_CLIENT)
                                 .addImport("defaultProvider", "credentialDefaultProvider",
                                     AwsDependency.CREDENTIAL_PROVIDER_NODE)
                                 .write("credentialDefaultProvider");
