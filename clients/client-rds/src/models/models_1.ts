@@ -8315,7 +8315,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>Changing the subnet group causes an outage during the change.
    *         The change is applied during the next maintenance window,
    *         unless you enable <code>ApplyImmediately</code>.</p>
-   *          <p>This parameter doesn't apply to RDS Custom DB instances.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -9064,6 +9064,8 @@ export interface ModifyDBInstanceMessage {
    *             deletion protection isn't enabled. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
    *                 Deleting a DB Instance</a>.</p>
+   *          <p>This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable deletion protection for the DB cluster.
+   *         For more information, see <code>ModifyDBCluster</code>. DB instances in a DB cluster can be deleted even when deletion protection is enabled for the DB cluster.</p>
    * @public
    */
   DeletionProtection?: boolean;

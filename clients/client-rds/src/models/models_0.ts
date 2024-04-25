@@ -8060,8 +8060,8 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The time zone of the DB instance.
-   *             The time zone parameter is currently supported only by
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone">Microsoft SQL Server</a>.</p>
+   *             The time zone parameter is currently supported only by <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone">RDS for Db2</a> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone">RDS for SQL Server</a>.</p>
    * @public
    */
   Timezone?: string;
@@ -9249,7 +9249,7 @@ export interface DBInstance {
    * <p>The time zone of the DB instance.
    *             In most cases, the <code>Timezone</code> element is empty.
    *             <code>Timezone</code> content appears only for
-   *             Microsoft SQL Server DB instances
+   *             RDS for Db2 and RDS for SQL Server DB instances
    *             that were created with a time zone specified.</p>
    * @public
    */
