@@ -110,9 +110,9 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
                         writer
-                            .addRelativeImport("defaultProvider", "credentialDefaultProvider",
-                                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
-                            .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
+                            .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                            .addImport("defaultProvider", "credentialDefaultProvider",
+                                AwsDependency.CREDENTIAL_PROVIDER_NODE)
                             .write("credentialDefaultProvider");
                     }
                 );

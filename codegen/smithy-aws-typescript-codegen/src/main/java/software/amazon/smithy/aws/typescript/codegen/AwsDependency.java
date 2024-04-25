@@ -42,7 +42,6 @@ public enum AwsDependency implements Dependency {
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing"),
     MIDDLEWARE_TOKEN(NORMAL_DEPENDENCY, "@aws-sdk/middleware-token"),
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node"),
-    CREDENTIAL_PROVIDER_NODE_PEER(PEER_DEPENDENCY, "@aws-sdk/credential-provider-node"),
     ACCEPT_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway"),
     S3_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3"),
     ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue"),

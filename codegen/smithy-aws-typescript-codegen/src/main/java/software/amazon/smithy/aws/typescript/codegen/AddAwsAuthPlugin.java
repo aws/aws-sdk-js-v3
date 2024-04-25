@@ -208,19 +208,11 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
-                        if (isCredentialService(service)) {
-                            writer
-                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
-                                .addRelativeImport("defaultProvider", "credentialDefaultProvider",
-                                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
-                                .write("credentialDefaultProvider");
-                        } else {
-                            writer
-                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .write("credentialDefaultProvider");
-                        }
+                        writer
+                            .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                            .addImport("defaultProvider", "credentialDefaultProvider",
+                                AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                            .write("credentialDefaultProvider");
                     }
                 );
             default:
@@ -239,22 +231,6 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "index.ts").toString(), writer -> {
             writeAdditionalExports(settings, model, writer);
         });
-
-        if (isCredentialService(settings.getService(model))) {
-            writerFactory.accept(CodegenUtils.SOURCE_FOLDER + "/credentialDefaultProvider.ts", writer -> {
-                writer
-                    .write("""
-                        /**
-                         * @internal
-                         */
-                        export const defaultProvider = ((input: any) => {
-                          // @ts-ignore
-                          return () => import("@aws-sdk/credential-provider-node")
-                            .then(({ defaultProvider }) => defaultProvider(input)());
-                        }) as any;
-                        """);
-            });
-        }
     }
 
     private void writeAdditionalFiles(
@@ -342,15 +318,5 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             }
         }
         return true;
-    }
-
-    /**
-     * Some services with circular dependencies to credential providers.
-     */
-    private boolean isCredentialService(ServiceShape service) {
-        return List.of(
-            ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"),
-            ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615")
-        ).stream().anyMatch(service.getId()::equals);
     }
 }
