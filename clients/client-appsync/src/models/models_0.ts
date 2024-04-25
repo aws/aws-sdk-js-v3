@@ -5321,7 +5321,7 @@ export interface UpdateGraphqlApiRequest {
    * <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
    * @public
    */
-  authenticationType?: AuthenticationType;
+  authenticationType: AuthenticationType | undefined;
 
   /**
    * <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code> object.</p>
