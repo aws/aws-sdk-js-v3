@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
+
+
+### Features
+
+* **client-ivs-realtime:** Bug Fix: IVS Real Time does not support ARNs using the `svs` prefix. ([fb6245c](https://github.com/aws/aws-sdk-js-v3/commit/fb6245c40560a04fe46936c66b2fc71080f54b7a))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

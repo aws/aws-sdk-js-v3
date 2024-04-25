@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
+
+
+### Features
+
+* **client-appsync:** UpdateGraphQLAPI documentation update and datasource introspection secret arn update ([9b7b9dd](https://github.com/aws/aws-sdk-js-v3/commit/9b7b9ddbe2c7fa180858fcb9e8a15e0240d366bd))
+* **client-fms:** AWS Firewall Manager adds support for network ACL policies to manage Amazon Virtual Private Cloud (VPC) network access control lists (ACLs) for accounts in your organization. ([75febc1](https://github.com/aws/aws-sdk-js-v3/commit/75febc1b86c0dcb9363a9e8ad760e4b443d11909))
+* **client-ivs-realtime:** Bug Fix: IVS Real Time does not support ARNs using the `svs` prefix. ([fb6245c](https://github.com/aws/aws-sdk-js-v3/commit/fb6245c40560a04fe46936c66b2fc71080f54b7a))
+* **client-ivs:** Bug Fix: IVS does not support arns with the `svs` prefix ([6e69a84](https://github.com/aws/aws-sdk-js-v3/commit/6e69a84d86183b91e73a14541d26791cd9e3e0c3))
+* **client-sfn:** Add new ValidateStateMachineDefinition operation, which performs syntax checking on the definition of a Amazon States Language (ASL) state machine. ([b73ebff](https://github.com/aws/aws-sdk-js-v3/commit/b73ebff021a6a963d819fefd7f50eb7a5bcac6c9))
+* **clients:** update client endpoints as of 2024-04-25 ([74d1b96](https://github.com/aws/aws-sdk-js-v3/commit/74d1b968b09a1e939d9911d35310559814ce360e))
+
+
+
+
+
 # [3.562.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.561.0...v3.562.0) (2024-04-24)
 
 

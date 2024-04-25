@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
+
+
+### Features
+
+* **client-ivs:** Bug Fix: IVS does not support arns with the `svs` prefix ([6e69a84](https://github.com/aws/aws-sdk-js-v3/commit/6e69a84d86183b91e73a14541d26791cd9e3e0c3))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs

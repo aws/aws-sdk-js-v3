@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
+
+
+### Features
+
+* **client-appsync:** UpdateGraphQLAPI documentation update and datasource introspection secret arn update ([9b7b9dd](https://github.com/aws/aws-sdk-js-v3/commit/9b7b9ddbe2c7fa180858fcb9e8a15e0240d366bd))
+
+
+
+
+
 # [3.556.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.555.0...v3.556.0) (2024-04-16)
 
 **Note:** Version bump only for package @aws-sdk/client-appsync
