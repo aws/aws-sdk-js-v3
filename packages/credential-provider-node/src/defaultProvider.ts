@@ -1,3 +1,4 @@
+import { fromEnv } from "@aws-sdk/credential-provider-env";
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
 import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
@@ -60,7 +61,6 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
         : [
             async () => {
               init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromEnv");
-              const { fromEnv } = await import("@aws-sdk/credential-provider-env");
               return fromEnv(init)();
             },
           ]),
