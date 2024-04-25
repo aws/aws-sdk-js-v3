@@ -101,6 +101,10 @@ import {
 } from "../commands/UpdateStateMachineAliasCommand";
 import { UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput } from "../commands/UpdateStateMachineCommand";
 import {
+  ValidateStateMachineDefinitionCommandInput,
+  ValidateStateMachineDefinitionCommandOutput,
+} from "../commands/ValidateStateMachineDefinitionCommand";
+import {
   ActivityDoesNotExist,
   ActivityLimitExceeded,
   ActivityListItem,
@@ -200,6 +204,7 @@ import {
   UpdateStateMachineAliasOutput,
   UpdateStateMachineInput,
   UpdateStateMachineOutput,
+  ValidateStateMachineDefinitionInput,
   ValidationException,
 } from "../models/models_0";
 import { SFNServiceException as __BaseException } from "../models/SFNServiceException";
@@ -681,6 +686,19 @@ export const se_UpdateStateMachineAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateStateMachineAlias");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ValidateStateMachineDefinitionCommand
+ */
+export const se_ValidateStateMachineDefinitionCommand = async (
+  input: ValidateStateMachineDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ValidateStateMachineDefinition");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1407,6 +1425,26 @@ export const de_UpdateStateMachineAliasCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0ValidateStateMachineDefinitionCommand
+ */
+export const de_ValidateStateMachineDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidateStateMachineDefinitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ValidateStateMachineDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserialize_Aws_json1_0CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -2034,6 +2072,8 @@ const se_UpdateMapRunInput = (input: UpdateMapRunInput, context: __SerdeContext)
 // se_UpdateStateMachineAliasInput omitted.
 
 // se_UpdateStateMachineInput omitted.
+
+// se_ValidateStateMachineDefinitionInput omitted.
 
 // de_ActivityDoesNotExist omitted.
 
@@ -2722,6 +2762,12 @@ const de_UpdateStateMachineOutput = (output: any, context: __SerdeContext): Upda
     updateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_ValidateStateMachineDefinitionDiagnostic omitted.
+
+// de_ValidateStateMachineDefinitionDiagnosticList omitted.
+
+// de_ValidateStateMachineDefinitionOutput omitted.
 
 // de_ValidationException omitted.
 

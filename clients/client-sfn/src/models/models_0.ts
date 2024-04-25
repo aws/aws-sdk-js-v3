@@ -4549,6 +4549,106 @@ export interface UpdateStateMachineAliasOutput {
 }
 
 /**
+ * @public
+ */
+export interface ValidateStateMachineDefinitionInput {
+  /**
+   * <p>The Amazon States Language definition of the state machine. For more information, see
+   *             <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL).</p>
+   * @public
+   */
+  definition: string | undefined;
+
+  /**
+   * <p>The target type of state machine for this definition. The default is <code>STANDARD</code>.</p>
+   * @public
+   */
+  type?: StateMachineType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidateStateMachineDefinitionSeverity = {
+  ERROR: "ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidateStateMachineDefinitionSeverity =
+  (typeof ValidateStateMachineDefinitionSeverity)[keyof typeof ValidateStateMachineDefinitionSeverity];
+
+/**
+ * <p>Describes an error found during validation. Validation errors found in the definition
+ *             return in the response as <b>diagnostic elements</b>, rather
+ *             than raise an exception.</p>
+ * @public
+ */
+export interface ValidateStateMachineDefinitionDiagnostic {
+  /**
+   * <p>A value of <code>ERROR</code> means that you cannot create or update a state machine with this definition.</p>
+   * @public
+   */
+  severity: ValidateStateMachineDefinitionSeverity | undefined;
+
+  /**
+   * <p>Identifying code for the diagnostic.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>Message describing the diagnostic condition.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>Location of the issue in the state machine, if available.</p>
+   *          <p>For errors specific to a field, the location could be in the format: <code>/States/<StateName>/<FieldName></code>, for example: <code>/States/FailState/ErrorPath</code>.</p>
+   * @public
+   */
+  location?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidateStateMachineDefinitionResultCode = {
+  FAIL: "FAIL",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidateStateMachineDefinitionResultCode =
+  (typeof ValidateStateMachineDefinitionResultCode)[keyof typeof ValidateStateMachineDefinitionResultCode];
+
+/**
+ * @public
+ */
+export interface ValidateStateMachineDefinitionOutput {
+  /**
+   * <p>The result value will be <code>OK</code> when no syntax errors are found, or
+   *                 <code>FAIL</code> if the workflow definition does not pass verification.</p>
+   * @public
+   */
+  result: ValidateStateMachineDefinitionResultCode | undefined;
+
+  /**
+   * <p>If the result is <code>OK</code>, this field will be empty. When there are errors,
+   *             this field will contain an array of <b>Diagnostic</b> objects
+   *             to help you troubleshoot.</p>
+   * @public
+   */
+  diagnostics: ValidateStateMachineDefinitionDiagnostic[] | undefined;
+}
+
+/**
  * @internal
  */
 export const ActivityFailedEventDetailsFilterSensitiveLog = (obj: ActivityFailedEventDetails): any => ({
@@ -5061,4 +5161,14 @@ export const UpdateStateMachineInputFilterSensitiveLog = (obj: UpdateStateMachin
 export const UpdateStateMachineAliasInputFilterSensitiveLog = (obj: UpdateStateMachineAliasInput): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateStateMachineDefinitionInputFilterSensitiveLog = (
+  obj: ValidateStateMachineDefinitionInput
+): any => ({
+  ...obj,
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
 });

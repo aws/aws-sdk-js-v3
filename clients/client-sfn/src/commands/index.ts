@@ -35,3 +35,4 @@ export * from "./UntagResourceCommand";
 export * from "./UpdateMapRunCommand";
 export * from "./UpdateStateMachineAliasCommand";
 export * from "./UpdateStateMachineCommand";
+export * from "./ValidateStateMachineDefinitionCommand";

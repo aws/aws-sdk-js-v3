@@ -170,6 +170,11 @@ import {
   UpdateStateMachineCommandInput,
   UpdateStateMachineCommandOutput,
 } from "./commands/UpdateStateMachineCommand";
+import {
+  ValidateStateMachineDefinitionCommand,
+  ValidateStateMachineDefinitionCommandInput,
+  ValidateStateMachineDefinitionCommandOutput,
+} from "./commands/ValidateStateMachineDefinitionCommand";
 import { SFNClient, SFNClientConfig } from "./SFNClient";
 
 const commands = {
@@ -209,6 +214,7 @@ const commands = {
   UpdateMapRunCommand,
   UpdateStateMachineCommand,
   UpdateStateMachineAliasCommand,
+  ValidateStateMachineDefinitionCommand,
 };
 
 export interface SFN {
@@ -762,6 +768,23 @@ export interface SFN {
     args: UpdateStateMachineAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStateMachineAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateStateMachineDefinitionCommand}
+   */
+  validateStateMachineDefinition(
+    args: ValidateStateMachineDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateStateMachineDefinitionCommandOutput>;
+  validateStateMachineDefinition(
+    args: ValidateStateMachineDefinitionCommandInput,
+    cb: (err: any, data?: ValidateStateMachineDefinitionCommandOutput) => void
+  ): void;
+  validateStateMachineDefinition(
+    args: ValidateStateMachineDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateStateMachineDefinitionCommandOutput) => void
   ): void;
 }
 

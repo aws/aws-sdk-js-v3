@@ -126,6 +126,10 @@ import {
 } from "./commands/UpdateStateMachineAliasCommand";
 import { UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput } from "./commands/UpdateStateMachineCommand";
 import {
+  ValidateStateMachineDefinitionCommandInput,
+  ValidateStateMachineDefinitionCommandOutput,
+} from "./commands/ValidateStateMachineDefinitionCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -175,7 +179,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateMapRunCommandInput
   | UpdateStateMachineAliasCommandInput
-  | UpdateStateMachineCommandInput;
+  | UpdateStateMachineCommandInput
+  | ValidateStateMachineDefinitionCommandInput;
 
 /**
  * @public
@@ -216,7 +221,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateMapRunCommandOutput
   | UpdateStateMachineAliasCommandOutput
-  | UpdateStateMachineCommandOutput;
+  | UpdateStateMachineCommandOutput
+  | ValidateStateMachineDefinitionCommandOutput;
 
 /**
  * @public
