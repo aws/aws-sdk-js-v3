@@ -62,6 +62,9 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * @throws {@link AccessDeniedException} (client fault)
  *  <p/>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p/>
+ *
  * @throws {@link PendingVerification} (client fault)
  *  <p/>
  *
