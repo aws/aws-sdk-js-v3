@@ -211,7 +211,7 @@ export interface Channel {
  */
 export interface BatchError {
   /**
-   * <p>Channel ARN.</p>
+   * <p>ARN of an IVS resource; e.g., channel.</p>
    * @public
    */
   arn?: string;
