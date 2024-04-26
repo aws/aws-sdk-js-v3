@@ -1,8 +1,6 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
-import type { STSClientConfig } from "./loadSts";
-
 /**
  * @public
  */
@@ -140,7 +138,7 @@ export interface FromWebTokenInit
   /**
    * @internal
    */
-  clientConfig?: STSClientConfig;
+  clientConfig?: any; // STSClientConfig;
 
   /**
    * @internal
@@ -160,7 +158,8 @@ export const fromWebToken =
     let { roleAssumerWithWebIdentity } = init;
 
     if (!roleAssumerWithWebIdentity) {
-      const { getDefaultRoleAssumerWithWebIdentity } = await import("./loadSts");
+      // @ts-expect-error Cannot find module '@aws-sdk/client-sts'
+      const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/client-sts");
       roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(
         {
           ...init.clientConfig,

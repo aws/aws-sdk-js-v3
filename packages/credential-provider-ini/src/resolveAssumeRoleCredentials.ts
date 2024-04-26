@@ -87,7 +87,8 @@ export const resolveAssumeRoleCredentials = async (
   const data = profiles[profileName];
 
   if (!options.roleAssumer) {
-    const { getDefaultRoleAssumer } = await import("./loadSts");
+    // @ts-expect-error Cannot find module '@aws-sdk/client-sts'
+    const { getDefaultRoleAssumer } = await import("@aws-sdk/client-sts");
     options.roleAssumer = getDefaultRoleAssumer(
       {
         ...options.clientConfig,
