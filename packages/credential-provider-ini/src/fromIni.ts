@@ -3,7 +3,6 @@ import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
-import type { STSClientConfig } from "./loadSts";
 import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 
@@ -39,7 +38,12 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
    */
   roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 
-  clientConfig?: STSClientConfig;
+  /**
+   * STSClientConfig to be used for creating STS Client for assuming role.
+   * @internal
+   */
+  clientConfig?: any;
+
   clientPlugins?: Pluggable<any, any>[];
 }
 

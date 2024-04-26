@@ -7,7 +7,8 @@ import { getSsoOidcClient } from "./getSsoOidcClient";
  * @internal
  */
 export const getNewSsoOidcToken = async (ssoToken: SSOToken, ssoRegion: string) => {
-  const { CreateTokenCommand } = await import("./loadSsoOidc");
+  // @ts-ignore Cannot find module '@aws-sdk/client-sso-oidc'
+  const { CreateTokenCommand } = await import("@aws-sdk/client-sso-oidc");
 
   const ssoOidcClient = await getSsoOidcClient(ssoRegion);
   return ssoOidcClient.send(
