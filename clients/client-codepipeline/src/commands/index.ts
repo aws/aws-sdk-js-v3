@@ -32,6 +32,7 @@ export * from "./PutThirdPartyJobSuccessResultCommand";
 export * from "./PutWebhookCommand";
 export * from "./RegisterWebhookWithThirdPartyCommand";
 export * from "./RetryStageExecutionCommand";
+export * from "./RollbackStageCommand";
 export * from "./StartPipelineExecutionCommand";
 export * from "./StopPipelineExecutionCommand";
 export * from "./TagResourceCommand";

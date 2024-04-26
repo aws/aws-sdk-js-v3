@@ -157,6 +157,11 @@ import {
   RetryStageExecutionCommandOutput,
 } from "./commands/RetryStageExecutionCommand";
 import {
+  RollbackStageCommand,
+  RollbackStageCommandInput,
+  RollbackStageCommandOutput,
+} from "./commands/RollbackStageCommand";
+import {
   StartPipelineExecutionCommand,
   StartPipelineExecutionCommandInput,
   StartPipelineExecutionCommandOutput,
@@ -217,6 +222,7 @@ const commands = {
   PutWebhookCommand,
   RegisterWebhookWithThirdPartyCommand,
   RetryStageExecutionCommand,
+  RollbackStageCommand,
   StartPipelineExecutionCommand,
   StopPipelineExecutionCommand,
   TagResourceCommand,
@@ -730,6 +736,17 @@ export interface CodePipeline {
     args: RetryStageExecutionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetryStageExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RollbackStageCommand}
+   */
+  rollbackStage(args: RollbackStageCommandInput, options?: __HttpHandlerOptions): Promise<RollbackStageCommandOutput>;
+  rollbackStage(args: RollbackStageCommandInput, cb: (err: any, data?: RollbackStageCommandOutput) => void): void;
+  rollbackStage(
+    args: RollbackStageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RollbackStageCommandOutput) => void
   ): void;
 
   /**

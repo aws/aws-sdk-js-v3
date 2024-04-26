@@ -37,6 +37,11 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * const input = { // ListPipelineExecutionsInput
  *   pipelineName: "STRING_VALUE", // required
  *   maxResults: Number("int"),
+ *   filter: { // PipelineExecutionFilter
+ *     succeededInStage: { // SucceededInStageFilter
+ *       stageName: "STRING_VALUE",
+ *     },
+ *   },
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListPipelineExecutionsCommand(input);
@@ -46,6 +51,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //     { // PipelineExecutionSummary
  * //       pipelineExecutionId: "STRING_VALUE",
  * //       status: "Cancelled" || "InProgress" || "Stopped" || "Stopping" || "Succeeded" || "Superseded" || "Failed",
+ * //       statusSummary: "STRING_VALUE",
  * //       startTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
  * //       sourceRevisions: [ // SourceRevisionList
@@ -57,13 +63,17 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //         },
  * //       ],
  * //       trigger: { // ExecutionTrigger
- * //         triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision" || "WebhookV2",
+ * //         triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision" || "WebhookV2" || "ManualRollback" || "AutomatedRollback",
  * //         triggerDetail: "STRING_VALUE",
  * //       },
  * //       stopTrigger: { // StopExecutionTrigger
  * //         reason: "STRING_VALUE",
  * //       },
  * //       executionMode: "QUEUED" || "SUPERSEDED" || "PARALLEL",
+ * //       executionType: "STANDARD" || "ROLLBACK",
+ * //       rollbackMetadata: { // PipelineRollbackMetadata
+ * //         rollbackTargetPipelineExecutionId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -1986,6 +1986,31 @@ export const PipelineType = {
 export type PipelineType = (typeof PipelineType)[keyof typeof PipelineType];
 
 /**
+ * @public
+ * @enum
+ */
+export const Result = {
+  ROLLBACK: "ROLLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type Result = (typeof Result)[keyof typeof Result];
+
+/**
+ * <p>The configuration that specifies the result, such as rollback, to occur upon stage failure. </p>
+ * @public
+ */
+export interface FailureConditions {
+  /**
+   * <p>The specified result for when the failure conditions are met, such as rolling back the stage.</p>
+   * @public
+   */
+  result?: Result;
+}
+
+/**
  * <p>Represents information about a stage and its definition.</p>
  * @public
  */
@@ -2007,6 +2032,12 @@ export interface StageDeclaration {
    * @public
    */
   actions: ActionDeclaration[] | undefined;
+
+  /**
+   * <p>The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.</p>
+   * @public
+   */
+  onFailure?: FailureConditions;
 }
 
 /**
@@ -3077,6 +3108,32 @@ export interface GetPipelineExecutionInput {
  * @public
  * @enum
  */
+export const ExecutionType = {
+  ROLLBACK: "ROLLBACK",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
+
+/**
+ * <p>The metadata for the stage execution to be rolled back.</p>
+ * @public
+ */
+export interface PipelineRollbackMetadata {
+  /**
+   * <p>The pipeline execution ID to which the stage will be rolled back.</p>
+   * @public
+   */
+  rollbackTargetPipelineExecutionId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const PipelineExecutionStatus = {
   Cancelled: "Cancelled",
   Failed: "Failed",
@@ -3097,8 +3154,10 @@ export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typ
  * @enum
  */
 export const TriggerType = {
+  AutomatedRollback: "AutomatedRollback",
   CloudWatchEvent: "CloudWatchEvent",
   CreatePipeline: "CreatePipeline",
+  ManualRollback: "ManualRollback",
   PollForSourceChanges: "PollForSourceChanges",
   PutActionRevision: "PutActionRevision",
   StartPipelineExecution: "StartPipelineExecution",
@@ -3239,6 +3298,18 @@ export interface PipelineExecution {
    * @public
    */
   executionMode?: ExecutionMode;
+
+  /**
+   * <p>The type of the pipeline execution.</p>
+   * @public
+   */
+  executionType?: ExecutionType;
+
+  /**
+   * <p>The metadata about the execution pertaining to stage rollback.</p>
+   * @public
+   */
+  rollbackMetadata?: PipelineRollbackMetadata;
 }
 
 /**
@@ -3325,6 +3396,12 @@ export interface StageExecution {
    * @public
    */
   status: StageExecutionStatus | undefined;
+
+  /**
+   * <p>The type of pipeline execution for the stage, such as a rollback pipeline execution.</p>
+   * @public
+   */
+  type?: ExecutionType;
 }
 
 /**
@@ -3714,6 +3791,32 @@ export interface ListActionTypesOutput {
 }
 
 /**
+ * <p>Filter for pipeline executions that have successfully completed the stage in the current pipeline version.</p>
+ * @public
+ */
+export interface SucceededInStageFilter {
+  /**
+   * <p>The name of the stage for filtering for pipeline executions where the stage was successful in the current pipeline
+   *             version.</p>
+   * @public
+   */
+  stageName?: string;
+}
+
+/**
+ * <p>The pipeline execution to filter on.</p>
+ * @public
+ */
+export interface PipelineExecutionFilter {
+  /**
+   * <p>Filter for pipeline executions where the stage was successful in the current pipeline
+   *             version.</p>
+   * @public
+   */
+  succeededInStage?: SucceededInStageFilter;
+}
+
+/**
  * <p>Represents the input of a <code>ListPipelineExecutions</code> action.</p>
  * @public
  */
@@ -3733,6 +3836,12 @@ export interface ListPipelineExecutionsInput {
    * @public
    */
   maxResults?: number;
+
+  /**
+   * <p>The pipeline execution to filter on.</p>
+   * @public
+   */
+  filter?: PipelineExecutionFilter;
 
   /**
    * <p>The token that was returned from the previous <code>ListPipelineExecutions</code>
@@ -3835,6 +3944,12 @@ export interface PipelineExecutionSummary {
   status?: PipelineExecutionStatus;
 
   /**
+   * <p>Status summary for the pipeline.</p>
+   * @public
+   */
+  statusSummary?: string;
+
+  /**
    * <p>The date and time when the pipeline execution began, in timestamp format.</p>
    * @public
    */
@@ -3873,6 +3988,18 @@ export interface PipelineExecutionSummary {
    * @public
    */
   executionMode?: ExecutionMode;
+
+  /**
+   * <p>Type of the pipeline execution.</p>
+   * @public
+   */
+  executionType?: ExecutionType;
+
+  /**
+   * <p>The metadata for the stage execution to be rolled back.</p>
+   * @public
+   */
+  rollbackMetadata?: PipelineRollbackMetadata;
 }
 
 /**
@@ -5032,6 +5159,83 @@ export class StageNotRetryableException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, StageNotRetryableException.prototype);
+  }
+}
+
+/**
+ * <p>The specified pipeline execution is outdated and cannot be used as a target pipeline execution for rollback.</p>
+ * @public
+ */
+export class PipelineExecutionOutdatedException extends __BaseException {
+  readonly name: "PipelineExecutionOutdatedException" = "PipelineExecutionOutdatedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PipelineExecutionOutdatedException, __BaseException>) {
+    super({
+      name: "PipelineExecutionOutdatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineExecutionOutdatedException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface RollbackStageInput {
+  /**
+   * <p>The name of the pipeline for which the stage will be rolled back. </p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The name of the stage in the pipeline to be rolled back. </p>
+   * @public
+   */
+  stageName: string | undefined;
+
+  /**
+   * <p>The pipeline execution ID for the stage to be rolled back to. </p>
+   * @public
+   */
+  targetPipelineExecutionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RollbackStageOutput {
+  /**
+   * <p>The execution ID of the pipeline execution for the stage that has been rolled
+   *             back.</p>
+   * @public
+   */
+  pipelineExecutionId: string | undefined;
+}
+
+/**
+ * <p>Unable to roll back the stage. The cause might be if the pipeline version has changed
+ *             since the target pipeline execution was deployed, the stage is currently running, or an
+ *             incorrect target pipeline execution ID was provided.</p>
+ * @public
+ */
+export class UnableToRollbackStageException extends __BaseException {
+  readonly name: "UnableToRollbackStageException" = "UnableToRollbackStageException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToRollbackStageException, __BaseException>) {
+    super({
+      name: "UnableToRollbackStageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToRollbackStageException.prototype);
   }
 }
 

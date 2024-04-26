@@ -100,6 +100,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *             timeoutInMinutes: Number("int"),
  *           },
  *         ],
+ *         onFailure: { // FailureConditions
+ *           result: "ROLLBACK",
+ *         },
  *       },
  *     ],
  *     version: Number("int"),
@@ -241,6 +244,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * //             timeoutInMinutes: Number("int"),
  * //           },
  * //         ],
+ * //         onFailure: { // FailureConditions
+ * //           result: "ROLLBACK",
+ * //         },
  * //       },
  * //     ],
  * //     version: Number("int"),

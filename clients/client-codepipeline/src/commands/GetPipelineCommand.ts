@@ -102,6 +102,9 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //             timeoutInMinutes: Number("int"),
  * //           },
  * //         ],
+ * //         onFailure: { // FailureConditions
+ * //           result: "ROLLBACK",
+ * //         },
  * //       },
  * //     ],
  * //     version: Number("int"),

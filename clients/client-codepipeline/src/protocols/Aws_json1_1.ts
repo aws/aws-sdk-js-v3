@@ -109,6 +109,7 @@ import {
   RetryStageExecutionCommandInput,
   RetryStageExecutionCommandOutput,
 } from "../commands/RetryStageExecutionCommand";
+import { RollbackStageCommandInput, RollbackStageCommandOutput } from "../commands/RollbackStageCommand";
 import {
   StartPipelineExecutionCommandInput,
   StartPipelineExecutionCommandOutput,
@@ -165,6 +166,7 @@ import {
   EncryptionKey,
   ExecutionDetails,
   ExecutorConfiguration,
+  FailureConditions,
   FailureDetails,
   GetActionTypeInput,
   GetJobDetailsInput,
@@ -218,8 +220,10 @@ import {
   OutputVariablesSizeExceededException,
   PipelineDeclaration,
   PipelineExecution,
+  PipelineExecutionFilter,
   PipelineExecutionNotFoundException,
   PipelineExecutionNotStoppableException,
+  PipelineExecutionOutdatedException,
   PipelineExecutionSummary,
   PipelineMetadata,
   PipelineNameInUseException,
@@ -244,6 +248,7 @@ import {
   RequestFailedException,
   ResourceNotFoundException,
   RetryStageExecutionInput,
+  RollbackStageInput,
   SourceRevisionOverride,
   StageDeclaration,
   StageNotFoundException,
@@ -251,10 +256,12 @@ import {
   StageState,
   StartPipelineExecutionInput,
   StopPipelineExecutionInput,
+  SucceededInStageFilter,
   Tag,
   TagResourceInput,
   TooManyTagsException,
   TransitionState,
+  UnableToRollbackStageException,
   UntagResourceInput,
   UpdateActionTypeInput,
   UpdatePipelineInput,
@@ -689,6 +696,19 @@ export const se_RetryStageExecutionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RetryStageExecution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1RollbackStageCommand
+ */
+export const se_RollbackStageCommand = async (
+  input: RollbackStageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RollbackStage");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1409,6 +1429,26 @@ export const de_RetryStageExecutionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1RollbackStageCommand
+ */
+export const de_RollbackStageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RollbackStageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RollbackStageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartPipelineExecutionCommand
  */
 export const de_StartPipelineExecutionCommand = async (
@@ -1634,6 +1674,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "StageNotRetryableException":
     case "com.amazonaws.codepipeline#StageNotRetryableException":
       throw await de_StageNotRetryableExceptionRes(parsedOutput, context);
+    case "PipelineExecutionOutdatedException":
+    case "com.amazonaws.codepipeline#PipelineExecutionOutdatedException":
+      throw await de_PipelineExecutionOutdatedExceptionRes(parsedOutput, context);
+    case "UnableToRollbackStageException":
+    case "com.amazonaws.codepipeline#UnableToRollbackStageException":
+      throw await de_UnableToRollbackStageExceptionRes(parsedOutput, context);
     case "ConcurrentPipelineExecutionsLimitExceededException":
     case "com.amazonaws.codepipeline#ConcurrentPipelineExecutionsLimitExceededException":
       throw await de_ConcurrentPipelineExecutionsLimitExceededExceptionRes(parsedOutput, context);
@@ -2080,6 +2126,22 @@ const de_PipelineExecutionNotStoppableExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1PipelineExecutionOutdatedExceptionRes
+ */
+const de_PipelineExecutionOutdatedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PipelineExecutionOutdatedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new PipelineExecutionOutdatedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1PipelineNameInUseExceptionRes
  */
 const de_PipelineNameInUseExceptionRes = async (
@@ -2208,6 +2270,22 @@ const de_TooManyTagsExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1UnableToRollbackStageExceptionRes
+ */
+const de_UnableToRollbackStageExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnableToRollbackStageException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new UnableToRollbackStageException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ValidationExceptionRes
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
@@ -2327,6 +2405,8 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 
 // se_ExecutorConfiguration omitted.
 
+// se_FailureConditions omitted.
+
 // se_FailureDetails omitted.
 
 // se_GetActionTypeInput omitted.
@@ -2394,6 +2474,8 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 // se_OutputVariablesMap omitted.
 
 // se_PipelineDeclaration omitted.
+
+// se_PipelineExecutionFilter omitted.
 
 // se_PipelineStageDeclarationList omitted.
 
@@ -2472,6 +2554,8 @@ const se_PutThirdPartyJobSuccessResultInput = (
 
 // se_RetryStageExecutionInput omitted.
 
+// se_RollbackStageInput omitted.
+
 // se_SourceRevisionOverride omitted.
 
 // se_SourceRevisionOverrideList omitted.
@@ -2495,6 +2579,8 @@ const se_StartPipelineExecutionInput = (input: StartPipelineExecutionInput, cont
 };
 
 // se_StopPipelineExecutionInput omitted.
+
+// se_SucceededInStageFilter omitted.
 
 // se_Tag omitted.
 
@@ -2727,6 +2813,8 @@ const de_ArtifactRevisionList = (output: any, context: __SerdeContext): Artifact
 
 // de_ExecutorConfiguration omitted.
 
+// de_FailureConditions omitted.
+
 // de_GetActionTypeOutput omitted.
 
 // de_GetJobDetailsOutput omitted.
@@ -2917,9 +3005,11 @@ const de_PipelineExecution = (output: any, context: __SerdeContext): PipelineExe
   return take(output, {
     artifactRevisions: (_: any) => de_ArtifactRevisionList(_, context),
     executionMode: __expectString,
+    executionType: __expectString,
     pipelineExecutionId: __expectString,
     pipelineName: __expectString,
     pipelineVersion: __expectInt32,
+    rollbackMetadata: _json,
     status: __expectString,
     statusSummary: __expectString,
     trigger: _json,
@@ -2931,17 +3021,22 @@ const de_PipelineExecution = (output: any, context: __SerdeContext): PipelineExe
 
 // de_PipelineExecutionNotStoppableException omitted.
 
+// de_PipelineExecutionOutdatedException omitted.
+
 /**
  * deserializeAws_json1_1PipelineExecutionSummary
  */
 const de_PipelineExecutionSummary = (output: any, context: __SerdeContext): PipelineExecutionSummary => {
   return take(output, {
     executionMode: __expectString,
+    executionType: __expectString,
     lastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     pipelineExecutionId: __expectString,
+    rollbackMetadata: _json,
     sourceRevisions: _json,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
+    statusSummary: __expectString,
     stopTrigger: _json,
     trigger: _json,
   }) as any;
@@ -2986,6 +3081,8 @@ const de_PipelineMetadata = (output: any, context: __SerdeContext): PipelineMeta
 // de_PipelineNameInUseException omitted.
 
 // de_PipelineNotFoundException omitted.
+
+// de_PipelineRollbackMetadata omitted.
 
 // de_PipelineStageDeclarationList omitted.
 
@@ -3054,6 +3151,8 @@ const de_PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOu
 // de_ResourceNotFoundException omitted.
 
 // de_RetryStageExecutionOutput omitted.
+
+// de_RollbackStageOutput omitted.
 
 // de_S3ArtifactLocation omitted.
 
@@ -3138,6 +3237,8 @@ const de_TransitionState = (output: any, context: __SerdeContext): TransitionSta
     lastChangedBy: __expectString,
   }) as any;
 };
+
+// de_UnableToRollbackStageException omitted.
 
 // de_UntagResourceOutput omitted.
 

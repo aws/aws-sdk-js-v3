@@ -54,11 +54,13 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //       inboundExecution: { // StageExecution
  * //         pipelineExecutionId: "STRING_VALUE", // required
  * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
+ * //         type: "STANDARD" || "ROLLBACK",
  * //       },
  * //       inboundExecutions: [ // StageExecutionList
  * //         {
  * //           pipelineExecutionId: "STRING_VALUE", // required
  * //           status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
+ * //           type: "STANDARD" || "ROLLBACK",
  * //         },
  * //       ],
  * //       inboundTransitionState: { // TransitionState
@@ -97,6 +99,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //       latestExecution: {
  * //         pipelineExecutionId: "STRING_VALUE", // required
  * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
+ * //         type: "STANDARD" || "ROLLBACK",
  * //       },
  * //     },
  * //   ],

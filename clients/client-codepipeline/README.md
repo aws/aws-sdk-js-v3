@@ -663,6 +663,14 @@ RetryStageExecution
 </details>
 <details>
 <summary>
+RollbackStage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/RollbackStageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RollbackStageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/RollbackStageCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartPipelineExecution
 </summary>
 

@@ -140,6 +140,7 @@ import {
   RetryStageExecutionCommandInput,
   RetryStageExecutionCommandOutput,
 } from "./commands/RetryStageExecutionCommand";
+import { RollbackStageCommandInput, RollbackStageCommandOutput } from "./commands/RollbackStageCommand";
 import {
   StartPipelineExecutionCommandInput,
   StartPipelineExecutionCommandOutput,
@@ -200,6 +201,7 @@ export type ServiceInputTypes =
   | PutWebhookCommandInput
   | RegisterWebhookWithThirdPartyCommandInput
   | RetryStageExecutionCommandInput
+  | RollbackStageCommandInput
   | StartPipelineExecutionCommandInput
   | StopPipelineExecutionCommandInput
   | TagResourceCommandInput
@@ -244,6 +246,7 @@ export type ServiceOutputTypes =
   | PutWebhookCommandOutput
   | RegisterWebhookWithThirdPartyCommandOutput
   | RetryStageExecutionCommandOutput
+  | RollbackStageCommandOutput
   | StartPipelineExecutionCommandOutput
   | StopPipelineExecutionCommandOutput
   | TagResourceCommandOutput

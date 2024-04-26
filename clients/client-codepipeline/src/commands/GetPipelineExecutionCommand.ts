@@ -66,10 +66,14 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * //       },
  * //     ],
  * //     trigger: { // ExecutionTrigger
- * //       triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision" || "WebhookV2",
+ * //       triggerType: "CreatePipeline" || "StartPipelineExecution" || "PollForSourceChanges" || "Webhook" || "CloudWatchEvent" || "PutActionRevision" || "WebhookV2" || "ManualRollback" || "AutomatedRollback",
  * //       triggerDetail: "STRING_VALUE",
  * //     },
  * //     executionMode: "QUEUED" || "SUPERSEDED" || "PARALLEL",
+ * //     executionType: "STANDARD" || "ROLLBACK",
+ * //     rollbackMetadata: { // PipelineRollbackMetadata
+ * //       rollbackTargetPipelineExecutionId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
