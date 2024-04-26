@@ -378,6 +378,57 @@
                                 "name"
                               ]
                             },
+                            "aws-us-gov"
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            false
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://support.us-gov-west-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "support",
+                              "signingRegion": "us-gov-west-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "name"
+                              ]
+                            },
                             "aws-iso"
                           ]
                         },
@@ -859,6 +910,28 @@
               }
             },
             {
+              "documentation": "For region aws-us-gov-global with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "support",
+                        "signingRegion": "us-gov-west-1"
+                      }
+                    ]
+                  },
+                  "url": "https://support.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "aws-us-gov-global",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
               "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -875,7 +948,16 @@
               "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://support-fips.us-gov-east-1.amazonaws.com"
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "support",
+                        "signingRegion": "us-gov-west-1"
+                      }
+                    ]
+                  },
+                  "url": "https://support.us-gov-west-1.amazonaws.com"
                 }
               },
               "params": {
@@ -1745,7 +1827,7 @@
           }
         },
         "serviceCode": {
-          "target": "com.amazonaws.support#ServiceCode",
+          "target": "com.amazonaws.support#ServiceCode2",
           "traits": {
             "smithy.api#documentation": "<p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>\n            operation to get the possible <code>serviceCode</code> values.</p>"
           }
@@ -2137,7 +2219,7 @@
           }
         },
         "serviceCode": {
-          "target": "com.amazonaws.support#ServiceCode",
+          "target": "com.amazonaws.support#ServiceCode2",
           "traits": {
             "smithy.api#documentation": "<p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>\n            operation to get the possible <code>serviceCode</code> values.</p>",
             "smithy.api#required": {}
@@ -2782,6 +2864,9 @@
       }
     },
     "com.amazonaws.support#ServiceCode": {
+      "type": "string"
+    },
+    "com.amazonaws.support#ServiceCode2": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^[0-9a-z\\-_]+$"
@@ -2790,7 +2875,7 @@
     "com.amazonaws.support#ServiceCodeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.support#ServiceCode"
+        "target": "com.amazonaws.support#ServiceCode2"
       },
       "traits": {
         "smithy.api#length": {
