@@ -145,6 +145,10 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
+ *             resource.</p>
+ *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *

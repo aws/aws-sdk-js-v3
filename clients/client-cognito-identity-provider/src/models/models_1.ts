@@ -836,7 +836,12 @@ export interface UpdateResourceServerRequest {
   UserPoolId: string | undefined;
 
   /**
-   * <p>The identifier for the resource server.</p>
+   * <p>A unique resource server identifier for the resource server. The identifier can be an
+   *             API friendly name like <code>solar-system-data</code>. You can also set an API URL like
+   *                 <code>https://solar-system-data-api.example.com</code> as your identifier.</p>
+   *          <p>Amazon Cognito represents scopes in the access token in the format
+   *                 <code>$resource-server-identifier/$scope</code>. Longer scope-identifier strings
+   *             increase the size of your access tokens.</p>
    * @public
    */
   Identifier: string | undefined;
