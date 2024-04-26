@@ -158,6 +158,7 @@ export const fromWebToken =
     let { roleAssumerWithWebIdentity } = init;
 
     if (!roleAssumerWithWebIdentity) {
+      // @ts-ignore Cannot find module '@aws-sdk/client-sts'
       const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/client-sts");
       roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(
         {

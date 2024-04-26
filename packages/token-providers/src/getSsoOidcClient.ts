@@ -6,6 +6,7 @@ const ssoOidcClientsHash: Record<string, any> = {};
  * @internal
  */
 export const getSsoOidcClient = async (ssoRegion: string) => {
+  // @ts-ignore Cannot find module '@aws-sdk/client-sso-oidc'
   const { SSOOIDCClient } = await import("@aws-sdk/client-sso-oidc");
 
   // return ssoOidsClient if already created.
