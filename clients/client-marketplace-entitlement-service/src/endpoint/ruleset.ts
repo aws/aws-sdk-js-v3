@@ -6,10 +6,10 @@ import { RuleSetObject } from "@smithy/types";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/marketplace-entitlement-service.json */
 
-const u="required",
-v="fn",
-w="argv",
-x="ref";
+const w="required",
+x="fn",
+y="argv",
+z="ref";
 const a=true,
 b="isSet",
 c="booleanEquals",
@@ -18,17 +18,19 @@ e="endpoint",
 f="tree",
 g="PartitionResult",
 h="getAttr",
-i={[u]:false,"type":"String"},
-j={[u]:true,"default":false,"type":"Boolean"},
-k={[x]:"Endpoint"},
-l={[v]:c,[w]:[{[x]:"UseFIPS"},true]},
-m={[v]:c,[w]:[{[x]:"UseDualStack"},true]},
-n={},
-o={[v]:h,[w]:[{[x]:g},"supportsFIPS"]},
-p={[x]:g},
-q={[v]:c,[w]:[true,{[v]:h,[w]:[p,"supportsDualStack"]}]},
-r=[l],
-s=[m],
-t=[{[x]:"Region"}];
-const _data={version:"1.0",parameters:{Region:i,UseDualStack:j,UseFIPS:j,Endpoint:i},rules:[{conditions:[{[v]:b,[w]:[k]}],rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:k,properties:n,headers:n},type:e}],type:f},{conditions:[{[v]:b,[w]:t}],rules:[{conditions:[{[v]:"aws.partition",[w]:t,assign:g}],rules:[{conditions:[l,m],rules:[{conditions:[{[v]:c,[w]:[a,o]},q],rules:[{endpoint:{url:"https://entitlement.marketplace-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:n,headers:n},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:r,rules:[{conditions:[{[v]:c,[w]:[o,a]}],rules:[{endpoint:{url:"https://entitlement.marketplace-fips.{Region}.{PartitionResult#dnsSuffix}",properties:n,headers:n},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:s,rules:[{conditions:[q],rules:[{endpoint:{url:"https://entitlement.marketplace.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:n,headers:n},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{conditions:[{[v]:"stringEquals",[w]:["aws",{[v]:h,[w]:[p,"name"]}]}],endpoint:{url:"https://entitlement.marketplace.{Region}.amazonaws.com",properties:n,headers:n},type:e},{endpoint:{url:"https://entitlement.marketplace.{Region}.{PartitionResult#dnsSuffix}",properties:n,headers:n},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}]};
+i="stringEquals",
+j={[w]:false,"type":"String"},
+k={[w]:true,"default":false,"type":"Boolean"},
+l={[z]:"Endpoint"},
+m={[x]:c,[y]:[{[z]:"UseFIPS"},true]},
+n={[x]:c,[y]:[{[z]:"UseDualStack"},true]},
+o={},
+p={[z]:"Region"},
+q={[x]:h,[y]:[{[z]:g},"supportsFIPS"]},
+r={[z]:g},
+s={[x]:c,[y]:[true,{[x]:h,[y]:[r,"supportsDualStack"]}]},
+t=[m],
+u=[n],
+v=[p];
+const _data={version:"1.0",parameters:{Region:j,UseDualStack:k,UseFIPS:k,Endpoint:j},rules:[{conditions:[{[x]:b,[y]:[l]}],rules:[{conditions:t,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{conditions:u,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:l,properties:o,headers:o},type:e}],type:f},{conditions:[{[x]:b,[y]:v}],rules:[{conditions:[{[x]:"aws.partition",[y]:v,assign:g}],rules:[{conditions:[m,n],rules:[{conditions:[{[x]:c,[y]:[a,q]},s],rules:[{endpoint:{url:"https://entitlement.marketplace-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:t,rules:[{conditions:[{[x]:c,[y]:[q,a]}],rules:[{endpoint:{url:"https://entitlement.marketplace-fips.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:u,rules:[{conditions:[s],rules:[{endpoint:{url:"https://entitlement.marketplace.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{conditions:[{[x]:i,[y]:[p,"cn-northwest-1"]}],endpoint:{url:"https://entitlement-marketplace.cn-northwest-1.amazonaws.com.cn",properties:o,headers:o},type:e},{conditions:[{[x]:i,[y]:["aws",{[x]:h,[y]:[r,"name"]}]}],endpoint:{url:"https://entitlement.marketplace.{Region}.amazonaws.com",properties:o,headers:o},type:e},{endpoint:{url:"https://entitlement.marketplace.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}]};
 export const ruleSet: RuleSetObject = _data;
