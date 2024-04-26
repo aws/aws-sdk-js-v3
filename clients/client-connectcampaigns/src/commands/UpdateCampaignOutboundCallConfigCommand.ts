@@ -43,6 +43,7 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  *   connectSourcePhoneNumber: "STRING_VALUE",
  *   answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *     enableAnswerMachineDetection: true || false, // required
+ *     awaitAnswerMachinePrompt: true || false,
  *   },
  * };
  * const command = new UpdateCampaignOutboundCallConfigCommand(input);

@@ -64,6 +64,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * //       connectQueueId: "STRING_VALUE",
  * //       answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  * //         enableAnswerMachineDetection: true || false, // required
+ * //         awaitAnswerMachinePrompt: true || false,
  * //       },
  * //     },
  * //     tags: { // TagMap

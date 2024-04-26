@@ -56,6 +56,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *     connectQueueId: "STRING_VALUE",
  *     answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
  *       enableAnswerMachineDetection: true || false, // required
+ *       awaitAnswerMachinePrompt: true || false,
  *     },
  *   },
  *   tags: { // TagMap

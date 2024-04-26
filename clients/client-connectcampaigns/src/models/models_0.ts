@@ -188,6 +188,12 @@ export interface AnswerMachineDetectionConfig {
    * @public
    */
   enableAnswerMachineDetection: boolean | undefined;
+
+  /**
+   * Enable or disable await answer machine prompt
+   * @public
+   */
+  awaitAnswerMachinePrompt?: boolean;
 }
 
 /**
