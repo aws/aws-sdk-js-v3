@@ -14,18 +14,3 @@ export const updateVersions = (depToVersionHash) => {
     writeFileSync(packageJsonPath, format(JSON.stringify(updatedPackageJson), { parser: "json-stringify" }));
   });
 };
-
-export const updatePeerVersions = (depToVersionHash) => {
-  getWorkspacePaths().forEach((workspacePath) => {
-    const packageJsonPath = join(workspacePath, "package.json");
-    const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
-    if (packageJson.peerDependencies) {
-      for (const peer of Object.keys(packageJson.peerDependencies)) {
-        if (peer in depToVersionHash) {
-          packageJson.peerDependencies[peer] = depToVersionHash[peer];
-        }
-      }
-    }
-    writeFileSync(packageJsonPath, format(JSON.stringify(packageJson), { parser: "json-stringify" }));
-  });
-};
