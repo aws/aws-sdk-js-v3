@@ -28,7 +28,7 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
 
 /**
  * <p>Deletes a link between a monitoring account sink and a source account. You must run this operation
- *             in the source account.</p>
+ *       in the source account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

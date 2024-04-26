@@ -27,14 +27,16 @@ export interface CreateLinkCommandInput extends CreateLinkInput {}
 export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a link between a source account and a sink that you have created in a monitoring account.</p>
+ * <p>Creates a link between a source account and a sink that you have created in a monitoring account. After the link is created,
+ *       data is sent from the source account to the monitoring account. When you create a link, you can optionally specify filters
+ *       that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p>
  *          <p>Before you create a link, you must create a sink in the monitoring account and create a
- *             sink policy in that account. The sink policy must permit the source account to link to it. You
- *             can grant permission to source accounts by granting permission to an entire organization or to
- *             individual accounts.</p>
+ *       sink policy in that account. The sink policy must permit the source account to link to it. You
+ *       can grant permission to source accounts by granting permission to an entire organization or to
+ *       individual accounts.</p>
  *          <p>For more information, see
- *             <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a> and
- *             <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p>
+ *        <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a> and
+ *        <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p>
  *          <p>Each monitoring account can be linked to as many as 100,000 source accounts.</p>
  *          <p>Each source account can be linked to as many as five monitoring accounts.</p>
  * @example
@@ -52,6 +54,14 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  *   Tags: { // TagMapInput
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   LinkConfiguration: { // LinkConfiguration
+ *     LogGroupConfiguration: { // LogGroupConfiguration
+ *       Filter: "STRING_VALUE", // required
+ *     },
+ *     MetricConfiguration: { // MetricConfiguration
+ *       Filter: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateLinkCommand(input);
  * const response = await client.send(command);
@@ -66,6 +76,14 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * //   SinkArn: "STRING_VALUE",
  * //   Tags: { // TagMapOutput
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   LinkConfiguration: { // LinkConfiguration
+ * //     LogGroupConfiguration: { // LogGroupConfiguration
+ * //       Filter: "STRING_VALUE", // required
+ * //     },
+ * //     MetricConfiguration: { // MetricConfiguration
+ * //       Filter: "STRING_VALUE", // required
+ * //     },
  * //   },
  * // };
  *

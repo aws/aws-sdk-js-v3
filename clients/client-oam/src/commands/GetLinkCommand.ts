@@ -52,6 +52,14 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * //   Tags: { // TagMapOutput
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   LinkConfiguration: { // LinkConfiguration
+ * //     LogGroupConfiguration: { // LogGroupConfiguration
+ * //       Filter: "STRING_VALUE", // required
+ * //     },
+ * //     MetricConfiguration: { // MetricConfiguration
+ * //       Filter: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

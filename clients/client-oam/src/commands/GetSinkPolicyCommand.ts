@@ -28,7 +28,7 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
 
 /**
  * <p>Returns the current sink policy attached to this sink. The sink policy specifies what
- *             accounts can attach to this sink as source accounts, and what types of data they can share.</p>
+ *       accounts can attach to this sink as source accounts, and what types of data they can share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

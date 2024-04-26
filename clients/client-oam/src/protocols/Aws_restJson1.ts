@@ -43,6 +43,9 @@ import {
   ConflictException,
   InternalServiceFault,
   InvalidParameterException,
+  LinkConfiguration,
+  LogGroupConfiguration,
+  MetricConfiguration,
   MissingRequiredParameterException,
   ResourceNotFoundException,
   ResourceType,
@@ -68,6 +71,7 @@ export const se_CreateLinkCommand = async (
   body = JSON.stringify(
     take(input, {
       LabelTemplate: [],
+      LinkConfiguration: (_) => _json(_),
       ResourceTypes: (_) => _json(_),
       SinkIdentifier: [],
       Tags: (_) => _json(_),
@@ -380,6 +384,7 @@ export const se_UpdateLinkCommand = async (
   body = JSON.stringify(
     take(input, {
       Identifier: [],
+      LinkConfiguration: (_) => _json(_),
       ResourceTypes: (_) => _json(_),
     })
   );
@@ -406,6 +411,7 @@ export const de_CreateLinkCommand = async (
     Id: __expectString,
     Label: __expectString,
     LabelTemplate: __expectString,
+    LinkConfiguration: _json,
     ResourceTypes: _json,
     SinkArn: __expectString,
     Tags: _json,
@@ -491,6 +497,7 @@ export const de_GetLinkCommand = async (
     Id: __expectString,
     Label: __expectString,
     LabelTemplate: __expectString,
+    LinkConfiguration: _json,
     ResourceTypes: _json,
     SinkArn: __expectString,
     Tags: _json,
@@ -709,6 +716,7 @@ export const de_UpdateLinkCommand = async (
     Id: __expectString,
     Label: __expectString,
     LabelTemplate: __expectString,
+    LinkConfiguration: _json,
     ResourceTypes: _json,
     SinkArn: __expectString,
     Tags: _json,
@@ -928,9 +936,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_LinkConfiguration omitted.
+
+// se_LogGroupConfiguration omitted.
+
+// se_MetricConfiguration omitted.
+
 // se_ResourceTypesInput omitted.
 
 // se_TagMapInput omitted.
+
+// de_LinkConfiguration omitted.
 
 // de_ListAttachedLinksItem omitted.
 
@@ -943,6 +959,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ListSinksItem omitted.
 
 // de_ListSinksItems omitted.
+
+// de_LogGroupConfiguration omitted.
+
+// de_MetricConfiguration omitted.
 
 // de_ResourceTypesOutput omitted.
 

@@ -28,15 +28,15 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
 
 /**
  * <p>Creates or updates the resource policy that grants permissions to source
- *             accounts to link to the monitoring account sink. When you create a sink policy, you can grant
- *             permissions to all accounts in an organization or to individual accounts.</p>
+ *       accounts to link to the monitoring account sink. When you create a sink policy, you can grant
+ *       permissions to all accounts in an organization or to individual accounts.</p>
  *          <p>You can also use a sink policy to limit the types of data that is shared. The three types that
- *             you can allow or deny are:</p>
+ *      you can allow or deny are:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <b>Metrics</b> - Specify with
- *                 <code>AWS::CloudWatch::Metric</code>
+ *           <code>AWS::CloudWatch::Metric</code>
  *                </p>
  *             </li>
  *             <li>

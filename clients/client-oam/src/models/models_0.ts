@@ -32,6 +32,152 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * <p>This structure contains the <code>Filter</code> parameter which you can use to specify which log groups are to
+ *     share log events from this source account to the monitoring account.</p>
+ * @public
+ */
+export interface LogGroupConfiguration {
+  /**
+   * <p>Use this field to specify which log groups are to share their log events with the monitoring account. Use the term <code>LogGroupName</code> and one or
+   *       more of the following operands.  Use single quotation marks (')  around log group names. The matching of log group names is case sensitive.
+   *       Each filter has a limit of five conditional operands. Conditional operands are <code>AND</code> and <code>OR</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>=</code> and <code>!=</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AND</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LIKE</code> and <code>NOT LIKE</code>. These can be used only as prefix searches. Include a <code>%</code> at the end
+   *       of the string that you want to search for and include.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN</code> and <code>NOT IN</code>, using parentheses <code>( )</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LogGroupName IN ('This-Log-Group', 'Other-Log-Group')</code> includes only the log groups with names <code>This-Log-Group</code> and
+   *           <code>Other-Log-Group</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')</code> includes all log groups except the log groups with names <code>Private-Log-Group</code> and
+   *           <code>Private-Log-Group-2</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'</code> includes all log groups that have names that start with <code>aws/lambda/</code> or
+   *           <code>AWSLogs</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>If you are updating a link that uses filters, you can specify <code>*</code> as the only value for the
+   *     <code>filter</code> parameter to delete the filter and share all log groups with the monitoring account.</p>
+   *          </note>
+   * @public
+   */
+  Filter: string | undefined;
+}
+
+/**
+ * <p>This structure contains the <code>Filter</code> parameter which you can use to specify which metric namespaces are to
+ *       be shared from this source account to the monitoring account.</p>
+ * @public
+ */
+export interface MetricConfiguration {
+  /**
+   * <p>Use this field to specify which metrics are to be shared with the monitoring account. Use the term <code>Namespace</code> and one or
+   *       more of the following operands. Use single quotation marks (') around namespace names. The matching of namespace names is case sensitive.
+   *       Each filter has a limit of five conditional operands. Conditional operands are <code>AND</code> and <code>OR</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>=</code> and <code>!=</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AND</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LIKE</code> and <code>NOT LIKE</code>. These can be used only as prefix searches. Include a <code>%</code> at the end
+   *         of the string that you want to search for and include.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN</code> and <code>NOT IN</code>, using parentheses <code>( )</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Namespace NOT LIKE 'AWS/%'</code> includes only namespaces that don't start with <code>AWS/</code>, such as custom namespaces.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')</code> includes only the metrics in the EC2, Elastic Load Balancing, and Amazon S3 namespaces. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'</code> includes only the EC2 namespace and your custom namespaces.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>If you are updating a link that uses filters, you can specify <code>*</code> as the only value for the
+   *       <code>filter</code> parameter to delete the filter and share all metric namespaces with the monitoring account.</p>
+   *          </note>
+   * @public
+   */
+  Filter: string | undefined;
+}
+
+/**
+ * <p>Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from
+ *       the source account to the monitoring account.</p>
+ * @public
+ */
+export interface LinkConfiguration {
+  /**
+   * <p>Use this structure to filter which log groups are to send log events from
+   *       the source account to the monitoring account.</p>
+   * @public
+   */
+  LogGroupConfiguration?: LogGroupConfiguration;
+
+  /**
+   * <p>Use this structure to filter which metric namespaces are to be shared from
+   *       the source account to the monitoring account.</p>
+   * @public
+   */
+  MetricConfiguration?: MetricConfiguration;
+}
+
+/**
  * @public
  * @enum
  */
@@ -54,7 +200,7 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 export interface CreateLinkInput {
   /**
    * <p>Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring
-   *             account.</p>
+   *       account.</p>
    *          <p>You can use a custom label or use the following variables:</p>
    *          <ul>
    *             <li>
@@ -76,7 +222,7 @@ export interface CreateLinkInput {
 
   /**
    * <p>An array of strings that define which types of data that the source account shares with the monitoring
-   *             account.</p>
+   *       account.</p>
    * @public
    */
   ResourceTypes: ResourceType[] | undefined;
@@ -84,7 +230,7 @@ export interface CreateLinkInput {
   /**
    * <p>The ARN of the sink to use to create this link. You can use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a> to find the ARNs of sinks.</p>
    *          <p>For more information about sinks, see
-   *             <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a>.</p>
+   *         <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a>.</p>
    * @public
    */
   SinkIdentifier: string | undefined;
@@ -92,13 +238,20 @@ export interface CreateLinkInput {
   /**
    * <p>Assigns one or more tags (key-value pairs) to the link. </p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
-   *             permissions by granting a user
-   *             permission to access or change only resources with certain tag values.</p>
+   *        permissions by granting a user
+   *        permission to access or change only resources with certain tag values.</p>
    *          <p>For more information about using tags to control access, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
+   *        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    * @public
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from
+   *     the source account to the monitoring account.</p>
+   * @public
+   */
+  LinkConfiguration?: LinkConfiguration;
 }
 
 /**
@@ -119,7 +272,7 @@ export interface CreateLinkOutput {
 
   /**
    * <p>The label that you assigned to this link. If the <code>labelTemplate</code> includes variables,
-   *             this field displays the variables resolved to their actual values.</p>
+   *         this field displays the variables resolved to their actual values.</p>
    * @public
    */
   Label?: string;
@@ -147,6 +300,13 @@ export interface CreateLinkOutput {
    * @public
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from
+   *       the source account to the monitoring account.</p>
+   * @public
+   */
+  LinkConfiguration?: LinkConfiguration;
 }
 
 /**
@@ -272,10 +432,10 @@ export interface CreateSinkInput {
   /**
    * <p>Assigns one or more tags (key-value pairs) to the link. </p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
-   *             permissions by granting a user
-   *             permission to access or change only resources with certain tag values.</p>
+   *        permissions by granting a user
+   *        permission to access or change only resources with certain tag values.</p>
    *          <p>For more information about using tags to control access, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
+   *        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -426,6 +586,13 @@ export interface GetLinkOutput {
    * @public
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from
+   *       the source account to the monitoring account.</p>
+   * @public
+   */
+  LinkConfiguration?: LinkConfiguration;
 }
 
 /**
@@ -527,7 +694,7 @@ export interface ListAttachedLinksInput {
 
 /**
  * <p>A structure that contains information about one link attached to this monitoring
- *             account sink.</p>
+ *       account sink.</p>
  * @public
  */
 export interface ListAttachedLinksItem {
@@ -702,20 +869,20 @@ export interface ListTagsForResourceInput {
   /**
    * <p>The ARN of the  resource that you want to view tags for.</p>
    *          <p>The ARN format of a sink is
-   *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
+   *       <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
    *             </code>
    *          </p>
    *          <p>The ARN format of a link is
-   *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
+   *       <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
    *             </code>
    *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
-   *             resources and operations</a>.</p>
+   *       resources and operations</a>.</p>
    *          <important>
    *             <p>Unlike tagging permissions in other Amazon Web Services services, to retrieve the list of tags
-   *             for links or sinks you must have the <code>oam:RequestTag</code> permission. The
-   *             <code>aws:ReguestTag</code> permission does not allow you to tag and untag links and
-   *             sinks.</p>
+   *         for links or sinks you must have the <code>oam:RequestTag</code> permission. The
+   *           <code>aws:ReguestTag</code> permission does not allow you to tag and untag links and
+   *         sinks.</p>
    *          </important>
    * @public
    */
@@ -767,7 +934,7 @@ export interface PutSinkPolicyInput {
 
   /**
    * <p>The JSON policy to use. If you are updating an existing policy, the entire existing policy is
-   *             replaced by what you specify here.</p>
+   *       replaced by what you specify here.</p>
    *          <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p>
    *          <p>For examples of different types of policies, see the <b>Examples</b> section on this page.</p>
    * @public
@@ -805,15 +972,15 @@ export interface TagResourceInput {
   /**
    * <p>The ARN of the  resource that you're adding tags to.</p>
    *          <p>The ARN format of a sink is
-   *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
+   *       <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
    *             </code>
    *          </p>
    *          <p>The ARN format of a link is
-   *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
+   *       <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
    *             </code>
    *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
-   *             resources and operations</a>.</p>
+   *       resources and operations</a>.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -859,15 +1026,15 @@ export interface UntagResourceInput {
   /**
    * <p>The ARN of the resource that you're removing tags from.</p>
    *          <p>The ARN format of a sink is
-   *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
+   *       <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
    *             </code>
    *          </p>
    *          <p>The ARN format of a link is
-   *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
+   *       <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
    *             </code>
    *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
-   *             resources and operations</a>.</p>
+   *       resources and operations</a>.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -896,11 +1063,18 @@ export interface UpdateLinkInput {
 
   /**
    * <p>An array of strings that define which types of data that the source account will send to the monitoring
-   *             account.</p>
+   *        account.</p>
    *          <p>Your input here replaces the current set of data types that are shared.</p>
    * @public
    */
   ResourceTypes: ResourceType[] | undefined;
+
+  /**
+   * <p>Use this structure to filter which metric namespaces and which log groups are to be shared from
+   *       the source account to the monitoring account.</p>
+   * @public
+   */
+  LinkConfiguration?: LinkConfiguration;
 }
 
 /**
@@ -948,4 +1122,11 @@ export interface UpdateLinkOutput {
    * @public
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from
+   *       the source account to the monitoring account.</p>
+   * @public
+   */
+  LinkConfiguration?: LinkConfiguration;
 }
