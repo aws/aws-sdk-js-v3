@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
+
+
+### Features
+
+* **client-connectcampaigns:** This release adds support for specifying if Answering Machine should wait for prompt sound. ([3235950](https://github.com/aws/aws-sdk-js-v3/commit/3235950aefd4a27cfe02906ff7cfae5de4d69f9d))
+
+
+
+
+
 # [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcampaigns

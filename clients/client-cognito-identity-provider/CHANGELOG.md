@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add LimitExceededException to SignUp errors ([633da5a](https://github.com/aws/aws-sdk-js-v3/commit/633da5a394ad1a72b96827968f2ec985d235806f))
+
+
+
+
+
 # [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

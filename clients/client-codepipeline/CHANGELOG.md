@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
+
+
+### Features
+
+* **client-codepipeline:** Add ability to manually and automatically roll back a pipeline stage to a previously successful execution. ([27a9b33](https://github.com/aws/aws-sdk-js-v3/commit/27a9b33761b23f40e9063fa27dc0344b5ee9d83a))
+
+
+
+
+
 # [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

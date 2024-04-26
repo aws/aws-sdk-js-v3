@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
+
+
+### Features
+
+* **client-rds:** SupportsLimitlessDatabase field added to describe-db-engine-versions to indicate whether the DB engine version supports Aurora Limitless Database. ([dcebb69](https://github.com/aws/aws-sdk-js-v3/commit/dcebb696a15c4862d3d65a8053b2731f6ee07263))
+
+
+
+
+
 # [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

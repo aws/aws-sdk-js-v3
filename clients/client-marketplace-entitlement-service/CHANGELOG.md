@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
+
+
+### Features
+
+* **client-marketplace-entitlement-service:** Releasing minor endpoint updates. ([231317d](https://github.com/aws/aws-sdk-js-v3/commit/231317d3ea2b4f3aac97c43c548fec9a435fd85b))
+
+
+
+
+
 # [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-entitlement-service

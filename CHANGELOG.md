@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
+
+
+### Features
+
+* **client-codepipeline:** Add ability to manually and automatically roll back a pipeline stage to a previously successful execution. ([27a9b33](https://github.com/aws/aws-sdk-js-v3/commit/27a9b33761b23f40e9063fa27dc0344b5ee9d83a))
+* **client-cognito-identity-provider:** Add LimitExceededException to SignUp errors ([633da5a](https://github.com/aws/aws-sdk-js-v3/commit/633da5a394ad1a72b96827968f2ec985d235806f))
+* **client-connectcampaigns:** This release adds support for specifying if Answering Machine should wait for prompt sound. ([3235950](https://github.com/aws/aws-sdk-js-v3/commit/3235950aefd4a27cfe02906ff7cfae5de4d69f9d))
+* **client-marketplace-entitlement-service:** Releasing minor endpoint updates. ([231317d](https://github.com/aws/aws-sdk-js-v3/commit/231317d3ea2b4f3aac97c43c548fec9a435fd85b))
+* **client-oam:** This release introduces support for Source Accounts to define which Metrics and Logs to share with the Monitoring Account ([28b5215](https://github.com/aws/aws-sdk-js-v3/commit/28b5215593e441c2a078adbed5a62851fd5f808a))
+* **client-rds:** SupportsLimitlessDatabase field added to describe-db-engine-versions to indicate whether the DB engine version supports Aurora Limitless Database. ([dcebb69](https://github.com/aws/aws-sdk-js-v3/commit/dcebb696a15c4862d3d65a8053b2731f6ee07263))
+* **client-support:** Releasing minor endpoint updates. ([354980a](https://github.com/aws/aws-sdk-js-v3/commit/354980a2f3c1598c10d00ba3bc6a69e3914c3a79))
+* **clients:** update client endpoints as of 2024-04-26 ([7024e2e](https://github.com/aws/aws-sdk-js-v3/commit/7024e2eff5b3f963e4b6adf4f335d0c1a26cdb75))
+
+
+
+
+
 # [3.563.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.562.0...v3.563.0) (2024-04-25)
 
 
