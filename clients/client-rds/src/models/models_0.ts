@@ -3934,6 +3934,12 @@ export interface UpgradeTarget {
   SupportsBabelfish?: boolean;
 
   /**
+   * <p>Indicates whether the DB engine version supports Aurora Limitless Database.</p>
+   * @public
+   */
+  SupportsLimitlessDatabase?: boolean;
+
+  /**
    * <p>Indicates whether the target engine version supports forwarding write operations from reader DB instances
    *             to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.</p>
    *          <p>Valid for: Aurora DB clusters only</p>
@@ -4150,6 +4156,12 @@ export interface DBEngineVersion {
    * @public
    */
   CustomDBEngineVersionManifest?: string;
+
+  /**
+   * <p>Indicates whether the DB engine version supports Aurora Limitless Database.</p>
+   * @public
+   */
+  SupportsLimitlessDatabase?: boolean;
 
   /**
    * <p>Indicates whether the engine version supports rotating the server certificate without

@@ -93,6 +93,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //       SupportsParallelQuery: true || false,
  * //       SupportsGlobalDatabases: true || false,
  * //       SupportsBabelfish: true || false,
+ * //       SupportsLimitlessDatabase: true || false,
  * //       SupportsLocalWriteForwarding: true || false,
  * //       SupportsIntegrations: true || false,
  * //     },
@@ -130,6 +131,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   ],
  * //   SupportsBabelfish: true || false,
  * //   CustomDBEngineVersionManifest: "STRING_VALUE",
+ * //   SupportsLimitlessDatabase: true || false,
  * //   SupportsCertificateRotationWithoutRestart: true || false,
  * //   SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList
  * //     "STRING_VALUE",
