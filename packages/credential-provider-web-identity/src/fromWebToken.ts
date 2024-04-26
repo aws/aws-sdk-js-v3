@@ -136,9 +136,10 @@ export interface FromWebTokenInit
   roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 
   /**
+   * STSClientConfig to be used for creating STS Client for assuming role.
    * @internal
    */
-  clientConfig?: any; // STSClientConfig;
+  clientConfig?: any;
 
   /**
    * @internal

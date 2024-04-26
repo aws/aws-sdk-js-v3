@@ -38,7 +38,12 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
    */
   roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 
-  clientConfig?: any; // STSClientConfig;
+  /**
+   * STSClientConfig to be used for creating STS Client for assuming role.
+   * @internal
+   */
+  clientConfig?: any;
+
   clientPlugins?: Pluggable<any, any>[];
 }
 
