@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.565.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.564.0...v3.565.0) (2024-04-29)
+
+
+### Features
+
+* **client-trustedadvisor:** This release adds the BatchUpdateRecommendationResourceExclusion API to support batch updates of Recommendation Resource exclusion statuses and introduces a new exclusion status filter to the ListRecommendationResources and ListOrganizationRecommendationResources APIs. ([5fb127b](https://github.com/aws/aws-sdk-js-v3/commit/5fb127b388a9beb100292a455bedbdcaf85784c3))
+
+
+
+
+
 # [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
 
 **Note:** Version bump only for package @aws-sdk/client-trustedadvisor

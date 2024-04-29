@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.565.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.564.0...v3.565.0) (2024-04-29)
+
+
+### Features
+
+* **client-amplify:** Updating max results limit for listing any resources (Job, Artifacts, Branch, BackendResources, DomainAssociation) to 50 with the exception of list apps that where max results can be up to 100. ([c6d74d1](https://github.com/aws/aws-sdk-js-v3/commit/c6d74d1c7682571a70e73c5b575681d878e61026))
+* **client-connectcases:** This feature releases DeleteField, DeletedLayout, and DeleteTemplate API's ([1d96144](https://github.com/aws/aws-sdk-js-v3/commit/1d9614406fbebf2e7fca9e2ef58fc1930a934a8f))
+* **client-inspector2:** Update Inspector2 to include new Agentless API parameters. ([9bfe9ac](https://github.com/aws/aws-sdk-js-v3/commit/9bfe9ac1de2be781a85ab5a64bea640900444512))
+* **client-timestream-query:** This change allows users to update and describe account settings associated with their accounts. ([4f7a643](https://github.com/aws/aws-sdk-js-v3/commit/4f7a643551df2eef57dad967b68208a6813e7bc5))
+* **client-transcribe:** This update provides error messaging for generative call summarization in Transcribe Call Analytics ([671315c](https://github.com/aws/aws-sdk-js-v3/commit/671315c8bbd766ea7797a338abe42e27ef9b9d5b))
+* **client-trustedadvisor:** This release adds the BatchUpdateRecommendationResourceExclusion API to support batch updates of Recommendation Resource exclusion statuses and introduces a new exclusion status filter to the ListRecommendationResources and ListOrganizationRecommendationResources APIs. ([5fb127b](https://github.com/aws/aws-sdk-js-v3/commit/5fb127b388a9beb100292a455bedbdcaf85784c3))
+* **clients:** update client endpoints as of 2024-04-29 ([1ac71fc](https://github.com/aws/aws-sdk-js-v3/commit/1ac71fcf66d2281594d24cbc23974b96ad9bdd1e))
+
+
+
+
+
 # [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.565.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.564.0...v3.565.0) (2024-04-29)
+
+
+### Features
+
+* **client-transcribe:** This update provides error messaging for generative call summarization in Transcribe Call Analytics ([671315c](https://github.com/aws/aws-sdk-js-v3/commit/671315c8bbd766ea7797a338abe42e27ef9b9d5b))
+
+
+
+
+
 # [3.564.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.563.0...v3.564.0) (2024-04-26)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe
