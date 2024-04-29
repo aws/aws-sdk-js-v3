@@ -39,6 +39,17 @@ import {
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
+import { DeleteFieldCommand, DeleteFieldCommandInput, DeleteFieldCommandOutput } from "./commands/DeleteFieldCommand";
+import {
+  DeleteLayoutCommand,
+  DeleteLayoutCommandInput,
+  DeleteLayoutCommandOutput,
+} from "./commands/DeleteLayoutCommand";
+import {
+  DeleteTemplateCommand,
+  DeleteTemplateCommandInput,
+  DeleteTemplateCommandOutput,
+} from "./commands/DeleteTemplateCommand";
 import {
   GetCaseAuditEventsCommand,
   GetCaseAuditEventsCommandInput,
@@ -117,6 +128,9 @@ const commands = {
   CreateRelatedItemCommand,
   CreateTemplateCommand,
   DeleteDomainCommand,
+  DeleteFieldCommand,
+  DeleteLayoutCommand,
+  DeleteTemplateCommand,
   GetCaseCommand,
   GetCaseAuditEventsCommand,
   GetCaseEventConfigurationCommand,
@@ -254,6 +268,42 @@ export interface ConnectCases {
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFieldCommand}
+   */
+  deleteField(args: DeleteFieldCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFieldCommandOutput>;
+  deleteField(args: DeleteFieldCommandInput, cb: (err: any, data?: DeleteFieldCommandOutput) => void): void;
+  deleteField(
+    args: DeleteFieldCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFieldCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLayoutCommand}
+   */
+  deleteLayout(args: DeleteLayoutCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLayoutCommandOutput>;
+  deleteLayout(args: DeleteLayoutCommandInput, cb: (err: any, data?: DeleteLayoutCommandOutput) => void): void;
+  deleteLayout(
+    args: DeleteLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLayoutCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTemplateCommand}
+   */
+  deleteTemplate(
+    args: DeleteTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTemplateCommandOutput>;
+  deleteTemplate(args: DeleteTemplateCommandInput, cb: (err: any, data?: DeleteTemplateCommandOutput) => void): void;
+  deleteTemplate(
+    args: DeleteTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): void;
 
   /**

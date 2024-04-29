@@ -56,6 +56,9 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       deleted: true || false,
+ * //       createdTime: new Date("TIMESTAMP"),
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   errors: [ // BatchGetFieldErrorList // required

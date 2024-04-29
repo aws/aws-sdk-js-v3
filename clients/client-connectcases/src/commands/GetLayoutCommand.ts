@@ -79,6 +79,9 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   deleted: true || false,
+ * //   createdTime: new Date("TIMESTAMP"),
+ * //   lastModifiedTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```

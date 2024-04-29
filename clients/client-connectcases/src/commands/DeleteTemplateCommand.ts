@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetTemplateRequest, GetTemplateResponse } from "../models/models_0";
-import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_restJson1";
+import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/models_0";
+import { de_DeleteTemplateCommand, se_DeleteTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,62 +16,63 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetTemplateCommand}.
+ * The input for {@link DeleteTemplateCommand}.
  */
-export interface GetTemplateCommandInput extends GetTemplateRequest {}
+export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 /**
  * @public
  *
- * The output of {@link GetTemplateCommand}.
+ * The output of {@link DeleteTemplateCommand}.
  */
-export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
+export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details for the requested template. </p>
+ * <p>Deletes a cases template. You can delete up to 100 templates per domain.</p>
+ *
+ *          <p>After a cases template is deleted:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You can still retrieve the template by calling <code>GetTemplate</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You cannot update the template. </p>
+ *             </li>
+ *             <li>
+ *                <p>You cannot create a case by using the deleted template.</p>
+ *             </li>
+ *             <li>
+ *                <p>Deleted templates are not included in the <code>ListTemplates</code> response.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectCasesClient, GetTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
- * // const { ConnectCasesClient, GetTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
+ * import { ConnectCasesClient, DeleteTemplateCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
+ * // const { ConnectCasesClient, DeleteTemplateCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
- * const input = { // GetTemplateRequest
+ * const input = { // DeleteTemplateRequest
  *   domainId: "STRING_VALUE", // required
  *   templateId: "STRING_VALUE", // required
  * };
- * const command = new GetTemplateCommand(input);
+ * const command = new DeleteTemplateCommand(input);
  * const response = await client.send(command);
- * // { // GetTemplateResponse
- * //   templateId: "STRING_VALUE", // required
- * //   templateArn: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE",
- * //   layoutConfiguration: { // LayoutConfiguration
- * //     defaultLayout: "STRING_VALUE",
- * //   },
- * //   requiredFields: [ // RequiredFieldList
- * //     { // RequiredField
- * //       fieldId: "STRING_VALUE", // required
- * //     },
- * //   ],
- * //   tags: { // Tags
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   status: "STRING_VALUE", // required
- * //   deleted: true || false,
- * //   createdTime: new Date("TIMESTAMP"),
- * //   lastModifiedTime: new Date("TIMESTAMP"),
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
- * @returns {@link GetTemplateCommandOutput}
- * @see {@link GetTemplateCommandInput} for command's `input` shape.
- * @see {@link GetTemplateCommandOutput} for command's `response` shape.
+ * @param DeleteTemplateCommandInput - {@link DeleteTemplateCommandInput}
+ * @returns {@link DeleteTemplateCommandOutput}
+ * @see {@link DeleteTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteTemplateCommandOutput} for command's `response` shape.
  * @see {@link ConnectCasesClientResolvedConfig | config} for ConnectCasesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *       resource associated with the request. Resolve the conflict before retrying this request. See
+ *       the accompanying error message for details.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>We couldn't process your request because of an issue with the server. Try again
@@ -92,10 +93,10 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  *
  * @public
  */
-export class GetTemplateCommand extends $Command
+export class DeleteTemplateCommand extends $Command
   .classBuilder<
-    GetTemplateCommandInput,
-    GetTemplateCommandOutput,
+    DeleteTemplateCommandInput,
+    DeleteTemplateCommandOutput,
     ConnectCasesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -109,9 +110,9 @@ export class GetTemplateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectCases", "GetTemplate", {})
-  .n("ConnectCasesClient", "GetTemplateCommand")
+  .s("AmazonConnectCases", "DeleteTemplate", {})
+  .n("ConnectCasesClient", "DeleteTemplateCommand")
   .f(void 0, void 0)
-  .ser(se_GetTemplateCommand)
-  .de(de_GetTemplateCommand)
+  .ser(se_DeleteTemplateCommand)
+  .de(de_DeleteTemplateCommand)
   .build() {}

@@ -492,10 +492,6 @@ export interface GetCaseAuditEventsRequest {
 
 /**
  * <p>Object to store union of Field values.</p>
- *          <important>
- *             <p>This data type is a UNION, so only one of the following members can be specified when
- *         used or returned.</p>
- *          </important>
  * @public
  */
 export type AuditEventFieldValueUnion =
@@ -1887,6 +1883,24 @@ export interface GetFieldResponse {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Indicates whether the resource has been deleted.</p>
+   * @public
+   */
+  deleted?: boolean;
+
+  /**
+   * <p>The timestamp for when the resource was created.</p>
+   * @public
+   */
+  createdTime?: Date;
+
+  /**
+   * <p>The timestamp for when the resource was created or last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date;
 }
 
 /**
@@ -2036,6 +2050,28 @@ export interface CreateFieldResponse {
    */
   fieldArn: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteFieldRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The unique identifier of a field.</p>
+   * @public
+   */
+  fieldId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFieldResponse {}
 
 /**
  * @public
@@ -2385,6 +2421,28 @@ export interface CreateLayoutResponse {
 /**
  * @public
  */
+export interface DeleteLayoutRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the layout.</p>
+   * @public
+   */
+  layoutId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLayoutResponse {}
+
+/**
+ * @public
+ */
 export interface GetLayoutRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -2433,6 +2491,24 @@ export interface GetLayoutResponse {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Indicates whether the resource has been deleted.</p>
+   * @public
+   */
+  deleted?: boolean;
+
+  /**
+   * <p>The timestamp for when the resource was created.</p>
+   * @public
+   */
+  createdTime?: Date;
+
+  /**
+   * <p>The timestamp for when the resource was created or last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date;
 }
 
 /**
@@ -2674,6 +2750,28 @@ export interface CreateTemplateResponse {
 /**
  * @public
  */
+export interface DeleteTemplateRequest {
+  /**
+   * <p>The unique identifier of the Cases domain. </p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>A unique identifier of a template.</p>
+   * @public
+   */
+  templateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateResponse {}
+
+/**
+ * @public
+ */
 export interface GetTemplateRequest {
   /**
    * <p>The unique identifier of the Cases domain. </p>
@@ -2740,6 +2838,24 @@ export interface GetTemplateResponse {
    * @public
    */
   status: TemplateStatus | undefined;
+
+  /**
+   * <p>Indicates whether the resource has been deleted.</p>
+   * @public
+   */
+  deleted?: boolean;
+
+  /**
+   * <p>The timestamp for when the resource was created.</p>
+   * @public
+   */
+  createdTime?: Date;
+
+  /**
+   * <p>The timestamp for when the resource was created or last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date;
 }
 
 /**
