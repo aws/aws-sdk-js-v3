@@ -93,6 +93,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *         endInclusive: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     scanMode: "<CoverageStringFilterList>",
  *     imagePulledAt: [
  *       {
  *         startInclusive: new Date("TIMESTAMP"),
@@ -145,6 +146,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //         },
  * //       },
  * //       lastScannedAt: new Date("TIMESTAMP"),
+ * //       scanMode: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

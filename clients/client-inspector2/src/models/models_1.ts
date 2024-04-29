@@ -6,8 +6,15 @@ import {
   AtigData,
   AutoEnable,
   CisaData,
+  CisDateFilter,
+  CisNumberFilter,
+  CisScan,
+  CisScanStatusFilter,
   CisSecurityLevel,
   CisSessionMessage,
+  CisSortOrder,
+  CisStringFilter,
+  CisTargetResourceAggregation,
   ComputePlatform,
   Counts,
   CoverageFilterCriteria,
@@ -16,6 +23,7 @@ import {
   Cvss2,
   Cvss3,
   DelegatedAdminAccount,
+  Ec2Configuration,
   Ec2DeepInspectionStatus,
   EcrConfiguration,
   Epss,
@@ -31,7 +39,179 @@ import {
   Schedule,
   SortOrder,
   StringFilter,
+  TagFilter,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByTargetResourceResponse {
+  /**
+   * <p>The resource aggregations.</p>
+   * @public
+   */
+  targetResourceAggregations?: CisTargetResourceAggregation[];
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListCisScansDetailLevel = {
+  MEMBER: "MEMBER",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ListCisScansDetailLevel = (typeof ListCisScansDetailLevel)[keyof typeof ListCisScansDetailLevel];
+
+/**
+ * <p>A list of CIS scans filter criteria.</p>
+ * @public
+ */
+export interface ListCisScansFilterCriteria {
+  /**
+   * <p>The list of scan name filters.</p>
+   * @public
+   */
+  scanNameFilters?: CisStringFilter[];
+
+  /**
+   * <p>The list of target resource tag filters.</p>
+   * @public
+   */
+  targetResourceTagFilters?: TagFilter[];
+
+  /**
+   * <p>The list of target resource ID filters.</p>
+   * @public
+   */
+  targetResourceIdFilters?: CisStringFilter[];
+
+  /**
+   * <p>The list of scan status filters.</p>
+   * @public
+   */
+  scanStatusFilters?: CisScanStatusFilter[];
+
+  /**
+   * <p>The list of scan at filters.</p>
+   * @public
+   */
+  scanAtFilters?: CisDateFilter[];
+
+  /**
+   * <p>The list of scan configuration ARN filters.</p>
+   * @public
+   */
+  scanConfigurationArnFilters?: CisStringFilter[];
+
+  /**
+   * <p>The list of scan ARN filters.</p>
+   * @public
+   */
+  scanArnFilters?: CisStringFilter[];
+
+  /**
+   * <p>The list of scheduled by filters.</p>
+   * @public
+   */
+  scheduledByFilters?: CisStringFilter[];
+
+  /**
+   * <p>The list of failed checks filters.</p>
+   * @public
+   */
+  failedChecksFilters?: CisNumberFilter[];
+
+  /**
+   * <p>The list of target account ID filters.</p>
+   * @public
+   */
+  targetAccountIdFilters?: CisStringFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListCisScansSortBy = {
+  FAILED_CHECKS: "FAILED_CHECKS",
+  SCAN_START_DATE: "SCAN_START_DATE",
+  SCHEDULED_BY: "SCHEDULED_BY",
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type ListCisScansSortBy = (typeof ListCisScansSortBy)[keyof typeof ListCisScansSortBy];
+
+/**
+ * @public
+ */
+export interface ListCisScansRequest {
+  /**
+   * <p>The CIS scan filter criteria.</p>
+   * @public
+   */
+  filterCriteria?: ListCisScansFilterCriteria;
+
+  /**
+   * <p>The detail applied to the CIS scan.</p>
+   * @public
+   */
+  detailLevel?: ListCisScansDetailLevel;
+
+  /**
+   * <p>The CIS scans sort by order.</p>
+   * @public
+   */
+  sortBy?: ListCisScansSortBy;
+
+  /**
+   * <p>The CIS scans sort order.</p>
+   * @public
+   */
+  sortOrder?: CisSortOrder;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScansResponse {
+  /**
+   * <p>The CIS scans.</p>
+   * @public
+   */
+  scans?: CisScan[];
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -1078,7 +1258,13 @@ export interface UpdateConfigurationRequest {
    * <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
    * @public
    */
-  ecrConfiguration: EcrConfiguration | undefined;
+  ecrConfiguration?: EcrConfiguration;
+
+  /**
+   * <p>Specifies how the Amazon EC2 automated scan will be updated for your environment.</p>
+   * @public
+   */
+  ec2Configuration?: Ec2Configuration;
 }
 
 /**

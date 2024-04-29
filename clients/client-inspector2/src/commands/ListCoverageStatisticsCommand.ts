@@ -91,6 +91,7 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *         endInclusive: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     scanMode: "<CoverageStringFilterList>",
  *     imagePulledAt: [
  *       {
  *         startInclusive: new Date("TIMESTAMP"),

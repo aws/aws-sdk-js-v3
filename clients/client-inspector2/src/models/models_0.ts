@@ -4648,6 +4648,12 @@ export interface CoverageFilterCriteria {
   lastScannedAt?: CoverageDateFilter[];
 
   /**
+   * <p>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are <code>EC2_SSM_AGENT_BASED</code> and <code>EC2_HYBRID</code>.</p>
+   * @public
+   */
+  scanMode?: CoverageStringFilter[];
+
+  /**
    * <p>The date an image was last pulled at.</p>
    * @public
    */
@@ -4820,6 +4826,20 @@ export interface ResourceScanMetadata {
    */
   lambdaFunction?: LambdaFunctionMetadata;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanMode = {
+  EC2_AGENTLESS: "EC2_AGENTLESS",
+  EC2_SSM_AGENT_BASED: "EC2_SSM_AGENT_BASED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
 
 /**
  * @public
@@ -4999,6 +5019,12 @@ export interface CoveredResource {
    * @public
    */
   lastScannedAt?: Date;
+
+  /**
+   * <p>The scan method that is applied to the instance.</p>
+   * @public
+   */
+  scanMode?: ScanMode;
 }
 
 /**
@@ -6148,6 +6174,76 @@ export interface DisassociateMemberResponse {
  * @public
  * @enum
  */
+export const Ec2ScanMode = {
+  EC2_HYBRID: "EC2_HYBRID",
+  EC2_SSM_AGENT_BASED: "EC2_SSM_AGENT_BASED",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2ScanMode = (typeof Ec2ScanMode)[keyof typeof Ec2ScanMode];
+
+/**
+ * <p>Enables agent-based scanning, which scans instances that are not managed by SSM.</p>
+ * @public
+ */
+export interface Ec2Configuration {
+  /**
+   * <p>The scan method that is applied to the instance.</p>
+   * @public
+   */
+  scanMode: Ec2ScanMode | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Ec2ScanModeStatus = {
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type Ec2ScanModeStatus = (typeof Ec2ScanModeStatus)[keyof typeof Ec2ScanModeStatus];
+
+/**
+ * <p>The state of your Amazon EC2 scan mode configuration.</p>
+ * @public
+ */
+export interface Ec2ScanModeState {
+  /**
+   * <p>The scan method that is applied to the instance.</p>
+   * @public
+   */
+  scanMode?: Ec2ScanMode;
+
+  /**
+   * <p>The status of the Amazon EC2 scan mode setting.</p>
+   * @public
+   */
+  scanModeStatus?: Ec2ScanModeStatus;
+}
+
+/**
+ * <p>Details about the state of the EC2 scan configuration for your environment.</p>
+ * @public
+ */
+export interface Ec2ConfigurationState {
+  /**
+   * <p>An object that contains details about the state of the Amazon EC2 scan mode.</p>
+   * @public
+   */
+  scanModeState?: Ec2ScanModeState;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const EcrPullDateRescanDuration = {
   DAYS_14: "DAYS_14",
   DAYS_180: "DAYS_180",
@@ -6952,7 +7048,10 @@ export interface Finding {
   firstObservedAt: Date | undefined;
 
   /**
-   * <p>The date and time that the finding was last observed.</p>
+   * <p>
+   *          The date and time the finding was last observed.
+   *          This timestamp for this field remains unchanged until a finding is updated.
+   *       </p>
    * @public
    */
   lastObservedAt: Date | undefined;
@@ -7053,7 +7152,7 @@ export interface GetCisScanReportRequest {
 export interface GetCisScanReportResponse {
   /**
    * <p>
-   *          The URL where the CIS scan report PDF can be downloaded.
+   *          The URL where a PDF of the CIS scan report can be downloaded.
    *       </p>
    * @public
    */
@@ -7150,6 +7249,12 @@ export interface GetConfigurationResponse {
    * @public
    */
   ecrConfiguration?: EcrConfigurationState;
+
+  /**
+   * <p>Specifies how the Amazon EC2 automated scan mode is currently configured for your environment.</p>
+   * @public
+   */
+  ec2Configuration?: Ec2ConfigurationState;
 }
 
 /**
@@ -7675,175 +7780,4 @@ export interface ListCisScanResultsAggregatedByTargetResourceRequest {
    * @public
    */
   maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByTargetResourceResponse {
-  /**
-   * <p>The resource aggregations.</p>
-   * @public
-   */
-  targetResourceAggregations?: CisTargetResourceAggregation[];
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ListCisScansDetailLevel = {
-  MEMBER: "MEMBER",
-  ORGANIZATION: "ORGANIZATION",
-} as const;
-
-/**
- * @public
- */
-export type ListCisScansDetailLevel = (typeof ListCisScansDetailLevel)[keyof typeof ListCisScansDetailLevel];
-
-/**
- * <p>A list of CIS scans filter criteria.</p>
- * @public
- */
-export interface ListCisScansFilterCriteria {
-  /**
-   * <p>The list of scan name filters.</p>
-   * @public
-   */
-  scanNameFilters?: CisStringFilter[];
-
-  /**
-   * <p>The list of target resource tag filters.</p>
-   * @public
-   */
-  targetResourceTagFilters?: TagFilter[];
-
-  /**
-   * <p>The list of target resource ID filters.</p>
-   * @public
-   */
-  targetResourceIdFilters?: CisStringFilter[];
-
-  /**
-   * <p>The list of scan status filters.</p>
-   * @public
-   */
-  scanStatusFilters?: CisScanStatusFilter[];
-
-  /**
-   * <p>The list of scan at filters.</p>
-   * @public
-   */
-  scanAtFilters?: CisDateFilter[];
-
-  /**
-   * <p>The list of scan configuration ARN filters.</p>
-   * @public
-   */
-  scanConfigurationArnFilters?: CisStringFilter[];
-
-  /**
-   * <p>The list of scan ARN filters.</p>
-   * @public
-   */
-  scanArnFilters?: CisStringFilter[];
-
-  /**
-   * <p>The list of scheduled by filters.</p>
-   * @public
-   */
-  scheduledByFilters?: CisStringFilter[];
-
-  /**
-   * <p>The list of failed checks filters.</p>
-   * @public
-   */
-  failedChecksFilters?: CisNumberFilter[];
-
-  /**
-   * <p>The list of target account ID filters.</p>
-   * @public
-   */
-  targetAccountIdFilters?: CisStringFilter[];
-}
-
-/**
- * @public
- * @enum
- */
-export const ListCisScansSortBy = {
-  FAILED_CHECKS: "FAILED_CHECKS",
-  SCAN_START_DATE: "SCAN_START_DATE",
-  SCHEDULED_BY: "SCHEDULED_BY",
-  STATUS: "STATUS",
-} as const;
-
-/**
- * @public
- */
-export type ListCisScansSortBy = (typeof ListCisScansSortBy)[keyof typeof ListCisScansSortBy];
-
-/**
- * @public
- */
-export interface ListCisScansRequest {
-  /**
-   * <p>The CIS scan filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: ListCisScansFilterCriteria;
-
-  /**
-   * <p>The detail applied to the CIS scan.</p>
-   * @public
-   */
-  detailLevel?: ListCisScansDetailLevel;
-
-  /**
-   * <p>The CIS scans sort by order.</p>
-   * @public
-   */
-  sortBy?: ListCisScansSortBy;
-
-  /**
-   * <p>The CIS scans sort order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListCisScansResponse {
-  /**
-   * <p>The CIS scans.</p>
-   * @public
-   */
-  scans?: CisScan[];
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string;
 }

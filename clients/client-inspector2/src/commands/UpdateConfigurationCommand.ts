@@ -39,6 +39,9 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *     rescanDuration: "STRING_VALUE", // required
  *     pullDateRescanDuration: "STRING_VALUE",
  *   },
+ *   ec2Configuration: { // Ec2Configuration
+ *     scanMode: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdateConfigurationCommand(input);
  * const response = await client.send(command);

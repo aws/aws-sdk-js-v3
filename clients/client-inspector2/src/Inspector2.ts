@@ -1170,6 +1170,7 @@ export interface Inspector2 {
   /**
    * @see {@link UpdateConfigurationCommand}
    */
+  updateConfiguration(): Promise<UpdateConfigurationCommandOutput>;
   updateConfiguration(
     args: UpdateConfigurationCommandInput,
     options?: __HttpHandlerOptions

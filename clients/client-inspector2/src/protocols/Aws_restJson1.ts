@@ -241,6 +241,7 @@ import {
   DateFilter,
   Day,
   Destination,
+  Ec2Configuration,
   Ec2InstanceAggregation,
   EcrConfiguration,
   EcrConfigurationState,
@@ -264,7 +265,6 @@ import {
   LambdaFunctionAggregationResponse,
   LambdaLayerAggregation,
   ListCisScanConfigurationsFilterCriteria,
-  ListCisScansFilterCriteria,
   MapFilter,
   Member,
   MemberAccountEc2DeepInspectionStatus,
@@ -295,6 +295,7 @@ import {
   WeeklySchedule,
 } from "../models/models_0";
 import {
+  ListCisScansFilterCriteria,
   SearchVulnerabilitiesFilterCriteria,
   SortCriteria,
   StartCisSessionMessage,
@@ -1537,6 +1538,7 @@ export const se_UpdateConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ec2Configuration: (_) => _json(_),
       ecrConfiguration: (_) => _json(_),
     })
   );
@@ -2171,6 +2173,7 @@ export const de_GetConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    ec2Configuration: _json,
     ecrConfiguration: (_) => de_EcrConfigurationState(_, context),
   });
   Object.assign(contents, doc);
@@ -3249,6 +3252,7 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
     lastScannedAt: (_) => se_CoverageDateFilterList(_, context),
     resourceId: _json,
     resourceType: _json,
+    scanMode: _json,
     scanStatusCode: _json,
     scanStatusReason: _json,
     scanType: _json,
@@ -3293,6 +3297,8 @@ const se_DateFilterList = (input: DateFilter[], context: __SerdeContext): any =>
 // se_Destination omitted.
 
 // se_DisableResourceTypeList omitted.
+
+// se_Ec2Configuration omitted.
 
 // se_Ec2InstanceAggregation omitted.
 
@@ -3768,6 +3774,7 @@ const de_CoveredResource = (output: any, context: __SerdeContext): CoveredResour
     resourceId: __expectString,
     resourceMetadata: (_: any) => de_ResourceScanMetadata(_, context),
     resourceType: __expectString,
+    scanMode: __expectString,
     scanStatus: _json,
     scanType: __expectString,
   }) as any;
@@ -3889,9 +3896,13 @@ const de_DateFilterList = (output: any, context: __SerdeContext): DateFilter[] =
 
 // de_DetectorTagList omitted.
 
+// de_Ec2ConfigurationState omitted.
+
 // de_Ec2InstanceAggregationResponse omitted.
 
 // de_Ec2Metadata omitted.
+
+// de_Ec2ScanModeState omitted.
 
 /**
  * deserializeAws_restJson1EcrConfigurationState

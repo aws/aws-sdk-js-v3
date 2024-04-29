@@ -46,6 +46,12 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * //       pullDateRescanDuration: "STRING_VALUE",
  * //     },
  * //   },
+ * //   ec2Configuration: { // Ec2ConfigurationState
+ * //     scanModeState: { // Ec2ScanModeState
+ * //       scanMode: "STRING_VALUE",
+ * //       scanModeStatus: "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```
