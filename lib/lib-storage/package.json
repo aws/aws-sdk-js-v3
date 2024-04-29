@@ -18,7 +18,7 @@
     "test:e2e": "jest -c jest.config.e2e.js"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
