@@ -32,6 +32,10 @@ import {
   DeleteScheduledQueryCommandInput,
   DeleteScheduledQueryCommandOutput,
 } from "../commands/DeleteScheduledQueryCommand";
+import {
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "../commands/DescribeAccountSettingsCommand";
 import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "../commands/DescribeEndpointsCommand";
 import {
   DescribeScheduledQueryCommandInput,
@@ -54,6 +58,10 @@ import { QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand"
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "../commands/UpdateAccountSettingsCommand";
+import {
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
 } from "../commands/UpdateScheduledQueryCommand";
@@ -65,6 +73,7 @@ import {
   CreateScheduledQueryRequest,
   Datum,
   DeleteScheduledQueryRequest,
+  DescribeAccountSettingsRequest,
   DescribeEndpointsRequest,
   DescribeScheduledQueryRequest,
   DescribeScheduledQueryResponse,
@@ -105,6 +114,7 @@ import {
   TimestreamConfiguration,
   Type,
   UntagResourceRequest,
+  UpdateAccountSettingsRequest,
   UpdateScheduledQueryRequest,
   ValidationException,
 } from "../models/models_0";
@@ -144,6 +154,19 @@ export const se_DeleteScheduledQueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteScheduledQuery");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeAccountSettingsCommand
+ */
+export const se_DescribeAccountSettingsCommand = async (
+  input: DescribeAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeAccountSettings");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -264,6 +287,19 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_0UpdateAccountSettingsCommand
+ */
+export const se_UpdateAccountSettingsCommand = async (
+  input: UpdateAccountSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateAccountSettings");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0UpdateScheduledQueryCommand
  */
 export const se_UpdateScheduledQueryCommand = async (
@@ -329,6 +365,26 @@ export const de_DeleteScheduledQueryCommand = async (
   await collectBody(output.body, context);
   const response: DeleteScheduledQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeAccountSettingsCommand
+ */
+export const de_DescribeAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeAccountSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -501,6 +557,26 @@ export const de_UntagResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateAccountSettingsCommand
+ */
+export const de_UpdateAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -728,6 +804,8 @@ const se_CreateScheduledQueryRequest = (input: CreateScheduledQueryRequest, cont
 
 // se_DeleteScheduledQueryRequest omitted.
 
+// se_DescribeAccountSettingsRequest omitted.
+
 // se_DescribeEndpointsRequest omitted.
 
 // se_DescribeScheduledQueryRequest omitted.
@@ -799,6 +877,8 @@ const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateAccountSettingsRequest omitted.
+
 // se_UpdateScheduledQueryRequest omitted.
 
 // de_AccessDeniedException omitted.
@@ -855,6 +935,8 @@ const de_DatumList = (output: any, context: __SerdeContext): Datum[] => {
     });
   return retVal;
 };
+
+// de_DescribeAccountSettingsResponse omitted.
 
 // de_DescribeEndpointsResponse omitted.
 
@@ -1155,6 +1237,8 @@ const de_Type = (output: any, context: __SerdeContext): Type => {
 };
 
 // de_UntagResourceResponse omitted.
+
+// de_UpdateAccountSettingsResponse omitted.
 
 // de_ValidationException omitted.
 

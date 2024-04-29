@@ -6,8 +6,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExecuteScheduledQueryRequest, ExecuteScheduledQueryRequestFilterSensitiveLog } from "../models/models_0";
-import { de_ExecuteScheduledQueryCommand, se_ExecuteScheduledQueryCommand } from "../protocols/Aws_json1_0";
+import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_0";
+import { de_DescribeAccountSettingsCommand, se_DescribeAccountSettingsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -17,39 +17,39 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ExecuteScheduledQueryCommand}.
+ * The input for {@link DescribeAccountSettingsCommand}.
  */
-export interface ExecuteScheduledQueryCommandInput extends ExecuteScheduledQueryRequest {}
+export interface DescribeAccountSettingsCommandInput extends DescribeAccountSettingsRequest {}
 /**
  * @public
  *
- * The output of {@link ExecuteScheduledQueryCommand}.
+ * The output of {@link DescribeAccountSettingsCommand}.
  */
-export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
+export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * <p> You can use this API to run a scheduled query manually. </p>
+ * <p>Describes the settings for your account that include the query pricing model and the configured maximum TCUs the service can use for your query workload.</p>
+ *          <p>You're charged only for the duration of compute units used for your workloads.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamQueryClient, ExecuteScheduledQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
- * // const { TimestreamQueryClient, ExecuteScheduledQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
+ * import { TimestreamQueryClient, DescribeAccountSettingsCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
+ * // const { TimestreamQueryClient, DescribeAccountSettingsCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
- * const input = { // ExecuteScheduledQueryRequest
- *   ScheduledQueryArn: "STRING_VALUE", // required
- *   InvocationTime: new Date("TIMESTAMP"), // required
- *   ClientToken: "STRING_VALUE",
- * };
- * const command = new ExecuteScheduledQueryCommand(input);
+ * const input = {};
+ * const command = new DescribeAccountSettingsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DescribeAccountSettingsResponse
+ * //   MaxQueryTCU: Number("int"),
+ * //   QueryPricingModel: "BYTES_SCANNED" || "COMPUTE_UNITS",
+ * // };
  *
  * ```
  *
- * @param ExecuteScheduledQueryCommandInput - {@link ExecuteScheduledQueryCommandInput}
- * @returns {@link ExecuteScheduledQueryCommandOutput}
- * @see {@link ExecuteScheduledQueryCommandInput} for command's `input` shape.
- * @see {@link ExecuteScheduledQueryCommandOutput} for command's `response` shape.
+ * @param DescribeAccountSettingsCommandInput - {@link DescribeAccountSettingsCommandInput}
+ * @returns {@link DescribeAccountSettingsCommandOutput}
+ * @see {@link DescribeAccountSettingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountSettingsCommandOutput} for command's `response` shape.
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -63,24 +63,18 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidEndpointException} (client fault)
  *  <p>The requested endpoint was not valid.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p> Invalid or malformed request. </p>
  *
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  * @public
  */
-export class ExecuteScheduledQueryCommand extends $Command
+export class DescribeAccountSettingsCommand extends $Command
   .classBuilder<
-    ExecuteScheduledQueryCommandInput,
-    ExecuteScheduledQueryCommandOutput,
+    DescribeAccountSettingsCommandInput,
+    DescribeAccountSettingsCommandOutput,
     TimestreamQueryClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +89,9 @@ export class ExecuteScheduledQueryCommand extends $Command
       getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
     ];
   })
-  .s("Timestream_20181101", "ExecuteScheduledQuery", {})
-  .n("TimestreamQueryClient", "ExecuteScheduledQueryCommand")
-  .f(ExecuteScheduledQueryRequestFilterSensitiveLog, void 0)
-  .ser(se_ExecuteScheduledQueryCommand)
-  .de(de_ExecuteScheduledQueryCommand)
+  .s("Timestream_20181101", "DescribeAccountSettings", {})
+  .n("TimestreamQueryClient", "DescribeAccountSettingsCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeAccountSettingsCommand)
+  .de(de_DescribeAccountSettingsCommand)
   .build() {}

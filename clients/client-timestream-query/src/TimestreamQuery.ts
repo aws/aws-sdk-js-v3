@@ -14,6 +14,11 @@ import {
   DeleteScheduledQueryCommandOutput,
 } from "./commands/DeleteScheduledQueryCommand";
 import {
+  DescribeAccountSettingsCommand,
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "./commands/DescribeAccountSettingsCommand";
+import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
@@ -51,6 +56,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccountSettingsCommand,
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
+import {
   UpdateScheduledQueryCommand,
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
@@ -61,6 +71,7 @@ const commands = {
   CancelQueryCommand,
   CreateScheduledQueryCommand,
   DeleteScheduledQueryCommand,
+  DescribeAccountSettingsCommand,
   DescribeEndpointsCommand,
   DescribeScheduledQueryCommand,
   ExecuteScheduledQueryCommand,
@@ -70,6 +81,7 @@ const commands = {
   QueryCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAccountSettingsCommand,
   UpdateScheduledQueryCommand,
 };
 
@@ -117,6 +129,24 @@ export interface TimestreamQuery {
     args: DeleteScheduledQueryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteScheduledQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccountSettingsCommand}
+   */
+  describeAccountSettings(): Promise<DescribeAccountSettingsCommandOutput>;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountSettingsCommandOutput>;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
+  ): void;
+  describeAccountSettings(
+    args: DescribeAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -248,6 +278,24 @@ export interface TimestreamQuery {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountSettingsCommand}
+   */
+  updateAccountSettings(): Promise<UpdateAccountSettingsCommandOutput>;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountSettingsCommandOutput>;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): void;
 
   /**

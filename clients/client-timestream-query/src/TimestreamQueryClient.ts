@@ -68,6 +68,10 @@ import {
   DeleteScheduledQueryCommandOutput,
 } from "./commands/DeleteScheduledQueryCommand";
 import {
+  DescribeAccountSettingsCommandInput,
+  DescribeAccountSettingsCommandOutput,
+} from "./commands/DescribeAccountSettingsCommand";
+import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
@@ -93,6 +97,10 @@ import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccountSettingsCommandInput,
+  UpdateAccountSettingsCommandOutput,
+} from "./commands/UpdateAccountSettingsCommand";
+import {
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
@@ -114,6 +122,7 @@ export type ServiceInputTypes =
   | CancelQueryCommandInput
   | CreateScheduledQueryCommandInput
   | DeleteScheduledQueryCommandInput
+  | DescribeAccountSettingsCommandInput
   | DescribeEndpointsCommandInput
   | DescribeScheduledQueryCommandInput
   | ExecuteScheduledQueryCommandInput
@@ -123,6 +132,7 @@ export type ServiceInputTypes =
   | QueryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccountSettingsCommandInput
   | UpdateScheduledQueryCommandInput;
 
 /**
@@ -132,6 +142,7 @@ export type ServiceOutputTypes =
   | CancelQueryCommandOutput
   | CreateScheduledQueryCommandOutput
   | DeleteScheduledQueryCommandOutput
+  | DescribeAccountSettingsCommandOutput
   | DescribeEndpointsCommandOutput
   | DescribeScheduledQueryCommandOutput
   | ExecuteScheduledQueryCommandOutput
@@ -141,6 +152,7 @@ export type ServiceOutputTypes =
   | QueryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccountSettingsCommandOutput
   | UpdateScheduledQueryCommandOutput;
 
 /**

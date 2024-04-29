@@ -2,6 +2,7 @@
 export * from "./CancelQueryCommand";
 export * from "./CreateScheduledQueryCommand";
 export * from "./DeleteScheduledQueryCommand";
+export * from "./DescribeAccountSettingsCommand";
 export * from "./DescribeEndpointsCommand";
 export * from "./DescribeScheduledQueryCommand";
 export * from "./ExecuteScheduledQueryCommand";
@@ -11,4 +12,5 @@ export * from "./PrepareQueryCommand";
 export * from "./QueryCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateAccountSettingsCommand";
 export * from "./UpdateScheduledQueryCommand";

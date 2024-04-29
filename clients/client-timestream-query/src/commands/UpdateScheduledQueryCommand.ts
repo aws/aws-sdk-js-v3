@@ -56,7 +56,7 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>
- *             Timestream was unable to fully process this request because of an internal
+ *             The service was unable to fully process this request because of an internal
  *             server error. </p>
  *
  * @throws {@link InvalidEndpointException} (client fault)

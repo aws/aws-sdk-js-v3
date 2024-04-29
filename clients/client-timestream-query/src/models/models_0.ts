@@ -51,7 +51,7 @@ export interface CancelQueryResponse {
 
 /**
  * <p>
- *             Timestream was unable to fully process this request because of an internal
+ *             The service was unable to fully process this request because of an internal
  *             server error. </p>
  * @public
  */
@@ -687,6 +687,42 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
+export interface DescribeAccountSettingsRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryPricingModel = {
+  BYTES_SCANNED: "BYTES_SCANNED",
+  COMPUTE_UNITS: "COMPUTE_UNITS",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryPricingModel = (typeof QueryPricingModel)[keyof typeof QueryPricingModel];
+
+/**
+ * @public
+ */
+export interface DescribeAccountSettingsResponse {
+  /**
+   * <p>The maximum number of <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/tcu.html">Timestream compute units</a> (TCUs) the service will use at any point in time to serve your queries.</p>
+   * @public
+   */
+  MaxQueryTCU?: number;
+
+  /**
+   * <p>The pricing model for queries in your account.</p>
+   * @public
+   */
+  QueryPricingModel?: QueryPricingModel;
+}
+
+/**
+ * @public
+ */
 export interface DescribeEndpointsRequest {}
 
 /**
@@ -785,6 +821,12 @@ export interface ExecutionStats {
    * @public
    */
   BytesMetered?: number;
+
+  /**
+   * <p>Bytes scanned for a single scheduled query run.</p>
+   * @public
+   */
+  CumulativeBytesScanned?: number;
 
   /**
    * <p>The number of records ingested for a single scheduled query run. </p>
@@ -1408,6 +1450,41 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsRequest {
+  /**
+   * <p>The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on.</p>
+   *          <p>The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default quotas</a>.</p>
+   * @public
+   */
+  MaxQueryTCU?: number;
+
+  /**
+   * <p>The pricing model for queries in an account.</p>
+   * @public
+   */
+  QueryPricingModel?: QueryPricingModel;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountSettingsResponse {
+  /**
+   * <p>The configured maximum number of compute units the service will use at any point in time to serve your queries.</p>
+   * @public
+   */
+  MaxQueryTCU?: number;
+
+  /**
+   * <p>The pricing model for an account.</p>
+   * @public
+   */
+  QueryPricingModel?: QueryPricingModel;
+}
 
 /**
  * @public

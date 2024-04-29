@@ -117,6 +117,7 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * //         ExecutionTimeInMillis: Number("long"),
  * //         DataWrites: Number("long"),
  * //         BytesMetered: Number("long"),
+ * //         CumulativeBytesScanned: Number("long"),
  * //         RecordsIngested: Number("long"),
  * //         QueryResultRows: Number("long"),
  * //       },
@@ -137,6 +138,7 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * //           ExecutionTimeInMillis: Number("long"),
  * //           DataWrites: Number("long"),
  * //           BytesMetered: Number("long"),
+ * //           CumulativeBytesScanned: Number("long"),
  * //           RecordsIngested: Number("long"),
  * //           QueryResultRows: Number("long"),
  * //         },
@@ -165,7 +167,7 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>
- *             Timestream was unable to fully process this request because of an internal
+ *             The service was unable to fully process this request because of an internal
  *             server error. </p>
  *
  * @throws {@link InvalidEndpointException} (client fault)
