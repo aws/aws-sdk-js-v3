@@ -1970,6 +1970,7 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
  */
 const de_CallAnalyticsJob = (output: any, context: __SerdeContext): CallAnalyticsJob => {
   return take(output, {
+    CallAnalyticsJobDetails: _json,
     CallAnalyticsJobName: __expectString,
     CallAnalyticsJobStatus: __expectString,
     ChannelDefinitions: _json,
@@ -1987,6 +1988,8 @@ const de_CallAnalyticsJob = (output: any, context: __SerdeContext): CallAnalytic
     Transcript: _json,
   }) as any;
 };
+
+// de_CallAnalyticsJobDetails omitted.
 
 // de_CallAnalyticsJobSettings omitted.
 
@@ -2007,6 +2010,7 @@ const de_CallAnalyticsJobSummaries = (output: any, context: __SerdeContext): Cal
  */
 const de_CallAnalyticsJobSummary = (output: any, context: __SerdeContext): CallAnalyticsJobSummary => {
   return take(output, {
+    CallAnalyticsJobDetails: _json,
     CallAnalyticsJobName: __expectString,
     CallAnalyticsJobStatus: __expectString,
     CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2016,6 +2020,10 @@ const de_CallAnalyticsJobSummary = (output: any, context: __SerdeContext): CallA
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_CallAnalyticsSkippedFeature omitted.
+
+// de_CallAnalyticsSkippedFeatureList omitted.
 
 /**
  * deserializeAws_json1_1CategoryProperties

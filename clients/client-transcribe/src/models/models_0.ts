@@ -95,6 +95,74 @@ export type BaseModelName = (typeof BaseModelName)[keyof typeof BaseModelName];
  * @public
  * @enum
  */
+export const CallAnalyticsFeature = {
+  GENERATIVE_SUMMARIZATION: "GENERATIVE_SUMMARIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type CallAnalyticsFeature = (typeof CallAnalyticsFeature)[keyof typeof CallAnalyticsFeature];
+
+/**
+ * @public
+ * @enum
+ */
+export const CallAnalyticsSkippedReasonCode = {
+  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
+  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
+} as const;
+
+/**
+ * @public
+ */
+export type CallAnalyticsSkippedReasonCode =
+  (typeof CallAnalyticsSkippedReasonCode)[keyof typeof CallAnalyticsSkippedReasonCode];
+
+/**
+ * <p>Represents a skipped analytics feature during the analysis of a call analytics job.</p>
+ *          <p>The <code>Feature</code> field indicates the type of analytics feature that was skipped.</p>
+ *          <p>The <code>Message</code> field contains additional information or a message explaining why the analytics feature was skipped.</p>
+ *          <p>The <code>ReasonCode</code> field provides a code indicating the reason why the analytics feature was skipped.</p>
+ * @public
+ */
+export interface CallAnalyticsSkippedFeature {
+  /**
+   * <p>Indicates the type of analytics feature that was skipped during the analysis of a call analytics job.</p>
+   * @public
+   */
+  Feature?: CallAnalyticsFeature;
+
+  /**
+   * <p>Provides a code indicating the reason why a specific analytics feature was skipped during the analysis of a call analytics job.</p>
+   * @public
+   */
+  ReasonCode?: CallAnalyticsSkippedReasonCode;
+
+  /**
+   * <p>Contains additional information or a message explaining why a specific analytics feature was skipped during the analysis of a call analytics job.</p>
+   * @public
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Contains details about a call analytics job, including information about skipped analytics features.</p>
+ * @public
+ */
+export interface CallAnalyticsJobDetails {
+  /**
+   * <p>Contains information about any skipped analytics features during the analysis of a call analytics job.</p>
+   *          <p>This array lists all the analytics features that were skipped, along with their corresponding reason code and message.</p>
+   * @public
+   */
+  Skipped?: CallAnalyticsSkippedFeature[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const CallAnalyticsJobStatus = {
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
@@ -716,6 +784,12 @@ export interface CallAnalyticsJob {
   CallAnalyticsJobStatus?: CallAnalyticsJobStatus;
 
   /**
+   * <p>Provides detailed information about a call analytics job, including information about skipped analytics features.</p>
+   * @public
+   */
+  CallAnalyticsJobDetails?: CallAnalyticsJobDetails;
+
+  /**
    * <p>The language code used to create your Call Analytics job. For a list of supported
    *             languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a>
    *             table.</p>
@@ -919,6 +993,12 @@ export interface CallAnalyticsJobSummary {
    * @public
    */
   CallAnalyticsJobStatus?: CallAnalyticsJobStatus;
+
+  /**
+   * <p>Provides detailed information about a call analytics job, including information about skipped analytics features.</p>
+   * @public
+   */
+  CallAnalyticsJobDetails?: CallAnalyticsJobDetails;
 
   /**
    * <p>If <code>CallAnalyticsJobStatus</code> is <code>FAILED</code>,
