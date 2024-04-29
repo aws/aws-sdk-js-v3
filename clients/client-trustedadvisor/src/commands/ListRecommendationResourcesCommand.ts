@@ -43,6 +43,7 @@ export interface ListRecommendationResourcesCommandOutput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   status: "ok" || "warning" || "error",
+ *   exclusionStatus: "excluded" || "included",
  *   regionCode: "STRING_VALUE",
  *   recommendationIdentifier: "STRING_VALUE", // required
  * };
@@ -61,6 +62,7 @@ export interface ListRecommendationResourcesCommandOutput
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       exclusionStatus: "excluded" || "included",
  * //       recommendationArn: "STRING_VALUE", // required
  * //     },
  * //   ],

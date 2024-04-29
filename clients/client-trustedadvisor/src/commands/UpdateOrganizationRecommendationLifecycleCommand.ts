@@ -34,7 +34,7 @@ export interface UpdateOrganizationRecommendationLifecycleCommandInput
 export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Update the lifecyle of a Recommendation within an Organization. This API only supports prioritized
+ * <p>Update the lifecycle of a Recommendation within an Organization. This API only supports prioritized
  *             recommendations.
  *         </p>
  * @example

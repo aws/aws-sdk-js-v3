@@ -121,6 +121,154 @@ export interface AccountRecommendationLifecycleSummary {
 }
 
 /**
+ * <p>The request entry for Recommendation Resource exclusion. Each entry is a combination of Recommendation Resource ARN and corresponding exclusion status</p>
+ * @public
+ */
+export interface RecommendationResourceExclusion {
+  /**
+   * <p>The ARN of the Recommendation Resource</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The exclusion status</p>
+   * @public
+   */
+  isExcluded: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateRecommendationResourceExclusionRequest {
+  /**
+   * <p>A list of recommendation resource ARNs and exclusion status to update</p>
+   * @public
+   */
+  recommendationResourceExclusions: RecommendationResourceExclusion[] | undefined;
+}
+
+/**
+ * <p>The error entry for Recommendation Resource exclusion. Each entry is a combination of Recommendation Resource ARN, error code and error message</p>
+ * @public
+ */
+export interface UpdateRecommendationResourceExclusionError {
+  /**
+   * <p>The ARN of the Recommendation Resource</p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>The error code</p>
+   * @public
+   */
+  errorCode?: string;
+
+  /**
+   * <p>The error message</p>
+   * @public
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateRecommendationResourceExclusionResponse {
+  /**
+   * <p>A list of recommendation resource ARNs whose exclusion status failed to update, if any</p>
+   * @public
+   */
+  batchUpdateRecommendationResourceExclusionErrors: UpdateRecommendationResourceExclusionError[] | undefined;
+}
+
+/**
+ * <p>Exception that the request was denied due to conflictions in state</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>Exception to notify that requests are being throttled</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>Exception that the request failed to satisfy service constraints</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
  * @public
  * @enum
  */
@@ -218,24 +366,18 @@ export interface CheckSummary {
 }
 
 /**
- * <p>Exception that the request was denied due to conflictions in state</p>
+ * @public
+ * @enum
+ */
+export const ExclusionStatus = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+} as const;
+
+/**
  * @public
  */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
+export type ExclusionStatus = (typeof ExclusionStatus)[keyof typeof ExclusionStatus];
 
 /**
  * @public
@@ -482,27 +624,6 @@ export interface GetOrganizationRecommendationResponse {
 }
 
 /**
- * <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
  * <p>Exception that the requested resource has not been found</p>
  * @public
  */
@@ -519,49 +640,6 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
-/**
- * <p>Exception to notify that requests are being throttled</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>Exception that the request failed to satisfy service constraints</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -900,6 +978,12 @@ export interface ListOrganizationRecommendationResourcesRequest {
   status?: ResourceStatus;
 
   /**
+   * <p>The exclusion status of the resource</p>
+   * @public
+   */
+  exclusionStatus?: ExclusionStatus;
+
+  /**
    * <p>The AWS Region code of the resource</p>
    * @public
    */
@@ -964,6 +1048,12 @@ export interface OrganizationRecommendationResourceSummary {
    * @public
    */
   lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The exclusion status of the Recommendation Resource</p>
+   * @public
+   */
+  exclusionStatus?: ExclusionStatus;
 
   /**
    * <p>The AWS account ID</p>
@@ -1198,6 +1288,12 @@ export interface ListRecommendationResourcesRequest {
   status?: ResourceStatus;
 
   /**
+   * <p>The exclusion status of the resource</p>
+   * @public
+   */
+  exclusionStatus?: ExclusionStatus;
+
+  /**
    * <p>The AWS Region code of the resource</p>
    * @public
    */
@@ -1256,6 +1352,12 @@ export interface RecommendationResourceSummary {
    * @public
    */
   lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The exclusion status of the Recommendation Resource</p>
+   * @public
+   */
+  exclusionStatus?: ExclusionStatus;
 
   /**
    * <p>The Recommendation ARN</p>

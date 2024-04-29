@@ -24,6 +24,10 @@ import {
 } from "@smithy/types";
 
 import {
+  BatchUpdateRecommendationResourceExclusionCommandInput,
+  BatchUpdateRecommendationResourceExclusionCommandOutput,
+} from "../commands/BatchUpdateRecommendationResourceExclusionCommand";
+import {
   GetOrganizationRecommendationCommandInput,
   GetOrganizationRecommendationCommandOutput,
 } from "../commands/GetOrganizationRecommendationCommand";
@@ -68,6 +72,7 @@ import {
   Recommendation,
   RecommendationCostOptimizingAggregates,
   RecommendationPillarSpecificAggregates,
+  RecommendationResourceExclusion,
   RecommendationResourceSummary,
   RecommendationSummary,
   ResourceNotFoundException,
@@ -75,6 +80,28 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { TrustedAdvisorServiceException as __BaseException } from "../models/TrustedAdvisorServiceException";
+
+/**
+ * serializeAws_restJson1BatchUpdateRecommendationResourceExclusionCommand
+ */
+export const se_BatchUpdateRecommendationResourceExclusionCommand = async (
+  input: BatchUpdateRecommendationResourceExclusionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/batch-update-recommendation-resource-exclusion");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      recommendationResourceExclusions: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1GetOrganizationRecommendationCommand
@@ -182,6 +209,7 @@ export const se_ListOrganizationRecommendationResourcesCommand = async (
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_st]: [, input[_st]!],
+    [_eS]: [, input[_eS]!],
     [_rC]: [, input[_rC]!],
     [_aAI]: [, input[_aAI]!],
   });
@@ -238,6 +266,7 @@ export const se_ListRecommendationResourcesCommand = async (
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_st]: [, input[_st]!],
+    [_eS]: [, input[_eS]!],
     [_rC]: [, input[_rC]!],
   });
   let body: any;
@@ -331,6 +360,27 @@ export const se_UpdateRecommendationLifecycleCommand = async (
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateRecommendationResourceExclusionCommand
+ */
+export const de_BatchUpdateRecommendationResourceExclusionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateRecommendationResourceExclusionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    batchUpdateRecommendationResourceExclusionErrors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -554,21 +604,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.trustedadvisor#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.trustedadvisor#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.trustedadvisor#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.trustedadvisor#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.trustedadvisor#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.trustedadvisor#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -691,6 +741,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_RecommendationResourceExclusion omitted.
+
+// se_RecommendationResourceExclusionList omitted.
+
 /**
  * deserializeAws_restJson1AccountRecommendationLifecycleSummary
  */
@@ -769,6 +823,7 @@ const de_OrganizationRecommendationResourceSummary = (
     accountId: __expectString,
     arn: __expectString,
     awsResourceId: __expectString,
+    exclusionStatus: __expectString,
     id: __expectString,
     lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     metadata: _json,
@@ -900,6 +955,7 @@ const de_RecommendationResourceSummary = (output: any, context: __SerdeContext):
   return take(output, {
     arn: __expectString,
     awsResourceId: __expectString,
+    exclusionStatus: __expectString,
     id: __expectString,
     lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     metadata: _json,
@@ -960,6 +1016,10 @@ const de_RecommendationSummaryList = (output: any, context: __SerdeContext): Rec
 
 // de_StringMap omitted.
 
+// de_UpdateRecommendationResourceExclusionError omitted.
+
+// de_UpdateRecommendationResourceExclusionErrorList omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -984,6 +1044,7 @@ const _aLUA = "afterLastUpdatedAt";
 const _aS = "awsService";
 const _bLUA = "beforeLastUpdatedAt";
 const _cI = "checkIdentifier";
+const _eS = "exclusionStatus";
 const _l = "language";
 const _mR = "maxResults";
 const _nT = "nextToken";

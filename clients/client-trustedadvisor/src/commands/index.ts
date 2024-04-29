@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./BatchUpdateRecommendationResourceExclusionCommand";
 export * from "./GetOrganizationRecommendationCommand";
 export * from "./GetRecommendationCommand";
 export * from "./ListChecksCommand";

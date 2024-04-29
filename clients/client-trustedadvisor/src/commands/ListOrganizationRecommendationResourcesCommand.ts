@@ -49,6 +49,7 @@ export interface ListOrganizationRecommendationResourcesCommandOutput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   status: "ok" || "warning" || "error",
+ *   exclusionStatus: "excluded" || "included",
  *   regionCode: "STRING_VALUE",
  *   organizationRecommendationIdentifier: "STRING_VALUE", // required
  *   affectedAccountId: "STRING_VALUE",
@@ -68,6 +69,7 @@ export interface ListOrganizationRecommendationResourcesCommandOutput
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       exclusionStatus: "excluded" || "included",
  * //       accountId: "STRING_VALUE",
  * //       recommendationArn: "STRING_VALUE", // required
  * //     },

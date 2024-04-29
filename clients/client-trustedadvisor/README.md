@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchUpdateRecommendationResourceExclusion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/BatchUpdateRecommendationResourceExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/BatchUpdateRecommendationResourceExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/BatchUpdateRecommendationResourceExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetOrganizationRecommendation
 </summary>
 

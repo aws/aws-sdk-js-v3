@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchUpdateRecommendationResourceExclusionCommand,
+  BatchUpdateRecommendationResourceExclusionCommandInput,
+  BatchUpdateRecommendationResourceExclusionCommandOutput,
+} from "./commands/BatchUpdateRecommendationResourceExclusionCommand";
+import {
   GetOrganizationRecommendationCommand,
   GetOrganizationRecommendationCommandInput,
   GetOrganizationRecommendationCommandOutput,
@@ -51,6 +56,7 @@ import {
 import { TrustedAdvisorClient, TrustedAdvisorClientConfig } from "./TrustedAdvisorClient";
 
 const commands = {
+  BatchUpdateRecommendationResourceExclusionCommand,
   GetOrganizationRecommendationCommand,
   GetRecommendationCommand,
   ListChecksCommand,
@@ -64,6 +70,23 @@ const commands = {
 };
 
 export interface TrustedAdvisor {
+  /**
+   * @see {@link BatchUpdateRecommendationResourceExclusionCommand}
+   */
+  batchUpdateRecommendationResourceExclusion(
+    args: BatchUpdateRecommendationResourceExclusionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateRecommendationResourceExclusionCommandOutput>;
+  batchUpdateRecommendationResourceExclusion(
+    args: BatchUpdateRecommendationResourceExclusionCommandInput,
+    cb: (err: any, data?: BatchUpdateRecommendationResourceExclusionCommandOutput) => void
+  ): void;
+  batchUpdateRecommendationResourceExclusion(
+    args: BatchUpdateRecommendationResourceExclusionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateRecommendationResourceExclusionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link GetOrganizationRecommendationCommand}
    */

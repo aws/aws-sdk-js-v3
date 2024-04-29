@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  BatchUpdateRecommendationResourceExclusionCommandInput,
+  BatchUpdateRecommendationResourceExclusionCommandOutput,
+} from "./commands/BatchUpdateRecommendationResourceExclusionCommand";
+import {
   GetOrganizationRecommendationCommandInput,
   GetOrganizationRecommendationCommandOutput,
 } from "./commands/GetOrganizationRecommendationCommand";
@@ -102,6 +106,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchUpdateRecommendationResourceExclusionCommandInput
   | GetOrganizationRecommendationCommandInput
   | GetRecommendationCommandInput
   | ListChecksCommandInput
@@ -117,6 +122,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchUpdateRecommendationResourceExclusionCommandOutput
   | GetOrganizationRecommendationCommandOutput
   | GetRecommendationCommandOutput
   | ListChecksCommandOutput
