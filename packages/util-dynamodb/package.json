@@ -35,7 +35,7 @@
     "@aws-sdk/client-dynamodb": "*"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {
