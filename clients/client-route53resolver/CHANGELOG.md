@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.566.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.565.0...v3.566.0) (2024-04-30)
+
+
+### Features
+
+* **client-route53resolver:** Release of FirewallDomainRedirectionAction parameter on the Route 53 DNS Firewall Rule.  This allows customers to configure a DNS Firewall rule to inspect all the domains in the DNS redirection chain (default) , such as CNAME, ALIAS, DNAME, etc., or just the first domain and trust the rest. ([6f5f3a1](https://github.com/aws/aws-sdk-js-v3/commit/6f5f3a1306b813a210d783a223e72df965db11b1))
+
+
+
+
+
 # [3.565.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.564.0...v3.565.0) (2024-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-route53resolver

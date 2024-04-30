@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.566.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.565.0...v3.566.0) (2024-04-30)
+
+
+### Features
+
+* **client-chime-sdk-voice:** Due to changes made by the Amazon Alexa service, GetSipMediaApplicationAlexaSkillConfiguration and PutSipMediaApplicationAlexaSkillConfiguration APIs are no longer available for use. For more information, refer to the Alexa Smart Properties page. ([a11b006](https://github.com/aws/aws-sdk-js-v3/commit/a11b006c1d5fb449e92319a115ee6feaceda703c))
+* **client-codeartifact:** Add support for the Ruby package format. ([c709983](https://github.com/aws/aws-sdk-js-v3/commit/c70998341c64384b56e4a7befd5a3ac2a62ff8ed))
+* **client-fms:** AWS Firewall Manager now supports the network firewall service stream exception policy feature for accounts within your organization. ([f2e212c](https://github.com/aws/aws-sdk-js-v3/commit/f2e212c7e3ee923fa06d8a487ae8aab4a8135964))
+* **client-omics:** Add support for workflow sharing and dynamic run storage ([f47a1b2](https://github.com/aws/aws-sdk-js-v3/commit/f47a1b29dd307d6798ca3e5764b7f851d303de10))
+* **client-opensearch:** This release enables customers to create Route53 A and AAAA alias record types to point custom endpoint domain to OpenSearch domain's dualstack search endpoint. ([0d8cad3](https://github.com/aws/aws-sdk-js-v3/commit/0d8cad306b15646f0e67e0d54197d031377065fd))
+* **client-pinpoint-sms-voice-v2:** Amazon Pinpoint has added two new features Multimedia services (MMS) and protect configurations. Use the three new MMS APIs to send media messages to a mobile phone which includes image, audio, text, or video files. Use the ten new protect configurations APIs to block messages to specific countries. ([fd01ffd](https://github.com/aws/aws-sdk-js-v3/commit/fd01ffd2e2baeb796a23a1a3e5ef45f5b3b4b7b7))
+* **client-qbusiness:** This is a general availability (GA) release of Amazon Q Business. Q Business enables employees in an enterprise to get comprehensive answers to complex questions and take actions through a unified, intuitive web-based chat experience - using an enterprise's existing content, data, and systems. ([56e646d](https://github.com/aws/aws-sdk-js-v3/commit/56e646da38b8bb2d976fca5a2fb875ccdcfba037))
+* **client-quicksight:** New Q embedding supporting Generative Q&A ([90a9ac3](https://github.com/aws/aws-sdk-js-v3/commit/90a9ac3203952a4e52104af9101a3e1dd02c72f1))
+* **client-route53resolver:** Release of FirewallDomainRedirectionAction parameter on the Route 53 DNS Firewall Rule.  This allows customers to configure a DNS Firewall rule to inspect all the domains in the DNS redirection chain (default) , such as CNAME, ALIAS, DNAME, etc., or just the first domain and trust the rest. ([6f5f3a1](https://github.com/aws/aws-sdk-js-v3/commit/6f5f3a1306b813a210d783a223e72df965db11b1))
+* **client-sagemaker:** Amazon SageMaker Training now supports the use of attribute-based access control (ABAC) roles for training job execution roles. Amazon SageMaker Inference now supports G6 instance types. ([a070740](https://github.com/aws/aws-sdk-js-v3/commit/a070740b9e2880d359b0c7b70d8e31e4c1e303b2))
+
+
+
+
+
 # [3.565.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.564.0...v3.565.0) (2024-04-29)
 
 

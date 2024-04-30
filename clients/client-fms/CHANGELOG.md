@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.566.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.565.0...v3.566.0) (2024-04-30)
+
+
+### Features
+
+* **client-fms:** AWS Firewall Manager now supports the network firewall service stream exception policy feature for accounts within your organization. ([f2e212c](https://github.com/aws/aws-sdk-js-v3/commit/f2e212c7e3ee923fa06d8a487ae8aab4a8135964))
+
+
+
+
+
 # [3.565.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.564.0...v3.565.0) (2024-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-fms
