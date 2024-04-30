@@ -37,7 +37,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * const input = { // RegisterUserRequest
  *   IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER", // required
  *   Email: "STRING_VALUE", // required
- *   UserRole: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
+ *   UserRole: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required
  *   IamArn: "STRING_VALUE",
  *   SessionName: "STRING_VALUE",
  *   AwsAccountId: "STRING_VALUE", // required
@@ -61,7 +61,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * //     Arn: "STRING_VALUE",
  * //     UserName: "STRING_VALUE",
  * //     Email: "STRING_VALUE",
- * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
+ * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO",
  * //     IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER",
  * //     Active: true || false,
  * //     PrincipalId: "STRING_VALUE",

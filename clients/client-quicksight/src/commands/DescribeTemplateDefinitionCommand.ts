@@ -2909,6 +2909,10 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     },
  * //                   ],
  * //                 },
+ * //                 ColorConfiguration: { // GaugeChartColorConfiguration
+ * //                   ForegroundColor: "STRING_VALUE",
+ * //                   BackgroundColor: "STRING_VALUE",
+ * //                 },
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               ConditionalFormatting: { // GaugeChartConditionalFormatting

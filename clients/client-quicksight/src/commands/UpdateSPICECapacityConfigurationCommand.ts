@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRoleCustomPermissionRequest, UpdateRoleCustomPermissionResponse } from "../models/models_4";
-import { de_UpdateRoleCustomPermissionCommand, se_UpdateRoleCustomPermissionCommand } from "../protocols/Aws_restJson1";
+import { UpdateSPICECapacityConfigurationRequest, UpdateSPICECapacityConfigurationResponse } from "../models/models_4";
+import {
+  de_UpdateSPICECapacityConfigurationCommand,
+  se_UpdateSPICECapacityConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -16,43 +19,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateRoleCustomPermissionCommand}.
+ * The input for {@link UpdateSPICECapacityConfigurationCommand}.
  */
-export interface UpdateRoleCustomPermissionCommandInput extends UpdateRoleCustomPermissionRequest {}
+export interface UpdateSPICECapacityConfigurationCommandInput extends UpdateSPICECapacityConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateRoleCustomPermissionCommand}.
+ * The output of {@link UpdateSPICECapacityConfigurationCommand}.
  */
-export interface UpdateRoleCustomPermissionCommandOutput extends UpdateRoleCustomPermissionResponse, __MetadataBearer {}
+export interface UpdateSPICECapacityConfigurationCommandOutput
+  extends UpdateSPICECapacityConfigurationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Updates the custom permissions that are associated with a role.</p>
+ * <p>Updates the SPICE capacity configuration for a Amazon QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, UpdateRoleCustomPermissionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, UpdateRoleCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateSPICECapacityConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateSPICECapacityConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // UpdateRoleCustomPermissionRequest
- *   CustomPermissionsName: "STRING_VALUE", // required
- *   Role: "ADMIN" || "AUTHOR" || "READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required
+ * const input = { // UpdateSPICECapacityConfigurationRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   PurchaseMode: "MANUAL" || "AUTO_PURCHASE", // required
  * };
- * const command = new UpdateRoleCustomPermissionCommand(input);
+ * const command = new UpdateSPICECapacityConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // UpdateRoleCustomPermissionResponse
+ * // { // UpdateSPICECapacityConfigurationResponse
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param UpdateRoleCustomPermissionCommandInput - {@link UpdateRoleCustomPermissionCommandInput}
- * @returns {@link UpdateRoleCustomPermissionCommandOutput}
- * @see {@link UpdateRoleCustomPermissionCommandInput} for command's `input` shape.
- * @see {@link UpdateRoleCustomPermissionCommandOutput} for command's `response` shape.
+ * @param UpdateSPICECapacityConfigurationCommandInput - {@link UpdateSPICECapacityConfigurationCommandInput}
+ * @returns {@link UpdateSPICECapacityConfigurationCommandOutput}
+ * @see {@link UpdateSPICECapacityConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateSPICECapacityConfigurationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -67,14 +70,8 @@ export interface UpdateRoleCustomPermissionCommandOutput extends UpdateRoleCusto
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
  *
- * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
- *
- * @throws {@link ResourceUnavailableException} (server fault)
- *  <p>This resource is currently unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
@@ -84,10 +81,10 @@ export interface UpdateRoleCustomPermissionCommandOutput extends UpdateRoleCusto
  *
  * @public
  */
-export class UpdateRoleCustomPermissionCommand extends $Command
+export class UpdateSPICECapacityConfigurationCommand extends $Command
   .classBuilder<
-    UpdateRoleCustomPermissionCommandInput,
-    UpdateRoleCustomPermissionCommandOutput,
+    UpdateSPICECapacityConfigurationCommandInput,
+    UpdateSPICECapacityConfigurationCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,9 +98,9 @@ export class UpdateRoleCustomPermissionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QuickSight_20180401", "UpdateRoleCustomPermission", {})
-  .n("QuickSightClient", "UpdateRoleCustomPermissionCommand")
+  .s("QuickSight_20180401", "UpdateSPICECapacityConfiguration", {})
+  .n("QuickSightClient", "UpdateSPICECapacityConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateRoleCustomPermissionCommand)
-  .de(de_UpdateRoleCustomPermissionCommand)
+  .ser(se_UpdateSPICECapacityConfigurationCommand)
+  .de(de_UpdateSPICECapacityConfigurationCommand)
   .build() {}

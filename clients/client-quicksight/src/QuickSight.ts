@@ -747,6 +747,11 @@ import {
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
 import {
+  UpdateSPICECapacityConfigurationCommand,
+  UpdateSPICECapacityConfigurationCommandInput,
+  UpdateSPICECapacityConfigurationCommandOutput,
+} from "./commands/UpdateSPICECapacityConfigurationCommand";
+import {
   UpdateTemplateAliasCommand,
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -952,6 +957,7 @@ const commands = {
   UpdatePublicSharingSettingsCommand,
   UpdateRefreshScheduleCommand,
   UpdateRoleCustomPermissionCommand,
+  UpdateSPICECapacityConfigurationCommand,
   UpdateTemplateCommand,
   UpdateTemplateAliasCommand,
   UpdateTemplatePermissionsCommand,
@@ -3432,6 +3438,23 @@ export interface QuickSight {
     args: UpdateRoleCustomPermissionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRoleCustomPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSPICECapacityConfigurationCommand}
+   */
+  updateSPICECapacityConfiguration(
+    args: UpdateSPICECapacityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSPICECapacityConfigurationCommandOutput>;
+  updateSPICECapacityConfiguration(
+    args: UpdateSPICECapacityConfigurationCommandInput,
+    cb: (err: any, data?: UpdateSPICECapacityConfigurationCommandOutput) => void
+  ): void;
+  updateSPICECapacityConfiguration(
+    args: UpdateSPICECapacityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSPICECapacityConfigurationCommandOutput) => void
   ): void;
 
   /**

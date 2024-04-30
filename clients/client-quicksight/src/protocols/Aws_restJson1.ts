@@ -458,6 +458,10 @@ import {
   UpdateRoleCustomPermissionCommandOutput,
 } from "../commands/UpdateRoleCustomPermissionCommand";
 import {
+  UpdateSPICECapacityConfigurationCommandInput,
+  UpdateSPICECapacityConfigurationCommandOutput,
+} from "../commands/UpdateSPICECapacityConfigurationCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "../commands/UpdateTemplateAliasCommand";
@@ -785,6 +789,7 @@ import {
   FunnelChartSortConfiguration,
   FunnelChartVisual,
   GaugeChartArcConditionalFormatting,
+  GaugeChartColorConfiguration,
   GaugeChartConditionalFormatting,
   GaugeChartConditionalFormattingOption,
   GaugeChartConfiguration,
@@ -978,6 +983,7 @@ import {
   AnonymousUserDashboardEmbeddingConfiguration,
   AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
+  AnonymousUserGenerativeQnAEmbeddingConfiguration,
   AnonymousUserQSearchBarEmbeddingConfiguration,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobAnalysisOverrideProperties,
@@ -1152,7 +1158,6 @@ import {
   TemplateSourceTemplate,
   TemplateVersionDefinition,
   TeradataParameters,
-  ThemeConfiguration,
   ThrottlingException,
   TileLayoutStyle,
   TileStyle,
@@ -1160,7 +1165,6 @@ import {
   TrinoParameters,
   TwitterParameters,
   Typography,
-  UIColorPalette,
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
@@ -1211,6 +1215,7 @@ import {
   RegisteredUserDashboardFeatureConfigurations,
   RegisteredUserDashboardVisualEmbeddingConfiguration,
   RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserGenerativeQnAEmbeddingConfiguration,
   RegisteredUserQSearchBarEmbeddingConfiguration,
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SemanticEntityType,
@@ -1224,6 +1229,7 @@ import {
   Template,
   TemplateVersion,
   Theme,
+  ThemeConfiguration,
   ThemeVersion,
   TopicCalculatedField,
   TopicCategoryFilter,
@@ -1239,6 +1245,7 @@ import {
   TopicRefreshSchedule,
   TopicRelativeDateFilter,
   TopicSingularFilterConstant,
+  UIColorPalette,
   UnsupportedPricingPlanException,
   VPCConnection,
 } from "../models/models_3";
@@ -1318,8 +1325,10 @@ export const se_CreateAccountSubscriptionCommand = async (
       AccountName: [],
       ActiveDirectoryName: [],
       AdminGroup: (_) => _json(_),
+      AdminProGroup: (_) => _json(_),
       AuthenticationMethod: [],
       AuthorGroup: (_) => _json(_),
+      AuthorProGroup: (_) => _json(_),
       ContactNumber: [],
       DirectoryId: [],
       Edition: [],
@@ -1329,6 +1338,7 @@ export const se_CreateAccountSubscriptionCommand = async (
       LastName: [],
       NotificationEmail: [],
       ReaderGroup: (_) => _json(_),
+      ReaderProGroup: (_) => _json(_),
       Realm: [],
     })
   );
@@ -4707,6 +4717,29 @@ export const se_UpdateRoleCustomPermissionCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSPICECapacityConfigurationCommand
+ */
+export const se_UpdateSPICECapacityConfigurationCommand = async (
+  input: UpdateSPICECapacityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/spice-capacity-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      PurchaseMode: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -9180,6 +9213,30 @@ export const de_UpdateRoleCustomPermissionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSPICECapacityConfigurationCommand
+ */
+export const de_UpdateSPICECapacityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSPICECapacityConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateTemplateCommand
  */
 export const de_UpdateTemplateCommand = async (
@@ -10029,6 +10086,8 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 // se_AnonymousUserDashboardVisualEmbeddingConfiguration omitted.
 
 // se_AnonymousUserEmbeddingExperienceConfiguration omitted.
+
+// se_AnonymousUserGenerativeQnAEmbeddingConfiguration omitted.
 
 // se_AnonymousUserQSearchBarEmbeddingConfiguration omitted.
 
@@ -11915,6 +11974,8 @@ const se_GaugeChartArcConditionalFormatting = (
   });
 };
 
+// se_GaugeChartColorConfiguration omitted.
+
 /**
  * serializeAws_restJson1GaugeChartConditionalFormatting
  */
@@ -11956,6 +12017,7 @@ const se_GaugeChartConditionalFormattingOptionList = (
  */
 const se_GaugeChartConfiguration = (input: GaugeChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    ColorConfiguration: _json,
     DataLabels: _json,
     FieldWells: (_) => se_GaugeChartFieldWells(_, context),
     GaugeChartOptions: (_) => se_GaugeChartOptions(_, context),
@@ -13522,6 +13584,8 @@ const se_RefreshSchedule = (input: RefreshSchedule, context: __SerdeContext): an
 // se_RegisteredUserDashboardVisualEmbeddingConfiguration omitted.
 
 // se_RegisteredUserEmbeddingExperienceConfiguration omitted.
+
+// se_RegisteredUserGenerativeQnAEmbeddingConfiguration omitted.
 
 // se_RegisteredUserQSearchBarEmbeddingConfiguration omitted.
 
@@ -17164,6 +17228,8 @@ const de_GaugeChartArcConditionalFormatting = (
   }) as any;
 };
 
+// de_GaugeChartColorConfiguration omitted.
+
 /**
  * deserializeAws_restJson1GaugeChartConditionalFormatting
  */
@@ -17206,6 +17272,7 @@ const de_GaugeChartConditionalFormattingOptionList = (
  */
 const de_GaugeChartConfiguration = (output: any, context: __SerdeContext): GaugeChartConfiguration => {
   return take(output, {
+    ColorConfiguration: _json,
     DataLabels: _json,
     FieldWells: (_: any) => de_GaugeChartFieldWells(_, context),
     GaugeChartOptions: (_: any) => de_GaugeChartOptions(_, context),

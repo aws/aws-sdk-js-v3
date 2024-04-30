@@ -48,7 +48,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //       Arn: "STRING_VALUE",
  * //       UserName: "STRING_VALUE",
  * //       Email: "STRING_VALUE",
- * //       Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
+ * //       Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO",
  * //       IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER",
  * //       Active: true || false,
  * //       PrincipalId: "STRING_VALUE",

@@ -478,6 +478,10 @@ import {
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
 import {
+  UpdateSPICECapacityConfigurationCommandInput,
+  UpdateSPICECapacityConfigurationCommandOutput,
+} from "./commands/UpdateSPICECapacityConfigurationCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
@@ -681,6 +685,7 @@ export type ServiceInputTypes =
   | UpdatePublicSharingSettingsCommandInput
   | UpdateRefreshScheduleCommandInput
   | UpdateRoleCustomPermissionCommandInput
+  | UpdateSPICECapacityConfigurationCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -857,6 +862,7 @@ export type ServiceOutputTypes =
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateRefreshScheduleCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
+  | UpdateSPICECapacityConfigurationCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput

@@ -55,6 +55,7 @@ import {
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DashboardVisualId,
+  DataColorPalette,
   DataSetConfiguration,
   DataSetImportMode,
   DatasetParameter,
@@ -82,17 +83,166 @@ import {
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
   ServiceType,
   SharingModel,
+  SheetStyle,
   SnapshotFile,
   SnapshotS3DestinationConfiguration,
   SslProperties,
   Tag,
   TemplateAlias,
   TemplateVersionDefinition,
-  ThemeConfiguration,
+  Typography,
   VpcConnectionProperties,
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+ *             description is a hexadecimal color code that consists of six alphanumerical characters,
+ *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+ *                 Guide.</i>
+ *          </p>
+ * @public
+ */
+export interface UIColorPalette {
+  /**
+   * <p>The color of text and other foreground elements that appear over the primary
+   *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+   * @public
+   */
+  PrimaryForeground?: string;
+
+  /**
+   * <p>The background color that applies to visuals and other high emphasis UI.</p>
+   * @public
+   */
+  PrimaryBackground?: string;
+
+  /**
+   * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+   *             appears over the secondary background.</p>
+   * @public
+   */
+  SecondaryForeground?: string;
+
+  /**
+   * <p>The background color that applies to the sheet background and sheet controls.</p>
+   * @public
+   */
+  SecondaryBackground?: string;
+
+  /**
+   * <p>This color is that applies to selected states and buttons.</p>
+   * @public
+   */
+  Accent?: string;
+
+  /**
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             accent color.</p>
+   * @public
+   */
+  AccentForeground?: string;
+
+  /**
+   * <p>The color that applies to error messages.</p>
+   * @public
+   */
+  Danger?: string;
+
+  /**
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             error color.</p>
+   * @public
+   */
+  DangerForeground?: string;
+
+  /**
+   * <p>This color that applies to warning and informational messages.</p>
+   * @public
+   */
+  Warning?: string;
+
+  /**
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             warning color.</p>
+   * @public
+   */
+  WarningForeground?: string;
+
+  /**
+   * <p>The color that applies to success messages, for example the check mark for a
+   *             successful download.</p>
+   * @public
+   */
+  Success?: string;
+
+  /**
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             success color.</p>
+   * @public
+   */
+  SuccessForeground?: string;
+
+  /**
+   * <p>The color that applies to the names of fields that are identified as
+   *             dimensions.</p>
+   * @public
+   */
+  Dimension?: string;
+
+  /**
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             dimension color.</p>
+   * @public
+   */
+  DimensionForeground?: string;
+
+  /**
+   * <p>The color that applies to the names of fields that are identified as measures.</p>
+   * @public
+   */
+  Measure?: string;
+
+  /**
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             measure color.</p>
+   * @public
+   */
+  MeasureForeground?: string;
+}
+
+/**
+ * <p>The theme configuration. This configuration contains all of the display properties for
+ *             a theme.</p>
+ * @public
+ */
+export interface ThemeConfiguration {
+  /**
+   * <p>Color properties that apply to chart data colors.</p>
+   * @public
+   */
+  DataColorPalette?: DataColorPalette;
+
+  /**
+   * <p>Color properties that apply to the UI and to charts, excluding the colors that apply
+   *             to data. </p>
+   * @public
+   */
+  UIColorPalette?: UIColorPalette;
+
+  /**
+   * <p>Display options related to sheets.</p>
+   * @public
+   */
+  Sheet?: SheetStyle;
+
+  /**
+   * <p>Determines the typography options.</p>
+   * @public
+   */
+  Typography?: Typography;
+}
 
 /**
  * @public
@@ -7442,8 +7592,11 @@ export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
  */
 export const UserRole = {
   ADMIN: "ADMIN",
+  ADMIN_PRO: "ADMIN_PRO",
   AUTHOR: "AUTHOR",
+  AUTHOR_PRO: "AUTHOR_PRO",
   READER: "READER",
+  READER_PRO: "READER_PRO",
   RESTRICTED_AUTHOR: "RESTRICTED_AUTHOR",
   RESTRICTED_READER: "RESTRICTED_READER",
 } as const;
@@ -7495,6 +7648,18 @@ export interface User {
    *                <p>
    *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon
    *                     Amazon QuickSight settings.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q Business, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8191,17 +8356,29 @@ export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
 }
 
 /**
+ * <p>An object that provides information about the configuration of a Generative Q&A experience.</p>
+ * @public
+ */
+export interface RegisteredUserGenerativeQnAEmbeddingConfiguration {
+  /**
+   * <p>The ID of the new Q reader experience topic that you want to make the starting topic in the Generative Q&A experience.
+   *         You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening
+   *         a topic. The ID is in the URL for the topic that you open.</p>
+   *          <p>If you don't specify an initial topic or you specify a legacy topic, a list of all shared new reader experience topics is shown in the Generative Q&A experience for your readers. When you select an initial new reader experience topic, you can specify whether or not readers are allowed to select other new reader experience topics from the available ones in the list.</p>
+   * @public
+   */
+  InitialTopicId?: string;
+}
+
+/**
  * <p>Information about the Q search bar embedding experience.</p>
  * @public
  */
 export interface RegisteredUserQSearchBarEmbeddingConfiguration {
   /**
-   * <p>The ID of the Q topic that you want to make the starting topic in the Q search bar.
-   *       You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening
-   *       a topic. The ID is in the URL for the topic that you open.</p>
-   *          <p>If you don't specify an initial topic, a list of all shared topics is shown in the Q bar
-   *       for your readers. When you select an initial topic, you can specify whether or not readers
-   *       are allowed to select other topics from the available ones in the list.</p>
+   * <p>The ID of the legacy Q topic that you want to use as the starting topic in the Q search bar. To locate the topic ID of the topic that you want to use, open the <a href="https://quicksight.aws.amazon.com/">Amazon QuickSight console</a>, navigate to the <b>Topics</b> pane, and choose thre topic that you want to use. The <code>TopicID</code> is located in the URL of the topic that opens. When you select an initial topic, you can specify whether or not readers
+   *       are allowed to select other topics from the list of available topics.</p>
+   *          <p>If you don't specify an initial topic or if you specify a new reader experience topic, a list of all shared legacy topics is shown in the Q bar. </p>
    * @public
    */
   InitialTopicId?: string;
@@ -8332,6 +8509,14 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    * @public
    */
   DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration;
+
+  /**
+   * <p>The configuration details for embedding the Generative Q&A experience.</p>
+   *          <p>For more information about embedding the Generative Q&A experience, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a> in
+   *                 the <i>Amazon QuickSight User Guide</i>.</p>
+   * @public
+   */
+  GenerativeQnA?: RegisteredUserGenerativeQnAEmbeddingConfiguration;
 }
 
 /**
@@ -8357,7 +8542,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   UserArn: string | undefined;
 
   /**
-   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon QuickSight Q search bar, or the entire Amazon QuickSight console.</p>
+   * <p>The experience that you want to embed. For registered users, you can embed Amazon QuickSight dashboards, Amazon QuickSight visuals, the Amazon QuickSight Q search bar, the Amazon QuickSight Generative Q&A experience, or the entire Amazon QuickSight console.</p>
    * @public
    */
   ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
@@ -8381,7 +8566,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
  */
 export interface GenerateEmbedUrlForRegisteredUserResponse {
   /**
-   * <p>The embed URL for the Amazon QuickSight dashboard, visual, Q search bar, or console.</p>
+   * <p>The embed URL for the Amazon QuickSight dashboard, visual, Q search bar, Generative Q&A experience, or console.</p>
    * @public
    */
   EmbedUrl: string | undefined;
@@ -9233,100 +9418,6 @@ export interface ListFoldersRequest {
    * @public
    */
   MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListFoldersResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
-   * @public
-   */
-  FolderSummaryList?: FolderSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface ListGroupMembershipsRequest {
-  /**
-   * <p>The name of the group that you want to see a membership list of.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want a list of users from.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupMembershipsResponse {
-  /**
-   * <p>The list of the members of the group.</p>
-   * @public
-   */
-  GroupMemberList?: GroupMember[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
 }
 
 /**

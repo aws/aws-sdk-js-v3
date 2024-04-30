@@ -1490,6 +1490,14 @@ UpdateRoleCustomPermission
 </details>
 <details>
 <summary>
+UpdateSPICECapacityConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateSPICECapacityConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateSPICECapacityConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateSPICECapacityConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateTemplate
 </summary>
 

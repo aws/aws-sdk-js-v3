@@ -1789,6 +1789,24 @@ export interface FunnelChartVisual {
 }
 
 /**
+ * <p>The color configuration of a <code>GaugeChartVisual</code>.</p>
+ * @public
+ */
+export interface GaugeChartColorConfiguration {
+  /**
+   * <p>The foreground color configuration of a <code>GaugeChartVisual</code>.</p>
+   * @public
+   */
+  ForegroundColor?: string;
+
+  /**
+   * <p>The background color configuration of a <code>GaugeChartVisual</code>.</p>
+   * @public
+   */
+  BackgroundColor?: string;
+}
+
+/**
  * <p>The field well configuration of a <code>GaugeChartVisual</code>.</p>
  * @public
  */
@@ -2029,6 +2047,12 @@ export interface GaugeChartConfiguration {
    * @public
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * <p>The color configuration of a <code>GaugeChartVisual</code>.</p>
+   * @public
+   */
+  ColorConfiguration?: GaugeChartColorConfiguration;
 
   /**
    * <p>The general visual interactions setup for a visual.</p>
@@ -7773,20 +7797,6 @@ export const WordCloudWordCasing = {
  * @public
  */
 export type WordCloudWordCasing = (typeof WordCloudWordCasing)[keyof typeof WordCloudWordCasing];
-
-/**
- * @public
- * @enum
- */
-export const WordCloudWordOrientation = {
-  HORIZONTAL: "HORIZONTAL",
-  HORIZONTAL_AND_VERTICAL: "HORIZONTAL_AND_VERTICAL",
-} as const;
-
-/**
- * @public
- */
-export type WordCloudWordOrientation = (typeof WordCloudWordOrientation)[keyof typeof WordCloudWordOrientation];
 
 /**
  * @internal

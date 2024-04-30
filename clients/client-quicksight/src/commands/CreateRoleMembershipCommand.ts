@@ -38,7 +38,7 @@ export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipR
  *   MemberName: "STRING_VALUE", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
- *   Role: "ADMIN" || "AUTHOR" || "READER", // required
+ *   Role: "ADMIN" || "AUTHOR" || "READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required
  * };
  * const command = new CreateRoleMembershipCommand(input);
  * const response = await client.send(command);

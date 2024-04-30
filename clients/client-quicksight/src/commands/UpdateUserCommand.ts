@@ -39,7 +39,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
  *   Email: "STRING_VALUE", // required
- *   Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
+ *   Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required
  *   CustomPermissionsName: "STRING_VALUE",
  *   UnapplyCustomPermissions: true || false,
  *   ExternalLoginFederationProviderType: "STRING_VALUE",
@@ -53,7 +53,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * //     Arn: "STRING_VALUE",
  * //     UserName: "STRING_VALUE",
  * //     Email: "STRING_VALUE",
- * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
+ * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO",
  * //     IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER",
  * //     Active: true || false,
  * //     PrincipalId: "STRING_VALUE",

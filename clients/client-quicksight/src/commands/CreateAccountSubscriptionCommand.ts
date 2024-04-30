@@ -56,7 +56,7 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * // const { QuickSightClient, CreateAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // CreateAccountSubscriptionRequest
- *   Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q", // required
+ *   Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q",
  *   AuthenticationMethod: "IAM_AND_QUICKSIGHT" || "IAM_ONLY" || "ACTIVE_DIRECTORY" || "IAM_IDENTITY_CENTER", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   AccountName: "STRING_VALUE", // required
@@ -73,6 +73,13 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  *   ReaderGroup: [
  *     "STRING_VALUE",
  *   ],
+ *   AdminProGroup: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AuthorProGroup: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReaderProGroup: "<GroupsList>",
  *   FirstName: "STRING_VALUE",
  *   LastName: "STRING_VALUE",
  *   EmailAddress: "STRING_VALUE",

@@ -159,6 +159,7 @@ export * from "./UpdateIpRestrictionCommand";
 export * from "./UpdatePublicSharingSettingsCommand";
 export * from "./UpdateRefreshScheduleCommand";
 export * from "./UpdateRoleCustomPermissionCommand";
+export * from "./UpdateSPICECapacityConfigurationCommand";
 export * from "./UpdateTemplateAliasCommand";
 export * from "./UpdateTemplateCommand";
 export * from "./UpdateTemplatePermissionsCommand";

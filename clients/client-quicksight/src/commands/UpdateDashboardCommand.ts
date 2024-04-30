@@ -2952,6 +2952,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
+ *                 ColorConfiguration: { // GaugeChartColorConfiguration
+ *                   ForegroundColor: "STRING_VALUE",
+ *                   BackgroundColor: "STRING_VALUE",
+ *                 },
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // GaugeChartConditionalFormatting

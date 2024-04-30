@@ -40,7 +40,7 @@ export interface DescribeRoleCustomPermissionCommandOutput
  * // const { QuickSightClient, DescribeRoleCustomPermissionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // DescribeRoleCustomPermissionRequest
- *   Role: "ADMIN" || "AUTHOR" || "READER", // required
+ *   Role: "ADMIN" || "AUTHOR" || "READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
  * };
