@@ -3119,13 +3119,6 @@
     "@smithy/types" "^2.12.0"
     tslib "^2.6.2"
 
-"@smithy/service-client-documentation-generator@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@smithy/service-client-documentation-generator/-/service-client-documentation-generator-2.2.0.tgz#8cb13032f12b108db0b6e2848563f34c9af7393a"
-  integrity sha512-96qOW3ApTzJHw/587NHorqBXSvYCGHhkvfCQsaXLboLQCPgTqHAE8RHbHljv6u/XrR92GwRZTVRALh5gOk3kMQ==
-  dependencies:
-    tslib "^2.6.2"
-
 "@smithy/service-error-classification@^2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@smithy/service-error-classification/-/service-error-classification-2.1.5.tgz#0568a977cc0db36299d8703a5d8609c1f600c005"
