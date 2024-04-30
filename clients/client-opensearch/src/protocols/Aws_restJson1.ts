@@ -3788,6 +3788,7 @@ const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => 
     Created: __expectBoolean,
     Deleted: __expectBoolean,
     DomainEndpointOptions: _json,
+    DomainEndpointV2HostedZoneId: __expectString,
     DomainId: __expectString,
     DomainName: __expectString,
     DomainProcessingStatus: __expectString,

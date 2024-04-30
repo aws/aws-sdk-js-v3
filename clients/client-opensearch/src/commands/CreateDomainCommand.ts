@@ -173,6 +173,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //     Endpoints: { // EndpointsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     DomainEndpointV2HostedZoneId: "STRING_VALUE",
  * //     Processing: true || false,
  * //     UpgradeProcessing: true || false,
  * //     EngineVersion: "STRING_VALUE",

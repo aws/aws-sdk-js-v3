@@ -52,6 +52,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //     Endpoints: { // EndpointsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     DomainEndpointV2HostedZoneId: "STRING_VALUE",
  * //     Processing: true || false,
  * //     UpgradeProcessing: true || false,
  * //     EngineVersion: "STRING_VALUE",
