@@ -5,13 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendVoiceMessageRequest, SendVoiceMessageResult } from "../models/models_0";
+import { AssociateProtectConfigurationRequest, AssociateProtectConfigurationResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { de_SendVoiceMessageCommand, se_SendVoiceMessageCommand } from "../protocols/Aws_json1_0";
+import {
+  de_AssociateProtectConfigurationCommand,
+  se_AssociateProtectConfigurationCommand,
+} from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -20,53 +23,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link SendVoiceMessageCommand}.
+ * The input for {@link AssociateProtectConfigurationCommand}.
  */
-export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
+export interface AssociateProtectConfigurationCommandInput extends AssociateProtectConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link SendVoiceMessageCommand}.
+ * The output of {@link AssociateProtectConfigurationCommand}.
  */
-export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, __MetadataBearer {}
+export interface AssociateProtectConfigurationCommandOutput
+  extends AssociateProtectConfigurationResult,
+    __MetadataBearer {}
 
 /**
- * <p>Allows you to send a request that sends a voice message through Amazon Pinpoint.
- *             This operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to
- *             convert a text script into a voice message.</p>
+ * <p>Associate a protect configuration with a configuration set. This replaces the
+ *             configuration sets current protect configuration. A configuration set can
+ *             only be associated with one protect configuration at a time. A protect configuration can
+ *             be associated with multiple configuration sets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, AssociateProtectConfigurationCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, AssociateProtectConfigurationCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = { // SendVoiceMessageRequest
- *   DestinationPhoneNumber: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE", // required
- *   MessageBody: "STRING_VALUE",
- *   MessageBodyTextType: "STRING_VALUE",
- *   VoiceId: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   MaxPricePerMinute: "STRING_VALUE",
- *   TimeToLive: Number("int"),
- *   Context: { // ContextMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   DryRun: true || false,
- *   ProtectConfigurationId: "STRING_VALUE",
+ * const input = { // AssociateProtectConfigurationRequest
+ *   ProtectConfigurationId: "STRING_VALUE", // required
+ *   ConfigurationSetName: "STRING_VALUE", // required
  * };
- * const command = new SendVoiceMessageCommand(input);
+ * const command = new AssociateProtectConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // SendVoiceMessageResult
- * //   MessageId: "STRING_VALUE",
+ * // { // AssociateProtectConfigurationResult
+ * //   ConfigurationSetArn: "STRING_VALUE", // required
+ * //   ConfigurationSetName: "STRING_VALUE", // required
+ * //   ProtectConfigurationArn: "STRING_VALUE", // required
+ * //   ProtectConfigurationId: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
- * @returns {@link SendVoiceMessageCommandOutput}
- * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
- * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
+ * @param AssociateProtectConfigurationCommandInput - {@link AssociateProtectConfigurationCommandInput}
+ * @returns {@link AssociateProtectConfigurationCommandOutput}
+ * @see {@link AssociateProtectConfigurationCommandInput} for command's `input` shape.
+ * @see {@link AssociateProtectConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -86,9 +84,6 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>An error that occurred because too many requests were sent during a certain amount of
  *             time.</p>
@@ -101,10 +96,10 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  *
  * @public
  */
-export class SendVoiceMessageCommand extends $Command
+export class AssociateProtectConfigurationCommand extends $Command
   .classBuilder<
-    SendVoiceMessageCommandInput,
-    SendVoiceMessageCommandOutput,
+    AssociateProtectConfigurationCommandInput,
+    AssociateProtectConfigurationCommandOutput,
     PinpointSMSVoiceV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,9 +113,9 @@ export class SendVoiceMessageCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("PinpointSMSVoiceV2", "SendVoiceMessage", {})
-  .n("PinpointSMSVoiceV2Client", "SendVoiceMessageCommand")
+  .s("PinpointSMSVoiceV2", "AssociateProtectConfiguration", {})
+  .n("PinpointSMSVoiceV2Client", "AssociateProtectConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_SendVoiceMessageCommand)
-  .de(de_SendVoiceMessageCommand)
+  .ser(se_AssociateProtectConfigurationCommand)
+  .de(de_AssociateProtectConfigurationCommand)
   .build() {}

@@ -5,13 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendVoiceMessageRequest, SendVoiceMessageResult } from "../models/models_0";
+import { DeleteProtectConfigurationRequest, DeleteProtectConfigurationResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { de_SendVoiceMessageCommand, se_SendVoiceMessageCommand } from "../protocols/Aws_json1_0";
+import { de_DeleteProtectConfigurationCommand, se_DeleteProtectConfigurationCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -20,53 +20,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link SendVoiceMessageCommand}.
+ * The input for {@link DeleteProtectConfigurationCommand}.
  */
-export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
+export interface DeleteProtectConfigurationCommandInput extends DeleteProtectConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link SendVoiceMessageCommand}.
+ * The output of {@link DeleteProtectConfigurationCommand}.
  */
-export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, __MetadataBearer {}
+export interface DeleteProtectConfigurationCommandOutput extends DeleteProtectConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Allows you to send a request that sends a voice message through Amazon Pinpoint.
- *             This operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to
- *             convert a text script into a voice message.</p>
+ * <p>Permanently delete the protect configuration. The protect configuration must have deletion protection disabled and must not be associated as the account default protect configuration or associated with a configuration set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, SendVoiceMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, DeleteProtectConfigurationCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, DeleteProtectConfigurationCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = { // SendVoiceMessageRequest
- *   DestinationPhoneNumber: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE", // required
- *   MessageBody: "STRING_VALUE",
- *   MessageBodyTextType: "STRING_VALUE",
- *   VoiceId: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   MaxPricePerMinute: "STRING_VALUE",
- *   TimeToLive: Number("int"),
- *   Context: { // ContextMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   DryRun: true || false,
- *   ProtectConfigurationId: "STRING_VALUE",
+ * const input = { // DeleteProtectConfigurationRequest
+ *   ProtectConfigurationId: "STRING_VALUE", // required
  * };
- * const command = new SendVoiceMessageCommand(input);
+ * const command = new DeleteProtectConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // SendVoiceMessageResult
- * //   MessageId: "STRING_VALUE",
+ * // { // DeleteProtectConfigurationResult
+ * //   ProtectConfigurationArn: "STRING_VALUE", // required
+ * //   ProtectConfigurationId: "STRING_VALUE", // required
+ * //   CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * //   AccountDefault: true || false, // required
+ * //   DeletionProtectionEnabled: true || false, // required
  * // };
  *
  * ```
  *
- * @param SendVoiceMessageCommandInput - {@link SendVoiceMessageCommandInput}
- * @returns {@link SendVoiceMessageCommandOutput}
- * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
- * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
+ * @param DeleteProtectConfigurationCommandInput - {@link DeleteProtectConfigurationCommandInput}
+ * @returns {@link DeleteProtectConfigurationCommandOutput}
+ * @see {@link DeleteProtectConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteProtectConfigurationCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -86,9 +76,6 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>An error that occurred because too many requests were sent during a certain amount of
  *             time.</p>
@@ -101,10 +88,10 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  *
  * @public
  */
-export class SendVoiceMessageCommand extends $Command
+export class DeleteProtectConfigurationCommand extends $Command
   .classBuilder<
-    SendVoiceMessageCommandInput,
-    SendVoiceMessageCommandOutput,
+    DeleteProtectConfigurationCommandInput,
+    DeleteProtectConfigurationCommandOutput,
     PinpointSMSVoiceV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,9 +105,9 @@ export class SendVoiceMessageCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("PinpointSMSVoiceV2", "SendVoiceMessage", {})
-  .n("PinpointSMSVoiceV2Client", "SendVoiceMessageCommand")
+  .s("PinpointSMSVoiceV2", "DeleteProtectConfiguration", {})
+  .n("PinpointSMSVoiceV2Client", "DeleteProtectConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_SendVoiceMessageCommand)
-  .de(de_SendVoiceMessageCommand)
+  .ser(se_DeleteProtectConfigurationCommand)
+  .de(de_DeleteProtectConfigurationCommand)
   .build() {}

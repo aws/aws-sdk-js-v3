@@ -58,6 +58,10 @@ import {
   AssociateOriginationIdentityCommandOutput,
 } from "./commands/AssociateOriginationIdentityCommand";
 import {
+  AssociateProtectConfigurationCommandInput,
+  AssociateProtectConfigurationCommandOutput,
+} from "./commands/AssociateProtectConfigurationCommand";
+import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
 } from "./commands/CreateConfigurationSetCommand";
@@ -67,6 +71,10 @@ import {
 } from "./commands/CreateEventDestinationCommand";
 import { CreateOptOutListCommandInput, CreateOptOutListCommandOutput } from "./commands/CreateOptOutListCommand";
 import { CreatePoolCommandInput, CreatePoolCommandOutput } from "./commands/CreatePoolCommand";
+import {
+  CreateProtectConfigurationCommandInput,
+  CreateProtectConfigurationCommandOutput,
+} from "./commands/CreateProtectConfigurationCommand";
 import {
   CreateRegistrationAssociationCommandInput,
   CreateRegistrationAssociationCommandOutput,
@@ -85,6 +93,10 @@ import {
   CreateVerifiedDestinationNumberCommandOutput,
 } from "./commands/CreateVerifiedDestinationNumberCommand";
 import {
+  DeleteAccountDefaultProtectConfigurationCommandInput,
+  DeleteAccountDefaultProtectConfigurationCommandOutput,
+} from "./commands/DeleteAccountDefaultProtectConfigurationCommand";
+import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "./commands/DeleteConfigurationSetCommand";
@@ -102,11 +114,19 @@ import {
 } from "./commands/DeleteEventDestinationCommand";
 import { DeleteKeywordCommandInput, DeleteKeywordCommandOutput } from "./commands/DeleteKeywordCommand";
 import {
+  DeleteMediaMessageSpendLimitOverrideCommandInput,
+  DeleteMediaMessageSpendLimitOverrideCommandOutput,
+} from "./commands/DeleteMediaMessageSpendLimitOverrideCommand";
+import {
   DeleteOptedOutNumberCommandInput,
   DeleteOptedOutNumberCommandOutput,
 } from "./commands/DeleteOptedOutNumberCommand";
 import { DeleteOptOutListCommandInput, DeleteOptOutListCommandOutput } from "./commands/DeleteOptOutListCommand";
 import { DeletePoolCommandInput, DeletePoolCommandOutput } from "./commands/DeletePoolCommand";
+import {
+  DeleteProtectConfigurationCommandInput,
+  DeleteProtectConfigurationCommandOutput,
+} from "./commands/DeleteProtectConfigurationCommand";
 import {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
@@ -155,6 +175,10 @@ import {
 } from "./commands/DescribePhoneNumbersCommand";
 import { DescribePoolsCommandInput, DescribePoolsCommandOutput } from "./commands/DescribePoolsCommand";
 import {
+  DescribeProtectConfigurationsCommandInput,
+  DescribeProtectConfigurationsCommandOutput,
+} from "./commands/DescribeProtectConfigurationsCommand";
+import {
   DescribeRegistrationAttachmentsCommandInput,
   DescribeRegistrationAttachmentsCommandOutput,
 } from "./commands/DescribeRegistrationAttachmentsCommand";
@@ -196,9 +220,17 @@ import {
   DisassociateOriginationIdentityCommandOutput,
 } from "./commands/DisassociateOriginationIdentityCommand";
 import {
+  DisassociateProtectConfigurationCommandInput,
+  DisassociateProtectConfigurationCommandOutput,
+} from "./commands/DisassociateProtectConfigurationCommand";
+import {
   DiscardRegistrationVersionCommandInput,
   DiscardRegistrationVersionCommandOutput,
 } from "./commands/DiscardRegistrationVersionCommand";
+import {
+  GetProtectConfigurationCountryRuleSetCommandInput,
+  GetProtectConfigurationCountryRuleSetCommandOutput,
+} from "./commands/GetProtectConfigurationCountryRuleSetCommand";
 import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
@@ -225,13 +257,22 @@ import {
   SendDestinationNumberVerificationCodeCommandInput,
   SendDestinationNumberVerificationCodeCommandOutput,
 } from "./commands/SendDestinationNumberVerificationCodeCommand";
+import { SendMediaMessageCommandInput, SendMediaMessageCommandOutput } from "./commands/SendMediaMessageCommand";
 import { SendTextMessageCommandInput, SendTextMessageCommandOutput } from "./commands/SendTextMessageCommand";
 import { SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput } from "./commands/SendVoiceMessageCommand";
+import {
+  SetAccountDefaultProtectConfigurationCommandInput,
+  SetAccountDefaultProtectConfigurationCommandOutput,
+} from "./commands/SetAccountDefaultProtectConfigurationCommand";
 import {
   SetDefaultMessageTypeCommandInput,
   SetDefaultMessageTypeCommandOutput,
 } from "./commands/SetDefaultMessageTypeCommand";
 import { SetDefaultSenderIdCommandInput, SetDefaultSenderIdCommandOutput } from "./commands/SetDefaultSenderIdCommand";
+import {
+  SetMediaMessageSpendLimitOverrideCommandInput,
+  SetMediaMessageSpendLimitOverrideCommandOutput,
+} from "./commands/SetMediaMessageSpendLimitOverrideCommand";
 import {
   SetTextMessageSpendLimitOverrideCommandInput,
   SetTextMessageSpendLimitOverrideCommandOutput,
@@ -252,6 +293,14 @@ import {
 } from "./commands/UpdateEventDestinationCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand";
 import { UpdatePoolCommandInput, UpdatePoolCommandOutput } from "./commands/UpdatePoolCommand";
+import {
+  UpdateProtectConfigurationCommandInput,
+  UpdateProtectConfigurationCommandOutput,
+} from "./commands/UpdateProtectConfigurationCommand";
+import {
+  UpdateProtectConfigurationCountryRuleSetCommandInput,
+  UpdateProtectConfigurationCountryRuleSetCommandOutput,
+} from "./commands/UpdateProtectConfigurationCountryRuleSetCommand";
 import { UpdateSenderIdCommandInput, UpdateSenderIdCommandOutput } from "./commands/UpdateSenderIdCommand";
 import {
   VerifyDestinationNumberCommandInput,
@@ -273,23 +322,28 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateOriginationIdentityCommandInput
+  | AssociateProtectConfigurationCommandInput
   | CreateConfigurationSetCommandInput
   | CreateEventDestinationCommandInput
   | CreateOptOutListCommandInput
   | CreatePoolCommandInput
+  | CreateProtectConfigurationCommandInput
   | CreateRegistrationAssociationCommandInput
   | CreateRegistrationAttachmentCommandInput
   | CreateRegistrationCommandInput
   | CreateRegistrationVersionCommandInput
   | CreateVerifiedDestinationNumberCommandInput
+  | DeleteAccountDefaultProtectConfigurationCommandInput
   | DeleteConfigurationSetCommandInput
   | DeleteDefaultMessageTypeCommandInput
   | DeleteDefaultSenderIdCommandInput
   | DeleteEventDestinationCommandInput
   | DeleteKeywordCommandInput
+  | DeleteMediaMessageSpendLimitOverrideCommandInput
   | DeleteOptOutListCommandInput
   | DeleteOptedOutNumberCommandInput
   | DeletePoolCommandInput
+  | DeleteProtectConfigurationCommandInput
   | DeleteRegistrationAttachmentCommandInput
   | DeleteRegistrationCommandInput
   | DeleteRegistrationFieldValueCommandInput
@@ -304,6 +358,7 @@ export type ServiceInputTypes =
   | DescribeOptedOutNumbersCommandInput
   | DescribePhoneNumbersCommandInput
   | DescribePoolsCommandInput
+  | DescribeProtectConfigurationsCommandInput
   | DescribeRegistrationAttachmentsCommandInput
   | DescribeRegistrationFieldDefinitionsCommandInput
   | DescribeRegistrationFieldValuesCommandInput
@@ -315,7 +370,9 @@ export type ServiceInputTypes =
   | DescribeSpendLimitsCommandInput
   | DescribeVerifiedDestinationNumbersCommandInput
   | DisassociateOriginationIdentityCommandInput
+  | DisassociateProtectConfigurationCommandInput
   | DiscardRegistrationVersionCommandInput
+  | GetProtectConfigurationCountryRuleSetCommandInput
   | ListPoolOriginationIdentitiesCommandInput
   | ListRegistrationAssociationsCommandInput
   | ListTagsForResourceCommandInput
@@ -327,10 +384,13 @@ export type ServiceInputTypes =
   | RequestPhoneNumberCommandInput
   | RequestSenderIdCommandInput
   | SendDestinationNumberVerificationCodeCommandInput
+  | SendMediaMessageCommandInput
   | SendTextMessageCommandInput
   | SendVoiceMessageCommandInput
+  | SetAccountDefaultProtectConfigurationCommandInput
   | SetDefaultMessageTypeCommandInput
   | SetDefaultSenderIdCommandInput
+  | SetMediaMessageSpendLimitOverrideCommandInput
   | SetTextMessageSpendLimitOverrideCommandInput
   | SetVoiceMessageSpendLimitOverrideCommandInput
   | SubmitRegistrationVersionCommandInput
@@ -339,6 +399,8 @@ export type ServiceInputTypes =
   | UpdateEventDestinationCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePoolCommandInput
+  | UpdateProtectConfigurationCommandInput
+  | UpdateProtectConfigurationCountryRuleSetCommandInput
   | UpdateSenderIdCommandInput
   | VerifyDestinationNumberCommandInput;
 
@@ -347,23 +409,28 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateOriginationIdentityCommandOutput
+  | AssociateProtectConfigurationCommandOutput
   | CreateConfigurationSetCommandOutput
   | CreateEventDestinationCommandOutput
   | CreateOptOutListCommandOutput
   | CreatePoolCommandOutput
+  | CreateProtectConfigurationCommandOutput
   | CreateRegistrationAssociationCommandOutput
   | CreateRegistrationAttachmentCommandOutput
   | CreateRegistrationCommandOutput
   | CreateRegistrationVersionCommandOutput
   | CreateVerifiedDestinationNumberCommandOutput
+  | DeleteAccountDefaultProtectConfigurationCommandOutput
   | DeleteConfigurationSetCommandOutput
   | DeleteDefaultMessageTypeCommandOutput
   | DeleteDefaultSenderIdCommandOutput
   | DeleteEventDestinationCommandOutput
   | DeleteKeywordCommandOutput
+  | DeleteMediaMessageSpendLimitOverrideCommandOutput
   | DeleteOptOutListCommandOutput
   | DeleteOptedOutNumberCommandOutput
   | DeletePoolCommandOutput
+  | DeleteProtectConfigurationCommandOutput
   | DeleteRegistrationAttachmentCommandOutput
   | DeleteRegistrationCommandOutput
   | DeleteRegistrationFieldValueCommandOutput
@@ -378,6 +445,7 @@ export type ServiceOutputTypes =
   | DescribeOptedOutNumbersCommandOutput
   | DescribePhoneNumbersCommandOutput
   | DescribePoolsCommandOutput
+  | DescribeProtectConfigurationsCommandOutput
   | DescribeRegistrationAttachmentsCommandOutput
   | DescribeRegistrationFieldDefinitionsCommandOutput
   | DescribeRegistrationFieldValuesCommandOutput
@@ -389,7 +457,9 @@ export type ServiceOutputTypes =
   | DescribeSpendLimitsCommandOutput
   | DescribeVerifiedDestinationNumbersCommandOutput
   | DisassociateOriginationIdentityCommandOutput
+  | DisassociateProtectConfigurationCommandOutput
   | DiscardRegistrationVersionCommandOutput
+  | GetProtectConfigurationCountryRuleSetCommandOutput
   | ListPoolOriginationIdentitiesCommandOutput
   | ListRegistrationAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -401,10 +471,13 @@ export type ServiceOutputTypes =
   | RequestPhoneNumberCommandOutput
   | RequestSenderIdCommandOutput
   | SendDestinationNumberVerificationCodeCommandOutput
+  | SendMediaMessageCommandOutput
   | SendTextMessageCommandOutput
   | SendVoiceMessageCommandOutput
+  | SetAccountDefaultProtectConfigurationCommandOutput
   | SetDefaultMessageTypeCommandOutput
   | SetDefaultSenderIdCommandOutput
+  | SetMediaMessageSpendLimitOverrideCommandOutput
   | SetTextMessageSpendLimitOverrideCommandOutput
   | SetVoiceMessageSpendLimitOverrideCommandOutput
   | SubmitRegistrationVersionCommandOutput
@@ -413,6 +486,8 @@ export type ServiceOutputTypes =
   | UpdateEventDestinationCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePoolCommandOutput
+  | UpdateProtectConfigurationCommandOutput
+  | UpdateProtectConfigurationCountryRuleSetCommandOutput
   | UpdateSenderIdCommandOutput
   | VerifyDestinationNumberCommandOutput;
 
@@ -594,12 +669,11 @@ export interface PinpointSMSVoiceV2ClientResolvedConfig extends PinpointSMSVoice
  *          <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with
  *             your recipients across multiple messaging channels. The Amazon Pinpoint SMS and
  *             Voice, version 2 API provides programmatic access to options that are unique to the SMS
- *             and voice channels and supplements the resources provided by the Amazon Pinpoint
- *             API.</p>
- *          <p>If you're new to Amazon Pinpoint, it's also helpful to review the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">
- *                 Amazon Pinpoint Developer Guide</a>. The <i>Amazon Pinpoint
+ *             and voice channels. Amazon Pinpoint SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p>
+ *          <p>If you're new to Amazon Pinpoint SMS, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html">
+ *                 Amazon Pinpoint SMS User Guide</a>. The <i>Amazon Pinpoint
  *                 Developer Guide</i> provides tutorials, code samples, and procedures that
- *             demonstrate how to use Amazon Pinpoint features programmatically and how to integrate
+ *             demonstrate how to use Amazon Pinpoint SMS features programmatically and how to integrate
  *                 Amazon Pinpoint functionality into mobile apps and other types of applications.
  *             The guide also provides key information, such as Amazon Pinpoint integration with
  *             other Amazon Web Services services, and the quotas that apply to use of the

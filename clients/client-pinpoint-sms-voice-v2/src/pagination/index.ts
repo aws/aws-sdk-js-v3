@@ -14,11 +14,12 @@ export * from "./DescribePhoneNumbersPaginator";
 
 export * from "./DescribePoolsPaginator";
 
-export * from "./DescribeRegistrationAttachmentsPaginator";
+export * from "./DescribeProtectConfigurationsPaginator";
 
-export * from "./DescribeRegistrationFieldDefinitionsPaginator";
+export * from "./DescribeRegistrationAttachmentsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeRegistrationFieldDefinitionsPaginator";
 export * from "./DescribeRegistrationFieldValuesPaginator";
 export * from "./DescribeRegistrationSectionDefinitionsPaginator";
 export * from "./DescribeRegistrationTypeDefinitionsPaginator";

@@ -27,6 +27,10 @@ import {
   AssociateOriginationIdentityCommandOutput,
 } from "../commands/AssociateOriginationIdentityCommand";
 import {
+  AssociateProtectConfigurationCommandInput,
+  AssociateProtectConfigurationCommandOutput,
+} from "../commands/AssociateProtectConfigurationCommand";
+import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
 } from "../commands/CreateConfigurationSetCommand";
@@ -36,6 +40,10 @@ import {
 } from "../commands/CreateEventDestinationCommand";
 import { CreateOptOutListCommandInput, CreateOptOutListCommandOutput } from "../commands/CreateOptOutListCommand";
 import { CreatePoolCommandInput, CreatePoolCommandOutput } from "../commands/CreatePoolCommand";
+import {
+  CreateProtectConfigurationCommandInput,
+  CreateProtectConfigurationCommandOutput,
+} from "../commands/CreateProtectConfigurationCommand";
 import {
   CreateRegistrationAssociationCommandInput,
   CreateRegistrationAssociationCommandOutput,
@@ -54,6 +62,10 @@ import {
   CreateVerifiedDestinationNumberCommandOutput,
 } from "../commands/CreateVerifiedDestinationNumberCommand";
 import {
+  DeleteAccountDefaultProtectConfigurationCommandInput,
+  DeleteAccountDefaultProtectConfigurationCommandOutput,
+} from "../commands/DeleteAccountDefaultProtectConfigurationCommand";
+import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
 } from "../commands/DeleteConfigurationSetCommand";
@@ -71,11 +83,19 @@ import {
 } from "../commands/DeleteEventDestinationCommand";
 import { DeleteKeywordCommandInput, DeleteKeywordCommandOutput } from "../commands/DeleteKeywordCommand";
 import {
+  DeleteMediaMessageSpendLimitOverrideCommandInput,
+  DeleteMediaMessageSpendLimitOverrideCommandOutput,
+} from "../commands/DeleteMediaMessageSpendLimitOverrideCommand";
+import {
   DeleteOptedOutNumberCommandInput,
   DeleteOptedOutNumberCommandOutput,
 } from "../commands/DeleteOptedOutNumberCommand";
 import { DeleteOptOutListCommandInput, DeleteOptOutListCommandOutput } from "../commands/DeleteOptOutListCommand";
 import { DeletePoolCommandInput, DeletePoolCommandOutput } from "../commands/DeletePoolCommand";
+import {
+  DeleteProtectConfigurationCommandInput,
+  DeleteProtectConfigurationCommandOutput,
+} from "../commands/DeleteProtectConfigurationCommand";
 import {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
@@ -124,6 +144,10 @@ import {
 } from "../commands/DescribePhoneNumbersCommand";
 import { DescribePoolsCommandInput, DescribePoolsCommandOutput } from "../commands/DescribePoolsCommand";
 import {
+  DescribeProtectConfigurationsCommandInput,
+  DescribeProtectConfigurationsCommandOutput,
+} from "../commands/DescribeProtectConfigurationsCommand";
+import {
   DescribeRegistrationAttachmentsCommandInput,
   DescribeRegistrationAttachmentsCommandOutput,
 } from "../commands/DescribeRegistrationAttachmentsCommand";
@@ -165,9 +189,17 @@ import {
   DisassociateOriginationIdentityCommandOutput,
 } from "../commands/DisassociateOriginationIdentityCommand";
 import {
+  DisassociateProtectConfigurationCommandInput,
+  DisassociateProtectConfigurationCommandOutput,
+} from "../commands/DisassociateProtectConfigurationCommand";
+import {
   DiscardRegistrationVersionCommandInput,
   DiscardRegistrationVersionCommandOutput,
 } from "../commands/DiscardRegistrationVersionCommand";
+import {
+  GetProtectConfigurationCountryRuleSetCommandInput,
+  GetProtectConfigurationCountryRuleSetCommandOutput,
+} from "../commands/GetProtectConfigurationCountryRuleSetCommand";
 import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
@@ -194,13 +226,22 @@ import {
   SendDestinationNumberVerificationCodeCommandInput,
   SendDestinationNumberVerificationCodeCommandOutput,
 } from "../commands/SendDestinationNumberVerificationCodeCommand";
+import { SendMediaMessageCommandInput, SendMediaMessageCommandOutput } from "../commands/SendMediaMessageCommand";
 import { SendTextMessageCommandInput, SendTextMessageCommandOutput } from "../commands/SendTextMessageCommand";
 import { SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput } from "../commands/SendVoiceMessageCommand";
+import {
+  SetAccountDefaultProtectConfigurationCommandInput,
+  SetAccountDefaultProtectConfigurationCommandOutput,
+} from "../commands/SetAccountDefaultProtectConfigurationCommand";
 import {
   SetDefaultMessageTypeCommandInput,
   SetDefaultMessageTypeCommandOutput,
 } from "../commands/SetDefaultMessageTypeCommand";
 import { SetDefaultSenderIdCommandInput, SetDefaultSenderIdCommandOutput } from "../commands/SetDefaultSenderIdCommand";
+import {
+  SetMediaMessageSpendLimitOverrideCommandInput,
+  SetMediaMessageSpendLimitOverrideCommandOutput,
+} from "../commands/SetMediaMessageSpendLimitOverrideCommand";
 import {
   SetTextMessageSpendLimitOverrideCommandInput,
   SetTextMessageSpendLimitOverrideCommandOutput,
@@ -221,6 +262,14 @@ import {
 } from "../commands/UpdateEventDestinationCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "../commands/UpdatePhoneNumberCommand";
 import { UpdatePoolCommandInput, UpdatePoolCommandOutput } from "../commands/UpdatePoolCommand";
+import {
+  UpdateProtectConfigurationCommandInput,
+  UpdateProtectConfigurationCommandOutput,
+} from "../commands/UpdateProtectConfigurationCommand";
+import {
+  UpdateProtectConfigurationCountryRuleSetCommandInput,
+  UpdateProtectConfigurationCountryRuleSetCommandOutput,
+} from "../commands/UpdateProtectConfigurationCountryRuleSetCommand";
 import { UpdateSenderIdCommandInput, UpdateSenderIdCommandOutput } from "../commands/UpdateSenderIdCommand";
 import {
   VerifyDestinationNumberCommandInput,
@@ -229,6 +278,7 @@ import {
 import {
   AccessDeniedException,
   AssociateOriginationIdentityRequest,
+  AssociateProtectConfigurationRequest,
   CloudWatchLogsDestination,
   ConfigurationSetFilter,
   ConfigurationSetInformation,
@@ -240,6 +290,8 @@ import {
   CreateOptOutListResult,
   CreatePoolRequest,
   CreatePoolResult,
+  CreateProtectConfigurationRequest,
+  CreateProtectConfigurationResult,
   CreateRegistrationAssociationRequest,
   CreateRegistrationAttachmentRequest,
   CreateRegistrationAttachmentResult,
@@ -249,18 +301,22 @@ import {
   CreateRegistrationVersionResult,
   CreateVerifiedDestinationNumberRequest,
   CreateVerifiedDestinationNumberResult,
+  DeleteAccountDefaultProtectConfigurationRequest,
   DeleteConfigurationSetRequest,
   DeleteConfigurationSetResult,
   DeleteDefaultMessageTypeRequest,
   DeleteDefaultSenderIdRequest,
   DeleteEventDestinationRequest,
   DeleteKeywordRequest,
+  DeleteMediaMessageSpendLimitOverrideRequest,
   DeleteOptedOutNumberRequest,
   DeleteOptedOutNumberResult,
   DeleteOptOutListRequest,
   DeleteOptOutListResult,
   DeletePoolRequest,
   DeletePoolResult,
+  DeleteProtectConfigurationRequest,
+  DeleteProtectConfigurationResult,
   DeleteRegistrationAttachmentRequest,
   DeleteRegistrationAttachmentResult,
   DeleteRegistrationFieldValueRequest,
@@ -283,6 +339,8 @@ import {
   DescribePhoneNumbersResult,
   DescribePoolsRequest,
   DescribePoolsResult,
+  DescribeProtectConfigurationsRequest,
+  DescribeProtectConfigurationsResult,
   DescribeRegistrationAttachmentsRequest,
   DescribeRegistrationAttachmentsResult,
   DescribeRegistrationFieldDefinitionsRequest,
@@ -299,9 +357,11 @@ import {
   DescribeVerifiedDestinationNumbersResult,
   DestinationCountryParameterKey,
   DisassociateOriginationIdentityRequest,
+  DisassociateProtectConfigurationRequest,
   DiscardRegistrationVersionRequest,
   DiscardRegistrationVersionResult,
   EventType,
+  GetProtectConfigurationCountryRuleSetRequest,
   InternalServerException,
   KeywordFilter,
   KinesisFirehoseDestination,
@@ -318,6 +378,9 @@ import {
   PoolFilter,
   PoolInformation,
   PoolOriginationIdentitiesFilter,
+  ProtectConfigurationCountryRuleSetInformation,
+  ProtectConfigurationFilter,
+  ProtectConfigurationInformation,
   PutKeywordRequest,
   PutOptedOutNumberRequest,
   PutOptedOutNumberResult,
@@ -341,11 +404,14 @@ import {
   SendDestinationNumberVerificationCodeRequest,
   SenderIdAndCountry,
   SenderIdFilter,
+  SendMediaMessageRequest,
   SendTextMessageRequest,
   SendVoiceMessageRequest,
   ServiceQuotaExceededException,
+  SetAccountDefaultProtectConfigurationRequest,
   SetDefaultMessageTypeRequest,
   SetDefaultSenderIdRequest,
+  SetMediaMessageSpendLimitOverrideRequest,
   SetTextMessageSpendLimitOverrideRequest,
   SetVoiceMessageSpendLimitOverrideRequest,
   SnsDestination,
@@ -360,6 +426,9 @@ import {
   UpdatePhoneNumberResult,
   UpdatePoolRequest,
   UpdatePoolResult,
+  UpdateProtectConfigurationCountryRuleSetRequest,
+  UpdateProtectConfigurationRequest,
+  UpdateProtectConfigurationResult,
   UpdateSenderIdRequest,
   ValidationException,
   VerifiedDestinationNumberFilter,
@@ -379,6 +448,19 @@ export const se_AssociateOriginationIdentityCommand = async (
   const headers: __HeaderBag = sharedHeaders("AssociateOriginationIdentity");
   let body: any;
   body = JSON.stringify(se_AssociateOriginationIdentityRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0AssociateProtectConfigurationCommand
+ */
+export const se_AssociateProtectConfigurationCommand = async (
+  input: AssociateProtectConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AssociateProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -431,6 +513,19 @@ export const se_CreatePoolCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreatePool");
   let body: any;
   body = JSON.stringify(se_CreatePoolRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0CreateProtectConfigurationCommand
+ */
+export const se_CreateProtectConfigurationCommand = async (
+  input: CreateProtectConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(se_CreateProtectConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -500,6 +595,19 @@ export const se_CreateVerifiedDestinationNumberCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteAccountDefaultProtectConfigurationCommand
+ */
+export const se_DeleteAccountDefaultProtectConfigurationCommand = async (
+  input: DeleteAccountDefaultProtectConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteAccountDefaultProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteConfigurationSetCommand
  */
 export const se_DeleteConfigurationSetCommand = async (
@@ -565,6 +673,19 @@ export const se_DeleteKeywordCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteMediaMessageSpendLimitOverrideCommand
+ */
+export const se_DeleteMediaMessageSpendLimitOverrideCommand = async (
+  input: DeleteMediaMessageSpendLimitOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteMediaMessageSpendLimitOverride");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteOptedOutNumberCommand
  */
 export const se_DeleteOptedOutNumberCommand = async (
@@ -598,6 +719,19 @@ export const se_DeletePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeletePool");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteProtectConfigurationCommand
+ */
+export const se_DeleteProtectConfigurationCommand = async (
+  input: DeleteProtectConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteProtectConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -786,6 +920,19 @@ export const se_DescribePoolsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DescribeProtectConfigurationsCommand
+ */
+export const se_DescribeProtectConfigurationsCommand = async (
+  input: DescribeProtectConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeProtectConfigurations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DescribeRegistrationAttachmentsCommand
  */
 export const se_DescribeRegistrationAttachmentsCommand = async (
@@ -929,6 +1076,19 @@ export const se_DisassociateOriginationIdentityCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DisassociateProtectConfigurationCommand
+ */
+export const se_DisassociateProtectConfigurationCommand = async (
+  input: DisassociateProtectConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisassociateProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DiscardRegistrationVersionCommand
  */
 export const se_DiscardRegistrationVersionCommand = async (
@@ -936,6 +1096,19 @@ export const se_DiscardRegistrationVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DiscardRegistrationVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetProtectConfigurationCountryRuleSetCommand
+ */
+export const se_GetProtectConfigurationCountryRuleSetCommand = async (
+  input: GetProtectConfigurationCountryRuleSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetProtectConfigurationCountryRuleSet");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1085,6 +1258,19 @@ export const se_SendDestinationNumberVerificationCodeCommand = async (
 };
 
 /**
+ * serializeAws_json1_0SendMediaMessageCommand
+ */
+export const se_SendMediaMessageCommand = async (
+  input: SendMediaMessageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SendMediaMessage");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0SendTextMessageCommand
  */
 export const se_SendTextMessageCommand = async (
@@ -1111,6 +1297,19 @@ export const se_SendVoiceMessageCommand = async (
 };
 
 /**
+ * serializeAws_json1_0SetAccountDefaultProtectConfigurationCommand
+ */
+export const se_SetAccountDefaultProtectConfigurationCommand = async (
+  input: SetAccountDefaultProtectConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SetAccountDefaultProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0SetDefaultMessageTypeCommand
  */
 export const se_SetDefaultMessageTypeCommand = async (
@@ -1131,6 +1330,19 @@ export const se_SetDefaultSenderIdCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetDefaultSenderId");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0SetMediaMessageSpendLimitOverrideCommand
+ */
+export const se_SetMediaMessageSpendLimitOverrideCommand = async (
+  input: SetMediaMessageSpendLimitOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SetMediaMessageSpendLimitOverride");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1241,6 +1453,32 @@ export const se_UpdatePoolCommand = async (
 };
 
 /**
+ * serializeAws_json1_0UpdateProtectConfigurationCommand
+ */
+export const se_UpdateProtectConfigurationCommand = async (
+  input: UpdateProtectConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateProtectConfigurationCountryRuleSetCommand
+ */
+export const se_UpdateProtectConfigurationCountryRuleSetCommand = async (
+  input: UpdateProtectConfigurationCountryRuleSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateProtectConfigurationCountryRuleSet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0UpdateSenderIdCommand
  */
 export const se_UpdateSenderIdCommand = async (
@@ -1280,6 +1518,26 @@ export const de_AssociateOriginationIdentityCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: AssociateOriginationIdentityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0AssociateProtectConfigurationCommand
+ */
+export const de_AssociateProtectConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateProtectConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateProtectConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1360,6 +1618,26 @@ export const de_CreatePoolCommand = async (
   let contents: any = {};
   contents = de_CreatePoolResult(data, context);
   const response: CreatePoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateProtectConfigurationCommand
+ */
+export const de_CreateProtectConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProtectConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateProtectConfigurationResult(data, context);
+  const response: CreateProtectConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1467,6 +1745,26 @@ export const de_CreateVerifiedDestinationNumberCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteAccountDefaultProtectConfigurationCommand
+ */
+export const de_DeleteAccountDefaultProtectConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountDefaultProtectConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAccountDefaultProtectConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -1567,6 +1865,26 @@ export const de_DeleteKeywordCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteMediaMessageSpendLimitOverrideCommand
+ */
+export const de_DeleteMediaMessageSpendLimitOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMediaMessageSpendLimitOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteMediaMessageSpendLimitOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteOptedOutNumberCommand
  */
 export const de_DeleteOptedOutNumberCommand = async (
@@ -1620,6 +1938,26 @@ export const de_DeletePoolCommand = async (
   let contents: any = {};
   contents = de_DeletePoolResult(data, context);
   const response: DeletePoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteProtectConfigurationCommand
+ */
+export const de_DeleteProtectConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProtectConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteProtectConfigurationResult(data, context);
+  const response: DeleteProtectConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1907,6 +2245,26 @@ export const de_DescribePoolsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DescribeProtectConfigurationsCommand
+ */
+export const de_DescribeProtectConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProtectConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeProtectConfigurationsResult(data, context);
+  const response: DescribeProtectConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DescribeRegistrationAttachmentsCommand
  */
 export const de_DescribeRegistrationAttachmentsCommand = async (
@@ -2127,6 +2485,26 @@ export const de_DisassociateOriginationIdentityCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DisassociateProtectConfigurationCommand
+ */
+export const de_DisassociateProtectConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateProtectConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateProtectConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DiscardRegistrationVersionCommand
  */
 export const de_DiscardRegistrationVersionCommand = async (
@@ -2140,6 +2518,26 @@ export const de_DiscardRegistrationVersionCommand = async (
   let contents: any = {};
   contents = de_DiscardRegistrationVersionResult(data, context);
   const response: DiscardRegistrationVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetProtectConfigurationCountryRuleSetCommand
+ */
+export const de_GetProtectConfigurationCountryRuleSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProtectConfigurationCountryRuleSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetProtectConfigurationCountryRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2367,6 +2765,26 @@ export const de_SendDestinationNumberVerificationCodeCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0SendMediaMessageCommand
+ */
+export const de_SendMediaMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendMediaMessageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SendMediaMessageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0SendTextMessageCommand
  */
 export const de_SendTextMessageCommand = async (
@@ -2407,6 +2825,26 @@ export const de_SendVoiceMessageCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0SetAccountDefaultProtectConfigurationCommand
+ */
+export const de_SetAccountDefaultProtectConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetAccountDefaultProtectConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SetAccountDefaultProtectConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0SetDefaultMessageTypeCommand
  */
 export const de_SetDefaultMessageTypeCommand = async (
@@ -2440,6 +2878,26 @@ export const de_SetDefaultSenderIdCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: SetDefaultSenderIdCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0SetMediaMessageSpendLimitOverrideCommand
+ */
+export const de_SetMediaMessageSpendLimitOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetMediaMessageSpendLimitOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SetMediaMessageSpendLimitOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2600,6 +3058,46 @@ export const de_UpdatePoolCommand = async (
   let contents: any = {};
   contents = de_UpdatePoolResult(data, context);
   const response: UpdatePoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateProtectConfigurationCommand
+ */
+export const de_UpdateProtectConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProtectConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateProtectConfigurationResult(data, context);
+  const response: UpdateProtectConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateProtectConfigurationCountryRuleSetCommand
+ */
+export const de_UpdateProtectConfigurationCountryRuleSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProtectConfigurationCountryRuleSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateProtectConfigurationCountryRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2805,6 +3303,8 @@ const se_AssociateOriginationIdentityRequest = (
   });
 };
 
+// se_AssociateProtectConfigurationRequest omitted.
+
 // se_CloudWatchLogsDestination omitted.
 
 // se_ConfigurationSetFilter omitted.
@@ -2866,6 +3366,20 @@ const se_CreatePoolRequest = (input: CreatePoolRequest, context: __SerdeContext)
   });
 };
 
+/**
+ * serializeAws_json1_0CreateProtectConfigurationRequest
+ */
+const se_CreateProtectConfigurationRequest = (
+  input: CreateProtectConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DeletionProtectionEnabled: [],
+    Tags: _json,
+  });
+};
+
 // se_CreateRegistrationAssociationRequest omitted.
 
 /**
@@ -2910,6 +3424,8 @@ const se_CreateVerifiedDestinationNumberRequest = (
   });
 };
 
+// se_DeleteAccountDefaultProtectConfigurationRequest omitted.
+
 // se_DeleteConfigurationSetRequest omitted.
 
 // se_DeleteDefaultMessageTypeRequest omitted.
@@ -2920,11 +3436,15 @@ const se_CreateVerifiedDestinationNumberRequest = (
 
 // se_DeleteKeywordRequest omitted.
 
+// se_DeleteMediaMessageSpendLimitOverrideRequest omitted.
+
 // se_DeleteOptedOutNumberRequest omitted.
 
 // se_DeleteOptOutListRequest omitted.
 
 // se_DeletePoolRequest omitted.
+
+// se_DeleteProtectConfigurationRequest omitted.
 
 // se_DeleteRegistrationAttachmentRequest omitted.
 
@@ -2953,6 +3473,8 @@ const se_CreateVerifiedDestinationNumberRequest = (
 // se_DescribePhoneNumbersRequest omitted.
 
 // se_DescribePoolsRequest omitted.
+
+// se_DescribeProtectConfigurationsRequest omitted.
 
 // se_DescribeRegistrationAttachmentsRequest omitted.
 
@@ -2993,6 +3515,8 @@ const se_DisassociateOriginationIdentityRequest = (
   });
 };
 
+// se_DisassociateProtectConfigurationRequest omitted.
+
 // se_DiscardRegistrationVersionRequest omitted.
 
 // se_EventTypeList omitted.
@@ -3000,6 +3524,8 @@ const se_DisassociateOriginationIdentityRequest = (
 // se_FieldPathList omitted.
 
 // se_FilterValueList omitted.
+
+// se_GetProtectConfigurationCountryRuleSetRequest omitted.
 
 // se_KeywordFilter omitted.
 
@@ -3014,6 +3540,8 @@ const se_DisassociateOriginationIdentityRequest = (
 // se_ListRegistrationAssociationsRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_MediaUrlList omitted.
 
 // se_MessageTypeList omitted.
 
@@ -3044,6 +3572,16 @@ const se_DisassociateOriginationIdentityRequest = (
 // se_PoolOriginationIdentitiesFilter omitted.
 
 // se_PoolOriginationIdentitiesFilterList omitted.
+
+// se_ProtectConfigurationCountryRuleSet omitted.
+
+// se_ProtectConfigurationCountryRuleSetInformation omitted.
+
+// se_ProtectConfigurationFilter omitted.
+
+// se_ProtectConfigurationFilterList omitted.
+
+// se_ProtectConfigurationIdList omitted.
 
 // se_PutKeywordRequest omitted.
 
@@ -3129,13 +3667,19 @@ const se_RequestSenderIdRequest = (input: RequestSenderIdRequest, context: __Ser
 
 // se_SenderIdList omitted.
 
+// se_SendMediaMessageRequest omitted.
+
 // se_SendTextMessageRequest omitted.
 
 // se_SendVoiceMessageRequest omitted.
 
+// se_SetAccountDefaultProtectConfigurationRequest omitted.
+
 // se_SetDefaultMessageTypeRequest omitted.
 
 // se_SetDefaultSenderIdRequest omitted.
+
+// se_SetMediaMessageSpendLimitOverrideRequest omitted.
 
 // se_SetTextMessageSpendLimitOverrideRequest omitted.
 
@@ -3161,6 +3705,10 @@ const se_RequestSenderIdRequest = (input: RequestSenderIdRequest, context: __Ser
 
 // se_UpdatePoolRequest omitted.
 
+// se_UpdateProtectConfigurationCountryRuleSetRequest omitted.
+
+// se_UpdateProtectConfigurationRequest omitted.
+
 // se_UpdateSenderIdRequest omitted.
 
 // se_VerifiedDestinationNumberFilter omitted.
@@ -3183,6 +3731,8 @@ const se_RequestSenderIdRequest = (input: RequestSenderIdRequest, context: __Ser
 
 // de_AssociateOriginationIdentityResult omitted.
 
+// de_AssociateProtectConfigurationResult omitted.
+
 // de_CloudWatchLogsDestination omitted.
 
 /**
@@ -3196,6 +3746,7 @@ const de_ConfigurationSetInformation = (output: any, context: __SerdeContext): C
     DefaultMessageType: __expectString,
     DefaultSenderId: __expectString,
     EventDestinations: _json,
+    ProtectConfigurationId: __expectString,
   }) as any;
 };
 
@@ -3257,6 +3808,23 @@ const de_CreatePoolResult = (output: any, context: __SerdeContext): CreatePoolRe
     TwoWayChannelArn: __expectString,
     TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0CreateProtectConfigurationResult
+ */
+const de_CreateProtectConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): CreateProtectConfigurationResult => {
+  return take(output, {
+    AccountDefault: __expectBoolean,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    ProtectConfigurationArn: __expectString,
+    ProtectConfigurationId: __expectString,
+    Tags: _json,
   }) as any;
 };
 
@@ -3324,6 +3892,8 @@ const de_CreateVerifiedDestinationNumberResult = (
   }) as any;
 };
 
+// de_DeleteAccountDefaultProtectConfigurationResult omitted.
+
 /**
  * deserializeAws_json1_0DeleteConfigurationSetResult
  */
@@ -3345,6 +3915,8 @@ const de_DeleteConfigurationSetResult = (output: any, context: __SerdeContext): 
 // de_DeleteEventDestinationResult omitted.
 
 // de_DeleteKeywordResult omitted.
+
+// de_DeleteMediaMessageSpendLimitOverrideResult omitted.
 
 /**
  * deserializeAws_json1_0DeleteOptedOutNumberResult
@@ -3386,6 +3958,22 @@ const de_DeletePoolResult = (output: any, context: __SerdeContext): DeletePoolRe
     TwoWayChannelArn: __expectString,
     TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DeleteProtectConfigurationResult
+ */
+const de_DeleteProtectConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteProtectConfigurationResult => {
+  return take(output, {
+    AccountDefault: __expectBoolean,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    ProtectConfigurationArn: __expectString,
+    ProtectConfigurationId: __expectString,
   }) as any;
 };
 
@@ -3502,6 +4090,19 @@ const de_DescribePoolsResult = (output: any, context: __SerdeContext): DescribeP
 };
 
 /**
+ * deserializeAws_json1_0DescribeProtectConfigurationsResult
+ */
+const de_DescribeProtectConfigurationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeProtectConfigurationsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    ProtectConfigurations: (_: any) => de_ProtectConfigurationInformationList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0DescribeRegistrationAttachmentsResult
  */
 const de_DescribeRegistrationAttachmentsResult = (
@@ -3566,6 +4167,8 @@ const de_DescribeVerifiedDestinationNumbersResult = (
 
 // de_DisassociateOriginationIdentityResult omitted.
 
+// de_DisassociateProtectConfigurationResult omitted.
+
 /**
  * deserializeAws_json1_0DiscardRegistrationVersionResult
  */
@@ -3587,6 +4190,8 @@ const de_DiscardRegistrationVersionResult = (
 // de_EventDestinationList omitted.
 
 // de_EventTypeList omitted.
+
+// de_GetProtectConfigurationCountryRuleSetResult omitted.
 
 // de_InternalServerException omitted.
 
@@ -3722,6 +4327,38 @@ const de_PoolInformationList = (output: any, context: __SerdeContext): PoolInfor
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_PoolInformation(entry, context);
+    });
+  return retVal;
+};
+
+// de_ProtectConfigurationCountryRuleSet omitted.
+
+// de_ProtectConfigurationCountryRuleSetInformation omitted.
+
+/**
+ * deserializeAws_json1_0ProtectConfigurationInformation
+ */
+const de_ProtectConfigurationInformation = (output: any, context: __SerdeContext): ProtectConfigurationInformation => {
+  return take(output, {
+    AccountDefault: __expectBoolean,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    ProtectConfigurationArn: __expectString,
+    ProtectConfigurationId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ProtectConfigurationInformationList
+ */
+const de_ProtectConfigurationInformationList = (
+  output: any,
+  context: __SerdeContext
+): ProtectConfigurationInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProtectConfigurationInformation(entry, context);
     });
   return retVal;
 };
@@ -3950,15 +4587,21 @@ const de_RequestPhoneNumberResult = (output: any, context: __SerdeContext): Requ
 
 // de_SenderIdInformationList omitted.
 
+// de_SendMediaMessageResult omitted.
+
 // de_SendTextMessageResult omitted.
 
 // de_SendVoiceMessageResult omitted.
 
 // de_ServiceQuotaExceededException omitted.
 
+// de_SetAccountDefaultProtectConfigurationResult omitted.
+
 // de_SetDefaultMessageTypeResult omitted.
 
 // de_SetDefaultSenderIdResult omitted.
+
+// de_SetMediaMessageSpendLimitOverrideResult omitted.
 
 // de_SetTextMessageSpendLimitOverrideResult omitted.
 
@@ -4047,6 +4690,24 @@ const de_UpdatePoolResult = (output: any, context: __SerdeContext): UpdatePoolRe
     TwoWayChannelArn: __expectString,
     TwoWayChannelRole: __expectString,
     TwoWayEnabled: __expectBoolean,
+  }) as any;
+};
+
+// de_UpdateProtectConfigurationCountryRuleSetResult omitted.
+
+/**
+ * deserializeAws_json1_0UpdateProtectConfigurationResult
+ */
+const de_UpdateProtectConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateProtectConfigurationResult => {
+  return take(output, {
+    AccountDefault: __expectBoolean,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionProtectionEnabled: __expectBoolean,
+    ProtectConfigurationArn: __expectString,
+    ProtectConfigurationId: __expectString,
   }) as any;
 };
 

@@ -5,13 +5,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendTextMessageRequest, SendTextMessageResult } from "../models/models_0";
+import { SendMediaMessageRequest, SendMediaMessageResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { de_SendTextMessageCommand, se_SendTextMessageCommand } from "../protocols/Aws_json1_0";
+import { de_SendMediaMessageCommand, se_SendMediaMessageCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -20,59 +20,52 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link SendTextMessageCommand}.
+ * The input for {@link SendMediaMessageCommand}.
  */
-export interface SendTextMessageCommandInput extends SendTextMessageRequest {}
+export interface SendMediaMessageCommandInput extends SendMediaMessageRequest {}
 /**
  * @public
  *
- * The output of {@link SendTextMessageCommand}.
+ * The output of {@link SendMediaMessageCommand}.
  */
-export interface SendTextMessageCommandOutput extends SendTextMessageResult, __MetadataBearer {}
+export interface SendMediaMessageCommandOutput extends SendMediaMessageResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new text message and sends it to a recipient's phone number.</p>
- *          <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
- *             depends on the destination country of your messages, as well as the type of phone number
- *             (origination number) that you use to send the message. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-limitations-mps.html">Message Parts per
- *                 Second (MPS) limits</a> in the <i>Amazon Pinpoint User
- *                 Guide</i>.</p>
+ * <p>Creates a new multimedia message (MMS) and sends it to a recipient's phone number. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointSMSVoiceV2Client, SendTextMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
- * // const { PinpointSMSVoiceV2Client, SendTextMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
+ * import { PinpointSMSVoiceV2Client, SendMediaMessageCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
+ * // const { PinpointSMSVoiceV2Client, SendMediaMessageCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
- * const input = { // SendTextMessageRequest
+ * const input = { // SendMediaMessageRequest
  *   DestinationPhoneNumber: "STRING_VALUE", // required
- *   OriginationIdentity: "STRING_VALUE",
+ *   OriginationIdentity: "STRING_VALUE", // required
  *   MessageBody: "STRING_VALUE",
- *   MessageType: "STRING_VALUE",
- *   Keyword: "STRING_VALUE",
+ *   MediaUrls: [ // MediaUrlList
+ *     "STRING_VALUE",
+ *   ],
  *   ConfigurationSetName: "STRING_VALUE",
  *   MaxPrice: "STRING_VALUE",
  *   TimeToLive: Number("int"),
  *   Context: { // ContextMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   DestinationCountryParameters: { // DestinationCountryParameters
- *     "<keys>": "STRING_VALUE",
- *   },
  *   DryRun: true || false,
  *   ProtectConfigurationId: "STRING_VALUE",
  * };
- * const command = new SendTextMessageCommand(input);
+ * const command = new SendMediaMessageCommand(input);
  * const response = await client.send(command);
- * // { // SendTextMessageResult
+ * // { // SendMediaMessageResult
  * //   MessageId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param SendTextMessageCommandInput - {@link SendTextMessageCommandInput}
- * @returns {@link SendTextMessageCommandOutput}
- * @see {@link SendTextMessageCommandInput} for command's `input` shape.
- * @see {@link SendTextMessageCommandOutput} for command's `response` shape.
+ * @param SendMediaMessageCommandInput - {@link SendMediaMessageCommandInput}
+ * @returns {@link SendMediaMessageCommandOutput}
+ * @see {@link SendMediaMessageCommandInput} for command's `input` shape.
+ * @see {@link SendMediaMessageCommandOutput} for command's `response` shape.
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -107,10 +100,10 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  *
  * @public
  */
-export class SendTextMessageCommand extends $Command
+export class SendMediaMessageCommand extends $Command
   .classBuilder<
-    SendTextMessageCommandInput,
-    SendTextMessageCommandOutput,
+    SendMediaMessageCommandInput,
+    SendMediaMessageCommandOutput,
     PinpointSMSVoiceV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -124,9 +117,9 @@ export class SendTextMessageCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("PinpointSMSVoiceV2", "SendTextMessage", {})
-  .n("PinpointSMSVoiceV2Client", "SendTextMessageCommand")
+  .s("PinpointSMSVoiceV2", "SendMediaMessage", {})
+  .n("PinpointSMSVoiceV2Client", "SendMediaMessageCommand")
   .f(void 0, void 0)
-  .ser(se_SendTextMessageCommand)
-  .de(de_SendTextMessageCommand)
+  .ser(se_SendMediaMessageCommand)
+  .de(de_SendMediaMessageCommand)
   .build() {}
