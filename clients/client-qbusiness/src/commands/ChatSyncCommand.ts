@@ -56,6 +56,11 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  *     },
  *     payloadFieldNameSeparator: "STRING_VALUE", // required
  *   },
+ *   authChallengeResponse: { // AuthChallengeResponse
+ *     responseMap: { // AuthorizationResponseMap // required
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  *   conversationId: "STRING_VALUE",
  *   parentMessageId: "STRING_VALUE",
  *   attributeFilter: { // AttributeFilter
@@ -156,11 +161,12 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //   userMessageId: "STRING_VALUE",
  * //   actionReview: { // ActionReview
  * //     pluginId: "STRING_VALUE",
- * //     pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK",
+ * //     pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
  * //     payload: { // ActionReviewPayload
  * //       "<keys>": { // ActionReviewPayloadField
  * //         displayName: "STRING_VALUE",
  * //         displayOrder: Number("int"),
+ * //         displayDescription: "STRING_VALUE",
  * //         type: "STRING" || "NUMBER" || "ARRAY" || "BOOLEAN",
  * //         value: "DOCUMENT_VALUE",
  * //         allowedValues: [ // ActionReviewPayloadFieldAllowedValues
@@ -169,10 +175,14 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //             displayValue: "DOCUMENT_VALUE",
  * //           },
  * //         ],
+ * //         allowedFormat: "STRING_VALUE",
  * //         required: true || false,
  * //       },
  * //     },
  * //     payloadFieldNameSeparator: "STRING_VALUE",
+ * //   },
+ * //   authChallengeRequest: { // AuthChallengeRequest
+ * //     authorizationUrl: "STRING_VALUE", // required
  * //   },
  * //   sourceAttributions: [ // SourceAttributions
  * //     { // SourceAttribution
@@ -185,6 +195,9 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * //         { // TextSegment
  * //           beginOffset: Number("int"),
  * //           endOffset: Number("int"),
+ * //           snippetExcerpt: { // SnippetExcerpt
+ * //             text: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //     },

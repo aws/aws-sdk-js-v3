@@ -71,17 +71,21 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //             { // TextSegment
  * //               beginOffset: Number("int"),
  * //               endOffset: Number("int"),
+ * //               snippetExcerpt: { // SnippetExcerpt
+ * //                 text: "STRING_VALUE",
+ * //               },
  * //             },
  * //           ],
  * //         },
  * //       ],
  * //       actionReview: { // ActionReview
  * //         pluginId: "STRING_VALUE",
- * //         pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK",
+ * //         pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
  * //         payload: { // ActionReviewPayload
  * //           "<keys>": { // ActionReviewPayloadField
  * //             displayName: "STRING_VALUE",
  * //             displayOrder: Number("int"),
+ * //             displayDescription: "STRING_VALUE",
  * //             type: "STRING" || "NUMBER" || "ARRAY" || "BOOLEAN",
  * //             value: "DOCUMENT_VALUE",
  * //             allowedValues: [ // ActionReviewPayloadFieldAllowedValues
@@ -90,6 +94,7 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //                 displayValue: "DOCUMENT_VALUE",
  * //               },
  * //             ],
+ * //             allowedFormat: "STRING_VALUE",
  * //             required: true || false,
  * //           },
  * //         },

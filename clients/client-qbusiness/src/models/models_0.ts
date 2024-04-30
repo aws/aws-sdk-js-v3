@@ -249,6 +249,33 @@ export interface ActionExecution {
 }
 
 /**
+ * <p>A request from an end user signalling an intent to perform an Amazon Q Business plugin
+ *             action during a streaming chat.</p>
+ * @public
+ */
+export interface ActionExecutionEvent {
+  /**
+   * <p>The identifier of the plugin for which the action is being requested.</p>
+   * @public
+   */
+  pluginId: string | undefined;
+
+  /**
+   * <p>A mapping of field names to the field values in input that an end user provides to
+   *             Amazon Q Business requests to perform their plugin action. </p>
+   * @public
+   */
+  payload: Record<string, ActionExecutionPayloadField> | undefined;
+
+  /**
+   * <p>A string used to retain information about the hierarchical contexts within a action
+   *             execution event payload.</p>
+   * @public
+   */
+  payloadFieldNameSeparator: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -301,6 +328,14 @@ export interface ActionReviewPayloadField {
   displayOrder?: number;
 
   /**
+   * <p>The field level description of each action review input field. This could be an
+   *             explanation of the field. In the Amazon Q Business web experience, these descriptions could
+   *             be used to display as tool tips to help users understand the field. </p>
+   * @public
+   */
+  displayDescription?: string;
+
+  /**
    * <p>The type of field. </p>
    * @public
    */
@@ -320,6 +355,14 @@ export interface ActionReviewPayloadField {
   allowedValues?: ActionReviewPayloadFieldAllowedValue[];
 
   /**
+   * <p>The expected data format for the action review input field value. For example, in PTO
+   *             request, <code>from</code> and <code>to</code> would be of <code>datetime</code> allowed
+   *             format. </p>
+   * @public
+   */
+  allowedFormat?: string;
+
+  /**
    * <p>Information about whether the field is required.</p>
    * @public
    */
@@ -331,6 +374,7 @@ export interface ActionReviewPayloadField {
  * @enum
  */
 export const PluginType = {
+  CUSTOM: "CUSTOM",
   JIRA: "JIRA",
   SALESFORCE: "SALESFORCE",
   SERVICE_NOW: "SERVICE_NOW",
@@ -376,6 +420,150 @@ export interface ActionReview {
    */
   payloadFieldNameSeparator?: string;
 }
+
+/**
+ * <p>An output event that Amazon Q Business returns to an user who wants to perform a plugin
+ *             action during a streaming chat conversation. It contains information about the selected
+ *             action with a list of possible user input fields, some pre-populated by Amazon Q Business.
+ *         </p>
+ * @public
+ */
+export interface ActionReviewEvent {
+  /**
+   * <p>The identifier of the conversation with which the action review event is
+   *             associated.</p>
+   * @public
+   */
+  conversationId?: string;
+
+  /**
+   * <p>The identifier of the conversation with which the plugin action is associated.</p>
+   * @public
+   */
+  userMessageId?: string;
+
+  /**
+   * <p>The identifier of an Amazon Q Business AI generated associated with the action review
+   *             event.</p>
+   * @public
+   */
+  systemMessageId?: string;
+
+  /**
+   * <p>The identifier of the plugin associated with the action review event.</p>
+   * @public
+   */
+  pluginId?: string;
+
+  /**
+   * <p>The type of plugin.</p>
+   * @public
+   */
+  pluginType?: PluginType;
+
+  /**
+   * <p>Field values that an end user needs to provide to Amazon Q Business for Amazon Q Business to
+   *             perform the requested plugin action.</p>
+   * @public
+   */
+  payload?: Record<string, ActionReviewPayloadField>;
+
+  /**
+   * <p>A string used to retain information about the hierarchical contexts within an action
+   *             review event payload.</p>
+   * @public
+   */
+  payloadFieldNameSeparator?: string;
+}
+
+/**
+ * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3
+ *             bucket.</p>
+ * @public
+ */
+export interface S3 {
+  /**
+   * <p>The name of the S3 bucket that contains the file.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The name of the file.</p>
+   * @public
+   */
+  key: string | undefined;
+}
+
+/**
+ * <p>Contains details about the OpenAPI schema for a custom plugin. For more information,
+ *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-plugin.html#plugins-api-schema">custom plugin OpenAPI schemas</a>. You can either include
+ *             the schema directly in the payload field or you can upload it to an S3 bucket and
+ *             specify the S3 bucket location in the <code>s3</code> field. </p>
+ * @public
+ */
+export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace APISchema {
+  /**
+   * <p>The JSON or YAML-formatted payload defining the OpenAPI schema for a custom plugin.
+   *         </p>
+   * @public
+   */
+  export interface PayloadMember {
+    payload: string;
+    s3?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains details about the S3 object containing the OpenAPI schema for a custom
+   *             plugin. The schema could be in either JSON or YAML format.</p>
+   * @public
+   */
+  export interface S3Member {
+    payload?: never;
+    s3: S3;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    payload?: never;
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    payload: (value: string) => T;
+    s3: (value: S3) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: APISchema, visitor: Visitor<T>): T => {
+    if (value.payload !== undefined) return visitor.payload(value.payload);
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const APISchemaType = {
+  OPEN_API_V3: "OPEN_API_V3",
+} as const;
+
+/**
+ * @public
+ */
+export type APISchemaType = (typeof APISchemaType)[keyof typeof APISchemaType];
 
 /**
  * @public
@@ -544,7 +732,7 @@ export interface CreateApplicationRequest {
    *                 CloudWatch logs and metrics.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either
@@ -958,6 +1146,20 @@ export interface IndexCapacityConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const IndexType = {
+  ENTERPRISE: "ENTERPRISE",
+  STARTER: "STARTER",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexType = (typeof IndexType)[keyof typeof IndexType];
+
+/**
+ * @public
  */
 export interface CreateIndexRequest {
   /**
@@ -971,6 +1173,14 @@ export interface CreateIndexRequest {
    * @public
    */
   displayName: string | undefined;
+
+  /**
+   * <p>The index type that's suitable for your needs. For more information on what's included
+   *             in each type of index or index tier, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers">Amazon Q Business
+   *             tiers</a>.</p>
+   * @public
+   */
+  type?: IndexType;
 
   /**
    * <p>A description for the Amazon Q Business index.</p>
@@ -1169,8 +1379,8 @@ export interface DocumentAttributeCondition {
    * <p>The identifier of the document attribute used for the condition.</p>
    *          <p>For example, 'Source_URI' could be an identifier for the attribute or metadata field
    *             that contains source URIs associated with the documents.</p>
-   *          <p>Amazon Kendra currently does not support <code>_document_body</code> as an
-   *             attribute key used for the condition.</p>
+   *          <p>Amazon Q Business currently does not support <code>_document_body</code> as an attribute
+   *             key used for the condition.</p>
    * @public
    */
   operator: DocumentEnrichmentConditionOperator | undefined;
@@ -1316,10 +1526,12 @@ export interface InlineDocumentEnrichmentConfiguration {
  * <p>Provides the configuration information for invoking a Lambda function in
  *                 Lambda to alter document metadata and content when ingesting
  *             documents into Amazon Q Business.</p>
- *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
- *             the original or raw documents.</p>
+ *          <p>You can configure your Lambda function using the
+ *                 <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced
+ *             alterations on the original or raw documents.</p>
  *          <p>If you want to apply advanced alterations on the Amazon Q Business structured documents,
- *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
+ *             you must configure your Lambda function using
+ *                 <code>PostExtractionHookConfiguration</code>.</p>
  *          <p>You can only invoke one Lambda function. However, this function can invoke
  *             other functions it requires.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
@@ -1378,10 +1590,12 @@ export interface DocumentEnrichmentConfiguration {
    * <p>Provides the configuration information for invoking a Lambda function in
    *                 Lambda to alter document metadata and content when ingesting
    *             documents into Amazon Q Business.</p>
-   *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
-   *             the original or raw documents.</p>
+   *          <p>You can configure your Lambda function using the
+   *                 <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced
+   *             alterations on the original or raw documents.</p>
    *          <p>If you want to apply advanced alterations on the Amazon Q Business structured documents,
-   *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
+   *             you must configure your Lambda function using
+   *                 <code>PostExtractionHookConfiguration</code>.</p>
    *          <p>You can only invoke one Lambda function. However, this function can invoke
    *             other functions it requires.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
@@ -1393,10 +1607,12 @@ export interface DocumentEnrichmentConfiguration {
    * <p>Provides the configuration information for invoking a Lambda function in
    *                 Lambda to alter document metadata and content when ingesting
    *             documents into Amazon Q Business.</p>
-   *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
-   *             the original or raw documents.</p>
+   *          <p>You can configure your Lambda function using the
+   *                 <code>PreExtractionHookConfiguration</code> parameter if you want to apply advanced
+   *             alterations on the original or raw documents.</p>
    *          <p>If you want to apply advanced alterations on the Amazon Q Business structured documents,
-   *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
+   *             you must configure your Lambda function using
+   *                 <code>PostExtractionHookConfiguration</code>.</p>
    *          <p>You can only invoke one Lambda function. However, this function can invoke
    *             other functions it requires.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
@@ -2054,6 +2270,12 @@ export interface GetIndexResponse {
   displayName?: string;
 
   /**
+   * <p>The type of index attached to your Amazon Q Business application.</p>
+   * @public
+   */
+  type?: IndexType;
+
+  /**
    * <p> The Amazon Resource Name (ARN) of the Amazon Q Business index. </p>
    * @public
    */
@@ -2302,6 +2524,13 @@ export interface BasicAuthConfiguration {
 }
 
 /**
+ * <p>Information about invoking a custom plugin without any authentication or authorization
+ *             requirement.</p>
+ * @public
+ */
+export interface NoAuthConfiguration {}
+
+/**
  * <p>Information about the OAuth 2.0 authentication credential/token used to configure a
  *             plugin.</p>
  * @public
@@ -2328,6 +2557,7 @@ export interface OAuth2ClientCredentialConfiguration {
  */
 export type PluginAuthConfiguration =
   | PluginAuthConfiguration.BasicAuthConfigurationMember
+  | PluginAuthConfiguration.NoAuthConfigurationMember
   | PluginAuthConfiguration.OAuth2ClientCredentialConfigurationMember
   | PluginAuthConfiguration.$UnknownMember;
 
@@ -2343,6 +2573,7 @@ export namespace PluginAuthConfiguration {
   export interface BasicAuthConfigurationMember {
     basicAuthConfiguration: BasicAuthConfiguration;
     oAuth2ClientCredentialConfiguration?: never;
+    noAuthConfiguration?: never;
     $unknown?: never;
   }
 
@@ -2354,6 +2585,18 @@ export namespace PluginAuthConfiguration {
   export interface OAuth2ClientCredentialConfigurationMember {
     basicAuthConfiguration?: never;
     oAuth2ClientCredentialConfiguration: OAuth2ClientCredentialConfiguration;
+    noAuthConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about invoking a custom plugin without any authentication.</p>
+   * @public
+   */
+  export interface NoAuthConfigurationMember {
+    basicAuthConfiguration?: never;
+    oAuth2ClientCredentialConfiguration?: never;
+    noAuthConfiguration: NoAuthConfiguration;
     $unknown?: never;
   }
 
@@ -2363,12 +2606,14 @@ export namespace PluginAuthConfiguration {
   export interface $UnknownMember {
     basicAuthConfiguration?: never;
     oAuth2ClientCredentialConfiguration?: never;
+    noAuthConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     basicAuthConfiguration: (value: BasicAuthConfiguration) => T;
     oAuth2ClientCredentialConfiguration: (value: OAuth2ClientCredentialConfiguration) => T;
+    noAuthConfiguration: (value: NoAuthConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2376,8 +2621,34 @@ export namespace PluginAuthConfiguration {
     if (value.basicAuthConfiguration !== undefined) return visitor.basicAuthConfiguration(value.basicAuthConfiguration);
     if (value.oAuth2ClientCredentialConfiguration !== undefined)
       return visitor.oAuth2ClientCredentialConfiguration(value.oAuth2ClientCredentialConfiguration);
+    if (value.noAuthConfiguration !== undefined) return visitor.noAuthConfiguration(value.noAuthConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * <p> Configuration information required to create a custom plugin.</p>
+ * @public
+ */
+export interface CustomPluginConfiguration {
+  /**
+   * <p>A description for your custom plugin configuration.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The type of OpenAPI schema to use.</p>
+   * @public
+   */
+  apiSchemaType: APISchemaType | undefined;
+
+  /**
+   * <p>Contains either details about the S3 object containing the OpenAPI schema for the
+   *             action group or the JSON or YAML-formatted payload defining the schema.</p>
+   * @public
+   */
+  apiSchema: APISchema | undefined;
 }
 
 /**
@@ -2403,16 +2674,22 @@ export interface CreatePluginRequest {
   type: PluginType | undefined;
 
   /**
-   * <p>The source URL used for plugin configuration.</p>
-   * @public
-   */
-  serverUrl: string | undefined;
-
-  /**
    * <p>Authentication configuration information for an Amazon Q Business plugin.</p>
    * @public
    */
   authConfiguration: PluginAuthConfiguration | undefined;
+
+  /**
+   * <p>The source URL used for plugin configuration.</p>
+   * @public
+   */
+  serverUrl?: string;
+
+  /**
+   * <p>Contains configuration for a custom plugin.</p>
+   * @public
+   */
+  customPluginConfiguration?: CustomPluginConfiguration;
 
   /**
    * <p>A list of key-value pairs that identify or categorize the data source connector. You
@@ -2433,6 +2710,25 @@ export interface CreatePluginRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const PluginBuildStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PluginBuildStatus = (typeof PluginBuildStatus)[keyof typeof PluginBuildStatus];
+
+/**
+ * @public
  */
 export interface CreatePluginResponse {
   /**
@@ -2446,6 +2742,12 @@ export interface CreatePluginResponse {
    * @public
    */
   pluginArn?: string;
+
+  /**
+   * <p>The current status of a plugin. A plugin is modified asynchronously.</p>
+   * @public
+   */
+  buildStatus?: PluginBuildStatus;
 }
 
 /**
@@ -2542,6 +2844,18 @@ export interface GetPluginResponse {
   authConfiguration?: PluginAuthConfiguration;
 
   /**
+   * <p>Configuration information required to create a custom plugin.</p>
+   * @public
+   */
+  customPluginConfiguration?: CustomPluginConfiguration;
+
+  /**
+   * <p>The current status of a plugin. A plugin is modified asynchronously.</p>
+   * @public
+   */
+  buildStatus?: PluginBuildStatus;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the role with permission to access resources needed
    *             to create the plugin.</p>
    * @public
@@ -2628,6 +2942,12 @@ export interface Plugin {
   state?: PluginState;
 
   /**
+   * <p>The status of the plugin.</p>
+   * @public
+   */
+  buildStatus?: PluginBuildStatus;
+
+  /**
    * <p>The timestamp for when the plugin was created.</p>
    * @public
    */
@@ -2692,6 +3012,12 @@ export interface UpdatePluginRequest {
    * @public
    */
   serverUrl?: string;
+
+  /**
+   * <p>The configuration for a custom plugin.</p>
+   * @public
+   */
+  customPluginConfiguration?: CustomPluginConfiguration;
 
   /**
    * <p>The authentication configuration the plugin is using.</p>
@@ -3379,6 +3705,13 @@ export interface UpdateApplicationRequest {
   applicationId: string | undefined;
 
   /**
+   * <p> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either
+   *             creating for—or connecting to—your Amazon Q Business application.</p>
+   * @public
+   */
+  identityCenterInstanceArn?: string;
+
+  /**
    * <p>A name for the Amazon Q Business application.</p>
    * @public
    */
@@ -3672,13 +4005,13 @@ export interface GetWebExperienceResponse {
   status?: WebExperienceStatus;
 
   /**
-   * <p>The Unix timestamp when the retriever was created.</p>
+   * <p>The Unix timestamp when the Amazon Q Business web experience was last created.</p>
    * @public
    */
   createdAt?: Date;
 
   /**
-   * <p>The Unix timestamp when the data source connector was last updated.</p>
+   * <p>The Unix timestamp when the Amazon Q Business web experience was last updated.</p>
    * @public
    */
   updatedAt?: Date;
@@ -3717,6 +4050,8 @@ export interface GetWebExperienceResponse {
   roleArn?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The authentication configuration information for your Amazon Q Business web
    *             experience.</p>
    * @public
@@ -3830,6 +4165,15 @@ export interface UpdateWebExperienceRequest {
   webExperienceId: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the role with permission to access the Amazon Q Business
+   *             web experience and required resources.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * @deprecated
+   *
    * <p>The authentication configuration of the Amazon Q Business web experience.</p>
    * @public
    */
@@ -3916,6 +4260,19 @@ export interface AttachmentInput {
 }
 
 /**
+ * <p>A file input event activated by a end user request to upload files into their web
+ *             experience chat.</p>
+ * @public
+ */
+export interface AttachmentInputEvent {
+  /**
+   * <p>A file directly uploaded into a web experience chat.</p>
+   * @public
+   */
+  attachment?: AttachmentInput;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3969,6 +4326,61 @@ export interface DocumentAttribute {
    * @public
    */
   value: DocumentAttributeValue | undefined;
+}
+
+/**
+ * <p>A request made by Amazon Q Business to a third paty authentication server to authenticate
+ *             a custom plugin user.</p>
+ * @public
+ */
+export interface AuthChallengeRequest {
+  /**
+   * <p>The URL sent by Amazon Q Business to the third party authentication server to authenticate
+   *             a custom plugin user through an OAuth protocol.</p>
+   * @public
+   */
+  authorizationUrl: string | undefined;
+}
+
+/**
+ * <p>An authentication verification event activated by an end user request to use a custom
+ *             plugin.</p>
+ * @public
+ */
+export interface AuthChallengeRequestEvent {
+  /**
+   * <p>The URL sent by Amazon Q Business to a third party authentication server in response to an
+   *             authentication verification event activated by an end user request to use a custom
+   *             plugin. </p>
+   * @public
+   */
+  authorizationUrl: string | undefined;
+}
+
+/**
+ * <p>Contains details of the authentication information received from a third party
+ *             authentication server in response to an authentication challenge.</p>
+ * @public
+ */
+export interface AuthChallengeResponse {
+  /**
+   * <p>The mapping of key-value pairs in an authentication challenge response.</p>
+   * @public
+   */
+  responseMap: Record<string, string> | undefined;
+}
+
+/**
+ * <p>An authentication verification event response by a third party authentication server
+ *             to Amazon Q Business.</p>
+ * @public
+ */
+export interface AuthChallengeResponseEvent {
+  /**
+   * <p>The mapping of key-value pairs in an authentication challenge response.</p>
+   * @public
+   */
+  responseMap: Record<string, string> | undefined;
 }
 
 /**
@@ -4052,25 +4464,6 @@ export interface BatchDeleteDocumentResponse {
    * @public
    */
   failedDocuments?: FailedDocument[];
-}
-
-/**
- * <p>Information required for Amazon Q Business to find a specific file in an Amazon S3
- *             bucket.</p>
- * @public
- */
-export interface S3 {
-  /**
-   * <p>The name of the S3 bucket that contains the file.</p>
-   * @public
-   */
-  bucket: string | undefined;
-
-  /**
-   * <p>The name of the file.</p>
-   * @public
-   */
-  key: string | undefined;
 }
 
 /**
@@ -4372,6 +4765,68 @@ export namespace ChatModeConfiguration {
 }
 
 /**
+ * <p>The end of the streaming input for the <code>Chat</code> API.</p>
+ * @public
+ */
+export interface EndOfInputEvent {}
+
+/**
+ * <p>An input event for a end user message in an Amazon Q Business web experience. </p>
+ * @public
+ */
+export interface TextInputEvent {
+  /**
+   * <p>A user message in a text message input event.</p>
+   * @public
+   */
+  userMessage: string | undefined;
+}
+
+/**
+ * <p>A failed file upload during web experience chat.</p>
+ * @public
+ */
+export interface FailedAttachmentEvent {
+  /**
+   * <p> The identifier of the conversation associated with the failed file upload.</p>
+   * @public
+   */
+  conversationId?: string;
+
+  /**
+   * <p>The identifier of the end user chat message associated with the file upload.</p>
+   * @public
+   */
+  userMessageId?: string;
+
+  /**
+   * <p>The identifier of the AI-generated message associated with the file upload.</p>
+   * @public
+   */
+  systemMessageId?: string;
+
+  /**
+   * <p>The details of a file uploaded during chat.</p>
+   * @public
+   */
+  attachment?: AttachmentOutput;
+}
+
+/**
+ * <p>Contains the relevant text excerpt from a source that was used to generate a citation
+ *             text segment in an Amazon Q Business chat response.</p>
+ * @public
+ */
+export interface SnippetExcerpt {
+  /**
+   * <p>The relevant text excerpt from a source that was used to generate a citation text
+   *             segment in an Amazon Q chat response.</p>
+   * @public
+   */
+  text?: string;
+}
+
+/**
  * <p>Provides information about a text extract in a chat response that can be attributed to
  *             a source document.</p>
  * @public
@@ -4390,6 +4845,13 @@ export interface TextSegment {
    * @public
    */
   endOffset?: number;
+
+  /**
+   * <p>The relevant text excerpt from a source that was used to generate a citation text
+   *             segment in an Amazon Q Business chat response.</p>
+   * @public
+   */
+  snippetExcerpt?: SnippetExcerpt;
 }
 
 /**
@@ -4438,6 +4900,227 @@ export interface SourceAttribution {
 }
 
 /**
+ * <p>A metadata event for a AI-generated text output message in a Amazon Q Business
+ *             conversation, containing associated metadata generated.</p>
+ * @public
+ */
+export interface MetadataEvent {
+  /**
+   * <p>The identifier of the conversation with which the generated metadata is
+   *             associated.</p>
+   * @public
+   */
+  conversationId?: string;
+
+  /**
+   * <p>The identifier of an Amazon Q Business end user text input message within the
+   *             conversation.</p>
+   * @public
+   */
+  userMessageId?: string;
+
+  /**
+   * <p>The identifier of an Amazon Q Business AI generated message within the
+   *             conversation.</p>
+   * @public
+   */
+  systemMessageId?: string;
+
+  /**
+   * <p>The source documents used to generate the conversation response.</p>
+   * @public
+   */
+  sourceAttributions?: SourceAttribution[];
+
+  /**
+   * <p>The final text output message generated by the system.</p>
+   * @public
+   */
+  finalTextMessage?: string;
+}
+
+/**
+ * <p>An output event for an AI-generated response in an Amazon Q Business web
+ *             experience.</p>
+ * @public
+ */
+export interface TextOutputEvent {
+  /**
+   * <p>The identifier of the conversation with which the text output event is
+   *             associated.</p>
+   * @public
+   */
+  conversationId?: string;
+
+  /**
+   * <p>The identifier of an end user message in a <code>TextOutputEvent</code>.</p>
+   * @public
+   */
+  userMessageId?: string;
+
+  /**
+   * <p>The identifier of an AI-generated message in a <code>TextOutputEvent</code>.</p>
+   * @public
+   */
+  systemMessageId?: string;
+
+  /**
+   * <p>An AI-generated message in a <code>TextOutputEvent</code>.</p>
+   * @public
+   */
+  systemMessage?: string;
+}
+
+/**
+ * <p>The streaming output for the <code>Chat</code> API.</p>
+ * @public
+ */
+export type ChatOutputStream =
+  | ChatOutputStream.ActionReviewEventMember
+  | ChatOutputStream.AuthChallengeRequestEventMember
+  | ChatOutputStream.FailedAttachmentEventMember
+  | ChatOutputStream.MetadataEventMember
+  | ChatOutputStream.TextEventMember
+  | ChatOutputStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ChatOutputStream {
+  /**
+   * <p>Information about the payload of the <code>ChatOutputStream</code> event containing
+   *             the AI-generated message output.</p>
+   * @public
+   */
+  export interface TextEventMember {
+    textEvent: TextOutputEvent;
+    metadataEvent?: never;
+    actionReviewEvent?: never;
+    failedAttachmentEvent?: never;
+    authChallengeRequestEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A metadata event for a AI-generated text output message in a Amazon Q Business
+   *             conversation. </p>
+   * @public
+   */
+  export interface MetadataEventMember {
+    textEvent?: never;
+    metadataEvent: MetadataEvent;
+    actionReviewEvent?: never;
+    failedAttachmentEvent?: never;
+    authChallengeRequestEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A request from Amazon Q Business to the end user for information Amazon Q Business needs to
+   *             successfully complete a requested plugin action.</p>
+   * @public
+   */
+  export interface ActionReviewEventMember {
+    textEvent?: never;
+    metadataEvent?: never;
+    actionReviewEvent: ActionReviewEvent;
+    failedAttachmentEvent?: never;
+    authChallengeRequestEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A failed file upload event during a web experience chat.</p>
+   * @public
+   */
+  export interface FailedAttachmentEventMember {
+    textEvent?: never;
+    metadataEvent?: never;
+    actionReviewEvent?: never;
+    failedAttachmentEvent: FailedAttachmentEvent;
+    authChallengeRequestEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An authentication verification event activated by an end user request to use a custom
+   *             plugin.</p>
+   * @public
+   */
+  export interface AuthChallengeRequestEventMember {
+    textEvent?: never;
+    metadataEvent?: never;
+    actionReviewEvent?: never;
+    failedAttachmentEvent?: never;
+    authChallengeRequestEvent: AuthChallengeRequestEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    textEvent?: never;
+    metadataEvent?: never;
+    actionReviewEvent?: never;
+    failedAttachmentEvent?: never;
+    authChallengeRequestEvent?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    textEvent: (value: TextOutputEvent) => T;
+    metadataEvent: (value: MetadataEvent) => T;
+    actionReviewEvent: (value: ActionReviewEvent) => T;
+    failedAttachmentEvent: (value: FailedAttachmentEvent) => T;
+    authChallengeRequestEvent: (value: AuthChallengeRequestEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ChatOutputStream, visitor: Visitor<T>): T => {
+    if (value.textEvent !== undefined) return visitor.textEvent(value.textEvent);
+    if (value.metadataEvent !== undefined) return visitor.metadataEvent(value.metadataEvent);
+    if (value.actionReviewEvent !== undefined) return visitor.actionReviewEvent(value.actionReviewEvent);
+    if (value.failedAttachmentEvent !== undefined) return visitor.failedAttachmentEvent(value.failedAttachmentEvent);
+    if (value.authChallengeRequestEvent !== undefined)
+      return visitor.authChallengeRequestEvent(value.authChallengeRequestEvent);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface ChatOutput {
+  /**
+   * <p>The streaming output for the <code>Chat</code> API.</p>
+   * @public
+   */
+  outputStream?: AsyncIterable<ChatOutputStream>;
+}
+
+/**
+ * <p>You don't have permissions to perform the action because your license is inactive. Ask
+ *             your admin to activate your license and try again after your licence is active.</p>
+ * @public
+ */
+export class LicenseNotFoundException extends __BaseException {
+  readonly name: "LicenseNotFoundException" = "LicenseNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LicenseNotFoundException, __BaseException>) {
+    super({
+      name: "LicenseNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LicenseNotFoundException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface ChatSyncOutput {
@@ -4475,6 +5158,13 @@ export interface ChatSyncOutput {
   actionReview?: ActionReview;
 
   /**
+   * <p>An authentication verification event activated by an end user request to use a custom
+   *             plugin.</p>
+   * @public
+   */
+  authChallengeRequest?: AuthChallengeRequest;
+
+  /**
    * <p>The source documents used to generate the conversation response.</p>
    * @public
    */
@@ -4485,27 +5175,6 @@ export interface ChatSyncOutput {
    * @public
    */
   failedAttachments?: AttachmentOutput[];
-}
-
-/**
- * <p>You don't have permissions to perform the action because your license is inactive. Ask
- *             your admin to activate your license and try again after your licence is active.</p>
- * @public
- */
-export class LicenseNotFoundException extends __BaseException {
-  readonly name: "LicenseNotFoundException" = "LicenseNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LicenseNotFoundException, __BaseException>) {
-    super({
-      name: "LicenseNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LicenseNotFoundException.prototype);
-  }
 }
 
 /**
@@ -6257,6 +6926,13 @@ export interface ChatSyncInput {
   actionExecution?: ActionExecution;
 
   /**
+   * <p>An authentication verification event response by a third party authentication server
+   *             to Amazon Q Business.</p>
+   * @public
+   */
+  authChallengeResponse?: AuthChallengeResponse;
+
+  /**
    * <p>The identifier of the Amazon Q Business conversation.</p>
    * @public
    */
@@ -6276,7 +6952,7 @@ export interface ChatSyncInput {
   attributeFilter?: AttributeFilter;
 
   /**
-   * <p>The chat modes available in an Amazon Q Business web experience.</p>
+   * <p>The chat modes available to an Amazon Q Business end user.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6317,6 +6993,250 @@ export interface ChatSyncInput {
 }
 
 /**
+ * <p>A configuration event activated by an end user request to select a specific chat
+ *             mode.</p>
+ * @public
+ */
+export interface ConfigurationEvent {
+  /**
+   * <p>The chat modes available to an Amazon Q Business end user.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RETRIEVAL_MODE</code> - The default chat mode for an
+   *                     Amazon Q Business application. When this mode is enabled, Amazon Q Business generates
+   *                     responses only from data sources connected to an Amazon Q Business
+   *                     application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATOR_MODE</code> - By selecting this mode, users can choose to
+   *                     generate responses only from the LLM knowledge, without consulting connected
+   *                     data sources, for a chat request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PLUGIN_MODE</code> - By selecting this mode, users can choose to
+   *                     use plugins in chat.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a>, <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/plugins.html">Plugins</a>,
+   *             and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+   * @public
+   */
+  chatMode?: ChatMode;
+
+  /**
+   * <p>Configuration information for Amazon Q Business conversation modes.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/guardrails.html">Admin controls and guardrails</a> and <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html#chat-source-scope">Conversation settings</a>.</p>
+   * @public
+   */
+  chatModeConfiguration?: ChatModeConfiguration;
+
+  /**
+   * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
+   * @public
+   */
+  attributeFilter?: AttributeFilter;
+}
+
+/**
+ * <p>The streaming input for the <code>Chat</code> API.</p>
+ * @public
+ */
+export type ChatInputStream =
+  | ChatInputStream.ActionExecutionEventMember
+  | ChatInputStream.AttachmentEventMember
+  | ChatInputStream.AuthChallengeResponseEventMember
+  | ChatInputStream.ConfigurationEventMember
+  | ChatInputStream.EndOfInputEventMember
+  | ChatInputStream.TextEventMember
+  | ChatInputStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ChatInputStream {
+  /**
+   * <p>A configuration event activated by an end user request to select a specific chat
+   *             mode.</p>
+   * @public
+   */
+  export interface ConfigurationEventMember {
+    configurationEvent: ConfigurationEvent;
+    textEvent?: never;
+    attachmentEvent?: never;
+    actionExecutionEvent?: never;
+    endOfInputEvent?: never;
+    authChallengeResponseEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the payload of the <code>ChatInputStream</code> event containing the
+   *             end user message input.</p>
+   * @public
+   */
+  export interface TextEventMember {
+    configurationEvent?: never;
+    textEvent: TextInputEvent;
+    attachmentEvent?: never;
+    actionExecutionEvent?: never;
+    endOfInputEvent?: never;
+    authChallengeResponseEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A request by an end user to upload a file during chat.</p>
+   * @public
+   */
+  export interface AttachmentEventMember {
+    configurationEvent?: never;
+    textEvent?: never;
+    attachmentEvent: AttachmentInputEvent;
+    actionExecutionEvent?: never;
+    endOfInputEvent?: never;
+    authChallengeResponseEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A request from an end user to perform an Amazon Q Business plugin action.</p>
+   * @public
+   */
+  export interface ActionExecutionEventMember {
+    configurationEvent?: never;
+    textEvent?: never;
+    attachmentEvent?: never;
+    actionExecutionEvent: ActionExecutionEvent;
+    endOfInputEvent?: never;
+    authChallengeResponseEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The end of the streaming input for the <code>Chat</code> API.</p>
+   * @public
+   */
+  export interface EndOfInputEventMember {
+    configurationEvent?: never;
+    textEvent?: never;
+    attachmentEvent?: never;
+    actionExecutionEvent?: never;
+    endOfInputEvent: EndOfInputEvent;
+    authChallengeResponseEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An authentication verification event response by a third party authentication server
+   *             to Amazon Q Business.</p>
+   * @public
+   */
+  export interface AuthChallengeResponseEventMember {
+    configurationEvent?: never;
+    textEvent?: never;
+    attachmentEvent?: never;
+    actionExecutionEvent?: never;
+    endOfInputEvent?: never;
+    authChallengeResponseEvent: AuthChallengeResponseEvent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    configurationEvent?: never;
+    textEvent?: never;
+    attachmentEvent?: never;
+    actionExecutionEvent?: never;
+    endOfInputEvent?: never;
+    authChallengeResponseEvent?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    configurationEvent: (value: ConfigurationEvent) => T;
+    textEvent: (value: TextInputEvent) => T;
+    attachmentEvent: (value: AttachmentInputEvent) => T;
+    actionExecutionEvent: (value: ActionExecutionEvent) => T;
+    endOfInputEvent: (value: EndOfInputEvent) => T;
+    authChallengeResponseEvent: (value: AuthChallengeResponseEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ChatInputStream, visitor: Visitor<T>): T => {
+    if (value.configurationEvent !== undefined) return visitor.configurationEvent(value.configurationEvent);
+    if (value.textEvent !== undefined) return visitor.textEvent(value.textEvent);
+    if (value.attachmentEvent !== undefined) return visitor.attachmentEvent(value.attachmentEvent);
+    if (value.actionExecutionEvent !== undefined) return visitor.actionExecutionEvent(value.actionExecutionEvent);
+    if (value.endOfInputEvent !== undefined) return visitor.endOfInputEvent(value.endOfInputEvent);
+    if (value.authChallengeResponseEvent !== undefined)
+      return visitor.authChallengeResponseEvent(value.authChallengeResponseEvent);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface ChatInput {
+  /**
+   * <p>The identifier of the Amazon Q Business application linked to a streaming Amazon Q Business
+   *             conversation.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the user attached to the chat input. </p>
+   * @public
+   */
+  userId?: string;
+
+  /**
+   * <p>The groups that a user associated with the chat input belongs to.</p>
+   * @public
+   */
+  userGroups?: string[];
+
+  /**
+   * <p>The identifier of the Amazon Q Business conversation.</p>
+   * @public
+   */
+  conversationId?: string;
+
+  /**
+   * <p>The identifier used to associate a user message with a AI generated response.</p>
+   * @public
+   */
+  parentMessageId?: string;
+
+  /**
+   * <p>A token that you provide to identify the chat input.</p>
+   * @public
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The streaming input for the <code>Chat</code> API.</p>
+   * @public
+   */
+  inputStream?: AsyncIterable<ChatInputStream>;
+}
+
+/**
+ * @internal
+ */
+export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
+  if (obj.payload !== undefined) return { payload: SENSITIVE_STRING };
+  if (obj.s3 !== undefined) return { s3: obj.s3 };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
  * @internal
  */
 export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
@@ -6342,4 +7262,87 @@ export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResp
   ...(obj.encryptionConfiguration && {
     encryptionConfiguration: EncryptionConfigurationFilterSensitiveLog(obj.encryptionConfiguration),
   }),
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginConfigurationFilterSensitiveLog = (obj: CustomPluginConfiguration): any => ({
+  ...obj,
+  ...(obj.apiSchema && { apiSchema: APISchemaFilterSensitiveLog(obj.apiSchema) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePluginRequestFilterSensitiveLog = (obj: CreatePluginRequest): any => ({
+  ...obj,
+  ...(obj.authConfiguration && { authConfiguration: obj.authConfiguration }),
+  ...(obj.customPluginConfiguration && {
+    customPluginConfiguration: CustomPluginConfigurationFilterSensitiveLog(obj.customPluginConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetPluginResponseFilterSensitiveLog = (obj: GetPluginResponse): any => ({
+  ...obj,
+  ...(obj.authConfiguration && { authConfiguration: obj.authConfiguration }),
+  ...(obj.customPluginConfiguration && {
+    customPluginConfiguration: CustomPluginConfigurationFilterSensitiveLog(obj.customPluginConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePluginRequestFilterSensitiveLog = (obj: UpdatePluginRequest): any => ({
+  ...obj,
+  ...(obj.customPluginConfiguration && {
+    customPluginConfiguration: CustomPluginConfigurationFilterSensitiveLog(obj.customPluginConfiguration),
+  }),
+  ...(obj.authConfiguration && { authConfiguration: obj.authConfiguration }),
+});
+
+/**
+ * @internal
+ */
+export const ChatOutputStreamFilterSensitiveLog = (obj: ChatOutputStream): any => {
+  if (obj.textEvent !== undefined) return { textEvent: obj.textEvent };
+  if (obj.metadataEvent !== undefined) return { metadataEvent: obj.metadataEvent };
+  if (obj.actionReviewEvent !== undefined) return { actionReviewEvent: obj.actionReviewEvent };
+  if (obj.failedAttachmentEvent !== undefined) return { failedAttachmentEvent: obj.failedAttachmentEvent };
+  if (obj.authChallengeRequestEvent !== undefined) return { authChallengeRequestEvent: obj.authChallengeRequestEvent };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ChatOutputFilterSensitiveLog = (obj: ChatOutput): any => ({
+  ...obj,
+  ...(obj.outputStream && { outputStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const ChatInputStreamFilterSensitiveLog = (obj: ChatInputStream): any => {
+  if (obj.configurationEvent !== undefined) return { configurationEvent: obj.configurationEvent };
+  if (obj.textEvent !== undefined) return { textEvent: obj.textEvent };
+  if (obj.attachmentEvent !== undefined) return { attachmentEvent: obj.attachmentEvent };
+  if (obj.actionExecutionEvent !== undefined) return { actionExecutionEvent: obj.actionExecutionEvent };
+  if (obj.endOfInputEvent !== undefined) return { endOfInputEvent: obj.endOfInputEvent };
+  if (obj.authChallengeResponseEvent !== undefined)
+    return { authChallengeResponseEvent: obj.authChallengeResponseEvent };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ChatInputFilterSensitiveLog = (obj: ChatInput): any => ({
+  ...obj,
+  ...(obj.inputStream && { inputStream: "STREAMING_CONTENT" }),
 });

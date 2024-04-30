@@ -6,9 +6,6 @@
 
 AWS SDK for JavaScript QBusiness Client for Node.js, Browser and React Native.
 
-<note>
-<p>Amazon Q is in preview release and is subject to change.</p>
-</note>
 <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
 managed, generative-AI powered enterprise chat assistant that you can deploy within your
 organization. Amazon Q Business enhances employee productivity by supporting key tasks such
@@ -298,6 +295,14 @@ BatchPutDocument
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/BatchPutDocumentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/BatchPutDocumentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/BatchPutDocumentCommandOutput/)
+
+</details>
+<details>
+<summary>
+Chat
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ChatCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ChatCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ChatCommandOutput/)
 
 </details>
 <details>

@@ -28,6 +28,9 @@ import {
 import {
   DocumentType as __DocumentType,
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
+  Message as __Message,
+  MessageHeaders as __MessageHeaders,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
@@ -38,6 +41,7 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "../commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "../commands/BatchPutDocumentCommand";
+import { ChatCommandInput, ChatCommandOutput } from "../commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "../commands/ChatSyncCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
@@ -126,22 +130,33 @@ import {
   AccessControl,
   AccessDeniedException,
   ActionExecution,
+  ActionExecutionEvent,
   ActionExecutionPayloadField,
   ActionReview,
+  ActionReviewEvent,
   ActionReviewPayloadField,
   ActionReviewPayloadFieldAllowedValue,
+  APISchema,
   Application,
   AttachmentInput,
+  AttachmentInputEvent,
   AttachmentsConfiguration,
   AttributeFilter,
+  AuthChallengeRequestEvent,
+  AuthChallengeResponse,
+  AuthChallengeResponseEvent,
   BasicAuthConfiguration,
   BlockedPhrasesConfigurationUpdate,
+  ChatInputStream,
   ChatModeConfiguration,
+  ChatOutputStream,
+  ConfigurationEvent,
   ConflictException,
   ContentBlockerRule,
   ContentRetrievalRule,
   Conversation,
   CreatorModeConfiguration,
+  CustomPluginConfiguration,
   DataSource,
   DataSourceSyncJob,
   DataSourceVpcConfiguration,
@@ -159,6 +174,8 @@ import {
   DocumentEnrichmentConfiguration,
   EligibleDataSource,
   EncryptionConfiguration,
+  EndOfInputEvent,
+  FailedAttachmentEvent,
   GroupMembers,
   GroupStatusDetail,
   HookConfiguration,
@@ -172,7 +189,9 @@ import {
   MemberUser,
   Message,
   MessageUsefulnessFeedback,
+  MetadataEvent,
   NativeIndexConfiguration,
+  NoAuthConfiguration,
   NumberAttributeBoostingConfiguration,
   OAuth2ClientCredentialConfiguration,
   Plugin,
@@ -193,6 +212,8 @@ import {
   StringAttributeValueBoostingLevel,
   StringListAttributeBoostingConfiguration,
   Tag,
+  TextInputEvent,
+  TextOutputEvent,
   ThrottlingException,
   TopicConfiguration,
   UserAlias,
@@ -255,6 +276,32 @@ export const se_BatchPutDocumentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ChatCommand
+ */
+export const se_ChatCommand = async (
+  input: ChatCommandInput,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/conversations");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  const query: any = map({
+    [_uI]: [, input[_uI]!],
+    [_uG]: [() => input.userGroups !== void 0, () => (input[_uG]! || []).map((_entry) => _entry as any)],
+    [_cI]: [, input[_cI]!],
+    [_pMI]: [, input[_pMI]!],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  if (input.inputStream !== undefined) {
+    body = se_ChatInputStream(input.inputStream, context);
+  }
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ChatSyncCommand
  */
 export const se_ChatSyncCommand = async (
@@ -278,6 +325,7 @@ export const se_ChatSyncCommand = async (
       actionExecution: (_) => se_ActionExecution(_, context),
       attachments: (_) => se_AttachmentsInput(_, context),
       attributeFilter: (_) => se_AttributeFilter(_, context),
+      authChallengeResponse: (_) => _json(_),
       chatMode: [],
       chatModeConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
@@ -372,6 +420,7 @@ export const se_CreateIndexCommand = async (
       description: [],
       displayName: [],
       tags: (_) => _json(_),
+      type: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -396,6 +445,7 @@ export const se_CreatePluginCommand = async (
     take(input, {
       authConfiguration: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customPluginConfiguration: (_) => _json(_),
       displayName: [],
       serverUrl: [],
       tags: (_) => _json(_),
@@ -1232,6 +1282,7 @@ export const se_UpdateApplicationCommand = async (
       attachmentsConfiguration: (_) => _json(_),
       description: [],
       displayName: [],
+      identityCenterInstanceArn: [],
       roleArn: [],
     })
   );
@@ -1343,6 +1394,7 @@ export const se_UpdatePluginCommand = async (
   body = JSON.stringify(
     take(input, {
       authConfiguration: (_) => _json(_),
+      customPluginConfiguration: (_) => _json(_),
       displayName: [],
       serverUrl: [],
       state: [],
@@ -1421,6 +1473,7 @@ export const se_UpdateWebExperienceCommand = async (
   body = JSON.stringify(
     take(input, {
       authenticationConfiguration: (_) => _json(_),
+      roleArn: [],
       samplePromptsControlMode: [],
       subtitle: [],
       title: [],
@@ -1474,6 +1527,24 @@ export const de_BatchPutDocumentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ChatCommand
+ */
+export const de_ChatCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<ChatCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = output.body;
+  contents.outputStream = de_ChatOutputStream(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ChatSyncCommand
  */
 export const de_ChatSyncCommand = async (
@@ -1489,6 +1560,7 @@ export const de_ChatSyncCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     actionReview: (_) => de_ActionReview(_, context),
+    authChallengeRequest: _json,
     conversationId: __expectString,
     failedAttachments: _json,
     sourceAttributions: (_) => de_SourceAttributions(_, context),
@@ -1581,6 +1653,7 @@ export const de_CreatePluginCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    buildStatus: __expectString,
     pluginArn: __expectString,
     pluginId: __expectString,
   });
@@ -1960,6 +2033,7 @@ export const de_GetIndexCommand = async (
     indexId: __expectString,
     indexStatistics: _json,
     status: __expectString,
+    type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
@@ -1983,7 +2057,9 @@ export const de_GetPluginCommand = async (
   const doc = take(data, {
     applicationId: __expectString,
     authConfiguration: (_) => _json(__expectUnion(_)),
+    buildStatus: __expectString,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customPluginConfiguration: _json,
     displayName: __expectString,
     pluginArn: __expectString,
     pluginId: __expectString,
@@ -2796,6 +2872,160 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * serializeAws_restJson1ChatInputStream
+ */
+const se_ChatInputStream = (input: any, context: __SerdeContext & __EventStreamSerdeContext): any => {
+  const eventMarshallingVisitor = (event: any): __Message =>
+    ChatInputStream.visit(event, {
+      configurationEvent: (value) => se_ConfigurationEvent_event(value, context),
+      textEvent: (value) => se_TextInputEvent_event(value, context),
+      attachmentEvent: (value) => se_AttachmentInputEvent_event(value, context),
+      actionExecutionEvent: (value) => se_ActionExecutionEvent_event(value, context),
+      endOfInputEvent: (value) => se_EndOfInputEvent_event(value, context),
+      authChallengeResponseEvent: (value) => se_AuthChallengeResponseEvent_event(value, context),
+      _: (value) => value as any,
+    });
+  return context.eventStreamMarshaller.serialize(input, eventMarshallingVisitor);
+};
+const se_ActionExecutionEvent_event = (input: ActionExecutionEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "ActionExecutionEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = se_ActionExecutionEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const se_AttachmentInputEvent_event = (input: AttachmentInputEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "AttachmentInputEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = se_AttachmentInputEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const se_AuthChallengeResponseEvent_event = (input: AuthChallengeResponseEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "AuthChallengeResponseEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = _json(input);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "ConfigurationEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = se_ConfigurationEvent(input, context);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const se_EndOfInputEvent_event = (input: EndOfInputEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "EndOfInputEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = _json(input);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+const se_TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
+  const headers: __MessageHeaders = {
+    ":event-type": { type: "string", value: "TextInputEvent" },
+    ":message-type": { type: "string", value: "event" },
+    ":content-type": { type: "string", value: "application/json" },
+  };
+  let body = new Uint8Array();
+  body = _json(input);
+  body = context.utf8Decoder(JSON.stringify(body));
+  return { headers, body };
+};
+/**
+ * deserializeAws_restJson1ChatOutputStream
+ */
+const de_ChatOutputStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<ChatOutputStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["textEvent"] != null) {
+      return {
+        textEvent: await de_TextOutputEvent_event(event["textEvent"], context),
+      };
+    }
+    if (event["metadataEvent"] != null) {
+      return {
+        metadataEvent: await de_MetadataEvent_event(event["metadataEvent"], context),
+      };
+    }
+    if (event["actionReviewEvent"] != null) {
+      return {
+        actionReviewEvent: await de_ActionReviewEvent_event(event["actionReviewEvent"], context),
+      };
+    }
+    if (event["failedAttachmentEvent"] != null) {
+      return {
+        failedAttachmentEvent: await de_FailedAttachmentEvent_event(event["failedAttachmentEvent"], context),
+      };
+    }
+    if (event["authChallengeRequestEvent"] != null) {
+      return {
+        authChallengeRequestEvent: await de_AuthChallengeRequestEvent_event(
+          event["authChallengeRequestEvent"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+const de_ActionReviewEvent_event = async (output: any, context: __SerdeContext): Promise<ActionReviewEvent> => {
+  const contents: ActionReviewEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_ActionReviewEvent(data, context));
+  return contents;
+};
+const de_AuthChallengeRequestEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<AuthChallengeRequestEvent> => {
+  const contents: AuthChallengeRequestEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_FailedAttachmentEvent_event = async (output: any, context: __SerdeContext): Promise<FailedAttachmentEvent> => {
+  const contents: FailedAttachmentEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_MetadataEvent_event = async (output: any, context: __SerdeContext): Promise<MetadataEvent> => {
+  const contents: MetadataEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_MetadataEvent(data, context));
+  return contents;
+};
+const de_TextOutputEvent_event = async (output: any, context: __SerdeContext): Promise<TextOutputEvent> => {
+  const contents: TextOutputEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
 // se_AccessConfiguration omitted.
 
 // se_AccessControl omitted.
@@ -2806,6 +3036,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  * serializeAws_restJson1ActionExecution
  */
 const se_ActionExecution = (input: ActionExecution, context: __SerdeContext): any => {
+  return take(input, {
+    payload: (_) => se_ActionExecutionPayload(_, context),
+    payloadFieldNameSeparator: [],
+    pluginId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ActionExecutionEvent
+ */
+const se_ActionExecutionEvent = (input: ActionExecutionEvent, context: __SerdeContext): any => {
   return take(input, {
     payload: (_) => se_ActionExecutionPayload(_, context),
     payloadFieldNameSeparator: [],
@@ -2845,6 +3086,8 @@ const se_ActionPayloadFieldValue = (input: __DocumentType, context: __SerdeConte
   return input;
 };
 
+// se_APISchema omitted.
+
 /**
  * serializeAws_restJson1AttachmentInput
  */
@@ -2852,6 +3095,15 @@ const se_AttachmentInput = (input: AttachmentInput, context: __SerdeContext): an
   return take(input, {
     data: context.base64Encoder,
     name: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1AttachmentInputEvent
+ */
+const se_AttachmentInputEvent = (input: AttachmentInputEvent, context: __SerdeContext): any => {
+  return take(input, {
+    attachment: (_) => se_AttachmentInput(_, context),
   });
 };
 
@@ -2897,6 +3149,12 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
     });
 };
 
+// se_AuthChallengeResponse omitted.
+
+// se_AuthChallengeResponseEvent omitted.
+
+// se_AuthorizationResponseMap omitted.
+
 // se_BasicAuthConfiguration omitted.
 
 // se_BlockedPhrases omitted.
@@ -2905,11 +3163,24 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
 
 // se_ChatModeConfiguration omitted.
 
+/**
+ * serializeAws_restJson1ConfigurationEvent
+ */
+const se_ConfigurationEvent = (input: ConfigurationEvent, context: __SerdeContext): any => {
+  return take(input, {
+    attributeFilter: (_) => se_AttributeFilter(_, context),
+    chatMode: [],
+    chatModeConfiguration: _json,
+  });
+};
+
 // se_ContentBlockerRule omitted.
 
 // se_ContentRetrievalRule omitted.
 
 // se_CreatorModeConfiguration omitted.
+
+// se_CustomPluginConfiguration omitted.
 
 /**
  * serializeAws_restJson1DataSourceConfiguration
@@ -3046,6 +3317,8 @@ const se_Documents = (input: Document[], context: __SerdeContext): any => {
 
 // se_EncryptionConfiguration omitted.
 
+// se_EndOfInputEvent omitted.
+
 // se_ExampleChatMessages omitted.
 
 // se_GroupMembers omitted.
@@ -3116,6 +3389,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_NativeIndexConfiguration omitted.
 
+// se_NoAuthConfiguration omitted.
+
 // se_NumberAttributeBoostingConfiguration omitted.
 
 // se_OAuth2ClientCredentialConfiguration omitted.
@@ -3157,6 +3432,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 // se_Tag omitted.
 
 // se_Tags omitted.
+
+// se_TextInputEvent omitted.
 
 // se_TopicConfiguration omitted.
 
@@ -3233,6 +3510,21 @@ const de_ActionReview = (output: any, context: __SerdeContext): ActionReview => 
 };
 
 /**
+ * deserializeAws_restJson1ActionReviewEvent
+ */
+const de_ActionReviewEvent = (output: any, context: __SerdeContext): ActionReviewEvent => {
+  return take(output, {
+    conversationId: __expectString,
+    payload: (_: any) => de_ActionReviewPayload(_, context),
+    payloadFieldNameSeparator: __expectString,
+    pluginId: __expectString,
+    pluginType: __expectString,
+    systemMessageId: __expectString,
+    userMessageId: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ActionReviewPayload
  */
 const de_ActionReviewPayload = (output: any, context: __SerdeContext): Record<string, ActionReviewPayloadField> => {
@@ -3250,7 +3542,9 @@ const de_ActionReviewPayload = (output: any, context: __SerdeContext): Record<st
  */
 const de_ActionReviewPayloadField = (output: any, context: __SerdeContext): ActionReviewPayloadField => {
   return take(output, {
+    allowedFormat: __expectString,
     allowedValues: (_: any) => de_ActionReviewPayloadFieldAllowedValues(_, context),
+    displayDescription: __expectString,
     displayName: __expectString,
     displayOrder: __expectInt32,
     required: __expectBoolean,
@@ -3287,6 +3581,8 @@ const de_ActionReviewPayloadFieldAllowedValues = (
   return retVal;
 };
 
+// de_APISchema omitted.
+
 /**
  * deserializeAws_restJson1Application
  */
@@ -3320,6 +3616,10 @@ const de_Applications = (output: any, context: __SerdeContext): Application[] =>
 
 // de_AttachmentsOutput omitted.
 
+// de_AuthChallengeRequest omitted.
+
+// de_AuthChallengeRequestEvent omitted.
+
 // de_BasicAuthConfiguration omitted.
 
 // de_BlockedPhrases omitted.
@@ -3352,6 +3652,8 @@ const de_Conversations = (output: any, context: __SerdeContext): Conversation[] 
     });
   return retVal;
 };
+
+// de_CustomPluginConfiguration omitted.
 
 /**
  * deserializeAws_restJson1DataSource
@@ -3520,6 +3822,8 @@ const de_DocumentEnrichmentConfiguration = (output: any, context: __SerdeContext
 
 // de_ExampleChatMessages omitted.
 
+// de_FailedAttachmentEvent omitted.
+
 // de_FailedDocument omitted.
 
 // de_FailedDocuments omitted.
@@ -3651,7 +3955,22 @@ const de_Messages = (output: any, context: __SerdeContext): Message[] => {
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1MetadataEvent
+ */
+const de_MetadataEvent = (output: any, context: __SerdeContext): MetadataEvent => {
+  return take(output, {
+    conversationId: __expectString,
+    finalTextMessage: __expectString,
+    sourceAttributions: (_: any) => de_SourceAttributions(_, context),
+    systemMessageId: __expectString,
+    userMessageId: __expectString,
+  }) as any;
+};
+
 // de_NativeIndexConfiguration omitted.
+
+// de_NoAuthConfiguration omitted.
 
 // de_NumberAttributeBoostingConfiguration omitted.
 
@@ -3662,6 +3981,7 @@ const de_Messages = (output: any, context: __SerdeContext): Message[] => {
  */
 const de_Plugin = (output: any, context: __SerdeContext): Plugin => {
   return take(output, {
+    buildStatus: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     displayName: __expectString,
     pluginId: __expectString,
@@ -3698,9 +4018,13 @@ const de_Plugins = (output: any, context: __SerdeContext): Plugin[] => {
 
 // de_Rules omitted.
 
+// de_S3 omitted.
+
 // de_SamlConfiguration omitted.
 
 // de_SecurityGroupIds omitted.
+
+// de_SnippetExcerpt omitted.
 
 /**
  * deserializeAws_restJson1SourceAttribution
@@ -3742,6 +4066,8 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
 // de_Tags omitted.
 
 // de_TextDocumentStatistics omitted.
+
+// de_TextOutputEvent omitted.
 
 // de_TextSegment omitted.
 
@@ -3811,11 +4137,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _cI = "conversationId";
+const _cT = "clientToken";
 const _dSI = "dataSourceId";
 const _dSIa = "dataSourceIds";
 const _eT = "endTime";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _pMI = "parentMessageId";
 const _s = "sync";
 const _sF = "statusFilter";
 const _sS = "syncStatus";
