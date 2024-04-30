@@ -59,6 +59,11 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ruby</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>swift</code>
  *                </p>
  *             </li>
@@ -73,7 +78,7 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
  * };
  * const command = new GetRepositoryEndpointCommand(input);
  * const response = await client.send(command);
