@@ -385,6 +385,20 @@ export interface RemoteDebugConfig {
 }
 
 /**
+ * <p>Contains information about attribute-based access control (ABAC) for a training job. </p>
+ * @public
+ */
+export interface SessionChainingConfig {
+  /**
+   * <p>Set to <code>True</code> to allow SageMaker to extract session tags from a
+   *             training job creation role and reuse these tags when assuming the training
+   *             job execution role.</p>
+   * @public
+   */
+  EnableSessionTagChaining?: boolean;
+}
+
+/**
  * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
  * @public
  */
@@ -650,6 +664,13 @@ export interface CreateTrainingJobRequest {
    * @public
    */
   InfraCheckConfig?: InfraCheckConfig;
+
+  /**
+   * <p>Contains information about attribute-based access control (ABAC) for the training
+   *             job.</p>
+   * @public
+   */
+  SessionChainingConfig?: SessionChainingConfig;
 }
 
 /**
@@ -10018,25 +10039,6 @@ export interface DescribeSpaceRequest {
    */
   SpaceName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const SpaceStatus = {
-  Delete_Failed: "Delete_Failed",
-  Deleting: "Deleting",
-  Failed: "Failed",
-  InService: "InService",
-  Pending: "Pending",
-  Update_Failed: "Update_Failed",
-  Updating: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type SpaceStatus = (typeof SpaceStatus)[keyof typeof SpaceStatus];
 
 /**
  * @internal

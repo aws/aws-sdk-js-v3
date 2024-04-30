@@ -134,7 +134,6 @@ import {
   RuleEvaluationStatus,
   ScheduleStatus,
   SourceIpConfig,
-  SpaceStatus,
   TensorBoardOutputConfig,
   TrainingJobStatus,
   TrainingJobStatusCounters,
@@ -142,6 +141,25 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const SpaceStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type SpaceStatus = (typeof SpaceStatus)[keyof typeof SpaceStatus];
 
 /**
  * @public
@@ -11171,34 +11189,4 @@ export interface ListPipelineExecutionsResponse {
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPipelineExecutionStepsRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of pipeline execution steps to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
 }

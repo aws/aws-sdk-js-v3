@@ -1569,6 +1569,7 @@ import {
   SelectedStep,
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
+  SessionChainingConfig,
   SourceIpConfig,
   TensorBoardOutputConfig,
   ThroughputConfigDescription,
@@ -1775,7 +1776,6 @@ import {
   ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
-  ListPipelineExecutionStepsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
@@ -1821,6 +1821,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListPipelineExecutionStepsRequest,
   ListPipelineExecutionStepsResponse,
   ListPipelineParametersForExecutionRequest,
   ListPipelineParametersForExecutionResponse,
@@ -15409,6 +15410,8 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 // se_ServiceCatalogProvisioningDetails omitted.
 
 // se_ServiceCatalogProvisioningUpdateDetails omitted.
+
+// se_SessionChainingConfig omitted.
 
 // se_ShadowModeConfig omitted.
 

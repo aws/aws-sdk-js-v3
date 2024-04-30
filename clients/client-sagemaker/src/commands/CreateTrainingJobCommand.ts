@@ -288,6 +288,9 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *   InfraCheckConfig: { // InfraCheckConfig
  *     EnableInfraCheck: true || false,
  *   },
+ *   SessionChainingConfig: { // SessionChainingConfig
+ *     EnableSessionTagChaining: true || false,
+ *   },
  * };
  * const command = new CreateTrainingJobCommand(input);
  * const response = await client.send(command);

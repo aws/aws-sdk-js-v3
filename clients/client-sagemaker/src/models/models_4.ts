@@ -121,7 +121,6 @@ import {
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
-  SpaceStatus,
   TensorBoardOutputConfig,
   TrainingJobStatus,
   TrialComponentArtifact,
@@ -156,6 +155,7 @@ import {
   SecondaryStatusTransition,
   SortBy,
   SortOrder,
+  SpaceStatus,
   SubscribedWorkteam,
   TransformJobStatus,
   TrialComponentMetricSummary,
@@ -167,6 +167,36 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListPipelineExecutionStepsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of pipeline execution steps to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+}
 
 /**
  * <p>Metadata for Model steps.</p>
