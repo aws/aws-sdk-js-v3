@@ -211,9 +211,7 @@ export type Accelerators = (typeof Accelerators)[keyof typeof Accelerators];
  */
 export interface AcceptShareRequest {
   /**
-   * <p>
-   * The ID for a share offer for analytics store data.
-   * </p>
+   * <p>The ID of the resource share.</p>
    * @public
    */
   shareId: string | undefined;
@@ -260,9 +258,7 @@ export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
  */
 export interface AcceptShareResponse {
   /**
-   * <p>
-   * The status of an analytics store share.
-   * </p>
+   * <p>The status of the resource share.</p>
    * @public
    */
   status?: ShareStatus;
@@ -2076,16 +2072,13 @@ export interface GetAnnotationStoreVersionResponse {
 }
 
 /**
- * <p>
- * Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.
- * </p>
+ * <p>Use filters to focus the returned annotation store versions on a specific parameter,
+ *           such as the status of the annotation store.</p>
  * @public
  */
 export interface ListAnnotationStoreVersionsFilter {
   /**
-   * <p>
-   * The status of an annotation store version.
-   * </p>
+   * <p>The status of an annotation store version.</p>
    * @public
    */
   status?: VersionStatus;
@@ -2919,25 +2912,19 @@ export interface CreateSequenceStoreResponse {
  */
 export interface CreateShareRequest {
   /**
-   * <p>
-   *       The resource ARN for the analytics store to be shared.
-   *     </p>
+   * <p>The ARN of the resource to be shared.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>
-   *       The principal subscriber is the account being given access to the analytics store data through the share offer.
-   *     </p>
+   * <p>The principal subscriber is the account being offered shared access to the resource. </p>
    * @public
    */
   principalSubscriber: string | undefined;
 
   /**
-   * <p>
-   *       A name given to the share.
-   *     </p>
+   * <p>A name that the owner defines for the share.</p>
    * @public
    */
   shareName?: string;
@@ -2948,25 +2935,19 @@ export interface CreateShareRequest {
  */
 export interface CreateShareResponse {
   /**
-   * <p>
-   *       An ID generated for the share.
-   *     </p>
+   * <p>The ID that HealthOmics generates for the share.</p>
    * @public
    */
   shareId?: string;
 
   /**
-   * <p>
-   *       The status of a share.
-   *     </p>
+   * <p>The status of the share.</p>
    * @public
    */
   status?: ShareStatus;
 
   /**
-   * <p>
-   *       A name given to the share.
-   *     </p>
+   * <p>The name of the share.</p>
    * @public
    */
   shareName?: string;
@@ -3122,7 +3103,7 @@ export interface CreateWorkflowRequest {
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * <p>A storage capacity for the workflow in gibibytes.</p>
+   * <p>The storage capacity for the workflow in gibibytes.</p>
    * @public
    */
   storageCapacity?: number;
@@ -3288,9 +3269,7 @@ export interface DeleteSequenceStoreResponse {}
  */
 export interface DeleteShareRequest {
   /**
-   * <p>
-   *       The ID for the share request to be deleted.
-   *     </p>
+   * <p>The ID for the resource share to be deleted.</p>
    * @public
    */
   shareId: string | undefined;
@@ -3301,9 +3280,7 @@ export interface DeleteShareRequest {
  */
 export interface DeleteShareResponse {
   /**
-   * <p>
-   *       The status of the share being deleted.
-   *     </p>
+   * <p>The status of the share being deleted.</p>
    * @public
    */
   status?: ShareStatus;
@@ -3573,27 +3550,52 @@ export interface FileInformation {
 }
 
 /**
- * <p>
- * Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.
- * </p>
+ * @public
+ * @enum
+ */
+export const ShareResourceType = {
+  /**
+   * The share is on an annotation store
+   */
+  ANNOTATION_STORE: "ANNOTATION_STORE",
+  /**
+   * The share is on a variant store
+   */
+  VARIANT_STORE: "VARIANT_STORE",
+  /**
+   * The share is on a workflow
+   */
+  WORKFLOW: "WORKFLOW",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareResourceType = (typeof ShareResourceType)[keyof typeof ShareResourceType];
+
+/**
+ * <p>Use filters to return a subset of resources.  You can define filters for specific parameters,
+ *           such as the resource status.</p>
  * @public
  */
 export interface Filter {
   /**
-   * <p>
-   * The Amazon Resource Number (Arn) for an analytics store.
-   * </p>
+   * <p>Filter based on the Amazon Resource Number (ARN) of the resource. You can specify up to 10 values.</p>
    * @public
    */
   resourceArns?: string[];
 
   /**
-   * <p>
-   * The status of an annotation store version.
-   * </p>
+   * <p>Filter based on the resource status. You can specify up to 10 values.</p>
    * @public
    */
   status?: ShareStatus[];
+
+  /**
+   * <p>The type of resources to be filtered. You can specify one or more of the resource types.</p>
+   * @public
+   */
+  type?: ShareResourceType[];
 }
 
 /**
@@ -4671,6 +4673,20 @@ export type RunStatus = (typeof RunStatus)[keyof typeof RunStatus];
  * @public
  * @enum
  */
+export const StorageType = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkflowType = {
   PRIVATE: "PRIVATE",
   READY2RUN: "READY2RUN",
@@ -4764,7 +4780,9 @@ export interface GetRunResponse {
   parameters?: __DocumentType;
 
   /**
-   * <p>The run's storage capacity in gigabytes.</p>
+   * <p>The run's storage capacity in gibibytes. For dynamic storage,
+   *       after the run has completed, this value is the maximum amount of storage
+   *       used during the run.</p>
    * @public
    */
   storageCapacity?: number;
@@ -4858,6 +4876,18 @@ export interface GetRunResponse {
    * @public
    */
   runOutputUri?: string;
+
+  /**
+   * <p>The run's storage type.</p>
+   * @public
+   */
+  storageType?: StorageType;
+
+  /**
+   * <p>The ID of the workflow owner.</p>
+   * @public
+   */
+  workflowOwnerId?: string;
 }
 
 /**
@@ -5142,89 +5172,73 @@ export interface GetSequenceStoreResponse {
  */
 export interface GetShareRequest {
   /**
-   * <p>
-   *       The generated ID for a share.
-   *     </p>
+   * <p>The ID of the share.</p>
    * @public
    */
   shareId: string | undefined;
 }
 
 /**
- * <p>
- *       The details of a share.
- *     </p>
+ * <p>The details of a resource share.</p>
  * @public
  */
 export interface ShareDetails {
   /**
-   * <p>
-   *       The ID for a share offer for an analytics store .
-   *     </p>
+   * <p>The ID of the resource share.</p>
    * @public
    */
   shareId?: string;
 
   /**
-   * <p>
-   *       The resource Arn of the analytics store being shared.
-   *     </p>
+   * <p>The Arn of the shared resource. </p>
    * @public
    */
   resourceArn?: string;
 
   /**
-   * <p>
-   *       The principal subscriber is the account the analytics store data is being shared with.
-   *     </p>
+   * <p>The ID of the shared resource. </p>
+   * @public
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The principal subscriber is the account that is sharing the resource.</p>
    * @public
    */
   principalSubscriber?: string;
 
   /**
-   * <p>
-   *       The account ID for the data owner. The owner creates the share offer.
-   *     </p>
+   * <p>The account ID for the data owner. The owner creates the resource share.</p>
    * @public
    */
   ownerId?: string;
 
   /**
-   * <p>
-   *       The status of a share.
-   *     </p>
+   * <p>The status of the share.</p>
    * @public
    */
   status?: ShareStatus;
 
   /**
-   * <p>
-   *       The status message for a share. It provides more details on the status of the share.
-   *     </p>
+   * <p>The status message for a resource share. It provides additional details about the share status.</p>
    * @public
    */
   statusMessage?: string;
 
   /**
-   * <p>
-   *       The name of the share.
-   *     </p>
+   * <p>The name of the resource share.</p>
    * @public
    */
   shareName?: string;
 
   /**
-   * <p>
-   *       The timestamp for when the share was created.
-   *     </p>
+   * <p>The timestamp of when the resource share was created.</p>
    * @public
    */
   creationTime?: Date;
 
   /**
-   * <p>
-   *       The timestamp of the share update.
-   *     </p>
+   * <p>The timestamp of the resource share update.</p>
    * @public
    */
   updateTime?: Date;
@@ -5235,9 +5249,7 @@ export interface ShareDetails {
  */
 export interface GetShareResponse {
   /**
-   * <p>
-   *       An analytic store share details object. contains status, resourceArn, ownerId, etc.
-   *     </p>
+   * <p>A resource share details object. The object includes the status, the resourceArn, and ownerId.</p>
    * @public
    */
   share?: ShareDetails;
@@ -5471,6 +5483,12 @@ export interface GetWorkflowRequest {
    * @public
    */
   export?: WorkflowExport[];
+
+  /**
+   * <p>The ID of the workflow owner.</p>
+   * @public
+   */
+  workflowOwnerId?: string;
 }
 
 /**
@@ -5544,7 +5562,7 @@ export interface GetWorkflowResponse {
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * <p>The workflow's storage capacity in gigabytes.</p>
+   * <p>The workflow's storage capacity in gibibytes.</p>
    * @public
    */
   storageCapacity?: number;
@@ -6803,7 +6821,9 @@ export interface RunListItem {
   priority?: number;
 
   /**
-   * <p>The run's storage capacity.</p>
+   * <p>The run's storage capacity in gibibytes. For dynamic storage,
+   *       after the run has completed, this value is the maximum amount of storage
+   *       used during the run.</p>
    * @public
    */
   storageCapacity?: number;
@@ -6825,6 +6845,12 @@ export interface RunListItem {
    * @public
    */
   stopTime?: Date;
+
+  /**
+   * <p>The run's storage type.</p>
+   * @public
+   */
+  storageType?: StorageType;
 }
 
 /**
@@ -7103,33 +7129,26 @@ export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
  */
 export interface ListSharesRequest {
   /**
-   * <p>
-   *       The account that owns the analytics store shared.
-   *     </p>
+   * <p>The account that owns the resource shares.</p>
    * @public
    */
   resourceOwner: ResourceOwner | undefined;
 
   /**
-   * <p>
-   *       Attributes used to filter for a specific subset of shares.
-   *     </p>
+   * <p>Attributes that you use to filter for a specific subset of resource shares.</p>
    * @public
    */
   filter?: Filter;
 
   /**
-   * <p>
-   *       Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.
-   *     </p>
+   * <p>Next token returned in the response of a previous ListReadSetUploadPartsRequest call.
+   *       Used to get the next page of results.</p>
    * @public
    */
   nextToken?: string;
 
   /**
-   * <p>
-   *       The maximum number of shares to return in one page of results.
-   *     </p>
+   * <p>The maximum number of shares to return in one page of results.</p>
    * @public
    */
   maxResults?: number;
@@ -7140,9 +7159,7 @@ export interface ListSharesRequest {
  */
 export interface ListSharesResponse {
   /**
-   * <p>
-   *       The shares available and their meta details.
-   *     </p>
+   * <p>The shares available and their metadata details.</p>
    * @public
    */
   shares: ShareDetails[] | undefined;
@@ -7439,13 +7456,13 @@ export interface ListVariantStoresResponse {
  */
 export interface ListWorkflowsRequest {
   /**
-   * <p>The workflows' type.</p>
+   * <p>Filter the list by workflow type.</p>
    * @public
    */
   type?: WorkflowType;
 
   /**
-   * <p>The workflows' name.</p>
+   * <p>Filter the list by workflow name.</p>
    * @public
    */
   name?: string;
@@ -7524,7 +7541,7 @@ export interface WorkflowListItem {
  */
 export interface ListWorkflowsResponse {
   /**
-   * <p>The workflows' items.</p>
+   * <p>A list of workflow items.</p>
    * @public
    */
   items?: WorkflowListItem[];
@@ -7724,7 +7741,8 @@ export interface StartRunRequest {
   parameters?: __DocumentType;
 
   /**
-   * <p>A storage capacity for the run in gibibytes.</p>
+   * <p>A storage capacity for the run in gibibytes. This field is not required if the storage type is dynamic
+   *       (the system ignores any value that you enter).</p>
    * @public
    */
   storageCapacity?: number;
@@ -7758,6 +7776,20 @@ export interface StartRunRequest {
    * @public
    */
   retentionMode?: RunRetentionMode;
+
+  /**
+   * <p>The run's storage type. By default, the run uses STATIC storage type, which allocates a fixed amount of storage.
+   *     If you set the storage type to DYNAMIC, HealthOmics dynamically scales the storage up
+   *     or down, based on file system utilization.</p>
+   * @public
+   */
+  storageType?: StorageType;
+
+  /**
+   * <p>The ID of the workflow owner. </p>
+   * @public
+   */
+  workflowOwnerId?: string;
 }
 
 /**

@@ -28,6 +28,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a workflow run.</p>
+ *          <p>If a workflow is shared with you, you cannot export information about the run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +80,8 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   },
  * //   uuid: "STRING_VALUE",
  * //   runOutputUri: "STRING_VALUE",
+ * //   storageType: "STRING_VALUE",
+ * //   workflowOwnerId: "STRING_VALUE",
  * // };
  *
  * ```

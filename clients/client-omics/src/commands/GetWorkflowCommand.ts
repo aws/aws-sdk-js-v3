@@ -28,6 +28,7 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
 
 /**
  * <p>Gets information about a workflow.</p>
+ *          <p>If a workflow is shared with you, you cannot export the workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +41,7 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  *   export: [ // WorkflowExportList
  *     "STRING_VALUE",
  *   ],
+ *   workflowOwnerId: "STRING_VALUE",
  * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);

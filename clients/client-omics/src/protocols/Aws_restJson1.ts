@@ -290,6 +290,7 @@ import {
   SequenceStoreFilter,
   ServiceQuotaExceededException,
   ShareDetails,
+  ShareResourceType,
   ShareStatus,
   SourceFiles,
   SseConfig,
@@ -1566,6 +1567,7 @@ export const se_GetWorkflowCommand = async (
   const query: any = map({
     [_t]: [, input[_t]!],
     [_e]: [() => input.export !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
+    [_wOI]: [, input[_wOI]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2467,8 +2469,10 @@ export const se_StartRunCommand = async (
       runGroupId: [],
       runId: [],
       storageCapacity: [],
+      storageType: [],
       tags: (_) => _json(_),
       workflowId: [],
+      workflowOwnerId: [],
       workflowType: [],
     })
   );
@@ -3709,9 +3713,11 @@ export const de_GetRunCommand = async (
     statusMessage: __expectString,
     stopTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     storageCapacity: __expectInt32,
+    storageType: __expectString,
     tags: _json,
     uuid: __expectString,
     workflowId: __expectString,
+    workflowOwnerId: __expectString,
     workflowType: __expectString,
   });
   Object.assign(contents, doc);
@@ -5157,6 +5163,8 @@ const se_SequenceStoreFilter = (input: SequenceStoreFilter, context: __SerdeCont
 
 // se_TsvVersionOptions omitted.
 
+// se_TypeList omitted.
+
 // se_VariantImportItemSource omitted.
 
 // se_VariantImportItemSources omitted.
@@ -5612,6 +5620,7 @@ const de_RunListItem = (output: any, context: __SerdeContext): RunListItem => {
     status: __expectString,
     stopTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     storageCapacity: __expectInt32,
+    storageType: __expectString,
     workflowId: __expectString,
   }) as any;
 };
@@ -5672,6 +5681,7 @@ const de_ShareDetails = (output: any, context: __SerdeContext): ShareDetails => 
     ownerId: __expectString,
     principalSubscriber: __expectString,
     resourceArn: __expectString,
+    resourceId: __expectString,
     shareId: __expectString,
     shareName: __expectString,
     status: __expectString,
@@ -5875,3 +5885,4 @@ const _s = "status";
 const _sT = "startingToken";
 const _t = "type";
 const _tK = "tagKeys";
+const _wOI = "workflowOwnerId";

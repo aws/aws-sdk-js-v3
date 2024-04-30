@@ -27,9 +27,8 @@ export interface DeleteShareCommandInput extends DeleteShareRequest {}
 export interface DeleteShareCommandOutput extends DeleteShareResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Deletes a share of an analytics store.
- *     </p>
+ * <p>Deletes a resource share. If you are the resource owner, the subscriber will no longer have
+ *       access to the shared resource. If you are the subscriber, this operation deletes your access to the share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

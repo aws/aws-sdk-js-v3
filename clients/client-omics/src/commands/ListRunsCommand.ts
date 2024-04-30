@@ -56,6 +56,7 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * //       creationTime: new Date("TIMESTAMP"),
  * //       startTime: new Date("TIMESTAMP"),
  * //       stopTime: new Date("TIMESTAMP"),
+ * //       storageType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
