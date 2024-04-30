@@ -32,9 +32,9 @@ export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest 
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Updates phone number details, such as product type or calling name, for the
+ * <p>Updates phone number details, such as product type, calling name, or phone number name for the
  *          specified phone number ID. You can update one phone number detail at a time. For
- *          example, you can update either the product type or the calling name in one action.</p>
+ *          example, you can update either the product type, calling name, or phone number name in one action.</p>
  *          <p>For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
  *          Application Dial-In product type.</p>
  *          <p>Updates to outbound calling names can take 72 hours to complete. Pending

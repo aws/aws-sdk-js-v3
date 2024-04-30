@@ -465,7 +465,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates one or more phone numbers.</p>",
+        "smithy.api#documentation": "<p>Updates phone number product types, calling names, or phone number names. You can update one attribute at a time for each \n         <code>UpdatePhoneNumberRequestItem</code>. For example, you can update the product type, the calling name, or phone name.\n        </p>\n         <note>\n            <p>You cannot have a duplicate <code>phoneNumberId</code> in a request.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/phone-numbers?operation=batch-update",
@@ -4178,7 +4178,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the Alexa Skill configuration for the SIP media application.</p>",
+        "smithy.api#deprecated": {
+          "message": "Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the Alexa Smart Properties page(https://developer.amazon.com/en-US/alexa/alexasmartproperties)."
+        },
+        "smithy.api#documentation": "<p>Gets the Alexa Skill configuration for the SIP media application.</p>\n         <important>\n            <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to \n         the <a href=\"https://developer.amazon.com/en-US/alexa/alexasmartproperties\">Alexa Smart Properties</a> page.</p>\n         </important>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration",
@@ -7536,7 +7539,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the Alexa Skill configuration for the SIP media application.</p>",
+        "smithy.api#deprecated": {
+          "message": "Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the Alexa Smart Properties page(https://developer.amazon.com/en-US/alexa/alexasmartproperties)."
+        },
+        "smithy.api#documentation": "<p>Updates the Alexa Skill configuration for the SIP media application.</p>\n         <important>\n            <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to \n         the <a href=\"https://developer.amazon.com/en-US/alexa/alexasmartproperties\">Alexa Smart Properties</a> page.</p>\n         </important>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration",
@@ -8620,7 +8626,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Alexa Skill configuration of a SIP media application.</p>"
+        "smithy.api#documentation": "<p>The Alexa Skill configuration of a SIP media application.</p>\n         <important>\n            <p>Due to changes made by the Amazon Alexa service, this data type is no longer available for use. For more information, refer to \n         the <a href=\"https://developer.amazon.com/en-US/alexa/alexasmartproperties\">Alexa Smart Properties</a> page.</p>\n         </important>"
       }
     },
     "com.amazonaws.chimesdkvoice#SipMediaApplicationCall": {
@@ -9752,7 +9758,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates phone number details, such as product type or calling name, for the \n         specified phone number ID. You can update one phone number detail at a time. For \n         example, you can update either the product type or the calling name in one action.</p>\n         <p>For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media \n         Application Dial-In product type.</p>\n         <p>Updates to outbound calling names can take 72 hours to complete. Pending \n         updates to outbound calling names must be complete before you can request another \n         update.</p>",
+        "smithy.api#documentation": "<p>Updates phone number details, such as product type, calling name, or phone number name for the \n         specified phone number ID. You can update one phone number detail at a time. For \n         example, you can update either the product type, calling name, or phone number name in one action.</p>\n         <p>For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media \n         Application Dial-In product type.</p>\n         <p>Updates to outbound calling names can take 72 hours to complete. Pending \n         updates to outbound calling names must be complete before you can request another \n         update.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/phone-numbers/{PhoneNumberId}",
@@ -9786,7 +9792,7 @@
         "Name": {
           "target": "com.amazonaws.chimesdkvoice#PhoneNumberName",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the name assigned to one or more phone numbers.</p>"
+            "smithy.api#documentation": "<p>Specifies the updated name assigned to one or more phone numbers.</p>"
           }
         }
       },

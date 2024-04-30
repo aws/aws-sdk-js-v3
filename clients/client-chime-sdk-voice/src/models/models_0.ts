@@ -2370,6 +2370,10 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationRequest {
 
 /**
  * <p>The Alexa Skill configuration of a SIP media application.</p>
+ *          <important>
+ *             <p>Due to changes made by the Amazon Alexa service, this data type is no longer available for use. For more information, refer to
+ *          the <a href="https://developer.amazon.com/en-US/alexa/alexasmartproperties">Alexa Smart Properties</a> page.</p>
+ *          </important>
  * @public
  */
 export interface SipMediaApplicationAlexaSkillConfiguration {
@@ -4333,7 +4337,7 @@ export interface UpdatePhoneNumberRequest {
   CallingName?: string;
 
   /**
-   * <p>Specifies the name assigned to one or more phone numbers.</p>
+   * <p>Specifies the updated name assigned to one or more phone numbers.</p>
    * @public
    */
   Name?: string;
