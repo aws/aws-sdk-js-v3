@@ -1221,10 +1221,10 @@ export type NetworkAclRuleAction = (typeof NetworkAclRuleAction)[keyof typeof Ne
  * <p>Describes a rule in a network ACL.</p>
  *          <p>Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining
  * whether a packet should be allowed in or out of a subnet associated with the network ACL, Amazon Web Services processes the
- *            entries in the network ACL according to the rule numbers, in ascending order. </p>
+ *        entries in the network ACL according to the rule numbers, in ascending order. </p>
  *          <p>When you manage an individual network ACL, you explicitly specify the rule numbers. When you specify the network ACL rules in a Firewall Manager policy,
- *        you provide the rules to run first, in the order that you want them to run, and the rules to run last, in the order
- *            that you want them to run. Firewall Manager assigns the rule numbers for you when you save the network ACL policy specification.</p>
+ *    you provide the rules to run first, in the order that you want them to run, and the rules to run last, in the order
+ *        that you want them to run. Firewall Manager assigns the rule numbers for you when you save the network ACL policy specification.</p>
  * @public
  */
 export interface NetworkAclEntry {
@@ -1283,17 +1283,18 @@ export interface NetworkAclEntrySet {
    *             <p>Provide these in the order in which you want them to run. Firewall Manager will assign
    *            the specific rule numbers for you, in the network ACLs that it creates. </p>
    *          </note>
+   *          <p>You must specify at least one first entry or one last entry in any network ACL policy. </p>
    * @public
    */
   FirstEntries?: NetworkAclEntry[];
 
   /**
    * <p>Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy
-   *            violations that involve conflicts between the custom entries and the policy entries. </p>
+   *        violations that involve conflicts between the custom entries and the policy entries. </p>
    *          <p>If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to
-   *        remediate. For more information about the remediation behavior, see
-   *    <a href="https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html">Network access control list (ACL) policies</a>
-   *        in the <i>Firewall Manager Developer Guide</i>.</p>
+   *    remediate. For more information about the remediation behavior, see
+   * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html">Network access control list (ACL) policies</a>
+   *    in the <i>Firewall Manager Developer Guide</i>.</p>
    * @public
    */
   ForceRemediateForFirstEntries: boolean | undefined;
@@ -1304,17 +1305,18 @@ export interface NetworkAclEntrySet {
    *             <p>Provide these in the order in which you want them to run. Firewall Manager will assign
    *            the specific rule numbers for you, in the network ACLs that it creates. </p>
    *          </note>
+   *          <p>You must specify at least one first entry or one last entry in any network ACL policy. </p>
    * @public
    */
   LastEntries?: NetworkAclEntry[];
 
   /**
    * <p>Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy
-   *            violations that involve conflicts between the custom entries and the policy entries. </p>
+   *        violations that involve conflicts between the custom entries and the policy entries. </p>
    *          <p>If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to
-   *        remediate. For more information about the remediation behavior, see
-   *    <a href="https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html">Network access control list (ACL) policies</a>
-   *        in the <i>Firewall Manager Developer Guide</i>.</p>
+   *    remediate. For more information about the remediation behavior, see
+   * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html">Network access control list (ACL) policies</a>
+   *    in the <i>Firewall Manager Developer Guide</i>.</p>
    * @public
    */
   ForceRemediateForLastEntries: boolean | undefined;
@@ -1788,8 +1790,8 @@ export interface Policy {
 
   /**
    * <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources
-   *        that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL
-   *        from a protected customer resource when the customer resource leaves policy scope. </p>
+   *    that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL
+   *    from a protected customer resource when the customer resource leaves policy scope. </p>
    *          <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p>
    *          <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
    * @public
@@ -2671,10 +2673,10 @@ export interface EntryDescription {
    * <p>Describes a rule in a network ACL.</p>
    *          <p>Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining
    * whether a packet should be allowed in or out of a subnet associated with the network ACL, Amazon Web Services processes the
-   *            entries in the network ACL according to the rule numbers, in ascending order. </p>
+   *        entries in the network ACL according to the rule numbers, in ascending order. </p>
    *          <p>When you manage an individual network ACL, you explicitly specify the rule numbers. When you specify the network ACL rules in a Firewall Manager policy,
-   *        you provide the rules to run first, in the order that you want them to run, and the rules to run last, in the order
-   *            that you want them to run. Firewall Manager assigns the rule numbers for you when you save the network ACL policy specification.</p>
+   *    you provide the rules to run first, in the order that you want them to run, and the rules to run last, in the order
+   *        that you want them to run. Firewall Manager assigns the rule numbers for you when you save the network ACL policy specification.</p>
    * @public
    */
   EntryDetail?: NetworkAclEntry;
@@ -3264,18 +3266,66 @@ export const RuleOrder = {
 export type RuleOrder = (typeof RuleOrder)[keyof typeof RuleOrder];
 
 /**
+ * @public
+ * @enum
+ */
+export const StreamExceptionPolicy = {
+  CONTINUE: "CONTINUE",
+  DROP: "DROP",
+  FMS_IGNORE: "FMS_IGNORE",
+  REJECT: "REJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamExceptionPolicy = (typeof StreamExceptionPolicy)[keyof typeof StreamExceptionPolicy];
+
+/**
  * <p>Configuration settings for the handling of the stateful rule groups in a Network Firewall firewall policy.</p>
  * @public
  */
 export interface StatefulEngineOptions {
   /**
    * <p>Indicates how to manage the order of stateful rule evaluation for the policy.
-   * <code>DEFAULT_ACTION_ORDER</code> is the default behavior. Stateful rules are provided to the rule engine
+   * Stateful rules are provided to the rule engine
    * as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more
    * information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   *          <p>Default: <code>DEFAULT_ACTION_ORDER</code>
+   *          </p>
    * @public
    */
   RuleOrder?: RuleOrder;
+
+  /**
+   * <p>Indicates how Network Firewall should handle traffic when a network connection breaks midstream.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DROP</code> - Fail closed and drop all subsequent traffic going to the firewall.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Continue to apply rules to subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on context. For example, with a stateful rule that drops HTTP traffic, Network Firewall won't match subsequent traffic because the it won't have the context from session initialization, which defines the application layer protocol as HTTP. However, a TCP-layer rule using a <code>flow:stateless</code> rule would still match, and so would the <code>aws:drop_strict</code> default action. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECT</code> - Fail closed and drop all subsequent traffic going to the firewall. With this option, Network Firewall also sends a TCP reject packet back to the client so the client can immediately establish a new session. With the new session, Network Firewall will have context and will apply rules appropriately.</p>
+   *                <p>For applications that are reliant on long-lived TCP connections that trigger Gateway Load Balancer idle timeouts, this is the recommended setting. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FMS_IGNORE</code> - Firewall Manager doesn't monitor or modify the Network Firewall stream exception policy settings. </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see
+   *       <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stream-exception-policy.html">Stream exception policy in your firewall policy</a>
+   *           in the <i>Network Firewall Developer Guide</i>.</p>
+   *          <p>Default: <code>FMS_IGNORE</code>
+   *          </p>
+   * @public
+   */
+  StreamExceptionPolicy?: StreamExceptionPolicy;
 }
 
 /**
@@ -4426,16 +4476,16 @@ export interface GetViolationDetailsResponse {
 export interface ListAdminAccountsForOrganizationRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
-   *           objects are available, in the response, Firewall Manager provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *       objects are available, in the response, Firewall Manager provides a
+   *      <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
   MaxResults?: number;
@@ -4453,8 +4503,8 @@ export interface ListAdminAccountsForOrganizationResponse {
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
@@ -4466,16 +4516,16 @@ export interface ListAdminAccountsForOrganizationResponse {
 export interface ListAdminsManagingAccountRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
-   *           objects are available, in the response, Firewall Manager provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *       objects are available, in the response, Firewall Manager provides a
+   *      <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
   MaxResults?: number;
@@ -4493,8 +4543,8 @@ export interface ListAdminsManagingAccountResponse {
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
@@ -4715,16 +4765,16 @@ export interface ListDiscoveredResourcesRequest {
 
   /**
    * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
-   *           objects are available, in the response, Firewall Manager provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *       objects are available, in the response, Firewall Manager provides a
+   *      <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
   MaxResults?: number;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
@@ -4772,8 +4822,8 @@ export interface ListDiscoveredResourcesResponse {
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
@@ -4897,8 +4947,8 @@ export interface PolicySummary {
 
   /**
    * <p>Indicates whether Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources
-   *        that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL
-   *        from a protected customer resource when the customer resource leaves policy scope. </p>
+   *    that Firewall Manager is managing for accounts when those accounts leave policy scope. For example, Firewall Manager will disassociate a Firewall Manager managed web ACL
+   *    from a protected customer resource when the customer resource leaves policy scope. </p>
    *          <p>By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources. </p>
    *          <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
    * @public
@@ -5031,16 +5081,16 @@ export interface ListResourceSetResourcesRequest {
 
   /**
    * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
-   *           objects are available, in the response, Firewall Manager provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *       objects are available, in the response, Firewall Manager provides a
+   *      <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
   MaxResults?: number;
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
@@ -5076,8 +5126,8 @@ export interface ListResourceSetResourcesResponse {
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
@@ -5089,16 +5139,16 @@ export interface ListResourceSetResourcesResponse {
 export interface ListResourceSetsRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
-   *           objects are available, in the response, Firewall Manager provides a
-   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *       objects are available, in the response, Firewall Manager provides a
+   *      <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    * @public
    */
   MaxResults?: number;
@@ -5162,8 +5212,8 @@ export interface ListResourceSetsResponse {
 
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
-   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
-   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   *      for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *      value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
    * @public
    */
   NextToken?: string;

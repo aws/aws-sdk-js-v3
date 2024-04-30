@@ -147,6 +147,7 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * //             ],
  * //             StatefulEngineOptions: { // StatefulEngineOptions
  * //               RuleOrder: "STRICT_ORDER" || "DEFAULT_ACTION_ORDER",
+ * //               StreamExceptionPolicy: "DROP" || "CONTINUE" || "REJECT" || "FMS_IGNORE",
  * //             },
  * //           },
  * //           ExpectedPolicyDescription: {
@@ -175,6 +176,7 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * //             StatefulDefaultActions: "<NetworkFirewallActionList>",
  * //             StatefulEngineOptions: {
  * //               RuleOrder: "STRICT_ORDER" || "DEFAULT_ACTION_ORDER",
+ * //               StreamExceptionPolicy: "DROP" || "CONTINUE" || "REJECT" || "FMS_IGNORE",
  * //             },
  * //           },
  * //         },
