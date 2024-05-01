@@ -9487,7 +9487,8 @@ export class ResourceInUseException extends __BaseException {
 export interface StartConfigurationPolicyAssociationRequest {
   /**
    * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
    *         </p>
    * @public
    */
@@ -9578,7 +9579,8 @@ export interface StartConfigurationPolicyDisassociationRequest {
 
   /**
    * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
    *         </p>
    * @public
    */
