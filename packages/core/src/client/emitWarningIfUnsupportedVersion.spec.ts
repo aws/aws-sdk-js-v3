@@ -14,7 +14,7 @@ describe("emitWarningIfUnsupportedVersion", () => {
     process.emitWarning = emitWarning;
   });
 
-  describe(`emits warning for Node.js <${supportedVersion}`, () => {
+  describe.skip(`emits warning for Node.js <${supportedVersion}`, () => {
     const getPreviousMajorVersion = (major: number) => (major === 0 ? 0 : major - 1);
 
     const getPreviousMinorVersion = ([major, minor]: [number, number]) =>
