@@ -9,6 +9,7 @@ import {
   GetPersonalizedRankingRequest,
   GetPersonalizedRankingRequestFilterSensitiveLog,
   GetPersonalizedRankingResponse,
+  GetPersonalizedRankingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
@@ -77,6 +78,9 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * //       metadata: { // Metadata
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       reason: [ // ReasonList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   recommendationId: "STRING_VALUE",
@@ -120,7 +124,7 @@ export class GetPersonalizedRankingCommand extends $Command
   })
   .s("AmazonPersonalizeRuntime", "GetPersonalizedRanking", {})
   .n("PersonalizeRuntimeClient", "GetPersonalizedRankingCommand")
-  .f(GetPersonalizedRankingRequestFilterSensitiveLog, void 0)
+  .f(GetPersonalizedRankingRequestFilterSensitiveLog, GetPersonalizedRankingResponseFilterSensitiveLog)
   .ser(se_GetPersonalizedRankingCommand)
   .de(de_GetPersonalizedRankingCommand)
   .build() {}

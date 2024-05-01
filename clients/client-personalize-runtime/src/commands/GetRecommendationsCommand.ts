@@ -9,6 +9,7 @@ import {
   GetRecommendationsRequest,
   GetRecommendationsRequestFilterSensitiveLog,
   GetRecommendationsResponse,
+  GetRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
@@ -99,6 +100,9 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //       metadata: { // Metadata
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       reason: [ // ReasonList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   recommendationId: "STRING_VALUE",
@@ -142,7 +146,7 @@ export class GetRecommendationsCommand extends $Command
   })
   .s("AmazonPersonalizeRuntime", "GetRecommendations", {})
   .n("PersonalizeRuntimeClient", "GetRecommendationsCommand")
-  .f(GetRecommendationsRequestFilterSensitiveLog, void 0)
+  .f(GetRecommendationsRequestFilterSensitiveLog, GetRecommendationsResponseFilterSensitiveLog)
   .ser(se_GetRecommendationsCommand)
   .de(de_GetRecommendationsCommand)
   .build() {}

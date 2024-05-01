@@ -314,9 +314,12 @@ const de_PredictedItem = (output: any, context: __SerdeContext): PredictedItem =
     itemId: __expectString,
     metadata: _json,
     promotionName: __expectString,
+    reason: _json,
     score: __limitedParseDouble,
   }) as any;
 };
+
+// de_ReasonList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
