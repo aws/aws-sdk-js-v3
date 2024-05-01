@@ -5,6 +5,8 @@
     "downlevelIteration": true,
     "incremental": true,
     "importHelpers": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
     "noEmitHelpers": false,
     "noFallthroughCasesInSwitch": true,
     "paths": {
