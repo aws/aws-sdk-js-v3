@@ -1306,19 +1306,17 @@ export const se_ListContactsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  b.bp("/v2/email/contact-lists/{ContactListName}/contacts");
+  b.bp("/v2/email/contact-lists/{ContactListName}/contacts/list");
   b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
-  const query: any = map({
-    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
-    [_NT]: [, input[_NT]!],
-  });
   let body: any;
   body = JSON.stringify(
     take(input, {
       Filter: (_) => _json(_),
+      NextToken: [],
+      PageSize: [],
     })
   );
-  b.m("GET").h(headers).q(query).b(body);
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1481,18 +1479,16 @@ export const se_ListImportJobsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  b.bp("/v2/email/import-jobs");
-  const query: any = map({
-    [_NT]: [, input[_NT]!],
-    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
-  });
+  b.bp("/v2/email/import-jobs/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ImportDestinationType: [],
+      NextToken: [],
+      PageSize: [],
     })
   );
-  b.m("GET").h(headers).q(query).b(body);
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
