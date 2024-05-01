@@ -5624,7 +5624,10 @@ export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
  */
 export interface Volume {
   /**
-   * <p>Information about the volume attachments.</p>
+   * <note>
+   *             <p>This parameter is not returned by CreateVolume.</p>
+   *          </note>
+   *          <p>Information about the volume attachments.</p>
    * @public
    */
   Attachments?: VolumeAttachment[];
@@ -5705,7 +5708,10 @@ export interface Volume {
   VolumeType?: VolumeType;
 
   /**
-   * <p>Indicates whether the volume was created using fast snapshot restore.</p>
+   * <note>
+   *             <p>This parameter is not returned by CreateVolume.</p>
+   *          </note>
+   *          <p>Indicates whether the volume was created using fast snapshot restore.</p>
    * @public
    */
   FastRestored?: boolean;
@@ -5723,7 +5729,10 @@ export interface Volume {
   Throughput?: number;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <note>
+   *             <p>This parameter is not returned by CreateVolume.</p>
+   *          </note>
+   *          <p>Reserved for future use.</p>
    * @public
    */
   SseType?: SSEType;
