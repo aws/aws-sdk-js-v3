@@ -77,7 +77,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *     },
  *   },
  *   storageConfiguration: { // StorageConfiguration
- *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS", // required
+ *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS", // required
  *     opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  *       collectionArn: "STRING_VALUE", // required
  *       vectorIndexName: "STRING_VALUE", // required
@@ -118,6 +118,19 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *         metadataField: "STRING_VALUE", // required
  *       },
  *     },
+ *     mongoDbAtlasConfiguration: { // MongoDbAtlasConfiguration
+ *       endpoint: "STRING_VALUE", // required
+ *       databaseName: "STRING_VALUE", // required
+ *       collectionName: "STRING_VALUE", // required
+ *       vectorIndexName: "STRING_VALUE", // required
+ *       credentialsSecretArn: "STRING_VALUE", // required
+ *       fieldMapping: { // MongoDbAtlasFieldMapping
+ *         vectorField: "STRING_VALUE", // required
+ *         textField: "STRING_VALUE", // required
+ *         metadataField: "STRING_VALUE", // required
+ *       },
+ *       endpointServiceName: "STRING_VALUE",
+ *     },
  *   },
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
@@ -139,7 +152,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //       },
  * //     },
  * //     storageConfiguration: { // StorageConfiguration
- * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS", // required
+ * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS", // required
  * //       opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  * //         collectionArn: "STRING_VALUE", // required
  * //         vectorIndexName: "STRING_VALUE", // required
@@ -179,6 +192,19 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //           textField: "STRING_VALUE", // required
  * //           metadataField: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //       mongoDbAtlasConfiguration: { // MongoDbAtlasConfiguration
+ * //         endpoint: "STRING_VALUE", // required
+ * //         databaseName: "STRING_VALUE", // required
+ * //         collectionName: "STRING_VALUE", // required
+ * //         vectorIndexName: "STRING_VALUE", // required
+ * //         credentialsSecretArn: "STRING_VALUE", // required
+ * //         fieldMapping: { // MongoDbAtlasFieldMapping
+ * //           vectorField: "STRING_VALUE", // required
+ * //           textField: "STRING_VALUE", // required
+ * //           metadataField: "STRING_VALUE", // required
+ * //         },
+ * //         endpointServiceName: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "FAILED" || "DELETE_UNSUCCESSFUL", // required

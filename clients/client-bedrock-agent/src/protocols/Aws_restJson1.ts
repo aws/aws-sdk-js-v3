@@ -147,6 +147,8 @@ import {
   KnowledgeBase,
   KnowledgeBaseConfiguration,
   KnowledgeBaseSummary,
+  MongoDbAtlasConfiguration,
+  MongoDbAtlasFieldMapping,
   OpenSearchServerlessConfiguration,
   OpenSearchServerlessFieldMapping,
   ParameterDetail,
@@ -2133,6 +2135,10 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 
 // se_KnowledgeBaseConfiguration omitted.
 
+// se_MongoDbAtlasConfiguration omitted.
+
+// se_MongoDbAtlasFieldMapping omitted.
+
 // se_OpenSearchServerlessConfiguration omitted.
 
 // se_OpenSearchServerlessFieldMapping omitted.
@@ -2635,6 +2641,10 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_MongoDbAtlasConfiguration omitted.
+
+// de_MongoDbAtlasFieldMapping omitted.
 
 // de_OpenSearchServerlessConfiguration omitted.
 

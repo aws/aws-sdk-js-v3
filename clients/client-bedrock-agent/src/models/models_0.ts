@@ -2222,7 +2222,7 @@ export interface S3DataSourceConfiguration {
   inclusionPrefixes?: string[];
 
   /**
-   * <p>The account ID for the owner of the S3 bucket.</p>
+   * <p>The bucket account owner ID for the S3 bucket.</p>
    * @public
    */
   bucketOwnerAccountId?: string;
@@ -2379,7 +2379,7 @@ export interface CreateDataSourceRequest {
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * <p>The deletion policy for the requested data source</p>
+   * <p>The data deletion policy assigned to the data source.</p>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy;
@@ -2474,7 +2474,7 @@ export interface DataSource {
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
 
   /**
-   * <p>The deletion policy for the data source.</p>
+   * <p>The data deletion policy for a data source.</p>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy;
@@ -2492,7 +2492,7 @@ export interface DataSource {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The details of the failure reasons related to the data source.</p>
+   * <p>The detailed reasons on the failure to delete a data source.</p>
    * @public
    */
   failureReasons?: string[];
@@ -2694,7 +2694,7 @@ export interface UpdateDataSourceRequest {
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * <p>The data deletion policy of the updated data source.</p>
+   * <p>The data deletion policy assigned to the data source.</p>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy;
@@ -3243,6 +3243,78 @@ export interface KnowledgeBaseConfiguration {
  * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
+export interface MongoDbAtlasFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * @public
+   */
+  vectorField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in MongoDB Atlas. </p>
+ * @public
+ */
+export interface MongoDbAtlasConfiguration {
+  /**
+   * <p>The endpoint URL of your MongoDB Atlas cluster for your knowledge base.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The database name in your MongoDB Atlas cluster for your knowledge base.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>The collection name of the knowledge base in MongoDB Atlas.</p>
+   * @public
+   */
+  collectionName: string | undefined;
+
+  /**
+   * <p>The name of the MongoDB Atlas vector search index.</p>
+   * @public
+   */
+  vectorIndexName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that contains user credentials for your MongoDB Atlas cluster.</p>
+   * @public
+   */
+  credentialsSecretArn: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: MongoDbAtlasFieldMapping | undefined;
+
+  /**
+   * <p>The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.</p>
+   * @public
+   */
+  endpointServiceName?: string;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
 export interface OpenSearchServerlessFieldMapping {
   /**
    * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
@@ -3460,6 +3532,7 @@ export interface RedisEnterpriseCloudConfiguration {
  * @enum
  */
 export const KnowledgeBaseStorageType = {
+  MONGO_DB_ATLAS: "MONGO_DB_ATLAS",
   OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
   PINECONE: "PINECONE",
   RDS: "RDS",
@@ -3505,6 +3578,12 @@ export interface StorageConfiguration {
    * @public
    */
   rdsConfiguration?: RdsConfiguration;
+
+  /**
+   * <p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>
+   * @public
+   */
+  mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration;
 }
 
 /**
