@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.568.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.567.0...v3.568.0) (2024-05-02)
+
+
+### Features
+
+* **client-dynamodb:** This release adds support to specify an optional, maximum OnDemandThroughput for DynamoDB tables and global secondary indexes in the CreateTable or UpdateTable APIs. You can also override the OnDemandThroughput settings by calling the ImportTable, RestoreFromPointInTime, or RestoreFromBackup APIs. ([7a4330d](https://github.com/aws/aws-sdk-js-v3/commit/7a4330ddb7d807b8a151d5f7937a6250457145aa))
+* **client-ec2:** This release includes a new API for retrieving the public endorsement key of the EC2 instance's Nitro Trusted Platform Module (NitroTPM). ([0903d38](https://github.com/aws/aws-sdk-js-v3/commit/0903d38f5d8e42c03a022003546ccacff35e0e5e))
+* **client-personalize:** This releases ability to delete users and their data, including their metadata and interactions data, from a dataset group. ([3c7432b](https://github.com/aws/aws-sdk-js-v3/commit/3c7432b9c89e34db96247cf5227a9ec1686944ea))
+* **client-redshift-serverless:** Update Redshift Serverless List Scheduled Actions Output Response to include Namespace Name. ([044806b](https://github.com/aws/aws-sdk-js-v3/commit/044806b1bc1cec4d1c98dd116caa3c8831b8fba0))
+
+
+
+
+
 # [3.567.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.566.0...v3.567.0) (2024-05-01)
 
 

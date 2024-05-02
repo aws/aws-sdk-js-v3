@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.568.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.567.0...v3.568.0) (2024-05-02)
+
+
+### Features
+
+* **client-redshift-serverless:** Update Redshift Serverless List Scheduled Actions Output Response to include Namespace Name. ([044806b](https://github.com/aws/aws-sdk-js-v3/commit/044806b1bc1cec4d1c98dd116caa3c8831b8fba0))
+
+
+
+
+
 # [3.567.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.566.0...v3.567.0) (2024-05-01)
 
 
