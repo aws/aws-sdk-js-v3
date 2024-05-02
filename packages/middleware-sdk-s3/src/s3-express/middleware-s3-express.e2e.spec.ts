@@ -1,4 +1,4 @@
-import { GetObjectCommand, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
+import { GetObjectCommand, PutObjectCommand, S3, waitUntilBucketExists } from "@aws-sdk/client-s3";
 import { STS } from "@aws-sdk/client-sts";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import http from "http";
@@ -51,6 +51,10 @@ describe("s3 express CRUD test suite", () => {
         },
       },
     });
+
+    // Wait for the bucket to exist
+    await waitUntilBucketExists({ client: s3, maxWaitTime: 120 }, { Bucket: bucketName });
+
     createRecorder = JSON.parse(JSON.stringify(recorder.calls));
     reset();
 
@@ -103,14 +107,17 @@ describe("s3 express CRUD test suite", () => {
       "CreateBucketCommand (normal)": {
         [bucketName]: 1,
       },
+      "HeadBucketCommand (s3 express)": {
+        [bucketName]: 1,
+      },
+      "CreateSessionCommand (normal)": {
+        [bucketName]: 1,
+      },
     });
   });
 
   it("can read/write/delete from a bucket", () => {
     expect(readWriteDeleteRecorder).toEqual({
-      "CreateSessionCommand (normal)": {
-        [bucketName]: 1,
-      },
       "PutObjectCommand (s3 express)": {
         [bucketName]: SCALE,
       },
