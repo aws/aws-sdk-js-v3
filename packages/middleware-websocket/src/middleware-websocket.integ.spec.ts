@@ -41,7 +41,7 @@ describe("middleware-websocket", () => {
         ChallengeVersions: "a,b,c",
         LivenessRequestStream: {
           [Symbol.asyncIterator]() {
-            return this;
+            return this as any;
           },
         },
       });
