@@ -63,11 +63,17 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  * //           ReadCapacityUnits: Number("long"),
  * //         },
+ * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ * //           MaxReadRequestUnits: Number("long"),
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
  * //             ProvisionedThroughputOverride: {
  * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //             OnDemandThroughputOverride: {
+ * //               MaxReadRequestUnits: Number("long"),
  * //             },
  * //           },
  * //         ],

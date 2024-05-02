@@ -109,6 +109,10 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *         ReadCapacityUnits: Number("long"), // required
  *         WriteCapacityUnits: Number("long"), // required
  *       },
+ *       OnDemandThroughput: { // OnDemandThroughput
+ *         MaxReadRequestUnits: Number("long"),
+ *         MaxWriteRequestUnits: Number("long"),
+ *       },
  *     },
  *   ],
  *   LocalSecondaryIndexOverride: [ // LocalSecondaryIndexList
@@ -131,6 +135,10 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *   ProvisionedThroughputOverride: {
  *     ReadCapacityUnits: Number("long"), // required
  *     WriteCapacityUnits: Number("long"), // required
+ *   },
+ *   OnDemandThroughputOverride: {
+ *     MaxReadRequestUnits: Number("long"),
+ *     MaxWriteRequestUnits: Number("long"),
  *   },
  *   SSESpecificationOverride: { // SSESpecification
  *     Enabled: true || false,
@@ -219,6 +227,10 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //         IndexSizeBytes: Number("long"),
  * //         ItemCount: Number("long"),
  * //         IndexArn: "STRING_VALUE",
+ * //         OnDemandThroughput: { // OnDemandThroughput
+ * //           MaxReadRequestUnits: Number("long"),
+ * //           MaxWriteRequestUnits: Number("long"),
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -238,11 +250,17 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  * //           ReadCapacityUnits: Number("long"),
  * //         },
+ * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ * //           MaxReadRequestUnits: Number("long"),
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
  * //             ProvisionedThroughputOverride: {
  * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //             OnDemandThroughputOverride: {
+ * //               MaxReadRequestUnits: Number("long"),
  * //             },
  * //           },
  * //         ],
@@ -275,6 +293,10 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     OnDemandThroughput: {
+ * //       MaxReadRequestUnits: Number("long"),
+ * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
  * //   },
  * // };
  *

@@ -82,6 +82,10 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * //         ReadCapacityUnits: Number("long"), // required
  * //         WriteCapacityUnits: Number("long"), // required
  * //       },
+ * //       OnDemandThroughput: { // OnDemandThroughput
+ * //         MaxReadRequestUnits: Number("long"),
+ * //         MaxWriteRequestUnits: Number("long"),
+ * //       },
  * //       SSESpecification: { // SSESpecification
  * //         Enabled: true || false,
  * //         SSEType: "AES256" || "KMS",
@@ -105,6 +109,10 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * //           ProvisionedThroughput: {
  * //             ReadCapacityUnits: Number("long"), // required
  * //             WriteCapacityUnits: Number("long"), // required
+ * //           },
+ * //           OnDemandThroughput: {
+ * //             MaxReadRequestUnits: Number("long"),
+ * //             MaxWriteRequestUnits: Number("long"),
  * //           },
  * //         },
  * //       ],

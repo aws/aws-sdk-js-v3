@@ -132,6 +132,10 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //         IndexSizeBytes: Number("long"),
  * //         ItemCount: Number("long"),
  * //         IndexArn: "STRING_VALUE",
+ * //         OnDemandThroughput: { // OnDemandThroughput
+ * //           MaxReadRequestUnits: Number("long"),
+ * //           MaxWriteRequestUnits: Number("long"),
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -151,11 +155,17 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  * //           ReadCapacityUnits: Number("long"),
  * //         },
+ * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ * //           MaxReadRequestUnits: Number("long"),
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
  * //             ProvisionedThroughputOverride: {
  * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //             OnDemandThroughputOverride: {
+ * //               MaxReadRequestUnits: Number("long"),
  * //             },
  * //           },
  * //         ],
@@ -188,6 +198,10 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     OnDemandThroughput: {
+ * //       MaxReadRequestUnits: Number("long"),
+ * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
  * //   },
  * // };
  *

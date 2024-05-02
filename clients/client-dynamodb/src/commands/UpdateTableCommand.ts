@@ -81,6 +81,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *           ReadCapacityUnits: Number("long"), // required
  *           WriteCapacityUnits: Number("long"), // required
  *         },
+ *         OnDemandThroughput: { // OnDemandThroughput
+ *           MaxReadRequestUnits: Number("long"),
+ *           MaxWriteRequestUnits: Number("long"),
+ *         },
  *       },
  *       Create: { // CreateGlobalSecondaryIndexAction
  *         IndexName: "STRING_VALUE", // required
@@ -99,6 +103,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *         ProvisionedThroughput: {
  *           ReadCapacityUnits: Number("long"), // required
  *           WriteCapacityUnits: Number("long"), // required
+ *         },
+ *         OnDemandThroughput: {
+ *           MaxReadRequestUnits: Number("long"),
+ *           MaxWriteRequestUnits: Number("long"),
  *         },
  *       },
  *       Delete: { // DeleteGlobalSecondaryIndexAction
@@ -123,11 +131,17 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  *           ReadCapacityUnits: Number("long"),
  *         },
+ *         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ *           MaxReadRequestUnits: Number("long"),
+ *         },
  *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexList
  *           { // ReplicaGlobalSecondaryIndex
  *             IndexName: "STRING_VALUE", // required
  *             ProvisionedThroughputOverride: {
  *               ReadCapacityUnits: Number("long"),
+ *             },
+ *             OnDemandThroughputOverride: {
+ *               MaxReadRequestUnits: Number("long"),
  *             },
  *           },
  *         ],
@@ -139,11 +153,17 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *         ProvisionedThroughputOverride: {
  *           ReadCapacityUnits: Number("long"),
  *         },
+ *         OnDemandThroughputOverride: {
+ *           MaxReadRequestUnits: Number("long"),
+ *         },
  *         GlobalSecondaryIndexes: [
  *           {
  *             IndexName: "STRING_VALUE", // required
  *             ProvisionedThroughputOverride: {
  *               ReadCapacityUnits: Number("long"),
+ *             },
+ *             OnDemandThroughputOverride: {
+ *               MaxReadRequestUnits: Number("long"),
  *             },
  *           },
  *         ],
@@ -156,6 +176,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *   ],
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *   DeletionProtectionEnabled: true || false,
+ *   OnDemandThroughput: {
+ *     MaxReadRequestUnits: Number("long"),
+ *     MaxWriteRequestUnits: Number("long"),
+ *   },
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
@@ -238,6 +262,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //         IndexSizeBytes: Number("long"),
  * //         ItemCount: Number("long"),
  * //         IndexArn: "STRING_VALUE",
+ * //         OnDemandThroughput: { // OnDemandThroughput
+ * //           MaxReadRequestUnits: Number("long"),
+ * //           MaxWriteRequestUnits: Number("long"),
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -257,11 +285,17 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  * //           ReadCapacityUnits: Number("long"),
  * //         },
+ * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ * //           MaxReadRequestUnits: Number("long"),
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
  * //             ProvisionedThroughputOverride: {
  * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //             OnDemandThroughputOverride: {
+ * //               MaxReadRequestUnits: Number("long"),
  * //             },
  * //           },
  * //         ],
@@ -294,6 +328,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     OnDemandThroughput: {
+ * //       MaxReadRequestUnits: Number("long"),
+ * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
  * //   },
  * // };
  *

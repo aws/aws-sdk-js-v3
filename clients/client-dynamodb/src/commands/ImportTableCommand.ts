@@ -70,6 +70,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *       ReadCapacityUnits: Number("long"), // required
  *       WriteCapacityUnits: Number("long"), // required
  *     },
+ *     OnDemandThroughput: { // OnDemandThroughput
+ *       MaxReadRequestUnits: Number("long"),
+ *       MaxWriteRequestUnits: Number("long"),
+ *     },
  *     SSESpecification: { // SSESpecification
  *       Enabled: true || false,
  *       SSEType: "AES256" || "KMS",
@@ -93,6 +97,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *         ProvisionedThroughput: {
  *           ReadCapacityUnits: Number("long"), // required
  *           WriteCapacityUnits: Number("long"), // required
+ *         },
+ *         OnDemandThroughput: {
+ *           MaxReadRequestUnits: Number("long"),
+ *           MaxWriteRequestUnits: Number("long"),
  *         },
  *       },
  *     ],
@@ -143,6 +151,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * //         ReadCapacityUnits: Number("long"), // required
  * //         WriteCapacityUnits: Number("long"), // required
  * //       },
+ * //       OnDemandThroughput: { // OnDemandThroughput
+ * //         MaxReadRequestUnits: Number("long"),
+ * //         MaxWriteRequestUnits: Number("long"),
+ * //       },
  * //       SSESpecification: { // SSESpecification
  * //         Enabled: true || false,
  * //         SSEType: "AES256" || "KMS",
@@ -166,6 +178,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * //           ProvisionedThroughput: {
  * //             ReadCapacityUnits: Number("long"), // required
  * //             WriteCapacityUnits: Number("long"), // required
+ * //           },
+ * //           OnDemandThroughput: {
+ * //             MaxReadRequestUnits: Number("long"),
+ * //             MaxWriteRequestUnits: Number("long"),
  * //           },
  * //         },
  * //       ],
