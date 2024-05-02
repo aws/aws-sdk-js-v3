@@ -3021,6 +3021,8 @@ const de_Schedule = (output: any, context: __SerdeContext): Schedule => {
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_ScheduledActionAssociation omitted.
+
 /**
  * deserializeAws_json1_1ScheduledActionResponse
  */

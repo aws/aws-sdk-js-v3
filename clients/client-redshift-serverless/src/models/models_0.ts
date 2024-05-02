@@ -63,7 +63,7 @@ export interface ConfigParameter {
   /**
    * <p>The key of the parameter. The
    *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, and query monitoring metrics that let
+   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let
    *          you define performance boundaries. For more information about query monitoring rules and available metrics, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
@@ -1514,7 +1514,7 @@ export interface CreateWorkgroupRequest {
   /**
    * <p>An array of parameters to set for advanced control over a database. The
    *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see
+   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
    *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
@@ -1643,7 +1643,7 @@ export interface Workgroup {
   /**
    * <p>An array of parameters to set for advanced control over a database. The
    *         options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *         <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, and query monitoring metrics that let you define performance boundaries.
+   *         <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you define performance boundaries.
    *         For more information about query monitoring rules and available metrics, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless"> Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
    * @public
    */
@@ -1674,8 +1674,7 @@ export interface Workgroup {
   endpoint?: Endpoint;
 
   /**
-   * <p>A value that specifies whether the workgroup
-   *       can be accessible from a public network</p>
+   * <p>A value that specifies whether the workgroup can be accessible from a public network.</p>
    * @public
    */
   publiclyAccessible?: boolean;
@@ -2761,6 +2760,24 @@ export interface ListScheduledActionsRequest {
 }
 
 /**
+ * <p>Contains names of objects associated with a scheduled action.</p>
+ * @public
+ */
+export interface ScheduledActionAssociation {
+  /**
+   * <p>Name of associated Amazon Redshift Serverless namespace.</p>
+   * @public
+   */
+  namespaceName?: string;
+
+  /**
+   * <p>Name of associated scheduled action.</p>
+   * @public
+   */
+  scheduledActionName?: string;
+}
+
+/**
  * @public
  */
 export interface ListScheduledActionsResponse {
@@ -2771,10 +2788,10 @@ export interface ListScheduledActionsResponse {
   nextToken?: string;
 
   /**
-   * <p>All of the returned scheduled action objects.</p>
+   * <p>All of the returned scheduled action association objects.</p>
    * @public
    */
-  scheduledActions?: string[];
+  scheduledActions?: ScheduledActionAssociation[];
 }
 
 /**
@@ -3734,7 +3751,7 @@ export interface UpdateWorkgroupRequest {
   /**
    * <p>An array of parameters to set for advanced control over a database. The
    *          options are <code>auto_mv</code>, <code>datestyle</code>, <code>enable_case_sensitive_identifier</code>, <code>enable_user_activity_logging</code>,
-   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, and query monitoring metrics that let you
+   *          <code>query_group</code>, <code>search_path</code>, <code>require_ssl</code>, <code>use_fips_ssl</code>, and query monitoring metrics that let you
    *          define performance boundaries. For more information about query monitoring rules and available metrics, see
    *          <a href="https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless">
    *             Query monitoring metrics for Amazon Redshift Serverless</a>.</p>
