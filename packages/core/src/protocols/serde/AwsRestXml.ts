@@ -1,8 +1,8 @@
-import type { ISmithyModelShapeId } from "@smithy/core";
 import type { HttpRequest, HttpResponse, SerdeContext } from "@smithy/types";
 
 import { AwsRuntimeModelInterpreter } from "./AwsRuntimeModelInterpreter";
 import { parameterNameMap } from "./parameterNameMap";
+import type { ISmithyModelShapeId } from "./smithy/SmithyModel";
 
 /**
  *

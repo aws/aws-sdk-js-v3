@@ -1,12 +1,4 @@
-import type {
-  ISmithyModelOperationShape,
-  ISmithyModelShapeId,
-  ISmithyModelStructureShape,
-  ISmithyModelTraits,
-  RuntimeModelInterpreterDeserialization,
-  RuntimeModelInterpreterSerialization,
-} from "@smithy/core";
-import { RequestBuilder, requestBuilder } from "@smithy/core";
+import { requestBuilder } from "@smithy/core";
 import {
   _json,
   collectBody,
@@ -24,6 +16,7 @@ import type { HttpRequest, HttpResponse, ResponseMetadata, SerdeContext } from "
 import { parseJsonBody } from "../json/parseJsonBody";
 import { AwsRuntimeModelInterpreter } from "./AwsRuntimeModelInterpreter";
 import { parameterNameMap } from "./parameterNameMap";
+import type { ISmithyModelOperationShape, ISmithyModelShapeId, ISmithyModelStructureShape } from "./smithy/SmithyModel";
 
 /**
  *
@@ -32,10 +25,7 @@ import { parameterNameMap } from "./parameterNameMap";
  * @internal
  *
  */
-export class AwsRestJson1
-  extends AwsRuntimeModelInterpreter
-  implements RuntimeModelInterpreterSerialization, RuntimeModelInterpreterDeserialization
-{
+export class AwsRestJson1 extends AwsRuntimeModelInterpreter {
   protected parameterNameMap = parameterNameMap;
 
   public async serialize(
@@ -43,56 +33,55 @@ export class AwsRestJson1
     operationShapeId: ISmithyModelShapeId,
     context: SerdeContext
   ): Promise<HttpRequest> {
-    const operationShape = this.se_0_getOperationShape(operationShapeId);
-    const requestShape = this.se_1_getRequestShape(operationShape.input.target);
+    const operationShape = this.getShape(operationShapeId) as ISmithyModelOperationShape;
+    const requestShape = this.getShape(operationShape.input.target) as ISmithyModelStructureShape;
     const b = requestBuilder(input, context);
     const http = operationShape.traits["smithy.api#http"];
-    this.se_2_traitHttp(http, b);
+    b.bp(http!.uri);
 
-    const headers = this.se_2_initHeaders();
-    const query = this.se_2_initQuery();
+    const headers = {
+      "content-type": "application/json",
+    };
+    const query = {};
 
     let body: any = undefined;
     let jsonStringifyBody: boolean | undefined = undefined;
 
-    await this.se_3_iterateRequestShapeMembers(
-      Object.entries(requestShape.members),
-      async ([name, { target, traits = {} }]) => {
-        const httpHeader = traits["smithy.api#httpHeader"];
-        const httpPayload = !!traits["smithy.api#httpPayload"];
-        const httpLabel = !!traits["smithy.api#httpLabel"];
-        const httpQuery = traits["smithy.api#httpQuery"];
-        const jsonName = traits["smithy.api#jsonName"];
+    for (const [name, { target, traits = {} }] of Object.entries(requestShape.members)) {
+      const httpHeader = traits["smithy.api#httpHeader"];
+      const httpPayload = !!traits["smithy.api#httpPayload"];
+      const httpLabel = !!traits["smithy.api#httpLabel"];
+      const httpQuery = traits["smithy.api#httpQuery"];
+      const jsonName = traits["smithy.api#jsonName"];
 
-        if (input[name] == null) {
-          return;
-        }
-
-        if (httpPayload) {
-          if (body !== undefined) {
-            throw new Error("incompatible httpPayload member and body member.");
-          }
-          jsonStringifyBody = false;
-          body = this.se_4_memberTraitHttpPayload(httpPayload, name, input);
-        } else if (httpHeader) {
-          this.se_4_memberTraitHttpHeader(httpHeader, name, input, headers);
-        } else if (httpLabel) {
-          this.se_4_memberTraitHttpLabel(httpLabel, name, input, b);
-        } else if (httpQuery) {
-          this.se_4_memberTraitHttpQuery(httpQuery, name, input, query);
-        } else {
-          this.se_4_memberWithoutTrait(() => {
-            if (jsonStringifyBody === false) {
-              throw new Error("incompatible httpPayload member and body member.");
-            }
-            if (input[name] != null) {
-              body[jsonName ?? name] = this.serializeShape(input[name], target, context);
-            }
-            jsonStringifyBody = true;
-          });
-        }
+      if (input[name] == null) {
+        return;
       }
-    );
+
+      if (httpPayload) {
+        if (body !== undefined) {
+          throw new Error("incompatible httpPayload member and body member.");
+        }
+        jsonStringifyBody = false;
+        body = input[name];
+      } else if (httpHeader) {
+        headers[httpHeader!] = input[name];
+      } else if (httpLabel) {
+        // TODO: determine label greediness.
+        const isGreedyLabel = false;
+        b.p(name, () => input[name], `{${name}}`, isGreedyLabel);
+      } else if (httpQuery) {
+        query[httpQuery!] = input[name];
+      } else {
+        if (jsonStringifyBody === false) {
+          throw new Error("incompatible httpPayload member and body member.");
+        }
+        if (input[name] != null) {
+          body[jsonName ?? name] = this.serializeShape(input[name], target, context);
+        }
+        jsonStringifyBody = true;
+      }
+    }
 
     if (jsonStringifyBody) {
       body = JSON.stringify(body);
@@ -107,39 +96,39 @@ export class AwsRestJson1
     context: SerdeContext
   ): Promise<O> {
     if (httpResponse.statusCode >= 300) {
-      this.de_0_handleErrorStatusCode(httpResponse);
+      // TODO: defer to de_CommandError.
+      throw new Error("error handler not yet implemented");
     }
 
-    const operationShape = this.de_1_getOperationShape(operationShapeId);
-    const responseShape = this.de_2_getResponseShape(operationShape.output.target);
+    const operationShape = this.getShape(operationShapeId) as ISmithyModelOperationShape;
+    const responseShape = this.getShape(operationShape.output.target) as ISmithyModelStructureShape;
 
     let parsedJsonBody: any;
-    const output = this.de_3_initializeOutputWithMetadata(httpResponse);
+    const output: any = {
+      $metadata: deserializeMetadata(httpResponse),
+    };
 
-    await this.de_5_iterateResponseShapeMembers(
-      Object.entries(responseShape.members),
-      async ([name, { target, traits = {} }]) => {
-        const jsonName = traits["smithy.api#jsonName"];
-        const httpResponseCode = traits["smithy.api#httpResponseCode"];
-        const httpHeader = traits["smithy.api#httpHeader"];
-        const httpPayload = traits["smithy.api#httpPayload"];
+    for (const [name, { target, traits = {} }] of Object.entries(responseShape.members)) {
+      const jsonName = traits["smithy.api#jsonName"];
+      const httpResponseCode = traits["smithy.api#httpResponseCode"];
+      const httpHeader = traits["smithy.api#httpHeader"];
+      const httpPayload = traits["smithy.api#httpPayload"];
 
-        if (httpResponseCode) {
-          this.de_6_memberTraitHttpResponseCode(httpResponseCode, name, output, httpResponse);
-        } else if (httpHeader) {
-          this.de_6_memberTraitHttpHeader(httpHeader, name, output, httpResponse);
-        } else if (httpPayload) {
-          await this.de_6_memberTraitHttpPayload(httpPayload, name, output, httpResponse, context);
-        } else {
-          await this.de_6_memberWithoutTrait(async () => {
-            if (!parsedJsonBody) {
-              parsedJsonBody = await parseJsonBody(httpResponse.body, context);
-            }
-            output[name] = this.deserializeShape(parsedJsonBody[jsonName ?? name], target, context);
-          });
+      if (httpResponseCode) {
+        output[name] = httpResponse.statusCode;
+      } else if (httpHeader) {
+        if (httpResponse.headers[httpHeader!.toLowerCase()]) {
+          output[name] = httpResponse.headers[httpHeader!.toLowerCase()];
         }
+      } else if (httpPayload) {
+        output[name] = await collectBody(httpResponse.body, context);
+      } else {
+        if (!parsedJsonBody) {
+          parsedJsonBody = await parseJsonBody(httpResponse.body, context);
+        }
+        output[name] = this.deserializeShape(parsedJsonBody[jsonName ?? name], target, context);
       }
-    );
+    }
 
     return output as O;
   }
@@ -200,136 +189,6 @@ export class AwsRestJson1
       // TODO: handle other types
     }
     return _json(output);
-  }
-
-  de_0_handleErrorStatusCode(httpResponse: HttpResponse): void {
-    // TODO: defer to de_CommandError.
-    throw new Error("error handler not yet implemented");
-  }
-
-  de_1_getOperationShape(operationShapeId: ISmithyModelShapeId): ISmithyModelOperationShape {
-    return this.getShape(operationShapeId);
-  }
-
-  de_2_getResponseShape(responseShapeId: ISmithyModelShapeId): ISmithyModelStructureShape {
-    return this.getShape(responseShapeId);
-  }
-
-  de_3_initializeOutputWithMetadata(httpResponse: HttpResponse): any {
-    return {
-      $metadata: deserializeMetadata(httpResponse),
-    };
-  }
-
-  async de_5_iterateResponseShapeMembers(
-    entries: [string, ISmithyModelStructureShape["members"][""]][],
-    iterationFn: (entry: (typeof entries)[0]) => Promise<void>
-  ): Promise<void> {
-    await Promise.all(entries.map(iterationFn));
-  }
-
-  de_6_memberTraitHttpHeader(
-    httpHeader: ISmithyModelTraits["smithy.api#httpHeader"],
-    memberName: string,
-    output: any,
-    httpResponse: HttpResponse
-  ): void {
-    if (httpResponse.headers[httpHeader!.toLowerCase()]) {
-      output[memberName] = httpResponse.headers[httpHeader!.toLowerCase()];
-    }
-  }
-
-  async de_6_memberTraitHttpPayload(
-    httpPayload: ISmithyModelTraits["smithy.api#httpPayload"],
-    memberName: string,
-    output: any,
-    httpResponse: HttpResponse,
-    context: SerdeContext
-  ): Promise<void> {
-    output[memberName] = await collectBody(httpResponse.body, context);
-  }
-
-  de_6_memberTraitHttpResponseCode(
-    httpResponseCode: ISmithyModelTraits["smithy.api#httpResponseCode"],
-    memberName: string,
-    output: any,
-    httpResponse: HttpResponse
-  ): void {
-    output[memberName] = httpResponse.statusCode;
-  }
-
-  async de_6_memberWithoutTrait(fn: () => void | Promise<void>): Promise<void> {
-    await fn();
-  }
-
-  se_0_getOperationShape(operationShapeId: ISmithyModelShapeId): ISmithyModelOperationShape {
-    return this.getShape(operationShapeId);
-  }
-
-  se_1_getRequestShape(requestShapeId: ISmithyModelShapeId): ISmithyModelStructureShape {
-    return this.getShape(requestShapeId);
-  }
-
-  se_2_initHeaders(): Record<string, string> {
-    return {
-      "content-type": "application/json",
-    };
-  }
-
-  se_2_initQuery(): Record<string, string> {
-    return {};
-  }
-
-  se_2_traitHttp(http: ISmithyModelTraits["smithy.api#http"], b: RequestBuilder): void {
-    b.bp(http!.uri);
-  }
-
-  async se_3_iterateRequestShapeMembers(
-    entries: [string, ISmithyModelStructureShape["members"][""]][],
-    iterationFn: (entry: (typeof entries)[0]) => Promise<void>
-  ): Promise<void> {
-    await Promise.all(entries.map(iterationFn));
-  }
-
-  se_4_memberTraitHttpHeader(
-    httpHeader: ISmithyModelTraits["smithy.api#httpHeader"],
-    memberName: string,
-    input: any,
-    headers: Record<string, string>
-  ): void {
-    headers[httpHeader!] = input[memberName];
-  }
-
-  se_4_memberTraitHttpLabel(
-    httpLabel: ISmithyModelTraits["smithy.api#httpLabel"],
-    memberName: string,
-    input: any,
-    b: RequestBuilder
-  ): void {
-    // TODO: determine label greediness.
-    const isGreedyLabel = false;
-    b.p(memberName, () => input[memberName], `{${memberName}}`, isGreedyLabel);
-  }
-
-  se_4_memberTraitHttpPayload(
-    httpPayload: ISmithyModelTraits["smithy.api#httpPayload"],
-    memberName: string,
-    input: any
-  ): any {
-    return input[memberName];
-  }
-
-  se_4_memberTraitHttpQuery(
-    httpQuery: ISmithyModelTraits["smithy.api#httpQuery"],
-    memberName: string,
-    input: any,
-    query: Record<string, string>
-  ): void {
-    query[httpQuery!] = input[memberName];
-  }
-
-  se_4_memberWithoutTrait(fn: () => void | Promise<void>): void | Promise<void> {
-    return fn();
   }
 }
 

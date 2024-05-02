@@ -26,6 +26,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@smithy/core": "^1.4.2",
+    "@smithy/middleware-endpoint": "^2.5.1",
+    "@smithy/middleware-serde": "^2.3.0",
     "@smithy/protocol-http": "^3.3.0",
     "@smithy/signature-v4": "^2.3.0",
     "@smithy/smithy-client": "^2.5.1",

@@ -1,5 +1,6 @@
-import { RuntimeModelInterpreter } from "@smithy/core";
 import { Client, createAggregatedClient } from "@smithy/smithy-client";
+
+import { RuntimeModelInterpreter } from "./smithy/RuntimeModelInterpreter";
 
 export abstract class AwsRuntimeModelInterpreter extends RuntimeModelInterpreter {
   /**
