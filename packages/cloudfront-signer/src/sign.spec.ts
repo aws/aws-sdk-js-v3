@@ -131,7 +131,7 @@ describe("getSignedUrl", () => {
     expect(result).toBe(`${url}?Expires=${epochDateLessThan}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
     expect(parsedUrl).toBeDefined();
-    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy containing a start date", () => {
@@ -162,7 +162,7 @@ describe("getSignedUrl", () => {
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
     expect(parsedUrl).toBeDefined();
-    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy containing an ip address", () => {
@@ -193,7 +193,7 @@ describe("getSignedUrl", () => {
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
     expect(parsedUrl).toBeDefined();
-    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy containing a start date and ip address", () => {
@@ -228,7 +228,7 @@ describe("getSignedUrl", () => {
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
     expect(parsedUrl).toBeDefined();
-    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query!["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should allow an ip address with and without a mask", () => {
