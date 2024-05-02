@@ -723,6 +723,80 @@ export interface CreateCampaignResponse {
 }
 
 /**
+ * <p>Describes the data source that contains the data to upload to a dataset, or the list of
+ *       records to delete from Amazon Personalize.</p>
+ * @public
+ */
+export interface DataSource {
+  /**
+   * <p>For dataset import jobs, the path to the Amazon S3 bucket where the data that you want to upload to
+   *       your dataset is stored. For data deletion jobs, the path to the Amazon S3 bucket that stores the list of records to delete.
+   *     </p>
+   *          <p>
+   *       For example: </p>
+   *          <p>
+   *             <code>s3://bucket-name/folder-name/fileName.csv</code>
+   *          </p>
+   *          <p>If your CSV files are in a folder in your Amazon S3 bucket and you want your import job or data deletion job
+   *       to consider multiple files, you can specify the path to the folder.  With a data deletion job, Amazon Personalize uses all files in the folder and any sub folder. Use the following syntax with a <code>/</code> after the folder
+   *       name:</p>
+   *          <p>
+   *             <code>s3://bucket-name/folder-name/</code>
+   *          </p>
+   * @public
+   */
+  dataLocation?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataDeletionJobRequest {
+  /**
+   * <p>The name for the data deletion job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that has the datasets you want to
+   *     delete records from.</p>
+   * @public
+   */
+  datasetGroupArn: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket that contains the list of userIds of the users to delete.</p>
+   * @public
+   */
+  dataSource: DataSource | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that has permissions to read from the Amazon S3
+   *       data source.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the data deletion job.</p>
+   * @public
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateDataDeletionJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
+   * @public
+   */
+  dataDeletionJobArn?: string;
+}
+
+/**
  * @public
  */
 export interface CreateDatasetRequest {
@@ -945,23 +1019,6 @@ export interface CreateDatasetGroupResponse {
    * @public
    */
   domain?: Domain;
-}
-
-/**
- * <p>Describes the data source that contains the data to upload to a
- *       dataset.</p>
- * @public
- */
-export interface DataSource {
-  /**
-   * <p>The path to the Amazon S3 bucket where the data that you want to upload to
-   *       your dataset is stored. For example: </p>
-   *          <p>
-   *             <code>s3://bucket-name/folder-name/</code>
-   *          </p>
-   * @public
-   */
-  dataLocation?: string;
 }
 
 /**
@@ -2378,6 +2435,120 @@ export interface DescribeCampaignResponse {
    * @public
    */
   campaign?: Campaign;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataDeletionJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
+   * @public
+   */
+  dataDeletionJobArn: string | undefined;
+}
+
+/**
+ * <p>Describes a job that deletes all
+ *       references to specific users from an Amazon Personalize dataset group in batches. For information about creating a data deletion job,
+ *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html">Deleting users</a>.</p>
+ * @public
+ */
+export interface DataDeletionJob {
+  /**
+   * <p>The name of the data deletion job.</p>
+   * @public
+   */
+  jobName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
+   * @public
+   */
+  dataDeletionJobArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group the job deletes records from.</p>
+   * @public
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>Describes the data source that contains the data to upload to a dataset, or the list of
+   *       records to delete from Amazon Personalize.</p>
+   * @public
+   */
+  dataSource?: DataSource;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that has permissions to read from the Amazon S3
+   *       data source.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The status of the data deletion job.</p>
+   *          <p>A data deletion job can have one of the following statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>PENDING > IN_PROGRESS > COMPLETED -or- FAILED</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: string;
+
+  /**
+   * <p>The number of records deleted by a COMPLETED job.</p>
+   * @public
+   */
+  numDeleted?: number;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the data deletion
+   *       job.</p>
+   * @public
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) the data deletion job was last updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If a data deletion job fails, provides the reason why.</p>
+   * @public
+   */
+  failureReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDataDeletionJobResponse {
+  /**
+   * <p>Information about the data deletion job, including the status.</p>
+   *          <p>The status is one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>PENDING</p>
+   *             </li>
+   *             <li>
+   *                <p>IN_PROGRESS</p>
+   *             </li>
+   *             <li>
+   *                <p>COMPLETED</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  dataDeletionJob?: DataDeletionJob;
 }
 
 /**
@@ -4297,6 +4468,104 @@ export interface ListCampaignsResponse {
 
   /**
    * <p>A token for getting the next set of campaigns (if they exist).</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDataDeletionJobsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group to list data deletion jobs for.</p>
+   * @public
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>A token returned from the previous call to
+   *       <code>ListDataDeletionJobs</code> for getting the next set of jobs (if they exist).</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of data deletion jobs to return.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>Provides a summary of the properties of a data deletion job. For a complete listing, call the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html">DescribeDataDeletionJob</a>
+ *       API operation.</p>
+ * @public
+ */
+export interface DataDeletionJobSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data deletion job.</p>
+   * @public
+   */
+  dataDeletionJobArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group the job deleted records from.</p>
+   * @public
+   */
+  datasetGroupArn?: string;
+
+  /**
+   * <p>The name of the data deletion job.</p>
+   * @public
+   */
+  jobName?: string;
+
+  /**
+   * <p>The status of the data deletion job.</p>
+   *          <p>A data deletion job can have one of the following statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>PENDING > IN_PROGRESS > COMPLETED -or- FAILED</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: string;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the data deletion
+   *       job.</p>
+   * @public
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) the data deletion job was last updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If a data deletion job fails, provides the reason why.</p>
+   * @public
+   */
+  failureReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDataDeletionJobsResponse {
+  /**
+   * <p>The list of data deletion jobs.</p>
+   * @public
+   */
+  dataDeletionJobs?: DataDeletionJobSummary[];
+
+  /**
+   * <p>A token for getting the next set of data deletion jobs (if they
+   *       exist).</p>
    * @public
    */
   nextToken?: string;

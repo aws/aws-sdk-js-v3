@@ -18,6 +18,11 @@ import {
   CreateCampaignCommandOutput,
 } from "./commands/CreateCampaignCommand";
 import {
+  CreateDataDeletionJobCommand,
+  CreateDataDeletionJobCommandInput,
+  CreateDataDeletionJobCommandOutput,
+} from "./commands/CreateDataDeletionJobCommand";
+import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
   CreateDatasetCommandOutput,
@@ -138,6 +143,11 @@ import {
   DescribeCampaignCommandOutput,
 } from "./commands/DescribeCampaignCommand";
 import {
+  DescribeDataDeletionJobCommand,
+  DescribeDataDeletionJobCommandInput,
+  DescribeDataDeletionJobCommandOutput,
+} from "./commands/DescribeDataDeletionJobCommand";
+import {
   DescribeDatasetCommand,
   DescribeDatasetCommandInput,
   DescribeDatasetCommandOutput,
@@ -222,6 +232,11 @@ import {
   ListCampaignsCommandInput,
   ListCampaignsCommandOutput,
 } from "./commands/ListCampaignsCommand";
+import {
+  ListDataDeletionJobsCommand,
+  ListDataDeletionJobsCommandInput,
+  ListDataDeletionJobsCommandOutput,
+} from "./commands/ListDataDeletionJobsCommand";
 import {
   ListDatasetExportJobsCommand,
   ListDatasetExportJobsCommandInput,
@@ -327,6 +342,7 @@ const commands = {
   CreateBatchInferenceJobCommand,
   CreateBatchSegmentJobCommand,
   CreateCampaignCommand,
+  CreateDataDeletionJobCommand,
   CreateDatasetCommand,
   CreateDatasetExportJobCommand,
   CreateDatasetGroupCommand,
@@ -351,6 +367,7 @@ const commands = {
   DescribeBatchInferenceJobCommand,
   DescribeBatchSegmentJobCommand,
   DescribeCampaignCommand,
+  DescribeDataDeletionJobCommand,
   DescribeDatasetCommand,
   DescribeDatasetExportJobCommand,
   DescribeDatasetGroupCommand,
@@ -368,6 +385,7 @@ const commands = {
   ListBatchInferenceJobsCommand,
   ListBatchSegmentJobsCommand,
   ListCampaignsCommand,
+  ListDataDeletionJobsCommand,
   ListDatasetExportJobsCommand,
   ListDatasetGroupsCommand,
   ListDatasetImportJobsCommand,
@@ -440,6 +458,23 @@ export interface Personalize {
     args: CreateCampaignCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCampaignCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataDeletionJobCommand}
+   */
+  createDataDeletionJob(
+    args: CreateDataDeletionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataDeletionJobCommandOutput>;
+  createDataDeletionJob(
+    args: CreateDataDeletionJobCommandInput,
+    cb: (err: any, data?: CreateDataDeletionJobCommandOutput) => void
+  ): void;
+  createDataDeletionJob(
+    args: CreateDataDeletionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataDeletionJobCommandOutput) => void
   ): void;
 
   /**
@@ -806,6 +841,23 @@ export interface Personalize {
   ): void;
 
   /**
+   * @see {@link DescribeDataDeletionJobCommand}
+   */
+  describeDataDeletionJob(
+    args: DescribeDataDeletionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataDeletionJobCommandOutput>;
+  describeDataDeletionJob(
+    args: DescribeDataDeletionJobCommandInput,
+    cb: (err: any, data?: DescribeDataDeletionJobCommandOutput) => void
+  ): void;
+  describeDataDeletionJob(
+    args: DescribeDataDeletionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataDeletionJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDatasetCommand}
    */
   describeDataset(
@@ -1077,6 +1129,24 @@ export interface Personalize {
     args: ListCampaignsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCampaignsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataDeletionJobsCommand}
+   */
+  listDataDeletionJobs(): Promise<ListDataDeletionJobsCommandOutput>;
+  listDataDeletionJobs(
+    args: ListDataDeletionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataDeletionJobsCommandOutput>;
+  listDataDeletionJobs(
+    args: ListDataDeletionJobsCommandInput,
+    cb: (err: any, data?: ListDataDeletionJobsCommandOutput) => void
+  ): void;
+  listDataDeletionJobs(
+    args: ListDataDeletionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataDeletionJobsCommandOutput) => void
   ): void;
 
   /**
