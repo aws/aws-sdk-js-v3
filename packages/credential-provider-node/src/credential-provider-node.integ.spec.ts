@@ -68,14 +68,16 @@ jest.mock("@aws-sdk/client-sso", () => {
   };
 });
 
-let stsSpy: jest.Spied<any> | any | undefined = undefined;
+// This var must be hoisted.
+// eslint-disable-next-line no-var
+var stsSpy: jest.Spied<any> | any | undefined = undefined;
 
 jest.mock("@aws-sdk/client-sts", () => {
   const actual = jest.requireActual("@aws-sdk/client-sts");
 
   const originalSend = actual.STSClient.prototype.send;
 
-  stsSpy = jest.spyOn(actual.STSClient.prototype, "send").mockImplementation(async function (command: any) {
+  stsSpy = jest.spyOn(actual.STSClient.prototype, "send").mockImplementation(async function (this: any, command: any) {
     if (command.constructor.name === "AssumeRoleCommand") {
       return {
         Credentials: {
