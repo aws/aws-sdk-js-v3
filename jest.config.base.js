@@ -10,6 +10,7 @@ module.exports = {
         ...compilerOptions,
         noImplicitAny: false,
         strictNullChecks: false,
+        isolatedModules: true,
       },
     ],
   },
