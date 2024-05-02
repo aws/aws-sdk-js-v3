@@ -26,7 +26,7 @@ describe("middleware-eventstream", () => {
           [Symbol.asyncIterator]() {
             return {
               next() {
-                return this;
+                return this as any;
               },
             };
           },
@@ -57,7 +57,7 @@ describe("middleware-eventstream", () => {
           [Symbol.asyncIterator]() {
             return {
               next() {
-                return this;
+                return this as any;
               },
             };
           },
@@ -87,7 +87,7 @@ describe("middleware-eventstream", () => {
           [Symbol.asyncIterator]() {
             return {
               next() {
-                return this;
+                return this as any;
               },
             };
           },

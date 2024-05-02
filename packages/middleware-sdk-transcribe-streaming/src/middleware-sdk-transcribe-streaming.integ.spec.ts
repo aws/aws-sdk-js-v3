@@ -42,7 +42,7 @@ describe("middleware-sdk-transcribe-streaming", () => {
         MediaEncoding: "pcm",
         AudioStream: {
           [Symbol.asyncIterator]() {
-            return this;
+            return this as any;
           },
         },
       });
