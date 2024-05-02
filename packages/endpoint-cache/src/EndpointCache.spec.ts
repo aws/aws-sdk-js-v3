@@ -6,7 +6,7 @@ import { EndpointCache } from "./EndpointCache";
 jest.mock("mnemonist/lru-cache");
 
 describe(EndpointCache.name, () => {
-  let endpointCache;
+  let endpointCache: EndpointCache;
   const capacity = 100;
   const key = "key";
 
