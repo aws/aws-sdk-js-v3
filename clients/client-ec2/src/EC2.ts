@@ -2166,6 +2166,11 @@ import {
   GetInstanceMetadataDefaultsCommandOutput,
 } from "./commands/GetInstanceMetadataDefaultsCommand";
 import {
+  GetInstanceTpmEkPubCommand,
+  GetInstanceTpmEkPubCommandInput,
+  GetInstanceTpmEkPubCommandOutput,
+} from "./commands/GetInstanceTpmEkPubCommand";
+import {
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
@@ -3480,6 +3485,7 @@ const commands = {
   GetHostReservationPurchasePreviewCommand,
   GetImageBlockPublicAccessStateCommand,
   GetInstanceMetadataDefaultsCommand,
+  GetInstanceTpmEkPubCommand,
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceUefiDataCommand,
   GetIpamAddressHistoryCommand,
@@ -11106,6 +11112,23 @@ export interface EC2 {
     args: GetInstanceMetadataDefaultsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInstanceMetadataDefaultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetInstanceTpmEkPubCommand}
+   */
+  getInstanceTpmEkPub(
+    args: GetInstanceTpmEkPubCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstanceTpmEkPubCommandOutput>;
+  getInstanceTpmEkPub(
+    args: GetInstanceTpmEkPubCommandInput,
+    cb: (err: any, data?: GetInstanceTpmEkPubCommandOutput) => void
+  ): void;
+  getInstanceTpmEkPub(
+    args: GetInstanceTpmEkPubCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstanceTpmEkPubCommandOutput) => void
   ): void;
 
   /**

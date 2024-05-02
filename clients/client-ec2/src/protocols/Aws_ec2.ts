@@ -1520,6 +1520,10 @@ import {
   GetInstanceMetadataDefaultsCommandOutput,
 } from "../commands/GetInstanceMetadataDefaultsCommand";
 import {
+  GetInstanceTpmEkPubCommandInput,
+  GetInstanceTpmEkPubCommandOutput,
+} from "../commands/GetInstanceTpmEkPubCommand";
+import {
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "../commands/GetInstanceTypesFromInstanceRequirementsCommand";
@@ -3600,13 +3604,14 @@ import {
   GetImageBlockPublicAccessStateResult,
   GetInstanceMetadataDefaultsRequest,
   GetInstanceMetadataDefaultsResult,
+  GetInstanceTpmEkPubRequest,
+  GetInstanceTpmEkPubResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
   GetInstanceUefiDataRequest,
   GetInstanceUefiDataResult,
   GetIpamAddressHistoryRequest,
   GetIpamAddressHistoryResult,
-  GetIpamDiscoveredAccountsRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
@@ -3614,8 +3619,6 @@ import {
   InstanceUsage,
   IntegrateServices,
   IpamAddressHistoryRecord,
-  IpamDiscoveredAccount,
-  IpamDiscoveryFailureReason,
   Ipv6CidrAssociation,
   MetricPoint,
   PrivateDnsDetails,
@@ -3656,6 +3659,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetIpamDiscoveredAccountsRequest,
   GetIpamDiscoveredAccountsResult,
   GetIpamDiscoveredPublicAddressesRequest,
   GetIpamDiscoveredPublicAddressesResult,
@@ -3735,9 +3739,10 @@ import {
   InstanceCreditSpecificationRequest,
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
-  IpamCidrAuthorizationContext,
+  IpamDiscoveredAccount,
   IpamDiscoveredPublicAddress,
   IpamDiscoveredResourceCidr,
+  IpamDiscoveryFailureReason,
   IpamPublicAddressSecurityGroup,
   IpamPublicAddressTag,
   IpamPublicAddressTags,
@@ -3895,9 +3900,6 @@ import {
   ProvisionByoipCidrResult,
   ProvisionIpamByoasnRequest,
   ProvisionIpamByoasnResult,
-  ProvisionIpamPoolCidrRequest,
-  ProvisionIpamPoolCidrResult,
-  ProvisionPublicIpv4PoolCidrRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3940,9 +3942,13 @@ import {
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceStateChange,
+  IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionIpamPoolCidrRequest,
+  ProvisionIpamPoolCidrResult,
+  ProvisionPublicIpv4PoolCidrRequest,
   ProvisionPublicIpv4PoolCidrResult,
   PurchaseCapacityBlockRequest,
   PurchaseCapacityBlockResult,
@@ -11606,6 +11612,23 @@ export const se_GetInstanceMetadataDefaultsCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetInstanceMetadataDefaultsRequest(input, context),
     [_A]: _GIMD,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetInstanceTpmEkPubCommand
+ */
+export const se_GetInstanceTpmEkPubCommand = async (
+  input: GetInstanceTpmEkPubCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetInstanceTpmEkPubRequest(input, context),
+    [_A]: _GITEP,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -23369,6 +23392,26 @@ export const de_GetInstanceMetadataDefaultsCommand = async (
   let contents: any = {};
   contents = de_GetInstanceMetadataDefaultsResult(data, context);
   const response: GetInstanceMetadataDefaultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetInstanceTpmEkPubCommand
+ */
+export const de_GetInstanceTpmEkPubCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceTpmEkPubCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetInstanceTpmEkPubResult(data, context);
+  const response: GetInstanceTpmEkPubCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -42224,6 +42267,26 @@ const se_GetInstanceMetadataDefaultsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetInstanceTpmEkPubRequest
+ */
+const se_GetInstanceTpmEkPubRequest = (input: GetInstanceTpmEkPubRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
+  }
+  if (input[_KT] != null) {
+    entries[_KT] = input[_KT];
+  }
+  if (input[_KF] != null) {
+    entries[_KF] = input[_KF];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -66923,6 +66986,26 @@ const de_GetInstanceMetadataDefaultsResult = (
 };
 
 /**
+ * deserializeAws_ec2GetInstanceTpmEkPubResult
+ */
+const de_GetInstanceTpmEkPubResult = (output: any, context: __SerdeContext): GetInstanceTpmEkPubResult => {
+  const contents: any = {};
+  if (output[_iI] != null) {
+    contents[_IIn] = __expectString(output[_iI]);
+  }
+  if (output[_kT] != null) {
+    contents[_KT] = __expectString(output[_kT]);
+  }
+  if (output[_kF] != null) {
+    contents[_KF] = __expectString(output[_kF]);
+  }
+  if (output[_kV] != null) {
+    contents[_KV] = __expectString(output[_kV]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsResult
  */
 const de_GetInstanceTypesFromInstanceRequirementsResult = (
@@ -68542,8 +68625,8 @@ const de_ImportInstanceVolumeDetailSet = (output: any, context: __SerdeContext):
  */
 const de_ImportKeyPairResult = (output: any, context: __SerdeContext): ImportKeyPairResult => {
   const contents: any = {};
-  if (output[_kF] != null) {
-    contents[_KFe] = __expectString(output[_kF]);
+  if (output[_kFe] != null) {
+    contents[_KFe] = __expectString(output[_kFe]);
   }
   if (output[_kN] != null) {
     contents[_KN] = __expectString(output[_kN]);
@@ -71570,8 +71653,8 @@ const de_Ipv6RangeList = (output: any, context: __SerdeContext): Ipv6Range[] => 
  */
 const de_KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   const contents: any = {};
-  if (output[_kF] != null) {
-    contents[_KFe] = __expectString(output[_kF]);
+  if (output[_kFe] != null) {
+    contents[_KFe] = __expectString(output[_kFe]);
   }
   if (output[_kM] != null) {
     contents[_KM] = __expectString(output[_kM]);
@@ -71598,8 +71681,8 @@ const de_KeyPairInfo = (output: any, context: __SerdeContext): KeyPairInfo => {
   if (output[_kPI] != null) {
     contents[_KPI] = __expectString(output[_kPI]);
   }
-  if (output[_kF] != null) {
-    contents[_KFe] = __expectString(output[_kF]);
+  if (output[_kFe] != null) {
+    contents[_KFe] = __expectString(output[_kFe]);
   }
   if (output[_kN] != null) {
     contents[_KN] = __expectString(output[_kN]);
@@ -84763,6 +84846,7 @@ const _GIMD = "GetInstanceMetadataDefaults";
 const _GIPA = "GetIpamPoolAllocations";
 const _GIPC = "GetIpamPoolCidrs";
 const _GIRC = "GetIpamResourceCidrs";
+const _GITEP = "GetInstanceTpmEkPub";
 const _GITFIR = "GetInstanceTypesFromInstanceRequirements";
 const _GIUD = "GetInstanceUefiData";
 const _GIp = "GpuInfo";
@@ -85041,6 +85125,7 @@ const _KP = "KeyPairs";
 const _KPI = "KeyPairId";
 const _KPIe = "KeyPairIds";
 const _KT = "KeyType";
+const _KV = "KeyValue";
 const _Ke = "Key";
 const _Key = "Keyword";
 const _L = "Locale";
@@ -86957,7 +87042,8 @@ const _ip = "ipam";
 const _is = "issuer";
 const _k = "key";
 const _kDF = "kinesisDataFirehose";
-const _kF = "keyFingerprint";
+const _kF = "keyFormat";
+const _kFe = "keyFingerprint";
 const _kI = "kernelId";
 const _kKA = "kmsKeyArn";
 const _kKI = "kmsKeyId";
@@ -86966,6 +87052,7 @@ const _kN = "keyName";
 const _kPI = "keyPairId";
 const _kS = "keySet";
 const _kT = "keyType";
+const _kV = "keyValue";
 const _ke = "kernel";
 const _key = "keyword";
 const _l = "lifecycle";

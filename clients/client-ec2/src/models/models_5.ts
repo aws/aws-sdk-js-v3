@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import {
   _InstanceType,
   AddressTransfer,
@@ -8297,6 +8299,96 @@ export interface GetInstanceMetadataDefaultsResult {
 
 /**
  * @public
+ * @enum
+ */
+export const EkPubKeyFormat = {
+  der: "der",
+  tpmt: "tpmt",
+} as const;
+
+/**
+ * @public
+ */
+export type EkPubKeyFormat = (typeof EkPubKeyFormat)[keyof typeof EkPubKeyFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const EkPubKeyType = {
+  ECC_SEC_P384: "ecc-sec-p384",
+  RSA_2048: "rsa-2048",
+} as const;
+
+/**
+ * @public
+ */
+export type EkPubKeyType = (typeof EkPubKeyType)[keyof typeof EkPubKeyType];
+
+/**
+ * @public
+ */
+export interface GetInstanceTpmEkPubRequest {
+  /**
+   * <p>The ID of the instance for which to get the public endorsement key.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The required public endorsement key type.</p>
+   * @public
+   */
+  KeyType: EkPubKeyType | undefined;
+
+  /**
+   * <p>The required public endorsement key format. Specify <code>der</code> for a DER-encoded public
+   *             key that is compatible with OpenSSL. Specify <code>tpmt</code> for a TPM 2.0 format that is
+   *             compatible with tpm2-tools. The returned key is base64 encoded.</p>
+   * @public
+   */
+  KeyFormat: EkPubKeyFormat | undefined;
+
+  /**
+   * <p>Specify this parameter to verify whether the request will succeed, without actually making the
+   *             request. If the request will succeed, the response is <code>DryRunOperation</code>. Otherwise,
+   *             the response is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceTpmEkPubResult {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The public endorsement key type.</p>
+   * @public
+   */
+  KeyType?: EkPubKeyType;
+
+  /**
+   * <p>The public endorsement key format.</p>
+   * @public
+   */
+  KeyFormat?: EkPubKeyFormat;
+
+  /**
+   * <p>The public endorsement key material.</p>
+   * @public
+   */
+  KeyValue?: string;
+}
+
+/**
+ * @public
  */
 export interface GetInstanceTypesFromInstanceRequirementsRequest {
   /**
@@ -8602,144 +8694,6 @@ export interface GetIpamAddressHistoryResult {
 }
 
 /**
- * @public
- */
-export interface GetIpamDiscoveredAccountsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>A resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region that the account information is returned from.</p>
-   * @public
-   */
-  DiscoveryRegion: string | undefined;
-
-  /**
-   * <p>Discovered account filters.</p>
-   * @public
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of discovered accounts to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamDiscoveryFailureCode = {
-  assume_role_failure: "assume-role-failure",
-  throttling_failure: "throttling-failure",
-  unauthorized_failure: "unauthorized-failure",
-} as const;
-
-/**
- * @public
- */
-export type IpamDiscoveryFailureCode = (typeof IpamDiscoveryFailureCode)[keyof typeof IpamDiscoveryFailureCode];
-
-/**
- * <p>The discovery failure reason.</p>
- * @public
- */
-export interface IpamDiscoveryFailureReason {
-  /**
-   * <p>The discovery failure code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>assume-role-failure</code> - IPAM could not assume the Amazon Web Services IAM service-linked role. This could be because of any of the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>SLR has not been created yet and IPAM is still creating it.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>You have opted-out of the IPAM home Region.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Account you are using as your IPAM account has been suspended.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>throttling-failure</code> - IPAM account is already using the allotted transactions per second and IPAM is receiving a throttling error when assuming the Amazon Web Services IAM SLR.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Code?: IpamDiscoveryFailureCode;
-
-  /**
-   * <p>The discovery failure message.</p>
-   * @public
-   */
-  Message?: string;
-}
-
-/**
- * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
- * @public
- */
-export interface IpamDiscoveredAccount {
-  /**
-   * <p>The account ID.</p>
-   * @public
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The Amazon Web Services Region that the account information is returned from.
-   *          An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
-   * @public
-   */
-  DiscoveryRegion?: string;
-
-  /**
-   * <p>The resource discovery failure reason.</p>
-   * @public
-   */
-  FailureReason?: IpamDiscoveryFailureReason;
-
-  /**
-   * <p>The last attempted resource discovery time.</p>
-   * @public
-   */
-  LastAttemptedDiscoveryTime?: Date;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  LastSuccessfulDiscoveryTime?: Date;
-}
-
-/**
  * @internal
  */
 export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
@@ -8773,4 +8727,12 @@ export const DetachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   ...(obj.VerifiedAccessTrustProvider && {
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
+  ...obj,
+  ...(obj.KeyValue && { KeyValue: SENSITIVE_STRING }),
 });
