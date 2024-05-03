@@ -50,7 +50,8 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * //     description: "STRING_VALUE",
  * //     routingConfiguration: [ // AgentAliasRoutingConfiguration // required
  * //       { // AgentAliasRoutingConfigurationListItem
- * //         agentVersion: "STRING_VALUE", // required
+ * //         agentVersion: "STRING_VALUE",
+ * //         provisionedThroughput: "STRING_VALUE",
  * //       },
  * //     ],
  * //     createdAt: new Date("TIMESTAMP"), // required
@@ -59,7 +60,8 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * //       { // AgentAliasHistoryEvent
  * //         routingConfiguration: [
  * //           {
- * //             agentVersion: "STRING_VALUE", // required
+ * //             agentVersion: "STRING_VALUE",
+ * //             provisionedThroughput: "STRING_VALUE",
  * //           },
  * //         ],
  * //         endDate: new Date("TIMESTAMP"),
@@ -67,6 +69,9 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * //       },
  * //     ],
  * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //     failureReasons: [ // FailureReasons
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

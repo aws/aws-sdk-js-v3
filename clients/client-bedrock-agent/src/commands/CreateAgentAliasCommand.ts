@@ -41,7 +41,8 @@ export interface CreateAgentAliasCommandOutput extends CreateAgentAliasResponse,
  *   description: "STRING_VALUE",
  *   routingConfiguration: [ // AgentAliasRoutingConfiguration
  *     { // AgentAliasRoutingConfigurationListItem
- *       agentVersion: "STRING_VALUE", // required
+ *       agentVersion: "STRING_VALUE",
+ *       provisionedThroughput: "STRING_VALUE",
  *     },
  *   ],
  *   tags: { // TagsMap
@@ -60,7 +61,8 @@ export interface CreateAgentAliasCommandOutput extends CreateAgentAliasResponse,
  * //     description: "STRING_VALUE",
  * //     routingConfiguration: [ // AgentAliasRoutingConfiguration // required
  * //       { // AgentAliasRoutingConfigurationListItem
- * //         agentVersion: "STRING_VALUE", // required
+ * //         agentVersion: "STRING_VALUE",
+ * //         provisionedThroughput: "STRING_VALUE",
  * //       },
  * //     ],
  * //     createdAt: new Date("TIMESTAMP"), // required
@@ -69,7 +71,8 @@ export interface CreateAgentAliasCommandOutput extends CreateAgentAliasResponse,
  * //       { // AgentAliasHistoryEvent
  * //         routingConfiguration: [
  * //           {
- * //             agentVersion: "STRING_VALUE", // required
+ * //             agentVersion: "STRING_VALUE",
+ * //             provisionedThroughput: "STRING_VALUE",
  * //           },
  * //         ],
  * //         endDate: new Date("TIMESTAMP"),
@@ -77,6 +80,9 @@ export interface CreateAgentAliasCommandOutput extends CreateAgentAliasResponse,
  * //       },
  * //     ],
  * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //     failureReasons: [ // FailureReasons
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

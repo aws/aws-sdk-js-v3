@@ -37,7 +37,7 @@ export const CustomControlMethod = {
 export type CustomControlMethod = (typeof CustomControlMethod)[keyof typeof CustomControlMethod];
 
 /**
- * <p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+ * <p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
  * @public
  */
 export type ActionGroupExecutor =
@@ -438,7 +438,7 @@ export interface CreateAgentActionGroupRequest {
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
@@ -524,7 +524,7 @@ export interface AgentActionGroup {
   parentActionSignature?: ActionGroupSignature;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
@@ -1243,7 +1243,13 @@ export interface AgentAliasRoutingConfigurationListItem {
    * <p>The version of the agent with which the alias is associated.</p>
    * @public
    */
-  agentVersion: string | undefined;
+  agentVersion?: string;
+
+  /**
+   * <p>Information on the Provisioned Throughput assigned to an agent alias.</p>
+   * @public
+   */
+  provisionedThroughput?: string;
 }
 
 /**
@@ -1375,6 +1381,12 @@ export interface AgentAlias {
    * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
+
+  /**
+   * <p>Information on the failure of Provisioned Throughput assigned to an agent alias.</p>
+   * @public
+   */
+  failureReasons?: string[];
 }
 
 /**
@@ -2694,7 +2706,7 @@ export interface UpdateDataSourceRequest {
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * <p>The data deletion policy assigned to the data source.</p>
+   * <p>The data deletion policy of the updated data source.</p>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy;

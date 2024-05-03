@@ -2300,6 +2300,7 @@ const de_AgentAlias = (output: any, context: __SerdeContext): AgentAlias => {
     clientToken: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    failureReasons: _json,
     routingConfiguration: _json,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
