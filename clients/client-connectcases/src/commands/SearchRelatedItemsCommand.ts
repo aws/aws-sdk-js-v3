@@ -52,6 +52,9 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  *         contactArn: "STRING_VALUE",
  *       },
  *       comment: {},
+ *       file: { // FileFilter
+ *         fileArn: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };
@@ -73,6 +76,9 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * //         comment: { // CommentContent
  * //           body: "STRING_VALUE", // required
  * //           contentType: "STRING_VALUE", // required
+ * //         },
+ * //         file: { // FileContent
+ * //           fileArn: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       tags: { // Tags

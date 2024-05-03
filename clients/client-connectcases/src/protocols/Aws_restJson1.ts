@@ -106,6 +106,8 @@ import {
   FieldOption,
   FieldValue,
   FieldValueUnion,
+  FileContent,
+  FileFilter,
   GetFieldResponse,
   InternalServerException,
   LayoutConfiguration,
@@ -1874,6 +1876,10 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
   });
 };
 
+// se_FileContent omitted.
+
+// se_FileFilter omitted.
+
 // se_LayoutConfiguration omitted.
 
 // se_LayoutContent omitted.
@@ -2108,6 +2114,8 @@ const de_FieldValueUnion = (output: any, context: __SerdeContext): FieldValueUni
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_FileContent omitted.
+
 /**
  * deserializeAws_restJson1GetFieldResponse
  */
@@ -2148,6 +2156,11 @@ const de_RelatedItemContent = (output: any, context: __SerdeContext): RelatedIte
   if (output.contact != null) {
     return {
       contact: de_ContactContent(output.contact, context),
+    };
+  }
+  if (output.file != null) {
+    return {
+      file: _json(output.file),
     };
   }
   return { $unknown: Object.entries(output)[0] };
