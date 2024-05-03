@@ -1470,24 +1470,29 @@ export interface CreateLocationObjectStorageRequest {
   Tags?: TagListEntry[];
 
   /**
-   * <p>Specifies a file with the certificates that are used to sign the object storage server's
-   *       certificate (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
-   *       The file you specify must include the following:</p>
+   * <p>Specifies a certificate chain for DataSync to authenticate with your object
+   *       storage system if the system uses a private or self-signed certificate authority (CA). You
+   *       must specify a single <code>.pem</code> file with a full certificate chain (for example,
+   *         <code>file:///home/user/.ssh/object_storage_certificates.pem</code>).</p>
+   *          <p>The certificate chain might include:</p>
    *          <ul>
    *             <li>
-   *                <p>The certificate of the signing certificate authority (CA)</p>
+   *                <p>The object storage system's certificate</p>
    *             </li>
    *             <li>
-   *                <p>Any intermediate certificates</p>
+   *                <p>All intermediate certificates (if there are any)</p>
    *             </li>
    *             <li>
-   *                <p>base64 encoding</p>
-   *             </li>
-   *             <li>
-   *                <p>A <code>.pem</code> extension</p>
+   *                <p>The root certificate of the signing CA</p>
    *             </li>
    *          </ul>
-   *          <p>The file can be up to 32768 bytes (before base64 encoding).</p>
+   *          <p>You can concatenate your certificates into a <code>.pem</code> file (which can be up to
+   *       32768 bytes before base64 encoding). The following example <code>cat</code> command creates an
+   *         <code>object_storage_certificates.pem</code> file that includes three certificates:</p>
+   *          <p>
+   *             <code>cat object_server_certificate.pem intermediate_certificate.pem
+   *         ca_root_certificate.pem > object_storage_certificates.pem</code>
+   *          </p>
    *          <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p>
    * @public
    */
@@ -2440,8 +2445,9 @@ export interface TaskSchedule {
 
   /**
    * <p>Specifies whether to enable or disable your task schedule. Your schedule is enabled by
-   *       default, but there can be situations where you need to disable it. For example,
-   *       you might need to pause a recurring transfer or fix an issue with your task or perform maintenance on your storage system.</p>
+   *       default, but there can be situations where you need to disable it. For example, you might need
+   *       to pause a recurring transfer to fix an issue with your task or perform maintenance on your
+   *       storage system.</p>
    *          <p>DataSync might disable your schedule automatically if your task fails repeatedly
    *       with the same error. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_TaskScheduleDetails.html">TaskScheduleDetails</a>.</p>
    * @public
@@ -3529,8 +3535,8 @@ export interface DescribeLocationObjectStorageResponse {
   CreationTime?: Date;
 
   /**
-   * <p>The self-signed certificate that DataSync uses to securely authenticate with
-   *       your object storage system.</p>
+   * <p>The certificate chain for DataSync to authenticate with your object storage
+   *       system if the system uses a private or self-signed certificate authority (CA).</p>
    * @public
    */
   ServerCertificate?: Uint8Array;
@@ -6122,12 +6128,31 @@ export interface UpdateLocationObjectStorageRequest {
   AgentArns?: string[];
 
   /**
-   * <p>Specifies a certificate to authenticate with an object storage system that uses a private
-   *       or self-signed certificate authority (CA). You must specify a Base64-encoded <code>.pem</code>
-   *       file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>). The
-   *       certificate can be up to 32768 bytes (before Base64 encoding).</p>
+   * <p>Specifies a certificate chain for DataSync to authenticate with your object
+   *       storage system if the system uses a private or self-signed certificate authority (CA). You
+   *       must specify a single <code>.pem</code> file with a full certificate chain (for example,
+   *         <code>file:///home/user/.ssh/object_storage_certificates.pem</code>).</p>
+   *          <p>The certificate chain might include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The object storage system's certificate</p>
+   *             </li>
+   *             <li>
+   *                <p>All intermediate certificates (if there are any)</p>
+   *             </li>
+   *             <li>
+   *                <p>The root certificate of the signing CA</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can concatenate your certificates into a <code>.pem</code> file (which can be up to
+   *       32768 bytes before base64 encoding). The following example <code>cat</code> command creates an
+   *         <code>object_storage_certificates.pem</code> file that includes three certificates:</p>
+   *          <p>
+   *             <code>cat object_server_certificate.pem intermediate_certificate.pem
+   *       ca_root_certificate.pem > object_storage_certificates.pem</code>
+   *          </p>
    *          <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p>
-   *          <p>Updating the certificate doesn't interfere with tasks that you have in progress.</p>
+   *          <p>Updating this parameter doesn't interfere with tasks that you have in progress.</p>
    * @public
    */
   ServerCertificate?: Uint8Array;
