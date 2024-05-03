@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.569.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.568.0...v3.569.0) (2024-05-03)
+
+
+### Bug Fixes
+
+* **clients:** add deps required by default credential providers ([#6055](https://github.com/aws/aws-sdk-js-v3/issues/6055)) ([bfa8626](https://github.com/aws/aws-sdk-js-v3/commit/bfa86268540d197a21f13e8d2e8bced10b78d480))
+
+
+### Features
+
+* **client-inspector2:** This release adds CSV format to GetCisScanReport for Inspector v2 ([79fb03b](https://github.com/aws/aws-sdk-js-v3/commit/79fb03b9e3bc84c42b0759b44e6fa20bde20f44e))
+
+
+
+
+
 # [3.568.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.567.0...v3.568.0) (2024-05-02)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

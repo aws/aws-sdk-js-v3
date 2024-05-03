@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.569.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.568.0...v3.569.0) (2024-05-03)
+
+
+### Bug Fixes
+
+* **clients:** add deps required by default credential providers ([#6055](https://github.com/aws/aws-sdk-js-v3/issues/6055)) ([bfa8626](https://github.com/aws/aws-sdk-js-v3/commit/bfa86268540d197a21f13e8d2e8bced10b78d480))
+
+
+### Features
+
+* **client-bedrock-agent:** This release adds support for using Provisioned Throughput with Bedrock Agents. ([7c1d339](https://github.com/aws/aws-sdk-js-v3/commit/7c1d339736f712ed106c2b1dc93139224a844162))
+* **client-connectcases:** This feature supports the release of Files related items ([89b45ab](https://github.com/aws/aws-sdk-js-v3/commit/89b45abecb2e527705fd89dc92366f643400cc92))
+* **client-connect:** This release adds 5 new APIs for managing attachments: StartAttachedFileUpload, CompleteAttachedFileUpload, GetAttachedFile, BatchGetAttachedFileMetadata, DeleteAttachedFile. These APIs can be used to programmatically upload and download attachments to Connect resources, like cases. ([1cbc8f9](https://github.com/aws/aws-sdk-js-v3/commit/1cbc8f948b6d3a46355f422607ccba5c4f1da768))
+* **client-inspector2:** This release adds CSV format to GetCisScanReport for Inspector v2 ([79fb03b](https://github.com/aws/aws-sdk-js-v3/commit/79fb03b9e3bc84c42b0759b44e6fa20bde20f44e))
+* **client-sagemaker:** Amazon SageMaker Inference now supports m6i, c6i, r6i, m7i, c7i, r7i and g5 instance types for Batch Transform Jobs ([c97f84a](https://github.com/aws/aws-sdk-js-v3/commit/c97f84a4ca5b2bc804c7bdeb2cd57a2ca9c3d90f))
+* **client-sesv2:** Adds support for specifying replacement headers per BulkEmailEntry in SendBulkEmail in SESv2. ([9dac593](https://github.com/aws/aws-sdk-js-v3/commit/9dac593b5bb1d2696971baa67270f38cd2a03247))
+* **clients:** update client endpoints as of 2024-05-03 ([ca804cd](https://github.com/aws/aws-sdk-js-v3/commit/ca804cdb3b39901d397ebbacbc7d6d3601d03813))
+
+
+
+
+
 # [3.568.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.567.0...v3.568.0) (2024-05-02)
 
 
