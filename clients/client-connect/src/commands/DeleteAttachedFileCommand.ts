@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResumeContactRequest, ResumeContactResponse } from "../models/models_2";
-import { de_ResumeContactCommand, se_ResumeContactCommand } from "../protocols/Aws_restJson1";
+import { DeleteAttachedFileRequest, DeleteAttachedFileResponse } from "../models/models_0";
+import { de_DeleteAttachedFileCommand, se_DeleteAttachedFileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,53 +16,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ResumeContactCommand}.
+ * The input for {@link DeleteAttachedFileCommand}.
  */
-export interface ResumeContactCommandInput extends ResumeContactRequest {}
+export interface DeleteAttachedFileCommandInput extends DeleteAttachedFileRequest {}
 /**
  * @public
  *
- * The output of {@link ResumeContactCommand}.
+ * The output of {@link DeleteAttachedFileCommand}.
  */
-export interface ResumeContactCommandOutput extends ResumeContactResponse, __MetadataBearer {}
+export interface DeleteAttachedFileCommandOutput extends DeleteAttachedFileResponse, __MetadataBearer {}
 
 /**
- * <p>Allows resuming a task contact in a paused state.</p>
+ * <p>Deletes an attached file along with the underlying S3 Object.</p>
+ *          <important>
+ *             <p>The attached file is <b>permanently deleted</b> if S3 bucket
+ *     versioning is not enabled.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ResumeContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ResumeContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteAttachedFileCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteAttachedFileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // ResumeContactRequest
- *   ContactId: "STRING_VALUE", // required
+ * const input = { // DeleteAttachedFileRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE",
+ *   FileId: "STRING_VALUE", // required
+ *   AssociatedResourceArn: "STRING_VALUE", // required
  * };
- * const command = new ResumeContactCommand(input);
+ * const command = new DeleteAttachedFileCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param ResumeContactCommandInput - {@link ResumeContactCommandInput}
- * @returns {@link ResumeContactCommandOutput}
- * @see {@link ResumeContactCommandInput} for command's `input` shape.
- * @see {@link ResumeContactCommandOutput} for command's `response` shape.
+ * @param DeleteAttachedFileCommandInput - {@link DeleteAttachedFileCommandInput}
+ * @returns {@link DeleteAttachedFileCommandOutput}
+ * @see {@link DeleteAttachedFileCommandInput} for command's `input` shape.
+ * @see {@link DeleteAttachedFileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
- *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
@@ -78,10 +75,10 @@ export interface ResumeContactCommandOutput extends ResumeContactResponse, __Met
  *
  * @public
  */
-export class ResumeContactCommand extends $Command
+export class DeleteAttachedFileCommand extends $Command
   .classBuilder<
-    ResumeContactCommandInput,
-    ResumeContactCommandOutput,
+    DeleteAttachedFileCommandInput,
+    DeleteAttachedFileCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +92,9 @@ export class ResumeContactCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "ResumeContact", {})
-  .n("ConnectClient", "ResumeContactCommand")
+  .s("AmazonConnectService", "DeleteAttachedFile", {})
+  .n("ConnectClient", "DeleteAttachedFileCommand")
   .f(void 0, void 0)
-  .ser(se_ResumeContactCommand)
-  .de(de_ResumeContactCommand)
+  .ser(se_DeleteAttachedFileCommand)
+  .de(de_DeleteAttachedFileCommand)
   .build() {}

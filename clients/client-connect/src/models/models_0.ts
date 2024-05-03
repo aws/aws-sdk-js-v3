@@ -735,6 +735,63 @@ export interface AssociateAnalyticsDataSetResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AttachedFileInvalidRequestExceptionReason = {
+  INVALID_FILE_NAME: "INVALID_FILE_NAME",
+  INVALID_FILE_SIZE: "INVALID_FILE_SIZE",
+  INVALID_FILE_TYPE: "INVALID_FILE_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachedFileInvalidRequestExceptionReason =
+  (typeof AttachedFileInvalidRequestExceptionReason)[keyof typeof AttachedFileInvalidRequestExceptionReason];
+
+/**
+ * <p>Reason why the request was invalid.</p>
+ * @public
+ */
+export type InvalidRequestExceptionReason =
+  | InvalidRequestExceptionReason.AttachedFileInvalidRequestExceptionReasonMember
+  | InvalidRequestExceptionReason.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvalidRequestExceptionReason {
+  /**
+   * <p>Reason why the StartAttachedFiledUpload request was invalid.</p>
+   * @public
+   */
+  export interface AttachedFileInvalidRequestExceptionReasonMember {
+    AttachedFileInvalidRequestExceptionReason: AttachedFileInvalidRequestExceptionReason;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AttachedFileInvalidRequestExceptionReason?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AttachedFileInvalidRequestExceptionReason: (value: AttachedFileInvalidRequestExceptionReason) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InvalidRequestExceptionReason, visitor: Visitor<T>): T => {
+    if (value.AttachedFileInvalidRequestExceptionReason !== undefined)
+      return visitor.AttachedFileInvalidRequestExceptionReason(value.AttachedFileInvalidRequestExceptionReason);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The request is not valid.</p>
  * @public
  */
@@ -746,6 +803,12 @@ export class InvalidRequestException extends __BaseException {
    * @public
    */
   Message?: string;
+
+  /**
+   * <p>Reason why the request was invalid.</p>
+   * @public
+   */
+  Reason?: InvalidRequestExceptionReason;
   /**
    * @internal
    */
@@ -757,6 +820,7 @@ export class InvalidRequestException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidRequestException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
 
@@ -1210,11 +1274,13 @@ export interface AssociateInstanceStorageConfigRequest {
    *          </ul>
    *          <note>
    *             <p>
-   *                <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code> is deprecated, but it is still
-   *     supported and will apply only to VOICE channel contacts. Use
-   *     <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code> for voice contacts moving forward.</p>
-   *             <p>If you have previously associated a stream with <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code>, no
-   *     action is needed to update the stream to <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code>.</p>
+   *                <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code> is deprecated, but it is still supported
+   *     and will apply only to VOICE channel contacts. Use
+   *      <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code> for voice contacts moving
+   *     forward.</p>
+   *             <p>If you have previously associated a stream with
+   *      <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code>, no action is needed to update the stream to
+   *      <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code>.</p>
    *          </note>
    * @public
    */
@@ -1637,6 +1703,232 @@ export interface BatchDisassociateAnalyticsDataSetResponse {
 
 /**
  * @public
+ */
+export interface BatchGetAttachedFileMetadataRequest {
+  /**
+   * <p>The unique identifiers of the attached file resource.</p>
+   * @public
+   */
+  FileIds: string[] | undefined;
+
+  /**
+   * <p>The unique identifier of the Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   *    current supported resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * <p>Error describing a failure to retrieve attached file metadata through BatchGetAttachedFileMetadata action.</p>
+ * @public
+ */
+export interface AttachedFileError {
+  /**
+   * <p> Status code describing the failure. </p>
+   * @public
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>Why the attached file couldn't be retrieved. </p>
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId?: string;
+}
+
+/**
+ * <p>Information on the identity that created the file.</p>
+ * @public
+ */
+export type CreatedByInfo =
+  | CreatedByInfo.AWSIdentityArnMember
+  | CreatedByInfo.ConnectUserArnMember
+  | CreatedByInfo.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CreatedByInfo {
+  /**
+   * <p>An agent ARN representing a <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-resources-for-iam-policies">connect user</a>.</p>
+   * @public
+   */
+  export interface ConnectUserArnMember {
+    ConnectUserArn: string;
+    AWSIdentityArn?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and
+   *    this value is calculated automatically if <code>ConnectUserArn</code> is not provided.</p>
+   * @public
+   */
+  export interface AWSIdentityArnMember {
+    ConnectUserArn?: never;
+    AWSIdentityArn: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ConnectUserArn?: never;
+    AWSIdentityArn?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ConnectUserArn: (value: string) => T;
+    AWSIdentityArn: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CreatedByInfo, visitor: Visitor<T>): T => {
+    if (value.ConnectUserArn !== undefined) return visitor.ConnectUserArn(value.ConnectUserArn);
+    if (value.AWSIdentityArn !== undefined) return visitor.AWSIdentityArn(value.AWSIdentityArn);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FileStatusType = {
+  APPROVED: "APPROVED",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type FileStatusType = (typeof FileStatusType)[keyof typeof FileStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FileUseCaseType = {
+  ATTACHMENT: "ATTACHMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type FileUseCaseType = (typeof FileUseCaseType)[keyof typeof FileUseCaseType];
+
+/**
+ * <p>Information about the attached file.</p>
+ * @public
+ */
+export interface AttachedFile {
+  /**
+   * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601
+   *    format: <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example,
+   *    <code>2024-05-03T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  CreationTime: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource (ARN).</p>
+   * @public
+   */
+  FileArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
+   * @public
+   */
+  FileName: string | undefined;
+
+  /**
+   * <p>The size of the attached file in bytes.</p>
+   * @public
+   */
+  FileSizeInBytes: number | undefined;
+
+  /**
+   * <p>The current status of the attached file.</p>
+   * @public
+   */
+  FileStatus: FileStatusType | undefined;
+
+  /**
+   * <p>Represents the identity that created the file.</p>
+   * @public
+   */
+  CreatedBy?: CreatedByInfo;
+
+  /**
+   * <p>The use case for the file.</p>
+   * @public
+   */
+  FileUseCaseType?: FileUseCaseType;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   *    current supported resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{
+   *     "Tags": \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetAttachedFileMetadataResponse {
+  /**
+   * <p>List of attached files that were successfully retrieved. </p>
+   * @public
+   */
+  Files?: AttachedFile[];
+
+  /**
+   * <p>List of errors of attached files that could not be retrieved. </p>
+   * @public
+   */
+  Errors?: AttachedFileError[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const ListFlowAssociationResourceType = {
@@ -1992,6 +2284,40 @@ export interface ClaimPhoneNumberResponse {
    */
   PhoneNumberArn?: string;
 }
+
+/**
+ * Request to CompleteAttachedFileUpload API
+ * @public
+ */
+export interface CompleteAttachedFileUploadRequest {
+  /**
+   * <p>The unique identifier of the Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   *    current supported resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * Response from CompleteAttachedFileUpload API
+ * @public
+ */
+export interface CompleteAttachedFileUploadResponse {}
 
 /**
  * @public
@@ -5646,6 +5972,40 @@ export interface DeactivateEvaluationFormResponse {
 }
 
 /**
+ * Request to DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileRequest {
+  /**
+   * <p>The unique identifier of the Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   *    current supported resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * Response from DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileResponse {}
+
+/**
  * @public
  */
 export interface DeleteContactEvaluationRequest {
@@ -6938,262 +7298,6 @@ export interface HoursOfOperation {
 }
 
 /**
- * @public
- */
-export interface DescribeHoursOfOperationResponse {
-  /**
-   * <p>The hours of operation.</p>
-   * @public
-   */
-  HoursOfOperation?: HoursOfOperation;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceStatus = {
-  ACTIVE: "ACTIVE",
-  CREATION_FAILED: "CREATION_FAILED",
-  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
-
-/**
- * <p>Relevant
- *    details why the instance was not successfully created.</p>
- * @public
- */
-export interface InstanceStatusReason {
-  /**
-   * <p>The message.</p>
-   * @public
-   */
-  Message?: string;
-}
-
-/**
- * <p>The Amazon Connect instance.</p>
- * @public
- */
-export interface Instance {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The identity management type.</p>
-   * @public
-   */
-  IdentityManagementType?: DirectoryType;
-
-  /**
-   * <p>The alias of instance.</p>
-   * @public
-   */
-  InstanceAlias?: string;
-
-  /**
-   * <p>When the instance was created.</p>
-   * @public
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The service role of the instance.</p>
-   * @public
-   */
-  ServiceRole?: string;
-
-  /**
-   * <p>The state of the instance.</p>
-   * @public
-   */
-  InstanceStatus?: InstanceStatus;
-
-  /**
-   * <p>Relevant
-   *    details why the instance was not successfully created. </p>
-   * @public
-   */
-  StatusReason?: InstanceStatusReason;
-
-  /**
-   * <p>Whether inbound calls are enabled.</p>
-   * @public
-   */
-  InboundCallsEnabled?: boolean;
-
-  /**
-   * <p>Whether outbound calls are enabled.</p>
-   * @public
-   */
-  OutboundCallsEnabled?: boolean;
-
-  /**
-   * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
-   * @public
-   */
-  InstanceAccessUrl?: string;
-
-  /**
-   * <p>The tags of an instance.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceResponse {
-  /**
-   * <p>The name of the instance.</p>
-   * @public
-   */
-  Instance?: Instance;
-}
-
-/**
- * @public
- * @enum
- */
-export const InstanceAttributeType = {
-  AUTO_RESOLVE_BEST_VOICES: "AUTO_RESOLVE_BEST_VOICES",
-  CONTACTFLOW_LOGS: "CONTACTFLOW_LOGS",
-  CONTACT_LENS: "CONTACT_LENS",
-  EARLY_MEDIA: "EARLY_MEDIA",
-  ENHANCED_CHAT_MONITORING: "ENHANCED_CHAT_MONITORING",
-  ENHANCED_CONTACT_MONITORING: "ENHANCED_CONTACT_MONITORING",
-  HIGH_VOLUME_OUTBOUND: "HIGH_VOLUME_OUTBOUND",
-  INBOUND_CALLS: "INBOUND_CALLS",
-  MULTI_PARTY_CONFERENCE: "MULTI_PARTY_CONFERENCE",
-  OUTBOUND_CALLS: "OUTBOUND_CALLS",
-  USE_CUSTOM_TTS_VOICES: "USE_CUSTOM_TTS_VOICES",
-} as const;
-
-/**
- * @public
- */
-export type InstanceAttributeType = (typeof InstanceAttributeType)[keyof typeof InstanceAttributeType];
-
-/**
- * @public
- */
-export interface DescribeInstanceAttributeRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The type of attribute.</p>
-   * @public
-   */
-  AttributeType: InstanceAttributeType | undefined;
-}
-
-/**
- * <p>A toggle for an individual feature at the instance level.</p>
- * @public
- */
-export interface Attribute {
-  /**
-   * <p>The type of attribute.</p>
-   * @public
-   */
-  AttributeType?: InstanceAttributeType;
-
-  /**
-   * <p>The value of the attribute.</p>
-   * @public
-   */
-  Value?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceAttributeResponse {
-  /**
-   * <p>The
-   *    type
-   *    of attribute.</p>
-   * @public
-   */
-  Attribute?: Attribute;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceStorageConfigRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>A valid resource type.</p>
-   * @public
-   */
-  ResourceType: InstanceStorageResourceType | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeInstanceStorageConfigResponse {
-  /**
-   * <p>A valid storage type.</p>
-   * @public
-   */
-  StorageConfig?: InstanceStorageConfig;
-}
-
-/**
- * @public
- */
-export interface DescribePhoneNumberRequest {
-  /**
-   * <p>A unique identifier for the phone number.</p>
-   * @public
-   */
-  PhoneNumberId: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CreateInstanceRequestFilterSensitiveLog = (obj: CreateInstanceRequest): any => ({
@@ -7287,20 +7391,4 @@ export const ContactFilterSensitiveLog = (obj: Contact): any => ({
 export const DescribeContactResponseFilterSensitiveLog = (obj: DescribeContactResponse): any => ({
   ...obj,
   ...(obj.Contact && { Contact: ContactFilterSensitiveLog(obj.Contact) }),
-});
-
-/**
- * @internal
- */
-export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
-  ...obj,
-  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceResponseFilterSensitiveLog = (obj: DescribeInstanceResponse): any => ({
-  ...obj,
-  ...(obj.Instance && { Instance: InstanceFilterSensitiveLog(obj.Instance) }),
 });

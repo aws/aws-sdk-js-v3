@@ -96,11 +96,19 @@ import {
   BatchDisassociateAnalyticsDataSetCommandOutput,
 } from "../commands/BatchDisassociateAnalyticsDataSetCommand";
 import {
+  BatchGetAttachedFileMetadataCommandInput,
+  BatchGetAttachedFileMetadataCommandOutput,
+} from "../commands/BatchGetAttachedFileMetadataCommand";
+import {
   BatchGetFlowAssociationCommandInput,
   BatchGetFlowAssociationCommandOutput,
 } from "../commands/BatchGetFlowAssociationCommand";
 import { BatchPutContactCommandInput, BatchPutContactCommandOutput } from "../commands/BatchPutContactCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "../commands/ClaimPhoneNumberCommand";
+import {
+  CompleteAttachedFileUploadCommandInput,
+  CompleteAttachedFileUploadCommandOutput,
+} from "../commands/CompleteAttachedFileUploadCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "../commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
 import {
@@ -159,6 +167,7 @@ import {
   DeactivateEvaluationFormCommandInput,
   DeactivateEvaluationFormCommandOutput,
 } from "../commands/DeactivateEvaluationFormCommand";
+import { DeleteAttachedFileCommandInput, DeleteAttachedFileCommandOutput } from "../commands/DeleteAttachedFileCommand";
 import {
   DeleteContactEvaluationCommandInput,
   DeleteContactEvaluationCommandOutput,
@@ -327,6 +336,7 @@ import {
   DisassociateUserProficienciesCommandOutput,
 } from "../commands/DisassociateUserProficienciesCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "../commands/DismissUserContactCommand";
+import { GetAttachedFileCommandInput, GetAttachedFileCommandOutput } from "../commands/GetAttachedFileCommand";
 import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -516,6 +526,10 @@ import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
 } from "../commands/SendChatIntegrationEventCommand";
+import {
+  StartAttachedFileUploadCommandInput,
+  StartAttachedFileUploadCommandOutput,
+} from "../commands/StartAttachedFileUploadCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
 import {
   StartContactEvaluationCommandInput,
@@ -732,6 +746,7 @@ import {
   ContactInitiationMethod,
   ContactState,
   CreateCaseActionDefinition,
+  CreatedByInfo,
   CrossChannelBehavior,
   Distribution,
   DuplicateResourceException,
@@ -762,7 +777,6 @@ import {
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
-  Instance,
   InstanceStorageConfig,
   InternalServiceException,
   InvalidContactFlowException,
@@ -823,7 +837,6 @@ import {
 } from "../models/models_0";
 import {
   ConflictException,
-  ContactAnalysis,
   ContactFilter,
   Credentials,
   CurrentMetric,
@@ -845,6 +858,7 @@ import {
   HistoricalMetricData,
   HistoricalMetricResult,
   HoursOfOperationSummary,
+  Instance,
   InstanceSummary,
   IntervalDetails,
   MetricDataV2,
@@ -873,9 +887,6 @@ import {
   RoutingProfileSummary,
   Rule,
   RuleSummary,
-  SearchableContactAttributes,
-  SearchableContactAttributesCriteria,
-  SearchCriteria,
   SecurityKey,
   SecurityProfile,
   SecurityProfileSummary,
@@ -885,8 +896,6 @@ import {
   TelephonyConfig,
   Threshold,
   ThresholdV2,
-  Transcript,
-  TranscriptCriteria,
   User,
   UserData,
   UserDataFilters,
@@ -902,6 +911,7 @@ import {
   ChatMessage,
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
+  ContactAnalysis,
   ContactNotFoundException,
   ContactSearchSummary,
   ContactSearchSummaryAgentInfo,
@@ -937,7 +947,10 @@ import {
   ResourceTagsSearchCriteria,
   RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
+  SearchableContactAttributes,
+  SearchableContactAttributesCriteria,
   SearchContactsTimeRange,
+  SearchCriteria,
   SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
   SegmentAttributeValue,
@@ -945,6 +958,8 @@ import {
   StringCondition,
   TagCondition,
   TagSearchCondition,
+  Transcript,
+  TranscriptCriteria,
   UpdateParticipantRoleConfigChannelInfo,
   UserSearchCriteria,
   UserSearchFilter,
@@ -1358,6 +1373,32 @@ export const se_BatchDisassociateAnalyticsDataSetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1BatchGetAttachedFileMetadataCommand
+ */
+export const se_BatchGetAttachedFileMetadataCommand = async (
+  input: BatchGetAttachedFileMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/attached-files/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      FileIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1BatchGetFlowAssociationCommand
  */
 export const se_BatchGetFlowAssociationCommand = async (
@@ -1429,6 +1470,26 @@ export const se_ClaimPhoneNumberCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CompleteAttachedFileUploadCommand
+ */
+export const se_CompleteAttachedFileUploadCommand = async (
+  input: CompleteAttachedFileUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/attached-files/{InstanceId}/{FileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("FileId", () => input.FileId!, "{FileId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2105,6 +2166,26 @@ export const se_DeactivateEvaluationFormCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAttachedFileCommand
+ */
+export const se_DeleteAttachedFileCommand = async (
+  input: DeleteAttachedFileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/attached-files/{InstanceId}/{FileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("FileId", () => input.FileId!, "{FileId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3188,6 +3269,27 @@ export const se_DismissUserContactCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAttachedFileCommand
+ */
+export const se_GetAttachedFileCommand = async (
+  input: GetAttachedFileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/attached-files/{InstanceId}/{FileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("FileId", () => input.FileId!, "{FileId}", false);
+  const query: any = map({
+    [_uEIS]: [() => input.UrlExpiryInSeconds !== void 0, () => input[_UEIS]!.toString()],
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4865,6 +4967,38 @@ export const se_SendChatIntegrationEventCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartAttachedFileUploadCommand
+ */
+export const se_StartAttachedFileUploadCommand = async (
+  input: StartAttachedFileUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/attached-files/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      CreatedBy: (_) => _json(_),
+      FileName: [],
+      FileSizeInBytes: [],
+      FileUseCaseType: [],
+      Tags: (_) => _json(_),
+      UrlExpiryInSeconds: [],
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -6786,6 +6920,28 @@ export const de_BatchDisassociateAnalyticsDataSetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchGetAttachedFileMetadataCommand
+ */
+export const de_BatchGetAttachedFileMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAttachedFileMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Errors: _json,
+    Files: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1BatchGetFlowAssociationCommand
  */
 export const de_BatchGetFlowAssociationCommand = async (
@@ -6847,6 +7003,23 @@ export const de_ClaimPhoneNumberCommand = async (
     PhoneNumberId: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CompleteAttachedFileUploadCommand
+ */
+export const de_CompleteAttachedFileUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteAttachedFileUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -7391,6 +7564,23 @@ export const de_DeactivateEvaluationFormCommand = async (
     EvaluationFormVersion: __expectInt32,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAttachedFileCommand
+ */
+export const de_DeleteAttachedFileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttachedFileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -8514,6 +8704,37 @@ export const de_DismissUserContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAttachedFileCommand
+ */
+export const de_GetAttachedFileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAttachedFileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AssociatedResourceArn: __expectString,
+    CreatedBy: (_) => _json(__expectUnion(_)),
+    CreationTime: __expectString,
+    DownloadUrlMetadata: _json,
+    FileArn: __expectString,
+    FileId: __expectString,
+    FileName: __expectString,
+    FileSizeInBytes: __expectLong,
+    FileStatus: __expectString,
+    FileUseCaseType: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -10183,6 +10404,32 @@ export const de_SendChatIntegrationEventCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartAttachedFileUploadCommand
+ */
+export const de_StartAttachedFileUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAttachedFileUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedBy: (_) => _json(__expectUnion(_)),
+    CreationTime: __expectString,
+    FileArn: __expectString,
+    FileId: __expectString,
+    FileStatus: __expectString,
+    UploadUrlMetadata: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartChatContactCommand
  */
 export const de_StartChatContactCommand = async (
@@ -11658,6 +11905,7 @@ const de_InvalidRequestExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     Message: __expectString,
+    Reason: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   const exception = new InvalidRequestException({
@@ -11999,6 +12247,8 @@ const se_CreateCaseActionDefinition = (input: CreateCaseActionDefinition, contex
   });
 };
 
+// se_CreatedByInfo omitted.
+
 // se_CrossChannelBehavior omitted.
 
 // se_CurrentMetric omitted.
@@ -12171,6 +12421,8 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
     StringValue: [],
   });
 };
+
+// se_FileIdList omitted.
 
 // se_Filters omitted.
 
@@ -12871,6 +13123,14 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 
 // de_AssignContactCategoryActionDefinition omitted.
 
+// de_AttachedFile omitted.
+
+// de_AttachedFileError omitted.
+
+// de_AttachedFileErrorsList omitted.
+
+// de_AttachedFilesList omitted.
+
 // de_AttachmentReference omitted.
 
 // de_Attendee omitted.
@@ -13001,6 +13261,8 @@ const de_CreateCaseActionDefinition = (output: any, context: __SerdeContext): Cr
   }) as any;
 };
 
+// de_CreatedByInfo omitted.
+
 /**
  * deserializeAws_restJson1Credentials
  */
@@ -13076,6 +13338,8 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
 // de_Distribution omitted.
 
 // de_DistributionList omitted.
+
+// de_DownloadUrlMetadata omitted.
 
 // de_EmailReference omitted.
 
@@ -13703,6 +13967,8 @@ const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceS
 // de_IntegrationAssociationSummary omitted.
 
 // de_IntegrationAssociationSummaryList omitted.
+
+// de_InvalidRequestExceptionReason omitted.
 
 // de_InvisibleFieldInfo omitted.
 
@@ -14572,6 +14838,10 @@ const de_UpdateCaseActionDefinition = (output: any, context: __SerdeContext): Up
   }) as any;
 };
 
+// de_UploadUrlMetadata omitted.
+
+// de_UrlMetadataSignedHeaders omitted.
+
 // de_UrlReference omitted.
 
 // de_UseCase omitted.
@@ -14791,6 +15061,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _ARA = "AssociatedResourceArn";
 const _AST = "AgentStatusTypes";
 const _BN = "BotName";
 const _CFMS = "ContactFlowModuleState";
@@ -14821,7 +15092,9 @@ const _S = "Status";
 const _SV = "SnapshotVersion";
 const _T = "Type";
 const _TK = "TagKeys";
+const _UEIS = "UrlExpiryInSeconds";
 const _UI = "UserId";
+const _aRA = "associatedResourceArn";
 const _bN = "botName";
 const _cFT = "contactFlowTypes";
 const _cI = "contactId";
@@ -14848,4 +15121,5 @@ const _sV = "snapshotVersion";
 const _st = "status";
 const _t = "type";
 const _tK = "tagKeys";
+const _uEIS = "urlExpiryInSeconds";
 const _v = "version";

@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ReplicateInstanceRequest,
-  ReplicateInstanceRequestFilterSensitiveLog,
-  ReplicateInstanceResponse,
-} from "../models/models_1";
+import { ReplicateInstanceRequest, ReplicateInstanceRequestFilterSensitiveLog } from "../models/models_1";
+import { ReplicateInstanceResponse } from "../models/models_2";
 import { de_ReplicateInstanceCommand, se_ReplicateInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**

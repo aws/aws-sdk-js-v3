@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResumeContactRequest, ResumeContactResponse } from "../models/models_2";
-import { de_ResumeContactCommand, se_ResumeContactCommand } from "../protocols/Aws_restJson1";
+import { CompleteAttachedFileUploadRequest, CompleteAttachedFileUploadResponse } from "../models/models_0";
+import { de_CompleteAttachedFileUploadCommand, se_CompleteAttachedFileUploadCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,53 +16,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ResumeContactCommand}.
+ * The input for {@link CompleteAttachedFileUploadCommand}.
  */
-export interface ResumeContactCommandInput extends ResumeContactRequest {}
+export interface CompleteAttachedFileUploadCommandInput extends CompleteAttachedFileUploadRequest {}
 /**
  * @public
  *
- * The output of {@link ResumeContactCommand}.
+ * The output of {@link CompleteAttachedFileUploadCommand}.
  */
-export interface ResumeContactCommandOutput extends ResumeContactResponse, __MetadataBearer {}
+export interface CompleteAttachedFileUploadCommandOutput extends CompleteAttachedFileUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Allows resuming a task contact in a paused state.</p>
+ * <p>Allows you to confirm that the attached file has been uploaded using the pre-signed URL
+ *    provided in the StartAttachedFileUpload API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ResumeContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ResumeContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CompleteAttachedFileUploadCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CompleteAttachedFileUploadCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // ResumeContactRequest
- *   ContactId: "STRING_VALUE", // required
+ * const input = { // CompleteAttachedFileUploadRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE",
+ *   FileId: "STRING_VALUE", // required
+ *   AssociatedResourceArn: "STRING_VALUE", // required
  * };
- * const command = new ResumeContactCommand(input);
+ * const command = new CompleteAttachedFileUploadCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param ResumeContactCommandInput - {@link ResumeContactCommandInput}
- * @returns {@link ResumeContactCommandOutput}
- * @see {@link ResumeContactCommandInput} for command's `input` shape.
- * @see {@link ResumeContactCommandOutput} for command's `response` shape.
+ * @param CompleteAttachedFileUploadCommandInput - {@link CompleteAttachedFileUploadCommandInput}
+ * @returns {@link CompleteAttachedFileUploadCommandOutput}
+ * @see {@link CompleteAttachedFileUploadCommandInput} for command's `input` shape.
+ * @see {@link CompleteAttachedFileUploadCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
- *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
@@ -78,10 +72,10 @@ export interface ResumeContactCommandOutput extends ResumeContactResponse, __Met
  *
  * @public
  */
-export class ResumeContactCommand extends $Command
+export class CompleteAttachedFileUploadCommand extends $Command
   .classBuilder<
-    ResumeContactCommandInput,
-    ResumeContactCommandOutput,
+    CompleteAttachedFileUploadCommandInput,
+    CompleteAttachedFileUploadCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +89,9 @@ export class ResumeContactCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "ResumeContact", {})
-  .n("ConnectClient", "ResumeContactCommand")
+  .s("AmazonConnectService", "CompleteAttachedFileUpload", {})
+  .n("ConnectClient", "CompleteAttachedFileUploadCommand")
   .f(void 0, void 0)
-  .ser(se_ResumeContactCommand)
-  .de(de_ResumeContactCommand)
+  .ser(se_CompleteAttachedFileUploadCommand)
+  .de(de_CompleteAttachedFileUploadCommand)
   .build() {}

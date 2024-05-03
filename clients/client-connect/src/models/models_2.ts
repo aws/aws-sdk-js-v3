@@ -6,6 +6,7 @@ import { ConnectServiceException as __BaseException } from "./ConnectServiceExce
 import {
   AgentAvailabilityTimer,
   AgentConfig,
+  AgentHierarchyGroups,
   AgentStatusState,
   AllowedCapabilities,
   Application,
@@ -13,19 +14,22 @@ import {
   ContactFlowModuleState,
   ContactFlowState,
   ContactInitiationMethod,
+  CreatedByInfo,
   Evaluation,
   EvaluationAnswerData,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
   EvaluationFormVersionStatus,
   EvaluationNote,
+  FileStatusType,
+  FileUseCaseType,
   HoursOfOperation,
   HoursOfOperationConfig,
-  InstanceAttributeType,
   InstanceStorageConfig,
   InstanceStorageResourceType,
   MediaConcurrency,
   OutboundCallerConfig,
+  ParticipantRole,
   PredefinedAttributeValues,
   QuickConnectConfig,
   Reference,
@@ -51,19 +55,373 @@ import {
 } from "./models_0";
 
 import {
+  InstanceAttributeType,
+  PhoneNumberCountryCode,
+  PhoneNumberType,
   PredefinedAttribute,
   Prompt,
   Queue,
   QueueStatus,
   QuickConnect,
   RoutingProfile,
-  SearchCriteria,
-  SearchCriteriaFilterSensitiveLog,
   SignInConfig,
-  SortableFieldName,
   SortOrder,
   TelephonyConfig,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ReplicateInstanceResponse {
+  /**
+   * <p>The identifier of the replicated instance. You can find the <code>instanceId</code> in the
+   *    ARN of the instance. The replicated instance has the same identifier as the instance it was
+   *    replicated from.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replicated instance.</p>
+   * @public
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ResumeContactRequest {
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ResumeContactResponse {}
+
+/**
+ * @public
+ */
+export interface ResumeContactRecordingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the
+   *    first interaction with the contact center.</p>
+   * @public
+   */
+  InitialContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeContactRecordingResponse {}
+
+/**
+ * @public
+ */
+export interface SearchAvailablePhoneNumbersRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The ISO country code.</p>
+   * @public
+   */
+  PhoneNumberCountryCode: PhoneNumberCountryCode | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   * @public
+   */
+  PhoneNumberType: PhoneNumberType | undefined;
+
+  /**
+   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+   * @public
+   */
+  PhoneNumberPrefix?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Information about available phone numbers.</p>
+ * @public
+ */
+export interface AvailableNumberSummary {
+  /**
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   * @public
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The ISO country code.</p>
+   * @public
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode;
+
+  /**
+   * <p>The type of phone number.</p>
+   * @public
+   */
+  PhoneNumberType?: PhoneNumberType;
+}
+
+/**
+ * @public
+ */
+export interface SearchAvailablePhoneNumbersResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group.</p>
+   * @public
+   */
+  AvailableNumbersList?: AvailableNumberSummary[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchContactsMatchType = {
+  MATCH_ALL: "MATCH_ALL",
+  MATCH_ANY: "MATCH_ANY",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchContactsMatchType = (typeof SearchContactsMatchType)[keyof typeof SearchContactsMatchType];
+
+/**
+ * <p>A structure that defines search criteria base on words or phrases, participants in the
+ *    Contact Lens conversational analytics transcript.</p>
+ * @public
+ */
+export interface TranscriptCriteria {
+  /**
+   * <p>The participant role in a transcript</p>
+   * @public
+   */
+  ParticipantRole: ParticipantRole | undefined;
+
+  /**
+   * <p>The words or phrases used to search within a transcript.</p>
+   * @public
+   */
+  SearchText: string[] | undefined;
+
+  /**
+   * <p>The match type combining search criteria using multiple search texts in a transcript
+   *    criteria.</p>
+   * @public
+   */
+  MatchType: SearchContactsMatchType | undefined;
+}
+
+/**
+ * <p>A structure that defines search criteria and matching logic to search for contacts by
+ *    matching text with transcripts analyzed by Amazon Connect Contact Lens.</p>
+ * @public
+ */
+export interface Transcript {
+  /**
+   * <p>The list of search criteria based on Contact Lens conversational analytics
+   *    transcript.</p>
+   * @public
+   */
+  Criteria: TranscriptCriteria[] | undefined;
+
+  /**
+   * <p>The match type combining search criteria using multiple transcript criteria.</p>
+   * @public
+   */
+  MatchType?: SearchContactsMatchType;
+}
+
+/**
+ * <p>A structure that defines search criteria for contacts using analysis outputs from Amazon
+ *    Connect Contact Lens.</p>
+ * @public
+ */
+export interface ContactAnalysis {
+  /**
+   * <p>Search criteria based on transcript analyzed by Amazon Connect Contact Lens.</p>
+   * @public
+   */
+  Transcript?: Transcript;
+}
+
+/**
+ * <p>The search criteria based on user-defned contact attribute key and values to search
+ *    on.</p>
+ * @public
+ */
+export interface SearchableContactAttributesCriteria {
+  /**
+   * <p>The key containing a searchable user-defined contact attribute.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The list of values to search for within a user-defined contact attribute.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>A structure that defines search criteria based on user-defined contact attributes that are
+ *    configured for contact search.</p>
+ * @public
+ */
+export interface SearchableContactAttributes {
+  /**
+   * <p>The list of criteria based on user-defined contact attributes that are configured for
+   *    contact search.</p>
+   * @public
+   */
+  Criteria: SearchableContactAttributesCriteria[] | undefined;
+
+  /**
+   * <p>The match type combining search criteria using multiple searchable contact
+   *    attributes.</p>
+   * @public
+   */
+  MatchType?: SearchContactsMatchType;
+}
+
+/**
+ * <p>A structure of search criteria to be used to return contacts.</p>
+ * @public
+ */
+export interface SearchCriteria {
+  /**
+   * <p>The identifiers of agents who handled the contacts.</p>
+   * @public
+   */
+  AgentIds?: string[];
+
+  /**
+   * <p>The agent hierarchy groups of the agent at the time of handling the contact.</p>
+   * @public
+   */
+  AgentHierarchyGroups?: AgentHierarchyGroups;
+
+  /**
+   * <p>The list of channels associated with contacts.</p>
+   * @public
+   */
+  Channels?: Channel[];
+
+  /**
+   * <p>Search criteria based on analysis outputs from Amazon Connect Contact Lens.</p>
+   * @public
+   */
+  ContactAnalysis?: ContactAnalysis;
+
+  /**
+   * <p>The list of initiation methods associated with contacts.</p>
+   * @public
+   */
+  InitiationMethods?: ContactInitiationMethod[];
+
+  /**
+   * <p>The list of queue IDs associated with contacts.</p>
+   * @public
+   */
+  QueueIds?: string[];
+
+  /**
+   * <p>The search criteria based on user-defined contact attributes that have been configured for
+   *    contact search. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by customer contact
+   *     attributes</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <important>
+   *             <p>To use <code>SearchableContactAttributes</code> in a search request, the
+   *      <code>GetContactAttributes</code> action is required to perform an API request. For more
+   *     information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions</a>Actions defined by Amazon Connect.</p>
+   *          </important>
+   * @public
+   */
+  SearchableContactAttributes?: SearchableContactAttributes;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortableFieldName = {
+  CHANNEL: "CHANNEL",
+  CONNECTED_TO_AGENT_TIMESTAMP: "CONNECTED_TO_AGENT_TIMESTAMP",
+  DISCONNECT_TIMESTAMP: "DISCONNECT_TIMESTAMP",
+  INITIATION_METHOD: "INITIATION_METHOD",
+  INITIATION_TIMESTAMP: "INITIATION_TIMESTAMP",
+  SCHEDULED_TIMESTAMP: "SCHEDULED_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type SortableFieldName = (typeof SortableFieldName)[keyof typeof SortableFieldName];
 
 /**
  * <p>A structure that defineds the field name to sort by and a sort order.</p>
@@ -1460,6 +1818,143 @@ export interface SendChatIntegrationEventResponse {
    * @public
    */
   NewChatCreated?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface StartAttachedFileUploadRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The unique identifier of the Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
+   * @public
+   */
+  FileName: string | undefined;
+
+  /**
+   * <p>The size of the attached file in bytes.</p>
+   * @public
+   */
+  FileSizeInBytes: number | undefined;
+
+  /**
+   * <p>Optional override for the expiry of the pre-signed S3 URL in seconds.</p>
+   * @public
+   */
+  UrlExpiryInSeconds?: number;
+
+  /**
+   * <p>The use case for the file.</p>
+   * @public
+   */
+  FileUseCaseType: FileUseCaseType | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
+   *    current supported resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+
+  /**
+   * <p>Represents the identity that created the file.</p>
+   * @public
+   */
+  CreatedBy?: CreatedByInfo;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{
+   *     "Tags": \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * <p>Fields required when uploading an attached file. </p>
+ * @public
+ */
+export interface UploadUrlMetadata {
+  /**
+   * <p>A pre-signed S3 URL that should be used for uploading the attached file. </p>
+   * @public
+   */
+  Url?: string;
+
+  /**
+   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
+   *     <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example,
+   *    <code>2019-11-08T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  UrlExpiry?: string;
+
+  /**
+   * <p>A map of headers that should be provided when uploading the attached file. </p>
+   * @public
+   */
+  HeadersToInclude?: Record<string, string>;
+}
+
+/**
+ * Response from StartAttachedFileUpload API.
+ * @public
+ */
+export interface StartAttachedFileUploadResponse {
+  /**
+   * <p>The unique identifier of the attached file resource (ARN).</p>
+   * @public
+   */
+  FileArn?: string;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId?: string;
+
+  /**
+   * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601
+   *    format: <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example,
+   *    <code>2024-05-03T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The current status of the attached file.</p>
+   * @public
+   */
+  FileStatus?: FileStatusType;
+
+  /**
+   * <p>Represents the identity that created the file.</p>
+   * @public
+   */
+  CreatedBy?: CreatedByInfo;
+
+  /**
+   * <p>Information to be used while uploading the attached file. </p>
+   * @public
+   */
+  UploadUrlMetadata?: UploadUrlMetadata;
 }
 
 /**
@@ -2905,6 +3400,20 @@ export interface UpdateContactAttributesRequest {
    *    other contact attributes.</p>
    *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
+   *          <p>When the attributes for a contact exceed 32 KB, the contact is routed down the Error branch
+   *    of the flow. As a mitigation, consider the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Remove unnecessary attributes by setting their values to empty.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the attributes are only used in one flow and don't need to be referred to outside of
+   *      that flow (for example, by a Lambda or another flow), then use flow attributes. This way you
+   *      aren't needlessly persisting the 32 KB of information from one flow to another. For more
+   *      information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-contact-attributes.html">Flow block: Set contact
+   *       attributes</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Attributes: Record<string, string> | undefined;
@@ -5514,6 +6023,62 @@ export interface SearchUsersRequest {
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const TranscriptCriteriaFilterSensitiveLog = (obj: TranscriptCriteria): any => ({
+  ...obj,
+  ...(obj.SearchText && { SearchText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TranscriptFilterSensitiveLog = (obj: Transcript): any => ({
+  ...obj,
+  ...(obj.Criteria && { Criteria: obj.Criteria.map((item) => TranscriptCriteriaFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ContactAnalysisFilterSensitiveLog = (obj: ContactAnalysis): any => ({
+  ...obj,
+  ...(obj.Transcript && { Transcript: TranscriptFilterSensitiveLog(obj.Transcript) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchableContactAttributesCriteriaFilterSensitiveLog = (
+  obj: SearchableContactAttributesCriteria
+): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Values && { Values: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchableContactAttributesFilterSensitiveLog = (obj: SearchableContactAttributes): any => ({
+  ...obj,
+  ...(obj.Criteria && {
+    Criteria: obj.Criteria.map((item) => SearchableContactAttributesCriteriaFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SearchCriteriaFilterSensitiveLog = (obj: SearchCriteria): any => ({
+  ...obj,
+  ...(obj.ContactAnalysis && { ContactAnalysis: ContactAnalysisFilterSensitiveLog(obj.ContactAnalysis) }),
+  ...(obj.SearchableContactAttributes && {
+    SearchableContactAttributes: SearchableContactAttributesFilterSensitiveLog(obj.SearchableContactAttributes),
+  }),
+});
 
 /**
  * @internal
