@@ -1,4 +1,10 @@
-import { GetObjectCommand, PutObjectCommand, S3, waitUntilBucketExists } from "@aws-sdk/client-s3";
+import {
+  GetObjectCommand,
+  PutObjectCommand,
+  S3,
+  waitUntilBucketExists,
+  waitUntilObjectExists,
+} from "@aws-sdk/client-s3";
 import { STS } from "@aws-sdk/client-sts";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import http from "http";
@@ -77,7 +83,10 @@ describe("s3 express CRUD test suite", () => {
             Bucket: bucketName,
             Key: String(i),
           })
-          .then((r) => r.Body?.transformToString())
+          .then(async (r) => {
+            await waitUntilObjectExists({ client: s3, maxWaitTime: 120 }, { Bucket: bucketName, Key: String(i) });
+            return r.Body?.transformToString();
+          })
       );
     }
 
@@ -122,6 +131,9 @@ describe("s3 express CRUD test suite", () => {
         [bucketName]: SCALE,
       },
       "GetObjectCommand (s3 express)": {
+        [bucketName]: SCALE,
+      },
+      "HeadObjectCommand (s3 express)": {
         [bucketName]: SCALE,
       },
       "DeleteObjectCommand (s3 express)": {
