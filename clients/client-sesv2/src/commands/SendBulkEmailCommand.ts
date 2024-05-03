@@ -85,6 +85,12 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *           ReplacementTemplateData: "STRING_VALUE",
  *         },
  *       },
+ *       ReplacementHeaders: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *   ],
  *   ConfigurationSetName: "STRING_VALUE",
