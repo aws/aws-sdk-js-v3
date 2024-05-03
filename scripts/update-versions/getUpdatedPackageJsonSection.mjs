@@ -12,7 +12,12 @@ export const getUpdatedPackageJsonSection = (section, depToVersionHash, { isPeer
         }
 
         // Use exact version for client peerDependencies in credential-provider packages.
-        if (packageName.startsWith("@aws-sdk/credential-provider") && key.startsWith("@aws-sdk/client-")) {
+        const moduleName = packageName.substring(packageName.indexOf("/") + 1);
+        const authProviderPrefixArray = ["credential-provider", "token-provider"];
+        if (
+          authProviderPrefixArray.some((authProviderPrefix) => moduleName.startsWith(authProviderPrefix)) &&
+          key.startsWith("@aws-sdk/client-")
+        ) {
           acc[key] = newVersion;
           return acc;
         }
