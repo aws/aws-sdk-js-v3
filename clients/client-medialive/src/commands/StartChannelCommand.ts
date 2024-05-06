@@ -217,6 +217,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //           WebDeliveryAllowedFlag: "FOLLOW" || "IGNORE",
  * //         },
  * //       },
+ * //       Scte35SegmentationScope: "ALL_OUTPUT_GROUPS" || "SCTE35_ENABLED_OUTPUT_GROUPS",
  * //     },
  * //     BlackoutSlate: { // BlackoutSlate
  * //       BlackoutSlateImage: {

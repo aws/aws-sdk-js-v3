@@ -5220,6 +5220,20 @@ export interface AvailSettings {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const Scte35SegmentationScope = {
+  ALL_OUTPUT_GROUPS: "ALL_OUTPUT_GROUPS",
+  SCTE35_ENABLED_OUTPUT_GROUPS: "SCTE35_ENABLED_OUTPUT_GROUPS",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35SegmentationScope = (typeof Scte35SegmentationScope)[keyof typeof Scte35SegmentationScope];
+
+/**
  * Avail Configuration
  * @public
  */
@@ -5229,6 +5243,15 @@ export interface AvailConfiguration {
    * @public
    */
   AvailSettings?: AvailSettings;
+
+  /**
+   * Configures whether SCTE 35 passthrough triggers segment breaks in all output groups that use segmented outputs. Insertion of a SCTE 35 message typically results in a segment break, in addition to the regular cadence of breaks. The segment breaks appear in video outputs, audio outputs, and captions outputs (if any).
+   *
+   * ALL_OUTPUT_GROUPS: Default. Insert the segment break in in all output groups that have segmented outputs. This is the legacy behavior.
+   * SCTE35_ENABLED_OUTPUT_GROUPS: Insert the segment break only in output groups that have SCTE 35 passthrough enabled. This is the recommended value, because it reduces unnecessary segment breaks.
+   * @public
+   */
+  Scte35SegmentationScope?: Scte35SegmentationScope;
 }
 
 /**
@@ -7613,120 +7636,4 @@ export interface DeleteChannelRequest {
    * @public
    */
   ChannelId: string | undefined;
-}
-
-/**
- * Placeholder documentation for DeleteChannelResponse
- * @public
- */
-export interface DeleteChannelResponse {
-  /**
-   * The unique arn of the channel.
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Specification of CDI inputs for this channel
-   * @public
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   * @public
-   */
-  ChannelClass?: ChannelClass;
-
-  /**
-   * A list of destinations of the channel. For UDP outputs, there is one
-   * destination per output. For other types (HLS, for example), there is
-   * one destination per packager.
-   * @public
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   * @public
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * Encoder Settings
-   * @public
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * The unique id of the channel.
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * List of input attachments for channel.
-   * @public
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of network and file inputs for this channel
-   * @public
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   * @public
-   */
-  LogLevel?: LogLevel;
-
-  /**
-   * Maintenance settings for this channel.
-   * @public
-   */
-  Maintenance?: MaintenanceStatus;
-
-  /**
-   * The name of the channel. (user-mutable)
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   * @public
-   */
-  PipelineDetails?: PipelineDetail[];
-
-  /**
-   * The number of currently healthy pipelines.
-   * @public
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * Placeholder documentation for ChannelState
-   * @public
-   */
-  State?: ChannelState;
-
-  /**
-   * A collection of key-value pairs.
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * Settings for VPC output
-   * @public
-   */
-  Vpc?: VpcOutputSettingsDescription;
 }

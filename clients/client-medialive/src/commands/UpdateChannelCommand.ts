@@ -206,6 +206,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *           WebDeliveryAllowedFlag: "FOLLOW" || "IGNORE",
  *         },
  *       },
+ *       Scte35SegmentationScope: "ALL_OUTPUT_GROUPS" || "SCTE35_ENABLED_OUTPUT_GROUPS",
  *     },
  *     BlackoutSlate: { // BlackoutSlate
  *       BlackoutSlateImage: {
@@ -1236,6 +1237,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //             WebDeliveryAllowedFlag: "FOLLOW" || "IGNORE",
  * //           },
  * //         },
+ * //         Scte35SegmentationScope: "ALL_OUTPUT_GROUPS" || "SCTE35_ENABLED_OUTPUT_GROUPS",
  * //       },
  * //       BlackoutSlate: { // BlackoutSlate
  * //         BlackoutSlateImage: {

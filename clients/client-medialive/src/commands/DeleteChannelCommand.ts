@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_1";
+import { DeleteChannelRequest } from "../models/models_1";
+import { DeleteChannelResponse } from "../models/models_2";
 import { de_DeleteChannelCommand, se_DeleteChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -217,6 +218,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //           WebDeliveryAllowedFlag: "FOLLOW" || "IGNORE",
  * //         },
  * //       },
+ * //       Scte35SegmentationScope: "ALL_OUTPUT_GROUPS" || "SCTE35_ENABLED_OUTPUT_GROUPS",
  * //     },
  * //     BlackoutSlate: { // BlackoutSlate
  * //       BlackoutSlateImage: {
