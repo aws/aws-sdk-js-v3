@@ -4833,6 +4833,21 @@
               "deprecated": true,
               "hostname": "controltower-fips.ca-central-1.amazonaws.com"
             },
+            "ca-west-1": {
+              "variants": [
+                {
+                  "hostname": "controltower-fips.ca-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "ca-west-1-fips": {
+              "credentialScope": {
+                "region": "ca-west-1"
+              },
+              "deprecated": true,
+              "hostname": "controltower-fips.ca-west-1.amazonaws.com"
+            },
             "eu-central-1": {},
             "eu-central-2": {},
             "eu-north-1": {},
@@ -8657,6 +8672,14 @@
                 }
               ]
             },
+            "ca-west-1": {
+              "variants": [
+                {
+                  "hostname": "fms-fips.ca-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-central-1": {
               "variants": [
                 {
@@ -8755,6 +8778,13 @@
               },
               "deprecated": true,
               "hostname": "fms-fips.ca-central-1.amazonaws.com"
+            },
+            "fips-ca-west-1": {
+              "credentialScope": {
+                "region": "ca-west-1"
+              },
+              "deprecated": true,
+              "hostname": "fms-fips.ca-west-1.amazonaws.com"
             },
             "fips-eu-central-1": {
               "credentialScope": {
@@ -21233,7 +21263,14 @@
                 }
               ]
             },
-            "ca-west-1": {},
+            "ca-west-1": {
+              "variants": [
+                {
+                  "hostname": "transfer-fips.ca-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-central-1": {},
             "eu-central-2": {},
             "eu-north-1": {},
@@ -21248,6 +21285,13 @@
               },
               "deprecated": true,
               "hostname": "transfer-fips.ca-central-1.amazonaws.com"
+            },
+            "fips-ca-west-1": {
+              "credentialScope": {
+                "region": "ca-west-1"
+              },
+              "deprecated": true,
+              "hostname": "transfer-fips.ca-west-1.amazonaws.com"
             },
             "fips-us-east-1": {
               "credentialScope": {
