@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.570.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.569.0...v3.570.0) (2024-05-06)
+
+
+### Bug Fixes
+
+* **credential-providers:** use pinned version for client peerDependencies ([#6060](https://github.com/aws/aws-sdk-js-v3/issues/6060)) ([20098c1](https://github.com/aws/aws-sdk-js-v3/commit/20098c1f949721ad2286f47f3367a92a85877be7))
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive now supports configuring how SCTE 35 passthrough triggers segment breaks in HLS and MediaPackage output groups. Previously, messages triggered breaks in all these output groups. The new option is to trigger segment breaks only in groups that have SCTE 35 passthrough enabled. ([ae28fe7](https://github.com/aws/aws-sdk-js-v3/commit/ae28fe7272bc5f27d048c772db2d76e74d430913))
+* **clients:** update client endpoints as of 2024-05-06 ([132b8e7](https://github.com/aws/aws-sdk-js-v3/commit/132b8e7ce381c36e49173327dc1b82393b539a4d))
+
+
+
+
+
 # [3.569.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.568.0...v3.569.0) (2024-05-03)
 
 
