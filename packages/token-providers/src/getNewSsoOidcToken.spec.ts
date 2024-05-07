@@ -7,7 +7,7 @@ jest.mock("@aws-sdk/client-sso-oidc");
 jest.mock("./getSsoOidcClient");
 
 describe(getNewSsoOidcToken.name, () => {
-  let mockSend;
+  let mockSend: any;
 
   const mockSsoRegion = "mockSsoRegion";
   const mockSsoToken = {

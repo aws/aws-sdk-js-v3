@@ -43,7 +43,7 @@ describe(parseXmlBody.name, () => {
       <ID>string</ID>
    </Owner>
 `);
-    const parsed = await parseXmlBody(xml, context as any as SerdeContext).catch((_) => _);
+    const parsed = await parseXmlBody(xml, context as any as SerdeContext).catch((_: any) => _);
     expect(parsed.toString()).toEqual(`Error: Unclosed tag 'ListAllMyBucketsResult'.:2:1`);
   });
 
@@ -54,7 +54,7 @@ describe(parseXmlBody.name, () => {
       <Bucket>
          <CreationDate>timestamp</Creatio
 `);
-    const parsed = await parseXmlBody(xml, context as any as SerdeContext).catch((_) => _);
+    const parsed = await parseXmlBody(xml, context as any as SerdeContext).catch((_: any) => _);
     expect(parsed.toString()).toEqual(`Error: Closing tag 'Creatio' doesn't have proper closing.:6:1`);
   });
 });

@@ -153,7 +153,7 @@ describe(EventStreamPayloadHandler.name, () => {
     const chunks: any = [];
     const reader = handledRequest.body.getReader();
     const push = () => {
-      reader.read().then(({ done, value }) => {
+      reader.read().then(({ done, value }: { done: any; value: any }) => {
         if (!done) {
           chunks.push(value);
           push();

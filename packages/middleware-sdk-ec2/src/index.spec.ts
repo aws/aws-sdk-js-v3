@@ -10,7 +10,7 @@ const handler = copySnapshotPresignedUrlMiddleware({
   region,
   sha256: MockSha256,
   signingEscapePath: true,
-  endpointProvider: async (...args) =>
+  endpointProvider: async () =>
     ({
       url: {
         hostname: "ec2.src-region.test-host.com",

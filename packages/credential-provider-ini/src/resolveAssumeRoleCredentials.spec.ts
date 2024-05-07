@@ -110,7 +110,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
     duration_seconds: "2000",
   });
 
-  const getMockProfilesWithCredSource = (additionalData) => ({
+  const getMockProfilesWithCredSource = (additionalData: any) => ({
     [mockProfileName]: {
       credential_source: mockCredentialSource,
       ...additionalData,

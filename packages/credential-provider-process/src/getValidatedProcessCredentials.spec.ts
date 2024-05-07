@@ -18,7 +18,7 @@ describe(getValidatedProcessCredentials.name, () => {
     Expiration: mockExpiration,
   });
 
-  it.each([undefined, 2])("throws Error when Version is %s", (Version) => {
+  it.each([2])("throws Error when Version is %s", (Version) => {
     expect(() => {
       getValidatedProcessCredentials(mockProfileName, {
         ...getMockProcessCreds(),

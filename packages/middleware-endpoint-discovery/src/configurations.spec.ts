@@ -10,7 +10,7 @@ describe("NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS", () => {
   describe("environmentVariableSelector", () => {
     const ENV_ENDPOINT_DISCOVERY = ["AWS_ENABLE_ENDPOINT_DISCOVERY", "AWS_ENDPOINT_DISCOVERY_ENABLED"];
     describe.each(ENV_ENDPOINT_DISCOVERY)("env key: %p", (envKey) => {
-      const envValues = {};
+      const envValues: Record<string, string | undefined> = {};
 
       beforeEach(() => {
         ENV_ENDPOINT_DISCOVERY.forEach((envKey) => {
