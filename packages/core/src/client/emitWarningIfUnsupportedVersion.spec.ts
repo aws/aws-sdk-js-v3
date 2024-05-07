@@ -1,5 +1,5 @@
 describe("emitWarningIfUnsupportedVersion", () => {
-  let emitWarningIfUnsupportedVersion;
+  let emitWarningIfUnsupportedVersion: any;
   const emitWarning = process.emitWarning;
   const supportedVersion = "16.0.0";
 
