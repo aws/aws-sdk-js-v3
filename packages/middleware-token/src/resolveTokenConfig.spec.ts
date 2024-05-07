@@ -29,7 +29,7 @@ describe(resolveTokenConfig.name, () => {
       expect(tokenDefaultProvider).not.toHaveBeenCalled();
     });
 
-    const testTokenProviderWithToken = (token) => {
+    const testTokenProviderWithToken = (token: any) => {
       expect(resolveTokenConfig({ ...mockInput, token })).toEqual({ ...mockInput, token: mockOutputToken });
       expect(normalizeTokenProvider).toHaveBeenCalledWith(token);
     };
