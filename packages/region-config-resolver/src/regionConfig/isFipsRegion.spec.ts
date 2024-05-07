@@ -10,7 +10,7 @@ describe(isFipsRegion.name, () => {
   });
 
   it.each([undefined, null])("returns false for %s", (input) => {
-    // @ts-expect-error Argument of type 'null | undefined' is not assignable to parameter of type 'string'.
+    // @ts-ignore Argument of type 'null | undefined' is not assignable to parameter of type 'string'.
     expect(isFipsRegion(input)).toEqual(false);
   });
 });
