@@ -141,6 +141,7 @@ describe(fromSso.name, () => {
     expect(validateTokenKey).toHaveBeenNthCalledWith(
       (validateTokenKey as jest.Mock).mock.calls.length,
       key,
+      // @ts-ignore Element implicitly has an 'any' type
       mockSsoToken[key]
     );
   });
@@ -215,6 +216,7 @@ describe(fromSso.name, () => {
       expect(validateTokenKey).toHaveBeenNthCalledWith(
         (validateTokenKey as jest.Mock).mock.calls.length,
         key,
+        // @ts-ignore Element implicitly has an 'any' type
         mockSsoToken[key],
         true
       );
