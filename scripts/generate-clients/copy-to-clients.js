@@ -248,16 +248,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
       const jestConfigPath = join(destPath, "jest.config.js");
       writeFileSync(
         jestConfigPath,
-        'const base = require("../../jest.config.base.js");\n' +
-          "\n" +
-          "module.exports = {\n" +
-          "  ...base,\n" +
-          "  globals: {\n" +
-          '    "ts-jest": {\n' +
-          "      isolatedModules: true,\n" +
-          "    },\n" +
-          "  },\n" +
-          "};\n"
+        'const base = require("../../jest.config.base.js");\n' + "\n" + "module.exports = {\n" + "  ...base,\n" + "};\n"
       );
     }
   }
