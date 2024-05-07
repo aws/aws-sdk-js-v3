@@ -25,6 +25,7 @@ export * from "./DescribeResiliencyPolicyCommand";
 export * from "./ImportResourcesToDraftAppVersionCommand";
 export * from "./ListAlarmRecommendationsCommand";
 export * from "./ListAppAssessmentComplianceDriftsCommand";
+export * from "./ListAppAssessmentResourceDriftsCommand";
 export * from "./ListAppAssessmentsCommand";
 export * from "./ListAppComponentCompliancesCommand";
 export * from "./ListAppComponentRecommendationsCommand";

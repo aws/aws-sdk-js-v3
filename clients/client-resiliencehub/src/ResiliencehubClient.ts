@@ -145,6 +145,10 @@ import {
   ListAppAssessmentComplianceDriftsCommandInput,
   ListAppAssessmentComplianceDriftsCommandOutput,
 } from "./commands/ListAppAssessmentComplianceDriftsCommand";
+import {
+  ListAppAssessmentResourceDriftsCommandInput,
+  ListAppAssessmentResourceDriftsCommandOutput,
+} from "./commands/ListAppAssessmentResourceDriftsCommand";
 import { ListAppAssessmentsCommandInput, ListAppAssessmentsCommandOutput } from "./commands/ListAppAssessmentsCommand";
 import {
   ListAppComponentCompliancesCommandInput,
@@ -271,6 +275,7 @@ export type ServiceInputTypes =
   | ImportResourcesToDraftAppVersionCommandInput
   | ListAlarmRecommendationsCommandInput
   | ListAppAssessmentComplianceDriftsCommandInput
+  | ListAppAssessmentResourceDriftsCommandInput
   | ListAppAssessmentsCommandInput
   | ListAppComponentCompliancesCommandInput
   | ListAppComponentRecommendationsCommandInput
@@ -330,6 +335,7 @@ export type ServiceOutputTypes =
   | ImportResourcesToDraftAppVersionCommandOutput
   | ListAlarmRecommendationsCommandOutput
   | ListAppAssessmentComplianceDriftsCommandOutput
+  | ListAppAssessmentResourceDriftsCommandOutput
   | ListAppAssessmentsCommandOutput
   | ListAppComponentCompliancesCommandOutput
   | ListAppComponentRecommendationsCommandOutput

@@ -44,7 +44,7 @@ export interface ListRecommendationTemplatesCommandOutput
  * // const { ResiliencehubClient, ListRecommendationTemplatesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
  * const input = { // ListRecommendationTemplatesRequest
- *   assessmentArn: "STRING_VALUE", // required
+ *   assessmentArn: "STRING_VALUE",
  *   reverseOrder: true || false,
  *   status: [ // RecommendationTemplateStatusList
  *     "STRING_VALUE",

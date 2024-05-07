@@ -33,10 +33,9 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
 
 /**
  * <p>Creates an Resilience Hub application. An Resilience Hub application is a
- *       collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe a Resilience Hub application, you provide an
- *       application name, resources from one or more CloudFormation stacks, Resource Groups, Terraform state files, AppRegistry applications, and an appropriate
- *       resiliency policy. In addition, you can also add resources that are located on Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources. For more information
- *       about the number of resources supported per application, see <a href="https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub">Service
+ *       collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe a Resilience Hub application,
+ *       you provide an application name, resources from one or more CloudFormation stacks, Resource Groups, Terraform state files, AppRegistry applications, and an appropriate
+ *       resiliency policy. In addition, you can also add resources that are located on Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources. For more information about the number of resources supported per application, see <a href="https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub">Service
  *       quotas</a>.</p>
  *          <p>After you create an Resilience Hub application, you publish it so that you can run a resiliency
  *       assessment on it. You can then use recommendations from the assessment to improve resiliency

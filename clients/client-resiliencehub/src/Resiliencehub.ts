@@ -121,6 +121,11 @@ import {
   ListAppAssessmentComplianceDriftsCommandOutput,
 } from "./commands/ListAppAssessmentComplianceDriftsCommand";
 import {
+  ListAppAssessmentResourceDriftsCommand,
+  ListAppAssessmentResourceDriftsCommandInput,
+  ListAppAssessmentResourceDriftsCommandOutput,
+} from "./commands/ListAppAssessmentResourceDriftsCommand";
+import {
   ListAppAssessmentsCommand,
   ListAppAssessmentsCommandInput,
   ListAppAssessmentsCommandOutput,
@@ -277,6 +282,7 @@ const commands = {
   ImportResourcesToDraftAppVersionCommand,
   ListAlarmRecommendationsCommand,
   ListAppAssessmentComplianceDriftsCommand,
+  ListAppAssessmentResourceDriftsCommand,
   ListAppAssessmentsCommand,
   ListAppComponentCompliancesCommand,
   ListAppComponentRecommendationsCommand,
@@ -733,6 +739,23 @@ export interface Resiliencehub {
   ): void;
 
   /**
+   * @see {@link ListAppAssessmentResourceDriftsCommand}
+   */
+  listAppAssessmentResourceDrifts(
+    args: ListAppAssessmentResourceDriftsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppAssessmentResourceDriftsCommandOutput>;
+  listAppAssessmentResourceDrifts(
+    args: ListAppAssessmentResourceDriftsCommandInput,
+    cb: (err: any, data?: ListAppAssessmentResourceDriftsCommandOutput) => void
+  ): void;
+  listAppAssessmentResourceDrifts(
+    args: ListAppAssessmentResourceDriftsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppAssessmentResourceDriftsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAppAssessmentsCommand}
    */
   listAppAssessments(): Promise<ListAppAssessmentsCommandOutput>;
@@ -881,6 +904,7 @@ export interface Resiliencehub {
   /**
    * @see {@link ListRecommendationTemplatesCommand}
    */
+  listRecommendationTemplates(): Promise<ListRecommendationTemplatesCommandOutput>;
   listRecommendationTemplates(
     args: ListRecommendationTemplatesCommandInput,
     options?: __HttpHandlerOptions

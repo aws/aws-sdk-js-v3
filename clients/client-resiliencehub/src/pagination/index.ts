@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListAlarmRecommendationsPaginator";
 export * from "./ListAppAssessmentComplianceDriftsPaginator";
+export * from "./ListAppAssessmentResourceDriftsPaginator";
 export * from "./ListAppAssessmentsPaginator";
 export * from "./ListAppComponentCompliancesPaginator";
 export * from "./ListAppComponentRecommendationsPaginator";
