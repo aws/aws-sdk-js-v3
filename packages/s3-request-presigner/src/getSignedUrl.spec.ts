@@ -23,6 +23,7 @@ jest.mock("@aws-sdk/util-format-url", () => ({
   formatUrl: (url: any) => url,
 }));
 
+import { HttpRequest } from "@smithy/protocol-http";
 import { RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrl";
@@ -145,7 +146,7 @@ describe("getSignedUrl", () => {
       });
       command.middlewareStack.add(
         (next) => (args) => {
-          (args.request ?? {})[header] = "foo";
+          (args.request as HttpRequest).headers[header] = "foo";
           return next(args);
         },
         { step: "serialize", priority: "low" }
