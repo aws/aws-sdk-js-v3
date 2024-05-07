@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.571.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.570.0...v3.571.0) (2024-05-07)
+
+
+### Features
+
+* **client-budgets:** This release adds tag support for budgets and budget actions. ([da0c974](https://github.com/aws/aws-sdk-js-v3/commit/da0c974ddf62fda7819c20d2e9545183ba75e59d))
+
+
+
+
+
 # [3.569.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.568.0...v3.569.0) (2024-05-03)
 
 

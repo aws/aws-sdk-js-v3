@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.571.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.570.0...v3.571.0) (2024-05-07)
+
+
+### Features
+
+* **client-budgets:** This release adds tag support for budgets and budget actions. ([da0c974](https://github.com/aws/aws-sdk-js-v3/commit/da0c974ddf62fda7819c20d2e9545183ba75e59d))
+* **client-resiliencehub:** AWS Resilience Hub has expanded its drift detection capabilities by introducing a new type of drift detection - application resource drift. This new enhancement detects changes, such as the addition or deletion of resources within the application's input sources. ([612bf4a](https://github.com/aws/aws-sdk-js-v3/commit/612bf4ad1535a2e8887e77ba378bc312e6756823))
+
+
+
+
+
 # [3.570.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.569.0...v3.570.0) (2024-05-06)
 
 
