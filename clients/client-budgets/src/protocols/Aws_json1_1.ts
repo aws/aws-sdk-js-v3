@@ -67,6 +67,12 @@ import {
   ExecuteBudgetActionCommandInput,
   ExecuteBudgetActionCommandOutput,
 } from "../commands/ExecuteBudgetActionCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateBudgetActionCommandInput, UpdateBudgetActionCommandOutput } from "../commands/UpdateBudgetActionCommand";
 import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "../commands/UpdateBudgetCommand";
 import { UpdateNotificationCommandInput, UpdateNotificationCommandOutput } from "../commands/UpdateNotificationCommand";
@@ -123,16 +129,21 @@ import {
   InternalErrorException,
   InvalidNextTokenException,
   InvalidParameterException,
+  ListTagsForResourceRequest,
   NotFoundException,
   Notification,
   NotificationWithSubscribers,
   ResourceLockedException,
+  ResourceTag,
   ScpActionDefinition,
+  ServiceQuotaExceededException,
   Spend,
   SsmActionDefinition,
   Subscriber,
+  TagResourceRequest,
   ThrottlingException,
   TimePeriod,
+  UntagResourceRequest,
   UpdateBudgetActionRequest,
   UpdateBudgetActionResponse,
   UpdateBudgetRequest,
@@ -382,6 +393,45 @@ export const se_ExecuteBudgetActionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExecuteBudgetAction");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -820,6 +870,66 @@ export const de_ExecuteBudgetActionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateBudgetCommand
  */
 export const de_UpdateBudgetCommand = async (
@@ -924,6 +1034,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidParameterException":
     case "com.amazonaws.budgets#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.budgets#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.budgets#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -1091,6 +1204,22 @@ const de_ResourceLockedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ThrottlingExceptionRes
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
@@ -1162,6 +1291,7 @@ const se_CreateBudgetActionRequest = (input: CreateBudgetActionRequest, context:
     Definition: _json,
     ExecutionRoleArn: [],
     NotificationType: [],
+    ResourceTags: _json,
     Subscribers: _json,
   });
 };
@@ -1174,6 +1304,7 @@ const se_CreateBudgetRequest = (input: CreateBudgetRequest, context: __SerdeCont
     AccountId: [],
     Budget: (_) => se_Budget(_, context),
     NotificationsWithSubscribers: (_) => se_NotificationWithSubscribersList(_, context),
+    ResourceTags: _json,
   });
 };
 
@@ -1305,6 +1436,8 @@ const se_DescribeSubscribersForNotificationRequest = (
 
 // se_InstanceIds omitted.
 
+// se_ListTagsForResourceRequest omitted.
+
 /**
  * serializeAws_json1_1Notification
  */
@@ -1341,6 +1474,12 @@ const se_NotificationWithSubscribersList = (input: NotificationWithSubscribers[]
 
 // se_PlannedBudgetLimits omitted.
 
+// se_ResourceTag omitted.
+
+// se_ResourceTagKeyList omitted.
+
+// se_ResourceTagList omitted.
+
 // se_Roles omitted.
 
 // se_ScpActionDefinition omitted.
@@ -1353,6 +1492,8 @@ const se_NotificationWithSubscribersList = (input: NotificationWithSubscribers[]
 
 // se_Subscribers omitted.
 
+// se_TagResourceRequest omitted.
+
 // se_TargetIds omitted.
 
 /**
@@ -1364,6 +1505,8 @@ const se_TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
     Start: (_) => Math.round(_.getTime() / 1000),
   });
 };
+
+// se_UntagResourceRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateBudgetActionRequest
@@ -1766,6 +1909,8 @@ const de_DescribeNotificationsForBudgetResponse = (
 
 // de_InvalidParameterException omitted.
 
+// de_ListTagsForResourceResponse omitted.
+
 // de_NotFoundException omitted.
 
 /**
@@ -1797,9 +1942,15 @@ const de_Notifications = (output: any, context: __SerdeContext): Notification[] 
 
 // de_ResourceLockedException omitted.
 
+// de_ResourceTag omitted.
+
+// de_ResourceTagList omitted.
+
 // de_Roles omitted.
 
 // de_ScpActionDefinition omitted.
+
+// de_ServiceQuotaExceededException omitted.
 
 // de_Spend omitted.
 
@@ -1808,6 +1959,8 @@ const de_Notifications = (output: any, context: __SerdeContext): Notification[] 
 // de_Subscriber omitted.
 
 // de_Subscribers omitted.
+
+// de_TagResourceResponse omitted.
 
 // de_TargetIds omitted.
 
@@ -1822,6 +1975,8 @@ const de_TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
     Start: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_UntagResourceResponse omitted.
 
 /**
  * deserializeAws_json1_1UpdateBudgetActionResponse
