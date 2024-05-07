@@ -1,3 +1,5 @@
+import { Provider } from "@smithy/types";
+
 import { getRealRegion } from "./getRealRegion";
 import { isFipsRegion } from "./isFipsRegion";
 import { resolveRegionConfig } from "./resolveRegionConfig";
@@ -45,8 +47,8 @@ describe("RegionConfig", () => {
   });
 
   describe("useFipsEndpoint", () => {
-    let mockRegionProvider;
-    let mockUseFipsEndpoint;
+    let mockRegionProvider: string | Provider<string>;
+    let mockUseFipsEndpoint: boolean | Provider<boolean>;
 
     beforeEach(() => {
       mockRegionProvider = jest.fn().mockResolvedValueOnce(Promise.resolve(mockRegion));
