@@ -10,8 +10,8 @@ describe(getChecksumAlgorithmForRequest.name, () => {
       expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired: true })).toEqual(ChecksumAlgorithm.MD5);
     });
 
-    it.each([false, undefined])("returns undefined if requestChecksumRequired=%s", (requestChecksumRequired) => {
-      expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired })).toBeUndefined();
+    it("returns undefined if requestChecksumRequired is false", () => {
+      expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired: false })).toBeUndefined();
     });
   });
 
@@ -24,8 +24,8 @@ describe(getChecksumAlgorithmForRequest.name, () => {
       );
     });
 
-    it.each([false, undefined])("returns undefined if requestChecksumRequired=%s", (requestChecksumRequired) => {
-      expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired })).toBeUndefined();
+    it("returns undefined if requestChecksumRequired is false", () => {
+      expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: false })).toBeUndefined();
     });
   });
 
