@@ -429,11 +429,9 @@ export interface AssociateResourceToProfileRequest {
 
   /**
    * <p>
-   *   If you are adding a DNS Firewall rule group, include also a priority in this format:
+   *   If you are adding a DNS Firewall rule group, include also a priority. The priority indicates the processing order for the rule groups, starting with the priority assinged the lowest value.
    * </p>
-   *          <p>
-   *             <code>Key=FirewallRuleGroupPriority,Value=100</code>
-   *          </p>
+   *          <p>The allowed values for priority are between 100 and 9900.</p>
    * @public
    */
   ResourceProperties?: string;
@@ -1234,10 +1232,9 @@ export interface UpdateProfileResourceAssociationRequest {
 
   /**
    * <p>
-   *   If you are adding a DNS Firewall rule group, include also a priority in this format:</p>
-   *          <p>
-   *             <code>Key=FirewallRuleGroupPriority,Value=100</code>.
-   * </p>
+   *   If you are adding a DNS Firewall rule group, include also a priority. The priority indicates the processing order for the rule groups, starting with the priority assinged the lowest value.
+   *   </p>
+   *          <p>The allowed values for priority are between 100 and 9900.</p>
    * @public
    */
   ResourceProperties?: string;
