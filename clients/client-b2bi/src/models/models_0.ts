@@ -1719,8 +1719,7 @@ export interface TestMappingRequest {
   inputFileContent: string | undefined;
 
   /**
-   * <p>Specifies the name of the mapping template for the transformer. This template is used to convert the input document into the
-   *       correct set of objects.</p>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
   mappingTemplate: string | undefined;
@@ -1794,8 +1793,7 @@ export interface CreateTransformerRequest {
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>Specifies the name of the mapping template for the transformer. This template is used to convert the input document into the
-   *       correct set of objects.</p>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
   mappingTemplate: string | undefined;
@@ -1868,8 +1866,7 @@ export interface CreateTransformerResponse {
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
-   *       correct set of objects.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
   mappingTemplate: string | undefined;
@@ -1952,8 +1949,7 @@ export interface GetTransformerResponse {
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
-   *       correct set of objects.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
   mappingTemplate: string | undefined;
@@ -2035,8 +2031,7 @@ export interface TransformerSummary {
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
-   *       correct set of objects.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
   mappingTemplate: string | undefined;
@@ -2118,8 +2113,7 @@ export interface UpdateTransformerRequest {
   fileFormat?: FileFormat;
 
   /**
-   * <p>Specifies the name of the mapping template for the transformer. This template is used to convert the input document into the
-   *       correct set of objects.</p>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
   mappingTemplate?: string;
@@ -2172,8 +2166,7 @@ export interface UpdateTransformerResponse {
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
-   *       correct set of objects.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
    * @public
    */
   mappingTemplate: string | undefined;
