@@ -4,7 +4,9 @@ import { KeyNodeChildren } from "../commands/utils";
 import { DynamoDBDocumentClientCommand } from "./DynamoDBDocumentClientCommand";
 
 class AnyCommand extends DynamoDBDocumentClientCommand<{}, {}, {}, {}, {}> {
+  // @ts-ignore Property 'middlewareStack' has no initializer
   public middlewareStack: MiddlewareStack<{}, {}>;
+  // @ts-ignore Property 'input' has no initializer
   public input: {};
   protected inputKeyNodes: KeyNodeChildren = {};
   protected outputKeyNodes: KeyNodeChildren = {};
@@ -14,7 +16,7 @@ class AnyCommand extends DynamoDBDocumentClientCommand<{}, {}, {}, {}, {}> {
   protected readonly clientCommand = {
     middlewareStack: {
       argCaptor: this.argCaptor,
-      addRelativeTo(fn, config) {
+      addRelativeTo(fn: any, config: any) {
         this.argCaptor.push([fn, config]);
       },
     },
