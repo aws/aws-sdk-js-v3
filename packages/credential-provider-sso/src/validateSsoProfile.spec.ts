@@ -20,6 +20,7 @@ describe(validateSsoProfile.name, () => {
     "throws if '%s' is missing from profile",
     (key) => {
       const profileToVerify = getMockSsoProfile();
+      // @ts-ignore Element implicitly has an 'any' type
       delete profileToVerify[key];
 
       expect(() => {
@@ -38,6 +39,7 @@ describe(validateSsoProfile.name, () => {
 
   it.each(["sso_session"])("does not throw if '%s' is missing from profile", (key) => {
     const profileToVerify = getMockSsoProfile();
+    // @ts-ignore Element implicitly has an 'any' type
     delete profileToVerify[key];
 
     expect(() => {
