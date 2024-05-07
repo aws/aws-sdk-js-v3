@@ -4,7 +4,7 @@ jest.mock("@aws-sdk/client-sso-oidc");
 
 describe("getSsoOidcClient", () => {
   const mockSsoRegion = "mockSsoRegion";
-  const getMockClient = (region) => ({ region });
+  const getMockClient = (region: string) => ({ region });
 
   beforeEach(() => {
     (SSOOIDCClient as jest.Mock).mockImplementation(({ region }) => getMockClient(region));
