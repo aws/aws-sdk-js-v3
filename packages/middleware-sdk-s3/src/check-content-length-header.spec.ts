@@ -5,7 +5,7 @@ import { checkContentLengthHeader } from "./check-content-length-header";
 describe("checkContentLengthHeaderMiddleware", () => {
   const mockNextHandler = jest.fn();
 
-  let spy;
+  let spy: jest.SpyInstance;
 
   beforeEach(() => {
     spy = jest.spyOn(console, "warn");
@@ -80,7 +80,7 @@ describe("checkContentLengthHeaderMiddleware", () => {
       logger: {
         called: false,
         calledWith: "",
-        warn(msg) {
+        warn(msg: string) {
           this.called = true;
           this.calledWith = msg;
         },
