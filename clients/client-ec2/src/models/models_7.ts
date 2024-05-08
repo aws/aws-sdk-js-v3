@@ -47,6 +47,7 @@ import { SnapshotState, SSEType, TransitGatewayRoute } from "./models_2";
 import {
   ArchitectureValues,
   BootModeValues,
+  Byoasn,
   ClientVpnConnectionStatus,
   Filter,
   ImdsSupportValues,
@@ -80,6 +81,17 @@ import {
 import { Purchase } from "./models_5";
 
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ProvisionIpamByoasnResult {
+  /**
+   * <p>An ASN and BYOIP CIDR association.</p>
+   * @public
+   */
+  Byoasn?: Byoasn;
+}
 
 /**
  * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>

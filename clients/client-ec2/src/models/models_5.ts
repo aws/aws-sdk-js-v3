@@ -93,6 +93,110 @@ import {
 } from "./models_4";
 
 /**
+ * <p>Contains the parameters for DescribeSpotPriceHistory.</p>
+ * @public
+ */
+export interface DescribeSpotPriceHistoryRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone for which prices should
+   *                     be returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The type of instance (for example,
+   *                     <code>m3.medium</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-description</code> - The product description for the Spot price
+   *                     (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
+   *                     <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
+   *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> |
+   *                     <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
+   *                         VPC)</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>spot-price</code> - The Spot price. The value must match exactly (or use
+   *                     wildcards; greater than or less than comparison is not supported).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>timestamp</code> - The time stamp of the Spot price history, in UTC format
+   *                     (for example, <i>ddd MMM dd
+   *                         HH</i>:<i>mm</i>:<i>ss</i> UTC
+   *                         <i>YYYY</i>). You can use wildcards (<code>*</code> and
+   *                         <code>?</code>). Greater than or less than comparison is not
+   *                     supported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Filters the results by the specified Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The date and time, up to the current date, from which to stop retrieving the price
+   *             history data, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Filters the results by the specified instance types.</p>
+   * @public
+   */
+  InstanceTypes?: _InstanceType[];
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Filters the results by the specified basic product descriptions.</p>
+   * @public
+   */
+  ProductDescriptions?: string[];
+
+  /**
+   * <p>The date and time, up to the past 90 days, from which to start retrieving the price
+   *             history data, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  StartTime?: Date;
+}
+
+/**
  * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
  *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
  *          <important>
@@ -8674,23 +8778,6 @@ export interface IpamAddressHistoryRecord {
    * @public
    */
   SampledEndTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetIpamAddressHistoryResult {
-  /**
-   * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
-   * @public
-   */
-  HistoryRecords?: IpamAddressHistoryRecord[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**

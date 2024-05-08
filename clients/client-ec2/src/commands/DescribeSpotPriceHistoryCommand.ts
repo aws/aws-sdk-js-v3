@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSpotPriceHistoryRequest } from "../models/models_4";
-import { DescribeSpotPriceHistoryResult } from "../models/models_5";
+import { DescribeSpotPriceHistoryRequest, DescribeSpotPriceHistoryResult } from "../models/models_5";
 import { de_DescribeSpotPriceHistoryCommand, se_DescribeSpotPriceHistoryCommand } from "../protocols/Aws_ec2";
 
 /**

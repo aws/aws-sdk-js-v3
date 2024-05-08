@@ -3245,7 +3245,6 @@ import {
   DescribeSpotFleetRequestsResponse,
   DescribeSpotInstanceRequestsRequest,
   DescribeSpotInstanceRequestsResult,
-  DescribeSpotPriceHistoryRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3373,6 +3372,7 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeSpotPriceHistoryRequest,
   DescribeSpotPriceHistoryResult,
   DescribeStaleSecurityGroupsRequest,
   DescribeStaleSecurityGroupsResult,
@@ -3611,7 +3611,6 @@ import {
   GetInstanceUefiDataRequest,
   GetInstanceUefiDataResult,
   GetIpamAddressHistoryRequest,
-  GetIpamAddressHistoryResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
@@ -3659,6 +3658,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetIpamAddressHistoryResult,
   GetIpamDiscoveredAccountsRequest,
   GetIpamDiscoveredAccountsResult,
   GetIpamDiscoveredPublicAddressesRequest,
@@ -3899,7 +3899,6 @@ import {
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
   ProvisionIpamByoasnRequest,
-  ProvisionIpamByoasnResult,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3946,6 +3945,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionIpamByoasnResult,
   ProvisionIpamPoolCidrRequest,
   ProvisionIpamPoolCidrResult,
   ProvisionPublicIpv4PoolCidrRequest,
@@ -70280,6 +70280,9 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
   if (output[_nIeu] != null) {
     contents[_NIeu] = de_NeuronInfo(output[_nIeu], context);
   }
+  if (output[_pSh] != null) {
+    contents[_PSh] = __expectString(output[_pSh]);
+  }
   return contents;
 };
 
@@ -85620,6 +85623,7 @@ const _PSK = "PreSharedKey";
 const _PSKU = "PublicSigningKeyUrl";
 const _PSe = "PeeringStatus";
 const _PSer = "PermissionState";
+const _PSh = "PhcSupport";
 const _PSr = "PreviousState";
 const _PSre = "PreviousStatus";
 const _PT = "PurchaseToken";
@@ -87408,6 +87412,7 @@ const _pSK = "preSharedKey";
 const _pSKU = "publicSigningKeyUrl";
 const _pSe = "permissionState";
 const _pSee = "peeringStatus";
+const _pSh = "phcSupport";
 const _pSr = "principalSet";
 const _pSre = "previousStatus";
 const _pSri = "priceSchedules";

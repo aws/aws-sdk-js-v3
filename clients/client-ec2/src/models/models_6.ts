@@ -110,7 +110,6 @@ import {
 import {
   ArchitectureValues,
   BootModeValues,
-  Byoasn,
   ConversionTask,
   ConversionTaskFilterSensitiveLog,
   Filter,
@@ -150,6 +149,7 @@ import {
 
 import {
   InstanceFamilyCreditSpecification,
+  IpamAddressHistoryRecord,
   IpamComplianceStatus,
   IpamOverlapStatus,
   SnapshotBlockPublicAccessState,
@@ -158,6 +158,23 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetIpamAddressHistoryResult {
+  /**
+   * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
+   * @public
+   */
+  HistoryRecords?: IpamAddressHistoryRecord[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -9554,17 +9571,6 @@ export interface ProvisionIpamByoasnRequest {
    * @public
    */
   AsnAuthorizationContext: AsnAuthorizationContext | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamByoasnResult {
-  /**
-   * <p>An ASN and BYOIP CIDR association.</p>
-   * @public
-   */
-  Byoasn?: Byoasn;
 }
 
 /**
