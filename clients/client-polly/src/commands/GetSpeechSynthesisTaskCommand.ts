@@ -44,7 +44,7 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * const response = await client.send(command);
  * // { // GetSpeechSynthesisTaskOutput
  * //   SynthesisTask: { // SynthesisTask
- * //     Engine: "standard" || "neural" || "long-form",
+ * //     Engine: "standard" || "neural" || "long-form" || "generative",
  * //     TaskId: "STRING_VALUE",
  * //     TaskStatus: "scheduled" || "inProgress" || "completed" || "failed",
  * //     TaskStatusReason: "STRING_VALUE",

@@ -71,6 +71,7 @@ export class ServiceFailureException extends __BaseException {
  * @enum
  */
 export const Engine = {
+  GENERATIVE: "generative",
   LONG_FORM: "long-form",
   NEURAL: "neural",
   STANDARD: "standard",
@@ -137,9 +138,9 @@ export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
  */
 export interface DescribeVoicesInput {
   /**
-   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
-   *       <code>long-form</code>) used by Amazon Polly when processing input text for
-   *       speech synthesis. </p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code>,
+   *       <code>long-form</code> or <code>generative</code>) used by Amazon Polly when
+   *       processing input text for speech synthesis. </p>
    * @public
    */
   Engine?: Engine;
@@ -345,8 +346,8 @@ export interface Voice {
   AdditionalLanguageCodes?: LanguageCode[];
 
   /**
-   * <p>Specifies which engines (<code>standard</code>, <code>neural</code> or
-   *       <code>long-form</code>) are supported by a given voice.</p>
+   * <p>Specifies which engines (<code>standard</code>, <code>neural</code>,
+   *       <code>long-form</code> or <code>generative</code>) are supported by a given voice.</p>
    * @public
    */
   SupportedEngines?: Engine[];
@@ -592,10 +593,10 @@ export type TextType = (typeof TextType)[keyof typeof TextType];
  */
 export interface SynthesisTask {
   /**
-   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
-   *       <code>long-form</code>) for Amazon Polly to use when processing input text for
-   *       speech synthesis. Using a voice that is not supported for the engine
-   *       selected will result in an error.</p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code>,
+   *       <code>long-form</code> or <code>generative</code>) for Amazon Polly to use
+   *       when processing input text for speech synthesis. Using a voice that
+   *       is not supported for the engine selected will result in an error.</p>
    * @public
    */
   Engine?: Engine;
@@ -665,7 +666,7 @@ export interface SynthesisTask {
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
    *       and "24000". The default value for standard voices is "22050". The default
    *       value for neural voices is "24000". The default value for long-form voices
-   *       is "24000".</p>
+   *       is "24000". The default value for generative voices is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
    * @public
@@ -1180,10 +1181,10 @@ export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
  */
 export interface StartSpeechSynthesisTaskInput {
   /**
-   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
-   *       <code>long-form</code>) for Amazon Polly to use when processing input text for
-   *       speech synthesis. Using a voice that is not supported for the engine
-   *       selected will result in an error.</p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code>,
+   *       <code>long-form</code> or <code>generative</code>) for Amazon Polly to use
+   *       when processing input text for speech synthesis. Using a voice that
+   *       is not supported for the engine selected will result in an error.</p>
    * @public
    */
   Engine?: Engine;
@@ -1234,7 +1235,7 @@ export interface StartSpeechSynthesisTaskInput {
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
    *       and "24000". The default value for standard voices is "22050". The default
    *       value for neural voices is "24000". The default value for long-form voices
-   *       is "24000".</p>
+   *       is "24000". The default value for generative voices is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
    * @public
@@ -1318,36 +1319,18 @@ export class TextLengthExceededException extends __BaseException {
  */
 export interface SynthesizeSpeechInput {
   /**
-   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
-   *       <code>long-form</code>) for Amazon Polly to use when processing input text for
-   *       speech synthesis. For information on Amazon Polly voices and which voices are
-   *       available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p>
-   *          <p>
-   *             <b>NTTS-only voices</b>
-   *          </p>
-   *          <p>When using NTTS-only voices such as Kevin (en-US), this parameter is
-   *       required and must be set to <code>neural</code>. If the engine is not
-   *       specified, or is set to <code>standard</code>, this will result in an
-   *       error. </p>
-   *          <p>
-   *             <b>long-form-only voices</b>
-   *          </p>
-   *          <p>When using long-form-only voices such as Danielle (en-US), this
-   *       parameter is required and must be set to <code>long-form</code>. If the
-   *       engine is not specified, or is set to <code>standard</code> or
-   *       <code>neural</code>, this will result in an error. </p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code>,
+   *       <code>long-form</code>, or <code>generative</code>) for Amazon Polly
+   *       to use when processing input text for speech synthesis. Provide an engine
+   *       that is supported by the voice you select. If you don't provide an engine,
+   *       the standard engine is selected by default. If a chosen voice isn't supported
+   *       by the standard engine, this will result in an error. For information on
+   *       Amazon Polly voices and which voices are available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p>
    *          <p>Type: String</p>
    *          <p>Valid Values: <code>standard</code> | <code>neural</code> |
-   *       <code>long-form</code>
+   *       <code>long-form</code> | <code>generative</code>
    *          </p>
    *          <p>Required: Yes</p>
-   *          <p>
-   *             <b>Standard voices</b>
-   *          </p>
-   *          <p>For standard voices, this is not required; the engine parameter
-   *       defaults to <code>standard</code>. If the engine is not specified, or is
-   *       set to <code>standard</code> and an NTTS-only voice is selected, this will
-   *       result in an error. </p>
    * @public
    */
   Engine?: Engine;
@@ -1389,7 +1372,7 @@ export interface SynthesizeSpeechInput {
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
    *       and "24000". The default value for standard voices is "22050". The default
    *       value for neural voices is "24000". The default value for long-form voices
-   *       is "24000".</p>
+   *       is "24000". The default value for generative voices is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
    * @public
