@@ -92,7 +92,7 @@ describe("s3 express CRUD test suite", () => {
   });
 
   afterAll(async () => {
-    await deleteBuckets(controller, bucketName);
+    await emptyAndDeleteBucket(controller, bucketName);
   });
 
   it("can create a bucket", () => {
@@ -240,7 +240,7 @@ async function createClientAndRecorder() {
   };
 }
 
-async function deleteBuckets(s3: S3, bucketName: string) {
+async function emptyAndDeleteBucket(s3: S3, bucketName: string) {
   const Bucket = bucketName;
   try {
     await s3.headBucket({ Bucket });
