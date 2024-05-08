@@ -5,20 +5,13 @@ const assert = require("assert");
 const root = path.join(__dirname, "..");
 
 const pkgJson = require(path.join(root, "package.json"));
-const srcFolders = fs.readdirSync(path.join(root, "src"));
+const submodules = fs.readdirSync(path.join(root, "src", "submodules"));
 
-assert(pkgJson.exports === undefined, "We cannot support package.json exports yet.");
-
-/**
- * We probably can't enable package.json exports until
- * dropping support for Node.js 14.x and TypeScript 4.6.
- */
-process.exit(0);
-
-for (const srcFolder of srcFolders) {
-  if (fs.lstatSync(path.join(root, "src", srcFolder)).isDirectory()) {
-    if (!pkgJson.exports["./" + srcFolder]) {
-      throw new Error(`${srcFolder} is missing exports statement in package.json`);
+for (const submodule of submodules) {
+  const submodulePath = path.join(root, "src", "submodules", submodule);
+  if (fs.existsSync(submodulePath) && fs.lstatSync(submodulePath).isDirectory()) {
+    if (!pkgJson.exports[`./${submodule}`]) {
+      throw new Error(`${submodule} submodule is missing exports statement in package.json`);
     }
   }
 }

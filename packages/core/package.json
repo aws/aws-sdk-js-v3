@@ -3,7 +3,7 @@
   "version": "3.575.0",
   "description": "Core functions & classes shared by multiple AWS SDK clients",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "yarn lint && concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline core",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
@@ -18,6 +18,25 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "exports": {
+    ".": {
+      "node": "./dist-cjs/index.js",
+      "import": "./dist-es/index.js",
+      "require": "./dist-cjs/index.js",
+      "types": "./dist-types/index.d.ts"
+    },
+    "./package.json": {
+      "node": "./package.json",
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    "./client": {
+      "node": "./dist-cjs/client/index.js",
+      "import": "./dist-es/client/index.js",
+      "require": "./dist-cjs/client/index.js",
+      "types": "./dist-types/client/index.d.ts"
+    }
+  },
   "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",
