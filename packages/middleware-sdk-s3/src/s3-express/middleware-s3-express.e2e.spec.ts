@@ -193,7 +193,7 @@ async function createClientAndRecorder() {
   const sts = new STS({ region });
   const accountId = (await sts.getCallerIdentity({})).Account;
 
-  const bucketName = `${accountId}-js-test-bucket-${(Date.now() / 1000) | 0}--${suffix}`;
+  const bucketName = `${accountId}-js-test-bucket-${(Math.random() + 1).toString(36).substring(2)}--${suffix}`;
 
   const s3 = new S3({
     region,
