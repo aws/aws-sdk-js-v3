@@ -170,12 +170,16 @@ module.exports = class Inliner {
     await esbuild.build(buildOptions);
 
     if (this.isCore) {
-      const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "subfolders"));
+      const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
       for (const submodule of submodules) {
+        fs.rmSync(path.join(path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule)), {
+          recursive: true,
+          force: true,
+        });
         await esbuild.build({
           ...buildOptions,
-          entryPoints: [path.join(root, this.subfolder, this.package, "src", submodule, "index.ts")],
-          outfile: path.join(root, this.subfolder, this.package, "dist-cjs", submodule, "index.js"),
+          entryPoints: [path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts")],
+          outfile: path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js"),
         });
       }
     }

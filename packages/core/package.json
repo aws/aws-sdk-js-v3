@@ -35,6 +35,18 @@
       "import": "./dist-es/client/index.js",
       "require": "./dist-cjs/client/index.js",
       "types": "./dist-types/client/index.d.ts"
+    },
+    "./httpAuthSchemes": {
+      "node": "./dist-cjs/httpAuthSchemes/index.js",
+      "import": "./dist-es/httpAuthSchemes/index.js",
+      "require": "./dist-cjs/httpAuthSchemes/index.js",
+      "types": "./dist-types/httpAuthSchemes/index.d.ts"
+    },
+    "./protocols": {
+      "node": "./dist-cjs/protocols/index.js",
+      "import": "./dist-es/protocols/index.js",
+      "require": "./dist-cjs/protocols/index.js",
+      "types": "./dist-types/protocols/index.d.ts"
     }
   },
   "sideEffects": false,

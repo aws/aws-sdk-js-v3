@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const assert = require("assert");
 
 const root = path.join(__dirname, "..");
 
@@ -15,3 +14,7 @@ for (const submodule of submodules) {
     }
   }
 }
+
+/**
+ * Check for cross-submodule relative imports.
+ */
