@@ -101,6 +101,7 @@ import {
   Message,
   MessageAttributeValue,
   MessageNotInflight,
+  MessageSystemAttributeName,
   MessageSystemAttributeNameForSends,
   MessageSystemAttributeValue,
   OverLimit,
@@ -1661,6 +1662,17 @@ const se_MessageBodySystemAttributeMap = (
 };
 
 /**
+ * serializeAws_json1_0MessageSystemAttributeList
+ */
+const se_MessageSystemAttributeList = (input: MessageSystemAttributeName[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _toStr(entry);
+    });
+};
+
+/**
  * serializeAws_json1_0MessageSystemAttributeValue
  */
 const se_MessageSystemAttributeValue = (input: MessageSystemAttributeValue, context: __SerdeContext): any => {
@@ -1703,6 +1715,7 @@ const se_ReceiveMessageRequest = (input: ReceiveMessageRequest, context: __Serde
     AttributeNames: (_) => se_AttributeNameList(_, context),
     MaxNumberOfMessages: _toNum,
     MessageAttributeNames: (_) => se_MessageAttributeNameList(_, context),
+    MessageSystemAttributeNames: (_) => se_MessageSystemAttributeList(_, context),
     QueueUrl: _toStr,
     ReceiveRequestAttemptId: _toStr,
     VisibilityTimeout: _toNum,

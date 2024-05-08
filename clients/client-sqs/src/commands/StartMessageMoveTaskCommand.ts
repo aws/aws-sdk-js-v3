@@ -44,10 +44,6 @@ export interface StartMessageMoveTaskCommandOutput extends StartMessageMoveTaskR
  *                         were driven to the dead-letter-queue), or a custom destination queue.</p>
  *                </li>
  *                <li>
- *                   <p>Currently, only standard queues support redrive. FIFO queues don't support
- *                         redrive.</p>
- *                </li>
- *                <li>
  *                   <p>Only one active message movement task is supported per queue at any given
  *                         time.</p>
  *                </li>

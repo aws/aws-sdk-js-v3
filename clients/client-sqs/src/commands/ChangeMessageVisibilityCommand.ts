@@ -50,23 +50,14 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  *                <p>Deleted from the queue.</p>
  *             </li>
  *          </ol>
- *          <p>A message is considered to be <i>stored</i> after it is sent to a queue
- *             by a producer, but not yet received from the queue by a consumer (that is, between
- *             states 1 and 2). There is no limit to the number of stored messages. A message is
- *             considered to be <i>in flight</i> after it is received from a queue by a
- *             consumer, but not yet deleted from the queue (that is, between states 2 and 3). There is
- *             a limit to the number of in flight messages.</p>
- *          <p>Limits that apply to in flight messages are unrelated to the
- *                 <i>unlimited</i> number of stored messages.</p>
- *          <p>For most standard queues (depending on queue traffic and message backlog), there can
- *             be a maximum of approximately 120,000 in flight messages (received from a queue by a
- *             consumer, but not yet deleted from the queue). If you reach this limit, Amazon SQS
- *             returns the <code>OverLimit</code> error message. To avoid reaching the limit, you
- *             should delete messages from the queue after they're processed. You can also increase the
- *             number of queues you use to process your messages. To request a limit increase, <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sqs">file a support request</a>.</p>
- *          <p>For FIFO queues, there can be a maximum of 20,000 in flight messages (received from a
- *             queue by a consumer, but not yet deleted from the queue). If you reach this limit,
- *             Amazon SQS returns no error messages.</p>
+ *          <p>A message is considered to be <i>stored</i> after it is sent to a queue by a producer, but not yet received from the queue by a consumer (that is, between states 1 and 2). There is no limit to the number of stored messages.
+ *     A message is considered to be <i>in flight</i> after it is received from a queue by a consumer, but not yet deleted from the queue (that is, between states 2 and 3). There is a limit to the number of in flight messages.</p>
+ *          <p>Limits that apply to in flight messages are unrelated to the <i>unlimited</i> number of stored messages.</p>
+ *          <p>For most standard queues (depending on queue traffic and message backlog), there can be a maximum of approximately 120,000 in flight messages (received from a queue by a consumer, but not yet deleted from the queue).
+ *     If you reach this limit, Amazon SQS returns the <code>OverLimit</code> error message.
+ *     To avoid reaching the limit, you should delete messages from the queue after they're processed. You can also increase the number of queues you use to process your messages.
+ *     To request a limit increase, <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sqs">file a support request</a>.</p>
+ *          <p>For FIFO queues, there can be a maximum of 20,000 in flight messages (received from a queue by a consumer, but not yet deleted from the queue). If you reach this limit, Amazon SQS returns no error messages.</p>
  *          <important>
  *             <p>If you attempt to set the <code>VisibilityTimeout</code> to a value greater than
  *                 the maximum time left, Amazon SQS returns an error. Amazon SQS doesn't automatically

@@ -40,9 +40,6 @@ export interface CancelMessageMoveTaskCommandOutput extends CancelMessageMoveTas
  *                         dead-letter-queue), or a custom destination queue. </p>
  *                </li>
  *                <li>
- *                   <p>Currently, only standard queues are supported.</p>
- *                </li>
- *                <li>
  *                   <p>Only one active message movement task is supported per queue at any given
  *                         time.</p>
  *                </li>

@@ -32,9 +32,7 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  *                <a>DeleteMessage</a>.</code> The result of the action on each
  *             message is reported individually in the response.</p>
  *          <important>
- *             <p>Because the batch request can result in a combination of successful and
- *                 unsuccessful actions, you should check for batch errors even when the call returns
- *                 an HTTP status code of <code>200</code>.</p>
+ *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

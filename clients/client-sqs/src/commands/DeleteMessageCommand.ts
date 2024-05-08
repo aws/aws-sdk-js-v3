@@ -40,12 +40,12 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  *                 When you use the <code>DeleteMessage</code> action, you must provide the most
  *                 recently received <code>ReceiptHandle</code> for the message (otherwise, the request
  *                 succeeds, but the message will not be deleted).</p>
- *             <p>For standard queues, it is possible to receive a message even after you delete it.
- *                 This might happen on rare occasions if one of the servers which stores a copy of the
- *                 message is unavailable when you send the request to delete the message. The copy
- *                 remains on the server and might be returned to you during a subsequent receive
- *                 request. You should ensure that your application is idempotent, so that receiving a
- *                 message more than once does not cause issues.</p>
+ *             <p>For standard queues, it is possible to receive a message even after you
+ *                 delete it. This might happen on rare occasions if one of the servers which stores a
+ *                 copy of the message is unavailable when you send the request to delete the message.
+ *                 The copy remains on the server and might be returned to you during a subsequent
+ *                 receive request. You should ensure that your application is idempotent, so that
+ *                 receiving a message more than once does not cause issues.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

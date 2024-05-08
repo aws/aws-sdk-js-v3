@@ -42,9 +42,9 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  *          <p>When you delete a queue, you must wait at least 60 seconds before creating a queue
  *             with the same name.</p>
  *          <note>
- *             <p>Cross-account permissions don't apply to this action. For more information, see
- *                     <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the
- *                     <i>Amazon SQS Developer Guide</i>.</p>
+ *             <p>Cross-account permissions don't apply to this action. For more information,
+ * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *             <p>The delete operation uses the HTTP <code>GET</code> verb.</p>
  *          </note>
  * @example

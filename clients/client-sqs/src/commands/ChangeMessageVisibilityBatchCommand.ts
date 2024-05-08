@@ -41,9 +41,7 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  *             </code> requests with each
  *                 <code>ChangeMessageVisibilityBatch</code> action.</p>
  *          <important>
- *             <p>Because the batch request can result in a combination of successful and
- *                 unsuccessful actions, you should check for batch errors even when the call returns
- *                 an HTTP status code of <code>200</code>.</p>
+ *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

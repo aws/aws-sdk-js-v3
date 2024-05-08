@@ -27,12 +27,11 @@ export interface CreateQueueCommandInput extends CreateQueueRequest {}
 export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in the
- *             request. Keep the following in mind:</p>
+ * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in
+ *             the request. Keep the following in mind:</p>
  *          <ul>
  *             <li>
- *                <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates
- *                     a standard queue.</p>
+ *                <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue.</p>
  *                <note>
  *                   <p>You can't change the queue type after you create it and you can't convert
  *                         an existing standard queue into a FIFO queue. You must either create a new
@@ -76,9 +75,9 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *             </li>
  *          </ul>
  *          <note>
- *             <p>Cross-account permissions don't apply to this action. For more information, see
- *                     <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the
- *                     <i>Amazon SQS Developer Guide</i>.</p>
+ *             <p>Cross-account permissions don't apply to this action. For more information,
+ * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
+ * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,8 +125,8 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *             with the same name.</p>
  *
  * @throws {@link QueueNameExists} (client fault)
- *  <p>A queue with this name already exists. Amazon SQS returns this error only if the
- *             request includes attributes whose values differ from those of the existing queue.</p>
+ *  <p>A queue with this name already exists. Amazon SQS returns this error only if the request
+ *             includes attributes whose values differ from those of the existing queue.</p>
  *
  * @throws {@link RequestThrottled} (client fault)
  *  <p>The request was denied due to request throttling.</p>
