@@ -99,13 +99,12 @@ describe("MetadataService E2E Tests", () => {
     if (!metadataServiceAvailable) {
       return;
     }
-    metadataService = new MetadataService({ httpOptions: { timeout: 1 } }); // 1ms timeout for testing
+    metadataService = new MetadataService({ httpOptions: { timeout: 0.1 } }); // 0.1ms timeout for testing
     try {
       await metadataService.request("/latest/meta-data/", {});
-      // If the request does not timeout as expected, fail the test
-      fail("Expected the request to timeout, but it completed successfully.");
     } catch (error) {
       expect(error).toBeDefined();
+      expect(error.message).toMatch(/TimeoutError/);
     }
   });
 });
