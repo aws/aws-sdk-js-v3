@@ -35,6 +35,7 @@ export class MetadataService {
     const { endpoint, ec2MetadataV1Disabled, httpOptions } = await this.config;
     const handler = new NodeHttpHandler({
       requestTimeout: httpOptions?.timeout,
+      connectionTimeout: httpOptions?.timeout,
     });
     const endpointUrl = new URL(endpoint!);
     const headers = options.headers || {};
@@ -87,6 +88,7 @@ export class MetadataService {
     const { endpoint, httpOptions } = await this.config;
     const handler = new NodeHttpHandler({
       requestTimeout: httpOptions?.timeout,
+      connectionTimeout: httpOptions?.timeout,
     });
     const endpointUrl = new URL(endpoint!);
     const tokenRequest = new HttpRequest({
