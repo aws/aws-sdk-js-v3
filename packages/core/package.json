@@ -31,22 +31,22 @@
       "require": "./package.json"
     },
     "./client": {
-      "node": "./dist-cjs/client/index.js",
-      "import": "./dist-es/client/index.js",
-      "require": "./dist-cjs/client/index.js",
-      "types": "./dist-types/client/index.d.ts"
+      "node": "./dist-cjs/submodules/client/index.js",
+      "import": "./dist-es/submodules/client/index.js",
+      "require": "./dist-cjs/submodules/client/index.js",
+      "types": "./dist-types/submodules/client/index.d.ts"
     },
     "./httpAuthSchemes": {
-      "node": "./dist-cjs/httpAuthSchemes/index.js",
-      "import": "./dist-es/httpAuthSchemes/index.js",
-      "require": "./dist-cjs/httpAuthSchemes/index.js",
-      "types": "./dist-types/httpAuthSchemes/index.d.ts"
+      "node": "./dist-cjs/submodules/httpAuthSchemes/index.js",
+      "import": "./dist-es/submodules/httpAuthSchemes/index.js",
+      "require": "./dist-cjs/submodules/httpAuthSchemes/index.js",
+      "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts"
     },
     "./protocols": {
-      "node": "./dist-cjs/protocols/index.js",
-      "import": "./dist-es/protocols/index.js",
-      "require": "./dist-cjs/protocols/index.js",
-      "types": "./dist-types/protocols/index.d.ts"
+      "node": "./dist-cjs/submodules/protocols/index.js",
+      "import": "./dist-es/submodules/protocols/index.js",
+      "require": "./dist-cjs/submodules/protocols/index.js",
+      "types": "./dist-types/submodules/protocols/index.d.ts"
     }
   },
   "sideEffects": false,

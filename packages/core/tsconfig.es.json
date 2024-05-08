@@ -2,7 +2,12 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist-es",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@aws-sdk/core/client": ["./src/submodules/client/index.ts"],
+      "@aws-sdk/core/httpAuthSchemes": ["./src/submodules/httpAuthSchemes/index.ts"],
+      "@aws-sdk/core/protocols": ["./src/submodules/protocols/index.ts"]
+    }
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]
