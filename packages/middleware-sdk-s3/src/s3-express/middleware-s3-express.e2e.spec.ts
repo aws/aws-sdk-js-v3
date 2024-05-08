@@ -239,7 +239,9 @@ async function createClientAndRecorder() {
       const commandName = context.commandName + s3ExpressSuffix;
       const input = args.input;
       const commandRecorder = (recorder.calls[commandName] = recorder.calls[commandName] ?? {});
+      // @ts-expect-error Element implicitly has an 'any' type
       commandRecorder[input["Bucket"] ?? "-"] |= 0;
+      // @ts-expect-error Element implicitly has an 'any' type
       commandRecorder[input["Bucket"] ?? "-"]++;
 
       return continuation;
