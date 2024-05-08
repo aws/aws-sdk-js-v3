@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add EXTERNAL_PROVIDER enum value to UserStatusType. ([0189ee3](https://github.com/aws/aws-sdk-js-v3/commit/0189ee3ad9493759adb4be3983dcd0f21cd7350a))
+* **client-ec2:** Adding Precision Hardware Clock (PHC) to public API DescribeInstanceTypes ([711a8ff](https://github.com/aws/aws-sdk-js-v3/commit/711a8ff4e4db701bc19faa32cf84fb4857679717))
+* **client-ecr:** This release adds pull through cache rules support for GitLab container registry in Amazon ECR. ([a05338f](https://github.com/aws/aws-sdk-js-v3/commit/a05338f590a69a98c2c5bbad46a63da2adc04573))
+* **client-polly:** Add new engine - generative - that builds the most expressive conversational voices. ([daf6bd4](https://github.com/aws/aws-sdk-js-v3/commit/daf6bd4c46fc315cfa037a971d082feb424ee25c))
+* **client-sqs:** This release adds MessageSystemAttributeNames to ReceiveMessageRequest to replace AttributeNames. ([35284e8](https://github.com/aws/aws-sdk-js-v3/commit/35284e8f06d11a753be4bdf5e84358c038d24159))
+* **clients:** update client endpoints as of 2024-05-08 ([1e71a11](https://github.com/aws/aws-sdk-js-v3/commit/1e71a11f9fedaefdf13b9b7ebf0d0e7ac1547c46))
+
+
+
+
+
 # [3.571.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.570.0...v3.571.0) (2024-05-07)
 
 

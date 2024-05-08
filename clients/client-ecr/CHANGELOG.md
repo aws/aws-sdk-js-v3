@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
+
+
+### Features
+
+* **client-ecr:** This release adds pull through cache rules support for GitLab container registry in Amazon ECR. ([a05338f](https://github.com/aws/aws-sdk-js-v3/commit/a05338f590a69a98c2c5bbad46a63da2adc04573))
+
+
+
+
+
 # [3.569.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.568.0...v3.569.0) (2024-05-03)
 
 

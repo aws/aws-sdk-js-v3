@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
+
+
+### Features
+
+* **client-polly:** Add new engine - generative - that builds the most expressive conversational voices. ([daf6bd4](https://github.com/aws/aws-sdk-js-v3/commit/daf6bd4c46fc315cfa037a971d082feb424ee25c))
+
+
+
+
+
 # [3.569.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.568.0...v3.569.0) (2024-05-03)
 
 
