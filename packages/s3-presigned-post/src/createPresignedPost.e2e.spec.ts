@@ -82,7 +82,7 @@ describe(createPresignedPost.name, () => {
       expect(precheck).toBeInstanceOf(NoSuchKey);
 
       const submit: { statusCode: number } = await new Promise((resolve, reject) => {
-        form.submit(url, (err, res) => {
+        form.submit(url, (err: any, res: any) => {
           if (err) reject(err);
           resolve(res);
         });
