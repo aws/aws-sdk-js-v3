@@ -57,7 +57,7 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * //       createdAt: new Date("TIMESTAMP"),
  * //       registryId: "STRING_VALUE",
  * //       credentialArn: "STRING_VALUE",
- * //       upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry",
+ * //       upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry",
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
