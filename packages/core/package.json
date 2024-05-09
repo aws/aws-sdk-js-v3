@@ -49,6 +49,12 @@
       "types": "./dist-types/submodules/protocols/index.d.ts"
     }
   },
+  "files": [
+    "dist-*/**",
+    "./client.js",
+    "./httpAuthSchemes.js",
+    "./protocols.js"
+  ],
   "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",

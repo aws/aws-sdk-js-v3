@@ -27,6 +27,11 @@ for (const submodule of submodules) {
       };
       fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
     }
+    if (!pkgJson.files.includes(`./${submodule}.js`)) {
+      pkgJson.files.push(`./${submodule}.js`);
+      errors.push(`package.json files array missing ${submodule}.js compatibility redirect file.`);
+      fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
+    }
     // tsconfig metadata.
     for (const [kind, tsconfig] of Object.entries(tsconfigs)) {
       if (!tsconfig.compilerOptions.paths?.[`@aws-sdk/core/${submodule}`]) {
