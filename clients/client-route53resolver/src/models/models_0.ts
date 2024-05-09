@@ -1379,14 +1379,14 @@ export interface CreateFirewallRuleRequest {
 
   /**
    * <p>
-   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS.
+   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
    *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
-   * 			added to the allow domain list.</p>
+   * 			added to the domain list.</p>
    *          <p>
-   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the redirection list to
-   * 		the domain alloww list.</p>
+   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   * 			the domain list.</p>
    * @public
    */
   FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
@@ -1557,14 +1557,14 @@ export interface FirewallRule {
 
   /**
    * <p>
-   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS.
+   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
    *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
-   * 			added to the allow domain list.</p>
+   * 			added to the domain list.</p>
    *          <p>
    *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
-   * 			the domain alloww list.</p>
+   * 			the domain list.</p>
    * @public
    */
   FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
@@ -5648,14 +5648,14 @@ export interface UpdateFirewallRuleRequest {
 
   /**
    * <p>
-   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS.
+   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
    *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
-   * 			added to the allow domain list.</p>
+   * 			added to the domain list.</p>
    *          <p>
    *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
-   * 			the domain alloww list.</p>
+   * 			the domain list.</p>
    * @public
    */
   FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
