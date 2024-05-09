@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.573.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.572.0...v3.573.0) (2024-05-09)
+
+
+### Features
+
+* **client-pinpoint:** This release adds support for specifying email message headers for Email Templates, Campaigns, Journeys and Send Messages. ([efa9f25](https://github.com/aws/aws-sdk-js-v3/commit/efa9f2524341ad421b738440dee6cd112d76031a))
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint

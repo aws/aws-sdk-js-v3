@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.573.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.572.0...v3.573.0) (2024-05-09)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release adds support to provide guardrail configuration and modify inference parameters that are then used in RetrieveAndGenerate API in Agents for Amazon Bedrock. ([98edd48](https://github.com/aws/aws-sdk-js-v3/commit/98edd48e692c946045fe3419918f682cd73ae8a4))
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

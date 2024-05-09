@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.573.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.572.0...v3.573.0) (2024-05-09)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release adds support to provide guardrail configuration and modify inference parameters that are then used in RetrieveAndGenerate API in Agents for Amazon Bedrock. ([98edd48](https://github.com/aws/aws-sdk-js-v3/commit/98edd48e692c946045fe3419918f682cd73ae8a4))
+* **client-pinpoint:** This release adds support for specifying email message headers for Email Templates, Campaigns, Journeys and Send Messages. ([efa9f25](https://github.com/aws/aws-sdk-js-v3/commit/efa9f2524341ad421b738440dee6cd112d76031a))
+* **client-ssm-sap:** Added support for application-aware start/stop of SAP applications running on EC2 instances, with SSM for SAP ([4a7a81d](https://github.com/aws/aws-sdk-js-v3/commit/4a7a81df587cca399078152c144b313281a6e56c))
+* **client-verifiedpermissions:** Adds policy effect and actions fields to Policy API's. ([629ed6e](https://github.com/aws/aws-sdk-js-v3/commit/629ed6e6ac10b84291f762d715b1f1a12ee2b25c))
+* **clients:** update client endpoints as of 2024-05-09 ([cc9b77b](https://github.com/aws/aws-sdk-js-v3/commit/cc9b77b461f35c7351308159a5f041290fd0110c))
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 

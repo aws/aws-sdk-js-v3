@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.573.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.572.0...v3.573.0) (2024-05-09)
+
+
+### Features
+
+* **client-verifiedpermissions:** Adds policy effect and actions fields to Policy API's. ([629ed6e](https://github.com/aws/aws-sdk-js-v3/commit/629ed6e6ac10b84291f762d715b1f1a12ee2b25c))
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions

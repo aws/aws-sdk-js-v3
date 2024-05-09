@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.573.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.572.0...v3.573.0) (2024-05-09)
+
+
+### Features
+
+* **client-ssm-sap:** Added support for application-aware start/stop of SAP applications running on EC2 instances, with SSM for SAP ([4a7a81d](https://github.com/aws/aws-sdk-js-v3/commit/4a7a81df587cca399078152c144b313281a6e56c))
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm-sap
