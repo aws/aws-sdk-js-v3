@@ -43,6 +43,10 @@ import {
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
+import {
+  ListOperationEventsCommandInput,
+  ListOperationEventsCommandOutput,
+} from "../commands/ListOperationEventsCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -56,10 +60,12 @@ import {
   RegisterApplicationCommandInput,
   RegisterApplicationCommandOutput,
 } from "../commands/RegisterApplicationCommand";
+import { StartApplicationCommandInput, StartApplicationCommandOutput } from "../commands/StartApplicationCommand";
 import {
   StartApplicationRefreshCommandInput,
   StartApplicationRefreshCommandOutput,
 } from "../commands/StartApplicationRefreshCommand";
+import { StopApplicationCommandInput, StopApplicationCommandOutput } from "../commands/StopApplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -76,6 +82,7 @@ import {
   Filter,
   InternalServerException,
   Operation,
+  OperationEvent,
   ResourceNotFoundException,
   UnauthorizedException,
   ValidationException,
@@ -319,6 +326,31 @@ export const se_ListDatabasesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListOperationEventsCommand
+ */
+export const se_ListOperationEventsCommand = async (
+  input: ListOperationEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-operation-events");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+      OperationId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListOperationsCommand
  */
 export const se_ListOperationsCommand = async (
@@ -413,6 +445,28 @@ export const se_RegisterApplicationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartApplicationCommand
+ */
+export const se_StartApplicationCommand = async (
+  input: StartApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/start-application");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ApplicationId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartApplicationRefreshCommand
  */
 export const se_StartApplicationRefreshCommand = async (
@@ -428,6 +482,30 @@ export const se_StartApplicationRefreshCommand = async (
   body = JSON.stringify(
     take(input, {
       ApplicationId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopApplicationCommand
+ */
+export const se_StopApplicationCommand = async (
+  input: StopApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/stop-application");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ApplicationId: [],
+      IncludeEc2InstanceShutdown: [],
+      StopConnectedEntity: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -718,6 +796,28 @@ export const de_ListDatabasesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListOperationEventsCommand
+ */
+export const de_ListOperationEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOperationEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    OperationEvents: (_) => de_OperationEventList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListOperationsCommand
  */
 export const de_ListOperationsCommand = async (
@@ -804,12 +904,54 @@ export const de_RegisterApplicationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartApplicationCommand
+ */
+export const de_StartApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    OperationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartApplicationRefreshCommand
  */
 export const de_StartApplicationRefreshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartApplicationRefreshCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    OperationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopApplicationCommand
+ */
+export const de_StopApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1139,6 +1281,31 @@ const de_Operation = (output: any, context: __SerdeContext): Operation => {
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1OperationEvent
+ */
+const de_OperationEvent = (output: any, context: __SerdeContext): OperationEvent => {
+  return take(output, {
+    Description: __expectString,
+    Resource: _json,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1OperationEventList
+ */
+const de_OperationEventList = (output: any, context: __SerdeContext): OperationEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_OperationEvent(entry, context);
+    });
+  return retVal;
+};
+
 // de_OperationIdList omitted.
 
 /**
@@ -1168,6 +1335,8 @@ const de_OperationProperties = (output: any, context: __SerdeContext): Record<st
 };
 
 // de_Resilience omitted.
+
+// de_Resource omitted.
 
 // de_TagMap omitted.
 

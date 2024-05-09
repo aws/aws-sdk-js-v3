@@ -737,6 +737,19 @@ export class ConflictException extends __BaseException {
  * @public
  * @enum
  */
+export const ConnectedEntityType = {
+  DBMS: "DBMS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectedEntityType = (typeof ConnectedEntityType)[keyof typeof ConnectedEntityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DatabaseType = {
   SYSTEM: "SYSTEM",
   TENANT: "TENANT",
@@ -1343,7 +1356,7 @@ export interface ListApplicationsInput {
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
-   *          results, make another call with the returned nextToken value. </p>
+   *          results, make another call with the returned nextToken value.</p>
    * @public
    */
   MaxResults?: number;
@@ -1457,6 +1470,163 @@ export interface ListDatabasesOutput {
    * @public
    */
   Databases?: DatabaseSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListOperationEventsInput {
+  /**
+   * <p>The ID of the operation.</p>
+   * @public
+   */
+  OperationId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining
+   *          results, make another call with the returned nextToken value.</p>
+   *          <p>If you do not specify a value for <code>MaxResults</code>, the request returns 50 items
+   *          per page by default.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.
+   *          This value is null when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Optionally specify filters to narrow the returned operation
+   *       event items.</p>
+   *          <p>Valid filter names include <code>status</code>, <code>resourceID</code>,
+   *       and <code>resourceType</code>. The valid operator for all three filters
+   *       is <code>Equals</code>.</p>
+   * @public
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * <p>The resource contains a <code>ResourceArn</code>
+ *          and the <code>ResourceType</code>.</p>
+ * @public
+ */
+export interface Resource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source resource.</p>
+   *          <p>Example of <code>ResourceArn</code>:
+   *          "<code>arn:aws:ec2:us-east-1:111111111111:instance/i-abcdefgh987654321</code>"</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The resource type.</p>
+   *          <p>Example of <code>ResourceType</code>: "<code>AWS::SystemsManagerSAP::Component</code>"
+   *          or "<code>AWS::EC2::Instance</code>".</p>
+   * @public
+   */
+  ResourceType?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationEventStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationEventStatus = (typeof OperationEventStatus)[keyof typeof OperationEventStatus];
+
+/**
+ * <p>An operation event returns details for an operation, including
+ *       key milestones which can be used to monitor and track operations
+ *       in progress.</p>
+ *          <p>Operation events contain:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Description string</p>
+ *             </li>
+ *             <li>
+ *                <p>Resource, including its ARN and type</p>
+ *             </li>
+ *             <li>
+ *                <p>Status</p>
+ *             </li>
+ *             <li>
+ *                <p>StatusMessage string</p>
+ *             </li>
+ *             <li>
+ *                <p>TimeStamp</p>
+ *             </li>
+ *          </ul>
+ *          <p>Operation event examples include StartApplication or
+ *          StopApplication.</p>
+ * @public
+ */
+export interface OperationEvent {
+  /**
+   * <p>A description of the operation event. For example,
+   *          "Stop the EC2 instance i-abcdefgh987654321".</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The resource involved in the operations event.</p>
+   *          <p>Contains <code>ResourceArn</code> ARN and <code>ResourceType</code>.</p>
+   * @public
+   */
+  Resource?: Resource;
+
+  /**
+   * <p>The status of the operation event. The possible statuses
+   *          are: <code>IN_PROGRESS</code>,
+   *          <code>COMPLETED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  Status?: OperationEventStatus;
+
+  /**
+   * <p>The status message relating to a specific
+   *          operation event.</p>
+   * @public
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The timestamp of the specified operation event.</p>
+   * @public
+   */
+  Timestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListOperationEventsOutput {
+  /**
+   * <p>A returned list of operation events that
+   *          meet the filter criteria.</p>
+   * @public
+   */
+  OperationEvents?: OperationEvent[];
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
@@ -1644,6 +1814,28 @@ export interface RegisterApplicationOutput {
 /**
  * @public
  */
+export interface StartApplicationInput {
+  /**
+   * <p>The ID of the application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartApplicationOutput {
+  /**
+   * <p>The ID of the operation.</p>
+   * @public
+   */
+  OperationId?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartApplicationRefreshInput {
   /**
    * <p>The ID of the application.</p>
@@ -1656,6 +1848,45 @@ export interface StartApplicationRefreshInput {
  * @public
  */
 export interface StartApplicationRefreshOutput {
+  /**
+   * <p>The ID of the operation.</p>
+   * @public
+   */
+  OperationId?: string;
+}
+
+/**
+ * @public
+ */
+export interface StopApplicationInput {
+  /**
+   * <p>The ID of the application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>Specify the <code>ConnectedEntityType</code>. Accepted type
+   *       is <code>DBMS</code>.</p>
+   *          <p>If this parameter is included, the connected DBMS (Database
+   *       Management System) will be stopped.</p>
+   * @public
+   */
+  StopConnectedEntity?: ConnectedEntityType;
+
+  /**
+   * <p>Boolean. If included and if set to <code>True</code>, the
+   *          StopApplication operation will shut down the associated Amazon EC2 instance in addition to
+   *          the application.</p>
+   * @public
+   */
+  IncludeEc2InstanceShutdown?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface StopApplicationOutput {
   /**
    * <p>The ID of the operation.</p>
    * @public

@@ -49,6 +49,11 @@ import {
   ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
 import {
+  ListOperationEventsCommand,
+  ListOperationEventsCommandInput,
+  ListOperationEventsCommandOutput,
+} from "./commands/ListOperationEventsCommand";
+import {
   ListOperationsCommand,
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
@@ -69,10 +74,20 @@ import {
   RegisterApplicationCommandOutput,
 } from "./commands/RegisterApplicationCommand";
 import {
+  StartApplicationCommand,
+  StartApplicationCommandInput,
+  StartApplicationCommandOutput,
+} from "./commands/StartApplicationCommand";
+import {
   StartApplicationRefreshCommand,
   StartApplicationRefreshCommandInput,
   StartApplicationRefreshCommandOutput,
 } from "./commands/StartApplicationRefreshCommand";
+import {
+  StopApplicationCommand,
+  StopApplicationCommandInput,
+  StopApplicationCommandOutput,
+} from "./commands/StopApplicationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -97,11 +112,14 @@ const commands = {
   ListApplicationsCommand,
   ListComponentsCommand,
   ListDatabasesCommand,
+  ListOperationEventsCommand,
   ListOperationsCommand,
   ListTagsForResourceCommand,
   PutResourcePermissionCommand,
   RegisterApplicationCommand,
+  StartApplicationCommand,
   StartApplicationRefreshCommand,
+  StopApplicationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationSettingsCommand,
@@ -254,6 +272,23 @@ export interface SsmSap {
   ): void;
 
   /**
+   * @see {@link ListOperationEventsCommand}
+   */
+  listOperationEvents(
+    args: ListOperationEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOperationEventsCommandOutput>;
+  listOperationEvents(
+    args: ListOperationEventsCommandInput,
+    cb: (err: any, data?: ListOperationEventsCommandOutput) => void
+  ): void;
+  listOperationEvents(
+    args: ListOperationEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOperationEventsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOperationsCommand}
    */
   listOperations(
@@ -319,6 +354,23 @@ export interface SsmSap {
   ): void;
 
   /**
+   * @see {@link StartApplicationCommand}
+   */
+  startApplication(
+    args: StartApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartApplicationCommandOutput>;
+  startApplication(
+    args: StartApplicationCommandInput,
+    cb: (err: any, data?: StartApplicationCommandOutput) => void
+  ): void;
+  startApplication(
+    args: StartApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartApplicationRefreshCommand}
    */
   startApplicationRefresh(
@@ -333,6 +385,20 @@ export interface SsmSap {
     args: StartApplicationRefreshCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartApplicationRefreshCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopApplicationCommand}
+   */
+  stopApplication(
+    args: StopApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopApplicationCommandOutput>;
+  stopApplication(args: StopApplicationCommandInput, cb: (err: any, data?: StopApplicationCommandOutput) => void): void;
+  stopApplication(
+    args: StopApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopApplicationCommandOutput) => void
   ): void;
 
   /**
