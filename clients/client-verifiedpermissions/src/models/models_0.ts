@@ -358,8 +358,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A list of user groups and entities from an Amazon Cognito user pool identity
- *             source.</p>
+ * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+ *             pool identity source.</p>
  *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html">CognitoUserPoolConfiguration</a> structure and is a request parameter in <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
  * @public
  */
@@ -373,8 +373,8 @@ export interface CognitoGroupConfiguration {
 }
 
 /**
- * <p>A list of user groups and entities from an Amazon Cognito user pool identity
- *             source.</p>
+ * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+ *             pool identity source.</p>
  *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationItem.html">CognitoUserPoolConfigurationDetail</a> structure and is a response parameter to
  *             <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
  * @public
@@ -389,8 +389,8 @@ export interface CognitoGroupConfigurationDetail {
 }
 
 /**
- * <p>A list of user groups and entities from an Amazon Cognito user pool identity
- *             source.</p>
+ * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+ *             pool identity source.</p>
  *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationDetail.html">CognitoUserPoolConfigurationItem</a> structure and is a response parameter to
  *             <a href="http://forums.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  * @public
@@ -410,7 +410,7 @@ export interface CognitoGroupConfigurationItem {
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
  *             used as a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -435,8 +435,8 @@ export interface CognitoUserPoolConfiguration {
   clientIds?: string[];
 
   /**
-   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
-   *             source.</p>
+   * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+   *             pool identity source.</p>
    * @public
    */
   groupConfiguration?: CognitoGroupConfiguration;
@@ -448,7 +448,7 @@ export interface CognitoUserPoolConfiguration {
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a> structure that is
  *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -483,8 +483,8 @@ export interface CognitoUserPoolConfigurationDetail {
   issuer: string | undefined;
 
   /**
-   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
-   *             source.</p>
+   * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+   *             pool identity source.</p>
    * @public
    */
   groupConfiguration?: CognitoGroupConfigurationDetail;
@@ -496,7 +496,7 @@ export interface CognitoUserPoolConfigurationDetail {
  *          <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a> structure that is
  *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -531,8 +531,8 @@ export interface CognitoUserPoolConfigurationItem {
   issuer: string | undefined;
 
   /**
-   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
-   *             source.</p>
+   * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+   *             pool identity source.</p>
    * @public
    */
   groupConfiguration?: CognitoGroupConfigurationItem;
@@ -543,7 +543,7 @@ export interface CognitoUserPoolConfigurationItem {
  *          <note>
  *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
  *                 configuration.</p>
- *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
+ *             <p>Specifies a <code>userPoolArn</code>, a <code>groupConfiguration</code>, and a
  *                     <code>ClientId</code>.</p>
  *          </note>
  *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
@@ -607,7 +607,8 @@ export type ConfigurationDetail =
 export namespace ConfigurationDetail {
   /**
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
-   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
+   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool,
+   *             the policy store entity that you want to assign to user groups,
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
@@ -654,7 +655,8 @@ export type ConfigurationItem = ConfigurationItem.CognitoUserPoolConfigurationMe
 export namespace ConfigurationItem {
   /**
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
-   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
+   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool,
+   *             the policy store entity that you want to assign to user groups,
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
@@ -1017,6 +1019,20 @@ export interface CreatePolicyInput {
  * @public
  * @enum
  */
+export const PolicyEffect = {
+  FORBID: "Forbid",
+  PERMIT: "Permit",
+} as const;
+
+/**
+ * @public
+ */
+export type PolicyEffect = (typeof PolicyEffect)[keyof typeof PolicyEffect];
+
+/**
+ * @public
+ * @enum
+ */
 export const PolicyType = {
   STATIC: "STATIC",
   TEMPLATE_LINKED: "TEMPLATE_LINKED",
@@ -1064,6 +1080,14 @@ export interface CreatePolicyOutput {
   resource?: EntityIdentifier;
 
   /**
+   * <p>The action that a policy permits or forbids. For example,
+   * <code>\{"actions": [\{"actionId": "ViewPhoto", "actionType": "PhotoFlash::Action"\}, \{"entityID": "SharePhoto",
+   * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
+   * @public
+   */
+  actions?: ActionIdentifier[];
+
+  /**
    * <p>The date and time the policy was originally created.</p>
    * @public
    */
@@ -1074,6 +1098,13 @@ export interface CreatePolicyOutput {
    * @public
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * <p>The effect of the decision that a policy returns to an authorization
+   * request. For example, <code>"effect": "Permit"</code>.</p>
+   * @public
+   */
+  effect?: PolicyEffect;
 }
 
 /**
@@ -1705,6 +1736,14 @@ export interface GetPolicyOutput {
   resource?: EntityIdentifier;
 
   /**
+   * <p>The action that a policy permits or forbids. For example,
+   * <code>\{"actions": [\{"actionId": "ViewPhoto", "actionType": "PhotoFlash::Action"\}, \{"entityID": "SharePhoto",
+   * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
+   * @public
+   */
+  actions?: ActionIdentifier[];
+
+  /**
    * <p>The definition of the requested policy.</p>
    * @public
    */
@@ -1721,6 +1760,13 @@ export interface GetPolicyOutput {
    * @public
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * <p>The effect of the decision that a policy returns to an authorization
+   * request. For example, <code>"effect": "Permit"</code>.</p>
+   * @public
+   */
+  effect?: PolicyEffect;
 }
 
 /**
@@ -1927,7 +1973,7 @@ export interface ListIdentitySourcesInput {
    *              <code>NextToken</code> after every operation to ensure that you receive all of the
    *              results.</p>
    *          <p>If you do not specify this parameter, the operation defaults to 10 identity sources per response.
-   *             You can specify a maximum of 200 identity sources per response.</p>
+   *             You can specify a maximum of 50 identity sources per response.</p>
    * @public
    */
   maxResults?: number;
@@ -2066,7 +2112,7 @@ export interface ListIdentitySourcesOutput {
 }
 
 /**
- * <p>A list of user groups and entities from an Amazon Cognito user pool identity
+ * <p>The user group entities from an Amazon Cognito user pool identity
  *             source.</p>
  * @public
  */
@@ -2514,6 +2560,14 @@ export interface PolicyItem {
   resource?: EntityIdentifier;
 
   /**
+   * <p>The action that a policy permits or forbids. For example,
+   * <code>\{"actions": [\{"actionId": "ViewPhoto", "actionType": "PhotoFlash::Action"\}, \{"entityID": "SharePhoto",
+   * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
+   * @public
+   */
+  actions?: ActionIdentifier[];
+
+  /**
    * <p>The policy definition of an item in the list of policies returned.</p>
    * @public
    */
@@ -2530,6 +2584,13 @@ export interface PolicyItem {
    * @public
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * <p>The effect of the decision that a policy returns to an authorization
+   * request. For example, <code>"effect": "Permit"</code>.</p>
+   * @public
+   */
+  effect?: PolicyEffect;
 }
 
 /**
@@ -2912,6 +2973,14 @@ export interface UpdatePolicyOutput {
   resource?: EntityIdentifier;
 
   /**
+   * <p>The action that a policy permits or forbids. For example,
+   * <code>\{"actions": [\{"actionId": "ViewPhoto", "actionType": "PhotoFlash::Action"\}, \{"entityID": "SharePhoto",
+   * "entityType": "PhotoFlash::Action"\}]\}</code>.</p>
+   * @public
+   */
+  actions?: ActionIdentifier[];
+
+  /**
    * <p>The date and time that the policy was originally created.</p>
    * @public
    */
@@ -2922,6 +2991,13 @@ export interface UpdatePolicyOutput {
    * @public
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * <p>The effect of the decision that a policy returns to an authorization
+   * request. For example, <code>"effect": "Permit"</code>.</p>
+   * @public
+   */
+  effect?: PolicyEffect;
 }
 
 /**
@@ -3994,6 +4070,7 @@ export const CreatePolicyOutputFilterSensitiveLog = (obj: CreatePolicyOutput): a
   ...obj,
   ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
   ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.actions && { actions: obj.actions.map((item) => ActionIdentifierFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -4077,6 +4154,7 @@ export const GetPolicyOutputFilterSensitiveLog = (obj: GetPolicyOutput): any => 
   ...obj,
   ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
   ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.actions && { actions: obj.actions.map((item) => ActionIdentifierFilterSensitiveLog(item)) }),
   ...(obj.definition && { definition: PolicyDefinitionDetailFilterSensitiveLog(obj.definition) }),
 });
 
@@ -4261,6 +4339,7 @@ export const PolicyItemFilterSensitiveLog = (obj: PolicyItem): any => ({
   ...obj,
   ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
   ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.actions && { actions: obj.actions.map((item) => ActionIdentifierFilterSensitiveLog(item)) }),
   ...(obj.definition && { definition: PolicyDefinitionItemFilterSensitiveLog(obj.definition) }),
 });
 
@@ -4338,6 +4417,7 @@ export const UpdatePolicyOutputFilterSensitiveLog = (obj: UpdatePolicyOutput): a
   ...obj,
   ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
   ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.actions && { actions: obj.actions.map((item) => ActionIdentifierFilterSensitiveLog(item)) }),
 });
 
 /**

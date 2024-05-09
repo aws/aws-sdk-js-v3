@@ -1510,6 +1510,8 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 
 // de_ActionIdentifier omitted.
 
+// de_ActionIdentifierList omitted.
+
 /**
  * deserializeAws_json1_0AttributeValue
  */
@@ -1701,7 +1703,9 @@ const de_CreateIdentitySourceOutput = (output: any, context: __SerdeContext): Cr
  */
 const de_CreatePolicyOutput = (output: any, context: __SerdeContext): CreatePolicyOutput => {
   return take(output, {
+    actions: _json,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    effect: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyId: __expectString,
     policyStoreId: __expectString,
@@ -1773,8 +1777,10 @@ const de_GetIdentitySourceOutput = (output: any, context: __SerdeContext): GetId
  */
 const de_GetPolicyOutput = (output: any, context: __SerdeContext): GetPolicyOutput => {
   return take(output, {
+    actions: _json,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: (_: any) => _json(__expectUnion(_)),
+    effect: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyId: __expectString,
     policyStoreId: __expectString,
@@ -1913,8 +1919,10 @@ const de_ListPolicyTemplatesOutput = (output: any, context: __SerdeContext): Lis
  */
 const de_PolicyItem = (output: any, context: __SerdeContext): PolicyItem => {
   return take(output, {
+    actions: _json,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: (_: any) => _json(__expectUnion(_)),
+    effect: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyId: __expectString,
     policyStoreId: __expectString,
@@ -2058,7 +2066,9 @@ const de_UpdateIdentitySourceOutput = (output: any, context: __SerdeContext): Up
  */
 const de_UpdatePolicyOutput = (output: any, context: __SerdeContext): UpdatePolicyOutput => {
   return take(output, {
+    actions: _json,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    effect: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyId: __expectString,
     policyStoreId: __expectString,

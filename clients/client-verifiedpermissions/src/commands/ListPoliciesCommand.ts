@@ -83,6 +83,12 @@ export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __Metadat
  * //         entityType: "STRING_VALUE", // required
  * //         entityId: "STRING_VALUE", // required
  * //       },
+ * //       actions: [ // ActionIdentifierList
+ * //         { // ActionIdentifier
+ * //           actionType: "STRING_VALUE", // required
+ * //           actionId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //       definition: { // PolicyDefinitionItem Union: only one key present
  * //         static: { // StaticPolicyDefinitionItem
  * //           description: "STRING_VALUE",
@@ -101,6 +107,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __Metadat
  * //       },
  * //       createdDate: new Date("TIMESTAMP"), // required
  * //       lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //       effect: "Permit" || "Forbid",
  * //     },
  * //   ],
  * // };
