@@ -19,6 +19,7 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   resolvedPath as __resolvedPath,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -53,6 +54,8 @@ import {
   FilterAttribute,
   FunctionResult,
   GenerationConfiguration,
+  GuardrailConfiguration,
+  InferenceConfig,
   InferenceConfiguration,
   InternalServerException,
   InvocationResultMember,
@@ -80,6 +83,7 @@ import {
   S3ObjectDoc,
   ServiceQuotaExceededException,
   SessionState,
+  TextInferenceConfig,
   ThrottlingException,
   Trace,
   TracePart,
@@ -222,6 +226,7 @@ export const de_RetrieveAndGenerateCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     citations: (_) => de_Citations(_, context),
+    guardrailAction: __expectString,
     output: _json,
     sessionId: __expectString,
   });
@@ -620,6 +625,26 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
   };
   return de_ValidationExceptionRes(parsedOutput, context);
 };
+/**
+ * serializeAws_restJson1AdditionalModelRequestFields
+ */
+const se_AdditionalModelRequestFields = (input: Record<string, __DocumentType>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_AdditionalModelRequestFieldsValue(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1AdditionalModelRequestFieldsValue
+ */
+const se_AdditionalModelRequestFieldsValue = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_ApiResult omitted.
 
 /**
@@ -657,7 +682,20 @@ const se_ExternalSources = (input: ExternalSource[], context: __SerdeContext): a
     });
 };
 
-// se_ExternalSourcesGenerationConfiguration omitted.
+/**
+ * serializeAws_restJson1ExternalSourcesGenerationConfiguration
+ */
+const se_ExternalSourcesGenerationConfiguration = (
+  input: ExternalSourcesGenerationConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    guardrailConfiguration: _json,
+    inferenceConfig: (_) => se_InferenceConfig(_, context),
+    promptTemplate: _json,
+  });
+};
 
 /**
  * serializeAws_restJson1ExternalSourcesRetrieveAndGenerateConfiguration
@@ -667,7 +705,7 @@ const se_ExternalSourcesRetrieveAndGenerateConfiguration = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    generationConfiguration: _json,
+    generationConfiguration: (_) => se_ExternalSourcesGenerationConfiguration(_, context),
     modelArn: [],
     sources: (_) => se_ExternalSources(_, context),
   });
@@ -692,7 +730,28 @@ const se_FilterValue = (input: __DocumentType, context: __SerdeContext): any => 
 
 // se_FunctionResult omitted.
 
-// se_GenerationConfiguration omitted.
+/**
+ * serializeAws_restJson1GenerationConfiguration
+ */
+const se_GenerationConfiguration = (input: GenerationConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    guardrailConfiguration: _json,
+    inferenceConfig: (_) => se_InferenceConfig(_, context),
+    promptTemplate: _json,
+  });
+};
+
+// se_GuardrailConfiguration omitted.
+
+/**
+ * serializeAws_restJson1InferenceConfig
+ */
+const se_InferenceConfig = (input: InferenceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    textInferenceConfig: (_) => se_TextInferenceConfig(_, context),
+  });
+};
 
 // se_InvocationResultMember omitted.
 
@@ -718,7 +777,7 @@ const se_KnowledgeBaseRetrieveAndGenerateConfiguration = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    generationConfiguration: _json,
+    generationConfiguration: (_) => se_GenerationConfiguration(_, context),
     knowledgeBaseId: [],
     modelArn: [],
     retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
@@ -742,6 +801,8 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 // se_PromptSessionAttributesMap omitted.
 
 // se_PromptTemplate omitted.
+
+// se_RAGStopSequences omitted.
 
 // se_ResponseBody omitted.
 
@@ -798,6 +859,18 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 // se_SessionAttributesMap omitted.
 
 // se_SessionState omitted.
+
+/**
+ * serializeAws_restJson1TextInferenceConfig
+ */
+const se_TextInferenceConfig = (input: TextInferenceConfig, context: __SerdeContext): any => {
+  return take(input, {
+    maxTokens: [],
+    stopSequences: _json,
+    temperature: __serializeFloat,
+    topP: __serializeFloat,
+  });
+};
 
 // de_ActionGroupInvocationInput omitted.
 

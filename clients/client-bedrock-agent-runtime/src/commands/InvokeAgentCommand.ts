@@ -36,10 +36,10 @@ export interface InvokeAgentCommandInput extends InvokeAgentRequest {}
 export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a prompt for the agent to process and respond to. Use return control event type for function calling.</p>
- *          <note>
+ * <note>
  *             <p>The CLI doesn't support <code>InvokeAgent</code>.</p>
  *          </note>
+ *          <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p>
  *          <ul>
  *             <li>
  *                <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p>
@@ -51,10 +51,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
  *             </li>
  *             <li>
- *                <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or parameters returned from the action group.</p>
- *             </li>
- *             <li>
- *                <p>Use return control event type for function calling.</p>
+ *                <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p>
  *             </li>
  *          </ul>
  *          <p>The response is returned in the <code>bytes</code> field of the <code>chunk</code> object.</p>
@@ -64,6 +61,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *             </li>
  *             <li>
  *                <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p>
  *             </li>
  *             <li>
  *                <p>Errors are also surfaced in the response.</p>

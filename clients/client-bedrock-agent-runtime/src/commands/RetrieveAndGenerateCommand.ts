@@ -111,6 +111,23 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *         promptTemplate: { // PromptTemplate
  *           textPromptTemplate: "STRING_VALUE",
  *         },
+ *         guardrailConfiguration: { // GuardrailConfiguration
+ *           guardrailId: "STRING_VALUE", // required
+ *           guardrailVersion: "STRING_VALUE", // required
+ *         },
+ *         inferenceConfig: { // InferenceConfig
+ *           textInferenceConfig: { // TextInferenceConfig
+ *             temperature: Number("float"),
+ *             topP: Number("float"),
+ *             maxTokens: Number("int"),
+ *             stopSequences: [ // RAGStopSequences
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         additionalModelRequestFields: { // AdditionalModelRequestFields
+ *           "<keys>": "DOCUMENT_VALUE",
+ *         },
  *       },
  *     },
  *     externalSourcesConfiguration: { // ExternalSourcesRetrieveAndGenerateConfiguration
@@ -131,6 +148,23 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *       generationConfiguration: { // ExternalSourcesGenerationConfiguration
  *         promptTemplate: {
  *           textPromptTemplate: "STRING_VALUE",
+ *         },
+ *         guardrailConfiguration: {
+ *           guardrailId: "STRING_VALUE", // required
+ *           guardrailVersion: "STRING_VALUE", // required
+ *         },
+ *         inferenceConfig: {
+ *           textInferenceConfig: {
+ *             temperature: Number("float"),
+ *             topP: Number("float"),
+ *             maxTokens: Number("int"),
+ *             stopSequences: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         additionalModelRequestFields: {
+ *           "<keys>": "DOCUMENT_VALUE",
  *         },
  *       },
  *     },
@@ -175,6 +209,7 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * //       ],
  * //     },
  * //   ],
+ * //   guardrailAction: "INTERVENED" || "NONE",
  * // };
  *
  * ```

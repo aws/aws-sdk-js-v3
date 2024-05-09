@@ -214,7 +214,7 @@ export class InternalServerException extends __BaseException {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControlInvocationResults</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                <p>In the <code>returnControlInvocationResults</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -247,7 +247,7 @@ export type ResponseState = (typeof ResponseState)[keyof typeof ResponseState];
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -273,7 +273,7 @@ export interface ApiResult {
   apiPath?: string;
 
   /**
-   * <p>The response body from the API operation. The key of the object is the content type. The response may be returned directly or from the Lambda function.</p>
+   * <p>The response body from the API operation. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
   responseBody?: Record<string, ContentBody>;
@@ -296,7 +296,7 @@ export interface ApiResult {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -316,7 +316,7 @@ export interface FunctionResult {
   function?: string;
 
   /**
-   * <p>The response from the function call using the parameters. The response may be returned directly or from the Lambda function.</p>
+   * <p>The response from the function call using the parameters. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
   responseBody?: Record<string, ContentBody>;
@@ -329,12 +329,12 @@ export interface FunctionResult {
 }
 
 /**
- * <p>A result from the action group invocation.</p>
+ * <p>A result from the invocation of an action. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -409,13 +409,16 @@ export interface SessionState {
   promptSessionAttributes?: Record<string, string>;
 
   /**
-   * <p>Contains information about the results from the action group invocation.</p>
+   * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   *          <note>
+   *             <p>If you include this field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
    * @public
    */
   returnControlInvocationResults?: InvocationResultMember[];
 
   /**
-   * <p>The identifier of the invocation.</p>
+   * <p>The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeAgent</code> response for the action whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
    * @public
    */
   invocationId?: string;
@@ -427,6 +430,9 @@ export interface SessionState {
 export interface InvokeAgentRequest {
   /**
    * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
    * @public
    */
   sessionState?: SessionState;
@@ -463,6 +469,9 @@ export interface InvokeAgentRequest {
 
   /**
    * <p>The prompt text to send the agent.</p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
    * @public
    */
   inputText?: string;
@@ -478,7 +487,7 @@ export interface InvokeAgentRequest {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>span</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>span</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -507,7 +516,7 @@ export interface Span {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>textResponsePart</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>textResponsePart</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -532,7 +541,7 @@ export interface TextResponsePart {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>generatedResponsePart</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>generatedResponsePart</code> field</p>
  *             </li>
  *             <li>
  *                <p>
@@ -563,7 +572,7 @@ export interface GeneratedResponsePart {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>content</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>content</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -590,7 +599,7 @@ export interface RetrievalResultContent {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>s3Location</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>s3Location</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -631,7 +640,7 @@ export type RetrievalResultLocationType =
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>locatino</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>locatino</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -660,7 +669,7 @@ export interface RetrievalResultLocation {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievedReferences</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>retrievedReferences</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -691,7 +700,7 @@ export interface RetrievedReference {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>citations</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>citations</code> field</p>
  *             </li>
  *             <li>
  *                <p>
@@ -770,7 +779,7 @@ export class ResourceNotFoundException extends __BaseException {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -814,7 +823,7 @@ export interface PropertyParameters {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -833,7 +842,7 @@ export interface ApiRequestBody {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -876,7 +885,7 @@ export interface ApiInvocationInput {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -907,7 +916,7 @@ export interface FunctionParameter {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -934,11 +943,11 @@ export interface FunctionInvocationInput {
 }
 
 /**
- * <p>Contains details about the API operation or function that the agent predicts should be called.</p>
+ * <p>Contains details about the API operation or function that the agent predicts should be called. </p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -1002,7 +1011,7 @@ export namespace InvocationInputMember {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -2233,6 +2242,79 @@ export interface RetrieveAndGenerateInput {
 }
 
 /**
+ * <p>The configuration details for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailConfiguration {
+  /**
+   * <p>The unique identifier for the guardrail.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  guardrailVersion: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for text generation using a language model via the
+ *       RetrieveAndGenerate operation. Includes parameters like temperature, top-p, maximum token
+ *       count, and stop sequences. </p>
+ *          <note>
+ *             <p>The valid range of <code>maxTokens</code> depends on the accepted values for your chosen
+ *         model's inference parameters. To see the inference parameters for your model, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference
+ *           parameters for foundation models.</a>
+ *             </p>
+ *          </note>
+ * @public
+ */
+export interface TextInferenceConfig {
+  /**
+   * <p> Controls the random-ness of text generated by the language model, influencing how much the model sticks to the most predictable next words versus exploring more surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more creative or unpredictable.  </p>
+   * @public
+   */
+  temperature?: number;
+
+  /**
+   * <p> A probability distribution threshold which controls what the model considers for the set of possible next tokens. The model will only consider the top p% of the probability distribution when generating the next token. </p>
+   * @public
+   */
+  topP?: number;
+
+  /**
+   * <p>The maximum number of tokens to generate in the output text. Do not use the minimum of 0
+   *       or the maximum of 65536. The limit values described here are arbitary values, for actual
+   *       values consult the limits defined by your specific model.</p>
+   * @public
+   */
+  maxTokens?: number;
+
+  /**
+   * <p>A list of sequences of characters that, if generated, will cause the model to stop
+   *       generating further tokens. Do not use a minimum length of 1 or a maximum length of 1000. The
+   *       limit values described here are arbitary values, for actual values consult the limits defined
+   *       by your specific model.</p>
+   * @public
+   */
+  stopSequences?: string[];
+}
+
+/**
+ * <p> The configuration for inference settings when generating responses using RetrieveAndGenerate. </p>
+ * @public
+ */
+export interface InferenceConfig {
+  /**
+   * <p> Configuration settings specific to text generation while generating responses using RetrieveAndGenerate. </p>
+   * @public
+   */
+  textInferenceConfig?: TextInferenceConfig;
+}
+
+/**
  * <p>Contains the template for the prompt that's sent to the model for response generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge base prompt templates</a>.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -2274,6 +2356,24 @@ export interface ExternalSourcesGenerationConfiguration {
    * @public
    */
   promptTemplate?: PromptTemplate;
+
+  /**
+   * <p>The configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using an external source.</p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig;
+
+  /**
+   * <p> Additional model parameters and their corresponding values not included in the textInferenceConfig structure for an external source. Takes in custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType>;
 }
 
 /**
@@ -2392,6 +2492,24 @@ export interface GenerationConfiguration {
    * @public
    */
   promptTemplate?: PromptTemplate;
+
+  /**
+   * <p>The configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig;
+
+  /**
+   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType>;
 }
 
 /**
@@ -2468,6 +2586,20 @@ export interface RetrieveAndGenerateSessionConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const GuadrailAction = {
+  INTERVENED: "INTERVENED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuadrailAction = (typeof GuadrailAction)[keyof typeof GuadrailAction];
+
+/**
  * <p>Contains the response generated from querying the knowledge base.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -2507,6 +2639,12 @@ export interface RetrieveAndGenerateResponse {
    * @public
    */
   citations?: Citation[];
+
+  /**
+   * <p>Specifies if there is a guardrail intervention in the response.</p>
+   * @public
+   */
+  guardrailAction?: GuadrailAction;
 }
 
 /**
