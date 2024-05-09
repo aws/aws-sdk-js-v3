@@ -16,6 +16,7 @@ const errors = [];
 for (const submodule of submodules) {
   const submodulePath = path.join(root, "src", "submodules", submodule);
   if (fs.existsSync(submodulePath) && fs.lstatSync(submodulePath).isDirectory()) {
+    // package.json metadata.
     if (!pkgJson.exports[`./${submodule}`]) {
       errors.push(`${submodule} submodule is missing exports statement in package.json`);
       pkgJson.exports[`./${submodule}`] = {
@@ -26,6 +27,7 @@ for (const submodule of submodules) {
       };
       fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
     }
+    // tsconfig metadata.
     for (const [kind, tsconfig] of Object.entries(tsconfigs)) {
       if (!tsconfig.compilerOptions.paths?.[`@aws-sdk/core/${submodule}`]) {
         errors.push(`${submodule} submodule is missing paths entry in tsconfig.${kind}.json`);
@@ -33,6 +35,21 @@ for (const submodule of submodules) {
         tsconfig.compilerOptions.paths[`@aws-sdk/core/${submodule}`] = [`./src/submodules/${submodule}/index.ts`];
         fs.writeFileSync(path.join(root, `tsconfig.${kind}.json`), JSON.stringify(tsconfig, null, 2) + "\n");
       }
+    }
+    // compatibility redirect file.
+    const compatibilityRedirectFile = path.join(root, `${submodule}.js`);
+    if (!fs.existsSync(compatibilityRedirectFile)) {
+      errors.push(`${submodule} is missing compatibility redirect file in the package root folder.`);
+      fs.writeFileSync(
+        compatibilityRedirectFile,
+        `
+/**
+ * Do not edit:
+ * This is a compatibility redirect for contexts that do not understand package.json exports field.
+ */
+module.exports = require("./dist-cjs/submodules/${submodule}/index.js");
+`
+      );
     }
   }
 }
