@@ -118,6 +118,12 @@ export interface GetCampaignVersionsCommandOutput extends GetCampaignVersionsRes
  * //               EmailMessage: { // CampaignEmailMessage
  * //                 Body: "STRING_VALUE",
  * //                 FromAddress: "STRING_VALUE",
+ * //                 Headers: [ // ListOfMessageHeader
+ * //                   { // MessageHeader
+ * //                     Name: "STRING_VALUE",
+ * //                     Value: "STRING_VALUE",
+ * //                   },
+ * //                 ],
  * //                 HtmlBody: "STRING_VALUE",
  * //                 Title: "STRING_VALUE",
  * //               },
@@ -314,6 +320,12 @@ export interface GetCampaignVersionsCommandOutput extends GetCampaignVersionsRes
  * //           EmailMessage: {
  * //             Body: "STRING_VALUE",
  * //             FromAddress: "STRING_VALUE",
+ * //             Headers: [
+ * //               {
+ * //                 Name: "STRING_VALUE",
+ * //                 Value: "STRING_VALUE",
+ * //               },
+ * //             ],
  * //             HtmlBody: "STRING_VALUE",
  * //             Title: "STRING_VALUE",
  * //           },

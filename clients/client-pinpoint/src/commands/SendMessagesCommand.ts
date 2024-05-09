@@ -176,6 +176,12 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *             Charset: "STRING_VALUE",
  *             Data: "STRING_VALUE",
  *           },
+ *           Headers: [ // ListOfMessageHeader
+ *             { // MessageHeader
+ *               Name: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *             },
+ *           ],
  *         },
  *         Substitutions: "<MapOfListOf__string>",
  *       },

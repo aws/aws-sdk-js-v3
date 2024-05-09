@@ -365,6 +365,7 @@ import {
   JourneyTimeframeCap,
   Message,
   MessageConfiguration,
+  MessageHeader,
   MethodNotAllowedException,
   MetricDimension,
   MultiConditionalBranch,
@@ -5546,6 +5547,7 @@ const se_EmailMessage = (input: EmailMessage, context: __SerdeContext): any => {
 const se_EmailTemplateRequest = (input: EmailTemplateRequest, context: __SerdeContext): any => {
   return take(input, {
     DefaultSubstitutions: [],
+    Headers: _json,
     HtmlPart: [],
     RecommenderId: [],
     Subject: [],
@@ -5800,6 +5802,8 @@ const se_ListOfEndpointBatchItem = (input: EndpointBatchItem[], context: __Serde
 
 // se_ListOfInAppMessageContent omitted.
 
+// se_ListOfMessageHeader omitted.
+
 /**
  * serializeAws_restJson1ListOfMultiConditionalBranch
  */
@@ -5941,6 +5945,8 @@ const se_MapOfMetricDimension = (input: Record<string, MetricDimension>, context
 // se_Message omitted.
 
 // se_MessageConfiguration omitted.
+
+// se_MessageHeader omitted.
 
 /**
  * serializeAws_restJson1MessageRequest
@@ -6531,6 +6537,7 @@ const de_EmailTemplateResponse = (output: any, context: __SerdeContext): EmailTe
     Arn: __expectString,
     CreationDate: __expectString,
     DefaultSubstitutions: __expectString,
+    Headers: _json,
     HtmlPart: __expectString,
     LastModifiedDate: __expectString,
     RecommenderId: __expectString,
@@ -6918,6 +6925,8 @@ const de_ListOfJourneyResponse = (output: any, context: __SerdeContext): Journey
 
 // de_ListOfJourneyRunResponse omitted.
 
+// de_ListOfMessageHeader omitted.
+
 /**
  * deserializeAws_restJson1ListOfMultiConditionalBranch
  */
@@ -7084,6 +7093,8 @@ const de_MapOfMetricDimension = (output: any, context: __SerdeContext): Record<s
 // de_MessageBody omitted.
 
 // de_MessageConfiguration omitted.
+
+// de_MessageHeader omitted.
 
 // de_MessageResponse omitted.
 

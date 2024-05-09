@@ -108,6 +108,12 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *           EmailMessage: { // CampaignEmailMessage
  *             Body: "STRING_VALUE",
  *             FromAddress: "STRING_VALUE",
+ *             Headers: [ // ListOfMessageHeader
+ *               { // MessageHeader
+ *                 Name: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *               },
+ *             ],
  *             HtmlBody: "STRING_VALUE",
  *             Title: "STRING_VALUE",
  *           },
@@ -293,6 +299,12 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *       EmailMessage: {
  *         Body: "STRING_VALUE",
  *         FromAddress: "STRING_VALUE",
+ *         Headers: [
+ *           {
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
  *         HtmlBody: "STRING_VALUE",
  *         Title: "STRING_VALUE",
  *       },
@@ -479,6 +491,12 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * //           EmailMessage: { // CampaignEmailMessage
  * //             Body: "STRING_VALUE",
  * //             FromAddress: "STRING_VALUE",
+ * //             Headers: [ // ListOfMessageHeader
+ * //               { // MessageHeader
+ * //                 Name: "STRING_VALUE",
+ * //                 Value: "STRING_VALUE",
+ * //               },
+ * //             ],
  * //             HtmlBody: "STRING_VALUE",
  * //             Title: "STRING_VALUE",
  * //           },
@@ -675,6 +693,12 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * //       EmailMessage: {
  * //         Body: "STRING_VALUE",
  * //         FromAddress: "STRING_VALUE",
+ * //         Headers: [
+ * //           {
+ * //             Name: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //         HtmlBody: "STRING_VALUE",
  * //         Title: "STRING_VALUE",
  * //       },

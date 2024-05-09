@@ -70,6 +70,29 @@ import {
 /**
  * @public
  */
+export interface GetCampaignVersionRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the campaign.</p>
+   * @public
+   */
+  CampaignId: string | undefined;
+
+  /**
+   * <p>The unique version number (Version property) for the campaign version.</p>
+   * @public
+   */
+  Version: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetCampaignVersionResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
