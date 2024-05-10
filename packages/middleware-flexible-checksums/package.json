@@ -31,7 +31,7 @@
     "@aws-crypto/crc32": "3.0.0",
     "@aws-crypto/crc32c": "3.0.0",
     "@aws-sdk/types": "*",
-    "@smithy/is-array-buffer": "^2.2.0",
+    "@smithy/is-array-buffer": "^3.0.0",
     "@smithy/protocol-http": "^4.0.0",
     "@smithy/types": "^3.0.0",
     "@smithy/util-utf8": "^3.0.0",

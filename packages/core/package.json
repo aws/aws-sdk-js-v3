@@ -27,7 +27,7 @@
   "dependencies": {
     "@smithy/core": "^2.0.0",
     "@smithy/protocol-http": "^4.0.0",
-    "@smithy/signature-v4": "^2.3.0",
+    "@smithy/signature-v4": "^3.0.0",
     "@smithy/smithy-client": "^3.0.0",
     "@smithy/types": "^3.0.0",
     "fast-xml-parser": "4.2.5",
