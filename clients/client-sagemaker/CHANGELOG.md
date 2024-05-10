@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.574.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.573.0...v3.574.0) (2024-05-10)
+
+
+### Features
+
+* **client-sagemaker:** Introduced support for G6 instance types on Sagemaker Notebook Instances and on SageMaker Studio for JupyterLab and CodeEditor applications. ([0f5cee8](https://github.com/aws/aws-sdk-js-v3/commit/0f5cee8994b40144b0ad24dd45198cd71c63d707))
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

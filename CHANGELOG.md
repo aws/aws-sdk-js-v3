@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.574.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.573.0...v3.574.0) (2024-05-10)
+
+
+### Bug Fixes
+
+* **ec2-metadata-service:** set timeout for requests ([#6072](https://github.com/aws/aws-sdk-js-v3/issues/6072)) ([8f310ec](https://github.com/aws/aws-sdk-js-v3/commit/8f310ec1e08e3c6120c8afeffc68831011dda791))
+
+
+### Features
+
+* **client-application-discovery-service:** add v2 smoke tests and smithy smokeTests trait for SDK testing ([807fcd7](https://github.com/aws/aws-sdk-js-v3/commit/807fcd73962117cd85e17b13f77bdc27a780e609))
+* **client-greengrassv2:** Mark ComponentVersion in ComponentDeploymentSpecification as required. ([d56a60a](https://github.com/aws/aws-sdk-js-v3/commit/d56a60ae362a6b775d24302e4008a99ef3ef6eb1))
+* **client-sagemaker:** Introduced support for G6 instance types on Sagemaker Notebook Instances and on SageMaker Studio for JupyterLab and CodeEditor applications. ([0f5cee8](https://github.com/aws/aws-sdk-js-v3/commit/0f5cee8994b40144b0ad24dd45198cd71c63d707))
+* **client-sso-oidc:** Updated request parameters for PKCE support. ([a25b371](https://github.com/aws/aws-sdk-js-v3/commit/a25b371e3ab556e3bf9a18f2fc1ad05718133770))
+* **clients:** update client endpoints as of 2024-05-10 ([f98b8d4](https://github.com/aws/aws-sdk-js-v3/commit/f98b8d49886c9cd224d0253d15658f39a32af51b))
+
+
+
+
+
 # [3.573.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.572.0...v3.573.0) (2024-05-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.574.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.573.0...v3.574.0) (2024-05-10)
+
+
+### Features
+
+* **client-sso-oidc:** Updated request parameters for PKCE support. ([a25b371](https://github.com/aws/aws-sdk-js-v3/commit/a25b371e3ab556e3bf9a18f2fc1ad05718133770))
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-oidc
