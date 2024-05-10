@@ -94,4 +94,17 @@ describe("MetadataService E2E Tests", () => {
       expect(lines).toContain("services/");
     }
   });
+
+  it("should timeout as expected when a request exceeds the specified duration", async () => {
+    if (!metadataServiceAvailable) {
+      return;
+    }
+    metadataService = new MetadataService({ httpOptions: { timeout: 0.1 } }); // 0.1ms timeout for testing
+    try {
+      await metadataService.request("/latest/meta-data/", {});
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toMatch(/TimeoutError/);
+    }
+  });
 });
