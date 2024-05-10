@@ -36,6 +36,7 @@ import {
   InvalidClientException,
   InvalidClientMetadataException,
   InvalidGrantException,
+  InvalidRedirectUriException,
   InvalidRequestException,
   InvalidRequestRegionException,
   InvalidScopeException,
@@ -63,6 +64,7 @@ export const se_CreateTokenCommand = async (
       clientId: [],
       clientSecret: [],
       code: [],
+      codeVerifier: [],
       deviceCode: [],
       grantType: [],
       redirectUri: [],
@@ -95,6 +97,7 @@ export const se_CreateTokenWithIAMCommand = async (
       assertion: [],
       clientId: [],
       code: [],
+      codeVerifier: [],
       grantType: [],
       redirectUri: [],
       refreshToken: [],
@@ -125,6 +128,10 @@ export const se_RegisterClientCommand = async (
     take(input, {
       clientName: [],
       clientType: [],
+      entitledApplicationArn: [],
+      grantTypes: (_) => _json(_),
+      issuerUrl: [],
+      redirectUris: (_) => _json(_),
       scopes: (_) => _json(_),
     })
   );
@@ -309,6 +316,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidClientMetadataException":
     case "com.amazonaws.ssooidc#InvalidClientMetadataException":
       throw await de_InvalidClientMetadataExceptionRes(parsedOutput, context);
+    case "InvalidRedirectUriException":
+    case "com.amazonaws.ssooidc#InvalidRedirectUriException":
+      throw await de_InvalidRedirectUriExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -468,6 +478,27 @@ const de_InvalidGrantExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1InvalidRedirectUriExceptionRes
+ */
+const de_InvalidRedirectUriExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidRedirectUriException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    error: __expectString,
+    error_description: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidRedirectUriException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InvalidRequestExceptionRes
  */
 const de_InvalidRequestExceptionRes = async (
@@ -591,6 +622,10 @@ const de_UnsupportedGrantTypeExceptionRes = async (
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
+
+// se_GrantTypes omitted.
+
+// se_RedirectUris omitted.
 
 // se_Scopes omitted.
 
