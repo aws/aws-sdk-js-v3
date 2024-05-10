@@ -49,7 +49,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * //   iotJobArn: "STRING_VALUE",
  * //   components: { // ComponentDeploymentSpecifications
  * //     "<keys>": { // ComponentDeploymentSpecification
- * //       componentVersion: "STRING_VALUE",
+ * //       componentVersion: "STRING_VALUE", // required
  * //       configurationUpdate: { // ComponentConfigurationUpdate
  * //         merge: "STRING_VALUE",
  * //         reset: [ // ComponentConfigurationPathList

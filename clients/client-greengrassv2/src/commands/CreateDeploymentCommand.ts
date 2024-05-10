@@ -49,7 +49,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *   deploymentName: "STRING_VALUE",
  *   components: { // ComponentDeploymentSpecifications
  *     "<keys>": { // ComponentDeploymentSpecification
- *       componentVersion: "STRING_VALUE",
+ *       componentVersion: "STRING_VALUE", // required
  *       configurationUpdate: { // ComponentConfigurationUpdate
  *         merge: "STRING_VALUE",
  *         reset: [ // ComponentConfigurationPathList

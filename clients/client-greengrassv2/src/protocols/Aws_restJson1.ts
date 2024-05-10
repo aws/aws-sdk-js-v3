@@ -398,12 +398,17 @@ export const se_GetComponentVersionArtifactCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xaiet]: input[_iET]!,
+  });
   b.bp("/greengrass/v2/components/{arn}/artifacts/{artifactName+}");
   b.p("arn", () => input.arn!, "{arn}", false);
   b.p("artifactName", () => input.artifactName!, "{artifactName+}", true);
+  const query: any = map({
+    [_sET]: [, input[_sET]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2178,6 +2183,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _hF = "historyFilter";
+const _iET = "iotEndpointType";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _pTA = "parentTargetArn";
@@ -2185,8 +2191,10 @@ const _rAS = "retryAfterSeconds";
 const _rOF = "recipeOutputFormat";
 const _ra = "retry-after";
 const _s = "scope";
+const _sET = "s3EndpointType";
 const _st = "status";
 const _tA = "targetArn";
 const _tF = "topologyFilter";
 const _tGA = "thingGroupArn";
 const _tK = "tagKeys";
+const _xaiet = "x-amz-iot-endpoint-type";

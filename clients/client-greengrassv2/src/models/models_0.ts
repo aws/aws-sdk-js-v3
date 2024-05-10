@@ -790,7 +790,7 @@ export interface ComponentDeploymentSpecification {
    * <p>The version of the component.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion: string | undefined;
 
   /**
    * <p>The configuration updates to deploy for the component. You can define
@@ -2277,6 +2277,34 @@ export interface GetComponentResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const IotEndpointType = {
+  fips: "fips",
+  standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type IotEndpointType = (typeof IotEndpointType)[keyof typeof IotEndpointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3EndpointType = {
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+} as const;
+
+/**
+ * @public
+ */
+export type S3EndpointType = (typeof S3EndpointType)[keyof typeof S3EndpointType];
+
+/**
+ * @public
  */
 export interface GetComponentVersionArtifactRequest {
   /**
@@ -2295,6 +2323,23 @@ export interface GetComponentVersionArtifactRequest {
    * @public
    */
   artifactName: string | undefined;
+
+  /**
+   * <p>Specifies the endpoint to use when getting Amazon S3 pre-signed URLs.</p>
+   *          <p>All Amazon Web Services Regions except US East (N. Virginia) use <code>REGIONAL</code> in all cases.
+   *       In the US East (N. Virginia) Region the default is <code>GLOBAL</code>, but you can change it
+   *       to <code>REGIONAL</code> with this parameter.</p>
+   * @public
+   */
+  s3EndpointType?: S3EndpointType;
+
+  /**
+   * <p>Determines if the Amazon S3 URL returned is a FIPS pre-signed URL endpoint.
+   *       Specify <code>fips</code> if you want the returned Amazon S3 pre-signed URL to point to
+   *       an Amazon S3 FIPS endpoint. If you don't specify a value, the default is <code>standard</code>.</p>
+   * @public
+   */
+  iotEndpointType?: IotEndpointType;
 }
 
 /**
@@ -2760,6 +2805,8 @@ export interface ListDeploymentsRequest {
 
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: <code>50</code>
+   *          </p>
    * @public
    */
   maxResults?: number;
@@ -2964,8 +3011,8 @@ export interface InstalledComponent {
 
   /**
    * <p>The most recent deployment source that brought the component to the Greengrass core device. For
-   *       a thing group deployment or thing deployment, the source will be the The ID of the deployment. and for
-   *       local deployments it will be <code>LOCAL</code>.</p>
+   *       a thing group deployment or thing deployment, the source will be the ID of the last deployment
+   *       that contained the component. For local deployments it will be <code>LOCAL</code>.</p>
    *          <note>
    *             <p>Any deployment will attempt to reinstall currently broken components on the device,
    *         which will update the last installation source.</p>

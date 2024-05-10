@@ -44,6 +44,8 @@ export interface GetComponentVersionArtifactCommandOutput
  * const input = { // GetComponentVersionArtifactRequest
  *   arn: "STRING_VALUE", // required
  *   artifactName: "STRING_VALUE", // required
+ *   s3EndpointType: "REGIONAL" || "GLOBAL",
+ *   iotEndpointType: "fips" || "standard",
  * };
  * const command = new GetComponentVersionArtifactCommand(input);
  * const response = await client.send(command);
