@@ -31,8 +31,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       help you organize and categorize your resources. You can also use them to scope user
  *       permissions by granting a user permission to access or change only resources with certain tag
  *       values. In EventBridge, rules and event buses can be tagged.</p>
- *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of
- *       characters.</p>
+ *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as
+ *       strings of characters.</p>
  *          <p>You can use the <code>TagResource</code> action with a resource that already has tags. If
  *       you specify a new tag key, this tag is appended to the list of tags associated with the
  *       resource. If you specify a tag key that is already associated with the resource, the new tag
@@ -72,8 +72,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>This exception occurs due to unexpected causes.</p>
  *
  * @throws {@link ManagedRuleException} (client fault)
- *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
- *       service. If you see this error in response to <code>DeleteRule</code> or
+ *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is
+ *       managed by that service. If you see this error in response to <code>DeleteRule</code> or
  *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
  *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
  *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,

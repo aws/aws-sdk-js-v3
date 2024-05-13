@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { RemovePermissionRequest } from "../models/models_0";
-import { de_RemovePermissionCommand, se_RemovePermissionCommand } from "../protocols/Aws_json1_1";
+import { UpdateEventBusRequest, UpdateEventBusResponse } from "../models/models_0";
+import { de_UpdateEventBusCommand, se_UpdateEventBusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -16,42 +16,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link RemovePermissionCommand}.
+ * The input for {@link UpdateEventBusCommand}.
  */
-export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
+export interface UpdateEventBusCommandInput extends UpdateEventBusRequest {}
 /**
  * @public
  *
- * The output of {@link RemovePermissionCommand}.
+ * The output of {@link UpdateEventBusCommand}.
  */
-export interface RemovePermissionCommandOutput extends __MetadataBearer {}
+export interface UpdateEventBusCommandOutput extends UpdateEventBusResponse, __MetadataBearer {}
 
 /**
- * <p>Revokes the permission of another Amazon Web Services account to be able to put events to
- *       the specified event bus. Specify the account to revoke by the <code>StatementId</code> value
- *       that you associated with the account when you granted it permission with
- *         <code>PutPermission</code>. You can find the <code>StatementId</code> by using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html">DescribeEventBus</a>.</p>
+ * <p>Updates the specified event bus.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, RemovePermissionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, RemovePermissionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, UpdateEventBusCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, UpdateEventBusCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const input = { // RemovePermissionRequest
- *   StatementId: "STRING_VALUE",
- *   RemoveAllPermissions: true || false,
- *   EventBusName: "STRING_VALUE",
+ * const input = { // UpdateEventBusRequest
+ *   Name: "STRING_VALUE",
+ *   KmsKeyIdentifier: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DeadLetterConfig: { // DeadLetterConfig
+ *     Arn: "STRING_VALUE",
+ *   },
  * };
- * const command = new RemovePermissionCommand(input);
+ * const command = new UpdateEventBusCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateEventBusResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   DeadLetterConfig: { // DeadLetterConfig
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param RemovePermissionCommandInput - {@link RemovePermissionCommandInput}
- * @returns {@link RemovePermissionCommandOutput}
- * @see {@link RemovePermissionCommandInput} for command's `input` shape.
- * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
+ * @param UpdateEventBusCommandInput - {@link UpdateEventBusCommandInput}
+ * @returns {@link UpdateEventBusCommandOutput}
+ * @see {@link UpdateEventBusCommandInput} for command's `input` shape.
+ * @see {@link UpdateEventBusCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
@@ -71,10 +79,10 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class RemovePermissionCommand extends $Command
+export class UpdateEventBusCommand extends $Command
   .classBuilder<
-    RemovePermissionCommandInput,
-    RemovePermissionCommandOutput,
+    UpdateEventBusCommandInput,
+    UpdateEventBusCommandOutput,
     EventBridgeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -88,9 +96,9 @@ export class RemovePermissionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "RemovePermission", {})
-  .n("EventBridgeClient", "RemovePermissionCommand")
+  .s("AWSEvents", "UpdateEventBus", {})
+  .n("EventBridgeClient", "UpdateEventBusCommand")
   .f(void 0, void 0)
-  .ser(se_RemovePermissionCommand)
-  .de(de_RemovePermissionCommand)
+  .ser(se_UpdateEventBusCommand)
+  .de(de_UpdateEventBusCommand)
   .build() {}

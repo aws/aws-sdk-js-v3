@@ -208,12 +208,14 @@ export interface ApiDestination {
 }
 
 /**
- * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an AppSync API.</p>
+ * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an
+ *         AppSync API.</p>
  * @public
  */
 export interface AppSyncParameters {
   /**
-   * <p>The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.</p>
+   * <p>The GraphQL operation; that is, the query, mutation, or subscription to be parsed and
+   *       executed by the GraphQL service.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations">Operations</a> in the <i>AppSync User Guide</i>.</p>
    * @public
    */
@@ -957,14 +959,16 @@ export interface ReplicationConfig {
  */
 export interface Primary {
   /**
-   * <p>The ARN of the health check used by the endpoint to determine whether failover is triggered.</p>
+   * <p>The ARN of the health check used by the endpoint to determine whether failover is
+   *       triggered.</p>
    * @public
    */
   HealthCheck: string | undefined;
 }
 
 /**
- * <p>The secondary Region that processes events when failover is triggered or replication is enabled.</p>
+ * <p>The secondary Region that processes events when failover is triggered or replication is
+ *       enabled.</p>
  * @public
  */
 export interface Secondary {
@@ -976,7 +980,8 @@ export interface Secondary {
 }
 
 /**
- * <p>The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+ * <p>The failover configuration for an endpoint. This includes what triggers failover and what
+ *       happens when it's triggered.</p>
  * @public
  */
 export interface FailoverConfig {
@@ -987,7 +992,8 @@ export interface FailoverConfig {
   Primary: Primary | undefined;
 
   /**
-   * <p>The Region that events are routed to when failover is triggered or event replication is enabled.</p>
+   * <p>The Region that events are routed to when failover is triggered or event replication is
+   *       enabled.</p>
    * @public
    */
   Secondary: Secondary | undefined;
@@ -999,7 +1005,8 @@ export interface FailoverConfig {
  */
 export interface RoutingConfig {
   /**
-   * <p>The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+   * <p>The failover configuration for an endpoint. This includes what triggers failover and what
+   *       happens when it's triggered.</p>
    * @public
    */
   FailoverConfig: FailoverConfig | undefined;
@@ -1010,7 +1017,8 @@ export interface RoutingConfig {
  */
 export interface CreateEndpointRequest {
   /**
-   * <p>The name of the global endpoint. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
+   * <p>The name of the global endpoint. For example,
+   *         <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
    * @public
    */
   Name: string | undefined;
@@ -1028,8 +1036,9 @@ export interface CreateEndpointRequest {
   RoutingConfig: RoutingConfig | undefined;
 
   /**
-   * <p>Enable or disable event replication. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>. If you don't have a
-   *       <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>
+   * <p>Enable or disable event replication. The default state is <code>ENABLED</code> which means
+   *       you must supply a <code>RoleArn</code>. If you don't have a <code>RoleArn</code> or you don't
+   *       want event replication enabled, set the state to <code>DISABLED</code>.</p>
    * @public
    */
   ReplicationConfig?: ReplicationConfig;
@@ -1117,8 +1126,24 @@ export interface CreateEndpointResponse {
 }
 
 /**
- * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge, rules and event buses
- *       support tagging.</p>
+ * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
+ *       dead-letter queue (DLQ).</p>
+ *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
+ *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+ *         Guide</i>.</p>
+ * @public
+ */
+export interface DeadLetterConfig {
+  /**
+   * <p>The ARN of the SQS queue specified as the target for the dead-letter queue.</p>
+   * @public
+   */
+  Arn?: string;
+}
+
+/**
+ * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge,
+ *       rules and event buses support tagging.</p>
  * @public
  */
 export interface Tag {
@@ -1142,10 +1167,12 @@ export interface Tag {
 export interface CreateEventBusRequest {
   /**
    * <p>The name of the new event bus. </p>
-   *          <p>Custom event bus names can't contain the <code>/</code> character, but you can use the <code>/</code> character in partner event bus names. In addition, for partner event buses, the name must exactly match the name of the partner event
-   *       source that this event bus is matched to.</p>
-   *          <p>You can't use the name <code>default</code> for a custom event bus, as this name is already used for your account's
-   *       default event bus.</p>
+   *          <p>Custom event bus names can't contain the <code>/</code> character, but you can use the
+   *         <code>/</code> character in partner event bus names. In addition, for partner event buses,
+   *       the name must exactly match the name of the partner event source that this event bus is
+   *       matched to.</p>
+   *          <p>You can't use the name <code>default</code> for a custom event bus, as this name is
+   *       already used for your account's default event bus.</p>
    * @public
    */
   Name: string | undefined;
@@ -1156,6 +1183,57 @@ export interface CreateEventBusRequest {
    * @public
    */
   EventSourceName?: string;
+
+  /**
+   * <p>The event bus description.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key
+   *       Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>
+   *          <p>If you do not specify a customer managed key identifier, EventBridge uses an
+   *         Amazon Web Services owned key to encrypt events on the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html">Managing keys</a> in the <i>Key Management Service
+   *                                 Developer Guide</i>. </p>
+   *          <note>
+   *             <p>Archives and schema discovery are not supported for event buses encrypted using a
+   *         customer managed key. EventBridge returns an error if:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html">CreateArchive</a>
+   *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a>
+   *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html">UpdatedEventBus</a>
+   *                      </code> to set a customer managed key on an event bus with an archives or schema discovery enabled.</p>
+   *                </li>
+   *             </ul>
+   *             <p>To enable archives or schema discovery on an event bus, choose to
+   *         use an Amazon Web Services owned key. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  KmsKeyIdentifier?: string;
+
+  /**
+   * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
+   *       dead-letter queue (DLQ).</p>
+   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
+   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *         Guide</i>.</p>
+   * @public
+   */
+  DeadLetterConfig?: DeadLetterConfig;
 
   /**
    * <p>Tags to associate with the event bus.</p>
@@ -1173,6 +1251,30 @@ export interface CreateEventBusResponse {
    * @public
    */
   EventBusArn?: string;
+
+  /**
+   * <p>The event bus description.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * @public
+   */
+  KmsKeyIdentifier?: string;
+
+  /**
+   * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
+   *       dead-letter queue (DLQ).</p>
+   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
+   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *         Guide</i>.</p>
+   * @public
+   */
+  DeadLetterConfig?: DeadLetterConfig;
 }
 
 /**
@@ -1184,15 +1286,15 @@ export interface CreatePartnerEventSourceRequest {
    *           <code>
    *                <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>
    *             </code>.
-   *       The Amazon Web Services account that wants to use this partner event source must create a partner event bus
-   *       with a name that matches the name of the partner event source.</p>
+   *       The Amazon Web Services account that wants to use this partner event source must create a
+   *       partner event bus with a name that matches the name of the partner event source.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that is permitted to create a matching partner event bus for this
-   *       partner event source.</p>
+   * <p>The Amazon Web Services account ID that is permitted to create a matching partner event bus
+   *       for this partner event source.</p>
    * @public
    */
   Account: string | undefined;
@@ -1351,7 +1453,8 @@ export interface DeleteConnectionResponse {
  */
 export interface DeleteEndpointRequest {
   /**
-   * <p>The name of the endpoint you want to delete. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>..</p>
+   * <p>The name of the endpoint you want to delete. For example,
+   *         <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>..</p>
    * @public
    */
   Name: string | undefined;
@@ -1384,7 +1487,8 @@ export interface DeletePartnerEventSourceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the Amazon Web Services customer that the event source was created for.</p>
+   * <p>The Amazon Web Services account ID of the Amazon Web Services customer that the event source
+   *       was created for.</p>
    * @public
    */
   Account: string | undefined;
@@ -1408,19 +1512,19 @@ export interface DeleteRuleRequest {
   EventBusName?: string;
 
   /**
-   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify
-   *         <code>Force</code> as <code>True</code> to delete the rule. This parameter is ignored for
-   *       rules that are not managed rules. You can check whether a rule is a managed rule by using
-   *         <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>
-   *       field of the response.</p>
+   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you
+   *       must specify <code>Force</code> as <code>True</code> to delete the rule. This parameter is
+   *       ignored for rules that are not managed rules. You can check whether a rule is a managed rule
+   *       by using <code>DescribeRule</code> or <code>ListRules</code> and checking the
+   *         <code>ManagedBy</code> field of the response.</p>
    * @public
    */
   Force?: boolean;
 }
 
 /**
- * <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
- *       service. If you see this error in response to <code>DeleteRule</code> or
+ * <p>This rule was created by an Amazon Web Services service on behalf of your account. It is
+ *       managed by that service. If you see this error in response to <code>DeleteRule</code> or
  *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
  *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
  *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,
@@ -1796,13 +1900,15 @@ export interface DescribeConnectionResponse {
  */
 export interface DescribeEndpointRequest {
   /**
-   * <p>The name of the endpoint you want to get information about. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
+   * <p>The name of the endpoint you want to get information about. For example,
+   *         <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The primary Region of the endpoint you want to get information about. For example <code>"HomeRegion": "us-east-1"</code>.</p>
+   * <p>The primary Region of the endpoint you want to get information about. For example
+   *         <code>"HomeRegion": "us-east-1"</code>.</p>
    * @public
    */
   HomeRegion?: string;
@@ -1837,7 +1943,8 @@ export interface DescribeEndpointResponse {
   RoutingConfig?: RoutingConfig;
 
   /**
-   * <p>Whether replication is enabled or disabled for the endpoint you asked for information about.</p>
+   * <p>Whether replication is enabled or disabled for the endpoint you asked for information
+   *       about.</p>
    * @public
    */
   ReplicationConfig?: ReplicationConfig;
@@ -1914,17 +2021,52 @@ export interface DescribeEventBusResponse {
   Name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the account permitted to write events to the current
-   *       account.</p>
+   * <p>The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>
    * @public
    */
   Arn?: string;
+
+  /**
+   * <p>The event bus description.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * @public
+   */
+  KmsKeyIdentifier?: string;
+
+  /**
+   * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
+   *       dead-letter queue (DLQ).</p>
+   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
+   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *         Guide</i>.</p>
+   * @public
+   */
+  DeadLetterConfig?: DeadLetterConfig;
 
   /**
    * <p>The policy that enables the external account to send events to your account.</p>
    * @public
    */
   Policy?: string;
+
+  /**
+   * <p>The time the event bus was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time the event bus was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
 }
 
 /**
@@ -2184,7 +2326,9 @@ export interface DescribeRuleResponse {
 
   /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *         Patterns</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
    * @public
    */
   EventPattern?: string;
@@ -2214,8 +2358,9 @@ export interface DescribeRuleResponse {
   RoleArn?: string;
 
   /**
-   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, this field displays
-   *       the principal name of the Amazon Web Services service that created the rule.</p>
+   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, this
+   *       field displays the principal name of the Amazon Web Services service that created the
+   *       rule.</p>
    * @public
    */
   ManagedBy?: string;
@@ -2483,21 +2628,26 @@ export interface ListConnectionsResponse {
  */
 export interface ListEndpointsRequest {
   /**
-   * <p>A value that will return a subset of the endpoints associated with this account. For example, <code>"NamePrefix": "ABC"</code> will return all endpoints with "ABC" in the name.</p>
+   * <p>A value that will return a subset of the endpoints associated with this account. For
+   *       example, <code>"NamePrefix": "ABC"</code> will return all endpoints with "ABC" in the
+   *       name.</p>
    * @public
    */
   NamePrefix?: string;
 
   /**
-   * <p>The primary Region of the endpoints associated with this account. For example <code>"HomeRegion": "us-east-1"</code>.</p>
+   * <p>The primary Region of the endpoints associated with this account. For example
+   *         <code>"HomeRegion": "us-east-1"</code>.</p>
    * @public
    */
   HomeRegion?: string;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
-   *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
-   *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
+   *         <code>nextToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each
+   *       pagination token expires after 24 hours. Using an expired pagination token will return an HTTP
+   *       400 InvalidToken error.</p>
    * @public
    */
   NextToken?: string;
@@ -2510,7 +2660,12 @@ export interface ListEndpointsRequest {
 }
 
 /**
- * <p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+ * <p>A global endpoint used to improve your application's availability by making it
+ *       regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making
+ *         applications Regional-fault tolerant with global endpoints and event replication</a> in
+ *       the <i>
+ *                <i>Amazon EventBridge User Guide</i>
+ *             </i>.</p>
  * @public
  */
 export interface Endpoint {
@@ -2539,8 +2694,10 @@ export interface Endpoint {
   RoutingConfig?: RoutingConfig;
 
   /**
-   * <p>Whether event replication was enabled or disabled for this endpoint. The default state is <code>ENABLED</code> which means you must supply a <code>RoleArn</code>.
-   *        If you don't have a <code>RoleArn</code> or you don't want event replication enabled, set the state to <code>DISABLED</code>.</p>
+   * <p>Whether event replication was enabled or disabled for this endpoint. The default state is
+   *         <code>ENABLED</code> which means you must supply a <code>RoleArn</code>. If you don't have a
+   *         <code>RoleArn</code> or you don't want event replication enabled, set the state to
+   *         <code>DISABLED</code>.</p>
    * @public
    */
   ReplicationConfig?: ReplicationConfig;
@@ -2558,7 +2715,9 @@ export interface Endpoint {
   RoleArn?: string;
 
   /**
-   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is
+   *       https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
+   *       <code>abcde.veo</code>.</p>
    * @public
    */
   EndpointId?: string;
@@ -2605,9 +2764,11 @@ export interface ListEndpointsResponse {
   Endpoints?: Endpoint[];
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
-   *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
-   *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of
+   *         <code>nextToken</code> is a unique pagination token for each page. Make the call again using
+   *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each
+   *       pagination token expires after 24 hours. Using an expired pagination token will return an HTTP
+   *       400 InvalidToken error.</p>
    * @public
    */
   NextToken?: string;
@@ -2640,11 +2801,12 @@ export interface ListEventBusesRequest {
 }
 
 /**
- * <p>An event bus receives events from a source, uses rules to evaluate them, applies any configured input transformation, and routes them to the appropriate target(s).
- *       Your account's default event bus receives events from Amazon Web Services services. A custom event
- *       bus can receive events from your custom applications and services. A partner event bus
- *       receives events from an event source created by an SaaS partner. These events come from the
- *       partners services or applications.</p>
+ * <p>An event bus receives events from a source, uses rules to evaluate them, applies any
+ *       configured input transformation, and routes them to the appropriate target(s). Your account's
+ *       default event bus receives events from Amazon Web Services services. A custom event bus can
+ *       receive events from your custom applications and services. A partner event bus receives events
+ *       from an event source created by an SaaS partner. These events come from the partners services
+ *       or applications.</p>
  * @public
  */
 export interface EventBus {
@@ -2661,11 +2823,29 @@ export interface EventBus {
   Arn?: string;
 
   /**
-   * <p>The permissions policy of the event bus, describing which other Amazon Web Services accounts can write
-   *       events to this event bus.</p>
+   * <p>The event bus description.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The permissions policy of the event bus, describing which other Amazon Web Services
+   *       accounts can write events to this event bus.</p>
    * @public
    */
   Policy?: string;
+
+  /**
+   * <p>The time the event bus was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time the event bus was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
 }
 
 /**
@@ -2713,8 +2893,8 @@ export interface ListEventSourcesRequest {
 
 /**
  * <p>A partner event source is created by an SaaS partner. If a customer creates a partner
- *       event bus that matches this event source, that Amazon Web Services account can receive events from the
- *       partner's applications or services.</p>
+ *       event bus that matches this event source, that Amazon Web Services account can receive events
+ *       from the partner's applications or services.</p>
  * @public
  */
 export interface EventSource {
@@ -2737,8 +2917,8 @@ export interface EventSource {
   CreationTime?: Date;
 
   /**
-   * <p>The date and time that the event source will expire, if the Amazon Web Services account doesn't create a
-   *       matching event bus for it.</p>
+   * <p>The date and time that the event source will expire, if the Amazon Web Services account
+   *       doesn't create a matching event bus for it.</p>
    * @public
    */
   ExpirationTime?: Date;
@@ -2820,8 +3000,8 @@ export interface PartnerEventSourceAccount {
   CreationTime?: Date;
 
   /**
-   * <p>The date and time that the event source will expire, if the Amazon Web Services account doesn't create a
-   *       matching event bus for it.</p>
+   * <p>The date and time that the event source will expire, if the Amazon Web Services account
+   *       doesn't create a matching event bus for it.</p>
    * @public
    */
   ExpirationTime?: Date;
@@ -2882,8 +3062,8 @@ export interface ListPartnerEventSourcesRequest {
 
 /**
  * <p>A partner event source is created by an SaaS partner. If a customer creates a partner
- *       event bus that matches this event source, that Amazon Web Services account can receive events from the
- *       partner's applications or services.</p>
+ *       event bus that matches this event source, that Amazon Web Services account can receive events
+ *       from the partner's applications or services.</p>
  * @public
  */
 export interface PartnerEventSource {
@@ -3129,13 +3309,42 @@ export interface Rule {
 
   /**
    * <p>The event pattern of the rule. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *         Patterns</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
    * @public
    */
   EventPattern?: string;
 
   /**
    * <p>The state of the rule.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: The rule is disabled. EventBridge does not match any events against the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: The rule is enabled.
+   *           EventBridge matches events against the rule, <i>except</i> for Amazon Web Services management events delivered through CloudTrail.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS</code>: The rule is enabled for all
+   *         events, including Amazon Web Services management events delivered through CloudTrail.</p>
+   *                <p>Management events provide visibility into management operations that are performed on
+   *           resources in your Amazon Web Services account. These are also known as control plane
+   *           operations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events">Logging management events</a> in the <i>CloudTrail User
+   *             Guide</i>, and <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-cloudtrail">Filtering management events from Amazon Web Services services</a> in the
+   *             <i>
+   *                      <i>Amazon EventBridge User Guide</i>
+   *                   </i>.</p>
+   *                <p>This value is only valid for rules on the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.html#eb-bus-concepts-buses">default</a> event bus
+   *           or <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-event-bus.html">custom event buses</a>.
+   *           It does not apply to <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-saas.html">partner event buses</a>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   State?: RuleState;
@@ -3147,7 +3356,9 @@ export interface Rule {
   Description?: string;
 
   /**
-   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html">Creating an Amazon EventBridge rule that runs on a schedule</a>.</p>
+   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more
+   *       information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html">Creating an Amazon EventBridge rule
+   *         that runs on a schedule</a>.</p>
    * @public
    */
   ScheduleExpression?: string;
@@ -3163,8 +3374,8 @@ export interface Rule {
   RoleArn?: string;
 
   /**
-   * <p>If the rule was created on behalf of your account by an Amazon Web Services service, this field displays
-   *       the principal name of the service that created the rule.</p>
+   * <p>If the rule was created on behalf of your account by an Amazon Web Services service, this
+   *       field displays the principal name of the service that created the rule.</p>
    * @public
    */
   ManagedBy?: string;
@@ -3263,8 +3474,8 @@ export interface BatchArrayProperties {
 }
 
 /**
- * <p>The retry strategy to use for failed jobs, if the target is an Batch job. If you
- *       specify a retry strategy here, it overrides the retry strategy defined in the job
+ * <p>The retry strategy to use for failed jobs, if the target is an Batch job.
+ *       If you specify a retry strategy here, it overrides the retry strategy defined in the job
  *       definition.</p>
  * @public
  */
@@ -3282,14 +3493,14 @@ export interface BatchRetryStrategy {
  */
 export interface BatchParameters {
   /**
-   * <p>The ARN or name of the job definition to use if the event target is an Batch job. This
-   *       job definition must already exist.</p>
+   * <p>The ARN or name of the job definition to use if the event target is an Batch job. This job definition must already exist.</p>
    * @public
    */
   JobDefinition: string | undefined;
 
   /**
-   * <p>The name to use for this execution of the job, if the target is an Batch job.</p>
+   * <p>The name to use for this execution of the job, if the target is an Batch
+   *       job.</p>
    * @public
    */
   JobName: string | undefined;
@@ -3303,26 +3514,13 @@ export interface BatchParameters {
   ArrayProperties?: BatchArrayProperties;
 
   /**
-   * <p>The retry strategy to use for failed jobs, if the target is an Batch job. The retry
-   *       strategy is the number of times to retry the failed job execution. Valid values are 1–10. When
-   *       you specify a retry strategy here, it overrides the retry strategy defined in the job
-   *       definition.</p>
+   * <p>The retry strategy to use for failed jobs, if the target is an Batch job.
+   *       The retry strategy is the number of times to retry the failed job execution. Valid values are
+   *       1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the
+   *       job definition.</p>
    * @public
    */
   RetryStrategy?: BatchRetryStrategy;
-}
-
-/**
- * <p>A <code>DeadLetterConfig</code> object that contains information about a dead-letter queue
- *       configuration.</p>
- * @public
- */
-export interface DeadLetterConfig {
-  /**
-   * <p>The ARN of the SQS queue specified as the target for the dead-letter queue.</p>
-   * @public
-   */
-  Arn?: string;
 }
 
 /**
@@ -3428,8 +3626,7 @@ export const PlacementConstraintType = {
 export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typeof PlacementConstraintType];
 
 /**
- * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the Amazon Elastic Container Service Developer
- *       Guide.</p>
+ * <p>An object representing a constraint on task placement. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the Amazon Elastic Container Service Developer Guide.</p>
  * @public
  */
 export interface PlacementConstraint {
@@ -3443,8 +3640,7 @@ export interface PlacementConstraint {
 
   /**
    * <p>A cluster query language expression to apply to the constraint. You cannot specify an
-   *       expression if the constraint type is <code>distinctInstance</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the Amazon Elastic Container Service Developer Guide.
-   *     </p>
+   *       expression if the constraint type is <code>distinctInstance</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the Amazon Elastic Container Service Developer Guide. </p>
    * @public
    */
   expression?: string;
@@ -3527,19 +3723,19 @@ export interface EcsParameters {
   /**
    * <p>Specifies the launch type on which your task is running. The launch type that you specify
    *       here must match one of the launch type (compatibilities) of the target task. The
-   *       <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS
-   *      is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
-   *       the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *         <code>FARGATE</code> value is supported only in the Regions where Fargate
+   *       with Amazon ECS is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer
+   *       Guide</i>.</p>
    * @public
    */
   LaunchType?: LaunchType;
 
   /**
-   * <p>Use this structure if the Amazon ECS task uses the <code>awsvpc</code> network mode. This
-   *       structure specifies the VPC subnets and security groups associated with the task, and whether
-   *       a public IP address is to be used. This structure is required if <code>LaunchType</code> is
-   *         <code>FARGATE</code> because the <code>awsvpc</code> mode is required for Fargate
-   *       tasks.</p>
+   * <p>Use this structure if the Amazon ECS task uses the <code>awsvpc</code> network
+   *       mode. This structure specifies the VPC subnets and security groups associated with the task,
+   *       and whether a public IP address is to be used. This structure is required if
+   *         <code>LaunchType</code> is <code>FARGATE</code> because the <code>awsvpc</code> mode is
+   *       required for Fargate tasks.</p>
    *          <p>If you specify <code>NetworkConfiguration</code> when the target ECS task does not use the
    *         <code>awsvpc</code> network mode, the task fails.</p>
    * @public
@@ -3550,9 +3746,9 @@ export interface EcsParameters {
    * <p>Specifies the platform version for the task. Specify only the numeric portion of the
    *       platform version, such as <code>1.1.0</code>.</p>
    *          <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For more
-   *       information about valid platform versions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform
-   *         Versions</a> in the <i>Amazon Elastic Container Service Developer
-   *         Guide</i>.</p>
+   *       information about valid platform versions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate
+   *         Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
+   *       Guide</i>.</p>
    * @public
    */
   PlatformVersion?: string;
@@ -3573,9 +3769,9 @@ export interface EcsParameters {
   CapacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
-   * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS Resources</a> in the Amazon Elastic Container Service Developer
-   *       Guide. </p>
+   * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
+   *         Resources</a> in the Amazon Elastic Container Service Developer Guide. </p>
    * @public
    */
   EnableECSManagedTags?: boolean;
@@ -3627,29 +3823,27 @@ export interface EcsParameters {
 
 /**
  * <p>These are custom parameter to be used when the target is an API Gateway APIs or
- *       EventBridge ApiDestinations. In the latter case, these are merged with any
+ *         EventBridge ApiDestinations. In the latter case, these are merged with any
  *       InvocationParameters specified on the Connection, with any values from the Connection taking
  *       precedence.</p>
  * @public
  */
 export interface HttpParameters {
   /**
-   * <p>The path parameter values to be used to populate API Gateway API or EventBridge
-   *       ApiDestination path wildcards ("*").</p>
+   * <p>The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards ("*").</p>
    * @public
    */
   PathParameterValues?: string[];
 
   /**
    * <p>The headers that need to be sent as part of request invoking the API Gateway API or
-   *       EventBridge ApiDestination.</p>
+   *         EventBridge ApiDestination.</p>
    * @public
    */
   HeaderParameters?: Record<string, string>;
 
   /**
-   * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway
-   *       API or EventBridge ApiDestination.</p>
+   * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.</p>
    * @public
    */
   QueryStringParameters?: Record<string, string>;
@@ -3677,8 +3871,7 @@ export interface InputTransformer {
   /**
    * <p>Input template where you specify placeholders that will be filled with the values of the
    *       keys from <code>InputPathsMap</code> to customize the data sent to the target. Enclose each
-   *         <code>InputPathsMaps</code> value in brackets: <<i>value</i>>
-   *     </p>
+   *         <code>InputPathsMaps</code> value in brackets: <<i>value</i>> </p>
    *          <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following
    *       restrictions apply:</p>
    *          <ul>
@@ -3764,8 +3957,9 @@ export interface KinesisParameters {
 }
 
 /**
- * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster  to invoke the
- *       Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
+ * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster
+ *        to invoke the Amazon Redshift Data API
+ *       ExecuteStatement based on EventBridge events.</p>
  * @public
  */
 export interface RedshiftDataParameters {
@@ -3809,9 +4003,10 @@ export interface RedshiftDataParameters {
   WithEvent?: boolean;
 
   /**
-   * <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array.
-   *       Subsequent SQL statements don't start until the previous statement in the array completes.
-   *       If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+   * <p>One or more SQL statements to run. The SQL statements are run as a single transaction.
+   *       They run serially in the order of the array. Subsequent SQL statements don't start until the
+   *       previous statement in the array completes. If any SQL statement fails, then because they are
+   *       run as one transaction, all work is rolled back.</p>
    * @public
    */
   Sqls?: string[];
@@ -3884,26 +4079,29 @@ export interface RunCommandParameters {
  */
 export interface SageMakerPipelineParameter {
   /**
-   * <p>Name of parameter to start execution of a SageMaker Model Building Pipeline.</p>
+   * <p>Name of parameter to start execution of a SageMaker Model Building
+   *       Pipeline.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Value of parameter to start execution of a SageMaker Model Building Pipeline.</p>
+   * <p>Value of parameter to start execution of a SageMaker Model Building
+   *       Pipeline.</p>
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>These are custom parameters to use when the target is a SageMaker Model Building Pipeline
- *       that starts based on EventBridge events.</p>
+ * <p>These are custom parameters to use when the target is a SageMaker Model Building
+ *       Pipeline that starts based on EventBridge events.</p>
  * @public
  */
 export interface SageMakerPipelineParameters {
   /**
-   * <p>List of Parameter names and values for SageMaker Model Building Pipeline execution.</p>
+   * <p>List of Parameter names and values for SageMaker Model Building Pipeline
+   *       execution.</p>
    * @public
    */
   PipelineParameterList?: SageMakerPipelineParameter[];
@@ -3929,13 +4127,13 @@ export interface SqsParameters {
  *       granted permission to your account through an organization instead of directly by the account
  *       ID, then you must specify a <code>RoleArn</code> with proper permissions in the
  *         <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and
- *           Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User
- *         Guide</i>.</p>
+ *         Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  * @public
  */
 export interface Target {
   /**
-   * <p>The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.</p>
+   * <p>The ID of the target within the specified rule. Use this ID to reference the target when
+   *       updating the rule. We recommend using a memorable and unique string.</p>
    * @public
    */
   Id: string | undefined;
@@ -3947,9 +4145,8 @@ export interface Target {
   Arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is
-   *       triggered. If one rule triggers multiple targets, you can use a different IAM role for each
-   *       target.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If
+   *       one rule triggers multiple targets, you can use a different IAM role for each target.</p>
    * @public
    */
   RoleArn?: string;
@@ -4002,9 +4199,9 @@ export interface Target {
   EcsParameters?: EcsParameters;
 
   /**
-   * <p>If the event target is an Batch job, this contains the job definition, job name, and
-   *       other parameters. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>Batch User
-   *         Guide</i>.</p>
+   * <p>If the event target is an Batch job, this contains the job definition, job
+   *       name, and other parameters. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>Batch
+   *         User Guide</i>.</p>
    * @public
    */
   BatchParameters?: BatchParameters;
@@ -4019,30 +4216,29 @@ export interface Target {
 
   /**
    * <p>Contains the HTTP parameters to use when the target is a API Gateway endpoint or
-   *       EventBridge ApiDestination.</p>
-   *          <p>If you specify an API Gateway API or EventBridge ApiDestination as a target, you can
-   *       use this parameter to specify headers, path parameters, and query string keys/values as part
-   *       of your target invoking request. If you're using ApiDestinations, the corresponding Connection
-   *       can also have these values configured. In case of any conflicting keys, values from the
-   *       Connection take precedence.</p>
+   *         EventBridge ApiDestination.</p>
+   *          <p>If you specify an API Gateway API or EventBridge ApiDestination as a target,
+   *       you can use this parameter to specify headers, path parameters, and query string keys/values
+   *       as part of your target invoking request. If you're using ApiDestinations, the corresponding
+   *       Connection can also have these values configured. In case of any conflicting keys, values from
+   *       the Connection take precedence.</p>
    * @public
    */
   HttpParameters?: HttpParameters;
 
   /**
-   * <p>Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift
-   *       cluster.</p>
-   *          <p>If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to
-   *       invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
+   * <p>Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.</p>
+   *          <p>If you specify a Amazon Redshift Cluster as a Target, you can use this to specify
+   *       parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
    * @public
    */
   RedshiftDataParameters?: RedshiftDataParameters;
 
   /**
    * <p>Contains the SageMaker Model Building Pipeline parameters to start execution of a
-   *       SageMaker Model Building Pipeline.</p>
-   *          <p>If you specify a SageMaker Model Building Pipeline as a target, you can use this to
-   *       specify parameters to start a pipeline execution based on EventBridge events.</p>
+   *         SageMaker Model Building Pipeline.</p>
+   *          <p>If you specify a SageMaker Model Building Pipeline as a target, you can use this
+   *       to specify parameters to start a pipeline execution based on EventBridge events.</p>
    * @public
    */
   SageMakerPipelineParameters?: SageMakerPipelineParameters;
@@ -4062,7 +4258,8 @@ export interface Target {
   RetryPolicy?: RetryPolicy;
 
   /**
-   * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an AppSync API.</p>
+   * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an
+   *         AppSync API.</p>
    * @public
    */
   AppSyncParameters?: AppSyncParameters;
@@ -4111,14 +4308,15 @@ export interface PutEventsRequestEntry {
   Source?: string;
 
   /**
-   * <p>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the event primarily
-   *       concerns. Any number, including zero, may be present.</p>
+   * <p>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the event primarily concerns.
+   *       Any number, including zero, may be present.</p>
    * @public
    */
   Resources?: string[];
 
   /**
-   * <p>Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
+   * <p>Free-form string, with a maximum of 128 characters, used to decide what fields to expect
+   *       in the event detail.</p>
    *          <note>
    *             <p>
    *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
@@ -4149,18 +4347,20 @@ export interface PutEventsRequestEntry {
    *       with this event bus are used to match the event. If you omit this, the default event bus is
    *       used.</p>
    *          <note>
-   *             <p>If you're using a global endpoint with a custom bus, you can enter either the name or Amazon Resource Name (ARN) of the event bus
-   *       in either the primary or secondary Region here. EventBridge then determines the corresponding event bus in the
-   *       other Region based on the endpoint referenced by the <code>EndpointId</code>. Specifying the event bus ARN is preferred.</p>
+   *             <p>If you're using a global endpoint with a custom bus, you can enter either the name or
+   *         Amazon Resource Name (ARN) of the event bus in either the primary or secondary Region here. EventBridge then
+   *         determines the corresponding event bus in the other Region based on the endpoint referenced
+   *         by the <code>EndpointId</code>. Specifying the event bus ARN is preferred.</p>
    *          </note>
    * @public
    */
   EventBusName?: string;
 
   /**
-   * <p>An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that contains the
-   *       trace-id associated with the event.</p>
-   *          <p>To learn more about X-Ray trace headers, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the X-Ray Developer Guide.</p>
+   * <p>An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that
+   *       contains the trace-id associated with the event.</p>
+   *          <p>To learn more about X-Ray trace headers, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing
+   *         header</a> in the X-Ray Developer Guide.</p>
    * @public
    */
   TraceHeader?: string;
@@ -4179,7 +4379,9 @@ export interface PutEventsRequest {
   Entries: PutEventsRequestEntry[] | undefined;
 
   /**
-   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is
+   *       https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
+   *       <code>abcde.veo</code>.</p>
    *          <important>
    *             <p>When using Java, you must include <code>auth-crt</code> on the class path.</p>
    *          </important>
@@ -4190,10 +4392,10 @@ export interface PutEventsRequest {
 
 /**
  * <p>Represents the results of an event submitted to an event bus.</p>
- *          <p>If the submission was successful, the entry has the event ID in it.
- *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
- *          <p>For information about the errors that are common to all actions, see
- *       <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+ *          <p>If the submission was successful, the entry has the event ID in it. Otherwise, you can use
+ *       the error code and error message to identify the problem with the entry.</p>
+ *          <p>For information about the errors that are common to all actions, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">Common
+ *         Errors</a>.</p>
  * @public
  */
 export interface PutEventsResultEntry {
@@ -4213,7 +4415,8 @@ export interface PutEventsResultEntry {
    *                      <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">InternalFailure</a>
    *                   </code>
    *                </p>
-   *                <p>The request processing has failed because of an unknown error, exception or failure.</p>
+   *                <p>The request processing has failed because of an unknown error, exception or
+   *           failure.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4262,13 +4465,15 @@ export interface PutEventsResultEntry {
    *                <p>
    *                   <code>NotAuthorizedForSourceException</code>
    *                </p>
-   *                <p>You do not have permissions to publish events with this source onto this event bus.</p>
+   *                <p>You do not have permissions to publish events with this source onto this event
+   *           bus.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>NotAuthorizedForDetailTypeException</code>
    *                </p>
-   *                <p>You do not have permissions to publish events with this detail type onto this event bus.</p>
+   *                <p>You do not have permissions to publish events with this detail type onto this event
+   *           bus.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4296,7 +4501,8 @@ export interface PutEventsResponse {
    * <p>The successfully and unsuccessfully ingested events results. If the ingestion was
    *       successful, the entry has the event ID in it. Otherwise, you can use the error code and error
    *       message to identify the problem with the entry.</p>
-   *          <p>For each record, the index of the response element is the same as the index in the request array.</p>
+   *          <p>For each record, the index of the response element is the same as the index in the request
+   *       array.</p>
    * @public
    */
   Entries?: PutEventsResultEntry[];
@@ -4327,14 +4533,15 @@ export interface PutPartnerEventsRequestEntry {
   Source?: string;
 
   /**
-   * <p>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the event primarily
-   *       concerns. Any number, including zero, may be present.</p>
+   * <p>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the event primarily concerns.
+   *       Any number, including zero, may be present.</p>
    * @public
    */
   Resources?: string[];
 
   /**
-   * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
+   * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect
+   *       in the event detail.</p>
    *          <note>
    *             <p>
    *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
@@ -4373,9 +4580,9 @@ export interface PutPartnerEventsRequest {
 }
 
 /**
- * <p>The result of an event entry the partner submitted in this request.
- *       If the event was successfully submitted, the entry has the event ID in it.
- *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
+ * <p>The result of an event entry the partner submitted in this request. If the event was
+ *       successfully submitted, the entry has the event ID in it. Otherwise, you can use the error
+ *       code and error message to identify the problem with the entry.</p>
  * @public
  */
 export interface PutPartnerEventsResultEntry {
@@ -4410,10 +4617,11 @@ export interface PutPartnerEventsResponse {
   FailedEntryCount?: number;
 
   /**
-   * <p>The results for each event entry the partner submitted in this request.
-   *       If the event was successfully submitted, the entry has the event ID in it.
-   *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
-   *          <p>For each record, the index of the response element is the same as the index in the request array.</p>
+   * <p>The results for each event entry the partner submitted in this request. If the event was
+   *       successfully submitted, the entry has the event ID in it. Otherwise, you can use the error
+   *       code and error message to identify the problem with the entry.</p>
+   *          <p>For each record, the index of the response element is the same as the index in the request
+   *       array.</p>
    * @public
    */
   Entries?: PutPartnerEventsResultEntry[];
@@ -4442,9 +4650,10 @@ export class PolicyLengthExceededException extends __BaseException {
 /**
  * <p>A JSON string which you can use to limit the event bus permissions you are granting to
  *       only accounts that fulfill the condition. Currently, the only supported condition is
- *       membership in a certain Amazon Web Services organization. The string must contain <code>Type</code>,
- *         <code>Key</code>, and <code>Value</code> fields. The <code>Value</code> field specifies the
- *       ID of the Amazon Web Services organization. Following is an example value for <code>Condition</code>:</p>
+ *       membership in a certain Amazon Web Services organization. The string must contain
+ *         <code>Type</code>, <code>Key</code>, and <code>Value</code> fields. The <code>Value</code>
+ *       field specifies the ID of the Amazon Web Services organization. Following is an example value
+ *       for <code>Condition</code>:</p>
  *          <p>
  *             <code>'\{"Type" : "StringEquals", "Key": "aws:PrincipalOrgID", "Value":
  *         "o-1234567890"\}'</code>
@@ -4492,8 +4701,9 @@ export interface PutPermissionRequest {
   Action?: string;
 
   /**
-   * <p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your default event
-   *       bus. Specify "*" to permit any account to put events to your default event bus.</p>
+   * <p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your
+   *       default event bus. Specify "*" to permit any account to put events to your default event
+   *       bus.</p>
    *          <p>If you specify "*" without specifying <code>Condition</code>, avoid creating rules that
    *       may match undesirable events. To create more secure rules, make sure that the event pattern
    *       for each rule contains an <code>account</code> field with a specific account ID from which to
@@ -4506,7 +4716,7 @@ export interface PutPermissionRequest {
   /**
    * <p>An identifier string for the external account that you are granting permissions to. If you
    *       later want to revoke the permission for this external account, specify this
-   *       <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</p>
+   *         <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</p>
    *          <note>
    *             <p>Each <code>StatementId</code> must be unique.</p>
    *          </note>
@@ -4516,12 +4726,13 @@ export interface PutPermissionRequest {
 
   /**
    * <p>This parameter enables you to limit the permission to accounts that fulfill a certain
-   *       condition, such as being a member of a certain Amazon Web Services organization. For more information about
-   *       Amazon Web Services Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What Is Amazon Web Services
-   *         Organizations</a> in the <i>Amazon Web Services Organizations User Guide</i>.</p>
-   *          <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify "*" as the
-   *       value for <code>Principal</code>, you grant permission to all the accounts in the named
-   *       organization.</p>
+   *       condition, such as being a member of a certain Amazon Web Services organization. For more
+   *       information about Amazon Web Services Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What Is Amazon Web Services
+   *         Organizations</a> in the <i>Amazon Web Services Organizations User
+   *         Guide</i>.</p>
+   *          <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and
+   *       specify "*" as the value for <code>Principal</code>, you grant permission to all the accounts
+   *       in the named organization.</p>
    *          <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,
    *         <code>Key</code>, and <code>Value</code> fields.</p>
    * @public
@@ -4555,13 +4766,42 @@ export interface PutRuleRequest {
 
   /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event
-   *       patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *         patterns</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
    * @public
    */
   EventPattern?: string;
 
   /**
-   * <p>Indicates whether the rule is enabled or disabled.</p>
+   * <p>The state of the rule.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: The rule is disabled. EventBridge does not match any events against the rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: The rule is enabled.
+   *           EventBridge matches events against the rule, <i>except</i> for Amazon Web Services management events delivered through CloudTrail.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS</code>: The rule is enabled for all
+   *         events, including Amazon Web Services management events delivered through CloudTrail.</p>
+   *                <p>Management events provide visibility into management operations that are performed on
+   *           resources in your Amazon Web Services account. These are also known as control plane
+   *           operations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events">Logging management events</a> in the <i>CloudTrail User
+   *             Guide</i>, and <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-cloudtrail">Filtering management events from Amazon Web Services services</a> in the
+   *             <i>
+   *                      <i>Amazon EventBridge User Guide</i>
+   *                   </i>.</p>
+   *                <p>This value is only valid for rules on the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.html#eb-bus-concepts-buses">default</a> event bus
+   *           or <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-event-bus.html">custom event buses</a>.
+   *           It does not apply to <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-saas.html">partner event buses</a>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   State?: RuleState;
@@ -4723,11 +4963,11 @@ export interface RemoveTargetsRequest {
   Ids: string[] | undefined;
 
   /**
-   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you must specify
-   *         <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored for
-   *       rules that are not managed rules. You can check whether a rule is a managed rule by using
-   *         <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>
-   *       field of the response.</p>
+   * <p>If this is a managed rule, created by an Amazon Web Services service on your behalf, you
+   *       must specify <code>Force</code> as <code>True</code> to remove targets. This parameter is
+   *       ignored for rules that are not managed rules. You can check whether a rule is a managed rule
+   *       by using <code>DescribeRule</code> or <code>ListRules</code> and checking the
+   *         <code>ManagedBy</code> field of the response.</p>
    * @public
    */
   Force?: boolean;
@@ -4877,15 +5117,17 @@ export interface TagResourceResponse {}
 export interface TestEventPatternRequest {
   /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *         Patterns</a> in the <i>
+   *                <i>Amazon EventBridge User Guide</i>
+   *             </i>.</p>
    * @public
    */
   EventPattern: string | undefined;
 
   /**
    * <p>The event, in JSON format, to test against the event pattern. The JSON must follow the
-   *       format specified in <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html">Amazon Web Services Events</a>, and the following
-   *       fields are mandatory:</p>
+   *       format specified in <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html">Amazon Web Services Events</a>, and
+   *       the following fields are mandatory:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5338,7 +5580,8 @@ export interface UpdateEndpointResponse {
   RoutingConfig?: RoutingConfig;
 
   /**
-   * <p>Whether event replication was enabled or disabled for the endpoint you updated in this request.</p>
+   * <p>Whether event replication was enabled or disabled for the endpoint you updated in this
+   *       request.</p>
    * @public
    */
   ReplicationConfig?: ReplicationConfig;
@@ -5350,7 +5593,8 @@ export interface UpdateEndpointResponse {
   EventBuses?: EndpointEventBus[];
 
   /**
-   * <p>The ARN of the role used by event replication for the endpoint you updated in this request.</p>
+   * <p>The ARN of the role used by event replication for the endpoint you updated in this
+   *       request.</p>
    * @public
    */
   RoleArn?: string;
@@ -5372,6 +5616,109 @@ export interface UpdateEndpointResponse {
    * @public
    */
   State?: EndpointState;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEventBusRequest {
+  /**
+   * <p>The name of the event bus.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key
+   *       Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>
+   *          <p>If you do not specify a customer managed key identifier, EventBridge uses an
+   *         Amazon Web Services owned key to encrypt events on the event bus.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html">Managing keys</a> in the <i>Key Management Service
+   *                                 Developer Guide</i>. </p>
+   *          <note>
+   *             <p>Archives and schema discovery are not supported for event buses encrypted using a
+   *         customer managed key. EventBridge returns an error if:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html">CreateArchive</a>
+   *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a>
+   *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You call <code>
+   *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html">UpdatedEventBus</a>
+   *                      </code> to set a customer managed key on an event bus with an archives or schema discovery enabled.</p>
+   *                </li>
+   *             </ul>
+   *             <p>To enable archives or schema discovery on an event bus, choose to
+   *         use an Amazon Web Services owned key. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  KmsKeyIdentifier?: string;
+
+  /**
+   * <p>The event bus description.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
+   *       dead-letter queue (DLQ).</p>
+   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
+   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *         Guide</i>.</p>
+   * @public
+   */
+  DeadLetterConfig?: DeadLetterConfig;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEventBusResponse {
+  /**
+   * <p>The event bus Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The event bus name.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The identifier of the KMS
+   *       customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * @public
+   */
+  KmsKeyIdentifier?: string;
+
+  /**
+   * <p>The event bus description.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Configuration details of the Amazon SQS queue for EventBridge to use as a
+   *       dead-letter queue (DLQ).</p>
+   *          <p>For more information, see <a href="eventbridge/latest/userguide/eb-rule-dlq.html">Event
+   *         retry policy and using dead-letter queues</a> in the <i>EventBridge User
+   *         Guide</i>.</p>
+   * @public
+   */
+  DeadLetterConfig?: DeadLetterConfig;
 }
 
 /**

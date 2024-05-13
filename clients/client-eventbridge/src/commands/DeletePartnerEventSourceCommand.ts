@@ -30,7 +30,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * <p>This operation is used by SaaS partners to delete a partner event source. This operation
  *       is not used by Amazon Web Services customers.</p>
  *          <p>When you delete an event source, the status of the corresponding partner event bus in the
- *       Amazon Web Services customer account becomes DELETED.</p>
+ *         Amazon Web Services customer account becomes DELETED.</p>
  *          <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

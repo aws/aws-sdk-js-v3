@@ -35,7 +35,9 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *             <p>Each rule can have up to five (5) targets associated with it at one time.</p>
  *          </note>
  *          <p>For a list of services you can configure as targets for events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html">EventBridge targets</a>
- *       in the <i>Amazon EventBridge User Guide</i>.</p>
+ *       in the <i>
+ *                <i>Amazon EventBridge User Guide</i>
+ *             </i>.</p>
  *          <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The
  *       built-in targets are:</p>
  *          <ul>
@@ -56,54 +58,52 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Amazon EC2 TerminateInstances API
- *         call</code>
+ *                   <code>Amazon EC2 TerminateInstances API call</code>
  *                </p>
  *             </li>
  *          </ul>
  *          <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the
- *       target is a Kinesis data stream, you can optionally specify which shard the event goes to by
- *       using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2
- *       instances with one rule, you can use the <code>RunCommandParameters</code> field.</p>
+ *       target is a Kinesis data stream, you can optionally specify which shard the event
+ *       goes to by using the <code>KinesisParameters</code> argument. To invoke a command on multiple
+ *       EC2 instances with one rule, you can use the <code>RunCommandParameters</code> field.</p>
  *          <p>To be able to make API calls against the resources that you own, Amazon EventBridge
- *       needs the appropriate permissions:
- *       </p>
+ *       needs the appropriate permissions: </p>
  *          <ul>
  *             <li>
- *                <p>For Lambda and Amazon SNS
- *         resources, EventBridge relies on resource-based policies.</p>
+ *                <p>For Lambda and Amazon SNS resources, EventBridge relies
+ *           on resource-based policies.</p>
  *             </li>
  *             <li>
- *                <p>For EC2 instances, Kinesis Data Streams,
- *         Step Functions state machines and API Gateway APIs, EventBridge relies on
- *         IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.</p>
+ *                <p>For EC2 instances, Kinesis Data Streams, Step Functions state machines and
+ *             API Gateway APIs, EventBridge relies on IAM roles that you specify in the
+ *             <code>RoleARN</code> argument in <code>PutTargets</code>.</p>
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
- *       and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>
- *          <p>If another Amazon Web Services account is in the same region and has granted you permission (using
- *         <code>PutPermission</code>), you can send events to that account. Set that account's event
- *       bus as a target of the rules in your account. To send the matched events to the other account,
- *       specify that account's event bus as the <code>Arn</code> value when you run
+ *         and Access Control</a> in the <i>
+ *                <i>Amazon EventBridge User Guide</i>
+ *             </i>.</p>
+ *          <p>If another Amazon Web Services account is in the same region and has granted you permission
+ *       (using <code>PutPermission</code>), you can send events to that account. Set that account's
+ *       event bus as a target of the rules in your account. To send the matched events to the other
+ *       account, specify that account's event bus as the <code>Arn</code> value when you run
  *         <code>PutTargets</code>. If your account sends events to another account, your account is
  *       charged for each sent event. Each event sent to another account is charged as a custom event.
- *       The account receiving the event is not charged. For more information, see <a href="http://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge
- *         Pricing</a>.</p>
+ *       The account receiving the event is not charged. For more information, see <a href="http://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge Pricing</a>.</p>
  *          <note>
  *             <p>
  *                <code>Input</code>, <code>InputPath</code>, and <code>InputTransformer</code> are not
- *         available with <code>PutTarget</code> if the target is an event bus of a different Amazon Web Services
- *         account.</p>
+ *         available with <code>PutTarget</code> if the target is an event bus of a different Amazon Web Services account.</p>
  *          </note>
  *          <p>If you are setting the event bus of another account as the target, and that account
  *       granted permission to your account through an organization instead of directly by the account
  *       ID, then you must specify a <code>RoleArn</code> with proper permissions in the
  *         <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and
- *           Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User
- *         Guide</i>.</p>
+ *         Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  *          <note>
- *             <p>If you have an IAM role on a cross-account event bus target,
- *       a <code>PutTargets</code> call without a role on the same target (same <code>Id</code> and <code>Arn</code>) will not remove the role.</p>
+ *             <p>If you have an IAM role on a cross-account event bus target, a <code>PutTargets</code>
+ *         call without a role on the same target (same <code>Id</code> and <code>Arn</code>) will not
+ *         remove the role.</p>
  *          </note>
  *          <p>For more information about enabling cross-account events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html">PutPermission</a>.</p>
  *          <p>
@@ -310,8 +310,8 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *       quota.</p>
  *
  * @throws {@link ManagedRuleException} (client fault)
- *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
- *       service. If you see this error in response to <code>DeleteRule</code> or
+ *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is
+ *       managed by that service. If you see this error in response to <code>DeleteRule</code> or
  *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
  *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
  *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,

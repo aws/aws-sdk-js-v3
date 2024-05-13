@@ -30,7 +30,8 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * <p>Removes the specified targets from the specified rule. When the rule is triggered, those
  *       targets are no longer be invoked.</p>
  *          <note>
- *             <p>A successful execution of <code>RemoveTargets</code> doesn't guarantee all targets are removed from the rule, it means that the target(s) listed in the request are removed.</p>
+ *             <p>A successful execution of <code>RemoveTargets</code> doesn't guarantee all targets are
+ *         removed from the rule, it means that the target(s) listed in the request are removed.</p>
  *          </note>
  *          <p>When you remove a target, when the associated rule triggers, removed targets might
  *       continue to be invoked. Allow a short period of time for changes to take effect.</p>
@@ -80,8 +81,8 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  *  <p>This exception occurs due to unexpected causes.</p>
  *
  * @throws {@link ManagedRuleException} (client fault)
- *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
- *       service. If you see this error in response to <code>DeleteRule</code> or
+ *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is
+ *       managed by that service. If you see this error in response to <code>DeleteRule</code> or
  *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
  *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
  *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,

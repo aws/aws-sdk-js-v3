@@ -27,10 +27,9 @@ export interface DescribeEventBusCommandInput extends DescribeEventBusRequest {}
 export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse, __MetadataBearer {}
 
 /**
- * <p>Displays details about an event bus in your account. This can include the external Amazon Web Services
- *       accounts that are permitted to write events to your default event bus, and the associated
- *       policy. For custom event buses and partner event buses, it displays the name, ARN, policy,
- *       state, and creation time.</p>
+ * <p>Displays details about an event bus in your account. This can include the external Amazon Web Services accounts that are permitted to write events to your default event bus, and the
+ *       associated policy. For custom event buses and partner event buses, it displays the name, ARN,
+ *       policy, state, and creation time.</p>
  *          <p> To enable your account to receive events from other accounts on its default event bus,
  *       use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html">PutPermission</a>.</p>
  *          <p>For more information about partner event buses, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.</p>
@@ -48,7 +47,14 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * // { // DescribeEventBusResponse
  * //   Name: "STRING_VALUE",
  * //   Arn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
+ * //   DeadLetterConfig: { // DeadLetterConfig
+ * //     Arn: "STRING_VALUE",
+ * //   },
  * //   Policy: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
