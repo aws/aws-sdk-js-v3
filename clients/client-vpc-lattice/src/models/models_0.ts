@@ -244,7 +244,7 @@ export interface ValidationExceptionField {
   name: string | undefined;
 
   /**
-   * <p>Additional details about why the validation failed.</p>
+   * <p>Additional information about why the validation failed.</p>
    * @public
    */
   message: string | undefined;
@@ -455,7 +455,7 @@ export interface AccessLogSubscriptionSummary {
  */
 export interface ListAccessLogSubscriptionsResponse {
   /**
-   * <p>The access log subscriptions.</p>
+   * <p>Information about the access log subscriptions.</p>
    * @public
    */
   items: AccessLogSubscriptionSummary[] | undefined;
@@ -548,7 +548,7 @@ export const AuthType = {
 export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
 /**
- * <p>Information about an action that returns a custom HTTP response. </p>
+ * <p>Describes an action that returns a custom HTTP response.</p>
  * @public
  */
 export interface FixedResponseAction {
@@ -571,7 +571,7 @@ export interface WeightedTargetGroup {
   targetGroupIdentifier: string | undefined;
 
   /**
-   * <p>Only required if you specify multiple target groups for a forward action. The "weight"
+   * <p>Only required if you specify multiple target groups for a forward action. The weight
    *    determines how requests are distributed to the target group. For example, if you specify two
    *    target groups, each with a weight of 10, each target group receives half the requests. If you
    *    specify two target groups, one with a weight of 10 and the other with a weight of 20, the target
@@ -596,16 +596,14 @@ export interface ForwardAction {
    *    their weights. For example, if two target groups have the same weight, each target group receives
    *    half of the traffic.</p>
    *          <p>The default value is 1. This means that if only one target group is provided, there is no
-   *    need to set the weight; 100% of traffic will go to that target group.</p>
+   *    need to set the weight; 100% of the traffic goes to that target group.</p>
    * @public
    */
   targetGroups: WeightedTargetGroup[] | undefined;
 }
 
 /**
- * <p>Describes the action for a rule. Each rule must include exactly one of the following types
- *    of actions: <code>forward </code>or <code>fixed-response</code>, and it must be the last action
- *    to be performed.</p>
+ * <p>Describes the action for a rule.</p>
  * @public
  */
 export type RuleAction = RuleAction.FixedResponseMember | RuleAction.ForwardMember | RuleAction.$UnknownMember;
@@ -626,7 +624,7 @@ export namespace RuleAction {
   }
 
   /**
-   * <p> Describes the rule action that returns a custom HTTP response. </p>
+   * <p>The fixed response action. The rule returns a custom HTTP response.</p>
    * @public
    */
   export interface FixedResponseMember {
@@ -658,7 +656,7 @@ export namespace RuleAction {
 }
 
 /**
- * <p>Describes a header match type. Only one can be provided.</p>
+ * <p>Describes a header match type.</p>
  * @public
  */
 export type HeaderMatchType =
@@ -672,7 +670,7 @@ export type HeaderMatchType =
  */
 export namespace HeaderMatchType {
   /**
-   * <p>Specifies an exact type match.</p>
+   * <p>An exact type match.</p>
    * @public
    */
   export interface ExactMember {
@@ -683,7 +681,7 @@ export namespace HeaderMatchType {
   }
 
   /**
-   * <p>Specifies a prefix type match. Matches the value with the prefix.</p>
+   * <p>A prefix type match. Matches the value with the prefix.</p>
    * @public
    */
   export interface PrefixMember {
@@ -694,7 +692,7 @@ export namespace HeaderMatchType {
   }
 
   /**
-   * <p>Specifies a contains type match.</p>
+   * <p>A contains type match.</p>
    * @public
    */
   export interface ContainsMember {
@@ -748,7 +746,7 @@ export interface HeaderMatch {
   match: HeaderMatchType | undefined;
 
   /**
-   * <p>Indicates whether the match is case sensitive. Defaults to false.</p>
+   * <p>Indicates whether the match is case sensitive.</p>
    * @public
    */
   caseSensitive?: boolean;
@@ -820,7 +818,7 @@ export interface PathMatch {
   match: PathMatchType | undefined;
 
   /**
-   * <p>Indicates whether the match is case sensitive. Defaults to false.</p>
+   * <p>Indicates whether the match is case sensitive.</p>
    * @public
    */
   caseSensitive?: boolean;
@@ -890,7 +888,7 @@ export namespace RuleMatch {
 }
 
 /**
- * <p>Represents an object when updating a rule.</p>
+ * <p>Describes a rule update.</p>
  * @public
  */
 export interface RuleUpdate {
@@ -984,7 +982,7 @@ export interface RuleUpdateSuccess {
   priority?: number;
 
   /**
-   * <p>The action for the default rule.</p>
+   * <p>The action for the rule.</p>
    * @public
    */
   action?: RuleAction;
@@ -1044,6 +1042,10 @@ export const ListenerProtocol = {
    * Indicates HTTPS protocol
    */
   HTTPS: "HTTPS",
+  /**
+   * Indicates TLS_PASSTHROUGH protocol
+   */
+  TLS_PASSTHROUGH: "TLS_PASSTHROUGH",
 } as const;
 
 /**
@@ -1069,24 +1071,21 @@ export interface CreateListenerRequest {
   name: string | undefined;
 
   /**
-   * <p>The listener protocol HTTP or HTTPS.</p>
+   * <p>The listener protocol.</p>
    * @public
    */
   protocol: ListenerProtocol | undefined;
 
   /**
-   * <p>The listener port. You can specify a value from <code>1</code> to <code>65535</code>. For
-   *    HTTP, the default is <code>80</code>. For HTTPS, the default is <code>443</code>.</p>
+   * <p>The listener port. You can specify a value from 1 to 65535. For
+   *    HTTP, the default is 80. For HTTPS, the default is 443.</p>
    * @public
    */
   port?: number;
 
   /**
-   * <p>The action for the default rule. Each listener has a default rule. Each rule consists of a
-   *    priority, one or more actions, and one or more conditions. The default rule is the rule that's
-   *    used if no other rules match. Each rule must include exactly one of the following types of
-   *    actions: <code>forward </code>or <code>fixed-response</code>, and it must be the last action to
-   *    be performed. </p>
+   * <p>The action for the default rule. Each listener has a default rule. The default rule is used
+   *    if no other rules match.</p>
    * @public
    */
   defaultAction: RuleAction | undefined;
@@ -1304,9 +1303,7 @@ export interface CreateRuleResponse {
   priority?: number;
 
   /**
-   * <p>The rule action. Each rule must include exactly one of the following types of actions:
-   *     <code>forward </code>or <code>fixed-response</code>, and it must be the last action to be
-   *    performed.</p>
+   * <p>The rule action.</p>
    * @public
    */
   action?: RuleAction;
@@ -1452,7 +1449,7 @@ export interface CreateServiceResponse {
   certificateArn?: string;
 
   /**
-   * <p>The status. If the status is <code>CREATE_FAILED</code>, you will have to delete and
+   * <p>The status. If the status is <code>CREATE_FAILED</code>, you must delete and
    *    recreate the service.</p>
    * @public
    */
@@ -1620,7 +1617,7 @@ export interface CreateServiceNetworkServiceAssociationResponse {
   id?: string;
 
   /**
-   * <p>The operation's status.</p>
+   * <p>The association status.</p>
    * @public
    */
   status?: ServiceNetworkServiceAssociationStatus;
@@ -1745,7 +1742,7 @@ export interface CreateServiceNetworkVpcAssociationResponse {
   id?: string;
 
   /**
-   * <p>The operation's status.</p>
+   * <p>The association status.</p>
    * @public
    */
   status?: ServiceNetworkVpcAssociationStatus;
@@ -1770,7 +1767,7 @@ export interface CreateServiceNetworkVpcAssociationResponse {
 }
 
 /**
- * <p>The codes to use when checking for a successful response from a target for health
+ * <p>Describes the codes to use when checking for a successful response from a target for health
  *    checks.</p>
  * @public
  */
@@ -1821,6 +1818,10 @@ export const TargetGroupProtocol = {
    * Indicates HTTPS protocol
    */
   HTTPS: "HTTPS",
+  /**
+   * Indicates TCP protocol
+   */
+  TCP: "TCP",
 } as const;
 
 /**
@@ -1849,8 +1850,8 @@ export const HealthCheckProtocolVersion = {
 export type HealthCheckProtocolVersion = (typeof HealthCheckProtocolVersion)[keyof typeof HealthCheckProtocolVersion];
 
 /**
- * <p>The health check configuration of a target group. Health check configurations aren't used
- *    for <code>LAMBDA</code> and <code>ALB</code> target groups.</p>
+ * <p>Describes the health check configuration of a target group. Health check configurations aren't used
+ *    for target groups of type <code>LAMBDA</code> or <code>ALB</code>.</p>
  * @public
  */
 export interface HealthCheckConfig {
@@ -1920,8 +1921,7 @@ export interface HealthCheckConfig {
   unhealthyThresholdCount?: number;
 
   /**
-   * <p>The codes to use when checking for a successful response from a target. These are called
-   *     <i>Success codes</i> in the console.</p>
+   * <p>The codes to use when checking for a successful response from a target.</p>
    * @public
    */
   matcher?: Matcher;
@@ -1993,53 +1993,56 @@ export const TargetGroupProtocolVersion = {
 export type TargetGroupProtocolVersion = (typeof TargetGroupProtocolVersion)[keyof typeof TargetGroupProtocolVersion];
 
 /**
- * <p>Describes the configuration of a target group. Lambda functions don't support target group
- *    configuration.</p>
+ * <p>Describes the configuration of a target group.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html">Target groups</a> in the
+ *    <i>Amazon VPC Lattice User Guide</i>.</p>
  * @public
  */
 export interface TargetGroupConfig {
   /**
-   * <p>The port on which the targets are listening. For HTTP, the default is <code>80</code>. For
-   *    HTTPS, the default is <code>443</code>
-   *          </p>
+   * <p>The port on which the targets are listening. For HTTP, the default is 80. For
+   *    HTTPS, the default is 443. Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
   port?: number;
 
   /**
-   * <p>The protocol to use for routing traffic to the targets. Default is the protocol of a target
-   *    group.</p>
+   * <p>The protocol to use for routing traffic to the targets. The default is the protocol of the target
+   *    group. Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
   protocol?: TargetGroupProtocol;
 
   /**
-   * <p>The protocol version. Default value is <code>HTTP1</code>.</p>
+   * <p>The protocol version. The default is <code>HTTP1</code>.
+   *    Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
   protocolVersion?: TargetGroupProtocolVersion;
 
   /**
-   * <p>The type of IP address used for the target group. The possible values are <code>ipv4</code> and <code>ipv6</code>.
-   *    This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>
+   * <p>The type of IP address used for the target group. Supported only if the target group
+   *    type is <code>IP</code>. The default is <code>IPV4</code>.</p>
    * @public
    */
   ipAddressType?: IpAddressType;
 
   /**
-   * <p>The ID of the VPC.</p>
+   * <p>The ID of the VPC. Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
   vpcIdentifier?: string;
 
   /**
-   * <p>The health check configuration.</p>
+   * <p>The health check configuration. Not supported if the target group type is
+   *    <code>LAMBDA</code> or <code>ALB</code>.</p>
    * @public
    */
   healthCheck?: HealthCheckConfig;
 
   /**
-   * Lambda event structure version
+   * <p>The version of the event structure that your Lambda function receives.
+   *    Supported only if the target group type is <code>LAMBDA</code>. The default is <code>V1</code>.</p>
    * @public
    */
   lambdaEventStructureVersion?: LambdaEventStructureVersion;
@@ -2091,8 +2094,7 @@ export interface CreateTargetGroupRequest {
   type: TargetGroupType | undefined;
 
   /**
-   * <p>The target group configuration. If <code>type</code> is set to <code>LAMBDA</code>, this
-   *    parameter doesn't apply.</p>
+   * <p>The target group configuration.</p>
    * @public
    */
   config?: TargetGroupConfig;
@@ -2174,16 +2176,15 @@ export interface CreateTargetGroupResponse {
   type?: TargetGroupType;
 
   /**
-   * <p>The target group configuration. If <code>type</code> is set to <code>LAMBDA</code>, this
-   *    parameter doesn't apply.</p>
+   * <p>The target group configuration.</p>
    * @public
    */
   config?: TargetGroupConfig;
 
   /**
-   * <p>The operation's status. You can retry the operation if the status is
-   *     <code>CREATE_FAILED</code>. However, if you retry it while the status is
-   *     <code>CREATE_IN_PROGRESS</code>, there is no change in the status. </p>
+   * <p>The status. You can retry the operation if the status is <code>CREATE_FAILED</code>.
+   *    However, if you retry it while the status is <code>CREATE_IN_PROGRESS</code>, there is
+   *    no change in the status.</p>
    * @public
    */
   status?: TargetGroupStatus;
@@ -2351,9 +2352,9 @@ export interface DeleteServiceNetworkServiceAssociationResponse {
   id?: string;
 
   /**
-   * <p>The operation's status. You can retry the operation if the status is
-   *     <code>DELETE_FAILED</code>. However, if you retry it when the status is
-   *     <code>DELETE_IN_PROGRESS</code>, there is no change in the status.</p>
+   * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>.
+   *    However, if you retry it when the status is <code>DELETE_IN_PROGRESS</code>, there is no
+   *    change in the status.</p>
    * @public
    */
   status?: ServiceNetworkServiceAssociationStatus;
@@ -2388,7 +2389,7 @@ export interface DeleteServiceNetworkVpcAssociationResponse {
 
   /**
    * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>.
-   *    However, if you retry it when the status is <code>DELETE_IN_PROGRESS</code>, there is no change
+   *    However, if you retry it while the status is <code>DELETE_IN_PROGRESS</code>, there is no change
    *    in the status.</p>
    * @public
    */
@@ -2443,17 +2444,17 @@ export interface DeleteTargetGroupResponse {
  */
 export interface Target {
   /**
-   * <p>The ID of the target. If the target type of the target group is <code>INSTANCE</code>, this
-   *    is an instance ID. If the target type is <code>IP</code> , this is an IP address. If the target
-   *    type is <code>LAMBDA</code>, this is the ARN of the Lambda function. If the target type is
-   *     <code>ALB</code>, this is the ARN of the Application Load Balancer.</p>
+   * <p>The ID of the target. If the target group type is <code>INSTANCE</code>, this is
+   *    an instance ID. If the target group type is <code>IP</code>, this is an IP address. If the target
+   *    group type is <code>LAMBDA</code>, this is the ARN of a Lambda function. If the target group type
+   *    is <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The port on which the target is listening. For HTTP, the default is <code>80</code>. For
-   *    HTTPS, the default is <code>443</code>.</p>
+   * <p>The port on which the target is listening. For HTTP, the default is 80. For
+   *    HTTPS, the default is 443.</p>
    * @public
    */
   port?: number;
@@ -2482,10 +2483,10 @@ export interface DeregisterTargetsRequest {
  */
 export interface TargetFailure {
   /**
-   * <p>The ID of the target. If the target type of the target group is <code>INSTANCE</code>, this
-   *    is an instance ID. If the target type is <code>IP</code> , this is an IP address. If the target
-   *    type is <code>LAMBDA</code>, this is the ARN of the Lambda function. If the target type is
-   *     <code>ALB</code>, this is the ARN of the Application Load Balancer.</p>
+   * <p>The ID of the target. If the target group type is <code>INSTANCE</code>, this is
+   *    an instance ID. If the target group type is <code>IP</code>, this is an IP address. If the target
+   *    group type is <code>LAMBDA</code>, this is the ARN of a Lambda function. If the target group type is
+   *     <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
    * @public
    */
   id?: string;
@@ -2550,11 +2551,9 @@ export interface GetAuthPolicyResponse {
 
   /**
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
-   *      <code>Amazon Web Services_IAM</code>. If you provide a policy, then authentication and
-   *    authorization decisions are made based on this policy and the client's IAM policy. If the auth
-   *    type is <code>NONE</code>, then any auth policy you provide will remain inactive. For more
-   *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
-   *     network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+   *     <code>AWS_IAM</code>. If you provide a policy, then authentication and authorization decisions
+   *    are made based on this policy and the client's IAM policy. If the auth type is <code>NONE</code>,
+   *    then any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
    * @public
    */
   state?: AuthPolicyState;
@@ -2660,7 +2659,7 @@ export interface GetListenerResponse {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>An IAM policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -2671,7 +2670,7 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
+   * <p>An IAM policy.</p>
    * @public
    */
   policy?: string;
@@ -3000,7 +2999,7 @@ export interface GetServiceNetworkServiceAssociationResponse {
   dnsEntry?: DnsEntry;
 
   /**
-   * <p>The custom domain name of the service. </p>
+   * <p>The custom domain name of the service.</p>
    * @public
    */
   customDomainName?: string;
@@ -3413,15 +3412,13 @@ export interface RuleSummary {
   name?: string;
 
   /**
-   * <p>Indicates whether this is the default rule. Listener rules are created when you create a
-   *    listener. Each listener has a default rule for checking connection requests.
-   *    </p>
+   * <p>Indicates whether this is the default listener rule.</p>
    * @public
    */
   isDefault?: boolean;
 
   /**
-   * <p> The priority of the rule. </p>
+   * <p>The priority of the rule.</p>
    * @public
    */
   priority?: number;
@@ -3641,13 +3638,13 @@ export interface ServiceNetworkServiceAssociationSummary {
   serviceNetworkArn?: string;
 
   /**
-   * <p>DNS information about the service.</p>
+   * <p>The DNS information.</p>
    * @public
    */
   dnsEntry?: DnsEntry;
 
   /**
-   * <p> The custom domain name of the service. </p>
+   * <p>The custom domain name of the service.</p>
    * @public
    */
   customDomainName?: string;
@@ -3836,13 +3833,13 @@ export interface ServiceSummary {
   lastUpdatedAt?: Date;
 
   /**
-   * <p>DNS information about the service.</p>
+   * <p>The DNS information.</p>
    * @public
    */
   dnsEntry?: DnsEntry;
 
   /**
-   * <p> The custom domain name of the service. </p>
+   * <p>The custom domain name of the service.</p>
    * @public
    */
   customDomainName?: string;
@@ -3859,7 +3856,7 @@ export interface ServiceSummary {
  */
 export interface ListServicesResponse {
   /**
-   * <p>The services.</p>
+   * <p>Information about the services.</p>
    * @public
    */
   items?: ServiceSummary[];
@@ -3887,7 +3884,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags.</p>
+   * <p>Information about the tags.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -3910,7 +3907,7 @@ export interface ListTargetGroupsRequest {
   nextToken?: string;
 
   /**
-   * <p>The ID or Amazon Resource Name (ARN) of the service.</p>
+   * <p>The ID or Amazon Resource Name (ARN) of the VPC.</p>
    * @public
    */
   vpcIdentifier?: string;
@@ -3924,6 +3921,8 @@ export interface ListTargetGroupsRequest {
 
 /**
  * <p>Summary information about a target group.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html">Target groups</a> in the
+ *    <i>Amazon VPC Lattice User Guide</i>.</p>
  * @public
  */
 export interface TargetGroupSummary {
@@ -3970,8 +3969,9 @@ export interface TargetGroupSummary {
   protocol?: TargetGroupProtocol;
 
   /**
-   * <p>The type of IP address used for the target group. The possible values are <code>ipv4</code> and <code>ipv6</code>.
-   *    This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>
+   * <p>The type of IP address used for the target group. The possible values are <code>IPV4</code>
+   *    and <code>IPV6</code>. This is an optional parameter. If not specified, the default is
+   *    <code>IPV4</code>.</p>
    * @public
    */
   ipAddressType?: IpAddressType;
@@ -3996,13 +3996,14 @@ export interface TargetGroupSummary {
   status?: TargetGroupStatus;
 
   /**
-   * <p>The list of Amazon Resource Names (ARNs) of the service.</p>
+   * <p>The Amazon Resource Names (ARNs) of the service.</p>
    * @public
    */
   serviceArns?: string[];
 
   /**
-   * Lambda event structure version
+   * <p>The version of the event structure that your Lambda function receives.
+   *    Supported only if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
   lambdaEventStructureVersion?: LambdaEventStructureVersion;
@@ -4048,7 +4049,7 @@ export interface ListTargetsRequest {
   nextToken?: string;
 
   /**
-   * <p>The targets to list.</p>
+   * <p>The targets.</p>
    * @public
    */
   targets?: Target[];
@@ -4096,10 +4097,10 @@ export type TargetStatus = (typeof TargetStatus)[keyof typeof TargetStatus];
  */
 export interface TargetSummary {
   /**
-   * <p>The ID of the target. If the target type of the target group is <code>INSTANCE</code>, this
-   *    is an instance ID. If the target type is <code>IP</code> , this is an IP address. If the target
-   *    type is <code>LAMBDA</code>, this is the ARN of the Lambda function. If the target type is
-   *     <code>ALB</code>, this is the ARN of the Application Load Balancer.</p>
+   * <p>The ID of the target. If the target group type is <code>INSTANCE</code>, this is
+   *    an instance ID. If the target group type is <code>IP</code>, this is an IP address. If the target
+   *    group type is <code>LAMBDA</code>, this is the ARN of a Lambda function. If the target type is
+   *    <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
    * @public
    */
   id?: string;
@@ -4115,29 +4116,29 @@ export interface TargetSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Draining</code>: The target is being deregistered. No new connections will be sent
-   *      to this target while current connections are being drained. Default draining time is 5
+   *                   <code>DRAINING</code>: The target is being deregistered. No new connections are sent
+   *      to this target while current connections are being drained. The default draining time is 5
    *      minutes.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Unavailable</code>: Health checks are unavailable for the target group.</p>
+   *                   <code>UNAVAILABLE</code>: Health checks are unavailable for the target group.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Healthy</code>: The target is healthy. </p>
+   *                   <code>HEALTHY</code>: The target is healthy.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Unhealthy</code>: The target is unhealthy.</p>
+   *                   <code>UNHEALTHY</code>: The target is unhealthy.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Initial</code>: Initial health checks on the target are being performed.</p>
+   *                   <code>INITIAL</code>: Initial health checks on the target are being performed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Unused</code>: Target group is not used in a service.</p>
+   *                   <code>UNUSED</code>: Target group is not used in a service.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4180,7 +4181,7 @@ export interface PutAuthPolicyRequest {
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The auth policy.</p>
+   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
    * @public
    */
   policy: string | undefined;
@@ -4191,18 +4192,16 @@ export interface PutAuthPolicyRequest {
  */
 export interface PutAuthPolicyResponse {
   /**
-   * <p>The auth policy.</p>
+   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
    * @public
    */
   policy?: string;
 
   /**
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
-   *      <code>Amazon Web Services_IAM</code>. If you provide a policy, then authentication and
-   *    authorization decisions are made based on this policy and the client's IAM policy. If the Auth
-   *    type is <code>NONE</code>, then, any auth policy you provide will remain inactive. For more
-   *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
-   *     network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+   *     <code>AWS_IAM</code>. If you provide a policy, then authentication and authorization decisions
+   *    are made based on this policy and the client's IAM policy. If the Auth type is <code>NONE</code>,
+   *    then, any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
    * @public
    */
   state?: AuthPolicyState;
@@ -4220,7 +4219,8 @@ export interface PutResourcePolicyRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>An IAM policy.</p>
+   * <p>An IAM policy. The policy string in JSON must not contain newlines or blank
+   *    lines.</p>
    * @public
    */
   policy: string | undefined;
@@ -4330,7 +4330,7 @@ export interface UpdateServiceRequest {
   serviceIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate. </p>
+   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    * @public
    */
   certificateArn?: string;
@@ -4381,7 +4381,7 @@ export interface UpdateServiceResponse {
   customDomainName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate. </p>
+   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    * @public
    */
   certificateArn?: string;
@@ -4460,7 +4460,7 @@ export interface UpdateServiceNetworkVpcAssociationRequest {
   serviceNetworkVpcAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The IDs of the security groups. Once you add a security group, it cannot be removed.</p>
+   * <p>The IDs of the security groups.</p>
    * @public
    */
   securityGroupIds: string[] | undefined;

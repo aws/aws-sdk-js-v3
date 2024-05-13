@@ -28,7 +28,13 @@ export interface BatchUpdateRuleCommandOutput extends BatchUpdateRuleResponse, _
 
 /**
  * <p>Updates the listener rules in a batch. You can use this operation to change the priority of
- *    listener rules. This can be useful when bulk updating or swapping rule priority. </p>
+ *    listener rules. This can be useful when bulk updating or swapping rule priority.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>vpc-lattice:UpdateRule</code>
+ *          </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/security_iam_service-with-iam.html">How Amazon VPC Lattice works with
+ *     IAM</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

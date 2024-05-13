@@ -28,7 +28,7 @@ export interface ListTargetsCommandOutput extends ListTargetsResponse, __Metadat
 
 /**
  * <p>Lists the targets for the target group. By default, all targets are included. You can use
- *    this API to check the health status of targets. You can also ﬁlter the results by target. </p>
+ *    this API to check the health status of targets. You can also ﬁlter the results by target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
