@@ -3,7 +3,7 @@
   "version": "3.575.0",
   "description": "Core functions & classes shared by multiple AWS SDK clients",
   "scripts": {
-    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build": "yarn lint && concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline core",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
@@ -18,6 +18,43 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "exports": {
+    ".": {
+      "node": "./dist-cjs/index.js",
+      "import": "./dist-es/index.js",
+      "require": "./dist-cjs/index.js",
+      "types": "./dist-types/index.d.ts"
+    },
+    "./package.json": {
+      "node": "./package.json",
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    "./client": {
+      "node": "./dist-cjs/submodules/client/index.js",
+      "import": "./dist-es/submodules/client/index.js",
+      "require": "./dist-cjs/submodules/client/index.js",
+      "types": "./dist-types/submodules/client/index.d.ts"
+    },
+    "./httpAuthSchemes": {
+      "node": "./dist-cjs/submodules/httpAuthSchemes/index.js",
+      "import": "./dist-es/submodules/httpAuthSchemes/index.js",
+      "require": "./dist-cjs/submodules/httpAuthSchemes/index.js",
+      "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts"
+    },
+    "./protocols": {
+      "node": "./dist-cjs/submodules/protocols/index.js",
+      "import": "./dist-es/submodules/protocols/index.js",
+      "require": "./dist-cjs/submodules/protocols/index.js",
+      "types": "./dist-types/submodules/protocols/index.d.ts"
+    }
+  },
+  "files": [
+    "dist-*/**",
+    "./client.js",
+    "./httpAuthSchemes.js",
+    "./protocols.js"
+  ],
   "sideEffects": false,
   "author": {
     "name": "AWS SDK for JavaScript Team",

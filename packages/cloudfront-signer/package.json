@@ -24,6 +24,9 @@
     "@smithy/url-parser": "^3.0.0",
     "tslib": "^2.6.2"
   },
+  "files": [
+    "dist-*/**"
+  ],
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",

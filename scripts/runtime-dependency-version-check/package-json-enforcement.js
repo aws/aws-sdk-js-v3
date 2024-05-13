@@ -55,6 +55,10 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
     errors.push(`browser and react-native fields are different in ${pkgJson.name}`);
   }
 
+  if (!pkgJson.files) {
+    errors.push(`no files entry in ${pkgJson.name}`);
+  }
+
   if (typeof pkgJson.browser === "object" && typeof pkgJson["react-native"] === "object") {
     const browserCanonical = Object.entries(pkgJson.browser).reduce((acc, [k, v]) => {
       if (!k.includes("dist-cjs/") || typeof v === "boolean") {

@@ -19,6 +19,7 @@ module.exports = class Inliner {
     this.isPackage = fs.existsSync(path.join(root, "packages", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
     this.isClient = !this.isPackage && !this.isLib;
+    this.isCore = pkg === "core";
     this.subfolder = this.isPackage ? "packages" : this.isLib ? "lib" : "clients";
 
     this.packageDirectory = path.join(root, this.subfolder, pkg);
@@ -149,9 +150,9 @@ module.exports = class Inliner {
       (variant) => "*/" + path.basename(variant).replace(/.js$/, "")
     );
 
-    await esbuild.build({
+    const buildOptions = {
       platform: this.platform,
-      target: ["node14"],
+      target: ["node16"],
       bundle: true,
       format: "cjs",
       mainFields: ["main"],
@@ -164,7 +165,27 @@ module.exports = class Inliner {
       keepNames: true,
       packages: "external",
       external: ["@smithy/*", "@aws-sdk/*", "node_modules/*", ...this.variantExternalsForEsBuild],
-    });
+    };
+
+    if (!this.isCore) {
+      await esbuild.build(buildOptions);
+    }
+
+    if (this.isCore) {
+      const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
+      for (const submodule of submodules) {
+        fs.rmSync(path.join(path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule)), {
+          recursive: true,
+          force: true,
+        });
+        await esbuild.build({
+          ...buildOptions,
+          entryPoints: [path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts")],
+          outfile: path.join(root, this.subfolder, this.package, "dist-cjs", "submodules", submodule, "index.js"),
+        });
+      }
+    }
+
     return this;
   }
 
@@ -173,7 +194,7 @@ module.exports = class Inliner {
    * These now become re-exports of the index to preserve deep-import behavior.
    */
   async rewriteStubs() {
-    if (this.bailout) {
+    if (this.bailout || this.isCore) {
       return this;
     }
 

@@ -110,6 +110,11 @@ import "react-native-url-polyfill/auto";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 ```
 
+Specifically Metro bundler used by react-native, enable Package Exports Support:
+
+- https://metrobundler.dev/docs/package-exports/
+- https://reactnative.dev/blog/2023/06/21/package-exports-support
+
 ## New features
 
 ### Modularized packages
