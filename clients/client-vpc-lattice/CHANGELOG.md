@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.575.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.574.0...v3.575.0) (2024-05-13)
+
+
+### Features
+
+* **client-vpc-lattice:** This release adds TLS Passthrough support. It also increases max number of target group per rule to 10. ([1f62640](https://github.com/aws/aws-sdk-js-v3/commit/1f626402d51aab9b67f414f3bb89571c652c2df3))
+
+
+
+
+
 # [3.574.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.573.0...v3.574.0) (2024-05-10)
 
 **Note:** Version bump only for package @aws-sdk/client-vpc-lattice

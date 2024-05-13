@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.575.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.574.0...v3.575.0) (2024-05-13)
+
+
+### Features
+
+* **client-eventbridge:** Amazon EventBridge introduces KMS customer-managed key (CMK) encryption support for custom and partner events published on EventBridge Event Bus (including default bus) and UpdateEventBus API. ([529b5fb](https://github.com/aws/aws-sdk-js-v3/commit/529b5fb6a6f8b0528efd7cdf70afb5130062c51c))
+* **client-vpc-lattice:** This release adds TLS Passthrough support. It also increases max number of target group per rule to 10. ([1f62640](https://github.com/aws/aws-sdk-js-v3/commit/1f626402d51aab9b67f414f3bb89571c652c2df3))
+* **clients:** update client endpoints as of 2024-05-13 ([2fd7ca7](https://github.com/aws/aws-sdk-js-v3/commit/2fd7ca7e735edd8bcb7c8990f404aef80d8be90b))
+
+
+
+
+
 # [3.574.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.573.0...v3.574.0) (2024-05-10)
 
 
