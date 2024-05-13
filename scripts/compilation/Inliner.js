@@ -167,7 +167,9 @@ module.exports = class Inliner {
       external: ["@smithy/*", "@aws-sdk/*", "node_modules/*", ...this.variantExternalsForEsBuild],
     };
 
-    await esbuild.build(buildOptions);
+    if (!this.isCore) {
+      await esbuild.build(buildOptions);
+    }
 
     if (this.isCore) {
       const submodules = fs.readdirSync(path.join(root, this.subfolder, this.package, "src", "submodules"));
