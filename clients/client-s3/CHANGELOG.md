@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.576.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.575.0...v3.576.0) (2024-05-14)
+
+
+### Features
+
+* **client-s3:** Updated a few x-id in the http uri traits ([dcde25a](https://github.com/aws/aws-sdk-js-v3/commit/dcde25ac4c25ee86c8c5c781b4b7a6db26c97db2))
+
+
+
+
+
 # [3.575.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.574.0...v3.575.0) (2024-05-13)
 
 **Note:** Version bump only for package @aws-sdk/client-s3
