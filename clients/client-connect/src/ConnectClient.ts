@@ -513,6 +513,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchContactFlowModulesCommandInput,
+  SearchContactFlowModulesCommandOutput,
+} from "./commands/SearchContactFlowModulesCommand";
+import { SearchContactFlowsCommandInput, SearchContactFlowsCommandOutput } from "./commands/SearchContactFlowsCommand";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand";
 import {
   SearchHoursOfOperationsCommandInput,
@@ -929,6 +934,8 @@ export type ServiceInputTypes =
   | ResumeContactCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchContactFlowModulesCommandInput
+  | SearchContactFlowsCommandInput
   | SearchContactsCommandInput
   | SearchHoursOfOperationsCommandInput
   | SearchPredefinedAttributesCommandInput
@@ -1182,6 +1189,8 @@ export type ServiceOutputTypes =
   | ResumeContactCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchContactFlowModulesCommandOutput
+  | SearchContactFlowsCommandOutput
   | SearchContactsCommandOutput
   | SearchHoursOfOperationsCommandOutput
   | SearchPredefinedAttributesCommandOutput

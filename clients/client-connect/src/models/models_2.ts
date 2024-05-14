@@ -11,8 +11,12 @@ import {
   AllowedCapabilities,
   Application,
   Channel,
+  ContactFlow,
+  ContactFlowModule,
   ContactFlowModuleState,
   ContactFlowState,
+  ContactFlowStatus,
+  ContactFlowType,
   ContactInitiationMethod,
   CreatedByInfo,
   Evaluation,
@@ -23,7 +27,6 @@ import {
   EvaluationNote,
   FileStatusType,
   FileUseCaseType,
-  HoursOfOperation,
   HoursOfOperationConfig,
   InstanceStorageConfig,
   InstanceStorageResourceType,
@@ -55,6 +58,7 @@ import {
 } from "./models_0";
 
 import {
+  HoursOfOperation,
   InstanceAttributeType,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -68,6 +72,38 @@ import {
   SortOrder,
   TelephonyConfig,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ReplicateInstanceRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where to replicate the Amazon Connect instance.</p>
+   * @public
+   */
+  ReplicaRegion: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The alias for the replicated instance. The <code>ReplicaAlias</code> must be unique.</p>
+   * @public
+   */
+  ReplicaAlias: string | undefined;
+}
 
 /**
  * @public
@@ -235,6 +271,197 @@ export interface SearchAvailablePhoneNumbersResponse {
    * @public
    */
   AvailableNumbersList?: AvailableNumberSummary[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StringComparisonType = {
+  CONTAINS: "CONTAINS",
+  EXACT: "EXACT",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type StringComparisonType = (typeof StringComparisonType)[keyof typeof StringComparisonType];
+
+/**
+ * <p>A leaf node condition which can be used to specify a string condition.</p>
+ *          <note>
+ *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
+ *      <code>description</code>.</p>
+ *          </note>
+ * @public
+ */
+export interface StringCondition {
+  /**
+   * <p>The name of the field in the string condition.</p>
+   * @public
+   */
+  FieldName?: string;
+
+  /**
+   * <p>The value of the string.</p>
+   * @public
+   */
+  Value?: string;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the string condition.</p>
+   * @public
+   */
+  ComparisonType?: StringComparisonType;
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
+ *     BPO = 123</code>. </p>
+ * @public
+ */
+export interface TagCondition {
+  /**
+   * <p>The tag key in the tag condition.</p>
+   * @public
+   */
+  TagKey?: string;
+
+  /**
+   * <p>The tag value in the tag condition.</p>
+   * @public
+   */
+  TagValue?: string;
+}
+
+/**
+ * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+ *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+ *      operator</p>
+ *             </li>
+ *             <li>
+ *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+ *      operator.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ControlPlaneTagFilter {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.
+   *   </p>
+   * @public
+   */
+  OrConditions?: TagCondition[][];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
+   * @public
+   */
+  AndConditions?: TagCondition[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition. </p>
+   * @public
+   */
+  TagCondition?: TagCondition;
+}
+
+/**
+ * <p>The search criteria to be used to return flow modules.</p>
+ * @public
+ */
+export interface ContactFlowModuleSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactFlowModulesResponse {
+  /**
+   * <p>The search criteria to be used to return contact flow modules.</p>
+   * @public
+   */
+  ContactFlowModules?: ContactFlowModule[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of contact flows which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface ContactFlowSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactFlowsResponse {
+  /**
+   * <p>Information about the contact flows.</p>
+   * @public
+   */
+  ContactFlows?: ContactFlow[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of contact flows which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number;
 }
 
 /**
@@ -660,105 +887,6 @@ export interface SearchContactsResponse {
    * @public
    */
   TotalCount?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const StringComparisonType = {
-  CONTAINS: "CONTAINS",
-  EXACT: "EXACT",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type StringComparisonType = (typeof StringComparisonType)[keyof typeof StringComparisonType];
-
-/**
- * <p>A leaf node condition which can be used to specify a string condition.</p>
- *          <note>
- *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
- *      <code>description</code>.</p>
- *          </note>
- * @public
- */
-export interface StringCondition {
-  /**
-   * <p>The name of the field in the string condition.</p>
-   * @public
-   */
-  FieldName?: string;
-
-  /**
-   * <p>The value of the string.</p>
-   * @public
-   */
-  Value?: string;
-
-  /**
-   * <p>The type of comparison to be made when evaluating the string condition.</p>
-   * @public
-   */
-  ComparisonType?: StringComparisonType;
-}
-
-/**
- * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
- *     BPO = 123</code>. </p>
- * @public
- */
-export interface TagCondition {
-  /**
-   * <p>The tag key in the tag condition.</p>
-   * @public
-   */
-  TagKey?: string;
-
-  /**
-   * <p>The tag value in the tag condition.</p>
-   * @public
-   */
-  TagValue?: string;
-}
-
-/**
- * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
- *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
- *          <ul>
- *             <li>
- *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
- *      operator</p>
- *             </li>
- *             <li>
- *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
- *      operator.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface ControlPlaneTagFilter {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.
-   *   </p>
-   * @public
-   */
-  OrConditions?: TagCondition[][];
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code>
-   *    condition.</p>
-   * @public
-   */
-  AndConditions?: TagCondition[];
-
-  /**
-   * <p>A leaf node condition which can be used to specify a tag condition. </p>
-   * @public
-   */
-  TagCondition?: TagCondition;
 }
 
 /**
@@ -1852,7 +1980,8 @@ export interface StartAttachedFileUploadRequest {
   FileSizeInBytes: number | undefined;
 
   /**
-   * <p>Optional override for the expiry of the pre-signed S3 URL in seconds.</p>
+   * <p>Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is
+   *    300.</p>
    * @public
    */
   UrlExpiryInSeconds?: number;
@@ -5184,6 +5313,84 @@ export interface EvaluationFormSection {
 }
 
 /**
+ * <p>The search criteria to be used to return flow modules.</p>
+ * @public
+ */
+export interface ContactFlowModuleSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *    condition.</p>
+   * @public
+   */
+  OrConditions?: ContactFlowModuleSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
+   * @public
+   */
+  AndConditions?: ContactFlowModuleSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
+   *      <code>description</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
+ * <p>The search criteria to be used to return contact flows.</p>
+ * @public
+ */
+export interface ContactFlowSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *    condition.</p>
+   * @public
+   */
+  OrConditions?: ContactFlowSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
+   * @public
+   */
+  AndConditions?: ContactFlowSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
+   *      <code>description</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition;
+
+  /**
+   * <p>The type of flow.</p>
+   * @public
+   */
+  TypeCondition?: ContactFlowType;
+
+  /**
+   * <p>The state of the flow.</p>
+   * @public
+   */
+  StateCondition?: ContactFlowState;
+
+  /**
+   * <p>The status of the flow.</p>
+   * @public
+   */
+  StatusCondition?: ContactFlowStatus;
+}
+
+/**
  * @public
  */
 export interface CreateEvaluationFormRequest {
@@ -5717,6 +5924,90 @@ export interface DescribeEvaluationFormResponse {
 /**
  * @public
  */
+export interface SearchContactFlowModulesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: ContactFlowModuleSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return contact flow modules.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with a
+   *     minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will result in invalid results.</p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: ContactFlowModuleSearchCriteria;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactFlowsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the
+   *    Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: ContactFlowSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return flows.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with a
+   *     minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will result in invalid results.</p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: ContactFlowSearchCriteria;
+}
+
+/**
+ * @public
+ */
 export interface SearchHoursOfOperationsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6023,6 +6314,14 @@ export interface SearchUsersRequest {
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const ReplicateInstanceRequestFilterSensitiveLog = (obj: ReplicateInstanceRequest): any => ({
+  ...obj,
+  ...(obj.ReplicaAlias && { ReplicaAlias: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

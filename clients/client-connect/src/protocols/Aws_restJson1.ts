@@ -496,6 +496,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchContactFlowModulesCommandInput,
+  SearchContactFlowModulesCommandOutput,
+} from "../commands/SearchContactFlowModulesCommand";
+import { SearchContactFlowsCommandInput, SearchContactFlowsCommandOutput } from "../commands/SearchContactFlowsCommand";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "../commands/SearchContactsCommand";
 import {
   SearchHoursOfOperationsCommandInput,
@@ -773,7 +778,6 @@ import {
   EventBridgeActionDefinition,
   FieldValue,
   FieldValueUnion,
-  HoursOfOperation,
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
@@ -857,6 +861,7 @@ import {
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
+  HoursOfOperation,
   HoursOfOperationSummary,
   Instance,
   InstanceSummary,
@@ -912,6 +917,10 @@ import {
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   ContactAnalysis,
+  ContactFlowModuleSearchCriteria,
+  ContactFlowModuleSearchFilter,
+  ContactFlowSearchCriteria,
+  ContactFlowSearchFilter,
   ContactNotFoundException,
   ContactSearchSummary,
   ContactSearchSummaryAgentInfo,
@@ -1539,6 +1548,7 @@ export const se_CreateContactFlowCommand = async (
       Content: [],
       Description: [],
       Name: [],
+      Status: [],
       Tags: (_) => _json(_),
       Type: [],
     })
@@ -4651,6 +4661,58 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
       PhoneNumberPrefix: [],
       PhoneNumberType: [],
       TargetArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchContactFlowModulesCommand
+ */
+export const se_SearchContactFlowModulesCommand = async (
+  input: SearchContactFlowModulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-contact-flow-modules");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_ContactFlowModuleSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchContactFlowsCommand
+ */
+export const se_SearchContactFlowsCommand = async (
+  input: SearchContactFlowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-contact-flows");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_ContactFlowSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -10131,6 +10193,52 @@ export const de_SearchAvailablePhoneNumbersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchContactFlowModulesCommand
+ */
+export const de_SearchContactFlowModulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactFlowModulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    ContactFlowModules: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchContactFlowsCommand
+ */
+export const de_SearchContactFlowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactFlowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    ContactFlows: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchContactsCommand
  */
 export const de_SearchContactsCommand = async (
@@ -12227,6 +12335,60 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_ContactFilter omitted.
 
+/**
+ * serializeAws_restJson1ContactFlowModuleSearchConditionList
+ */
+const se_ContactFlowModuleSearchConditionList = (
+  input: ContactFlowModuleSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ContactFlowModuleSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ContactFlowModuleSearchCriteria
+ */
+const se_ContactFlowModuleSearchCriteria = (input: ContactFlowModuleSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
+    OrConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_ContactFlowModuleSearchFilter omitted.
+
+/**
+ * serializeAws_restJson1ContactFlowSearchConditionList
+ */
+const se_ContactFlowSearchConditionList = (input: ContactFlowSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ContactFlowSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ContactFlowSearchCriteria
+ */
+const se_ContactFlowSearchCriteria = (input: ContactFlowSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_ContactFlowSearchConditionList(_, context),
+    OrConditions: (_) => se_ContactFlowSearchConditionList(_, context),
+    StateCondition: [],
+    StatusCondition: [],
+    StringCondition: _json,
+    TypeCondition: [],
+  });
+};
+
+// se_ContactFlowSearchFilter omitted.
+
 // se_ContactReferences omitted.
 
 // se_ContactStates omitted.
@@ -13188,9 +13350,13 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
 
 // de_ContactFlowModule omitted.
 
+// de_ContactFlowModuleSearchSummaryList omitted.
+
 // de_ContactFlowModulesSummaryList omitted.
 
 // de_ContactFlowModuleSummary omitted.
+
+// de_ContactFlowSearchSummaryList omitted.
 
 // de_ContactFlowSummary omitted.
 

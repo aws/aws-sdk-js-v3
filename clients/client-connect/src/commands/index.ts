@@ -171,6 +171,8 @@ export * from "./ReplicateInstanceCommand";
 export * from "./ResumeContactCommand";
 export * from "./ResumeContactRecordingCommand";
 export * from "./SearchAvailablePhoneNumbersCommand";
+export * from "./SearchContactFlowModulesCommand";
+export * from "./SearchContactFlowsCommand";
 export * from "./SearchContactsCommand";
 export * from "./SearchHoursOfOperationsCommand";
 export * from "./SearchPredefinedAttributesCommand";

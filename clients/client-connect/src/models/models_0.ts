@@ -1729,7 +1729,8 @@ export interface BatchGetAttachedFileMetadataRequest {
 }
 
 /**
- * <p>Error describing a failure to retrieve attached file metadata through BatchGetAttachedFileMetadata action.</p>
+ * <p>Error describing a failure to retrieve attached file metadata through
+ *    BatchGetAttachedFileMetadata action.</p>
  * @public
  */
 export interface AttachedFileError {
@@ -2403,6 +2404,20 @@ export class DuplicateResourceException extends __BaseException {
  * @public
  * @enum
  */
+export const ContactFlowStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactFlowStatus = (typeof ContactFlowStatus)[keyof typeof ContactFlowStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContactFlowType = {
   AGENT_HOLD: "AGENT_HOLD",
   AGENT_TRANSFER: "AGENT_TRANSFER",
@@ -2456,6 +2471,15 @@ export interface CreateContactFlowRequest {
    * @public
    */
   Content: string | undefined;
+
+  /**
+   * <p>Indicates the flow status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
+   *     <code>PUBLISHED</code> status will initiate validation on the content. the <code>SAVED</code>
+   *    status does not initiate validation of the content. <code>SAVED</code> |
+   *    <code>PUBLISHED</code>.</p>
+   * @public
+   */
+  Status?: ContactFlowStatus;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -7040,6 +7064,12 @@ export interface ContactFlow {
   State?: ContactFlowState;
 
   /**
+   * <p>The status of the contact flow.</p>
+   * @public
+   */
+  Status?: ContactFlowStatus;
+
+  /**
    * <p>The description of the flow.</p>
    * @public
    */
@@ -7235,66 +7265,6 @@ export interface DescribeHoursOfOperationRequest {
    * @public
    */
   HoursOfOperationId: string | undefined;
-}
-
-/**
- * <p>Information about of the hours of operation.</p>
- * @public
- */
-export interface HoursOfOperation {
-  /**
-   * <p>The identifier for the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationArn?: string;
-
-  /**
-   * <p>The name for the hours of operation.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The description for the hours of operation.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The time zone for the hours of operation.</p>
-   * @public
-   */
-  TimeZone?: string;
-
-  /**
-   * <p>Configuration information for the hours of operation.</p>
-   * @public
-   */
-  Config?: HoursOfOperationConfig[];
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string;
 }
 
 /**

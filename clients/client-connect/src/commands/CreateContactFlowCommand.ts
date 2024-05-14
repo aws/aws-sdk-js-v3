@@ -42,6 +42,7 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  *   Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER", // required
  *   Description: "STRING_VALUE",
  *   Content: "STRING_VALUE", // required
+ *   Status: "PUBLISHED" || "SAVED",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

@@ -803,6 +803,16 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  SearchContactFlowModulesCommand,
+  SearchContactFlowModulesCommandInput,
+  SearchContactFlowModulesCommandOutput,
+} from "./commands/SearchContactFlowModulesCommand";
+import {
+  SearchContactFlowsCommand,
+  SearchContactFlowsCommandInput,
+  SearchContactFlowsCommandOutput,
+} from "./commands/SearchContactFlowsCommand";
+import {
   SearchContactsCommand,
   SearchContactsCommandInput,
   SearchContactsCommandOutput,
@@ -1337,6 +1347,8 @@ const commands = {
   ResumeContactCommand,
   ResumeContactRecordingCommand,
   SearchAvailablePhoneNumbersCommand,
+  SearchContactFlowModulesCommand,
+  SearchContactFlowsCommand,
   SearchContactsCommand,
   SearchHoursOfOperationsCommand,
   SearchPredefinedAttributesCommand,
@@ -4116,6 +4128,40 @@ export interface Connect {
     args: SearchAvailablePhoneNumbersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchContactFlowModulesCommand}
+   */
+  searchContactFlowModules(
+    args: SearchContactFlowModulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchContactFlowModulesCommandOutput>;
+  searchContactFlowModules(
+    args: SearchContactFlowModulesCommandInput,
+    cb: (err: any, data?: SearchContactFlowModulesCommandOutput) => void
+  ): void;
+  searchContactFlowModules(
+    args: SearchContactFlowModulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchContactFlowModulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchContactFlowsCommand}
+   */
+  searchContactFlows(
+    args: SearchContactFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchContactFlowsCommandOutput>;
+  searchContactFlows(
+    args: SearchContactFlowsCommandInput,
+    cb: (err: any, data?: SearchContactFlowsCommandOutput) => void
+  ): void;
+  searchContactFlows(
+    args: SearchContactFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchContactFlowsCommandOutput) => void
   ): void;
 
   /**
