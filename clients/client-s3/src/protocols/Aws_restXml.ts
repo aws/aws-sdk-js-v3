@@ -492,7 +492,6 @@ export const se_CompleteMultipartUploadCommand = async (
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    [_xi]: [, "CompleteMultipartUpload"],
     [_uI]: [, __expectNonNull(input[_UI]!, `UploadId`)],
   });
   let body: any;
@@ -658,7 +657,6 @@ export const se_CreateMultipartUploadCommand = async (
   b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     [_u]: [, ""],
-    [_xi]: [, "CreateMultipartUpload"],
   });
   let body: any;
   b.m("POST").h(headers).q(query).b(body);
@@ -1004,7 +1002,6 @@ export const se_DeleteObjectsCommand = async (
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
     [_d]: [, ""],
-    [_xi]: [, "DeleteObjects"],
   });
   let body: any;
   let contents: any;
@@ -2909,7 +2906,6 @@ export const se_RestoreObjectCommand = async (
   b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     [_res]: [, ""],
-    [_xi]: [, "RestoreObject"],
     [_vI]: [, input[_VI]!],
   });
   let body: any;
@@ -2945,7 +2941,6 @@ export const se_SelectObjectContentCommand = async (
   const query: any = map({
     [_se]: [, ""],
     [_st]: [, "2"],
-    [_xi]: [, "SelectObjectContent"],
   });
   let body: any;
   body = _ve;
@@ -3108,9 +3103,6 @@ export const se_WriteGetObjectResponseCommand = async (
       }, {})),
   });
   b.bp("/WriteGetObjectResponse");
-  const query: any = map({
-    [_xi]: [, "WriteGetObjectResponse"],
-  });
   let body: any;
   let contents: any;
   if (input.Body !== undefined) {
@@ -3129,7 +3121,7 @@ export const se_WriteGetObjectResponseCommand = async (
     }
   }
   b.hn(resolvedHostname);
-  b.m("POST").h(headers).q(query).b(body);
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 

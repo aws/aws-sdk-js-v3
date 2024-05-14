@@ -263,6 +263,28 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * // example id: to-upload-an-object-1481760101010
  * ```
  *
+ * @example To upload an object (specify optional headers)
+ * ```javascript
+ * // The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.
+ * const input = {
+ *   "Body": "HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "ServerSideEncryption": "AES256",
+ *   "StorageClass": "STANDARD_IA"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "ServerSideEncryption": "AES256",
+ *   "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
+ * }
+ * *\/
+ * // example id: to-upload-an-object-(specify-optional-headers)
+ * ```
+ *
  * @example To upload object and specify user-defined metadata
  * ```javascript
  * // The following example creates an object. The request also specifies optional metadata. If the bucket is versioning enabled, S3 returns version ID in response.
@@ -284,28 +306,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * }
  * *\/
  * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
- * ```
- *
- * @example To upload an object (specify optional headers)
- * ```javascript
- * // The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.
- * const input = {
- *   "Body": "HappyFace.jpg",
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg",
- *   "ServerSideEncryption": "AES256",
- *   "StorageClass": "STANDARD_IA"
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "ServerSideEncryption": "AES256",
- *   "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
- * }
- * *\/
- * // example id: to-upload-an-object-(specify-optional-headers)
  * ```
  *
  * @example To upload an object and specify canned ACL.
