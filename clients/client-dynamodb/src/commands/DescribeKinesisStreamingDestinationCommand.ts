@@ -13,7 +13,7 @@ import {
 import {
   de_DescribeKinesisStreamingDestinationCommand,
   se_DescribeKinesisStreamingDestinationCommand,
-} from "../protocols/Aws_json1_0";
+} from "../protocols/Rpcv2cbor";
 
 /**
  * @public

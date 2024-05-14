@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetResourcePolicyInput, GetResourcePolicyOutput } from "../models/models_0";
-import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_json1_0";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Rpcv2cbor";
 
 /**
  * @public

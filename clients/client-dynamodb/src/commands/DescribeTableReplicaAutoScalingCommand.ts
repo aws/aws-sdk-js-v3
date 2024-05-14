@@ -10,7 +10,7 @@ import { DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOu
 import {
   de_DescribeTableReplicaAutoScalingCommand,
   se_DescribeTableReplicaAutoScalingCommand,
-} from "../protocols/Aws_json1_0";
+} from "../protocols/Rpcv2cbor";
 
 /**
  * @public

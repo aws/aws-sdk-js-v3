@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput } from "../models/models_0";
-import { de_RestoreTableToPointInTimeCommand, se_RestoreTableToPointInTimeCommand } from "../protocols/Aws_json1_0";
+import { de_RestoreTableToPointInTimeCommand, se_RestoreTableToPointInTimeCommand } from "../protocols/Rpcv2cbor";
 
 /**
  * @public

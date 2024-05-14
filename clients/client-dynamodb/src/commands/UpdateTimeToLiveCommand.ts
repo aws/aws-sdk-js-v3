@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/models_0";
-import { de_UpdateTimeToLiveCommand, se_UpdateTimeToLiveCommand } from "../protocols/Aws_json1_0";
+import { de_UpdateTimeToLiveCommand, se_UpdateTimeToLiveCommand } from "../protocols/Rpcv2cbor";
 
 /**
  * @public

@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTableInput, CreateTableOutput } from "../models/models_0";
-import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_json1_0";
+import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Rpcv2cbor";
 
 /**
  * @public
