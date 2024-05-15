@@ -1,5 +1,5 @@
-import { Logger } from "@smithy/types";
-export { Logger } from "@smithy/types";
+import type { Logger } from "@smithy/types";
+export type { Logger } from "@smithy/types";
 
 /**
  * @public
