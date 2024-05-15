@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
+
+
+### Features
+
+* **client-datasync:** Task executions now display a CANCELLING status when an execution is in the process of being cancelled. ([ef2c2a5](https://github.com/aws/aws-sdk-js-v3/commit/ef2c2a5f9631cabf48c09b3abddf91446b8b3cc2))
+
+
+
+
+
 # [3.576.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.575.0...v3.576.0) (2024-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

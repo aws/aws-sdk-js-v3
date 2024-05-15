@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
+
+
+### Features
+
+* **client-codebuild:** CodeBuild Reserved Capacity VPC Support ([877d146](https://github.com/aws/aws-sdk-js-v3/commit/877d146a3f5a25386b462ac483956334354e7899))
+
+
+
+
+
 # [3.576.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.575.0...v3.576.0) (2024-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild

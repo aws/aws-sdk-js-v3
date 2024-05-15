@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
+
+
+### Features
+
+* **client-grafana:** This release adds new ServiceAccount and ServiceAccountToken APIs. ([6c98871](https://github.com/aws/aws-sdk-js-v3/commit/6c98871766ef0670a974ce73fbcdeefd0a51a43d))
+
+
+
+
+
 # [3.576.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.575.0...v3.576.0) (2024-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-grafana

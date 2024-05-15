@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
+
+
+### Features
+
+* **client-medical-imaging:** Added support for importing medical imaging data from Amazon S3 buckets across accounts and regions. ([1ac3a3d](https://github.com/aws/aws-sdk-js-v3/commit/1ac3a3d85b169f04c63114a7d48d7abbe7d235ad))
+
+
+
+
+
 # [3.576.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.575.0...v3.576.0) (2024-05-14)
 
 **Note:** Version bump only for package @aws-sdk/client-medical-imaging

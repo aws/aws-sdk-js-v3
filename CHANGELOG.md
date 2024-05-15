@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
+
+
+### Bug Fixes
+
+* **credential-providers:** use latest version for client peerDependencies ([#6099](https://github.com/aws/aws-sdk-js-v3/issues/6099)) ([9b1ed64](https://github.com/aws/aws-sdk-js-v3/commit/9b1ed64e300ccdabb544c4089194c126aae46de2))
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Updating Bedrock Knowledge Base Metadata & Filters feature with two new filters listContains and stringContains ([91b3891](https://github.com/aws/aws-sdk-js-v3/commit/91b3891cf21a942d6e1546358049284e1b959a4b))
+* **client-codebuild:** CodeBuild Reserved Capacity VPC Support ([877d146](https://github.com/aws/aws-sdk-js-v3/commit/877d146a3f5a25386b462ac483956334354e7899))
+* **client-datasync:** Task executions now display a CANCELLING status when an execution is in the process of being cancelled. ([ef2c2a5](https://github.com/aws/aws-sdk-js-v3/commit/ef2c2a5f9631cabf48c09b3abddf91446b8b3cc2))
+* **client-grafana:** This release adds new ServiceAccount and ServiceAccountToken APIs. ([6c98871](https://github.com/aws/aws-sdk-js-v3/commit/6c98871766ef0670a974ce73fbcdeefd0a51a43d))
+* **client-medical-imaging:** Added support for importing medical imaging data from Amazon S3 buckets across accounts and regions. ([1ac3a3d](https://github.com/aws/aws-sdk-js-v3/commit/1ac3a3d85b169f04c63114a7d48d7abbe7d235ad))
+
+
+
+
+
 # [3.576.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.575.0...v3.576.0) (2024-05-14)
 
 
