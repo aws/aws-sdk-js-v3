@@ -7,10 +7,11 @@ export const getUpdatedPackageJson = (packageJson, depToVersionHash) =>
     .reduce(
       (acc, sectionName) => ({
         ...acc,
-        [sectionName]: getUpdatedPackageJsonSection(packageJson[sectionName], depToVersionHash, {
-          isPeer: sectionName === "peerDependencies",
-          packageName: packageJson.name,
-        }),
+        [sectionName]: getUpdatedPackageJsonSection(
+          packageJson[sectionName],
+          depToVersionHash,
+          sectionName === "peerDependencies"
+        ),
       }),
       packageJson
     );
