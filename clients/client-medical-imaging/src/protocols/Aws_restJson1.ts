@@ -460,6 +460,7 @@ export const se_StartDICOMImportJobCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       dataAccessRoleArn: [],
+      inputOwnerAccountId: [],
       inputS3Uri: [],
       jobName: [],
       outputS3Uri: [],
