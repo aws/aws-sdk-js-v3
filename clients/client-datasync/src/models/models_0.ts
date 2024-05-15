@@ -4871,6 +4871,7 @@ export interface TaskExecutionResultDetail {
  * @enum
  */
 export const TaskExecutionStatus = {
+  CANCELLING: "CANCELLING",
   ERROR: "ERROR",
   LAUNCHING: "LAUNCHING",
   PREPARING: "PREPARING",

@@ -43,7 +43,7 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * const response = await client.send(command);
  * // { // DescribeTaskExecutionResponse
  * //   TaskExecutionArn: "STRING_VALUE",
- * //   Status: "QUEUED" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
+ * //   Status: "QUEUED" || "CANCELLING" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
  * //   Options: { // Options
  * //     VerifyMode: "POINT_IN_TIME_CONSISTENT" || "ONLY_FILES_TRANSFERRED" || "NONE",
  * //     OverwriteMode: "ALWAYS" || "NEVER",
