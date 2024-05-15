@@ -237,6 +237,22 @@ CreateWorkspaceApiKey
 </details>
 <details>
 <summary>
+CreateWorkspaceServiceAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/CreateWorkspaceServiceAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateWorkspaceServiceAccountToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/CreateWorkspaceServiceAccountTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/CreateWorkspaceServiceAccountTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteWorkspace
 </summary>
 
@@ -249,6 +265,22 @@ DeleteWorkspaceApiKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DeleteWorkspaceApiKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceApiKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceApiKeyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteWorkspaceServiceAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DeleteWorkspaceServiceAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteWorkspaceServiceAccountToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/DeleteWorkspaceServiceAccountTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/DeleteWorkspaceServiceAccountTokenCommandOutput/)
 
 </details>
 <details>
@@ -313,6 +345,22 @@ ListWorkspaces
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListWorkspacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspacesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListWorkspaceServiceAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListWorkspaceServiceAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListWorkspaceServiceAccountTokens
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/grafana/command/ListWorkspaceServiceAccountTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-grafana/Interface/ListWorkspaceServiceAccountTokensCommandOutput/)
 
 </details>
 <details>

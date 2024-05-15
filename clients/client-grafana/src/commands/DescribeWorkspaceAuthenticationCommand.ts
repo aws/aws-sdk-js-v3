@@ -100,6 +100,9 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient permissions to perform this action. </p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error while processing the request. Retry the request.</p>
  *

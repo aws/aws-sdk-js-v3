@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { DeleteWorkspaceApiKeyRequest, DeleteWorkspaceApiKeyResponse } from "../models/models_0";
-import { de_DeleteWorkspaceApiKeyCommand, se_DeleteWorkspaceApiKeyCommand } from "../protocols/Aws_restJson1";
+import { DeleteWorkspaceServiceAccountRequest, DeleteWorkspaceServiceAccountResponse } from "../models/models_0";
+import {
+  de_DeleteWorkspaceServiceAccountCommand,
+  se_DeleteWorkspaceServiceAccountCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,45 +19,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteWorkspaceApiKeyCommand}.
+ * The input for {@link DeleteWorkspaceServiceAccountCommand}.
  */
-export interface DeleteWorkspaceApiKeyCommandInput extends DeleteWorkspaceApiKeyRequest {}
+export interface DeleteWorkspaceServiceAccountCommandInput extends DeleteWorkspaceServiceAccountRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteWorkspaceApiKeyCommand}.
+ * The output of {@link DeleteWorkspaceServiceAccountCommand}.
  */
-export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKeyResponse, __MetadataBearer {}
+export interface DeleteWorkspaceServiceAccountCommandOutput
+  extends DeleteWorkspaceServiceAccountResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes a Grafana API key for the workspace.</p>
- *          <note>
- *             <p>In workspaces compatible with Grafana version 9 or above, use workspace service
- *                 accounts instead of API keys. API keys will be removed in a future release.</p>
- *          </note>
+ * <p>Deletes a workspace service account from the workspace.</p>
+ *          <p>This will delete any tokens created for the service account, as well. If the tokens
+ *             are currently in use, the will fail to authenticate / authorize after they are
+ *             deleted.</p>
+ *          <p>Service accounts are only available for workspaces that are compatible with Grafana
+ *             version 9 and above.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, DeleteWorkspaceApiKeyCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, DeleteWorkspaceApiKeyCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, DeleteWorkspaceServiceAccountCommand } from "@aws-sdk/client-grafana"; // ES Modules import
+ * // const { GrafanaClient, DeleteWorkspaceServiceAccountCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = { // DeleteWorkspaceApiKeyRequest
- *   keyName: "STRING_VALUE", // required
+ * const input = { // DeleteWorkspaceServiceAccountRequest
+ *   serviceAccountId: "STRING_VALUE", // required
  *   workspaceId: "STRING_VALUE", // required
  * };
- * const command = new DeleteWorkspaceApiKeyCommand(input);
+ * const command = new DeleteWorkspaceServiceAccountCommand(input);
  * const response = await client.send(command);
- * // { // DeleteWorkspaceApiKeyResponse
- * //   keyName: "STRING_VALUE", // required
+ * // { // DeleteWorkspaceServiceAccountResponse
+ * //   serviceAccountId: "STRING_VALUE", // required
  * //   workspaceId: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param DeleteWorkspaceApiKeyCommandInput - {@link DeleteWorkspaceApiKeyCommandInput}
- * @returns {@link DeleteWorkspaceApiKeyCommandOutput}
- * @see {@link DeleteWorkspaceApiKeyCommandInput} for command's `input` shape.
- * @see {@link DeleteWorkspaceApiKeyCommandOutput} for command's `response` shape.
+ * @param DeleteWorkspaceServiceAccountCommandInput - {@link DeleteWorkspaceServiceAccountCommandInput}
+ * @returns {@link DeleteWorkspaceServiceAccountCommandOutput}
+ * @see {@link DeleteWorkspaceServiceAccountCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkspaceServiceAccountCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -80,10 +86,10 @@ export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKe
  *
  * @public
  */
-export class DeleteWorkspaceApiKeyCommand extends $Command
+export class DeleteWorkspaceServiceAccountCommand extends $Command
   .classBuilder<
-    DeleteWorkspaceApiKeyCommandInput,
-    DeleteWorkspaceApiKeyCommandOutput,
+    DeleteWorkspaceServiceAccountCommandInput,
+    DeleteWorkspaceServiceAccountCommandOutput,
     GrafanaClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,9 +103,9 @@ export class DeleteWorkspaceApiKeyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSGrafanaControlPlane", "DeleteWorkspaceApiKey", {})
-  .n("GrafanaClient", "DeleteWorkspaceApiKeyCommand")
+  .s("AWSGrafanaControlPlane", "DeleteWorkspaceServiceAccount", {})
+  .n("GrafanaClient", "DeleteWorkspaceServiceAccountCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteWorkspaceApiKeyCommand)
-  .de(de_DeleteWorkspaceApiKeyCommand)
+  .ser(se_DeleteWorkspaceServiceAccountCommand)
+  .de(de_DeleteWorkspaceServiceAccountCommand)
   .build() {}

@@ -93,7 +93,7 @@ export interface CreateWorkspaceApiKeyRequest {
 
   /**
    * <p>Specifies the permission level of the key.</p>
-   *          <p> Valid values: <code>VIEWER</code>|<code>EDITOR</code>|<code>ADMIN</code>
+   *          <p> Valid values: <code>ADMIN</code>|<code>EDITOR</code>|<code>VIEWER</code>
    *          </p>
    * @public
    */
@@ -481,7 +481,7 @@ export interface AssociateLicenseRequest {
 
   /**
    * <p>A token from Grafana Labs that ties your Amazon Web Services account with a Grafana
-   *             Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register with Grafana Labs</a>.</p>
+   *             Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link your account with Grafana Labs</a>.</p>
    * @public
    */
   grafanaToken?: string;
@@ -980,7 +980,7 @@ export interface WorkspaceDescription {
 
   /**
    * <p>The token that ties this workspace to a Grafana Labs account. For more information,
-   *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register with Grafana Labs</a>.</p>
+   *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link your account with Grafana Labs</a>.</p>
    * @public
    */
   grafanaToken?: string;
@@ -1647,6 +1647,400 @@ export interface UpdatePermissionsResponse {
 /**
  * @public
  */
+export interface CreateWorkspaceServiceAccountRequest {
+  /**
+   * <p>A name for the service account. The name must be unique within the workspace, as it
+   *             determines the ID associated with the service account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The permission level to use for this service account.</p>
+   *          <note>
+   *             <p>For more information about the roles and the permissions each has, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html">User
+   *                 roles</a> in the <i>Amazon Managed Grafana User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  grafanaRole: Role | undefined;
+
+  /**
+   * <p>The ID of the workspace within which to create the service account.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspaceServiceAccountResponse {
+  /**
+   * <p>The ID of the service account.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the service account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The permission level given to the service account.</p>
+   * @public
+   */
+  grafanaRole: Role | undefined;
+
+  /**
+   * <p>The workspace with which the service account is associated.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkspaceServiceAccountRequest {
+  /**
+   * <p>The ID of the service account to delete.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace where the service account resides.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkspaceServiceAccountResponse {
+  /**
+   * <p>The ID of the service account deleted.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace where the service account was deleted.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkspaceServiceAccountsRequest {
+  /**
+   * <p>The maximum number of service accounts to include in the results.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of service accounts to return. (You receive this token
+   *             from a previous <code>ListWorkspaceServiceAccounts</code> operation.)</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The workspace for which to list service accounts.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * <p>A structure that contains the information about one service account.</p>
+ * @public
+ */
+export interface ServiceAccountSummary {
+  /**
+   * <p>The unique ID of the service account.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the service account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Returns true if the service account is disabled. Service accounts can be disabled and
+   *             enabled in the Amazon Managed Grafana console.</p>
+   * @public
+   */
+  isDisabled: string | undefined;
+
+  /**
+   * <p>The role of the service account, which sets the permission level used when calling
+   *             Grafana APIs.</p>
+   * @public
+   */
+  grafanaRole: Role | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkspaceServiceAccountsResponse {
+  /**
+   * <p>The token to use when requesting the next set of service accounts.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of structures containing information about the service accounts.</p>
+   * @public
+   */
+  serviceAccounts: ServiceAccountSummary[] | undefined;
+
+  /**
+   * <p>The workspace to which the service accounts are associated.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspaceServiceAccountTokenRequest {
+  /**
+   * <p>A name for the token to create.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Sets how long the token will be valid, in seconds. You can set the time up to 30
+   *             days in the future.</p>
+   * @public
+   */
+  secondsToLive: number | undefined;
+
+  /**
+   * <p>The ID of the service account for which to create a token.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace the service account resides within.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * <p>A structure that contains the information about a service account token.</p>
+ *          <p>This structure is returned when creating the token. It is important to store the
+ *             <code>key</code> that is returned, as it is not retrievable at a later time.</p>
+ *          <p>If you lose the key, you can delete and recreate the token, which will create a
+ *             new key.</p>
+ * @public
+ */
+export interface ServiceAccountTokenSummaryWithKey {
+  /**
+   * <p>The unique ID of the service account token.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the service account token.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The key for the service account token. Used when making calls to the Grafana HTTP
+   *             APIs to authenticate and authorize the requests.</p>
+   * @public
+   */
+  key: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspaceServiceAccountTokenResponse {
+  /**
+   * <p>Information about the created token, including the key. Be sure to store the key
+   *             securely.</p>
+   * @public
+   */
+  serviceAccountToken: ServiceAccountTokenSummaryWithKey | undefined;
+
+  /**
+   * <p>The ID of the service account where the token was created.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace where the token was created.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkspaceServiceAccountTokenRequest {
+  /**
+   * <p>The ID of the token to delete.</p>
+   * @public
+   */
+  tokenId: string | undefined;
+
+  /**
+   * <p>The ID of the service account from which to delete the token.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace from which to delete the token.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkspaceServiceAccountTokenResponse {
+  /**
+   * <p>The ID of the token that was deleted.</p>
+   * @public
+   */
+  tokenId: string | undefined;
+
+  /**
+   * <p>The ID of the service account where the token was deleted.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace where the token was deleted.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkspaceServiceAccountTokensRequest {
+  /**
+   * <p>The maximum number of tokens to include in the results.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of service accounts to return. (You receive this token
+   *             from a previous <code>ListWorkspaceServiceAccountTokens</code> operation.)</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The ID of the service account for which to return tokens.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace for which to return tokens.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * <p>A structure that contains the information about a service account token.</p>
+ * @public
+ */
+export interface ServiceAccountTokenSummary {
+  /**
+   * <p>The unique ID of the service account token.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the service account token.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>When the service account token was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>When the service account token will expire.</p>
+   * @public
+   */
+  expiresAt: Date | undefined;
+
+  /**
+   * <p>The last time the token was used to authorize a Grafana HTTP API.</p>
+   * @public
+   */
+  lastUsedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkspaceServiceAccountTokensResponse {
+  /**
+   * <p>The token to use when requesting the next set of service accounts.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of structures containing information about the tokens.</p>
+   * @public
+   */
+  serviceAccountTokens: ServiceAccountTokenSummary[] | undefined;
+
+  /**
+   * <p>The ID of the service account where the tokens reside.</p>
+   * @public
+   */
+  serviceAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the workspace where the tokens reside.</p>
+   * @public
+   */
+  workspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource the tag is associated with.</p>
@@ -1838,7 +2232,7 @@ export interface CreateWorkspaceRequest {
 
   /**
    * <p>Specifies the version of Grafana to support in the new workspace. If not specified,
-   *             defaults to the latest version (for example, 9.4).</p>
+   *             defaults to the latest version (for example, 10.4).</p>
    *          <p>To get a list of supported versions, use the <code>ListVersions</code>
    *             operation.</p>
    * @public
@@ -2004,7 +2398,7 @@ export interface WorkspaceSummary {
 
   /**
    * <p>The token that ties this workspace to a Grafana Labs account. For more information,
-   *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register with Grafana Labs</a>.</p>
+   *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link your account with Grafana Labs</a>.</p>
    * @public
    */
   grafanaToken?: string;
@@ -2282,6 +2676,26 @@ export const UpdateWorkspaceAuthenticationResponseFilterSensitiveLog = (
 export const DisassociateLicenseResponseFilterSensitiveLog = (obj: DisassociateLicenseResponse): any => ({
   ...obj,
   ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});
+
+/**
+ * @internal
+ */
+export const ServiceAccountTokenSummaryWithKeyFilterSensitiveLog = (obj: ServiceAccountTokenSummaryWithKey): any => ({
+  ...obj,
+  ...(obj.key && { key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceServiceAccountTokenResponseFilterSensitiveLog = (
+  obj: CreateWorkspaceServiceAccountTokenResponse
+): any => ({
+  ...obj,
+  ...(obj.serviceAccountToken && {
+    serviceAccountToken: ServiceAccountTokenSummaryWithKeyFilterSensitiveLog(obj.serviceAccountToken),
+  }),
 });
 
 /**
