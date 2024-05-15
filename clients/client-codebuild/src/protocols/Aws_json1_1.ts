@@ -2044,10 +2044,12 @@ const se_CreateFleetInput = (input: CreateFleetInput, context: __SerdeContext): 
     baseCapacity: [],
     computeType: [],
     environmentType: [],
+    fleetServiceRole: [],
     name: [],
     overflowBehavior: [],
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
+    vpcConfig: _json,
   });
 };
 
@@ -2253,9 +2255,11 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
     baseCapacity: [],
     computeType: [],
     environmentType: [],
+    fleetServiceRole: [],
     overflowBehavior: [],
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
+    vpcConfig: _json,
   });
 };
 
@@ -2713,6 +2717,7 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
     computeType: __expectString,
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     environmentType: __expectString,
+    fleetServiceRole: __expectString,
     id: __expectString,
     lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
@@ -2720,6 +2725,7 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
     scalingConfiguration: (_: any) => de_ScalingConfigurationOutput(_, context),
     status: _json,
     tags: _json,
+    vpcConfig: _json,
   }) as any;
 };
 
