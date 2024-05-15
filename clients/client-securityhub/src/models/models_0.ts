@@ -219,6 +219,7 @@ export interface AccountDetails {
 export interface AwsApiCallActionDomainDetails {
   /**
    * <p>The name of the DNS domain that issued the API call.</p>
+   *          <p>Length Constraints: 128.</p>
    * @public
    */
   Domain?: string;
@@ -349,12 +350,14 @@ export interface ActionRemoteIpDetails {
 export interface AwsApiCallAction {
   /**
    * <p>The name of the API method that was issued.</p>
+   *          <p>Length Constraints: 128.</p>
    * @public
    */
   Api?: string;
 
   /**
    * <p>The name of the Amazon Web Services service that the API method belongs to.</p>
+   *          <p>Length Constraints: 128.</p>
    * @public
    */
   ServiceName?: string;
@@ -459,12 +462,14 @@ export interface AwsApiCallAction {
 export interface DnsRequestAction {
   /**
    * <p>The DNS domain that is associated with the DNS request.</p>
+   *          <p>Length Constraints: 128.</p>
    * @public
    */
   Domain?: string;
 
   /**
    * <p>The protocol that was used for the DNS request.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
   Protocol?: string;
@@ -491,6 +496,7 @@ export interface ActionLocalPortDetails {
 
   /**
    * <p>The port name of the local connection.</p>
+   *          <p>Length Constraints: 128.</p>
    * @public
    */
   PortName?: string;
@@ -510,6 +516,7 @@ export interface ActionRemotePortDetails {
 
   /**
    * <p>The port name of the remote connection.</p>
+   *          <p>Length Constraints: 128.</p>
    * @public
    */
   PortName?: string;
@@ -549,6 +556,7 @@ export interface NetworkConnectionAction {
 
   /**
    * <p>The protocol used to make the network connection request.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
   Protocol?: string;
