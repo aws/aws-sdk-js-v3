@@ -44,6 +44,15 @@ describe("chunkFromReadable.name", () => {
     expect(chunks[0].lastPart).toBe(true);
   });
 
+  it("should a single chunk if the stream is equal to partsize", async () => {
+    const chunks = await getChunks(20, 5, 100);
+
+    expect(chunks.length).toBe(1);
+    expect(byteLength(chunks[0].data)).toEqual(100);
+    expect(chunks[0].partNumber).toEqual(1);
+    expect(chunks[0].lastPart).toBe(true);
+  });
+
   it("should return chunks of a specific size", async () => {
     const chunks = await getChunks(58, 1, 20);
 
