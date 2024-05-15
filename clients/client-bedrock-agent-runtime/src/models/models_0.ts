@@ -2721,7 +2721,7 @@ export interface RetrieveResponse {
 }
 
 /**
- * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+ * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. See the examples below to see how to use these filters.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -2743,10 +2743,12 @@ export type RetrievalFilter =
   | RetrievalFilter.InMember
   | RetrievalFilter.LessThanMember
   | RetrievalFilter.LessThanOrEqualsMember
+  | RetrievalFilter.ListContainsMember
   | RetrievalFilter.NotEqualsMember
   | RetrievalFilter.NotInMember
   | RetrievalFilter.OrAllMember
   | RetrievalFilter.StartsWithMember
+  | RetrievalFilter.StringContainsMember
   | RetrievalFilter.$UnknownMember;
 
 /**
@@ -2754,7 +2756,11 @@ export type RetrievalFilter =
  */
 export namespace RetrievalFilter {
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>animal</code> attribute whose value is <code>cat</code>:</p>
+   *          <p>
+   *             <code>"equals": \{ "key": "animal", "value": "cat" \}</code>
+   *          </p>
    * @public
    */
   export interface EqualsMember {
@@ -2767,6 +2773,8 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
@@ -2774,6 +2782,10 @@ export namespace RetrievalFilter {
 
   /**
    * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code> in this object are returned.</p>
+   *          <p>The following example would return data sources that don't contain an <code>animal</code> attribute whose value is <code>cat</code>.</p>
+   *          <p>
+   *             <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code>
+   *          </p>
    * @public
    */
   export interface NotEqualsMember {
@@ -2786,13 +2798,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than <code>1989</code>:</p>
+   *          <p>
+   *             <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface GreaterThanMember {
@@ -2805,13 +2823,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than or equal to <code>1989</code>:</p>
+   *          <p>
+   *             <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface GreaterThanOrEqualsMember {
@@ -2824,13 +2848,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is less than to <code>1989</code>.</p>
+   *          <p>
+   *             <code>"lessThan": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface LessThanMember {
@@ -2843,13 +2873,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is less than or equal to <code>1989</code>.</p>
+   *          <p>
+   *             <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface LessThanOrEqualsMember {
@@ -2862,13 +2898,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>animal</code> attribute that is either <code>cat</code> or <code>dog</code>:</p>
+   *          <p>
+   *             <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
+   *          </p>
    * @public
    */
   export interface InMember {
@@ -2881,13 +2923,19 @@ export namespace RetrievalFilter {
     in: FilterAttribute;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources whose <code>animal</code> attribute is neither <code>cat</code> nor <code>dog</code>.</p>
+   *          <p>
+   *             <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
+   *          </p>
    * @public
    */
   export interface NotInMember {
@@ -2900,13 +2948,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn: FilterAttribute;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object are returned. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p>
+   *          <p>The following example would return data sources with an <code>animal</code> attribute starts with <code>ca</code> (for example, <code>cat</code> or <code>camel</code>).</p>
+   *          <p>
+   *             <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code>
+   *          </p>
    * @public
    */
   export interface StartsWithMember {
@@ -2919,13 +2973,75 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith: FilterAttribute;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources whose metadata attributes fulfill all the filter conditions inside this list are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is a list that contains the <code>value</code> as one of its members.</p>
+   *          <p>The following example would return data sources with an <code>animals</code> attribute that is a list containing a <code>cat</code> member (for example <code>["dog", "cat"]</code>).</p>
+   *          <p>
+   *             <code>"listContains": \{ "key": "animals", "value": "cat" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface ListContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains: FilterAttribute;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A string that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animal</code> attribute that contains the substring <code>at</code> (for example <code>cat</code>).</p>
+   *                <p>
+   *                   <code>"stringContains": \{ "key": "animal", "value": "at" \}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>A list with a member that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animals</code> attribute that is a list containing a member that contains the substring <code>at</code> (for example <code>["dog", "cat"]</code>).</p>
+   *                <p>
+   *                   <code>"stringContains": \{ "key": "animals", "value": "at" \}</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  export interface StringContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains: FilterAttribute;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill all the filter conditions inside this list.</p>
    * @public
    */
   export interface AndAllMember {
@@ -2938,13 +3054,15 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll: RetrievalFilter[];
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources whose metadata attributes fulfill at least one of the filter conditions inside this list are returned.</p>
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill at least one of the filter conditions inside this list.</p>
    * @public
    */
   export interface OrAllMember {
@@ -2957,6 +3075,8 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll: RetrievalFilter[];
     $unknown?: never;
@@ -2975,6 +3095,8 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown: [string, any];
@@ -2990,6 +3112,8 @@ export namespace RetrievalFilter {
     in: (value: FilterAttribute) => T;
     notIn: (value: FilterAttribute) => T;
     startsWith: (value: FilterAttribute) => T;
+    listContains: (value: FilterAttribute) => T;
+    stringContains: (value: FilterAttribute) => T;
     andAll: (value: RetrievalFilter[]) => T;
     orAll: (value: RetrievalFilter[]) => T;
     _: (name: string, value: any) => T;
@@ -3005,6 +3129,8 @@ export namespace RetrievalFilter {
     if (value.in !== undefined) return visitor.in(value.in);
     if (value.notIn !== undefined) return visitor.notIn(value.notIn);
     if (value.startsWith !== undefined) return visitor.startsWith(value.startsWith);
+    if (value.listContains !== undefined) return visitor.listContains(value.listContains);
+    if (value.stringContains !== undefined) return visitor.stringContains(value.stringContains);
     if (value.andAll !== undefined) return visitor.andAll(value.andAll);
     if (value.orAll !== undefined) return visitor.orAll(value.orAll);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -3667,6 +3793,8 @@ export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => 
   if (obj.in !== undefined) return { in: obj.in };
   if (obj.notIn !== undefined) return { notIn: obj.notIn };
   if (obj.startsWith !== undefined) return { startsWith: obj.startsWith };
+  if (obj.listContains !== undefined) return { listContains: obj.listContains };
+  if (obj.stringContains !== undefined) return { stringContains: obj.stringContains };
   if (obj.andAll !== undefined) return { andAll: SENSITIVE_STRING };
   if (obj.orAll !== undefined) return { orAll: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };

@@ -82,6 +82,8 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *             in: "<FilterAttribute>",
  *             notIn: "<FilterAttribute>",
  *             startsWith: "<FilterAttribute>",
+ *             listContains: "<FilterAttribute>",
+ *             stringContains: "<FilterAttribute>",
  *             andAll: [ // RetrievalFilterList
  *               {//  Union: only one key present
  *                 equals: "<FilterAttribute>",
@@ -93,6 +95,8 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *                 in: "<FilterAttribute>",
  *                 notIn: "<FilterAttribute>",
  *                 startsWith: "<FilterAttribute>",
+ *                 listContains: "<FilterAttribute>",
+ *                 stringContains: "<FilterAttribute>",
  *                 andAll: [
  *                   "<RetrievalFilter>",
  *                 ],

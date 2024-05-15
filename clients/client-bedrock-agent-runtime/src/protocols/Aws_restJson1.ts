@@ -818,10 +818,12 @@ const se_RetrievalFilter = (input: RetrievalFilter, context: __SerdeContext): an
     in: (value) => ({ in: se_FilterAttribute(value, context) }),
     lessThan: (value) => ({ lessThan: se_FilterAttribute(value, context) }),
     lessThanOrEquals: (value) => ({ lessThanOrEquals: se_FilterAttribute(value, context) }),
+    listContains: (value) => ({ listContains: se_FilterAttribute(value, context) }),
     notEquals: (value) => ({ notEquals: se_FilterAttribute(value, context) }),
     notIn: (value) => ({ notIn: se_FilterAttribute(value, context) }),
     orAll: (value) => ({ orAll: se_RetrievalFilterList(value, context) }),
     startsWith: (value) => ({ startsWith: se_FilterAttribute(value, context) }),
+    stringContains: (value) => ({ stringContains: se_FilterAttribute(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
