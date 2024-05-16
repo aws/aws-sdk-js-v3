@@ -2474,7 +2474,7 @@ export interface CreateContactFlowRequest {
 
   /**
    * <p>Indicates the flow status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *     <code>PUBLISHED</code> status will initiate validation on the content. the <code>SAVED</code>
+   *    <code>PUBLISHED</code> status will initiate validation on the content. the <code>SAVED</code>
    *    status does not initiate validation of the content. <code>SAVED</code> |
    *    <code>PUBLISHED</code>.</p>
    * @public

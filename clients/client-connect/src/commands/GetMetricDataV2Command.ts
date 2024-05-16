@@ -35,7 +35,7 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  *    hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals. </p>
  *          <p>For a description of the historical metrics that are supported by
  *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics
- *     definitions</a> in the <i>Amazon Connect Administrator's Guide</i>.</p>
+ *     definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
