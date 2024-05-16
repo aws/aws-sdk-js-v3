@@ -6300,6 +6300,80 @@ export interface DescribeIpRestrictionResponse {
 /**
  * @public
  */
+export interface DescribeKeyRegistrationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>Determines whether the request returns the default key only.</p>
+   * @public
+   */
+  DefaultKeyOnly?: boolean;
+}
+
+/**
+ * <p>A customer managed key structure that contains the information listed below: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>KeyArn</code> - The ARN of a KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DefaultKey</code> - Indicates whether the current key is set as the default key for encryption and decryption use.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RegisteredCustomerManagedKey {
+  /**
+   * <p>The ARN of the KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>
+   * @public
+   */
+  KeyArn?: string;
+
+  /**
+   * <p>Indicates whether a <code>RegisteredCustomerManagedKey</code> is set as the default key for encryption and decryption use.</p>
+   * @public
+   */
+  DefaultKey?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyRegistrationResponse {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration specified in the request.</p>
+   * @public
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects in a Amazon QuickSight account.</p>
+   * @public
+   */
+  KeyRegistration?: RegisteredCustomerManagedKey[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
 export interface DescribeNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.</p>
@@ -7651,7 +7725,7 @@ export interface User {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q Business, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7978,6 +8052,37 @@ export const EmbeddingIdentityType = {
  * @public
  */
 export type EmbeddingIdentityType = (typeof EmbeddingIdentityType)[keyof typeof EmbeddingIdentityType];
+
+/**
+ * <p>An entry that appears when a <code>KeyRegistration</code> update to Amazon QuickSight fails.</p>
+ * @public
+ */
+export interface FailedKeyRegistrationEntry {
+  /**
+   * <p>The ARN of the KMS key that failed to update.</p>
+   * @public
+   */
+  KeyArn?: string;
+
+  /**
+   * <p>A message that provides information about why a <code>FailedKeyRegistrationEntry</code> error occurred.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The HTTP status of a <code>FailedKeyRegistrationEntry</code> error.</p>
+   * @public
+   */
+  StatusCode: number | undefined;
+
+  /**
+   * <p>A boolean that indicates whether a <code>FailedKeyRegistrationEntry</code> resulted from user error. If the value of this property is <code>True</code>, the error was caused by user error. If the value of this property is <code>False</code>, the error occurred on the backend. If your job continues fail and with a <code>False</code>
+   *             <code>SenderFault</code> value, contact Amazon Web Services Support.</p>
+   * @public
+   */
+  SenderFault: boolean | undefined;
+}
 
 /**
  * @public
@@ -9293,116 +9398,6 @@ export interface ListDataSetsResponse {
 export interface ListDataSourcesRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListDataSourcesResponse {
-  /**
-   * <p>A list of data sources.</p>
-   * @public
-   */
-  DataSources?: DataSource[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface ListFolderMembersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListFolderMembersResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>A structure that contains all of the folder members (dashboards, analyses, and datasets) in the folder.</p>
-   * @public
-   */
-  FolderMemberList?: MemberIdArnPair[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface ListFoldersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    * @public
    */
   AwsAccountId: string | undefined;

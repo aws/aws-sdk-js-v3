@@ -165,7 +165,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             ClusterId: "STRING_VALUE",
  * //             IAMParameters: { // RedshiftIAMParameters
  * //               RoleArn: "STRING_VALUE", // required
- * //               DatabaseUser: "STRING_VALUE", // required
+ * //               DatabaseUser: "STRING_VALUE",
  * //               DatabaseGroups: [ // DatabaseGroupList
  * //                 "STRING_VALUE",
  * //               ],

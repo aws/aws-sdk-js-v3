@@ -237,6 +237,10 @@ import {
   DescribeIpRestrictionCommandInput,
   DescribeIpRestrictionCommandOutput,
 } from "../commands/DescribeIpRestrictionCommand";
+import {
+  DescribeKeyRegistrationCommandInput,
+  DescribeKeyRegistrationCommandOutput,
+} from "../commands/DescribeKeyRegistrationCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "../commands/DescribeNamespaceCommand";
 import {
   DescribeRefreshScheduleCommandInput,
@@ -445,6 +449,10 @@ import {
   UpdateIpRestrictionCommandInput,
   UpdateIpRestrictionCommandOutput,
 } from "../commands/UpdateIpRestrictionCommand";
+import {
+  UpdateKeyRegistrationCommandInput,
+  UpdateKeyRegistrationCommandOutput,
+} from "../commands/UpdateKeyRegistrationCommand";
 import {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
@@ -1210,6 +1218,7 @@ import {
   QuickSightUserNotFoundException,
   RangeConstant,
   RefreshConfiguration,
+  RegisteredCustomerManagedKey,
   RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
   RegisteredUserDashboardFeatureConfigurations,
@@ -2819,6 +2828,25 @@ export const se_DescribeIpRestrictionCommand = async (
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeKeyRegistrationCommand
+ */
+export const se_DescribeKeyRegistrationCommand = async (
+  input: DescribeKeyRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/key-registration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_dko]: [() => input.DefaultKeyOnly !== void 0, () => input[_DKO]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4642,6 +4670,29 @@ export const se_UpdateIpRestrictionCommand = async (
       IpRestrictionRuleMap: (_) => _json(_),
       VpcEndpointIdRestrictionRuleMap: (_) => _json(_),
       VpcIdRestrictionRuleMap: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateKeyRegistrationCommand
+ */
+export const se_UpdateKeyRegistrationCommand = async (
+  input: UpdateKeyRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/key-registration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      KeyRegistration: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -7017,6 +7068,30 @@ export const de_DescribeIpRestrictionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeKeyRegistrationCommand
+ */
+export const de_DescribeKeyRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKeyRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AwsAccountId: __expectString,
+    KeyRegistration: _json,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeNamespaceCommand
  */
 export const de_DescribeNamespaceCommand = async (
@@ -9137,6 +9212,29 @@ export const de_UpdateIpRestrictionCommand = async (
   map(contents, {
     Status: [, output.statusCode],
   });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateKeyRegistrationCommand
+ */
+export const de_UpdateKeyRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKeyRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FailedKeyRegistration: _json,
+    RequestId: __expectString,
+    SuccessfulKeyRegistration: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -12446,6 +12544,8 @@ const se_InsightVisual = (input: InsightVisual, context: __SerdeContext): any =>
 
 // se_JoinKeyProperties omitted.
 
+// se_KeyRegistration omitted.
+
 /**
  * serializeAws_restJson1KPIActualValueConditionalFormatting
  */
@@ -13574,6 +13674,8 @@ const se_RefreshSchedule = (input: RefreshSchedule, context: __SerdeContext): an
     StartAfterDateTime: (_) => Math.round(_.getTime() / 1000),
   });
 };
+
+// se_RegisteredCustomerManagedKey omitted.
 
 // se_RegisteredUserConsoleFeatureConfigurations omitted.
 
@@ -16721,6 +16823,10 @@ const de_ExplicitHierarchy = (output: any, context: __SerdeContext): ExplicitHie
 
 // de_ExportWithHiddenFieldsOption omitted.
 
+// de_FailedKeyRegistrationEntries omitted.
+
+// de_FailedKeyRegistrationEntry omitted.
+
 /**
  * deserializeAws_restJson1FieldBasedTooltip
  */
@@ -17744,6 +17850,8 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
 // de_JoinInstruction omitted.
 
 // de_JoinKeyProperties omitted.
+
+// de_KeyRegistration omitted.
 
 /**
  * deserializeAws_restJson1KPIActualValueConditionalFormatting
@@ -18916,6 +19024,8 @@ const de_RefreshSchedules = (output: any, context: __SerdeContext): RefreshSched
   return retVal;
 };
 
+// de_RegisteredCustomerManagedKey omitted.
+
 // de_RelationalTable omitted.
 
 /**
@@ -19409,6 +19519,10 @@ const de_SnapshotConfiguration = (output: any, context: __SerdeContext): Snapsho
 // de_SubnetIdList omitted.
 
 // de_SubtotalOptions omitted.
+
+// de_SuccessfulKeyRegistrationEntries omitted.
+
+// de_SuccessfulKeyRegistrationEntry omitted.
 
 // de_Synonyms omitted.
 
@@ -20574,6 +20688,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
 const _ADI = "AdditionalDashboardIds";
 const _AN = "AliasName";
 const _AS = "AssignmentStatus";
+const _DKO = "DefaultKeyOnly";
 const _EP = "EntryPoint";
 const _FDWR = "ForceDeleteWithoutRecovery";
 const _IT = "IdentityType";
@@ -20594,6 +20709,7 @@ const _adi = "additional-dashboard-ids";
 const _an = "alias-name";
 const _as = "assignment-status";
 const _ct = "creds-type";
+const _dko = "default-key-only";
 const _ep = "entry-point";
 const _fdwr = "force-delete-without-recovery";
 const _k = "keys";

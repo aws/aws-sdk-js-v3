@@ -350,6 +350,11 @@ import {
   DescribeIpRestrictionCommandOutput,
 } from "./commands/DescribeIpRestrictionCommand";
 import {
+  DescribeKeyRegistrationCommand,
+  DescribeKeyRegistrationCommandInput,
+  DescribeKeyRegistrationCommandOutput,
+} from "./commands/DescribeKeyRegistrationCommand";
+import {
   DescribeNamespaceCommand,
   DescribeNamespaceCommandInput,
   DescribeNamespaceCommandOutput,
@@ -732,6 +737,11 @@ import {
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
 import {
+  UpdateKeyRegistrationCommand,
+  UpdateKeyRegistrationCommandInput,
+  UpdateKeyRegistrationCommandOutput,
+} from "./commands/UpdateKeyRegistrationCommand";
+import {
   UpdatePublicSharingSettingsCommand,
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
@@ -872,6 +882,7 @@ const commands = {
   DescribeIAMPolicyAssignmentCommand,
   DescribeIngestionCommand,
   DescribeIpRestrictionCommand,
+  DescribeKeyRegistrationCommand,
   DescribeNamespaceCommand,
   DescribeRefreshScheduleCommand,
   DescribeRoleCustomPermissionCommand,
@@ -954,6 +965,7 @@ const commands = {
   UpdateIAMPolicyAssignmentCommand,
   UpdateIdentityPropagationConfigCommand,
   UpdateIpRestrictionCommand,
+  UpdateKeyRegistrationCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateRefreshScheduleCommand,
   UpdateRoleCustomPermissionCommand,
@@ -2137,6 +2149,23 @@ export interface QuickSight {
     args: DescribeIpRestrictionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIpRestrictionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeKeyRegistrationCommand}
+   */
+  describeKeyRegistration(
+    args: DescribeKeyRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKeyRegistrationCommandOutput>;
+  describeKeyRegistration(
+    args: DescribeKeyRegistrationCommandInput,
+    cb: (err: any, data?: DescribeKeyRegistrationCommandOutput) => void
+  ): void;
+  describeKeyRegistration(
+    args: DescribeKeyRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeKeyRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -3387,6 +3416,23 @@ export interface QuickSight {
     args: UpdateIpRestrictionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIpRestrictionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKeyRegistrationCommand}
+   */
+  updateKeyRegistration(
+    args: UpdateKeyRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyRegistrationCommandOutput>;
+  updateKeyRegistration(
+    args: UpdateKeyRegistrationCommandInput,
+    cb: (err: any, data?: UpdateKeyRegistrationCommandOutput) => void
+  ): void;
+  updateKeyRegistration(
+    args: UpdateKeyRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyRegistrationCommandOutput) => void
   ): void;
 
   /**

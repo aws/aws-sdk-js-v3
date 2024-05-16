@@ -257,6 +257,10 @@ import {
   DescribeIpRestrictionCommandInput,
   DescribeIpRestrictionCommandOutput,
 } from "./commands/DescribeIpRestrictionCommand";
+import {
+  DescribeKeyRegistrationCommandInput,
+  DescribeKeyRegistrationCommandOutput,
+} from "./commands/DescribeKeyRegistrationCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
 import {
   DescribeRefreshScheduleCommandInput,
@@ -466,6 +470,10 @@ import {
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
 import {
+  UpdateKeyRegistrationCommandInput,
+  UpdateKeyRegistrationCommandOutput,
+} from "./commands/UpdateKeyRegistrationCommand";
+import {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
 } from "./commands/UpdatePublicSharingSettingsCommand";
@@ -600,6 +608,7 @@ export type ServiceInputTypes =
   | DescribeIAMPolicyAssignmentCommandInput
   | DescribeIngestionCommandInput
   | DescribeIpRestrictionCommandInput
+  | DescribeKeyRegistrationCommandInput
   | DescribeNamespaceCommandInput
   | DescribeRefreshScheduleCommandInput
   | DescribeRoleCustomPermissionCommandInput
@@ -682,6 +691,7 @@ export type ServiceInputTypes =
   | UpdateIAMPolicyAssignmentCommandInput
   | UpdateIdentityPropagationConfigCommandInput
   | UpdateIpRestrictionCommandInput
+  | UpdateKeyRegistrationCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateRefreshScheduleCommandInput
   | UpdateRoleCustomPermissionCommandInput
@@ -777,6 +787,7 @@ export type ServiceOutputTypes =
   | DescribeIAMPolicyAssignmentCommandOutput
   | DescribeIngestionCommandOutput
   | DescribeIpRestrictionCommandOutput
+  | DescribeKeyRegistrationCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeRefreshScheduleCommandOutput
   | DescribeRoleCustomPermissionCommandOutput
@@ -859,6 +870,7 @@ export type ServiceOutputTypes =
   | UpdateIAMPolicyAssignmentCommandOutput
   | UpdateIdentityPropagationConfigCommandOutput
   | UpdateIpRestrictionCommandOutput
+  | UpdateKeyRegistrationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateRefreshScheduleCommandOutput
   | UpdateRoleCustomPermissionCommandOutput
