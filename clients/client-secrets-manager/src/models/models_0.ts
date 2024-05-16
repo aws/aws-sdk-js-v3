@@ -966,7 +966,7 @@ export interface DescribeSecretResponse {
   KmsKeyId?: string;
 
   /**
-   * <p>Specifies whether automatic rotation is turned on for this secret.</p>
+   * <p>Specifies whether automatic rotation is turned on for this secret.  If the secret has never been configured for rotation, Secrets Manager returns null.</p>
    *          <p>To turn on rotation, use <a>RotateSecret</a>. To turn off
    *       rotation, use <a>CancelRotateSecret</a>.</p>
    * @public
@@ -1216,7 +1216,7 @@ export interface GetResourcePolicyResponse {
  */
 export interface GetSecretValueRequest {
   /**
-   * <p>The ARN or name of the secret to retrieve.</p>
+   * <p>The ARN or name of the secret to retrieve. To retrieve a secret from another account, you must use an ARN.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
    *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    * @public
@@ -1946,7 +1946,7 @@ export interface RotateSecretRequest {
    * <p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
    *     The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</p>
    *          <p>For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
-   *     <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">
+   *     <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_lambda-functions.html#rotate-secrets_lambda-functions-code">
    *                <code>testSecret</code>
    *       step</a> of the Lambda rotation function. The test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p>
    *          <p>By default, Secrets Manager rotates the secret immediately.</p>
@@ -2207,7 +2207,7 @@ export interface UpdateSecretVersionStageResponse {
  */
 export interface ValidateResourcePolicyRequest {
   /**
-   * <p>This field is reserved for internal use.</p>
+   * <p>The ARN or name of the secret with the resource-based policy you want to validate.</p>
    * @public
    */
   SecretId?: string;
