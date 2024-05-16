@@ -158,6 +158,14 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  * //           },
  * //         },
  * //         StorageMode: "LOCAL" || "TIERED",
+ * //         BrokerCountUpdateInfo: { // BrokerCountUpdateInfo
+ * //           CreatedBrokerIds: [ // __listOf__double
+ * //             Number("double"),
+ * //           ],
+ * //           DeletedBrokerIds: [
+ * //             Number("double"),
+ * //           ],
+ * //         },
  * //       },
  * //       TargetClusterInfo: {
  * //         BrokerEBSVolumeInfo: [
@@ -254,6 +262,14 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  * //           },
  * //         },
  * //         StorageMode: "LOCAL" || "TIERED",
+ * //         BrokerCountUpdateInfo: {
+ * //           CreatedBrokerIds: [
+ * //             Number("double"),
+ * //           ],
+ * //           DeletedBrokerIds: [
+ * //             Number("double"),
+ * //           ],
+ * //         },
  * //       },
  * //       VpcConnectionInfo: { // VpcConnectionInfo
  * //         VpcConnectionArn: "STRING_VALUE",

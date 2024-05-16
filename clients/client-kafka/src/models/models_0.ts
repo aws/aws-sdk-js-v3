@@ -1109,6 +1109,24 @@ export interface ClusterOperationStep {
 }
 
 /**
+ * <p>Information regarding UpdateBrokerCount.</p>
+ * @public
+ */
+export interface BrokerCountUpdateInfo {
+  /**
+   * <p>Kafka Broker IDs of brokers being created.</p>
+   * @public
+   */
+  CreatedBrokerIds?: number[];
+
+  /**
+   * <p>Kafka Broker IDs of brokers being deleted.</p>
+   * @public
+   */
+  DeletedBrokerIds?: number[];
+}
+
+/**
  * <p>Specifies the configuration to use for the brokers.</p>
  * @public
  */
@@ -1202,6 +1220,12 @@ export interface MutableClusterInfo {
    * @public
    */
   StorageMode?: StorageMode;
+
+  /**
+   * <p>Describes brokers being changed during a broker count update.</p>
+   * @public
+   */
+  BrokerCountUpdateInfo?: BrokerCountUpdateInfo;
 }
 
 /**
