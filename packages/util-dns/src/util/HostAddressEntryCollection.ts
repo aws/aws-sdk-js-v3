@@ -1,5 +1,5 @@
-import { DnsCacheEntryCollection } from "../DnsCache";
-import { HostAddressEntry } from "./HostEntry";
+import type { DnsCacheEntryCollection } from "../DnsCache";
+import type { HostAddressEntry } from "./HostEntry";
 
 /**
  * Collection using an Array as the underlying data structure

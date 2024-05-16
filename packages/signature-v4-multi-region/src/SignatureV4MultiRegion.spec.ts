@@ -8,7 +8,8 @@ import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
 import { SignatureV4 } from "@smithy/signature-v4";
 
 import { signatureV4CrtContainer } from "./signature-v4-crt-container";
-import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "./SignatureV4MultiRegion";
+import type { SignatureV4MultiRegionInit } from "./SignatureV4MultiRegion";
+import { SignatureV4MultiRegion } from "./SignatureV4MultiRegion";
 
 describe("SignatureV4MultiRegion", () => {
   const params: SignatureV4MultiRegionInit = {

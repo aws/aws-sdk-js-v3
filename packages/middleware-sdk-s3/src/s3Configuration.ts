@@ -1,6 +1,7 @@
 import type { Client, Command } from "@smithy/types";
 
-import { S3ExpressIdentityProvider, S3ExpressIdentityProviderImpl } from "./s3-express";
+import type { S3ExpressIdentityProvider } from "./s3-express";
+import { S3ExpressIdentityProviderImpl } from "./s3-express";
 
 /**
  * @public

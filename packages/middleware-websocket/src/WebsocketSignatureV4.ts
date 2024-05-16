@@ -1,6 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { SignatureV4 as BaseSignatureV4 } from "@smithy/signature-v4";
-import {
+import type { SignatureV4 as BaseSignatureV4 } from "@smithy/signature-v4";
+import type {
   HttpRequest as IHttpRequest,
   RequestPresigner,
   RequestPresigningArguments,

@@ -1,7 +1,7 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 
-import { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
-import { S3ExpressIdentityProvider } from "../interfaces/S3ExpressIdentityProvider";
+import type { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
+import type { S3ExpressIdentityProvider } from "../interfaces/S3ExpressIdentityProvider";
 import { S3ExpressIdentityCache } from "./S3ExpressIdentityCache";
 import { S3ExpressIdentityCacheEntry } from "./S3ExpressIdentityCacheEntry";
 

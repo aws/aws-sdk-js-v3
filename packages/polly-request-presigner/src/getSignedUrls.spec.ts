@@ -14,7 +14,7 @@ jest.mock("@aws-sdk/util-format-url", () => ({
   formatUrl: (url: any) => url,
 }));
 
-import { AwsCredentialIdentity, RequestPresigningArguments } from "@smithy/types";
+import type { AwsCredentialIdentity, RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrls";
 

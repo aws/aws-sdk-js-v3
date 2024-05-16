@@ -1,7 +1,7 @@
-import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToNative } from "./convertToNative";
-import { NativeAttributeValue } from "./models";
+import type { NativeAttributeValue } from "./models";
 
 /**
  * An optional configuration object for `convertToNative`

@@ -1,5 +1,6 @@
-import { HttpHandler, HttpRequest } from "@smithy/protocol-http";
-import {
+import type { HttpHandler } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,

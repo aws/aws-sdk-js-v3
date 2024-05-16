@@ -1,8 +1,8 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentity, ParsedIniData, Profile } from "@smithy/types";
+import type { AwsCredentialIdentity, ParsedIniData, Profile } from "@smithy/types";
 
-import { FromIniInit } from "./fromIni";
+import type { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 

@@ -1,4 +1,4 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 
 /**
  * @public

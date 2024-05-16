@@ -1,6 +1,6 @@
-import { Credentials, Profile } from "@aws-sdk/types";
+import type { Credentials, Profile } from "@aws-sdk/types";
 
-import { FromIniInit } from "./fromIni";
+import type { FromIniInit } from "./fromIni";
 
 /**
  * @internal

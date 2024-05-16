@@ -1,4 +1,4 @@
-import { Pluggable, RequestHandler } from "@smithy/types";
+import type { Pluggable, RequestHandler } from "@smithy/types";
 
 import { injectSessionIdMiddleware, injectSessionIdMiddlewareOptions } from "./middleware-session-id";
 import { websocketEndpointMiddleware, websocketEndpointMiddlewareOptions } from "./middleware-websocket-endpoint";

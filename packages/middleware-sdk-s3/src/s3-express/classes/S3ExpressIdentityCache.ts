@@ -1,4 +1,4 @@
-import { S3ExpressIdentityCacheEntry } from "./S3ExpressIdentityCacheEntry";
+import type { S3ExpressIdentityCacheEntry } from "./S3ExpressIdentityCacheEntry";
 
 /**
  * @internal

@@ -1,8 +1,8 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { requireRequestsFrom } from "../../../../private/aws-util-test/src";
-import { S3ExpressIdentity, S3ExpressIdentityProvider } from "./index";
+import type { S3ExpressIdentity, S3ExpressIdentityProvider } from "./index";
 
 describe("middleware-s3-express", () => {
   const s3ExpressIdentityProvider: S3ExpressIdentityProvider = {

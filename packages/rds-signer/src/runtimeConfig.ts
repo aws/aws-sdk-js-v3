@@ -3,7 +3,7 @@ import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@sm
 import { Hash } from "@smithy/hash-node";
 import { loadConfig } from "@smithy/node-config-provider";
 
-import { SignerConfig } from "./Signer";
+import type { SignerConfig } from "./Signer";
 
 /**
  * @internal

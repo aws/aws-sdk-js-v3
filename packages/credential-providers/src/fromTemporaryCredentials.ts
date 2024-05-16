@@ -1,7 +1,7 @@
 import type { AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/client-sts";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
 export interface FromTemporaryCredentialsOptions extends CredentialProviderOptions {
   params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };

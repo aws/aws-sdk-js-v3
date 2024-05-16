@@ -1,4 +1,4 @@
-import { HostAddress, HostResolver as IHostResolver, HostResolverArguments } from "@aws-sdk/types";
+import type { HostAddress, HostResolver as IHostResolver, HostResolverArguments } from "@aws-sdk/types";
 
 /**
  * @internal

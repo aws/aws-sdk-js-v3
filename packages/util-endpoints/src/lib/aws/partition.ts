@@ -1,4 +1,4 @@
-import { EndpointPartition } from "@smithy/types";
+import type { EndpointPartition } from "@smithy/types";
 
 import partitionsInfo from "./partitions.json";
 

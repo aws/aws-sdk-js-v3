@@ -1,7 +1,7 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";
-import {
+import type {
   AwsCredentialIdentity,
   AwsCredentialIdentityProvider,
   ChecksumConstructor,

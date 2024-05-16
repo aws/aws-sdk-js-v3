@@ -2,7 +2,7 @@ import { formatUrl } from "@aws-sdk/util-format-url";
 import { toEndpointV1 } from "@smithy/middleware-endpoint";
 import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";
-import {
+import type {
   AwsCredentialIdentity,
   ChecksumConstructor,
   Endpoint,

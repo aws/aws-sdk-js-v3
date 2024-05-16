@@ -1,4 +1,4 @@
-import { ChecksumConstructor, HashConstructor } from "@smithy/types";
+import type { ChecksumConstructor, HashConstructor } from "@smithy/types";
 import { toUint8Array } from "@smithy/util-utf8";
 
 /**

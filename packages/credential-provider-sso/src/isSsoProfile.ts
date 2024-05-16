@@ -1,6 +1,6 @@
-import { Profile } from "@smithy/types";
+import type { Profile } from "@smithy/types";
 
-import { SsoProfile } from "./types";
+import type { SsoProfile } from "./types";
 
 /**
  * @internal

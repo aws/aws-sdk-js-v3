@@ -1,5 +1,5 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
-import { AwsCredentialIdentity, MemoizedProvider, Provider } from "@smithy/types";
+import type { AwsCredentialIdentity, MemoizedProvider, Provider } from "@smithy/types";
 
 export interface PreviouslyResolved {
   isCustomEndpoint?: boolean;

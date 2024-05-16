@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
@@ -9,7 +9,7 @@ import {
   MetadataBearer,
 } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";

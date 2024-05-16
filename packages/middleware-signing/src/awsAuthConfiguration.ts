@@ -1,6 +1,7 @@
 import { memoize } from "@smithy/property-provider";
-import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
-import {
+import type { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
+import { SignatureV4 } from "@smithy/signature-v4";
+import type {
   AuthScheme,
   AwsCredentialIdentity,
   ChecksumConstructor,

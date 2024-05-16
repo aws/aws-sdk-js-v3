@@ -1,4 +1,4 @@
-import { Provider, UserAgent } from "@smithy/types";
+import type { Provider, UserAgent } from "@smithy/types";
 /**
  * @public
  */

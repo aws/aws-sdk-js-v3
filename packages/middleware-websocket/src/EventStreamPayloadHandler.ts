@@ -1,5 +1,5 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import {
+import type {
   Decoder,
   Encoder,
   EventStreamPayloadHandler as IEventStreamPayloadHandler,

@@ -21,7 +21,7 @@ jest.mock("@smithy/node-config-provider", () => ({
   loadConfig: () => mockAppIdLoader,
 }));
 
-import { UserAgent } from "@smithy/types";
+import type { UserAgent } from "@smithy/types";
 
 import { defaultUserAgent } from ".";
 

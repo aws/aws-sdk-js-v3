@@ -1,5 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { FinalizeHandlerArguments, HandlerExecutionContext } from "@aws-sdk/types";
+import type { FinalizeHandlerArguments, HandlerExecutionContext } from "@aws-sdk/types";
 
 import { queueUrlMiddleware } from "./queue-url";
 

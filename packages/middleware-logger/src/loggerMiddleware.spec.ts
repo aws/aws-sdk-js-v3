@@ -1,4 +1,4 @@
-import { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
+import type { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
 

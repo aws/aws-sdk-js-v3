@@ -1,4 +1,4 @@
-import { Provider } from "@smithy/types";
+import type { Provider } from "@smithy/types";
 
 /**
  * @internal

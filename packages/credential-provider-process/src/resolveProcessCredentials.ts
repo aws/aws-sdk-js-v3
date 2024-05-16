@@ -1,10 +1,10 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
+import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 import { exec } from "child_process";
 import { promisify } from "util";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
-import { ProcessCredentials } from "./ProcessCredentials";
+import type { ProcessCredentials } from "./ProcessCredentials";
 
 /**
  * @internal

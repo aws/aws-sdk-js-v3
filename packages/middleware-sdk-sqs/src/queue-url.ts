@@ -1,4 +1,4 @@
-import {
+import type {
   Endpoint,
   EndpointV2,
   FinalizeHandlerArguments,

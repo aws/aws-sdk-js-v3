@@ -1,5 +1,6 @@
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import {
+import type { HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
+import type {
   DeserializeHandler,
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,
@@ -9,8 +10,8 @@ import {
   RelativeMiddlewareOptions,
 } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm } from "./constants";
+import type { PreviouslyResolved } from "./configuration";
+import type { ChecksumAlgorithm } from "./constants";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";

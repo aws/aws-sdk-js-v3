@@ -1,4 +1,4 @@
-import { TokenInputConfig, TokenResolvedConfig } from "./configurations";
+import type { TokenInputConfig, TokenResolvedConfig } from "./configurations";
 import { normalizeTokenProvider } from "./normalizeTokenProvider";
 import { tokenDefaultProvider } from "./tokenDefaultProvider";
 

@@ -1,6 +1,6 @@
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 
-import { ProcessCredentials } from "./ProcessCredentials";
+import type { ProcessCredentials } from "./ProcessCredentials";
 
 /**
  * @internal

@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 import { promisify } from "util";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";

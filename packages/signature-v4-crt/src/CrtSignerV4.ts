@@ -1,14 +1,8 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { parseQueryString } from "@smithy/querystring-parser";
-import {
-  getCanonicalQuery,
-  getPayloadHash,
-  moveHeadersToQuery,
-  prepareRequest,
-  SignatureV4CryptoInit,
-  SignatureV4Init,
-} from "@smithy/signature-v4";
-import {
+import type { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
+import { getCanonicalQuery, getPayloadHash, moveHeadersToQuery, prepareRequest } from "@smithy/signature-v4";
+import type {
   HttpRequest,
   Provider,
   QueryParameterBag,

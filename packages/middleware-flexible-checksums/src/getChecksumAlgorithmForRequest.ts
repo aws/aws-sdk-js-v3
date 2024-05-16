@@ -1,4 +1,5 @@
-import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, S3_EXPRESS_DEFAULT_CHECKSUM_ALGORITHM } from "./constants";
+import type { ChecksumAlgorithm } from "./constants";
+import { DEFAULT_CHECKSUM_ALGORITHM, S3_EXPRESS_DEFAULT_CHECKSUM_ALGORITHM } from "./constants";
 import { CLIENT_SUPPORTED_ALGORITHMS } from "./types";
 
 export interface GetChecksumAlgorithmForRequestOptions {

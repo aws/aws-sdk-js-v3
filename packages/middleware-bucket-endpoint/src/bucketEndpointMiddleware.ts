@@ -1,6 +1,6 @@
 import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOutput,
@@ -12,7 +12,7 @@ import {
 } from "@smithy/types";
 
 import { bucketHostname } from "./bucketHostname";
-import { BucketEndpointResolvedConfig } from "./configurations";
+import type { BucketEndpointResolvedConfig } from "./configurations";
 
 export const bucketEndpointMiddleware =
   (options: BucketEndpointResolvedConfig): BuildMiddleware<any, any> =>

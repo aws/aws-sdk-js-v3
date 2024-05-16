@@ -1,6 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { ServiceException } from "@smithy/smithy-client";
-import {
+import type { ServiceException } from "@smithy/smithy-client";
+import type {
   AuthScheme,
   AwsCredentialIdentity,
   HandlerExecutionContext,

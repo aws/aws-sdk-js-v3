@@ -1,8 +1,7 @@
-import { ARN } from "@aws-sdk/util-arn-parser";
+import type { ARN } from "@aws-sdk/util-arn-parser";
 
+import type { ArnHostnameParams, BucketHostnameParams } from "./bucketHostnameUtils";
 import {
-  ArnHostnameParams,
-  BucketHostnameParams,
   DOT_PATTERN,
   getArnResources,
   getSuffix,

@@ -1,7 +1,7 @@
-import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToAttr } from "./convertToAttr";
-import { NativeAttributeBinary, NativeAttributeValue } from "./models";
+import type { NativeAttributeBinary, NativeAttributeValue } from "./models";
 
 /**
  * An optional configuration object for `marshall`

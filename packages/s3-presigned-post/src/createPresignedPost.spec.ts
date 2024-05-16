@@ -1,5 +1,5 @@
 import { defaultEndpointResolver } from "@aws-sdk/client-s3/src/endpoint/endpointResolver";
-import { HttpRequest, SourceData } from "@smithy/types";
+import type { HttpRequest, SourceData } from "@smithy/types";
 
 import {
   ALGORITHM_IDENTIFIER,

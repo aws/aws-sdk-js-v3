@@ -6,7 +6,7 @@ import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identit
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
 import { ENV_PROFILE } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
+import type { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";
 

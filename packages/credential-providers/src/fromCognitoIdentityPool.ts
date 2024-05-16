@@ -1,9 +1,9 @@
 import type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
-import {
+import type {
   CognitoIdentityCredentialProvider,
-  fromCognitoIdentityPool as _fromCognitoIdentityPool,
   FromCognitoIdentityPoolParameters as _FromCognitoIdentityPoolParameters,
 } from "@aws-sdk/credential-provider-cognito-identity";
+import { fromCognitoIdentityPool as _fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 
 export interface FromCognitoIdentityPoolParameters extends Omit<_FromCognitoIdentityPoolParameters, "client"> {
   clientConfig?: CognitoIdentityClientConfig;

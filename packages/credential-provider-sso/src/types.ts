@@ -1,4 +1,4 @@
-import { Profile } from "@smithy/types";
+import type { Profile } from "@smithy/types";
 
 /**
  * @internal

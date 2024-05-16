@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
@@ -8,7 +8,7 @@ import {
   MetadataBearer,
 } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configurations";
+import type { PreviouslyResolved } from "./configurations";
 
 export function addGlacierApiVersionMiddleware(options: PreviouslyResolved): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>

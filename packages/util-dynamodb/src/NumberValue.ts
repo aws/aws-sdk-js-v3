@@ -1,4 +1,4 @@
-import { NumberValue as INumberValue } from "./models";
+import type { NumberValue as INumberValue } from "./models";
 
 /**
  *

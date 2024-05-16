@@ -1,4 +1,5 @@
-import { fromWebToken as _fromWebToken, FromWebTokenInit } from "@aws-sdk/credential-provider-web-identity";
+import type { FromWebTokenInit } from "@aws-sdk/credential-provider-web-identity";
+import { fromWebToken as _fromWebToken } from "@aws-sdk/credential-provider-web-identity";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**

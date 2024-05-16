@@ -1,4 +1,4 @@
-import { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
+import type { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
 
 /**
  * @internal

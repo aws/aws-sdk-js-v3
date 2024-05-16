@@ -1,5 +1,6 @@
-import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "@aws-sdk/middleware-signing";
-import {
+import type { AwsAuthInputConfig, AwsAuthResolvedConfig } from "@aws-sdk/middleware-signing";
+import { resolveAwsAuthConfig } from "@aws-sdk/middleware-signing";
+import type {
   AwsCredentialIdentity,
   ChecksumConstructor,
   Client,

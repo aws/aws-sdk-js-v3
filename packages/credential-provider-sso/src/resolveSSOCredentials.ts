@@ -1,9 +1,10 @@
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { getSSOTokenFromFile, SSOToken } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { SSOToken } from "@smithy/shared-ini-file-loader";
+import { getSSOTokenFromFile } from "@smithy/shared-ini-file-loader";
+import type { AwsCredentialIdentity } from "@smithy/types";
 
-import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
+import type { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
 import type { GetRoleCredentialsCommandOutput } from "./loadSso";
 
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;

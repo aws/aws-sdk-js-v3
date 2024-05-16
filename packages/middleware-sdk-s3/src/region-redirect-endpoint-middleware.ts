@@ -1,4 +1,4 @@
-import {
+import type {
   HandlerExecutionContext,
   MetadataBearer,
   RelativeMiddlewareOptions,
@@ -8,7 +8,7 @@ import {
   SerializeMiddleware,
 } from "@smithy/types";
 
-import { PreviouslyResolved } from "./region-redirect-middleware";
+import type { PreviouslyResolved } from "./region-redirect-middleware";
 
 /**
  * @internal

@@ -1,4 +1,4 @@
-import {
+import type {
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
@@ -10,7 +10,7 @@ import {
 import { toHex } from "@smithy/util-hex-encoding";
 import { toUint8Array } from "@smithy/util-utf8";
 
-import { PreviouslyResolved } from "./configurations";
+import type { PreviouslyResolved } from "./configurations";
 
 interface SendMessageResult {
   MD5OfMessageBody?: string;

@@ -1,6 +1,6 @@
 import LRUCache from "mnemonist/lru-cache";
 
-import { Endpoint } from "./Endpoint";
+import type { Endpoint } from "./Endpoint";
 import { EndpointCache } from "./EndpointCache";
 
 jest.mock("mnemonist/lru-cache");

@@ -1,6 +1,6 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import {
+import type {
   AuthScheme,
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -13,7 +13,7 @@ import {
   RequestSigner,
 } from "@smithy/types";
 
-import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
+import type { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 

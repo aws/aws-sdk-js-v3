@@ -1,4 +1,4 @@
-import { Storage } from "./Storage";
+import type { Storage } from "./Storage";
 
 /**
  * @internal

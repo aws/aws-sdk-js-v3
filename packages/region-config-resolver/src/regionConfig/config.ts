@@ -1,4 +1,4 @@
-import { LoadedConfigSelectors, LocalConfigOptions } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors, LocalConfigOptions } from "@smithy/node-config-provider";
 
 /**
  * @internal

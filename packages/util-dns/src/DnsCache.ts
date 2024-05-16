@@ -1,4 +1,4 @@
-import { HostAddress, HostResolverArguments } from "@aws-sdk/types";
+import type { HostAddress, HostResolverArguments } from "@aws-sdk/types";
 
 /**
  * DNS cache used by a {@link HostResolver} which maps:

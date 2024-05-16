@@ -1,4 +1,4 @@
-import { HostResolverArguments } from "@aws-sdk/types";
+import type { HostResolverArguments } from "@aws-sdk/types";
 
 import { HostEntryTable } from "./HostEntryTable";
 

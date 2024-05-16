@@ -1,6 +1,6 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { SignatureV4 } from "@smithy/signature-v4";
-import {
+import type {
   HttpRequest as IHttpRequest,
   Provider,
   RequestPresigningArguments,

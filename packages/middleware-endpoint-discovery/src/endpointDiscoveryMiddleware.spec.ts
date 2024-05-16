@@ -1,6 +1,6 @@
-import { EndpointCache } from "@aws-sdk/endpoint-cache";
+import type { EndpointCache } from "@aws-sdk/endpoint-cache";
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerArguments, MiddlewareStack } from "@smithy/types";
+import type { BuildHandlerArguments, MiddlewareStack } from "@smithy/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { getCacheKey } from "./getCacheKey";

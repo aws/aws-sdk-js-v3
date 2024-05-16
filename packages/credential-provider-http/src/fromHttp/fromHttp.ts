@@ -1,6 +1,6 @@
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 import fs from "fs/promises";
 
 import { checkUrl } from "./checkUrl";

@@ -1,7 +1,7 @@
 import { HostAddressType } from "@aws-sdk/types";
 
 import { HostAddressEntryCollection } from "./HostAddressEntryCollection";
-import { HostAddressEntry } from "./HostEntry";
+import type { HostAddressEntry } from "./HostEntry";
 
 describe(HostAddressEntryCollection.name, () => {
   let collection: HostAddressEntryCollection;

@@ -1,4 +1,4 @@
-import { SSOToken } from "@smithy/shared-ini-file-loader";
+import type { SSOToken } from "@smithy/shared-ini-file-loader";
 
 import { getSsoOidcClient } from "./getSsoOidcClient";
 

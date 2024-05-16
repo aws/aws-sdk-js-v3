@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   AbsoluteLocation,
   BuildHandler,
   BuildHandlerArguments,

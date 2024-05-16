@@ -1,5 +1,5 @@
 import { fromProcess } from "@aws-sdk/credential-provider-process";
-import { Credentials } from "@aws-sdk/types";
+import type { Credentials } from "@aws-sdk/types";
 
 import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCredentials";
 
