@@ -70,6 +70,14 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  * //     NotificationConfiguration: { // NotificationConfiguration
  * //       NotificationTopicArn: "STRING_VALUE",
  * //     },
+ * //     WorkerAccessConfiguration: { // WorkerAccessConfiguration
+ * //       S3Presign: { // S3Presign
+ * //         IamPolicyConstraints: { // IamPolicyConstraints
+ * //           SourceIp: "Enabled" || "Disabled",
+ * //           VpcSourceIp: "Enabled" || "Disabled",
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

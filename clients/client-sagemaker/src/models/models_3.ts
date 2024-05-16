@@ -73,6 +73,7 @@ import {
   RecommendationJobType,
   ResourceLimits,
   RetryStrategy,
+  ServiceCatalogProvisioningDetails,
   SpaceSettings,
   SpaceSharingSettings,
   StudioLifecycleConfigAppType,
@@ -124,7 +125,6 @@ import {
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
-  PipelineExecutionStatus,
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -140,7 +140,163 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectStatus = {
+  CREATE_COMPLETED: "CreateCompleted",
+  CREATE_FAILED: "CreateFailed",
+  CREATE_IN_PROGRESS: "CreateInProgress",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_IN_PROGRESS: "DeleteInProgress",
+  PENDING: "Pending",
+  UPDATE_COMPLETED: "UpdateCompleted",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATE_IN_PROGRESS: "UpdateInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+/**
+ * <p>Details of a provisioned service catalog product. For information about service catalog,
+ *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+ *                 Catalog</a>.</p>
+ * @public
+ */
+export interface ServiceCatalogProvisionedProductDetails {
+  /**
+   * <p>The ID of the provisioned product.</p>
+   * @public
+   */
+  ProvisionedProductId?: string;
+
+  /**
+   * <p>The current status of the product.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ProvisionedProductStatusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeProjectOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The ID of the project.</p>
+   * @public
+   */
+  ProjectId: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   * @public
+   */
+  ProjectDescription?: string;
+
+  /**
+   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   *             Catalog</a>.</p>
+   * @public
+   */
+  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
+
+  /**
+   * <p>Information about a provisioned service catalog product.</p>
+   * @public
+   */
+  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
+
+  /**
+   * <p>The status of the project.</p>
+   * @public
+   */
+  ProjectStatus: ProjectStatus | undefined;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>The time when the project was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when project was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSpaceRequest {
+  /**
+   * <p>The ID of the associated domain.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   * @public
+   */
+  SpaceName: string | undefined;
+}
 
 /**
  * @public
@@ -2129,6 +2285,12 @@ export interface Workteam {
    * @public
    */
   NotificationConfiguration?: NotificationConfiguration;
+
+  /**
+   * <p>Describes any access constraints that have been defined for Amazon S3 resources.</p>
+   * @public
+   */
+  WorkerAccessConfiguration?: WorkerAccessConfiguration;
 }
 
 /**
@@ -5861,10 +6023,9 @@ export interface ListAppsRequest {
   NextToken?: string;
 
   /**
-   * <p>The total number of items to return in the response. If the total
-   *           number of items available is more than the value specified, a <code>NextToken</code>
-   *           is provided in the response. To resume pagination, provide the <code>NextToken</code>
-   *           value in the as part of a subsequent call. The default value is 10.</p>
+   * <p>This parameter defines the maximum number of results that can be returned in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
+   *           more results available than the value specified, a <code>NextToken</code>
+   *         is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
    * @public
    */
   MaxResults?: number;
@@ -7040,10 +7201,9 @@ export interface ListDomainsRequest {
   NextToken?: string;
 
   /**
-   * <p>The total number of items to return in the response. If the total number of items
-   *       available is more than the value specified, a <code>NextToken</code> is provided in the
-   *       response. To resume pagination, provide the <code>NextToken</code> value in the as part of a
-   *       subsequent call. The default value is 10.</p>
+   * <p>This parameter defines the maximum number of results that can be returned in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
+   *       more results available than the value specified, a <code>NextToken</code>
+   *       is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
    * @public
    */
   MaxResults?: number;
@@ -11063,130 +11223,4 @@ export interface ListNotebookInstancesOutput {
    * @public
    */
   NotebookInstances?: NotebookInstanceSummary[];
-}
-
-/**
- * @public
- * @enum
- */
-export const SortPipelineExecutionsBy = {
-  CREATION_TIME: "CreationTime",
-  PIPELINE_EXECUTION_ARN: "PipelineExecutionArn",
-} as const;
-
-/**
- * @public
- */
-export type SortPipelineExecutionsBy = (typeof SortPipelineExecutionsBy)[keyof typeof SortPipelineExecutionsBy];
-
-/**
- * @public
- */
-export interface ListPipelineExecutionsRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
-   * @public
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>A filter that returns the pipeline executions that were created after a specified
-   *          time.</p>
-   * @public
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * <p>A filter that returns the pipeline executions that were created before a specified
-   *          time.</p>
-   * @public
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortPipelineExecutionsBy;
-
-  /**
-   * <p>The sort order for results.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of pipeline executions to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>A pipeline execution summary.</p>
- * @public
- */
-export interface PipelineExecutionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string;
-
-  /**
-   * <p>The start time of the pipeline execution.</p>
-   * @public
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The status of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionStatus?: PipelineExecutionStatus;
-
-  /**
-   * <p>The description of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionDescription?: string;
-
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionDisplayName?: string;
-
-  /**
-   * <p>A message generated by SageMaker Pipelines describing why the pipeline execution failed.</p>
-   * @public
-   */
-  PipelineExecutionFailureReason?: string;
-}
-
-/**
- * @public
- */
-export interface ListPipelineExecutionsResponse {
-  /**
-   * <p>Contains a sorted list of pipeline execution summary objects matching the specified
-   *          filters. Each run summary includes the Amazon Resource Name (ARN) of the pipeline execution, the run date,
-   *          and the status. This list can be empty. </p>
-   * @public
-   */
-  PipelineExecutionSummaries?: PipelineExecutionSummary[];
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
-   *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
 }

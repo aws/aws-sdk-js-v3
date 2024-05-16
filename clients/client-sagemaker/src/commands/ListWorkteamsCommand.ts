@@ -75,6 +75,14 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * //       NotificationConfiguration: { // NotificationConfiguration
  * //         NotificationTopicArn: "STRING_VALUE",
  * //       },
+ * //       WorkerAccessConfiguration: { // WorkerAccessConfiguration
+ * //         S3Presign: { // S3Presign
+ * //           IamPolicyConstraints: { // IamPolicyConstraints
+ * //             SourceIp: "Enabled" || "Disabled",
+ * //             VpcSourceIp: "Enabled" || "Disabled",
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

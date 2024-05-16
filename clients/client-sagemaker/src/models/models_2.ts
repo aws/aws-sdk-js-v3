@@ -162,7 +162,6 @@ import {
   RecommendationJobType,
   RetryStrategy,
   RootAccess,
-  ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
@@ -1488,6 +1487,63 @@ export interface NotificationConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const EnabledOrDisabled = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type EnabledOrDisabled = (typeof EnabledOrDisabled)[keyof typeof EnabledOrDisabled];
+
+/**
+ * <p>Use this parameter to specify a supported global condition key that is added to the IAM policy.</p>
+ * @public
+ */
+export interface IamPolicyConstraints {
+  /**
+   * <p>When <code>SourceIp</code> is <code>Enabled</code> the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a <code>Condition</code> used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal.</p>
+   * @public
+   */
+  SourceIp?: EnabledOrDisabled;
+
+  /**
+   * <p>When <code>VpcSourceIp</code> is <code>Enabled</code> the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a <code>Condition</code> used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html">Use Amazon VPC mode from a private worker portal</a>.</p>
+   * @public
+   */
+  VpcSourceIp?: EnabledOrDisabled;
+}
+
+/**
+ * <p>This object defines the access restrictions to Amazon S3 resources that are included in custom worker task templates using the Liquid filter, <code>grant_read_access</code>.</p>
+ *          <p>To learn more about how custom templates are created, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-custom-templates.html">Create custom worker task templates</a>.</p>
+ * @public
+ */
+export interface S3Presign {
+  /**
+   * <p>Use this parameter to specify the allowed request source. Possible sources are either <code>SourceIp</code> or <code>VpcSourceIp</code>.</p>
+   * @public
+   */
+  IamPolicyConstraints?: IamPolicyConstraints;
+}
+
+/**
+ * <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
+ * @public
+ */
+export interface WorkerAccessConfiguration {
+  /**
+   * <p>Defines any Amazon S3 resource constraints.</p>
+   * @public
+   */
+  S3Presign?: S3Presign;
+}
+
+/**
+ * @public
  */
 export interface CreateWorkteamRequest {
   /**
@@ -1535,6 +1591,12 @@ export interface CreateWorkteamRequest {
    * @public
    */
   NotificationConfiguration?: NotificationConfiguration;
+
+  /**
+   * <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
+   * @public
+   */
+  WorkerAccessConfiguration?: WorkerAccessConfiguration;
 
   /**
    * <p>An array of key-value pairs.</p>
@@ -9887,161 +9949,6 @@ export interface DescribeProjectInput {
    * @public
    */
   ProjectName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProjectStatus = {
-  CREATE_COMPLETED: "CreateCompleted",
-  CREATE_FAILED: "CreateFailed",
-  CREATE_IN_PROGRESS: "CreateInProgress",
-  DELETE_COMPLETED: "DeleteCompleted",
-  DELETE_FAILED: "DeleteFailed",
-  DELETE_IN_PROGRESS: "DeleteInProgress",
-  PENDING: "Pending",
-  UPDATE_COMPLETED: "UpdateCompleted",
-  UPDATE_FAILED: "UpdateFailed",
-  UPDATE_IN_PROGRESS: "UpdateInProgress",
-} as const;
-
-/**
- * @public
- */
-export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
-
-/**
- * <p>Details of a provisioned service catalog product. For information about service catalog,
- *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
- *                 Catalog</a>.</p>
- * @public
- */
-export interface ServiceCatalogProvisionedProductDetails {
-  /**
-   * <p>The ID of the provisioned product.</p>
-   * @public
-   */
-  ProvisionedProductId?: string;
-
-  /**
-   * <p>The current status of the product.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ProvisionedProductStatusMessage?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeProjectOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   * @public
-   */
-  ProjectArn: string | undefined;
-
-  /**
-   * <p>The name of the project.</p>
-   * @public
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * <p>The ID of the project.</p>
-   * @public
-   */
-  ProjectId: string | undefined;
-
-  /**
-   * <p>The description of the project.</p>
-   * @public
-   */
-  ProjectDescription?: string;
-
-  /**
-   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
-   *             Catalog</a>.</p>
-   * @public
-   */
-  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
-
-  /**
-   * <p>Information about a provisioned service catalog product.</p>
-   * @public
-   */
-  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
-
-  /**
-   * <p>The status of the project.</p>
-   * @public
-   */
-  ProjectStatus: ProjectStatus | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>The time when the project was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when project was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext;
-}
-
-/**
- * @public
- */
-export interface DescribeSpaceRequest {
-  /**
-   * <p>The ID of the associated domain.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   * @public
-   */
-  SpaceName: string | undefined;
 }
 
 /**
