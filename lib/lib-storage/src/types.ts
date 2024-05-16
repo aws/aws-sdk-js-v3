@@ -1,4 +1,4 @@
-import { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
+import type { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
 import type { AbortController } from "@smithy/types";
 
 export interface Progress {

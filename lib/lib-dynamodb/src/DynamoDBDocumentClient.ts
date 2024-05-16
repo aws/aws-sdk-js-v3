@@ -1,30 +1,33 @@
 // smithy-typescript generated code
-import {
+import type {
   DynamoDBClient,
   DynamoDBClientResolvedConfig,
   ServiceInputTypes as __ServiceInputTypes,
   ServiceOutputTypes as __ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
-import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
+import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 import { Client as __Client } from "@smithy/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import {
+import type {
   BatchExecuteStatementCommandInput,
   BatchExecuteStatementCommandOutput,
 } from "./commands/BatchExecuteStatementCommand";
-import { BatchGetCommandInput, BatchGetCommandOutput } from "./commands/BatchGetCommand";
-import { BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
-import { DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
-import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "./commands/ExecuteStatementCommand";
-import { ExecuteTransactionCommandInput, ExecuteTransactionCommandOutput } from "./commands/ExecuteTransactionCommand";
-import { GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
-import { PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
-import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
-import { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
-import { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
-import { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
+import type { BatchGetCommandInput, BatchGetCommandOutput } from "./commands/BatchGetCommand";
+import type { BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
+import type { DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
+import type { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "./commands/ExecuteStatementCommand";
+import type {
+  ExecuteTransactionCommandInput,
+  ExecuteTransactionCommandOutput,
+} from "./commands/ExecuteTransactionCommand";
+import type { GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
+import type { PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
+import type { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import type { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
+import type { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
+import type { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
+import type { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
 
 /**
  * @public

@@ -1,30 +1,29 @@
-import {
+import type {
   CompletedPart,
-  CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandOutput,
-  CreateMultipartUploadCommand,
   CreateMultipartUploadCommandOutput,
-  PutObjectCommand,
   PutObjectCommandInput,
-  PutObjectTaggingCommand,
   S3Client,
   Tag,
+} from "@aws-sdk/client-s3";
+import {
+  CompleteMultipartUploadCommand,
+  CreateMultipartUploadCommand,
+  PutObjectCommand,
+  PutObjectTaggingCommand,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
-import {
-  EndpointParameterInstructionsSupplier,
-  getEndpointFromInstructions,
-  toEndpointV1,
-} from "@smithy/middleware-endpoint";
-import { HttpRequest } from "@smithy/protocol-http";
+import type { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
+import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-endpoint";
+import type { HttpRequest } from "@smithy/protocol-http";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type { AbortController as IAbortController, AbortSignal as IAbortSignal, Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";
 import { getChunk } from "./chunker";
-import { BodyDataTypes, Options, Progress } from "./types";
+import type { BodyDataTypes, Options, Progress } from "./types";
 
 export interface RawDataPart {
   partNumber: number;

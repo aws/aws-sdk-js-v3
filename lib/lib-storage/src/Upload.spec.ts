@@ -65,11 +65,13 @@ jest.mock("@aws-sdk/client-s3", () => ({
   PutObjectCommand: putObjectMock,
 }));
 
-import { CompleteMultipartUploadCommandOutput, S3, S3Client } from "@aws-sdk/client-s3";
+import type { CompleteMultipartUploadCommandOutput } from "@aws-sdk/client-s3";
+import { S3, S3Client } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
 import { createHash } from "crypto";
 
-import { Progress, Upload } from "./index";
+import type { Progress } from "./index";
+import { Upload } from "./index";
 
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 

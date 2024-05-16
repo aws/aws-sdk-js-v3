@@ -1,7 +1,7 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-
 import { Readable } from "stream";
+
 import { configuration } from "./config";
 
 const Bucket = configuration.Bucket;
@@ -23,7 +23,7 @@ const fakeStreamOfUnknownlength = Readable.from(generateContents());
 
 const uploadIndeterminateLengthStreamNode = async () => {
   const Key = configuration.Key;
-  let upload = new Upload({
+  const upload = new Upload({
     client: new S3Client({ region }),
     params: {
       Key,

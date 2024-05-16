@@ -1,4 +1,5 @@
-import { marshall, marshallOptions, unmarshall, unmarshallOptions } from "@aws-sdk/util-dynamodb";
+import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
+import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 /**
  * @internal
