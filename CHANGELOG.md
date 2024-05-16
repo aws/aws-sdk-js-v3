@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.578.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.577.0...v3.578.0) (2024-05-16)
+
+
+### Bug Fixes
+
+* **lib-storage:** send a single chunk if the stream is equal to partsize ([#5036](https://github.com/aws/aws-sdk-js-v3/issues/5036)) ([9466c82](https://github.com/aws/aws-sdk-js-v3/commit/9466c8256ca61f4910df76758f06f3aa31a61fba))
+
+
+### Features
+
+* **client-acm-pca:** This release adds support for waiters to fail on AccessDeniedException when having insufficient permissions ([d4c2ced](https://github.com/aws/aws-sdk-js-v3/commit/d4c2ced795c69a3335a1f1bf4f7b3c421ebf5297))
+* **client-kafka:** AWS MSK support for Broker Removal. ([f11ecac](https://github.com/aws/aws-sdk-js-v3/commit/f11ecace41cfc9e5cfdff01feb4ba6d192f9cdaf))
+* **client-mwaa:** Amazon MWAA now supports Airflow web server auto scaling to automatically handle increased demand from REST APIs, Command Line Interface (CLI), or more Airflow User Interface (UI) users. Customers can specify maximum and minimum web server instances during environment creation and update workflow. ([9a65822](https://github.com/aws/aws-sdk-js-v3/commit/9a6582234b3f2db3df0e327fee3336dd99f33714))
+* **client-quicksight:** This release adds DescribeKeyRegistration and UpdateKeyRegistration APIs to manage QuickSight Customer Managed Keys (CMK). ([5e19279](https://github.com/aws/aws-sdk-js-v3/commit/5e19279d65ae42f982a52ef919592c469be278e8))
+* **client-sagemaker:** Introduced WorkerAccessConfiguration to SageMaker Workteam. This allows customers to configure resource access for workers in a workteam. ([9311271](https://github.com/aws/aws-sdk-js-v3/commit/93112712809a07e29f7129355191c9bba82aef25))
+* **clients:** update client endpoints as of 2024-05-16 ([26087ad](https://github.com/aws/aws-sdk-js-v3/commit/26087ade2b9482c25b3694bf714d33fc721ca1ad))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 

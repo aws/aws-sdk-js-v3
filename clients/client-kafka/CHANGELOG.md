@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.578.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.577.0...v3.578.0) (2024-05-16)
+
+
+### Features
+
+* **client-kafka:** AWS MSK support for Broker Removal. ([f11ecac](https://github.com/aws/aws-sdk-js-v3/commit/f11ecace41cfc9e5cfdff01feb4ba6d192f9cdaf))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

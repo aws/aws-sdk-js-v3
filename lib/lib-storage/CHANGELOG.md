@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.578.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.577.0...v3.578.0) (2024-05-16)
+
+
+### Bug Fixes
+
+* **lib-storage:** send a single chunk if the stream is equal to partsize ([#5036](https://github.com/aws/aws-sdk-js-v3/issues/5036)) ([9466c82](https://github.com/aws/aws-sdk-js-v3/commit/9466c8256ca61f4910df76758f06f3aa31a61fba))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage
