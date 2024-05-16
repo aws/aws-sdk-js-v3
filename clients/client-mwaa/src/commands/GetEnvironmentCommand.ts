@@ -118,6 +118,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //     DatabaseVpcEndpointService: "STRING_VALUE",
  * //     CeleryExecutorQueue: "STRING_VALUE",
  * //     EndpointManagement: "STRING_VALUE",
+ * //     MinWebservers: Number("int"),
+ * //     MaxWebservers: Number("int"),
  * //   },
  * // };
  *
