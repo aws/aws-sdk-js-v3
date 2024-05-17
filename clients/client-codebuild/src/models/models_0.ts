@@ -2585,7 +2585,7 @@ export interface Build {
   logs?: LogsLocation;
 
   /**
-   * <p>How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before timing out this build if it does not
+   * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before timing out this build if it does not
    *             get marked as completed.</p>
    * @public
    */
@@ -3833,7 +3833,7 @@ export interface Project {
   serviceRole?: string;
 
   /**
-   * <p>How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before timing out any
+   * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before timing out any
    *       related build that did not get marked as completed. The default is 60 minutes.</p>
    * @public
    */
@@ -4806,7 +4806,7 @@ export interface CreateProjectInput {
   serviceRole: string | undefined;
 
   /**
-   * <p>How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before it times out
+   * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before it times out
    *       any build that has not been marked as completed. The default is 60 minutes.</p>
    * @public
    */
@@ -7226,7 +7226,7 @@ export interface StartBuildInput {
   privilegedModeOverride?: boolean;
 
   /**
-   * <p>The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this
+   * <p>The number of build timeout minutes, from 5 to 2160 (36 hours), that overrides, for this
    *             build only, the latest setting already defined in the build project.</p>
    * @public
    */
@@ -7959,7 +7959,7 @@ export interface UpdateProjectInput {
   serviceRole?: string;
 
   /**
-   * <p>The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before
+   * <p>The replacement value in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before
    *       timing out any related build that did not get marked as completed.</p>
    * @public
    */
