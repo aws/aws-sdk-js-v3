@@ -1651,6 +1651,7 @@ export class UnsupportedProtocolException extends __BaseException {
  */
 export const IpAddressType = {
   DUALSTACK: "dualstack",
+  DUALSTACK_WITHOUT_PUBLIC_IPV4: "dualstack-without-public-ipv4",
   IPV4: "ipv4",
 } as const;
 
@@ -1803,9 +1804,18 @@ export interface CreateLoadBalancerInput {
   Type?: LoadBalancerTypeEnum;
 
   /**
-   * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
-   *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
-   *       addresses). </p>
+   * <p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p>
+   *          <p>[Application Load Balancers] The IP address type. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
+   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
+   *       addresses, with private IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers] The IP address type. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
+   *       (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code>
+   *       for a load balancer with a UDP or TCP_UDP listener.</p>
+   *          <p>[Gateway Load Balancers] The IP address type. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
+   *       (for IPv4 and IPv6 addresses).</p>
    * @public
    */
   IpAddressType?: IpAddressType;
@@ -1935,9 +1945,15 @@ export interface LoadBalancer {
   SecurityGroups?: string[];
 
   /**
-   * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
-   *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
-   *       addresses).</p>
+   * <p>[Application Load Balancers] The type of IP addresses used for public or private
+   *       connections by the subnets attached to your load balancer. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
+   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
+   *       addresses, with private IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers and Gateway Load Balancers] The type of IP addresses
+   *       used for public or private connections by the subnets attached to your load
+   *       balancer. The possible values are <code>ipv4</code> (for only IPv4 addresses)
+   *       and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
    * @public
    */
   IpAddressType?: IpAddressType;
@@ -5197,9 +5213,18 @@ export interface SetIpAddressTypeInput {
   LoadBalancerArn: string | undefined;
 
   /**
-   * <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *         <code>dualstack</code> (for IPv4 and IPv6 addresses).  You can’t specify <code>dualstack</code> for a load balancer
-   *       with a UDP or TCP_UDP listener.</p>
+   * <p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p>
+   *          <p>[Application Load Balancers] The IP address type. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
+   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
+   *       addresses, with private IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers] The IP address type. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
+   *       (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code>
+   *       for a load balancer with a UDP or TCP_UDP listener.</p>
+   *          <p>[Gateway Load Balancers] The IP address type. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
+   *       (for IPv4 and IPv6 addresses).</p>
    * @public
    */
   IpAddressType: IpAddressType | undefined;
@@ -5359,7 +5384,11 @@ export interface SetSubnetsInput {
   SubnetMappings?: SubnetMapping[];
 
   /**
-   * <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load
+   * <p>[Application Load Balancers] The IP address type. The possible values are
+   *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
+   *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
+   *       addresses, with private IPv4 and IPv6 addresses).</p>
+   *          <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load
    *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify
    *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
@@ -5382,7 +5411,8 @@ export interface SetSubnetsOutput {
   AvailabilityZones?: AvailabilityZone[];
 
   /**
-   * <p>[Network Load Balancers] The IP address type.</p>
+   * <p>[Application Load Balancers] The IP address type.</p>
+   *          <p>[Network Load Balancers] The IP address type.</p>
    *          <p>[Gateway Load Balancers] The IP address type.</p>
    * @public
    */

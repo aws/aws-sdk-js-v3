@@ -40,12 +40,12 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * const client = new ElasticLoadBalancingV2Client(config);
  * const input = { // SetIpAddressTypeInput
  *   LoadBalancerArn: "STRING_VALUE", // required
- *   IpAddressType: "ipv4" || "dualstack", // required
+ *   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4", // required
  * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);
  * // { // SetIpAddressTypeOutput
- * //   IpAddressType: "ipv4" || "dualstack",
+ * //   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  * // };
  *
  * ```
