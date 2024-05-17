@@ -20,6 +20,7 @@ export * from "./DescribeResourceCommand";
 export * from "./DescribeTransactionCommand";
 export * from "./ExtendTransactionCommand";
 export * from "./GetDataCellsFilterCommand";
+export * from "./GetDataLakePrincipalCommand";
 export * from "./GetDataLakeSettingsCommand";
 export * from "./GetEffectivePermissionsForPathCommand";
 export * from "./GetLFTagCommand";

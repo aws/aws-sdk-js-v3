@@ -375,6 +375,14 @@ GetDataCellsFilter
 </details>
 <details>
 <summary>
+GetDataLakePrincipal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetDataLakePrincipalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetDataLakePrincipalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetDataLakePrincipalCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataLakeSettings
 </summary>
 

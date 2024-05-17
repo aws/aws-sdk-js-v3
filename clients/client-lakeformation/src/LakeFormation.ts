@@ -100,6 +100,11 @@ import {
   GetDataCellsFilterCommandOutput,
 } from "./commands/GetDataCellsFilterCommand";
 import {
+  GetDataLakePrincipalCommand,
+  GetDataLakePrincipalCommandInput,
+  GetDataLakePrincipalCommandOutput,
+} from "./commands/GetDataLakePrincipalCommand";
+import {
   GetDataLakeSettingsCommand,
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
@@ -276,6 +281,7 @@ const commands = {
   DescribeTransactionCommand,
   ExtendTransactionCommand,
   GetDataCellsFilterCommand,
+  GetDataLakePrincipalCommand,
   GetDataLakeSettingsCommand,
   GetEffectivePermissionsForPathCommand,
   GetLFTagCommand,
@@ -660,6 +666,24 @@ export interface LakeFormation {
     args: GetDataCellsFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDataCellsFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataLakePrincipalCommand}
+   */
+  getDataLakePrincipal(): Promise<GetDataLakePrincipalCommandOutput>;
+  getDataLakePrincipal(
+    args: GetDataLakePrincipalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataLakePrincipalCommandOutput>;
+  getDataLakePrincipal(
+    args: GetDataLakePrincipalCommandInput,
+    cb: (err: any, data?: GetDataLakePrincipalCommandOutput) => void
+  ): void;
+  getDataLakePrincipal(
+    args: GetDataLakePrincipalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataLakePrincipalCommandOutput) => void
   ): void;
 
   /**
