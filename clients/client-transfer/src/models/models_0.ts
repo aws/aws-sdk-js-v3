@@ -40,6 +40,618 @@ export const AgreementStatusType = {
 export type AgreementStatusType = (typeof AgreementStatusType)[keyof typeof AgreementStatusType];
 
 /**
+ * <p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to
+ *       search for and group a resource for various purposes. You can apply tags to servers, users,
+ *       and roles. A tag key can take more than one value. For example, to group servers for
+ *       accounting purposes, you might create a tag called <code>Group</code> and assign the values
+ *         <code>Research</code> and <code>Accounting</code> to that group.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The name assigned to the tag that you create.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Contains one or more values that you assigned to the key name you create.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgreementRequest {
+  /**
+   * <p>A name or short description to identify the agreement. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance. This is the specific server
+   *       that the agreement uses.</p>
+   * @public
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the AS2 local profile.</p>
+   * @public
+   */
+  LocalProfileId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the partner profile used in the agreement.</p>
+   * @public
+   */
+  PartnerProfileId: string | undefined;
+
+  /**
+   * <p>The landing directory (folder) for files transferred by using the AS2 protocol.</p>
+   *          <p>A <code>BaseDirectory</code> example is
+   *           <code>/DOC-EXAMPLE-BUCKET/home/mydirectory</code>.</p>
+   * @public
+   */
+  BaseDirectory: string | undefined;
+
+  /**
+   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
+   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
+   *          <p>
+   *             <b>For AS2 connectors</b>
+   *          </p>
+   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *       <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
+   *          <p>
+   *             <b>For SFTP connectors</b>
+   *          </p>
+   *          <p>Make sure that the access role provides
+   *       read and write access to the parent directory of the file location
+   *       that's used in the <code>StartFileTransfer</code> request.
+   *       Additionally,  make sure that the role provides
+   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
+   * @public
+   */
+  AccessRole: string | undefined;
+
+  /**
+   * <p>The status of the agreement. The agreement can be either <code>ACTIVE</code> or
+   *         <code>INACTIVE</code>.</p>
+   * @public
+   */
+  Status?: AgreementStatusType;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for agreements.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateAgreementResponse {
+  /**
+   * <p>The unique identifier for the agreement. Use this ID for deleting, or updating an
+   *       agreement, as well as in any other API calls that require that you specify the agreement
+   *       ID.</p>
+   * @public
+   */
+  AgreementId: string | undefined;
+}
+
+/**
+ * <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
+ * @public
+ */
+export class InternalServiceError extends __BaseException {
+  readonly name: "InternalServiceError" = "InternalServiceError";
+  readonly $fault: "server" = "server";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
+    super({
+      name: "InternalServiceError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceError.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This exception is thrown when the client submits a malformed request.</p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
+ * @public
+ */
+export class ResourceExistsException extends __BaseException {
+  readonly name: "ResourceExistsException" = "ResourceExistsException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  Resource: string | undefined;
+  ResourceType: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
+    super({
+      name: "ResourceExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceExistsException.prototype);
+    this.Message = opts.Message;
+    this.Resource = opts.Resource;
+    this.ResourceType = opts.ResourceType;
+  }
+}
+
+/**
+ * <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  Resource: string | undefined;
+  ResourceType: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Resource = opts.Resource;
+    this.ResourceType = opts.ResourceType;
+  }
+}
+
+/**
+ * <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  RetryAfterSeconds?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteAgreementRequest {
+  /**
+   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
+   * @public
+   */
+  AgreementId: string | undefined;
+
+  /**
+   * <p>The server identifier associated with the agreement that you are deleting.</p>
+   * @public
+   */
+  ServerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgreementRequest {
+  /**
+   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
+   * @public
+   */
+  AgreementId: string | undefined;
+
+  /**
+   * <p>The server identifier that's associated with the agreement.</p>
+   * @public
+   */
+  ServerId: string | undefined;
+}
+
+/**
+ * <p>Describes the properties of an agreement.</p>
+ * @public
+ */
+export interface DescribedAgreement {
+  /**
+   * <p>The unique Amazon Resource Name (ARN) for the agreement.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
+   * @public
+   */
+  AgreementId?: string;
+
+  /**
+   * <p>The name or short description that's used to identify the agreement.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The current status of the agreement, either <code>ACTIVE</code> or
+   *       <code>INACTIVE</code>.</p>
+   * @public
+   */
+  Status?: AgreementStatusType;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance. This identifier indicates the
+   *       specific server that the agreement uses.</p>
+   * @public
+   */
+  ServerId?: string;
+
+  /**
+   * <p>A unique identifier for the AS2 local profile.</p>
+   * @public
+   */
+  LocalProfileId?: string;
+
+  /**
+   * <p>A unique identifier for the partner profile used in the agreement.</p>
+   * @public
+   */
+  PartnerProfileId?: string;
+
+  /**
+   * <p>The landing directory (folder) for files that are transferred by using the AS2
+   *       protocol.</p>
+   * @public
+   */
+  BaseDirectory?: string;
+
+  /**
+   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
+   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
+   *          <p>
+   *             <b>For AS2 connectors</b>
+   *          </p>
+   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *       <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
+   *          <p>
+   *             <b>For SFTP connectors</b>
+   *          </p>
+   *          <p>Make sure that the access role provides
+   *       read and write access to the parent directory of the file location
+   *       that's used in the <code>StartFileTransfer</code> request.
+   *       Additionally,  make sure that the role provides
+   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
+   * @public
+   */
+  AccessRole?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for agreements.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeAgreementResponse {
+  /**
+   * <p>The details for the specified agreement, returned as a <code>DescribedAgreement</code>
+   *       object.</p>
+   * @public
+   */
+  Agreement: DescribedAgreement | undefined;
+}
+
+/**
+ * <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
+ * @public
+ */
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementsRequest {
+  /**
+   * <p>The maximum number of agreements to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When you can get additional results from the <code>ListAgreements</code> call, a
+   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
+   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
+   *       agreements.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The identifier of the server for which you want a list of agreements.</p>
+   * @public
+   */
+  ServerId: string | undefined;
+}
+
+/**
+ * <p>Describes the properties of an agreement.</p>
+ * @public
+ */
+export interface ListedAgreement {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the specified agreement.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
+   * @public
+   */
+  AgreementId?: string;
+
+  /**
+   * <p>The current description for the agreement. You can change it by calling the
+   *         <code>UpdateAgreement</code> operation and providing a new description. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The agreement can be either <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
+   * @public
+   */
+  Status?: AgreementStatusType;
+
+  /**
+   * <p>The unique identifier for the agreement.</p>
+   * @public
+   */
+  ServerId?: string;
+
+  /**
+   * <p>A unique identifier for the AS2 local profile.</p>
+   * @public
+   */
+  LocalProfileId?: string;
+
+  /**
+   * <p>A unique identifier for the partner profile.</p>
+   * @public
+   */
+  PartnerProfileId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAgreementsResponse {
+  /**
+   * <p>Returns a token that you can use to call <code>ListAgreements</code> again and receive
+   *       additional results, if there are any.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns an array, where each item contains the details of an agreement.</p>
+   * @public
+   */
+  Agreements: ListedAgreement[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgreementRequest {
+  /**
+   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
+   * @public
+   */
+  AgreementId: string | undefined;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance. This is the specific server that the agreement uses.</p>
+   * @public
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>To replace the existing description, provide a short description for the agreement. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>You can update the status for the agreement, either activating an inactive agreement or
+   *       the reverse.</p>
+   * @public
+   */
+  Status?: AgreementStatusType;
+
+  /**
+   * <p>A unique identifier for the AS2 local profile.</p>
+   *          <p>To change the local profile identifier, provide a new value
+   *       here.</p>
+   * @public
+   */
+  LocalProfileId?: string;
+
+  /**
+   * <p>A unique identifier for the partner profile.
+   *       To change the partner profile identifier, provide a new value here.</p>
+   * @public
+   */
+  PartnerProfileId?: string;
+
+  /**
+   * <p>To change the landing directory (folder) for files that are transferred, provide the
+   *       bucket folder that you want to use; for example,
+   *           <code>/<i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>
+   *             </code>.</p>
+   * @public
+   */
+  BaseDirectory?: string;
+
+  /**
+   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
+   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
+   *          <p>
+   *             <b>For AS2 connectors</b>
+   *          </p>
+   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *       <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
+   *          <p>
+   *             <b>For SFTP connectors</b>
+   *          </p>
+   *          <p>Make sure that the access role provides
+   *       read and write access to the parent directory of the file location
+   *       that's used in the <code>StartFileTransfer</code> request.
+   *       Additionally,  make sure that the role provides
+   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
+   * @public
+   */
+  AccessRole?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAgreementResponse {
+  /**
+   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
+   * @public
+   */
+  AgreementId: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -243,6 +855,28 @@ export type As2Transport = (typeof As2Transport)[keyof typeof As2Transport];
 
 /**
  * @public
+ */
+export interface DeleteCertificateRequest {
+  /**
+   * <p>The identifier of the certificate object that you are deleting.</p>
+   * @public
+   */
+  CertificateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateRequest {
+  /**
+   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
+   * @public
+   */
+  CertificateId: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const CertificateStatusType = {
@@ -286,6 +920,370 @@ export const CertificateUsageType = {
 export type CertificateUsageType = (typeof CertificateUsageType)[keyof typeof CertificateUsageType];
 
 /**
+ * <p>Describes the properties of a certificate.</p>
+ * @public
+ */
+export interface DescribedCertificate {
+  /**
+   * <p>The unique Amazon Resource Name (ARN) for the certificate.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
+   * @public
+   */
+  CertificateId?: string;
+
+  /**
+   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SIGNING</code>: For signing AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Usage?: CertificateUsageType;
+
+  /**
+   * <p>The certificate can be either <code>ACTIVE</code>, <code>PENDING_ROTATION</code>, or
+   *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
+   *       replace the current certificate when it expires.</p>
+   * @public
+   */
+  Status?: CertificateStatusType;
+
+  /**
+   * <p>The file name for the certificate.</p>
+   * @public
+   */
+  Certificate?: string;
+
+  /**
+   * <p>The list of certificates that make up the chain for the certificate.</p>
+   * @public
+   */
+  CertificateChain?: string;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * @public
+   */
+  ActiveDate?: Date;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * @public
+   */
+  InactiveDate?: Date;
+
+  /**
+   * <p>The serial number for the certificate.</p>
+   * @public
+   */
+  Serial?: string;
+
+  /**
+   * <p>The earliest date that the certificate is valid.</p>
+   * @public
+   */
+  NotBeforeDate?: Date;
+
+  /**
+   * <p>The final date that the certificate is
+   *       valid.</p>
+   * @public
+   */
+  NotAfterDate?: Date;
+
+  /**
+   * <p>If a private key has been specified for the certificate, its type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is <code>CERTIFICATE</code>.</p>
+   * @public
+   */
+  Type?: CertificateType;
+
+  /**
+   * <p>The name or description that's used to identity the certificate. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for certificates.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateResponse {
+  /**
+   * <p>The details for the specified certificate, returned as an object.</p>
+   * @public
+   */
+  Certificate: DescribedCertificate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportCertificateRequest {
+  /**
+   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SIGNING</code>: For signing AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Usage: CertificateUsageType | undefined;
+
+  /**
+   * <ul>
+   *             <li>
+   *                <p>For the CLI, provide a file path for a certificate in URI format. For example, <code>--certificate file://encryption-cert.pem</code>.
+   *         Alternatively, you can provide the raw content.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the SDK, specify the raw content of a certificate file. For example, <code>--certificate "`cat encryption-cert.pem`"</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Certificate: string | undefined;
+
+  /**
+   * <p>An optional list of certificates that make up the chain for the certificate that's being
+   *       imported.</p>
+   * @public
+   */
+  CertificateChain?: string;
+
+  /**
+   * <ul>
+   *             <li>
+   *                <p>For the CLI, provide a file path for a private key in URI format.For example, <code>--private-key file://encryption-key.pem</code>.
+   *         Alternatively, you can provide the raw content of the private key file.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the SDK, specify the raw content of a private key file. For example, <code>--private-key "`cat encryption-key.pem`"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PrivateKey?: string;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * @public
+   */
+  ActiveDate?: Date;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * @public
+   */
+  InactiveDate?: Date;
+
+  /**
+   * <p>A short description that helps identify the certificate. </p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for certificates.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ImportCertificateResponse {
+  /**
+   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
+   * @public
+   */
+  CertificateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificatesRequest {
+  /**
+   * <p>The maximum number of certificates to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When you can get additional results from the <code>ListCertificates</code> call, a
+   *       <code>NextToken</code> parameter is returned in the output. You can then pass in a
+   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
+   *       certificates.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Describes the properties of a certificate.</p>
+ * @public
+ */
+export interface ListedCertificate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the specified certificate.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
+   * @public
+   */
+  CertificateId?: string;
+
+  /**
+   * <p>Specifies how this certificate is used. It can be used in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SIGNING</code>: For signing AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTION</code>: For encrypting AS2 messages</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS</code>: For securing AS2 communications sent over HTTPS</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Usage?: CertificateUsageType;
+
+  /**
+   * <p>The certificate can be either <code>ACTIVE</code>, <code>PENDING_ROTATION</code>, or
+   *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
+   *       replace the current certificate when it expires.</p>
+   * @public
+   */
+  Status?: CertificateStatusType;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * @public
+   */
+  ActiveDate?: Date;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * @public
+   */
+  InactiveDate?: Date;
+
+  /**
+   * <p>The type for the certificate. If a private key has been specified for the certificate, its
+   *       type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is
+   *         <code>CERTIFICATE</code>.</p>
+   * @public
+   */
+  Type?: CertificateType;
+
+  /**
+   * <p>The name or short description that's used to identify the certificate.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificatesResponse {
+  /**
+   * <p>Returns the next token, which you can use to list the next certificate.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns an array of the certificates that are specified in the
+   *         <code>ListCertificates</code> call.</p>
+   * @public
+   */
+  Certificates: ListedCertificate[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCertificateRequest {
+  /**
+   * <p>The identifier of the certificate object that you are updating.</p>
+   * @public
+   */
+  CertificateId: string | undefined;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes active.</p>
+   * @public
+   */
+  ActiveDate?: Date;
+
+  /**
+   * <p>An optional date that specifies when the certificate becomes inactive.</p>
+   * @public
+   */
+  InactiveDate?: Date;
+
+  /**
+   * <p>A short description to help identify the certificate.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCertificateResponse {
+  /**
+   * <p>Returns the identifier of the certificate object that you are updating.</p>
+   * @public
+   */
+  CertificateId: string | undefined;
+}
+
+/**
  * <p>This exception is thrown when the <code>UpdateServer</code> is called for a file transfer
  *       protocol-enabled server that has VPC as the endpoint type and the server's
  *         <code>VpcEndpointID</code> is not in the available state.</p>
@@ -307,6 +1305,417 @@ export class ConflictException extends __BaseException {
     Object.setPrototypeOf(this, ConflictException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * <p>Contains the details for an SFTP connector object. The connector object is used for transferring files to and from a
+ *       partner's SFTP server.</p>
+ *          <note>
+ *             <p>Because the <code>SftpConnectorConfig</code> data type is used for both creating and updating SFTP connectors, its parameters,
+ *         <code>TrustedHostKeys</code> and <code>UserSecretId</code> are marked as not required. This is a bit misleading, as they are not required when
+ *       you are updating an existing SFTP connector, but <i>are required</i> when you are creating a new SFTP connector.</p>
+ *          </note>
+ * @public
+ */
+export interface SftpConnectorConfig {
+  /**
+   * <p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier must be the Amazon Resource Name (ARN) of the secret.</p>
+   * @public
+   */
+  UserSecretId?: string;
+
+  /**
+   * <p>The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.
+   *       You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>
+   *          <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
+   *         <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with spaces
+   *       between each element. Specify only the  <code>&lt;key type&gt;</code> and <code>&lt;body
+   *         base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</p>
+   *          <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either
+   *             <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>, or
+   *             <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Run this command to retrieve the SFTP server host key, where your SFTP server name is <code>ftp.host.com</code>.</p>
+   *          <p>
+   *             <code>ssh-keyscan ftp.host.com</code>
+   *          </p>
+   *          <p>This prints the public host key to standard output.</p>
+   *          <p>
+   *             <code>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key</code>
+   *          </p>
+   *          <p>Copy and paste this string into the <code>TrustedHostKeys</code> field for the <code>create-connector</code> command or into the <b>Trusted host keys</b> field in the console.</p>
+   * @public
+   */
+  TrustedHostKeys?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorRequest {
+  /**
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>A structure that contains the parameters for an AS2 connector object.</p>
+   * @public
+   */
+  As2Config?: As2ConnectorConfig;
+
+  /**
+   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
+   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
+   *          <p>
+   *             <b>For AS2 connectors</b>
+   *          </p>
+   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *       <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
+   *          <p>
+   *             <b>For SFTP connectors</b>
+   *          </p>
+   *          <p>Make sure that the access role provides
+   *       read and write access to the parent directory of the file location
+   *       that's used in the <code>StartFileTransfer</code> request.
+   *       Additionally,  make sure that the role provides
+   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
+   * @public
+   */
+  AccessRole: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a connector to turn
+   *       on CloudWatch logging for Amazon S3 events. When set, you can view connector
+   *       activity in your CloudWatch logs.</p>
+   * @public
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A structure that contains the parameters for an SFTP connector object.</p>
+   * @public
+   */
+  SftpConfig?: SftpConnectorConfig;
+
+  /**
+   * <p>Specifies the name of the security policy for the connector.</p>
+   * @public
+   */
+  SecurityPolicyName?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorResponse {
+  /**
+   * <p>The unique identifier for the connector, returned after the API call succeeds.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorRequest {
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectorRequest {
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * <p>Describes the parameters for the connector, as identified by the
+ *       <code>ConnectorId</code>.</p>
+ * @public
+ */
+export interface DescribedConnector {
+  /**
+   * <p>The unique Amazon Resource Name (ARN) for the connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId?: string;
+
+  /**
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * @public
+   */
+  Url?: string;
+
+  /**
+   * <p>A structure that contains the parameters for an AS2 connector object.</p>
+   * @public
+   */
+  As2Config?: As2ConnectorConfig;
+
+  /**
+   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
+   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
+   *          <p>
+   *             <b>For AS2 connectors</b>
+   *          </p>
+   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *       <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
+   *          <p>
+   *             <b>For SFTP connectors</b>
+   *          </p>
+   *          <p>Make sure that the access role provides
+   *       read and write access to the parent directory of the file location
+   *       that's used in the <code>StartFileTransfer</code> request.
+   *       Additionally,  make sure that the role provides
+   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
+   * @public
+   */
+  AccessRole?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a connector to turn
+   *       on CloudWatch logging for Amazon S3 events. When set, you can view connector
+   *       activity in your CloudWatch logs.</p>
+   * @public
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for connectors.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A structure that contains the parameters for an SFTP connector object.</p>
+   * @public
+   */
+  SftpConfig?: SftpConnectorConfig;
+
+  /**
+   * <p>The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.</p>
+   * @public
+   */
+  ServiceManagedEgressIpAddresses?: string[];
+
+  /**
+   * <p>The text name of the security policy for the specified connector.</p>
+   * @public
+   */
+  SecurityPolicyName?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectorResponse {
+  /**
+   * <p>The structure that contains the details of the connector.</p>
+   * @public
+   */
+  Connector: DescribedConnector | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsRequest {
+  /**
+   * <p>The maximum number of connectors to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When you can get additional results from the <code>ListConnectors</code> call, a
+   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
+   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
+   *       connectors.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Returns details of the connector that is specified.</p>
+ * @public
+ */
+export interface ListedConnector {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the specified connector.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId?: string;
+
+  /**
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * @public
+   */
+  Url?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsResponse {
+  /**
+   * <p>Returns a token that you can use to call <code>ListConnectors</code> again and receive
+   *       additional results, if there are any.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Returns an array, where each item contains the details of a connector.</p>
+   * @public
+   */
+  Connectors: ListedConnector[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorRequest {
+  /**
+   * <p>The unique identifier for the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
+   * @public
+   */
+  Url?: string;
+
+  /**
+   * <p>A structure that contains the parameters for an AS2 connector object.</p>
+   * @public
+   */
+  As2Config?: As2ConnectorConfig;
+
+  /**
+   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
+   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
+   *          <p>
+   *             <b>For AS2 connectors</b>
+   *          </p>
+   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
+   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
+   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
+   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
+   *       store the MDN when we receive them from the partner, and write a final JSON file containing
+   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
+   *       and write access to the parent directory of the file location used in the
+   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
+   *       access to the parent directory of the files that you intend to send with
+   *       <code>StartFileTransfer</code>.</p>
+   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
+   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
+   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
+   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
+   *          <p>
+   *             <b>For SFTP connectors</b>
+   *          </p>
+   *          <p>Make sure that the access role provides
+   *       read and write access to the parent directory of the file location
+   *       that's used in the <code>StartFileTransfer</code> request.
+   *       Additionally,  make sure that the role provides
+   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
+   * @public
+   */
+  AccessRole?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a connector to turn
+   *       on CloudWatch logging for Amazon S3 events. When set, you can view connector
+   *       activity in your CloudWatch logs.</p>
+   * @public
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>A structure that contains the parameters for an SFTP connector object.</p>
+   * @public
+   */
+  SftpConfig?: SftpConnectorConfig;
+
+  /**
+   * <p>Specifies the name of the security policy for the connector.</p>
+   * @public
+   */
+  SecurityPolicyName?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorResponse {
+  /**
+   * <p>Returns the identifier of the connector object that you are updating.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
 }
 
 /**
@@ -681,400 +2090,6 @@ export interface CreateAccessResponse {
    * @public
    */
   ExternalId: string | undefined;
-}
-
-/**
- * <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
- * @public
- */
-export class InternalServiceError extends __BaseException {
-  readonly name: "InternalServiceError" = "InternalServiceError";
-  readonly $fault: "server" = "server";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
-    super({
-      name: "InternalServiceError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceError.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This exception is thrown when the client submits a malformed request.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
- * @public
- */
-export class ResourceExistsException extends __BaseException {
-  readonly name: "ResourceExistsException" = "ResourceExistsException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  Resource: string | undefined;
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
-    super({
-      name: "ResourceExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceExistsException.prototype);
-    this.Message = opts.Message;
-    this.Resource = opts.Resource;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  Resource: string | undefined;
-  ResourceType: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.Resource = opts.Resource;
-    this.ResourceType = opts.ResourceType;
-  }
-}
-
-/**
- * <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to
- *       search for and group a resource for various purposes. You can apply tags to servers, users,
- *       and roles. A tag key can take more than one value. For example, to group servers for
- *       accounting purposes, you might create a tag called <code>Group</code> and assign the values
- *         <code>Research</code> and <code>Accounting</code> to that group.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>The name assigned to the tag that you create.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Contains one or more values that you assigned to the key name you create.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAgreementRequest {
-  /**
-   * <p>A name or short description to identify the agreement. </p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>A system-assigned unique identifier for a server instance. This is the specific server
-   *       that the agreement uses.</p>
-   * @public
-   */
-  ServerId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the AS2 local profile.</p>
-   * @public
-   */
-  LocalProfileId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the partner profile used in the agreement.</p>
-   * @public
-   */
-  PartnerProfileId: string | undefined;
-
-  /**
-   * <p>The landing directory (folder) for files transferred by using the AS2 protocol.</p>
-   *          <p>A <code>BaseDirectory</code> example is
-   *           <code>/DOC-EXAMPLE-BUCKET/home/mydirectory</code>.</p>
-   * @public
-   */
-  BaseDirectory: string | undefined;
-
-  /**
-   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
-   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
-   *          <p>
-   *             <b>For AS2 connectors</b>
-   *          </p>
-   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
-   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
-   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
-   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
-   *       store the MDN when we receive them from the partner, and write a final JSON file containing
-   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
-   *       and write access to the parent directory of the file location used in the
-   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
-   *       access to the parent directory of the files that you intend to send with
-   *       <code>StartFileTransfer</code>.</p>
-   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
-   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
-   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
-   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
-   *          <p>
-   *             <b>For SFTP connectors</b>
-   *          </p>
-   *          <p>Make sure that the access role provides
-   *       read and write access to the parent directory of the file location
-   *       that's used in the <code>StartFileTransfer</code> request.
-   *       Additionally,  make sure that the role provides
-   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
-   * @public
-   */
-  AccessRole: string | undefined;
-
-  /**
-   * <p>The status of the agreement. The agreement can be either <code>ACTIVE</code> or
-   *         <code>INACTIVE</code>.</p>
-   * @public
-   */
-  Status?: AgreementStatusType;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for agreements.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateAgreementResponse {
-  /**
-   * <p>The unique identifier for the agreement. Use this ID for deleting, or updating an
-   *       agreement, as well as in any other API calls that require that you specify the agreement
-   *       ID.</p>
-   * @public
-   */
-  AgreementId: string | undefined;
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  RetryAfterSeconds?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
-/**
- * <p>Contains the details for an SFTP connector object. The connector object is used for transferring files to and from a
- *       partner's SFTP server.</p>
- *          <note>
- *             <p>Because the <code>SftpConnectorConfig</code> data type is used for both creating and updating SFTP connectors, its parameters,
- *         <code>TrustedHostKeys</code> and <code>UserSecretId</code> are marked as not required. This is a bit misleading, as they are not required when
- *       you are updating an existing SFTP connector, but <i>are required</i> when you are creating a new SFTP connector.</p>
- *          </note>
- * @public
- */
-export interface SftpConnectorConfig {
-  /**
-   * <p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier must be the Amazon Resource Name (ARN) of the secret.</p>
-   * @public
-   */
-  UserSecretId?: string;
-
-  /**
-   * <p>The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.
-   *       You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>
-   *          <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
-   *         <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with spaces
-   *       between each element. Specify only the  <code>&lt;key type&gt;</code> and <code>&lt;body
-   *         base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</p>
-   *          <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either
-   *             <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>, or
-   *             <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Run this command to retrieve the SFTP server host key, where your SFTP server name is <code>ftp.host.com</code>.</p>
-   *          <p>
-   *             <code>ssh-keyscan ftp.host.com</code>
-   *          </p>
-   *          <p>This prints the public host key to standard output.</p>
-   *          <p>
-   *             <code>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key</code>
-   *          </p>
-   *          <p>Copy and paste this string into the <code>TrustedHostKeys</code> field for the <code>create-connector</code> command or into the <b>Trusted host keys</b> field in the console.</p>
-   * @public
-   */
-  TrustedHostKeys?: string[];
-}
-
-/**
- * @public
- */
-export interface CreateConnectorRequest {
-  /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
-   * @public
-   */
-  Url: string | undefined;
-
-  /**
-   * <p>A structure that contains the parameters for an AS2 connector object.</p>
-   * @public
-   */
-  As2Config?: As2ConnectorConfig;
-
-  /**
-   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
-   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
-   *          <p>
-   *             <b>For AS2 connectors</b>
-   *          </p>
-   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
-   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
-   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
-   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
-   *       store the MDN when we receive them from the partner, and write a final JSON file containing
-   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
-   *       and write access to the parent directory of the file location used in the
-   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
-   *       access to the parent directory of the files that you intend to send with
-   *       <code>StartFileTransfer</code>.</p>
-   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
-   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
-   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
-   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
-   *          <p>
-   *             <b>For SFTP connectors</b>
-   *          </p>
-   *          <p>Make sure that the access role provides
-   *       read and write access to the parent directory of the file location
-   *       that's used in the <code>StartFileTransfer</code> request.
-   *       Additionally,  make sure that the role provides
-   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
-   * @public
-   */
-  AccessRole: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a connector to turn
-   *       on CloudWatch logging for Amazon S3 events. When set, you can view connector
-   *       activity in your CloudWatch logs.</p>
-   * @public
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A structure that contains the parameters for an SFTP connector object.</p>
-   * @public
-   */
-  SftpConfig?: SftpConnectorConfig;
-
-  /**
-   * <p>Specifies the name of the security policy for the connector.</p>
-   * @public
-   */
-  SecurityPolicyName?: string;
-}
-
-/**
- * @public
- */
-export interface CreateConnectorResponse {
-  /**
-   * <p>The unique identifier for the connector, returned after the API call succeeds.</p>
-   * @public
-   */
-  ConnectorId: string | undefined;
 }
 
 /**
@@ -2523,45 +3538,6 @@ export interface DeleteAccessRequest {
 /**
  * @public
  */
-export interface DeleteAgreementRequest {
-  /**
-   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
-   * @public
-   */
-  AgreementId: string | undefined;
-
-  /**
-   * <p>The server identifier associated with the agreement that you are deleting.</p>
-   * @public
-   */
-  ServerId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCertificateRequest {
-  /**
-   * <p>The identifier of the certificate object that you are deleting.</p>
-   * @public
-   */
-  CertificateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteConnectorRequest {
-  /**
-   * <p>The unique identifier for the connector.</p>
-   * @public
-   */
-  ConnectorId: string | undefined;
-}
-
-/**
- * @public
- */
 export interface DeleteHostKeyRequest {
   /**
    * <p>The identifier of the server that contains the host key that you are deleting.</p>
@@ -2784,362 +3760,6 @@ export interface DescribeAccessResponse {
    * @public
    */
   Access: DescribedAccess | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAgreementRequest {
-  /**
-   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
-   * @public
-   */
-  AgreementId: string | undefined;
-
-  /**
-   * <p>The server identifier that's associated with the agreement.</p>
-   * @public
-   */
-  ServerId: string | undefined;
-}
-
-/**
- * <p>Describes the properties of an agreement.</p>
- * @public
- */
-export interface DescribedAgreement {
-  /**
-   * <p>The unique Amazon Resource Name (ARN) for the agreement.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
-   * @public
-   */
-  AgreementId?: string;
-
-  /**
-   * <p>The name or short description that's used to identify the agreement.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The current status of the agreement, either <code>ACTIVE</code> or
-   *       <code>INACTIVE</code>.</p>
-   * @public
-   */
-  Status?: AgreementStatusType;
-
-  /**
-   * <p>A system-assigned unique identifier for a server instance. This identifier indicates the
-   *       specific server that the agreement uses.</p>
-   * @public
-   */
-  ServerId?: string;
-
-  /**
-   * <p>A unique identifier for the AS2 local profile.</p>
-   * @public
-   */
-  LocalProfileId?: string;
-
-  /**
-   * <p>A unique identifier for the partner profile used in the agreement.</p>
-   * @public
-   */
-  PartnerProfileId?: string;
-
-  /**
-   * <p>The landing directory (folder) for files that are transferred by using the AS2
-   *       protocol.</p>
-   * @public
-   */
-  BaseDirectory?: string;
-
-  /**
-   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
-   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
-   *          <p>
-   *             <b>For AS2 connectors</b>
-   *          </p>
-   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
-   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
-   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
-   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
-   *       store the MDN when we receive them from the partner, and write a final JSON file containing
-   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
-   *       and write access to the parent directory of the file location used in the
-   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
-   *       access to the parent directory of the files that you intend to send with
-   *       <code>StartFileTransfer</code>.</p>
-   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
-   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
-   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
-   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
-   *          <p>
-   *             <b>For SFTP connectors</b>
-   *          </p>
-   *          <p>Make sure that the access role provides
-   *       read and write access to the parent directory of the file location
-   *       that's used in the <code>StartFileTransfer</code> request.
-   *       Additionally,  make sure that the role provides
-   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
-   * @public
-   */
-  AccessRole?: string;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for agreements.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface DescribeAgreementResponse {
-  /**
-   * <p>The details for the specified agreement, returned as a <code>DescribedAgreement</code>
-   *       object.</p>
-   * @public
-   */
-  Agreement: DescribedAgreement | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCertificateRequest {
-  /**
-   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
-   * @public
-   */
-  CertificateId: string | undefined;
-}
-
-/**
- * <p>Describes the properties of a certificate.</p>
- * @public
- */
-export interface DescribedCertificate {
-  /**
-   * <p>The unique Amazon Resource Name (ARN) for the certificate.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
-   * @public
-   */
-  CertificateId?: string;
-
-  /**
-   * <p>Specifies whether this certificate is used for signing or encryption.</p>
-   * @public
-   */
-  Usage?: CertificateUsageType;
-
-  /**
-   * <p>The certificate can be either <code>ACTIVE</code>, <code>PENDING_ROTATION</code>, or
-   *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
-   *       replace the current certificate when it expires.</p>
-   * @public
-   */
-  Status?: CertificateStatusType;
-
-  /**
-   * <p>The file name for the certificate.</p>
-   * @public
-   */
-  Certificate?: string;
-
-  /**
-   * <p>The list of certificates that make up the chain for the certificate.</p>
-   * @public
-   */
-  CertificateChain?: string;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
-   * @public
-   */
-  ActiveDate?: Date;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
-   * @public
-   */
-  InactiveDate?: Date;
-
-  /**
-   * <p>The serial number for the certificate.</p>
-   * @public
-   */
-  Serial?: string;
-
-  /**
-   * <p>The earliest date that the certificate is valid.</p>
-   * @public
-   */
-  NotBeforeDate?: Date;
-
-  /**
-   * <p>The final date that the certificate is
-   *       valid.</p>
-   * @public
-   */
-  NotAfterDate?: Date;
-
-  /**
-   * <p>If a private key has been specified for the certificate, its type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is <code>CERTIFICATE</code>.</p>
-   * @public
-   */
-  Type?: CertificateType;
-
-  /**
-   * <p>The name or description that's used to identity the certificate. </p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for certificates.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface DescribeCertificateResponse {
-  /**
-   * <p>The details for the specified certificate, returned as an object.</p>
-   * @public
-   */
-  Certificate: DescribedCertificate | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeConnectorRequest {
-  /**
-   * <p>The unique identifier for the connector.</p>
-   * @public
-   */
-  ConnectorId: string | undefined;
-}
-
-/**
- * <p>Describes the parameters for the connector, as identified by the
- *       <code>ConnectorId</code>.</p>
- * @public
- */
-export interface DescribedConnector {
-  /**
-   * <p>The unique Amazon Resource Name (ARN) for the connector.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the connector.</p>
-   * @public
-   */
-  ConnectorId?: string;
-
-  /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
-   * @public
-   */
-  Url?: string;
-
-  /**
-   * <p>A structure that contains the parameters for an AS2 connector object.</p>
-   * @public
-   */
-  As2Config?: As2ConnectorConfig;
-
-  /**
-   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
-   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
-   *          <p>
-   *             <b>For AS2 connectors</b>
-   *          </p>
-   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
-   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
-   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
-   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
-   *       store the MDN when we receive them from the partner, and write a final JSON file containing
-   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
-   *       and write access to the parent directory of the file location used in the
-   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
-   *       access to the parent directory of the files that you intend to send with
-   *       <code>StartFileTransfer</code>.</p>
-   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
-   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
-   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
-   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
-   *          <p>
-   *             <b>For SFTP connectors</b>
-   *          </p>
-   *          <p>Make sure that the access role provides
-   *       read and write access to the parent directory of the file location
-   *       that's used in the <code>StartFileTransfer</code> request.
-   *       Additionally,  make sure that the role provides
-   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
-   * @public
-   */
-  AccessRole?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a connector to turn
-   *       on CloudWatch logging for Amazon S3 events. When set, you can view connector
-   *       activity in your CloudWatch logs.</p>
-   * @public
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for connectors.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A structure that contains the parameters for an SFTP connector object.</p>
-   * @public
-   */
-  SftpConfig?: SftpConnectorConfig;
-
-  /**
-   * <p>The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.</p>
-   * @public
-   */
-  ServiceManagedEgressIpAddresses?: string[];
-
-  /**
-   * <p>The text name of the security policy for the specified connector.</p>
-   * @public
-   */
-  SecurityPolicyName?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeConnectorResponse {
-  /**
-   * <p>The structure that contains the details of the connector.</p>
-   * @public
-   */
-  Connector: DescribedConnector | undefined;
 }
 
 /**
@@ -3775,7 +4395,9 @@ export interface DescribedServer {
   ProtocolDetails?: ProtocolDetails;
 
   /**
-   * <p>Specifies the domain of the storage system that is used for file transfers.</p>
+   * <p>Specifies the domain of the storage system that is used for file transfers. There are two domains
+   *       available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The
+   *       default value is S3.</p>
    * @public
    */
   Domain?: Domain;
@@ -4367,88 +4989,6 @@ export interface DescribeWorkflowResponse {
 /**
  * @public
  */
-export interface ImportCertificateRequest {
-  /**
-   * <p>Specifies whether this certificate is used for signing or encryption.</p>
-   * @public
-   */
-  Usage: CertificateUsageType | undefined;
-
-  /**
-   * <ul>
-   *             <li>
-   *                <p>For the CLI, provide a file path for a certificate in URI format. For example, <code>--certificate file://encryption-cert.pem</code>.
-   *         Alternatively, you can provide the raw content.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the SDK, specify the raw content of a certificate file. For example, <code>--certificate "`cat encryption-cert.pem`"</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Certificate: string | undefined;
-
-  /**
-   * <p>An optional list of certificates that make up the chain for the certificate that's being
-   *       imported.</p>
-   * @public
-   */
-  CertificateChain?: string;
-
-  /**
-   * <ul>
-   *             <li>
-   *                <p>For the CLI, provide a file path for a private key in URI format.For example, <code>--private-key file://encryption-key.pem</code>.
-   *         Alternatively, you can provide the raw content of the private key file.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the SDK, specify the raw content of a private key file. For example, <code>--private-key "`cat encryption-key.pem`"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PrivateKey?: string;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
-   * @public
-   */
-  ActiveDate?: Date;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
-   * @public
-   */
-  InactiveDate?: Date;
-
-  /**
-   * <p>A short description that helps identify the certificate. </p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for certificates.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface ImportCertificateResponse {
-  /**
-   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
-   * @public
-   */
-  CertificateId: string | undefined;
-}
-
-/**
- * @public
- */
 export interface ImportHostKeyRequest {
   /**
    * <p>The identifier of the server that contains the host key that you are importing.</p>
@@ -4541,28 +5081,6 @@ export interface ImportSshPublicKeyResponse {
    * @public
    */
   UserName: string | undefined;
-}
-
-/**
- * <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -4673,257 +5191,6 @@ export interface ListAccessesResponse {
    * @public
    */
   Accesses: ListedAccess[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAgreementsRequest {
-  /**
-   * <p>The maximum number of agreements to return.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>When you can get additional results from the <code>ListAgreements</code> call, a
-   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
-   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
-   *       agreements.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The identifier of the server for which you want a list of agreements.</p>
-   * @public
-   */
-  ServerId: string | undefined;
-}
-
-/**
- * <p>Describes the properties of an agreement.</p>
- * @public
- */
-export interface ListedAgreement {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the specified agreement.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
-   * @public
-   */
-  AgreementId?: string;
-
-  /**
-   * <p>The current description for the agreement. You can change it by calling the
-   *         <code>UpdateAgreement</code> operation and providing a new description. </p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The agreement can be either <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
-   * @public
-   */
-  Status?: AgreementStatusType;
-
-  /**
-   * <p>The unique identifier for the agreement.</p>
-   * @public
-   */
-  ServerId?: string;
-
-  /**
-   * <p>A unique identifier for the AS2 local profile.</p>
-   * @public
-   */
-  LocalProfileId?: string;
-
-  /**
-   * <p>A unique identifier for the partner profile.</p>
-   * @public
-   */
-  PartnerProfileId?: string;
-}
-
-/**
- * @public
- */
-export interface ListAgreementsResponse {
-  /**
-   * <p>Returns a token that you can use to call <code>ListAgreements</code> again and receive
-   *       additional results, if there are any.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns an array, where each item contains the details of an agreement.</p>
-   * @public
-   */
-  Agreements: ListedAgreement[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCertificatesRequest {
-  /**
-   * <p>The maximum number of certificates to return.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>When you can get additional results from the <code>ListCertificates</code> call, a
-   *       <code>NextToken</code> parameter is returned in the output. You can then pass in a
-   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
-   *       certificates.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Describes the properties of a certificate.</p>
- * @public
- */
-export interface ListedCertificate {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the specified certificate.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
-   * @public
-   */
-  CertificateId?: string;
-
-  /**
-   * <p>Specifies whether this certificate is used for signing or encryption.</p>
-   * @public
-   */
-  Usage?: CertificateUsageType;
-
-  /**
-   * <p>The certificate can be either <code>ACTIVE</code>, <code>PENDING_ROTATION</code>, or
-   *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
-   *       replace the current certificate when it expires.</p>
-   * @public
-   */
-  Status?: CertificateStatusType;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
-   * @public
-   */
-  ActiveDate?: Date;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
-   * @public
-   */
-  InactiveDate?: Date;
-
-  /**
-   * <p>The type for the certificate. If a private key has been specified for the certificate, its
-   *       type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is
-   *         <code>CERTIFICATE</code>.</p>
-   * @public
-   */
-  Type?: CertificateType;
-
-  /**
-   * <p>The name or short description that's used to identify the certificate.</p>
-   * @public
-   */
-  Description?: string;
-}
-
-/**
- * @public
- */
-export interface ListCertificatesResponse {
-  /**
-   * <p>Returns the next token, which you can use to list the next certificate.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns an array of the certificates that are specified in the
-   *         <code>ListCertificates</code> call.</p>
-   * @public
-   */
-  Certificates: ListedCertificate[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConnectorsRequest {
-  /**
-   * <p>The maximum number of connectors to return.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>When you can get additional results from the <code>ListConnectors</code> call, a
-   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
-   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
-   *       connectors.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Returns details of the connector that is specified.</p>
- * @public
- */
-export interface ListedConnector {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the specified connector.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The unique identifier for the connector.</p>
-   * @public
-   */
-  ConnectorId?: string;
-
-  /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
-   * @public
-   */
-  Url?: string;
-}
-
-/**
- * @public
- */
-export interface ListConnectorsResponse {
-  /**
-   * <p>Returns a token that you can use to call <code>ListConnectors</code> again and receive
-   *       additional results, if there are any.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns an array, where each item contains the details of a connector.</p>
-   * @public
-   */
-  Connectors: ListedConnector[] | undefined;
 }
 
 /**
@@ -5074,7 +5341,9 @@ export interface ListedServer {
   Arn: string | undefined;
 
   /**
-   * <p>Specifies the domain of the storage system that is used for file transfers.</p>
+   * <p>Specifies the domain of the storage system that is used for file transfers. There are two domains
+   *       available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The
+   *       default value is S3.</p>
    * @public
    */
   Domain?: Domain;
@@ -5626,6 +5895,34 @@ export interface ListWorkflowsResponse {
 /**
  * @public
  */
+export interface UpdateProfileRequest {
+  /**
+   * <p>The identifier of the profile object that you are updating.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
+   * @public
+   */
+  CertificateIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateProfileResponse {
+  /**
+   * <p>Returns the identifier for the profile that's being updated.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface SendWorkflowStepStateRequest {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -5656,6 +5953,289 @@ export interface SendWorkflowStepStateRequest {
  * @public
  */
 export interface SendWorkflowStepStateResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateServerRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required
+   *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
+   *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
+   *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
+   *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
+   *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
+   *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
+   *         private certificate</a> in the <i> Amazon Web ServicesCertificate Manager User
+   *       Guide</i>.</p>
+   *          <p>Certificates with the following cryptographic algorithms and key sizes are
+   *       supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>2048-bit RSA (RSA_2048)</p>
+   *             </li>
+   *             <li>
+   *                <p>4096-bit RSA (RSA_4096)</p>
+   *             </li>
+   *             <li>
+   *                <p>Elliptic Prime Curve 256 bit (EC_prime256v1)</p>
+   *             </li>
+   *             <li>
+   *                <p>Elliptic Prime Curve 384 bit (EC_secp384r1)</p>
+   *             </li>
+   *             <li>
+   *                <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
+   *         address specified and information about the issuer.</p>
+   *          </note>
+   * @public
+   */
+  Certificate?: string;
+
+  /**
+   * <p>The protocol settings that are configured for your server.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter.
+   *           Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are
+   *         uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the
+   *         <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to
+   *         <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family
+   *         generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code>
+   *         call.</p>
+   *             </li>
+   *             <li>
+   *                <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the
+   *         <code>TlsSessionResumptionMode</code> parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ProtocolDetails?: ProtocolDetails;
+
+  /**
+   * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
+   *       When you host your endpoint within your VPC, you can make your endpoint accessible only to resources
+   *       within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over
+   *       the internet. Your VPC's default security groups are automatically assigned to your
+   *       endpoint.</p>
+   * @public
+   */
+  EndpointDetails?: EndpointDetails;
+
+  /**
+   * <p>The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC)
+   *       or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and
+   *       resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p>
+   *          <note>
+   *             <p> After May 19, 2021, you won't be able to create a server using
+   *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount if your account hasn't already
+   *       done so before May 19, 2021. If you have already created servers with
+   *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
+   *         you will not be affected. After this date, use
+   *         <code>EndpointType</code>=<code>VPC</code>.</p>
+   *             <p>For more information, see
+   *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
+   *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
+   *         this endpoint type, you have the option to directly associate up to three Elastic IPv4
+   *         addresses (BYO IP included) with your server's endpoint and use VPC security groups to
+   *         restrict traffic by the client's public IP address. This is not possible with
+   *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
+   *          </note>
+   * @public
+   */
+  EndpointType?: EndpointType;
+
+  /**
+   * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
+   *      to rotate keys, or have a set of active keys that use different algorithms.</p>
+   *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</p>
+   *          <p>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger key by using 3072 or 4096.</p>
+   *          <p>Use the following command to generate an ECDSA 256 bit key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</p>
+   *          <p>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</p>
+   *          <p>Use the following command to generate an ED25519 key with no passphrase:</p>
+   *          <p>
+   *             <code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</p>
+   *          <p>For all of these commands, you can replace <i>my-new-server-key</i> with a string of your choice.</p>
+   *          <important>
+   *             <p>If you aren't planning to migrate existing users from an existing SFTP-enabled
+   *         server to a new server, don't update the host key. Accidentally changing a
+   *         server's host key can be disruptive.</p>
+   *          </important>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Manage host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
+   * @public
+   */
+  HostKey?: string;
+
+  /**
+   * <p>An array containing all of the information required to call a customer's
+   *       authentication API method.</p>
+   * @public
+   */
+  IdentityProviderDetails?: IdentityProviderDetails;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+   *       your CloudWatch logs.</p>
+   * @public
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.</p>
+   *          <note>
+   *             <p>The SFTP protocol does not support post-authentication display banners.</p>
+   *          </note>
+   * @public
+   */
+  PostAuthenticationLoginBanner?: string;
+
+  /**
+   * <p>Specifies a string to display when users connect to a server. This string is displayed before the user authenticates.
+   *     For example, the following banner displays details about using the system:</p>
+   *          <p>
+   *             <code>This system is for the use of authorized users only. Individuals using this computer system without authority,
+   *     or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by
+   *     system personnel.</code>
+   *          </p>
+   * @public
+   */
+  PreAuthenticationLoginBanner?: string;
+
+  /**
+   * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
+   *       client can connect to your server's endpoint. The available protocols are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
+   *           SSH</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS
+   *           encryption</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business data</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>If you select <code>FTPS</code>, you must choose a certificate stored in Certificate Manager (ACM)
+   *             which is used to identify your server when clients connect to it over
+   *             FTPS.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
+   *             <code>EndpointType</code> must be <code>VPC</code> and the
+   *             <code>IdentityProviderType</code> must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes <code>FTP</code>, then
+   *           <code>AddressAllocationIds</code> cannot be associated.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
+   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set any of the supported identity types:
+   *             <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If <code>Protocol</code> includes <code>AS2</code>, then the
+   *               <code>EndpointType</code> must be <code>VPC</code>, and domain must be Amazon S3.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  Protocols?: Protocol[];
+
+  /**
+   * <p>Specifies the name of the security policy for the server.</p>
+   * @public
+   */
+  SecurityPolicyName?: string;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance that the Transfer Family user is
+   *       assigned to.</p>
+   * @public
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
+   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
+   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when the server session disconnects
+   *     while the file is still being uploaded.</p>
+   *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
+   *          <p>
+   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '\{"OnUpload":[]\}'</code>
+   *          </p>
+   * @public
+   */
+  WorkflowDetails?: WorkflowDetails;
+
+  /**
+   * <p>Specifies the log groups to which your server logs are sent.</p>
+   *          <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>
+   *          <p>
+   *             <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>
+   *          </p>
+   *          <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>
+   *          </p>
+   *          <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty
+   *         value for this parameter in an <code>update-server</code> call. For example:</p>
+   *          <p>
+   *             <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>
+   *          </p>
+   * @public
+   */
+  StructuredLogDestinations?: string[];
+
+  /**
+   * <p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>
+   *          <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>
+   *             <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>
+   * @public
+   */
+  S3StorageOptions?: S3StorageOptions;
+}
+
+/**
+ * @public
+ */
+export interface UpdateServerResponse {
+  /**
+   * <p>A system-assigned unique identifier for a server that the Transfer Family user is assigned
+   *       to.</p>
+   * @public
+   */
+  ServerId: string | undefined;
+}
 
 /**
  * @public
@@ -6094,229 +6674,6 @@ export interface UpdateAccessResponse {
 /**
  * @public
  */
-export interface UpdateAgreementRequest {
-  /**
-   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
-   * @public
-   */
-  AgreementId: string | undefined;
-
-  /**
-   * <p>A system-assigned unique identifier for a server instance. This is the specific server that the agreement uses.</p>
-   * @public
-   */
-  ServerId: string | undefined;
-
-  /**
-   * <p>To replace the existing description, provide a short description for the agreement. </p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>You can update the status for the agreement, either activating an inactive agreement or
-   *       the reverse.</p>
-   * @public
-   */
-  Status?: AgreementStatusType;
-
-  /**
-   * <p>A unique identifier for the AS2 local profile.</p>
-   *          <p>To change the local profile identifier, provide a new value
-   *       here.</p>
-   * @public
-   */
-  LocalProfileId?: string;
-
-  /**
-   * <p>A unique identifier for the partner profile.
-   *       To change the partner profile identifier, provide a new value here.</p>
-   * @public
-   */
-  PartnerProfileId?: string;
-
-  /**
-   * <p>To change the landing directory (folder) for files that are transferred, provide the
-   *       bucket folder that you want to use; for example,
-   *           <code>/<i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>
-   *             </code>.</p>
-   * @public
-   */
-  BaseDirectory?: string;
-
-  /**
-   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
-   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
-   *          <p>
-   *             <b>For AS2 connectors</b>
-   *          </p>
-   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
-   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
-   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
-   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
-   *       store the MDN when we receive them from the partner, and write a final JSON file containing
-   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
-   *       and write access to the parent directory of the file location used in the
-   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
-   *       access to the parent directory of the files that you intend to send with
-   *       <code>StartFileTransfer</code>.</p>
-   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
-   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
-   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
-   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
-   *          <p>
-   *             <b>For SFTP connectors</b>
-   *          </p>
-   *          <p>Make sure that the access role provides
-   *       read and write access to the parent directory of the file location
-   *       that's used in the <code>StartFileTransfer</code> request.
-   *       Additionally,  make sure that the role provides
-   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
-   * @public
-   */
-  AccessRole?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateAgreementResponse {
-  /**
-   * <p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>
-   * @public
-   */
-  AgreementId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCertificateRequest {
-  /**
-   * <p>The identifier of the certificate object that you are updating.</p>
-   * @public
-   */
-  CertificateId: string | undefined;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes active.</p>
-   * @public
-   */
-  ActiveDate?: Date;
-
-  /**
-   * <p>An optional date that specifies when the certificate becomes inactive.</p>
-   * @public
-   */
-  InactiveDate?: Date;
-
-  /**
-   * <p>A short description to help identify the certificate.</p>
-   * @public
-   */
-  Description?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateCertificateResponse {
-  /**
-   * <p>Returns the identifier of the certificate object that you are updating.</p>
-   * @public
-   */
-  CertificateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateConnectorRequest {
-  /**
-   * <p>The unique identifier for the connector.</p>
-   * @public
-   */
-  ConnectorId: string | undefined;
-
-  /**
-   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
-   * @public
-   */
-  Url?: string;
-
-  /**
-   * <p>A structure that contains the parameters for an AS2 connector object.</p>
-   * @public
-   */
-  As2Config?: As2ConnectorConfig;
-
-  /**
-   * <p>Connectors are used to send files using either the AS2 or SFTP protocol. For the access role,
-   *       provide the Amazon Resource Name (ARN) of the Identity and Access Management role to use.</p>
-   *          <p>
-   *             <b>For AS2 connectors</b>
-   *          </p>
-   *          <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
-   *       file paths in the request parameter, <code>SendFilePaths</code>. We use the file’s parent
-   *       directory (for example, for <code>--send-file-paths /bucket/dir/file.txt</code>, parent
-   *       directory is <code>/bucket/dir/</code>) to temporarily store a processed AS2 message file,
-   *       store the MDN when we receive them from the partner, and write a final JSON file containing
-   *       relevant metadata of the transmission. So, the <code>AccessRole</code> needs to provide read
-   *       and write access to the parent directory of the file location used in the
-   *       <code>StartFileTransfer</code> request. Additionally, you need to provide read and write
-   *       access to the parent directory of the files that you intend to send with
-   *       <code>StartFileTransfer</code>.</p>
-   *          <p>If you are using Basic authentication for your AS2 connector, the access role requires the
-   *       <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret is encrypted using
-   *       a customer-managed key instead of the Amazon Web Services managed key in Secrets Manager, then the role also
-   *       needs the <code>kms:Decrypt</code> permission for that key.</p>
-   *          <p>
-   *             <b>For SFTP connectors</b>
-   *          </p>
-   *          <p>Make sure that the access role provides
-   *       read and write access to the parent directory of the file location
-   *       that's used in the <code>StartFileTransfer</code> request.
-   *       Additionally,  make sure that the role provides
-   *       <code>secretsmanager:GetSecretValue</code> permission to Secrets Manager.</p>
-   * @public
-   */
-  AccessRole?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a connector to turn
-   *       on CloudWatch logging for Amazon S3 events. When set, you can view connector
-   *       activity in your CloudWatch logs.</p>
-   * @public
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>A structure that contains the parameters for an SFTP connector object.</p>
-   * @public
-   */
-  SftpConfig?: SftpConnectorConfig;
-
-  /**
-   * <p>Specifies the name of the security policy for the connector.</p>
-   * @public
-   */
-  SecurityPolicyName?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateConnectorResponse {
-  /**
-   * <p>Returns the identifier of the connector object that you are updating.</p>
-   * @public
-   */
-  ConnectorId: string | undefined;
-}
-
-/**
- * @public
- */
 export interface UpdateHostKeyRequest {
   /**
    * <p>The identifier of the server that contains the host key that you are updating.</p>
@@ -6352,317 +6709,6 @@ export interface UpdateHostKeyResponse {
    * @public
    */
   HostKeyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProfileRequest {
-  /**
-   * <p>The identifier of the profile object that you are updating.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-
-  /**
-   * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
-   * @public
-   */
-  CertificateIds?: string[];
-}
-
-/**
- * @public
- */
-export interface UpdateProfileResponse {
-  /**
-   * <p>Returns the identifier for the profile that's being updated.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateServerRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate Manager (ACM) certificate. Required
-   *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
-   *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
-   *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
-   *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
-   *       in the <i> Amazon Web ServicesCertificate Manager User Guide</i>.</p>
-   *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
-   *         private certificate</a> in the <i> Amazon Web ServicesCertificate Manager User
-   *       Guide</i>.</p>
-   *          <p>Certificates with the following cryptographic algorithms and key sizes are
-   *       supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>2048-bit RSA (RSA_2048)</p>
-   *             </li>
-   *             <li>
-   *                <p>4096-bit RSA (RSA_4096)</p>
-   *             </li>
-   *             <li>
-   *                <p>Elliptic Prime Curve 256 bit (EC_prime256v1)</p>
-   *             </li>
-   *             <li>
-   *                <p>Elliptic Prime Curve 384 bit (EC_secp384r1)</p>
-   *             </li>
-   *             <li>
-   *                <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
-   *         address specified and information about the issuer.</p>
-   *          </note>
-   * @public
-   */
-  Certificate?: string;
-
-  /**
-   * <p>The protocol settings that are configured for your server.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *           To indicate passive mode (for FTP and FTPS protocols), use the <code>PassiveIp</code> parameter.
-   *           Enter a single dotted-quad IPv4 address, such as the external IP address of a firewall, router, or load balancer.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>To ignore the error that is generated when the client attempts to use the <code>SETSTAT</code> command on a file that you are
-   *         uploading to an Amazon S3 bucket, use the <code>SetStatOption</code> parameter. To have the Transfer Family server ignore the
-   *         <code>SETSTAT</code> command and upload files without needing to make any changes to your SFTP client, set the value to
-   *         <code>ENABLE_NO_OP</code>. If you set the <code>SetStatOption</code> parameter to <code>ENABLE_NO_OP</code>, Transfer Family
-   *         generates a log entry to Amazon CloudWatch Logs, so that you can determine when the client is making a <code>SETSTAT</code>
-   *         call.</p>
-   *             </li>
-   *             <li>
-   *                <p>To determine whether your Transfer Family server resumes recent, negotiated sessions through a unique session ID, use the
-   *         <code>TlsSessionResumptionMode</code> parameter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>As2Transports</code> indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ProtocolDetails?: ProtocolDetails;
-
-  /**
-   * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
-   *       When you host your endpoint within your VPC, you can make your endpoint accessible only to resources
-   *       within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over
-   *       the internet. Your VPC's default security groups are automatically assigned to your
-   *       endpoint.</p>
-   * @public
-   */
-  EndpointDetails?: EndpointDetails;
-
-  /**
-   * <p>The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC)
-   *       or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and
-   *       resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p>
-   *          <note>
-   *             <p> After May 19, 2021, you won't be able to create a server using
-   *           <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount if your account hasn't already
-   *       done so before May 19, 2021. If you have already created servers with
-   *       <code>EndpointType=VPC_ENDPOINT</code> in your Amazon Web Servicesaccount on or before May 19, 2021,
-   *         you will not be affected. After this date, use
-   *         <code>EndpointType</code>=<code>VPC</code>.</p>
-   *             <p>For more information, see
-   *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
-   *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
-   *         this endpoint type, you have the option to directly associate up to three Elastic IPv4
-   *         addresses (BYO IP included) with your server's endpoint and use VPC security groups to
-   *         restrict traffic by the client's public IP address. This is not possible with
-   *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
-   *          </note>
-   * @public
-   */
-  EndpointType?: EndpointType;
-
-  /**
-   * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
-   *      to rotate keys, or have a set of active keys that use different algorithms.</p>
-   *          <p>Use the following command to generate an RSA 2048 bit key with no passphrase:</p>
-   *          <p>
-   *             <code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</p>
-   *          <p>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger key by using 3072 or 4096.</p>
-   *          <p>Use the following command to generate an ECDSA 256 bit key with no passphrase:</p>
-   *          <p>
-   *             <code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</p>
-   *          <p>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</p>
-   *          <p>Use the following command to generate an ED25519 key with no passphrase:</p>
-   *          <p>
-   *             <code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</p>
-   *          <p>For all of these commands, you can replace <i>my-new-server-key</i> with a string of your choice.</p>
-   *          <important>
-   *             <p>If you aren't planning to migrate existing users from an existing SFTP-enabled
-   *         server to a new server, don't update the host key. Accidentally changing a
-   *         server's host key can be disruptive.</p>
-   *          </important>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Manage host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</p>
-   * @public
-   */
-  HostKey?: string;
-
-  /**
-   * <p>An array containing all of the information required to call a customer's
-   *       authentication API method.</p>
-   * @public
-   */
-  IdentityProviderDetails?: IdentityProviderDetails;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in
-   *       your CloudWatch logs.</p>
-   * @public
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.</p>
-   *          <note>
-   *             <p>The SFTP protocol does not support post-authentication display banners.</p>
-   *          </note>
-   * @public
-   */
-  PostAuthenticationLoginBanner?: string;
-
-  /**
-   * <p>Specifies a string to display when users connect to a server. This string is displayed before the user authenticates.
-   *     For example, the following banner displays details about using the system:</p>
-   *          <p>
-   *             <code>This system is for the use of authorized users only. Individuals using this computer system without authority,
-   *     or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by
-   *     system personnel.</code>
-   *          </p>
-   * @public
-   */
-  PreAuthenticationLoginBanner?: string;
-
-  /**
-   * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
-   *       client can connect to your server's endpoint. The available protocols are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
-   *           SSH</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS
-   *           encryption</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business data</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>If you select <code>FTPS</code>, you must choose a certificate stored in Certificate Manager (ACM)
-   *             which is used to identify your server when clients connect to it over
-   *             FTPS.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
-   *             <code>EndpointType</code> must be <code>VPC</code> and the
-   *             <code>IdentityProviderType</code> must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If <code>Protocol</code> includes <code>FTP</code>, then
-   *           <code>AddressAllocationIds</code> cannot be associated.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
-   *             can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be set any of the supported identity types:
-   *             <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If <code>Protocol</code> includes <code>AS2</code>, then the
-   *               <code>EndpointType</code> must be <code>VPC</code>, and domain must be Amazon S3.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   * @public
-   */
-  Protocols?: Protocol[];
-
-  /**
-   * <p>Specifies the name of the security policy for the server.</p>
-   * @public
-   */
-  SecurityPolicyName?: string;
-
-  /**
-   * <p>A system-assigned unique identifier for a server instance that the Transfer Family user is
-   *       assigned to.</p>
-   * @public
-   */
-  ServerId: string | undefined;
-
-  /**
-   * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
-   *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when the server session disconnects
-   *     while the file is still being uploaded.</p>
-   *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
-   *          <p>
-   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '\{"OnUpload":[]\}'</code>
-   *          </p>
-   * @public
-   */
-  WorkflowDetails?: WorkflowDetails;
-
-  /**
-   * <p>Specifies the log groups to which your server logs are sent.</p>
-   *          <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>
-   *          <p>
-   *             <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>
-   *          </p>
-   *          <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>
-   *          </p>
-   *          <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty
-   *         value for this parameter in an <code>update-server</code> call. For example:</p>
-   *          <p>
-   *             <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>
-   *          </p>
-   * @public
-   */
-  StructuredLogDestinations?: string[];
-
-  /**
-   * <p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>
-   *          <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>
-   *             <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>
-   * @public
-   */
-  S3StorageOptions?: S3StorageOptions;
-}
-
-/**
- * @public
- */
-export interface UpdateServerResponse {
-  /**
-   * <p>A system-assigned unique identifier for a server that the Transfer Family user is assigned
-   *       to.</p>
-   * @public
-   */
-  ServerId: string | undefined;
 }
 
 /**
@@ -6801,14 +6847,6 @@ export interface UpdateUserResponse {
 /**
  * @internal
  */
-export const CreateServerRequestFilterSensitiveLog = (obj: CreateServerRequest): any => ({
-  ...obj,
-  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const DescribedCertificateFilterSensitiveLog = (obj: DescribedCertificate): any => ({
   ...obj,
   ...(obj.Certificate && { Certificate: SENSITIVE_STRING }),
@@ -6836,6 +6874,14 @@ export const ImportCertificateRequestFilterSensitiveLog = (obj: ImportCertificat
 /**
  * @internal
  */
+export const CreateServerRequestFilterSensitiveLog = (obj: CreateServerRequest): any => ({
+  ...obj,
+  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ImportHostKeyRequestFilterSensitiveLog = (obj: ImportHostKeyRequest): any => ({
   ...obj,
   ...(obj.HostKeyBody && { HostKeyBody: SENSITIVE_STRING }),
@@ -6844,15 +6890,15 @@ export const ImportHostKeyRequestFilterSensitiveLog = (obj: ImportHostKeyRequest
 /**
  * @internal
  */
-export const TestIdentityProviderRequestFilterSensitiveLog = (obj: TestIdentityProviderRequest): any => ({
+export const UpdateServerRequestFilterSensitiveLog = (obj: UpdateServerRequest): any => ({
   ...obj,
-  ...(obj.UserPassword && { UserPassword: SENSITIVE_STRING }),
+  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const UpdateServerRequestFilterSensitiveLog = (obj: UpdateServerRequest): any => ({
+export const TestIdentityProviderRequestFilterSensitiveLog = (obj: TestIdentityProviderRequest): any => ({
   ...obj,
-  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
+  ...(obj.UserPassword && { UserPassword: SENSITIVE_STRING }),
 });
