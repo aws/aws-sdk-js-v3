@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.579.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.578.0...v3.579.0) (2024-05-17)
+
+
+### Features
+
+* **client-codebuild:** Aws CodeBuild now supports 36 hours build timeout ([08d5cc3](https://github.com/aws/aws-sdk-js-v3/commit/08d5cc3b938e24ca2993b177293a17cef645830e))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 

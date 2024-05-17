@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.579.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.578.0...v3.579.0) (2024-05-17)
+
+
+### Features
+
+* **client-transfer:** Enable use of CloudFormation traits in Smithy model to improve generated CloudFormation schema from the Smithy API model. ([b899fc5](https://github.com/aws/aws-sdk-js-v3/commit/b899fc585910f9a62d38d43f687a6ecd4e0e834d))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

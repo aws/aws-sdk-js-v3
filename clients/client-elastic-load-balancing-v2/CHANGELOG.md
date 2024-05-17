@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.579.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.578.0...v3.579.0) (2024-05-17)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release adds dualstack-without-public-ipv4 IP address type for ALB. ([c3bb98f](https://github.com/aws/aws-sdk-js-v3/commit/c3bb98fcbc87261636bda0cd88a17060b183ace5))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

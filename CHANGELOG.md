@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.579.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.578.0...v3.579.0) (2024-05-17)
+
+
+### Features
+
+* **client-application-auto-scaling:** add v2 smoke tests and smithy smokeTests trait for SDK testing. ([6350db5](https://github.com/aws/aws-sdk-js-v3/commit/6350db565b7981527fe24ecaa5d0de9ac8f8290a))
+* **client-codebuild:** Aws CodeBuild now supports 36 hours build timeout ([08d5cc3](https://github.com/aws/aws-sdk-js-v3/commit/08d5cc3b938e24ca2993b177293a17cef645830e))
+* **client-elastic-load-balancing-v2:** This release adds dualstack-without-public-ipv4 IP address type for ALB. ([c3bb98f](https://github.com/aws/aws-sdk-js-v3/commit/c3bb98fcbc87261636bda0cd88a17060b183ace5))
+* **client-lakeformation:** Introduces a new API, GetDataLakePrincipal, that returns the identity of the invoking principal ([9ea7a53](https://github.com/aws/aws-sdk-js-v3/commit/9ea7a53ae459c4374bf4111454f4a9f6a1e1bd09))
+* **client-transfer:** Enable use of CloudFormation traits in Smithy model to improve generated CloudFormation schema from the Smithy API model. ([b899fc5](https://github.com/aws/aws-sdk-js-v3/commit/b899fc585910f9a62d38d43f687a6ecd4e0e834d))
+* **clients:** update client endpoints as of 2024-05-17 ([1acc4e6](https://github.com/aws/aws-sdk-js-v3/commit/1acc4e6a6c45417d8a9860ca22bcaabc91746606))
+
+
+
+
+
 # [3.578.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.577.0...v3.578.0) (2024-05-16)
 
 

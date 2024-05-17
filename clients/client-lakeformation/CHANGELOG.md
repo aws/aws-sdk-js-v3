@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.579.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.578.0...v3.579.0) (2024-05-17)
+
+
+### Features
+
+* **client-lakeformation:** Introduces a new API, GetDataLakePrincipal, that returns the identity of the invoking principal ([9ea7a53](https://github.com/aws/aws-sdk-js-v3/commit/9ea7a53ae459c4374bf4111454f4a9f6a1e1bd09))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-lakeformation
