@@ -58,6 +58,7 @@ import {
   ChangeProgressStatus,
   CloudWatchLogDestination,
   ConflictException,
+  DisabledOperationException,
   EncryptionAtRestOptions,
   InternalException,
   InvalidPaginationTokenException,
@@ -69,6 +70,7 @@ import {
   ResourceNotFoundException,
   Tag,
   ValidationException,
+  VpcAttachmentOptions,
   VpcOptions,
 } from "../models/models_0";
 import { OSISServiceException as __BaseException } from "../models/OSISServiceException";
@@ -146,8 +148,11 @@ export const se_GetPipelineBlueprintCommand = async (
   const headers: any = {};
   b.bp("/2022-01-01/osis/getPipelineBlueprint/{BlueprintName}");
   b.p("BlueprintName", () => input.BlueprintName!, "{BlueprintName}", false);
+  const query: any = map({
+    [_f]: [, input[_F]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -429,6 +434,7 @@ export const de_GetPipelineBlueprintCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Blueprint: _json,
+    Format: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -651,6 +657,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.osis#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "DisabledOperationException":
+    case "com.amazonaws.osis#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.osis#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -714,6 +723,26 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
   });
   Object.assign(contents, doc);
   const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1DisabledOperationExceptionRes
+ */
+const de_DisabledOperationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DisabledOperationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DisabledOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -852,6 +881,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_TagList omitted.
 
+// se_VpcAttachmentOptions omitted.
+
 // se_VpcOptions omitted.
 
 // de_BufferOptions omitted.
@@ -919,6 +950,7 @@ const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
   return take(output, {
     BufferOptions: _json,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destinations: _json,
     EncryptionAtRestOptions: _json,
     IngestEndpointUrls: _json,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -942,6 +974,10 @@ const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
 
 // de_PipelineBlueprintSummary omitted.
 
+// de_PipelineDestination omitted.
+
+// de_PipelineDestinationList omitted.
+
 // de_PipelineStatusReason omitted.
 
 /**
@@ -950,6 +986,7 @@ const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
 const de_PipelineSummary = (output: any, context: __SerdeContext): PipelineSummary => {
   return take(output, {
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destinations: _json,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MaxUnits: __expectInt32,
     MinUnits: __expectInt32,
@@ -989,6 +1026,8 @@ const de_PipelineSummaryList = (output: any, context: __SerdeContext): PipelineS
 
 // de_ValidationMessageList omitted.
 
+// de_VpcAttachmentOptions omitted.
+
 // de_VpcEndpoint omitted.
 
 // de_VpcEndpointsList omitted.
@@ -1015,8 +1054,10 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Arn";
+const _F = "Format";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _a = "arn";
+const _f = "format";
 const _mR = "maxResults";
 const _nT = "nextToken";

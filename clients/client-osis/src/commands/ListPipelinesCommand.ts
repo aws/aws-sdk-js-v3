@@ -55,6 +55,12 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * //       MaxUnits: Number("int"),
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Destinations: [ // PipelineDestinationList
+ * //         { // PipelineDestination
+ * //           ServiceName: "STRING_VALUE",
+ * //           Endpoint: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       Tags: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE", // required
@@ -75,6 +81,9 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to access the resource.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>Exception is thrown when an operation has been disabled.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>The request failed because of an unknown error, exception, or failure (the failure is

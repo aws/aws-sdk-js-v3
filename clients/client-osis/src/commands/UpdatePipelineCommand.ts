@@ -87,6 +87,10 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * //           SecurityGroupIds: [ // SecurityGroupIds
  * //             "STRING_VALUE",
  * //           ],
+ * //           VpcAttachmentOptions: { // VpcAttachmentOptions
+ * //             AttachToVpc: true || false, // required
+ * //             CidrBlock: "STRING_VALUE",
+ * //           },
  * //         },
  * //       },
  * //     ],
@@ -100,6 +104,12 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * //       { // ServiceVpcEndpoint
  * //         ServiceName: "OPENSEARCH_SERVERLESS",
  * //         VpcEndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Destinations: [ // PipelineDestinationList
+ * //       { // PipelineDestination
+ * //         ServiceName: "STRING_VALUE",
+ * //         Endpoint: "STRING_VALUE",
  * //       },
  * //     ],
  * //     Tags: [ // TagList
@@ -124,6 +134,9 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The client attempted to remove a resource that is currently in use.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>Exception is thrown when an operation has been disabled.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>The request failed because of an unknown error, exception, or failure (the failure is

@@ -56,6 +56,9 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to access the resource.</p>
  *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>Exception is thrown when an operation has been disabled.</p>
+ *
  * @throws {@link InternalException} (server fault)
  *  <p>The request failed because of an unknown error, exception, or failure (the failure is
  *    internal to the service).</p>
