@@ -138,6 +138,7 @@ import {
   FixedSizeChunkingConfiguration,
   Function,
   FunctionSchema,
+  GuardrailConfiguration,
   InferenceConfiguration,
   IngestionJob,
   IngestionJobFilter,
@@ -219,6 +220,7 @@ export const se_CreateAgentCommand = async (
       customerEncryptionKeyArn: [],
       description: [],
       foundationModel: [],
+      guardrailConfiguration: (_) => _json(_),
       idleSessionTTLInSeconds: [],
       instruction: [],
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
@@ -927,6 +929,7 @@ export const se_UpdateAgentCommand = async (
       customerEncryptionKeyArn: [],
       description: [],
       foundationModel: [],
+      guardrailConfiguration: (_) => _json(_),
       idleSessionTTLInSeconds: [],
       instruction: [],
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
@@ -2112,6 +2115,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_FunctionSchema omitted.
 
+// se_GuardrailConfiguration omitted.
+
 /**
  * serializeAws_restJson1InferenceConfiguration
  */
@@ -2256,6 +2261,7 @@ const de_Agent = (output: any, context: __SerdeContext): Agent => {
     description: __expectString,
     failureReasons: _json,
     foundationModel: __expectString,
+    guardrailConfiguration: _json,
     idleSessionTTLInSeconds: __expectInt32,
     instruction: __expectString,
     preparedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -2420,6 +2426,7 @@ const de_AgentSummary = (output: any, context: __SerdeContext): AgentSummary => 
     agentName: __expectString,
     agentStatus: __expectString,
     description: __expectString,
+    guardrailConfiguration: _json,
     latestAgentVersion: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
@@ -2440,6 +2447,7 @@ const de_AgentVersion = (output: any, context: __SerdeContext): AgentVersion => 
     description: __expectString,
     failureReasons: _json,
     foundationModel: __expectString,
+    guardrailConfiguration: _json,
     idleSessionTTLInSeconds: __expectInt32,
     instruction: __expectString,
     promptOverrideConfiguration: (_: any) => de_PromptOverrideConfiguration(_, context),
@@ -2471,6 +2479,7 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
     agentVersion: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
+    guardrailConfiguration: _json,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
@@ -2536,6 +2545,8 @@ const de_DataSourceSummary = (output: any, context: __SerdeContext): DataSourceS
 // de_Functions omitted.
 
 // de_FunctionSchema omitted.
+
+// de_GuardrailConfiguration omitted.
 
 /**
  * deserializeAws_restJson1InferenceConfiguration

@@ -934,6 +934,24 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
+ * <p>The details of the guardrails configuration.</p>
+ * @public
+ */
+export interface GuardrailConfiguration {
+  /**
+   * <p>The guardrails identifier assigned to the guardrails configuration.</p>
+   * @public
+   */
+  guardrailIdentifier?: string;
+
+  /**
+   * <p>The guardrails version assigned to the guardrails configuration.</p>
+   * @public
+   */
+  guardrailVersion?: string;
+}
+
+/**
  * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  * @public
  */
@@ -1059,7 +1077,7 @@ export interface PromptConfiguration {
   promptState?: PromptState;
 
   /**
-   * <p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
+   * <p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts-configure.html">Configure the prompt templates</a>.</p>
    * @public
    */
   basePromptTemplate?: string;
@@ -1089,7 +1107,7 @@ export interface PromptOverrideConfiguration {
   promptConfigurations: PromptConfiguration[] | undefined;
 
   /**
-   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>.</p>
+   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser Lambda function in Agents for Amazon Bedrock</a>.</p>
    * @public
    */
   overrideLambda?: string;
@@ -1232,6 +1250,12 @@ export interface Agent {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The guardrails configuration assigned to the agent.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1594,6 +1618,12 @@ export interface CreateAgentRequest {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The unique Guardrail configuration assigned to the agent when it is created.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1720,6 +1750,12 @@ export interface AgentSummary {
    * @public
    */
   latestAgentVersion?: string;
+
+  /**
+   * <p>The details of the guardrails configuration in the agent summary.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1837,6 +1873,12 @@ export interface UpdateAgentRequest {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The unique Guardrail configuration assigned to the agent when it is updated.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1951,6 +1993,12 @@ export interface AgentVersion {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The guardrails configuration assigned to the agent version.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1993,6 +2041,12 @@ export interface AgentVersionSummary {
    * @public
    */
   description?: string;
+
+  /**
+   * <p>The details of the guardrails configuration in the agent version summary.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**

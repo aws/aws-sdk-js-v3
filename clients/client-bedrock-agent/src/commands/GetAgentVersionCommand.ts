@@ -86,6 +86,10 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
  * //     },
+ * //     guardrailConfiguration: { // GuardrailConfiguration
+ * //       guardrailIdentifier: "STRING_VALUE",
+ * //       guardrailVersion: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

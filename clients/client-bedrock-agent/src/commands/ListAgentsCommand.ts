@@ -49,6 +49,10 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * //       description: "STRING_VALUE",
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       latestAgentVersion: "STRING_VALUE",
+ * //       guardrailConfiguration: { // GuardrailConfiguration
+ * //         guardrailIdentifier: "STRING_VALUE",
+ * //         guardrailVersion: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -83,6 +83,10 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
  * //     },
+ * //     guardrailConfiguration: { // GuardrailConfiguration
+ * //       guardrailIdentifier: "STRING_VALUE",
+ * //       guardrailVersion: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

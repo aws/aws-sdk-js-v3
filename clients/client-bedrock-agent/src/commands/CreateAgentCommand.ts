@@ -95,6 +95,10 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *     ],
  *     overrideLambda: "STRING_VALUE",
  *   },
+ *   guardrailConfiguration: { // GuardrailConfiguration
+ *     guardrailIdentifier: "STRING_VALUE",
+ *     guardrailVersion: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateAgentCommand(input);
  * const response = await client.send(command);
@@ -141,6 +145,10 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
+ * //     },
+ * //     guardrailConfiguration: { // GuardrailConfiguration
+ * //       guardrailIdentifier: "STRING_VALUE",
+ * //       guardrailVersion: "STRING_VALUE",
  * //     },
  * //   },
  * // };

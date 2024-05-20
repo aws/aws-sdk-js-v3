@@ -69,6 +69,10 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *     ],
  *     overrideLambda: "STRING_VALUE",
  *   },
+ *   guardrailConfiguration: { // GuardrailConfiguration
+ *     guardrailIdentifier: "STRING_VALUE",
+ *     guardrailVersion: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateAgentCommand(input);
  * const response = await client.send(command);
@@ -115,6 +119,10 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
+ * //     },
+ * //     guardrailConfiguration: { // GuardrailConfiguration
+ * //       guardrailIdentifier: "STRING_VALUE",
+ * //       guardrailVersion: "STRING_VALUE",
  * //     },
  * //   },
  * // };
