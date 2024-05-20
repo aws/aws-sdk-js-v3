@@ -85,6 +85,12 @@ export const getDefaultRoleAssumer = (
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new Error(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
     }
+    let accountId;
+    try {
+      accountId = AssumedRoleUser.Arn.split(":")[4];
+    } catch (error) {
+      accountId = undefined;
+    }
     return {
       accessKeyId: Credentials.AccessKeyId,
       secretAccessKey: Credentials.SecretAccessKey,
@@ -92,7 +98,7 @@ export const getDefaultRoleAssumer = (
       expiration: Credentials.Expiration,
       // TODO(credentialScope): access normally when shape is updated.
       credentialScope: (Credentials as any).CredentialScope,
-      accountId: AssumedRoleUser.Arn.split(":")[4],
+      accountId,
     };
   };
 };
@@ -136,6 +142,12 @@ export const getDefaultRoleAssumerWithWebIdentity = (
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new Error(`Invalid response from STS.assumeRoleWithWebIdentity call with role ${params.RoleArn}`);
     }
+    let accountId;
+    try {
+      accountId = AssumedRoleUser.Arn.split(":")[4];
+    } catch (error) {
+      accountId = undefined;
+    }
     return {
       accessKeyId: Credentials.AccessKeyId,
       secretAccessKey: Credentials.SecretAccessKey,
@@ -143,7 +155,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       expiration: Credentials.Expiration,
       // TODO(credentialScope): access normally when shape is updated.
       credentialScope: (Credentials as any).CredentialScope,
-      accountId: AssumedRoleUser.Arn.split(":")[4],
+      accountId,
     };
   };
 };
