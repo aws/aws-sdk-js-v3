@@ -1093,6 +1093,443 @@ export interface FailureTrace {
  * @public
  * @enum
  */
+export const GuardrailAction = {
+  INTERVENED: "INTERVENED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentPolicyAction =
+  (typeof GuardrailContentPolicyAction)[keyof typeof GuardrailContentPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterConfidence =
+  (typeof GuardrailContentFilterConfidence)[keyof typeof GuardrailContentFilterConfidence];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterType = {
+  HATE: "HATE",
+  INSULTS: "INSULTS",
+  MISCONDUCT: "MISCONDUCT",
+  PROMPT_ATTACK: "PROMPT_ATTACK",
+  SEXUAL: "SEXUAL",
+  VIOLENCE: "VIOLENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
+
+/**
+ * <p>Details of the content filter used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailContentFilter {
+  /**
+   * <p>The type of content detected in the filter by the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailContentFilterType;
+
+  /**
+   * <p>The confidence level regarding the content detected in the filter by the Guardrail.</p>
+   * @public
+   */
+  confidence?: GuardrailContentFilterConfidence;
+
+  /**
+   * <p>The action placed on the content by the Guardrail filter.</p>
+   * @public
+   */
+  action?: GuardrailContentPolicyAction;
+}
+
+/**
+ * <p>The details of the policy assessment in the Guardrails filter.</p>
+ * @public
+ */
+export interface GuardrailContentPolicyAssessment {
+  /**
+   * <p>The filter details of the policy assessment used in the Guardrails filter.</p>
+   * @public
+   */
+  filters?: GuardrailContentFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailSensitiveInformationPolicyAction = {
+  ANONYMIZED: "ANONYMIZED",
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailSensitiveInformationPolicyAction =
+  (typeof GuardrailSensitiveInformationPolicyAction)[keyof typeof GuardrailSensitiveInformationPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailPiiEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
+
+/**
+ * <p>The Guardrail filter to identify and remove personally identifiable information (PII).</p>
+ * @public
+ */
+export interface GuardrailPiiEntityFilter {
+  /**
+   * <p>The type of PII the Guardrail filter has identified and removed.</p>
+   * @public
+   */
+  type?: GuardrailPiiEntityType;
+
+  /**
+   * <p>The match to settings in the Guardrail filter to identify and remove PII.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The action of the Guardrail filter to identify and remove PII.</p>
+   * @public
+   */
+  action?: GuardrailSensitiveInformationPolicyAction;
+}
+
+/**
+ * <p>The details for the regex filter used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailRegexFilter {
+  /**
+   * <p>The name details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The regex details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  regex?: string;
+
+  /**
+   * <p>The match details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The action details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailSensitiveInformationPolicyAction;
+}
+
+/**
+ * <p>The details of the sensitive policy assessment used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailSensitiveInformationPolicyAssessment {
+  /**
+   * <p>The details of the PII entities used in the sensitive policy assessment for the Guardrail.</p>
+   * @public
+   */
+  piiEntities?: GuardrailPiiEntityFilter[];
+
+  /**
+   * <p>The details of the regexes used in the sensitive policy assessment for the Guardrail.</p>
+   * @public
+   */
+  regexes?: GuardrailRegexFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicPolicyAction = (typeof GuardrailTopicPolicyAction)[keyof typeof GuardrailTopicPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicType = {
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
+/**
+ * <p>The details for a specific topic defined in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTopic {
+  /**
+   * <p>The name details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The type details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailTopicType;
+
+  /**
+   * <p>The action details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailTopicPolicyAction;
+}
+
+/**
+ * <p>The details of the policy assessment used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTopicPolicyAssessment {
+  /**
+   * <p>The topic details of the policy assessment used in the Guardrail.</p>
+   * @public
+   */
+  topics?: GuardrailTopic[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailWordPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailWordPolicyAction = (typeof GuardrailWordPolicyAction)[keyof typeof GuardrailWordPolicyAction];
+
+/**
+ * <p>The custom word details for the filter in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailCustomWord {
+  /**
+   * <p>The match details for the custom word filter in the Guardrail.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The action details for the custom word filter in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailWordPolicyAction;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailManagedWordType = {
+  PROFANITY: "PROFANITY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof typeof GuardrailManagedWordType];
+
+/**
+ * <p>The managed word details for the filter in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailManagedWord {
+  /**
+   * <p>The match details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The type details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailManagedWordType;
+
+  /**
+   * <p>The action details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailWordPolicyAction;
+}
+
+/**
+ * <p>The assessment details for words defined in the Guardrail filter.</p>
+ * @public
+ */
+export interface GuardrailWordPolicyAssessment {
+  /**
+   * <p>The custom word details for words defined in the Guardrail filter.</p>
+   * @public
+   */
+  customWords?: GuardrailCustomWord[];
+
+  /**
+   * <p>The managed word lists for words defined in the Guardrail filter.</p>
+   * @public
+   */
+  managedWordLists?: GuardrailManagedWord[];
+}
+
+/**
+ * <p>Assessment details of the content analyzed by Guardrails.</p>
+ * @public
+ */
+export interface GuardrailAssessment {
+  /**
+   * <p>Topic policy details of the Guardrail.</p>
+   * @public
+   */
+  topicPolicy?: GuardrailTopicPolicyAssessment;
+
+  /**
+   * <p>Content policy details of the Guardrail.</p>
+   * @public
+   */
+  contentPolicy?: GuardrailContentPolicyAssessment;
+
+  /**
+   * <p>Word policy details of the Guardrail.</p>
+   * @public
+   */
+  wordPolicy?: GuardrailWordPolicyAssessment;
+
+  /**
+   * <p>Sensitive Information policy details of Guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment;
+}
+
+/**
+ * <p>The trace details used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTrace {
+  /**
+   * <p>The trace action details used with the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailAction;
+
+  /**
+   * <p>The details of the trace Id used in the Guardrail Trace.</p>
+   * @public
+   */
+  traceId?: string;
+
+  /**
+   * <p>The details of the input assessments used in the Guardrail Trace.</p>
+   * @public
+   */
+  inputAssessments?: GuardrailAssessment[];
+
+  /**
+   * <p>The details of the output assessments used in the Guardrail Trace.</p>
+   * @public
+   */
+  outputAssessments?: GuardrailAssessment[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InvocationType = {
   ACTION_GROUP: "ACTION_GROUP",
   FINISH: "FINISH",
@@ -1739,6 +2176,7 @@ export namespace PreProcessingTrace {
  */
 export type Trace =
   | Trace.FailureTraceMember
+  | Trace.GuardrailTraceMember
   | Trace.OrchestrationTraceMember
   | Trace.PostProcessingTraceMember
   | Trace.PreProcessingTraceMember
@@ -1749,10 +2187,24 @@ export type Trace =
  */
 export namespace Trace {
   /**
+   * <p>The trace details for a trace defined in the Guardrail filter.</p>
+   * @public
+   */
+  export interface GuardrailTraceMember {
+    guardrailTrace: GuardrailTrace;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    failureTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
    * @public
    */
   export interface PreProcessingTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace: PreProcessingTrace;
     orchestrationTrace?: never;
     postProcessingTrace?: never;
@@ -1765,6 +2217,7 @@ export namespace Trace {
    * @public
    */
   export interface OrchestrationTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace: OrchestrationTrace;
     postProcessingTrace?: never;
@@ -1777,6 +2230,7 @@ export namespace Trace {
    * @public
    */
   export interface PostProcessingTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace?: never;
     postProcessingTrace: PostProcessingTrace;
@@ -1789,6 +2243,7 @@ export namespace Trace {
    * @public
    */
   export interface FailureTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace?: never;
     postProcessingTrace?: never;
@@ -1800,6 +2255,7 @@ export namespace Trace {
    * @public
    */
   export interface $UnknownMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace?: never;
     postProcessingTrace?: never;
@@ -1808,6 +2264,7 @@ export namespace Trace {
   }
 
   export interface Visitor<T> {
+    guardrailTrace: (value: GuardrailTrace) => T;
     preProcessingTrace: (value: PreProcessingTrace) => T;
     orchestrationTrace: (value: OrchestrationTrace) => T;
     postProcessingTrace: (value: PostProcessingTrace) => T;
@@ -1816,6 +2273,7 @@ export namespace Trace {
   }
 
   export const visit = <T>(value: Trace, visitor: Visitor<T>): T => {
+    if (value.guardrailTrace !== undefined) return visitor.guardrailTrace(value.guardrailTrace);
     if (value.preProcessingTrace !== undefined) return visitor.preProcessingTrace(value.preProcessingTrace);
     if (value.orchestrationTrace !== undefined) return visitor.orchestrationTrace(value.orchestrationTrace);
     if (value.postProcessingTrace !== undefined) return visitor.postProcessingTrace(value.postProcessingTrace);
@@ -3490,6 +3948,104 @@ export const FailureTraceFilterSensitiveLog = (obj: FailureTrace): any => ({
 /**
  * @internal
  */
+export const GuardrailContentFilterFilterSensitiveLog = (obj: GuardrailContentFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContentPolicyAssessmentFilterSensitiveLog = (obj: GuardrailContentPolicyAssessment): any => ({
+  ...obj,
+  ...(obj.filters && { filters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailPiiEntityFilterFilterSensitiveLog = (obj: GuardrailPiiEntityFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailRegexFilterFilterSensitiveLog = (obj: GuardrailRegexFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailSensitiveInformationPolicyAssessmentFilterSensitiveLog = (
+  obj: GuardrailSensitiveInformationPolicyAssessment
+): any => ({
+  ...obj,
+  ...(obj.piiEntities && { piiEntities: SENSITIVE_STRING }),
+  ...(obj.regexes && { regexes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailTopicFilterSensitiveLog = (obj: GuardrailTopic): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailTopicPolicyAssessmentFilterSensitiveLog = (obj: GuardrailTopicPolicyAssessment): any => ({
+  ...obj,
+  ...(obj.topics && { topics: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailCustomWordFilterSensitiveLog = (obj: GuardrailCustomWord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailManagedWordFilterSensitiveLog = (obj: GuardrailManagedWord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailWordPolicyAssessmentFilterSensitiveLog = (obj: GuardrailWordPolicyAssessment): any => ({
+  ...obj,
+  ...(obj.customWords && { customWords: SENSITIVE_STRING }),
+  ...(obj.managedWordLists && { managedWordLists: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAssessmentFilterSensitiveLog = (obj: GuardrailAssessment): any => ({
+  ...obj,
+  ...(obj.topicPolicy && { topicPolicy: SENSITIVE_STRING }),
+  ...(obj.contentPolicy && { contentPolicy: SENSITIVE_STRING }),
+  ...(obj.wordPolicy && { wordPolicy: SENSITIVE_STRING }),
+  ...(obj.sensitiveInformationPolicy && { sensitiveInformationPolicy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailTraceFilterSensitiveLog = (obj: GuardrailTrace): any => ({
+  ...obj,
+  ...(obj.inputAssessments && { inputAssessments: SENSITIVE_STRING }),
+  ...(obj.outputAssessments && { outputAssessments: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const KnowledgeBaseLookupInputFilterSensitiveLog = (obj: KnowledgeBaseLookupInput): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
@@ -3633,6 +4189,7 @@ export const PreProcessingTraceFilterSensitiveLog = (obj: PreProcessingTrace): a
  * @internal
  */
 export const TraceFilterSensitiveLog = (obj: Trace): any => {
+  if (obj.guardrailTrace !== undefined) return { guardrailTrace: SENSITIVE_STRING };
   if (obj.preProcessingTrace !== undefined) return { preProcessingTrace: SENSITIVE_STRING };
   if (obj.orchestrationTrace !== undefined) return { orchestrationTrace: SENSITIVE_STRING };
   if (obj.postProcessingTrace !== undefined) return { postProcessingTrace: SENSITIVE_STRING };

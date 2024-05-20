@@ -933,6 +933,44 @@ const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
 
 // de_GeneratedResponsePart omitted.
 
+// de_GuardrailAssessment omitted.
+
+// de_GuardrailAssessmentList omitted.
+
+// de_GuardrailContentFilter omitted.
+
+// de_GuardrailContentFilterList omitted.
+
+// de_GuardrailContentPolicyAssessment omitted.
+
+// de_GuardrailCustomWord omitted.
+
+// de_GuardrailCustomWordList omitted.
+
+// de_GuardrailManagedWord omitted.
+
+// de_GuardrailManagedWordList omitted.
+
+// de_GuardrailPiiEntityFilter omitted.
+
+// de_GuardrailPiiEntityFilterList omitted.
+
+// de_GuardrailRegexFilter omitted.
+
+// de_GuardrailRegexFilterList omitted.
+
+// de_GuardrailSensitiveInformationPolicyAssessment omitted.
+
+// de_GuardrailTopic omitted.
+
+// de_GuardrailTopicList omitted.
+
+// de_GuardrailTopicPolicyAssessment omitted.
+
+// de_GuardrailTrace omitted.
+
+// de_GuardrailWordPolicyAssessment omitted.
+
 /**
  * deserializeAws_restJson1InferenceConfiguration
  */
@@ -1175,6 +1213,11 @@ const de_Trace = (output: any, context: __SerdeContext): Trace => {
   if (output.failureTrace != null) {
     return {
       failureTrace: _json(output.failureTrace),
+    };
+  }
+  if (output.guardrailTrace != null) {
+    return {
+      guardrailTrace: _json(output.guardrailTrace),
     };
   }
   if (output.orchestrationTrace != null) {

@@ -162,6 +162,118 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //       sessionId: "STRING_VALUE",
  * //       agentVersion: "STRING_VALUE",
  * //       trace: { // Trace Union: only one key present
+ * //         guardrailTrace: { // GuardrailTrace
+ * //           action: "INTERVENED" || "NONE",
+ * //           traceId: "STRING_VALUE",
+ * //           inputAssessments: [ // GuardrailAssessmentList
+ * //             { // GuardrailAssessment
+ * //               topicPolicy: { // GuardrailTopicPolicyAssessment
+ * //                 topics: [ // GuardrailTopicList
+ * //                   { // GuardrailTopic
+ * //                     name: "STRING_VALUE",
+ * //                     type: "DENY",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               contentPolicy: { // GuardrailContentPolicyAssessment
+ * //                 filters: [ // GuardrailContentFilterList
+ * //                   { // GuardrailContentFilter
+ * //                     type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK",
+ * //                     confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               wordPolicy: { // GuardrailWordPolicyAssessment
+ * //                 customWords: [ // GuardrailCustomWordList
+ * //                   { // GuardrailCustomWord
+ * //                     match: "STRING_VALUE",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //                 managedWordLists: [ // GuardrailManagedWordList
+ * //                   { // GuardrailManagedWord
+ * //                     match: "STRING_VALUE",
+ * //                     type: "PROFANITY",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               sensitiveInformationPolicy: { // GuardrailSensitiveInformationPolicyAssessment
+ * //                 piiEntities: [ // GuardrailPiiEntityFilterList
+ * //                   { // GuardrailPiiEntityFilter
+ * //                     type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER",
+ * //                     match: "STRING_VALUE",
+ * //                     action: "BLOCKED" || "ANONYMIZED",
+ * //                   },
+ * //                 ],
+ * //                 regexes: [ // GuardrailRegexFilterList
+ * //                   { // GuardrailRegexFilter
+ * //                     name: "STRING_VALUE",
+ * //                     regex: "STRING_VALUE",
+ * //                     match: "STRING_VALUE",
+ * //                     action: "BLOCKED" || "ANONYMIZED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //           outputAssessments: [
+ * //             {
+ * //               topicPolicy: {
+ * //                 topics: [
+ * //                   {
+ * //                     name: "STRING_VALUE",
+ * //                     type: "DENY",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               contentPolicy: {
+ * //                 filters: [
+ * //                   {
+ * //                     type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK",
+ * //                     confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               wordPolicy: {
+ * //                 customWords: [
+ * //                   {
+ * //                     match: "STRING_VALUE",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //                 managedWordLists: [
+ * //                   {
+ * //                     match: "STRING_VALUE",
+ * //                     type: "PROFANITY",
+ * //                     action: "BLOCKED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               sensitiveInformationPolicy: {
+ * //                 piiEntities: [
+ * //                   {
+ * //                     type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER",
+ * //                     match: "STRING_VALUE",
+ * //                     action: "BLOCKED" || "ANONYMIZED",
+ * //                   },
+ * //                 ],
+ * //                 regexes: [
+ * //                   {
+ * //                     name: "STRING_VALUE",
+ * //                     regex: "STRING_VALUE",
+ * //                     match: "STRING_VALUE",
+ * //                     action: "BLOCKED" || "ANONYMIZED",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
  * //         preProcessingTrace: { // PreProcessingTrace Union: only one key present
  * //           modelInvocationInput: { // ModelInvocationInput
  * //             traceId: "STRING_VALUE",
