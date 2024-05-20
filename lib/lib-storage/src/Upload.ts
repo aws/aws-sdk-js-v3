@@ -1,4 +1,5 @@
 import {
+  AbortMultipartUploadCommand,
   CompletedPart,
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandOutput,
@@ -41,13 +42,13 @@ export class Upload extends EventEmitter {
   private MAX_PARTS = 10000;
 
   // Defaults.
-  private queueSize = 4;
-  private partSize = MIN_PART_SIZE;
-  private leavePartsOnError = false;
-  private tags: Tag[] = [];
+  private readonly queueSize: number = 4;
+  private readonly partSize = MIN_PART_SIZE;
+  private readonly leavePartsOnError: boolean = false;
+  private readonly tags: Tag[] = [];
 
-  private client: S3Client;
-  private params: PutObjectCommandInput;
+  private readonly client: S3Client;
+  private readonly params: PutObjectCommandInput;
 
   // used for reporting progress.
   private totalBytes?: number;
@@ -57,10 +58,14 @@ export class Upload extends EventEmitter {
   private abortController: IAbortController;
   private concurrentUploaders: Promise<void>[] = [];
   private createMultiPartPromise?: Promise<CreateMultipartUploadCommandOutput>;
+  private abortMultipartUploadCommand: AbortMultipartUploadCommand | null = null;
 
   private uploadedParts: CompletedPart[] = [];
-  private uploadId?: string;
-  uploadEvent?: string;
+  /**
+   * Last UploadId if the upload was done with MultipartUpload and not PutObject.
+   */
+  public uploadId?: string;
+  public uploadEvent?: string;
 
   private isMultiPart = true;
   private singleUploadResult?: CompleteMultipartUploadCommandOutput;
@@ -184,7 +189,18 @@ export class Upload extends EventEmitter {
   private async __createMultipartUpload(): Promise<CreateMultipartUploadCommandOutput> {
     if (!this.createMultiPartPromise) {
       const createCommandParams = { ...this.params, Body: undefined };
-      this.createMultiPartPromise = this.client.send(new CreateMultipartUploadCommand(createCommandParams));
+      this.createMultiPartPromise = this.client
+        .send(new CreateMultipartUploadCommand(createCommandParams))
+        .then((createMpuResponse) => {
+          // We use the parameter Bucket/Key rather than the information from
+          // createMultipartUpload response in case the Bucket is an access point arn.
+          this.abortMultipartUploadCommand = new AbortMultipartUploadCommand({
+            Bucket: this.params.Bucket,
+            Key: this.params.Key,
+            UploadId: createMpuResponse.UploadId,
+          });
+          return createMpuResponse;
+        });
     }
     return this.createMultiPartPromise;
   }
@@ -197,91 +213,40 @@ export class Upload extends EventEmitter {
         );
       }
 
-      try {
+      if (this.abortController.signal.aborted) {
+        return;
+      }
+
+      // Use put instead of multi-part for one chunk uploads.
+      if (dataPart.partNumber === 1 && dataPart.lastPart) {
+        return await this.__uploadUsingPut(dataPart);
+      }
+
+      if (!this.uploadId) {
+        const { UploadId } = await this.__createMultipartUpload();
+        this.uploadId = UploadId;
         if (this.abortController.signal.aborted) {
           return;
         }
+      }
 
-        // Use put instead of multi-part for one chunk uploads.
-        if (dataPart.partNumber === 1 && dataPart.lastPart) {
-          return await this.__uploadUsingPut(dataPart);
-        }
+      const partSize: number = byteLength(dataPart.data) || 0;
 
-        if (!this.uploadId) {
-          const { UploadId } = await this.__createMultipartUpload();
-          this.uploadId = UploadId;
-          if (this.abortController.signal.aborted) {
-            return;
-          }
-        }
+      const requestHandler = this.client.config.requestHandler;
+      const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
 
-        const partSize: number = byteLength(dataPart.data) || 0;
+      let lastSeenBytes = 0;
+      const uploadEventListener = (event: ProgressEvent, request: HttpRequest) => {
+        const requestPartSize = Number(request.query["partNumber"]) || -1;
 
-        const requestHandler = this.client.config.requestHandler;
-        const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
-
-        let lastSeenBytes = 0;
-        const uploadEventListener = (event: ProgressEvent, request: HttpRequest) => {
-          const requestPartSize = Number(request.query["partNumber"]) || -1;
-
-          if (requestPartSize !== dataPart.partNumber) {
-            // ignored, because the emitted event is not for this part.
-            return;
-          }
-
-          if (event.total && partSize) {
-            this.bytesUploadedSoFar += event.loaded - lastSeenBytes;
-            lastSeenBytes = event.loaded;
-          }
-
-          this.__notifyProgress({
-            loaded: this.bytesUploadedSoFar,
-            total: this.totalBytes,
-            part: dataPart.partNumber,
-            Key: this.params.Key,
-            Bucket: this.params.Bucket,
-          });
-        };
-
-        if (eventEmitter !== null) {
-          // The requestHandler is the xhr-http-handler.
-          eventEmitter.on("xhr.upload.progress", uploadEventListener);
-        }
-
-        const partResult = await this.client.send(
-          new UploadPartCommand({
-            ...this.params,
-            UploadId: this.uploadId,
-            Body: dataPart.data,
-            PartNumber: dataPart.partNumber,
-          })
-        );
-
-        if (eventEmitter !== null) {
-          eventEmitter.off("xhr.upload.progress", uploadEventListener);
-        }
-
-        if (this.abortController.signal.aborted) {
+        if (requestPartSize !== dataPart.partNumber) {
+          // ignored, because the emitted event is not for this part.
           return;
         }
 
-        if (!partResult.ETag) {
-          throw new Error(
-            `Part ${dataPart.partNumber} is missing ETag in UploadPart response. Missing Bucket CORS configuration for ETag header?`
-          );
-        }
-
-        this.uploadedParts.push({
-          PartNumber: dataPart.partNumber,
-          ETag: partResult.ETag,
-          ...(partResult.ChecksumCRC32 && { ChecksumCRC32: partResult.ChecksumCRC32 }),
-          ...(partResult.ChecksumCRC32C && { ChecksumCRC32C: partResult.ChecksumCRC32C }),
-          ...(partResult.ChecksumSHA1 && { ChecksumSHA1: partResult.ChecksumSHA1 }),
-          ...(partResult.ChecksumSHA256 && { ChecksumSHA256: partResult.ChecksumSHA256 }),
-        });
-
-        if (eventEmitter === null) {
-          this.bytesUploadedSoFar += partSize;
+        if (event.total && partSize) {
+          this.bytesUploadedSoFar += event.loaded - lastSeenBytes;
+          lastSeenBytes = event.loaded;
         }
 
         this.__notifyProgress({
@@ -291,33 +256,87 @@ export class Upload extends EventEmitter {
           Key: this.params.Key,
           Bucket: this.params.Bucket,
         });
-      } catch (e) {
-        // Failed to create multi-part or put
-        if (!this.uploadId) {
-          throw e;
-        }
-        // on leavePartsOnError throw an error so users can deal with it themselves,
-        // otherwise swallow the error.
-        if (this.leavePartsOnError) {
-          throw e;
-        }
+      };
+
+      if (eventEmitter !== null) {
+        // The requestHandler is the xhr-http-handler.
+        eventEmitter.on("xhr.upload.progress", uploadEventListener);
       }
+
+      const partResult = await this.client.send(
+        new UploadPartCommand({
+          ...this.params,
+          UploadId: this.uploadId,
+          Body: dataPart.data,
+          PartNumber: dataPart.partNumber,
+        })
+      );
+
+      if (eventEmitter !== null) {
+        eventEmitter.off("xhr.upload.progress", uploadEventListener);
+      }
+
+      if (this.abortController.signal.aborted) {
+        return;
+      }
+
+      if (!partResult.ETag) {
+        throw new Error(
+          `Part ${dataPart.partNumber} is missing ETag in UploadPart response. Missing Bucket CORS configuration for ETag header?`
+        );
+      }
+
+      this.uploadedParts.push({
+        PartNumber: dataPart.partNumber,
+        ETag: partResult.ETag,
+        ...(partResult.ChecksumCRC32 && { ChecksumCRC32: partResult.ChecksumCRC32 }),
+        ...(partResult.ChecksumCRC32C && { ChecksumCRC32C: partResult.ChecksumCRC32C }),
+        ...(partResult.ChecksumSHA1 && { ChecksumSHA1: partResult.ChecksumSHA1 }),
+        ...(partResult.ChecksumSHA256 && { ChecksumSHA256: partResult.ChecksumSHA256 }),
+      });
+
+      if (eventEmitter === null) {
+        this.bytesUploadedSoFar += partSize;
+      }
+
+      this.__notifyProgress({
+        loaded: this.bytesUploadedSoFar,
+        total: this.totalBytes,
+        part: dataPart.partNumber,
+        Key: this.params.Key,
+        Bucket: this.params.Bucket,
+      });
     }
   }
 
   private async __doMultipartUpload(): Promise<CompleteMultipartUploadCommandOutput> {
-    // Set up data input chunks.
     const dataFeeder = getChunk(this.params.Body, this.partSize);
+    const concurrentUploaderFailures: Error[] = [];
 
-    // Create and start concurrent uploads.
     for (let index = 0; index < this.queueSize; index++) {
-      const currentUpload = this.__doConcurrentUpload(dataFeeder);
+      const currentUpload = this.__doConcurrentUpload(dataFeeder).catch((err) => {
+        concurrentUploaderFailures.push(err);
+      });
       this.concurrentUploaders.push(currentUpload);
     }
 
-    // Create and start concurrent uploads.
     await Promise.all(this.concurrentUploaders);
+    if (concurrentUploaderFailures.length >= 1) {
+      await this.markUploadAsAborted();
+      /**
+       * Previously, each promise in concurrentUploaders could potentially throw
+       * and immediately return control to user code. However, we want to wait for
+       * all uploaders to finish before calling AbortMultipartUpload to avoid
+       * stranding uploaded parts.
+       *
+       * We throw only the first error to be consistent with prior behavior,
+       * but may consider combining the errors into a report in the future.
+       */
+      throw concurrentUploaderFailures[0];
+    }
+
     if (this.abortController.signal.aborted) {
+      await this.markUploadAsAborted();
       throw Object.assign(new Error("Upload aborted."), { name: "AbortError" });
     }
 
@@ -341,6 +360,8 @@ export class Upload extends EventEmitter {
       result = this.singleUploadResult!;
     }
 
+    this.abortMultipartUploadCommand = null;
+
     // Add tags to the object after it's completed the upload.
     if (this.tags.length) {
       await this.client.send(
@@ -354,6 +375,18 @@ export class Upload extends EventEmitter {
     }
 
     return result;
+  }
+
+  /**
+   * Abort the last multi-part upload in progress
+   * if we know the upload id, the user did not specify to leave the parts, and
+   * we have a prepared AbortMultipartUpload command.
+   */
+  private async markUploadAsAborted(): Promise<void> {
+    if (this.uploadId && !this.leavePartsOnError && null !== this.abortMultipartUploadCommand) {
+      await this.client.send(this.abortMultipartUploadCommand);
+      this.abortMultipartUploadCommand = null;
+    }
   }
 
   private __notifyProgress(progress: Progress): void {
