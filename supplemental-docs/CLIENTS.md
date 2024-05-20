@@ -606,7 +606,15 @@ See also https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk
 
 ### S3
 
-TODO e.g. `followRegionRedirects`
+`followRegionRedirects`:
+This feature was previously called the S3 Global Client. Setting this option to true enables failed requests to be retried with a corrected region when receiving a permanent redirect error with status 301. Note that this can result in additional latency owing to the retried request. This feature should only be used as a last resort if you do not know the region of your bucket(s) ahead of time.
+
+```ts
+// Example: setting followRegionRedirect
+new S3Client({
+  followRegionRedirect: true,
+});
+```
 
 ### SQS
 
