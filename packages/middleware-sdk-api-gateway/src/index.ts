@@ -14,10 +14,9 @@ export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
     async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
       const { request } = args;
       if (HttpRequest.isInstance(request)) {
-        request.headers = {
-          ...request.headers,
-          accept: "application/json",
-        };
+        if (request.headers?.accept === undefined) {
+          request.headers.accept = "application/json";
+        }
       }
       return next({
         ...args,
