@@ -13,6 +13,7 @@ export * from "./GetEnabledControlCommand";
 export * from "./GetLandingZoneCommand";
 export * from "./GetLandingZoneOperationCommand";
 export * from "./ListBaselinesCommand";
+export * from "./ListControlOperationsCommand";
 export * from "./ListEnabledBaselinesCommand";
 export * from "./ListEnabledControlsCommand";
 export * from "./ListLandingZonesCommand";

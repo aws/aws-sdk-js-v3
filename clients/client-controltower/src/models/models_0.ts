@@ -223,6 +223,256 @@ export interface ListBaselinesOutput {
 }
 
 /**
+ * @public
+ */
+export interface GetControlOperationInput {
+  /**
+   * <p>The ID of the asynchronous operation, which is used to track status. The operation is
+   *          available for 90 days.</p>
+   * @public
+   */
+  operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlOperationType = {
+  DISABLE_CONTROL: "DISABLE_CONTROL",
+  ENABLE_CONTROL: "ENABLE_CONTROL",
+  UPDATE_ENABLED_CONTROL: "UPDATE_ENABLED_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlOperationType = (typeof ControlOperationType)[keyof typeof ControlOperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlOperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlOperationStatus = (typeof ControlOperationStatus)[keyof typeof ControlOperationStatus];
+
+/**
+ * <p>An operation performed by the control.</p>
+ * @public
+ */
+export interface ControlOperation {
+  /**
+   * <p>One of <code>ENABLE_CONTROL</code> or <code>DISABLE_CONTROL</code>.</p>
+   * @public
+   */
+  operationType?: ControlOperationType;
+
+  /**
+   * <p>The time that the operation began.</p>
+   * @public
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The time that the operation finished.</p>
+   * @public
+   */
+  endTime?: Date;
+
+  /**
+   * <p>One of <code>IN_PROGRESS</code>, <code>SUCEEDED</code>, or <code>FAILED</code>.</p>
+   * @public
+   */
+  status?: ControlOperationStatus;
+
+  /**
+   * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining
+   *          why the operation failed.</p>
+   * @public
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The identifier of the specified operation.</p>
+   * @public
+   */
+  operationIdentifier?: string;
+
+  /**
+   * <p>The <code>controlIdentifier</code> of the control for the operation.</p>
+   * @public
+   */
+  controlIdentifier?: string;
+
+  /**
+   * <p>The target upon which the control operation is working.</p>
+   * @public
+   */
+  targetIdentifier?: string;
+
+  /**
+   * <p>The <code>controlIdentifier</code> of the enabled control.</p>
+   * @public
+   */
+  enabledControlIdentifier?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetControlOperationOutput {
+  /**
+   * <p>An operation performed by the control.</p>
+   * @public
+   */
+  controlOperation: ControlOperation | undefined;
+}
+
+/**
+ * <p>A filter object that lets you call <code>ListCOntrolOperations</code> with a specific filter.</p>
+ * @public
+ */
+export interface ControlOperationFilter {
+  /**
+   * <p>The set of <code>controlIdentifier</code> returned by the filter.</p>
+   * @public
+   */
+  controlIdentifiers?: string[];
+
+  /**
+   * <p>The set of <code>targetIdentifier</code> objects returned by the filter.</p>
+   * @public
+   */
+  targetIdentifiers?: string[];
+
+  /**
+   * <p>The set <code>controlIdentifier</code> of enabled controls selected by the filter.</p>
+   * @public
+   */
+  enabledControlIdentifiers?: string[];
+
+  /**
+   * <p>Lists the status of control operations.</p>
+   * @public
+   */
+  statuses?: ControlOperationStatus[];
+
+  /**
+   * <p>The set of <code>ControlOperation</code> objects returned by the filter.</p>
+   * @public
+   */
+  controlOperationTypes?: ControlOperationType[];
+}
+
+/**
+ * @public
+ */
+export interface ListControlOperationsInput {
+  /**
+   * <p>An input filter for the <code>ListControlOperations</code> API that lets you select the types of control operations to view.</p>
+   * @public
+   */
+  filter?: ControlOperationFilter;
+
+  /**
+   * <p>A pagination token.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be shown.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>A summary of information about the specified control operation.</p>
+ * @public
+ */
+export interface ControlOperationSummary {
+  /**
+   * <p>The type of operation.</p>
+   * @public
+   */
+  operationType?: ControlOperationType;
+
+  /**
+   * <p>The time at which a control operation began.</p>
+   * @public
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The time at which the control operation was completed.</p>
+   * @public
+   */
+  endTime?: Date;
+
+  /**
+   * <p>The status of the specified control operation.</p>
+   * @public
+   */
+  status?: ControlOperationStatus;
+
+  /**
+   * <p>A speficic message displayed as part of the control status.</p>
+   * @public
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The unique identifier of a control operation.</p>
+   * @public
+   */
+  operationIdentifier?: string;
+
+  /**
+   * <p>The <code>controlIdentifier</code> of a control.</p>
+   * @public
+   */
+  controlIdentifier?: string;
+
+  /**
+   * <p>The unique identifier of the target of a control operation.</p>
+   * @public
+   */
+  targetIdentifier?: string;
+
+  /**
+   * <p>The <code>controlIdentifier</code> of an enabled control.</p>
+   * @public
+   */
+  enabledControlIdentifier?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListControlOperationsOutput {
+  /**
+   * <p>Returns a list of output from control operations. PLACEHOLDER </p>
+   * @public
+   */
+  controlOperations: ControlOperationSummary[] | undefined;
+
+  /**
+   * <p>A pagination token.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
  * <p>Updating or deleting the resource can cause an inconsistent state.</p>
  * @public
  */
@@ -291,73 +541,6 @@ export class ServiceQuotaExceededException extends __BaseException {
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
-}
-
-/**
- * <p>A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
- * @public
- */
-export interface EnabledControlParameter {
-  /**
-   * <p>The key of a key/value pair.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The value of a key/value pair.</p>
-   * @public
-   */
-  value: __DocumentType | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableControlInput {
-  /**
-   * <p>The ARN of the control. Only <b>Strongly recommended</b> and
-   *          <b>Elective</b> controls are permitted, with the exception of the
-   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
-   * @public
-   */
-  controlIdentifier: string | undefined;
-
-  /**
-   * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
-   * @public
-   */
-  targetIdentifier: string | undefined;
-
-  /**
-   * <p>Tags to be applied to the <code>EnabledControl</code> resource.</p>
-   * @public
-   */
-  tags?: Record<string, string>;
-
-  /**
-   * <p>A list of input parameter values, which are specified to configure the control when you enable it.</p>
-   * @public
-   */
-  parameters?: EnabledControlParameter[];
-}
-
-/**
- * @public
- */
-export interface EnableControlOutput {
-  /**
-   * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *          available for 90 days.</p>
-   * @public
-   */
-  operationIdentifier: string | undefined;
-
-  /**
-   * <p>The ARN of the <code>EnabledControl</code> resource.</p>
-   * @public
-   */
-  arn?: string;
 }
 
 /**
@@ -828,93 +1011,70 @@ export interface UpdateEnabledBaselineOutput {
 }
 
 /**
+ * <p>A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
  * @public
  */
-export interface GetControlOperationInput {
+export interface EnabledControlParameter {
+  /**
+   * <p>The key of a key/value pair.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of a key/value pair.</p>
+   * @public
+   */
+  value: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableControlInput {
+  /**
+   * <p>The ARN of the control. Only <b>Strongly recommended</b> and
+   *          <b>Elective</b> controls are permitted, with the exception of the
+   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
+   */
+  controlIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
+   */
+  targetIdentifier: string | undefined;
+
+  /**
+   * <p>Tags to be applied to the <code>EnabledControl</code> resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>A list of input parameter values, which are specified to configure the control when you enable it.</p>
+   * @public
+   */
+  parameters?: EnabledControlParameter[];
+}
+
+/**
+ * @public
+ */
+export interface EnableControlOutput {
   /**
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
    *          available for 90 days.</p>
    * @public
    */
   operationIdentifier: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ControlOperationType = {
-  DISABLE_CONTROL: "DISABLE_CONTROL",
-  ENABLE_CONTROL: "ENABLE_CONTROL",
-  UPDATE_ENABLED_CONTROL: "UPDATE_ENABLED_CONTROL",
-} as const;
-
-/**
- * @public
- */
-export type ControlOperationType = (typeof ControlOperationType)[keyof typeof ControlOperationType];
-
-/**
- * @public
- * @enum
- */
-export const ControlOperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type ControlOperationStatus = (typeof ControlOperationStatus)[keyof typeof ControlOperationStatus];
-
-/**
- * <p>An operation performed by the control.</p>
- * @public
- */
-export interface ControlOperation {
-  /**
-   * <p>One of <code>ENABLE_CONTROL</code> or <code>DISABLE_CONTROL</code>.</p>
-   * @public
-   */
-  operationType?: ControlOperationType;
 
   /**
-   * <p>The time that the operation began.</p>
+   * <p>The ARN of the <code>EnabledControl</code> resource.</p>
    * @public
    */
-  startTime?: Date;
-
-  /**
-   * <p>The time that the operation finished.</p>
-   * @public
-   */
-  endTime?: Date;
-
-  /**
-   * <p>One of <code>IN_PROGRESS</code>, <code>SUCEEDED</code>, or <code>FAILED</code>.</p>
-   * @public
-   */
-  status?: ControlOperationStatus;
-
-  /**
-   * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining
-   *          why the operation failed.</p>
-   * @public
-   */
-  statusMessage?: string;
-}
-
-/**
- * @public
- */
-export interface GetControlOperationOutput {
-  /**
-   * <p>An operation performed by the control.</p>
-   * @public
-   */
-  controlOperation: ControlOperation | undefined;
+  arn?: string;
 }
 
 /**
@@ -1075,6 +1235,146 @@ export interface GetEnabledControlOutput {
 }
 
 /**
+ * <p>A structure that returns a set of control identifiers, the control status for each control in the set, and the drift status for each control in the set.</p>
+ * @public
+ */
+export interface EnabledControlFilter {
+  /**
+   * <p>The set of <code>controlIdentifier</code> returned by the filter. </p>
+   * @public
+   */
+  controlIdentifiers?: string[];
+
+  /**
+   * <p>A list of <code>EnablementStatus</code> items.</p>
+   * @public
+   */
+  statuses?: EnablementStatus[];
+
+  /**
+   * <p>A list of <code>DriftStatus</code> items.</p>
+   * @public
+   */
+  driftStatuses?: DriftStatus[];
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledControlsInput {
+  /**
+   * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
+   */
+  targetIdentifier?: string;
+
+  /**
+   * <p>The token to continue the list from a previous API call with the same parameters.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>How many results to return per API call.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>An input filter for the <code>ListCEnabledControls</code> API that lets you select the types of control operations to view.</p>
+   * @public
+   */
+  filter?: EnabledControlFilter;
+}
+
+/**
+ * <p>Returns a summary of information about an enabled control.</p>
+ * @public
+ */
+export interface EnabledControlSummary {
+  /**
+   * <p>The <code>controlIdentifier</code> of the enabled control.</p>
+   * @public
+   */
+  controlIdentifier?: string;
+
+  /**
+   * <p>The ARN of the enabled control.</p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>The ARN of the organizational unit.</p>
+   * @public
+   */
+  targetIdentifier?: string;
+
+  /**
+   * <p>A short description of the status of the enabled control.</p>
+   * @public
+   */
+  statusSummary?: EnablementStatusSummary;
+
+  /**
+   * <p>The drift status of the enabled control.</p>
+   * @public
+   */
+  driftStatusSummary?: DriftStatusSummary;
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledControlsOutput {
+  /**
+   * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and
+   *          the accounts it contains.</p>
+   * @public
+   */
+  enabledControls: EnabledControlSummary[] | undefined;
+
+  /**
+   * <p>Retrieves the next page of results. If the string is empty, the response is the
+   *          end of the results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnabledControlInput {
+  /**
+   * <p>A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
+   * @public
+   */
+  parameters: EnabledControlParameter[] | undefined;
+
+  /**
+   * <p>
+   *          The ARN of the enabled control that will be updated.
+   *       </p>
+   * @public
+   */
+  enabledControlIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnabledControlOutput {
+  /**
+   * <p>
+   *          The operation identifier for this <code>UpdateEnabledControl</code> operation.
+   *       </p>
+   * @public
+   */
+  operationIdentifier: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateLandingZoneInput {
@@ -1085,8 +1385,8 @@ export interface CreateLandingZoneInput {
   version: string | undefined;
 
   /**
-   * <p>The manifest.yaml file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>. </p>
+   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
+   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>.  </p>
    * @public
    */
   manifest: __DocumentType | undefined;
@@ -1218,7 +1518,7 @@ export interface LandingZoneDetail {
   version: string | undefined;
 
   /**
-   * <p>The landing zone <code>manifest.yaml</code> text file that specifies the landing zone configurations. </p>
+   * <p>The landing zone manifest JSON text file that specifies the landing zone configurations. </p>
    * @public
    */
   manifest: __DocumentType | undefined;
@@ -1461,8 +1761,8 @@ export interface UpdateLandingZoneInput {
   version: string | undefined;
 
   /**
-   * <p>The <code>manifest.yaml</code> file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>.</p>
+   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
+   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. </p>
    * @public
    */
   manifest: __DocumentType | undefined;
@@ -1484,84 +1784,6 @@ export interface UpdateLandingZoneOutput {
    * @public
    */
   operationIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEnabledControlsInput {
-  /**
-   * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
-   * @public
-   */
-  targetIdentifier: string | undefined;
-
-  /**
-   * <p>The token to continue the list from a previous API call with the same parameters.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>How many results to return per API call.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * <p>Returns a summary of information about an enabled control.</p>
- * @public
- */
-export interface EnabledControlSummary {
-  /**
-   * <p>The <code>controlIdentifier</code> of the enabled control.</p>
-   * @public
-   */
-  controlIdentifier?: string;
-
-  /**
-   * <p>The ARN of the enabled control.</p>
-   * @public
-   */
-  arn?: string;
-
-  /**
-   * <p>The ARN of the organizational unit.</p>
-   * @public
-   */
-  targetIdentifier?: string;
-
-  /**
-   * <p>A short description of the status of the enabled control.</p>
-   * @public
-   */
-  statusSummary?: EnablementStatusSummary;
-
-  /**
-   * <p>The drift status of the enabled control.</p>
-   * @public
-   */
-  driftStatusSummary?: DriftStatusSummary;
-}
-
-/**
- * @public
- */
-export interface ListEnabledControlsOutput {
-  /**
-   * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and
-   *          the accounts it contains.</p>
-   * @public
-   */
-  enabledControls: EnabledControlSummary[] | undefined;
-
-  /**
-   * <p>Retrieves the next page of results. If the string is empty, the response is the
-   *          end of the results.</p>
-   * @public
-   */
-  nextToken?: string;
 }
 
 /**
@@ -1629,35 +1851,3 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
-
-/**
- * @public
- */
-export interface UpdateEnabledControlInput {
-  /**
-   * <p>A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
-   * @public
-   */
-  parameters: EnabledControlParameter[] | undefined;
-
-  /**
-   * <p>
-   *          The ARN of the enabled control that will be updated.
-   *       </p>
-   * @public
-   */
-  enabledControlIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEnabledControlOutput {
-  /**
-   * <p>
-   *          The operation identifier for this <code>UpdateEnabledControl</code> operation.
-   *       </p>
-   * @public
-   */
-  operationIdentifier: string | undefined;
-}
