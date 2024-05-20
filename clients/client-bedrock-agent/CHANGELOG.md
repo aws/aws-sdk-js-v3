@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.580.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.579.0...v3.580.0) (2024-05-20)
+
+
+### Features
+
+* **client-bedrock-agent:** This release adds support for using Guardrails with Bedrock Agents. ([b624d0d](https://github.com/aws/aws-sdk-js-v3/commit/b624d0da0244e56e3cba1eb5c66d3cc0c6f41fdc))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

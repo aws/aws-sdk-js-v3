@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.580.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.579.0...v3.580.0) (2024-05-20)
+
+
+### Features
+
+* **client-secrets-manager:** add v2 smoke tests and smithy smokeTests trait for SDK testing ([b63da55](https://github.com/aws/aws-sdk-js-v3/commit/b63da555a08c4cf1af57dd25566af3ed4003d7d5))
+
+
+
+
+
 # [3.578.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.577.0...v3.578.0) (2024-05-16)
 
 **Note:** Version bump only for package @aws-sdk/client-secrets-manager

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.580.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.579.0...v3.580.0) (2024-05-20)
+
+
+### Features
+
+* **client-controltower:** Added ListControlOperations API and filtering support for ListEnabledControls API. Updates also includes added metadata for enabled controls and control operations. ([04288c5](https://github.com/aws/aws-sdk-js-v3/commit/04288c536c44848cac33ce72e8995f9af2eb74aa))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-controltower

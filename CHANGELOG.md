@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.580.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.579.0...v3.580.0) (2024-05-20)
+
+
+### Bug Fixes
+
+* **middleware-sdk-api-gateway:** only set default accept header if none provided ([#6110](https://github.com/aws/aws-sdk-js-v3/issues/6110)) ([851e675](https://github.com/aws/aws-sdk-js-v3/commit/851e675b4c781d9707deefa169aab3d4425885d0))
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release adds support for using Guardrails with Bedrock Agents. ([f55b6af](https://github.com/aws/aws-sdk-js-v3/commit/f55b6afac645615fc9a2e73c72879d28dce7aa04))
+* **client-bedrock-agent:** This release adds support for using Guardrails with Bedrock Agents. ([b624d0d](https://github.com/aws/aws-sdk-js-v3/commit/b624d0da0244e56e3cba1eb5c66d3cc0c6f41fdc))
+* **client-controltower:** Added ListControlOperations API and filtering support for ListEnabledControls API. Updates also includes added metadata for enabled controls and control operations. ([04288c5](https://github.com/aws/aws-sdk-js-v3/commit/04288c536c44848cac33ce72e8995f9af2eb74aa))
+* **client-osis:** Add support for creating an OpenSearch Ingestion pipeline that is attached to a provided VPC. Add information about the destinations of an OpenSearch Ingestion pipeline to the GetPipeline and ListPipelines APIs. ([8ea4222](https://github.com/aws/aws-sdk-js-v3/commit/8ea42220e50e67e7562f92ba6dba83c77526bed0))
+* **client-rds:** This release adds support for EngineLifecycleSupport on DBInstances, DBClusters, and GlobalClusters. ([4d44c0d](https://github.com/aws/aws-sdk-js-v3/commit/4d44c0dce799f55f90042f52bea513dfc792334e))
+* **client-secrets-manager:** add v2 smoke tests and smithy smokeTests trait for SDK testing ([b63da55](https://github.com/aws/aws-sdk-js-v3/commit/b63da555a08c4cf1af57dd25566af3ed4003d7d5))
+
+
+
+
+
 # [3.579.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.578.0...v3.579.0) (2024-05-17)
 
 
