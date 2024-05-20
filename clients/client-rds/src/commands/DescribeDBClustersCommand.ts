@@ -245,6 +245,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         CAIdentifier: "STRING_VALUE",
  * //         ValidTill: new Date("TIMESTAMP"),
  * //       },
+ * //       EngineLifecycleSupport: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

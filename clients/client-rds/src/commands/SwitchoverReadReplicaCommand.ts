@@ -263,6 +263,7 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

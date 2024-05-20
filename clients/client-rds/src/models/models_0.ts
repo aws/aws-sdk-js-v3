@@ -808,9 +808,10 @@ export interface ApplyPendingMaintenanceActionMessage {
  */
 export interface PendingMaintenanceAction {
   /**
-   * <p>The type of pending maintenance action that is available for the resource.
-   *           Valid actions are <code>system-update</code>, <code>db-upgrade</code>, <code>hardware-maintenance</code>,
-   *           and <code>ca-certificate-rotation</code>.</p>
+   * <p>The type of pending maintenance action that is available for the resource. </p>
+   *          <p>For more information about maintenance actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html">Maintaining a DB instance</a>.</p>
+   *          <p>Valid Values:<code> system-update | db-upgrade | hardware-maintenance | ca-certificate-rotation</code>
+   *          </p>
    * @public
    */
   Action?: string;
@@ -3899,6 +3900,7 @@ export interface UpgradeTarget {
 
   /**
    * <p>Indicates whether the target version is applied to any source DB instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
+   *          <p>This parameter is dynamic, and is set by RDS.</p>
    * @public
    */
   AutoUpgrade?: boolean;
@@ -4353,11 +4355,17 @@ export interface ServerlessV2ScalingConfiguration {
  */
 export interface CreateDBClusterMessage {
   /**
-   * <p>A list of Availability Zones (AZs) where DB instances in the DB cluster can be created.</p>
-   *          <p>For information on Amazon Web Services Regions and Availability Zones, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Choosing the Regions and
-   *               Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   * <p>A list of Availability Zones (AZs) where you specifically want to create DB instances in the DB cluster.</p>
+   *          <p>For information on AZs, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html#Concepts.RegionsAndAvailabilityZones.AvailabilityZones">Availability Zones</a>
+   *             in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't specify more than three AZs.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   AvailabilityZones?: string[];
@@ -4459,8 +4467,36 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The database engine to use for this DB cluster.</p>
    *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
-   *          <p>Valid Values: <code>aurora-mysql | aurora-postgresql | mysql | postgres</code>
-   *          </p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune</code> - For information about using Amazon Neptune, see the
+   *                         <a href="https://docs.aws.amazon.com/neptune/latest/userguide/intro.html">
+   *                      <i>Amazon Neptune User Guide</i>
+   *                   </a>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Engine: string | undefined;
@@ -5172,6 +5208,34 @@ export interface CreateDBClusterMessage {
    * @public
    */
   CACertificateIdentifier?: string;
+
+  /**
+   * <p>The life cycle type for this DB cluster.</p>
+   *          <note>
+   *             <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB cluster into Amazon RDS Extended Support.
+   *               At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case,
+   *              creating the DB cluster will fail if the DB major version is past its end of standard support date.</p>
+   *          </note>
+   *          <p>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support,
+   *         you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Aurora (PostgreSQL only) - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
+   *          </p>
+   *          <p>Default: <code>open-source-rds-extended-support</code>
+   *          </p>
+   * @public
+   */
+  EngineLifecycleSupport?: string;
 }
 
 /**
@@ -6270,6 +6334,13 @@ export interface DBCluster {
    * @public
    */
   CertificateDetails?: CertificateDetails;
+
+  /**
+   * <p>The life cycle type for the DB cluster.</p>
+   *          <p>For more information, see CreateDBCluster.</p>
+   * @public
+   */
+  EngineLifecycleSupport?: string;
 }
 
 /**
@@ -8387,6 +8458,24 @@ export interface CreateDBInstanceMessage {
    * @public
    */
   MultiTenant?: boolean;
+
+  /**
+   * <p>The life cycle type for this DB instance.</p>
+   *          <note>
+   *             <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your DB instance into Amazon RDS Extended Support.
+   *               At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case,
+   *               creating the DB instance will fail if the DB major version is past its end of standard support date.</p>
+   *          </note>
+   *          <p>This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.</p>
+   *          <p>You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support,
+   *         you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
+   *          </p>
+   *          <p>Default: <code>open-source-rds-extended-support</code>
+   *          </p>
+   * @public
+   */
+  EngineLifecycleSupport?: string;
 }
 
 /**
@@ -9554,6 +9643,13 @@ export interface DBInstance {
    * @public
    */
   MultiTenant?: boolean;
+
+  /**
+   * <p>The life cycle type for the DB instance.</p>
+   *          <p>For more information, see CreateDBInstance.</p>
+   * @public
+   */
+  EngineLifecycleSupport?: string;
 }
 
 /**
@@ -11704,7 +11800,7 @@ export interface CreateEventSubscriptionMessage {
    *             notified of events generated by a DB instance, you set this parameter to
    *                 <code>db-instance</code>. For RDS Proxy events, specify <code>db-proxy</code>. If this value isn't specified, all events are
    *             returned.</p>
-   *          <p>Valid Values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code> | <code>db-proxy</code>
+   *          <p>Valid Values:<code> db-instance | db-cluster | db-parameter-group | db-security-group | db-snapshot | db-cluster-snapshot | db-proxy | zero-etl | custom-engine-version | blue-green-deployment </code>
    *          </p>
    * @public
    */
@@ -11969,6 +12065,24 @@ export interface CreateGlobalClusterMessage {
   EngineVersion?: string;
 
   /**
+   * <p>The life cycle type for this global database cluster.</p>
+   *          <note>
+   *             <p>By default, this value is set to <code>open-source-rds-extended-support</code>, which enrolls your global cluster into Amazon RDS Extended Support.
+   *               At the end of standard support, you can avoid charges for Extended Support by setting the value to <code>open-source-rds-extended-support-disabled</code>. In this case,
+   *               creating the global cluster will fail if the DB major version is past its end of standard support date.</p>
+   *          </note>
+   *          <p>This setting only applies to Aurora PostgreSQL-based global databases.</p>
+   *          <p>You can use this setting to enroll your global cluster into Amazon RDS Extended Support. With RDS Extended Support,
+   *         you can run the selected major engine version on your global cluster past the end of standard support for that engine version. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *          <p>Valid Values: <code>open-source-rds-extended-support | open-source-rds-extended-support-disabled</code>
+   *          </p>
+   *          <p>Default: <code>open-source-rds-extended-support</code>
+   *          </p>
+   * @public
+   */
+  EngineLifecycleSupport?: string;
+
+  /**
    * <p>Specifies whether to enable deletion protection for the new global database cluster.
    *         The global database can't be deleted when deletion protection is enabled.</p>
    * @public
@@ -12166,6 +12280,13 @@ export interface GlobalCluster {
    * @public
    */
   EngineVersion?: string;
+
+  /**
+   * <p>The life cycle type for the global cluster.</p>
+   *          <p>For more information, see CreateGlobalCluster.</p>
+   * @public
+   */
+  EngineLifecycleSupport?: string;
 
   /**
    * <p>The default database name within the new global database cluster.</p>

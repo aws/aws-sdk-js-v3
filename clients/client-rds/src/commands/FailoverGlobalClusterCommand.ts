@@ -85,6 +85,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * //     Status: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //     DatabaseName: "STRING_VALUE",
  * //     StorageEncrypted: true || false,
  * //     DeletionProtection: true || false,

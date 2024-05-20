@@ -238,6 +238,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

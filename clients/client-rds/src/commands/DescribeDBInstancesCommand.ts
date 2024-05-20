@@ -277,6 +277,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       DedicatedLogVolume: true || false,
  * //       IsStorageConfigUpgradeAvailable: true || false,
  * //       MultiTenant: true || false,
+ * //       EngineLifecycleSupport: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

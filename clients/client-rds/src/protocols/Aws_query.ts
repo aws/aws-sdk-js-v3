@@ -10577,6 +10577,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_CACI] != null) {
     entries[_CACI] = input[_CACI];
   }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
+  }
   return entries;
 };
 
@@ -10866,6 +10869,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   }
   if (input[_MT] != null) {
     entries[_MT] = input[_MT];
+  }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
   }
   return entries;
 };
@@ -11362,6 +11368,9 @@ const se_CreateGlobalClusterMessage = (input: CreateGlobalClusterMessage, contex
   }
   if (input[_EV] != null) {
     entries[_EV] = input[_EV];
+  }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
   }
   if (input[_DP] != null) {
     entries[_DP] = input[_DP];
@@ -15055,6 +15064,9 @@ const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, 
   if (input[_ST] != null) {
     entries[_ST] = input[_ST];
   }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
+  }
   return entries;
 };
 
@@ -15193,6 +15205,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
+  }
   return entries;
 };
 
@@ -15323,6 +15338,9 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       const loc = `RdsCustomClusterConfiguration.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
   }
   return entries;
 };
@@ -15492,6 +15510,9 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input[_CACI] != null) {
     entries[_CACI] = input[_CACI];
+  }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
   }
   return entries;
 };
@@ -15686,6 +15707,9 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
   if (input[_CACI] != null) {
     entries[_CACI] = input[_CACI];
   }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
+  }
   return entries;
 };
 
@@ -15866,6 +15890,9 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
   }
   if (input[_CACI] != null) {
     entries[_CACI] = input[_CACI];
+  }
+  if (input[_ELS] != null) {
+    entries[_ELS] = input[_ELS];
   }
   return entries;
 };
@@ -17392,6 +17419,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_CD] != null) {
     contents[_CD] = de_CertificateDetails(output[_CD], context);
   }
+  if (output[_ELS] != null) {
+    contents[_ELS] = __expectString(output[_ELS]);
+  }
   return contents;
 };
 
@@ -18666,6 +18696,9 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   }
   if (output[_MT] != null) {
     contents[_MT] = __parseBoolean(output[_MT]);
+  }
+  if (output[_ELS] != null) {
+    contents[_ELS] = __expectString(output[_ELS]);
   }
   return contents;
 };
@@ -21225,6 +21258,9 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
   }
   if (output[_EV] != null) {
     contents[_EV] = __expectString(output[_EV]);
+  }
+  if (output[_ELS] != null) {
+    contents[_ELS] = __expectString(output[_ELS]);
   }
   if (output[_DN] != null) {
     contents[_DN] = __expectString(output[_DN]);
@@ -25245,6 +25281,7 @@ const _EGWF = "EnableGlobalWriteForwarding";
 const _EHE = "EnableHttpEndpoint";
 const _EIAMDA = "EnableIAMDatabaseAuthentication";
 const _ELD = "EnableLimitlessDatabase";
+const _ELS = "EngineLifecycleSupport";
 const _ELT = "EnableLogTypes";
 const _ELTx = "ExportableLogTypes";
 const _ELWF = "EnableLocalWriteForwarding";

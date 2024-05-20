@@ -110,6 +110,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *   AllocatedStorage: Number("int"),
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
@@ -336,6 +337,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

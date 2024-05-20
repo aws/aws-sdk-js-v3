@@ -272,6 +272,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

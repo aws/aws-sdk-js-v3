@@ -335,6 +335,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

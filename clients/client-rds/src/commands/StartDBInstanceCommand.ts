@@ -271,6 +271,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -233,6 +233,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

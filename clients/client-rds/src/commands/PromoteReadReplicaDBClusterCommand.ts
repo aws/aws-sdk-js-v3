@@ -225,6 +225,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

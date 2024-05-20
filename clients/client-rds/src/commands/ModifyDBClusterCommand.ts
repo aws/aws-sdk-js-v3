@@ -296,6 +296,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

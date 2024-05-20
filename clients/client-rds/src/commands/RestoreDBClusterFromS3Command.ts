@@ -102,6 +102,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   StorageType: "STRING_VALUE",
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromS3Command(input);
  * const response = await client.send(command);
@@ -291,6 +292,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *
