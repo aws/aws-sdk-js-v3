@@ -27029,9 +27029,6 @@ const se_AcceptAddressTransferRequest = (input: AcceptAddressTransferRequest, co
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27056,9 +27053,6 @@ const se_AcceptReservedInstancesExchangeQuoteRequest = (
   }
   if (input[_RII] != null) {
     const memberEntries = se_ReservedInstanceIdSet(input[_RII], context);
-    if (input[_RII]?.length === 0) {
-      entries.ReservedInstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27066,9 +27060,6 @@ const se_AcceptReservedInstancesExchangeQuoteRequest = (
   }
   if (input[_TC] != null) {
     const memberEntries = se_TargetConfigurationRequestSet(input[_TC], context);
-    if (input[_TC]?.length === 0) {
-      entries.TargetConfiguration = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27093,9 +27084,6 @@ const se_AcceptTransitGatewayMulticastDomainAssociationsRequest = (
   }
   if (input[_SIu] != null) {
     const memberEntries = se_ValueStringList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27157,9 +27145,6 @@ const se_AcceptVpcEndpointConnectionsRequest = (
   }
   if (input[_VEI] != null) {
     const memberEntries = se_VpcEndpointIdList(input[_VEI], context);
-    if (input[_VEI]?.length === 0) {
-      entries.VpcEndpointId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27225,9 +27210,6 @@ const se_AccessScopePathRequest = (input: AccessScopePathRequest, context: __Ser
   }
   if (input[_TR] != null) {
     const memberEntries = se_ThroughResourcesStatementRequestList(input[_TR], context);
-    if (input[_TR]?.length === 0) {
-      entries.ThroughResource = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThroughResource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27360,9 +27342,6 @@ const se_AllocateAddressRequest = (input: AllocateAddressRequest, context: __Ser
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27396,9 +27375,6 @@ const se_AllocateHostsRequest = (input: AllocateHostsRequest, context: __SerdeCo
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27415,9 +27391,6 @@ const se_AllocateHostsRequest = (input: AllocateHostsRequest, context: __SerdeCo
   }
   if (input[_AI] != null) {
     const memberEntries = se_AssetIdList(input[_AI], context);
-    if (input[_AI]?.length === 0) {
-      entries.AssetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27457,9 +27430,6 @@ const se_AllocateIpamPoolCidrRequest = (input: AllocateIpamPoolCidrRequest, cont
   }
   if (input[_AC] != null) {
     const memberEntries = se_IpamPoolAllocationAllowedCidrs(input[_AC], context);
-    if (input[_AC]?.length === 0) {
-      entries.AllowedCidr = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllowedCidr.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27467,9 +27437,6 @@ const se_AllocateIpamPoolCidrRequest = (input: AllocateIpamPoolCidrRequest, cont
   }
   if (input[_DC] != null) {
     const memberEntries = se_IpamPoolAllocationDisallowedCidrs(input[_DC], context);
-    if (input[_DC]?.length === 0) {
-      entries.DisallowedCidr = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DisallowedCidr.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27542,9 +27509,6 @@ const se_ApplySecurityGroupsToClientVpnTargetNetworkRequest = (
   }
   if (input[_SGI] != null) {
     const memberEntries = se_ClientVpnSecurityGroupIdSet(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27628,9 +27592,6 @@ const se_AssignIpv6AddressesRequest = (input: AssignIpv6AddressesRequest, contex
   }
   if (input[_IA] != null) {
     const memberEntries = se_Ipv6AddressList(input[_IA], context);
-    if (input[_IA]?.length === 0) {
-      entries.Ipv6Addresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27641,9 +27602,6 @@ const se_AssignIpv6AddressesRequest = (input: AssignIpv6AddressesRequest, contex
   }
   if (input[_IP] != null) {
     const memberEntries = se_IpPrefixList(input[_IP], context);
-    if (input[_IP]?.length === 0) {
-      entries.Ipv6Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27668,9 +27626,6 @@ const se_AssignPrivateIpAddressesRequest = (input: AssignPrivateIpAddressesReque
   }
   if (input[_PIA] != null) {
     const memberEntries = se_PrivateIpAddressStringList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27681,9 +27636,6 @@ const se_AssignPrivateIpAddressesRequest = (input: AssignPrivateIpAddressesReque
   }
   if (input[_IPp] != null) {
     const memberEntries = se_IpPrefixList(input[_IPp], context);
-    if (input[_IPp]?.length === 0) {
-      entries.Ipv4Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27708,9 +27660,6 @@ const se_AssignPrivateNatGatewayAddressRequest = (
   }
   if (input[_PIA] != null) {
     const memberEntries = se_IpList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27898,9 +27847,6 @@ const se_AssociateIpamResourceDiscoveryRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27928,9 +27874,6 @@ const se_AssociateNatGatewayAddressRequest = (
   }
   if (input[_AIll] != null) {
     const memberEntries = se_AllocationIdList(input[_AIll], context);
-    if (input[_AIll]?.length === 0) {
-      entries.AllocationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -27938,9 +27881,6 @@ const se_AssociateNatGatewayAddressRequest = (
   }
   if (input[_PIA] != null) {
     const memberEntries = se_IpList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28008,9 +27948,6 @@ const se_AssociateTransitGatewayMulticastDomainRequest = (
   }
   if (input[_SIu] != null) {
     const memberEntries = se_TransitGatewaySubnetIdList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28194,9 +28131,6 @@ const se_AttachClassicLinkVpcRequest = (input: AttachClassicLinkVpcRequest, cont
   }
   if (input[_G] != null) {
     const memberEntries = se_GroupIdStringList(input[_G], context);
-    if (input[_G]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28391,9 +28325,6 @@ const se_AuthorizeSecurityGroupEgressRequest = (
   }
   if (input[_IPpe] != null) {
     const memberEntries = se_IpPermissionList(input[_IPpe], context);
-    if (input[_IPpe]?.length === 0) {
-      entries.IpPermissions = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28401,9 +28332,6 @@ const se_AuthorizeSecurityGroupEgressRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28452,9 +28380,6 @@ const se_AuthorizeSecurityGroupIngressRequest = (
   }
   if (input[_IPpe] != null) {
     const memberEntries = se_IpPermissionList(input[_IPpe], context);
-    if (input[_IPpe]?.length === 0) {
-      entries.IpPermissions = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28477,9 +28402,6 @@ const se_AuthorizeSecurityGroupIngressRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28685,9 +28607,6 @@ const se_CancelCapacityReservationFleetsRequest = (
   }
   if (input[_CRFI] != null) {
     const memberEntries = se_CapacityReservationFleetIdSet(input[_CRFI], context);
-    if (input[_CRFI]?.length === 0) {
-      entries.CapacityReservationFleetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationFleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28796,9 +28715,6 @@ const se_CancelSpotFleetRequestsRequest = (input: CancelSpotFleetRequestsRequest
   }
   if (input[_SFRI] != null) {
     const memberEntries = se_SpotFleetRequestIdList(input[_SFRI], context);
-    if (input[_SFRI]?.length === 0) {
-      entries.SpotFleetRequestId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotFleetRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28823,9 +28739,6 @@ const se_CancelSpotInstanceRequestsRequest = (
   }
   if (input[_SIRI] != null) {
     const memberEntries = se_SpotInstanceRequestIdList(input[_SIRI], context);
-    if (input[_SIRI]?.length === 0) {
-      entries.SpotInstanceRequestId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotInstanceRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -28990,9 +28903,6 @@ const se_ClassicLoadBalancersConfig = (input: ClassicLoadBalancersConfig, contex
   const entries: any = {};
   if (input[_CLB] != null) {
     const memberEntries = se_ClassicLoadBalancers(input[_CLB], context);
-    if (input[_CLB]?.length === 0) {
-      entries.ClassicLoadBalancers = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClassicLoadBalancers.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29320,9 +29230,6 @@ const se_CopyImageRequest = (input: CopyImageRequest, context: __SerdeContext): 
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29362,9 +29269,6 @@ const se_CopySnapshotRequest = (input: CopySnapshotRequest, context: __SerdeCont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29428,9 +29332,6 @@ const se_CreateCapacityReservationFleetRequest = (
   }
   if (input[_ITS] != null) {
     const memberEntries = se_ReservationFleetInstanceSpecificationList(input[_ITS], context);
-    if (input[_ITS]?.length === 0) {
-      entries.InstanceTypeSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTypeSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29450,9 +29351,6 @@ const se_CreateCapacityReservationFleetRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29507,9 +29405,6 @@ const se_CreateCapacityReservationRequest = (input: CreateCapacityReservationReq
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecifications = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29537,9 +29432,6 @@ const se_CreateCarrierGatewayRequest = (input: CreateCarrierGatewayRequest, cont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29570,9 +29462,6 @@ const se_CreateClientVpnEndpointRequest = (input: CreateClientVpnEndpointRequest
   }
   if (input[_AO] != null) {
     const memberEntries = se_ClientVpnAuthenticationRequestList(input[_AO], context);
-    if (input[_AO]?.length === 0) {
-      entries.Authentication = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Authentication.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29587,9 +29476,6 @@ const se_CreateClientVpnEndpointRequest = (input: CreateClientVpnEndpointRequest
   }
   if (input[_DSn] != null) {
     const memberEntries = se_ValueStringList(input[_DSn], context);
-    if (input[_DSn]?.length === 0) {
-      entries.DnsServers = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DnsServers.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29618,9 +29504,6 @@ const se_CreateClientVpnEndpointRequest = (input: CreateClientVpnEndpointRequest
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29628,9 +29511,6 @@ const se_CreateClientVpnEndpointRequest = (input: CreateClientVpnEndpointRequest
   }
   if (input[_SGI] != null) {
     const memberEntries = se_ClientVpnSecurityGroupIdSet(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29718,9 +29598,6 @@ const se_CreateCoipPoolRequest = (input: CreateCoipPoolRequest, context: __Serde
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29751,9 +29628,6 @@ const se_CreateCustomerGatewayRequest = (input: CreateCustomerGatewayRequest, co
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29806,9 +29680,6 @@ const se_CreateDhcpOptionsRequest = (input: CreateDhcpOptionsRequest, context: _
   const entries: any = {};
   if (input[_DCh] != null) {
     const memberEntries = se_NewDhcpConfigurationList(input[_DCh], context);
-    if (input[_DCh]?.length === 0) {
-      entries.DhcpConfiguration = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DhcpConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29816,9 +29687,6 @@ const se_CreateDhcpOptionsRequest = (input: CreateDhcpOptionsRequest, context: _
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29849,9 +29717,6 @@ const se_CreateEgressOnlyInternetGatewayRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29890,9 +29755,6 @@ const se_CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContex
   }
   if (input[_LTC] != null) {
     const memberEntries = se_FleetLaunchTemplateConfigListRequest(input[_LTC], context);
-    if (input[_LTC]?.length === 0) {
-      entries.LaunchTemplateConfigs = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfigs.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29922,9 +29784,6 @@ const se_CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContex
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29958,9 +29817,6 @@ const se_CreateFlowLogsRequest = (input: CreateFlowLogsRequest, context: __Serde
   }
   if (input[_RIes] != null) {
     const memberEntries = se_FlowLogResourceIds(input[_RIes], context);
-    if (input[_RIes]?.length === 0) {
-      entries.ResourceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -29983,9 +29839,6 @@ const se_CreateFlowLogsRequest = (input: CreateFlowLogsRequest, context: __Serde
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30037,9 +29890,6 @@ const se_CreateFpgaImageRequest = (input: CreateFpgaImageRequest, context: __Ser
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30055,9 +29905,6 @@ const se_CreateImageRequest = (input: CreateImageRequest, context: __SerdeContex
   const entries: any = {};
   if (input[_BDM] != null) {
     const memberEntries = se_BlockDeviceMappingRequestList(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30080,9 +29927,6 @@ const se_CreateImageRequest = (input: CreateImageRequest, context: __SerdeContex
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30107,9 +29951,6 @@ const se_CreateInstanceConnectEndpointRequest = (
   }
   if (input[_SGI] != null) {
     const memberEntries = se_SecurityGroupIdStringListRequest(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30126,9 +29967,6 @@ const se_CreateInstanceConnectEndpointRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30150,9 +29988,6 @@ const se_CreateInstanceEventWindowRequest = (input: CreateInstanceEventWindowReq
   }
   if (input[_TRi] != null) {
     const memberEntries = se_InstanceEventWindowTimeRangeRequestSet(input[_TRi], context);
-    if (input[_TRi]?.length === 0) {
-      entries.TimeRange = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TimeRange.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30163,9 +29998,6 @@ const se_CreateInstanceEventWindowRequest = (input: CreateInstanceEventWindowReq
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30197,9 +30029,6 @@ const se_CreateInstanceExportTaskRequest = (input: CreateInstanceExportTaskReque
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30215,9 +30044,6 @@ const se_CreateInternetGatewayRequest = (input: CreateInternetGatewayRequest, co
   const entries: any = {};
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30269,9 +30095,6 @@ const se_CreateIpamPoolRequest = (input: CreateIpamPoolRequest, context: __Serde
   }
   if (input[_ARTl] != null) {
     const memberEntries = se_RequestIpamResourceTagList(input[_ARTl], context);
-    if (input[_ARTl]?.length === 0) {
-      entries.AllocationResourceTag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30279,9 +30102,6 @@ const se_CreateIpamPoolRequest = (input: CreateIpamPoolRequest, context: __Serde
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30322,9 +30142,6 @@ const se_CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext)
   }
   if (input[_OR] != null) {
     const memberEntries = se_AddIpamOperatingRegionSet(input[_OR], context);
-    if (input[_OR]?.length === 0) {
-      entries.OperatingRegion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30332,9 +30149,6 @@ const se_CreateIpamRequest = (input: CreateIpamRequest, context: __SerdeContext)
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30368,9 +30182,6 @@ const se_CreateIpamResourceDiscoveryRequest = (
   }
   if (input[_OR] != null) {
     const memberEntries = se_AddIpamOperatingRegionSet(input[_OR], context);
-    if (input[_OR]?.length === 0) {
-      entries.OperatingRegion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30378,9 +30189,6 @@ const se_CreateIpamResourceDiscoveryRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30411,9 +30219,6 @@ const se_CreateIpamScopeRequest = (input: CreateIpamScopeRequest, context: __Ser
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30444,9 +30249,6 @@ const se_CreateKeyPairRequest = (input: CreateKeyPairRequest, context: __SerdeCo
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30484,9 +30286,6 @@ const se_CreateLaunchTemplateRequest = (input: CreateLaunchTemplateRequest, cont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30576,9 +30375,6 @@ const se_CreateLocalGatewayRouteTableRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30606,9 +30402,6 @@ const se_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30636,9 +30429,6 @@ const se_CreateLocalGatewayRouteTableVpcAssociationRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30663,9 +30453,6 @@ const se_CreateManagedPrefixListRequest = (input: CreateManagedPrefixListRequest
   }
   if (input[_Ent] != null) {
     const memberEntries = se_AddPrefixListEntries(input[_Ent], context);
-    if (input[_Ent]?.length === 0) {
-      entries.Entry = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Entry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30676,9 +30463,6 @@ const se_CreateManagedPrefixListRequest = (input: CreateManagedPrefixListRequest
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30718,9 +30502,6 @@ const se_CreateNatGatewayRequest = (input: CreateNatGatewayRequest, context: __S
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30734,9 +30515,6 @@ const se_CreateNatGatewayRequest = (input: CreateNatGatewayRequest, context: __S
   }
   if (input[_SAI] != null) {
     const memberEntries = se_AllocationIdList(input[_SAI], context);
-    if (input[_SAI]?.length === 0) {
-      entries.SecondaryAllocationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecondaryAllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30744,9 +30522,6 @@ const se_CreateNatGatewayRequest = (input: CreateNatGatewayRequest, context: __S
   }
   if (input[_SPIA] != null) {
     const memberEntries = se_IpList(input[_SPIA], context);
-    if (input[_SPIA]?.length === 0) {
-      entries.SecondaryPrivateIpAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecondaryPrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30817,9 +30592,6 @@ const se_CreateNetworkAclRequest = (input: CreateNetworkAclRequest, context: __S
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30844,9 +30616,6 @@ const se_CreateNetworkInsightsAccessScopeRequest = (
   const entries: any = {};
   if (input[_MP] != null) {
     const memberEntries = se_AccessScopePathListRequest(input[_MP], context);
-    if (input[_MP]?.length === 0) {
-      entries.MatchPath = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MatchPath.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30854,9 +30623,6 @@ const se_CreateNetworkInsightsAccessScopeRequest = (
   }
   if (input[_EP] != null) {
     const memberEntries = se_AccessScopePathListRequest(input[_EP], context);
-    if (input[_EP]?.length === 0) {
-      entries.ExcludePath = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludePath.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30870,9 +30636,6 @@ const se_CreateNetworkInsightsAccessScopeRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30909,9 +30672,6 @@ const se_CreateNetworkInsightsPathRequest = (input: CreateNetworkInsightsPathReq
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30982,9 +30742,6 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   }
   if (input[_G] != null) {
     const memberEntries = se_SecurityGroupIdStringList(input[_G], context);
-    if (input[_G]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -30995,9 +30752,6 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   }
   if (input[_IA] != null) {
     const memberEntries = se_InstanceIpv6AddressList(input[_IA], context);
-    if (input[_IA]?.length === 0) {
-      entries.Ipv6Addresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31008,9 +30762,6 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   }
   if (input[_PIA] != null) {
     const memberEntries = se_PrivateIpAddressSpecificationList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31021,9 +30772,6 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   }
   if (input[_IPp] != null) {
     const memberEntries = se_Ipv4PrefixList(input[_IPp], context);
-    if (input[_IPp]?.length === 0) {
-      entries.Ipv4Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31034,9 +30782,6 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   }
   if (input[_IP] != null) {
     const memberEntries = se_Ipv6PrefixList(input[_IP], context);
-    if (input[_IP]?.length === 0) {
-      entries.Ipv6Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31053,9 +30798,6 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31099,9 +30841,6 @@ const se_CreatePlacementGroupRequest = (input: CreatePlacementGroupRequest, cont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31123,9 +30862,6 @@ const se_CreatePublicIpv4PoolRequest = (input: CreatePublicIpv4PoolRequest, cont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31159,9 +30895,6 @@ const se_CreateReplaceRootVolumeTaskRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31192,9 +30925,6 @@ const se_CreateReservedInstancesListingRequest = (
   }
   if (input[_PS] != null) {
     const memberEntries = se_PriceScheduleSpecificationList(input[_PS], context);
-    if (input[_PS]?.length === 0) {
-      entries.PriceSchedules = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PriceSchedules.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31222,9 +30952,6 @@ const se_CreateRestoreImageTaskRequest = (input: CreateRestoreImageTaskRequest, 
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31305,9 +31032,6 @@ const se_CreateRouteTableRequest = (input: CreateRouteTableRequest, context: __S
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31338,9 +31062,6 @@ const se_CreateSecurityGroupRequest = (input: CreateSecurityGroupRequest, contex
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31368,9 +31089,6 @@ const se_CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __Serde
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31402,9 +31120,6 @@ const se_CreateSnapshotsRequest = (input: CreateSnapshotsRequest, context: __Ser
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31452,9 +31167,6 @@ const se_CreateStoreImageTaskRequest = (input: CreateStoreImageTaskRequest, cont
   }
   if (input[_SOT] != null) {
     const memberEntries = se_S3ObjectTagList(input[_SOT], context);
-    if (input[_SOT]?.length === 0) {
-      entries.S3ObjectTag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `S3ObjectTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31491,9 +31203,6 @@ const se_CreateSubnetCidrReservationRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31509,9 +31218,6 @@ const se_CreateSubnetRequest = (input: CreateSubnetRequest, context: __SerdeCont
   const entries: any = {};
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31566,9 +31272,6 @@ const se_CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext)
   }
   if (input[_R] != null) {
     const memberEntries = se_ResourceIdList(input[_R], context);
-    if (input[_R]?.length === 0) {
-      entries.ResourceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31576,9 +31279,6 @@ const se_CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext)
   }
   if (input[_Ta] != null) {
     const memberEntries = se_TagList(input[_Ta], context);
-    if (input[_Ta]?.length === 0) {
-      entries.Tag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31597,9 +31297,6 @@ const se_CreateTrafficMirrorFilterRequest = (input: CreateTrafficMirrorFilterReq
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31706,9 +31403,6 @@ const se_CreateTrafficMirrorSessionRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31742,9 +31436,6 @@ const se_CreateTrafficMirrorTargetRequest = (input: CreateTrafficMirrorTargetReq
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31791,9 +31482,6 @@ const se_CreateTransitGatewayConnectPeerRequest = (
   }
   if (input[_ICBn] != null) {
     const memberEntries = se_InsideCidrBlocksStringList(input[_ICBn], context);
-    if (input[_ICBn]?.length === 0) {
-      entries.InsideCidrBlocks = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InsideCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31801,9 +31489,6 @@ const se_CreateTransitGatewayConnectPeerRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31835,9 +31520,6 @@ const se_CreateTransitGatewayConnectRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31883,9 +31565,6 @@ const se_CreateTransitGatewayMulticastDomainRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31946,9 +31625,6 @@ const se_CreateTransitGatewayPeeringAttachmentRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -31987,9 +31663,6 @@ const se_CreateTransitGatewayPolicyTableRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecifications = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32044,9 +31717,6 @@ const se_CreateTransitGatewayRequest = (input: CreateTransitGatewayRequest, cont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32097,9 +31767,6 @@ const se_CreateTransitGatewayRouteTableAnnouncementRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32124,9 +31791,6 @@ const se_CreateTransitGatewayRouteTableRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecifications = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32154,9 +31818,6 @@ const se_CreateTransitGatewayVpcAttachmentRequest = (
   }
   if (input[_SIu] != null) {
     const memberEntries = se_TransitGatewaySubnetIdList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32171,9 +31832,6 @@ const se_CreateTransitGatewayVpcAttachmentRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecifications = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32247,9 +31905,6 @@ const se_CreateVerifiedAccessEndpointLoadBalancerOptions = (
   }
   if (input[_SIu] != null) {
     const memberEntries = se_CreateVerifiedAccessEndpointSubnetIdList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32286,9 +31941,6 @@ const se_CreateVerifiedAccessEndpointRequest = (
   }
   if (input[_SGI] != null) {
     const memberEntries = se_SecurityGroupIdList(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32316,9 +31968,6 @@ const se_CreateVerifiedAccessEndpointRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32375,9 +32024,6 @@ const se_CreateVerifiedAccessGroupRequest = (input: CreateVerifiedAccessGroupReq
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32415,9 +32061,6 @@ const se_CreateVerifiedAccessInstanceRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32526,9 +32169,6 @@ const se_CreateVerifiedAccessTrustProviderRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32596,9 +32236,6 @@ const se_CreateVolumePermissionModifications = (
   const entries: any = {};
   if (input[_Add] != null) {
     const memberEntries = se_CreateVolumePermissionList(input[_Add], context);
-    if (input[_Add]?.length === 0) {
-      entries.Add = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Add.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32606,9 +32243,6 @@ const se_CreateVolumePermissionModifications = (
   }
   if (input[_Re] != null) {
     const memberEntries = se_CreateVolumePermissionList(input[_Re], context);
-    if (input[_Re]?.length === 0) {
-      entries.Remove = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32651,9 +32285,6 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32696,9 +32327,6 @@ const se_CreateVpcEndpointConnectionNotificationRequest = (
   }
   if (input[_CEo] != null) {
     const memberEntries = se_ValueStringList(input[_CEo], context);
-    if (input[_CEo]?.length === 0) {
-      entries.ConnectionEvents = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionEvents.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32732,9 +32360,6 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
   }
   if (input[_RTIo] != null) {
     const memberEntries = se_VpcEndpointRouteTableIdList(input[_RTIo], context);
-    if (input[_RTIo]?.length === 0) {
-      entries.RouteTableId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32742,9 +32367,6 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
   }
   if (input[_SIu] != null) {
     const memberEntries = se_VpcEndpointSubnetIdList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32752,9 +32374,6 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
   }
   if (input[_SGI] != null) {
     const memberEntries = se_VpcEndpointSecurityGroupIdList(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32778,9 +32397,6 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32788,9 +32404,6 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
   }
   if (input[_SC] != null) {
     const memberEntries = se_SubnetConfigurationsList(input[_SC], context);
-    if (input[_SC]?.length === 0) {
-      entries.SubnetConfiguration = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32818,9 +32431,6 @@ const se_CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_NLBAe] != null) {
     const memberEntries = se_ValueStringList(input[_NLBAe], context);
-    if (input[_NLBAe]?.length === 0) {
-      entries.NetworkLoadBalancerArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32828,9 +32438,6 @@ const se_CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_GLBA] != null) {
     const memberEntries = se_ValueStringList(input[_GLBA], context);
-    if (input[_GLBA]?.length === 0) {
-      entries.GatewayLoadBalancerArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32838,9 +32445,6 @@ const se_CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_SIAT] != null) {
     const memberEntries = se_ValueStringList(input[_SIAT], context);
-    if (input[_SIAT]?.length === 0) {
-      entries.SupportedIpAddressType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32851,9 +32455,6 @@ const se_CreateVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32887,9 +32488,6 @@ const se_CreateVpcPeeringConnectionRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32938,9 +32536,6 @@ const se_CreateVpcRequest = (input: CreateVpcRequest, context: __SerdeContext): 
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -32978,9 +32573,6 @@ const se_CreateVpnConnectionRequest = (input: CreateVpnConnectionRequest, contex
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33016,9 +32608,6 @@ const se_CreateVpnGatewayRequest = (input: CreateVpnGatewayRequest, context: __S
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33255,9 +32844,6 @@ const se_DeleteFleetsRequest = (input: DeleteFleetsRequest, context: __SerdeCont
   }
   if (input[_FI] != null) {
     const memberEntries = se_FleetIdSet(input[_FI], context);
-    if (input[_FI]?.length === 0) {
-      entries.FleetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33279,9 +32865,6 @@ const se_DeleteFlowLogsRequest = (input: DeleteFlowLogsRequest, context: __Serde
   }
   if (input[_FLI] != null) {
     const memberEntries = se_FlowLogIdList(input[_FLI], context);
-    if (input[_FLI]?.length === 0) {
-      entries.FlowLogId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlowLogId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33470,9 +33053,6 @@ const se_DeleteLaunchTemplateVersionsRequest = (
   }
   if (input[_Ve] != null) {
     const memberEntries = se_VersionStringList(input[_Ve], context);
-    if (input[_Ve]?.length === 0) {
-      entries.LaunchTemplateVersion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33770,9 +33350,6 @@ const se_DeleteQueuedReservedInstancesRequest = (
   }
   if (input[_RIIes] != null) {
     const memberEntries = se_DeleteQueuedReservedInstancesIdList(input[_RIIes], context);
-    if (input[_RIIes]?.length === 0) {
-      entries.ReservedInstancesId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33904,9 +33481,6 @@ const se_DeleteTagsRequest = (input: DeleteTagsRequest, context: __SerdeContext)
   }
   if (input[_R] != null) {
     const memberEntries = se_ResourceIdList(input[_R], context);
-    if (input[_R]?.length === 0) {
-      entries.ResourceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33914,9 +33488,6 @@ const se_DeleteTagsRequest = (input: DeleteTagsRequest, context: __SerdeContext)
   }
   if (input[_Ta] != null) {
     const memberEntries = se_TagList(input[_Ta], context);
-    if (input[_Ta]?.length === 0) {
-      entries.Tag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34290,9 +33861,6 @@ const se_DeleteVpcEndpointConnectionNotificationsRequest = (
   }
   if (input[_CNIo] != null) {
     const memberEntries = se_ConnectionNotificationIdsList(input[_CNIo], context);
-    if (input[_CNIo]?.length === 0) {
-      entries.ConnectionNotificationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionNotificationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34314,9 +33882,6 @@ const se_DeleteVpcEndpointServiceConfigurationsRequest = (
   }
   if (input[_SIer] != null) {
     const memberEntries = se_VpcEndpointServiceIdList(input[_SIer], context);
-    if (input[_SIer]?.length === 0) {
-      entries.ServiceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34335,9 +33900,6 @@ const se_DeleteVpcEndpointsRequest = (input: DeleteVpcEndpointsRequest, context:
   }
   if (input[_VEI] != null) {
     const memberEntries = se_VpcEndpointIdList(input[_VEI], context);
-    if (input[_VEI]?.length === 0) {
-      entries.VpcEndpointId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34535,9 +34097,6 @@ const se_DeregisterInstanceTagAttributeRequest = (
   }
   if (input[_ITK] != null) {
     const memberEntries = se_InstanceTagKeySet(input[_ITK], context);
-    if (input[_ITK]?.length === 0) {
-      entries.InstanceTagKey = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTagKey.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34562,9 +34121,6 @@ const se_DeregisterTransitGatewayMulticastGroupMembersRequest = (
   }
   if (input[_NIIe] != null) {
     const memberEntries = se_TransitGatewayNetworkInterfaceIdList(input[_NIIe], context);
-    if (input[_NIIe]?.length === 0) {
-      entries.NetworkInterfaceIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34592,9 +34148,6 @@ const se_DeregisterTransitGatewayMulticastGroupSourcesRequest = (
   }
   if (input[_NIIe] != null) {
     const memberEntries = se_TransitGatewayNetworkInterfaceIdList(input[_NIIe], context);
-    if (input[_NIIe]?.length === 0) {
-      entries.NetworkInterfaceIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34613,9 +34166,6 @@ const se_DescribeAccountAttributesRequest = (input: DescribeAccountAttributesReq
   const entries: any = {};
   if (input[_AN] != null) {
     const memberEntries = se_AccountAttributeNameStringList(input[_AN], context);
-    if (input[_AN]?.length === 0) {
-      entries.AttributeName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34637,9 +34187,6 @@ const se_DescribeAddressesAttributeRequest = (
   const entries: any = {};
   if (input[_AIll] != null) {
     const memberEntries = se_AllocationIds(input[_AIll], context);
-    if (input[_AIll]?.length === 0) {
-      entries.AllocationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34667,9 +34214,6 @@ const se_DescribeAddressesRequest = (input: DescribeAddressesRequest, context: _
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34677,9 +34221,6 @@ const se_DescribeAddressesRequest = (input: DescribeAddressesRequest, context: _
   }
   if (input[_PIu] != null) {
     const memberEntries = se_PublicIpStringList(input[_PIu], context);
-    if (input[_PIu]?.length === 0) {
-      entries.PublicIp = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PublicIp.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34687,9 +34228,6 @@ const se_DescribeAddressesRequest = (input: DescribeAddressesRequest, context: _
   }
   if (input[_AIll] != null) {
     const memberEntries = se_AllocationIdList(input[_AIll], context);
-    if (input[_AIll]?.length === 0) {
-      entries.AllocationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34708,9 +34246,6 @@ const se_DescribeAddressTransfersRequest = (input: DescribeAddressTransfersReque
   const entries: any = {};
   if (input[_AIll] != null) {
     const memberEntries = se_AllocationIdList(input[_AIll], context);
-    if (input[_AIll]?.length === 0) {
-      entries.AllocationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllocationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34746,9 +34281,6 @@ const se_DescribeAvailabilityZonesRequest = (input: DescribeAvailabilityZonesReq
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34756,9 +34288,6 @@ const se_DescribeAvailabilityZonesRequest = (input: DescribeAvailabilityZonesReq
   }
   if (input[_ZN] != null) {
     const memberEntries = se_ZoneNameStringList(input[_ZN], context);
-    if (input[_ZN]?.length === 0) {
-      entries.ZoneName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ZoneName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34766,9 +34295,6 @@ const se_DescribeAvailabilityZonesRequest = (input: DescribeAvailabilityZonesReq
   }
   if (input[_ZI] != null) {
     const memberEntries = se_ZoneIdStringList(input[_ZI], context);
-    if (input[_ZI]?.length === 0) {
-      entries.ZoneId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ZoneId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34799,9 +34325,6 @@ const se_DescribeAwsNetworkPerformanceMetricSubscriptionsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34820,9 +34343,6 @@ const se_DescribeBundleTasksRequest = (input: DescribeBundleTasksRequest, contex
   const entries: any = {};
   if (input[_BIun] != null) {
     const memberEntries = se_BundleIdStringList(input[_BIun], context);
-    if (input[_BIun]?.length === 0) {
-      entries.BundleId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BundleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34830,9 +34350,6 @@ const se_DescribeBundleTasksRequest = (input: DescribeBundleTasksRequest, contex
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34906,9 +34423,6 @@ const se_DescribeCapacityReservationFleetsRequest = (
   const entries: any = {};
   if (input[_CRFI] != null) {
     const memberEntries = se_CapacityReservationFleetIdSet(input[_CRFI], context);
-    if (input[_CRFI]?.length === 0) {
-      entries.CapacityReservationFleetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationFleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34922,9 +34436,6 @@ const se_DescribeCapacityReservationFleetsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34946,9 +34457,6 @@ const se_DescribeCapacityReservationsRequest = (
   const entries: any = {};
   if (input[_CRIa] != null) {
     const memberEntries = se_CapacityReservationIdSet(input[_CRIa], context);
-    if (input[_CRIa]?.length === 0) {
-      entries.CapacityReservationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34962,9 +34470,6 @@ const se_DescribeCapacityReservationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34983,9 +34488,6 @@ const se_DescribeCarrierGatewaysRequest = (input: DescribeCarrierGatewaysRequest
   const entries: any = {};
   if (input[_CGIa] != null) {
     const memberEntries = se_CarrierGatewayIdSet(input[_CGIa], context);
-    if (input[_CGIa]?.length === 0) {
-      entries.CarrierGatewayId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CarrierGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34993,9 +34495,6 @@ const se_DescribeCarrierGatewaysRequest = (input: DescribeCarrierGatewaysRequest
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35023,9 +34522,6 @@ const se_DescribeClassicLinkInstancesRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35036,9 +34532,6 @@ const se_DescribeClassicLinkInstancesRequest = (
   }
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35072,9 +34565,6 @@ const se_DescribeClientVpnAuthorizationRulesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35099,9 +34589,6 @@ const se_DescribeClientVpnConnectionsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35129,9 +34616,6 @@ const se_DescribeClientVpnEndpointsRequest = (
   const entries: any = {};
   if (input[_CVEIl] != null) {
     const memberEntries = se_ClientVpnEndpointIdList(input[_CVEIl], context);
-    if (input[_CVEIl]?.length === 0) {
-      entries.ClientVpnEndpointId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientVpnEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35145,9 +34629,6 @@ const se_DescribeClientVpnEndpointsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35169,9 +34650,6 @@ const se_DescribeClientVpnRoutesRequest = (input: DescribeClientVpnRoutesRequest
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35202,9 +34680,6 @@ const se_DescribeClientVpnTargetNetworksRequest = (
   }
   if (input[_AIs] != null) {
     const memberEntries = se_ValueStringList(input[_AIs], context);
-    if (input[_AIs]?.length === 0) {
-      entries.AssociationIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssociationIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35218,9 +34693,6 @@ const se_DescribeClientVpnTargetNetworksRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35239,9 +34711,6 @@ const se_DescribeCoipPoolsRequest = (input: DescribeCoipPoolsRequest, context: _
   const entries: any = {};
   if (input[_PIoo] != null) {
     const memberEntries = se_CoipPoolIdSet(input[_PIoo], context);
-    if (input[_PIoo]?.length === 0) {
-      entries.PoolId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35249,9 +34718,6 @@ const se_DescribeCoipPoolsRequest = (input: DescribeCoipPoolsRequest, context: _
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35276,9 +34742,6 @@ const se_DescribeConversionTasksRequest = (input: DescribeConversionTasksRequest
   const entries: any = {};
   if (input[_CTIo] != null) {
     const memberEntries = se_ConversionIdStringList(input[_CTIo], context);
-    if (input[_CTIo]?.length === 0) {
-      entries.ConversionTaskId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConversionTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35297,9 +34760,6 @@ const se_DescribeCustomerGatewaysRequest = (input: DescribeCustomerGatewaysReque
   const entries: any = {};
   if (input[_CGIus] != null) {
     const memberEntries = se_CustomerGatewayIdStringList(input[_CGIus], context);
-    if (input[_CGIus]?.length === 0) {
-      entries.CustomerGatewayId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomerGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35307,9 +34767,6 @@ const se_DescribeCustomerGatewaysRequest = (input: DescribeCustomerGatewaysReque
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35328,9 +34785,6 @@ const se_DescribeDhcpOptionsRequest = (input: DescribeDhcpOptionsRequest, contex
   const entries: any = {};
   if (input[_DOIh] != null) {
     const memberEntries = se_DhcpOptionsIdStringList(input[_DOIh], context);
-    if (input[_DOIh]?.length === 0) {
-      entries.DhcpOptionsId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DhcpOptionsId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35338,9 +34792,6 @@ const se_DescribeDhcpOptionsRequest = (input: DescribeDhcpOptionsRequest, contex
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35371,9 +34822,6 @@ const se_DescribeEgressOnlyInternetGatewaysRequest = (
   }
   if (input[_EOIGIg] != null) {
     const memberEntries = se_EgressOnlyInternetGatewayIdList(input[_EOIGIg], context);
-    if (input[_EOIGIg]?.length === 0) {
-      entries.EgressOnlyInternetGatewayId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EgressOnlyInternetGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35387,9 +34835,6 @@ const se_DescribeEgressOnlyInternetGatewaysRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35405,9 +34850,6 @@ const se_DescribeElasticGpusRequest = (input: DescribeElasticGpusRequest, contex
   const entries: any = {};
   if (input[_EGI] != null) {
     const memberEntries = se_ElasticGpuIdSet(input[_EGI], context);
-    if (input[_EGI]?.length === 0) {
-      entries.ElasticGpuId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticGpuId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35418,9 +34860,6 @@ const se_DescribeElasticGpusRequest = (input: DescribeElasticGpusRequest, contex
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35445,9 +34884,6 @@ const se_DescribeExportImageTasksRequest = (input: DescribeExportImageTasksReque
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35455,9 +34891,6 @@ const se_DescribeExportImageTasksRequest = (input: DescribeExportImageTasksReque
   }
   if (input[_EITI] != null) {
     const memberEntries = se_ExportImageTaskIdList(input[_EITI], context);
-    if (input[_EITI]?.length === 0) {
-      entries.ExportImageTaskId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExportImageTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35479,9 +34912,6 @@ const se_DescribeExportTasksRequest = (input: DescribeExportTasksRequest, contex
   const entries: any = {};
   if (input[_ETIx] != null) {
     const memberEntries = se_ExportTaskIdStringList(input[_ETIx], context);
-    if (input[_ETIx]?.length === 0) {
-      entries.ExportTaskId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExportTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35489,9 +34919,6 @@ const se_DescribeExportTasksRequest = (input: DescribeExportTasksRequest, contex
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35507,9 +34934,6 @@ const se_DescribeFastLaunchImagesRequest = (input: DescribeFastLaunchImagesReque
   const entries: any = {};
   if (input[_IImag] != null) {
     const memberEntries = se_FastLaunchImageIdList(input[_IImag], context);
-    if (input[_IImag]?.length === 0) {
-      entries.ImageId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35517,9 +34941,6 @@ const se_DescribeFastLaunchImagesRequest = (input: DescribeFastLaunchImagesReque
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35547,9 +34968,6 @@ const se_DescribeFastSnapshotRestoresRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35612,9 +35030,6 @@ const se_DescribeFleetInstancesRequest = (input: DescribeFleetInstancesRequest, 
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35639,9 +35054,6 @@ const se_DescribeFleetsRequest = (input: DescribeFleetsRequest, context: __Serde
   }
   if (input[_FI] != null) {
     const memberEntries = se_FleetIdSet(input[_FI], context);
-    if (input[_FI]?.length === 0) {
-      entries.FleetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FleetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35649,9 +35061,6 @@ const se_DescribeFleetsRequest = (input: DescribeFleetsRequest, context: __Serde
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35670,9 +35079,6 @@ const se_DescribeFlowLogsRequest = (input: DescribeFlowLogsRequest, context: __S
   }
   if (input[_Fil] != null) {
     const memberEntries = se_FilterList(input[_Fil], context);
-    if (input[_Fil]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35680,9 +35086,6 @@ const se_DescribeFlowLogsRequest = (input: DescribeFlowLogsRequest, context: __S
   }
   if (input[_FLI] != null) {
     const memberEntries = se_FlowLogIdList(input[_FLI], context);
-    if (input[_FLI]?.length === 0) {
-      entries.FlowLogId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlowLogId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35727,9 +35130,6 @@ const se_DescribeFpgaImagesRequest = (input: DescribeFpgaImagesRequest, context:
   }
   if (input[_FIIp] != null) {
     const memberEntries = se_FpgaImageIdList(input[_FIIp], context);
-    if (input[_FIIp]?.length === 0) {
-      entries.FpgaImageId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FpgaImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35737,9 +35137,6 @@ const se_DescribeFpgaImagesRequest = (input: DescribeFpgaImagesRequest, context:
   }
   if (input[_Ow] != null) {
     const memberEntries = se_OwnerStringList(input[_Ow], context);
-    if (input[_Ow]?.length === 0) {
-      entries.Owner = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Owner.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35747,9 +35144,6 @@ const se_DescribeFpgaImagesRequest = (input: DescribeFpgaImagesRequest, context:
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35774,9 +35168,6 @@ const se_DescribeHostReservationOfferingsRequest = (
   const entries: any = {};
   if (input[_Fil] != null) {
     const memberEntries = se_FilterList(input[_Fil], context);
-    if (input[_Fil]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35807,9 +35198,6 @@ const se_DescribeHostReservationsRequest = (input: DescribeHostReservationsReque
   const entries: any = {};
   if (input[_Fil] != null) {
     const memberEntries = se_FilterList(input[_Fil], context);
-    if (input[_Fil]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35817,9 +35205,6 @@ const se_DescribeHostReservationsRequest = (input: DescribeHostReservationsReque
   }
   if (input[_HRIS] != null) {
     const memberEntries = se_HostReservationIdSet(input[_HRIS], context);
-    if (input[_HRIS]?.length === 0) {
-      entries.HostReservationIdSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostReservationIdSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35841,9 +35226,6 @@ const se_DescribeHostsRequest = (input: DescribeHostsRequest, context: __SerdeCo
   const entries: any = {};
   if (input[_Fil] != null) {
     const memberEntries = se_FilterList(input[_Fil], context);
-    if (input[_Fil]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35851,9 +35233,6 @@ const se_DescribeHostsRequest = (input: DescribeHostsRequest, context: __SerdeCo
   }
   if (input[_HI] != null) {
     const memberEntries = se_RequestHostIdList(input[_HI], context);
-    if (input[_HI]?.length === 0) {
-      entries.HostId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35878,9 +35257,6 @@ const se_DescribeIamInstanceProfileAssociationsRequest = (
   const entries: any = {};
   if (input[_AIs] != null) {
     const memberEntries = se_AssociationIdList(input[_AIs], context);
-    if (input[_AIs]?.length === 0) {
-      entries.AssociationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35888,9 +35264,6 @@ const se_DescribeIamInstanceProfileAssociationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35954,9 +35327,6 @@ const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __Serde
   const entries: any = {};
   if (input[_EU] != null) {
     const memberEntries = se_ExecutableByStringList(input[_EU], context);
-    if (input[_EU]?.length === 0) {
-      entries.ExecutableBy = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExecutableBy.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35964,9 +35334,6 @@ const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __Serde
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35974,9 +35341,6 @@ const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __Serde
   }
   if (input[_IImag] != null) {
     const memberEntries = se_ImageIdStringList(input[_IImag], context);
-    if (input[_IImag]?.length === 0) {
-      entries.ImageId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -35984,9 +35348,6 @@ const se_DescribeImagesRequest = (input: DescribeImagesRequest, context: __Serde
   }
   if (input[_Ow] != null) {
     const memberEntries = se_OwnerStringList(input[_Ow], context);
-    if (input[_Ow]?.length === 0) {
-      entries.Owner = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Owner.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36020,9 +35381,6 @@ const se_DescribeImportImageTasksRequest = (input: DescribeImportImageTasksReque
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filters = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36030,9 +35388,6 @@ const se_DescribeImportImageTasksRequest = (input: DescribeImportImageTasksReque
   }
   if (input[_ITIm] != null) {
     const memberEntries = se_ImportTaskIdList(input[_ITIm], context);
-    if (input[_ITIm]?.length === 0) {
-      entries.ImportTaskId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImportTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36060,9 +35415,6 @@ const se_DescribeImportSnapshotTasksRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filters = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36070,9 +35422,6 @@ const se_DescribeImportSnapshotTasksRequest = (
   }
   if (input[_ITIm] != null) {
     const memberEntries = se_ImportSnapshotTaskIdList(input[_ITIm], context);
-    if (input[_ITIm]?.length === 0) {
-      entries.ImportTaskId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImportTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36123,9 +35472,6 @@ const se_DescribeInstanceConnectEndpointsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36133,9 +35479,6 @@ const se_DescribeInstanceConnectEndpointsRequest = (
   }
   if (input[_ICEIn] != null) {
     const memberEntries = se_ValueStringList(input[_ICEIn], context);
-    if (input[_ICEIn]?.length === 0) {
-      entries.InstanceConnectEndpointId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceConnectEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36157,9 +35500,6 @@ const se_DescribeInstanceCreditSpecificationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36167,9 +35507,6 @@ const se_DescribeInstanceCreditSpecificationsRequest = (
   }
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36211,9 +35548,6 @@ const se_DescribeInstanceEventWindowsRequest = (
   }
   if (input[_IEWIn] != null) {
     const memberEntries = se_InstanceEventWindowIdSet(input[_IEWIn], context);
-    if (input[_IEWIn]?.length === 0) {
-      entries.InstanceEventWindowId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceEventWindowId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36221,9 +35555,6 @@ const se_DescribeInstanceEventWindowsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36245,9 +35576,6 @@ const se_DescribeInstancesRequest = (input: DescribeInstancesRequest, context: _
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36255,9 +35583,6 @@ const se_DescribeInstancesRequest = (input: DescribeInstancesRequest, context: _
   }
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36282,9 +35607,6 @@ const se_DescribeInstanceStatusRequest = (input: DescribeInstanceStatusRequest, 
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36292,9 +35614,6 @@ const se_DescribeInstanceStatusRequest = (input: DescribeInstanceStatusRequest, 
   }
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36363,9 +35682,6 @@ const se_DescribeInstanceTopologyRequest = (input: DescribeInstanceTopologyReque
   }
   if (input[_IIns] != null) {
     const memberEntries = se_DescribeInstanceTopologyInstanceIdSet(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36373,9 +35689,6 @@ const se_DescribeInstanceTopologyRequest = (input: DescribeInstanceTopologyReque
   }
   if (input[_GNr] != null) {
     const memberEntries = se_DescribeInstanceTopologyGroupNameSet(input[_GNr], context);
-    if (input[_GNr]?.length === 0) {
-      entries.GroupName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36383,9 +35696,6 @@ const se_DescribeInstanceTopologyRequest = (input: DescribeInstanceTopologyReque
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36410,9 +35720,6 @@ const se_DescribeInstanceTypeOfferingsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36437,9 +35744,6 @@ const se_DescribeInstanceTypesRequest = (input: DescribeInstanceTypesRequest, co
   }
   if (input[_ITnst] != null) {
     const memberEntries = se_RequestInstanceTypeList(input[_ITnst], context);
-    if (input[_ITnst]?.length === 0) {
-      entries.InstanceType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36447,9 +35751,6 @@ const se_DescribeInstanceTypesRequest = (input: DescribeInstanceTypesRequest, co
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36471,9 +35772,6 @@ const se_DescribeInternetGatewaysRequest = (input: DescribeInternetGatewaysReque
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36484,9 +35782,6 @@ const se_DescribeInternetGatewaysRequest = (input: DescribeInternetGatewaysReque
   }
   if (input[_IGIn] != null) {
     const memberEntries = se_InternetGatewayIdList(input[_IGIn], context);
-    if (input[_IGIn]?.length === 0) {
-      entries.InternetGatewayId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InternetGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36528,9 +35823,6 @@ const se_DescribeIpamPoolsRequest = (input: DescribeIpamPoolsRequest, context: _
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36544,9 +35836,6 @@ const se_DescribeIpamPoolsRequest = (input: DescribeIpamPoolsRequest, context: _
   }
   if (input[_IPIp] != null) {
     const memberEntries = se_ValueStringList(input[_IPIp], context);
-    if (input[_IPIp]?.length === 0) {
-      entries.IpamPoolId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamPoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36568,9 +35857,6 @@ const se_DescribeIpamResourceDiscoveriesRequest = (
   }
   if (input[_IRDIp] != null) {
     const memberEntries = se_ValueStringList(input[_IRDIp], context);
-    if (input[_IRDIp]?.length === 0) {
-      entries.IpamResourceDiscoveryId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamResourceDiscoveryId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36584,9 +35870,6 @@ const se_DescribeIpamResourceDiscoveriesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36608,9 +35891,6 @@ const se_DescribeIpamResourceDiscoveryAssociationsRequest = (
   }
   if (input[_IRDAI] != null) {
     const memberEntries = se_ValueStringList(input[_IRDAI], context);
-    if (input[_IRDAI]?.length === 0) {
-      entries.IpamResourceDiscoveryAssociationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamResourceDiscoveryAssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36624,9 +35904,6 @@ const se_DescribeIpamResourceDiscoveryAssociationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36645,9 +35922,6 @@ const se_DescribeIpamScopesRequest = (input: DescribeIpamScopesRequest, context:
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36661,9 +35935,6 @@ const se_DescribeIpamScopesRequest = (input: DescribeIpamScopesRequest, context:
   }
   if (input[_ISIp] != null) {
     const memberEntries = se_ValueStringList(input[_ISIp], context);
-    if (input[_ISIp]?.length === 0) {
-      entries.IpamScopeId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamScopeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36682,9 +35953,6 @@ const se_DescribeIpamsRequest = (input: DescribeIpamsRequest, context: __SerdeCo
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36698,9 +35966,6 @@ const se_DescribeIpamsRequest = (input: DescribeIpamsRequest, context: __SerdeCo
   }
   if (input[_IIpa] != null) {
     const memberEntries = se_ValueStringList(input[_IIpa], context);
-    if (input[_IIpa]?.length === 0) {
-      entries.IpamId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpamId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36716,9 +35981,6 @@ const se_DescribeIpv6PoolsRequest = (input: DescribeIpv6PoolsRequest, context: _
   const entries: any = {};
   if (input[_PIoo] != null) {
     const memberEntries = se_Ipv6PoolIdList(input[_PIoo], context);
-    if (input[_PIoo]?.length === 0) {
-      entries.PoolId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36735,9 +35997,6 @@ const se_DescribeIpv6PoolsRequest = (input: DescribeIpv6PoolsRequest, context: _
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36753,9 +36012,6 @@ const se_DescribeKeyPairsRequest = (input: DescribeKeyPairsRequest, context: __S
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36763,9 +36019,6 @@ const se_DescribeKeyPairsRequest = (input: DescribeKeyPairsRequest, context: __S
   }
   if (input[_KNe] != null) {
     const memberEntries = se_KeyNameStringList(input[_KNe], context);
-    if (input[_KNe]?.length === 0) {
-      entries.KeyName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KeyName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36773,9 +36026,6 @@ const se_DescribeKeyPairsRequest = (input: DescribeKeyPairsRequest, context: __S
   }
   if (input[_KPIe] != null) {
     const memberEntries = se_KeyPairIdStringList(input[_KPIe], context);
-    if (input[_KPIe]?.length === 0) {
-      entries.KeyPairId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KeyPairId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36800,9 +36050,6 @@ const se_DescribeLaunchTemplatesRequest = (input: DescribeLaunchTemplatesRequest
   }
   if (input[_LTIa] != null) {
     const memberEntries = se_LaunchTemplateIdStringList(input[_LTIa], context);
-    if (input[_LTIa]?.length === 0) {
-      entries.LaunchTemplateId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36810,9 +36057,6 @@ const se_DescribeLaunchTemplatesRequest = (input: DescribeLaunchTemplatesRequest
   }
   if (input[_LTNa] != null) {
     const memberEntries = se_LaunchTemplateNameStringList(input[_LTNa], context);
-    if (input[_LTNa]?.length === 0) {
-      entries.LaunchTemplateName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36820,9 +36064,6 @@ const se_DescribeLaunchTemplatesRequest = (input: DescribeLaunchTemplatesRequest
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36856,9 +36097,6 @@ const se_DescribeLaunchTemplateVersionsRequest = (
   }
   if (input[_Ve] != null) {
     const memberEntries = se_VersionStringList(input[_Ve], context);
-    if (input[_Ve]?.length === 0) {
-      entries.LaunchTemplateVersion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36878,9 +36116,6 @@ const se_DescribeLaunchTemplateVersionsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36902,9 +36137,6 @@ const se_DescribeLocalGatewayRouteTablesRequest = (
   const entries: any = {};
   if (input[_LGRTIo] != null) {
     const memberEntries = se_LocalGatewayRouteTableIdSet(input[_LGRTIo], context);
-    if (input[_LGRTIo]?.length === 0) {
-      entries.LocalGatewayRouteTableId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayRouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36912,9 +36144,6 @@ const se_DescribeLocalGatewayRouteTablesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36942,9 +36171,6 @@ const se_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest 
   const entries: any = {};
   if (input[_LGRTVIGAIo] != null) {
     const memberEntries = se_LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet(input[_LGRTVIGAIo], context);
-    if (input[_LGRTVIGAIo]?.length === 0) {
-      entries.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayRouteTableVirtualInterfaceGroupAssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36952,9 +36178,6 @@ const se_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest 
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36982,9 +36205,6 @@ const se_DescribeLocalGatewayRouteTableVpcAssociationsRequest = (
   const entries: any = {};
   if (input[_LGRTVAIo] != null) {
     const memberEntries = se_LocalGatewayRouteTableVpcAssociationIdSet(input[_LGRTVAIo], context);
-    if (input[_LGRTVAIo]?.length === 0) {
-      entries.LocalGatewayRouteTableVpcAssociationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayRouteTableVpcAssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -36992,9 +36212,6 @@ const se_DescribeLocalGatewayRouteTableVpcAssociationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37019,9 +36236,6 @@ const se_DescribeLocalGatewaysRequest = (input: DescribeLocalGatewaysRequest, co
   const entries: any = {};
   if (input[_LGIo] != null) {
     const memberEntries = se_LocalGatewayIdSet(input[_LGIo], context);
-    if (input[_LGIo]?.length === 0) {
-      entries.LocalGatewayId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37029,9 +36243,6 @@ const se_DescribeLocalGatewaysRequest = (input: DescribeLocalGatewaysRequest, co
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37059,9 +36270,6 @@ const se_DescribeLocalGatewayVirtualInterfaceGroupsRequest = (
   const entries: any = {};
   if (input[_LGVIGIo] != null) {
     const memberEntries = se_LocalGatewayVirtualInterfaceGroupIdSet(input[_LGVIGIo], context);
-    if (input[_LGVIGIo]?.length === 0) {
-      entries.LocalGatewayVirtualInterfaceGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayVirtualInterfaceGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37069,9 +36277,6 @@ const se_DescribeLocalGatewayVirtualInterfaceGroupsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37099,9 +36304,6 @@ const se_DescribeLocalGatewayVirtualInterfacesRequest = (
   const entries: any = {};
   if (input[_LGVII] != null) {
     const memberEntries = se_LocalGatewayVirtualInterfaceIdSet(input[_LGVII], context);
-    if (input[_LGVII]?.length === 0) {
-      entries.LocalGatewayVirtualInterfaceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalGatewayVirtualInterfaceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37109,9 +36311,6 @@ const se_DescribeLocalGatewayVirtualInterfacesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37136,9 +36335,6 @@ const se_DescribeLockedSnapshotsRequest = (input: DescribeLockedSnapshotsRequest
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37152,9 +36348,6 @@ const se_DescribeLockedSnapshotsRequest = (input: DescribeLockedSnapshotsRequest
   }
   if (input[_SIna] != null) {
     const memberEntries = se_SnapshotIdStringList(input[_SIna], context);
-    if (input[_SIna]?.length === 0) {
-      entries.SnapshotId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37173,9 +36366,6 @@ const se_DescribeMacHostsRequest = (input: DescribeMacHostsRequest, context: __S
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37183,9 +36373,6 @@ const se_DescribeMacHostsRequest = (input: DescribeMacHostsRequest, context: __S
   }
   if (input[_HI] != null) {
     const memberEntries = se_RequestHostIdList(input[_HI], context);
-    if (input[_HI]?.length === 0) {
-      entries.HostId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37213,9 +36400,6 @@ const se_DescribeManagedPrefixListsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37229,9 +36413,6 @@ const se_DescribeManagedPrefixListsRequest = (
   }
   if (input[_PLIr] != null) {
     const memberEntries = se_ValueStringList(input[_PLIr], context);
-    if (input[_PLIr]?.length === 0) {
-      entries.PrefixListId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrefixListId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37247,9 +36428,6 @@ const se_DescribeMovingAddressesRequest = (input: DescribeMovingAddressesRequest
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37266,9 +36444,6 @@ const se_DescribeMovingAddressesRequest = (input: DescribeMovingAddressesRequest
   }
   if (input[_PIu] != null) {
     const memberEntries = se_ValueStringList(input[_PIu], context);
-    if (input[_PIu]?.length === 0) {
-      entries.PublicIp = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PublicIp.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37287,9 +36462,6 @@ const se_DescribeNatGatewaysRequest = (input: DescribeNatGatewaysRequest, contex
   }
   if (input[_Fil] != null) {
     const memberEntries = se_FilterList(input[_Fil], context);
-    if (input[_Fil]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37300,9 +36472,6 @@ const se_DescribeNatGatewaysRequest = (input: DescribeNatGatewaysRequest, contex
   }
   if (input[_NGIa] != null) {
     const memberEntries = se_NatGatewayIdStringList(input[_NGIa], context);
-    if (input[_NGIa]?.length === 0) {
-      entries.NatGatewayId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NatGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37321,9 +36490,6 @@ const se_DescribeNetworkAclsRequest = (input: DescribeNetworkAclsRequest, contex
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37334,9 +36500,6 @@ const se_DescribeNetworkAclsRequest = (input: DescribeNetworkAclsRequest, contex
   }
   if (input[_NAIe] != null) {
     const memberEntries = se_NetworkAclIdStringList(input[_NAIe], context);
-    if (input[_NAIe]?.length === 0) {
-      entries.NetworkAclId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkAclId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37361,9 +36524,6 @@ const se_DescribeNetworkInsightsAccessScopeAnalysesRequest = (
   const entries: any = {};
   if (input[_NIASAIe] != null) {
     const memberEntries = se_NetworkInsightsAccessScopeAnalysisIdList(input[_NIASAIe], context);
-    if (input[_NIASAIe]?.length === 0) {
-      entries.NetworkInsightsAccessScopeAnalysisId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsAccessScopeAnalysisId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37380,9 +36540,6 @@ const se_DescribeNetworkInsightsAccessScopeAnalysesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37410,9 +36567,6 @@ const se_DescribeNetworkInsightsAccessScopesRequest = (
   const entries: any = {};
   if (input[_NIASIe] != null) {
     const memberEntries = se_NetworkInsightsAccessScopeIdList(input[_NIASIe], context);
-    if (input[_NIASIe]?.length === 0) {
-      entries.NetworkInsightsAccessScopeId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsAccessScopeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37420,9 +36574,6 @@ const se_DescribeNetworkInsightsAccessScopesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37450,9 +36601,6 @@ const se_DescribeNetworkInsightsAnalysesRequest = (
   const entries: any = {};
   if (input[_NIAIe] != null) {
     const memberEntries = se_NetworkInsightsAnalysisIdList(input[_NIAIe], context);
-    if (input[_NIAIe]?.length === 0) {
-      entries.NetworkInsightsAnalysisId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsAnalysisId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37469,9 +36617,6 @@ const se_DescribeNetworkInsightsAnalysesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37499,9 +36644,6 @@ const se_DescribeNetworkInsightsPathsRequest = (
   const entries: any = {};
   if (input[_NIPIet] != null) {
     const memberEntries = se_NetworkInsightsPathIdList(input[_NIPIet], context);
-    if (input[_NIPIet]?.length === 0) {
-      entries.NetworkInsightsPathId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInsightsPathId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37509,9 +36651,6 @@ const se_DescribeNetworkInsightsPathsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37559,9 +36698,6 @@ const se_DescribeNetworkInterfacePermissionsRequest = (
   const entries: any = {};
   if (input[_NIPIetw] != null) {
     const memberEntries = se_NetworkInterfacePermissionIdList(input[_NIPIetw], context);
-    if (input[_NIPIetw]?.length === 0) {
-      entries.NetworkInterfacePermissionId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfacePermissionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37569,9 +36705,6 @@ const se_DescribeNetworkInterfacePermissionsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37593,9 +36726,6 @@ const se_DescribeNetworkInterfacesRequest = (input: DescribeNetworkInterfacesReq
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37606,9 +36736,6 @@ const se_DescribeNetworkInterfacesRequest = (input: DescribeNetworkInterfacesReq
   }
   if (input[_NIIe] != null) {
     const memberEntries = se_NetworkInterfaceIdList(input[_NIIe], context);
-    if (input[_NIIe]?.length === 0) {
-      entries.NetworkInterfaceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37630,9 +36757,6 @@ const se_DescribePlacementGroupsRequest = (input: DescribePlacementGroupsRequest
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37643,9 +36767,6 @@ const se_DescribePlacementGroupsRequest = (input: DescribePlacementGroupsRequest
   }
   if (input[_GNr] != null) {
     const memberEntries = se_PlacementGroupStringList(input[_GNr], context);
-    if (input[_GNr]?.length === 0) {
-      entries.GroupName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37653,9 +36774,6 @@ const se_DescribePlacementGroupsRequest = (input: DescribePlacementGroupsRequest
   }
   if (input[_GIro] != null) {
     const memberEntries = se_PlacementGroupIdStringList(input[_GIro], context);
-    if (input[_GIro]?.length === 0) {
-      entries.GroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37674,9 +36792,6 @@ const se_DescribePrefixListsRequest = (input: DescribePrefixListsRequest, contex
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37690,9 +36805,6 @@ const se_DescribePrefixListsRequest = (input: DescribePrefixListsRequest, contex
   }
   if (input[_PLIr] != null) {
     const memberEntries = se_PrefixListResourceIdStringList(input[_PLIr], context);
-    if (input[_PLIr]?.length === 0) {
-      entries.PrefixListId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrefixListId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37711,9 +36823,6 @@ const se_DescribePrincipalIdFormatRequest = (input: DescribePrincipalIdFormatReq
   }
   if (input[_R] != null) {
     const memberEntries = se_ResourceList(input[_R], context);
-    if (input[_R]?.length === 0) {
-      entries.Resource = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Resource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37735,9 +36844,6 @@ const se_DescribePublicIpv4PoolsRequest = (input: DescribePublicIpv4PoolsRequest
   const entries: any = {};
   if (input[_PIoo] != null) {
     const memberEntries = se_PublicIpv4PoolIdStringList(input[_PIoo], context);
-    if (input[_PIoo]?.length === 0) {
-      entries.PoolId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37751,9 +36857,6 @@ const se_DescribePublicIpv4PoolsRequest = (input: DescribePublicIpv4PoolsRequest
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37769,9 +36872,6 @@ const se_DescribeRegionsRequest = (input: DescribeRegionsRequest, context: __Ser
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37779,9 +36879,6 @@ const se_DescribeRegionsRequest = (input: DescribeRegionsRequest, context: __Ser
   }
   if (input[_RNe] != null) {
     const memberEntries = se_RegionNameStringList(input[_RNe], context);
-    if (input[_RNe]?.length === 0) {
-      entries.RegionName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37806,9 +36903,6 @@ const se_DescribeReplaceRootVolumeTasksRequest = (
   const entries: any = {};
   if (input[_RRVTI] != null) {
     const memberEntries = se_ReplaceRootVolumeTaskIds(input[_RRVTI], context);
-    if (input[_RRVTI]?.length === 0) {
-      entries.ReplaceRootVolumeTaskId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplaceRootVolumeTaskId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37816,9 +36910,6 @@ const se_DescribeReplaceRootVolumeTasksRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37846,9 +36937,6 @@ const se_DescribeReservedInstancesListingsRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37873,9 +36961,6 @@ const se_DescribeReservedInstancesModificationsRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37883,9 +36968,6 @@ const se_DescribeReservedInstancesModificationsRequest = (
   }
   if (input[_RIMI] != null) {
     const memberEntries = se_ReservedInstancesModificationIdStringList(input[_RIMI], context);
-    if (input[_RIMI]?.length === 0) {
-      entries.ReservedInstancesModificationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesModificationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37910,9 +36992,6 @@ const se_DescribeReservedInstancesOfferingsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37941,9 +37020,6 @@ const se_DescribeReservedInstancesOfferingsRequest = (
   }
   if (input[_RIOI] != null) {
     const memberEntries = se_ReservedInstancesOfferingIdStringList(input[_RIOI], context);
-    if (input[_RIOI]?.length === 0) {
-      entries.ReservedInstancesOfferingId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesOfferingId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37974,9 +37050,6 @@ const se_DescribeReservedInstancesRequest = (input: DescribeReservedInstancesReq
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -37987,9 +37060,6 @@ const se_DescribeReservedInstancesRequest = (input: DescribeReservedInstancesReq
   }
   if (input[_RIIes] != null) {
     const memberEntries = se_ReservedInstancesIdStringList(input[_RIIes], context);
-    if (input[_RIIes]?.length === 0) {
-      entries.ReservedInstancesId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38011,9 +37081,6 @@ const se_DescribeRouteTablesRequest = (input: DescribeRouteTablesRequest, contex
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38024,9 +37091,6 @@ const se_DescribeRouteTablesRequest = (input: DescribeRouteTablesRequest, contex
   }
   if (input[_RTIo] != null) {
     const memberEntries = se_RouteTableIdStringList(input[_RTIo], context);
-    if (input[_RTIo]?.length === 0) {
-      entries.RouteTableId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38054,9 +37118,6 @@ const se_DescribeScheduledInstanceAvailabilityRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38104,9 +37165,6 @@ const se_DescribeScheduledInstancesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38120,9 +37178,6 @@ const se_DescribeScheduledInstancesRequest = (
   }
   if (input[_SIIc] != null) {
     const memberEntries = se_ScheduledInstanceIdRequestSet(input[_SIIc], context);
-    if (input[_SIIc]?.length === 0) {
-      entries.ScheduledInstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScheduledInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38151,9 +37206,6 @@ const se_DescribeSecurityGroupReferencesRequest = (
   }
   if (input[_GIr] != null) {
     const memberEntries = se_GroupIds(input[_GIr], context);
-    if (input[_GIr]?.length === 0) {
-      entries.GroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38172,9 +37224,6 @@ const se_DescribeSecurityGroupRulesRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38182,9 +37231,6 @@ const se_DescribeSecurityGroupRulesRequest = (
   }
   if (input[_SGRI] != null) {
     const memberEntries = se_SecurityGroupRuleIdList(input[_SGRI], context);
-    if (input[_SGRI]?.length === 0) {
-      entries.SecurityGroupRuleId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38209,9 +37255,6 @@ const se_DescribeSecurityGroupsRequest = (input: DescribeSecurityGroupsRequest, 
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38219,9 +37262,6 @@ const se_DescribeSecurityGroupsRequest = (input: DescribeSecurityGroupsRequest, 
   }
   if (input[_GIro] != null) {
     const memberEntries = se_GroupIdStringList(input[_GIro], context);
-    if (input[_GIro]?.length === 0) {
-      entries.GroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38229,9 +37269,6 @@ const se_DescribeSecurityGroupsRequest = (input: DescribeSecurityGroupsRequest, 
   }
   if (input[_GNr] != null) {
     const memberEntries = se_GroupNameStringList(input[_GNr], context);
-    if (input[_GNr]?.length === 0) {
-      entries.GroupName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38273,9 +37310,6 @@ const se_DescribeSnapshotsRequest = (input: DescribeSnapshotsRequest, context: _
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38289,9 +37323,6 @@ const se_DescribeSnapshotsRequest = (input: DescribeSnapshotsRequest, context: _
   }
   if (input[_OIw] != null) {
     const memberEntries = se_OwnerStringList(input[_OIw], context);
-    if (input[_OIw]?.length === 0) {
-      entries.Owner = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Owner.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38299,9 +37330,6 @@ const se_DescribeSnapshotsRequest = (input: DescribeSnapshotsRequest, context: _
   }
   if (input[_RBUI] != null) {
     const memberEntries = se_RestorableByStringList(input[_RBUI], context);
-    if (input[_RBUI]?.length === 0) {
-      entries.RestorableBy = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RestorableBy.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38309,9 +37337,6 @@ const se_DescribeSnapshotsRequest = (input: DescribeSnapshotsRequest, context: _
   }
   if (input[_SIna] != null) {
     const memberEntries = se_SnapshotIdStringList(input[_SIna], context);
-    if (input[_SIna]?.length === 0) {
-      entries.SnapshotId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38333,9 +37358,6 @@ const se_DescribeSnapshotTierStatusRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38435,9 +37457,6 @@ const se_DescribeSpotFleetRequestsRequest = (input: DescribeSpotFleetRequestsReq
   }
   if (input[_SFRI] != null) {
     const memberEntries = se_SpotFleetRequestIdList(input[_SFRI], context);
-    if (input[_SFRI]?.length === 0) {
-      entries.SpotFleetRequestId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotFleetRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38456,9 +37475,6 @@ const se_DescribeSpotInstanceRequestsRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38469,9 +37485,6 @@ const se_DescribeSpotInstanceRequestsRequest = (
   }
   if (input[_SIRI] != null) {
     const memberEntries = se_SpotInstanceRequestIdList(input[_SIRI], context);
-    if (input[_SIRI]?.length === 0) {
-      entries.SpotInstanceRequestId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SpotInstanceRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38493,9 +37506,6 @@ const se_DescribeSpotPriceHistoryRequest = (input: DescribeSpotPriceHistoryReque
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38512,9 +37522,6 @@ const se_DescribeSpotPriceHistoryRequest = (input: DescribeSpotPriceHistoryReque
   }
   if (input[_ITnst] != null) {
     const memberEntries = se_InstanceTypeList(input[_ITnst], context);
-    if (input[_ITnst]?.length === 0) {
-      entries.InstanceType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38528,9 +37535,6 @@ const se_DescribeSpotPriceHistoryRequest = (input: DescribeSpotPriceHistoryReque
   }
   if (input[_PDro] != null) {
     const memberEntries = se_ProductDescriptionList(input[_PDro], context);
-    if (input[_PDro]?.length === 0) {
-      entries.ProductDescription = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProductDescription.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38572,9 +37576,6 @@ const se_DescribeStoreImageTasksRequest = (input: DescribeStoreImageTasksRequest
   const entries: any = {};
   if (input[_IImag] != null) {
     const memberEntries = se_ImageIdList(input[_IImag], context);
-    if (input[_IImag]?.length === 0) {
-      entries.ImageId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38585,9 +37586,6 @@ const se_DescribeStoreImageTasksRequest = (input: DescribeStoreImageTasksRequest
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38609,9 +37607,6 @@ const se_DescribeSubnetsRequest = (input: DescribeSubnetsRequest, context: __Ser
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38619,9 +37614,6 @@ const se_DescribeSubnetsRequest = (input: DescribeSubnetsRequest, context: __Ser
   }
   if (input[_SIu] != null) {
     const memberEntries = se_SubnetIdStringList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38649,9 +37641,6 @@ const se_DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeCont
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38676,9 +37665,6 @@ const se_DescribeTrafficMirrorFiltersRequest = (
   const entries: any = {};
   if (input[_TMFIr] != null) {
     const memberEntries = se_TrafficMirrorFilterIdList(input[_TMFIr], context);
-    if (input[_TMFIr]?.length === 0) {
-      entries.TrafficMirrorFilterId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrafficMirrorFilterId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38689,9 +37675,6 @@ const se_DescribeTrafficMirrorFiltersRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38716,9 +37699,6 @@ const se_DescribeTrafficMirrorSessionsRequest = (
   const entries: any = {};
   if (input[_TMSIr] != null) {
     const memberEntries = se_TrafficMirrorSessionIdList(input[_TMSIr], context);
-    if (input[_TMSIr]?.length === 0) {
-      entries.TrafficMirrorSessionId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrafficMirrorSessionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38729,9 +37709,6 @@ const se_DescribeTrafficMirrorSessionsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38756,9 +37733,6 @@ const se_DescribeTrafficMirrorTargetsRequest = (
   const entries: any = {};
   if (input[_TMTIr] != null) {
     const memberEntries = se_TrafficMirrorTargetIdList(input[_TMTIr], context);
-    if (input[_TMTIr]?.length === 0) {
-      entries.TrafficMirrorTargetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrafficMirrorTargetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38769,9 +37743,6 @@ const se_DescribeTrafficMirrorTargetsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38796,9 +37767,6 @@ const se_DescribeTransitGatewayAttachmentsRequest = (
   const entries: any = {};
   if (input[_TGAIr] != null) {
     const memberEntries = se_TransitGatewayAttachmentIdStringList(input[_TGAIr], context);
-    if (input[_TGAIr]?.length === 0) {
-      entries.TransitGatewayAttachmentIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38806,9 +37774,6 @@ const se_DescribeTransitGatewayAttachmentsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38836,9 +37801,6 @@ const se_DescribeTransitGatewayConnectPeersRequest = (
   const entries: any = {};
   if (input[_TGCPIr] != null) {
     const memberEntries = se_TransitGatewayConnectPeerIdStringList(input[_TGCPIr], context);
-    if (input[_TGCPIr]?.length === 0) {
-      entries.TransitGatewayConnectPeerIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayConnectPeerIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38846,9 +37808,6 @@ const se_DescribeTransitGatewayConnectPeersRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38876,9 +37835,6 @@ const se_DescribeTransitGatewayConnectsRequest = (
   const entries: any = {};
   if (input[_TGAIr] != null) {
     const memberEntries = se_TransitGatewayAttachmentIdStringList(input[_TGAIr], context);
-    if (input[_TGAIr]?.length === 0) {
-      entries.TransitGatewayAttachmentIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38886,9 +37842,6 @@ const se_DescribeTransitGatewayConnectsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38916,9 +37869,6 @@ const se_DescribeTransitGatewayMulticastDomainsRequest = (
   const entries: any = {};
   if (input[_TGMDIr] != null) {
     const memberEntries = se_TransitGatewayMulticastDomainIdStringList(input[_TGMDIr], context);
-    if (input[_TGMDIr]?.length === 0) {
-      entries.TransitGatewayMulticastDomainIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayMulticastDomainIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38926,9 +37876,6 @@ const se_DescribeTransitGatewayMulticastDomainsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38956,9 +37903,6 @@ const se_DescribeTransitGatewayPeeringAttachmentsRequest = (
   const entries: any = {};
   if (input[_TGAIr] != null) {
     const memberEntries = se_TransitGatewayAttachmentIdStringList(input[_TGAIr], context);
-    if (input[_TGAIr]?.length === 0) {
-      entries.TransitGatewayAttachmentIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38966,9 +37910,6 @@ const se_DescribeTransitGatewayPeeringAttachmentsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38996,9 +37937,6 @@ const se_DescribeTransitGatewayPolicyTablesRequest = (
   const entries: any = {};
   if (input[_TGPTIr] != null) {
     const memberEntries = se_TransitGatewayPolicyTableIdStringList(input[_TGPTIr], context);
-    if (input[_TGPTIr]?.length === 0) {
-      entries.TransitGatewayPolicyTableIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayPolicyTableIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39006,9 +37944,6 @@ const se_DescribeTransitGatewayPolicyTablesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39036,9 +37971,6 @@ const se_DescribeTransitGatewayRouteTableAnnouncementsRequest = (
   const entries: any = {};
   if (input[_TGRTAIr] != null) {
     const memberEntries = se_TransitGatewayRouteTableAnnouncementIdStringList(input[_TGRTAIr], context);
-    if (input[_TGRTAIr]?.length === 0) {
-      entries.TransitGatewayRouteTableAnnouncementIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayRouteTableAnnouncementIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39046,9 +37978,6 @@ const se_DescribeTransitGatewayRouteTableAnnouncementsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39076,9 +38005,6 @@ const se_DescribeTransitGatewayRouteTablesRequest = (
   const entries: any = {};
   if (input[_TGRTIr] != null) {
     const memberEntries = se_TransitGatewayRouteTableIdStringList(input[_TGRTIr], context);
-    if (input[_TGRTIr]?.length === 0) {
-      entries.TransitGatewayRouteTableIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayRouteTableIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39086,9 +38012,6 @@ const se_DescribeTransitGatewayRouteTablesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39113,9 +38036,6 @@ const se_DescribeTransitGatewaysRequest = (input: DescribeTransitGatewaysRequest
   const entries: any = {};
   if (input[_TGIr] != null) {
     const memberEntries = se_TransitGatewayIdStringList(input[_TGIr], context);
-    if (input[_TGIr]?.length === 0) {
-      entries.TransitGatewayIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39123,9 +38043,6 @@ const se_DescribeTransitGatewaysRequest = (input: DescribeTransitGatewaysRequest
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39153,9 +38070,6 @@ const se_DescribeTransitGatewayVpcAttachmentsRequest = (
   const entries: any = {};
   if (input[_TGAIr] != null) {
     const memberEntries = se_TransitGatewayAttachmentIdStringList(input[_TGAIr], context);
-    if (input[_TGAIr]?.length === 0) {
-      entries.TransitGatewayAttachmentIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayAttachmentIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39163,9 +38077,6 @@ const se_DescribeTransitGatewayVpcAttachmentsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39193,9 +38104,6 @@ const se_DescribeTrunkInterfaceAssociationsRequest = (
   const entries: any = {};
   if (input[_AIs] != null) {
     const memberEntries = se_TrunkInterfaceAssociationIdList(input[_AIs], context);
-    if (input[_AIs]?.length === 0) {
-      entries.AssociationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39206,9 +38114,6 @@ const se_DescribeTrunkInterfaceAssociationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39233,9 +38138,6 @@ const se_DescribeVerifiedAccessEndpointsRequest = (
   const entries: any = {};
   if (input[_VAEIe] != null) {
     const memberEntries = se_VerifiedAccessEndpointIdList(input[_VAEIe], context);
-    if (input[_VAEIe]?.length === 0) {
-      entries.VerifiedAccessEndpointId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VerifiedAccessEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39255,9 +38157,6 @@ const se_DescribeVerifiedAccessEndpointsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39279,9 +38178,6 @@ const se_DescribeVerifiedAccessGroupsRequest = (
   const entries: any = {};
   if (input[_VAGIe] != null) {
     const memberEntries = se_VerifiedAccessGroupIdList(input[_VAGIe], context);
-    if (input[_VAGIe]?.length === 0) {
-      entries.VerifiedAccessGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VerifiedAccessGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39298,9 +38194,6 @@ const se_DescribeVerifiedAccessGroupsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39322,9 +38215,6 @@ const se_DescribeVerifiedAccessInstanceLoggingConfigurationsRequest = (
   const entries: any = {};
   if (input[_VAIIe] != null) {
     const memberEntries = se_VerifiedAccessInstanceIdList(input[_VAIIe], context);
-    if (input[_VAIIe]?.length === 0) {
-      entries.VerifiedAccessInstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VerifiedAccessInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39338,9 +38228,6 @@ const se_DescribeVerifiedAccessInstanceLoggingConfigurationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39362,9 +38249,6 @@ const se_DescribeVerifiedAccessInstancesRequest = (
   const entries: any = {};
   if (input[_VAIIe] != null) {
     const memberEntries = se_VerifiedAccessInstanceIdList(input[_VAIIe], context);
-    if (input[_VAIIe]?.length === 0) {
-      entries.VerifiedAccessInstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VerifiedAccessInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39378,9 +38262,6 @@ const se_DescribeVerifiedAccessInstancesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39402,9 +38283,6 @@ const se_DescribeVerifiedAccessTrustProvidersRequest = (
   const entries: any = {};
   if (input[_VATPIe] != null) {
     const memberEntries = se_VerifiedAccessTrustProviderIdList(input[_VATPIe], context);
-    if (input[_VATPIe]?.length === 0) {
-      entries.VerifiedAccessTrustProviderId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VerifiedAccessTrustProviderId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39418,9 +38296,6 @@ const se_DescribeVerifiedAccessTrustProvidersRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39462,9 +38337,6 @@ const se_DescribeVolumesModificationsRequest = (
   }
   if (input[_VIol] != null) {
     const memberEntries = se_VolumeIdStringList(input[_VIol], context);
-    if (input[_VIol]?.length === 0) {
-      entries.VolumeId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39472,9 +38344,6 @@ const se_DescribeVolumesModificationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39496,9 +38365,6 @@ const se_DescribeVolumesRequest = (input: DescribeVolumesRequest, context: __Ser
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39506,9 +38372,6 @@ const se_DescribeVolumesRequest = (input: DescribeVolumesRequest, context: __Ser
   }
   if (input[_VIol] != null) {
     const memberEntries = se_VolumeIdStringList(input[_VIol], context);
-    if (input[_VIol]?.length === 0) {
-      entries.VolumeId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39533,9 +38396,6 @@ const se_DescribeVolumeStatusRequest = (input: DescribeVolumeStatusRequest, cont
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39549,9 +38409,6 @@ const se_DescribeVolumeStatusRequest = (input: DescribeVolumeStatusRequest, cont
   }
   if (input[_VIol] != null) {
     const memberEntries = se_VolumeIdStringList(input[_VIol], context);
-    if (input[_VIol]?.length === 0) {
-      entries.VolumeId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39596,9 +38453,6 @@ const se_DescribeVpcClassicLinkDnsSupportRequest = (
   }
   if (input[_VIp] != null) {
     const memberEntries = se_VpcClassicLinkIdList(input[_VIp], context);
-    if (input[_VIp]?.length === 0) {
-      entries.VpcIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39614,9 +38468,6 @@ const se_DescribeVpcClassicLinkRequest = (input: DescribeVpcClassicLinkRequest, 
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39627,9 +38478,6 @@ const se_DescribeVpcClassicLinkRequest = (input: DescribeVpcClassicLinkRequest, 
   }
   if (input[_VIp] != null) {
     const memberEntries = se_VpcClassicLinkIdList(input[_VIp], context);
-    if (input[_VIp]?.length === 0) {
-      entries.VpcId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39654,9 +38502,6 @@ const se_DescribeVpcEndpointConnectionNotificationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39684,9 +38529,6 @@ const se_DescribeVpcEndpointConnectionsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39714,9 +38556,6 @@ const se_DescribeVpcEndpointServiceConfigurationsRequest = (
   }
   if (input[_SIer] != null) {
     const memberEntries = se_VpcEndpointServiceIdList(input[_SIer], context);
-    if (input[_SIer]?.length === 0) {
-      entries.ServiceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39724,9 +38563,6 @@ const se_DescribeVpcEndpointServiceConfigurationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39757,9 +38593,6 @@ const se_DescribeVpcEndpointServicePermissionsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39787,9 +38620,6 @@ const se_DescribeVpcEndpointServicesRequest = (
   }
   if (input[_SNer] != null) {
     const memberEntries = se_ValueStringList(input[_SNer], context);
-    if (input[_SNer]?.length === 0) {
-      entries.ServiceName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39797,9 +38627,6 @@ const se_DescribeVpcEndpointServicesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39824,9 +38651,6 @@ const se_DescribeVpcEndpointsRequest = (input: DescribeVpcEndpointsRequest, cont
   }
   if (input[_VEI] != null) {
     const memberEntries = se_VpcEndpointIdList(input[_VEI], context);
-    if (input[_VEI]?.length === 0) {
-      entries.VpcEndpointId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39834,9 +38658,6 @@ const se_DescribeVpcEndpointsRequest = (input: DescribeVpcEndpointsRequest, cont
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39861,9 +38682,6 @@ const se_DescribeVpcPeeringConnectionsRequest = (
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39874,9 +38692,6 @@ const se_DescribeVpcPeeringConnectionsRequest = (
   }
   if (input[_VPCIp] != null) {
     const memberEntries = se_VpcPeeringConnectionIdList(input[_VPCIp], context);
-    if (input[_VPCIp]?.length === 0) {
-      entries.VpcPeeringConnectionId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcPeeringConnectionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39898,9 +38713,6 @@ const se_DescribeVpcsRequest = (input: DescribeVpcsRequest, context: __SerdeCont
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39908,9 +38720,6 @@ const se_DescribeVpcsRequest = (input: DescribeVpcsRequest, context: __SerdeCont
   }
   if (input[_VIp] != null) {
     const memberEntries = se_VpcIdStringList(input[_VIp], context);
-    if (input[_VIp]?.length === 0) {
-      entries.VpcId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39935,9 +38744,6 @@ const se_DescribeVpnConnectionsRequest = (input: DescribeVpnConnectionsRequest, 
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39945,9 +38751,6 @@ const se_DescribeVpnConnectionsRequest = (input: DescribeVpnConnectionsRequest, 
   }
   if (input[_VCIp] != null) {
     const memberEntries = se_VpnConnectionIdStringList(input[_VCIp], context);
-    if (input[_VCIp]?.length === 0) {
-      entries.VpnConnectionId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpnConnectionId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39966,9 +38769,6 @@ const se_DescribeVpnGatewaysRequest = (input: DescribeVpnGatewaysRequest, contex
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -39976,9 +38776,6 @@ const se_DescribeVpnGatewaysRequest = (input: DescribeVpnGatewaysRequest, contex
   }
   if (input[_VGIp] != null) {
     const memberEntries = se_VpnGatewayIdStringList(input[_VGIp], context);
-    if (input[_VGIp]?.length === 0) {
-      entries.VpnGatewayId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpnGatewayId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40235,9 +39032,6 @@ const se_DisableFastSnapshotRestoresRequest = (
   const entries: any = {};
   if (input[_AZv] != null) {
     const memberEntries = se_AvailabilityZoneStringList(input[_AZv], context);
-    if (input[_AZv]?.length === 0) {
-      entries.AvailabilityZone = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZone.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40245,9 +39039,6 @@ const se_DisableFastSnapshotRestoresRequest = (
   }
   if (input[_SSIo] != null) {
     const memberEntries = se_SnapshotIdStringList(input[_SSIo], context);
-    if (input[_SSIo]?.length === 0) {
-      entries.SourceSnapshotId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceSnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40576,9 +39367,6 @@ const se_DisassociateNatGatewayAddressRequest = (
   }
   if (input[_AIs] != null) {
     const memberEntries = se_EipAssociationIdList(input[_AIs], context);
-    if (input[_AIs]?.length === 0) {
-      entries.AssociationId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40637,9 +39425,6 @@ const se_DisassociateTransitGatewayMulticastDomainRequest = (
   }
   if (input[_SIu] != null) {
     const memberEntries = se_TransitGatewaySubnetIdList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -40807,9 +39592,6 @@ const se_DnsServersOptionsModifyStructure = (input: DnsServersOptionsModifyStruc
   const entries: any = {};
   if (input[_CDSu] != null) {
     const memberEntries = se_ValueStringList(input[_CDSu], context);
-    if (input[_CDSu]?.length === 0) {
-      entries.CustomDnsServers = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomDnsServers.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41104,9 +39886,6 @@ const se_EnableFastSnapshotRestoresRequest = (
   const entries: any = {};
   if (input[_AZv] != null) {
     const memberEntries = se_AvailabilityZoneStringList(input[_AZv], context);
-    if (input[_AZv]?.length === 0) {
-      entries.AvailabilityZone = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZone.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41114,9 +39893,6 @@ const se_EnableFastSnapshotRestoresRequest = (
   }
   if (input[_SSIo] != null) {
     const memberEntries = se_SnapshotIdStringList(input[_SSIo], context);
-    if (input[_SSIo]?.length === 0) {
-      entries.SourceSnapshotId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceSnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41507,9 +40283,6 @@ const se_ExportImageRequest = (input: ExportImageRequest, context: __SerdeContex
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41597,9 +40370,6 @@ const se_ExportTransitGatewayRoutesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41688,9 +40458,6 @@ const se_Filter = (input: Filter, context: __SerdeContext): any => {
   }
   if (input[_Val] != null) {
     const memberEntries = se_ValueStringList(input[_Val], context);
-    if (input[_Val]?.length === 0) {
-      entries.Value = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Value.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -41770,9 +40537,6 @@ const se_FleetLaunchTemplateConfigRequest = (input: FleetLaunchTemplateConfigReq
   }
   if (input[_Ov] != null) {
     const memberEntries = se_FleetLaunchTemplateOverridesListRequest(input[_Ov], context);
-    if (input[_Ov]?.length === 0) {
-      entries.Overrides = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Overrides.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42019,9 +40783,6 @@ const se_GetAwsNetworkPerformanceDataRequest = (
   const entries: any = {};
   if (input[_DQ] != null) {
     const memberEntries = se_DataQueries(input[_DQ], context);
-    if (input[_DQ]?.length === 0) {
-      entries.DataQuery = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DataQuery.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42078,9 +40839,6 @@ const se_GetCoipPoolUsageRequest = (input: GetCoipPoolUsageRequest, context: __S
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42231,9 +40989,6 @@ const se_GetHostReservationPurchasePreviewRequest = (
   const entries: any = {};
   if (input[_HIS] != null) {
     const memberEntries = se_RequestHostIdSet(input[_HIS], context);
-    if (input[_HIS]?.length === 0) {
-      entries.HostIdSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostIdSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42306,9 +41061,6 @@ const se_GetInstanceTypesFromInstanceRequirementsRequest = (
   }
   if (input[_ATr] != null) {
     const memberEntries = se_ArchitectureTypeSet(input[_ATr], context);
-    if (input[_ATr]?.length === 0) {
-      entries.ArchitectureType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ArchitectureType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42316,9 +41068,6 @@ const se_GetInstanceTypesFromInstanceRequirementsRequest = (
   }
   if (input[_VTi] != null) {
     const memberEntries = se_VirtualizationTypeSet(input[_VTi], context);
-    if (input[_VTi]?.length === 0) {
-      entries.VirtualizationType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VirtualizationType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42402,9 +41151,6 @@ const se_GetIpamDiscoveredAccountsRequest = (input: GetIpamDiscoveredAccountsReq
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42438,9 +41184,6 @@ const se_GetIpamDiscoveredPublicAddressesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42474,9 +41217,6 @@ const se_GetIpamDiscoveredResourceCidrsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42507,9 +41247,6 @@ const se_GetIpamPoolAllocationsRequest = (input: GetIpamPoolAllocationsRequest, 
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42537,9 +41274,6 @@ const se_GetIpamPoolCidrsRequest = (input: GetIpamPoolCidrsRequest, context: __S
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42564,9 +41298,6 @@ const se_GetIpamResourceCidrsRequest = (input: GetIpamResourceCidrsRequest, cont
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42733,9 +41464,6 @@ const se_GetReservedInstancesExchangeQuoteRequest = (
   }
   if (input[_RII] != null) {
     const memberEntries = se_ReservedInstanceIdSet(input[_RII], context);
-    if (input[_RII]?.length === 0) {
-      entries.ReservedInstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42743,9 +41471,6 @@ const se_GetReservedInstancesExchangeQuoteRequest = (
   }
   if (input[_TC] != null) {
     const memberEntries = se_TargetConfigurationRequestSet(input[_TC], context);
-    if (input[_TC]?.length === 0) {
-      entries.TargetConfiguration = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42770,9 +41495,6 @@ const se_GetSecurityGroupsForVpcRequest = (input: GetSecurityGroupsForVpcRequest
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42819,9 +41541,6 @@ const se_GetSpotPlacementScoresRequest = (input: GetSpotPlacementScoresRequest, 
   const entries: any = {};
   if (input[_ITnst] != null) {
     const memberEntries = se_InstanceTypes(input[_ITnst], context);
-    if (input[_ITnst]?.length === 0) {
-      entries.InstanceType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42838,9 +41557,6 @@ const se_GetSpotPlacementScoresRequest = (input: GetSpotPlacementScoresRequest, 
   }
   if (input[_RNe] != null) {
     const memberEntries = se_RegionNames(input[_RNe], context);
-    if (input[_RNe]?.length === 0) {
-      entries.RegionName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42872,9 +41588,6 @@ const se_GetSubnetCidrReservationsRequest = (input: GetSubnetCidrReservationsReq
   const entries: any = {};
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42908,9 +41621,6 @@ const se_GetTransitGatewayAttachmentPropagationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42941,9 +41651,6 @@ const se_GetTransitGatewayMulticastDomainAssociationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -42974,9 +41681,6 @@ const se_GetTransitGatewayPolicyTableAssociationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43007,9 +41711,6 @@ const se_GetTransitGatewayPolicyTableEntriesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43040,9 +41741,6 @@ const se_GetTransitGatewayPrefixListReferencesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43073,9 +41771,6 @@ const se_GetTransitGatewayRouteTableAssociationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43106,9 +41801,6 @@ const se_GetTransitGatewayRouteTablePropagationsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43549,9 +42241,6 @@ const se_ImportImageRequest = (input: ImportImageRequest, context: __SerdeContex
   }
   if (input[_DCi] != null) {
     const memberEntries = se_ImageDiskContainerList(input[_DCi], context);
-    if (input[_DCi]?.length === 0) {
-      entries.DiskContainer = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DiskContainer.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43580,9 +42269,6 @@ const se_ImportImageRequest = (input: ImportImageRequest, context: __SerdeContex
   }
   if (input[_LSi] != null) {
     const memberEntries = se_ImportImageLicenseSpecificationListRequest(input[_LSi], context);
-    if (input[_LSi]?.length === 0) {
-      entries.LicenseSpecifications = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LicenseSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43590,9 +42276,6 @@ const se_ImportImageRequest = (input: ImportImageRequest, context: __SerdeContex
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43623,9 +42306,6 @@ const se_ImportInstanceLaunchSpecification = (
   }
   if (input[_GIro] != null) {
     const memberEntries = se_SecurityGroupIdStringList(input[_GIro], context);
-    if (input[_GIro]?.length === 0) {
-      entries.GroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43633,9 +42313,6 @@ const se_ImportInstanceLaunchSpecification = (
   }
   if (input[_GNr] != null) {
     const memberEntries = se_SecurityGroupStringList(input[_GNr], context);
-    if (input[_GNr]?.length === 0) {
-      entries.GroupName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43683,9 +42360,6 @@ const se_ImportInstanceRequest = (input: ImportInstanceRequest, context: __Serde
   }
   if (input[_DIis] != null) {
     const memberEntries = se_DiskImageList(input[_DIis], context);
-    if (input[_DIis]?.length === 0) {
-      entries.DiskImage = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DiskImage.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43723,9 +42397,6 @@ const se_ImportKeyPairRequest = (input: ImportKeyPairRequest, context: __SerdeCo
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43773,9 +42444,6 @@ const se_ImportSnapshotRequest = (input: ImportSnapshotRequest, context: __Serde
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43961,9 +42629,6 @@ const se_InstanceEventWindowAssociationRequest = (
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43971,9 +42636,6 @@ const se_InstanceEventWindowAssociationRequest = (
   }
   if (input[_ITnsta] != null) {
     const memberEntries = se_TagList(input[_ITnsta], context);
-    if (input[_ITnsta]?.length === 0) {
-      entries.InstanceTag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -43981,9 +42643,6 @@ const se_InstanceEventWindowAssociationRequest = (
   }
   if (input[_DHI] != null) {
     const memberEntries = se_DedicatedHostIdList(input[_DHI], context);
-    if (input[_DHI]?.length === 0) {
-      entries.DedicatedHostId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DedicatedHostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44002,9 +42661,6 @@ const se_InstanceEventWindowDisassociationRequest = (
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44012,9 +42668,6 @@ const se_InstanceEventWindowDisassociationRequest = (
   }
   if (input[_ITnsta] != null) {
     const memberEntries = se_TagList(input[_ITnsta], context);
-    if (input[_ITnsta]?.length === 0) {
-      entries.InstanceTag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44022,9 +42675,6 @@ const se_InstanceEventWindowDisassociationRequest = (
   }
   if (input[_DHI] != null) {
     const memberEntries = se_DedicatedHostIdList(input[_DHI], context);
-    if (input[_DHI]?.length === 0) {
-      entries.DedicatedHostId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DedicatedHostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44282,9 +42932,6 @@ const se_InstanceNetworkInterfaceSpecification = (
   }
   if (input[_G] != null) {
     const memberEntries = se_SecurityGroupIdStringList(input[_G], context);
-    if (input[_G]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44295,9 +42942,6 @@ const se_InstanceNetworkInterfaceSpecification = (
   }
   if (input[_IA] != null) {
     const memberEntries = se_InstanceIpv6AddressList(input[_IA], context);
-    if (input[_IA]?.length === 0) {
-      entries.Ipv6Addresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44311,9 +42955,6 @@ const se_InstanceNetworkInterfaceSpecification = (
   }
   if (input[_PIA] != null) {
     const memberEntries = se_PrivateIpAddressSpecificationList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44336,9 +42977,6 @@ const se_InstanceNetworkInterfaceSpecification = (
   }
   if (input[_IPp] != null) {
     const memberEntries = se_Ipv4PrefixList(input[_IPp], context);
-    if (input[_IPp]?.length === 0) {
-      entries.Ipv4Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44349,9 +42987,6 @@ const se_InstanceNetworkInterfaceSpecification = (
   }
   if (input[_IP] != null) {
     const memberEntries = se_Ipv6PrefixList(input[_IP], context);
-    if (input[_IP]?.length === 0) {
-      entries.Ipv6Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44423,9 +43058,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_CM] != null) {
     const memberEntries = se_CpuManufacturerSet(input[_CM], context);
-    if (input[_CM]?.length === 0) {
-      entries.CpuManufacturerSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CpuManufacturerSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44440,9 +43072,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_EIT] != null) {
     const memberEntries = se_ExcludedInstanceTypeSet(input[_EIT], context);
-    if (input[_EIT]?.length === 0) {
-      entries.ExcludedInstanceTypeSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedInstanceTypeSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44450,9 +43079,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_IG] != null) {
     const memberEntries = se_InstanceGenerationSet(input[_IG], context);
-    if (input[_IG]?.length === 0) {
-      entries.InstanceGenerationSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceGenerationSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44485,9 +43111,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_LST] != null) {
     const memberEntries = se_LocalStorageTypeSet(input[_LST], context);
-    if (input[_LST]?.length === 0) {
-      entries.LocalStorageTypeSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalStorageTypeSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44509,9 +43132,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_ATc] != null) {
     const memberEntries = se_AcceleratorTypeSet(input[_ATc], context);
-    if (input[_ATc]?.length === 0) {
-      entries.AcceleratorTypeSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorTypeSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44526,9 +43146,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_AM] != null) {
     const memberEntries = se_AcceleratorManufacturerSet(input[_AM], context);
-    if (input[_AM]?.length === 0) {
-      entries.AcceleratorManufacturerSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorManufacturerSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44536,9 +43153,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_ANc] != null) {
     const memberEntries = se_AcceleratorNameSet(input[_ANc], context);
-    if (input[_ANc]?.length === 0) {
-      entries.AcceleratorNameSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorNameSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44560,9 +43174,6 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   }
   if (input[_AIT] != null) {
     const memberEntries = se_AllowedInstanceTypeSet(input[_AIT], context);
-    if (input[_AIT]?.length === 0) {
-      entries.AllowedInstanceTypeSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllowedInstanceTypeSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44595,9 +43206,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_CM] != null) {
     const memberEntries = se_CpuManufacturerSet(input[_CM], context);
-    if (input[_CM]?.length === 0) {
-      entries.CpuManufacturer = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CpuManufacturer.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44612,9 +43220,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_EIT] != null) {
     const memberEntries = se_ExcludedInstanceTypeSet(input[_EIT], context);
-    if (input[_EIT]?.length === 0) {
-      entries.ExcludedInstanceType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludedInstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44622,9 +43227,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_IG] != null) {
     const memberEntries = se_InstanceGenerationSet(input[_IG], context);
-    if (input[_IG]?.length === 0) {
-      entries.InstanceGeneration = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceGeneration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44657,9 +43259,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_LST] != null) {
     const memberEntries = se_LocalStorageTypeSet(input[_LST], context);
-    if (input[_LST]?.length === 0) {
-      entries.LocalStorageType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LocalStorageType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44681,9 +43280,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_ATc] != null) {
     const memberEntries = se_AcceleratorTypeSet(input[_ATc], context);
-    if (input[_ATc]?.length === 0) {
-      entries.AcceleratorType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44698,9 +43294,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_AM] != null) {
     const memberEntries = se_AcceleratorManufacturerSet(input[_AM], context);
-    if (input[_AM]?.length === 0) {
-      entries.AcceleratorManufacturer = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorManufacturer.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44708,9 +43301,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_ANc] != null) {
     const memberEntries = se_AcceleratorNameSet(input[_ANc], context);
-    if (input[_ANc]?.length === 0) {
-      entries.AcceleratorName = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorName.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44732,9 +43322,6 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_AIT] != null) {
     const memberEntries = se_AllowedInstanceTypeSet(input[_AIT], context);
-    if (input[_AIT]?.length === 0) {
-      entries.AllowedInstanceType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AllowedInstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44756,9 +43343,6 @@ const se_InstanceRequirementsWithMetadataRequest = (
   const entries: any = {};
   if (input[_ATr] != null) {
     const memberEntries = se_ArchitectureTypeSet(input[_ATr], context);
-    if (input[_ATr]?.length === 0) {
-      entries.ArchitectureType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ArchitectureType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44766,9 +43350,6 @@ const se_InstanceRequirementsWithMetadataRequest = (
   }
   if (input[_VTi] != null) {
     const memberEntries = se_VirtualizationTypeSet(input[_VTi], context);
-    if (input[_VTi]?.length === 0) {
-      entries.VirtualizationType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VirtualizationType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44797,9 +43378,6 @@ const se_InstanceSpecification = (input: InstanceSpecification, context: __Serde
   }
   if (input[_EDVI] != null) {
     const memberEntries = se_VolumeIdStringList(input[_EDVI], context);
-    if (input[_EDVI]?.length === 0) {
-      entries.ExcludeDataVolumeId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExcludeDataVolumeId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44863,9 +43441,6 @@ const se_IntegrateServices = (input: IntegrateServices, context: __SerdeContext)
   const entries: any = {};
   if (input[_AIth] != null) {
     const memberEntries = se_AthenaIntegrationsSet(input[_AIth], context);
-    if (input[_AIth]?.length === 0) {
-      entries.AthenaIntegration = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AthenaIntegration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44985,9 +43560,6 @@ const se_IpPermission = (input: IpPermission, context: __SerdeContext): any => {
   }
   if (input[_IRp] != null) {
     const memberEntries = se_IpRangeList(input[_IRp], context);
-    if (input[_IRp]?.length === 0) {
-      entries.IpRanges = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpRanges.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44995,9 +43567,6 @@ const se_IpPermission = (input: IpPermission, context: __SerdeContext): any => {
   }
   if (input[_IRpv] != null) {
     const memberEntries = se_Ipv6RangeList(input[_IRpv], context);
-    if (input[_IRpv]?.length === 0) {
-      entries.Ipv6Ranges = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Ranges.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45005,9 +43574,6 @@ const se_IpPermission = (input: IpPermission, context: __SerdeContext): any => {
   }
   if (input[_PLIr] != null) {
     const memberEntries = se_PrefixListIdList(input[_PLIr], context);
-    if (input[_PLIr]?.length === 0) {
-      entries.PrefixListIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrefixListIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45018,9 +43584,6 @@ const se_IpPermission = (input: IpPermission, context: __SerdeContext): any => {
   }
   if (input[_UIGP] != null) {
     const memberEntries = se_UserIdGroupPairList(input[_UIGP], context);
-    if (input[_UIGP]?.length === 0) {
-      entries.Groups = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Groups.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45300,9 +43863,6 @@ const se_LaunchPermissionModifications = (input: LaunchPermissionModifications, 
   const entries: any = {};
   if (input[_Add] != null) {
     const memberEntries = se_LaunchPermissionList(input[_Add], context);
-    if (input[_Add]?.length === 0) {
-      entries.Add = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Add.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45310,9 +43870,6 @@ const se_LaunchPermissionModifications = (input: LaunchPermissionModifications, 
   }
   if (input[_Re] != null) {
     const memberEntries = se_LaunchPermissionList(input[_Re], context);
-    if (input[_Re]?.length === 0) {
-      entries.Remove = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45424,9 +43981,6 @@ const se_LaunchTemplateConfig = (input: LaunchTemplateConfig, context: __SerdeCo
   }
   if (input[_Ov] != null) {
     const memberEntries = se_LaunchTemplateOverridesList(input[_Ov], context);
-    if (input[_Ov]?.length === 0) {
-      entries.Overrides = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Overrides.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45692,9 +44246,6 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
   }
   if (input[_G] != null) {
     const memberEntries = se_SecurityGroupIdStringList(input[_G], context);
-    if (input[_G]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45708,9 +44259,6 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
   }
   if (input[_IA] != null) {
     const memberEntries = se_InstanceIpv6AddressListRequest(input[_IA], context);
-    if (input[_IA]?.length === 0) {
-      entries.Ipv6Addresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45724,9 +44272,6 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
   }
   if (input[_PIA] != null) {
     const memberEntries = se_PrivateIpAddressSpecificationList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45743,9 +44288,6 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
   }
   if (input[_IPp] != null) {
     const memberEntries = se_Ipv4PrefixList(input[_IPp], context);
-    if (input[_IPp]?.length === 0) {
-      entries.Ipv4Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -45756,9 +44298,6 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
   }
   if (input[_IP] != null) {
     const memberEntries = se_Ipv6PrefixList(input[_IP], context);
-    if (input[_IP]?.length === 0) {
-      entries.Ipv6Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46035,9 +44574,6 @@ const se_LaunchTemplateTagSpecificationRequest = (
   }
   if (input[_Ta] != null) {
     const memberEntries = se_TagList(input[_Ta], context);
-    if (input[_Ta]?.length === 0) {
-      entries.Tag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46105,9 +44641,6 @@ const se_ListImagesInRecycleBinRequest = (input: ListImagesInRecycleBinRequest, 
   const entries: any = {};
   if (input[_IImag] != null) {
     const memberEntries = se_ImageIdStringList(input[_IImag], context);
-    if (input[_IImag]?.length === 0) {
-      entries.ImageId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46138,9 +44671,6 @@ const se_ListSnapshotsInRecycleBinRequest = (input: ListSnapshotsInRecycleBinReq
   }
   if (input[_SIna] != null) {
     const memberEntries = se_SnapshotIdStringList(input[_SIna], context);
-    if (input[_SIna]?.length === 0) {
-      entries.SnapshotId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46200,9 +44730,6 @@ const se_LoadPermissionModifications = (input: LoadPermissionModifications, cont
   const entries: any = {};
   if (input[_Add] != null) {
     const memberEntries = se_LoadPermissionListRequest(input[_Add], context);
-    if (input[_Add]?.length === 0) {
-      entries.Add = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Add.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46210,9 +44737,6 @@ const se_LoadPermissionModifications = (input: LoadPermissionModifications, cont
   }
   if (input[_Re] != null) {
     const memberEntries = se_LoadPermissionListRequest(input[_Re], context);
-    if (input[_Re]?.length === 0) {
-      entries.Remove = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46563,9 +45087,6 @@ const se_ModifyClientVpnEndpointRequest = (input: ModifyClientVpnEndpointRequest
   }
   if (input[_SGI] != null) {
     const memberEntries = se_ClientVpnSecurityGroupIdSet(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46644,9 +45165,6 @@ const se_ModifyFleetRequest = (input: ModifyFleetRequest, context: __SerdeContex
   }
   if (input[_LTC] != null) {
     const memberEntries = se_FleetLaunchTemplateConfigListRequest(input[_LTC], context);
-    if (input[_LTC]?.length === 0) {
-      entries.LaunchTemplateConfig = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfig.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46687,9 +45205,6 @@ const se_ModifyFpgaImageAttributeRequest = (input: ModifyFpgaImageAttributeReque
   }
   if (input[_UIse] != null) {
     const memberEntries = se_UserIdStringList(input[_UIse], context);
-    if (input[_UIse]?.length === 0) {
-      entries.UserId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46697,9 +45212,6 @@ const se_ModifyFpgaImageAttributeRequest = (input: ModifyFpgaImageAttributeReque
   }
   if (input[_UG] != null) {
     const memberEntries = se_UserGroupStringList(input[_UG], context);
-    if (input[_UG]?.length === 0) {
-      entries.UserGroup = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46707,9 +45219,6 @@ const se_ModifyFpgaImageAttributeRequest = (input: ModifyFpgaImageAttributeReque
   }
   if (input[_PCr] != null) {
     const memberEntries = se_ProductCodeStringList(input[_PCr], context);
-    if (input[_PCr]?.length === 0) {
-      entries.ProductCode = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProductCode.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46741,9 +45250,6 @@ const se_ModifyHostsRequest = (input: ModifyHostsRequest, context: __SerdeContex
   }
   if (input[_HI] != null) {
     const memberEntries = se_RequestHostIdList(input[_HI], context);
-    if (input[_HI]?.length === 0) {
-      entries.HostId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46825,9 +45331,6 @@ const se_ModifyImageAttributeRequest = (input: ModifyImageAttributeRequest, cont
   }
   if (input[_PCr] != null) {
     const memberEntries = se_ProductCodeStringList(input[_PCr], context);
-    if (input[_PCr]?.length === 0) {
-      entries.ProductCode = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ProductCode.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46835,9 +45338,6 @@ const se_ModifyImageAttributeRequest = (input: ModifyImageAttributeRequest, cont
   }
   if (input[_UG] != null) {
     const memberEntries = se_UserGroupStringList(input[_UG], context);
-    if (input[_UG]?.length === 0) {
-      entries.UserGroup = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46845,9 +45345,6 @@ const se_ModifyImageAttributeRequest = (input: ModifyImageAttributeRequest, cont
   }
   if (input[_UIse] != null) {
     const memberEntries = se_UserIdStringList(input[_UIse], context);
-    if (input[_UIse]?.length === 0) {
-      entries.UserId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46861,9 +45358,6 @@ const se_ModifyImageAttributeRequest = (input: ModifyImageAttributeRequest, cont
   }
   if (input[_OArg] != null) {
     const memberEntries = se_OrganizationArnStringList(input[_OArg], context);
-    if (input[_OArg]?.length === 0) {
-      entries.OrganizationArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46871,9 +45365,6 @@ const se_ModifyImageAttributeRequest = (input: ModifyImageAttributeRequest, cont
   }
   if (input[_OUAr] != null) {
     const memberEntries = se_OrganizationalUnitArnStringList(input[_OUAr], context);
-    if (input[_OUAr]?.length === 0) {
-      entries.OrganizationalUnitArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationalUnitArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46906,9 +45397,6 @@ const se_ModifyInstanceAttributeRequest = (input: ModifyInstanceAttributeRequest
   }
   if (input[_BDM] != null) {
     const memberEntries = se_InstanceBlockDeviceMappingSpecificationList(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46940,9 +45428,6 @@ const se_ModifyInstanceAttributeRequest = (input: ModifyInstanceAttributeRequest
   }
   if (input[_G] != null) {
     const memberEntries = se_GroupIdStringList(input[_G], context);
-    if (input[_G]?.length === 0) {
-      entries.GroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47046,9 +45531,6 @@ const se_ModifyInstanceCreditSpecificationRequest = (
   }
   if (input[_ICS] != null) {
     const memberEntries = se_InstanceCreditSpecificationListRequest(input[_ICS], context);
-    if (input[_ICS]?.length === 0) {
-      entries.InstanceCreditSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceCreditSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47096,9 +45578,6 @@ const se_ModifyInstanceEventWindowRequest = (input: ModifyInstanceEventWindowReq
   }
   if (input[_TRi] != null) {
     const memberEntries = se_InstanceEventWindowTimeRangeRequestSet(input[_TRi], context);
-    if (input[_TRi]?.length === 0) {
-      entries.TimeRange = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TimeRange.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47251,9 +45730,6 @@ const se_ModifyIpamPoolRequest = (input: ModifyIpamPoolRequest, context: __Serde
   }
   if (input[_AART] != null) {
     const memberEntries = se_RequestIpamResourceTagList(input[_AART], context);
-    if (input[_AART]?.length === 0) {
-      entries.AddAllocationResourceTag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddAllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47261,9 +45737,6 @@ const se_ModifyIpamPoolRequest = (input: ModifyIpamPoolRequest, context: __Serde
   }
   if (input[_RART] != null) {
     const memberEntries = se_RequestIpamResourceTagList(input[_RART], context);
-    if (input[_RART]?.length === 0) {
-      entries.RemoveAllocationResourceTag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveAllocationResourceTag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47288,9 +45761,6 @@ const se_ModifyIpamRequest = (input: ModifyIpamRequest, context: __SerdeContext)
   }
   if (input[_AOR] != null) {
     const memberEntries = se_AddIpamOperatingRegionSet(input[_AOR], context);
-    if (input[_AOR]?.length === 0) {
-      entries.AddOperatingRegion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47298,9 +45768,6 @@ const se_ModifyIpamRequest = (input: ModifyIpamRequest, context: __SerdeContext)
   }
   if (input[_ROR] != null) {
     const memberEntries = se_RemoveIpamOperatingRegionSet(input[_ROR], context);
-    if (input[_ROR]?.length === 0) {
-      entries.RemoveOperatingRegion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47360,9 +45827,6 @@ const se_ModifyIpamResourceDiscoveryRequest = (
   }
   if (input[_AOR] != null) {
     const memberEntries = se_AddIpamOperatingRegionSet(input[_AOR], context);
-    if (input[_AOR]?.length === 0) {
-      entries.AddOperatingRegion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47370,9 +45834,6 @@ const se_ModifyIpamResourceDiscoveryRequest = (
   }
   if (input[_ROR] != null) {
     const memberEntries = se_RemoveIpamOperatingRegionSet(input[_ROR], context);
-    if (input[_ROR]?.length === 0) {
-      entries.RemoveOperatingRegion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveOperatingRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47466,9 +45927,6 @@ const se_ModifyManagedPrefixListRequest = (input: ModifyManagedPrefixListRequest
   }
   if (input[_AEd] != null) {
     const memberEntries = se_AddPrefixListEntries(input[_AEd], context);
-    if (input[_AEd]?.length === 0) {
-      entries.AddEntry = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47476,9 +45934,6 @@ const se_ModifyManagedPrefixListRequest = (input: ModifyManagedPrefixListRequest
   }
   if (input[_RE] != null) {
     const memberEntries = se_RemovePrefixListEntries(input[_RE], context);
-    if (input[_RE]?.length === 0) {
-      entries.RemoveEntry = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveEntry.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47517,9 +45972,6 @@ const se_ModifyNetworkInterfaceAttributeRequest = (
   }
   if (input[_G] != null) {
     const memberEntries = se_SecurityGroupIdStringList(input[_G], context);
-    if (input[_G]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47591,9 +46043,6 @@ const se_ModifyReservedInstancesRequest = (input: ModifyReservedInstancesRequest
   const entries: any = {};
   if (input[_RIIes] != null) {
     const memberEntries = se_ReservedInstancesIdStringList(input[_RIIes], context);
-    if (input[_RIIes]?.length === 0) {
-      entries.ReservedInstancesId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47604,9 +46053,6 @@ const se_ModifyReservedInstancesRequest = (input: ModifyReservedInstancesRequest
   }
   if (input[_TC] != null) {
     const memberEntries = se_ReservedInstancesConfigurationList(input[_TC], context);
-    if (input[_TC]?.length === 0) {
-      entries.ReservedInstancesConfigurationSetItemType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReservedInstancesConfigurationSetItemType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47625,9 +46071,6 @@ const se_ModifySecurityGroupRulesRequest = (input: ModifySecurityGroupRulesReque
   }
   if (input[_SGR] != null) {
     const memberEntries = se_SecurityGroupRuleUpdateList(input[_SGR], context);
-    if (input[_SGR]?.length === 0) {
-      entries.SecurityGroupRule = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRule.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47656,9 +46099,6 @@ const se_ModifySnapshotAttributeRequest = (input: ModifySnapshotAttributeRequest
   }
   if (input[_GNr] != null) {
     const memberEntries = se_GroupNameStringList(input[_GNr], context);
-    if (input[_GNr]?.length === 0) {
-      entries.UserGroup = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47672,9 +46112,6 @@ const se_ModifySnapshotAttributeRequest = (input: ModifySnapshotAttributeRequest
   }
   if (input[_UIse] != null) {
     const memberEntries = se_UserIdStringList(input[_UIse], context);
-    if (input[_UIse]?.length === 0) {
-      entries.UserId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47713,9 +46150,6 @@ const se_ModifySpotFleetRequestRequest = (input: ModifySpotFleetRequestRequest, 
   }
   if (input[_LTC] != null) {
     const memberEntries = se_LaunchTemplateConfigList(input[_LTC], context);
-    if (input[_LTC]?.length === 0) {
-      entries.LaunchTemplateConfig = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfig.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47818,9 +46252,6 @@ const se_ModifyTrafficMirrorFilterNetworkServicesRequest = (
   }
   if (input[_ANS] != null) {
     const memberEntries = se_TrafficMirrorNetworkServiceList(input[_ANS], context);
-    if (input[_ANS]?.length === 0) {
-      entries.AddNetworkService = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddNetworkService.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47828,9 +46259,6 @@ const se_ModifyTrafficMirrorFilterNetworkServicesRequest = (
   }
   if (input[_RNS] != null) {
     const memberEntries = se_TrafficMirrorNetworkServiceList(input[_RNS], context);
-    if (input[_RNS]?.length === 0) {
-      entries.RemoveNetworkService = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveNetworkService.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47890,9 +46318,6 @@ const se_ModifyTrafficMirrorFilterRuleRequest = (
   }
   if (input[_RF] != null) {
     const memberEntries = se_TrafficMirrorFilterRuleFieldList(input[_RF], context);
-    if (input[_RF]?.length === 0) {
-      entries.RemoveField = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveField.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47935,9 +46360,6 @@ const se_ModifyTrafficMirrorSessionRequest = (
   }
   if (input[_RF] != null) {
     const memberEntries = se_TrafficMirrorSessionFieldList(input[_RF], context);
-    if (input[_RF]?.length === 0) {
-      entries.RemoveField = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveField.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47956,9 +46378,6 @@ const se_ModifyTransitGatewayOptions = (input: ModifyTransitGatewayOptions, cont
   const entries: any = {};
   if (input[_ATGCB] != null) {
     const memberEntries = se_TransitGatewayCidrBlockStringList(input[_ATGCB], context);
-    if (input[_ATGCB]?.length === 0) {
-      entries.AddTransitGatewayCidrBlocks = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddTransitGatewayCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -47966,9 +46385,6 @@ const se_ModifyTransitGatewayOptions = (input: ModifyTransitGatewayOptions, cont
   }
   if (input[_RTGCB] != null) {
     const memberEntries = se_TransitGatewayCidrBlockStringList(input[_RTGCB], context);
-    if (input[_RTGCB]?.length === 0) {
-      entries.RemoveTransitGatewayCidrBlocks = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveTransitGatewayCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48067,9 +46483,6 @@ const se_ModifyTransitGatewayVpcAttachmentRequest = (
   }
   if (input[_ASI] != null) {
     const memberEntries = se_TransitGatewaySubnetIdList(input[_ASI], context);
-    if (input[_ASI]?.length === 0) {
-      entries.AddSubnetIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48077,9 +46490,6 @@ const se_ModifyTransitGatewayVpcAttachmentRequest = (
   }
   if (input[_RSIe] != null) {
     const memberEntries = se_TransitGatewaySubnetIdList(input[_RSIe], context);
-    if (input[_RSIe]?.length === 0) {
-      entries.RemoveSubnetIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48148,9 +46558,6 @@ const se_ModifyVerifiedAccessEndpointLoadBalancerOptions = (
   const entries: any = {};
   if (input[_SIu] != null) {
     const memberEntries = se_ModifyVerifiedAccessEndpointSubnetIdList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48572,9 +46979,6 @@ const se_ModifyVpcEndpointConnectionNotificationRequest = (
   }
   if (input[_CEo] != null) {
     const memberEntries = se_ValueStringList(input[_CEo], context);
-    if (input[_CEo]?.length === 0) {
-      entries.ConnectionEvents = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionEvents.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48602,9 +47006,6 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   }
   if (input[_ARTI] != null) {
     const memberEntries = se_VpcEndpointRouteTableIdList(input[_ARTI], context);
-    if (input[_ARTI]?.length === 0) {
-      entries.AddRouteTableId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddRouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48612,9 +47013,6 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   }
   if (input[_RRTI] != null) {
     const memberEntries = se_VpcEndpointRouteTableIdList(input[_RRTI], context);
-    if (input[_RRTI]?.length === 0) {
-      entries.RemoveRouteTableId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveRouteTableId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48622,9 +47020,6 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   }
   if (input[_ASI] != null) {
     const memberEntries = se_VpcEndpointSubnetIdList(input[_ASI], context);
-    if (input[_ASI]?.length === 0) {
-      entries.AddSubnetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48632,9 +47027,6 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   }
   if (input[_RSIe] != null) {
     const memberEntries = se_VpcEndpointSubnetIdList(input[_RSIe], context);
-    if (input[_RSIe]?.length === 0) {
-      entries.RemoveSubnetId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSubnetId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48642,9 +47034,6 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   }
   if (input[_ASGId] != null) {
     const memberEntries = se_VpcEndpointSecurityGroupIdList(input[_ASGId], context);
-    if (input[_ASGId]?.length === 0) {
-      entries.AddSecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48652,9 +47041,6 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   }
   if (input[_RSGIe] != null) {
     const memberEntries = se_VpcEndpointSecurityGroupIdList(input[_RSGIe], context);
-    if (input[_RSGIe]?.length === 0) {
-      entries.RemoveSecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48675,9 +47061,6 @@ const se_ModifyVpcEndpointRequest = (input: ModifyVpcEndpointRequest, context: _
   }
   if (input[_SC] != null) {
     const memberEntries = se_SubnetConfigurationsList(input[_SC], context);
-    if (input[_SC]?.length === 0) {
-      entries.SubnetConfiguration = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48711,9 +47094,6 @@ const se_ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_ANLBA] != null) {
     const memberEntries = se_ValueStringList(input[_ANLBA], context);
-    if (input[_ANLBA]?.length === 0) {
-      entries.AddNetworkLoadBalancerArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddNetworkLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48721,9 +47101,6 @@ const se_ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_RNLBA] != null) {
     const memberEntries = se_ValueStringList(input[_RNLBA], context);
-    if (input[_RNLBA]?.length === 0) {
-      entries.RemoveNetworkLoadBalancerArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveNetworkLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48731,9 +47108,6 @@ const se_ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_AGLBA] != null) {
     const memberEntries = se_ValueStringList(input[_AGLBA], context);
-    if (input[_AGLBA]?.length === 0) {
-      entries.AddGatewayLoadBalancerArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddGatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48741,9 +47115,6 @@ const se_ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_RGLBA] != null) {
     const memberEntries = se_ValueStringList(input[_RGLBA], context);
-    if (input[_RGLBA]?.length === 0) {
-      entries.RemoveGatewayLoadBalancerArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveGatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48751,9 +47122,6 @@ const se_ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_ASIAT] != null) {
     const memberEntries = se_ValueStringList(input[_ASIAT], context);
-    if (input[_ASIAT]?.length === 0) {
-      entries.AddSupportedIpAddressType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddSupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48761,9 +47129,6 @@ const se_ModifyVpcEndpointServiceConfigurationRequest = (
   }
   if (input[_RSIAT] != null) {
     const memberEntries = se_ValueStringList(input[_RSIAT], context);
-    if (input[_RSIAT]?.length === 0) {
-      entries.RemoveSupportedIpAddressType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48808,9 +47173,6 @@ const se_ModifyVpcEndpointServicePermissionsRequest = (
   }
   if (input[_AAP] != null) {
     const memberEntries = se_ValueStringList(input[_AAP], context);
-    if (input[_AAP]?.length === 0) {
-      entries.AddAllowedPrincipals = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddAllowedPrincipals.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -48818,9 +47180,6 @@ const se_ModifyVpcEndpointServicePermissionsRequest = (
   }
   if (input[_RAP] != null) {
     const memberEntries = se_ValueStringList(input[_RAP], context);
-    if (input[_RAP]?.length === 0) {
-      entries.RemoveAllowedPrincipals = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveAllowedPrincipals.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49016,9 +47375,6 @@ const se_ModifyVpnTunnelOptionsSpecification = (
   }
   if (input[_PEA] != null) {
     const memberEntries = se_Phase1EncryptionAlgorithmsRequestList(input[_PEA], context);
-    if (input[_PEA]?.length === 0) {
-      entries.Phase1EncryptionAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49026,9 +47382,6 @@ const se_ModifyVpnTunnelOptionsSpecification = (
   }
   if (input[_PEAh] != null) {
     const memberEntries = se_Phase2EncryptionAlgorithmsRequestList(input[_PEAh], context);
-    if (input[_PEAh]?.length === 0) {
-      entries.Phase2EncryptionAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49036,9 +47389,6 @@ const se_ModifyVpnTunnelOptionsSpecification = (
   }
   if (input[_PIAh] != null) {
     const memberEntries = se_Phase1IntegrityAlgorithmsRequestList(input[_PIAh], context);
-    if (input[_PIAh]?.length === 0) {
-      entries.Phase1IntegrityAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49046,9 +47396,6 @@ const se_ModifyVpnTunnelOptionsSpecification = (
   }
   if (input[_PIAha] != null) {
     const memberEntries = se_Phase2IntegrityAlgorithmsRequestList(input[_PIAha], context);
-    if (input[_PIAha]?.length === 0) {
-      entries.Phase2IntegrityAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49056,9 +47403,6 @@ const se_ModifyVpnTunnelOptionsSpecification = (
   }
   if (input[_PDHGN] != null) {
     const memberEntries = se_Phase1DHGroupNumbersRequestList(input[_PDHGN], context);
-    if (input[_PDHGN]?.length === 0) {
-      entries.Phase1DHGroupNumber = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49066,9 +47410,6 @@ const se_ModifyVpnTunnelOptionsSpecification = (
   }
   if (input[_PDHGNh] != null) {
     const memberEntries = se_Phase2DHGroupNumbersRequestList(input[_PDHGNh], context);
-    if (input[_PDHGNh]?.length === 0) {
-      entries.Phase2DHGroupNumber = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49076,9 +47417,6 @@ const se_ModifyVpnTunnelOptionsSpecification = (
   }
   if (input[_IKEVe] != null) {
     const memberEntries = se_IKEVersionsRequestList(input[_IKEVe], context);
-    if (input[_IKEVe]?.length === 0) {
-      entries.IKEVersion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IKEVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49107,9 +47445,6 @@ const se_MonitorInstancesRequest = (input: MonitorInstancesRequest, context: __S
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49366,9 +47701,6 @@ const se_NewDhcpConfiguration = (input: NewDhcpConfiguration, context: __SerdeCo
   }
   if (input[_Val] != null) {
     const memberEntries = se_ValueStringList(input[_Val], context);
-    if (input[_Val]?.length === 0) {
-      entries.Value = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Value.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49497,9 +47829,6 @@ const se_PacketHeaderStatementRequest = (input: PacketHeaderStatementRequest, co
   const entries: any = {};
   if (input[_SAo] != null) {
     const memberEntries = se_ValueStringList(input[_SAo], context);
-    if (input[_SAo]?.length === 0) {
-      entries.SourceAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49507,9 +47836,6 @@ const se_PacketHeaderStatementRequest = (input: PacketHeaderStatementRequest, co
   }
   if (input[_DAes] != null) {
     const memberEntries = se_ValueStringList(input[_DAes], context);
-    if (input[_DAes]?.length === 0) {
-      entries.DestinationAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49517,9 +47843,6 @@ const se_PacketHeaderStatementRequest = (input: PacketHeaderStatementRequest, co
   }
   if (input[_SPo] != null) {
     const memberEntries = se_ValueStringList(input[_SPo], context);
-    if (input[_SPo]?.length === 0) {
-      entries.SourcePort = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourcePort.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49527,9 +47850,6 @@ const se_PacketHeaderStatementRequest = (input: PacketHeaderStatementRequest, co
   }
   if (input[_DPe] != null) {
     const memberEntries = se_ValueStringList(input[_DPe], context);
-    if (input[_DPe]?.length === 0) {
-      entries.DestinationPort = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationPort.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49537,9 +47857,6 @@ const se_PacketHeaderStatementRequest = (input: PacketHeaderStatementRequest, co
   }
   if (input[_SPL] != null) {
     const memberEntries = se_ValueStringList(input[_SPL], context);
-    if (input[_SPL]?.length === 0) {
-      entries.SourcePrefixList = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourcePrefixList.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49547,9 +47864,6 @@ const se_PacketHeaderStatementRequest = (input: PacketHeaderStatementRequest, co
   }
   if (input[_DPLe] != null) {
     const memberEntries = se_ValueStringList(input[_DPLe], context);
-    if (input[_DPLe]?.length === 0) {
-      entries.DestinationPrefixList = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationPrefixList.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49557,9 +47871,6 @@ const se_PacketHeaderStatementRequest = (input: PacketHeaderStatementRequest, co
   }
   if (input[_Pro] != null) {
     const memberEntries = se_ProtocolList(input[_Pro], context);
-    if (input[_Pro]?.length === 0) {
-      entries.Protocol = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Protocol.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50179,9 +48490,6 @@ const se_ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequest, context:
   }
   if (input[_PTS] != null) {
     const memberEntries = se_TagSpecificationList(input[_PTS], context);
-    if (input[_PTS]?.length === 0) {
-      entries.PoolTagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PoolTagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50318,9 +48626,6 @@ const se_PurchaseCapacityBlockRequest = (input: PurchaseCapacityBlockRequest, co
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50348,9 +48653,6 @@ const se_PurchaseHostReservationRequest = (input: PurchaseHostReservationRequest
   }
   if (input[_HIS] != null) {
     const memberEntries = se_RequestHostIdSet(input[_HIS], context);
-    if (input[_HIS]?.length === 0) {
-      entries.HostIdSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostIdSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50364,9 +48666,6 @@ const se_PurchaseHostReservationRequest = (input: PurchaseHostReservationRequest
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50457,9 +48756,6 @@ const se_PurchaseScheduledInstancesRequest = (
   }
   if (input[_PRu] != null) {
     const memberEntries = se_PurchaseRequestSet(input[_PRu], context);
-    if (input[_PRu]?.length === 0) {
-      entries.PurchaseRequest = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PurchaseRequest.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50491,9 +48787,6 @@ const se_RebootInstancesRequest = (input: RebootInstancesRequest, context: __Ser
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50550,9 +48843,6 @@ const se_RegisterImageRequest = (input: RegisterImageRequest, context: __SerdeCo
   }
   if (input[_BDM] != null) {
     const memberEntries = se_BlockDeviceMappingRequestList(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50575,9 +48865,6 @@ const se_RegisterImageRequest = (input: RegisterImageRequest, context: __SerdeCo
   }
   if (input[_BPi] != null) {
     const memberEntries = se_BillingProductList(input[_BPi], context);
-    if (input[_BPi]?.length === 0) {
-      entries.BillingProduct = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BillingProduct.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50609,9 +48896,6 @@ const se_RegisterImageRequest = (input: RegisterImageRequest, context: __SerdeCo
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50654,9 +48938,6 @@ const se_RegisterInstanceTagAttributeRequest = (
   }
   if (input[_ITK] != null) {
     const memberEntries = se_InstanceTagKeySet(input[_ITK], context);
-    if (input[_ITK]?.length === 0) {
-      entries.InstanceTagKey = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceTagKey.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50681,9 +48962,6 @@ const se_RegisterTransitGatewayMulticastGroupMembersRequest = (
   }
   if (input[_NIIe] != null) {
     const memberEntries = se_TransitGatewayNetworkInterfaceIdList(input[_NIIe], context);
-    if (input[_NIIe]?.length === 0) {
-      entries.NetworkInterfaceIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50711,9 +48989,6 @@ const se_RegisterTransitGatewayMulticastGroupSourcesRequest = (
   }
   if (input[_NIIe] != null) {
     const memberEntries = se_TransitGatewayNetworkInterfaceIdList(input[_NIIe], context);
-    if (input[_NIIe]?.length === 0) {
-      entries.NetworkInterfaceIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50741,9 +49016,6 @@ const se_RejectTransitGatewayMulticastDomainAssociationsRequest = (
   }
   if (input[_SIu] != null) {
     const memberEntries = se_ValueStringList(input[_SIu], context);
-    if (input[_SIu]?.length === 0) {
-      entries.SubnetIds = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50805,9 +49077,6 @@ const se_RejectVpcEndpointConnectionsRequest = (
   }
   if (input[_VEI] != null) {
     const memberEntries = se_VpcEndpointIdList(input[_VEI], context);
-    if (input[_VEI]?.length === 0) {
-      entries.VpcEndpointId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VpcEndpointId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -50860,9 +49129,6 @@ const se_ReleaseHostsRequest = (input: ReleaseHostsRequest, context: __SerdeCont
   const entries: any = {};
   if (input[_HI] != null) {
     const memberEntries = se_RequestHostIdList(input[_HI], context);
-    if (input[_HI]?.length === 0) {
-      entries.HostId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51195,9 +49461,6 @@ const se_ReportInstanceStatusRequest = (input: ReportInstanceStatusRequest, cont
   }
   if (input[_In] != null) {
     const memberEntries = se_InstanceIdStringList(input[_In], context);
-    if (input[_In]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51205,9 +49468,6 @@ const se_ReportInstanceStatusRequest = (input: ReportInstanceStatusRequest, cont
   }
   if (input[_RCe] != null) {
     const memberEntries = se_ReasonCodesList(input[_RCe], context);
-    if (input[_RCe]?.length === 0) {
-      entries.ReasonCode = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReasonCode.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51337,9 +49597,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_BDM] != null) {
     const memberEntries = se_LaunchTemplateBlockDeviceMappingRequestList(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51347,9 +49604,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_NI] != null) {
     const memberEntries = se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList(input[_NI], context);
-    if (input[_NI]?.length === 0) {
-      entries.NetworkInterface = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51392,9 +49646,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_TS] != null) {
     const memberEntries = se_LaunchTemplateTagSpecificationRequestList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51402,9 +49653,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_EGS] != null) {
     const memberEntries = se_ElasticGpuSpecificationList(input[_EGS], context);
-    if (input[_EGS]?.length === 0) {
-      entries.ElasticGpuSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticGpuSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51412,9 +49660,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_EIA] != null) {
     const memberEntries = se_LaunchTemplateElasticInferenceAcceleratorList(input[_EIA], context);
-    if (input[_EIA]?.length === 0) {
-      entries.ElasticInferenceAccelerator = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticInferenceAccelerator.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51422,9 +49667,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_SGI] != null) {
     const memberEntries = se_SecurityGroupIdStringList(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51432,9 +49674,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_SG] != null) {
     const memberEntries = se_SecurityGroupStringList(input[_SG], context);
-    if (input[_SG]?.length === 0) {
-      entries.SecurityGroup = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51470,9 +49709,6 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   }
   if (input[_LSi] != null) {
     const memberEntries = se_LaunchTemplateLicenseSpecificationListRequest(input[_LSi], context);
-    if (input[_LSi]?.length === 0) {
-      entries.LicenseSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LicenseSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51588,9 +49824,6 @@ const se_RequestSpotInstancesRequest = (input: RequestSpotInstancesRequest, cont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51609,9 +49842,6 @@ const se_RequestSpotLaunchSpecification = (input: RequestSpotLaunchSpecification
   const entries: any = {};
   if (input[_SGI] != null) {
     const memberEntries = se_RequestSpotLaunchSpecificationSecurityGroupIdList(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51619,9 +49849,6 @@ const se_RequestSpotLaunchSpecification = (input: RequestSpotLaunchSpecification
   }
   if (input[_SG] != null) {
     const memberEntries = se_RequestSpotLaunchSpecificationSecurityGroupList(input[_SG], context);
-    if (input[_SG]?.length === 0) {
-      entries.SecurityGroup = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51632,9 +49859,6 @@ const se_RequestSpotLaunchSpecification = (input: RequestSpotLaunchSpecification
   }
   if (input[_BDM] != null) {
     const memberEntries = se_BlockDeviceMappingList(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -51671,9 +49895,6 @@ const se_RequestSpotLaunchSpecification = (input: RequestSpotLaunchSpecification
   }
   if (input[_NI] != null) {
     const memberEntries = se_InstanceNetworkInterfaceSpecificationList(input[_NI], context);
-    if (input[_NI]?.length === 0) {
-      entries.NetworkInterface = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52062,9 +50283,6 @@ const se_ResourceStatementRequest = (input: ResourceStatementRequest, context: _
   const entries: any = {};
   if (input[_R] != null) {
     const memberEntries = se_ValueStringList(input[_R], context);
-    if (input[_R]?.length === 0) {
-      entries.Resource = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Resource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52072,9 +50290,6 @@ const se_ResourceStatementRequest = (input: ResourceStatementRequest, context: _
   }
   if (input[_RTeso] != null) {
     const memberEntries = se_ValueStringList(input[_RTeso], context);
-    if (input[_RTeso]?.length === 0) {
-      entries.ResourceType = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52226,9 +50441,6 @@ const se_RevokeSecurityGroupEgressRequest = (input: RevokeSecurityGroupEgressReq
   }
   if (input[_IPpe] != null) {
     const memberEntries = se_IpPermissionList(input[_IPpe], context);
-    if (input[_IPpe]?.length === 0) {
-      entries.IpPermissions = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52236,9 +50448,6 @@ const se_RevokeSecurityGroupEgressRequest = (input: RevokeSecurityGroupEgressReq
   }
   if (input[_SGRI] != null) {
     const memberEntries = se_SecurityGroupRuleIdList(input[_SGRI], context);
-    if (input[_SGRI]?.length === 0) {
-      entries.SecurityGroupRuleId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52287,9 +50496,6 @@ const se_RevokeSecurityGroupIngressRequest = (
   }
   if (input[_IPpe] != null) {
     const memberEntries = se_IpPermissionList(input[_IPpe], context);
-    if (input[_IPpe]?.length === 0) {
-      entries.IpPermissions = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52312,9 +50518,6 @@ const se_RevokeSecurityGroupIngressRequest = (
   }
   if (input[_SGRI] != null) {
     const memberEntries = se_SecurityGroupRuleIdList(input[_SGRI], context);
-    if (input[_SGRI]?.length === 0) {
-      entries.SecurityGroupRuleId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52357,9 +50560,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   const entries: any = {};
   if (input[_BDM] != null) {
     const memberEntries = se_BlockDeviceMappingRequestList(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52376,9 +50576,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_IA] != null) {
     const memberEntries = se_InstanceIpv6AddressList(input[_IA], context);
-    if (input[_IA]?.length === 0) {
-      entries.Ipv6Address = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Address.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52415,9 +50612,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_SGI] != null) {
     const memberEntries = se_SecurityGroupIdStringList(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52425,9 +50619,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_SG] != null) {
     const memberEntries = se_SecurityGroupStringList(input[_SG], context);
-    if (input[_SG]?.length === 0) {
-      entries.SecurityGroup = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroup.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52469,9 +50660,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_NI] != null) {
     const memberEntries = se_InstanceNetworkInterfaceSpecificationList(input[_NI], context);
-    if (input[_NI]?.length === 0) {
-      entries.NetworkInterface = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52482,9 +50670,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_EGSl] != null) {
     const memberEntries = se_ElasticGpuSpecifications(input[_EGSl], context);
-    if (input[_EGSl]?.length === 0) {
-      entries.ElasticGpuSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticGpuSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52492,9 +50677,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_EIA] != null) {
     const memberEntries = se_ElasticInferenceAccelerators(input[_EIA], context);
-    if (input[_EIA]?.length === 0) {
-      entries.ElasticInferenceAccelerator = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ElasticInferenceAccelerator.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52502,9 +50684,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52554,9 +50733,6 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_LSi] != null) {
     const memberEntries = se_LicenseSpecificationListRequest(input[_LSi], context);
-    if (input[_LSi]?.length === 0) {
-      entries.LicenseSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LicenseSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52717,9 +50893,6 @@ const se_ScheduledInstanceRecurrenceRequest = (
   }
   if (input[_OD] != null) {
     const memberEntries = se_OccurrenceDayRequestSet(input[_OD], context);
-    if (input[_OD]?.length === 0) {
-      entries.OccurrenceDay = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OccurrenceDay.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52866,9 +51039,6 @@ const se_ScheduledInstancesLaunchSpecification = (
   const entries: any = {};
   if (input[_BDM] != null) {
     const memberEntries = se_ScheduledInstancesBlockDeviceMappingSet(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52905,9 +51075,6 @@ const se_ScheduledInstancesLaunchSpecification = (
   }
   if (input[_NI] != null) {
     const memberEntries = se_ScheduledInstancesNetworkInterfaceSet(input[_NI], context);
-    if (input[_NI]?.length === 0) {
-      entries.NetworkInterface = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterface.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52925,9 +51092,6 @@ const se_ScheduledInstancesLaunchSpecification = (
   }
   if (input[_SGI] != null) {
     const memberEntries = se_ScheduledInstancesSecurityGroupIdSet(input[_SGI], context);
-    if (input[_SGI]?.length === 0) {
-      entries.SecurityGroupId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52975,9 +51139,6 @@ const se_ScheduledInstancesNetworkInterface = (
   }
   if (input[_G] != null) {
     const memberEntries = se_ScheduledInstancesSecurityGroupIdSet(input[_G], context);
-    if (input[_G]?.length === 0) {
-      entries.Group = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Group.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -52988,9 +51149,6 @@ const se_ScheduledInstancesNetworkInterface = (
   }
   if (input[_IA] != null) {
     const memberEntries = se_ScheduledInstancesIpv6AddressList(input[_IA], context);
-    if (input[_IA]?.length === 0) {
-      entries.Ipv6Address = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Address.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53004,9 +51162,6 @@ const se_ScheduledInstancesNetworkInterface = (
   }
   if (input[_PIACr] != null) {
     const memberEntries = se_PrivateIpAddressConfigSet(input[_PIACr], context);
-    if (input[_PIACr]?.length === 0) {
-      entries.PrivateIpAddressConfig = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddressConfig.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53100,9 +51255,6 @@ const se_SearchLocalGatewayRoutesRequest = (input: SearchLocalGatewayRoutesReque
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53133,9 +51285,6 @@ const se_SearchTransitGatewayMulticastGroupsRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53166,9 +51315,6 @@ const se_SearchTransitGatewayRoutesRequest = (
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
-    if (input[_Fi]?.length === 0) {
-      entries.Filter = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53468,9 +51614,6 @@ const se_SpotFleetLaunchSpecification = (input: SpotFleetLaunchSpecification, co
   const entries: any = {};
   if (input[_SG] != null) {
     const memberEntries = se_GroupIdentifierList(input[_SG], context);
-    if (input[_SG]?.length === 0) {
-      entries.GroupSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GroupSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53481,9 +51624,6 @@ const se_SpotFleetLaunchSpecification = (input: SpotFleetLaunchSpecification, co
   }
   if (input[_BDM] != null) {
     const memberEntries = se_BlockDeviceMappingList(input[_BDM], context);
-    if (input[_BDM]?.length === 0) {
-      entries.BlockDeviceMapping = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BlockDeviceMapping.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53520,9 +51660,6 @@ const se_SpotFleetLaunchSpecification = (input: SpotFleetLaunchSpecification, co
   }
   if (input[_NI] != null) {
     const memberEntries = se_InstanceNetworkInterfaceSpecificationList(input[_NI], context);
-    if (input[_NI]?.length === 0) {
-      entries.NetworkInterfaceSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NetworkInterfaceSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53552,9 +51689,6 @@ const se_SpotFleetLaunchSpecification = (input: SpotFleetLaunchSpecification, co
   }
   if (input[_TS] != null) {
     const memberEntries = se_SpotFleetTagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecificationSet = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecificationSet.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53616,9 +51750,6 @@ const se_SpotFleetRequestConfigData = (input: SpotFleetRequestConfigData, contex
   }
   if (input[_LSau] != null) {
     const memberEntries = se_LaunchSpecsList(input[_LSau], context);
-    if (input[_LSau]?.length === 0) {
-      entries.LaunchSpecifications = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchSpecifications.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53626,9 +51757,6 @@ const se_SpotFleetRequestConfigData = (input: SpotFleetRequestConfigData, contex
   }
   if (input[_LTC] != null) {
     const memberEntries = se_LaunchTemplateConfigList(input[_LTC], context);
-    if (input[_LTC]?.length === 0) {
-      entries.LaunchTemplateConfigs = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LaunchTemplateConfigs.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53685,9 +51813,6 @@ const se_SpotFleetRequestConfigData = (input: SpotFleetRequestConfigData, contex
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53722,9 +51847,6 @@ const se_SpotFleetTagSpecification = (input: SpotFleetTagSpecification, context:
   }
   if (input[_Ta] != null) {
     const memberEntries = se_TagList(input[_Ta], context);
-    if (input[_Ta]?.length === 0) {
-      entries.Tag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53866,9 +51988,6 @@ const se_StartInstancesRequest = (input: StartInstancesRequest, context: __Serde
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53899,9 +52018,6 @@ const se_StartNetworkInsightsAccessScopeAnalysisRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53929,9 +52045,6 @@ const se_StartNetworkInsightsAnalysisRequest = (
   }
   if (input[_AAd] != null) {
     const memberEntries = se_ValueStringList(input[_AAd], context);
-    if (input[_AAd]?.length === 0) {
-      entries.AdditionalAccount = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AdditionalAccount.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53939,9 +52052,6 @@ const se_StartNetworkInsightsAnalysisRequest = (
   }
   if (input[_FIA] != null) {
     const memberEntries = se_ArnList(input[_FIA], context);
-    if (input[_FIA]?.length === 0) {
-      entries.FilterInArn = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FilterInArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53952,9 +52062,6 @@ const se_StartNetworkInsightsAnalysisRequest = (
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
-    if (input[_TS]?.length === 0) {
-      entries.TagSpecification = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -53993,9 +52100,6 @@ const se_StopInstancesRequest = (input: StopInstancesRequest, context: __SerdeCo
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54137,9 +52241,6 @@ const se_TagSpecification = (input: TagSpecification, context: __SerdeContext): 
   }
   if (input[_Ta] != null) {
     const memberEntries = se_TagList(input[_Ta], context);
-    if (input[_Ta]?.length === 0) {
-      entries.Tag = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54263,9 +52364,6 @@ const se_TargetGroupsConfig = (input: TargetGroupsConfig, context: __SerdeContex
   const entries: any = {};
   if (input[_TG] != null) {
     const memberEntries = se_TargetGroups(input[_TG], context);
-    if (input[_TG]?.length === 0) {
-      entries.TargetGroups = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroups.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54304,9 +52402,6 @@ const se_TerminateInstancesRequest = (input: TerminateInstancesRequest, context:
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54650,9 +52745,6 @@ const se_TransitGatewayRequestOptions = (input: TransitGatewayRequestOptions, co
   }
   if (input[_TGCB] != null) {
     const memberEntries = se_TransitGatewayCidrBlockStringList(input[_TGCB], context);
-    if (input[_TGCB]?.length === 0) {
-      entries.TransitGatewayCidrBlocks = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TransitGatewayCidrBlocks.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54732,9 +52824,6 @@ const se_UnassignIpv6AddressesRequest = (input: UnassignIpv6AddressesRequest, co
   const entries: any = {};
   if (input[_IA] != null) {
     const memberEntries = se_Ipv6AddressList(input[_IA], context);
-    if (input[_IA]?.length === 0) {
-      entries.Ipv6Addresses = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Addresses.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54742,9 +52831,6 @@ const se_UnassignIpv6AddressesRequest = (input: UnassignIpv6AddressesRequest, co
   }
   if (input[_IP] != null) {
     const memberEntries = se_IpPrefixList(input[_IP], context);
-    if (input[_IP]?.length === 0) {
-      entries.Ipv6Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv6Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54769,9 +52855,6 @@ const se_UnassignPrivateIpAddressesRequest = (
   }
   if (input[_PIA] != null) {
     const memberEntries = se_PrivateIpAddressStringList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54779,9 +52862,6 @@ const se_UnassignPrivateIpAddressesRequest = (
   }
   if (input[_IPp] != null) {
     const memberEntries = se_IpPrefixList(input[_IPp], context);
-    if (input[_IPp]?.length === 0) {
-      entries.Ipv4Prefix = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Ipv4Prefix.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54803,9 +52883,6 @@ const se_UnassignPrivateNatGatewayAddressRequest = (
   }
   if (input[_PIA] != null) {
     const memberEntries = se_IpList(input[_PIA], context);
-    if (input[_PIA]?.length === 0) {
-      entries.PrivateIpAddress = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateIpAddress.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54841,9 +52918,6 @@ const se_UnmonitorInstancesRequest = (input: UnmonitorInstancesRequest, context:
   const entries: any = {};
   if (input[_IIns] != null) {
     const memberEntries = se_InstanceIdStringList(input[_IIns], context);
-    if (input[_IIns]?.length === 0) {
-      entries.InstanceId = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `InstanceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54874,9 +52948,6 @@ const se_UpdateSecurityGroupRuleDescriptionsEgressRequest = (
   }
   if (input[_IPpe] != null) {
     const memberEntries = se_IpPermissionList(input[_IPpe], context);
-    if (input[_IPpe]?.length === 0) {
-      entries.IpPermissions = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54884,9 +52955,6 @@ const se_UpdateSecurityGroupRuleDescriptionsEgressRequest = (
   }
   if (input[_SGRD] != null) {
     const memberEntries = se_SecurityGroupRuleDescriptionList(input[_SGRD], context);
-    if (input[_SGRD]?.length === 0) {
-      entries.SecurityGroupRuleDescription = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleDescription.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54914,9 +52982,6 @@ const se_UpdateSecurityGroupRuleDescriptionsIngressRequest = (
   }
   if (input[_IPpe] != null) {
     const memberEntries = se_IpPermissionList(input[_IPpe], context);
-    if (input[_IPpe]?.length === 0) {
-      entries.IpPermissions = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpPermissions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -54924,9 +52989,6 @@ const se_UpdateSecurityGroupRuleDescriptionsIngressRequest = (
   }
   if (input[_SGRD] != null) {
     const memberEntries = se_SecurityGroupRuleDescriptionList(input[_SGRD], context);
-    if (input[_SGRD]?.length === 0) {
-      entries.SecurityGroupRuleDescription = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupRuleDescription.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55479,9 +53541,6 @@ const se_VpnConnectionOptionsSpecification = (
   }
   if (input[_TO] != null) {
     const memberEntries = se_VpnTunnelOptionsSpecificationsList(input[_TO], context);
-    if (input[_TO]?.length === 0) {
-      entries.TunnelOptions = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TunnelOptions.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55576,9 +53635,6 @@ const se_VpnTunnelOptionsSpecification = (input: VpnTunnelOptionsSpecification, 
   }
   if (input[_PEA] != null) {
     const memberEntries = se_Phase1EncryptionAlgorithmsRequestList(input[_PEA], context);
-    if (input[_PEA]?.length === 0) {
-      entries.Phase1EncryptionAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55586,9 +53642,6 @@ const se_VpnTunnelOptionsSpecification = (input: VpnTunnelOptionsSpecification, 
   }
   if (input[_PEAh] != null) {
     const memberEntries = se_Phase2EncryptionAlgorithmsRequestList(input[_PEAh], context);
-    if (input[_PEAh]?.length === 0) {
-      entries.Phase2EncryptionAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2EncryptionAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55596,9 +53649,6 @@ const se_VpnTunnelOptionsSpecification = (input: VpnTunnelOptionsSpecification, 
   }
   if (input[_PIAh] != null) {
     const memberEntries = se_Phase1IntegrityAlgorithmsRequestList(input[_PIAh], context);
-    if (input[_PIAh]?.length === 0) {
-      entries.Phase1IntegrityAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55606,9 +53656,6 @@ const se_VpnTunnelOptionsSpecification = (input: VpnTunnelOptionsSpecification, 
   }
   if (input[_PIAha] != null) {
     const memberEntries = se_Phase2IntegrityAlgorithmsRequestList(input[_PIAha], context);
-    if (input[_PIAha]?.length === 0) {
-      entries.Phase2IntegrityAlgorithm = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2IntegrityAlgorithm.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55616,9 +53663,6 @@ const se_VpnTunnelOptionsSpecification = (input: VpnTunnelOptionsSpecification, 
   }
   if (input[_PDHGN] != null) {
     const memberEntries = se_Phase1DHGroupNumbersRequestList(input[_PDHGN], context);
-    if (input[_PDHGN]?.length === 0) {
-      entries.Phase1DHGroupNumber = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase1DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55626,9 +53670,6 @@ const se_VpnTunnelOptionsSpecification = (input: VpnTunnelOptionsSpecification, 
   }
   if (input[_PDHGNh] != null) {
     const memberEntries = se_Phase2DHGroupNumbersRequestList(input[_PDHGNh], context);
-    if (input[_PDHGNh]?.length === 0) {
-      entries.Phase2DHGroupNumber = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Phase2DHGroupNumber.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -55636,9 +53677,6 @@ const se_VpnTunnelOptionsSpecification = (input: VpnTunnelOptionsSpecification, 
   }
   if (input[_IKEVe] != null) {
     const memberEntries = se_IKEVersionsRequestList(input[_IKEVe], context);
-    if (input[_IKEVe]?.length === 0) {
-      entries.IKEVersion = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IKEVersion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;

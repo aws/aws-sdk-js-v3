@@ -48,9 +48,9 @@ import software.amazon.smithy.utils.StringUtils;
  */
 @SmithyInternalApi
 final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {
-
     Ec2ShapeSerVisitor(GenerationContext context) {
         super(context);
+        serializeEmptyLists = false;
     }
 
     @Override
