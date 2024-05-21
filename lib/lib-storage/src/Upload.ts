@@ -37,9 +37,9 @@ const MIN_PART_SIZE = 1024 * 1024 * 5;
 
 export class Upload extends EventEmitter {
   /**
-   * S3 multipart upload does not allow more than 10000 parts.
+   * S3 multipart upload does not allow more than 10,000 parts.
    */
-  private MAX_PARTS = 10000;
+  private MAX_PARTS = 10_000;
 
   // Defaults.
   private readonly queueSize: number = 4;
@@ -61,6 +61,7 @@ export class Upload extends EventEmitter {
   private abortMultipartUploadCommand: AbortMultipartUploadCommand | null = null;
 
   private uploadedParts: CompletedPart[] = [];
+  private uploadEnqueuedPartsCount = 0;
   /**
    * Last UploadId if the upload was done with MultipartUpload and not PutObject.
    */
@@ -207,9 +208,9 @@ export class Upload extends EventEmitter {
 
   private async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
     for await (const dataPart of dataFeeder) {
-      if (this.uploadedParts.length > this.MAX_PARTS) {
+      if (this.uploadEnqueuedPartsCount > this.MAX_PARTS) {
         throw new Error(
-          `Exceeded ${this.MAX_PARTS} as part of the upload to ${this.params.Key} and ${this.params.Bucket}.`
+          `Exceeded ${this.MAX_PARTS} parts in multipart upload to Bucket: ${this.params.Bucket} Key: ${this.params.Key}.`
         );
       }
 
@@ -217,7 +218,7 @@ export class Upload extends EventEmitter {
         return;
       }
 
-      // Use put instead of multi-part for one chunk uploads.
+      // Use put instead of multipart for one chunk uploads.
       if (dataPart.partNumber === 1 && dataPart.lastPart) {
         return await this.__uploadUsingPut(dataPart);
       }
@@ -262,6 +263,8 @@ export class Upload extends EventEmitter {
         // The requestHandler is the xhr-http-handler.
         eventEmitter.on("xhr.upload.progress", uploadEventListener);
       }
+
+      this.uploadEnqueuedPartsCount += 1;
 
       const partResult = await this.client.send(
         new UploadPartCommand({
@@ -378,7 +381,7 @@ export class Upload extends EventEmitter {
   }
 
   /**
-   * Abort the last multi-part upload in progress
+   * Abort the last multipart upload in progress
    * if we know the upload id, the user did not specify to leave the parts, and
    * we have a prepared AbortMultipartUpload command.
    */
