@@ -108,7 +108,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                       { // Condition
  * //                         LogicalOperator: "EQUALS",
  * //                         JobName: "STRING_VALUE",
- * //                         State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //                         State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //                         CrawlerName: "STRING_VALUE",
  * //                         CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
  * //                       },
@@ -131,7 +131,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                     StartedOn: new Date("TIMESTAMP"),
  * //                     LastModifiedOn: new Date("TIMESTAMP"),
  * //                     CompletedOn: new Date("TIMESTAMP"),
- * //                     JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //                     JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //                     Arguments: {
  * //                       "<keys>": "STRING_VALUE",
  * //                     },
@@ -156,6 +156,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                     GlueVersion: "STRING_VALUE",
  * //                     DPUSeconds: Number("double"),
  * //                     ExecutionClass: "FLEX" || "STANDARD",
+ * //                     MaintenanceWindow: "STRING_VALUE",
  * //                   },
  * //                 ],
  * //               },
@@ -220,7 +221,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                     {
  * //                       LogicalOperator: "EQUALS",
  * //                       JobName: "STRING_VALUE",
- * //                       State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //                       State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //                       CrawlerName: "STRING_VALUE",
  * //                       CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
  * //                     },
@@ -243,7 +244,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                   StartedOn: new Date("TIMESTAMP"),
  * //                   LastModifiedOn: new Date("TIMESTAMP"),
  * //                   CompletedOn: new Date("TIMESTAMP"),
- * //                   JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //                   JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //                   Arguments: "<GenericMap>",
  * //                   ErrorMessage: "STRING_VALUE",
  * //                   PredecessorRuns: [
@@ -264,6 +265,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                   GlueVersion: "STRING_VALUE",
  * //                   DPUSeconds: Number("double"),
  * //                   ExecutionClass: "FLEX" || "STANDARD",
+ * //                   MaintenanceWindow: "STRING_VALUE",
  * //                 },
  * //               ],
  * //             },

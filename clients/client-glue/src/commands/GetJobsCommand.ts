@@ -1116,6 +1116,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * //         AuthStrategy: "PERSONAL_ACCESS_TOKEN" || "AWS_SECRETS_MANAGER",
  * //         AuthToken: "STRING_VALUE",
  * //       },
+ * //       MaintenanceWindow: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

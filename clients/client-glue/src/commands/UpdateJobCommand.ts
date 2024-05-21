@@ -1106,6 +1106,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *       AuthStrategy: "PERSONAL_ACCESS_TOKEN" || "AWS_SECRETS_MANAGER",
  *       AuthToken: "STRING_VALUE",
  *     },
+ *     MaintenanceWindow: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateJobCommand(input);

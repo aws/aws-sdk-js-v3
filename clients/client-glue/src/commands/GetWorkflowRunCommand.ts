@@ -98,7 +98,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * //                   { // Condition
  * //                     LogicalOperator: "EQUALS",
  * //                     JobName: "STRING_VALUE",
- * //                     State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //                     State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //                     CrawlerName: "STRING_VALUE",
  * //                     CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
  * //                   },
@@ -121,7 +121,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * //                 StartedOn: new Date("TIMESTAMP"),
  * //                 LastModifiedOn: new Date("TIMESTAMP"),
  * //                 CompletedOn: new Date("TIMESTAMP"),
- * //                 JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //                 JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //                 Arguments: {
  * //                   "<keys>": "STRING_VALUE",
  * //                 },
@@ -146,6 +146,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * //                 GlueVersion: "STRING_VALUE",
  * //                 DPUSeconds: Number("double"),
  * //                 ExecutionClass: "FLEX" || "STANDARD",
+ * //                 MaintenanceWindow: "STRING_VALUE",
  * //               },
  * //             ],
  * //           },

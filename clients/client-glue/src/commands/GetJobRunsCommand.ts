@@ -52,7 +52,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * //       StartedOn: new Date("TIMESTAMP"),
  * //       LastModifiedOn: new Date("TIMESTAMP"),
  * //       CompletedOn: new Date("TIMESTAMP"),
- * //       JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //       JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //       Arguments: { // GenericMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
@@ -77,6 +77,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * //       GlueVersion: "STRING_VALUE",
  * //       DPUSeconds: Number("double"),
  * //       ExecutionClass: "FLEX" || "STANDARD",
+ * //       MaintenanceWindow: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
