@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.581.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.580.0...v3.581.0) (2024-05-21)
+
+
+### Features
+
+* **client-pi:** Performance Insights added a new input parameter called AuthorizedActions to support the fine-grained access feature. Performance Insights also restricted the acceptable input characters. ([2df9c49](https://github.com/aws/aws-sdk-js-v3/commit/2df9c49dc226e13eedf31e2fe757bf30ef7dbebf))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-pi

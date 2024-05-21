@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.581.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.580.0...v3.581.0) (2024-05-21)
+
+
+### Features
+
+* **client-lightsail:** This release adds support for Amazon Lightsail instances to switch between dual-stack or IPv4 only and IPv6-only public IP address types. ([1312268](https://github.com/aws/aws-sdk-js-v3/commit/13122688946467ef819cfb8e05f53c9a1f19c5a6))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

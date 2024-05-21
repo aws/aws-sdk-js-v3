@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.581.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.580.0...v3.581.0) (2024-05-21)
+
+
+### Features
+
+* **client-glue:** Add Maintenance window to CreateJob and UpdateJob APIs and JobRun response. Add a new Job Run State for EXPIRED. ([72bc2a8](https://github.com/aws/aws-sdk-js-v3/commit/72bc2a8fe0318601552576e81d763199199e2a80))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

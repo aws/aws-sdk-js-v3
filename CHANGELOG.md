@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.581.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.580.0...v3.581.0) (2024-05-21)
+
+
+### Features
+
+* **client-cloudfront:** Model update; no change to SDK functionality. ([bd50b2b](https://github.com/aws/aws-sdk-js-v3/commit/bd50b2b9bdcbae224ea2a4cb908e35286993709d))
+* **client-glue:** Add Maintenance window to CreateJob and UpdateJob APIs and JobRun response. Add a new Job Run State for EXPIRED. ([72bc2a8](https://github.com/aws/aws-sdk-js-v3/commit/72bc2a8fe0318601552576e81d763199199e2a80))
+* **client-lightsail:** This release adds support for Amazon Lightsail instances to switch between dual-stack or IPv4 only and IPv6-only public IP address types. ([1312268](https://github.com/aws/aws-sdk-js-v3/commit/13122688946467ef819cfb8e05f53c9a1f19c5a6))
+* **client-mailmanager:** This release includes a new Amazon SES feature called Mail Manager, which is a set of email gateway capabilities designed to help customers strengthen their organization's email infrastructure, simplify email workflow management, and streamline email compliance control. ([f3b0e86](https://github.com/aws/aws-sdk-js-v3/commit/f3b0e869e51dcf51fef0e8945c3e3407e76f0a07))
+* **client-pi:** Performance Insights added a new input parameter called AuthorizedActions to support the fine-grained access feature. Performance Insights also restricted the acceptable input characters. ([2df9c49](https://github.com/aws/aws-sdk-js-v3/commit/2df9c49dc226e13eedf31e2fe757bf30ef7dbebf))
+* **client-storage-gateway:** Added new SMBSecurityStrategy enum named MandatoryEncryptionNoAes128, new mode enforces encryption and disables AES 128-bit algorithums. ([076c64e](https://github.com/aws/aws-sdk-js-v3/commit/076c64e81bbd91009af9fae4a4d1d8e16aac49db))
+
+
+
+
+
 # [3.580.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.579.0...v3.580.0) (2024-05-20)
 
 
