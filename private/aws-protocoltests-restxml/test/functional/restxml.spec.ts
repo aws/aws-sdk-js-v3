@@ -1355,7 +1355,7 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
-      400,
+      403,
       {
         "x-header": "Header",
         "content-type": "application/xml",
@@ -1388,7 +1388,7 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
       return;
     }
     const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
+    expect(r["$metadata"].httpStatusCode).toBe(403);
     const paramsToValidate: any = [
       {
         Header: "Header",
