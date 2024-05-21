@@ -49,11 +49,18 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
+
     private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
+
+    /**
+     * Should default to true and be false for EC2 Query.
+     */
+    protected boolean serializeEmptyLists;
     private StringStore stringStore = getContext().getStringStore();
 
     QueryShapeSerVisitor(GenerationContext context) {
         super(context);
+        serializeEmptyLists = true;
     }
 
     private QueryMemberSerVisitor getMemberVisitor(String dataSource) {
@@ -268,7 +275,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         Shape targetShape = context.getModel().expectShape(memberShape.getTarget());
 
-        if (targetShape.isListShape() || targetShape.isSetShape()) {
+        if ((targetShape.isListShape() || targetShape.isSetShape()) && serializeEmptyLists) {
             writer.openBlock(
                 "if ($L?.length === 0) {",
                 "}",
