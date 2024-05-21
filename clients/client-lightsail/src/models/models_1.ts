@@ -933,6 +933,13 @@ export interface InstancePortInfo {
    *           type using the <code>fromPort</code> parameter, and ICMP code using the
    *             <code>toPort</code> parameter.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp6</code> - Internet Control Message Protocol (ICMP) for IPv6. When you
+   *           specify <code>icmp6</code> as the <code>protocol</code>, you must specify the ICMP type
+   *           using the <code>fromPort</code> parameter, and ICMP code using the <code>toPort</code>
+   *           parameter.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1045,13 +1052,14 @@ export interface InstanceState {
  */
 export interface Instance {
   /**
-   * <p>The name the user gave the instance (<code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   * <p>The name the user gave the instance (<code>Amazon_Linux_2023-1</code>).</p>
    * @public
    */
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the instance
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>).</p>
    * @public
    */
   arn?: string;
@@ -1065,8 +1073,8 @@ export interface Instance {
   supportCode?: string;
 
   /**
-   * <p>The timestamp when the instance was created (<code>1479734909.17</code>) in Unix
-   *       time format.</p>
+   * <p>The timestamp when the instance was created (<code>1479734909.17</code>) in Unix time
+   *       format.</p>
    * @public
    */
   createdAt?: Date;
@@ -1091,19 +1099,19 @@ export interface Instance {
   tags?: Tag[];
 
   /**
-   * <p>The blueprint ID (<code>os_amlinux_2016_03</code>).</p>
+   * <p>The blueprint ID (<code>amazon_linux_2023</code>).</p>
    * @public
    */
   blueprintId?: string;
 
   /**
-   * <p>The friendly name of the blueprint (<code>Amazon Linux</code>).</p>
+   * <p>The friendly name of the blueprint (<code>Amazon Linux 2023</code>).</p>
    * @public
    */
   blueprintName?: string;
 
   /**
-   * <p>The bundle for the instance (<code>micro_1_0</code>).</p>
+   * <p>The bundle for the instance (<code>micro_x_x</code>).</p>
    * @public
    */
   bundleId?: string;
@@ -1140,8 +1148,8 @@ export interface Instance {
 
   /**
    * <p>The IP address type of the instance.</p>
-   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
-   *       IPv4 and IPv6.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
    * @public
    */
   ipAddressType?: IpAddressType;
@@ -1172,7 +1180,8 @@ export interface Instance {
   username?: string;
 
   /**
-   * <p>The name of the SSH key being used to connect to the instance (<code>LightsailDefaultKeyPair</code>).</p>
+   * <p>The name of the SSH key being used to connect to the instance
+   *         (<code>LightsailDefaultKeyPair</code>).</p>
    * @public
    */
   sshKeyName?: string;
@@ -1398,8 +1407,8 @@ export interface InstanceAccessDetails {
   passwordData?: PasswordData;
 
   /**
-   * <p>For SSH access, the temporary private key. For OpenSSH clients (command line SSH),
-   *       you should save this value to <code>tempkey</code>).</p>
+   * <p>For SSH access, the temporary private key. For OpenSSH clients (command line SSH), you
+   *       should save this value to <code>tempkey</code>).</p>
    * @public
    */
   privateKey?: string;
@@ -1811,6 +1820,13 @@ export interface InstancePortState {
    *           type using the <code>fromPort</code> parameter, and ICMP code using the
    *             <code>toPort</code> parameter.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp6</code> - Internet Control Message Protocol (ICMP) for IPv6. When you
+   *           specify <code>icmp6</code> as the <code>protocol</code>, you must specify the ICMP type
+   *           using the <code>fromPort</code> parameter, and ICMP code using the <code>toPort</code>
+   *           parameter.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1946,7 +1962,8 @@ export interface InstanceSnapshot {
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the snapshot (<code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
    * @public
    */
   arn?: string;
@@ -2013,13 +2030,14 @@ export interface InstanceSnapshot {
   fromInstanceName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
    * @public
    */
   fromInstanceArn?: string;
 
   /**
-   * <p>The blueprint ID from which you created the snapshot (<code>os_debian_8_3</code>). A
+   * <p>The blueprint ID from which you created the snapshot (<code>amazon_linux_2023</code>). A
    *       blueprint is a virtual private server (or <i>instance</i>) image used to create
    *       instances quickly.</p>
    * @public
@@ -2027,7 +2045,7 @@ export interface InstanceSnapshot {
   fromBlueprintId?: string;
 
   /**
-   * <p>The bundle ID from which you created the snapshot (<code>micro_1_0</code>).</p>
+   * <p>The bundle ID from which you created the snapshot (<code>micro_x_x</code>).</p>
    * @public
    */
   fromBundleId?: string;
@@ -2474,8 +2492,8 @@ export interface LoadBalancer {
   createdAt?: Date;
 
   /**
-   * <p>The AWS Region where your load balancer was created (<code>us-east-2a</code>).
-   *       Lightsail automatically creates your load balancer across Availability Zones.</p>
+   * <p>The AWS Region where your load balancer was created (<code>us-east-2a</code>). Lightsail
+   *       automatically creates your load balancer across Availability Zones.</p>
    * @public
    */
   location?: ResourceLocation;
@@ -2558,8 +2576,8 @@ export interface LoadBalancer {
 
   /**
    * <p>The IP address type of the load balancer.</p>
-   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
-   *       IPv4 and IPv6.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
    * @public
    */
   ipAddressType?: IpAddressType;
@@ -3523,8 +3541,8 @@ export interface LoadBalancerTlsCertificate {
   subject?: string;
 
   /**
-   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>)
-   *       and subdomains (<code>blog.example.com</code>) for the certificate.</p>
+   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>) and
+   *       subdomains (<code>blog.example.com</code>) for the certificate.</p>
    * @public
    */
   subjectAlternativeNames?: string[];
@@ -3742,7 +3760,8 @@ export interface GetRegionsRequest {
 
   /**
    * <p>A Boolean value indicating whether to also include Availability Zones for databases in
-   *       your get regions request. Availability Zones are indicated with a letter (<code>us-east-2a</code>).</p>
+   *       your get regions request. Availability Zones are indicated with a letter
+   *         (<code>us-east-2a</code>).</p>
    * @public
    */
   includeRelationalDatabaseAvailabilityZones?: boolean;
@@ -3760,8 +3779,8 @@ export interface Region {
   continentCode?: string;
 
   /**
-   * <p>The description of the Amazon Web Services Region (<code>This region is recommended
-   *         to serve users in the eastern United States and eastern Canada</code>).</p>
+   * <p>The description of the Amazon Web Services Region (<code>This region is recommended to
+   *         serve users in the eastern United States and eastern Canada</code>).</p>
    * @public
    */
   description?: string;
@@ -5081,9 +5100,9 @@ export interface GetSetupHistoryRequest {
 
   /**
    * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetSetupHistory</code> request. If your results
-   *       are paginated, the response will return a next page token that you can specify as the page
-   *       token in a subsequent request.</p>
+   *          <p>To get a page token, perform an initial <code>GetSetupHistory</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    * @public
    */
   pageToken?: string;
@@ -5153,8 +5172,8 @@ export interface SetupExecutionDetails {
 }
 
 /**
- * <p>Returns information that was submitted during the <code>SetupInstanceHttps</code> request. Email
- *       information is redacted for privacy.</p>
+ * <p>Returns information that was submitted during the <code>SetupInstanceHttps</code> request.
+ *       Email information is redacted for privacy.</p>
  * @public
  */
 export interface SetupRequest {
@@ -5263,8 +5282,8 @@ export interface GetSetupHistoryResult {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetSetupHistory</code> request and specify
-   *       the next page token using the pageToken parameter.</p>
+   *          <p>To get the next page of results, perform another <code>GetSetupHistory</code> request and
+   *       specify the next page token using the pageToken parameter.</p>
    * @public
    */
   nextPageToken?: string;
@@ -5293,7 +5312,8 @@ export interface StaticIp {
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the static IP (<code>arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the static IP
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>).</p>
    * @public
    */
   arn?: string;
@@ -5331,7 +5351,8 @@ export interface StaticIp {
   ipAddress?: string;
 
   /**
-   * <p>The instance where the static IP is attached (<code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   * <p>The instance where the static IP is attached
+   *       (<code>Amazon_Linux-1GB-Ohio-1</code>).</p>
    * @public
    */
   attachedTo?: string;
@@ -5918,11 +5939,26 @@ export interface SetIpAddressTypeRequest {
 
   /**
    * <p>The IP address type to set for the specified resource.</p>
-   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
-   *       IPv4 and IPv6.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
    * @public
    */
   ipAddressType: IpAddressType | undefined;
+
+  /**
+   * <p>Required parameter to accept the instance bundle update when changing to, and from,
+   *       IPv6-only.</p>
+   *          <note>
+   *             <p>An instance bundle will change when switching from <code>dual-stack</code> or
+   *           <code>ipv4</code>, to <code>ipv6</code>. It also changes when switching from
+   *           <code>ipv6</code>, to <code>dual-stack</code> or <code>ipv4</code>.</p>
+   *             <p>You must include this parameter in the command to update the bundle. For example, if you
+   *         switch from <code>dual-stack</code> to <code>ipv6</code>, the bundle will be updated, and
+   *         billing for the IPv6-only instance bundle begins immediately.</p>
+   *          </note>
+   * @public
+   */
+  acceptBundleUpdate?: boolean;
 }
 
 /**
@@ -6556,22 +6592,28 @@ export interface UpdateDistributionRequest {
   isEnabled?: boolean;
 
   /**
-   * <p>Use this parameter to update the minimum TLS protocol version for the SSL/TLS certificate that's attached to the distribution.</p>
+   * <p>Use this parameter to update the minimum TLS protocol version for the SSL/TLS certificate
+   *       that's attached to the distribution.</p>
    * @public
    */
   viewerMinimumTlsProtocolVersion?: ViewerMinimumTlsProtocolVersionEnum;
 
   /**
    * <p>The name of the SSL/TLS certificate that you want to attach to the distribution.</p>
-   *          <p>Only certificates with a status of <code>ISSUED</code> can be attached to a distribution.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html">GetCertificates</a> action to get a list of certificate names that you can specify.</p>
+   *          <p>Only certificates with a status of <code>ISSUED</code> can be attached to a
+   *       distribution.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html">GetCertificates</a>
+   *       action to get a list of certificate names that you can specify.</p>
    * @public
    */
   certificateName?: string;
 
   /**
-   * <p>Indicates whether the default SSL/TLS certificate is attached to the distribution. The default value is <code>true</code>. When <code>true</code>, the distribution uses the default domain name such as <code>d111111abcdef8.cloudfront.net</code>.</p>
-   *          <p> Set this value to <code>false</code> to attach a new certificate to the distribution.</p>
+   * <p>Indicates whether the default SSL/TLS certificate is attached to the distribution. The
+   *       default value is <code>true</code>. When <code>true</code>, the distribution uses the default
+   *       domain name such as <code>d111111abcdef8.cloudfront.net</code>.</p>
+   *          <p> Set this value to <code>false</code> to attach a new certificate to the
+   *       distribution.</p>
    * @public
    */
   useDefaultCertificate?: boolean;
@@ -6721,7 +6763,8 @@ export interface UpdateInstanceMetadataOptionsResult {
  */
 export interface UpdateLoadBalancerAttributeRequest {
   /**
-   * <p>The name of the load balancer that you want to modify (<code>my-load-balancer</code>.</p>
+   * <p>The name of the load balancer that you want to modify
+   *       (<code>my-load-balancer</code>.</p>
    * @public
    */
   loadBalancerName: string | undefined;

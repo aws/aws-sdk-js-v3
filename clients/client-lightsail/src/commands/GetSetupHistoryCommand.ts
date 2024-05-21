@@ -27,7 +27,8 @@ export interface GetSetupHistoryCommandInput extends GetSetupHistoryRequest {}
 export interface GetSetupHistoryCommandOutput extends GetSetupHistoryResult, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information for five of the most recent <code>SetupInstanceHttps</code> requests that were ran on the target instance.</p>
+ * <p>Returns detailed information for five of the most recent <code>SetupInstanceHttps</code>
+ *       requests that were ran on the target instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

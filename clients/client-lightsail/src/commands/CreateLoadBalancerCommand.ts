@@ -56,7 +56,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  *       value: "STRING_VALUE",
  *     },
  *   ],
- *   ipAddressType: "dualstack" || "ipv4",
+ *   ipAddressType: "dualstack" || "ipv4" || "ipv6",
  *   tlsPolicyName: "STRING_VALUE",
  * };
  * const command = new CreateLoadBalancerCommand(input);

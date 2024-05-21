@@ -77,7 +77,7 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * //       ipv6Addresses: [ // Ipv6AddressList
  * //         "STRING_VALUE",
  * //       ],
- * //       ipAddressType: "dualstack" || "ipv4",
+ * //       ipAddressType: "dualstack" || "ipv4" || "ipv6",
  * //       hardware: { // InstanceHardware
  * //         cpuCount: Number("int"),
  * //         disks: [ // DiskList
@@ -129,7 +129,7 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * //           { // InstancePortInfo
  * //             fromPort: Number("int"),
  * //             toPort: Number("int"),
- * //             protocol: "tcp" || "all" || "udp" || "icmp",
+ * //             protocol: "tcp" || "all" || "udp" || "icmp" || "icmpv6",
  * //             accessFrom: "STRING_VALUE",
  * //             accessType: "Public" || "Private",
  * //             commonName: "STRING_VALUE",

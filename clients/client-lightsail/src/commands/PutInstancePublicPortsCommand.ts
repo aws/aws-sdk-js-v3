@@ -47,7 +47,7 @@ export interface PutInstancePublicPortsCommandOutput extends PutInstancePublicPo
  *     { // PortInfo
  *       fromPort: Number("int"),
  *       toPort: Number("int"),
- *       protocol: "tcp" || "all" || "udp" || "icmp",
+ *       protocol: "tcp" || "all" || "udp" || "icmp" || "icmpv6",
  *       cidrs: [ // StringList
  *         "STRING_VALUE",
  *       ],

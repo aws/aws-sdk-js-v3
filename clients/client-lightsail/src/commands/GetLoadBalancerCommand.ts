@@ -80,7 +80,7 @@ export interface GetLoadBalancerCommandOutput extends GetLoadBalancerResult, __M
  * //     configurationOptions: { // LoadBalancerConfigurationOptions
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     ipAddressType: "dualstack" || "ipv4",
+ * //     ipAddressType: "dualstack" || "ipv4" || "ipv6",
  * //     httpsRedirectionEnabled: true || false,
  * //     tlsPolicyName: "STRING_VALUE",
  * //   },

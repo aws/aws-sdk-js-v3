@@ -64,7 +64,7 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  *       },
  *     },
  *   ],
- *   ipAddressType: "dualstack" || "ipv4",
+ *   ipAddressType: "dualstack" || "ipv4" || "ipv6",
  * };
  * const command = new CreateInstancesCommand(input);
  * const response = await client.send(command);

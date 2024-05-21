@@ -45,7 +45,7 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * //     { // InstancePortState
  * //       fromPort: Number("int"),
  * //       toPort: Number("int"),
- * //       protocol: "tcp" || "all" || "udp" || "icmp",
+ * //       protocol: "tcp" || "all" || "udp" || "icmp" || "icmpv6",
  * //       state: "open" || "closed",
  * //       cidrs: [ // StringList
  * //         "STRING_VALUE",

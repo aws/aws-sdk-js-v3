@@ -104,7 +104,7 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * //         },
  * //       ],
  * //       ableToUpdateBundle: true || false,
- * //       ipAddressType: "dualstack" || "ipv4",
+ * //       ipAddressType: "dualstack" || "ipv4" || "ipv6",
  * //       tags: [ // TagList
  * //         { // Tag
  * //           key: "STRING_VALUE",
