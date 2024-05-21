@@ -16,12 +16,23 @@ try {
     client: new S3({}) || new S3Client({}),
     params: { Bucket, Key, Body },
 
+    // optional tags
     tags: [
       /*...*/
-    ], // optional tags
-    queueSize: 4, // optional concurrency configuration
-    partSize: 1024 * 1024 * 5, // optional size of each part, in bytes, at least 5MB
-    leavePartsOnError: false, // optional manually handle dropped parts
+    ],
+
+    // additional optional fields show default values below:
+
+    // (optional) concurrency configuration
+    queueSize: 4,
+
+    // (optional) size of each part, in bytes, at least 5MB
+    partSize: 1024 * 1024 * 5,
+
+    // (optional) when true, do not automatically call AbortMultipartUpload when
+    // a multipart upload fails to complete. You should then manually handle
+    // the leftover parts.
+    leavePartsOnError: false,
   });
 
   parallelUploads3.on("httpUploadProgress", (progress) => {
