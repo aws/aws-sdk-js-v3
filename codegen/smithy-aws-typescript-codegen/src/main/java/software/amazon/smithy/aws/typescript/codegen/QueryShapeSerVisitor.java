@@ -49,13 +49,14 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
+
     private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
-    private StringStore stringStore = getContext().getStringStore();
 
     /**
      * Should default to true and be false for EC2 Query.
      */
     protected boolean serializeEmptyLists;
+    private StringStore stringStore = getContext().getStringStore();
 
     QueryShapeSerVisitor(GenerationContext context) {
         super(context);
