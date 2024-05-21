@@ -41,7 +41,7 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateSMBSecurityStrategyInput
  *   GatewayARN: "STRING_VALUE", // required
- *   SMBSecurityStrategy: "ClientSpecified" || "MandatorySigning" || "MandatoryEncryption", // required
+ *   SMBSecurityStrategy: "ClientSpecified" || "MandatorySigning" || "MandatoryEncryption" || "MandatoryEncryptionNoAes128", // required
  * };
  * const command = new UpdateSMBSecurityStrategyCommand(input);
  * const response = await client.send(command);
