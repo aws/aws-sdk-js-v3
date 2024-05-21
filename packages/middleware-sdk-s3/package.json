@@ -28,7 +28,7 @@
     "@smithy/node-config-provider": "^3.0.0",
     "@smithy/protocol-http": "^4.0.0",
     "@smithy/signature-v4": "^3.0.0",
-    "@smithy/smithy-client": "^3.0.0",
+    "@smithy/smithy-client": "^3.0.1",
     "@smithy/types": "^3.0.0",
     "@smithy/util-config-provider": "^3.0.0",
     "tslib": "^2.6.2"

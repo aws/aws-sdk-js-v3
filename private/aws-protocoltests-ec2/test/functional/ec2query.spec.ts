@@ -963,7 +963,7 @@ it("Ec2Lists:Request", async () => {
 });
 
 /**
- * Serializes empty query lists
+ * Does not serialize empty query lists.
  */
 it("Ec2EmptyQueryLists:Request", async () => {
   const client = new EC2ProtocolClient({
@@ -992,7 +992,7 @@ it("Ec2EmptyQueryLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=QueryLists&Version=2020-01-08&ListArg=`;
+    const bodyString = `Action=QueryLists&Version=2020-01-08`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
