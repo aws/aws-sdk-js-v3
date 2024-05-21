@@ -47,6 +47,9 @@ export interface ListAvailableResourceDimensionsCommandOutput
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   AuthorizedActions: [ // AuthorizedActionsList
+ *     "DescribeDimensionKeys" || "GetDimensionKeyDetails" || "GetResourceMetrics",
+ *   ],
  * };
  * const command = new ListAvailableResourceDimensionsCommand(input);
  * const response = await client.send(command);

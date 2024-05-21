@@ -74,6 +74,7 @@ import {
   DescribeDimensionKeysResponse,
   DimensionGroup,
   DimensionKeyDescription,
+  FineGrainedAction,
   GetDimensionKeyDetailsRequest,
   GetPerformanceAnalysisReportRequest,
   GetPerformanceAnalysisReportResponse,
@@ -606,6 +607,8 @@ const de_NotAuthorizedExceptionRes = async (
 
 // se_AdditionalMetricsList omitted.
 
+// se_AuthorizedActionsList omitted.
+
 /**
  * serializeAws_json1_1CreatePerformanceAnalysisReportRequest
  */
@@ -689,7 +692,7 @@ const se_GetResourceMetricsRequest = (input: GetResourceMetricsRequest, context:
 
 // se_RequestedDimensionList omitted.
 
-// se_RequestStringList omitted.
+// se_SanitizedStringList omitted.
 
 // se_Tag omitted.
 
