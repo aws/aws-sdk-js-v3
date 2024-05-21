@@ -1,7 +1,7 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { FinalizeHandler, RequestSigner } from "@smithy/types";
+import type { FinalizeHandler, RequestSigner } from "@smithy/types";
 
-import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
+import type { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { awsAuthMiddleware } from "./awsAuthMiddleware";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";

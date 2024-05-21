@@ -1,4 +1,5 @@
-import { defaultProvider, DefaultProviderInit } from "@aws-sdk/credential-provider-node";
+import type { DefaultProviderInit } from "@aws-sdk/credential-provider-node";
+import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**

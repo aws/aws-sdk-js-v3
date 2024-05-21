@@ -1,5 +1,12 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
+import type {
+  Decoder,
+  Encoder,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  HttpRequest,
+  MessageSigner,
+} from "@smithy/types";
 import { PassThrough, Readable } from "stream";
 
 import { EventSigningStream } from "./EventSigningStream";

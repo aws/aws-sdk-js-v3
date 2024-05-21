@@ -28,5 +28,11 @@ module.exports = {
     /** Errors */
     "simple-import-sort/imports": "error",
     "sort-export-all/sort-export-all": "error",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        prefer: "type-imports",
+      },
+    ],
   },
 };

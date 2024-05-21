@@ -1,8 +1,9 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { iterableToReadableStream, readableStreamtoIterable } from "@smithy/eventstream-serde-browser";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
+import type { HttpRequest } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
+import type { Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
 
 import { isWebSocketRequest } from "./utils";
 

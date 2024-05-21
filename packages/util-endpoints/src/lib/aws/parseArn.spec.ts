@@ -1,4 +1,4 @@
-import { EndpointARN } from "@aws-sdk/types";
+import type { EndpointARN } from "@aws-sdk/types";
 
 import { parseArn } from "./parseArn";
 

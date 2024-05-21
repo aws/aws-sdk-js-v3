@@ -1,4 +1,4 @@
-import { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors } from "@smithy/node-config-provider";
 import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
 
 export const NODE_USE_ARN_REGION_ENV_NAME = "AWS_S3_USE_ARN_REGION";

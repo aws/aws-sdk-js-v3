@@ -1,4 +1,5 @@
-import { HostAddress, HostAddressType, HostResolver as IHostResolver, HostResolverArguments } from "@aws-sdk/types";
+import type { HostAddress, HostResolver as IHostResolver, HostResolverArguments } from "@aws-sdk/types";
+import { HostAddressType } from "@aws-sdk/types";
 import { promises as dnsPromises } from "dns";
 
 /**

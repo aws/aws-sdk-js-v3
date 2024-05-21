@@ -1,7 +1,7 @@
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
-import { ProcessCredentials } from "./ProcessCredentials";
+import type { ProcessCredentials } from "./ProcessCredentials";
 
 describe(getValidatedProcessCredentials.name, () => {
   const mockProfileName = "mockProfileName";

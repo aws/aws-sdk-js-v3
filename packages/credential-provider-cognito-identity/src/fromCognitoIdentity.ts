@@ -1,8 +1,8 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, Provider } from "@smithy/types";
+import type { AwsCredentialIdentity, Provider } from "@smithy/types";
 
-import { CognitoProviderParameters } from "./CognitoProviderParameters";
+import type { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { resolveLogins } from "./resolveLogins";
 
 /**

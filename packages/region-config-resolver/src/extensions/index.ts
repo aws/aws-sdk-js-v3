@@ -1,5 +1,5 @@
-import { AwsRegionExtensionConfiguration } from "@aws-sdk/types";
-import { Provider } from "@smithy/types";
+import type { AwsRegionExtensionConfiguration } from "@aws-sdk/types";
+import type { Provider } from "@smithy/types";
 
 export type RegionExtensionRuntimeConfigType = Partial<{ region: string | Provider<string> }>;
 

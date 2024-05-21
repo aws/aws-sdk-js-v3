@@ -1,4 +1,4 @@
-import { EndpointARN } from "@smithy/types";
+import type { EndpointARN } from "@smithy/types";
 
 /**
  * Evaluates a single string argument value, and returns an object containing

@@ -1,6 +1,7 @@
-import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { MessageHeaders, MessageSigner } from "@smithy/types";
-import { Transform, TransformCallback, TransformOptions } from "stream";
+import type { EventStreamCodec } from "@smithy/eventstream-codec";
+import type { MessageHeaders, MessageSigner } from "@smithy/types";
+import type { TransformCallback, TransformOptions } from "stream";
+import { Transform } from "stream";
 
 /**
  * @internal

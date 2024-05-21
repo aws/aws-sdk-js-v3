@@ -1,5 +1,11 @@
 import { HttpResponse } from "@smithy/protocol-http";
-import { DeserializeMiddleware, Encoder, Pluggable, RelativeMiddlewareOptions, StreamCollector } from "@smithy/types";
+import type {
+  DeserializeMiddleware,
+  Encoder,
+  Pluggable,
+  RelativeMiddlewareOptions,
+  StreamCollector,
+} from "@smithy/types";
 
 type PreviouslyResolved = {
   streamCollector: StreamCollector;

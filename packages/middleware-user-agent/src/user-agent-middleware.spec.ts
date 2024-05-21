@@ -1,6 +1,6 @@
 import { setPartitionInfo, useDefaultPartitionInfo } from "@aws-sdk/util-endpoints";
 import { HttpRequest } from "@smithy/protocol-http";
-import { UserAgentPair } from "@smithy/types";
+import type { UserAgentPair } from "@smithy/types";
 
 import { USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
 import { userAgentMiddleware } from "./user-agent-middleware";

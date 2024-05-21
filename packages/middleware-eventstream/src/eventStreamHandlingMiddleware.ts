@@ -1,7 +1,7 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { FinalizeRequestMiddleware, RelativeMiddlewareOptions } from "@smithy/types";
+import type { FinalizeRequestMiddleware, RelativeMiddlewareOptions } from "@smithy/types";
 
-import { EventStreamResolvedConfig } from "./eventStreamConfiguration";
+import type { EventStreamResolvedConfig } from "./eventStreamConfiguration";
 
 export const eventStreamHandlingMiddleware =
   (options: EventStreamResolvedConfig): FinalizeRequestMiddleware<any, any> =>

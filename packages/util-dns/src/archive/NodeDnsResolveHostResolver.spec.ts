@@ -1,4 +1,5 @@
-import { HostAddress, HostAddressType, HostResolverArguments } from "@aws-sdk/types";
+import type { HostAddress, HostResolverArguments } from "@aws-sdk/types";
+import { HostAddressType } from "@aws-sdk/types";
 
 import { NodeDnsResolveHostResolver } from "./NodeDnsResolveHostResolver";
 

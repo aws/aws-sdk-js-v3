@@ -1,6 +1,7 @@
-import * as fs from "fs";
-import { Upload } from "@aws-sdk/lib-storage";
 import { S3 } from "@aws-sdk/client-s3";
+import { Upload } from "@aws-sdk/lib-storage";
+import * as fs from "fs";
+
 import { configuration } from "./config";
 
 const fileStream = fs.createReadStream(__dirname + "/big.file");

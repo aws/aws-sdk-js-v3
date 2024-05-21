@@ -1,7 +1,7 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerOptions, BuildMiddleware, Pluggable, Provider } from "@smithy/types";
+import type { BuildHandlerOptions, BuildMiddleware, Pluggable, Provider } from "@smithy/types";
 
-import { S3ControlResolvedConfig } from "./configurations";
+import type { S3ControlResolvedConfig } from "./configurations";
 import { CONTEXT_SIGNING_SERVICE } from "./constants";
 import { getOutpostEndpoint } from "./process-arnables-plugin";
 

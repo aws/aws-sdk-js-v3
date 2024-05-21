@@ -1,5 +1,6 @@
-import { fromIni as _fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
+import { fromIni as _fromIni } from "@aws-sdk/credential-provider-ini";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * Creates a credential provider function that reads from a shared credentials file at `~/.aws/credentials` and a

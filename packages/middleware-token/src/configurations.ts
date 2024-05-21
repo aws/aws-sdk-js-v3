@@ -1,4 +1,4 @@
-import { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
+import type { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
 
 /**
  * @public

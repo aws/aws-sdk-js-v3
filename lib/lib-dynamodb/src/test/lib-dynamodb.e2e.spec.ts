@@ -1,21 +1,17 @@
-import {
-  BillingMode,
+import type {
   CreateTableCommandOutput,
   DeleteItemCommandOutput,
   DescribeTableCommandOutput,
-  DynamoDB,
   GetItemCommandOutput,
-  waitUntilTableExists,
 } from "@aws-sdk/client-dynamodb";
-import {
+import { BillingMode, DynamoDB, waitUntilTableExists } from "@aws-sdk/client-dynamodb";
+import type {
   BatchExecuteStatementCommandOutput,
   BatchGetCommandOutput,
   BatchWriteCommandOutput,
-  DynamoDBDocument,
   ExecuteStatementCommandOutput,
   ExecuteTransactionCommandOutput,
   GetCommandOutput,
-  NumberValue,
   PutCommandOutput,
   QueryCommandOutput,
   ScanCommandOutput,
@@ -23,6 +19,7 @@ import {
   TransactWriteCommandOutput,
   UpdateCommandOutput,
 } from "@aws-sdk/lib-dynamodb";
+import { DynamoDBDocument, NumberValue } from "@aws-sdk/lib-dynamodb";
 
 // expected running time: table creation (~20s) + operations 10s
 jest.setTimeout(180000);

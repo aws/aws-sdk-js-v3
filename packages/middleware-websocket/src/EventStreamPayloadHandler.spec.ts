@@ -2,7 +2,14 @@
  * @jest-environment jsdom
  */
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
+import type {
+  Decoder,
+  Encoder,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  HttpRequest,
+  MessageSigner,
+} from "@smithy/types";
 import { ReadableStream, TransformStream } from "web-streams-polyfill";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";

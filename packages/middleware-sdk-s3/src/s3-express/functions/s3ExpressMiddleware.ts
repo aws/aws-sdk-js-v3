@@ -1,6 +1,6 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
@@ -12,8 +12,8 @@ import {
 } from "@smithy/types";
 
 import { S3_EXPRESS_AUTH_SCHEME, S3_EXPRESS_BACKEND, S3_EXPRESS_BUCKET_TYPE, SESSION_TOKEN_HEADER } from "../constants";
-import { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
-import { S3ExpressIdentityProvider } from "../interfaces/S3ExpressIdentityProvider";
+import type { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
+import type { S3ExpressIdentityProvider } from "../interfaces/S3ExpressIdentityProvider";
 
 declare module "@smithy/types" {
   interface HandlerExecutionContext {

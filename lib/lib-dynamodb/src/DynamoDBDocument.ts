@@ -1,37 +1,41 @@
 // smithy-typescript generated code
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import {
-  BatchExecuteStatementCommand,
+import type {
   BatchExecuteStatementCommandInput,
   BatchExecuteStatementCommandOutput,
 } from "./commands/BatchExecuteStatementCommand";
-import { BatchGetCommand, BatchGetCommandInput, BatchGetCommandOutput } from "./commands/BatchGetCommand";
-import { BatchWriteCommand, BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
-import { DeleteCommand, DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
-import {
-  ExecuteStatementCommand,
-  ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput,
-} from "./commands/ExecuteStatementCommand";
-import {
-  ExecuteTransactionCommand,
+import { BatchExecuteStatementCommand } from "./commands/BatchExecuteStatementCommand";
+import type { BatchGetCommandInput, BatchGetCommandOutput } from "./commands/BatchGetCommand";
+import { BatchGetCommand } from "./commands/BatchGetCommand";
+import type { BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
+import { BatchWriteCommand } from "./commands/BatchWriteCommand";
+import type { DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
+import { DeleteCommand } from "./commands/DeleteCommand";
+import type { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "./commands/ExecuteStatementCommand";
+import { ExecuteStatementCommand } from "./commands/ExecuteStatementCommand";
+import type {
   ExecuteTransactionCommandInput,
   ExecuteTransactionCommandOutput,
 } from "./commands/ExecuteTransactionCommand";
-import { GetCommand, GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
-import { PutCommand, PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
-import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
-import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
-import { TransactGetCommand, TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
-import {
-  TransactWriteCommand,
-  TransactWriteCommandInput,
-  TransactWriteCommandOutput,
-} from "./commands/TransactWriteCommand";
-import { UpdateCommand, UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
-import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClient";
+import { ExecuteTransactionCommand } from "./commands/ExecuteTransactionCommand";
+import type { GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
+import { GetCommand } from "./commands/GetCommand";
+import type { PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
+import { PutCommand } from "./commands/PutCommand";
+import type { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
+import { QueryCommand } from "./commands/QueryCommand";
+import type { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
+import { ScanCommand } from "./commands/ScanCommand";
+import type { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
+import { TransactGetCommand } from "./commands/TransactGetCommand";
+import type { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
+import { TransactWriteCommand } from "./commands/TransactWriteCommand";
+import type { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
+import { UpdateCommand } from "./commands/UpdateCommand";
+import type { TranslateConfig } from "./DynamoDBDocumentClient";
+import { DynamoDBDocumentClient } from "./DynamoDBDocumentClient";
 
 /**
  * The document client simplifies working with items in Amazon DynamoDB by

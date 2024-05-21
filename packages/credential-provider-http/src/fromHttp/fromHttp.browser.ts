@@ -1,6 +1,6 @@
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { checkUrl } from "./checkUrl";
 import type { FromHttpOptions } from "./fromHttpTypes";

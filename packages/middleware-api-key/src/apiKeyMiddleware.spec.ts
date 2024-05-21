@@ -1,5 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { HttpAuthLocation, MiddlewareStack } from "@smithy/types";
+import type { MiddlewareStack } from "@smithy/types";
+import { HttpAuthLocation } from "@smithy/types";
 
 import { apiKeyMiddleware, getApiKeyPlugin } from "./index";
 

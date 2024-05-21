@@ -1,4 +1,4 @@
-import {
+import type {
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
@@ -8,7 +8,7 @@ import {
   Pluggable,
 } from "@smithy/types";
 
-import { LocationConstraintResolvedConfig } from "./configuration";
+import type { LocationConstraintResolvedConfig } from "./configuration";
 
 /**
  * This middleware modifies the input on S3 CreateBucket requests.  If the LocationConstraint has not been set, this

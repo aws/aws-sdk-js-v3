@@ -1,11 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToAttr } from "./convertToAttr";
-import { marshallOptions } from "./marshall";
-import { NativeAttributeValue } from "./models";
+import type { marshallOptions } from "./marshall";
+import type { NativeAttributeValue } from "./models";
 import { NumberValue } from "./NumberValue";
 
 describe("convertToAttr", () => {

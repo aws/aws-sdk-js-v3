@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 
-import { SsoProfile } from "./types";
+import type { SsoProfile } from "./types";
 
 /**
  * @internal

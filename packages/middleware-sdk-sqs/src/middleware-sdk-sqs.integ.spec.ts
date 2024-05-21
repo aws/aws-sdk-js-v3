@@ -1,5 +1,6 @@
 import { SQS } from "@aws-sdk/client-sqs";
-import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
+import type { HttpHandler } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import crypto from "crypto";
 import { Readable } from "stream";

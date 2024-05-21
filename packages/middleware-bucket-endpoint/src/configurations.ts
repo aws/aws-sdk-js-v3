@@ -1,4 +1,4 @@
-import { Provider, RegionInfoProvider } from "@smithy/types";
+import type { Provider, RegionInfoProvider } from "@smithy/types";
 
 export interface BucketEndpointInputConfig {
   /**

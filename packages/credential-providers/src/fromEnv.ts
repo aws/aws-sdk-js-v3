@@ -1,5 +1,6 @@
-import { fromEnv as _fromEnv, FromEnvInit } from "@aws-sdk/credential-provider-env";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { FromEnvInit } from "@aws-sdk/credential-provider-env";
+import { fromEnv as _fromEnv } from "@aws-sdk/credential-provider-env";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * Create a credential provider that reads credentials from the following environment variables:

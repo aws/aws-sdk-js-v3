@@ -1,4 +1,4 @@
-import { AbortSignal } from "./abort";
+import type { AbortSignal } from "./abort";
 
 // asserts that the global abortController signal is compatible with
 // our signal type.

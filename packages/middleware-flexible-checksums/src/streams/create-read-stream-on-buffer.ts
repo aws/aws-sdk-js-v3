@@ -1,4 +1,5 @@
-import { Readable, Transform } from "stream";
+import type { Readable } from "stream";
+import { Transform } from "stream";
 
 /**
  * Convert a buffer to a readable stream.

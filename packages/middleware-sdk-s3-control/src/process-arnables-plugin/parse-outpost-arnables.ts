@@ -6,11 +6,12 @@ import {
   validatePartition,
   validateRegion,
 } from "@aws-sdk/middleware-bucket-endpoint";
-import { ARN, parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
+import type { ARN } from "@aws-sdk/util-arn-parser";
+import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 import { partition } from "@aws-sdk/util-endpoints";
-import { InitializeHandlerOptions, InitializeMiddleware } from "@smithy/types";
+import type { InitializeHandlerOptions, InitializeMiddleware } from "@smithy/types";
 
-import { S3ControlResolvedConfig } from "../configurations";
+import type { S3ControlResolvedConfig } from "../configurations";
 import { CONTEXT_ARN_REGION, CONTEXT_OUTPOST_ID, CONTEXT_SIGNING_REGION, CONTEXT_SIGNING_SERVICE } from "../constants";
 
 type ArnableInput = {

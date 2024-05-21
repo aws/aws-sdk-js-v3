@@ -1,6 +1,6 @@
 import { IndexedDbStorage } from "./IndexedDbStorage";
 import { InMemoryStorage } from "./InMemoryStorage";
-import { Storage } from "./Storage";
+import type { Storage } from "./Storage";
 
 const inMemoryStorage = new InMemoryStorage();
 

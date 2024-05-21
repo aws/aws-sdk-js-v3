@@ -1,6 +1,8 @@
-import { HostAddress, HostAddressType } from "@aws-sdk/types";
+import type { HostAddress } from "@aws-sdk/types";
+import { HostAddressType } from "@aws-sdk/types";
 
-import { HostAddressEntry, HostEntry } from "./HostEntry";
+import type { HostAddressEntry } from "./HostEntry";
+import { HostEntry } from "./HostEntry";
 
 describe(HostEntry.name, () => {
   const HOST_ADDRESS_A_0 = {

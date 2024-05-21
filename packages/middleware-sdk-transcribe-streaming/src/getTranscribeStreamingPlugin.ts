@@ -1,4 +1,4 @@
-import { Pluggable, RequestHandler } from "@smithy/types";
+import type { Pluggable, RequestHandler } from "@smithy/types";
 
 import {
   injectResponseValuesMiddleware,

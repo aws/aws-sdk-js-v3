@@ -1,8 +1,8 @@
 import { AwsCrc32 } from "@aws-crypto/crc32";
 import { AwsCrc32c } from "@aws-crypto/crc32c";
-import { ChecksumConstructor, HashConstructor } from "@smithy/types";
+import type { ChecksumConstructor, HashConstructor } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 
 /**

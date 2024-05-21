@@ -1,4 +1,4 @@
-import { ChecksumConstructor } from "@smithy/types";
+import type { ChecksumConstructor } from "@smithy/types";
 
 import { receiveMessageMiddleware } from "./receive-message";
 

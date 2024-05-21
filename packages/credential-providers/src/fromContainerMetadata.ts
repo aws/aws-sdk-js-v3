@@ -1,9 +1,7 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
-import {
-  fromContainerMetadata as _fromContainerMetadata,
-  RemoteProviderInit as _RemoteProviderInit,
-} from "@smithy/credential-provider-imds";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { RemoteProviderInit as _RemoteProviderInit } from "@smithy/credential-provider-imds";
+import { fromContainerMetadata as _fromContainerMetadata } from "@smithy/credential-provider-imds";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export interface RemoteProviderInit extends _RemoteProviderInit, CredentialProviderOptions {}
 

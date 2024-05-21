@@ -1,6 +1,6 @@
-import { Pluggable } from "@smithy/types";
+import type { Pluggable } from "@smithy/types";
 
-import { S3ControlResolvedConfig } from "../configurations";
+import type { S3ControlResolvedConfig } from "../configurations";
 import { parseOutpostArnablesMiddleaware, parseOutpostArnablesMiddleawareOptions } from "./parse-outpost-arnables";
 import { updateArnablesRequestMiddleware, updateArnablesRequestMiddlewareOptions } from "./update-arnables-request";
 

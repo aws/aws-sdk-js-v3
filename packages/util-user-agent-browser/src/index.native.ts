@@ -1,6 +1,6 @@
-import { Provider, UserAgent } from "@smithy/types";
+import type { Provider, UserAgent } from "@smithy/types";
 
-import { DefaultUserAgentOptions } from "./configurations";
+import type { DefaultUserAgentOptions } from "./configurations";
 
 /**
  * @internal

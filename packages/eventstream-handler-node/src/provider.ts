@@ -1,11 +1,5 @@
-import {
-  Decoder,
-  Encoder,
-  EventSigner,
-  EventStreamPayloadHandlerProvider,
-  MessageSigner,
-  Provider,
-} from "@smithy/types";
+import type { Decoder, Encoder, EventStreamPayloadHandlerProvider, MessageSigner, Provider } from "@smithy/types";
+import { EventSigner } from "@smithy/types";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 

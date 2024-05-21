@@ -1,4 +1,4 @@
-import { UserAgentPair } from "@smithy/types";
+import type { UserAgentPair } from "@smithy/types";
 
 import { crtAvailability } from "./crt-availability";
 

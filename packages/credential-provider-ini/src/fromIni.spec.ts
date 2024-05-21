@@ -1,5 +1,5 @@
 import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 
 import { fromIni } from "./fromIni";
 import { resolveProfileData } from "./resolveProfileData";

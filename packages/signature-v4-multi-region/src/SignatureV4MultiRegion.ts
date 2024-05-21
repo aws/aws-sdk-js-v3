@@ -1,6 +1,6 @@
 import { SignatureV4S3Express } from "@aws-sdk/middleware-sdk-s3";
-import { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
-import {
+import type { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
+import type {
   AwsCredentialIdentity,
   HttpRequest,
   RequestPresigner,
@@ -9,7 +9,8 @@ import {
   RequestSigningArguments,
 } from "@smithy/types";
 
-import { OptionalCrtSignerV4, signatureV4CrtContainer } from "./signature-v4-crt-container";
+import type { OptionalCrtSignerV4 } from "./signature-v4-crt-container";
+import { signatureV4CrtContainer } from "./signature-v4-crt-container";
 
 /**
  * @internal

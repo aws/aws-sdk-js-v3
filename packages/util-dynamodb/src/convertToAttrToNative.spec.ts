@@ -3,7 +3,7 @@
  */
 import { convertToAttr } from "./convertToAttr";
 import { convertToNative } from "./convertToNative";
-import { NativeAttributeValue } from "./models";
+import type { NativeAttributeValue } from "./models";
 
 describe("convertToAttrToNative", () => {
   describe("null", () => {

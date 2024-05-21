@@ -1,5 +1,5 @@
-import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { MessageHeaders, MessageSigner } from "@smithy/types";
+import type { EventStreamCodec } from "@smithy/eventstream-codec";
+import type { MessageHeaders, MessageSigner } from "@smithy/types";
 import { fromHex } from "@smithy/util-hex-encoding";
 
 /**

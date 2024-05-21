@@ -1,7 +1,7 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerArguments } from "@smithy/types";
+import type { BuildHandlerArguments } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";

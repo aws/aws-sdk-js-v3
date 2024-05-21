@@ -1,7 +1,7 @@
-import { BuildHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@smithy/types";
+import type { BuildHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@smithy/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
-import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
+import type { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 
 export const endpointDiscoveryMiddlewareOptions: BuildHandlerOptions = {
   name: "endpointDiscoveryMiddleware",

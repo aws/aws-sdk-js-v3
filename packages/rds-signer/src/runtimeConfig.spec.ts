@@ -1,6 +1,6 @@
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 import { getRuntimeConfig as getRnRuntimeConfig } from "./runtimeConfig.native";
-import { SignerConfig } from "./Signer";
+import type { SignerConfig } from "./Signer";
 
 describe("getRuntimeConfig", () => {
   it.each([

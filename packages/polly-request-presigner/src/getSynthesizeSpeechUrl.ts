@@ -1,4 +1,5 @@
-import { PollyClient, SynthesizeSpeechCommand, SynthesizeSpeechInput } from "@aws-sdk/client-polly";
+import type { PollyClient, SynthesizeSpeechInput } from "@aws-sdk/client-polly";
+import { SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 
 import { getSignedUrl } from "./getSignedUrls";
 

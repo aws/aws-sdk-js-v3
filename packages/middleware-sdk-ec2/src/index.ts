@@ -3,7 +3,7 @@ import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-en
 import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
-import {
+import type {
   AwsCredentialIdentity,
   ChecksumConstructor,
   Endpoint,

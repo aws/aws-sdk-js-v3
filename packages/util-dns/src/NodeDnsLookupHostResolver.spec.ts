@@ -1,5 +1,6 @@
-import { HostAddress, HostAddressType, HostResolverArguments } from "@aws-sdk/types";
-import { LookupAddress } from "dns";
+import type { HostAddress, HostResolverArguments } from "@aws-sdk/types";
+import { HostAddressType } from "@aws-sdk/types";
+import type { LookupAddress } from "dns";
 
 import { NodeDnsLookupHostResolver } from "./NodeDnsLookupHostResolver";
 import { HostEntryTable } from "./util/HostEntryTable";

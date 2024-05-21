@@ -1,8 +1,8 @@
 import { constructStack } from "@smithy/middleware-stack";
 import { HttpRequest } from "@smithy/protocol-http";
-import { Provider, RegionInfo } from "@smithy/types";
+import type { Provider, RegionInfo } from "@smithy/types";
 
-import { S3ControlResolvedConfig } from "../configurations";
+import type { S3ControlResolvedConfig } from "../configurations";
 import { getProcessArnablesPlugin } from "./getProcessArnablesPlugin";
 
 describe("getProcessArnablesMiddleware", () => {

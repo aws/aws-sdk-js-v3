@@ -1,7 +1,8 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import { getProfileName, loadSsoSessionData, parseKnownFiles } from "@smithy/shared-ini-file-loader";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { isSsoProfile } from "./isSsoProfile";
 import type { SSOClient, SSOClientConfig } from "./loadSso";

@@ -1,5 +1,5 @@
-import { TokenIdentity } from "./identity";
-import { Provider } from "./util";
+import type { TokenIdentity } from "./identity";
+import type { Provider } from "./util";
 
 /**
  * @public

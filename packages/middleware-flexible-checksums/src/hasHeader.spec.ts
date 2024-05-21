@@ -1,4 +1,4 @@
-import { HeaderBag } from "@smithy/types";
+import type { HeaderBag } from "@smithy/types";
 
 import { hasHeader } from "./hasHeader";
 

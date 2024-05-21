@@ -1,4 +1,4 @@
-import { SSOClient } from "@aws-sdk/client-sso";
+import type { SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
 

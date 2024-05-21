@@ -1,8 +1,8 @@
-import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import type { NativeAttributeValue, NumberValue as INumberValue } from "./models";
 import { NumberValue } from "./NumberValue";
-import { unmarshallOptions } from "./unmarshall";
+import type { unmarshallOptions } from "./unmarshall";
 
 /**
  * Convert a DynamoDB AttributeValue object to its equivalent JavaScript type.

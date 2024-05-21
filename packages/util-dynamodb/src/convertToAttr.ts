@@ -1,7 +1,7 @@
-import { AttributeValue } from "@aws-sdk/client-dynamodb";
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import { marshallOptions } from "./marshall";
-import { NativeAttributeBinary, NativeAttributeValue } from "./models";
+import type { marshallOptions } from "./marshall";
+import type { NativeAttributeBinary, NativeAttributeValue } from "./models";
 import { NumberValue } from "./NumberValue";
 
 /**

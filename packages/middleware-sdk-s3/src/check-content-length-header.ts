@@ -1,6 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { NoOpLogger } from "@smithy/smithy-client";
-import {
+import type {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,

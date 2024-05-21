@@ -1,4 +1,4 @@
-import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
+import type { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";

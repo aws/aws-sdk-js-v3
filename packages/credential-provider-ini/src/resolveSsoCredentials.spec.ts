@@ -1,5 +1,5 @@
 import { fromSSO, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 

@@ -1,4 +1,4 @@
-import { Identity } from "./Identity";
+import type { Identity } from "./Identity";
 
 /**
  * @public

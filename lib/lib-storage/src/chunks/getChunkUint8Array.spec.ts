@@ -1,5 +1,5 @@
 import { byteLength } from "../bytelength";
-import { RawDataPart } from "../Upload";
+import type { RawDataPart } from "../Upload";
 import { getChunkUint8Array } from "./getChunkUint8Array";
 
 describe(getChunkUint8Array.name, () => {

@@ -1,4 +1,4 @@
-import { ChecksumConstructor, Encoder, HashConstructor, StreamHasher } from "@smithy/types";
+import type { ChecksumConstructor, Encoder, HashConstructor, StreamHasher } from "@smithy/types";
 
 import { isStreaming } from "./isStreaming";
 import { stringHasher } from "./stringHasher";

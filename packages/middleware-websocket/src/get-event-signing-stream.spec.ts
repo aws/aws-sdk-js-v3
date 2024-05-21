@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { Message, MessageHeaders, SignedMessage } from "@smithy/types";
+import type { Message, MessageHeaders, SignedMessage } from "@smithy/types";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { TransformStream } from "web-streams-polyfill";
 

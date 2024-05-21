@@ -1,16 +1,16 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   FinalizeRequestMiddleware,
   HandlerExecutionContext,
   HttpAuthDefinition,
-  HttpAuthLocation,
   RelativeMiddlewareOptions,
 } from "@smithy/types";
+import { HttpAuthLocation } from "@smithy/types";
 
-import { TokenResolvedConfig } from "./configurations";
+import type { TokenResolvedConfig } from "./configurations";
 
 /**
  * @internal

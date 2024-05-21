@@ -1,6 +1,6 @@
-import { Pluggable } from "@smithy/types";
+import type { Pluggable } from "@smithy/types";
 
-import { TokenResolvedConfig } from "./configurations";
+import type { TokenResolvedConfig } from "./configurations";
 import { tokenMiddleware, tokenMiddlewareOptions } from "./tokenMiddleware";
 
 /**
