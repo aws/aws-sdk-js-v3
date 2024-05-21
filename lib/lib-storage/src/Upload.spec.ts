@@ -711,4 +711,16 @@ describe(Upload.name, () => {
       expect(error).toBeDefined();
     }
   });
+
+  it("should reject calling .done() more than once on an instance", async () => {
+    const upload = new Upload({
+      params,
+      client: new S3({}),
+    });
+
+    await upload.done();
+    expect(() => upload.done()).rejects.toEqual(
+      new Error("@aws-sdk/lib-storage: this instance of Upload has already executed .done(). Create a new instance.")
+    );
+  });
 });

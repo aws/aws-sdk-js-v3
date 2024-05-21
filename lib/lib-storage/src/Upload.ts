@@ -70,6 +70,7 @@ export class Upload extends EventEmitter {
 
   private isMultiPart = true;
   private singleUploadResult?: CompleteMultipartUploadCommandOutput;
+  private sent = false;
 
   constructor(options: Options) {
     super();
@@ -100,6 +101,12 @@ export class Upload extends EventEmitter {
   }
 
   public async done(): Promise<CompleteMultipartUploadCommandOutput> {
+    if (this.sent) {
+      throw new Error(
+        "@aws-sdk/lib-storage: this instance of Upload has already executed .done(). Create a new instance."
+      );
+    }
+    this.sent = true;
     return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortController.signal)]);
   }
 
