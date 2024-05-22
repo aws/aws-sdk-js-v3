@@ -23,6 +23,57 @@ import {
 /**
  * @public
  */
+export interface SetTypeConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
+   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API operation in this account
+   *    and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a> API operation in this account
+   *    and Region.</p>
+   *          <p>Do not include the extension versions suffix at the end of the ARN. You can set the configuration for an
+   *    extension, but not for a specific extension version.</p>
+   * @public
+   */
+  TypeArn?: string;
+
+  /**
+   * <p>The configuration data for the extension, in this account and Region.</p>
+   *          <p>The configuration data must be formatted as JSON, and validate against the schema returned in the
+   *     <code>ConfigurationSchema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For more information, see
+   *     <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
+   *     account-level configuration data for an extension</a> in the <i>CloudFormation CLI User
+   *    Guide</i>.</p>
+   * @public
+   */
+  Configuration: string | undefined;
+
+  /**
+   * <p>An alias by which to refer to this extension configuration data.</p>
+   *          <p>Conditional: Specifying a configuration alias is required when setting a configuration for a resource type
+   *    extension.</p>
+   * @public
+   */
+  ConfigurationAlias?: string;
+
+  /**
+   * <p>The name of the extension.</p>
+   *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
+   *    <code>TypeName</code>.</p>
+   * @public
+   */
+  TypeName?: string;
+
+  /**
+   * <p>The type of extension.</p>
+   *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
+   *    <code>TypeName</code>.</p>
+   * @public
+   */
+  Type?: ThirdPartyType;
+}
+
+/**
+ * @public
+ */
 export interface SetTypeConfigurationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) for the configuration data, in this account and Region.</p>

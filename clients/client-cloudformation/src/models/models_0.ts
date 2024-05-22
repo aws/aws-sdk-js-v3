@@ -2777,7 +2777,7 @@ export interface StackSetOperationPreferences {
    *                   <code>STRICT_FAILURE_TOLERANCE</code>: This option dynamically lowers the concurrency level to ensure the
    *      number of failed accounts never exceeds the value of <code>FailureToleranceCount</code> +1. The initial actual
    *      concurrency is set to the lower of either the value of the <code>MaxConcurrentCount</code>, or the value of
-   *       <code>MaxConcurrentCount</code> +1. The actual concurrency is then reduced proportionally by the number of
+   *      <code>FailureToleranceCount</code> +1. The actual concurrency is then reduced proportionally by the number of
    *      failures. This is the default behavior.</p>
    *                <p>If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.</p>
    *             </li>
@@ -3447,6 +3447,20 @@ export class GeneratedTemplateNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DeletionMode = {
+  FORCE_DELETE_STACK: "FORCE_DELETE_STACK",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionMode = (typeof DeletionMode)[keyof typeof DeletionMode];
+
+/**
  * <p>The input for <a>DeleteStack</a> action.</p>
  * @public
  */
@@ -3492,6 +3506,24 @@ export interface DeleteStackInput {
    * @public
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies the deletion mode for the stack. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code> - Use the standard behavior. Specifying this value is the same as not specifying this
+   *      parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORCE_DELETE_STACK</code> - Delete the stack if it's stuck in a <code>DELETE_FAILED</code> state due to
+   *      resource deletion failure.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DeletionMode?: DeletionMode;
 }
 
 /**
@@ -6189,6 +6221,24 @@ export interface Stack {
   RetainExceptOnCreate?: boolean;
 
   /**
+   * <p>Specifies the deletion mode for the stack. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code> - Use the standard behavior. Specifying this value is the same as not specifying this
+   *      parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FORCE_DELETE_STACK</code> - Delete the stack if it's stuck in a <code>DELETE_FAILED</code> state due to
+   *      resource deletion failure.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DeletionMode?: DeletionMode;
+
+  /**
    * <p>The detailed status of the resource or stack. If <code>CONFIGURATION_COMPLETE</code> is present, the resource or
    *    resource configuration phase has completed and the stabilization of the resources is in progress. The stack sets
    *    <code>CONFIGURATION_COMPLETE</code> when all of the resources in the stack have reached that event. For more
@@ -8809,8 +8859,8 @@ export interface StackInstanceResourceDriftsSummary {
  */
 export interface ListStackInstanceResourceDriftsOutput {
   /**
-   * <p>A list of <code>StackInstanceResourceDriftSummary</code> structures that contain information about the specified
-   *    stack instances.</p>
+   * <p>A list of <code>StackInstanceResourceDriftsSummary</code> structures that contain information about the
+   *    specified stack instances.</p>
    * @public
    */
   Summaries?: StackInstanceResourceDriftsSummary[];
@@ -10940,55 +10990,4 @@ export interface SetStackPolicyInput {
    * @public
    */
   StackPolicyURL?: string;
-}
-
-/**
- * @public
- */
-export interface SetTypeConfigurationInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
-   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API operation in this account
-   *    and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a> API operation in this account
-   *    and Region.</p>
-   *          <p>Do not include the extension versions suffix at the end of the ARN. You can set the configuration for an
-   *    extension, but not for a specific extension version.</p>
-   * @public
-   */
-  TypeArn?: string;
-
-  /**
-   * <p>The configuration data for the extension, in this account and Region.</p>
-   *          <p>The configuration data must be formatted as JSON, and validate against the schema returned in the
-   *     <code>ConfigurationSchema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For more information, see
-   *     <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
-   *     account-level configuration data for an extension</a> in the <i>CloudFormation CLI User
-   *    Guide</i>.</p>
-   * @public
-   */
-  Configuration: string | undefined;
-
-  /**
-   * <p>An alias by which to refer to this extension configuration data.</p>
-   *          <p>Conditional: Specifying a configuration alias is required when setting a configuration for a resource type
-   *    extension.</p>
-   * @public
-   */
-  ConfigurationAlias?: string;
-
-  /**
-   * <p>The name of the extension.</p>
-   *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
-   *    <code>TypeName</code>.</p>
-   * @public
-   */
-  TypeName?: string;
-
-  /**
-   * <p>The type of extension.</p>
-   *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
-   *    <code>TypeName</code>.</p>
-   * @public
-   */
-  Type?: ThirdPartyType;
 }

@@ -42,6 +42,7 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  *   ],
  *   RoleARN: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",
+ *   DeletionMode: "STANDARD" || "FORCE_DELETE_STACK",
  * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);

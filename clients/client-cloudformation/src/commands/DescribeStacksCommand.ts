@@ -105,6 +105,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * //         LastCheckTimestamp: new Date("TIMESTAMP"),
  * //       },
  * //       RetainExceptOnCreate: true || false,
+ * //       DeletionMode: "STANDARD" || "FORCE_DELETE_STACK",
  * //       DetailedStatus: "CONFIGURATION_COMPLETE" || "VALIDATION_FAILED",
  * //     },
  * //   ],
