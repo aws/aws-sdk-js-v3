@@ -96,6 +96,12 @@ import {
   ListMicrosoftTeamsUserIdentitiesCommandOutput,
 } from "../commands/ListMicrosoftTeamsUserIdentitiesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
   UpdateAccountPreferencesCommandInput,
   UpdateAccountPreferencesCommandOutput,
 } from "../commands/UpdateAccountPreferencesCommand";
@@ -130,6 +136,7 @@ import {
   DescribeSlackWorkspacesException,
   GetAccountPreferencesException,
   GetTeamsChannelConfigurationException,
+  InternalServiceError,
   InvalidParameterException,
   InvalidRequestException,
   LimitExceededException,
@@ -137,6 +144,9 @@ import {
   ListMicrosoftTeamsUserIdentitiesException,
   ListTeamsChannelConfigurationsException,
   ResourceNotFoundException,
+  ServiceUnavailableException,
+  Tag,
+  TooManyTagsException,
   UpdateAccountPreferencesException,
   UpdateChimeWebhookConfigurationException,
   UpdateSlackChannelConfigurationException,
@@ -162,6 +172,7 @@ export const se_CreateChimeWebhookConfigurationCommand = async (
       IamRoleArn: [],
       LoggingLevel: [],
       SnsTopicArns: (_) => _json(_),
+      Tags: (_) => _json(_),
       WebhookDescription: [],
       WebhookUrl: [],
     })
@@ -192,6 +203,7 @@ export const se_CreateMicrosoftTeamsChannelConfigurationCommand = async (
       IamRoleArn: [],
       LoggingLevel: [],
       SnsTopicArns: (_) => _json(_),
+      Tags: (_) => _json(_),
       TeamId: [],
       TeamName: [],
       TenantId: [],
@@ -225,6 +237,7 @@ export const se_CreateSlackChannelConfigurationCommand = async (
       SlackChannelName: [],
       SlackTeamId: [],
       SnsTopicArns: (_) => _json(_),
+      Tags: (_) => _json(_),
       UserAuthorizationRequired: [],
     })
   );
@@ -589,6 +602,74 @@ export const se_ListMicrosoftTeamsUserIdentitiesCommand = async (
       ChatConfigurationArn: [],
       MaxResults: [],
       NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-tags-for-resource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tag-resource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/untag-resource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceARN: [],
+      TagKeys: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1082,6 +1163,61 @@ export const de_ListMicrosoftTeamsUserIdentitiesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateAccountPreferencesCommand
  */
 export const de_UpdateAccountPreferencesCommand = async (
@@ -1247,6 +1383,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ListMicrosoftTeamsUserIdentitiesException":
     case "com.amazonaws.chatbot#ListMicrosoftTeamsUserIdentitiesException":
       throw await de_ListMicrosoftTeamsUserIdentitiesExceptionRes(parsedOutput, context);
+    case "InternalServiceError":
+    case "com.amazonaws.chatbot#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chatbot#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.chatbot#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "UpdateAccountPreferencesException":
     case "com.amazonaws.chatbot#UpdateAccountPreferencesException":
       throw await de_UpdateAccountPreferencesExceptionRes(parsedOutput, context);
@@ -1608,6 +1753,26 @@ const de_GetTeamsChannelConfigurationExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1InternalServiceErrorRes
+ */
+const de_InternalServiceErrorRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServiceError> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServiceError({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InvalidParameterExceptionRes
  */
 const de_InvalidParameterExceptionRes = async (
@@ -1748,6 +1913,46 @@ const de_ResourceNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1UpdateAccountPreferencesExceptionRes
  */
 const de_UpdateAccountPreferencesExceptionRes = async (
@@ -1831,6 +2036,14 @@ const de_UpdateTeamsChannelConfigurationExceptionRes = async (
 
 // se_SnsTopicArnList omitted.
 
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_Tags omitted.
+
 // de_AccountPreferences omitted.
 
 // de_ChimeWebhookConfiguration omitted.
@@ -1856,6 +2069,12 @@ const de_UpdateTeamsChannelConfigurationExceptionRes = async (
 // de_SlackWorkspacesList omitted.
 
 // de_SnsTopicArnList omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_Tags omitted.
 
 // de_TeamChannelConfigurationsList omitted.
 

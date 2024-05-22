@@ -61,6 +61,12 @@ export interface UpdateChimeWebhookConfigurationCommandOutput
  * //     ],
  * //     ConfigurationName: "STRING_VALUE",
  * //     LoggingLevel: "STRING_VALUE",
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         TagKey: "STRING_VALUE", // required
+ * //         TagValue: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -130,6 +130,12 @@ import {
   ListMicrosoftTeamsUserIdentitiesCommandOutput,
 } from "./commands/ListMicrosoftTeamsUserIdentitiesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
   UpdateAccountPreferencesCommandInput,
   UpdateAccountPreferencesCommandOutput,
 } from "./commands/UpdateAccountPreferencesCommand";
@@ -179,6 +185,9 @@ export type ServiceInputTypes =
   | ListMicrosoftTeamsChannelConfigurationsCommandInput
   | ListMicrosoftTeamsConfiguredTeamsCommandInput
   | ListMicrosoftTeamsUserIdentitiesCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAccountPreferencesCommandInput
   | UpdateChimeWebhookConfigurationCommandInput
   | UpdateMicrosoftTeamsChannelConfigurationCommandInput
@@ -207,6 +216,9 @@ export type ServiceOutputTypes =
   | ListMicrosoftTeamsChannelConfigurationsCommandOutput
   | ListMicrosoftTeamsConfiguredTeamsCommandOutput
   | ListMicrosoftTeamsUserIdentitiesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAccountPreferencesCommandOutput
   | UpdateChimeWebhookConfigurationCommandOutput
   | UpdateMicrosoftTeamsChannelConfigurationCommandOutput

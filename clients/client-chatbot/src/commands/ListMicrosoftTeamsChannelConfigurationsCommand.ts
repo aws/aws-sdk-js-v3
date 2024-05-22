@@ -66,6 +66,12 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       UserAuthorizationRequired: true || false,
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           TagKey: "STRING_VALUE", // required
+ * //           TagValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };
