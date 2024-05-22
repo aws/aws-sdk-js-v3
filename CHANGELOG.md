@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.582.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.581.0...v3.582.0) (2024-05-22)
+
+
+### Bug Fixes
+
+* **client-ec2:** ec2 query no longer serialize empty lists ([#6119](https://github.com/aws/aws-sdk-js-v3/issues/6119)) ([d4b286c](https://github.com/aws/aws-sdk-js-v3/commit/d4b286c6cc63b6281cfb3bedf5c519fa0c5020d9))
+* **lib-storage:** call AbortMultipartUpload when failing to CompleteMultipartUpload ([#6112](https://github.com/aws/aws-sdk-js-v3/issues/6112)) ([b5288e6](https://github.com/aws/aws-sdk-js-v3/commit/b5288e687badabc8e55cafdb1756cb9519734de7))
+
+
+### Features
+
+* **client-chatbot:** This change adds support for tagging Chatbot configurations. ([23a0082](https://github.com/aws/aws-sdk-js-v3/commit/23a00825ee0bf41d07e1ff2226ae23c475c31670))
+* **client-cloudformation:** Added DeletionMode FORCE_DELETE_STACK for deleting a stack that is stuck in DELETE_FAILED state due to resource deletion failure. ([6f0caf6](https://github.com/aws/aws-sdk-js-v3/commit/6f0caf648ea9251f51e4c1e7cbd0a88a141874d5))
+* **client-kms:** This release includes feature to import customer's asymmetric (RSA, ECC and SM2) and HMAC keys into KMS in China. ([1489723](https://github.com/aws/aws-sdk-js-v3/commit/1489723eaa5ac701dae63f06577105c2af93f044))
+* **client-opensearch:** This release adds support for enabling or disabling a data source configured as part of Zero-ETL integration with Amazon S3, by setting its status. ([4f00d79](https://github.com/aws/aws-sdk-js-v3/commit/4f00d795caa26b361c0124b79ba3a28987a7a0fa))
+* **client-wafv2:** You can now use Security Lake to collect web ACL traffic data. ([0292fb4](https://github.com/aws/aws-sdk-js-v3/commit/0292fb4a465619c6bc91a374ceaddef9fc34e0de))
+* **clients:** update client endpoints as of 2024-05-22 ([634eea7](https://github.com/aws/aws-sdk-js-v3/commit/634eea716d6acae0942f60490bf62eb807f6ede6))
+
+
+
+
+
 # [3.581.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.580.0...v3.581.0) (2024-05-21)
 
 

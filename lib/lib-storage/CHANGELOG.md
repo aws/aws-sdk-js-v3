@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.582.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.581.0...v3.582.0) (2024-05-22)
+
+
+### Bug Fixes
+
+* **lib-storage:** call AbortMultipartUpload when failing to CompleteMultipartUpload ([#6112](https://github.com/aws/aws-sdk-js-v3/issues/6112)) ([b5288e6](https://github.com/aws/aws-sdk-js-v3/commit/b5288e687badabc8e55cafdb1756cb9519734de7))
+
+
+
+
+
 # [3.578.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.577.0...v3.578.0) (2024-05-16)
 
 

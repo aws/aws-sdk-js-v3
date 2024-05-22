@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.582.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.581.0...v3.582.0) (2024-05-22)
+
+
+### Features
+
+* **client-opensearch:** This release adds support for enabling or disabling a data source configured as part of Zero-ETL integration with Amazon S3, by setting its status. ([4f00d79](https://github.com/aws/aws-sdk-js-v3/commit/4f00d795caa26b361c0124b79ba3a28987a7a0fa))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.582.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.581.0...v3.582.0) (2024-05-22)
+
+
+### Features
+
+* **client-cloudformation:** Added DeletionMode FORCE_DELETE_STACK for deleting a stack that is stuck in DELETE_FAILED state due to resource deletion failure. ([6f0caf6](https://github.com/aws/aws-sdk-js-v3/commit/6f0caf648ea9251f51e4c1e7cbd0a88a141874d5))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

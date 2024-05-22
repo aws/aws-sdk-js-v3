@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.582.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.581.0...v3.582.0) (2024-05-22)
+
+
+### Bug Fixes
+
+* **client-ec2:** ec2 query no longer serialize empty lists ([#6119](https://github.com/aws/aws-sdk-js-v3/issues/6119)) ([d4b286c](https://github.com/aws/aws-sdk-js-v3/commit/d4b286c6cc63b6281cfb3bedf5c519fa0c5020d9))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

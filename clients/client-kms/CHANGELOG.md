@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.582.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.581.0...v3.582.0) (2024-05-22)
+
+
+### Features
+
+* **client-kms:** This release includes feature to import customer's asymmetric (RSA, ECC and SM2) and HMAC keys into KMS in China. ([1489723](https://github.com/aws/aws-sdk-js-v3/commit/1489723eaa5ac701dae63f06577105c2af93f044))
+
+
+
+
+
 # [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
 
 **Note:** Version bump only for package @aws-sdk/client-kms
