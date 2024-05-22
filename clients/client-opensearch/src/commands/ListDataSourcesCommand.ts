@@ -51,6 +51,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //       },
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "DISABLED",
  * //     },
  * //   ],
  * // };

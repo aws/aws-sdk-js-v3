@@ -2487,7 +2487,7 @@ export interface DomainStatus {
   Endpoints?: Record<string, string>;
 
   /**
-   * <p>The DualStack Hosted Zone Id for the domain. </p>
+   * <p>The dual stack hosted zone ID for the domain. </p>
    * @public
    */
   DomainEndpointV2HostedZoneId?: string;
@@ -5633,6 +5633,20 @@ export interface GetDataSourceRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DataSourceStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
+
+/**
  * <p>The result of a <code>GetDataSource</code> operation.</p>
  * @public
  */
@@ -5654,6 +5668,12 @@ export interface GetDataSourceResponse {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The status of the data source response.</p>
+   * @public
+   */
+  Status?: DataSourceStatus;
 }
 
 /**
@@ -6084,6 +6104,12 @@ export interface DataSourceDetails {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The status of the data source.</p>
+   * @public
+   */
+  Status?: DataSourceStatus;
 }
 
 /**
@@ -7033,6 +7059,12 @@ export interface UpdateDataSourceRequest {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The status of the data source update request.</p>
+   * @public
+   */
+  Status?: DataSourceStatus;
 }
 
 /**

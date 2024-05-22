@@ -44,6 +44,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *     },
  *   },
  *   Description: "STRING_VALUE",
+ *   Status: "ACTIVE" || "DISABLED",
  * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
