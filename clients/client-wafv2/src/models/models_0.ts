@@ -449,7 +449,7 @@ export const FallbackBehavior = {
 export type FallbackBehavior = (typeof FallbackBehavior)[keyof typeof FallbackBehavior];
 
 /**
- * <p>Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
+ * <p>Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
  * 						request that has enough TLS Client Hello information for the calculation. Almost
  *                         all web requests include this information.</p>
  *          <note>
@@ -763,6 +763,10 @@ export interface UriPath {}
  *                      <p>In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect,
  *                       but for field redaction, you are specifying the component type to redact from the logs. </p>
  *                   </li>
+ *                   <li>
+ *                      <p>If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling.
+ *                   The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration. </p>
+ *                   </li>
  *                </ul>
  *             </li>
  *          </ul>
@@ -898,7 +902,7 @@ export interface FieldToMatch {
   HeaderOrder?: HeaderOrder;
 
   /**
-   * <p>Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
+   * <p>Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
    * 						request that has enough TLS Client Hello information for the calculation. Almost
    *                         all web requests include this information.</p>
    *          <note>
@@ -1013,7 +1017,7 @@ export interface ByteMatchStatement {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>JA3Fingerprint</code>: Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
+   *                   <code>JA3Fingerprint</code>: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
    *        <code>EXACTLY</code>. </p>
    *                <p>You can obtain the JA3 fingerprint for client requests from the web ACL logs.
    * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
@@ -3493,6 +3497,10 @@ export interface VisibilityConfig {
   /**
    * <p>Indicates whether WAF should store a sampling of the web requests that
    *          match the rules. You can view the sampled requests through the WAF console. </p>
+   *          <note>
+   *             <p>Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling.
+   *                   The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration. </p>
+   *          </note>
    * @public
    */
   SampledRequestsEnabled: boolean | undefined;
@@ -4369,6 +4377,33 @@ export class WAFAssociatedItemException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const LogScope = {
+  CUSTOMER: "CUSTOMER",
+  SECURITY_LAKE: "SECURITY_LAKE",
+} as const;
+
+/**
+ * @public
+ */
+export type LogScope = (typeof LogScope)[keyof typeof LogScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogType = {
+  WAF_LOGS: "WAF_LOGS",
+} as const;
+
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
  */
 export interface DeleteLoggingConfigurationRequest {
   /**
@@ -4376,6 +4411,25 @@ export interface DeleteLoggingConfigurationRequest {
    * @public
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Used to distinguish between various logging options. Currently, there is one option.</p>
+   *          <p>Default: <code>WAF_LOGS</code>
+   *          </p>
+   * @public
+   */
+  LogType?: LogType;
+
+  /**
+   * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
+   *          <p>The log scope <code>SECURITY_LAKE</code> indicates a configuration that is managed through Amazon Security Lake. You can use Security Lake to collect log and event data from various sources for normalization, analysis, and management. For information, see
+   *        <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting data from Amazon Web Services services</a>
+   *        in the <i>Amazon Security Lake user guide</i>. </p>
+   *          <p>Default: <code>CUSTOMER</code>
+   *          </p>
+   * @public
+   */
+  LogScope?: LogScope;
 }
 
 /**
@@ -5091,6 +5145,25 @@ export interface GetLoggingConfigurationRequest {
    * @public
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Used to distinguish between various logging options. Currently, there is one option.</p>
+   *          <p>Default: <code>WAF_LOGS</code>
+   *          </p>
+   * @public
+   */
+  LogType?: LogType;
+
+  /**
+   * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
+   *          <p>The log scope <code>SECURITY_LAKE</code> indicates a configuration that is managed through Amazon Security Lake. You can use Security Lake to collect log and event data from various sources for normalization, analysis, and management. For information, see
+   *        <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting data from Amazon Web Services services</a>
+   *        in the <i>Amazon Security Lake user guide</i>. </p>
+   *          <p>Default: <code>CUSTOMER</code>
+   *          </p>
+   * @public
+   */
+  LogScope?: LogScope;
 }
 
 /**
@@ -5264,6 +5337,10 @@ export interface LoggingConfiguration {
    *             <p>You can specify only the following fields for redaction: <code>UriPath</code>,
    *          <code>QueryString</code>, <code>SingleHeader</code>, and <code>Method</code>.</p>
    *          </note>
+   *          <note>
+   *             <p>This setting has no impact on request sampling. With request sampling,
+   *                 the only way to exclude fields is by disabling sampling in the web ACL visibility configuration. </p>
+   *          </note>
    * @public
    */
   RedactedFields?: FieldToMatch[];
@@ -5283,6 +5360,25 @@ export interface LoggingConfiguration {
    * @public
    */
   LoggingFilter?: LoggingFilter;
+
+  /**
+   * <p>Used to distinguish between various logging options. Currently, there is one option.</p>
+   *          <p>Default: <code>WAF_LOGS</code>
+   *          </p>
+   * @public
+   */
+  LogType?: LogType;
+
+  /**
+   * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
+   *          <p>The log scope <code>SECURITY_LAKE</code> indicates a configuration that is managed through Amazon Security Lake. You can use Security Lake to collect log and event data from various sources for normalization, analysis, and management. For information, see
+   *        <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting data from Amazon Web Services services</a>
+   *        in the <i>Amazon Security Lake user guide</i>. </p>
+   *          <p>Default: <code>CUSTOMER</code>
+   *          </p>
+   * @public
+   */
+  LogScope?: LogScope;
 }
 
 /**
@@ -6557,6 +6653,17 @@ export interface ListLoggingConfigurationsRequest {
    * @public
    */
   Limit?: number;
+
+  /**
+   * <p>The owner of the logging configuration, which must be set to <code>CUSTOMER</code> for the configurations that you manage. </p>
+   *          <p>The log scope <code>SECURITY_LAKE</code> indicates a configuration that is managed through Amazon Security Lake. You can use Security Lake to collect log and event data from various sources for normalization, analysis, and management. For information, see
+   *        <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting data from Amazon Web Services services</a>
+   *        in the <i>Amazon Security Lake user guide</i>. </p>
+   *          <p>Default: <code>CUSTOMER</code>
+   *          </p>
+   * @public
+   */
+  LogScope?: LogScope;
 }
 
 /**

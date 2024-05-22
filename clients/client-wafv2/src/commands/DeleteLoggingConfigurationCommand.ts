@@ -36,6 +36,8 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * const client = new WAFV2Client(config);
  * const input = { // DeleteLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required
+ *   LogType: "WAF_LOGS",
+ *   LogScope: "CUSTOMER" || "SECURITY_LAKE",
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
