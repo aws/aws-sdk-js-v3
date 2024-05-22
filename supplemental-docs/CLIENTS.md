@@ -612,7 +612,7 @@ This feature was previously called the S3 Global Client. Setting this option to 
 ```ts
 // Example: setting followRegionRedirect
 new S3Client({
-  followRegionRedirect: true,
+  followRegionRedirects: true,
 });
 ```
 
