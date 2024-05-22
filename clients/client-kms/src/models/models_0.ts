@@ -13,6 +13,7 @@ export const AlgorithmSpec = {
   RSAES_PKCS1_V1_5: "RSAES_PKCS1_V1_5",
   RSA_AES_KEY_WRAP_SHA_1: "RSA_AES_KEY_WRAP_SHA_1",
   RSA_AES_KEY_WRAP_SHA_256: "RSA_AES_KEY_WRAP_SHA_256",
+  SM2PKE: "SM2PKE",
 } as const;
 
 /**
@@ -4211,6 +4212,7 @@ export const WrappingKeySpec = {
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",
+  SM2: "SM2",
 } as const;
 
 /**
@@ -4245,13 +4247,19 @@ export interface GetParametersForImportRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the
+   * <p>The algorithm you will use with the asymmetric public key (<code>PublicKey</code>) in the
    *       response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you
    *       generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping
-   *       algorithms, you encrypt your key material directly with the RSA public key from KMS.</p>
+   *       algorithms, you encrypt your key material directly with the RSA public key from KMS.
+   *       For SM2PKE wrapping algorithms, you encrypt your key material directly with the SM2 public key
+   *       from KMS.</p>
    *          <p>The wrapping algorithms that you can use depend on the type of key material that you are
-   *       importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p>
+   *       importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm, except
+   *       in China Regions, where you must use the SM2PKE wrapping algorithm to import an RSA private key.</p>
+   *          <p>The SM2PKE wrapping algorithm is available only in China Regions. The
+   *       <code>RSA_AES_KEY_WRAP_SHA_256</code> and <code>RSA_AES_KEY_WRAP_SHA_1</code>
+   *       wrapping algorithms are not supported in China Regions.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4282,17 +4290,23 @@ export interface GetParametersForImportRequest {
    *                   <b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October
    *           10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SM2PKE</b> (China Regions only) — supported for
+   *           wrapping RSA, ECC, and SM2 key material.</p>
+   *             </li>
    *          </ul>
    * @public
    */
   WrappingAlgorithm: AlgorithmSpec | undefined;
 
   /**
-   * <p>The type of RSA public key to return in the response. You will use this wrapping key with
+   * <p>The type of public key to return in the response. You will use this wrapping key with
    *       the specified wrapping algorithm to protect your key material during import. </p>
-   *          <p>Use the longest RSA wrapping key that is practical. </p>
+   *          <p>Use the longest wrapping key that is practical. </p>
    *          <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key.
    *       Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
+   *          <p>The SM2 wrapping key spec is available only in China Regions.</p>
    * @public
    */
   WrappingKeySpec: WrappingKeySpec | undefined;
