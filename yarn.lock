@@ -3119,6 +3119,13 @@
     "@smithy/types" "^3.0.0"
     tslib "^2.6.2"
 
+"@smithy/service-client-documentation-generator@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@smithy/service-client-documentation-generator/-/service-client-documentation-generator-2.2.0.tgz#8cb13032f12b108db0b6e2848563f34c9af7393a"
+  integrity sha512-96qOW3ApTzJHw/587NHorqBXSvYCGHhkvfCQsaXLboLQCPgTqHAE8RHbHljv6u/XrR92GwRZTVRALh5gOk3kMQ==
+  dependencies:
+    tslib "^2.6.2"
+
 "@smithy/service-error-classification@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@smithy/service-error-classification/-/service-error-classification-3.0.0.tgz#06a45cb91b15b8b0d5f3b1df2b3743d2ca42f5c4"
@@ -3340,7 +3347,7 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node12/-/node12-1.0.11.tgz#ee3def1f27d9ed66dac6e46a295cffb0152e058d"
   integrity sha512-cqefuRsh12pWyGsIoBKJA9luFu3mRxCA+ORZvA4ktLSzIuCUtWVxGIuXigEwO5/ywWFMZ2QEGKWvkZG1zDMTag==
 
-"@tsconfig/node14@^1.0.0":
+"@tsconfig/node14@1.0.3", "@tsconfig/node14@^1.0.0":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@tsconfig/node14/-/node14-1.0.3.tgz#e4386316284f00b98435bf40f72f75a09dabf6c1"
   integrity sha512-ysT8mhdixWK6Hw3i1V2AeRqZ5WfXg1G43mqoYlM2nc6388Fq5jcXyr5mRsqViLx/GJYdoL0bfXD8nmF+Zn/Iow==
