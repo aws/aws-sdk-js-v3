@@ -10,10 +10,10 @@ Information about initializing an SDK client and common configurable constructor
 
 Upgrading from AWS SDK for JavaScript (v2) (https://github.com/aws/aws-sdk-js).
 
-#### [AWS Lambda](../AWS_LAMBDA.md)
+#### [AWS Lambda](./AWS_LAMBDA.md)
 
 Best practices for working within AWS Lambda using the AWS SDK for JavaScript (v3).
 
-#### [TypeScript](../TYPESCRIPT.md)
+#### [TypeScript](./TYPESCRIPT.md)
 
 TypeScript tips & FAQ related to this project.
