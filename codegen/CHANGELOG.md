@@ -1,5 +1,12 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.21.0 (2024-05-22)
+
+### Bug Fixes
+* Added dependencies required by default credential providers ([#6055](https://github.com/aws/aws-sdk-js-v3/pull/6055))
+* Statically import credential-provider-node in clients used from credentials ([#6027](https://github.com/aws/aws-sdk-js-v3/pull/6027))
+* Changed the logic to only add doc trait conditionally ([#6002](https://github.com/aws/aws-sdk-js-v3/pull/6002))
+
 ## 0.20.1 (2024-04-05)
 
 ### Features
