@@ -121,6 +121,24 @@ export interface InitialCapacityConfig {
 }
 
 /**
+ * <p>The configuration to use to enable the different types of interactive use cases in an application.</p>
+ * @public
+ */
+export interface InteractiveConfiguration {
+  /**
+   * <p>Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.</p>
+   * @public
+   */
+  studioEnabled?: boolean;
+
+  /**
+   * <p>Enables an Apache Livy endpoint that you can connect to and run interactive jobs.</p>
+   * @public
+   */
+  livyEndpointEnabled?: boolean;
+}
+
+/**
  * <p>The maximum allowed cumulative resources for an application. No new resources will be
  *          created once the limit is hit.</p>
  * @public
@@ -1297,6 +1315,12 @@ export interface Application {
    * @public
    */
   monitoringConfiguration?: MonitoringConfiguration;
+
+  /**
+   * <p>The interactive configuration object that enables the interactive use cases for an application.</p>
+   * @public
+   */
+  interactiveConfiguration?: InteractiveConfiguration;
 }
 
 /**
@@ -1424,6 +1448,13 @@ export interface CreateApplicationRequest {
    * @public
    */
   monitoringConfiguration?: MonitoringConfiguration;
+
+  /**
+   * <p>The interactive configuration object that enables the interactive use cases
+   *       to use when running an application.</p>
+   * @public
+   */
+  interactiveConfiguration?: InteractiveConfiguration;
 }
 
 /**
@@ -1501,6 +1532,13 @@ export interface UpdateApplicationRequest {
    * @public
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
+
+  /**
+   * <p>The interactive configuration object that contains new interactive use cases
+   *          when the application is updated.</p>
+   * @public
+   */
+  interactiveConfiguration?: InteractiveConfiguration;
 
   /**
    * <p>The Amazon EMR release label for the application. You can change the release

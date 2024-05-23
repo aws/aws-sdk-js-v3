@@ -66,6 +66,7 @@ import {
   Hive,
   ImageConfigurationInput,
   InitialCapacityConfig,
+  InteractiveConfiguration,
   InternalServerException,
   JobDriver,
   JobRun,
@@ -124,6 +125,7 @@ export const se_CreateApplicationCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imageConfiguration: (_) => _json(_),
       initialCapacity: (_) => _json(_),
+      interactiveConfiguration: (_) => _json(_),
       maximumCapacity: (_) => _json(_),
       monitoringConfiguration: (_) => _json(_),
       name: [],
@@ -392,6 +394,7 @@ export const se_UpdateApplicationCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       imageConfiguration: (_) => _json(_),
       initialCapacity: (_) => _json(_),
+      interactiveConfiguration: (_) => _json(_),
       maximumCapacity: (_) => _json(_),
       monitoringConfiguration: (_) => _json(_),
       networkConfiguration: (_) => _json(_),
@@ -884,6 +887,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_InitialCapacityConfigMap omitted.
 
+// se_InteractiveConfiguration omitted.
+
 // se_JobDriver omitted.
 
 // se_LogTypeList omitted.
@@ -931,6 +936,7 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     imageConfiguration: _json,
     initialCapacity: _json,
+    interactiveConfiguration: _json,
     maximumCapacity: _json,
     monitoringConfiguration: _json,
     name: __expectString,
@@ -1024,6 +1030,8 @@ const de_ConfigurationOverrides = (output: any, context: __SerdeContext): Config
 // de_InitialCapacityConfig omitted.
 
 // de_InitialCapacityConfigMap omitted.
+
+// de_InteractiveConfiguration omitted.
 
 // de_JobDriver omitted.
 

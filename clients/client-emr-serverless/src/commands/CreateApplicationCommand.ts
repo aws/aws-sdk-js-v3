@@ -129,6 +129,10 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *       remoteWriteUrl: "STRING_VALUE",
  *     },
  *   },
+ *   interactiveConfiguration: { // InteractiveConfiguration
+ *     studioEnabled: true || false,
+ *     livyEndpointEnabled: true || false,
+ *   },
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
