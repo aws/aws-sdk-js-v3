@@ -27,7 +27,7 @@ export interface DescribeOperatingSystemsCommandInput {}
 export interface DescribeOperatingSystemsCommandOutput extends DescribeOperatingSystemsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
+ * <p>Describes the operating systems that are supported by OpsWorks Stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,7 +29,7 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
 /**
  * <p>Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID,
  *     you can use the <code>MaxResults</code> and <code>NextToken</code> parameters to paginate the
- *     response. However, AWS OpsWorks Stacks currently supports only one cluster per layer, so the result
+ *           response. However, OpsWorks Stacks currently supports only one cluster per layer, so the result
  *     set has a maximum of one element.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or

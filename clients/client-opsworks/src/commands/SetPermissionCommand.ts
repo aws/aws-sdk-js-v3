@@ -27,7 +27,8 @@ export interface SetPermissionCommandInput extends SetPermissionRequest {}
 export interface SetPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Specifies a user's permissions. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and
+ * <p>Specifies a user's permissions. For more information, see
+ *           <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and
  *         Permissions</a>.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions

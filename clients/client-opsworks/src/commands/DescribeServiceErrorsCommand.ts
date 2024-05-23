@@ -27,7 +27,7 @@ export interface DescribeServiceErrorsCommandInput extends DescribeServiceErrors
 export interface DescribeServiceErrorsCommandOutput extends DescribeServiceErrorsResult, __MetadataBearer {}
 
 /**
- * <p>Describes AWS OpsWorks Stacks service errors.</p>
+ * <p>Describes OpsWorks Stacks service errors.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
  *       Manage permissions level for the stack, or an attached policy that explicitly grants

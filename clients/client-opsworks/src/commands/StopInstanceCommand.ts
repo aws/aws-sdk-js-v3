@@ -28,7 +28,7 @@ export interface StopInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a specified instance. When you stop a standard instance, the data disappears and must
- *       be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without
+ *           be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without
  *       losing data. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
  *         Stopping, and Rebooting Instances</a>.</p>
  *          <p>

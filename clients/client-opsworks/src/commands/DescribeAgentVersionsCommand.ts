@@ -27,7 +27,7 @@ export interface DescribeAgentVersionsCommandInput extends DescribeAgentVersions
 export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a
+ * <p>Describes the available OpsWorks Stacks agent versions. You must specify a stack ID or a
  *     configuration manager. <code>DescribeAgentVersions</code> returns a list of available
  *     agent versions for the specified stack or configuration manager.</p>
  * @example

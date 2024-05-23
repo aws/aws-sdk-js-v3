@@ -30,14 +30,16 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * <p>Creates a layer. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">How to
  *         Create a Layer</a>.</p>
  *          <note>
- *             <p>You should use <b>CreateLayer</b> for noncustom layer types such as PHP App Server only if the stack
+ *             <p>You should use <b>CreateLayer</b> for noncustom layer types such as
+ *              PHP App Server only if the stack
  *         does not have an existing layer of that type. A stack can have at most one instance of each
  *         noncustom layer; if you attempt to create a second instance, <b>CreateLayer</b> fails. A
  *         stack can have an arbitrary number of custom layers, so you can call <b>CreateLayer</b> as
  *         many times as you like for that layer type.</p>
  *          </note>
  *          <p>
- *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+ *             <b>Required Permissions</b>: To use this action, an IAM user must
+ *           have a Manage permissions
  *       level for the stack, or an attached policy that explicitly grants permissions. For more
  *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
  *         Permissions</a>.</p>
