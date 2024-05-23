@@ -83,8 +83,8 @@ const node_libraries = [
       const importedDependencies = [];
       importedDependencies.push(
         ...new Set(
-          [...(contents.toString().match(/(from |import\()"(.*?)";/g) || [])]
-            .map((_) => _.replace(/from "/g, "").replace(/";$/, ""))
+          [...(contents.toString().match(/(from |import\()"(.*?)"\)?;/g) ?? [])]
+            .map((_) => _.replace(/(from ")|(import\(")/g, "").replace(/"\)?;$/, ""))
             .filter((_) => !_.startsWith(".") && !node_libraries.includes(_))
         )
       );

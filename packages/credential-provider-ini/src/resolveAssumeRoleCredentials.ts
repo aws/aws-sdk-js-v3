@@ -114,7 +114,7 @@ export const resolveAssumeRoleCredentials = async (
         ...visitedProfiles,
         [source_profile]: true,
       })
-    : (await resolveCredentialSource(data.credential_source!, profileName)(options))();
+    : (await resolveCredentialSource(data.credential_source!, profileName, options.logger)(options))();
 
   const params: AssumeRoleParams = {
     RoleArn: data.role_arn!,

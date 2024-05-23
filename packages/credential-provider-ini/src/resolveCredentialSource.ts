@@ -1,6 +1,6 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
+import { chain, CredentialsProviderError } from "@smithy/property-provider";
+import { AwsCredentialIdentityProvider, Logger } from "@smithy/types";
 
 /**
  * @internal
@@ -13,15 +13,26 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
  */
 export const resolveCredentialSource = (
   credentialSource: string,
-  profileName: string
+  profileName: string,
+  logger?: Logger
 ): ((options?: CredentialProviderOptions) => Promise<AwsCredentialIdentityProvider>) => {
   const sourceProvidersMap = {
-    EcsContainer: (options?: CredentialProviderOptions) =>
-      import("@smithy/credential-provider-imds").then(({ fromContainerMetadata }) => fromContainerMetadata(options)),
-    Ec2InstanceMetadata: (options?: CredentialProviderOptions) =>
-      import("@smithy/credential-provider-imds").then(({ fromInstanceMetadata }) => fromInstanceMetadata(options)),
-    Environment: (options?: CredentialProviderOptions) =>
-      import("@aws-sdk/credential-provider-env").then(({ fromEnv }) => fromEnv(options)),
+    EcsContainer: async (options?: CredentialProviderOptions) => {
+      const { fromHttp } = await import("@aws-sdk/credential-provider-http");
+      const { fromContainerMetadata } = await import("@smithy/credential-provider-imds");
+      logger?.debug("@aws-sdk/credential-provider-ini", "credential_source EcsContainer");
+      return chain(fromHttp(options ?? {}), fromContainerMetadata(options));
+    },
+    Ec2InstanceMetadata: (options?: CredentialProviderOptions) => {
+      logger?.debug("@aws-sdk/credential-provider-ini", "credential_source Ec2InstanceMetadata");
+      return import("@smithy/credential-provider-imds").then(({ fromInstanceMetadata }) =>
+        fromInstanceMetadata(options)
+      );
+    },
+    Environment: (options?: CredentialProviderOptions) => {
+      logger?.debug("@aws-sdk/credential-provider-ini", "credential_source Environment");
+      return import("@aws-sdk/credential-provider-env").then(({ fromEnv }) => fromEnv(options));
+    },
   };
   if (credentialSource in sourceProvidersMap) {
     return sourceProvidersMap[credentialSource as keyof typeof sourceProvidersMap];
