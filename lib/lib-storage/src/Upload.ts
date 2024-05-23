@@ -276,7 +276,7 @@ export class Upload extends EventEmitter {
       const partResult = await this.client.send(
         new UploadPartCommand({
           ...this.params,
-		  ContentLength: partSize || undefined,
+          ContentLength: partSize || undefined,
           UploadId: this.uploadId,
           Body: dataPart.data,
           PartNumber: dataPart.partNumber,
