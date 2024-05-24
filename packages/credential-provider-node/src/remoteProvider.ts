@@ -16,7 +16,7 @@ export const remoteProvider = async (init: RemoteProviderInit): Promise<AwsCrede
   );
 
   if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
-    init.logger?.debug("@aws-sdk/credential-provider-node", "remoteProvider::fromHttp/fromContainerMetadata");
+    init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromHttp/fromContainerMetadata");
     const { fromHttp } = await import("@aws-sdk/credential-provider-http");
     return chain(fromHttp(init), fromContainerMetadata(init));
   }
@@ -27,6 +27,6 @@ export const remoteProvider = async (init: RemoteProviderInit): Promise<AwsCrede
     };
   }
 
-  init.logger?.debug("@aws-sdk/credential-provider-node", "remoteProvider::fromInstanceMetadata");
+  init.logger?.debug("@aws-sdk/credential-provider-node - remoteProvider::fromInstanceMetadata");
   return fromInstanceMetadata(init);
 };

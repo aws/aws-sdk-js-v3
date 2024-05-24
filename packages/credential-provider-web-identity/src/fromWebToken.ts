@@ -153,7 +153,7 @@ export interface FromWebTokenInit
 export const fromWebToken =
   (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
   async () => {
-    init.logger?.debug("@aws-sdk/credential-provider-web-identity", "fromWebToken");
+    init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromWebToken");
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
 
     let { roleAssumerWithWebIdentity } = init;

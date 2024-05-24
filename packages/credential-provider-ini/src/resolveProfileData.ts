@@ -28,7 +28,7 @@ export const resolveProfileData = async (
 
   // If this is the first profile visited, role assumption keys should be
   // given precedence over static credentials.
-  if (isAssumeRoleProfile(data)) {
+  if (isAssumeRoleProfile(data, { profile: profileName, logger: options.logger })) {
     return resolveAssumeRoleCredentials(profileName, profiles, options, visitedProfiles);
   }
 
@@ -60,7 +60,7 @@ export const resolveProfileData = async (
   // (whether via a parameter, an environment variable, or another profile's
   // `source_profile` key).
   throw new CredentialsProviderError(
-    `Profile ${profileName} could not be found or parsed in shared credentials file.`,
+    `Could not resolve credentials using profile: [${profileName}] in configuration/credentials file(s).`,
     { logger: options.logger }
   );
 };

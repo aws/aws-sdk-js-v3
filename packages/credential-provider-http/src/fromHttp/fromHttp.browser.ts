@@ -11,7 +11,7 @@ import { retryWrapper } from "./retry-wrapper";
  * Creates a provider that gets credentials via HTTP request.
  */
 export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityProvider => {
-  options.logger?.debug("@aws-sdk/credential-provider-http", "fromHttp");
+  options.logger?.debug("@aws-sdk/credential-provider-http - fromHttp");
   let host: string;
 
   const full = options.credentialsFullUri;

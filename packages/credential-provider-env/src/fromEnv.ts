@@ -35,7 +35,7 @@ export const ENV_CREDENTIAL_SCOPE = "AWS_CREDENTIAL_SCOPE";
 export const fromEnv =
   (init?: FromEnvInit): AwsCredentialIdentityProvider =>
   async () => {
-    init?.logger?.debug("@aws-sdk/credential-provider-env", "fromEnv");
+    init?.logger?.debug("@aws-sdk/credential-provider-env - fromEnv");
     const accessKeyId: string | undefined = process.env[ENV_KEY];
     const secretAccessKey: string | undefined = process.env[ENV_SECRET];
     const sessionToken: string | undefined = process.env[ENV_SESSION];

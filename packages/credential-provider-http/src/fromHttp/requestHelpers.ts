@@ -53,8 +53,7 @@ export async function getCredentials(response: HttpResponse, logger?: Logger): P
       throw new CredentialsProviderError(
         "HTTP credential provider response not of the required format, an object matching: " +
           "{ AccessKeyId: string, SecretAccessKey: string, Token: string, Expiration: string(rfc3339) }",
-        void 0,
-        logger
+        { logger }
       );
     }
 

@@ -56,7 +56,7 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
 export const fromIni =
   (init: FromIniInit = {}): AwsCredentialIdentityProvider =>
   async () => {
-    init.logger?.debug("@aws-sdk/credential-provider-ini", "fromIni");
+    init.logger?.debug("@aws-sdk/credential-provider-ini - fromIni");
     const profiles = await parseKnownFiles(init);
     return resolveProfileData(getProfileName(init), profiles, init);
   };

@@ -30,7 +30,7 @@ export function fromCognitoIdentityPool({
   logger,
   parentClientConfig,
 }: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
-  logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
+  logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
   const cacheKey: string | undefined = userIdentifier
     ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
     : undefined;

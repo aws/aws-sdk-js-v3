@@ -77,7 +77,10 @@ export const resolveSSOCredentials = async ({
       })
     );
   } catch (e) {
-    throw CredentialsProviderError.from(e, SHOULD_FAIL_CREDENTIAL_CHAIN);
+    throw new CredentialsProviderError(e, {
+      tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
+      logger,
+    });
   }
 
   const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration, credentialScope } = {} } =

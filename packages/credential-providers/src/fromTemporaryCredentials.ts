@@ -54,7 +54,7 @@ export interface FromTemporaryCredentialsOptions extends CredentialProviderOptio
 export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): AwsCredentialIdentityProvider => {
   let stsClient: STSClient;
   return async (): Promise<AwsCredentialIdentity> => {
-    options.logger?.debug("@aws-sdk/credential-providers", "fromTemporaryCredentials (STS)");
+    options.logger?.debug("@aws-sdk/credential-providers - fromTemporaryCredentials (STS)");
     const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
       if (!options.mfaCodeProvider) {

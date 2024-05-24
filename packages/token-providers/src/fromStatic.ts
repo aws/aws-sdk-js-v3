@@ -11,7 +11,7 @@ export interface FromStaticInit extends CredentialProviderOptions {
 export const fromStatic =
   ({ token, logger }: FromStaticInit): TokenIdentityProvider =>
   async () => {
-    logger?.debug("@aws-sdk/token-providers", "fromStatic");
+    logger?.debug("@aws-sdk/token-providers - fromStatic");
     if (!token || !token.token) {
       throw new TokenProviderError(`Please pass a valid token to fromStatic`, false);
     }

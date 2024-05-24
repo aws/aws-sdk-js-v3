@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentity, ParsedIniData, Profile } from "@smithy/types";
+import { AwsCredentialIdentity, Logger, ParsedIniData, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
@@ -59,20 +59,42 @@ interface AssumeRoleWithProviderProfile extends Profile {
 /**
  * @internal
  */
-export const isAssumeRoleProfile = (arg: any) =>
-  Boolean(arg) &&
-  typeof arg === "object" &&
-  typeof arg.role_arn === "string" &&
-  ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 &&
-  ["undefined", "string"].indexOf(typeof arg.external_id) > -1 &&
-  ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1 &&
-  (isAssumeRoleWithSourceProfile(arg) || isAssumeRoleWithProviderProfile(arg));
+export const isAssumeRoleProfile = (
+  arg: any,
+  { profile = "default", logger }: { profile: string; logger?: Logger }
+) => {
+  return (
+    Boolean(arg) &&
+    typeof arg === "object" &&
+    typeof arg.role_arn === "string" &&
+    ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 &&
+    ["undefined", "string"].indexOf(typeof arg.external_id) > -1 &&
+    ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1 &&
+    (isAssumeRoleWithSourceProfile(arg, { profile, logger }) || isCredentialSourceProfile(arg, { profile, logger }))
+  );
+};
 
-const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleWithSourceProfile =>
-  typeof arg.source_profile === "string" && typeof arg.credential_source === "undefined";
+const isAssumeRoleWithSourceProfile = (
+  arg: any,
+  { profile, logger }: { profile: string; logger?: Logger }
+): arg is AssumeRoleWithSourceProfile => {
+  const withSourceProfile = typeof arg.source_profile === "string" && typeof arg.credential_source === "undefined";
+  if (withSourceProfile) {
+    logger?.debug?.(`    ${profile} isAssumeRoleWithSourceProfile source_profile=${arg.source_profile}`);
+  }
+  return withSourceProfile;
+};
 
-const isAssumeRoleWithProviderProfile = (arg: any): arg is AssumeRoleWithProviderProfile =>
-  typeof arg.credential_source === "string" && typeof arg.source_profile === "undefined";
+const isCredentialSourceProfile = (
+  arg: any,
+  { profile, logger }: { profile: string; logger?: Logger }
+): arg is AssumeRoleWithProviderProfile => {
+  const withProviderProfile = typeof arg.credential_source === "string" && typeof arg.source_profile === "undefined";
+  if (withProviderProfile) {
+    logger?.debug?.(`    ${profile} isCredentialSourceProfile credential_source=${arg.credential_source}`);
+  }
+  return withProviderProfile;
+};
 
 /**
  * @internal
@@ -83,7 +105,7 @@ export const resolveAssumeRoleCredentials = async (
   options: FromIniInit,
   visitedProfiles: Record<string, true> = {}
 ) => {
-  options.logger?.debug("@aws-sdk/credential-provider-ini", "resolveAssumeRoleCredentials (STS)");
+  options.logger?.debug("@aws-sdk/credential-provider-ini - resolveAssumeRoleCredentials (STS)");
   const data = profiles[profileName];
 
   if (!options.roleAssumer) {
@@ -109,11 +131,31 @@ export const resolveAssumeRoleCredentials = async (
     );
   }
 
+  options.logger?.debug(
+    `@aws-sdk/credential-provider-ini - finding credential resolver using ${
+      source_profile ? `source_profile=[${source_profile}]` : `profile=[${profileName}]`
+    }`
+  );
+
   const sourceCredsProvider: Promise<AwsCredentialIdentity> = source_profile
-    ? resolveProfileData(source_profile, profiles, options, {
-        ...visitedProfiles,
-        [source_profile]: true,
-      })
+    ? resolveProfileData(
+        source_profile,
+        {
+          ...profiles,
+          [source_profile]: {
+            ...profiles[source_profile],
+            // This assigns the role_arn of the "root" profile
+            // to the credential_source profile so this recursive call knows
+            // what role to assume.
+            role_arn: data.role_arn ?? profiles[source_profile].role_arn,
+          },
+        },
+        options,
+        {
+          ...visitedProfiles,
+          [source_profile]: true,
+        }
+      )
     : (await resolveCredentialSource(data.credential_source!, profileName, options.logger)(options))();
 
   const params: AssumeRoleParams = {

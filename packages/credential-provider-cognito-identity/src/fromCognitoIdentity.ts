@@ -30,7 +30,7 @@ export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredenti
  */
 export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
   return async (): Promise<CognitoIdentityCredentials> => {
-    parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
+    parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
 
     const {
