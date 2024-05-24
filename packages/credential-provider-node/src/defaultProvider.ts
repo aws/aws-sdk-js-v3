@@ -69,7 +69,8 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
         const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
           throw new CredentialsProviderError(
-            "Skipping SSO provider in default chain (inputs do not include SSO fields)."
+            "Skipping SSO provider in default chain (inputs do not include SSO fields).",
+            { logger: init.logger }
           );
         }
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
@@ -95,7 +96,10 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
         return (await remoteProvider(init))();
       },
       async () => {
-        throw new CredentialsProviderError("Could not load credentials from any providers", false);
+        throw new CredentialsProviderError("Could not load credentials from any providers", {
+          tryNextLink: false,
+          logger: init.logger,
+        });
       }
     ),
     credentialsTreatedAsExpired,

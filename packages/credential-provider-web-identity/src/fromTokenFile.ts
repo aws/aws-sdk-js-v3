@@ -35,7 +35,9 @@ export const fromTokenFile =
     const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];
 
     if (!webIdentityTokenFile || !roleArn) {
-      throw new CredentialsProviderError("Web identity configuration not specified");
+      throw new CredentialsProviderError("Web identity configuration not specified", {
+        logger: init.logger,
+      });
     }
 
     return fromWebToken({

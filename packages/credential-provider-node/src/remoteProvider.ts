@@ -23,7 +23,7 @@ export const remoteProvider = async (init: RemoteProviderInit): Promise<AwsCrede
 
   if (process.env[ENV_IMDS_DISABLED]) {
     return async () => {
-      throw new CredentialsProviderError("EC2 Instance Metadata Service access disabled");
+      throw new CredentialsProviderError("EC2 Instance Metadata Service access disabled", { logger: init.logger });
     };
   }
 

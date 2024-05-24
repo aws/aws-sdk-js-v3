@@ -1,4 +1,5 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { Logger } from "@smithy/types";
 
 /**
  * @internal
@@ -28,9 +29,10 @@ const EKS_CONTAINER_HOST_IPv6 = "[fd00:ec2::23]";
  * @internal
  *
  * @param url - to be validated.
+ * @param logger - passed to CredentialsProviderError.
  * @throws if not acceptable to this provider.
  */
-export const checkUrl = (url: URL): void => {
+export const checkUrl = (url: URL, logger?: Logger): void => {
   if (url.protocol === "https:") {
     // no additional requirements for HTTPS.
     return;
@@ -74,6 +76,7 @@ export const checkUrl = (url: URL): void => {
     `URL not accepted. It must either be HTTPS or match one of the following:
   - loopback CIDR 127.0.0.0/8 or [::1/128]
   - ECS container host 169.254.170.2
-  - EKS container host 169.254.170.23 or [fd00:ec2::23]`
+  - EKS container host 169.254.170.23 or [fd00:ec2::23]`,
+    { logger }
   );
 };

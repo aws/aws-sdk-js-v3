@@ -92,11 +92,13 @@ export const fromSSO =
       const profile = profiles[profileName];
 
       if (!profile) {
-        throw new CredentialsProviderError(`Profile ${profileName} was not found.`);
+        throw new CredentialsProviderError(`Profile ${profileName} was not found.`, { logger: init.logger });
       }
 
       if (!isSsoProfile(profile)) {
-        throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
+        throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`, {
+          logger: init.logger,
+        });
       }
 
       if (profile?.sso_session) {
@@ -104,16 +106,25 @@ export const fromSSO =
         const session = ssoSessions[profile.sso_session];
         const conflictMsg = ` configurations in profile ${profileName} and sso-session ${profile.sso_session}`;
         if (ssoRegion && ssoRegion !== session.sso_region) {
-          throw new CredentialsProviderError(`Conflicting SSO region` + conflictMsg, false);
+          throw new CredentialsProviderError(`Conflicting SSO region` + conflictMsg, {
+            tryNextLink: false,
+            logger: init.logger,
+          });
         }
         if (ssoStartUrl && ssoStartUrl !== session.sso_start_url) {
-          throw new CredentialsProviderError(`Conflicting SSO start_url` + conflictMsg, false);
+          throw new CredentialsProviderError(`Conflicting SSO start_url` + conflictMsg, {
+            tryNextLink: false,
+            logger: init.logger,
+          });
         }
         profile.sso_region = session.sso_region;
         profile.sso_start_url = session.sso_start_url;
       }
 
-      const { sso_start_url, sso_account_id, sso_region, sso_role_name, sso_session } = validateSsoProfile(profile);
+      const { sso_start_url, sso_account_id, sso_region, sso_role_name, sso_session } = validateSsoProfile(
+        profile,
+        init.logger
+      );
       return resolveSSOCredentials({
         ssoStartUrl: sso_start_url,
         ssoSession: sso_session,
@@ -127,7 +138,8 @@ export const fromSSO =
     } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
       throw new CredentialsProviderError(
         "Incomplete configuration. The fromSSO() argument hash must include " +
-          '"ssoStartUrl", "ssoAccountId", "ssoRegion", "ssoRoleName"'
+          '"ssoStartUrl", "ssoAccountId", "ssoRegion", "ssoRoleName"',
+        { tryNextLink: false, logger: init.logger }
       );
     } else {
       return resolveSSOCredentials({

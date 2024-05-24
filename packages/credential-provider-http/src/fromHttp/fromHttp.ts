@@ -17,7 +17,7 @@ const AWS_CONTAINER_AUTHORIZATION_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
 /**
  * Creates a provider that gets credentials via HTTP request.
  */
-export const fromHttp = (options: FromHttpOptions): AwsCredentialIdentityProvider => {
+export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityProvider => {
   options.logger?.debug("@aws-sdk/credential-provider-http", "fromHttp");
   let host: string;
 
@@ -26,20 +26,23 @@ export const fromHttp = (options: FromHttpOptions): AwsCredentialIdentityProvide
   const token = options.awsContainerAuthorizationToken ?? process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN];
   const tokenFile = options.awsContainerAuthorizationTokenFile ?? process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE];
 
+  const warn: (warning: string) => void =
+    options.logger?.constructor?.name === "NoOpLogger" || !options.logger ? console.warn : options.logger.warn;
+
   if (relative && full) {
-    console.warn(
-      "AWS SDK HTTP credentials provider:",
-      "you have set both awsContainerCredentialsRelativeUri and awsContainerCredentialsFullUri."
+    warn(
+      "@aws-sdk/credential-provider-http: " +
+        "you have set both awsContainerCredentialsRelativeUri and awsContainerCredentialsFullUri."
     );
-    console.warn("awsContainerCredentialsFullUri will take precedence.");
+    warn("awsContainerCredentialsFullUri will take precedence.");
   }
 
   if (token && tokenFile) {
-    console.warn(
-      "AWS SDK HTTP credentials provider:",
-      "you have set both awsContainerAuthorizationToken and awsContainerAuthorizationTokenFile."
+    warn(
+      "@aws-sdk/credential-provider-http: " +
+        "you have set both awsContainerAuthorizationToken and awsContainerAuthorizationTokenFile."
     );
-    console.warn("awsContainerAuthorizationToken will take precedence.");
+    warn("awsContainerAuthorizationToken will take precedence.");
   }
 
   if (full) {
@@ -49,7 +52,8 @@ export const fromHttp = (options: FromHttpOptions): AwsCredentialIdentityProvide
   } else {
     throw new CredentialsProviderError(
       `No HTTP credential provider host provided.
-Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI.`
+Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI.`,
+      { logger: options.logger }
     );
   }
 
@@ -57,7 +61,7 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   const url = new URL(host);
 
   // throws if not to spec for provider.
-  checkUrl(url);
+  checkUrl(url, options.logger);
 
   const requestHandler = new NodeHttpHandler({
     requestTimeout: options.timeout ?? 1000,
@@ -79,7 +83,7 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
         const result = await requestHandler.handle(request);
         return getCredentials(result.response);
       } catch (e: unknown) {
-        throw new CredentialsProviderError(String(e));
+        throw new CredentialsProviderError(String(e), { logger: options.logger });
       }
     },
     options.maxRetries ?? 3,

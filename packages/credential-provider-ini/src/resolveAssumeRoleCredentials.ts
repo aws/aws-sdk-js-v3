@@ -105,7 +105,7 @@ export const resolveAssumeRoleCredentials = async (
       `Detected a cycle attempting to resolve credentials for profile` +
         ` ${getProfileName(options)}. Profiles visited: ` +
         Object.keys(visitedProfiles).join(", "),
-      false
+      { logger: options.logger }
     );
   }
 
@@ -128,7 +128,7 @@ export const resolveAssumeRoleCredentials = async (
     if (!options.mfaCodeProvider) {
       throw new CredentialsProviderError(
         `Profile ${profileName} requires multi-factor authentication, but no MFA code callback was provided.`,
-        false
+        { logger: options.logger }
       );
     }
     params.SerialNumber = mfa_serial;

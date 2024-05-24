@@ -52,5 +52,5 @@ export const fromEnv =
       };
     }
 
-    throw new CredentialsProviderError("Unable to find environment variable credentials.");
+    throw new CredentialsProviderError("Unable to find environment variable credentials.", { logger: init?.logger });
   };

@@ -20,5 +20,5 @@ export const fromProcess =
   async () => {
     init.logger?.debug("@aws-sdk/credential-provider-process", "fromProcess");
     const profiles = await parseKnownFiles(init);
-    return resolveProcessCredentials(getProfileName(init), profiles);
+    return resolveProcessCredentials(getProfileName(init), profiles, init.logger);
   };

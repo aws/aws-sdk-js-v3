@@ -39,7 +39,8 @@ export const resolveCredentialSource = (
   } else {
     throw new CredentialsProviderError(
       `Unsupported credential source in profile ${profileName}. Got ${credentialSource}, ` +
-        `expected EcsContainer or Ec2InstanceMetadata or Environment.`
+        `expected EcsContainer or Ec2InstanceMetadata or Environment.`,
+      { logger }
     );
   }
 };
