@@ -1,4 +1,5 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
+import type { FromHttpOptions } from "@aws-sdk/credential-provider-http";
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
 import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
@@ -14,6 +15,7 @@ import { remoteProvider } from "./remoteProvider";
  * @public
  */
 export type DefaultProviderInit = FromIniInit &
+  FromHttpOptions &
   RemoteProviderInit &
   FromProcessInit &
   (FromSSOInit & Partial<SsoCredentialsParameters>) &
