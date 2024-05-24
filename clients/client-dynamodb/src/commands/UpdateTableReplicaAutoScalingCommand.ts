@@ -34,8 +34,7 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
 /**
  * <p>Updates auto scaling settings on your global tables at once.</p>
  *          <important>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
- *                 of global tables.
+ *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
  *             </p>
  *          </important>
  * @example

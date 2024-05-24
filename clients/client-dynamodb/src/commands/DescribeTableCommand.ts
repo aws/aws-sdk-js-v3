@@ -30,8 +30,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * <p>Returns information about the table, including the current status of the table, when
  *             it was created, the primary key schema, and any indexes on the table.</p>
  *          <important>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
- *                 of global tables.
+ *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
  *             </p>
  *          </important>
  *          <note>

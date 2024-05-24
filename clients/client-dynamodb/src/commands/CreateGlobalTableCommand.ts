@@ -31,10 +31,7 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  *             relationship between two or more DynamoDB tables with the same table name in the
  *             provided Regions. </p>
  *          <important>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
- *                 2017.11.29 (Legacy)</a> of global tables. We recommend using
- *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
- *                 when creating new global tables, as it provides greater flexibility, higher efficiency and consumes less write capacity than
+ *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version), as it provides greater flexibility, higher efficiency and consumes less write capacity than
  *                 2017.11.29 (Legacy). To determine which version you are using, see
  *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the version</a>.
  *                 To update existing global tables from version 2017.11.29 (Legacy) to version

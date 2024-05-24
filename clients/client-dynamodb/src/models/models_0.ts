@@ -1233,7 +1233,7 @@ export interface Capacity {
  * <p>The capacity units consumed by an operation. The data returned includes the total
  *             provisioned throughput consumed, along with statistics for the table and any indexes
  *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
- *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+ *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer
  *                 Guide</i>.</p>
  * @public
  */
@@ -2641,13 +2641,13 @@ export interface CreateTableInput {
    *             <li>
    *                <p>
    *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
    *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -6621,13 +6621,13 @@ export interface UpdateGlobalTableSettingsInput {
    *             <li>
    *                <p>
    *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
    *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -6960,13 +6960,13 @@ export interface UpdateTableInput {
    *             <li>
    *                <p>
    *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
    *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -7026,8 +7026,7 @@ export interface UpdateTableInput {
   /**
    * <p>A list of replica update actions (create, delete, or update) for the table.</p>
    *          <note>
-   *             <p>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
-   *                 of global tables.
+   *             <p>For global tables, this property only applies to global tables using Version 2019.11.21 (Current version).
    *             </p>
    *          </note>
    * @public
@@ -8265,7 +8264,7 @@ export interface GetItemOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9561,7 +9560,7 @@ export interface DeleteItemOutput {
    *             returned includes the total provisioned throughput consumed, along with statistics for
    *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9621,7 +9620,7 @@ export interface ExecuteStatementOutput {
    * <p>The capacity units consumed by an operation. The data returned includes the total
    *             provisioned throughput consumed, along with statistics for the table and any indexes
    *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
-   *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9658,7 +9657,7 @@ export interface PutItemOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9747,7 +9746,7 @@ export interface QueryOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9808,8 +9807,7 @@ export interface ScanOutput {
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
    *             information, see
-   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a>
-   *             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity;
@@ -9835,7 +9833,7 @@ export interface UpdateItemOutput {
    *             returned includes the total provisioned throughput consumed, along with statistics for
    *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */

@@ -36,8 +36,7 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *             returns a <code>ResourceNotFoundException</code>. If table is already in the
  *                 <code>DELETING</code> state, no error is returned. </p>
  *          <important>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
- *                 of global tables.
+ *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
  *             </p>
  *          </important>
  *          <note>

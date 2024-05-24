@@ -30,8 +30,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
  *             Streams settings for a given table.</p>
  *          <important>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
- *                 of global tables.
+ *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
  *             </p>
  *          </important>
  *          <p>You can only perform one of the following operations at once:</p>
