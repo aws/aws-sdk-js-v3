@@ -39,6 +39,12 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  * const client = new IoTFleetWiseClient(config);
  * const input = { // ListVehiclesRequest
  *   modelManifestArn: "STRING_VALUE",
+ *   attributeNames: [ // attributeNamesList
+ *     "STRING_VALUE",
+ *   ],
+ *   attributeValues: [ // attributeValuesList
+ *     "STRING_VALUE",
+ *   ],
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
