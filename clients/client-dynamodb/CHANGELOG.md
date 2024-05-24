@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.584.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.583.0...v3.584.0) (2024-05-24)
+
+**Note:** Version bump only for package @aws-sdk/client-dynamodb
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb
