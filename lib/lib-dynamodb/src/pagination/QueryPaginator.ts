@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 import { Paginator } from "@smithy/types";
 
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
@@ -17,7 +18,6 @@ const makePagedClientRequest = async (
   input: QueryCommandInput,
   ...args: any
 ): Promise<QueryCommandOutput> => {
-  // @ts-ignore
   return await client.send(new QueryCommand(input), ...args);
 };
 /**
@@ -32,8 +32,7 @@ export async function* paginateQuery(
   input: QueryCommandInput,
   ...additionalArguments: any
 ): Paginator<QueryCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.ExclusiveStartKey
-  let token: typeof input.ExclusiveStartKey | undefined = config.startingToken || undefined;
+  let token: Record<string, NativeAttributeValue> | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: QueryCommandOutput;
   while (hasNext) {
@@ -48,6 +47,5 @@ export async function* paginateQuery(
     token = page.LastEvaluatedKey;
     hasNext = !!token;
   }
-  // @ts-ignore
   return undefined;
 }
