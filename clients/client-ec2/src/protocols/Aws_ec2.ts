@@ -29642,6 +29642,9 @@ const se_CreateCustomerGatewayRequest = (input: CreateCustomerGatewayRequest, co
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
+  if (input[_BAE] != null) {
+    entries[_BAE] = input[_BAE];
+  }
   return entries;
 };
 
@@ -58190,6 +58193,9 @@ const de_CustomerGateway = (output: any, context: __SerdeContext): CustomerGatew
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
+  if (output[_bAE] != null) {
+    contents[_BAE] = __expectString(output[_bAE]);
+  }
   return contents;
 };
 
@@ -82013,6 +82019,7 @@ const _Att = "Attachment";
 const _Atta = "Attachments";
 const _B = "Bucket";
 const _BA = "BgpAsn";
+const _BAE = "BgpAsnExtended";
 const _BBIG = "BaselineBandwidthInGbps";
 const _BBIM = "BaselineBandwidthInMbps";
 const _BC = "ByoipCidr";
@@ -84480,6 +84487,7 @@ const _at = "attachment";
 const _att = "attachments";
 const _b = "byoasn";
 const _bA = "bgpAsn";
+const _bAE = "bgpAsnExtended";
 const _bBIG = "baselineBandwidthInGbps";
 const _bBIM = "baselineBandwidthInMbps";
 const _bC = "byoipCidr";

@@ -811,8 +811,10 @@ export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
  */
 export interface CreateCustomerGatewayRequest {
   /**
-   * <p>For devices that support BGP, the customer gateway's BGP ASN.</p>
+   * <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p>
    *          <p>Default: 65000</p>
+   *          <p>Valid values: <code>1</code> to <code>2,147,483,647</code>
+   *          </p>
    * @public
    */
   BgpAsn?: number;
@@ -852,9 +854,11 @@ export interface CreateCustomerGatewayRequest {
   DeviceName?: string;
 
   /**
-   * <p>
-   *             IPv4 address for the customer gateway device's outside interface. The address must be static.
-   *         </p>
+   * <p>IPv4 address for the customer gateway device's outside interface. The address must be
+   *             static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to
+   *                 <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If
+   *                 <code>OutsideIpAddressType</code> is set to <code>PublicIpv4</code>, you can use a
+   *             public IPv4 address. </p>
    * @public
    */
   IpAddress?: string;
@@ -867,6 +871,14 @@ export interface CreateCustomerGatewayRequest {
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p>
+   *          <p>Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code>
+   *          </p>
+   * @public
+   */
+  BgpAsnExtended?: number;
 }
 
 /**
@@ -875,8 +887,10 @@ export interface CreateCustomerGatewayRequest {
  */
 export interface CustomerGateway {
   /**
-   * <p>The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
+   * <p>The customer gateway device's Border Gateway Protocol (BGP) Autonomous System Number
    *             (ASN).</p>
+   *          <p>Valid values: <code>1</code> to <code>2,147,483,647</code>
+   *          </p>
    * @public
    */
   BgpAsn?: string;
@@ -888,7 +902,9 @@ export interface CustomerGateway {
   CustomerGatewayId?: string;
 
   /**
-   * <p>The IP address of the customer gateway device's outside interface.</p>
+   * <p>
+   *             IPv4 address for the customer gateway device's outside interface. The address must be static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If <code>OutsideIpAddressType</code> is set to <code>PublicIpv4</code>, you can use a public IPv4 address.
+   *         </p>
    * @public
    */
   IpAddress?: string;
@@ -924,6 +940,15 @@ export interface CustomerGateway {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The customer gateway device's Border Gateway Protocol (BGP) Autonomous System Number
+   *             (ASN).</p>
+   *          <p>Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code>
+   *          </p>
+   * @public
+   */
+  BgpAsnExtended?: string;
 }
 
 /**
