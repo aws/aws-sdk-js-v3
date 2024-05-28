@@ -1676,6 +1676,18 @@ export interface BrokerNodeInfo {
 }
 
 /**
+ * <p>Controller node information.</p>
+ * @public
+ */
+export interface ControllerNodeInfo {
+  /**
+   * <p>Endpoints for accessing the Controller.</p>
+   * @public
+   */
+  Endpoints?: string[];
+}
+
+/**
  * @public
  * @enum
  */
@@ -1740,6 +1752,12 @@ export interface NodeInfo {
    * @public
    */
   BrokerNodeInfo?: BrokerNodeInfo;
+
+  /**
+   * <p>The ControllerNodeInfo.</p>
+   * @public
+   */
+  ControllerNodeInfo?: ControllerNodeInfo;
 
   /**
    * <p>The instance type.</p>

@@ -183,6 +183,7 @@ import {
   ConnectivityInfo,
   ConsumerGroupReplication,
   ConsumerGroupReplicationUpdate,
+  ControllerNodeInfo,
   EBSStorageInfo,
   EncryptionAtRest,
   EncryptionInfo,
@@ -3817,6 +3818,15 @@ const de_ConsumerGroupReplication = (output: any, context: __SerdeContext): Cons
 };
 
 /**
+ * deserializeAws_restJson1ControllerNodeInfo
+ */
+const de_ControllerNodeInfo = (output: any, context: __SerdeContext): ControllerNodeInfo => {
+  return take(output, {
+    Endpoints: [, _json, `endpoints`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1EBSStorageInfo
  */
 const de_EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
@@ -3998,6 +4008,7 @@ const de_NodeInfo = (output: any, context: __SerdeContext): NodeInfo => {
   return take(output, {
     AddedToClusterTime: [, __expectString, `addedToClusterTime`],
     BrokerNodeInfo: [, (_: any) => de_BrokerNodeInfo(_, context), `brokerNodeInfo`],
+    ControllerNodeInfo: [, (_: any) => de_ControllerNodeInfo(_, context), `controllerNodeInfo`],
     InstanceType: [, __expectString, `instanceType`],
     NodeARN: [, __expectString, `nodeARN`],
     NodeType: [, __expectString, `nodeType`],
