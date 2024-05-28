@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.585.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.584.0...v3.585.0) (2024-05-28)
+
+
+### Features
+
+* **client-swf:** This release adds new APIs for deleting activity type and workflow type resources. ([0fb710a](https://github.com/aws/aws-sdk-js-v3/commit/0fb710a6e00fa8397bf06c4bc0482038b59d7c7b))
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-swf

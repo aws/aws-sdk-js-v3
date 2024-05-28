@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.585.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.584.0...v3.585.0) (2024-05-28)
+
+
+### Features
+
+* **client-kafka:** Adds ControllerNodeInfo in ListNodes response to support Raft mode for MSK ([8c9bbb1](https://github.com/aws/aws-sdk-js-v3/commit/8c9bbb1ca7203938dad1abee85156a3f6bf818c4))
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

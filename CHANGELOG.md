@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.585.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.584.0...v3.585.0) (2024-05-28)
+
+
+### Features
+
+* **client-ec2:** Providing support to accept BgpAsnExtended attribute ([1be7eb2](https://github.com/aws/aws-sdk-js-v3/commit/1be7eb260caf2b8073eb80c92faa942d3d15a296))
+* **client-kafka:** Adds ControllerNodeInfo in ListNodes response to support Raft mode for MSK ([8c9bbb1](https://github.com/aws/aws-sdk-js-v3/commit/8c9bbb1ca7203938dad1abee85156a3f6bf818c4))
+* **client-swf:** This release adds new APIs for deleting activity type and workflow type resources. ([0fb710a](https://github.com/aws/aws-sdk-js-v3/commit/0fb710a6e00fa8397bf06c4bc0482038b59d7c7b))
+* **clients:** update client endpoints as of 2024-05-28 ([a463c85](https://github.com/aws/aws-sdk-js-v3/commit/a463c85024c67b18839f09428f6f68f71338a3c1))
+
+
+
+
+
 # [3.584.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.583.0...v3.584.0) (2024-05-24)
 
 
