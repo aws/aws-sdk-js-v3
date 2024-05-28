@@ -250,6 +250,22 @@ CountPendingDecisionTasks
 </details>
 <details>
 <summary>
+DeleteActivityType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DeleteActivityTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeleteActivityTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeleteActivityTypeCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteWorkflowType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DeleteWorkflowTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeleteWorkflowTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeleteWorkflowTypeCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeprecateActivityType
 </summary>
 

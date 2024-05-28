@@ -37,6 +37,8 @@ import {
   CountPendingDecisionTasksCommandInput,
   CountPendingDecisionTasksCommandOutput,
 } from "../commands/CountPendingDecisionTasksCommand";
+import { DeleteActivityTypeCommandInput, DeleteActivityTypeCommandOutput } from "../commands/DeleteActivityTypeCommand";
+import { DeleteWorkflowTypeCommandInput, DeleteWorkflowTypeCommandOutput } from "../commands/DeleteWorkflowTypeCommand";
 import {
   DeprecateActivityTypeCommandInput,
   DeprecateActivityTypeCommandOutput,
@@ -159,6 +161,8 @@ import {
   Decision,
   DecisionTask,
   DefaultUndefinedFault,
+  DeleteActivityTypeInput,
+  DeleteWorkflowTypeInput,
   DeprecateActivityTypeInput,
   DeprecateDomainInput,
   DeprecateWorkflowTypeInput,
@@ -210,6 +214,7 @@ import {
   TooManyTagsFault,
   TypeAlreadyExistsFault,
   TypeDeprecatedFault,
+  TypeNotDeprecatedFault,
   UndeprecateActivityTypeInput,
   UndeprecateDomainInput,
   UndeprecateWorkflowTypeInput,
@@ -276,6 +281,32 @@ export const se_CountPendingDecisionTasksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CountPendingDecisionTasks");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteActivityTypeCommand
+ */
+export const se_DeleteActivityTypeCommand = async (
+  input: DeleteActivityTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteActivityType");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteWorkflowTypeCommand
+ */
+export const se_DeleteWorkflowTypeCommand = async (
+  input: DeleteWorkflowTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWorkflowType");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -786,6 +817,40 @@ export const de_CountPendingDecisionTasksCommand = async (
   const response: CountPendingDecisionTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteActivityTypeCommand
+ */
+export const de_DeleteActivityTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteActivityTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteActivityTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteWorkflowTypeCommand
+ */
+export const de_DeleteWorkflowTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWorkflowTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
   };
   return response;
 };
@@ -1412,6 +1477,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
+    case "TypeNotDeprecatedFault":
+    case "com.amazonaws.swf#TypeNotDeprecatedFault":
+      throw await de_TypeNotDeprecatedFaultRes(parsedOutput, context);
     case "TypeDeprecatedFault":
     case "com.amazonaws.swf#TypeDeprecatedFault":
       throw await de_TypeDeprecatedFaultRes(parsedOutput, context);
@@ -1566,6 +1634,22 @@ const de_TypeDeprecatedFaultRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_json1_0TypeNotDeprecatedFaultRes
+ */
+const de_TypeNotDeprecatedFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TypeNotDeprecatedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TypeNotDeprecatedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_0UnknownResourceFaultRes
  */
 const de_UnknownResourceFaultRes = async (
@@ -1647,6 +1731,10 @@ const se_CountOpenWorkflowExecutionsInput = (input: CountOpenWorkflowExecutionsI
 // se_Decision omitted.
 
 // se_DecisionList omitted.
+
+// se_DeleteActivityTypeInput omitted.
+
+// se_DeleteWorkflowTypeInput omitted.
 
 // se_DeprecateActivityTypeInput omitted.
 
@@ -2079,6 +2167,8 @@ const de_HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent
 // de_TypeAlreadyExistsFault omitted.
 
 // de_TypeDeprecatedFault omitted.
+
+// de_TypeNotDeprecatedFault omitted.
 
 // de_UnknownResourceFault omitted.
 

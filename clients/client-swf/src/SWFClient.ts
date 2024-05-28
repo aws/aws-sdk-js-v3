@@ -69,6 +69,8 @@ import {
   CountPendingDecisionTasksCommandInput,
   CountPendingDecisionTasksCommandOutput,
 } from "./commands/CountPendingDecisionTasksCommand";
+import { DeleteActivityTypeCommandInput, DeleteActivityTypeCommandOutput } from "./commands/DeleteActivityTypeCommand";
+import { DeleteWorkflowTypeCommandInput, DeleteWorkflowTypeCommandOutput } from "./commands/DeleteWorkflowTypeCommand";
 import {
   DeprecateActivityTypeCommandInput,
   DeprecateActivityTypeCommandOutput,
@@ -193,6 +195,8 @@ export type ServiceInputTypes =
   | CountOpenWorkflowExecutionsCommandInput
   | CountPendingActivityTasksCommandInput
   | CountPendingDecisionTasksCommandInput
+  | DeleteActivityTypeCommandInput
+  | DeleteWorkflowTypeCommandInput
   | DeprecateActivityTypeCommandInput
   | DeprecateDomainCommandInput
   | DeprecateWorkflowTypeCommandInput
@@ -235,6 +239,8 @@ export type ServiceOutputTypes =
   | CountOpenWorkflowExecutionsCommandOutput
   | CountPendingActivityTasksCommandOutput
   | CountPendingDecisionTasksCommandOutput
+  | DeleteActivityTypeCommandOutput
+  | DeleteWorkflowTypeCommandOutput
   | DeprecateActivityTypeCommandOutput
   | DeprecateDomainCommandOutput
   | DeprecateWorkflowTypeCommandOutput

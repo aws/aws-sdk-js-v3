@@ -23,6 +23,16 @@ import {
   CountPendingDecisionTasksCommandOutput,
 } from "./commands/CountPendingDecisionTasksCommand";
 import {
+  DeleteActivityTypeCommand,
+  DeleteActivityTypeCommandInput,
+  DeleteActivityTypeCommandOutput,
+} from "./commands/DeleteActivityTypeCommand";
+import {
+  DeleteWorkflowTypeCommand,
+  DeleteWorkflowTypeCommandInput,
+  DeleteWorkflowTypeCommandOutput,
+} from "./commands/DeleteWorkflowTypeCommand";
+import {
   DeprecateActivityTypeCommand,
   DeprecateActivityTypeCommandInput,
   DeprecateActivityTypeCommandOutput,
@@ -186,6 +196,8 @@ const commands = {
   CountOpenWorkflowExecutionsCommand,
   CountPendingActivityTasksCommand,
   CountPendingDecisionTasksCommand,
+  DeleteActivityTypeCommand,
+  DeleteWorkflowTypeCommand,
   DeprecateActivityTypeCommand,
   DeprecateDomainCommand,
   DeprecateWorkflowTypeCommand,
@@ -288,6 +300,40 @@ export interface SWF {
     args: CountPendingDecisionTasksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CountPendingDecisionTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteActivityTypeCommand}
+   */
+  deleteActivityType(
+    args: DeleteActivityTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteActivityTypeCommandOutput>;
+  deleteActivityType(
+    args: DeleteActivityTypeCommandInput,
+    cb: (err: any, data?: DeleteActivityTypeCommandOutput) => void
+  ): void;
+  deleteActivityType(
+    args: DeleteActivityTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteActivityTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkflowTypeCommand}
+   */
+  deleteWorkflowType(
+    args: DeleteWorkflowTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkflowTypeCommandOutput>;
+  deleteWorkflowType(
+    args: DeleteWorkflowTypeCommandInput,
+    cb: (err: any, data?: DeleteWorkflowTypeCommandOutput) => void
+  ): void;
+  deleteWorkflowType(
+    args: DeleteWorkflowTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkflowTypeCommandOutput) => void
   ): void;
 
   /**

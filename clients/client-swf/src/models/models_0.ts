@@ -4984,6 +4984,60 @@ export class DefaultUndefinedFault extends __BaseException {
 /**
  * @public
  */
+export interface DeleteActivityTypeInput {
+  /**
+   * <p>The name of the domain in which the activity type is registered.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The activity type to delete.</p>
+   * @public
+   */
+  activityType: ActivityType | undefined;
+}
+
+/**
+ * <p>Returned when the resource type has not been deprecated.</p>
+ * @public
+ */
+export class TypeNotDeprecatedFault extends __BaseException {
+  readonly name: "TypeNotDeprecatedFault" = "TypeNotDeprecatedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TypeNotDeprecatedFault, __BaseException>) {
+    super({
+      name: "TypeNotDeprecatedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TypeNotDeprecatedFault.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkflowTypeInput {
+  /**
+   * <p>The name of the domain in which the workflow type is registered.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The workflow type to delete.</p>
+   * @public
+   */
+  workflowType: WorkflowType | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeprecateActivityTypeInput {
   /**
    * <p>The name of the domain in which the activity type is registered.</p>
