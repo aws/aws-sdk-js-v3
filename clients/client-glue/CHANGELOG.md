@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.586.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.585.0...v3.586.0) (2024-05-29)
+
+
+### Features
+
+* **client-glue:** Add optional field JobMode to CreateJob and UpdateJob APIs. ([52dd4ea](https://github.com/aws/aws-sdk-js-v3/commit/52dd4ea0960c79978a4340abb8a782bf9c0f5c25))
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

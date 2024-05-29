@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.586.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.585.0...v3.586.0) (2024-05-29)
+
+
+### Features
+
+* **client-athena:** Throwing validation errors on CreateNotebook with Name containing `/`,`:`,`\` ([625a6cf](https://github.com/aws/aws-sdk-js-v3/commit/625a6cf540cbe98b844e00c1bde078db490acff9))
+* **client-codebuild:** AWS CodeBuild now supports manually creating GitHub webhooks ([a66b85b](https://github.com/aws/aws-sdk-js-v3/commit/a66b85ba289791798cbc307de7496caf59c23bbe))
+* **client-connect:** This release includes changes to DescribeContact API's response by including ConnectedToSystemTimestamp, RoutingCriteria, Customer, Campaign, AnsweringMachineDetectionStatus, CustomerVoiceActivity, QualityMetrics, DisconnectDetails, and SegmentAttributes information from a contact in Amazon Connect. ([d52597c](https://github.com/aws/aws-sdk-js-v3/commit/d52597c551f539cf2400e327c97e3a7bbd63ce5c))
+* **client-glue:** Add optional field JobMode to CreateJob and UpdateJob APIs. ([52dd4ea](https://github.com/aws/aws-sdk-js-v3/commit/52dd4ea0960c79978a4340abb8a782bf9c0f5c25))
+* **client-securityhub:** Add ROOT type for TargetType model ([3ac165f](https://github.com/aws/aws-sdk-js-v3/commit/3ac165f1bf7a6a5fc204391458ea04b74f0bc1ee))
+* **clients:** update client endpoints as of 2024-05-29 ([94fae64](https://github.com/aws/aws-sdk-js-v3/commit/94fae64a1f1c424b723dc06536de22194fd0b791))
+
+
+
+
+
 # [3.585.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.584.0...v3.585.0) (2024-05-28)
 
 

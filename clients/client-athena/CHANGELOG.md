@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.586.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.585.0...v3.586.0) (2024-05-29)
+
+
+### Features
+
+* **client-athena:** Throwing validation errors on CreateNotebook with Name containing `/`,`:`,`\` ([625a6cf](https://github.com/aws/aws-sdk-js-v3/commit/625a6cf540cbe98b844e00c1bde078db490acff9))
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-athena

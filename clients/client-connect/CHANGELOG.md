@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.586.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.585.0...v3.586.0) (2024-05-29)
+
+
+### Features
+
+* **client-connect:** This release includes changes to DescribeContact API's response by including ConnectedToSystemTimestamp, RoutingCriteria, Customer, Campaign, AnsweringMachineDetectionStatus, CustomerVoiceActivity, QualityMetrics, DisconnectDetails, and SegmentAttributes information from a contact in Amazon Connect. ([d52597c](https://github.com/aws/aws-sdk-js-v3/commit/d52597c551f539cf2400e327c97e3a7bbd63ce5c))
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

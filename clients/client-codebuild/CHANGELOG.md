@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.586.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.585.0...v3.586.0) (2024-05-29)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports manually creating GitHub webhooks ([a66b85b](https://github.com/aws/aws-sdk-js-v3/commit/a66b85ba289791798cbc307de7496caf59c23bbe))
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 **Note:** Version bump only for package @aws-sdk/client-codebuild
