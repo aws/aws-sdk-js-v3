@@ -14,15 +14,12 @@ import {
   AnalyticsDataAssociationResult,
   Application,
   Channel,
-  ContactFlowModuleState,
-  ContactFlowState,
   ContactFlowStatus,
   ContactFlowType,
   ContactState,
   CreatedByInfo,
   DirectoryType,
   Distribution,
-  EvaluationFormVersionStatus,
   EvaluationScore,
   EvaluationStatus,
   EventSourceName,
@@ -38,7 +35,6 @@ import {
   LexV2Bot,
   ListFlowAssociationResourceType,
   MediaConcurrency,
-  MonitorCapability,
   OutboundCallerConfig,
   ParticipantRole,
   PredefinedAttributeValues,
@@ -62,11 +58,303 @@ import {
   UserProficiency,
   View,
   ViewFilterSensitiveLog,
-  ViewStatus,
   ViewType,
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>The flow has not been published.</p>
+ * @public
+ */
+export class ContactFlowNotPublishedException extends __BaseException {
+  readonly name: "ContactFlowNotPublishedException" = "ContactFlowNotPublishedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContactFlowNotPublishedException, __BaseException>) {
+    super({
+      name: "ContactFlowNotPublishedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContactFlowNotPublishedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactFlowState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactFlowState = (typeof ContactFlowState)[keyof typeof ContactFlowState];
+
+/**
+ * <p>Contains information about a flow.</p>
+ * @public
+ */
+export interface ContactFlow {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the flow.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
+   * @public
+   */
+  Type?: ContactFlowType;
+
+  /**
+   * <p>The type of flow.</p>
+   * @public
+   */
+  State?: ContactFlowState;
+
+  /**
+   * <p>The status of the contact flow.</p>
+   * @public
+   */
+  Status?: ContactFlowStatus;
+
+  /**
+   * <p>The description of the flow.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     flow in Amazon Connect Flow language</a>. </p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
+   * @public
+   */
+  Content?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowResponse {
+  /**
+   * <p>Information about the flow.</p>
+   * @public
+   */
+  ContactFlow?: ContactFlow;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowModuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactFlowModuleState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactFlowModuleState = (typeof ContactFlowModuleState)[keyof typeof ContactFlowModuleState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContactFlowModuleStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactFlowModuleStatus = (typeof ContactFlowModuleStatus)[keyof typeof ContactFlowModuleStatus];
+
+/**
+ * <p>Contains information about a flow module.</p>
+ * @public
+ */
+export interface ContactFlowModule {
+  /**
+   * <p>The Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the flow module.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
+   *     flow in Amazon Connect Flow language</a>. </p>
+   * @public
+   */
+  Content?: string;
+
+  /**
+   * <p>The description of the flow module.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of flow module.</p>
+   * @public
+   */
+  State?: ContactFlowModuleState;
+
+  /**
+   * <p>The status of the flow module.</p>
+   * @public
+   */
+  Status?: ContactFlowModuleStatus;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowModuleResponse {
+  /**
+   * <p>Information about the flow module.</p>
+   * @public
+   */
+  ContactFlowModule?: ContactFlowModule;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormVersionStatus = {
+  ACTIVE: "ACTIVE",
+  DRAFT: "DRAFT",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFormVersionStatus =
+  (typeof EvaluationFormVersionStatus)[keyof typeof EvaluationFormVersionStatus];
+
+/**
+ * @public
+ */
+export interface DescribeHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+}
 
 /**
  * <p>Information about of the hours of operation.</p>
@@ -9454,323 +9742,6 @@ export interface ListViewsRequest {
 }
 
 /**
- * <p>A summary of a view's metadata.</p>
- * @public
- */
-export interface ViewSummary {
-  /**
-   * <p>The identifier of the view.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the view.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of the view.</p>
-   * @public
-   */
-  Type?: ViewType;
-
-  /**
-   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
-   * @public
-   */
-  Status?: ViewStatus;
-
-  /**
-   * <p>The description of the view.</p>
-   * @public
-   */
-  Description?: string;
-}
-
-/**
- * @public
- */
-export interface ListViewsResponse {
-  /**
-   * <p>A list of view summaries.</p>
-   * @public
-   */
-  ViewsSummaryList?: ViewSummary[];
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListViewVersionsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be
-   *    used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>A summary of a view version's metadata.</p>
- * @public
- */
-export interface ViewVersionSummary {
-  /**
-   * <p>The identifier of the view version.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view version.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The description of the view version.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the view version.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of the view version.</p>
-   * @public
-   */
-  Type?: ViewType;
-
-  /**
-   * <p>The sequentially incremented version of the view version.</p>
-   * @public
-   */
-  Version?: number;
-
-  /**
-   * <p>The description of the view version.</p>
-   * @public
-   */
-  VersionDescription?: string;
-}
-
-/**
- * @public
- */
-export interface ListViewVersionsResponse {
-  /**
-   * <p>A list of view version summaries.</p>
-   * @public
-   */
-  ViewVersionSummaryList?: ViewVersionSummary[];
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface MonitorContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user
-   *    is allowed to escalate from silent monitoring to barge. AllowedMonitorCapabilities is required if
-   *    barge is enabled.</p>
-   * @public
-   */
-  AllowedMonitorCapabilities?: MonitorCapability[];
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- */
-export interface MonitorContactResponse {
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId?: string;
-
-  /**
-   * <p>The ARN of the contact.</p>
-   * @public
-   */
-  ContactArn?: string;
-}
-
-/**
- * <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface PauseContactRequest {
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId?: string;
-}
-
-/**
- * @public
- */
-export interface PauseContactResponse {}
-
-/**
- * @public
- */
-export interface PutUserStatusRequest {
-  /**
-   * <p>The identifier of the user.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the agent status.</p>
-   * @public
-   */
-  AgentStatusId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutUserStatusResponse {}
-
-/**
- * @public
- */
-export interface ReleasePhoneNumberRequest {
-  /**
-   * <p>A unique identifier for the phone number.</p>
-   * @public
-   */
-  PhoneNumberId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-}
-
-/**
  * @internal
  */
 export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
@@ -9842,41 +9813,5 @@ export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesRespon
   ...obj,
   ...(obj.InstanceSummaryList && {
     InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ViewSummaryFilterSensitiveLog = (obj: ViewSummary): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListViewsResponseFilterSensitiveLog = (obj: ListViewsResponse): any => ({
-  ...obj,
-  ...(obj.ViewsSummaryList && {
-    ViewsSummaryList: obj.ViewsSummaryList.map((item) => ViewSummaryFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const ViewVersionSummaryFilterSensitiveLog = (obj: ViewVersionSummary): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListViewVersionsResponseFilterSensitiveLog = (obj: ListViewVersionsResponse): any => ({
-  ...obj,
-  ...(obj.ViewVersionSummaryList && {
-    ViewVersionSummaryList: obj.ViewVersionSummaryList.map((item) => ViewVersionSummaryFilterSensitiveLog(item)),
   }),
 });

@@ -10,7 +10,7 @@ import {
   ListViewVersionsRequest,
   ListViewVersionsResponse,
   ListViewVersionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_ListViewVersionsCommand, se_ListViewVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**

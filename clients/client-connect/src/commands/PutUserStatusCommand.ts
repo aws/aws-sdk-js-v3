@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutUserStatusRequest, PutUserStatusResponse } from "../models/models_1";
+import { PutUserStatusRequest, PutUserStatusResponse } from "../models/models_2";
 import { de_PutUserStatusCommand, se_PutUserStatusCommand } from "../protocols/Aws_restJson1";
 
 /**

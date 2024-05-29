@@ -737,22 +737,25 @@ import {
   AgentContactReference,
   AgentHierarchyGroups,
   AgentInfo,
+  AgentQualityMetrics,
   AgentStatus,
   AgentStatusReference,
   AgentStatusSummary,
   AllowedCapabilities,
   Application,
   AssignContactCategoryActionDefinition,
+  AttributeCondition,
+  AudioQualityMetricsInfo,
   Campaign,
   Channel,
-  Contact,
   ContactDataRequest,
-  ContactFlowNotPublishedException,
   ContactInitiationMethod,
   ContactState,
   CreateCaseActionDefinition,
   CreatedByInfo,
   CrossChannelBehavior,
+  CustomerQualityMetrics,
+  CustomerVoiceActivity,
   Distribution,
   DuplicateResourceException,
   EmptyFieldValue,
@@ -776,6 +779,7 @@ import {
   EvaluationNote,
   EvaluationScore,
   EventBridgeActionDefinition,
+  Expiry,
   FieldValue,
   FieldValueUnion,
   HoursOfOperationConfig,
@@ -804,6 +808,7 @@ import {
   PhoneNumberQuickConnectConfig,
   PredefinedAttributeValues,
   PropertyValidationException,
+  QualityMetrics,
   QueueInfo,
   QueueQuickConnectConfig,
   QuickConnectConfig,
@@ -819,6 +824,7 @@ import {
   RuleAction,
   RuleTriggerEventSource,
   S3Config,
+  SegmentAttributeValue,
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
@@ -840,8 +846,8 @@ import {
   ViewInputContent,
 } from "../models/models_0";
 import {
-  ConflictException,
   ContactFilter,
+  ContactFlowNotPublishedException,
   Credentials,
   CurrentMetric,
   CurrentMetricData,
@@ -916,6 +922,8 @@ import {
   ChatMessage,
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
+  ConflictException,
+  Contact,
   ContactAnalysis,
   ContactFlowModuleSearchCriteria,
   ContactFlowModuleSearchFilter,
@@ -934,6 +942,7 @@ import {
   EvaluationFormContent,
   EvaluationFormItem,
   EvaluationFormSection,
+  Expression,
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
@@ -954,6 +963,7 @@ import {
   QuickConnectSearchCriteria,
   QuickConnectSearchFilter,
   ResourceTagsSearchCriteria,
+  RoutingCriteria,
   RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
   SearchableContactAttributes,
@@ -962,8 +972,8 @@ import {
   SearchCriteria,
   SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
-  SegmentAttributeValue,
   Sort,
+  Step,
   StringCondition,
   TagCondition,
   TagSearchCondition,
@@ -13205,14 +13215,28 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
   return retVal;
 };
 
+// de_AgentHierarchyGroup omitted.
+
 /**
  * deserializeAws_restJson1AgentInfo
  */
 const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return take(output, {
     AgentPauseDurationInSeconds: __expectInt32,
+    Capabilities: _json,
     ConnectedToAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeviceInfo: _json,
+    HierarchyGroups: _json,
     Id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AgentQualityMetrics
+ */
+const de_AgentQualityMetrics = (output: any, context: __SerdeContext): AgentQualityMetrics => {
+  return take(output, {
+    Audio: (_: any) => de_AudioQualityMetricsInfo(_, context),
   }) as any;
 };
 
@@ -13299,15 +13323,39 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 
 // de_Attribute omitted.
 
+/**
+ * deserializeAws_restJson1AttributeCondition
+ */
+const de_AttributeCondition = (output: any, context: __SerdeContext): AttributeCondition => {
+  return take(output, {
+    ComparisonOperator: __expectString,
+    Name: __expectString,
+    ProficiencyLevel: __limitedParseFloat32,
+    Value: __expectString,
+  }) as any;
+};
+
 // de_Attributes omitted.
 
 // de_AttributesList omitted.
 
 // de_AudioFeatures omitted.
 
+/**
+ * deserializeAws_restJson1AudioQualityMetricsInfo
+ */
+const de_AudioQualityMetricsInfo = (output: any, context: __SerdeContext): AudioQualityMetricsInfo => {
+  return take(output, {
+    PotentialQualityIssues: _json,
+    QualityScore: __limitedParseFloat32,
+  }) as any;
+};
+
 // de_AvailableNumbersList omitted.
 
 // de_AvailableNumberSummary omitted.
+
+// de_Campaign omitted.
 
 // de_ChannelToCountMap omitted.
 
@@ -13321,9 +13369,15 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 const de_Contact = (output: any, context: __SerdeContext): Contact => {
   return take(output, {
     AgentInfo: (_: any) => de_AgentInfo(_, context),
+    AnsweringMachineDetectionStatus: __expectString,
     Arn: __expectString,
+    Campaign: _json,
     Channel: __expectString,
+    ConnectedToSystemTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Customer: _json,
+    CustomerVoiceActivity: (_: any) => de_CustomerVoiceActivity(_, context),
     Description: __expectString,
+    DisconnectDetails: _json,
     DisconnectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Id: __expectString,
     InitialContactId: __expectString,
@@ -13334,11 +13388,14 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     LastUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     PreviousContactId: __expectString,
+    QualityMetrics: (_: any) => de_QualityMetrics(_, context),
     QueueInfo: (_: any) => de_QueueInfo(_, context),
     QueuePriority: __expectLong,
     QueueTimeAdjustmentSeconds: __expectInt32,
     RelatedContactId: __expectString,
+    RoutingCriteria: (_: any) => de_RoutingCriteria(_, context),
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentAttributes: _json,
     Tags: _json,
     TotalPauseCount: __expectInt32,
     TotalPauseDurationInSeconds: __expectInt32,
@@ -13489,6 +13546,27 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
   return retVal;
 };
 
+// de_Customer omitted.
+
+/**
+ * deserializeAws_restJson1CustomerQualityMetrics
+ */
+const de_CustomerQualityMetrics = (output: any, context: __SerdeContext): CustomerQualityMetrics => {
+  return take(output, {
+    Audio: (_: any) => de_AudioQualityMetricsInfo(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CustomerVoiceActivity
+ */
+const de_CustomerVoiceActivity = (output: any, context: __SerdeContext): CustomerVoiceActivity => {
+  return take(output, {
+    GreetingEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    GreetingStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_DataSetIds omitted.
 
 // de_DateReference omitted.
@@ -13497,9 +13575,13 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
 
 // de_DefaultVocabularyList omitted.
 
+// de_DeviceInfo omitted.
+
 // de_Dimensions omitted.
 
 // de_DimensionsV2Map omitted.
+
+// de_DisconnectDetails omitted.
 
 // de_Distribution omitted.
 
@@ -13828,6 +13910,39 @@ const de_EvaluationSummaryList = (output: any, context: __SerdeContext): Evaluat
 
 // de_EventBridgeActionDefinition omitted.
 
+/**
+ * deserializeAws_restJson1Expiry
+ */
+const de_Expiry = (output: any, context: __SerdeContext): Expiry => {
+  return take(output, {
+    DurationInSeconds: __expectInt32,
+    ExpiryTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Expression
+ */
+const de_Expression = (output: any, context: __SerdeContext): Expression => {
+  return take(output, {
+    AndExpression: (_: any) => de_Expressions(_, context),
+    AttributeCondition: (_: any) => de_AttributeCondition(_, context),
+    OrExpression: (_: any) => de_Expressions(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Expressions
+ */
+const de_Expressions = (output: any, context: __SerdeContext): Expression[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Expression(entry, context);
+    });
+  return retVal;
+};
+
 // de_FailedRequest omitted.
 
 // de_FailedRequestList omitted.
@@ -13887,6 +14002,8 @@ const de_HierarchyGroup = (output: any, context: __SerdeContext): HierarchyGroup
     Tags: _json,
   }) as any;
 };
+
+// de_HierarchyGroups omitted.
 
 /**
  * deserializeAws_restJson1HierarchyGroupSummary
@@ -14253,6 +14370,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_OutboundCallerConfig omitted.
 
+// de_ParticipantCapabilities omitted.
+
 // de_ParticipantTokenCredentials omitted.
 
 // de_PermissionsList omitted.
@@ -14264,6 +14383,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 // de_PhoneNumberSummary omitted.
 
 // de_PhoneNumberSummaryList omitted.
+
+// de_PotentialAudioQualityIssues omitted.
 
 /**
  * deserializeAws_restJson1PredefinedAttribute
@@ -14375,6 +14496,16 @@ const de_PromptSummaryList = (output: any, context: __SerdeContext): PromptSumma
 // de_PropertyValidationExceptionProperty omitted.
 
 // de_PropertyValidationExceptionPropertyList omitted.
+
+/**
+ * deserializeAws_restJson1QualityMetrics
+ */
+const de_QualityMetrics = (output: any, context: __SerdeContext): QualityMetrics => {
+  return take(output, {
+    Agent: (_: any) => de_AgentQualityMetrics(_, context),
+    Customer: (_: any) => de_CustomerQualityMetrics(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Queue
@@ -14662,6 +14793,17 @@ const de_RealTimeContactAnalysisTimeData = (output: any, context: __SerdeContext
 // de_RequiredTaskTemplateFields omitted.
 
 /**
+ * deserializeAws_restJson1RoutingCriteria
+ */
+const de_RoutingCriteria = (output: any, context: __SerdeContext): RoutingCriteria => {
+  return take(output, {
+    ActivationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Index: __expectInt32,
+    Steps: (_: any) => de_Steps(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1RoutingProfile
  */
 const de_RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile => {
@@ -14880,6 +15022,10 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
   return retVal;
 };
 
+// de_SegmentAttributes omitted.
+
+// de_SegmentAttributeValue omitted.
+
 // de_SendNotificationActionDefinition omitted.
 
 // de_SignInConfig omitted.
@@ -14891,6 +15037,29 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
 // de_SingleSelectOptions omitted.
 
 // de_SingleSelectQuestionRuleCategoryAutomation omitted.
+
+/**
+ * deserializeAws_restJson1Step
+ */
+const de_Step = (output: any, context: __SerdeContext): Step => {
+  return take(output, {
+    Expiry: (_: any) => de_Expiry(_, context),
+    Expression: (_: any) => de_Expression(_, context),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Steps
+ */
+const de_Steps = (output: any, context: __SerdeContext): Step[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Step(entry, context);
+    });
+  return retVal;
+};
 
 // de_StringReference omitted.
 

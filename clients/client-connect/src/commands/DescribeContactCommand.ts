@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeContactRequest,
-  DescribeContactResponse,
-  DescribeContactResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeContactRequest } from "../models/models_0";
+import { DescribeContactResponse, DescribeContactResponseFilterSensitiveLog } from "../models/models_2";
 import { de_DescribeContactCommand, se_DescribeContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -69,6 +66,31 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       Id: "STRING_VALUE",
  * //       ConnectedToAgentTimestamp: new Date("TIMESTAMP"),
  * //       AgentPauseDurationInSeconds: Number("int"),
+ * //       HierarchyGroups: { // HierarchyGroups
+ * //         Level1: { // AgentHierarchyGroup
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Level2: {
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Level3: {
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Level4: {
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Level5: {
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       DeviceInfo: { // DeviceInfo
+ * //         PlatformName: "STRING_VALUE",
+ * //         PlatformVersion: "STRING_VALUE",
+ * //         OperatingSystem: "STRING_VALUE",
+ * //       },
+ * //       Capabilities: { // ParticipantCapabilities
+ * //         Video: "SEND",
+ * //       },
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
  * //     DisconnectTimestamp: new Date("TIMESTAMP"),
@@ -86,6 +108,91 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     QueuePriority: Number("long"),
  * //     Tags: { // ContactTagMap
  * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     ConnectedToSystemTimestamp: new Date("TIMESTAMP"),
+ * //     RoutingCriteria: { // RoutingCriteria
+ * //       Steps: [ // Steps
+ * //         { // Step
+ * //           Expiry: { // Expiry
+ * //             DurationInSeconds: Number("int"),
+ * //             ExpiryTimestamp: new Date("TIMESTAMP"),
+ * //           },
+ * //           Expression: { // Expression
+ * //             AttributeCondition: { // AttributeCondition
+ * //               Name: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //               ProficiencyLevel: Number("float"),
+ * //               ComparisonOperator: "STRING_VALUE",
+ * //             },
+ * //             AndExpression: [ // Expressions
+ * //               {
+ * //                 AttributeCondition: {
+ * //                   Name: "STRING_VALUE",
+ * //                   Value: "STRING_VALUE",
+ * //                   ProficiencyLevel: Number("float"),
+ * //                   ComparisonOperator: "STRING_VALUE",
+ * //                 },
+ * //                 AndExpression: [
+ * //                   "<Expression>",
+ * //                 ],
+ * //                 OrExpression: [
+ * //                   "<Expression>",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             OrExpression: [
+ * //               "<Expression>",
+ * //             ],
+ * //           },
+ * //           Status: "ACTIVE" || "INACTIVE" || "JOINED" || "EXPIRED",
+ * //         },
+ * //       ],
+ * //       ActivationTimestamp: new Date("TIMESTAMP"),
+ * //       Index: Number("int"),
+ * //     },
+ * //     Customer: { // Customer
+ * //       DeviceInfo: {
+ * //         PlatformName: "STRING_VALUE",
+ * //         PlatformVersion: "STRING_VALUE",
+ * //         OperatingSystem: "STRING_VALUE",
+ * //       },
+ * //       Capabilities: {
+ * //         Video: "SEND",
+ * //       },
+ * //     },
+ * //     Campaign: { // Campaign
+ * //       CampaignId: "STRING_VALUE",
+ * //     },
+ * //     AnsweringMachineDetectionStatus: "ANSWERED" || "UNDETECTED" || "ERROR" || "HUMAN_ANSWERED" || "SIT_TONE_DETECTED" || "SIT_TONE_BUSY" || "SIT_TONE_INVALID_NUMBER" || "FAX_MACHINE_DETECTED" || "VOICEMAIL_BEEP" || "VOICEMAIL_NO_BEEP" || "AMD_UNRESOLVED" || "AMD_UNANSWERED" || "AMD_ERROR" || "AMD_NOT_APPLICABLE",
+ * //     CustomerVoiceActivity: { // CustomerVoiceActivity
+ * //       GreetingStartTimestamp: new Date("TIMESTAMP"),
+ * //       GreetingEndTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //     QualityMetrics: { // QualityMetrics
+ * //       Agent: { // AgentQualityMetrics
+ * //         Audio: { // AudioQualityMetricsInfo
+ * //           QualityScore: Number("float"),
+ * //           PotentialQualityIssues: [ // PotentialAudioQualityIssues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       Customer: { // CustomerQualityMetrics
+ * //         Audio: {
+ * //           QualityScore: Number("float"),
+ * //           PotentialQualityIssues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //     DisconnectDetails: { // DisconnectDetails
+ * //       PotentialDisconnectIssue: "STRING_VALUE",
+ * //     },
+ * //     SegmentAttributes: { // SegmentAttributes
+ * //       "<keys>": { // SegmentAttributeValue
+ * //         ValueString: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };

@@ -400,6 +400,18 @@ export interface AgentContactReference {
 }
 
 /**
+ * <p>Information about an agent hierarchy group.</p>
+ * @public
+ */
+export interface AgentHierarchyGroup {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group.</p>
+   * @public
+   */
+  Arn?: string;
+}
+
+/**
  * <p>A structure that defines search criteria for contacts using agent hierarchy group levels.
  *    For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
  *     <i>Amazon Connect Administrator Guide</i>.</p>
@@ -438,6 +450,93 @@ export interface AgentHierarchyGroups {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const VideoCapability = {
+  SEND: "SEND",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoCapability = (typeof VideoCapability)[keyof typeof VideoCapability];
+
+/**
+ * <p>The configuration for the allowed capabilities for participants present over the
+ *    call.</p>
+ * @public
+ */
+export interface ParticipantCapabilities {
+  /**
+   * <p>The configuration having the video sharing capabilities for participants over the
+   *    call.</p>
+   * @public
+   */
+  Video?: VideoCapability;
+}
+
+/**
+ * <p>Information regarding the device.</p>
+ * @public
+ */
+export interface DeviceInfo {
+  /**
+   * <p>Name of the platform that the participant used for the call.</p>
+   * @public
+   */
+  PlatformName?: string;
+
+  /**
+   * <p>Version of the platform that the participant used for the call.</p>
+   * @public
+   */
+  PlatformVersion?: string;
+
+  /**
+   * <p>Operating system that the participant used for the call.</p>
+   * @public
+   */
+  OperatingSystem?: string;
+}
+
+/**
+ * <p>Information about the agent hierarchy. Hierarchies can be configured with up to five levels.</p>
+ * @public
+ */
+export interface HierarchyGroups {
+  /**
+   * <p>The group at level one of the agent hierarchy.</p>
+   * @public
+   */
+  Level1?: AgentHierarchyGroup;
+
+  /**
+   * <p>The group at level two of the agent hierarchy.</p>
+   * @public
+   */
+  Level2?: AgentHierarchyGroup;
+
+  /**
+   * <p>The group at level three of the agent hierarchy.</p>
+   * @public
+   */
+  Level3?: AgentHierarchyGroup;
+
+  /**
+   * <p>The group at level four of the agent hierarchy.</p>
+   * @public
+   */
+  Level4?: AgentHierarchyGroup;
+
+  /**
+   * <p>The group at level five of the agent hierarchy.</p>
+   * @public
+   */
+  Level5?: AgentHierarchyGroup;
+}
+
+/**
  * <p>Information about the agent who accepted the contact.</p>
  * @public
  */
@@ -459,6 +558,57 @@ export interface AgentInfo {
    * @public
    */
   AgentPauseDurationInSeconds?: number;
+
+  /**
+   * <p>The agent hierarchy groups for the agent.</p>
+   * @public
+   */
+  HierarchyGroups?: HierarchyGroups;
+
+  /**
+   * <p>Information regarding Agent’s device.</p>
+   * @public
+   */
+  DeviceInfo?: DeviceInfo;
+
+  /**
+   * <p>The configuration for the allowed capabilities for participants present over the
+   *    call.</p>
+   * @public
+   */
+  Capabilities?: ParticipantCapabilities;
+}
+
+/**
+ * <p>Contains information for score and potential quality issues for Audio</p>
+ * @public
+ */
+export interface AudioQualityMetricsInfo {
+  /**
+   * <p>Number measuring the estimated quality of the media connection.</p>
+   * @public
+   */
+  QualityScore?: number;
+
+  /**
+   * <p>List of potential issues causing degradation of quality on a media connection. If the service did not detect any potential quality issues the list is empty.</p>
+   *          <p>Valid values: <code>HighPacketLoss</code> | <code>HighRoundTripTime</code> | <code>HighJitterBuffer</code>
+   *          </p>
+   * @public
+   */
+  PotentialQualityIssues?: string[];
+}
+
+/**
+ * <p>Information about the quality of the Agent's media connection</p>
+ * @public
+ */
+export interface AgentQualityMetrics {
+  /**
+   * <p>Information about the audio quality of the Agent</p>
+   * @public
+   */
+  Audio?: AudioQualityMetricsInfo;
 }
 
 /**
@@ -620,33 +770,6 @@ export interface AgentStatusSummary {
    * @public
    */
   LastModifiedRegion?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const VideoCapability = {
-  SEND: "SEND",
-} as const;
-
-/**
- * @public
- */
-export type VideoCapability = (typeof VideoCapability)[keyof typeof VideoCapability];
-
-/**
- * <p>The configuration for the allowed capabilities for participants present over the
- *    call.</p>
- * @public
- */
-export interface ParticipantCapabilities {
-  /**
-   * <p>The configuration having the video sharing capabilities for participants over the
-   *    call.</p>
-   * @public
-   */
-  Video?: VideoCapability;
 }
 
 /**
@@ -2474,7 +2597,7 @@ export interface CreateContactFlowRequest {
 
   /**
    * <p>Indicates the flow status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
-   *    <code>PUBLISHED</code> status will initiate validation on the content. the <code>SAVED</code>
+   *     <code>PUBLISHED</code> status will initiate validation on the content. the <code>SAVED</code>
    *    status does not initiate validation of the content. <code>SAVED</code> |
    *    <code>PUBLISHED</code>.</p>
    * @public
@@ -6515,6 +6638,112 @@ export interface DescribeContactRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AnsweringMachineDetectionStatus = {
+  AMD_ERROR: "AMD_ERROR",
+  AMD_NOT_APPLICABLE: "AMD_NOT_APPLICABLE",
+  AMD_UNANSWERED: "AMD_UNANSWERED",
+  AMD_UNRESOLVED: "AMD_UNRESOLVED",
+  ANSWERED: "ANSWERED",
+  ERROR: "ERROR",
+  FAX_MACHINE_DETECTED: "FAX_MACHINE_DETECTED",
+  HUMAN_ANSWERED: "HUMAN_ANSWERED",
+  SIT_TONE_BUSY: "SIT_TONE_BUSY",
+  SIT_TONE_DETECTED: "SIT_TONE_DETECTED",
+  SIT_TONE_INVALID_NUMBER: "SIT_TONE_INVALID_NUMBER",
+  UNDETECTED: "UNDETECTED",
+  VOICEMAIL_BEEP: "VOICEMAIL_BEEP",
+  VOICEMAIL_NO_BEEP: "VOICEMAIL_NO_BEEP",
+} as const;
+
+/**
+ * @public
+ */
+export type AnsweringMachineDetectionStatus =
+  (typeof AnsweringMachineDetectionStatus)[keyof typeof AnsweringMachineDetectionStatus];
+
+/**
+ * <p>Information about the Customer on the contact.</p>
+ * @public
+ */
+export interface Customer {
+  /**
+   * <p>Information regarding Customer’s device.</p>
+   * @public
+   */
+  DeviceInfo?: DeviceInfo;
+
+  /**
+   * <p>The configuration for the allowed capabilities for participants present over the
+   *    call.</p>
+   * @public
+   */
+  Capabilities?: ParticipantCapabilities;
+}
+
+/**
+ * <p>Information about customer’s voice activity.</p>
+ * @public
+ */
+export interface CustomerVoiceActivity {
+  /**
+   * <p>Timestamp that measures the beginning of the customer greeting from an outbound voice call.</p>
+   * @public
+   */
+  GreetingStartTimestamp?: Date;
+
+  /**
+   * <p>Timestamp that measures the end of the customer greeting from an outbound voice call.</p>
+   * @public
+   */
+  GreetingEndTimestamp?: Date;
+}
+
+/**
+ * <p>Information about the call disconnect experience.</p>
+ * @public
+ */
+export interface DisconnectDetails {
+  /**
+   * <p>Indicates the potential disconnection issues for a call. This field is not populated if the service does not detect potential issues.</p>
+   * @public
+   */
+  PotentialDisconnectIssue?: string;
+}
+
+/**
+ * <p>Information about the quality of the Customer's media connection</p>
+ * @public
+ */
+export interface CustomerQualityMetrics {
+  /**
+   * <p>Information about the audio quality of the Customer</p>
+   * @public
+   */
+  Audio?: AudioQualityMetricsInfo;
+}
+
+/**
+ * <p>Information about the quality of the participant's media connection.</p>
+ * @public
+ */
+export interface QualityMetrics {
+  /**
+   * <p>Information about the quality of Agent media connection.</p>
+   * @public
+   */
+  Agent?: AgentQualityMetrics;
+
+  /**
+   * <p>Information about the quality of Customer media connection.</p>
+   * @public
+   */
+  Customer?: CustomerQualityMetrics;
+}
+
+/**
  * <p>If this contact was queued, this contains information about the queue. </p>
  * @public
  */
@@ -6533,6 +6762,83 @@ export interface QueueInfo {
 }
 
 /**
+ * <p>An object to specify the expiration of a routing step.</p>
+ * @public
+ */
+export interface Expiry {
+  /**
+   * <p>The number of seconds to wait before expiring the routing step.</p>
+   * @public
+   */
+  DurationInSeconds?: number;
+
+  /**
+   * <p>The timestamp indicating when the routing step expires.</p>
+   * @public
+   */
+  ExpiryTimestamp?: Date;
+}
+
+/**
+ * <p>An object to specify the predefined attribute condition.</p>
+ * @public
+ */
+export interface AttributeCondition {
+  /**
+   * <p>The name of predefined attribute.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The value of predefined attribute.</p>
+   * @public
+   */
+  Value?: string;
+
+  /**
+   * <p>The proficiency level of the condition.</p>
+   * @public
+   */
+  ProficiencyLevel?: number;
+
+  /**
+   * <p>The operator of the condition.</p>
+   * @public
+   */
+  ComparisonOperator?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RoutingCriteriaStepStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  INACTIVE: "INACTIVE",
+  JOINED: "JOINED",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingCriteriaStepStatus = (typeof RoutingCriteriaStepStatus)[keyof typeof RoutingCriteriaStepStatus];
+
+/**
+ * <p>A value for a segment attribute. This is structured as a map where the key is
+ *     <code>valueString</code> and the value is a string.</p>
+ * @public
+ */
+export interface SegmentAttributeValue {
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueString?: string;
+}
+
+/**
  * <p>Information about Amazon Connect Wisdom.</p>
  * @public
  */
@@ -6542,175 +6848,6 @@ export interface WisdomInfo {
    * @public
    */
   SessionArn?: string;
-}
-
-/**
- * <p>Contains information about a contact.</p>
- * @public
- */
-export interface Contact {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The identifier for the contact.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
-   * @public
-   */
-  InitialContactId?: string;
-
-  /**
-   * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
-   * @public
-   */
-  PreviousContactId?: string;
-
-  /**
-   * <p>Indicates how the contact was initiated.</p>
-   * @public
-   */
-  InitiationMethod?: ContactInitiationMethod;
-
-  /**
-   * <p>The name of the contact.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the contact.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>How the contact reached your contact center.</p>
-   * @public
-   */
-  Channel?: Channel;
-
-  /**
-   * <p>If this contact was queued, this contains information about the queue. </p>
-   * @public
-   */
-  QueueInfo?: QueueInfo;
-
-  /**
-   * <p>Information about the agent who accepted the contact.</p>
-   * @public
-   */
-  AgentInfo?: AgentInfo;
-
-  /**
-   * <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is
-   *    when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For
-   *     <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code>
-   *    and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For <code>API</code>,
-   *    this is when the request arrived. For <code>EXTERNAL_OUTBOUND</code>, this is when the agent
-   *    started dialing the external participant. For <code>MONITOR</code>, this is when the supervisor
-   *    started listening to a contact.</p>
-   * @public
-   */
-  InitiationTimestamp?: Date;
-
-  /**
-   * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
-   * @public
-   */
-  DisconnectTimestamp?: Date;
-
-  /**
-   * <p>The timestamp when contact was last updated.</p>
-   * @public
-   */
-  LastUpdateTimestamp?: Date;
-
-  /**
-   * <p>The timestamp when the contact was last paused.</p>
-   * @public
-   */
-  LastPausedTimestamp?: Date;
-
-  /**
-   * <p>The timestamp when the contact was last resumed.</p>
-   * @public
-   */
-  LastResumedTimestamp?: Date;
-
-  /**
-   * <p>Total pause count for a contact.</p>
-   * @public
-   */
-  TotalPauseCount?: number;
-
-  /**
-   * <p>Total pause duration for a contact in seconds.</p>
-   * @public
-   */
-  TotalPauseDurationInSeconds?: number;
-
-  /**
-   * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.
-   *   </p>
-   * @public
-   */
-  ScheduledTimestamp?: Date;
-
-  /**
-   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid">related</a> to this
-   *    contact.</p>
-   * @public
-   */
-  RelatedContactId?: string;
-
-  /**
-   * <p>Information about Amazon Connect Wisdom.</p>
-   * @public
-   */
-  WisdomInfo?: WisdomInfo;
-
-  /**
-   * <p>An integer that represents the queue time adjust to be applied to the contact, in seconds
-   *    (longer / larger queue time are routed preferentially). Cannot be specified if the QueuePriority
-   *    is specified. Must be statically defined and a valid integer value.</p>
-   * @public
-   */
-  QueueTimeAdjustmentSeconds?: number;
-
-  /**
-   * <p>An integer that represents the queue priority to be applied to the contact (lower priorities
-   *    are routed preferentially). Cannot be specified if the QueueTimeAdjustmentSeconds is specified.
-   *    Must be statically defined, must be larger than zero, and a valid integer value. Default Value is
-   *    5.</p>
-   * @public
-   */
-  QueuePriority?: number;
-
-  /**
-   * <p>Tags associated with the contact. This contains both Amazon Web Services generated and
-   *    user-defined tags.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface DescribeContactResponse {
-  /**
-   * <p>Information about the contact.</p>
-   * @public
-   */
-  Contact?: Contact;
 }
 
 /**
@@ -6975,299 +7112,6 @@ export interface Evaluation {
 }
 
 /**
- * <p>The flow has not been published.</p>
- * @public
- */
-export class ContactFlowNotPublishedException extends __BaseException {
-  readonly name: "ContactFlowNotPublishedException" = "ContactFlowNotPublishedException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ContactFlowNotPublishedException, __BaseException>) {
-    super({
-      name: "ContactFlowNotPublishedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ContactFlowNotPublishedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface DescribeContactFlowRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ContactFlowState = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-} as const;
-
-/**
- * @public
- */
-export type ContactFlowState = (typeof ContactFlowState)[keyof typeof ContactFlowState];
-
-/**
- * <p>Contains information about a flow.</p>
- * @public
- */
-export interface ContactFlow {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the flow.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
-   *    Guide</i>.</p>
-   * @public
-   */
-  Type?: ContactFlowType;
-
-  /**
-   * <p>The type of flow.</p>
-   * @public
-   */
-  State?: ContactFlowState;
-
-  /**
-   * <p>The status of the contact flow.</p>
-   * @public
-   */
-  Status?: ContactFlowStatus;
-
-  /**
-   * <p>The description of the flow.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     flow in Amazon Connect Flow language</a>. </p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256000.</p>
-   * @public
-   */
-  Content?: string;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface DescribeContactFlowResponse {
-  /**
-   * <p>Information about the flow.</p>
-   * @public
-   */
-  ContactFlow?: ContactFlow;
-}
-
-/**
- * @public
- */
-export interface DescribeContactFlowModuleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ContactFlowModuleState = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-} as const;
-
-/**
- * @public
- */
-export type ContactFlowModuleState = (typeof ContactFlowModuleState)[keyof typeof ContactFlowModuleState];
-
-/**
- * @public
- * @enum
- */
-export const ContactFlowModuleStatus = {
-  PUBLISHED: "PUBLISHED",
-  SAVED: "SAVED",
-} as const;
-
-/**
- * @public
- */
-export type ContactFlowModuleStatus = (typeof ContactFlowModuleStatus)[keyof typeof ContactFlowModuleStatus];
-
-/**
- * <p>Contains information about a flow module.</p>
- * @public
- */
-export interface ContactFlowModule {
-  /**
-   * <p>The Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The name of the flow module.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The JSON string that represents the content of the flow. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example
-   *     flow in Amazon Connect Flow language</a>. </p>
-   * @public
-   */
-  Content?: string;
-
-  /**
-   * <p>The description of the flow module.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The type of flow module.</p>
-   * @public
-   */
-  State?: ContactFlowModuleState;
-
-  /**
-   * <p>The status of the flow module.</p>
-   * @public
-   */
-  Status?: ContactFlowModuleStatus;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface DescribeContactFlowModuleResponse {
-  /**
-   * <p>Information about the flow module.</p>
-   * @public
-   */
-  ContactFlowModule?: ContactFlowModule;
-}
-
-/**
- * @public
- */
-export interface DescribeEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormVersion?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const EvaluationFormVersionStatus = {
-  ACTIVE: "ACTIVE",
-  DRAFT: "DRAFT",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationFormVersionStatus =
-  (typeof EvaluationFormVersionStatus)[keyof typeof EvaluationFormVersionStatus];
-
-/**
- * @public
- */
-export interface DescribeHoursOfOperationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId: string | undefined;
-}
-
-/**
  * @internal
  */
 export const CreateInstanceRequestFilterSensitiveLog = (obj: CreateInstanceRequest): any => ({
@@ -7344,21 +7188,4 @@ export const CreateViewResponseFilterSensitiveLog = (obj: CreateViewResponse): a
 export const CreateViewVersionResponseFilterSensitiveLog = (obj: CreateViewVersionResponse): any => ({
   ...obj,
   ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const ContactFilterSensitiveLog = (obj: Contact): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeContactResponseFilterSensitiveLog = (obj: DescribeContactResponse): any => ({
-  ...obj,
-  ...(obj.Contact && { Contact: ContactFilterSensitiveLog(obj.Contact) }),
 });

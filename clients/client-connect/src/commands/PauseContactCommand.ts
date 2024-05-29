@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PauseContactRequest, PauseContactResponse } from "../models/models_1";
+import { PauseContactRequest, PauseContactResponse } from "../models/models_2";
 import { de_PauseContactCommand, se_PauseContactCommand } from "../protocols/Aws_restJson1";
 
 /**
