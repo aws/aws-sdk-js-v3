@@ -59,7 +59,6 @@
     "dist-*/**",
     "./client.js",
     "./httpAuthSchemes.js",
-    "./account-id-endpoint.js",
     "./protocols.js"
   ],
   "sideEffects": false,
