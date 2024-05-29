@@ -57,6 +57,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *     ],
  *   ],
  *   buildType: "BUILD" || "BUILD_BATCH",
+ *   manualCreation: true || false,
  * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
@@ -76,6 +77,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * //       ],
  * //     ],
  * //     buildType: "BUILD" || "BUILD_BATCH",
+ * //     manualCreation: true || false,
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
  * //   },
  * // };

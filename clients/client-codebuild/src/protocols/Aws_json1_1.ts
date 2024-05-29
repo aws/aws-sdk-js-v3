@@ -3158,6 +3158,7 @@ const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
     buildType: __expectString,
     filterGroups: _json,
     lastModifiedSecret: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    manualCreation: __expectBoolean,
     payloadUrl: __expectString,
     secret: __expectString,
     url: __expectString,

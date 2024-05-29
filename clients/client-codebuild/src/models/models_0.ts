@@ -3116,7 +3116,8 @@ export interface Fleet {
   vpcConfig?: VpcConfig;
 
   /**
-   * <p>The service role associated with the compute fleet.</p>
+   * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
+   *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
    * @public
    */
   fleetServiceRole?: string;
@@ -3711,6 +3712,17 @@ export interface Webhook {
    * @public
    */
   buildType?: WebhookBuildType;
+
+  /**
+   * <p>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead returns <code>payloadUrl</code> and
+   *       <code>secret</code> values for the webhook. The <code>payloadUrl</code> and <code>secret</code> values in the output can
+   *       be used to manually create a webhook within GitHub.</p>
+   *          <note>
+   *             <p>manualCreation is only available for GitHub webhooks.</p>
+   *          </note>
+   * @public
+   */
+  manualCreation?: boolean;
 
   /**
    * <p>A timestamp that indicates the last time a repository's secret token was modified.
@@ -4652,7 +4664,8 @@ export interface CreateFleetInput {
   vpcConfig?: VpcConfig;
 
   /**
-   * <p>The service role associated with the compute fleet.</p>
+   * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
+   *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
    * @public
    */
   fleetServiceRole?: string;
@@ -4991,6 +5004,17 @@ export interface CreateWebhookInput {
    * @public
    */
   buildType?: WebhookBuildType;
+
+  /**
+   * <p>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead returns <code>payloadUrl</code> and
+   *       <code>secret</code> values for the webhook. The <code>payloadUrl</code> and <code>secret</code> values in the output can be
+   *       used to manually create a webhook within GitHub.</p>
+   *          <note>
+   *             <p>manualCreation is only available for GitHub webhooks.</p>
+   *          </note>
+   * @public
+   */
+  manualCreation?: boolean;
 }
 
 /**
@@ -7822,7 +7846,8 @@ export interface UpdateFleetInput {
   vpcConfig?: VpcConfig;
 
   /**
-   * <p>The service role associated with the compute fleet.</p>
+   * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
+   *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
    * @public
    */
   fleetServiceRole?: string;

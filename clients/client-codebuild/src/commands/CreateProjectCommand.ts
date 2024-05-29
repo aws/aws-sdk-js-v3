@@ -335,6 +335,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * //         ],
  * //       ],
  * //       buildType: "BUILD" || "BUILD_BATCH",
+ * //       manualCreation: true || false,
  * //       lastModifiedSecret: new Date("TIMESTAMP"),
  * //     },
  * //     vpcConfig: { // VpcConfig
