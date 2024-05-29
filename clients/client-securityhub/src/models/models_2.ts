@@ -4525,6 +4525,7 @@ export interface BatchGetConfigurationPolicyAssociationsRequest {
 export const TargetType = {
   ACCOUNT: "ACCOUNT",
   ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ROOT: "ROOT",
 } as const;
 
 /**
