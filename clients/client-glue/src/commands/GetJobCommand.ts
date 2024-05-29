@@ -43,6 +43,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * // { // GetJobResponse
  * //   Job: { // Job
  * //     Name: "STRING_VALUE",
+ * //     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
  * //     Description: "STRING_VALUE",
  * //     LogUri: "STRING_VALUE",
  * //     Role: "STRING_VALUE",

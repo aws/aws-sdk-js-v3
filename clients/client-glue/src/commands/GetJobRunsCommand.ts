@@ -49,6 +49,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * //       PreviousRunId: "STRING_VALUE",
  * //       TriggerName: "STRING_VALUE",
  * //       JobName: "STRING_VALUE",
+ * //       JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
  * //       StartedOn: new Date("TIMESTAMP"),
  * //       LastModifiedOn: new Date("TIMESTAMP"),
  * //       CompletedOn: new Date("TIMESTAMP"),

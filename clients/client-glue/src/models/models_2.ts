@@ -48,6 +48,7 @@ import {
   JDBCConnectorSource,
   JDBCConnectorTarget,
   JobCommand,
+  JobMode,
   Join,
   LakeFormationConfiguration,
   LineageConfiguration,
@@ -140,6 +141,23 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetSecurityConfigurationsRequest {
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -6954,6 +6972,27 @@ export interface CreateJobRequest {
   Name: string | undefined;
 
   /**
+   * <p>A mode that describes how a job was created. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
+   * @public
+   */
+  JobMode?: JobMode;
+
+  /**
    * <p>Description of the job being defined.</p>
    * @public
    */
@@ -7173,6 +7212,27 @@ export interface Job {
    * @public
    */
   Name?: string;
+
+  /**
+   * <p>A mode that describes how a job was created. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
+   * @public
+   */
+  JobMode?: JobMode;
 
   /**
    * <p>A description of the job.</p>
@@ -7397,6 +7457,27 @@ export interface Job {
  * @public
  */
 export interface JobUpdate {
+  /**
+   * <p>A mode that describes how a job was created. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
+   * @public
+   */
+  JobMode?: JobMode;
+
   /**
    * <p>Description of the job being defined.</p>
    * @public

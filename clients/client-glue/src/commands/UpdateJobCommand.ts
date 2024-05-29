@@ -37,6 +37,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * const input = { // UpdateJobRequest
  *   JobName: "STRING_VALUE", // required
  *   JobUpdate: { // JobUpdate
+ *     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
  *     Description: "STRING_VALUE",
  *     LogUri: "STRING_VALUE",
  *     Role: "STRING_VALUE",

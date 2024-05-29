@@ -47,6 +47,7 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * //   Jobs: [ // JobList
  * //     { // Job
  * //       Name: "STRING_VALUE",
+ * //       JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
  * //       Description: "STRING_VALUE",
  * //       LogUri: "STRING_VALUE",
  * //       Role: "STRING_VALUE",
