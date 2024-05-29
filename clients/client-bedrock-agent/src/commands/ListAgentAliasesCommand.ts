@@ -49,7 +49,8 @@ export interface ListAgentAliasesCommandOutput extends ListAgentAliasesResponse,
  * //       description: "STRING_VALUE",
  * //       routingConfiguration: [ // AgentAliasRoutingConfiguration
  * //         { // AgentAliasRoutingConfigurationListItem
- * //           agentVersion: "STRING_VALUE", // required
+ * //           agentVersion: "STRING_VALUE",
+ * //           provisionedThroughput: "STRING_VALUE",
  * //         },
  * //       ],
  * //       agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required

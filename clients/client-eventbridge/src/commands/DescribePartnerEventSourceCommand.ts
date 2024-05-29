@@ -28,9 +28,8 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
 
 /**
  * <p>An SaaS partner can use this operation to list details about a partner event source that
- *       they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html">DescribeEventSource</a>
- *       to see details about a partner event source that is
- *       shared with them.</p>
+ *       they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html">DescribeEventSource</a> to see details about a partner event source that is shared with
+ *       them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

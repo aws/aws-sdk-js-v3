@@ -2236,7 +2236,11 @@ const se_Attribute = (input: Attribute, context: __SerdeContext): any => {
   });
 };
 
+// se_attributeNamesList omitted.
+
 // se_attributesMap omitted.
+
+// se_attributeValuesList omitted.
 
 // se_BatchCreateVehicleRequest omitted.
 

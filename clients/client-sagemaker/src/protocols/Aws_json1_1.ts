@@ -1513,8 +1513,6 @@ import {
   DescribeProcessingJobRequest,
   DescribeProcessingJobResponse,
   DescribeProjectInput,
-  DescribeProjectOutput,
-  DescribeSpaceRequest,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1529,6 +1527,7 @@ import {
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   HyperParameterTuningJobConsumedResources,
+  IamPolicyConstraints,
   InferenceComponentContainerSpecificationSummary,
   InferenceComponentRuntimeConfigSummary,
   InferenceComponentSpecificationSummary,
@@ -1566,9 +1565,10 @@ import {
   RemoteDebugConfig,
   ResolvedAttributes,
   RetentionPolicy,
+  S3Presign,
   SelectedStep,
   SelectiveExecutionConfig,
-  ServiceCatalogProvisionedProductDetails,
+  SessionChainingConfig,
   SourceIpConfig,
   TensorBoardOutputConfig,
   ThroughputConfigDescription,
@@ -1577,9 +1577,12 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
   UiTemplateInfo,
+  WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeProjectOutput,
+  DescribeSpaceRequest,
   DescribeSpaceResponse,
   DescribeStudioLifecycleConfigRequest,
   DescribeStudioLifecycleConfigResponse,
@@ -1773,9 +1776,6 @@ import {
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
   ListNotebookInstancesOutput,
-  ListPipelineExecutionsRequest,
-  ListPipelineExecutionsResponse,
-  ListPipelineExecutionStepsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
@@ -1797,7 +1797,6 @@ import {
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
   OidcConfigForResponse,
-  PipelineExecutionSummary,
   PredefinedMetricSpecification,
   ProductionVariantServerlessUpdateConfig,
   ProfilerRuleEvaluationStatus,
@@ -1809,6 +1808,7 @@ import {
   ScalingPolicyMetric,
   ScalingPolicyObjective,
   SecondaryStatusTransition,
+  ServiceCatalogProvisionedProductDetails,
   SubscribedWorkteam,
   SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
@@ -1821,6 +1821,9 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListPipelineExecutionsRequest,
+  ListPipelineExecutionsResponse,
+  ListPipelineExecutionStepsRequest,
   ListPipelineExecutionStepsResponse,
   ListPipelineParametersForExecutionRequest,
   ListPipelineParametersForExecutionResponse,
@@ -1877,6 +1880,7 @@ import {
   PipelineExecution,
   PipelineExecutionStep,
   PipelineExecutionStepMetadata,
+  PipelineExecutionSummary,
   PipelineSummary,
   ProcessingJob,
   ProcessingJobStepMetadata,
@@ -13680,6 +13684,8 @@ const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, 
 
 // se_HyperParameterTuningResourceConfig omitted.
 
+// se_IamPolicyConstraints omitted.
+
 // se_IdentityProviderOAuthSetting omitted.
 
 // se_IdentityProviderOAuthSettings omitted.
@@ -15323,6 +15329,8 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
 
 // se_S3ModelDataSource omitted.
 
+// se_S3Presign omitted.
+
 // se_S3StorageConfig omitted.
 
 // se_SageMakerImageVersionAliases omitted.
@@ -15409,6 +15417,8 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 // se_ServiceCatalogProvisioningDetails omitted.
 
 // se_ServiceCatalogProvisioningUpdateDetails omitted.
+
+// se_SessionChainingConfig omitted.
 
 // se_ShadowModeConfig omitted.
 
@@ -15775,6 +15785,8 @@ const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, cont
 // se_VpcOnlyTrustedAccounts omitted.
 
 // se_VpcSecurityGroupIds omitted.
+
+// se_WorkerAccessConfiguration omitted.
 
 // se_WorkforceSecurityGroupIds omitted.
 
@@ -21986,6 +21998,16 @@ const de_IamIdentity = (output: any, context: __SerdeContext): IamIdentity => {
 };
 
 /**
+ * deserializeAws_json1_1IamPolicyConstraints
+ */
+const de_IamPolicyConstraints = (output: any, context: __SerdeContext): IamPolicyConstraints => {
+  return take(output, {
+    SourceIp: __expectString,
+    VpcSourceIp: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1IdentityProviderOAuthSetting
  */
 const de_IdentityProviderOAuthSetting = (output: any, context: __SerdeContext): IdentityProviderOAuthSetting => {
@@ -26737,6 +26759,15 @@ const de_S3ModelDataSource = (output: any, context: __SerdeContext): S3ModelData
 };
 
 /**
+ * deserializeAws_json1_1S3Presign
+ */
+const de_S3Presign = (output: any, context: __SerdeContext): S3Presign => {
+  return take(output, {
+    IamPolicyConstraints: (_: any) => de_IamPolicyConstraints(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1S3StorageConfig
  */
 const de_S3StorageConfig = (output: any, context: __SerdeContext): S3StorageConfig => {
@@ -28676,6 +28707,15 @@ const de_WarmPoolStatus = (output: any, context: __SerdeContext): WarmPoolStatus
 };
 
 /**
+ * deserializeAws_json1_1WorkerAccessConfiguration
+ */
+const de_WorkerAccessConfiguration = (output: any, context: __SerdeContext): WorkerAccessConfiguration => {
+  return take(output, {
+    S3Presign: (_: any) => de_S3Presign(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1Workforce
  */
 const de_Workforce = (output: any, context: __SerdeContext): Workforce => {
@@ -28764,6 +28804,7 @@ const de_Workteam = (output: any, context: __SerdeContext): Workteam => {
     NotificationConfiguration: (_: any) => de_NotificationConfiguration(_, context),
     ProductListingIds: (_: any) => de_ProductListings(_, context),
     SubDomain: __expectString,
+    WorkerAccessConfiguration: (_: any) => de_WorkerAccessConfiguration(_, context),
     WorkforceArn: __expectString,
     WorkteamArn: __expectString,
     WorkteamName: __expectString,

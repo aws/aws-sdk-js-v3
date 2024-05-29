@@ -37,6 +37,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * const input = { // UpdateJobRequest
  *   JobName: "STRING_VALUE", // required
  *   JobUpdate: { // JobUpdate
+ *     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
  *     Description: "STRING_VALUE",
  *     LogUri: "STRING_VALUE",
  *     Role: "STRING_VALUE",
@@ -1106,6 +1107,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *       AuthStrategy: "PERSONAL_ACCESS_TOKEN" || "AWS_SECRETS_MANAGER",
  *       AuthToken: "STRING_VALUE",
  *     },
+ *     MaintenanceWindow: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateJobCommand(input);

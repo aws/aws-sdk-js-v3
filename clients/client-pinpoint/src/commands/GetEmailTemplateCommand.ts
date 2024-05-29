@@ -49,6 +49,12 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * //     LastModifiedDate: "STRING_VALUE", // required
  * //     RecommenderId: "STRING_VALUE",
  * //     Subject: "STRING_VALUE",
+ * //     Headers: [ // ListOfMessageHeader
+ * //       { // MessageHeader
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     tags: { // MapOf__string
  * //       "<keys>": "STRING_VALUE",
  * //     },

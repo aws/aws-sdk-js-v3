@@ -30,8 +30,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * <p>Returns information about the table, including the current status of the table, when
  *             it was created, the primary key schema, and any indexes on the table.</p>
  *          <important>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
- *                 of global tables.
+ *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
  *             </p>
  *          </important>
  *          <note>
@@ -132,6 +131,10 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //         IndexSizeBytes: Number("long"),
  * //         ItemCount: Number("long"),
  * //         IndexArn: "STRING_VALUE",
+ * //         OnDemandThroughput: { // OnDemandThroughput
+ * //           MaxReadRequestUnits: Number("long"),
+ * //           MaxWriteRequestUnits: Number("long"),
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -151,11 +154,17 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  * //           ReadCapacityUnits: Number("long"),
  * //         },
+ * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ * //           MaxReadRequestUnits: Number("long"),
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
  * //             ProvisionedThroughputOverride: {
  * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //             OnDemandThroughputOverride: {
+ * //               MaxReadRequestUnits: Number("long"),
  * //             },
  * //           },
  * //         ],
@@ -188,6 +197,10 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     OnDemandThroughput: {
+ * //       MaxReadRequestUnits: Number("long"),
+ * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
  * //   },
  * // };
  *

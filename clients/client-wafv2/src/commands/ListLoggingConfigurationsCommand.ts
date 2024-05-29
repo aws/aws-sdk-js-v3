@@ -38,6 +38,7 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  *   Scope: "CLOUDFRONT" || "REGIONAL", // required
  *   NextMarker: "STRING_VALUE",
  *   Limit: Number("int"),
+ *   LogScope: "CUSTOMER" || "SECURITY_LAKE",
  * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
@@ -128,6 +129,8 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * //         ],
  * //         DefaultBehavior: "KEEP" || "DROP", // required
  * //       },
+ * //       LogType: "WAF_LOGS",
+ * //       LogScope: "CUSTOMER" || "SECURITY_LAKE",
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

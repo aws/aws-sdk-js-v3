@@ -52,7 +52,7 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *       material.</p>
  *          <ul>
  *             <li>
- *                <p>The public key (or "wrapping key") of an RSA key pair that KMS generates.</p>
+ *                <p>The public key (or "wrapping key") of an asymmetric key pair that KMS generates.</p>
  *                <p>You will use this public key to encrypt ("wrap") your key material while it's in
  *           transit to KMS. </p>
  *             </li>
@@ -116,8 +116,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * const client = new KMSClient(config);
  * const input = { // GetParametersForImportRequest
  *   KeyId: "STRING_VALUE", // required
- *   WrappingAlgorithm: "RSAES_PKCS1_V1_5" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "RSA_AES_KEY_WRAP_SHA_1" || "RSA_AES_KEY_WRAP_SHA_256", // required
- *   WrappingKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096", // required
+ *   WrappingAlgorithm: "RSAES_PKCS1_V1_5" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "RSA_AES_KEY_WRAP_SHA_1" || "RSA_AES_KEY_WRAP_SHA_256" || "SM2PKE", // required
+ *   WrappingKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "SM2", // required
  * };
  * const command = new GetParametersForImportCommand(input);
  * const response = await client.send(command);

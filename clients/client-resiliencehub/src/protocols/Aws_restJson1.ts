@@ -120,6 +120,10 @@ import {
   ListAppAssessmentComplianceDriftsCommandInput,
   ListAppAssessmentComplianceDriftsCommandOutput,
 } from "../commands/ListAppAssessmentComplianceDriftsCommand";
+import {
+  ListAppAssessmentResourceDriftsCommandInput,
+  ListAppAssessmentResourceDriftsCommandOutput,
+} from "../commands/ListAppAssessmentResourceDriftsCommand";
 import { ListAppAssessmentsCommandInput, ListAppAssessmentsCommandOutput } from "../commands/ListAppAssessmentsCommand";
 import {
   ListAppComponentCompliancesCommandInput,
@@ -889,6 +893,30 @@ export const se_ListAppAssessmentComplianceDriftsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAppAssessmentResourceDriftsCommand
+ */
+export const se_ListAppAssessmentResourceDriftsCommand = async (
+  input: ListAppAssessmentResourceDriftsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-app-assessment-resource-drifts");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListAppAssessmentsCommand
  */
 export const se_ListAppAssessmentsCommand = async (
@@ -1129,7 +1157,7 @@ export const se_ListRecommendationTemplatesCommand = async (
   const headers: any = {};
   b.bp("/list-recommendation-templates");
   const query: any = map({
-    [_aAs]: [, __expectNonNull(input[_aAs]!, `assessmentArn`)],
+    [_aAs]: [, input[_aAs]!],
     [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
     [_s]: [() => input.status !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
     [_rTA]: [, input[_rTA]!],
@@ -2153,6 +2181,28 @@ export const de_ListAppAssessmentComplianceDriftsCommand = async (
   const doc = take(data, {
     complianceDrifts: _json,
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAppAssessmentResourceDriftsCommand
+ */
+export const de_ListAppAssessmentResourceDriftsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppAssessmentResourceDriftsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    resourceDrifts: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3405,11 +3455,17 @@ const de_ResiliencyScore = (output: any, context: __SerdeContext): ResiliencySco
   }) as any;
 };
 
+// de_ResourceDrift omitted.
+
+// de_ResourceDriftList omitted.
+
 // de_ResourceError omitted.
 
 // de_ResourceErrorList omitted.
 
 // de_ResourceErrorsDetails omitted.
+
+// de_ResourceIdentifier omitted.
 
 // de_ResourceMapping omitted.
 

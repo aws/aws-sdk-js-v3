@@ -5642,6 +5642,7 @@ const se_AvailBlanking = (input: AvailBlanking, context: __SerdeContext): any =>
 const se_AvailConfiguration = (input: AvailConfiguration, context: __SerdeContext): any => {
   return take(input, {
     availSettings: [, (_) => se_AvailSettings(_, context), `AvailSettings`],
+    scte35SegmentationScope: [, , `Scte35SegmentationScope`],
   });
 };
 
@@ -8860,6 +8861,7 @@ const de_AvailBlanking = (output: any, context: __SerdeContext): AvailBlanking =
 const de_AvailConfiguration = (output: any, context: __SerdeContext): AvailConfiguration => {
   return take(output, {
     AvailSettings: [, (_: any) => de_AvailSettings(_, context), `availSettings`],
+    Scte35SegmentationScope: [, __expectString, `scte35SegmentationScope`],
   }) as any;
 };
 

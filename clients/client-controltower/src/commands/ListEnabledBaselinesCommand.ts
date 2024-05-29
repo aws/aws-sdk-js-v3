@@ -27,7 +27,9 @@ export interface ListEnabledBaselinesCommandInput extends ListEnabledBaselinesIn
 export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of summaries describing <code>EnabledBaseline</code> resources. You can filter the list by the corresponding <code>Baseline</code> or <code>Target</code> of the <code>EnabledBaseline</code> resources.</p>
+ * <p>Returns a list of summaries describing <code>EnabledBaseline</code> resources. You can filter the list by the corresponding <code>Baseline</code> or <code>Target</code> of the <code>EnabledBaseline</code> resources. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html">
+ *                <i>the Amazon Web Services Control Tower User Guide</i>
+ *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

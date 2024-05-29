@@ -45,7 +45,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
         // After moving to yarn modern, we'll use constraints feature to enforce
         // consistency in dependency versions https://yarnpkg.com/features/constraints
         const devDepToVersionHash = {
-          "@tsconfig/node14": "1.0.3",
+          "@tsconfig/node16": "16.1.3",
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
@@ -248,16 +248,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
       const jestConfigPath = join(destPath, "jest.config.js");
       writeFileSync(
         jestConfigPath,
-        'const base = require("../../jest.config.base.js");\n' +
-          "\n" +
-          "module.exports = {\n" +
-          "  ...base,\n" +
-          "  globals: {\n" +
-          '    "ts-jest": {\n' +
-          "      isolatedModules: true,\n" +
-          "    },\n" +
-          "  },\n" +
-          "};\n"
+        'const base = require("../../jest.config.base.js");\n' + "\n" + "module.exports = {\n" + "  ...base,\n" + "};\n"
       );
     }
   }

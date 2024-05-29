@@ -157,6 +157,7 @@ import { KafkaServiceException as __BaseException } from "../models/KafkaService
 import {
   AmazonMskCluster,
   BadRequestException,
+  BrokerCountUpdateInfo,
   BrokerEBSVolumeInfo,
   BrokerLogs,
   BrokerNodeGroupInfo,
@@ -182,6 +183,7 @@ import {
   ConnectivityInfo,
   ConsumerGroupReplication,
   ConsumerGroupReplicationUpdate,
+  ControllerNodeInfo,
   EBSStorageInfo,
   EncryptionAtRest,
   EncryptionInfo,
@@ -3232,6 +3234,18 @@ const se_VpcConnectivityTls = (input: VpcConnectivityTls, context: __SerdeContex
   });
 };
 
+/**
+ * deserializeAws_restJson1__listOf__double
+ */
+const de___listOf__double = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __limitedParseDouble(entry) as any;
+    });
+  return retVal;
+};
+
 // de___listOf__string omitted.
 
 // de___listOf__stringMax249 omitted.
@@ -3486,6 +3500,16 @@ const de___listOfVpcConnection = (output: any, context: __SerdeContext): VpcConn
 const de_AmazonMskCluster = (output: any, context: __SerdeContext): AmazonMskCluster => {
   return take(output, {
     MskClusterArn: [, __expectString, `mskClusterArn`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BrokerCountUpdateInfo
+ */
+const de_BrokerCountUpdateInfo = (output: any, context: __SerdeContext): BrokerCountUpdateInfo => {
+  return take(output, {
+    CreatedBrokerIds: [, (_: any) => de___listOf__double(_, context), `createdBrokerIds`],
+    DeletedBrokerIds: [, (_: any) => de___listOf__double(_, context), `deletedBrokerIds`],
   }) as any;
 };
 
@@ -3794,6 +3818,15 @@ const de_ConsumerGroupReplication = (output: any, context: __SerdeContext): Cons
 };
 
 /**
+ * deserializeAws_restJson1ControllerNodeInfo
+ */
+const de_ControllerNodeInfo = (output: any, context: __SerdeContext): ControllerNodeInfo => {
+  return take(output, {
+    Endpoints: [, _json, `endpoints`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1EBSStorageInfo
  */
 const de_EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
@@ -3934,6 +3967,7 @@ const de_LoggingInfo = (output: any, context: __SerdeContext): LoggingInfo => {
  */
 const de_MutableClusterInfo = (output: any, context: __SerdeContext): MutableClusterInfo => {
   return take(output, {
+    BrokerCountUpdateInfo: [, (_: any) => de_BrokerCountUpdateInfo(_, context), `brokerCountUpdateInfo`],
     BrokerEBSVolumeInfo: [, (_: any) => de___listOfBrokerEBSVolumeInfo(_, context), `brokerEBSVolumeInfo`],
     ClientAuthentication: [, (_: any) => de_ClientAuthentication(_, context), `clientAuthentication`],
     ConfigurationInfo: [, (_: any) => de_ConfigurationInfo(_, context), `configurationInfo`],
@@ -3974,6 +4008,7 @@ const de_NodeInfo = (output: any, context: __SerdeContext): NodeInfo => {
   return take(output, {
     AddedToClusterTime: [, __expectString, `addedToClusterTime`],
     BrokerNodeInfo: [, (_: any) => de_BrokerNodeInfo(_, context), `brokerNodeInfo`],
+    ControllerNodeInfo: [, (_: any) => de_ControllerNodeInfo(_, context), `controllerNodeInfo`],
     InstanceType: [, __expectString, `instanceType`],
     NodeARN: [, __expectString, `nodeARN`],
     NodeType: [, __expectString, `nodeType`],

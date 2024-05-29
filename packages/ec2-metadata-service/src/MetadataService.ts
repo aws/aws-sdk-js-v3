@@ -32,8 +32,11 @@ export class MetadataService {
   }
 
   async request(path: string, options: { method?: string; headers?: Record<string, string> }): Promise<string> {
-    const { endpoint, ec2MetadataV1Disabled } = await this.config;
-    const handler = new NodeHttpHandler();
+    const { endpoint, ec2MetadataV1Disabled, httpOptions } = await this.config;
+    const handler = new NodeHttpHandler({
+      requestTimeout: httpOptions?.timeout,
+      connectionTimeout: httpOptions?.timeout,
+    });
     const endpointUrl = new URL(endpoint!);
     const headers = options.headers || {};
     /**
@@ -82,8 +85,11 @@ export class MetadataService {
     /**
      * Refer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-metadata-v2-how-it-works.html
      */
-    const { endpoint } = await this.config;
-    const handler = new NodeHttpHandler();
+    const { endpoint, httpOptions } = await this.config;
+    const handler = new NodeHttpHandler({
+      requestTimeout: httpOptions?.timeout,
+      connectionTimeout: httpOptions?.timeout,
+    });
     const endpointUrl = new URL(endpoint!);
     const tokenRequest = new HttpRequest({
       method: "PUT",

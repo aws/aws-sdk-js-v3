@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/protocol-http";
+import { HttpHandler, HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
@@ -7,10 +7,12 @@ import {
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
+  RequestHandler,
 } from "@smithy/types";
 
 interface PreviouslyResolved {
   runtime: string;
+  requestHandler?: RequestHandler<any, any, any> | HttpHandler<any>;
 }
 
 export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildMiddleware<any, any> {
@@ -18,10 +20,12 @@ export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildM
     async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
       const { request } = args;
       if (HttpRequest.isInstance(request) && request.body && options.runtime === "node") {
-        request.headers = {
-          ...request.headers,
-          Expect: "100-continue",
-        };
+        if (options.requestHandler?.constructor?.name !== "FetchHttpHandler") {
+          request.headers = {
+            ...request.headers,
+            Expect: "100-continue",
+          };
+        }
       }
       return next({
         ...args,

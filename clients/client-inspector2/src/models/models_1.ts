@@ -9,6 +9,8 @@ import {
   CisDateFilter,
   CisNumberFilter,
   CisScan,
+  CisScanResultsAggregatedByTargetResourceFilterCriteria,
+  CisScanResultsAggregatedByTargetResourceSortBy,
   CisScanStatusFilter,
   CisSecurityLevel,
   CisSessionMessage,
@@ -41,6 +43,47 @@ import {
   StringFilter,
   TagFilter,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByTargetResourceRequest {
+  /**
+   * <p>The scan ARN.</p>
+   * @public
+   */
+  scanArn: string | undefined;
+
+  /**
+   * <p>The filter criteria.</p>
+   * @public
+   */
+  filterCriteria?: CisScanResultsAggregatedByTargetResourceFilterCriteria;
+
+  /**
+   * <p>The sort by order.</p>
+   * @public
+   */
+  sortBy?: CisScanResultsAggregatedByTargetResourceSortBy;
+
+  /**
+   * <p>The sort order.</p>
+   * @public
+   */
+  sortOrder?: CisSortOrder;
+
+  /**
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of scan results aggregated by a target resource to be returned in a single page of results.</p>
+   * @public
+   */
+  maxResults?: number;
+}
 
 /**
  * @public

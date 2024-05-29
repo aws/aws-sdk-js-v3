@@ -45,9 +45,7 @@ describe("convertToAttrToNative", () => {
   describe("bigint", () => {
     const maxSafe = BigInt(Number.MAX_SAFE_INTEGER);
     [
-      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
       maxSafe * 2n,
-      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
       maxSafe * -2n,
       BigInt(Number.MAX_VALUE),
       BigInt("0x1fffffffffffffff"),
@@ -147,7 +145,6 @@ describe("convertToAttrToNative", () => {
     });
 
     describe("bigint set", () => {
-      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
       const bigNum = BigInt(Number.MAX_SAFE_INTEGER) + 2n;
       const set = new Set([bigNum, -bigNum]);
 

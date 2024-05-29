@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-endpoints",
-  "version": "3.540.0",
+  "version": "3.583.0",
   "description": "Utilities to help with endpoint resolution",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -23,12 +23,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/types": "^2.12.0",
-    "@smithy/util-endpoints": "^1.2.0",
+    "@smithy/types": "^3.0.0",
+    "@smithy/util-endpoints": "^2.0.0",
     "tslib": "^2.6.2"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

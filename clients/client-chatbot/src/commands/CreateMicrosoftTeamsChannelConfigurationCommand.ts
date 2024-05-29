@@ -55,6 +55,12 @@ export interface CreateMicrosoftTeamsChannelConfigurationCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   UserAuthorizationRequired: true || false,
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateMicrosoftTeamsChannelConfigurationCommand(input);
  * const response = await client.send(command);
@@ -76,6 +82,12 @@ export interface CreateMicrosoftTeamsChannelConfigurationCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     UserAuthorizationRequired: true || false,
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         TagKey: "STRING_VALUE", // required
+ * //         TagValue: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

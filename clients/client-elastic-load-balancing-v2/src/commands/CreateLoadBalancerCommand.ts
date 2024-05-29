@@ -85,7 +85,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *     },
  *   ],
  *   Type: "application" || "network" || "gateway",
- *   IpAddressType: "ipv4" || "dualstack",
+ *   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  *   CustomerOwnedIpv4Pool: "STRING_VALUE",
  * };
  * const command = new CreateLoadBalancerCommand(input);
@@ -123,7 +123,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * //       SecurityGroups: [ // SecurityGroups
  * //         "STRING_VALUE",
  * //       ],
- * //       IpAddressType: "ipv4" || "dualstack",
+ * //       IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
  * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
  * //     },

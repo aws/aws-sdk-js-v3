@@ -45,6 +45,14 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  *   scopes: [ // Scopes
  *     "STRING_VALUE",
  *   ],
+ *   redirectUris: [ // RedirectUris
+ *     "STRING_VALUE",
+ *   ],
+ *   grantTypes: [ // GrantTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   issuerUrl: "STRING_VALUE",
+ *   entitledApplicationArn: "STRING_VALUE",
  * };
  * const command = new RegisterClientCommand(input);
  * const response = await client.send(command);
@@ -73,12 +81,18 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  *  <p>Indicates that the client information sent in the request during registration is
  *       invalid.</p>
  *
+ * @throws {@link InvalidRedirectUriException} (client fault)
+ *  <p>Indicates that one or more redirect URI in the request is not supported for this operation.</p>
+ *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that something is wrong with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  *
  * @throws {@link InvalidScopeException} (client fault)
  *  <p>Indicates that the scope provided in the request is invalid.</p>
+ *
+ * @throws {@link UnsupportedGrantTypeException} (client fault)
+ *  <p>Indicates that the grant type in the request is not supported by the service.</p>
  *
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
@@ -90,6 +104,15 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * const input = {
  *   "clientName": "My IDE Plugin",
  *   "clientType": "public",
+ *   "entitledApplicationArn": "arn:aws:sso::ACCOUNTID:application/ssoins-1111111111111111/apl-1111111111111111",
+ *   "grantTypes": [
+ *     "authorization_code",
+ *     "refresh_token"
+ *   ],
+ *   "issuerUrl": "https://identitycenter.amazonaws.com/ssoins-1111111111111111",
+ *   "redirectUris": [
+ *     "127.0.0.1:PORT/oauth/callback"
+ *   ],
  *   "scopes": [
  *     "sso:account:access",
  *     "codewhisperer:completions"

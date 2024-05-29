@@ -39,6 +39,7 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * const client = new OSISClient(config);
  * const input = { // GetPipelineBlueprintRequest
  *   BlueprintName: "STRING_VALUE", // required
+ *   Format: "STRING_VALUE",
  * };
  * const command = new GetPipelineBlueprintCommand(input);
  * const response = await client.send(command);
@@ -46,7 +47,12 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * //   Blueprint: { // PipelineBlueprint
  * //     BlueprintName: "STRING_VALUE",
  * //     PipelineConfigurationBody: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     DisplayDescription: "STRING_VALUE",
+ * //     Service: "STRING_VALUE",
+ * //     UseCase: "STRING_VALUE",
  * //   },
+ * //   Format: "STRING_VALUE",
  * // };
  *
  * ```
@@ -59,6 +65,9 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to access the resource.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>Exception is thrown when an operation has been disabled.</p>
  *
  * @throws {@link InternalException} (server fault)
  *  <p>The request failed because of an unknown error, exception, or failure (the failure is

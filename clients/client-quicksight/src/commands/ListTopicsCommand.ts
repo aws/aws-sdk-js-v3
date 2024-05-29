@@ -47,6 +47,7 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * //       Arn: "STRING_VALUE",
  * //       TopicId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       UserExperienceVersion: "LEGACY" || "NEW_READER_EXPERIENCE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

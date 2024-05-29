@@ -27,9 +27,7 @@ export interface GetShareCommandInput extends GetShareRequest {}
 export interface GetShareCommandOutput extends GetShareResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Retrieves the metadata for a share.
- *     </p>
+ * <p>Retrieves the metadata for the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +43,7 @@ export interface GetShareCommandOutput extends GetShareResponse, __MetadataBeare
  * //   share: { // ShareDetails
  * //     shareId: "STRING_VALUE",
  * //     resourceArn: "STRING_VALUE",
+ * //     resourceId: "STRING_VALUE",
  * //     principalSubscriber: "STRING_VALUE",
  * //     ownerId: "STRING_VALUE",
  * //     status: "STRING_VALUE",

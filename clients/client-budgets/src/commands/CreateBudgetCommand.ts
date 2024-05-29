@@ -112,6 +112,12 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *       ],
  *     },
  *   ],
+ *   ResourceTags: [ // ResourceTagList
+ *     { // ResourceTag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateBudgetCommand(input);
  * const response = await client.send(command);
@@ -139,6 +145,9 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You've reached the limit on the number of tags you can associate with a resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit

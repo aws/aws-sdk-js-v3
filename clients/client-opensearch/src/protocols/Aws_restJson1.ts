@@ -1465,6 +1465,7 @@ export const se_UpdateDataSourceCommand = async (
     take(input, {
       DataSourceType: (_) => _json(_),
       Description: [],
+      Status: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2367,6 +2368,7 @@ export const de_GetDataSourceCommand = async (
     DataSourceType: (_) => _json(__expectUnion(_)),
     Description: __expectString,
     Name: __expectString,
+    Status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3788,6 +3790,7 @@ const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => 
     Created: __expectBoolean,
     Deleted: __expectBoolean,
     DomainEndpointOptions: _json,
+    DomainEndpointV2HostedZoneId: __expectString,
     DomainId: __expectString,
     DomainName: __expectString,
     DomainProcessingStatus: __expectString,

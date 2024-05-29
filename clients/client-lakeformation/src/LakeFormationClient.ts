@@ -115,6 +115,10 @@ import {
 import { ExtendTransactionCommandInput, ExtendTransactionCommandOutput } from "./commands/ExtendTransactionCommand";
 import { GetDataCellsFilterCommandInput, GetDataCellsFilterCommandOutput } from "./commands/GetDataCellsFilterCommand";
 import {
+  GetDataLakePrincipalCommandInput,
+  GetDataLakePrincipalCommandOutput,
+} from "./commands/GetDataLakePrincipalCommand";
+import {
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
 } from "./commands/GetDataLakeSettingsCommand";
@@ -225,6 +229,7 @@ export type ServiceInputTypes =
   | DescribeTransactionCommandInput
   | ExtendTransactionCommandInput
   | GetDataCellsFilterCommandInput
+  | GetDataLakePrincipalCommandInput
   | GetDataLakeSettingsCommandInput
   | GetEffectivePermissionsForPathCommandInput
   | GetLFTagCommandInput
@@ -284,6 +289,7 @@ export type ServiceOutputTypes =
   | DescribeTransactionCommandOutput
   | ExtendTransactionCommandOutput
   | GetDataCellsFilterCommandOutput
+  | GetDataLakePrincipalCommandOutput
   | GetDataLakeSettingsCommandOutput
   | GetEffectivePermissionsForPathCommandOutput
   | GetLFTagCommandOutput

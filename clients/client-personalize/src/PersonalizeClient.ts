@@ -62,6 +62,10 @@ import {
   CreateBatchSegmentJobCommandOutput,
 } from "./commands/CreateBatchSegmentJobCommand";
 import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
+import {
+  CreateDataDeletionJobCommandInput,
+  CreateDataDeletionJobCommandOutput,
+} from "./commands/CreateDataDeletionJobCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import {
   CreateDatasetExportJobCommandInput,
@@ -107,6 +111,10 @@ import {
   DescribeBatchSegmentJobCommandOutput,
 } from "./commands/DescribeBatchSegmentJobCommand";
 import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand";
+import {
+  DescribeDataDeletionJobCommandInput,
+  DescribeDataDeletionJobCommandOutput,
+} from "./commands/DescribeDataDeletionJobCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDatasetExportJobCommandInput,
@@ -154,6 +162,10 @@ import {
   ListBatchSegmentJobsCommandOutput,
 } from "./commands/ListBatchSegmentJobsCommand";
 import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
+import {
+  ListDataDeletionJobsCommandInput,
+  ListDataDeletionJobsCommandOutput,
+} from "./commands/ListDataDeletionJobsCommand";
 import {
   ListDatasetExportJobsCommandInput,
   ListDatasetExportJobsCommandOutput,
@@ -219,6 +231,7 @@ export type ServiceInputTypes =
   | CreateBatchInferenceJobCommandInput
   | CreateBatchSegmentJobCommandInput
   | CreateCampaignCommandInput
+  | CreateDataDeletionJobCommandInput
   | CreateDatasetCommandInput
   | CreateDatasetExportJobCommandInput
   | CreateDatasetGroupCommandInput
@@ -243,6 +256,7 @@ export type ServiceInputTypes =
   | DescribeBatchInferenceJobCommandInput
   | DescribeBatchSegmentJobCommandInput
   | DescribeCampaignCommandInput
+  | DescribeDataDeletionJobCommandInput
   | DescribeDatasetCommandInput
   | DescribeDatasetExportJobCommandInput
   | DescribeDatasetGroupCommandInput
@@ -260,6 +274,7 @@ export type ServiceInputTypes =
   | ListBatchInferenceJobsCommandInput
   | ListBatchSegmentJobsCommandInput
   | ListCampaignsCommandInput
+  | ListDataDeletionJobsCommandInput
   | ListDatasetExportJobsCommandInput
   | ListDatasetGroupsCommandInput
   | ListDatasetImportJobsCommandInput
@@ -291,6 +306,7 @@ export type ServiceOutputTypes =
   | CreateBatchInferenceJobCommandOutput
   | CreateBatchSegmentJobCommandOutput
   | CreateCampaignCommandOutput
+  | CreateDataDeletionJobCommandOutput
   | CreateDatasetCommandOutput
   | CreateDatasetExportJobCommandOutput
   | CreateDatasetGroupCommandOutput
@@ -315,6 +331,7 @@ export type ServiceOutputTypes =
   | DescribeBatchInferenceJobCommandOutput
   | DescribeBatchSegmentJobCommandOutput
   | DescribeCampaignCommandOutput
+  | DescribeDataDeletionJobCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeDatasetExportJobCommandOutput
   | DescribeDatasetGroupCommandOutput
@@ -332,6 +349,7 @@ export type ServiceOutputTypes =
   | ListBatchInferenceJobsCommandOutput
   | ListBatchSegmentJobsCommandOutput
   | ListCampaignsCommandOutput
+  | ListDataDeletionJobsCommandOutput
   | ListDatasetExportJobsCommandOutput
   | ListDatasetGroupsCommandOutput
   | ListDatasetImportJobsCommandOutput

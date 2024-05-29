@@ -110,7 +110,6 @@ import {
 import {
   ArchitectureValues,
   BootModeValues,
-  Byoasn,
   ConversionTask,
   ConversionTaskFilterSensitiveLog,
   Filter,
@@ -150,8 +149,8 @@ import {
 
 import {
   InstanceFamilyCreditSpecification,
+  IpamAddressHistoryRecord,
   IpamComplianceStatus,
-  IpamDiscoveredAccount,
   IpamOverlapStatus,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
@@ -159,6 +158,161 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetIpamAddressHistoryResult {
+  /**
+   * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
+   * @public
+   */
+  HistoryRecords?: IpamAddressHistoryRecord[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredAccountsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the account information is returned from.</p>
+   * @public
+   */
+  DiscoveryRegion: string | undefined;
+
+  /**
+   * <p>Discovered account filters.</p>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of discovered accounts to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamDiscoveryFailureCode = {
+  assume_role_failure: "assume-role-failure",
+  throttling_failure: "throttling-failure",
+  unauthorized_failure: "unauthorized-failure",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamDiscoveryFailureCode = (typeof IpamDiscoveryFailureCode)[keyof typeof IpamDiscoveryFailureCode];
+
+/**
+ * <p>The discovery failure reason.</p>
+ * @public
+ */
+export interface IpamDiscoveryFailureReason {
+  /**
+   * <p>The discovery failure code.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>assume-role-failure</code> - IPAM could not assume the Amazon Web Services IAM service-linked role. This could be because of any of the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>SLR has not been created yet and IPAM is still creating it.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>You have opted-out of the IPAM home Region.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Account you are using as your IPAM account has been suspended.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>throttling-failure</code> - IPAM account is already using the allotted transactions per second and IPAM is receiving a throttling error when assuming the Amazon Web Services IAM SLR.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Code?: IpamDiscoveryFailureCode;
+
+  /**
+   * <p>The discovery failure message.</p>
+   * @public
+   */
+  Message?: string;
+}
+
+/**
+ * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
+ * @public
+ */
+export interface IpamDiscoveredAccount {
+  /**
+   * <p>The account ID.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services Region that the account information is returned from.
+   *          An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
+   * @public
+   */
+  DiscoveryRegion?: string;
+
+  /**
+   * <p>The resource discovery failure reason.</p>
+   * @public
+   */
+  FailureReason?: IpamDiscoveryFailureReason;
+
+  /**
+   * <p>The last attempted resource discovery time.</p>
+   * @public
+   */
+  LastAttemptedDiscoveryTime?: Date;
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   * @public
+   */
+  LastSuccessfulDiscoveryTime?: Date;
+}
 
 /**
  * @public
@@ -9417,120 +9571,6 @@ export interface ProvisionIpamByoasnRequest {
    * @public
    */
   AsnAuthorizationContext: AsnAuthorizationContext | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamByoasnResult {
-  /**
-   * <p>An ASN and BYOIP CIDR association.</p>
-   * @public
-   */
-  Byoasn?: Byoasn;
-}
-
-/**
- * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
- * @public
- */
-export interface IpamCidrAuthorizationContext {
-  /**
-   * <p>The plain-text authorization message for the prefix and account.</p>
-   * @public
-   */
-  Message?: string;
-
-  /**
-   * <p>The signed authorization message for the prefix and account.</p>
-   * @public
-   */
-  Signature?: string;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamPoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the IPAM pool to which you want to assign a CIDR.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR you want to assign to the IPAM pool. Either "NetmaskLength" or "Cidr" is required. This value will be null if you specify "NetmaskLength" and will be filled in during the provisioning process.</p>
-   * @public
-   */
-  Cidr?: string;
-
-  /**
-   * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option applies to public pools only.</p>
-   * @public
-   */
-  CidrAuthorizationContext?: IpamCidrAuthorizationContext;
-
-  /**
-   * <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. Either "NetmaskLength" or "Cidr" is required.</p>
-   * @public
-   */
-  NetmaskLength?: number;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamPoolCidrResult {
-  /**
-   * <p>Information about the provisioned CIDR.</p>
-   * @public
-   */
-  IpamPoolCidr?: IpamPoolCidr;
-}
-
-/**
- * @public
- */
-export interface ProvisionPublicIpv4PoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the IPAM pool you would like to use to allocate this CIDR.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The ID of the public IPv4 pool you would like to use for this CIDR.</p>
-   * @public
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool.</p>
-   * @public
-   */
-  NetmaskLength: number | undefined;
 }
 
 /**

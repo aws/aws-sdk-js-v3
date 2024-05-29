@@ -216,14 +216,14 @@ describe("convertToNative", () => {
     });
 
     it(`testing map with big objects`, () => {
-      const input = Array.from({ length: 100000 }, (_, idx) => [idx, { N: "1.00" }]).reduce((acc, [key, value]) => {
-        acc[key as unknown as string] = value;
+      const input = Array.from(Array(100000).keys()).reduce((acc, index) => {
+        acc[index] = { N: "1.00" };
         return acc;
-      }, {});
-      const output = Array.from({ length: 100000 }, (_, idx) => [idx, 1]).reduce((acc, [key, value]) => {
-        acc[key as unknown as string] = value;
+      }, {} as Record<string, any>);
+      const output = Array.from(Array(100000).keys()).reduce((acc, index) => {
+        acc[index] = 1;
         return acc;
-      }, {});
+      }, {} as Record<string, number>);
       expect(convertToNative({ M: input })).toEqual(output);
     });
   });

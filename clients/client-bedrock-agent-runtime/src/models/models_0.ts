@@ -214,7 +214,7 @@ export class InternalServerException extends __BaseException {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControlInvocationResults</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                <p>In the <code>returnControlInvocationResults</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -247,7 +247,7 @@ export type ResponseState = (typeof ResponseState)[keyof typeof ResponseState];
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -273,7 +273,7 @@ export interface ApiResult {
   apiPath?: string;
 
   /**
-   * <p>The response body from the API operation. The key of the object is the content type. The response may be returned directly or from the Lambda function.</p>
+   * <p>The response body from the API operation. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
   responseBody?: Record<string, ContentBody>;
@@ -296,7 +296,7 @@ export interface ApiResult {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                <p>In the <code>returnControlInvocationResults</code> of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -316,7 +316,7 @@ export interface FunctionResult {
   function?: string;
 
   /**
-   * <p>The response from the function call using the parameters. The response may be returned directly or from the Lambda function.</p>
+   * <p>The response from the function call using the parameters. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
   responseBody?: Record<string, ContentBody>;
@@ -329,12 +329,12 @@ export interface FunctionResult {
 }
 
 /**
- * <p>A result from the action group invocation.</p>
+ * <p>A result from the invocation of an action. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_RequestSyntax">InvokeAgent request</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -409,13 +409,16 @@ export interface SessionState {
   promptSessionAttributes?: Record<string, string>;
 
   /**
-   * <p>Contains information about the results from the action group invocation.</p>
+   * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   *          <note>
+   *             <p>If you include this field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
    * @public
    */
   returnControlInvocationResults?: InvocationResultMember[];
 
   /**
-   * <p>The identifier of the invocation.</p>
+   * <p>The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeAgent</code> response for the action whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
    * @public
    */
   invocationId?: string;
@@ -427,6 +430,9 @@ export interface SessionState {
 export interface InvokeAgentRequest {
   /**
    * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
    * @public
    */
   sessionState?: SessionState;
@@ -463,6 +469,9 @@ export interface InvokeAgentRequest {
 
   /**
    * <p>The prompt text to send the agent.</p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
    * @public
    */
   inputText?: string;
@@ -478,7 +487,7 @@ export interface InvokeAgentRequest {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>span</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>span</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -507,7 +516,7 @@ export interface Span {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>textResponsePart</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>textResponsePart</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -532,7 +541,7 @@ export interface TextResponsePart {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>generatedResponsePart</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>generatedResponsePart</code> field</p>
  *             </li>
  *             <li>
  *                <p>
@@ -563,7 +572,7 @@ export interface GeneratedResponsePart {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>content</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>content</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -590,7 +599,7 @@ export interface RetrievalResultContent {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>s3Location</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>s3Location</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -631,7 +640,7 @@ export type RetrievalResultLocationType =
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>locatino</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>locatino</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -660,7 +669,7 @@ export interface RetrievalResultLocation {
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievedReferences</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>retrievedReferences</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -691,7 +700,7 @@ export interface RetrievedReference {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>citations</code> field</p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a> – in the <code>citations</code> field</p>
  *             </li>
  *             <li>
  *                <p>
@@ -770,7 +779,7 @@ export class ResourceNotFoundException extends __BaseException {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -814,7 +823,7 @@ export interface PropertyParameters {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -833,7 +842,7 @@ export interface ApiRequestBody {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -876,7 +885,7 @@ export interface ApiInvocationInput {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -907,7 +916,7 @@ export interface FunctionParameter {
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -934,11 +943,11 @@ export interface FunctionInvocationInput {
 }
 
 /**
- * <p>Contains details about the API operation or function that the agent predicts should be called.</p>
+ * <p>Contains details about the API operation or function that the agent predicts should be called. </p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
- *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                <p>In the <code>returnControl</code> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -1002,7 +1011,7 @@ export namespace InvocationInputMember {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -1078,6 +1087,443 @@ export interface FailureTrace {
    * @public
    */
   failureReason?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailAction = {
+  INTERVENED: "INTERVENED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentPolicyAction =
+  (typeof GuardrailContentPolicyAction)[keyof typeof GuardrailContentPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterConfidence =
+  (typeof GuardrailContentFilterConfidence)[keyof typeof GuardrailContentFilterConfidence];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterType = {
+  HATE: "HATE",
+  INSULTS: "INSULTS",
+  MISCONDUCT: "MISCONDUCT",
+  PROMPT_ATTACK: "PROMPT_ATTACK",
+  SEXUAL: "SEXUAL",
+  VIOLENCE: "VIOLENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
+
+/**
+ * <p>Details of the content filter used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailContentFilter {
+  /**
+   * <p>The type of content detected in the filter by the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailContentFilterType;
+
+  /**
+   * <p>The confidence level regarding the content detected in the filter by the Guardrail.</p>
+   * @public
+   */
+  confidence?: GuardrailContentFilterConfidence;
+
+  /**
+   * <p>The action placed on the content by the Guardrail filter.</p>
+   * @public
+   */
+  action?: GuardrailContentPolicyAction;
+}
+
+/**
+ * <p>The details of the policy assessment in the Guardrails filter.</p>
+ * @public
+ */
+export interface GuardrailContentPolicyAssessment {
+  /**
+   * <p>The filter details of the policy assessment used in the Guardrails filter.</p>
+   * @public
+   */
+  filters?: GuardrailContentFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailSensitiveInformationPolicyAction = {
+  ANONYMIZED: "ANONYMIZED",
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailSensitiveInformationPolicyAction =
+  (typeof GuardrailSensitiveInformationPolicyAction)[keyof typeof GuardrailSensitiveInformationPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailPiiEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
+
+/**
+ * <p>The Guardrail filter to identify and remove personally identifiable information (PII).</p>
+ * @public
+ */
+export interface GuardrailPiiEntityFilter {
+  /**
+   * <p>The type of PII the Guardrail filter has identified and removed.</p>
+   * @public
+   */
+  type?: GuardrailPiiEntityType;
+
+  /**
+   * <p>The match to settings in the Guardrail filter to identify and remove PII.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The action of the Guardrail filter to identify and remove PII.</p>
+   * @public
+   */
+  action?: GuardrailSensitiveInformationPolicyAction;
+}
+
+/**
+ * <p>The details for the regex filter used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailRegexFilter {
+  /**
+   * <p>The name details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The regex details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  regex?: string;
+
+  /**
+   * <p>The match details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The action details for the regex filter used in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailSensitiveInformationPolicyAction;
+}
+
+/**
+ * <p>The details of the sensitive policy assessment used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailSensitiveInformationPolicyAssessment {
+  /**
+   * <p>The details of the PII entities used in the sensitive policy assessment for the Guardrail.</p>
+   * @public
+   */
+  piiEntities?: GuardrailPiiEntityFilter[];
+
+  /**
+   * <p>The details of the regexes used in the sensitive policy assessment for the Guardrail.</p>
+   * @public
+   */
+  regexes?: GuardrailRegexFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicPolicyAction = (typeof GuardrailTopicPolicyAction)[keyof typeof GuardrailTopicPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicType = {
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
+/**
+ * <p>The details for a specific topic defined in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTopic {
+  /**
+   * <p>The name details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The type details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailTopicType;
+
+  /**
+   * <p>The action details on a specific topic in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailTopicPolicyAction;
+}
+
+/**
+ * <p>The details of the policy assessment used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTopicPolicyAssessment {
+  /**
+   * <p>The topic details of the policy assessment used in the Guardrail.</p>
+   * @public
+   */
+  topics?: GuardrailTopic[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailWordPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailWordPolicyAction = (typeof GuardrailWordPolicyAction)[keyof typeof GuardrailWordPolicyAction];
+
+/**
+ * <p>The custom word details for the filter in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailCustomWord {
+  /**
+   * <p>The match details for the custom word filter in the Guardrail.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The action details for the custom word filter in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailWordPolicyAction;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailManagedWordType = {
+  PROFANITY: "PROFANITY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof typeof GuardrailManagedWordType];
+
+/**
+ * <p>The managed word details for the filter in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailManagedWord {
+  /**
+   * <p>The match details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The type details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  type?: GuardrailManagedWordType;
+
+  /**
+   * <p>The action details for the managed word filter in the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailWordPolicyAction;
+}
+
+/**
+ * <p>The assessment details for words defined in the Guardrail filter.</p>
+ * @public
+ */
+export interface GuardrailWordPolicyAssessment {
+  /**
+   * <p>The custom word details for words defined in the Guardrail filter.</p>
+   * @public
+   */
+  customWords?: GuardrailCustomWord[];
+
+  /**
+   * <p>The managed word lists for words defined in the Guardrail filter.</p>
+   * @public
+   */
+  managedWordLists?: GuardrailManagedWord[];
+}
+
+/**
+ * <p>Assessment details of the content analyzed by Guardrails.</p>
+ * @public
+ */
+export interface GuardrailAssessment {
+  /**
+   * <p>Topic policy details of the Guardrail.</p>
+   * @public
+   */
+  topicPolicy?: GuardrailTopicPolicyAssessment;
+
+  /**
+   * <p>Content policy details of the Guardrail.</p>
+   * @public
+   */
+  contentPolicy?: GuardrailContentPolicyAssessment;
+
+  /**
+   * <p>Word policy details of the Guardrail.</p>
+   * @public
+   */
+  wordPolicy?: GuardrailWordPolicyAssessment;
+
+  /**
+   * <p>Sensitive Information policy details of Guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment;
+}
+
+/**
+ * <p>The trace details used in the Guardrail.</p>
+ * @public
+ */
+export interface GuardrailTrace {
+  /**
+   * <p>The trace action details used with the Guardrail.</p>
+   * @public
+   */
+  action?: GuardrailAction;
+
+  /**
+   * <p>The details of the trace Id used in the Guardrail Trace.</p>
+   * @public
+   */
+  traceId?: string;
+
+  /**
+   * <p>The details of the input assessments used in the Guardrail Trace.</p>
+   * @public
+   */
+  inputAssessments?: GuardrailAssessment[];
+
+  /**
+   * <p>The details of the output assessments used in the Guardrail Trace.</p>
+   * @public
+   */
+  outputAssessments?: GuardrailAssessment[];
 }
 
 /**
@@ -1730,6 +2176,7 @@ export namespace PreProcessingTrace {
  */
 export type Trace =
   | Trace.FailureTraceMember
+  | Trace.GuardrailTraceMember
   | Trace.OrchestrationTraceMember
   | Trace.PostProcessingTraceMember
   | Trace.PreProcessingTraceMember
@@ -1740,10 +2187,24 @@ export type Trace =
  */
 export namespace Trace {
   /**
+   * <p>The trace details for a trace defined in the Guardrail filter.</p>
+   * @public
+   */
+  export interface GuardrailTraceMember {
+    guardrailTrace: GuardrailTrace;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    failureTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
    * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
    * @public
    */
   export interface PreProcessingTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace: PreProcessingTrace;
     orchestrationTrace?: never;
     postProcessingTrace?: never;
@@ -1756,6 +2217,7 @@ export namespace Trace {
    * @public
    */
   export interface OrchestrationTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace: OrchestrationTrace;
     postProcessingTrace?: never;
@@ -1768,6 +2230,7 @@ export namespace Trace {
    * @public
    */
   export interface PostProcessingTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace?: never;
     postProcessingTrace: PostProcessingTrace;
@@ -1780,6 +2243,7 @@ export namespace Trace {
    * @public
    */
   export interface FailureTraceMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace?: never;
     postProcessingTrace?: never;
@@ -1791,6 +2255,7 @@ export namespace Trace {
    * @public
    */
   export interface $UnknownMember {
+    guardrailTrace?: never;
     preProcessingTrace?: never;
     orchestrationTrace?: never;
     postProcessingTrace?: never;
@@ -1799,6 +2264,7 @@ export namespace Trace {
   }
 
   export interface Visitor<T> {
+    guardrailTrace: (value: GuardrailTrace) => T;
     preProcessingTrace: (value: PreProcessingTrace) => T;
     orchestrationTrace: (value: OrchestrationTrace) => T;
     postProcessingTrace: (value: PostProcessingTrace) => T;
@@ -1807,6 +2273,7 @@ export namespace Trace {
   }
 
   export const visit = <T>(value: Trace, visitor: Visitor<T>): T => {
+    if (value.guardrailTrace !== undefined) return visitor.guardrailTrace(value.guardrailTrace);
     if (value.preProcessingTrace !== undefined) return visitor.preProcessingTrace(value.preProcessingTrace);
     if (value.orchestrationTrace !== undefined) return visitor.orchestrationTrace(value.orchestrationTrace);
     if (value.postProcessingTrace !== undefined) return visitor.postProcessingTrace(value.postProcessingTrace);
@@ -2233,6 +2700,79 @@ export interface RetrieveAndGenerateInput {
 }
 
 /**
+ * <p>The configuration details for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailConfiguration {
+  /**
+   * <p>The unique identifier for the guardrail.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  guardrailVersion: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for text generation using a language model via the
+ *       RetrieveAndGenerate operation. Includes parameters like temperature, top-p, maximum token
+ *       count, and stop sequences. </p>
+ *          <note>
+ *             <p>The valid range of <code>maxTokens</code> depends on the accepted values for your chosen
+ *         model's inference parameters. To see the inference parameters for your model, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference
+ *           parameters for foundation models.</a>
+ *             </p>
+ *          </note>
+ * @public
+ */
+export interface TextInferenceConfig {
+  /**
+   * <p> Controls the random-ness of text generated by the language model, influencing how much the model sticks to the most predictable next words versus exploring more surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more creative or unpredictable.  </p>
+   * @public
+   */
+  temperature?: number;
+
+  /**
+   * <p> A probability distribution threshold which controls what the model considers for the set of possible next tokens. The model will only consider the top p% of the probability distribution when generating the next token. </p>
+   * @public
+   */
+  topP?: number;
+
+  /**
+   * <p>The maximum number of tokens to generate in the output text. Do not use the minimum of 0
+   *       or the maximum of 65536. The limit values described here are arbitary values, for actual
+   *       values consult the limits defined by your specific model.</p>
+   * @public
+   */
+  maxTokens?: number;
+
+  /**
+   * <p>A list of sequences of characters that, if generated, will cause the model to stop
+   *       generating further tokens. Do not use a minimum length of 1 or a maximum length of 1000. The
+   *       limit values described here are arbitary values, for actual values consult the limits defined
+   *       by your specific model.</p>
+   * @public
+   */
+  stopSequences?: string[];
+}
+
+/**
+ * <p> The configuration for inference settings when generating responses using RetrieveAndGenerate. </p>
+ * @public
+ */
+export interface InferenceConfig {
+  /**
+   * <p> Configuration settings specific to text generation while generating responses using RetrieveAndGenerate. </p>
+   * @public
+   */
+  textInferenceConfig?: TextInferenceConfig;
+}
+
+/**
  * <p>Contains the template for the prompt that's sent to the model for response generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge base prompt templates</a>.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -2274,6 +2814,24 @@ export interface ExternalSourcesGenerationConfiguration {
    * @public
    */
   promptTemplate?: PromptTemplate;
+
+  /**
+   * <p>The configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using an external source.</p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig;
+
+  /**
+   * <p> Additional model parameters and their corresponding values not included in the textInferenceConfig structure for an external source. Takes in custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType>;
 }
 
 /**
@@ -2392,6 +2950,24 @@ export interface GenerationConfiguration {
    * @public
    */
   promptTemplate?: PromptTemplate;
+
+  /**
+   * <p>The configuration details for the guardrail.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
+
+  /**
+   * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
+   * @public
+   */
+  inferenceConfig?: InferenceConfig;
+
+  /**
+   * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType>;
 }
 
 /**
@@ -2468,6 +3044,20 @@ export interface RetrieveAndGenerateSessionConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const GuadrailAction = {
+  INTERVENED: "INTERVENED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuadrailAction = (typeof GuadrailAction)[keyof typeof GuadrailAction];
+
+/**
  * <p>Contains the response generated from querying the knowledge base.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -2507,6 +3097,12 @@ export interface RetrieveAndGenerateResponse {
    * @public
    */
   citations?: Citation[];
+
+  /**
+   * <p>Specifies if there is a guardrail intervention in the response.</p>
+   * @public
+   */
+  guardrailAction?: GuadrailAction;
 }
 
 /**
@@ -2583,7 +3179,7 @@ export interface RetrieveResponse {
 }
 
 /**
- * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+ * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. See the examples below to see how to use these filters.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -2605,10 +3201,12 @@ export type RetrievalFilter =
   | RetrievalFilter.InMember
   | RetrievalFilter.LessThanMember
   | RetrievalFilter.LessThanOrEqualsMember
+  | RetrievalFilter.ListContainsMember
   | RetrievalFilter.NotEqualsMember
   | RetrievalFilter.NotInMember
   | RetrievalFilter.OrAllMember
   | RetrievalFilter.StartsWithMember
+  | RetrievalFilter.StringContainsMember
   | RetrievalFilter.$UnknownMember;
 
 /**
@@ -2616,7 +3214,11 @@ export type RetrievalFilter =
  */
 export namespace RetrievalFilter {
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>animal</code> attribute whose value is <code>cat</code>:</p>
+   *          <p>
+   *             <code>"equals": \{ "key": "animal", "value": "cat" \}</code>
+   *          </p>
    * @public
    */
   export interface EqualsMember {
@@ -2629,6 +3231,8 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
@@ -2636,6 +3240,10 @@ export namespace RetrievalFilter {
 
   /**
    * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code> in this object are returned.</p>
+   *          <p>The following example would return data sources that don't contain an <code>animal</code> attribute whose value is <code>cat</code>.</p>
+   *          <p>
+   *             <code>"notEquals": \{ "key": "animal", "value": "cat" \}</code>
+   *          </p>
    * @public
    */
   export interface NotEqualsMember {
@@ -2648,13 +3256,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than <code>1989</code>:</p>
+   *          <p>
+   *             <code>"greaterThan": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface GreaterThanMember {
@@ -2667,13 +3281,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is greater than or equal to <code>1989</code>:</p>
+   *          <p>
+   *             <code>"greaterThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface GreaterThanOrEqualsMember {
@@ -2686,13 +3306,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is less than to <code>1989</code>.</p>
+   *          <p>
+   *             <code>"lessThan": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface LessThanMember {
@@ -2705,13 +3331,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>year</code> attribute whose value is less than or equal to <code>1989</code>.</p>
+   *          <p>
+   *             <code>"lessThanOrEquals": \{ "key": "year", "value": 1989 \}</code>
+   *          </p>
    * @public
    */
   export interface LessThanOrEqualsMember {
@@ -2724,13 +3356,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources with an <code>animal</code> attribute that is either <code>cat</code> or <code>dog</code>:</p>
+   *          <p>
+   *             <code>"in": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
+   *          </p>
    * @public
    */
   export interface InMember {
@@ -2743,13 +3381,19 @@ export namespace RetrievalFilter {
     in: FilterAttribute;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object.</p>
+   *          <p>The following example would return data sources whose <code>animal</code> attribute is neither <code>cat</code> nor <code>dog</code>.</p>
+   *          <p>
+   *             <code>"notIn": \{ "key": "animal", "value": ["cat", "dog"] \}</code>
+   *          </p>
    * @public
    */
   export interface NotInMember {
@@ -2762,13 +3406,19 @@ export namespace RetrievalFilter {
     in?: never;
     notIn: FilterAttribute;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object are returned. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p>
+   *          <p>The following example would return data sources with an <code>animal</code> attribute starts with <code>ca</code> (for example, <code>cat</code> or <code>camel</code>).</p>
+   *          <p>
+   *             <code>"startsWith": \{ "key": "animal", "value": "ca" \}</code>
+   *          </p>
    * @public
    */
   export interface StartsWithMember {
@@ -2781,13 +3431,75 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith: FilterAttribute;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources whose metadata attributes fulfill all the filter conditions inside this list are returned.</p>
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is a list that contains the <code>value</code> as one of its members.</p>
+   *          <p>The following example would return data sources with an <code>animals</code> attribute that is a list containing a <code>cat</code> member (for example <code>["dog", "cat"]</code>).</p>
+   *          <p>
+   *             <code>"listContains": \{ "key": "animals", "value": "cat" \}</code>
+   *          </p>
+   * @public
+   */
+  export interface ListContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains: FilterAttribute;
+    stringContains?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if they contain a metadata attribute whose name matches the <code>key</code> and whose value is one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A string that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animal</code> attribute that contains the substring <code>at</code> (for example <code>cat</code>).</p>
+   *                <p>
+   *                   <code>"stringContains": \{ "key": "animal", "value": "at" \}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>A list with a member that contains the <code>value</code> as a substring. The following example would return data sources with an <code>animals</code> attribute that is a list containing a member that contains the substring <code>at</code> (for example <code>["dog", "cat"]</code>).</p>
+   *                <p>
+   *                   <code>"stringContains": \{ "key": "animals", "value": "at" \}</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  export interface StringContainsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    listContains?: never;
+    stringContains: FilterAttribute;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill all the filter conditions inside this list.</p>
    * @public
    */
   export interface AndAllMember {
@@ -2800,13 +3512,15 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll: RetrievalFilter[];
     orAll?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Knowledge base data sources whose metadata attributes fulfill at least one of the filter conditions inside this list are returned.</p>
+   * <p>Knowledge base data sources are returned if their metadata attributes fulfill at least one of the filter conditions inside this list.</p>
    * @public
    */
   export interface OrAllMember {
@@ -2819,6 +3533,8 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll: RetrievalFilter[];
     $unknown?: never;
@@ -2837,6 +3553,8 @@ export namespace RetrievalFilter {
     in?: never;
     notIn?: never;
     startsWith?: never;
+    listContains?: never;
+    stringContains?: never;
     andAll?: never;
     orAll?: never;
     $unknown: [string, any];
@@ -2852,6 +3570,8 @@ export namespace RetrievalFilter {
     in: (value: FilterAttribute) => T;
     notIn: (value: FilterAttribute) => T;
     startsWith: (value: FilterAttribute) => T;
+    listContains: (value: FilterAttribute) => T;
+    stringContains: (value: FilterAttribute) => T;
     andAll: (value: RetrievalFilter[]) => T;
     orAll: (value: RetrievalFilter[]) => T;
     _: (name: string, value: any) => T;
@@ -2867,6 +3587,8 @@ export namespace RetrievalFilter {
     if (value.in !== undefined) return visitor.in(value.in);
     if (value.notIn !== undefined) return visitor.notIn(value.notIn);
     if (value.startsWith !== undefined) return visitor.startsWith(value.startsWith);
+    if (value.listContains !== undefined) return visitor.listContains(value.listContains);
+    if (value.stringContains !== undefined) return visitor.stringContains(value.stringContains);
     if (value.andAll !== undefined) return visitor.andAll(value.andAll);
     if (value.orAll !== undefined) return visitor.orAll(value.orAll);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -3226,6 +3948,104 @@ export const FailureTraceFilterSensitiveLog = (obj: FailureTrace): any => ({
 /**
  * @internal
  */
+export const GuardrailContentFilterFilterSensitiveLog = (obj: GuardrailContentFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailContentPolicyAssessmentFilterSensitiveLog = (obj: GuardrailContentPolicyAssessment): any => ({
+  ...obj,
+  ...(obj.filters && { filters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailPiiEntityFilterFilterSensitiveLog = (obj: GuardrailPiiEntityFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailRegexFilterFilterSensitiveLog = (obj: GuardrailRegexFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailSensitiveInformationPolicyAssessmentFilterSensitiveLog = (
+  obj: GuardrailSensitiveInformationPolicyAssessment
+): any => ({
+  ...obj,
+  ...(obj.piiEntities && { piiEntities: SENSITIVE_STRING }),
+  ...(obj.regexes && { regexes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailTopicFilterSensitiveLog = (obj: GuardrailTopic): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailTopicPolicyAssessmentFilterSensitiveLog = (obj: GuardrailTopicPolicyAssessment): any => ({
+  ...obj,
+  ...(obj.topics && { topics: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailCustomWordFilterSensitiveLog = (obj: GuardrailCustomWord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailManagedWordFilterSensitiveLog = (obj: GuardrailManagedWord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GuardrailWordPolicyAssessmentFilterSensitiveLog = (obj: GuardrailWordPolicyAssessment): any => ({
+  ...obj,
+  ...(obj.customWords && { customWords: SENSITIVE_STRING }),
+  ...(obj.managedWordLists && { managedWordLists: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailAssessmentFilterSensitiveLog = (obj: GuardrailAssessment): any => ({
+  ...obj,
+  ...(obj.topicPolicy && { topicPolicy: SENSITIVE_STRING }),
+  ...(obj.contentPolicy && { contentPolicy: SENSITIVE_STRING }),
+  ...(obj.wordPolicy && { wordPolicy: SENSITIVE_STRING }),
+  ...(obj.sensitiveInformationPolicy && { sensitiveInformationPolicy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GuardrailTraceFilterSensitiveLog = (obj: GuardrailTrace): any => ({
+  ...obj,
+  ...(obj.inputAssessments && { inputAssessments: SENSITIVE_STRING }),
+  ...(obj.outputAssessments && { outputAssessments: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const KnowledgeBaseLookupInputFilterSensitiveLog = (obj: KnowledgeBaseLookupInput): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
@@ -3369,6 +4189,7 @@ export const PreProcessingTraceFilterSensitiveLog = (obj: PreProcessingTrace): a
  * @internal
  */
 export const TraceFilterSensitiveLog = (obj: Trace): any => {
+  if (obj.guardrailTrace !== undefined) return { guardrailTrace: SENSITIVE_STRING };
   if (obj.preProcessingTrace !== undefined) return { preProcessingTrace: SENSITIVE_STRING };
   if (obj.orchestrationTrace !== undefined) return { orchestrationTrace: SENSITIVE_STRING };
   if (obj.postProcessingTrace !== undefined) return { postProcessingTrace: SENSITIVE_STRING };
@@ -3529,6 +4350,8 @@ export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => 
   if (obj.in !== undefined) return { in: obj.in };
   if (obj.notIn !== undefined) return { notIn: obj.notIn };
   if (obj.startsWith !== undefined) return { startsWith: obj.startsWith };
+  if (obj.listContains !== undefined) return { listContains: obj.listContains };
+  if (obj.stringContains !== undefined) return { stringContains: obj.stringContains };
   if (obj.andAll !== undefined) return { andAll: SENSITIVE_STRING };
   if (obj.orAll !== undefined) return { orAll: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };

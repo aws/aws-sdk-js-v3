@@ -33,6 +33,9 @@ const checkState = async (
     } catch (e) {}
   } catch (exception) {
     reason = exception;
+    if (exception.name && exception.name == "AccessDeniedException") {
+      return { state: WaiterState.FAILURE, reason };
+    }
   }
   return { state: WaiterState.RETRY, reason };
 };

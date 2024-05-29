@@ -2967,6 +2967,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
+ *                 ColorConfiguration: { // GaugeChartColorConfiguration
+ *                   ForegroundColor: "STRING_VALUE",
+ *                   BackgroundColor: "STRING_VALUE",
+ *                 },
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // GaugeChartConditionalFormatting

@@ -30,6 +30,10 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * <p>Updates the specified flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
+ *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
+ *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. Once a contact flow is
+ *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
+ *    published.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

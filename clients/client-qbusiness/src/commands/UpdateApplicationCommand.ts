@@ -36,6 +36,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * const client = new QBusinessClient(config);
  * const input = { // UpdateApplicationRequest
  *   applicationId: "STRING_VALUE", // required
+ *   identityCenterInstanceArn: "STRING_VALUE",
  *   displayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   roleArn: "STRING_VALUE",

@@ -27,11 +27,9 @@ export interface PutPartnerEventsCommandInput extends PutPartnerEventsRequest {}
 export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse, __MetadataBearer {}
 
 /**
- * <p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services
- *       customers do not use this operation.</p>
- *          <p>For information on calculating event batch size, see
- *       <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating EventBridge PutEvents event entry size</a>
- *      in the <i>EventBridge User Guide</i>.</p>
+ * <p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services customers do not use this operation.</p>
+ *          <p>For information on calculating event batch size, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating EventBridge PutEvents event
+ *         entry size</a> in the <i>EventBridge User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

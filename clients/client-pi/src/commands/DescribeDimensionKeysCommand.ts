@@ -48,7 +48,7 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  *   PeriodInSeconds: Number("int"),
  *   GroupBy: { // DimensionGroup
  *     Group: "STRING_VALUE", // required
- *     Dimensions: [ // RequestStringList
+ *     Dimensions: [ // SanitizedStringList
  *       "STRING_VALUE",
  *     ],
  *     Limit: Number("int"),

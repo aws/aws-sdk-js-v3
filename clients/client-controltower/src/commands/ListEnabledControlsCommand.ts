@@ -38,9 +38,20 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * // const { ControlTowerClient, ListEnabledControlsCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
  * const input = { // ListEnabledControlsInput
- *   targetIdentifier: "STRING_VALUE", // required
+ *   targetIdentifier: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   filter: { // EnabledControlFilter
+ *     controlIdentifiers: [ // ControlIdentifiers
+ *       "STRING_VALUE",
+ *     ],
+ *     statuses: [ // EnablementStatuses
+ *       "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
+ *     ],
+ *     driftStatuses: [ // DriftStatuses
+ *       "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ *     ],
+ *   },
  * };
  * const command = new ListEnabledControlsCommand(input);
  * const response = await client.send(command);

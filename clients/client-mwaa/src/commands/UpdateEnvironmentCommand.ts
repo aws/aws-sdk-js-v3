@@ -86,6 +86,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *   WebserverAccessMode: "STRING_VALUE",
  *   MinWorkers: Number("int"),
  *   Schedulers: Number("int"),
+ *   MinWebservers: Number("int"),
+ *   MaxWebservers: Number("int"),
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);

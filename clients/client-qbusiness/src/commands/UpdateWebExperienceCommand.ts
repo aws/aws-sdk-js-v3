@@ -37,6 +37,7 @@ export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceRes
  * const input = { // UpdateWebExperienceRequest
  *   applicationId: "STRING_VALUE", // required
  *   webExperienceId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
  *   authenticationConfiguration: { // WebExperienceAuthConfiguration Union: only one key present
  *     samlConfiguration: { // SamlConfiguration
  *       metadataXML: "STRING_VALUE", // required

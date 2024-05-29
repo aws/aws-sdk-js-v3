@@ -45,6 +45,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * const input = { // CreateIndexRequest
  *   applicationId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
+ *   type: "ENTERPRISE" || "STARTER",
  *   description: "STRING_VALUE",
  *   tags: [ // Tags
  *     { // Tag

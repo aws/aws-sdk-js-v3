@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./BatchDeleteDocumentCommand";
 export * from "./BatchPutDocumentCommand";
+export * from "./ChatCommand";
 export * from "./ChatSyncCommand";
 export * from "./CreateApplicationCommand";
 export * from "./CreateDataSourceCommand";

@@ -61,7 +61,7 @@ export interface ListConfigurationPolicyAssociationsCommandOutput
  * //     { // ConfigurationPolicyAssociationSummary
  * //       ConfigurationPolicyId: "STRING_VALUE",
  * //       TargetId: "STRING_VALUE",
- * //       TargetType: "ACCOUNT" || "ORGANIZATIONAL_UNIT",
+ * //       TargetType: "ACCOUNT" || "ORGANIZATIONAL_UNIT" || "ROOT",
  * //       AssociationType: "INHERITED" || "APPLIED",
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       AssociationStatus: "PENDING" || "SUCCESS" || "FAILED",

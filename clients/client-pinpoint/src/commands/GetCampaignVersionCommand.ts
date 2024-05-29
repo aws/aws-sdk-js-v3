@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCampaignVersionRequest } from "../models/models_0";
-import { GetCampaignVersionResponse } from "../models/models_1";
+import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { de_GetCampaignVersionCommand, se_GetCampaignVersionCommand } from "../protocols/Aws_restJson1";
 
@@ -116,6 +115,12 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  * //           EmailMessage: { // CampaignEmailMessage
  * //             Body: "STRING_VALUE",
  * //             FromAddress: "STRING_VALUE",
+ * //             Headers: [ // ListOfMessageHeader
+ * //               { // MessageHeader
+ * //                 Name: "STRING_VALUE",
+ * //                 Value: "STRING_VALUE",
+ * //               },
+ * //             ],
  * //             HtmlBody: "STRING_VALUE",
  * //             Title: "STRING_VALUE",
  * //           },
@@ -312,6 +317,12 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  * //       EmailMessage: {
  * //         Body: "STRING_VALUE",
  * //         FromAddress: "STRING_VALUE",
+ * //         Headers: [
+ * //           {
+ * //             Name: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //         HtmlBody: "STRING_VALUE",
  * //         Title: "STRING_VALUE",
  * //       },

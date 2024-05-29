@@ -55,6 +55,8 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
+ * 			resource policy for CloudWatch Logs.</p>
  *
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>

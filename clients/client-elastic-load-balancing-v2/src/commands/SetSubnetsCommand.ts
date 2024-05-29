@@ -56,7 +56,7 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  *       IPv6Address: "STRING_VALUE",
  *     },
  *   ],
- *   IpAddressType: "ipv4" || "dualstack",
+ *   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
@@ -76,7 +76,7 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * //       ],
  * //     },
  * //   ],
- * //   IpAddressType: "ipv4" || "dualstack",
+ * //   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  * // };
  *
  * ```

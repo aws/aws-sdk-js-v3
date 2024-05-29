@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-flexible-checksums",
-  "version": "3.535.0",
+  "version": "3.577.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-flexible-checksums",
@@ -31,21 +31,21 @@
     "@aws-crypto/crc32": "3.0.0",
     "@aws-crypto/crc32c": "3.0.0",
     "@aws-sdk/types": "*",
-    "@smithy/is-array-buffer": "^2.2.0",
-    "@smithy/protocol-http": "^3.3.0",
-    "@smithy/types": "^2.12.0",
-    "@smithy/util-utf8": "^2.3.0",
+    "@smithy/is-array-buffer": "^3.0.0",
+    "@smithy/protocol-http": "^4.0.0",
+    "@smithy/types": "^3.0.0",
+    "@smithy/util-utf8": "^3.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/node-http-handler": "^2.5.0",
+    "@smithy/node-http-handler": "^3.0.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typescript": "~4.9.5"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

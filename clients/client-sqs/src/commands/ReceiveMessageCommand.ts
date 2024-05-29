@@ -30,8 +30,8 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
 /**
  * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the
  *                 <code>WaitTimeSeconds</code> parameter enables long-poll support. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon
- *                 SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. </p>
+ *             information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS
+ *                 Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. </p>
  *          <p>Short poll is the default behavior where a weighted random set of machines is sampled
  *             on a <code>ReceiveMessage</code> call. Thus, only the messages on the sampled machines
  *             are returned. If the number of messages in the queue is small (fewer than 1,000), you
@@ -65,17 +65,15 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *             more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue and Message Identifiers</a> in the <i>Amazon SQS Developer
  *                 Guide</i>.</p>
  *          <p>You can provide the <code>VisibilityTimeout</code> parameter in your request. The
- *             parameter is applied to the messages that Amazon SQS returns in the response. If you
- *             don't include the parameter, the overall visibility timeout for the queue is used for
- *             the returned messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
+ *             parameter is applied to the messages that Amazon SQS returns in the response. If you don't
+ *             include the parameter, the overall visibility timeout for the queue is used for the
+ *             returned messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
  *             Guide</i>.</p>
  *          <p>A message that isn't deleted or a message whose visibility isn't extended before the
  *             visibility timeout expires counts as a failed receive. Depending on the configuration of
  *             the queue, the message might be sent to the dead-letter queue.</p>
  *          <note>
- *             <p>In the future, new attributes might be added. If you write code that calls this
- *                 action, we recommend that you structure your code so that it can handle new
- *                 attributes gracefully.</p>
+ *             <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +85,9 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *   QueueUrl: "STRING_VALUE", // required
  *   AttributeNames: [ // AttributeNameList
  *     "All" || "Policy" || "VisibilityTimeout" || "MaximumMessageSize" || "MessageRetentionPeriod" || "ApproximateNumberOfMessages" || "ApproximateNumberOfMessagesNotVisible" || "CreatedTimestamp" || "LastModifiedTimestamp" || "QueueArn" || "ApproximateNumberOfMessagesDelayed" || "DelaySeconds" || "ReceiveMessageWaitTimeSeconds" || "RedrivePolicy" || "FifoQueue" || "ContentBasedDeduplication" || "KmsMasterKeyId" || "KmsDataKeyReusePeriodSeconds" || "DeduplicationScope" || "FifoThroughputLimit" || "RedriveAllowPolicy" || "SqsManagedSseEnabled",
+ *   ],
+ *   MessageSystemAttributeNames: [ // MessageSystemAttributeList
+ *     "All" || "SenderId" || "SentTimestamp" || "ApproximateReceiveCount" || "ApproximateFirstReceiveTimestamp" || "SequenceNumber" || "MessageDeduplicationId" || "MessageGroupId" || "AWSTraceHeader" || "DeadLetterQueueSourceArn",
  *   ],
  *   MessageAttributeNames: [ // MessageAttributeNameList
  *     "STRING_VALUE",

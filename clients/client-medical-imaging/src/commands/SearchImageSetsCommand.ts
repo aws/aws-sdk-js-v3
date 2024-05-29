@@ -35,12 +35,11 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * <p>Search image sets based on defined input attributes.</p>
  *          <note>
  *             <p>
- *                <code>SearchImageSets</code> accepts a single search
- *                query parameter and returns a paginated response of all image sets that have the
- *                matching criteria. All range queries must be input as <code>(lowerBound, upperBound)</code>.</p>
- *             <p>
- *                <code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting
- *                in decreasing order from latest to oldest.</p>
+ *                <code>SearchImageSets</code> accepts a single search query parameter and returns a paginated
+ *                response of all image sets that have the matching criteria. All date range queries must be input
+ *                as <code>(lowerBound, upperBound)</code>.</p>
+ *             <p>By default, <code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting
+ *                in descending order from newest to oldest.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

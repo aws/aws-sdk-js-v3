@@ -287,6 +287,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_0";
+import { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_1";
 import { de_DescribeInstanceAttributeCommand, se_DescribeInstanceAttributeCommand } from "../protocols/Aws_restJson1";
 
 /**

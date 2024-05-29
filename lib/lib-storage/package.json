@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.565.0",
+  "version": "3.583.0",
   "description": "Storage higher order operation",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -18,7 +18,7 @@
     "test:e2e": "jest -c jest.config.e2e.js"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -26,9 +26,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/abort-controller": "^2.2.0",
-    "@smithy/middleware-endpoint": "^2.5.1",
-    "@smithy/smithy-client": "^2.5.1",
+    "@smithy/abort-controller": "^3.0.0",
+    "@smithy/middleware-endpoint": "^3.0.0",
+    "@smithy/smithy-client": "^3.0.1",
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",
@@ -39,9 +39,9 @@
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "*",
-    "@smithy/types": "^2.12.0",
+    "@smithy/types": "^3.0.0",
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^14.14.31",
+    "@types/node": "^16.18.96",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

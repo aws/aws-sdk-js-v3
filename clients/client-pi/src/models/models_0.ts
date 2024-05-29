@@ -210,6 +210,21 @@ export interface AnalysisReportSummary {
 
 /**
  * @public
+ * @enum
+ */
+export const FineGrainedAction = {
+  DESCRIBE_DIMENSION_KEYS: "DescribeDimensionKeys",
+  GET_DIMENSION_KEY_DETAILS: "GetDimensionKeyDetails",
+  GET_RESOURCE_METRICS: "GetResourceMetrics",
+} as const;
+
+/**
+ * @public
+ */
+export type FineGrainedAction = (typeof FineGrainedAction)[keyof typeof FineGrainedAction];
+
+/**
+ * @public
  */
 export interface CreatePerformanceAnalysisReportRequest {
   /**
@@ -1578,6 +1593,15 @@ export interface ListAvailableResourceDimensionsRequest {
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>The actions to discover the dimensions you are authorized to access. If you specify multiple actions, then the response will
+   *         contain the dimensions common for all the actions.</p>
+   *          <p>When you don't specify this request parameter or provide an empty list, the response contains all the
+   *             available dimensions for the target database engine whether or not you are authorized to access them.</p>
+   * @public
+   */
+  AuthorizedActions?: FineGrainedAction[];
 }
 
 /**

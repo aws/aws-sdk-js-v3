@@ -68,6 +68,7 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       BgpAsnExtended: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

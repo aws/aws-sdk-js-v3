@@ -80,7 +80,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *     },
  *   ],
  *   bundleId: "STRING_VALUE", // required
- *   ipAddressType: "dualstack" || "ipv4",
+ *   ipAddressType: "dualstack" || "ipv4" || "ipv6",
  *   tags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE",
@@ -154,7 +154,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //       },
  * //     ],
  * //     ableToUpdateBundle: true || false,
- * //     ipAddressType: "dualstack" || "ipv4",
+ * //     ipAddressType: "dualstack" || "ipv4" || "ipv6",
  * //     tags: [ // TagList
  * //       { // Tag
  * //         key: "STRING_VALUE",

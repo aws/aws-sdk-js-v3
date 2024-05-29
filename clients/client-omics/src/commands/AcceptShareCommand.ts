@@ -27,9 +27,7 @@ export interface AcceptShareCommandInput extends AcceptShareRequest {}
 export interface AcceptShareCommandOutput extends AcceptShareResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Accepts a share for an analytics store.
- * </p>
+ * <p>Accept a resource share request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

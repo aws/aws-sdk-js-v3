@@ -40,7 +40,8 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  * const input = { // SetIpAddressTypeRequest
  *   resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket", // required
  *   resourceName: "STRING_VALUE", // required
- *   ipAddressType: "dualstack" || "ipv4", // required
+ *   ipAddressType: "dualstack" || "ipv4" || "ipv6", // required
+ *   acceptBundleUpdate: true || false,
  * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);

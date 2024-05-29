@@ -32,6 +32,29 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  *       time for changes to take effect. If you do not specify a pattern to filter events sent to the
  *       archive, all events are sent to the archive except replayed events. Replayed events are not
  *       sent to an archive.</p>
+ *          <note>
+ *             <p>Archives and schema discovery are not supported for event buses encrypted using a
+ *         customer managed key. EventBridge returns an error if:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>You call <code>
+ *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html">CreateArchive</a>
+ *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You call <code>
+ *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a>
+ *                      </code> on an event bus set to use a customer managed key for encryption.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You call <code>
+ *                         <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html">UpdatedEventBus</a>
+ *                      </code> to set a customer managed key on an event bus with an archives or schema discovery enabled.</p>
+ *                </li>
+ *             </ul>
+ *             <p>To enable archives or schema discovery on an event bus, choose to
+ *         use an Amazon Web Services owned key. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

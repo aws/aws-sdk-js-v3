@@ -278,6 +278,8 @@ import {
   ListTablesInput,
   ListTagsOfResourceInput,
   LocalSecondaryIndex,
+  OnDemandThroughput,
+  OnDemandThroughputOverride,
   ParameterizedStatement,
   PointInTimeRecoveryDescription,
   PointInTimeRecoverySpecification,
@@ -3503,6 +3505,10 @@ const se_MapAttributeValue = (input: Record<string, AttributeValue>, context: __
 
 // se_NumberSetAttributeValue omitted.
 
+// se_OnDemandThroughput omitted.
+
+// se_OnDemandThroughputOverride omitted.
+
 /**
  * serializeAws_json1_0ParameterizedStatement
  */
@@ -3764,6 +3770,7 @@ const se_RestoreTableToPointInTimeInput = (input: RestoreTableToPointInTimeInput
     BillingModeOverride: [],
     GlobalSecondaryIndexOverride: _json,
     LocalSecondaryIndexOverride: _json,
+    OnDemandThroughputOverride: _json,
     ProvisionedThroughputOverride: _json,
     RestoreDateTime: (_) => Math.round(_.getTime() / 1000),
     SSESpecificationOverride: _json,
@@ -4671,6 +4678,7 @@ const de_GlobalSecondaryIndexDescription = (output: any, context: __SerdeContext
     IndexStatus: __expectString,
     ItemCount: __expectLong,
     KeySchema: _json,
+    OnDemandThroughput: _json,
     Projection: _json,
     ProvisionedThroughput: (_: any) => de_ProvisionedThroughputDescription(_, context),
   }) as any;
@@ -5026,6 +5034,10 @@ const de_MapAttributeValue = (output: any, context: __SerdeContext): Record<stri
 
 // de_NumberSetAttributeValue omitted.
 
+// de_OnDemandThroughput omitted.
+
+// de_OnDemandThroughputOverride omitted.
+
 /**
  * deserializeAws_json1_0PartiQLBatchResponse
  */
@@ -5164,6 +5176,7 @@ const de_ReplicaDescription = (output: any, context: __SerdeContext): ReplicaDes
   return take(output, {
     GlobalSecondaryIndexes: _json,
     KMSMasterKeyId: __expectString,
+    OnDemandThroughputOverride: _json,
     ProvisionedThroughputOverride: _json,
     RegionName: __expectString,
     ReplicaInaccessibleDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5357,6 +5370,7 @@ const de_SourceTableDetails = (output: any, context: __SerdeContext): SourceTabl
     BillingMode: __expectString,
     ItemCount: __expectLong,
     KeySchema: _json,
+    OnDemandThroughput: _json,
     ProvisionedThroughput: _json,
     TableArn: __expectString,
     TableCreationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -5439,6 +5453,7 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
     LatestStreamArn: __expectString,
     LatestStreamLabel: __expectString,
     LocalSecondaryIndexes: _json,
+    OnDemandThroughput: _json,
     ProvisionedThroughput: (_: any) => de_ProvisionedThroughputDescription(_, context),
     Replicas: (_: any) => de_ReplicaDescriptionList(_, context),
     RestoreSummary: (_: any) => de_RestoreSummary(_, context),

@@ -88,6 +88,9 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  *     QSearchBar: { // AnonymousUserQSearchBarEmbeddingConfiguration
  *       InitialTopicId: "STRING_VALUE", // required
  *     },
+ *     GenerativeQnA: { // AnonymousUserGenerativeQnAEmbeddingConfiguration
+ *       InitialTopicId: "STRING_VALUE", // required
+ *     },
  *   },
  *   AllowedDomains: [ // StringList
  *     "STRING_VALUE",

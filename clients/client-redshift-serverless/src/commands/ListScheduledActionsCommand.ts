@@ -48,7 +48,10 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * // { // ListScheduledActionsResponse
  * //   nextToken: "STRING_VALUE",
  * //   scheduledActions: [ // ScheduledActionsList
- * //     "STRING_VALUE",
+ * //     { // ScheduledActionAssociation
+ * //       namespaceName: "STRING_VALUE",
+ * //       scheduledActionName: "STRING_VALUE",
+ * //     },
  * //   ],
  * // };
  *

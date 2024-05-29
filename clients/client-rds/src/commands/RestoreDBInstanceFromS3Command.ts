@@ -109,6 +109,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBInstanceFromS3Command(input);
  * const response = await client.send(command);
@@ -335,6 +336,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

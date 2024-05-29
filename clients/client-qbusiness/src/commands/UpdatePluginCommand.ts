@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePluginRequest, UpdatePluginResponse } from "../models/models_0";
+import { UpdatePluginRequest, UpdatePluginRequestFilterSensitiveLog, UpdatePluginResponse } from "../models/models_0";
 import { de_UpdatePluginCommand, se_UpdatePluginCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -40,6 +40,17 @@ export interface UpdatePluginCommandOutput extends UpdatePluginResponse, __Metad
  *   displayName: "STRING_VALUE",
  *   state: "ENABLED" || "DISABLED",
  *   serverUrl: "STRING_VALUE",
+ *   customPluginConfiguration: { // CustomPluginConfiguration
+ *     description: "STRING_VALUE", // required
+ *     apiSchemaType: "OPEN_API_V3", // required
+ *     apiSchema: { // APISchema Union: only one key present
+ *       payload: "STRING_VALUE",
+ *       s3: { // S3
+ *         bucket: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
  *   authConfiguration: { // PluginAuthConfiguration Union: only one key present
  *     basicAuthConfiguration: { // BasicAuthConfiguration
  *       secretArn: "STRING_VALUE", // required
@@ -49,6 +60,7 @@ export interface UpdatePluginCommandOutput extends UpdatePluginResponse, __Metad
  *       secretArn: "STRING_VALUE", // required
  *       roleArn: "STRING_VALUE", // required
  *     },
+ *     noAuthConfiguration: {},
  *   },
  * };
  * const command = new UpdatePluginCommand(input);
@@ -114,7 +126,7 @@ export class UpdatePluginCommand extends $Command
   })
   .s("ExpertQ", "UpdatePlugin", {})
   .n("QBusinessClient", "UpdatePluginCommand")
-  .f(void 0, void 0)
+  .f(UpdatePluginRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePluginCommand)
   .de(de_UpdatePluginCommand)
   .build() {}

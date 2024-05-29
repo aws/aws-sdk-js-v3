@@ -125,6 +125,7 @@ import {
 import { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "../commands/UpdateArchiveCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../commands/UpdateConnectionCommand";
 import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "../commands/UpdateEndpointCommand";
+import { UpdateEventBusCommandInput, UpdateEventBusCommandOutput } from "../commands/UpdateEventBusCommand";
 import { EventBridgeServiceException as __BaseException } from "../models/EventBridgeServiceException";
 import {
   ActivateEventSourceRequest,
@@ -179,6 +180,7 @@ import {
   DescribeEndpointRequest,
   DescribeEndpointResponse,
   DescribeEventBusRequest,
+  DescribeEventBusResponse,
   DescribeEventSourceRequest,
   DescribeEventSourceResponse,
   DescribePartnerEventSourceRequest,
@@ -190,6 +192,7 @@ import {
   EnableRuleRequest,
   Endpoint,
   EndpointEventBus,
+  EventBus,
   EventSource,
   FailoverConfig,
   HttpParameters,
@@ -209,6 +212,7 @@ import {
   ListEndpointsRequest,
   ListEndpointsResponse,
   ListEventBusesRequest,
+  ListEventBusesResponse,
   ListEventSourcesRequest,
   ListEventSourcesResponse,
   ListPartnerEventSourceAccountsRequest,
@@ -270,6 +274,7 @@ import {
   UpdateConnectionRequest,
   UpdateConnectionResponse,
   UpdateEndpointRequest,
+  UpdateEventBusRequest,
 } from "../models/models_0";
 
 /**
@@ -1001,6 +1006,19 @@ export const se_UpdateEndpointCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateEventBusCommand
+ */
+export const se_UpdateEventBusCommand = async (
+  input: UpdateEventBusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateEventBus");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * deserializeAws_json1_1ActivateEventSourceCommand
  */
 export const de_ActivateEventSourceCommand = async (
@@ -1417,7 +1435,7 @@ export const de_DescribeEventBusCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_DescribeEventBusResponse(data, context);
   const response: DescribeEventBusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1631,7 +1649,7 @@ export const de_ListEventBusesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_ListEventBusesResponse(data, context);
   const response: ListEventBusesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2087,6 +2105,26 @@ export const de_UpdateEndpointCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UpdateEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEventBusCommand
+ */
+export const de_UpdateEventBusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventBusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateEventBusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2642,6 +2680,8 @@ const se_StartReplayRequest = (input: StartReplayRequest, context: __SerdeContex
 
 // se_UpdateEndpointRequest omitted.
 
+// se_UpdateEventBusRequest omitted.
+
 /**
  * deserializeAws_json1_1ApiDestination
  */
@@ -2922,7 +2962,21 @@ const de_DescribeEndpointResponse = (output: any, context: __SerdeContext): Desc
   }) as any;
 };
 
-// de_DescribeEventBusResponse omitted.
+/**
+ * deserializeAws_json1_1DescribeEventBusResponse
+ */
+const de_DescribeEventBusResponse = (output: any, context: __SerdeContext): DescribeEventBusResponse => {
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeadLetterConfig: _json,
+    Description: __expectString,
+    KmsKeyIdentifier: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Policy: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeEventSourceResponse
@@ -3001,9 +3055,31 @@ const de_EndpointList = (output: any, context: __SerdeContext): Endpoint[] => {
   return retVal;
 };
 
-// de_EventBus omitted.
+/**
+ * deserializeAws_json1_1EventBus
+ */
+const de_EventBus = (output: any, context: __SerdeContext): EventBus => {
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Policy: __expectString,
+  }) as any;
+};
 
-// de_EventBusList omitted.
+/**
+ * deserializeAws_json1_1EventBusList
+ */
+const de_EventBusList = (output: any, context: __SerdeContext): EventBus[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EventBus(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1EventSource
@@ -3091,7 +3167,15 @@ const de_ListEndpointsResponse = (output: any, context: __SerdeContext): ListEnd
   }) as any;
 };
 
-// de_ListEventBusesResponse omitted.
+/**
+ * deserializeAws_json1_1ListEventBusesResponse
+ */
+const de_ListEventBusesResponse = (output: any, context: __SerdeContext): ListEventBusesResponse => {
+  return take(output, {
+    EventBuses: (_: any) => de_EventBusList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1ListEventSourcesResponse
@@ -3351,6 +3435,8 @@ const de_UpdateConnectionResponse = (output: any, context: __SerdeContext): Upda
 };
 
 // de_UpdateEndpointResponse omitted.
+
+// de_UpdateEventBusResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

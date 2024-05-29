@@ -1107,9 +1107,6 @@ const se_NestedStructWithList = (input: NestedStructWithList, context: __SerdeCo
   const entries: any = {};
   if (input[_LA] != null) {
     const memberEntries = se_StringList(input[_LA], context);
-    if (input[_LA]?.length === 0) {
-      entries.ListArg = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1156,9 +1153,6 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
   const entries: any = {};
   if (input[_LA] != null) {
     const memberEntries = se_StringList(input[_LA], context);
-    if (input[_LA]?.length === 0) {
-      entries.ListArg = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1166,9 +1160,6 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
   }
   if (input[_CLA] != null) {
     const memberEntries = se_GreetingList(input[_CLA], context);
-    if (input[_CLA]?.length === 0) {
-      entries.ComplexListArg = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexListArg.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1176,9 +1167,6 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
   }
   if (input[_LAWXNM] != null) {
     const memberEntries = se_ListWithXmlName(input[_LAWXNM], context);
-    if (input[_LAWXNM]?.length === 0) {
-      entries.ListArgWithXmlNameMember = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArgWithXmlNameMember.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -1186,9 +1174,6 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
   }
   if (input[_LAWXN] != null) {
     const memberEntries = se_ListWithXmlName(input[_LAWXN], context);
-    if (input[_LAWXN]?.length === 0) {
-      entries.Hi = [];
-    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;

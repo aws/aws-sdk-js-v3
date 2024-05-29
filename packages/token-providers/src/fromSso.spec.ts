@@ -141,6 +141,7 @@ describe(fromSso.name, () => {
     expect(validateTokenKey).toHaveBeenNthCalledWith(
       (validateTokenKey as jest.Mock).mock.calls.length,
       key,
+      // @ts-ignore Element implicitly has an 'any' type
       mockSsoToken[key]
     );
   });
@@ -215,6 +216,7 @@ describe(fromSso.name, () => {
       expect(validateTokenKey).toHaveBeenNthCalledWith(
         (validateTokenKey as jest.Mock).mock.calls.length,
         key,
+        // @ts-ignore Element implicitly has an 'any' type
         mockSsoToken[key],
         true
       );
@@ -222,25 +224,25 @@ describe(fromSso.name, () => {
   );
 
   describe("failure wrt token from ssoOidc.createToken()", () => {
-    const returnExistingValidTokenInExpiryWindowTest = async (fromSso) => {
+    const returnExistingValidTokenInExpiryWindowTest = async (fromSsoImpl: typeof fromSso) => {
       const mockValidSsoTokenInExpiryWindow = {
         ...mockSsoToken,
         expiresAt: new Date(mockDateNow + EXPIRE_WINDOW_MS - 1000).toISOString(),
       };
       (getSSOTokenFromFile as jest.Mock).mockResolvedValueOnce(mockValidSsoTokenInExpiryWindow);
-      await expect(fromSso(mockInit)()).resolves.toStrictEqual({
+      await expect(fromSsoImpl(mockInit)()).resolves.toStrictEqual({
         token: mockValidSsoTokenInExpiryWindow.accessToken,
         expiration: new Date(mockValidSsoTokenInExpiryWindow.expiresAt),
       });
       expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockValidSsoTokenInExpiryWindow, mockSsoSession.sso_region);
     };
 
-    const throwErrorExpiredTokenTest = async (fromSso) => {
+    const throwErrorExpiredTokenTest = async (fromSsoImpl: typeof fromSso) => {
       const ssoTokenExpiryError = new TokenProviderError(`SSO Token is expired. ${REFRESH_MESSAGE}`, false);
       (validateTokenExpiry as jest.Mock).mockImplementation(() => {
         throw ssoTokenExpiryError;
       });
-      await expect(fromSso(mockInit)()).rejects.toStrictEqual(ssoTokenExpiryError);
+      await expect(fromSsoImpl(mockInit)()).rejects.toStrictEqual(ssoTokenExpiryError);
       expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
     };
 

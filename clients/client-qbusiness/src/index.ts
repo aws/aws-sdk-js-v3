@@ -1,10 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <note>
- *             <p>Amazon Q is in preview release and is subject to change.</p>
- *          </note>
- *          <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
+ * <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
  *             managed, generative-AI powered enterprise chat assistant that you can deploy within your
  *             organization. Amazon Q Business enhances employee productivity by supporting key tasks such
  *             as question-answering, knowledge discovery, writing email messages, summarizing text,

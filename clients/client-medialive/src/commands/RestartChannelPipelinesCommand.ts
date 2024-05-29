@@ -220,6 +220,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //           WebDeliveryAllowedFlag: "FOLLOW" || "IGNORE",
  * //         },
  * //       },
+ * //       Scte35SegmentationScope: "ALL_OUTPUT_GROUPS" || "SCTE35_ENABLED_OUTPUT_GROUPS",
  * //     },
  * //     BlackoutSlate: { // BlackoutSlate
  * //       BlackoutSlateImage: {

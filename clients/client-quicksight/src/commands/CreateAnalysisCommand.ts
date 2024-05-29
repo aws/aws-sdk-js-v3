@@ -2923,6 +2923,10 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  *                     },
  *                   ],
  *                 },
+ *                 ColorConfiguration: { // GaugeChartColorConfiguration
+ *                   ForegroundColor: "STRING_VALUE",
+ *                   BackgroundColor: "STRING_VALUE",
+ *                 },
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // GaugeChartConditionalFormatting

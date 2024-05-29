@@ -2976,6 +2976,7 @@ const se_CreateFirewallRuleRequest = (input: CreateFirewallRuleRequest, context:
     BlockResponse: [],
     CreatorRequestId: [true, (_) => _ ?? generateIdempotencyToken()],
     FirewallDomainListId: [],
+    FirewallDomainRedirectionAction: [],
     FirewallRuleGroupId: [],
     Name: [],
     Priority: [],

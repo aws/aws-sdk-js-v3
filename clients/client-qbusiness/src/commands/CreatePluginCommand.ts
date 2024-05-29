@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePluginRequest, CreatePluginResponse } from "../models/models_0";
+import { CreatePluginRequest, CreatePluginRequestFilterSensitiveLog, CreatePluginResponse } from "../models/models_0";
 import { de_CreatePluginCommand, se_CreatePluginCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -37,8 +37,7 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  * const input = { // CreatePluginRequest
  *   applicationId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
- *   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK", // required
- *   serverUrl: "STRING_VALUE", // required
+ *   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM", // required
  *   authConfiguration: { // PluginAuthConfiguration Union: only one key present
  *     basicAuthConfiguration: { // BasicAuthConfiguration
  *       secretArn: "STRING_VALUE", // required
@@ -47,6 +46,19 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  *     oAuth2ClientCredentialConfiguration: { // OAuth2ClientCredentialConfiguration
  *       secretArn: "STRING_VALUE", // required
  *       roleArn: "STRING_VALUE", // required
+ *     },
+ *     noAuthConfiguration: {},
+ *   },
+ *   serverUrl: "STRING_VALUE",
+ *   customPluginConfiguration: { // CustomPluginConfiguration
+ *     description: "STRING_VALUE", // required
+ *     apiSchemaType: "OPEN_API_V3", // required
+ *     apiSchema: { // APISchema Union: only one key present
+ *       payload: "STRING_VALUE",
+ *       s3: { // S3
+ *         bucket: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  *   tags: [ // Tags
@@ -62,6 +74,7 @@ export interface CreatePluginCommandOutput extends CreatePluginResponse, __Metad
  * // { // CreatePluginResponse
  * //   pluginId: "STRING_VALUE",
  * //   pluginArn: "STRING_VALUE",
+ * //   buildStatus: "READY" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
  * // };
  *
  * ```
@@ -123,7 +136,7 @@ export class CreatePluginCommand extends $Command
   })
   .s("ExpertQ", "CreatePlugin", {})
   .n("QBusinessClient", "CreatePluginCommand")
-  .f(void 0, void 0)
+  .f(CreatePluginRequestFilterSensitiveLog, void 0)
   .ser(se_CreatePluginCommand)
   .de(de_CreatePluginCommand)
   .build() {}

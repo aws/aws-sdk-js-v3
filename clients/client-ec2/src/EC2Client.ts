@@ -1550,6 +1550,10 @@ import {
   GetInstanceMetadataDefaultsCommandOutput,
 } from "./commands/GetInstanceMetadataDefaultsCommand";
 import {
+  GetInstanceTpmEkPubCommandInput,
+  GetInstanceTpmEkPubCommandOutput,
+} from "./commands/GetInstanceTpmEkPubCommand";
+import {
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
@@ -2607,6 +2611,7 @@ export type ServiceInputTypes =
   | GetHostReservationPurchasePreviewCommandInput
   | GetImageBlockPublicAccessStateCommandInput
   | GetInstanceMetadataDefaultsCommandInput
+  | GetInstanceTpmEkPubCommandInput
   | GetInstanceTypesFromInstanceRequirementsCommandInput
   | GetInstanceUefiDataCommandInput
   | GetIpamAddressHistoryCommandInput
@@ -3232,6 +3237,7 @@ export type ServiceOutputTypes =
   | GetHostReservationPurchasePreviewCommandOutput
   | GetImageBlockPublicAccessStateCommandOutput
   | GetInstanceMetadataDefaultsCommandOutput
+  | GetInstanceTpmEkPubCommandOutput
   | GetInstanceTypesFromInstanceRequirementsCommandOutput
   | GetInstanceUefiDataCommandOutput
   | GetIpamAddressHistoryCommandOutput

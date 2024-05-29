@@ -237,6 +237,10 @@ import {
   DescribeIpRestrictionCommandInput,
   DescribeIpRestrictionCommandOutput,
 } from "../commands/DescribeIpRestrictionCommand";
+import {
+  DescribeKeyRegistrationCommandInput,
+  DescribeKeyRegistrationCommandOutput,
+} from "../commands/DescribeKeyRegistrationCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "../commands/DescribeNamespaceCommand";
 import {
   DescribeRefreshScheduleCommandInput,
@@ -446,6 +450,10 @@ import {
   UpdateIpRestrictionCommandOutput,
 } from "../commands/UpdateIpRestrictionCommand";
 import {
+  UpdateKeyRegistrationCommandInput,
+  UpdateKeyRegistrationCommandOutput,
+} from "../commands/UpdateKeyRegistrationCommand";
+import {
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
 } from "../commands/UpdatePublicSharingSettingsCommand";
@@ -457,6 +465,10 @@ import {
   UpdateRoleCustomPermissionCommandInput,
   UpdateRoleCustomPermissionCommandOutput,
 } from "../commands/UpdateRoleCustomPermissionCommand";
+import {
+  UpdateSPICECapacityConfigurationCommandInput,
+  UpdateSPICECapacityConfigurationCommandOutput,
+} from "../commands/UpdateSPICECapacityConfigurationCommand";
 import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -785,6 +797,7 @@ import {
   FunnelChartSortConfiguration,
   FunnelChartVisual,
   GaugeChartArcConditionalFormatting,
+  GaugeChartColorConfiguration,
   GaugeChartConditionalFormatting,
   GaugeChartConditionalFormattingOption,
   GaugeChartConfiguration,
@@ -978,6 +991,7 @@ import {
   AnonymousUserDashboardEmbeddingConfiguration,
   AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
+  AnonymousUserGenerativeQnAEmbeddingConfiguration,
   AnonymousUserQSearchBarEmbeddingConfiguration,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobAnalysisOverrideProperties,
@@ -1152,7 +1166,6 @@ import {
   TemplateSourceTemplate,
   TemplateVersionDefinition,
   TeradataParameters,
-  ThemeConfiguration,
   ThrottlingException,
   TileLayoutStyle,
   TileStyle,
@@ -1160,7 +1173,6 @@ import {
   TrinoParameters,
   TwitterParameters,
   Typography,
-  UIColorPalette,
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
@@ -1206,11 +1218,13 @@ import {
   QuickSightUserNotFoundException,
   RangeConstant,
   RefreshConfiguration,
+  RegisteredCustomerManagedKey,
   RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
   RegisteredUserDashboardFeatureConfigurations,
   RegisteredUserDashboardVisualEmbeddingConfiguration,
   RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserGenerativeQnAEmbeddingConfiguration,
   RegisteredUserQSearchBarEmbeddingConfiguration,
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SemanticEntityType,
@@ -1224,6 +1238,7 @@ import {
   Template,
   TemplateVersion,
   Theme,
+  ThemeConfiguration,
   ThemeVersion,
   TopicCalculatedField,
   TopicCategoryFilter,
@@ -1239,6 +1254,7 @@ import {
   TopicRefreshSchedule,
   TopicRelativeDateFilter,
   TopicSingularFilterConstant,
+  UIColorPalette,
   UnsupportedPricingPlanException,
   VPCConnection,
 } from "../models/models_3";
@@ -1318,8 +1334,10 @@ export const se_CreateAccountSubscriptionCommand = async (
       AccountName: [],
       ActiveDirectoryName: [],
       AdminGroup: (_) => _json(_),
+      AdminProGroup: (_) => _json(_),
       AuthenticationMethod: [],
       AuthorGroup: (_) => _json(_),
+      AuthorProGroup: (_) => _json(_),
       ContactNumber: [],
       DirectoryId: [],
       Edition: [],
@@ -1329,6 +1347,7 @@ export const se_CreateAccountSubscriptionCommand = async (
       LastName: [],
       NotificationEmail: [],
       ReaderGroup: (_) => _json(_),
+      ReaderProGroup: (_) => _json(_),
       Realm: [],
     })
   );
@@ -2809,6 +2828,25 @@ export const se_DescribeIpRestrictionCommand = async (
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeKeyRegistrationCommand
+ */
+export const se_DescribeKeyRegistrationCommand = async (
+  input: DescribeKeyRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/key-registration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_dko]: [() => input.DefaultKeyOnly !== void 0, () => input[_DKO]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4639,6 +4677,29 @@ export const se_UpdateIpRestrictionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateKeyRegistrationCommand
+ */
+export const se_UpdateKeyRegistrationCommand = async (
+  input: UpdateKeyRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/key-registration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      KeyRegistration: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdatePublicSharingSettingsCommand
  */
 export const se_UpdatePublicSharingSettingsCommand = async (
@@ -4707,6 +4768,29 @@ export const se_UpdateRoleCustomPermissionCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSPICECapacityConfigurationCommand
+ */
+export const se_UpdateSPICECapacityConfigurationCommand = async (
+  input: UpdateSPICECapacityConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/spice-capacity-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      PurchaseMode: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -6984,6 +7068,30 @@ export const de_DescribeIpRestrictionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeKeyRegistrationCommand
+ */
+export const de_DescribeKeyRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKeyRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AwsAccountId: __expectString,
+    KeyRegistration: _json,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeNamespaceCommand
  */
 export const de_DescribeNamespaceCommand = async (
@@ -9108,6 +9216,29 @@ export const de_UpdateIpRestrictionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateKeyRegistrationCommand
+ */
+export const de_UpdateKeyRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKeyRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FailedKeyRegistration: _json,
+    RequestId: __expectString,
+    SuccessfulKeyRegistration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdatePublicSharingSettingsCommand
  */
 export const de_UpdatePublicSharingSettingsCommand = async (
@@ -9176,6 +9307,30 @@ export const de_UpdateRoleCustomPermissionCommand = async (
     Status: __expectInt32,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSPICECapacityConfigurationCommand
+ */
+export const de_UpdateSPICECapacityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSPICECapacityConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
   return contents;
 };
 
@@ -10029,6 +10184,8 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 // se_AnonymousUserDashboardVisualEmbeddingConfiguration omitted.
 
 // se_AnonymousUserEmbeddingExperienceConfiguration omitted.
+
+// se_AnonymousUserGenerativeQnAEmbeddingConfiguration omitted.
 
 // se_AnonymousUserQSearchBarEmbeddingConfiguration omitted.
 
@@ -11915,6 +12072,8 @@ const se_GaugeChartArcConditionalFormatting = (
   });
 };
 
+// se_GaugeChartColorConfiguration omitted.
+
 /**
  * serializeAws_restJson1GaugeChartConditionalFormatting
  */
@@ -11956,6 +12115,7 @@ const se_GaugeChartConditionalFormattingOptionList = (
  */
 const se_GaugeChartConfiguration = (input: GaugeChartConfiguration, context: __SerdeContext): any => {
   return take(input, {
+    ColorConfiguration: _json,
     DataLabels: _json,
     FieldWells: (_) => se_GaugeChartFieldWells(_, context),
     GaugeChartOptions: (_) => se_GaugeChartOptions(_, context),
@@ -12383,6 +12543,8 @@ const se_InsightVisual = (input: InsightVisual, context: __SerdeContext): any =>
 // se_JoinInstruction omitted.
 
 // se_JoinKeyProperties omitted.
+
+// se_KeyRegistration omitted.
 
 /**
  * serializeAws_restJson1KPIActualValueConditionalFormatting
@@ -13513,6 +13675,8 @@ const se_RefreshSchedule = (input: RefreshSchedule, context: __SerdeContext): an
   });
 };
 
+// se_RegisteredCustomerManagedKey omitted.
+
 // se_RegisteredUserConsoleFeatureConfigurations omitted.
 
 // se_RegisteredUserDashboardEmbeddingConfiguration omitted.
@@ -13522,6 +13686,8 @@ const se_RefreshSchedule = (input: RefreshSchedule, context: __SerdeContext): an
 // se_RegisteredUserDashboardVisualEmbeddingConfiguration omitted.
 
 // se_RegisteredUserEmbeddingExperienceConfiguration omitted.
+
+// se_RegisteredUserGenerativeQnAEmbeddingConfiguration omitted.
 
 // se_RegisteredUserQSearchBarEmbeddingConfiguration omitted.
 
@@ -16657,6 +16823,10 @@ const de_ExplicitHierarchy = (output: any, context: __SerdeContext): ExplicitHie
 
 // de_ExportWithHiddenFieldsOption omitted.
 
+// de_FailedKeyRegistrationEntries omitted.
+
+// de_FailedKeyRegistrationEntry omitted.
+
 /**
  * deserializeAws_restJson1FieldBasedTooltip
  */
@@ -17164,6 +17334,8 @@ const de_GaugeChartArcConditionalFormatting = (
   }) as any;
 };
 
+// de_GaugeChartColorConfiguration omitted.
+
 /**
  * deserializeAws_restJson1GaugeChartConditionalFormatting
  */
@@ -17206,6 +17378,7 @@ const de_GaugeChartConditionalFormattingOptionList = (
  */
 const de_GaugeChartConfiguration = (output: any, context: __SerdeContext): GaugeChartConfiguration => {
   return take(output, {
+    ColorConfiguration: _json,
     DataLabels: _json,
     FieldWells: (_: any) => de_GaugeChartFieldWells(_, context),
     GaugeChartOptions: (_: any) => de_GaugeChartOptions(_, context),
@@ -17677,6 +17850,8 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
 // de_JoinInstruction omitted.
 
 // de_JoinKeyProperties omitted.
+
+// de_KeyRegistration omitted.
 
 /**
  * deserializeAws_restJson1KPIActualValueConditionalFormatting
@@ -18849,6 +19024,8 @@ const de_RefreshSchedules = (output: any, context: __SerdeContext): RefreshSched
   return retVal;
 };
 
+// de_RegisteredCustomerManagedKey omitted.
+
 // de_RelationalTable omitted.
 
 /**
@@ -19342,6 +19519,10 @@ const de_SnapshotConfiguration = (output: any, context: __SerdeContext): Snapsho
 // de_SubnetIdList omitted.
 
 // de_SubtotalOptions omitted.
+
+// de_SuccessfulKeyRegistrationEntries omitted.
+
+// de_SuccessfulKeyRegistrationEntry omitted.
 
 // de_Synonyms omitted.
 
@@ -20507,6 +20688,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
 const _ADI = "AdditionalDashboardIds";
 const _AN = "AliasName";
 const _AS = "AssignmentStatus";
+const _DKO = "DefaultKeyOnly";
 const _EP = "EntryPoint";
 const _FDWR = "ForceDeleteWithoutRecovery";
 const _IT = "IdentityType";
@@ -20527,6 +20709,7 @@ const _adi = "additional-dashboard-ids";
 const _an = "alias-name";
 const _as = "assignment-status";
 const _ct = "creds-type";
+const _dko = "default-key-only";
 const _ep = "entry-point";
 const _fdwr = "force-delete-without-recovery";
 const _k = "keys";

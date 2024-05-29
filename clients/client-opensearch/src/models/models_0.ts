@@ -2467,12 +2467,30 @@ export interface DomainStatus {
   EndpointV2?: string;
 
   /**
-   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints. Example
-   *     <code>key, value</code>:
-   *     <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
+   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>IPv4 IP addresses</b> -
+   *       <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Dual stack IP addresses</b> -
+   *       <code>'vpcv2':'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.aos.us-east-1.on.aws'</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Endpoints?: Record<string, string>;
+
+  /**
+   * <p>The dual stack hosted zone ID for the domain. </p>
+   * @public
+   */
+  DomainEndpointV2HostedZoneId?: string;
 
   /**
    * <p>The status of the domain configuration. True if OpenSearch Service is processing
@@ -5615,6 +5633,20 @@ export interface GetDataSourceRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DataSourceStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
+
+/**
  * <p>The result of a <code>GetDataSource</code> operation.</p>
  * @public
  */
@@ -5636,6 +5668,12 @@ export interface GetDataSourceResponse {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The status of the data source response.</p>
+   * @public
+   */
+  Status?: DataSourceStatus;
 }
 
 /**
@@ -6066,6 +6104,12 @@ export interface DataSourceDetails {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The status of the data source.</p>
+   * @public
+   */
+  Status?: DataSourceStatus;
 }
 
 /**
@@ -7015,6 +7059,12 @@ export interface UpdateDataSourceRequest {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The status of the data source update request.</p>
+   * @public
+   */
+  Status?: DataSourceStatus;
 }
 
 /**

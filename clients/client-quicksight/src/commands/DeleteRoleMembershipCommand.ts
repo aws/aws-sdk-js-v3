@@ -36,7 +36,7 @@ export interface DeleteRoleMembershipCommandOutput extends DeleteRoleMembershipR
  * const client = new QuickSightClient(config);
  * const input = { // DeleteRoleMembershipRequest
  *   MemberName: "STRING_VALUE", // required
- *   Role: "ADMIN" || "AUTHOR" || "READER", // required
+ *   Role: "ADMIN" || "AUTHOR" || "READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   Namespace: "STRING_VALUE", // required
  * };

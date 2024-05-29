@@ -28,6 +28,25 @@ import {
 jest.setTimeout(180000);
 
 describe(DynamoDBDocument.name, () => {
+  type NestedList = (string | NumberValue | boolean | Set<string> | Set<NumberValue> | null | NestedList | NestedMap)[];
+  type NestedMap = {
+    [key: string]: string | NumberValue | boolean | Set<string> | Set<NumberValue> | null | NestedList | NestedMap;
+  };
+
+  type DataType = {
+    null: null;
+    string: string;
+    number: NumberValue;
+    bigInt: NumberValue;
+    bigNumber: NumberValue;
+    boolean: boolean;
+    sSet: Set<string>;
+    nSet: Set<NumberValue>;
+    list: NestedList;
+    map: NestedMap;
+    [key: string]: any;
+  };
+
   const dynamodb = new DynamoDB({ region: "us-west-2", maxAttempts: 10 });
   const doc = DynamoDBDocument.from(dynamodb, {
     marshallOptions: {
@@ -82,7 +101,7 @@ describe(DynamoDBDocument.name, () => {
     },
   };
 
-  const data = {
+  const data: DataType = {
     null: null,
     string: "myString",
     number: NumberValue.from(1),
@@ -137,7 +156,7 @@ describe(DynamoDBDocument.name, () => {
         if (input instanceof NumberValue) {
           return NumberValue.from(input.toString()) as T;
         }
-        return Object.entries(input).reduce((acc, [k, v]) => {
+        return Object.entries(input).reduce((acc: { [key: string]: any }, [k, v]) => {
           acc[updateTransform(k)] = updateTransform(v);
           return acc;
         }, {}) as T;
@@ -151,7 +170,7 @@ describe(DynamoDBDocument.name, () => {
     return input;
   };
 
-  const passError = (e) => e;
+  const passError = (e: any) => e;
 
   beforeAll(async () => {
     log.describe = await dynamodb

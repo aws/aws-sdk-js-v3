@@ -1159,7 +1159,7 @@ export interface CreateCampaignRequest {
   description?: string;
 
   /**
-   * <p>(Optional) The Amazon Resource Name (ARN) of the signal catalog to associate with the campaign.
+   * <p>The Amazon Resource Name (ARN) of the signal catalog to associate with the campaign.
    *         </p>
    * @public
    */
@@ -4955,6 +4955,21 @@ export interface ListVehiclesRequest {
    * @public
    */
   modelManifestArn?: string;
+
+  /**
+   * <p>The fully qualified names of the attributes. For example, the fully qualified name of an attribute might be <code>Vehicle.Body.Engine.Type</code>.</p>
+   * @public
+   */
+  attributeNames?: string[];
+
+  /**
+   * <p>Static information about a vehicle attribute value in string format. For example:</p>
+   *          <p>
+   *             <code>"1.3 L R2"</code>
+   *          </p>
+   * @public
+   */
+  attributeValues?: string[];
 
   /**
    * <p>A pagination token for the next set of results.</p>

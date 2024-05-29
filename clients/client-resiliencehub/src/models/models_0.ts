@@ -63,8 +63,7 @@ export type PhysicalIdentifierType = (typeof PhysicalIdentifierType)[keyof typeo
  */
 export interface PhysicalResourceId {
   /**
-   * <p>Identifier
-   *       of the physical resource.</p>
+   * <p>Identifier of the physical resource.</p>
    * @public
    */
   identifier: string | undefined;
@@ -230,79 +229,50 @@ export interface PhysicalResourceId {
  */
 export interface ResourceMapping {
   /**
-   * <p>Name
-   *       of the resource that
-   *       the
-   *       resource is mapped to.</p>
+   * <p>Name of the resource that this resource is mapped to when the <code>mappingType</code> is <code>Resource</code>.</p>
    * @public
    */
   resourceName?: string;
 
   /**
-   * <p>The name of the CloudFormation stack this resource is mapped to.</p>
+   * <p>Name of the CloudFormation stack this resource is mapped to when the <code>mappingType</code> is <code>CfnStack</code>.</p>
    * @public
    */
   logicalStackName?: string;
 
   /**
-   * <p>The name of the application this resource is mapped to.</p>
+   * <p>Name of the application this resource is mapped to when the <code>mappingType</code> is <code>AppRegistryApp</code>.</p>
    * @public
    */
   appRegistryAppName?: string;
 
   /**
-   * <p>Name
-   *       of the resource group
-   *       that
-   *       the
-   *       resource is mapped to.</p>
+   * <p>Name of the Resource Groups that this resource is mapped to when the <code>mappingType</code> is <code>ResourceGroup</code>.</p>
    * @public
    */
   resourceGroupName?: string;
 
   /**
    * <p>Specifies the type of resource mapping.</p>
-   *          <dl>
-   *             <dt>AppRegistryApp</dt>
-   *             <dd>
-   *                <p>The resource is mapped to another application. The name of the application is
-   *             contained in the <code>appRegistryAppName</code> property.</p>
-   *             </dd>
-   *             <dt>CfnStack</dt>
-   *             <dd>
-   *                <p>The resource is mapped to a CloudFormation stack. The name of the CloudFormation stack is contained in
-   *             the <code>logicalStackName</code> property.</p>
-   *             </dd>
-   *             <dt>Resource</dt>
-   *             <dd>
-   *                <p>The resource is mapped to another resource. The name of the resource is contained in
-   *             the <code>resourceName</code> property.</p>
-   *             </dd>
-   *             <dt>ResourceGroup</dt>
-   *             <dd>
-   *                <p>The resource is mapped to Resource Groups. The name of the resource group is
-   *             contained in the <code>resourceGroupName</code> property.</p>
-   *             </dd>
-   *          </dl>
    * @public
    */
   mappingType: ResourceMappingType | undefined;
 
   /**
-   * <p>Identifier
-   *       of the physical resource.</p>
+   * <p>Identifier of the physical resource.</p>
    * @public
    */
   physicalResourceId: PhysicalResourceId | undefined;
 
   /**
-   * <p> The short name of the Terraform source. </p>
+   * <p>Name of the Terraform source that this resource is mapped to when the <code>mappingType</code> is <code>Terraform</code>.</p>
    * @public
    */
   terraformSourceName?: string;
 
   /**
-   * <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p>
+   * <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the <code>mappingType</code> is
+   *       <code>EKS</code>.</p>
    *          <note>
    *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
    *          </note>
@@ -532,8 +502,7 @@ export interface RecommendationItem {
   resourceId?: string;
 
   /**
-   * <p>Identifier
-   *       of the target account.</p>
+   * <p>Identifier of the target account.</p>
    * @public
    */
   targetAccountId?: string;
@@ -602,15 +571,13 @@ export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
  */
 export interface AlarmRecommendation {
   /**
-   * <p>Identifier
-   *       of the alarm recommendation.</p>
+   * <p>Identifier of the alarm recommendation.</p>
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * <p>Reference
-   *       identifier of the alarm recommendation.</p>
+   * <p>Reference identifier of the alarm recommendation.</p>
    * @public
    */
   referenceId: string | undefined;
@@ -636,10 +603,8 @@ export interface AlarmRecommendation {
   /**
    * @deprecated
    *
-   * <p>Application Component name for the CloudWatch alarm
-   *       recommendation. This
-   *       name is saved as the first item in the <code>appComponentNames</code>
-   *       list.</p>
+   * <p>Application Component name for the CloudWatch alarm recommendation. This name is saved as the first
+   *       item in the <code>appComponentNames</code> list.</p>
    * @public
    */
   appComponentName?: string;
@@ -730,9 +695,9 @@ export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * <p>Indicates an event you would like to subscribe and get notification for. Currently,
- *         Resilience Hub
- *       supports
- *       notifications only for <b>Drift detected</b> and <b>Scheduled assessment failure</b> events.</p>
+ *         Resilience Hub supports notifications only for <b>Drift
+ *         detected</b> and <b>Scheduled assessment failure</b>
+ *       events.</p>
  * @public
  */
 export interface EventSubscription {
@@ -743,18 +708,16 @@ export interface EventSubscription {
   name: string | undefined;
 
   /**
-   * <p>The type of event you would like to subscribe and get notification for. Currently, Resilience Hub
-   *       supports
-   *       notifications only for <b>Drift detected</b>
-   *         (<code>DriftDetected</code>) and <b>Scheduled assessment
-   *         failure</b> (<code>ScheduledAssessmentFailure</code>) events.</p>
+   * <p>The type of event you would like to subscribe and get notification for. Currently, Resilience Hub supports notifications only for <b>Drift
+   *         detected</b> (<code>DriftDetected</code>) and <b>Scheduled
+   *         assessment failure</b> (<code>ScheduledAssessmentFailure</code>) events.</p>
    * @public
    */
   eventType: EventType | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic. The format for this ARN is: <code>arn:partition:sns:region:account:topic-name</code>.
-   *       For more information about ARNs,
+   * <p>Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic. The format for this ARN
+   *       is: <code>arn:partition:sns:region:account:topic-name</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
@@ -799,10 +762,12 @@ export interface PermissionModel {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>You must have <code>iam:passRole</code> permission for this role while creating or updating the application.</p>
+   *                   <p>You must have <code>iam:passRole</code> permission for this role while creating or
+   *             updating the application.</p>
    *                </li>
    *                <li>
-   *                   <p>Currently, <code>invokerRoleName</code> accepts only <code>[A-Za-z0-9_+=,.@-]</code> characters.</p>
+   *                   <p>Currently, <code>invokerRoleName</code> accepts only <code>[A-Za-z0-9_+=,.@-]</code>
+   *             characters.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -862,16 +827,13 @@ export interface App {
   appArn: string | undefined;
 
   /**
-   * <p>Name
-   *       for the application.</p>
+   * <p>Name for the application.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Optional
-   *       description for an
-   *       application.</p>
+   * <p>Optional description for an application.</p>
    * @public
    */
   description?: string;
@@ -887,8 +849,7 @@ export interface App {
   policyArn?: string;
 
   /**
-   * <p>Date
-   *       and time when the app was created.</p>
+   * <p>Date and time when the app was created.</p>
    * @public
    */
   creationTime: Date | undefined;
@@ -900,29 +861,25 @@ export interface App {
   status?: AppStatusType;
 
   /**
-   * <p>Current
-   *       status of compliance for the resiliency policy.</p>
+   * <p>Current status of compliance for the resiliency policy.</p>
    * @public
    */
   complianceStatus?: AppComplianceStatusType;
 
   /**
-   * <p>Date
-   *       and time the most recent compliance evaluation.</p>
+   * <p>Date and time the most recent compliance evaluation.</p>
    * @public
    */
   lastAppComplianceEvaluationTime?: Date;
 
   /**
-   * <p>Current
-   *       resiliency score for the application.</p>
+   * <p>Current resiliency score for the application.</p>
    * @public
    */
   resiliencyScore?: number;
 
   /**
-   * <p>Date
-   *       and time the most recent resiliency score evaluation.</p>
+   * <p>Date and time the most recent resiliency score evaluation.</p>
    * @public
    */
   lastResiliencyScoreEvaluationTime?: Date;
@@ -935,8 +892,7 @@ export interface App {
   tags?: Record<string, string>;
 
   /**
-   * <p>Assessment
-   *       execution schedule with 'Daily' or 'Disabled' values. </p>
+   * <p>Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    * @public
    */
   assessmentSchedule?: AppAssessmentScheduleType;
@@ -965,9 +921,7 @@ export interface App {
   driftStatus?: AppDriftStatusType;
 
   /**
-   * <p>Indicates the last time
-   *       that
-   *       a drift was evaluated.</p>
+   * <p>Indicates the last time that a drift was evaluated.</p>
    * @public
    */
   lastDriftEvaluationTime?: Date;
@@ -1049,8 +1003,7 @@ export interface DisruptionCompliance {
   currentRtoInSecs?: number;
 
   /**
-   * <p>Reference
-   *       identifier of the RTO.</p>
+   * <p>Reference identifier of the RTO.</p>
    * @public
    */
   rtoReferenceId?: string;
@@ -1068,11 +1021,7 @@ export interface DisruptionCompliance {
   currentRpoInSecs?: number;
 
   /**
-   * <p>Reference
-   *       identifier of
-   *       the
-   *       RPO
-   *       .</p>
+   * <p>Reference identifier of the RPO .</p>
    * @public
    */
   rpoReferenceId?: string;
@@ -1241,10 +1190,13 @@ export type ResiliencyPolicyTier = (typeof ResiliencyPolicyTier)[keyof typeof Re
 /**
  * <p>Defines a resiliency policy.</p>
  *          <note>
- *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency policy. But, while assessing
- *         your application, the lowest possible assessment result is near zero. Hence,
- *         if you provide value zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated
- *         workload RPO result will be near zero and the <b>Compliance status</b> for your application will be set to <b>Policy breached</b>.</p>
+ *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code>
+ *         and <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,
+ *         the lowest possible assessment result is near zero. Hence, if you provide value zero for
+ *           <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and
+ *         estimated workload RPO result will be near zero and the <b>Compliance
+ *           status</b> for your application will be set to <b>Policy
+ *           breached</b>.</p>
  *          </note>
  * @public
  */
@@ -1298,8 +1250,7 @@ export interface ResiliencyPolicy {
   policy?: Partial<Record<DisruptionType, FailurePolicy>>;
 
   /**
-   * <p>Date
-   *       and time when the resiliency policy was created.</p>
+   * <p>Date and time when the resiliency policy was created.</p>
    * @public
    */
   creationTime?: Date;
@@ -1330,45 +1281,42 @@ export type ResiliencyScoreType = (typeof ResiliencyScoreType)[keyof typeof Resi
 
 /**
  * <p>Resiliency score of each scoring component. For more information about scoring component,
- *       see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/calculate-score.html">Calculating resiliency
- *       score</a>.</p>
+ *       see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/calculate-score.html">Calculating resiliency score</a>.</p>
  * @public
  */
 export interface ScoringComponentResiliencyScore {
   /**
-   * <p>Resiliency score of your application.</p>
+   * <p>Resiliency score points given for the scoring component. The score is always less than or
+   *       equal to the <code>possibleScore</code>.</p>
    * @public
    */
   score?: number;
 
   /**
-   * <p>Maximum
-   *       possible score that can be obtained for the scoring component. If the <code>Possible
-   *         score</code> is 20 points, it indicates the maximum possible score you can achieve for your
-   *       application when you run a new assessment after implementing all the Resilience Hub
-   *       recommendations.</p>
+   * <p>Maximum possible score that can be obtained for the scoring component. </p>
+   *          <p>For example, if the <code>possibleScore</code> is 20 points, it indicates the maximum
+   *       possible score you can achieve for the scoring component when you run a new assessment after
+   *       implementing all the Resilience Hub recommendations.</p>
    * @public
    */
   possibleScore?: number;
 
   /**
-   * <p>Number
-   *       of issues that must be resolved to obtain the maximum possible score for the scoring
-   *       component. For SOPs, alarms, and FIS experiments, these are the number of
-   *       recommendations that must be implemented. For compliance, it is the number of Application
-   *       Components that has breached the resiliency policy.</p>
-   *          <p>For example, if the <code>Outstanding count</code> for Resilience Hub recommended Amazon CloudWatch
-   *       alarms is 5, it indicates that 5 Amazon CloudWatch alarms must be fixed to achieve the
+   * <p>Number of recommendations that must be implemented to obtain the maximum possible score
+   *       for the scoring component. For SOPs, alarms, and tests, these are the number of
+   *       recommendations that must be implemented. For compliance, these are the number of Application
+   *       Components that have breached the resiliency policy.</p>
+   *          <p>For example, if the <code>outstandingCount</code> for Alarms coverage scoring component is
+   *       5, it indicates that 5 Amazon CloudWatch alarms need to be implemented to achieve the
    *       maximum possible score.</p>
    * @public
    */
   outstandingCount?: number;
 
   /**
-   * <p>Number
-   *       of recommendations that were excluded from the assessment.</p>
-   *          <p>For example, if the <code>Excluded count</code> for Resilience Hub recommended Amazon CloudWatch alarms
-   *       is 7, it indicates that 7 Amazon CloudWatch alarms are excluded from the assessment.</p>
+   * <p>Number of recommendations that were excluded from the assessment.</p>
+   *          <p>For example, if the <code>excludedCount</code> for Alarms coverage scoring component is 7,
+   *       it indicates that 7 Amazon CloudWatch alarms are excluded from the assessment.</p>
    * @public
    */
   excludedCount?: number;
@@ -1393,7 +1341,8 @@ export interface ResiliencyScore {
   disruptionScore: Partial<Record<DisruptionType, number>> | undefined;
 
   /**
-   * <p>The score generated by Resilience Hub for the scoring component after running an assessment.</p>
+   * <p>The score generated by Resilience Hub for the scoring component after running an
+   *       assessment.</p>
    *          <p>For example, if the <code>score</code> is 25 points, it indicates the overall score of
    *       your application generated by Resilience Hub after running an assessment.</p>
    * @public
@@ -1407,16 +1356,13 @@ export interface ResiliencyScore {
  */
 export interface ResourceError {
   /**
-   * <p>Identifier
-   *       of the
-   *       logical resource. </p>
+   * <p>Identifier of the logical resource. </p>
    * @public
    */
   logicalResourceId?: string;
 
   /**
-   * <p>Identifier
-   *       of the physical resource. </p>
+   * <p>Identifier of the physical resource. </p>
    * @public
    */
   physicalResourceId?: string;
@@ -1486,8 +1432,7 @@ export interface AppAssessment {
   resiliencyScore?: ResiliencyScore;
 
   /**
-   * <p>Application
-   *       compliance against the resiliency policy.</p>
+   * <p>Application compliance against the resiliency policy.</p>
    * @public
    */
   compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
@@ -1689,8 +1634,7 @@ export interface AppComponent {
   type: string | undefined;
 
   /**
-   * <p>Identifier
-   *       of the Application Component.</p>
+   * <p>Identifier of the Application Component.</p>
    * @public
    */
   id?: string;
@@ -1859,8 +1803,7 @@ export interface AppSummary {
   description?: string;
 
   /**
-   * <p>Date
-   *       and time when the app was created.</p>
+   * <p>Date and time when the app was created.</p>
    * @public
    */
   creationTime: Date | undefined;
@@ -1897,8 +1840,7 @@ export interface AppSummary {
   driftStatus?: AppDriftStatusType;
 
   /**
-   * <p>Date
-   *       and time of the most recent compliance evaluation.</p>
+   * <p>Date and time of the most recent compliance evaluation.</p>
    * @public
    */
   lastAppComplianceEvaluationTime?: Date;
@@ -2032,8 +1974,7 @@ export interface BatchUpdateRecommendationStatusRequest {
 }
 
 /**
- * <p>List
- *       of operational recommendations that did not get included or excluded.</p>
+ * <p>List of operational recommendations that did not get included or excluded.</p>
  * @public
  */
 export interface BatchUpdateRecommendationStatusFailedEntry {
@@ -2054,8 +1995,7 @@ export interface BatchUpdateRecommendationStatusFailedEntry {
 }
 
 /**
- * <p>List
- *       of operational recommendations that were successfully included or excluded.</p>
+ * <p>List of operational recommendations that were successfully included or excluded.</p>
  * @public
  */
 export interface BatchUpdateRecommendationStatusSuccessfulEntry {
@@ -2081,9 +2021,7 @@ export interface BatchUpdateRecommendationStatusSuccessfulEntry {
   item: UpdateRecommendationStatusItem | undefined;
 
   /**
-   * <p>Indicates
-   *       if
-   *       the operational recommendation was successfully excluded.</p>
+   * <p>Indicates if the operational recommendation was successfully excluded.</p>
    * @public
    */
   excluded: boolean | undefined;
@@ -2296,8 +2234,7 @@ export interface CreateAppVersionAppComponentResponse {
  */
 export interface LogicalResourceId {
   /**
-   * <p>Identifier
-   *       of the resource.</p>
+   * <p>Identifier of the resource.</p>
    * @public
    */
   identifier: string | undefined;
@@ -2427,22 +2364,19 @@ export interface PhysicalResource {
   resourceName?: string;
 
   /**
-   * <p>Logical
-   *       identifier of the resource.</p>
+   * <p>Logical identifier of the resource.</p>
    * @public
    */
   logicalResourceId: LogicalResourceId | undefined;
 
   /**
-   * <p>Identifier
-   *       of the physical
-   *       resource.</p>
+   * <p>Identifier of the physical resource.</p>
    * @public
    */
   physicalResourceId: PhysicalResourceId | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * <p>Type of resource.</p>
    * @public
    */
   resourceType: string | undefined;
@@ -4143,7 +4077,9 @@ export interface ListAppAssessmentComplianceDriftsRequest {
  * @enum
  */
 export const DifferenceType = {
+  ADDED: "Added",
   NOT_EQUAL: "NotEqual",
+  REMOVED: "Removed",
 } as const;
 
 /**
@@ -4157,6 +4093,7 @@ export type DifferenceType = (typeof DifferenceType)[keyof typeof DifferenceType
  */
 export const DriftType = {
   APPLICATION_COMPLIANCE: "ApplicationCompliance",
+  APP_COMPONENT_RESILIENCY_COMPLIANCE_STATUS: "AppComponentResiliencyComplianceStatus",
 } as const;
 
 /**
@@ -4165,10 +4102,8 @@ export const DriftType = {
 export type DriftType = (typeof DriftType)[keyof typeof DriftType];
 
 /**
- * <p>Indicates
- *       the compliance drifts (recovery time objective (RTO) and recovery point
- *       objective (RPO)) that
- *       were detected for an assessed entity.</p>
+ * <p>Indicates the compliance drifts (recovery time objective (RTO) and recovery point
+ *       objective (RPO)) that were detected for an assessed entity.</p>
  * @public
  */
 export interface ComplianceDrift {
@@ -4193,8 +4128,7 @@ export interface ComplianceDrift {
   driftType?: DriftType;
 
   /**
-   * <p>Identifier
-   *       of your application.</p>
+   * <p>Identifier of your application.</p>
    * @public
    */
   appId?: string;
@@ -4225,23 +4159,14 @@ export interface ComplianceDrift {
   actualReferenceId?: string;
 
   /**
-   * <p>Actual
-   *       compliance value of the entity.</p>
+   * <p>Actual compliance value of the entity.</p>
    * @public
    */
   actualValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
-   * <p>Difference
-   *       type between actual and expected
-   *       recovery
-   *       point
-   *       objective
-   *       (RPO) and
-   *       recovery
-   *       time
-   *       objective
-   *       (RTO) values. Currently, Resilience Hub supports only <b>NotEqual</b> difference type.</p>
+   * <p>Difference type between actual and expected recovery point objective (RPO) and recovery
+   *       time objective (RTO) values. Currently, Resilience Hub supports only <b>NotEqual</b> difference type.</p>
    * @public
    */
   diffType?: DifferenceType;
@@ -4259,6 +4184,108 @@ export interface ListAppAssessmentComplianceDriftsResponse {
 
   /**
    * <p>Token number of the next application to be checked for compliance and regulatory requirements from the list of applications.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAppAssessmentResourceDriftsRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  assessmentArn: string | undefined;
+
+  /**
+   * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Indicates the maximum number of drift results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>Defines a resource identifier for the drifted resource.</p>
+ * @public
+ */
+export interface ResourceIdentifier {
+  /**
+   * <p>Logical identifier of the drifted resource.</p>
+   * @public
+   */
+  logicalResourceId?: LogicalResourceId;
+
+  /**
+   * <p>Type of the drifted resource.</p>
+   * @public
+   */
+  resourceType?: string;
+}
+
+/**
+ * <p>Indicates the resources that have drifted in the current application version.</p>
+ * @public
+ */
+export interface ResourceDrift {
+  /**
+   * <p>Amazon Resource Name (ARN) of the application whose resources have drifted. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn?: string;
+
+  /**
+   * <p>Version of the application whose resources have drifted.</p>
+   * @public
+   */
+  appVersion?: string;
+
+  /**
+   * <p>Reference identifier of the resource drift.</p>
+   * @public
+   */
+  referenceId?: string;
+
+  /**
+   * <p>Identifier of the drifted resource.</p>
+   * @public
+   */
+  resourceIdentifier?: ResourceIdentifier;
+
+  /**
+   * <p>Indicates if the resource was added or removed.</p>
+   * @public
+   */
+  diffType?: DifferenceType;
+}
+
+/**
+ * @public
+ */
+export interface ListAppAssessmentResourceDriftsResponse {
+  /**
+   * <p>Indicates all the resource drifts detected for an assessed entity.</p>
+   * @public
+   */
+  resourceDrifts: ResourceDrift[] | undefined;
+
+  /**
+   * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
   nextToken?: string;
@@ -4554,8 +4581,7 @@ export interface ConfigRecommendation {
   haArchitecture?: HaArchitecture;
 
   /**
-   * <p>Reference
-   *       identifier for the recommendation configuration.</p>
+   * <p>Reference identifier for the recommendation configuration.</p>
    * @public
    */
   referenceId: string | undefined;
@@ -4994,7 +5020,7 @@ export interface ListRecommendationTemplatesRequest {
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
    * @public
    */
-  assessmentArn: string | undefined;
+  assessmentArn?: string;
 
   /**
    * <p>The default is to sort by ascending <b>startTime</b>.
@@ -5176,8 +5202,7 @@ export interface SopRecommendation {
   items?: RecommendationItem[];
 
   /**
-   * <p>Reference
-   *       identifier for the SOP recommendation.</p>
+   * <p>Reference identifier for the SOP recommendation.</p>
    * @public
    */
   referenceId: string | undefined;
@@ -5343,8 +5368,7 @@ export interface TestRecommendation {
   recommendationId?: string;
 
   /**
-   * <p>Reference
-   *       identifier for the test recommendation.</p>
+   * <p>Reference identifier for the test recommendation.</p>
    * @public
    */
   referenceId: string | undefined;
@@ -5474,15 +5498,13 @@ export interface ListUnsupportedAppVersionResourcesRequest {
  */
 export interface UnsupportedResource {
   /**
-   * <p>Logical
-   *       resource identifier for the unsupported resource.</p>
+   * <p>Logical resource identifier for the unsupported resource.</p>
    * @public
    */
   logicalResourceId: LogicalResourceId | undefined;
 
   /**
-   * <p>Physical
-   *       resource identifier for the unsupported resource.</p>
+   * <p>Physical resource identifier for the unsupported resource.</p>
    * @public
    */
   physicalResourceId: PhysicalResourceId | undefined;
@@ -5494,8 +5516,7 @@ export interface UnsupportedResource {
   resourceType: string | undefined;
 
   /**
-   * <p>The status of the
-   *       unsupported resource.</p>
+   * <p>The status of the unsupported resource.</p>
    * @public
    */
   unsupportedResourceStatus?: string;

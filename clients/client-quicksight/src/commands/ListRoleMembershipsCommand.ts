@@ -35,7 +35,7 @@ export interface ListRoleMembershipsCommandOutput extends ListRoleMembershipsRes
  * // const { QuickSightClient, ListRoleMembershipsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // ListRoleMembershipsRequest
- *   Role: "ADMIN" || "AUTHOR" || "READER", // required
+ *   Role: "ADMIN" || "AUTHOR" || "READER" || "ADMIN_PRO" || "AUTHOR_PRO" || "READER_PRO", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   AwsAccountId: "STRING_VALUE", // required

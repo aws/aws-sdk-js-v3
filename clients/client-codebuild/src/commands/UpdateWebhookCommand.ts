@@ -71,6 +71,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * //       ],
  * //     ],
  * //     buildType: "BUILD" || "BUILD_BATCH",
+ * //     manualCreation: true || false,
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
  * //   },
  * // };

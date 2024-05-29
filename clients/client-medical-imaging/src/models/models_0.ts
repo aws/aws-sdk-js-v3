@@ -1714,6 +1714,12 @@ export interface StartDICOMImportJobRequest {
    * @public
    */
   outputS3Uri: string | undefined;
+
+  /**
+   * <p>The account ID of the source S3 bucket owner.</p>
+   * @public
+   */
+  inputOwnerAccountId?: string;
 }
 
 /**

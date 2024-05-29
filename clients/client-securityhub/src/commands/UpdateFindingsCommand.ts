@@ -28,11 +28,13 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
 
 /**
  * <p>
- *             <code>UpdateFindings</code> is deprecated. Instead of <code>UpdateFindings</code>, use
- *             <code>BatchUpdateFindings</code>.</p>
+ *             <code>UpdateFindings</code> is a deprecated operation. Instead of <code>UpdateFindings</code>, use
+ *             the <code>BatchUpdateFindings</code> operation.</p>
  *          <p>Updates the <code>Note</code> and <code>RecordState</code> of the Security Hub-aggregated
  *          findings that the filter attributes specify. Any member account that can view the finding
  *          also sees the update to the finding.</p>
+ *          <p>Finding updates made with <code>UpdateFindings</code> might not be persisted if the same finding is later updated by the
+ *             finding provider through the <code>BatchImportFindings</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-http",
-  "version": "3.552.0",
+  "version": "3.582.0",
   "description": "AWS credential provider for containers and HTTP sources",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -27,18 +27,18 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/fetch-http-handler": "^2.5.0",
-    "@smithy/node-http-handler": "^2.5.0",
-    "@smithy/property-provider": "^2.2.0",
-    "@smithy/protocol-http": "^3.3.0",
-    "@smithy/smithy-client": "^2.5.1",
-    "@smithy/types": "^2.12.0",
-    "@smithy/util-stream": "^2.2.0",
+    "@smithy/fetch-http-handler": "^3.0.1",
+    "@smithy/node-http-handler": "^3.0.0",
+    "@smithy/property-provider": "^3.0.0",
+    "@smithy/protocol-http": "^4.0.0",
+    "@smithy/smithy-client": "^3.0.1",
+    "@smithy/types": "^3.0.0",
+    "@smithy/util-stream": "^3.0.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^14.14.31",
+    "@types/node": "^16.18.96",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
@@ -46,7 +46,7 @@
   },
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

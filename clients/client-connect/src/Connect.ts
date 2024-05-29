@@ -88,6 +88,11 @@ import {
   BatchDisassociateAnalyticsDataSetCommandOutput,
 } from "./commands/BatchDisassociateAnalyticsDataSetCommand";
 import {
+  BatchGetAttachedFileMetadataCommand,
+  BatchGetAttachedFileMetadataCommandInput,
+  BatchGetAttachedFileMetadataCommandOutput,
+} from "./commands/BatchGetAttachedFileMetadataCommand";
+import {
   BatchGetFlowAssociationCommand,
   BatchGetFlowAssociationCommandInput,
   BatchGetFlowAssociationCommandOutput,
@@ -102,6 +107,11 @@ import {
   ClaimPhoneNumberCommandInput,
   ClaimPhoneNumberCommandOutput,
 } from "./commands/ClaimPhoneNumberCommand";
+import {
+  CompleteAttachedFileUploadCommand,
+  CompleteAttachedFileUploadCommandInput,
+  CompleteAttachedFileUploadCommandOutput,
+} from "./commands/CompleteAttachedFileUploadCommand";
 import {
   CreateAgentStatusCommand,
   CreateAgentStatusCommandInput,
@@ -211,6 +221,11 @@ import {
   DeactivateEvaluationFormCommandInput,
   DeactivateEvaluationFormCommandOutput,
 } from "./commands/DeactivateEvaluationFormCommand";
+import {
+  DeleteAttachedFileCommand,
+  DeleteAttachedFileCommandInput,
+  DeleteAttachedFileCommandOutput,
+} from "./commands/DeleteAttachedFileCommand";
 import {
   DeleteContactEvaluationCommand,
   DeleteContactEvaluationCommandInput,
@@ -495,6 +510,11 @@ import {
   DismissUserContactCommandInput,
   DismissUserContactCommandOutput,
 } from "./commands/DismissUserContactCommand";
+import {
+  GetAttachedFileCommand,
+  GetAttachedFileCommandInput,
+  GetAttachedFileCommandOutput,
+} from "./commands/GetAttachedFileCommand";
 import {
   GetContactAttributesCommand,
   GetContactAttributesCommandInput,
@@ -783,6 +803,16 @@ import {
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
+  SearchContactFlowModulesCommand,
+  SearchContactFlowModulesCommandInput,
+  SearchContactFlowModulesCommandOutput,
+} from "./commands/SearchContactFlowModulesCommand";
+import {
+  SearchContactFlowsCommand,
+  SearchContactFlowsCommandInput,
+  SearchContactFlowsCommandOutput,
+} from "./commands/SearchContactFlowsCommand";
+import {
   SearchContactsCommand,
   SearchContactsCommandInput,
   SearchContactsCommandOutput,
@@ -838,6 +868,11 @@ import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
 } from "./commands/SendChatIntegrationEventCommand";
+import {
+  StartAttachedFileUploadCommand,
+  StartAttachedFileUploadCommandInput,
+  StartAttachedFileUploadCommandOutput,
+} from "./commands/StartAttachedFileUploadCommand";
 import {
   StartChatContactCommand,
   StartChatContactCommandInput,
@@ -1157,9 +1192,11 @@ const commands = {
   AssociateUserProficienciesCommand,
   BatchAssociateAnalyticsDataSetCommand,
   BatchDisassociateAnalyticsDataSetCommand,
+  BatchGetAttachedFileMetadataCommand,
   BatchGetFlowAssociationCommand,
   BatchPutContactCommand,
   ClaimPhoneNumberCommand,
+  CompleteAttachedFileUploadCommand,
   CreateAgentStatusCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
@@ -1185,6 +1222,7 @@ const commands = {
   CreateViewVersionCommand,
   CreateVocabularyCommand,
   DeactivateEvaluationFormCommand,
+  DeleteAttachedFileCommand,
   DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
@@ -1245,6 +1283,7 @@ const commands = {
   DisassociateTrafficDistributionGroupUserCommand,
   DisassociateUserProficienciesCommand,
   DismissUserContactCommand,
+  GetAttachedFileCommand,
   GetContactAttributesCommand,
   GetCurrentMetricDataCommand,
   GetCurrentUserDataCommand,
@@ -1308,6 +1347,8 @@ const commands = {
   ResumeContactCommand,
   ResumeContactRecordingCommand,
   SearchAvailablePhoneNumbersCommand,
+  SearchContactFlowModulesCommand,
+  SearchContactFlowsCommand,
   SearchContactsCommand,
   SearchHoursOfOperationsCommand,
   SearchPredefinedAttributesCommand,
@@ -1320,6 +1361,7 @@ const commands = {
   SearchUsersCommand,
   SearchVocabulariesCommand,
   SendChatIntegrationEventCommand,
+  StartAttachedFileUploadCommand,
   StartChatContactCommand,
   StartContactEvaluationCommand,
   StartContactRecordingCommand,
@@ -1661,6 +1703,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link BatchGetAttachedFileMetadataCommand}
+   */
+  batchGetAttachedFileMetadata(
+    args: BatchGetAttachedFileMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAttachedFileMetadataCommandOutput>;
+  batchGetAttachedFileMetadata(
+    args: BatchGetAttachedFileMetadataCommandInput,
+    cb: (err: any, data?: BatchGetAttachedFileMetadataCommandOutput) => void
+  ): void;
+  batchGetAttachedFileMetadata(
+    args: BatchGetAttachedFileMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAttachedFileMetadataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchGetFlowAssociationCommand}
    */
   batchGetFlowAssociation(
@@ -1706,6 +1765,23 @@ export interface Connect {
     args: ClaimPhoneNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ClaimPhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CompleteAttachedFileUploadCommand}
+   */
+  completeAttachedFileUpload(
+    args: CompleteAttachedFileUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteAttachedFileUploadCommandOutput>;
+  completeAttachedFileUpload(
+    args: CompleteAttachedFileUploadCommandInput,
+    cb: (err: any, data?: CompleteAttachedFileUploadCommandOutput) => void
+  ): void;
+  completeAttachedFileUpload(
+    args: CompleteAttachedFileUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteAttachedFileUploadCommandOutput) => void
   ): void;
 
   /**
@@ -2092,6 +2168,23 @@ export interface Connect {
     args: DeactivateEvaluationFormCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeactivateEvaluationFormCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAttachedFileCommand}
+   */
+  deleteAttachedFile(
+    args: DeleteAttachedFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAttachedFileCommandOutput>;
+  deleteAttachedFile(
+    args: DeleteAttachedFileCommandInput,
+    cb: (err: any, data?: DeleteAttachedFileCommandOutput) => void
+  ): void;
+  deleteAttachedFile(
+    args: DeleteAttachedFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAttachedFileCommandOutput) => void
   ): void;
 
   /**
@@ -3040,6 +3133,20 @@ export interface Connect {
     args: DismissUserContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DismissUserContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAttachedFileCommand}
+   */
+  getAttachedFile(
+    args: GetAttachedFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAttachedFileCommandOutput>;
+  getAttachedFile(args: GetAttachedFileCommandInput, cb: (err: any, data?: GetAttachedFileCommandOutput) => void): void;
+  getAttachedFile(
+    args: GetAttachedFileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAttachedFileCommandOutput) => void
   ): void;
 
   /**
@@ -4024,6 +4131,40 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchContactFlowModulesCommand}
+   */
+  searchContactFlowModules(
+    args: SearchContactFlowModulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchContactFlowModulesCommandOutput>;
+  searchContactFlowModules(
+    args: SearchContactFlowModulesCommandInput,
+    cb: (err: any, data?: SearchContactFlowModulesCommandOutput) => void
+  ): void;
+  searchContactFlowModules(
+    args: SearchContactFlowModulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchContactFlowModulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchContactFlowsCommand}
+   */
+  searchContactFlows(
+    args: SearchContactFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchContactFlowsCommandOutput>;
+  searchContactFlows(
+    args: SearchContactFlowsCommandInput,
+    cb: (err: any, data?: SearchContactFlowsCommandOutput) => void
+  ): void;
+  searchContactFlows(
+    args: SearchContactFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchContactFlowsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchContactsCommand}
    */
   searchContacts(
@@ -4204,6 +4345,23 @@ export interface Connect {
     args: SendChatIntegrationEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendChatIntegrationEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAttachedFileUploadCommand}
+   */
+  startAttachedFileUpload(
+    args: StartAttachedFileUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAttachedFileUploadCommandOutput>;
+  startAttachedFileUpload(
+    args: StartAttachedFileUploadCommandInput,
+    cb: (err: any, data?: StartAttachedFileUploadCommandOutput) => void
+  ): void;
+  startAttachedFileUpload(
+    args: StartAttachedFileUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAttachedFileUploadCommandOutput) => void
   ): void;
 
   /**

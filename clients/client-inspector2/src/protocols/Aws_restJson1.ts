@@ -794,6 +794,7 @@ export const se_GetCisScanReportCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      reportFormat: [],
       scanArn: [],
       targetAccounts: (_) => _json(_),
     })

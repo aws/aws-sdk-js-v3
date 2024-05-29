@@ -12,12 +12,11 @@ resources, including supported HTTP methods, parameters, and schemas.</p>
 <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with
 your recipients across multiple messaging channels. The Amazon Pinpoint SMS and
 Voice, version 2 API provides programmatic access to options that are unique to the SMS
-and voice channels and supplements the resources provided by the Amazon Pinpoint
-API.</p>
-<p>If you're new to Amazon Pinpoint, it's also helpful to review the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">
-Amazon Pinpoint Developer Guide</a>. The <i>Amazon Pinpoint
+and voice channels. Amazon Pinpoint SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p>
+<p>If you're new to Amazon Pinpoint SMS, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html">
+Amazon Pinpoint SMS User Guide</a>. The <i>Amazon Pinpoint
 Developer Guide</i> provides tutorials, code samples, and procedures that
-demonstrate how to use Amazon Pinpoint features programmatically and how to integrate
+demonstrate how to use Amazon Pinpoint SMS features programmatically and how to integrate
 Amazon Pinpoint functionality into mobile apps and other types of applications.
 The guide also provides key information, such as Amazon Pinpoint integration with
 other Amazon Web Services services, and the quotas that apply to use of the
@@ -247,6 +246,14 @@ AssociateOriginationIdentity
 </details>
 <details>
 <summary>
+AssociateProtectConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/AssociateProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/AssociateProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/AssociateProtectConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateConfigurationSet
 </summary>
 
@@ -275,6 +282,14 @@ CreatePool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/CreatePoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreatePoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreatePoolCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateProtectConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/CreateProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/CreateProtectConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -319,6 +334,14 @@ CreateVerifiedDestinationNumber
 </details>
 <details>
 <summary>
+DeleteAccountDefaultProtectConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteAccountDefaultProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteAccountDefaultProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteAccountDefaultProtectConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteConfigurationSet
 </summary>
 
@@ -359,6 +382,14 @@ DeleteKeyword
 </details>
 <details>
 <summary>
+DeleteMediaMessageSpendLimitOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteMediaMessageSpendLimitOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteMediaMessageSpendLimitOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteMediaMessageSpendLimitOverrideCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteOptedOutNumber
 </summary>
 
@@ -379,6 +410,14 @@ DeletePool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeletePoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeletePoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeletePoolCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteProtectConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -495,6 +534,14 @@ DescribePools
 </details>
 <details>
 <summary>
+DescribeProtectConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DescribeProtectConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeProtectConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DescribeProtectConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeRegistrationAttachments
 </summary>
 
@@ -583,10 +630,26 @@ DisassociateOriginationIdentity
 </details>
 <details>
 <summary>
+DisassociateProtectConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DisassociateProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DisassociateProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DisassociateProtectConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DiscardRegistrationVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DiscardRegistrationVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DiscardRegistrationVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DiscardRegistrationVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetProtectConfigurationCountryRuleSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/GetProtectConfigurationCountryRuleSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/GetProtectConfigurationCountryRuleSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/GetProtectConfigurationCountryRuleSetCommandOutput/)
 
 </details>
 <details>
@@ -679,6 +742,14 @@ SendDestinationNumberVerificationCode
 </details>
 <details>
 <summary>
+SendMediaMessage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SendMediaMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendMediaMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SendMediaMessageCommandOutput/)
+
+</details>
+<details>
+<summary>
 SendTextMessage
 </summary>
 
@@ -695,6 +766,14 @@ SendVoiceMessage
 </details>
 <details>
 <summary>
+SetAccountDefaultProtectConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetAccountDefaultProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetAccountDefaultProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetAccountDefaultProtectConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 SetDefaultMessageType
 </summary>
 
@@ -707,6 +786,14 @@ SetDefaultSenderId
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetDefaultSenderIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetDefaultSenderIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetDefaultSenderIdCommandOutput/)
+
+</details>
+<details>
+<summary>
+SetMediaMessageSpendLimitOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetMediaMessageSpendLimitOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetMediaMessageSpendLimitOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetMediaMessageSpendLimitOverrideCommandOutput/)
 
 </details>
 <details>
@@ -771,6 +858,22 @@ UpdatePool
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/UpdatePoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdatePoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdatePoolCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateProtectConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/UpdateProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateProtectConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateProtectConfigurationCountryRuleSet
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/UpdateProtectConfigurationCountryRuleSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateProtectConfigurationCountryRuleSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/UpdateProtectConfigurationCountryRuleSetCommandOutput/)
 
 </details>
 <details>

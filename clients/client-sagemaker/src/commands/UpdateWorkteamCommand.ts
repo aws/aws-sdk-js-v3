@@ -54,6 +54,14 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  *   NotificationConfiguration: { // NotificationConfiguration
  *     NotificationTopicArn: "STRING_VALUE",
  *   },
+ *   WorkerAccessConfiguration: { // WorkerAccessConfiguration
+ *     S3Presign: { // S3Presign
+ *       IamPolicyConstraints: { // IamPolicyConstraints
+ *         SourceIp: "Enabled" || "Disabled",
+ *         VpcSourceIp: "Enabled" || "Disabled",
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateWorkteamCommand(input);
  * const response = await client.send(command);
@@ -85,6 +93,14 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * //     LastUpdatedDate: new Date("TIMESTAMP"),
  * //     NotificationConfiguration: { // NotificationConfiguration
  * //       NotificationTopicArn: "STRING_VALUE",
+ * //     },
+ * //     WorkerAccessConfiguration: { // WorkerAccessConfiguration
+ * //       S3Presign: { // S3Presign
+ * //         IamPolicyConstraints: { // IamPolicyConstraints
+ * //           SourceIp: "Enabled" || "Disabled",
+ * //           VpcSourceIp: "Enabled" || "Disabled",
+ * //         },
+ * //       },
  * //     },
  * //   },
  * // };

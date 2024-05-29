@@ -59,7 +59,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * //     externalConnections: [ // RepositoryExternalConnectionInfoList
  * //       { // RepositoryExternalConnectionInfo
  * //         externalConnectionName: "STRING_VALUE",
- * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift",
+ * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
  * //         status: "Available",
  * //       },
  * //     ],

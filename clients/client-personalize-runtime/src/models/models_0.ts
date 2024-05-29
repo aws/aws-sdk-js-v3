@@ -228,6 +228,32 @@ export interface PredictedItem {
    * @public
    */
   metadata?: Record<string, string>;
+
+  /**
+   * <p>If you use User-Personalization-v2, a list of reasons for why the item was included in recommendations. Possible reasons include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Promoted item - Indicates the item was included as part of a promotion that you applied in your recommendation request.</p>
+   *             </li>
+   *             <li>
+   *                <p>Exploration - Indicates the item was included with exploration.
+   *           With exploration, recommendations include items with less interactions data or relevance for the user.
+   *           For more information about exploration, see
+   *           <a href="https://docs.aws.amazon.com/personalize/latest/dg/use-case-recipe-features.html#about-exploration">Exploration</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Popular item - Indicates the item was included as a placeholder popular item.
+   *           If you use a filter, depending on how many recommendations the filter removes,
+   *            Amazon Personalize might add placeholder items to meet the <code>numResults</code> for your
+   *           recommendation request. These items are popular items, based on interactions data, that satisfy your filter criteria.
+   *           They don't have a relevance score for the user.
+   *         </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  reason?: string[];
 }
 
 /**
@@ -414,6 +440,24 @@ export const GetPersonalizedRankingRequestFilterSensitiveLog = (obj: GetPersonal
 /**
  * @internal
  */
+export const PredictedItemFilterSensitiveLog = (obj: PredictedItem): any => ({
+  ...obj,
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetPersonalizedRankingResponseFilterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
+  ...obj,
+  ...(obj.personalizedRanking && {
+    personalizedRanking: obj.personalizedRanking.map((item) => PredictedItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const PromotionFilterSensitiveLog = (obj: Promotion): any => ({
   ...obj,
   ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
@@ -427,4 +471,12 @@ export const GetRecommendationsRequestFilterSensitiveLog = (obj: GetRecommendati
   ...(obj.context && { context: SENSITIVE_STRING }),
   ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
   ...(obj.promotions && { promotions: obj.promotions.map((item) => PromotionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationsResponseFilterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
+  ...obj,
+  ...(obj.itemList && { itemList: obj.itemList.map((item) => PredictedItemFilterSensitiveLog(item)) }),
 });

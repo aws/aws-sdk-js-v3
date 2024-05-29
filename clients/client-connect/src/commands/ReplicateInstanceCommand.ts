@@ -10,7 +10,7 @@ import {
   ReplicateInstanceRequest,
   ReplicateInstanceRequestFilterSensitiveLog,
   ReplicateInstanceResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_ReplicateInstanceCommand, se_ReplicateInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -77,6 +77,8 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *         in: "<FilterAttribute>",
  *         notIn: "<FilterAttribute>",
  *         startsWith: "<FilterAttribute>",
+ *         listContains: "<FilterAttribute>",
+ *         stringContains: "<FilterAttribute>",
  *         andAll: [ // RetrievalFilterList
  *           {//  Union: only one key present
  *             equals: "<FilterAttribute>",
@@ -88,6 +90,8 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *             in: "<FilterAttribute>",
  *             notIn: "<FilterAttribute>",
  *             startsWith: "<FilterAttribute>",
+ *             listContains: "<FilterAttribute>",
+ *             stringContains: "<FilterAttribute>",
  *             andAll: [
  *               "<RetrievalFilter>",
  *             ],

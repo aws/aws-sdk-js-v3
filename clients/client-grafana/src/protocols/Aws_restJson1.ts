@@ -34,10 +34,26 @@ import {
 } from "../commands/CreateWorkspaceApiKeyCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "../commands/CreateWorkspaceCommand";
 import {
+  CreateWorkspaceServiceAccountCommandInput,
+  CreateWorkspaceServiceAccountCommandOutput,
+} from "../commands/CreateWorkspaceServiceAccountCommand";
+import {
+  CreateWorkspaceServiceAccountTokenCommandInput,
+  CreateWorkspaceServiceAccountTokenCommandOutput,
+} from "../commands/CreateWorkspaceServiceAccountTokenCommand";
+import {
   DeleteWorkspaceApiKeyCommandInput,
   DeleteWorkspaceApiKeyCommandOutput,
 } from "../commands/DeleteWorkspaceApiKeyCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../commands/DeleteWorkspaceCommand";
+import {
+  DeleteWorkspaceServiceAccountCommandInput,
+  DeleteWorkspaceServiceAccountCommandOutput,
+} from "../commands/DeleteWorkspaceServiceAccountCommand";
+import {
+  DeleteWorkspaceServiceAccountTokenCommandInput,
+  DeleteWorkspaceServiceAccountTokenCommandOutput,
+} from "../commands/DeleteWorkspaceServiceAccountTokenCommand";
 import {
   DescribeWorkspaceAuthenticationCommandInput,
   DescribeWorkspaceAuthenticationCommandOutput,
@@ -58,6 +74,14 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { ListVersionsCommandInput, ListVersionsCommandOutput } from "../commands/ListVersionsCommand";
 import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "../commands/ListWorkspacesCommand";
+import {
+  ListWorkspaceServiceAccountsCommandInput,
+  ListWorkspaceServiceAccountsCommandOutput,
+} from "../commands/ListWorkspaceServiceAccountsCommand";
+import {
+  ListWorkspaceServiceAccountTokensCommandInput,
+  ListWorkspaceServiceAccountTokensCommandOutput,
+} from "../commands/ListWorkspaceServiceAccountTokensCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdatePermissionsCommandInput, UpdatePermissionsCommandOutput } from "../commands/UpdatePermissionsCommand";
@@ -84,6 +108,7 @@ import {
   ResourceNotFoundException,
   RoleValues,
   SamlConfiguration,
+  ServiceAccountTokenSummary,
   ServiceQuotaExceededException,
   ThrottlingException,
   UpdateInstruction,
@@ -177,6 +202,55 @@ export const se_CreateWorkspaceApiKeyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateWorkspaceServiceAccountCommand
+ */
+export const se_CreateWorkspaceServiceAccountCommand = async (
+  input: CreateWorkspaceServiceAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/serviceaccounts");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      grafanaRole: [],
+      name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateWorkspaceServiceAccountTokenCommand
+ */
+export const se_CreateWorkspaceServiceAccountTokenCommand = async (
+  input: CreateWorkspaceServiceAccountTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens");
+  b.p("serviceAccountId", () => input.serviceAccountId!, "{serviceAccountId}", false);
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      name: [],
+      secondsToLive: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteWorkspaceCommand
  */
 export const se_DeleteWorkspaceCommand = async (
@@ -203,6 +277,41 @@ export const se_DeleteWorkspaceApiKeyCommand = async (
   const headers: any = {};
   b.bp("/workspaces/{workspaceId}/apikeys/{keyName}");
   b.p("keyName", () => input.keyName!, "{keyName}", false);
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteWorkspaceServiceAccountCommand
+ */
+export const se_DeleteWorkspaceServiceAccountCommand = async (
+  input: DeleteWorkspaceServiceAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}");
+  b.p("serviceAccountId", () => input.serviceAccountId!, "{serviceAccountId}", false);
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteWorkspaceServiceAccountTokenCommand
+ */
+export const se_DeleteWorkspaceServiceAccountTokenCommand = async (
+  input: DeleteWorkspaceServiceAccountTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens/{tokenId}");
+  b.p("tokenId", () => input.tokenId!, "{tokenId}", false);
+  b.p("serviceAccountId", () => input.serviceAccountId!, "{serviceAccountId}", false);
   b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
@@ -343,6 +452,47 @@ export const se_ListWorkspacesCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/workspaces");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListWorkspaceServiceAccountsCommand
+ */
+export const se_ListWorkspaceServiceAccountsCommand = async (
+  input: ListWorkspaceServiceAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/serviceaccounts");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListWorkspaceServiceAccountTokensCommand
+ */
+export const se_ListWorkspaceServiceAccountTokensCommand = async (
+  input: ListWorkspaceServiceAccountTokensCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens");
+  b.p("serviceAccountId", () => input.serviceAccountId!, "{serviceAccountId}", false);
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
@@ -570,6 +720,53 @@ export const de_CreateWorkspaceApiKeyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateWorkspaceServiceAccountCommand
+ */
+export const de_CreateWorkspaceServiceAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkspaceServiceAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    grafanaRole: __expectString,
+    id: __expectString,
+    name: __expectString,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateWorkspaceServiceAccountTokenCommand
+ */
+export const de_CreateWorkspaceServiceAccountTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkspaceServiceAccountTokenCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    serviceAccountId: __expectString,
+    serviceAccountToken: _json,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteWorkspaceCommand
  */
 export const de_DeleteWorkspaceCommand = async (
@@ -606,6 +803,51 @@ export const de_DeleteWorkspaceApiKeyCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     keyName: __expectString,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkspaceServiceAccountCommand
+ */
+export const de_DeleteWorkspaceServiceAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkspaceServiceAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    serviceAccountId: __expectString,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkspaceServiceAccountTokenCommand
+ */
+export const de_DeleteWorkspaceServiceAccountTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkspaceServiceAccountTokenCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    serviceAccountId: __expectString,
+    tokenId: __expectString,
     workspaceId: __expectString,
   });
   Object.assign(contents, doc);
@@ -779,6 +1021,53 @@ export const de_ListWorkspacesCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     workspaces: (_) => de_WorkspaceList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkspaceServiceAccountsCommand
+ */
+export const de_ListWorkspaceServiceAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkspaceServiceAccountsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    serviceAccounts: _json,
+    workspaceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkspaceServiceAccountTokensCommand
+ */
+export const de_ListWorkspaceServiceAccountTokensCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkspaceServiceAccountTokensCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    serviceAccountId: __expectString,
+    serviceAccountTokens: (_) => de_ServiceAccountTokenList(_, context),
+    workspaceId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1168,6 +1457,37 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_SamlConfiguration omitted.
 
 // de_SecurityGroupIds omitted.
+
+// de_ServiceAccountList omitted.
+
+// de_ServiceAccountSummary omitted.
+
+/**
+ * deserializeAws_restJson1ServiceAccountTokenList
+ */
+const de_ServiceAccountTokenList = (output: any, context: __SerdeContext): ServiceAccountTokenSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceAccountTokenSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ServiceAccountTokenSummary
+ */
+const de_ServiceAccountTokenSummary = (output: any, context: __SerdeContext): ServiceAccountTokenSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    expiresAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    lastUsedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
+};
+
+// de_ServiceAccountTokenSummaryWithKey omitted.
 
 // de_SubnetIds omitted.
 

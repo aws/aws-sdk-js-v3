@@ -48,6 +48,12 @@ export interface CreateChimeWebhookConfigurationCommandOutput
  *   IamRoleArn: "STRING_VALUE", // required
  *   ConfigurationName: "STRING_VALUE", // required
  *   LoggingLevel: "STRING_VALUE",
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateChimeWebhookConfigurationCommand(input);
  * const response = await client.send(command);
@@ -61,6 +67,12 @@ export interface CreateChimeWebhookConfigurationCommandOutput
  * //     ],
  * //     ConfigurationName: "STRING_VALUE",
  * //     LoggingLevel: "STRING_VALUE",
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         TagKey: "STRING_VALUE", // required
+ * //         TagValue: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

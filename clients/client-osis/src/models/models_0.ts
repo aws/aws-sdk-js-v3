@@ -25,7 +25,7 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * <p>Options that specify the configuration of a persistent buffer.
- *    To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.</p>
+ *    To configure how OpenSearch Ingestion encrypts this data, set the <code>EncryptionAtRestOptions</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering">Persistent buffering</a>.</p>
  * @public
  */
 export interface BufferOptions {
@@ -37,13 +37,13 @@ export interface BufferOptions {
 }
 
 /**
- * <p>Options to control how OpenSearch encrypts all data-at-rest.</p>
+ * <p>Options to control how OpenSearch encrypts buffer data.</p>
  * @public
  */
 export interface EncryptionAtRestOptions {
   /**
-   * <p>The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion.
-   *    By default, data is encrypted using an AWS owned key.</p>
+   * <p>The ARN of the KMS key used to encrypt buffer data.
+   *    By default, data is encrypted using an Amazon Web Services owned key.</p>
    * @public
    */
   KmsKeyArn: string | undefined;
@@ -57,7 +57,7 @@ export interface CloudWatchLogDestination {
   /**
    * <p>The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing
    *    log group or create a new one. For example,
-   *     <code>/aws/OpenSearchService/IngestionService/my-pipeline</code>.</p>
+   *    <code>/aws/vendedlogs/OpenSearchService/pipelines</code>.</p>
    * @public
    */
   LogGroup: string | undefined;
@@ -106,6 +106,24 @@ export interface Tag {
 }
 
 /**
+ * <p>Options for attaching a VPC to pipeline.</p>
+ * @public
+ */
+export interface VpcAttachmentOptions {
+  /**
+   * <p>Whether a VPC is attached to the pipeline.</p>
+   * @public
+   */
+  AttachToVpc: boolean | undefined;
+
+  /**
+   * <p>The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).</p>
+   * @public
+   */
+  CidrBlock?: string;
+}
+
+/**
  * <p>Options that specify the subnets and security groups for an OpenSearch Ingestion
  *    VPC endpoint.</p>
  * @public
@@ -122,6 +140,12 @@ export interface VpcOptions {
    * @public
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * <p>Options for attaching a VPC to a pipeline.</p>
+   * @public
+   */
+  VpcAttachmentOptions?: VpcAttachmentOptions;
 }
 
 /**
@@ -188,6 +212,24 @@ export interface CreatePipelineRequest {
 }
 
 /**
+ * <p>An object representing the destination of a pipeline.</p>
+ * @public
+ */
+export interface PipelineDestination {
+  /**
+   * <p>The name of the service receiving data from the pipeline.</p>
+   * @public
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>The endpoint receiving data from the pipeline.</p>
+   * @public
+   */
+  Endpoint?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -212,7 +254,7 @@ export interface ServiceVpcEndpoint {
   ServiceName?: VpcEndpointServiceName;
 
   /**
-   * <p>The ID of the VPC endpoint that was created.</p>
+   * <p>The unique identifier of the VPC endpoint that was created.</p>
    * @public
    */
   VpcEndpointId?: string;
@@ -357,22 +399,28 @@ export interface Pipeline {
 
   /**
    * <p>Options that specify the configuration of a persistent buffer.
-   *    To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.</p>
+   *    To configure how OpenSearch Ingestion encrypts this data, set the <code>EncryptionAtRestOptions</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering">Persistent buffering</a>.</p>
    * @public
    */
   BufferOptions?: BufferOptions;
 
   /**
-   * <p>Options to control how OpenSearch encrypts all data-at-rest.</p>
+   * <p>Options to control how OpenSearch encrypts buffer data.</p>
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
 
   /**
-   * <p>A list of VPC endpoints that OpenSearch Ingestion has created to other AWS services.</p>
+   * <p>A list of VPC endpoints that OpenSearch Ingestion has created to other Amazon Web Services services.</p>
    * @public
    */
   ServiceVpcEndpoints?: ServiceVpcEndpoint[];
+
+  /**
+   * <p>Destinations to which the pipeline writes data.</p>
+   * @public
+   */
+  Destinations?: PipelineDestination[];
 
   /**
    * <p>A list of tags associated with the given pipeline.</p>
@@ -390,6 +438,26 @@ export interface CreatePipelineResponse {
    * @public
    */
   Pipeline?: Pipeline;
+}
+
+/**
+ * <p>Exception is thrown when an operation has been disabled.</p>
+ * @public
+ */
+export class DisabledOperationException extends __BaseException {
+  readonly name: "DisabledOperationException" = "DisabledOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DisabledOperationException, __BaseException>) {
+    super({
+      name: "DisabledOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DisabledOperationException.prototype);
+  }
 }
 
 /**
@@ -534,7 +602,7 @@ export interface DeletePipelineResponse {}
  */
 export interface GetPipelineRequest {
   /**
-   * <p>The name of the pipeline to get information about.</p>
+   * <p>The name of the pipeline.</p>
    * @public
    */
   PipelineName: string | undefined;
@@ -560,6 +628,12 @@ export interface GetPipelineBlueprintRequest {
    * @public
    */
   BlueprintName: string | undefined;
+
+  /**
+   * <p>The format format of the blueprint to retrieve.</p>
+   * @public
+   */
+  Format?: string;
 }
 
 /**
@@ -578,6 +652,30 @@ export interface PipelineBlueprint {
    * @public
    */
   PipelineConfigurationBody?: string;
+
+  /**
+   * <p>The display name of the blueprint.</p>
+   * @public
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>A description of the blueprint.</p>
+   * @public
+   */
+  DisplayDescription?: string;
+
+  /**
+   * <p>The name of the service that the blueprint is associated with.</p>
+   * @public
+   */
+  Service?: string;
+
+  /**
+   * <p>The use case that the blueprint relates to.</p>
+   * @public
+   */
+  UseCase?: string;
 }
 
 /**
@@ -589,6 +687,12 @@ export interface GetPipelineBlueprintResponse {
    * @public
    */
   Blueprint?: PipelineBlueprint;
+
+  /**
+   * <p>The format of the blueprint.</p>
+   * @public
+   */
+  Format?: string;
 }
 
 /**
@@ -741,6 +845,30 @@ export interface PipelineBlueprintSummary {
    * @public
    */
   BlueprintName?: string;
+
+  /**
+   * <p>The display name of the blueprint.</p>
+   * @public
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>A description of the blueprint.</p>
+   * @public
+   */
+  DisplayDescription?: string;
+
+  /**
+   * <p>The name of the service that the blueprint is associated with.</p>
+   * @public
+   */
+  Service?: string;
+
+  /**
+   * <p>The use case that the blueprint relates to.</p>
+   * @public
+   */
+  UseCase?: string;
 }
 
 /**
@@ -826,6 +954,12 @@ export interface PipelineSummary {
    * @public
    */
   LastUpdatedAt?: Date;
+
+  /**
+   * <p>A list of destinations to which the pipeline writes data.</p>
+   * @public
+   */
+  Destinations?: PipelineDestination[];
 
   /**
    * <p>A list of tags associated with the given pipeline.</p>

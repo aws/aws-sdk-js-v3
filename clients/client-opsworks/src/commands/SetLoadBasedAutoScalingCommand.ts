@@ -31,7 +31,9 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
  *         Load with Time-based and Load-based Instances</a>.</p>
  *          <note>
- *             <p>To use load-based auto scaling, you must create a set of load-based auto scaling instances. Load-based auto scaling operates only on the instances from that set, so you must ensure that you have created enough instances to handle the maximum anticipated load.</p>
+ *             <p>To use load-based auto scaling, you must create a set of load-based auto scaling instances.
+ *              Load-based auto scaling operates only on the instances from that set, so you must ensure that you have created enough
+ *              instances to handle the maximum anticipated load.</p>
  *          </note>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions

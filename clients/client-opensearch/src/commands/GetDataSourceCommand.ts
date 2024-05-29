@@ -48,6 +48,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //   },
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
+ * //   Status: "ACTIVE" || "DISABLED",
  * // };
  *
  * ```

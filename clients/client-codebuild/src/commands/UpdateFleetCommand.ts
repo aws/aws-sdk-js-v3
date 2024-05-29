@@ -50,6 +50,16 @@ export interface UpdateFleetCommandOutput extends UpdateFleetOutput, __MetadataB
  *     maxCapacity: Number("int"),
  *   },
  *   overflowBehavior: "QUEUE" || "ON_DEMAND",
+ *   vpcConfig: { // VpcConfig
+ *     vpcId: "STRING_VALUE",
+ *     subnets: [ // Subnets
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [ // SecurityGroupIds
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   fleetServiceRole: "STRING_VALUE",
  *   tags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE",
@@ -68,7 +78,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetOutput, __MetadataB
  * //     lastModified: new Date("TIMESTAMP"),
  * //     status: { // FleetStatus
  * //       statusCode: "CREATING" || "UPDATING" || "ROTATING" || "PENDING_DELETION" || "DELETING" || "CREATE_FAILED" || "UPDATE_ROLLBACK_FAILED" || "ACTIVE",
- * //       context: "CREATE_FAILED" || "UPDATE_FAILED",
+ * //       context: "CREATE_FAILED" || "UPDATE_FAILED" || "ACTION_REQUIRED",
  * //       message: "STRING_VALUE",
  * //     },
  * //     baseCapacity: Number("int"),
@@ -86,6 +96,16 @@ export interface UpdateFleetCommandOutput extends UpdateFleetOutput, __MetadataB
  * //       desiredCapacity: Number("int"),
  * //     },
  * //     overflowBehavior: "QUEUE" || "ON_DEMAND",
+ * //     vpcConfig: { // VpcConfig
+ * //       vpcId: "STRING_VALUE",
+ * //       subnets: [ // Subnets
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       securityGroupIds: [ // SecurityGroupIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     fleetServiceRole: "STRING_VALUE",
  * //     tags: [ // TagList
  * //       { // Tag
  * //         key: "STRING_VALUE",

@@ -63,7 +63,7 @@ describe(validateChecksumFromResponse.name, () => {
     });
 
     it("if response algorithms is empty", async () => {
-      const emptyAlgorithmsList = [];
+      const emptyAlgorithmsList: string[] = [];
       await validateChecksumFromResponse(mockResponse, { ...mockOptions, responseAlgorithms: emptyAlgorithmsList });
       expect(getChecksumAlgorithmListForResponse).toHaveBeenCalledWith(emptyAlgorithmsList);
       expect(getChecksumLocationName).not.toHaveBeenCalled();

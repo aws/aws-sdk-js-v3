@@ -73,7 +73,7 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  *       },
  *     },
  *   ],
- *   ipAddressType: "dualstack" || "ipv4",
+ *   ipAddressType: "dualstack" || "ipv4" || "ipv6",
  *   sourceInstanceName: "STRING_VALUE",
  *   restoreDate: "STRING_VALUE",
  *   useLatestRestorableAutoSnapshot: true || false,

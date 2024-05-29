@@ -32,7 +32,12 @@ export interface BatchUpdatePhoneNumberCommandInput extends BatchUpdatePhoneNumb
 export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Updates one or more phone numbers.</p>
+ * <p>Updates phone number product types, calling names, or phone number names. You can update one attribute at a time for each
+ *          <code>UpdatePhoneNumberRequestItem</code>. For example, you can update the product type, the calling name, or phone name.
+ *         </p>
+ *          <note>
+ *             <p>You cannot have a duplicate <code>phoneNumberId</code> in a request.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

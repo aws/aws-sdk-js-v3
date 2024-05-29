@@ -53,6 +53,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, _
  *     "<keys>": "STRING_VALUE",
  *   },
  *   DryRun: true || false,
+ *   ProtectConfigurationId: "STRING_VALUE",
  * };
  * const command = new SendVoiceMessageCommand(input);
  * const response = await client.send(command);

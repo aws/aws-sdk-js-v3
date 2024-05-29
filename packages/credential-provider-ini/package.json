@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-ini",
-  "version": "3.565.0",
+  "version": "3.583.0",
   "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -29,15 +29,15 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^2.3.0",
-    "@smithy/property-provider": "^2.2.0",
-    "@smithy/shared-ini-file-loader": "^2.4.0",
-    "@smithy/types": "^2.12.0",
+    "@smithy/credential-provider-imds": "^3.0.0",
+    "@smithy/property-provider": "^3.0.0",
+    "@smithy/shared-ini-file-loader": "^3.0.0",
+    "@smithy/types": "^3.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^14.14.31",
+    "@types/node": "^16.18.96",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
@@ -48,7 +48,7 @@
   },
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

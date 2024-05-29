@@ -453,8 +453,7 @@ export interface ResultConfiguration {
    *             such as <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the
    *             query results location using one of the ways: either for individual queries using either
    *             this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>. If none of them is set, Athena
-   *             issues an error that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query
-   *                 results, recent queries, and output files</a>. If workgroup settings override
+   *             issues an error that no output location is provided. If workgroup settings override
    *             client-side settings, then the query uses the settings specified for the workgroup. See
    *                 <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    * @public
@@ -1369,8 +1368,7 @@ export interface WorkGroupConfiguration {
    *             where query and calculation results are stored and the encryption option, if any, used
    *             for query and calculation results. To run the query, you must specify the query results
    *             location using one of the ways: either in the workgroup using this setting, or for
-   *             individual queries (client-side), using <a>ResultConfiguration$OutputLocation</a>. If none of them is set, Athena issues an error that no output location is provided. For more
-   *             information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query results, recent queries, and output files</a>.</p>
+   *             individual queries (client-side), using <a>ResultConfiguration$OutputLocation</a>. If none of them is set, Athena issues an error that no output location is provided.</p>
    * @public
    */
   ResultConfiguration?: ResultConfiguration;
@@ -3207,7 +3205,8 @@ export interface ImportNotebookInput {
   Name: string | undefined;
 
   /**
-   * <p>The notebook content to be imported. The payload must be in <code>ipynb</code> format.</p>
+   * <p>The notebook content to be imported. The payload must be in <code>ipynb</code>
+   *             format.</p>
    * @public
    */
   Payload?: string;
@@ -3220,7 +3219,8 @@ export interface ImportNotebookInput {
   Type: NotebookType | undefined;
 
   /**
-   * <p>A URI that specifies the Amazon S3 location of a notebook file in <code>ipynb</code> format.</p>
+   * <p>A URI that specifies the Amazon S3 location of a notebook file in
+   *                 <code>ipynb</code> format.</p>
    * @public
    */
   NotebookS3LocationUri?: string;
@@ -5026,8 +5026,7 @@ export interface UpdatePreparedStatementOutput {}
 export interface ResultConfigurationUpdates {
   /**
    * <p>The location in Amazon S3 where your query and calculation results are stored,
-   *             such as <code>s3://path/to/query/bucket/</code>. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query
-   *                 results, recent queries, and output files</a>. If workgroup settings override
+   *             such as <code>s3://path/to/query/bucket/</code>. If workgroup settings override
    *             client-side settings, then the query uses the location for the query results and the
    *             encryption configuration that are specified for the workgroup. The "workgroup settings
    *             override" is specified in <code>EnforceWorkGroupConfiguration</code> (true/false) in the

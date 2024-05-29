@@ -2069,6 +2069,14 @@ NestedXmlMaps
 </details>
 <details>
 <summary>
+NestedXmlMapWithXmlName
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rest-xml-protocol/command/NestedXmlMapWithXmlNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/NestedXmlMapWithXmlNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rest-xml-protocol/Interface/NestedXmlMapWithXmlNameCommandOutput/)
+
+</details>
+<details>
+<summary>
 NoInputAndNoOutput
 </summary>
 

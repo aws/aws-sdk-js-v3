@@ -10016,8 +10016,8 @@ export interface Compliance {
    *                         <code>NOT_AVAILABLE</code> - Check could not be performed due to a service
    *                      outage, API error, or because the result of the Config evaluation was
    *                         <code>NOT_APPLICABLE</code>. If the Config evaluation result was
-   *                      <code>NOT_APPLICABLE</code>, then after 3 days, Security Hub automatically archives
-   *                      the finding.</p>
+   *                      <code>NOT_APPLICABLE</code> for a Security Hub control, Security Hub automatically archives
+   *                      the finding after 3 days.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -10029,6 +10029,7 @@ export interface Compliance {
   /**
    * <p>For a control, the industry or regulatory framework requirements that are related to the
    *          control. The check for that control is aligned with these requirements.</p>
+   *          <p>Array Members: Maximum number of 32 items.</p>
    * @public
    */
   RelatedRequirements?: string[];
@@ -10079,6 +10080,7 @@ export interface FindingProviderSeverity {
 
   /**
    * <p>The finding provider's original value for the severity.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
   Original?: string;
@@ -10158,6 +10160,7 @@ export interface GeneratorDetails {
    * <p>
    *             An array of tags used to identify the detector associated with the finding.
    *         </p>
+   *          <p>Array Members: Minimum number of 0 items. Maximum number of 10 items.</p>
    * @public
    */
   Labels?: string[];
@@ -10212,6 +10215,7 @@ export type MalwareType = (typeof MalwareType)[keyof typeof MalwareType];
 export interface Malware {
   /**
    * <p>The name of the malware that was observed.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 64.</p>
    * @public
    */
   Name: string | undefined;
@@ -10224,6 +10228,7 @@ export interface Malware {
 
   /**
    * <p>The file system path of the malware that was observed.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 512.</p>
    * @public
    */
   Path?: string;
@@ -10280,6 +10285,7 @@ export interface Network {
 
   /**
    * <p>The protocol of network-related information about a finding.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 16.</p>
    * @public
    */
   Protocol?: string;
@@ -10310,6 +10316,7 @@ export interface Network {
 
   /**
    * <p>The source domain of network-related information about a finding.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 128.</p>
    * @public
    */
   SourceDomain?: string;
@@ -10341,6 +10348,7 @@ export interface Network {
 
   /**
    * <p>The destination domain of network-related information about a finding.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 128.</p>
    * @public
    */
   DestinationDomain?: string;
@@ -10372,6 +10380,7 @@ export interface NetworkPathComponentDetails {
 export interface NetworkHeader {
   /**
    * <p>The protocol used for the component.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 16.</p>
    * @public
    */
   Protocol?: string;
@@ -10396,12 +10405,14 @@ export interface NetworkHeader {
 export interface NetworkPathComponent {
   /**
    * <p>The identifier of a component in the network path.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 32.</p>
    * @public
    */
   ComponentId?: string;
 
   /**
    * <p>The type of component.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 32.</p>
    * @public
    */
   ComponentType?: string;
@@ -10428,6 +10439,7 @@ export interface NetworkPathComponent {
 export interface Note {
   /**
    * <p>The text of a note.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 512.</p>
    * @public
    */
   Text: string | undefined;
@@ -10479,6 +10491,7 @@ export interface PatchSummary {
   /**
    * <p>The identifier of the compliance standard that was used to determine the patch
    *          compliance status.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   Id: string | undefined;
@@ -10486,6 +10499,7 @@ export interface PatchSummary {
   /**
    * <p>The number of patches from the compliance standard that were installed
    *          successfully.</p>
+   *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
   InstalledCount?: number;
@@ -10493,18 +10507,21 @@ export interface PatchSummary {
   /**
    * <p>The number of patches that are part of the compliance standard but are not installed.
    *          The count includes patches that failed to install.</p>
+   *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
   MissingCount?: number;
 
   /**
    * <p>The number of patches from the compliance standard that failed to install.</p>
+   *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
   FailedCount?: number;
 
   /**
    * <p>The number of installed patches that are not part of the compliance standard.</p>
+   *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
   InstalledOtherCount?: number;
@@ -10512,6 +10529,7 @@ export interface PatchSummary {
   /**
    * <p>The number of patches that are installed but are also on a list of patches that the
    *          customer rejected.</p>
+   *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
   InstalledRejectedCount?: number;
@@ -10519,6 +10537,7 @@ export interface PatchSummary {
   /**
    * <p>The number of patches that were applied, but that require the instance to be rebooted in
    *          order to be marked as installed.</p>
+   *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
   InstalledPendingReboot?: number;
@@ -10587,13 +10606,15 @@ export interface PatchSummary {
 
   /**
    * <p>The reboot option specified for the instance.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   RebootOption?: string;
 
   /**
    * <p>The type of patch operation performed. For Patch Manager, the values are
-   *             <code>SCAN</code> and <code>INSTALL</code>. </p>
+   *             <code>SCAN</code> and <code>INSTALL</code>.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   Operation?: string;
@@ -10606,12 +10627,14 @@ export interface PatchSummary {
 export interface ProcessDetails {
   /**
    * <p>The name of the process.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 64.</p>
    * @public
    */
   Name?: string;
 
   /**
    * <p>The path to the process executable.</p>
+   *          <p>Length Constraints: Minimum of 1. Maximum of 512.</p>
    * @public
    */
   Path?: string;
@@ -10712,6 +10735,7 @@ export type RecordState = (typeof RecordState)[keyof typeof RecordState];
 export interface Recommendation {
   /**
    * <p>Describes the recommended steps to take to remediate an issue identified in a finding.</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 512 length.</p>
    * @public
    */
   Text?: string;

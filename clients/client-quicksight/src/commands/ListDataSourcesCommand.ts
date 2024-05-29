@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/models_3";
+import { ListDataSourcesRequest } from "../models/models_3";
+import { ListDataSourcesResponse } from "../models/models_4";
 import { de_ListDataSourcesCommand, se_ListDataSourcesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -111,7 +112,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           ClusterId: "STRING_VALUE",
  * //           IAMParameters: { // RedshiftIAMParameters
  * //             RoleArn: "STRING_VALUE", // required
- * //             DatabaseUser: "STRING_VALUE", // required
+ * //             DatabaseUser: "STRING_VALUE",
  * //             DatabaseGroups: [ // DatabaseGroupList
  * //               "STRING_VALUE",
  * //             ],
@@ -243,7 +244,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //             ClusterId: "STRING_VALUE",
  * //             IAMParameters: {
  * //               RoleArn: "STRING_VALUE", // required
- * //               DatabaseUser: "STRING_VALUE", // required
+ * //               DatabaseUser: "STRING_VALUE",
  * //               DatabaseGroups: [
  * //                 "STRING_VALUE",
  * //               ],

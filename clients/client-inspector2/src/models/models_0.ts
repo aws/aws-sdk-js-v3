@@ -3332,6 +3332,20 @@ export interface CisNumberFilter {
  * @public
  * @enum
  */
+export const CisReportFormat = {
+  CSV: "CSV",
+  PDF: "PDF",
+} as const;
+
+/**
+ * @public
+ */
+export type CisReportFormat = (typeof CisReportFormat)[keyof typeof CisReportFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const CisReportStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
@@ -7144,6 +7158,16 @@ export interface GetCisScanReportRequest {
    * @public
    */
   targetAccounts?: string[];
+
+  /**
+   * <p>
+   *          The format of the report.
+   *          Valid values are <code>PDF</code> and <code>CSV</code>.
+   *          If no value is specified, the report format defaults to <code>PDF</code>.
+   *       </p>
+   * @public
+   */
+  reportFormat?: CisReportFormat;
 }
 
 /**
@@ -7152,7 +7176,7 @@ export interface GetCisScanReportRequest {
 export interface GetCisScanReportResponse {
   /**
    * <p>
-   *          The URL where a PDF of the CIS scan report can be downloaded.
+   *          The URL where a PDF or CSV of the CIS scan report can be downloaded.
    *       </p>
    * @public
    */
@@ -7739,45 +7763,4 @@ export interface ListCisScanResultsAggregatedByChecksResponse {
    * @public
    */
   nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListCisScanResultsAggregatedByTargetResourceRequest {
-  /**
-   * <p>The scan ARN.</p>
-   * @public
-   */
-  scanArn: string | undefined;
-
-  /**
-   * <p>The filter criteria.</p>
-   * @public
-   */
-  filterCriteria?: CisScanResultsAggregatedByTargetResourceFilterCriteria;
-
-  /**
-   * <p>The sort by order.</p>
-   * @public
-   */
-  sortBy?: CisScanResultsAggregatedByTargetResourceSortBy;
-
-  /**
-   * <p>The sort order.</p>
-   * @public
-   */
-  sortOrder?: CisSortOrder;
-
-  /**
-   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of scan results aggregated by a target resource to be returned in a single page of results.</p>
-   * @public
-   */
-  maxResults?: number;
 }

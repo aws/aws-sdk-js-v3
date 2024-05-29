@@ -281,6 +281,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

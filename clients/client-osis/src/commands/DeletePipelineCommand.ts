@@ -55,6 +55,9 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link ConflictException} (client fault)
  *  <p>The client attempted to remove a resource that is currently in use.</p>
  *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>Exception is thrown when an operation has been disabled.</p>
+ *
  * @throws {@link InternalException} (server fault)
  *  <p>The request failed because of an unknown error, exception, or failure (the failure is
  *    internal to the service).</p>

@@ -85,6 +85,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       },
  *     },
  *   },
+ *   interactiveConfiguration: { // InteractiveConfiguration
+ *     studioEnabled: true || false,
+ *     livyEndpointEnabled: true || false,
+ *   },
  *   releaseLabel: "STRING_VALUE",
  *   runtimeConfiguration: [ // ConfigurationList
  *     { // Configuration
@@ -228,6 +232,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //       prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
  * //         remoteWriteUrl: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     interactiveConfiguration: { // InteractiveConfiguration
+ * //       studioEnabled: true || false,
+ * //       livyEndpointEnabled: true || false,
  * //     },
  * //   },
  * // };

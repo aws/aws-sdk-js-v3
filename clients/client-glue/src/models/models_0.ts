@@ -6792,6 +6792,21 @@ export interface ExecutionProperty {
  * @public
  * @enum
  */
+export const JobMode = {
+  NOTEBOOK: "NOTEBOOK",
+  SCRIPT: "SCRIPT",
+  VISUAL: "VISUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type JobMode = (typeof JobMode)[keyof typeof JobMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const SourceControlAuthStrategy = {
   AWS_SECRETS_MANAGER: "AWS_SECRETS_MANAGER",
   PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
@@ -7412,6 +7427,7 @@ export type LogicalOperator = (typeof LogicalOperator)[keyof typeof LogicalOpera
  */
 export const JobRunState = {
   ERROR: "ERROR",
+  EXPIRED: "EXPIRED",
   FAILED: "FAILED",
   RUNNING: "RUNNING",
   STARTING: "STARTING",
@@ -7784,6 +7800,27 @@ export interface JobRun {
   JobName?: string;
 
   /**
+   * <p>A mode that describes how a job was created. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>
+   * @public
+   */
+  JobMode?: JobMode;
+
+  /**
    * <p>The date and time at which this job run was started.</p>
    * @public
    */
@@ -7859,7 +7896,9 @@ export interface JobRun {
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
    *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job.</p>
-   *          <p>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880 minutes (48 hours).</p>
+   *          <p>The maximum value for timeout for batch jobs is 7 days or 10080 minutes. The default is 2880 minutes (48 hours) for batch jobs.</p>
+   *          <p>Any existing Glue jobs that have a greater timeout value are defaulted to 7 days. For instance you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.</p>
+   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number;
@@ -7964,7 +8003,7 @@ export interface JobRun {
   GlueVersion?: string;
 
   /**
-   * <p>This field populates only for Auto Scaling job runs, and represents the total time each executor ran during the lifecycle of a job run in seconds, multiplied by a DPU factor (1 for <code>G.1X</code>, 2 for <code>G.2X</code>, or 0.25 for <code>G.025X</code> workers). This value may be different than the <code>executionEngineRuntime</code> * <code>MaxCapacity</code> as in the case of Auto Scaling jobs, as the number of executors running at a given time may be less than the <code>MaxCapacity</code>. Therefore, it is possible that the value of <code>DPUSeconds</code> is less than <code>executionEngineRuntime</code> * <code>MaxCapacity</code>.</p>
+   * <p>This field can be set for either job runs with execution class <code>FLEX</code> or when Auto Scaling is enabled, and represents the total time each executor ran during the lifecycle of a job run in seconds, multiplied by a DPU factor (1 for <code>G.1X</code>, 2 for <code>G.2X</code>, or 0.25 for <code>G.025X</code> workers). This value may be different than the <code>executionEngineRuntime</code> * <code>MaxCapacity</code> as in the case of Auto Scaling jobs, as the number of executors running at a given time may be less than the <code>MaxCapacity</code>. Therefore, it is possible that the value of <code>DPUSeconds</code> is less than <code>executionEngineRuntime</code> * <code>MaxCapacity</code>.</p>
    * @public
    */
   DPUSeconds?: number;
@@ -7976,6 +8015,13 @@ export interface JobRun {
    * @public
    */
   ExecutionClass?: ExecutionClass;
+
+  /**
+   * <p>This field specifies a day of the week and hour for a maintenance window for streaming jobs. Glue periodically performs maintenance activities. During these maintenance windows, Glue will need to restart your streaming jobs.</p>
+   *          <p>Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.</p>
+   * @public
+   */
+  MaintenanceWindow?: string;
 }
 
 /**
@@ -9299,33 +9345,3 @@ export interface CreateCrawlerRequest {
  * @public
  */
 export interface CreateCrawlerResponse {}
-
-/**
- * @public
- */
-export interface CreateCustomEntityTypeRequest {
-  /**
-   * <p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
-   * @public
-   */
-  RegexString: string | undefined;
-
-  /**
-   * <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
-   *          <p>If no context words are passed only a regular expression is checked.</p>
-   * @public
-   */
-  ContextWords?: string[];
-
-  /**
-   * <p>A list of tags applied to the custom entity type.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
-}

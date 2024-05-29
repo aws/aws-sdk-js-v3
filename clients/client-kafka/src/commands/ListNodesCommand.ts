@@ -60,6 +60,11 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       ControllerNodeInfo: { // ControllerNodeInfo
+ * //         Endpoints: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //       InstanceType: "STRING_VALUE",
  * //       NodeARN: "STRING_VALUE",
  * //       NodeType: "BROKER",

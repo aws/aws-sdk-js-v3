@@ -109,6 +109,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *     TransitGatewayMulticastDomainId: "STRING_VALUE",
  *     ReplicaMode: "open-read-only" || "mounted",
  *   },
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -298,6 +299,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

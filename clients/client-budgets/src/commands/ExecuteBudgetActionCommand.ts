@@ -72,8 +72,8 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ResourceLockedException} (client fault)
- *  <p> The request was received and recognized by the server, but the server rejected that
- *       particular method for the requested resource. </p>
+ *  <p>The request was received and recognized by the server, but the server rejected that
+ *       particular method for the requested resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit

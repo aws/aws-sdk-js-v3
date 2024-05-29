@@ -21,17 +21,12 @@ view of a package manager client. </p>
 <b>Repository</b>: A CodeArtifact repository contains a set of <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html#welcome-concepts-package-version">package
 versions</a>, each of which maps to a set of assets, or files. Repositories are
 polyglot, so a single repository can contain packages of any supported type. Each
-repository exposes endpoints for fetching and publishing packages using tools like the
-<b>
+repository exposes endpoints for fetching and publishing packages using tools such as the <b>
 <code>npm</code>
-</b> CLI, the Maven CLI (<b>
+</b> CLI or the Maven CLI (<b>
 <code>mvn</code>
-</b>), Python CLIs (<b>
-<code>pip</code>
-</b> and <code>twine</code>), NuGet CLIs (<code>nuget</code> and <code>dotnet</code>), and
-the Swift package manager (<b>
-<code>swift</code>
-</b>).</p>
+</b>). For a list of supported package managers, see the
+<a href="https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html">CodeArtifact User Guide</a>.</p>
 </li>
 <li>
 <p>
@@ -53,7 +48,9 @@ across their organization.</p>
 <li>
 <p>
 <b>Package</b>: A <i>package</i> is a bundle of software and the metadata required to
-resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-swift">Swift</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic">generic</a> package formats.</p>
+resolve dependencies and install the software. CodeArtifact supports npm, PyPI, Maven, NuGet, Swift, Ruby, and generic package formats.
+For more information about the supported package formats and how to use CodeArtifact with them, see the
+<a href="https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html">CodeArtifact User Guide</a>.</p>
 <p>In CodeArtifact, a package consists of:</p>
 <ul>
 <li>
@@ -247,6 +244,11 @@ package format:
 <li>
 <p>
 <code>pypi</code>
+</p>
+</li>
+<li>
+<p>
+<code>ruby</code>
 </p>
 </li>
 <li>

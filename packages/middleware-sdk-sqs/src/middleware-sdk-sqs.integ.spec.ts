@@ -4,8 +4,9 @@ import type { AwsCredentialIdentity } from "@smithy/types";
 import crypto from "crypto";
 import { Readable } from "stream";
 
-import sqsModel from "../../../codegen/sdk-codegen/aws-models/sqs.json";
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
+
+const sqsModel: any = require("../../../codegen/sdk-codegen/aws-models/sqs.json");
 const useAwsQuery = !!sqsModel.shapes["com.amazonaws.sqs#AmazonSQS"].traits["aws.protocols#awsQuery"];
 
 let hashError = "";

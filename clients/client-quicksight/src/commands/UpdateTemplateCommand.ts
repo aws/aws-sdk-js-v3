@@ -2896,6 +2896,10 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     },
  *                   ],
  *                 },
+ *                 ColorConfiguration: { // GaugeChartColorConfiguration
+ *                   ForegroundColor: "STRING_VALUE",
+ *                   BackgroundColor: "STRING_VALUE",
+ *                 },
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // GaugeChartConditionalFormatting

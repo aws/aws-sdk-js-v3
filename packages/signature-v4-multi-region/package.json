@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.556.0",
+  "version": "3.582.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline signature-v4-multi-region",
@@ -22,9 +22,9 @@
   "dependencies": {
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/types": "*",
-    "@smithy/protocol-http": "^3.3.0",
-    "@smithy/signature-v4": "^2.3.0",
-    "@smithy/types": "^2.12.0",
+    "@smithy/protocol-http": "^4.0.0",
+    "@smithy/signature-v4": "^3.0.0",
+    "@smithy/types": "^3.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "typescript": "~4.9.5"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

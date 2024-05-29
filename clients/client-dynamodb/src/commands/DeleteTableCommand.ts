@@ -36,8 +36,7 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *             returns a <code>ResourceNotFoundException</code>. If table is already in the
  *                 <code>DELETING</code> state, no error is returned. </p>
  *          <important>
- *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
- *                 of global tables.
+ *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
  *             </p>
  *          </important>
  *          <note>
@@ -140,6 +139,10 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //         IndexSizeBytes: Number("long"),
  * //         ItemCount: Number("long"),
  * //         IndexArn: "STRING_VALUE",
+ * //         OnDemandThroughput: { // OnDemandThroughput
+ * //           MaxReadRequestUnits: Number("long"),
+ * //           MaxWriteRequestUnits: Number("long"),
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -159,11 +162,17 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  * //           ReadCapacityUnits: Number("long"),
  * //         },
+ * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ * //           MaxReadRequestUnits: Number("long"),
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
  * //             ProvisionedThroughputOverride: {
  * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //             OnDemandThroughputOverride: {
+ * //               MaxReadRequestUnits: Number("long"),
  * //             },
  * //           },
  * //         ],
@@ -196,6 +205,10 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     OnDemandThroughput: {
+ * //       MaxReadRequestUnits: Number("long"),
+ * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
  * //   },
  * // };
  *

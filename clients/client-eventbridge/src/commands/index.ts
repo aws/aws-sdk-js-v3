@@ -55,3 +55,4 @@ export * from "./UpdateApiDestinationCommand";
 export * from "./UpdateArchiveCommand";
 export * from "./UpdateConnectionCommand";
 export * from "./UpdateEndpointCommand";
+export * from "./UpdateEventBusCommand";

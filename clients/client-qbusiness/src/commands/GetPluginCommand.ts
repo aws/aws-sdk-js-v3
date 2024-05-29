@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPluginRequest, GetPluginResponse } from "../models/models_0";
+import { GetPluginRequest, GetPluginResponse, GetPluginResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetPluginCommand, se_GetPluginCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
@@ -44,7 +44,7 @@ export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBea
  * //   applicationId: "STRING_VALUE",
  * //   pluginId: "STRING_VALUE",
  * //   displayName: "STRING_VALUE",
- * //   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK",
+ * //   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
  * //   serverUrl: "STRING_VALUE",
  * //   authConfiguration: { // PluginAuthConfiguration Union: only one key present
  * //     basicAuthConfiguration: { // BasicAuthConfiguration
@@ -55,7 +55,20 @@ export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBea
  * //       secretArn: "STRING_VALUE", // required
  * //       roleArn: "STRING_VALUE", // required
  * //     },
+ * //     noAuthConfiguration: {},
  * //   },
+ * //   customPluginConfiguration: { // CustomPluginConfiguration
+ * //     description: "STRING_VALUE", // required
+ * //     apiSchemaType: "OPEN_API_V3", // required
+ * //     apiSchema: { // APISchema Union: only one key present
+ * //       payload: "STRING_VALUE",
+ * //       s3: { // S3
+ * //         bucket: "STRING_VALUE", // required
+ * //         key: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   },
+ * //   buildStatus: "READY" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
  * //   pluginArn: "STRING_VALUE",
  * //   state: "ENABLED" || "DISABLED",
  * //   createdAt: new Date("TIMESTAMP"),
@@ -114,7 +127,7 @@ export class GetPluginCommand extends $Command
   })
   .s("ExpertQ", "GetPlugin", {})
   .n("QBusinessClient", "GetPluginCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetPluginResponseFilterSensitiveLog)
   .ser(se_GetPluginCommand)
   .de(de_GetPluginCommand)
   .build() {}

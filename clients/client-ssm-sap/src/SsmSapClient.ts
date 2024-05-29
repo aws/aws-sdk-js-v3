@@ -72,6 +72,10 @@ import {
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
+import {
+  ListOperationEventsCommandInput,
+  ListOperationEventsCommandOutput,
+} from "./commands/ListOperationEventsCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -85,10 +89,12 @@ import {
   RegisterApplicationCommandInput,
   RegisterApplicationCommandOutput,
 } from "./commands/RegisterApplicationCommand";
+import { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
 import {
   StartApplicationRefreshCommandInput,
   StartApplicationRefreshCommandOutput,
 } from "./commands/StartApplicationRefreshCommand";
+import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -120,11 +126,14 @@ export type ServiceInputTypes =
   | ListApplicationsCommandInput
   | ListComponentsCommandInput
   | ListDatabasesCommandInput
+  | ListOperationEventsCommandInput
   | ListOperationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePermissionCommandInput
   | RegisterApplicationCommandInput
+  | StartApplicationCommandInput
   | StartApplicationRefreshCommandInput
+  | StopApplicationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationSettingsCommandInput;
@@ -143,11 +152,14 @@ export type ServiceOutputTypes =
   | ListApplicationsCommandOutput
   | ListComponentsCommandOutput
   | ListDatabasesCommandOutput
+  | ListOperationEventsCommandOutput
   | ListOperationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePermissionCommandOutput
   | RegisterApplicationCommandOutput
+  | StartApplicationCommandOutput
   | StartApplicationRefreshCommandOutput
+  | StopApplicationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationSettingsCommandOutput;

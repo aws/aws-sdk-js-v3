@@ -104,8 +104,15 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  * //     entityType: "STRING_VALUE", // required
  * //     entityId: "STRING_VALUE", // required
  * //   },
+ * //   actions: [ // ActionIdentifierList
+ * //     { // ActionIdentifier
+ * //       actionType: "STRING_VALUE", // required
+ * //       actionId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   createdDate: new Date("TIMESTAMP"), // required
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //   effect: "Permit" || "Forbid",
  * // };
  *
  * ```

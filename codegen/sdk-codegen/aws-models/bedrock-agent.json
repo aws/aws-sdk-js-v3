@@ -51,7 +51,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action.</p>"
+        "smithy.api#documentation": "<p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>"
       }
     },
     "com.amazonaws.bedrockagent#ActionGroupResource": {
@@ -274,6 +274,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p>"
           }
+        },
+        "guardrailConfiguration": {
+          "target": "com.amazonaws.bedrockagent#GuardrailConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The guardrails configuration assigned to the agent.</p>"
+          }
         }
       },
       "traits": {
@@ -346,7 +352,7 @@
         "actionGroupExecutor": {
           "target": "com.amazonaws.bedrockagent#ActionGroupExecutor",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>"
           }
         },
         "apiSchema": {
@@ -449,6 +455,12 @@
             "smithy.api#documentation": "<p>The status of the alias of the agent and whether it is ready for use. The following statuses are possible:</p>\n         <ul>\n            <li>\n               <p>CREATING – The agent alias is being created.</p>\n            </li>\n            <li>\n               <p>PREPARED – The agent alias is finished being created or updated and is ready to be invoked.</p>\n            </li>\n            <li>\n               <p>FAILED – The agent alias API operation failed.</p>\n            </li>\n            <li>\n               <p>UPDATING – The agent alias is being updated.</p>\n            </li>\n            <li>\n               <p>DELETING – The agent alias is being deleted.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
+        },
+        "failureReasons": {
+          "target": "com.amazonaws.bedrockagent#FailureReasons",
+          "traits": {
+            "smithy.api#documentation": "<p>Information on the failure of Provisioned Throughput assigned to an agent alias.</p>"
+          }
         }
       },
       "traits": {
@@ -528,8 +540,13 @@
         "agentVersion": {
           "target": "com.amazonaws.bedrockagent#Version",
           "traits": {
-            "smithy.api#documentation": "<p>The version of the agent with which the alias is associated.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The version of the agent with which the alias is associated.</p>"
+          }
+        },
+        "provisionedThroughput": {
+          "target": "com.amazonaws.bedrockagent#ProvisionedModelIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>Information on the Provisioned Throughput assigned to an agent alias.</p>"
           }
         }
       },
@@ -779,7 +796,7 @@
         "smithy.api#length": {
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/(service-role/)?AmazonBedrockExecutionRoleForAgents_.+$"
+        "smithy.api#pattern": "^arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/.+$"
       }
     },
     "com.amazonaws.bedrockagent#AgentStatus": {
@@ -887,6 +904,12 @@
           "target": "com.amazonaws.bedrockagent#Version",
           "traits": {
             "smithy.api#documentation": "<p>The latest version of the agent.</p>"
+          }
+        },
+        "guardrailConfiguration": {
+          "target": "com.amazonaws.bedrockagent#GuardrailConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of the guardrails configuration in the agent summary.</p>"
           }
         }
       },
@@ -1001,6 +1024,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p>"
           }
+        },
+        "guardrailConfiguration": {
+          "target": "com.amazonaws.bedrockagent#GuardrailConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The guardrails configuration assigned to the agent version.</p>"
+          }
         }
       },
       "traits": {
@@ -1060,6 +1089,12 @@
           "target": "com.amazonaws.bedrockagent#Description",
           "traits": {
             "smithy.api#documentation": "<p>The description of the version of the agent.</p>"
+          }
+        },
+        "guardrailConfiguration": {
+          "target": "com.amazonaws.bedrockagent#GuardrailConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The details of the guardrails configuration in the agent version summary.</p>"
           }
         }
       },
@@ -1922,9 +1957,9 @@
       "traits": {
         "smithy.api#length": {
           "min": 20,
-          "max": 1011
+          "max": 2048
         },
-        "smithy.api#pattern": "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}))$"
+        "smithy.api#pattern": "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$"
       }
     },
     "com.amazonaws.bedrockagent#BucketOwnerAccountId": {
@@ -2136,7 +2171,7 @@
         "actionGroupExecutor": {
           "target": "com.amazonaws.bedrockagent#ActionGroupExecutor",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>"
           }
         },
         "apiSchema": {
@@ -2346,6 +2381,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p>"
           }
+        },
+        "guardrailConfiguration": {
+          "target": "com.amazonaws.bedrockagent#GuardrailConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique Guardrail configuration assigned to the agent when it is created.</p>"
+          }
         }
       },
       "traits": {
@@ -2450,7 +2491,7 @@
         "dataDeletionPolicy": {
           "target": "com.amazonaws.bedrockagent#DataDeletionPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The deletion policy for the requested data source</p>"
+            "smithy.api#documentation": "<p>The data deletion policy assigned to the data source.</p>"
           }
         },
         "serverSideEncryptionConfiguration": {
@@ -2698,7 +2739,7 @@
         "dataDeletionPolicy": {
           "target": "com.amazonaws.bedrockagent#DataDeletionPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The deletion policy for the data source.</p>"
+            "smithy.api#documentation": "<p>The data deletion policy for a data source.</p>"
           }
         },
         "createdAt": {
@@ -2718,7 +2759,7 @@
         "failureReasons": {
           "target": "com.amazonaws.bedrockagent#FailureReasons",
           "traits": {
-            "smithy.api#documentation": "<p>The details of the failure reasons related to the data source.</p>"
+            "smithy.api#documentation": "<p>The detailed reasons on the failure to delete a data source.</p>"
           }
         }
       },
@@ -4209,6 +4250,41 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.bedrockagent#GuardrailConfiguration": {
+      "type": "structure",
+      "members": {
+        "guardrailIdentifier": {
+          "target": "com.amazonaws.bedrockagent#GuardrailIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The guardrails identifier assigned to the guardrails configuration.</p>"
+          }
+        },
+        "guardrailVersion": {
+          "target": "com.amazonaws.bedrockagent#GuardrailVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The guardrails version assigned to the guardrails configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The details of the guardrails configuration.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagent#GuardrailIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 2048
+        },
+        "smithy.api#pattern": "^(([a-z0-9]+)|(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:guardrail/[a-z0-9]+))$"
+      }
+    },
+    "com.amazonaws.bedrockagent#GuardrailVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^(([0-9]{1,8})|(DRAFT))$"
+      }
+    },
     "com.amazonaws.bedrockagent#Id": {
       "type": "string",
       "traits": {
@@ -4618,7 +4694,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 40,
-          "max": 1200
+          "max": 4000
         },
         "smithy.api#sensitive": {}
       }
@@ -4886,6 +4962,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "RDS"
+          }
+        },
+        "MONGO_DB_ATLAS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MONGO_DB_ATLAS"
           }
         }
       }
@@ -5793,6 +5875,137 @@
         "smithy.api#pattern": "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}(([:][a-z0-9-]{1,63}){0,2})?/[a-z0-9]{12})|(:foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2})))|(([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|(([0-9a-zA-Z][_-]?)+)$"
       }
     },
+    "com.amazonaws.bedrockagent#MongoDbAtlasCollectionName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 63
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
+    "com.amazonaws.bedrockagent#MongoDbAtlasConfiguration": {
+      "type": "structure",
+      "members": {
+        "endpoint": {
+          "target": "com.amazonaws.bedrockagent#MongoDbAtlasEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>The endpoint URL of your MongoDB Atlas cluster for your knowledge base.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "databaseName": {
+          "target": "com.amazonaws.bedrockagent#MongoDbAtlasDatabaseName",
+          "traits": {
+            "smithy.api#documentation": "<p>The database name in your MongoDB Atlas cluster for your knowledge base.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "collectionName": {
+          "target": "com.amazonaws.bedrockagent#MongoDbAtlasCollectionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The collection name of the knowledge base in MongoDB Atlas.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "vectorIndexName": {
+          "target": "com.amazonaws.bedrockagent#MongoDbAtlasIndexName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the MongoDB Atlas vector search index.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "credentialsSecretArn": {
+          "target": "com.amazonaws.bedrockagent#SecretArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that contains user credentials for your MongoDB Atlas cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fieldMapping": {
+          "target": "com.amazonaws.bedrockagent#MongoDbAtlasFieldMapping",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the names of the fields to which to map information about the vector store.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "endpointServiceName": {
+          "target": "com.amazonaws.bedrockagent#MongoDbAtlasEndpointServiceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about the storage configuration of the knowledge base in MongoDB Atlas. </p>"
+      }
+    },
+    "com.amazonaws.bedrockagent#MongoDbAtlasDatabaseName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 63
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
+    "com.amazonaws.bedrockagent#MongoDbAtlasEndpoint": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 2048
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
+    "com.amazonaws.bedrockagent#MongoDbAtlasEndpointServiceName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^(?:arn:aws(?:-us-gov|-cn|-iso|-iso-[a-z])*:.+:.*:\\d+:.+/.+$|[a-zA-Z0-9*]+[a-zA-Z0-9._-]*)$"
+      }
+    },
+    "com.amazonaws.bedrockagent#MongoDbAtlasFieldMapping": {
+      "type": "structure",
+      "members": {
+        "vectorField": {
+          "target": "com.amazonaws.bedrockagent#FieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "textField": {
+          "target": "com.amazonaws.bedrockagent#FieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "metadataField": {
+          "target": "com.amazonaws.bedrockagent#FieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the names of the fields to which to map information about the vector store.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagent#MongoDbAtlasIndexName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "max": 2048
+        },
+        "smithy.api#pattern": "^.*$"
+      }
+    },
     "com.amazonaws.bedrockagent#Name": {
       "type": "string",
       "traits": {
@@ -6140,7 +6353,7 @@
         "basePromptTemplate": {
           "target": "com.amazonaws.bedrockagent#BasePromptTemplate",
           "traits": {
-            "smithy.api#documentation": "<p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html\">Prompt template placeholder variables</a>.</p>"
+            "smithy.api#documentation": "<p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html\">Prompt template placeholder variables</a>. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts-configure.html\">Configure the prompt templates</a>.</p>"
           }
         },
         "inferenceConfiguration": {
@@ -6184,7 +6397,7 @@
         "overrideLambda": {
           "target": "com.amazonaws.bedrockagent#LambdaArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>.</p>"
+            "smithy.api#documentation": "<p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html\">Parser Lambda function in Agents for Amazon Bedrock</a>.</p>"
           }
         }
       },
@@ -6237,6 +6450,16 @@
             "smithy.api#enumValue": "KNOWLEDGE_BASE_RESPONSE_GENERATION"
           }
         }
+      }
+    },
+    "com.amazonaws.bedrockagent#ProvisionedModelIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^((([0-9a-zA-Z][_-]?){1,63})|(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:provisioned-model/[a-z0-9]{12}))$"
       }
     },
     "com.amazonaws.bedrockagent#RdsArn": {
@@ -6496,7 +6719,7 @@
         "bucketOwnerAccountId": {
           "target": "com.amazonaws.bedrockagent#BucketOwnerAccountId",
           "traits": {
-            "smithy.api#documentation": "<p>The account ID for the owner of the S3 bucket.</p>"
+            "smithy.api#documentation": "<p>The bucket account owner ID for the S3 bucket.</p>"
           }
         }
       },
@@ -6752,6 +6975,12 @@
           "target": "com.amazonaws.bedrockagent#RdsConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html\">Create a vector index in Amazon RDS</a>.</p>"
+          }
+        },
+        "mongoDbAtlasConfiguration": {
+          "target": "com.amazonaws.bedrockagent#MongoDbAtlasConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>"
           }
         }
       },
@@ -7465,6 +7694,12 @@
           "target": "com.amazonaws.bedrockagent#PromptOverrideConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p>"
+          }
+        },
+        "guardrailConfiguration": {
+          "target": "com.amazonaws.bedrockagent#GuardrailConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique Guardrail configuration assigned to the agent when it is updated.</p>"
           }
         }
       },

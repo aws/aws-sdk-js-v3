@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-user-agent",
-  "version": "3.540.0",
+  "version": "3.583.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-user-agent",
@@ -24,8 +24,8 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
-    "@smithy/protocol-http": "^3.3.0",
-    "@smithy/types": "^2.12.0",
+    "@smithy/protocol-http": "^4.0.0",
+    "@smithy/types": "^3.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "typescript": "~4.9.5"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

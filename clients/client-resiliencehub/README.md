@@ -417,6 +417,14 @@ ListAppAssessmentComplianceDrifts
 </details>
 <details>
 <summary>
+ListAppAssessmentResourceDrifts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppAssessmentResourceDriftsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppAssessmentResourceDriftsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppAssessmentResourceDriftsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAppAssessments
 </summary>
 

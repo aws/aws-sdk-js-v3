@@ -27,8 +27,7 @@ export interface UpdateContactRoutingDataCommandInput extends UpdateContactRouti
 export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRoutingDataResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Updates routing priority and age on the contact (<b>QueuePriority</b> and <b>QueueTimeAdjustmentInSeconds</b>).
+ * <p>Updates routing priority and age on the contact (<b>QueuePriority</b> and <b>QueueTimeAdjustmentInSeconds</b>).
  *    These properties can be used to change a customer's position in the queue. For example, you can
  *    move a contact to the back of the queue by setting a lower routing priority relative to other
  *    contacts in queue; or you can move a contact to the front of the queue by increasing the routing
@@ -37,6 +36,10 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  *    its position in queue, and not its actual queue wait time as reported through metrics. These
  *    properties can also be updated by using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html">the Set routing priority / age flow
  *     block</a>.</p>
+ *          <note>
+ *             <p>Either <b>QueuePriority</b> or <b>QueueTimeAdjustmentInSeconds</b> should be provided within the request body, but not
+ *     both.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

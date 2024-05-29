@@ -1,5 +1,10 @@
 // smithy-typescript generated code
 import {
+  EventStreamInputConfig,
+  EventStreamResolvedConfig,
+  resolveEventStreamConfig,
+} from "@aws-sdk/middleware-eventstream";
+import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
@@ -13,12 +18,18 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
 } from "@smithy/core";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -37,6 +48,7 @@ import {
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -58,6 +70,7 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import { ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
 import { ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
@@ -158,6 +171,7 @@ export { __Client };
 export type ServiceInputTypes =
   | BatchDeleteDocumentCommandInput
   | BatchPutDocumentCommandInput
+  | ChatCommandInput
   | ChatSyncCommandInput
   | CreateApplicationCommandInput
   | CreateDataSourceCommandInput
@@ -218,6 +232,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchDeleteDocumentCommandOutput
   | BatchPutDocumentCommandOutput
+  | ChatCommandOutput
   | ChatSyncCommandOutput
   | CreateApplicationCommandOutput
   | CreateDataSourceCommandOutput
@@ -399,9 +414,20 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
+
+  /**
+   * The function that provides necessary utilities for handling request event stream.
+   * @internal
+   */
+  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
 }
 
 /**
@@ -414,7 +440,9 @@ export type QBusinessClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   RetryInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig &
+  EventStreamSerdeInputConfig &
   HttpAuthSchemeInputConfig &
+  EventStreamInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -434,7 +462,9 @@ export type QBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  EventStreamSerdeResolvedConfig &
   HttpAuthSchemeResolvedConfig &
+  EventStreamResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -444,10 +474,7 @@ export type QBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface QBusinessClientResolvedConfig extends QBusinessClientResolvedConfigType {}
 
 /**
- * <note>
- *             <p>Amazon Q is in preview release and is subject to change.</p>
- *          </note>
- *          <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
+ * <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
  *             managed, generative-AI powered enterprise chat assistant that you can deploy within your
  *             organization. Amazon Q Business enhances employee productivity by supporting key tasks such
  *             as question-answering, knowledge discovery, writing email messages, summarizing text,
@@ -547,10 +574,12 @@ export class QBusinessClient extends __Client<
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveUserAgentConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveEventStreamConfig(_config_8);
+    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
+    super(_config_10);
+    this.config = _config_10;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

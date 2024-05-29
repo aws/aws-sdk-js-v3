@@ -63,6 +63,9 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *       body: "STRING_VALUE", // required
  *       contentType: "STRING_VALUE", // required
  *     },
+ *     file: { // FileContent
+ *       fileArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",

@@ -3752,6 +3752,14 @@ GetInstanceMetadataDefaults
 </details>
 <details>
 <summary>
+GetInstanceTpmEkPub
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetInstanceTpmEkPubCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetInstanceTpmEkPubCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetInstanceTpmEkPubCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInstanceTypesFromInstanceRequirements
 </summary>
 

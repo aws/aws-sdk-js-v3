@@ -39,6 +39,12 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *             <li>
  *                <p>QUEUE_TRANSFER</p>
  *             </li>
+ *             <li>
+ *                <p>EXTERNAL_OUTBOUND</p>
+ *             </li>
+ *             <li>
+ *                <p>MONITOR</p>
+ *             </li>
  *          </ul>
  *          <p>Chat and task contacts can be terminated in any state, regardless of initiation
  *    method.</p>

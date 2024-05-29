@@ -52,6 +52,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *     "STRING_VALUE",
  *   ],
  *   redirectUri: "STRING_VALUE",
+ *   codeVerifier: "STRING_VALUE",
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);

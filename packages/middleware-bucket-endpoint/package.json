@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-bucket-endpoint",
-  "version": "3.535.0",
+  "version": "3.577.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-bucket-endpoint",
@@ -23,10 +23,10 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "@smithy/node-config-provider": "^2.3.0",
-    "@smithy/protocol-http": "^3.3.0",
-    "@smithy/types": "^2.12.0",
-    "@smithy/util-config-provider": "^2.3.0",
+    "@smithy/node-config-provider": "^3.0.0",
+    "@smithy/protocol-http": "^4.0.0",
+    "@smithy/types": "^3.0.0",
+    "@smithy/util-config-provider": "^3.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -37,7 +37,7 @@
     "typescript": "~4.9.5"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

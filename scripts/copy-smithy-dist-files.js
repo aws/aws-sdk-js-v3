@@ -32,6 +32,11 @@ const localSmithyPkgs = fs.readdirSync(path.join(node_modules, "@smithy"));
         path.join(smithyPackages, smithyPkg, "dist-es"),
         path.join(node_modules, "@smithy", smithyPkg),
       ]),
+      spawnProcess("cp", [
+        "-r",
+        path.join(smithyPackages, smithyPkg, "package.json"),
+        path.join(node_modules, "@smithy", smithyPkg),
+      ]),
     ]);
   }
 })();

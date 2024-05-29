@@ -21,6 +21,9 @@ const checkState = async (
     if (exception.name && exception.name == "RequestInProgressException") {
       return { state: WaiterState.RETRY, reason };
     }
+    if (exception.name && exception.name == "AccessDeniedException") {
+      return { state: WaiterState.FAILURE, reason };
+    }
   }
   return { state: WaiterState.RETRY, reason };
 };

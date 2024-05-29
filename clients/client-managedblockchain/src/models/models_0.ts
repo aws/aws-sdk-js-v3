@@ -256,18 +256,34 @@ export interface CreateAccessorInput {
   /**
    * <p>The blockchain network that the <code>Accessor</code> token is created for.</p>
    *          <note>
-   *             <p>We recommend using the appropriate <code>networkType</code>
-   *             value for the blockchain network that you are creating the <code>Accessor</code>
-   *             token for. You cannnot use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> to
-   *             specify a <code>networkType</code> for your Accessor token.</p>
-   *             <p>The default value of <code>ETHEREUM_MAINNET_AND_GOERLI</code> is only applied:</p>
    *             <ul>
    *                <li>
-   *                   <p>when the <code>CreateAccessor</code> action does not set a <code>networkType</code>.</p>
+   *                   <p>Use the actual <code>networkType</code> value for the blockchain network that you are creating
+   *             the <code>Accessor</code> token for.</p>
    *                </li>
    *                <li>
-   *                   <p>to all existing <code>Accessor</code> tokens that were created before the <code>networkType</code> property was introduced.
-   *                </p>
+   *                   <p>With the shut down of the <i>Ethereum Goerli</i> and <i>Polygon Mumbai
+   *             Testnet</i> networks the following <code>networkType</code> values are no longer available
+   *             for selection and use.</p>
+   *                   <ul>
+   *                      <li>
+   *                         <p>
+   *                            <code>ETHEREUM_MAINNET_AND_GOERLI</code>
+   *                         </p>
+   *                      </li>
+   *                      <li>
+   *                         <p>
+   *                            <code>ETHEREUM_GOERLI</code>
+   *                         </p>
+   *                      </li>
+   *                      <li>
+   *                         <p>
+   *                            <code>POLYGON_MUMBAI</code>
+   *                         </p>
+   *                      </li>
+   *                   </ul>
+   *                   <p>However, your existing <code>Accessor</code> tokens with these <code>networkType</code>
+   *                values will remain unchanged.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -920,11 +936,6 @@ export interface CreateNodeInput {
    *                   <code>n-ethereum-mainnet</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-goerli</code>
-   *                </p>
-   *             </li>
    *          </ul>
    * @public
    */
@@ -1124,11 +1135,6 @@ export interface DeleteNodeInput {
    *             <li>
    *                <p>
    *                   <code>n-ethereum-mainnet</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-goerli</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1383,10 +1389,6 @@ export interface NetworkEthereumAttributes {
    *          <ul>
    *             <li>
    *                <p>mainnet = <code>1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>goerli = <code>5</code>
    *                </p>
    *             </li>
    *          </ul>

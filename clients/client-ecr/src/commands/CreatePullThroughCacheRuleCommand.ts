@@ -41,7 +41,7 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  *   ecrRepositoryPrefix: "STRING_VALUE", // required
  *   upstreamRegistryUrl: "STRING_VALUE", // required
  *   registryId: "STRING_VALUE",
- *   upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry",
+ *   upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry",
  *   credentialArn: "STRING_VALUE",
  * };
  * const command = new CreatePullThroughCacheRuleCommand(input);
@@ -51,7 +51,7 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * //   upstreamRegistryUrl: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   registryId: "STRING_VALUE",
- * //   upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry",
+ * //   upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry",
  * //   credentialArn: "STRING_VALUE",
  * // };
  *

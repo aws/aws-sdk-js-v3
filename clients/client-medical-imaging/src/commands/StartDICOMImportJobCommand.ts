@@ -43,6 +43,7 @@ export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobRes
  *   datastoreId: "STRING_VALUE", // required
  *   inputS3Uri: "STRING_VALUE", // required
  *   outputS3Uri: "STRING_VALUE", // required
+ *   inputOwnerAccountId: "STRING_VALUE",
  * };
  * const command = new StartDICOMImportJobCommand(input);
  * const response = await client.send(command);

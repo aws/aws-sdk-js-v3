@@ -28,13 +28,16 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
 
 /**
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
- *          <p>The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated including the event and any necessary characters and keys of the JSON representation of the event.
- *       To learn more, see
- *       <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating PutEvents event entry size</a> in the <i>Amazon EventBridge User Guide</i>
+ *          <p>The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated including
+ *       the event and any necessary characters and keys of the JSON representation of the event. To
+ *       learn more, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating PutEvents event entry
+ *         size</a> in the <i>
+ *                <i>Amazon EventBridge User Guide</i>
+ *             </i>
  *          </p>
- *          <p>PutEvents accepts the data in JSON format. For the JSON number
- *       (integer) data type, the constraints are: a minimum value of
- *       -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.</p>
+ *          <p>PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the
+ *       constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of
+ *       9,223,372,036,854,775,807.</p>
  *          <note>
  *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
  *          </note>

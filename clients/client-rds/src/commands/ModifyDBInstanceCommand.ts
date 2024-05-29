@@ -343,6 +343,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

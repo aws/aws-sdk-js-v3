@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/cloudfront-signer",
-  "version": "3.541.0",
+  "version": "3.576.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline cloudfront-signer",
@@ -21,9 +21,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/url-parser": "^2.2.0",
+    "@smithy/url-parser": "^3.0.0",
     "tslib": "^2.6.2"
   },
+  "files": [
+    "dist-*/**"
+  ],
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
@@ -32,7 +35,7 @@
     "typescript": "~4.9.5"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

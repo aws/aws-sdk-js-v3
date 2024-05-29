@@ -493,6 +493,26 @@ export interface KeySchemaElement {
 }
 
 /**
+ * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ * @public
+ */
+export interface OnDemandThroughput {
+  /**
+   * <p>Maximum number of read request units for the specified table.</p>
+   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxReadRequestUnits</code> to -1.</p>
+   * @public
+   */
+  MaxReadRequestUnits?: number;
+
+  /**
+   * <p>Maximum number of write request units for the specified table.</p>
+   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxWriteRequestUnits</code> to -1.</p>
+   * @public
+   */
+  MaxWriteRequestUnits?: number;
+}
+
+/**
  * <p>Represents the provisioned throughput settings for a specified table or index. The
  *             settings can be modified using the <code>UpdateTable</code> operation.</p>
  *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
@@ -568,6 +588,12 @@ export interface SourceTableDetails {
    * @public
    */
   ProvisionedThroughput: ProvisionedThroughput | undefined;
+
+  /**
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 
   /**
    * <p>Number of items in the table. Note that this is an approximate value. </p>
@@ -707,6 +733,12 @@ export interface GlobalSecondaryIndexInfo {
    * @public
    */
   ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -1201,7 +1233,7 @@ export interface Capacity {
  * <p>The capacity units consumed by an operation. The data returned includes the total
  *             provisioned throughput consumed, along with statistics for the table and any indexes
  *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
- *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+ *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer
  *                 Guide</i>.</p>
  * @public
  */
@@ -1796,6 +1828,12 @@ export interface CreateGlobalSecondaryIndexAction {
    * @public
    */
   ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -1844,6 +1882,18 @@ export const GlobalTableStatus = {
 export type GlobalTableStatus = (typeof GlobalTableStatus)[keyof typeof GlobalTableStatus];
 
 /**
+ * <p>Overrides the on-demand throughput settings for this replica table. If you don't specify a value for this parameter, it uses the source table's on-demand throughput settings.</p>
+ * @public
+ */
+export interface OnDemandThroughputOverride {
+  /**
+   * <p>Maximum number of read request units for the specified replica table.</p>
+   * @public
+   */
+  MaxReadRequestUnits?: number;
+}
+
+/**
  * <p>Replica-specific provisioned throughput settings. If not specified, uses the source
  *             table's provisioned throughput settings.</p>
  * @public
@@ -1873,6 +1923,12 @@ export interface ReplicaGlobalSecondaryIndexDescription {
    * @public
    */
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+
+  /**
+   * <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
+   * @public
+   */
+  OnDemandThroughputOverride?: OnDemandThroughputOverride;
 }
 
 /**
@@ -2011,6 +2067,12 @@ export interface ReplicaDescription {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
 
   /**
+   * <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
+   * @public
+   */
+  OnDemandThroughputOverride?: OnDemandThroughputOverride;
+
+  /**
    * <p>Replica-specific global secondary index settings.</p>
    * @public
    */
@@ -2144,6 +2206,12 @@ export interface ReplicaGlobalSecondaryIndex {
    * @public
    */
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+
+  /**
+   * <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
+   * @public
+   */
+  OnDemandThroughputOverride?: OnDemandThroughputOverride;
 }
 
 /**
@@ -2173,6 +2241,13 @@ export interface CreateReplicationGroupMemberAction {
    * @public
    */
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+
+  /**
+   * <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.
+   *         </p>
+   * @public
+   */
+  OnDemandThroughputOverride?: OnDemandThroughputOverride;
 
   /**
    * <p>Replica-specific global secondary index settings.</p>
@@ -2244,6 +2319,12 @@ export interface GlobalSecondaryIndex {
    * @public
    */
   ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -2560,13 +2641,13 @@ export interface CreateTableInput {
    *             <li>
    *                <p>
    *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
    *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -2655,11 +2736,20 @@ export interface CreateTableInput {
 
   /**
    * <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p>
-   *          <p>When you attach a resource-based policy while creating a table, the policy creation is <i>strongly consistent</i>.</p>
-   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. You can’t request an increase for this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   *          <p>When you attach a resource-based policy while creating a table, the policy application is <i>strongly consistent</i>.</p>
+   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   *          <note>
+   *             <p>You need to specify the <code>CreateTable</code> and <code>PutResourcePolicy</code> IAM actions for authorizing a user to create a table with a resource-based policy.</p>
+   *          </note>
    * @public
    */
   ResourcePolicy?: string;
+
+  /**
+   * <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -2842,6 +2932,12 @@ export interface GlobalSecondaryIndexDescription {
    * @public
    */
   IndexArn?: string;
+
+  /**
+   * <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -3389,6 +3485,12 @@ export interface TableDescription {
    * @public
    */
   DeletionProtectionEnabled?: boolean;
+
+  /**
+   * <p>The maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -3564,7 +3666,7 @@ export interface DeleteResourcePolicyInput {
  */
 export interface DeleteResourcePolicyOutput {
   /**
-   * <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+   * <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
    *          <p>This value will be empty if you make a request against a resource without a policy.</p>
    * @public
    */
@@ -4436,6 +4538,12 @@ export interface TableCreationParameters {
    * @public
    */
   ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 
   /**
    * <p>Represents the settings used to enable server-side encryption.</p>
@@ -5346,7 +5454,7 @@ export interface GetResourcePolicyOutput {
   Policy?: string;
 
   /**
-   * <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+   * <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
    * @public
    */
   RevisionId?: string;
@@ -5904,14 +6012,25 @@ export interface PutResourcePolicyInput {
 
   /**
    * <p>An Amazon Web Services resource-based policy document in JSON format.</p>
-   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.</p>
+   *             </li>
+   *             <li>
+   *                <p>Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For a full list of all considerations that apply while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
    * @public
    */
   Policy: string | undefined;
 
   /**
-   * <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
-   *          <p>To conditionally put a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
+   * <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p>
+   *          <note>
+   *             <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
+   *          </note>
+   *          <p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
    * @public
    */
   ExpectedRevisionId?: string;
@@ -5928,7 +6047,7 @@ export interface PutResourcePolicyInput {
  */
 export interface PutResourcePolicyOutput {
   /**
-   * <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+   * <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
    * @public
    */
   RevisionId?: string;
@@ -5993,6 +6112,12 @@ export interface RestoreTableFromBackupInput {
    * @public
    */
   ProvisionedThroughputOverride?: ProvisionedThroughput;
+
+  /**
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughputOverride?: OnDemandThroughput;
 
   /**
    * <p>The new server-side encryption settings for the restored table.</p>
@@ -6116,6 +6241,12 @@ export interface RestoreTableToPointInTimeInput {
    * @public
    */
   ProvisionedThroughputOverride?: ProvisionedThroughput;
+
+  /**
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughputOverride?: OnDemandThroughput;
 
   /**
    * <p>The new server-side encryption settings for the restored table.</p>
@@ -6493,13 +6624,13 @@ export interface UpdateGlobalTableSettingsInput {
    *             <li>
    *                <p>
    *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
    *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -6636,7 +6767,13 @@ export interface UpdateGlobalSecondaryIndexAction {
    *                 Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughput: ProvisionedThroughput | undefined;
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -6733,6 +6870,12 @@ export interface UpdateReplicationGroupMemberAction {
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
 
   /**
+   * <p>Overrides the maximum on-demand throughput for the replica table.</p>
+   * @public
+   */
+  OnDemandThroughputOverride?: OnDemandThroughputOverride;
+
+  /**
    * <p>Replica-specific global secondary index settings.</p>
    * @public
    */
@@ -6820,13 +6963,13 @@ export interface UpdateTableInput {
    *             <li>
    *                <p>
    *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
+   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
    *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -6886,8 +7029,7 @@ export interface UpdateTableInput {
   /**
    * <p>A list of replica update actions (create, delete, or update) for the table.</p>
    *          <note>
-   *             <p>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
-   *                 of global tables.
+   *             <p>For global tables, this property only applies to global tables using Version 2019.11.21 (Current version).
    *             </p>
    *          </note>
    * @public
@@ -6906,6 +7048,12 @@ export interface UpdateTableInput {
    * @public
    */
   DeletionProtectionEnabled?: boolean;
+
+  /**
+   * <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput;
 }
 
 /**
@@ -8119,7 +8267,7 @@ export interface GetItemOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9415,7 +9563,7 @@ export interface DeleteItemOutput {
    *             returned includes the total provisioned throughput consumed, along with statistics for
    *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9475,7 +9623,7 @@ export interface ExecuteStatementOutput {
    * <p>The capacity units consumed by an operation. The data returned includes the total
    *             provisioned throughput consumed, along with statistics for the table and any indexes
    *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
-   *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9512,7 +9660,7 @@ export interface PutItemOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9601,7 +9749,7 @@ export interface QueryOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
@@ -9662,8 +9810,7 @@ export interface ScanOutput {
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
    *             information, see
-   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a>
-   *             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity;
@@ -9689,7 +9836,7 @@ export interface UpdateItemOutput {
    *             returned includes the total provisioned throughput consumed, along with statistics for
    *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */

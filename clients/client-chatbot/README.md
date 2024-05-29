@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChatbotClient` and
-the commands you need, for example `ListMicrosoftTeamsConfiguredTeamsCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { ChatbotClient, ListMicrosoftTeamsConfiguredTeamsCommand } = require("@aws-sdk/client-chatbot");
+const { ChatbotClient, ListTagsForResourceCommand } = require("@aws-sdk/client-chatbot");
 ```
 
 ```ts
 // ES6+ example
-import { ChatbotClient, ListMicrosoftTeamsConfiguredTeamsCommand } from "@aws-sdk/client-chatbot";
+import { ChatbotClient, ListTagsForResourceCommand } from "@aws-sdk/client-chatbot";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new ChatbotClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListMicrosoftTeamsConfiguredTeamsCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.Chatbot({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listMicrosoftTeamsConfiguredTeams(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .listMicrosoftTeamsConfiguredTeams(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.listMicrosoftTeamsConfiguredTeams(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -353,6 +353,30 @@ ListMicrosoftTeamsUserIdentities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListMicrosoftTeamsUserIdentitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsUserIdentitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsUserIdentitiesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>

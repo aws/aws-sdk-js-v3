@@ -39,6 +39,12 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
 
 /**
  * <p>Updates the Alexa Skill configuration for the SIP media application.</p>
+ *          <important>
+ *             <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to
+ *          the <a href="https://developer.amazon.com/en-US/alexa/alexasmartproperties">Alexa Smart Properties</a> page.</p>
+ *          </important>
+ *
+ * @deprecated Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the Alexa Smart Properties page(https://developer.amazon.com/en-US/alexa/alexasmartproperties).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

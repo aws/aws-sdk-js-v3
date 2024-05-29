@@ -110,6 +110,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   AllocatedStorage: Number("int"),
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -336,6 +337,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -48,6 +48,10 @@ import {
 } from "../commands/GetLandingZoneOperationCommand";
 import { ListBaselinesCommandInput, ListBaselinesCommandOutput } from "../commands/ListBaselinesCommand";
 import {
+  ListControlOperationsCommandInput,
+  ListControlOperationsCommandOutput,
+} from "../commands/ListControlOperationsCommand";
+import {
   ListEnabledBaselinesCommandInput,
   ListEnabledBaselinesCommandOutput,
 } from "../commands/ListEnabledBaselinesCommand";
@@ -82,13 +86,20 @@ import {
   BaselineOperation,
   ConflictException,
   ControlOperation,
+  ControlOperationFilter,
+  ControlOperationStatus,
+  ControlOperationSummary,
+  ControlOperationType,
+  DriftStatus,
   EnabledBaselineDetails,
   EnabledBaselineFilter,
   EnabledBaselineParameter,
   EnabledBaselineParameterSummary,
   EnabledControlDetails,
+  EnabledControlFilter,
   EnabledControlParameter,
   EnabledControlParameterSummary,
+  EnablementStatus,
   InternalServerException,
   LandingZoneDetail,
   LandingZoneOperationDetail,
@@ -418,6 +429,30 @@ export const se_ListBaselinesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListControlOperationsCommand
+ */
+export const se_ListControlOperationsCommand = async (
+  input: ListControlOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-control-operations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListEnabledBaselinesCommand
  */
 export const se_ListEnabledBaselinesCommand = async (
@@ -456,6 +491,7 @@ export const se_ListEnabledControlsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      filter: (_) => _json(_),
       maxResults: [],
       nextToken: [],
       targetIdentifier: [],
@@ -965,6 +1001,28 @@ export const de_ListBaselinesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListControlOperationsCommand
+ */
+export const de_ListControlOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListControlOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    controlOperations: (_) => de_ControlOperations(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListEnabledBaselinesCommand
  */
 export const de_ListEnabledBaselinesCommand = async (
@@ -1367,6 +1425,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_ControlIdentifiers omitted.
+
+// se_ControlOperationFilter omitted.
+
+// se_ControlOperationStatuses omitted.
+
+// se_ControlOperationTypes omitted.
+
+// se_DriftStatuses omitted.
+
 // se_EnabledBaselineBaselineIdentifiers omitted.
 
 // se_EnabledBaselineFilter omitted.
@@ -1401,6 +1469,10 @@ const se_EnabledBaselineParameters = (input: EnabledBaselineParameter[], context
 
 // se_EnabledBaselineTargetIdentifiers omitted.
 
+// se_EnabledControlFilter omitted.
+
+// se_EnabledControlIdentifiers omitted.
+
 /**
  * serializeAws_restJson1EnabledControlParameter
  */
@@ -1422,6 +1494,8 @@ const se_EnabledControlParameters = (input: EnabledControlParameter[], context: 
     });
 };
 
+// se_EnablementStatuses omitted.
+
 /**
  * serializeAws_restJson1Manifest
  */
@@ -1430,6 +1504,8 @@ const se_Manifest = (input: __DocumentType, context: __SerdeContext): any => {
 };
 
 // se_TagMap omitted.
+
+// se_TargetIdentifiers omitted.
 
 /**
  * serializeAws_restJson1Document
@@ -1461,11 +1537,44 @@ const de_BaselineOperation = (output: any, context: __SerdeContext): BaselineOpe
  */
 const de_ControlOperation = (output: any, context: __SerdeContext): ControlOperation => {
   return take(output, {
+    controlIdentifier: __expectString,
+    enabledControlIdentifier: __expectString,
     endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    operationIdentifier: __expectString,
     operationType: __expectString,
     startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     status: __expectString,
     statusMessage: __expectString,
+    targetIdentifier: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ControlOperations
+ */
+const de_ControlOperations = (output: any, context: __SerdeContext): ControlOperationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ControlOperationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ControlOperationSummary
+ */
+const de_ControlOperationSummary = (output: any, context: __SerdeContext): ControlOperationSummary => {
+  return take(output, {
+    controlIdentifier: __expectString,
+    enabledControlIdentifier: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    operationIdentifier: __expectString,
+    operationType: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    statusMessage: __expectString,
+    targetIdentifier: __expectString,
   }) as any;
 };
 

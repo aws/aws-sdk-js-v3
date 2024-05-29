@@ -34,10 +34,11 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  *          <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you
  *       call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is
  *       returned.</p>
- *          <p>Managed rules are rules created and managed by another Amazon Web Services service on your behalf. These
- *       rules are created by those other Amazon Web Services services to support functionality in those services. You
- *       can delete these rules using the <code>Force</code> option, but you should do so only if you
- *       are sure the other service is not still using that rule.</p>
+ *          <p>Managed rules are rules created and managed by another Amazon Web Services service on your
+ *       behalf. These rules are created by those other Amazon Web Services services to support
+ *       functionality in those services. You can delete these rules using the <code>Force</code>
+ *       option, but you should do so only if you are sure the other service is not still using that
+ *       rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  *  <p>This exception occurs due to unexpected causes.</p>
  *
  * @throws {@link ManagedRuleException} (client fault)
- *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
- *       service. If you see this error in response to <code>DeleteRule</code> or
+ *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is
+ *       managed by that service. If you see this error in response to <code>DeleteRule</code> or
  *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
  *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
  *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,

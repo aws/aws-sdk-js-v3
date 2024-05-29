@@ -5,6 +5,8 @@ import { Route53ResolverServiceException as __BaseException } from "./Route53Res
 
 /**
  * <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
+ * 			resource policy for CloudWatch Logs.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -1259,6 +1261,21 @@ export interface CreateFirewallDomainListResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const FirewallDomainRedirectionAction = {
+  INSPECT_REDIRECTION_DOMAIN: "INSPECT_REDIRECTION_DOMAIN",
+  TRUST_REDIRECTION_DOMAIN: "TRUST_REDIRECTION_DOMAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type FirewallDomainRedirectionAction =
+  (typeof FirewallDomainRedirectionAction)[keyof typeof FirewallDomainRedirectionAction];
+
+/**
+ * @public
  */
 export interface CreateFirewallRuleRequest {
   /**
@@ -1362,6 +1379,20 @@ export interface CreateFirewallRuleRequest {
 
   /**
    * <p>
+   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
+   * 		</p>
+   *          <p>
+   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   * 			added to the domain list.</p>
+   *          <p>
+   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   * 			the domain list.</p>
+   * @public
+   */
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
+
+  /**
+   * <p>
    * 			The DNS query type you want the rule to evaluate. Allowed values are;
    * 		</p>
    *          <ul>
@@ -1404,6 +1435,13 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *             <li>
+   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
+   * 				defined as TYPENUMBER, where the
+   * 				NUMBER can be 1-65334, for
+   * 				example, TYPE28. For more information, see
+   * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1519,6 +1557,20 @@ export interface FirewallRule {
 
   /**
    * <p>
+   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
+   * 		</p>
+   *          <p>
+   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   * 			added to the domain list.</p>
+   *          <p>
+   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   * 			the domain list.</p>
+   * @public
+   */
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
+
+  /**
+   * <p>
    * 			The DNS query type you want the rule to evaluate. Allowed values are;
    * 		</p>
    *          <ul>
@@ -1561,6 +1613,13 @@ export interface FirewallRule {
    *             </li>
    *             <li>
    *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *             <li>
+   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
+   * 				defined as TYPENUMBER, where the
+   * 				NUMBER can be 1-65334, for
+   * 				example, TYPE28. For more information, see
+   * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1953,6 +2012,10 @@ export interface CreateResolverEndpointRequest {
    * 			must include one or more inbound rules (for inbound Resolver endpoints) or outbound rules (for outbound Resolver endpoints).
    * 			Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port
    * 			that you're using for DNS queries on your network.</p>
+   *          <p>Some security group rules will cause your connection to be tracked. For outbound resolver endpoint, it can potentially impact the
+   * 			maximum queries per second from outbound endpoint to your target name server. For inbound resolver endpoint, it can bring down the overall maximum queries per second per IP address to as low as 1500.
+   * 			To avoid connection tracking caused by security group, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#untracked-connectionsl">Untracked connections</a>.</p>
    * @public
    */
   SecurityGroupIds: string[] | undefined;
@@ -2625,6 +2688,13 @@ export interface DeleteFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *             <li>
+   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
+   * 				defined as TYPENUMBER, where the
+   * 				NUMBER can be 1-65334, for
+   * 				example, TYPE28. For more information, see
+   * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5578,6 +5648,20 @@ export interface UpdateFirewallRuleRequest {
 
   /**
    * <p>
+   * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
+   * 		</p>
+   *          <p>
+   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   * 			added to the domain list.</p>
+   *          <p>
+   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   * 			the domain list.</p>
+   * @public
+   */
+  FirewallDomainRedirectionAction?: FirewallDomainRedirectionAction;
+
+  /**
+   * <p>
    * 			The DNS query type you want the rule to evaluate. Allowed values are;
    * 		</p>
    *          <ul>
@@ -5620,6 +5704,13 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *             <li>
+   *                <p>A query type you define by using the DNS type ID, for example 28 for AAAA. The values must be
+   * 				defined as TYPENUMBER, where the
+   * 				NUMBER can be 1-65334, for
+   * 				example, TYPE28. For more information, see
+   * 				<a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List of DNS record types</a>.</p>
    *             </li>
    *          </ul>
    * @public

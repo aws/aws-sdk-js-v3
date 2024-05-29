@@ -44,6 +44,7 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  *   BlockOverrideDnsType: "CNAME",
  *   BlockOverrideTtl: Number("int"),
  *   Name: "STRING_VALUE",
+ *   FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  *   Qtype: "STRING_VALUE",
  * };
  * const command = new UpdateFirewallRuleCommand(input);
@@ -62,6 +63,7 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * //     CreatorRequestId: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
+ * //     FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  * //     Qtype: "STRING_VALUE",
  * //   },
  * // };
@@ -76,6 +78,8 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
+ * 			resource policy for CloudWatch Logs.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The requested state transition isn't valid. For example, you can't delete a firewall

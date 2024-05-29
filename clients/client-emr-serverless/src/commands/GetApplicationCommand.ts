@@ -142,6 +142,10 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //         remoteWriteUrl: "STRING_VALUE",
  * //       },
  * //     },
+ * //     interactiveConfiguration: { // InteractiveConfiguration
+ * //       studioEnabled: true || false,
+ * //       livyEndpointEnabled: true || false,
+ * //     },
  * //   },
  * // };
  *

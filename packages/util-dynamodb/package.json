@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-dynamodb",
-  "version": "3.565.0",
+  "version": "3.585.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline util-dynamodb",
@@ -35,7 +35,7 @@
     "@aws-sdk/client-dynamodb": "*"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "typesVersions": {
     "<4.0": {

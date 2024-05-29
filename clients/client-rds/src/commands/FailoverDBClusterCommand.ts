@@ -244,6 +244,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

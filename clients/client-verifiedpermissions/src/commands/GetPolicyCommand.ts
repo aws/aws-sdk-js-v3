@@ -56,6 +56,12 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * //     entityType: "STRING_VALUE", // required
  * //     entityId: "STRING_VALUE", // required
  * //   },
+ * //   actions: [ // ActionIdentifierList
+ * //     { // ActionIdentifier
+ * //       actionType: "STRING_VALUE", // required
+ * //       actionId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   definition: { // PolicyDefinitionDetail Union: only one key present
  * //     static: { // StaticPolicyDefinitionDetail
  * //       description: "STRING_VALUE",
@@ -75,6 +81,7 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * //   },
  * //   createdDate: new Date("TIMESTAMP"), // required
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
+ * //   effect: "Permit" || "Forbid",
  * // };
  *
  * ```

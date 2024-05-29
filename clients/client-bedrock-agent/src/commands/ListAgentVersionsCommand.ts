@@ -50,6 +50,10 @@ export interface ListAgentVersionsCommandOutput extends ListAgentVersionsRespons
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       description: "STRING_VALUE",
+ * //       guardrailConfiguration: { // GuardrailConfiguration
+ * //         guardrailIdentifier: "STRING_VALUE",
+ * //         guardrailVersion: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

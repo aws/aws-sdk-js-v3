@@ -39,6 +39,11 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * const input = { // CreateEventBusRequest
  *   Name: "STRING_VALUE", // required
  *   EventSourceName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   KmsKeyIdentifier: "STRING_VALUE",
+ *   DeadLetterConfig: { // DeadLetterConfig
+ *     Arn: "STRING_VALUE",
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -50,6 +55,11 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * const response = await client.send(command);
  * // { // CreateEventBusResponse
  * //   EventBusArn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
+ * //   DeadLetterConfig: { // DeadLetterConfig
+ * //     Arn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

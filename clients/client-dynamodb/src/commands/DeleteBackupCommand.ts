@@ -68,6 +68,10 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * //         ReadCapacityUnits: Number("long"), // required
  * //         WriteCapacityUnits: Number("long"), // required
  * //       },
+ * //       OnDemandThroughput: { // OnDemandThroughput
+ * //         MaxReadRequestUnits: Number("long"),
+ * //         MaxWriteRequestUnits: Number("long"),
+ * //       },
  * //       ItemCount: Number("long"),
  * //       BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
  * //     },
@@ -107,6 +111,10 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * //           ProvisionedThroughput: {
  * //             ReadCapacityUnits: Number("long"), // required
  * //             WriteCapacityUnits: Number("long"), // required
+ * //           },
+ * //           OnDemandThroughput: {
+ * //             MaxReadRequestUnits: Number("long"),
+ * //             MaxWriteRequestUnits: Number("long"),
  * //           },
  * //         },
  * //       ],

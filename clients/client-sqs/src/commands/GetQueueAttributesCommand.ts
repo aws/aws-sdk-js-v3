@@ -29,8 +29,7 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
 /**
  * <p>Gets attributes for the specified queue.</p>
  *          <note>
- *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the
- *                     <code>.fifo</code> suffix.</p>
+ *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -37,6 +37,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * const client = new GlueClient(config);
  * const input = { // CreateJobRequest
  *   Name: "STRING_VALUE", // required
+ *   JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
  *   Description: "STRING_VALUE",
  *   LogUri: "STRING_VALUE",
  *   Role: "STRING_VALUE", // required
@@ -1109,6 +1110,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *     AuthStrategy: "PERSONAL_ACCESS_TOKEN" || "AWS_SECRETS_MANAGER",
  *     AuthToken: "STRING_VALUE",
  *   },
+ *   MaintenanceWindow: "STRING_VALUE",
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);

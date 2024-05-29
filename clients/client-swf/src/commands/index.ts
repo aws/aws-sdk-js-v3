@@ -3,6 +3,8 @@ export * from "./CountClosedWorkflowExecutionsCommand";
 export * from "./CountOpenWorkflowExecutionsCommand";
 export * from "./CountPendingActivityTasksCommand";
 export * from "./CountPendingDecisionTasksCommand";
+export * from "./DeleteActivityTypeCommand";
+export * from "./DeleteWorkflowTypeCommand";
 export * from "./DeprecateActivityTypeCommand";
 export * from "./DeprecateDomainCommand";
 export * from "./DeprecateWorkflowTypeCommand";

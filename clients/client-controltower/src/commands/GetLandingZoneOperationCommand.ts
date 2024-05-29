@@ -28,7 +28,7 @@ export interface GetLandingZoneOperationCommandOutput extends GetLandingZoneOper
 
 /**
  * <p>Returns the status of the specified landing zone operation. Details for an operation are available for
- *          60 days.</p>
+ *          90 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

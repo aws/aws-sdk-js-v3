@@ -40,6 +40,12 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  *     HtmlPart: "STRING_VALUE",
  *     RecommenderId: "STRING_VALUE",
  *     Subject: "STRING_VALUE",
+ *     Headers: [ // ListOfMessageHeader
+ *       { // MessageHeader
+ *         Name: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
  *     tags: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },

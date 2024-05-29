@@ -36,6 +36,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * const client = new WAFV2Client(config);
  * const input = { // GetLoggingConfigurationRequest
  *   ResourceArn: "STRING_VALUE", // required
+ *   LogType: "WAF_LOGS",
+ *   LogScope: "CUSTOMER" || "SECURITY_LAKE",
  * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
@@ -125,6 +127,8 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * //       ],
  * //       DefaultBehavior: "KEEP" || "DROP", // required
  * //     },
+ * //     LogType: "WAF_LOGS",
+ * //     LogScope: "CUSTOMER" || "SECURITY_LAKE",
  * //   },
  * // };
  *

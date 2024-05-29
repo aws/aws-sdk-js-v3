@@ -3,9 +3,9 @@ import { fromInstanceMetadata } from "@aws-sdk/credential-providers";
 import { MetadataService } from "./MetadataService";
 
 describe("MetadataService E2E Tests", () => {
-  let metadataService;
+  let metadataService: any;
   const provider = fromInstanceMetadata({ timeout: 1000, maxRetries: 0 });
-  let metadataServiceAvailable;
+  let metadataServiceAvailable: any;
 
   beforeAll(async () => {
     try {
@@ -35,7 +35,7 @@ describe("MetadataService E2E Tests", () => {
     if (!metadataServiceAvailable) {
       return;
     }
-    const metadata = await metadataService.request("/latest/meta-data/", {});
+    const metadata = (await metadataService.request("/latest/meta-data/", {})) as string;
     expect(metadata).toBeDefined();
     expect(typeof metadata).toBe("string");
     const lines = metadata.split("\n").map((line) => line.trim());
@@ -49,7 +49,7 @@ describe("MetadataService E2E Tests", () => {
       return;
     }
     metadataService.disableFetchToken = true; // make request without token
-    const metadata = await metadataService.request("/latest/meta-data/", {});
+    const metadata = (await metadataService.request("/latest/meta-data/", {})) as string;
     expect(metadata).toBeDefined();
     expect(typeof metadata).toBe("string");
     expect(metadata.length).toBeGreaterThan(0);
@@ -67,7 +67,7 @@ describe("MetadataService E2E Tests", () => {
       throw { name: "TimeoutError" }; // Simulating TimeoutError
     });
     // Attempt to fetch metadata, expecting IMDSv1 fallback (request without token)
-    const metadata = await metadataService.request("/latest/meta-data/", {});
+    const metadata = (await metadataService.request("/latest/meta-data/", {})) as string;
     expect(metadata).toBeDefined();
     expect(typeof metadata).toBe("string");
     const lines = metadata.split("\n").map((line) => line.trim());
@@ -85,13 +85,26 @@ describe("MetadataService E2E Tests", () => {
       jest.spyOn(metadataService, "fetchMetadataToken").mockImplementationOnce(async () => {
         throw { statusCode: errorCode };
       });
-      const metadata = await metadataService.request("/latest/meta-data/", {});
+      const metadata = (await metadataService.request("/latest/meta-data/", {})) as string;
       expect(metadata).toBeDefined();
       expect(typeof metadata).toBe("string");
       const lines = metadata.split("\n").map((line) => line.trim());
       expect(lines.length).toBeGreaterThan(5);
       expect(lines).toContain("instance-id");
       expect(lines).toContain("services/");
+    }
+  });
+
+  it("should timeout as expected when a request exceeds the specified duration", async () => {
+    if (!metadataServiceAvailable) {
+      return;
+    }
+    metadataService = new MetadataService({ httpOptions: { timeout: 0.1 } }); // 0.1ms timeout for testing
+    try {
+      await metadataService.request("/latest/meta-data/", {});
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toMatch(/TimeoutError/);
     }
   });
 });

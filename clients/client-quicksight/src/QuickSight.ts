@@ -350,6 +350,11 @@ import {
   DescribeIpRestrictionCommandOutput,
 } from "./commands/DescribeIpRestrictionCommand";
 import {
+  DescribeKeyRegistrationCommand,
+  DescribeKeyRegistrationCommandInput,
+  DescribeKeyRegistrationCommandOutput,
+} from "./commands/DescribeKeyRegistrationCommand";
+import {
   DescribeNamespaceCommand,
   DescribeNamespaceCommandInput,
   DescribeNamespaceCommandOutput,
@@ -732,6 +737,11 @@ import {
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
 import {
+  UpdateKeyRegistrationCommand,
+  UpdateKeyRegistrationCommandInput,
+  UpdateKeyRegistrationCommandOutput,
+} from "./commands/UpdateKeyRegistrationCommand";
+import {
   UpdatePublicSharingSettingsCommand,
   UpdatePublicSharingSettingsCommandInput,
   UpdatePublicSharingSettingsCommandOutput,
@@ -746,6 +756,11 @@ import {
   UpdateRoleCustomPermissionCommandInput,
   UpdateRoleCustomPermissionCommandOutput,
 } from "./commands/UpdateRoleCustomPermissionCommand";
+import {
+  UpdateSPICECapacityConfigurationCommand,
+  UpdateSPICECapacityConfigurationCommandInput,
+  UpdateSPICECapacityConfigurationCommandOutput,
+} from "./commands/UpdateSPICECapacityConfigurationCommand";
 import {
   UpdateTemplateAliasCommand,
   UpdateTemplateAliasCommandInput,
@@ -867,6 +882,7 @@ const commands = {
   DescribeIAMPolicyAssignmentCommand,
   DescribeIngestionCommand,
   DescribeIpRestrictionCommand,
+  DescribeKeyRegistrationCommand,
   DescribeNamespaceCommand,
   DescribeRefreshScheduleCommand,
   DescribeRoleCustomPermissionCommand,
@@ -949,9 +965,11 @@ const commands = {
   UpdateIAMPolicyAssignmentCommand,
   UpdateIdentityPropagationConfigCommand,
   UpdateIpRestrictionCommand,
+  UpdateKeyRegistrationCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateRefreshScheduleCommand,
   UpdateRoleCustomPermissionCommand,
+  UpdateSPICECapacityConfigurationCommand,
   UpdateTemplateCommand,
   UpdateTemplateAliasCommand,
   UpdateTemplatePermissionsCommand,
@@ -2131,6 +2149,23 @@ export interface QuickSight {
     args: DescribeIpRestrictionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIpRestrictionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeKeyRegistrationCommand}
+   */
+  describeKeyRegistration(
+    args: DescribeKeyRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKeyRegistrationCommandOutput>;
+  describeKeyRegistration(
+    args: DescribeKeyRegistrationCommandInput,
+    cb: (err: any, data?: DescribeKeyRegistrationCommandOutput) => void
+  ): void;
+  describeKeyRegistration(
+    args: DescribeKeyRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeKeyRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -3384,6 +3419,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateKeyRegistrationCommand}
+   */
+  updateKeyRegistration(
+    args: UpdateKeyRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyRegistrationCommandOutput>;
+  updateKeyRegistration(
+    args: UpdateKeyRegistrationCommandInput,
+    cb: (err: any, data?: UpdateKeyRegistrationCommandOutput) => void
+  ): void;
+  updateKeyRegistration(
+    args: UpdateKeyRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyRegistrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePublicSharingSettingsCommand}
    */
   updatePublicSharingSettings(
@@ -3432,6 +3484,23 @@ export interface QuickSight {
     args: UpdateRoleCustomPermissionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRoleCustomPermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSPICECapacityConfigurationCommand}
+   */
+  updateSPICECapacityConfiguration(
+    args: UpdateSPICECapacityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSPICECapacityConfigurationCommandOutput>;
+  updateSPICECapacityConfiguration(
+    args: UpdateSPICECapacityConfigurationCommandInput,
+    cb: (err: any, data?: UpdateSPICECapacityConfigurationCommandOutput) => void
+  ): void;
+  updateSPICECapacityConfiguration(
+    args: UpdateSPICECapacityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSPICECapacityConfigurationCommandOutput) => void
   ): void;
 
   /**

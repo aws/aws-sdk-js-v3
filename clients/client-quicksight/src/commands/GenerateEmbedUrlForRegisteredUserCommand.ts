@@ -97,6 +97,9 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  *         VisualId: "STRING_VALUE", // required
  *       },
  *     },
+ *     GenerativeQnA: { // RegisteredUserGenerativeQnAEmbeddingConfiguration
+ *       InitialTopicId: "STRING_VALUE",
+ *     },
  *   },
  *   AllowedDomains: [ // StringList
  *     "STRING_VALUE",

@@ -50,6 +50,8 @@ export * from "./ListUsersPaginator";
 export * from "./ListViewVersionsPaginator";
 export * from "./ListViewsPaginator";
 export * from "./SearchAvailablePhoneNumbersPaginator";
+export * from "./SearchContactFlowModulesPaginator";
+export * from "./SearchContactFlowsPaginator";
 export * from "./SearchContactsPaginator";
 export * from "./SearchHoursOfOperationsPaginator";
 export * from "./SearchPredefinedAttributesPaginator";

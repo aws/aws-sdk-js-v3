@@ -32,8 +32,8 @@ export interface DeleteTransitGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the specified transit gateway route table. You must disassociate the route table from any
- *           transit gateway route tables before you can delete it.</p>
+ * <p>Deletes the specified transit gateway route table. If there are any route tables associated with
+ *          the transit gateway route table, you must first run <a>DisassociateRouteTable</a> before you can delete the transit gateway route table. This removes any route tables associated with the transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -71,7 +71,7 @@ export interface GetTriggersCommandOutput extends GetTriggersResponse, __Metadat
  * //           { // Condition
  * //             LogicalOperator: "EQUALS",
  * //             JobName: "STRING_VALUE",
- * //             State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //             State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING" || "EXPIRED",
  * //             CrawlerName: "STRING_VALUE",
  * //             CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
  * //           },

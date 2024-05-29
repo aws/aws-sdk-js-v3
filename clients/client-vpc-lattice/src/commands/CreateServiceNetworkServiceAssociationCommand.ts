@@ -36,7 +36,7 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates a service with a service network.</p>
+ * <p>Associates a service with a service network. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations">Manage service associations</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
  *          <p>You can't use this operation if the service and service network are already associated or if
  *    there is a disassociation or deletion in progress. If the association fails, you can retry the
  *    operation by deleting the association and recreating it.</p>

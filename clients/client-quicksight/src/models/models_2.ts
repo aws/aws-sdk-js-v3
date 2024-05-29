@@ -67,10 +67,23 @@ import {
   WordCloudFieldWells,
   WordCloudSortConfiguration,
   WordCloudWordCasing,
-  WordCloudWordOrientation,
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  HORIZONTAL_AND_VERTICAL: "HORIZONTAL_AND_VERTICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordOrientation = (typeof WordCloudWordOrientation)[keyof typeof WordCloudWordOrientation];
 
 /**
  * @public
@@ -782,13 +795,26 @@ export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
 }
 
 /**
+ * <p>The settings that you want to use for the Generative Q&A experience.</p>
+ * @public
+ */
+export interface AnonymousUserGenerativeQnAEmbeddingConfiguration {
+  /**
+   * <p>The Amazon QuickSight Q topic ID of the new reader experience topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Generative Q&A experience with this new reader experience topic pre selected.</p>
+   *          <p>The Amazon Resource Name (ARN) of this Q new reader experience topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>
+   * @public
+   */
+  InitialTopicId: string | undefined;
+}
+
+/**
  * <p>The settings that you want to use with the Q search bar.</p>
  * @public
  */
 export interface AnonymousUserQSearchBarEmbeddingConfiguration {
   /**
-   * <p>The QuickSight Q topic ID of the topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this topic pre-selected.</p>
-   *          <p>The Amazon Resource Name (ARN) of this Q topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   * <p>The Amazon QuickSight Q topic ID of the legacy topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this legacy topic pre-selected.</p>
+   *          <p>The Amazon Resource Name (ARN) of this Q legacy topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request fails with an <code>InvalidParameterValueException</code> error.</p>
    * @public
    */
   InitialTopicId: string | undefined;
@@ -816,6 +842,12 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
    * @public
    */
   QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
+
+  /**
+   * <p>The Generative Q&A experience that you want to use for anonymous user embedding.</p>
+   * @public
+   */
+  GenerativeQnA?: AnonymousUserGenerativeQnAEmbeddingConfiguration;
 }
 
 /**
@@ -2032,7 +2064,7 @@ export interface RedshiftIAMParameters {
    * <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
    * @public
    */
-  DatabaseUser: string | undefined;
+  DatabaseUser?: string;
 
   /**
    * <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
@@ -4854,7 +4886,7 @@ export interface CreateAccountSubscriptionRequest {
    *          </ul>
    * @public
    */
-  Edition: Edition | undefined;
+  Edition?: Edition;
 
   /**
    * <p>The method that you want to use to authenticate your Amazon QuickSight account.</p>
@@ -4904,7 +4936,7 @@ export interface CreateAccountSubscriptionRequest {
   DirectoryId?: string;
 
   /**
-   * <p>The admin group associated with your Active Directory or IAM Identity Center account. This field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Amazon QuickSight account.</p>
+   * <p>The admin group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminProGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Amazon QuickSight account.</p>
    *          <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>
    * @public
    */
@@ -4923,6 +4955,27 @@ export interface CreateAccountSubscriptionRequest {
    * @public
    */
   ReaderGroup?: string[];
+
+  /**
+   * <p>The admin pro group associated with your Active Directory or IAM Identity Center account. Either this field or the <code>AdminGroup</code> field is required if <code>ACTIVE_DIRECTORY</code> or <code>IAM_IDENTITY_CENTER</code> is the selected authentication method of the new Amazon QuickSight account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>
+   * @public
+   */
+  AdminProGroup?: string[];
+
+  /**
+   * <p>The author pro group associated with your Active Directory or IAM Identity Center account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>
+   * @public
+   */
+  AuthorProGroup?: string[];
+
+  /**
+   * <p>The reader pro group associated with your Active Directory or IAM Identity Center account.</p>
+   *          <p>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide. For more information about using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight User Guide.</p>
+   * @public
+   */
+  ReaderProGroup?: string[];
 
   /**
    * <p>The first name of the author of the Amazon QuickSight account to use for future
@@ -8316,8 +8369,11 @@ export interface CreateRefreshScheduleResponse {
  */
 export const Role = {
   ADMIN: "ADMIN",
+  ADMIN_PRO: "ADMIN_PRO",
   AUTHOR: "AUTHOR",
+  AUTHOR_PRO: "AUTHOR_PRO",
   READER: "READER",
+  READER_PRO: "READER_PRO",
 } as const;
 
 /**
@@ -8837,154 +8893,6 @@ export interface Typography {
    * @public
    */
   FontFamilies?: Font[];
-}
-
-/**
- * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
- *             description is a hexadecimal color code that consists of six alphanumerical characters,
- *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
- *                 Guide.</i>
- *          </p>
- * @public
- */
-export interface UIColorPalette {
-  /**
-   * <p>The color of text and other foreground elements that appear over the primary
-   *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
-   * @public
-   */
-  PrimaryForeground?: string;
-
-  /**
-   * <p>The background color that applies to visuals and other high emphasis UI.</p>
-   * @public
-   */
-  PrimaryBackground?: string;
-
-  /**
-   * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-   *             appears over the secondary background.</p>
-   * @public
-   */
-  SecondaryForeground?: string;
-
-  /**
-   * <p>The background color that applies to the sheet background and sheet controls.</p>
-   * @public
-   */
-  SecondaryBackground?: string;
-
-  /**
-   * <p>This color is that applies to selected states and buttons.</p>
-   * @public
-   */
-  Accent?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             accent color.</p>
-   * @public
-   */
-  AccentForeground?: string;
-
-  /**
-   * <p>The color that applies to error messages.</p>
-   * @public
-   */
-  Danger?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             error color.</p>
-   * @public
-   */
-  DangerForeground?: string;
-
-  /**
-   * <p>This color that applies to warning and informational messages.</p>
-   * @public
-   */
-  Warning?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             warning color.</p>
-   * @public
-   */
-  WarningForeground?: string;
-
-  /**
-   * <p>The color that applies to success messages, for example the check mark for a
-   *             successful download.</p>
-   * @public
-   */
-  Success?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             success color.</p>
-   * @public
-   */
-  SuccessForeground?: string;
-
-  /**
-   * <p>The color that applies to the names of fields that are identified as
-   *             dimensions.</p>
-   * @public
-   */
-  Dimension?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             dimension color.</p>
-   * @public
-   */
-  DimensionForeground?: string;
-
-  /**
-   * <p>The color that applies to the names of fields that are identified as measures.</p>
-   * @public
-   */
-  Measure?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             measure color.</p>
-   * @public
-   */
-  MeasureForeground?: string;
-}
-
-/**
- * <p>The theme configuration. This configuration contains all of the display properties for
- *             a theme.</p>
- * @public
- */
-export interface ThemeConfiguration {
-  /**
-   * <p>Color properties that apply to chart data colors.</p>
-   * @public
-   */
-  DataColorPalette?: DataColorPalette;
-
-  /**
-   * <p>Color properties that apply to the UI and to charts, excluding the colors that apply
-   *             to data. </p>
-   * @public
-   */
-  UIColorPalette?: UIColorPalette;
-
-  /**
-   * <p>Display options related to sheets.</p>
-   * @public
-   */
-  Sheet?: SheetStyle;
-
-  /**
-   * <p>Determines the typography options.</p>
-   * @public
-   */
-  Typography?: Typography;
 }
 
 /**

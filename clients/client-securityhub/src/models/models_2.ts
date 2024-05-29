@@ -1851,6 +1851,7 @@ export interface Resource {
    *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
    *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
    *             <code>Other</code>. </p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   Type: string | undefined;
@@ -1869,6 +1870,7 @@ export interface Resource {
 
   /**
    * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 16.</p>
    * @public
    */
   Region?: string;
@@ -1881,7 +1883,7 @@ export interface Resource {
 
   /**
    * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
-   *          processed.</p>
+   *           processed. Tags must follow <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions">Amazon Web Services tag naming limits and requirements</a>.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -1992,6 +1994,7 @@ export interface Severity {
   /**
    * <p>Deprecated. The normalized severity of a finding.
    *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
+   *          <p>The value of <code>Normalized</code> can be an integer between <code>0</code> and <code>100</code>.</p>
    *          <p>If you provide <code>Label</code> and do not provide <code>Normalized</code>, then
    *             <code>Normalized</code> is set automatically as follows.</p>
    *          <ul>
@@ -2022,6 +2025,7 @@ export interface Severity {
 
   /**
    * <p>The native severity from the finding product that generated the finding.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
   Original?: string;
@@ -2082,6 +2086,7 @@ export interface ThreatIntelIndicator {
 
   /**
    * <p>The value of a threat intelligence indicator.</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 512 length.</p>
    * @public
    */
   Value?: string;
@@ -2126,6 +2131,7 @@ export interface ThreatIntelIndicator {
 
   /**
    * <p>The source of the threat intelligence indicator.</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 64 length.</p>
    * @public
    */
   Source?: string;
@@ -2147,6 +2153,7 @@ export interface FilePaths {
   /**
    * <p>Path to the infected or suspicious file on the resource it was detected on.
    * 		</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
   FilePath?: string;
@@ -2154,6 +2161,7 @@ export interface FilePaths {
   /**
    * <p>The name of the infected or suspicious file corresponding to the hash.
    * 		</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
   FileName?: string;
@@ -2161,6 +2169,7 @@ export interface FilePaths {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource on which the threat was detected.
    * 		</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
   ResourceId?: string;
@@ -2168,6 +2177,7 @@ export interface FilePaths {
   /**
    * <p>The hash value for the infected or suspicious file.
    * 		</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
   Hash?: string;
@@ -2182,6 +2192,7 @@ export interface Threat {
   /**
    * <p>The name of the threat.
    * 		</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
   Name?: string;
@@ -2189,6 +2200,7 @@ export interface Threat {
   /**
    * <p>The severity of the threat.
    * 		</p>
+   *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
   Severity?: string;
@@ -2203,6 +2215,7 @@ export interface Threat {
   /**
    * <p>Provides information about the file paths that were affected by the threat.
    * 		</p>
+   *          <p>Array Members: Minimum number of 1 item. Maximum number of 5 items.</p>
    * @public
    */
   FilePaths?: FilePaths[];
@@ -2683,13 +2696,14 @@ export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];
  */
 export interface AwsSecurityFinding {
   /**
-   * <p>The schema version that a finding is formatted for.</p>
+   * <p>The schema version that a finding is formatted for. The value is <code>2018-10-08</code>.</p>
    * @public
    */
   SchemaVersion: string | undefined;
 
   /**
    * <p>The security findings provider-specific identifier for a finding.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
    * @public
    */
   Id: string | undefined;
@@ -2698,6 +2712,7 @@ export interface AwsSecurityFinding {
    * <p>The ARN generated by Security Hub that uniquely identifies a product that generates findings.
    *          This can be the ARN for a third-party product that is integrated with Security Hub, or the ARN for
    *          a custom integration.</p>
+   *          <p>Length Constraints: Minimum length of 12. Maximum length of 2048.</p>
    * @public
    */
   ProductArn: string | undefined;
@@ -2706,6 +2721,7 @@ export interface AwsSecurityFinding {
    * <p>The name of the product that generated the finding.</p>
    *          <p>Security Hub populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
    *          <p>When you use the Security Hub console or API to filter findings by product name, you use this attribute.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p>
    * @public
    */
   ProductName?: string;
@@ -2714,6 +2730,8 @@ export interface AwsSecurityFinding {
    * <p>The name of the company for the product that generated the finding.</p>
    *          <p>Security Hub populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
    *          <p>When you use the Security Hub console or API to filter findings by company name, you use this attribute.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 128.
+   *        </p>
    * @public
    */
   CompanyName?: string;
@@ -2721,6 +2739,8 @@ export interface AwsSecurityFinding {
   /**
    * <p>The Region from which the finding was generated.</p>
    *          <p>Security Hub populates this attribute automatically for each finding. You cannot update it using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 16.
+   *        </p>
    * @public
    */
   Region?: string;
@@ -2728,13 +2748,15 @@ export interface AwsSecurityFinding {
   /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
    *          generated a finding. In various security findings providers' solutions, this generator can
-   *          be called a rule, a check, a detector, a plugin, etc. </p>
+   *          be called a rule, a check, a detector, a plugin, or something else.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
    * @public
    */
   GeneratorId: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID that a finding is generated in.</p>
+   *          <p>Length Constraints: 12.</p>
    * @public
    */
   AwsAccountId: string | undefined;
@@ -2744,6 +2766,7 @@ export interface AwsSecurityFinding {
    *          that classify a finding.</p>
    *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
    *          Behaviors | Sensitive Data Identifications</p>
+   *          <p>Array Members: Maximum number of 50 items.</p>
    * @public
    */
   Types?: string[];
@@ -2899,19 +2922,15 @@ export interface AwsSecurityFinding {
   Criticality?: number;
 
   /**
-   * <p>A finding's title.</p>
-   *          <note>
-   *             <p>In this release, <code>Title</code> is a required property.</p>
-   *          </note>
+   * <p>A finding's title. <code>Title</code> is a required property.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>A finding's description.</p>
-   *          <note>
-   *             <p>In this release, <code>Description</code> is a required property.</p>
-   *          </note>
+   * <p>A finding's description. <code>Description</code> is a required property.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 1024.</p>
    * @public
    */
   Description: string | undefined;
@@ -2939,13 +2958,15 @@ export interface AwsSecurityFinding {
 
   /**
    * <p>A list of name/value string pairs associated with the finding. These are custom,
-   *          user-defined fields added to a finding. </p>
+   *          user-defined fields added to a finding.</p>
+   *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 1024 characters.</p>
    * @public
    */
   UserDefinedFields?: Record<string, string>;
 
   /**
    * <p>A list of malware related to a finding.</p>
+   *          <p>Array Members: Maximum number of 5 items.</p>
    * @public
    */
   Malware?: Malware[];
@@ -2972,12 +2993,14 @@ export interface AwsSecurityFinding {
   /**
    * <p>Details about the threat detected in a security finding and the file paths that were affected by the threat.
    *       </p>
+   *          <p>Array Members: Minimum number of 1 item. Maximum number of 32 items.</p>
    * @public
    */
   Threats?: Threat[];
 
   /**
    * <p>Threat intelligence details related to a finding.</p>
+   *          <p>Array Members: Minimum number of 1 item. Maximum number of 5 items.</p>
    * @public
    */
   ThreatIntelIndicators?: ThreatIntelIndicator[];
@@ -2985,6 +3008,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>A set of resource data types that describe the resources that the finding refers
    *          to.</p>
+   *          <p>Array Members: Minimum number of 1 item. Maximum number of 32 items.</p>
    * @public
    */
   Resources: Resource[] | undefined;
@@ -3025,6 +3049,7 @@ export interface AwsSecurityFinding {
 
   /**
    * <p>A list of related findings.</p>
+   *          <p>Array Members: Minimum number of 1 item. Maximum number of 10 items.</p>
    * @public
    */
   RelatedFindings?: RelatedFinding[];
@@ -3077,7 +3102,7 @@ export interface AwsSecurityFinding {
   GeneratorDetails?: GeneratorDetails;
 
   /**
-   * <p>A imestamp that indicates when Security Hub received a finding and begins to process it.</p>
+   * <p>A timestamp that indicates when Security Hub received a finding and begins to process it.</p>
    *          <p>This field accepts only the specified formats. Timestamps
    * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
    * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
@@ -3109,6 +3134,8 @@ export interface AwsSecurityFinding {
 
   /**
    * <p>The name of the Amazon Web Services account from which a finding was generated.
+   *         </p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 50.
    *         </p>
    * @public
    */
@@ -4498,6 +4525,7 @@ export interface BatchGetConfigurationPolicyAssociationsRequest {
 export const TargetType = {
   ACCOUNT: "ACCOUNT",
   ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ROOT: "ROOT",
 } as const;
 
 /**
@@ -9487,7 +9515,8 @@ export class ResourceInUseException extends __BaseException {
 export interface StartConfigurationPolicyAssociationRequest {
   /**
    * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
    *         </p>
    * @public
    */
@@ -9578,7 +9607,8 @@ export interface StartConfigurationPolicyDisassociationRequest {
 
   /**
    * <p>
-   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *             The Amazon Resource Name (ARN) of a configuration policy, the universally unique identifier (UUID) of a
+   *             configuration policy, or a value of <code>SELF_MANAGED_SECURITY_HUB</code> for a self-managed configuration.
    *         </p>
    * @public
    */

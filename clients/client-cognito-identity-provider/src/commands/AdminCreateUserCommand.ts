@@ -128,7 +128,7 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * //     UserCreateDate: new Date("TIMESTAMP"),
  * //     UserLastModifiedDate: new Date("TIMESTAMP"),
  * //     Enabled: true || false,
- * //     UserStatus: "UNCONFIRMED" || "CONFIRMED" || "ARCHIVED" || "COMPROMISED" || "UNKNOWN" || "RESET_REQUIRED" || "FORCE_CHANGE_PASSWORD",
+ * //     UserStatus: "UNCONFIRMED" || "CONFIRMED" || "ARCHIVED" || "COMPROMISED" || "UNKNOWN" || "RESET_REQUIRED" || "FORCE_CHANGE_PASSWORD" || "EXTERNAL_PROVIDER",
  * //     MFAOptions: [ // MFAOptionListType
  * //       { // MFAOptionType
  * //         DeliveryMedium: "SMS" || "EMAIL",

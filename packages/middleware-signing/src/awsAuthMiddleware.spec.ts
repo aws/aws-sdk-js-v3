@@ -1,6 +1,7 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { RequestSigner } from "@smithy/types";
+import { FinalizeHandler, RequestSigner } from "@smithy/types";
 
+import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { awsAuthMiddleware } from "./awsAuthMiddleware";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
@@ -11,9 +12,9 @@ jest.mock("./utils/getSkewCorrectedDate");
 describe(awsAuthMiddleware.name, () => {
   let mockSignFn: jest.Mock<any, any>;
   let mockSigner: () => Promise<RequestSigner>;
-  let mockNext;
-  let mockOptions;
+  let mockOptions: AwsAuthResolvedConfig;
 
+  const mockNext: jest.MockedFunction<FinalizeHandler<any, any>> = jest.fn();
   const mockSystemClockOffset = 100;
   const mockUpdatedSystemClockOffset = 500;
   const mockSigningHandlerArgs = {
@@ -24,12 +25,12 @@ describe(awsAuthMiddleware.name, () => {
   };
   const mockSignedRequest = new HttpRequest({ headers: { signed: "true" } });
   const mockSkewCorrectedDate = new Date();
-  const mockResponse = { response: "" };
+  const mockResponse = { output: "", response: "" };
 
   beforeEach(() => {
     mockSignFn = jest.fn().mockResolvedValue(mockSignedRequest);
     mockSigner = () => Promise.resolve({ sign: mockSignFn } as RequestSigner);
-    mockNext = jest.fn().mockResolvedValue(mockResponse);
+    mockNext.mockResolvedValue(mockResponse);
     mockOptions = {
       credentials: jest.fn(),
       signer: mockSigner,
@@ -78,7 +79,10 @@ describe(awsAuthMiddleware.name, () => {
       const options = { ...mockOptions };
       const signingHandler = awsAuthMiddleware(options)(mockNext, {});
 
-      const mockResponseWithDateHeader = { response: { headers: { [headerName]: dateHeader }, statusCode: 200 } };
+      const mockResponseWithDateHeader = {
+        output: "",
+        response: { headers: { [headerName]: dateHeader }, statusCode: 200 },
+      };
       mockNext.mockResolvedValue(mockResponseWithDateHeader);
 
       const output = await signingHandler(mockSigningHandlerArgs);

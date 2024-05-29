@@ -123,6 +123,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   DBSystemId: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
  *   MultiTenant: true || false,
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -349,6 +350,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //     DedicatedLogVolume: true || false,
  * //     IsStorageConfigUpgradeAvailable: true || false,
  * //     MultiTenant: true || false,
+ * //     EngineLifecycleSupport: "STRING_VALUE",
  * //   },
  * // };
  *

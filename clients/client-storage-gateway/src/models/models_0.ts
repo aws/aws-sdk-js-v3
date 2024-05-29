@@ -87,10 +87,10 @@ export interface ActivateGatewayInput {
 
   /**
    * <p>A value that indicates the time zone you want to set for the gateway. The time zone is
-   *          of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4
-   *          hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is
-   *          used, for example, for scheduling snapshots and your gateway's maintenance
-   *          schedule.</p>
+   *          of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, GMT indicates Greenwich Mean
+   *          Time without any offset. GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00
+   *          indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for
+   *          scheduling snapshots and your gateway's maintenance schedule.</p>
    * @public
    */
   GatewayTimezone: string | undefined;
@@ -115,8 +115,9 @@ export interface ActivateGatewayInput {
    * <p>A value that defines the type of gateway to activate. The type specified is critical to
    *          all later functions of the gateway and cannot be changed after activation. The default
    *          value is <code>CACHED</code>.</p>
-   *          <p>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code> |
-   *             <code>VTL_SNOW</code> | <code>FILE_S3</code> | <code>FILE_FSX_SMB</code>
+   *          <p>Valid Values: <code>STORED</code> | <code>CACHED</code> | <code>VTL</code>
+   *          | <code>FILE_S3</code> |
+   *          <code>FILE_FSX_SMB</code>
    *          </p>
    * @public
    */
@@ -3309,6 +3310,9 @@ export interface DescribeGatewayInformationOutput {
 
   /**
    * <p>The type of hardware or software platform on which the gateway is running.</p>
+   *          <note>
+   *             <p>Tape Gateway is no longer available on Snow Family devices.</p>
+   *          </note>
    * @public
    */
   HostEnvironment?: HostEnvironment;
@@ -4102,6 +4106,7 @@ export interface SMBLocalGroups {
 export const SMBSecurityStrategy = {
   ClientSpecified: "ClientSpecified",
   MandatoryEncryption: "MandatoryEncryption",
+  MandatoryEncryptionNoAes128: "MandatoryEncryptionNoAes128",
   MandatorySigning: "MandatorySigning",
 } as const;
 
@@ -4184,23 +4189,33 @@ export interface DescribeSMBSettingsOutput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ClientSpecified</code>: If you use this option, requests are established
+   *                   <code>ClientSpecified</code>: If you choose this option, requests are established
    *                based on what is negotiated by the client. This option is recommended when you want
-   *                to maximize compatibility across different clients in your environment. Only
-   *                supported for S3 File Gateways.</p>
+   *                to maximize compatibility across different clients in your environment. Supported
+   *                only for S3 File Gateway.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MandatorySigning</code>: If you use this option, file gateway only allows
-   *                connections from SMBv2 or SMBv3 clients that have signing enabled. This option works
-   *                with SMB clients on Microsoft Windows Vista, Windows Server 2008 or newer.</p>
+   *                   <code>MandatorySigning</code>: If you use this option, File Gateway only allows
+   *                connections from SMBv2 or SMBv3 clients that have signing turned on. This option
+   *                works with SMB clients on Microsoft Windows Vista, Windows Server 2008, or later.
+   *             </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MandatoryEncryption</code>: If you use this option, file gateway only allows
-   *                connections from SMBv3 clients that have encryption enabled. This option is highly
-   *                recommended for environments that handle sensitive data. This option works with SMB
-   *                clients on Microsoft Windows 8, Windows Server 2012 or newer.</p>
+   *                   <code>MandatoryEncryption</code>: If you use this option, File Gateway only allows
+   *                connections from SMBv3 clients that have encryption turned on. Both 256-bit and
+   *                128-bit algorithms are allowed. This option is recommended for environments that
+   *                handle sensitive data. It works with SMB clients on Microsoft Windows 8, Windows
+   *                Server 2012, or later.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EnforceEncryption</code>: If you use this option, File Gateway only allows
+   *                connections from SMBv3 clients that use 256-bit AES encryption algorithms. 128-bit
+   *                algorithms are not allowed. This option is recommended for environments that handle
+   *                sensitive data. It works with SMB clients on Microsoft Windows 8, Windows Server
+   *                2012, or later.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5421,6 +5436,9 @@ export interface GatewayInfo {
 
   /**
    * <p>The type of hardware or software platform on which the gateway is running.</p>
+   *          <note>
+   *             <p>Tape Gateway is no longer available on Snow Family devices.</p>
+   *          </note>
    * @public
    */
   HostEnvironment?: HostEnvironment;
@@ -6353,6 +6371,8 @@ export interface RefreshCacheInput {
    * <p>A comma-separated list of the paths of folders to refresh in the cache. The default is
    *             [<code>"/"</code>]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If <code>Recursive</code> is set to <code>true</code>, the entire S3
    *          bucket that the file share has access to is refreshed.</p>
+   *          <p>Do not include <code>/</code> when specifying folder names. For example, you would
+   *          specify <code>samplefolder</code> rather than <code>samplefolder/</code>.</p>
    * @public
    */
   FolderList?: string[];

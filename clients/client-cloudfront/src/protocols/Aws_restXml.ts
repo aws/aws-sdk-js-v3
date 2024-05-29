@@ -2176,7 +2176,7 @@ export const se_ListDistributionsByRealtimeLogConfigCommand = async (
     bn.c(__XmlNode.of(_st, input[_M]).n(_M));
   }
   if (input[_MI] != null) {
-    bn.c(__XmlNode.of(_I, String(input[_MI])).n(_MI));
+    bn.c(__XmlNode.of(_i, String(input[_MI])).n(_MI));
   }
   if (input[_RLCA] != null) {
     bn.c(__XmlNode.of(_st, input[_RLCA]).n(_RLCA));
@@ -8319,7 +8319,7 @@ const se_Aliases = (input: Aliases, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AliasList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_AliasList(input[_I]!, context));
   return bn;
 };
 
@@ -8343,7 +8343,7 @@ const se_AllowedMethods = (input: AllowedMethods, context: __SerdeContext): any 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_I]!, context));
   if (input[_CM] != null) {
     bn.c(se_CachedMethods(input[_CM], context).n(_CM));
   }
@@ -8445,7 +8445,7 @@ const se_CacheBehaviors = (input: CacheBehaviors, context: __SerdeContext): any 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_CacheBehaviorList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_CacheBehaviorList(input[_I]!, context));
   return bn;
 };
 
@@ -8457,7 +8457,7 @@ const se_CachedMethods = (input: CachedMethods, context: __SerdeContext): any =>
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_I]!, context));
   return bn;
 };
 
@@ -8595,7 +8595,7 @@ const se_ContentTypeProfiles = (input: ContentTypeProfiles, context: __SerdeCont
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_ContentTypeProfileList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_ContentTypeProfileList(input[_I]!, context));
   return bn;
 };
 
@@ -8670,7 +8670,7 @@ const se_CookieNames = (input: CookieNames, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_CookieNameList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_CookieNameList(input[_I]!, context));
   return bn;
 };
 
@@ -8728,7 +8728,7 @@ const se_CustomErrorResponses = (input: CustomErrorResponses, context: __SerdeCo
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_CustomErrorResponseList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_CustomErrorResponseList(input[_I]!, context));
   return bn;
 };
 
@@ -8740,7 +8740,7 @@ const se_CustomHeaders = (input: CustomHeaders, context: __SerdeContext): any =>
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginCustomHeadersList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginCustomHeadersList(input[_I]!, context));
   return bn;
 };
 
@@ -8911,7 +8911,7 @@ const se_EncryptionEntities = (input: EncryptionEntities, context: __SerdeContex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_EncryptionEntityList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_EncryptionEntityList(input[_I]!, context));
   return bn;
 };
 
@@ -9045,7 +9045,7 @@ const se_FieldPatterns = (input: FieldPatterns, context: __SerdeContext): any =>
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_FieldPatternList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_FieldPatternList(input[_I]!, context));
   return bn;
 };
 
@@ -9099,7 +9099,7 @@ const se_FunctionAssociations = (input: FunctionAssociations, context: __SerdeCo
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_FunctionAssociationList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_FunctionAssociationList(input[_I]!, context));
   return bn;
 };
 
@@ -9131,7 +9131,7 @@ const se_GeoRestriction = (input: GeoRestriction, context: __SerdeContext): any 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_LocationList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_LocationList(input[_I]!, context));
   return bn;
 };
 
@@ -9155,7 +9155,7 @@ const se_Headers = (input: Headers, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_HeaderList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_HeaderList(input[_I]!, context));
   return bn;
 };
 
@@ -9195,7 +9195,7 @@ const se_KeyGroupConfig = (input: KeyGroupConfig, context: __SerdeContext): any 
   if (input[_N] != null) {
     bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  bn.lc(input, "Items", "Items", () => se_PublicKeyIdList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_PublicKeyIdList(input[_I]!, context));
   if (input[_C] != null) {
     bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
@@ -9231,7 +9231,7 @@ const se_KeyValueStoreAssociations = (input: KeyValueStoreAssociations, context:
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_KeyValueStoreAssociationList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_KeyValueStoreAssociationList(input[_I]!, context));
   return bn;
 };
 
@@ -9282,7 +9282,7 @@ const se_LambdaFunctionAssociations = (input: LambdaFunctionAssociations, contex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_LambdaFunctionAssociationList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_LambdaFunctionAssociationList(input[_I]!, context));
   return bn;
 };
 
@@ -9499,7 +9499,7 @@ const se_OriginGroupMembers = (input: OriginGroupMembers, context: __SerdeContex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginGroupMemberList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginGroupMemberList(input[_I]!, context));
   return bn;
 };
 
@@ -9511,7 +9511,7 @@ const se_OriginGroups = (input: OriginGroups, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginGroupList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginGroupList(input[_I]!, context));
   return bn;
 };
 
@@ -9603,7 +9603,7 @@ const se_Origins = (input: Origins, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginList(input[_I]!, context));
   return bn;
 };
 
@@ -9627,7 +9627,7 @@ const se_OriginSslProtocols = (input: OriginSslProtocols, context: __SerdeContex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_SslProtocolsList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_SslProtocolsList(input[_I]!, context));
   return bn;
 };
 
@@ -9677,7 +9677,7 @@ const se_Paths = (input: Paths, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_PathList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_PathList(input[_I]!, context));
   return bn;
 };
 
@@ -9761,7 +9761,7 @@ const se_QueryArgProfiles = (input: QueryArgProfiles, context: __SerdeContext): 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_QueryArgProfileList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_QueryArgProfileList(input[_I]!, context));
   return bn;
 };
 
@@ -9773,7 +9773,7 @@ const se_QueryStringCacheKeys = (input: QueryStringCacheKeys, context: __SerdeCo
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_QueryStringCacheKeysList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_QueryStringCacheKeysList(input[_I]!, context));
   return bn;
 };
 
@@ -9797,7 +9797,7 @@ const se_QueryStringNames = (input: QueryStringNames, context: __SerdeContext): 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_QueryStringNamesList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_QueryStringNamesList(input[_I]!, context));
   return bn;
 };
 
@@ -9836,7 +9836,7 @@ const se_ResponseHeadersPolicyAccessControlAllowHeaders = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlAllowHeadersList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowHeadersList(input[_I]!, context));
   return bn;
 };
 
@@ -9851,7 +9851,7 @@ const se_ResponseHeadersPolicyAccessControlAllowMethods = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlAllowMethodsList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowMethodsList(input[_I]!, context));
   return bn;
 };
 
@@ -9866,7 +9866,7 @@ const se_ResponseHeadersPolicyAccessControlAllowOrigins = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlAllowOriginsList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowOriginsList(input[_I]!, context));
   return bn;
 };
 
@@ -9881,7 +9881,7 @@ const se_ResponseHeadersPolicyAccessControlExposeHeaders = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlExposeHeadersList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlExposeHeadersList(input[_I]!, context));
   return bn;
 };
 
@@ -10020,7 +10020,7 @@ const se_ResponseHeadersPolicyCustomHeadersConfig = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyCustomHeaderList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyCustomHeaderList(input[_I]!, context));
   return bn;
 };
 
@@ -10098,7 +10098,7 @@ const se_ResponseHeadersPolicyRemoveHeadersConfig = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyRemoveHeaderList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyRemoveHeaderList(input[_I]!, context));
   return bn;
 };
 
@@ -10276,7 +10276,7 @@ const se_StagingDistributionDnsNames = (input: StagingDistributionDnsNames, cont
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_StagingDistributionDnsNameList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_StagingDistributionDnsNameList(input[_I]!, context));
   return bn;
 };
 
@@ -10300,7 +10300,7 @@ const se_StatusCodes = (input: StatusCodes, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_StatusCodeList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_StatusCodeList(input[_I]!, context));
   return bn;
 };
 
@@ -10399,7 +10399,7 @@ const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
  */
 const se_TagKeys = (input: TagKeys, context: __SerdeContext): any => {
   const bn = new __XmlNode(_TKa);
-  bn.lc(input, "Items", "Items", () => se_TagKeyList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_TagKeyList(input[_I]!, context));
   return bn;
 };
 
@@ -10420,7 +10420,7 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_Tags = (input: Tags, context: __SerdeContext): any => {
   const bn = new __XmlNode(_Ta);
-  bn.lc(input, "Items", "Items", () => se_TagList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_TagList(input[_I]!, context));
   return bn;
 };
 
@@ -10464,7 +10464,7 @@ const se_TrustedKeyGroups = (input: TrustedKeyGroups, context: __SerdeContext): 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_TrustedKeyGroupIdList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_TrustedKeyGroupIdList(input[_I]!, context));
   return bn;
 };
 
@@ -10479,7 +10479,7 @@ const se_TrustedSigners = (input: TrustedSigners, context: __SerdeContext): any 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AwsAccountNumberList(input[_It]!, context));
+  bn.lc(input, "Items", "Items", () => se_AwsAccountNumberList(input[_I]!, context));
   return bn;
 };
 
@@ -10565,9 +10565,9 @@ const de_ActiveTrustedKeyGroups = (output: any, context: __SerdeContext): Active
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_KG] != null) {
-    contents[_It] = de_KGKeyPairIdsList(__getArrayIfSingleItem(output[_It][_KG]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_KG] != null) {
+    contents[_I] = de_KGKeyPairIdsList(__getArrayIfSingleItem(output[_I][_KG]), context);
   }
   return contents;
 };
@@ -10584,9 +10584,9 @@ const de_ActiveTrustedSigners = (output: any, context: __SerdeContext): ActiveTr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Si] != null) {
-    contents[_It] = de_SignerList(__getArrayIfSingleItem(output[_It][_Si]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Si] != null) {
+    contents[_I] = de_SignerList(__getArrayIfSingleItem(output[_I][_Si]), context);
   }
   return contents;
 };
@@ -10600,9 +10600,9 @@ const de_Aliases = (output: any, context: __SerdeContext): Aliases => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CNAME] != null) {
-    contents[_It] = de_AliasList(__getArrayIfSingleItem(output[_It][_CNAME]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CNAME] != null) {
+    contents[_I] = de_AliasList(__getArrayIfSingleItem(output[_I][_CNAME]), context);
   }
   return contents;
 };
@@ -10652,9 +10652,9 @@ const de_AllowedMethods = (output: any, context: __SerdeContext): AllowedMethods
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Met] != null) {
-    contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Met] != null) {
+    contents[_I] = de_MethodsList(__getArrayIfSingleItem(output[_I][_Met]), context);
   }
   if (output[_CM] != null) {
     contents[_CM] = de_CachedMethods(output[_CM], context);
@@ -10758,9 +10758,9 @@ const de_CacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CB] != null) {
-    contents[_It] = de_CacheBehaviorList(__getArrayIfSingleItem(output[_It][_CB]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CB] != null) {
+    contents[_I] = de_CacheBehaviorList(__getArrayIfSingleItem(output[_I][_CB]), context);
   }
   return contents;
 };
@@ -10774,9 +10774,9 @@ const de_CachedMethods = (output: any, context: __SerdeContext): CachedMethods =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Met] != null) {
-    contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Met] != null) {
+    contents[_I] = de_MethodsList(__getArrayIfSingleItem(output[_I][_Met]), context);
   }
   return contents;
 };
@@ -10867,9 +10867,9 @@ const de_CachePolicyList = (output: any, context: __SerdeContext): CachePolicyLi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CPS] != null) {
-    contents[_It] = de_CachePolicySummaryList(__getArrayIfSingleItem(output[_It][_CPS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CPS] != null) {
+    contents[_I] = de_CachePolicySummaryList(__getArrayIfSingleItem(output[_I][_CPS]), context);
   }
   return contents;
 };
@@ -10971,9 +10971,9 @@ const de_CloudFrontOriginAccessIdentityList = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CFOAIS] != null) {
-    contents[_It] = de_CloudFrontOriginAccessIdentitySummaryList(__getArrayIfSingleItem(output[_It][_CFOAIS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CFOAIS] != null) {
+    contents[_I] = de_CloudFrontOriginAccessIdentitySummaryList(__getArrayIfSingleItem(output[_I][_CFOAIS]), context);
   }
   return contents;
 };
@@ -11055,9 +11055,9 @@ const de_ConflictingAliasesList = (output: any, context: __SerdeContext): Confli
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CAo] != null) {
-    contents[_It] = de_ConflictingAliases(__getArrayIfSingleItem(output[_It][_CAo]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CAo] != null) {
+    contents[_I] = de_ConflictingAliases(__getArrayIfSingleItem(output[_I][_CAo]), context);
   }
   return contents;
 };
@@ -11113,9 +11113,9 @@ const de_ContentTypeProfiles = (output: any, context: __SerdeContext): ContentTy
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CTP] != null) {
-    contents[_It] = de_ContentTypeProfileList(__getArrayIfSingleItem(output[_It][_CTP]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CTP] != null) {
+    contents[_I] = de_ContentTypeProfileList(__getArrayIfSingleItem(output[_I][_CTP]), context);
   }
   return contents;
 };
@@ -11172,9 +11172,9 @@ const de_ContinuousDeploymentPolicyList = (output: any, context: __SerdeContext)
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CDPS] != null) {
-    contents[_It] = de_ContinuousDeploymentPolicySummaryList(__getArrayIfSingleItem(output[_It][_CDPS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CDPS] != null) {
+    contents[_I] = de_ContinuousDeploymentPolicySummaryList(__getArrayIfSingleItem(output[_I][_CDPS]), context);
   }
   return contents;
 };
@@ -11261,9 +11261,9 @@ const de_CookieNames = (output: any, context: __SerdeContext): CookieNames => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_N] != null) {
-    contents[_It] = de_CookieNameList(__getArrayIfSingleItem(output[_It][_N]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_N] != null) {
+    contents[_I] = de_CookieNameList(__getArrayIfSingleItem(output[_I][_N]), context);
   }
   return contents;
 };
@@ -11322,9 +11322,9 @@ const de_CustomErrorResponses = (output: any, context: __SerdeContext): CustomEr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_CER] != null) {
-    contents[_It] = de_CustomErrorResponseList(__getArrayIfSingleItem(output[_It][_CER]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_CER] != null) {
+    contents[_I] = de_CustomErrorResponseList(__getArrayIfSingleItem(output[_I][_CER]), context);
   }
   return contents;
 };
@@ -11338,9 +11338,9 @@ const de_CustomHeaders = (output: any, context: __SerdeContext): CustomHeaders =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_OCH] != null) {
-    contents[_It] = de_OriginCustomHeadersList(__getArrayIfSingleItem(output[_It][_OCH]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_OCH] != null) {
+    contents[_I] = de_OriginCustomHeadersList(__getArrayIfSingleItem(output[_I][_OCH]), context);
   }
   return contents;
 };
@@ -11559,9 +11559,9 @@ const de_DistributionIdList = (output: any, context: __SerdeContext): Distributi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_DI] != null) {
-    contents[_It] = de_DistributionIdListSummary(__getArrayIfSingleItem(output[_It][_DI]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_DI] != null) {
+    contents[_I] = de_DistributionIdListSummary(__getArrayIfSingleItem(output[_I][_DI]), context);
   }
   return contents;
 };
@@ -11598,9 +11598,9 @@ const de_DistributionList = (output: any, context: __SerdeContext): Distribution
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_DS] != null) {
-    contents[_It] = de_DistributionSummaryList(__getArrayIfSingleItem(output[_It][_DS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_DS] != null) {
+    contents[_I] = de_DistributionSummaryList(__getArrayIfSingleItem(output[_I][_DS]), context);
   }
   return contents;
 };
@@ -11698,9 +11698,9 @@ const de_EncryptionEntities = (output: any, context: __SerdeContext): Encryption
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_EEn] != null) {
-    contents[_It] = de_EncryptionEntityList(__getArrayIfSingleItem(output[_It][_EEn]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_EEn] != null) {
+    contents[_I] = de_EncryptionEntityList(__getArrayIfSingleItem(output[_I][_EEn]), context);
   }
   return contents;
 };
@@ -11810,9 +11810,9 @@ const de_FieldLevelEncryptionList = (output: any, context: __SerdeContext): Fiel
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_FLES] != null) {
-    contents[_It] = de_FieldLevelEncryptionSummaryList(__getArrayIfSingleItem(output[_It][_FLES]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_FLES] != null) {
+    contents[_I] = de_FieldLevelEncryptionSummaryList(__getArrayIfSingleItem(output[_I][_FLES]), context);
   }
   return contents;
 };
@@ -11872,9 +11872,9 @@ const de_FieldLevelEncryptionProfileList = (output: any, context: __SerdeContext
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_FLEPS] != null) {
-    contents[_It] = de_FieldLevelEncryptionProfileSummaryList(__getArrayIfSingleItem(output[_It][_FLEPS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_FLEPS] != null) {
+    contents[_I] = de_FieldLevelEncryptionProfileSummaryList(__getArrayIfSingleItem(output[_I][_FLEPS]), context);
   }
   return contents;
 };
@@ -11984,9 +11984,9 @@ const de_FieldPatterns = (output: any, context: __SerdeContext): FieldPatterns =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_FPi] != null) {
-    contents[_It] = de_FieldPatternList(__getArrayIfSingleItem(output[_It][_FPi]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_FPi] != null) {
+    contents[_I] = de_FieldPatternList(__getArrayIfSingleItem(output[_I][_FPi]), context);
   }
   return contents;
 };
@@ -12045,9 +12045,9 @@ const de_FunctionAssociations = (output: any, context: __SerdeContext): Function
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_FAu] != null) {
-    contents[_It] = de_FunctionAssociationList(__getArrayIfSingleItem(output[_It][_FAu]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_FAu] != null) {
+    contents[_I] = de_FunctionAssociationList(__getArrayIfSingleItem(output[_I][_FAu]), context);
   }
   return contents;
 };
@@ -12095,9 +12095,9 @@ const de_FunctionList = (output: any, context: __SerdeContext): FunctionList => 
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_FSu] != null) {
-    contents[_It] = de_FunctionSummaryList(__getArrayIfSingleItem(output[_It][_FSu]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_FSu] != null) {
+    contents[_I] = de_FunctionSummaryList(__getArrayIfSingleItem(output[_I][_FSu]), context);
   }
   return contents;
 };
@@ -12165,9 +12165,9 @@ const de_GeoRestriction = (output: any, context: __SerdeContext): GeoRestriction
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_L] != null) {
-    contents[_It] = de_LocationList(__getArrayIfSingleItem(output[_It][_L]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_L] != null) {
+    contents[_I] = de_LocationList(__getArrayIfSingleItem(output[_I][_L]), context);
   }
   return contents;
 };
@@ -12192,9 +12192,9 @@ const de_Headers = (output: any, context: __SerdeContext): Headers => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_N] != null) {
-    contents[_It] = de_HeaderList(__getArrayIfSingleItem(output[_It][_N]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_N] != null) {
+    contents[_I] = de_HeaderList(__getArrayIfSingleItem(output[_I][_N]), context);
   }
   return contents;
 };
@@ -12254,9 +12254,9 @@ const de_InvalidationList = (output: any, context: __SerdeContext): Invalidation
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_ISnv] != null) {
-    contents[_It] = de_InvalidationSummaryList(__getArrayIfSingleItem(output[_It][_ISnv]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_ISnv] != null) {
+    contents[_I] = de_InvalidationSummaryList(__getArrayIfSingleItem(output[_I][_ISnv]), context);
   }
   return contents;
 };
@@ -12315,9 +12315,9 @@ const de_KeyGroupConfig = (output: any, context: __SerdeContext): KeyGroupConfig
     contents[_N] = __expectString(output[_N]);
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_PK] != null) {
-    contents[_It] = de_PublicKeyIdList(__getArrayIfSingleItem(output[_It][_PK]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_PK] != null) {
+    contents[_I] = de_PublicKeyIdList(__getArrayIfSingleItem(output[_I][_PK]), context);
   }
   if (output[_C] != null) {
     contents[_C] = __expectString(output[_C]);
@@ -12340,9 +12340,9 @@ const de_KeyGroupList = (output: any, context: __SerdeContext): KeyGroupList => 
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_KGS] != null) {
-    contents[_It] = de_KeyGroupSummaryList(__getArrayIfSingleItem(output[_It][_KGS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_KGS] != null) {
+    contents[_I] = de_KeyGroupSummaryList(__getArrayIfSingleItem(output[_I][_KGS]), context);
   }
   return contents;
 };
@@ -12389,9 +12389,9 @@ const de_KeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_KPI] != null) {
-    contents[_It] = de_KeyPairIdList(__getArrayIfSingleItem(output[_It][_KPI]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_KPI] != null) {
+    contents[_I] = de_KeyPairIdList(__getArrayIfSingleItem(output[_I][_KPI]), context);
   }
   return contents;
 };
@@ -12453,9 +12453,9 @@ const de_KeyValueStoreAssociations = (output: any, context: __SerdeContext): Key
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_KVSAe] != null) {
-    contents[_It] = de_KeyValueStoreAssociationList(__getArrayIfSingleItem(output[_It][_KVSAe]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_KVSAe] != null) {
+    contents[_I] = de_KeyValueStoreAssociationList(__getArrayIfSingleItem(output[_I][_KVSAe]), context);
   }
   return contents;
 };
@@ -12475,9 +12475,9 @@ const de_KeyValueStoreList = (output: any, context: __SerdeContext): KeyValueSto
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_KVS] != null) {
-    contents[_It] = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output[_It][_KVS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_KVS] != null) {
+    contents[_I] = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output[_I][_KVS]), context);
   }
   return contents;
 };
@@ -12569,9 +12569,9 @@ const de_LambdaFunctionAssociations = (output: any, context: __SerdeContext): La
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_LFAa] != null) {
-    contents[_It] = de_LambdaFunctionAssociationList(__getArrayIfSingleItem(output[_It][_LFAa]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_LFAa] != null) {
+    contents[_I] = de_LambdaFunctionAssociationList(__getArrayIfSingleItem(output[_I][_LFAa]), context);
   }
   return contents;
 };
@@ -12725,9 +12725,9 @@ const de_OriginAccessControlList = (output: any, context: __SerdeContext): Origi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_OACS] != null) {
-    contents[_It] = de_OriginAccessControlSummaryList(__getArrayIfSingleItem(output[_It][_OACS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_OACS] != null) {
+    contents[_I] = de_OriginAccessControlSummaryList(__getArrayIfSingleItem(output[_I][_OACS]), context);
   }
   return contents;
 };
@@ -12864,9 +12864,9 @@ const de_OriginGroupMembers = (output: any, context: __SerdeContext): OriginGrou
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_OGM] != null) {
-    contents[_It] = de_OriginGroupMemberList(__getArrayIfSingleItem(output[_It][_OGM]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_OGM] != null) {
+    contents[_I] = de_OriginGroupMemberList(__getArrayIfSingleItem(output[_I][_OGM]), context);
   }
   return contents;
 };
@@ -12880,9 +12880,9 @@ const de_OriginGroups = (output: any, context: __SerdeContext): OriginGroups => 
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_OGr] != null) {
-    contents[_It] = de_OriginGroupList(__getArrayIfSingleItem(output[_It][_OGr]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_OGr] != null) {
+    contents[_I] = de_OriginGroupList(__getArrayIfSingleItem(output[_I][_OGr]), context);
   }
   return contents;
 };
@@ -12987,9 +12987,9 @@ const de_OriginRequestPolicyList = (output: any, context: __SerdeContext): Origi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_ORPS] != null) {
-    contents[_It] = de_OriginRequestPolicySummaryList(__getArrayIfSingleItem(output[_It][_ORPS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_ORPS] != null) {
+    contents[_I] = de_OriginRequestPolicySummaryList(__getArrayIfSingleItem(output[_I][_ORPS]), context);
   }
   return contents;
 };
@@ -13045,9 +13045,9 @@ const de_Origins = (output: any, context: __SerdeContext): Origins => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Or] != null) {
-    contents[_It] = de_OriginList(__getArrayIfSingleItem(output[_It][_Or]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Or] != null) {
+    contents[_I] = de_OriginList(__getArrayIfSingleItem(output[_I][_Or]), context);
   }
   return contents;
 };
@@ -13075,9 +13075,9 @@ const de_OriginSslProtocols = (output: any, context: __SerdeContext): OriginSslP
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_SPs] != null) {
-    contents[_It] = de_SslProtocolsList(__getArrayIfSingleItem(output[_It][_SPs]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_SPs] != null) {
+    contents[_I] = de_SslProtocolsList(__getArrayIfSingleItem(output[_I][_SPs]), context);
   }
   return contents;
 };
@@ -13128,9 +13128,9 @@ const de_Paths = (output: any, context: __SerdeContext): Paths => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Pa] != null) {
-    contents[_It] = de_PathList(__getArrayIfSingleItem(output[_It][_Pa]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Pa] != null) {
+    contents[_I] = de_PathList(__getArrayIfSingleItem(output[_I][_Pa]), context);
   }
   return contents;
 };
@@ -13198,9 +13198,9 @@ const de_PublicKeyList = (output: any, context: __SerdeContext): PublicKeyList =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_PKS] != null) {
-    contents[_It] = de_PublicKeySummaryList(__getArrayIfSingleItem(output[_It][_PKS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_PKS] != null) {
+    contents[_I] = de_PublicKeySummaryList(__getArrayIfSingleItem(output[_I][_PKS]), context);
   }
   return contents;
 };
@@ -13287,9 +13287,9 @@ const de_QueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProf
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_QAP] != null) {
-    contents[_It] = de_QueryArgProfileList(__getArrayIfSingleItem(output[_It][_QAP]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_QAP] != null) {
+    contents[_I] = de_QueryArgProfileList(__getArrayIfSingleItem(output[_I][_QAP]), context);
   }
   return contents;
 };
@@ -13303,9 +13303,9 @@ const de_QueryStringCacheKeys = (output: any, context: __SerdeContext): QueryStr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_N] != null) {
-    contents[_It] = de_QueryStringCacheKeysList(__getArrayIfSingleItem(output[_It][_N]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_N] != null) {
+    contents[_I] = de_QueryStringCacheKeysList(__getArrayIfSingleItem(output[_I][_N]), context);
   }
   return contents;
 };
@@ -13330,9 +13330,9 @@ const de_QueryStringNames = (output: any, context: __SerdeContext): QueryStringN
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_N] != null) {
-    contents[_It] = de_QueryStringNamesList(__getArrayIfSingleItem(output[_It][_N]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_N] != null) {
+    contents[_I] = de_QueryStringNamesList(__getArrayIfSingleItem(output[_I][_N]), context);
   }
   return contents;
 };
@@ -13395,9 +13395,9 @@ const de_RealtimeLogConfigs = (output: any, context: __SerdeContext): RealtimeLo
     contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_m] != null) {
-    contents[_It] = de_RealtimeLogConfigList(__getArrayIfSingleItem(output[_It][_m]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_m] != null) {
+    contents[_I] = de_RealtimeLogConfigList(__getArrayIfSingleItem(output[_I][_m]), context);
   }
   if (output[_IT] != null) {
     contents[_IT] = __parseBoolean(output[_IT]);
@@ -13454,9 +13454,9 @@ const de_ResponseHeadersPolicyAccessControlAllowHeaders = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_H] != null) {
-    contents[_It] = de_AccessControlAllowHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_H] != null) {
+    contents[_I] = de_AccessControlAllowHeadersList(__getArrayIfSingleItem(output[_I][_H]), context);
   }
   return contents;
 };
@@ -13473,9 +13473,9 @@ const de_ResponseHeadersPolicyAccessControlAllowMethods = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Met] != null) {
-    contents[_It] = de_AccessControlAllowMethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Met] != null) {
+    contents[_I] = de_AccessControlAllowMethodsList(__getArrayIfSingleItem(output[_I][_Met]), context);
   }
   return contents;
 };
@@ -13492,9 +13492,9 @@ const de_ResponseHeadersPolicyAccessControlAllowOrigins = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Or] != null) {
-    contents[_It] = de_AccessControlAllowOriginsList(__getArrayIfSingleItem(output[_It][_Or]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Or] != null) {
+    contents[_I] = de_AccessControlAllowOriginsList(__getArrayIfSingleItem(output[_I][_Or]), context);
   }
   return contents;
 };
@@ -13511,9 +13511,9 @@ const de_ResponseHeadersPolicyAccessControlExposeHeaders = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_H] != null) {
-    contents[_It] = de_AccessControlExposeHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_H] != null) {
+    contents[_I] = de_AccessControlExposeHeadersList(__getArrayIfSingleItem(output[_I][_H]), context);
   }
   return contents;
 };
@@ -13653,9 +13653,9 @@ const de_ResponseHeadersPolicyCustomHeadersConfig = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_RHPCH] != null) {
-    contents[_It] = de_ResponseHeadersPolicyCustomHeaderList(__getArrayIfSingleItem(output[_It][_RHPCH]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_RHPCH] != null) {
+    contents[_I] = de_ResponseHeadersPolicyCustomHeaderList(__getArrayIfSingleItem(output[_I][_RHPCH]), context);
   }
   return contents;
 };
@@ -13692,9 +13692,9 @@ const de_ResponseHeadersPolicyList = (output: any, context: __SerdeContext): Res
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_RHPS] != null) {
-    contents[_It] = de_ResponseHeadersPolicySummaryList(__getArrayIfSingleItem(output[_It][_RHPS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_RHPS] != null) {
+    contents[_I] = de_ResponseHeadersPolicySummaryList(__getArrayIfSingleItem(output[_I][_RHPS]), context);
   }
   return contents;
 };
@@ -13756,9 +13756,9 @@ const de_ResponseHeadersPolicyRemoveHeadersConfig = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_RHPRH] != null) {
-    contents[_It] = de_ResponseHeadersPolicyRemoveHeaderList(__getArrayIfSingleItem(output[_It][_RHPRH]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_RHPRH] != null) {
+    contents[_I] = de_ResponseHeadersPolicyRemoveHeaderList(__getArrayIfSingleItem(output[_I][_RHPRH]), context);
   }
   return contents;
 };
@@ -13986,9 +13986,9 @@ const de_StagingDistributionDnsNames = (output: any, context: __SerdeContext): S
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_DNn] != null) {
-    contents[_It] = de_StagingDistributionDnsNameList(__getArrayIfSingleItem(output[_It][_DNn]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_DNn] != null) {
+    contents[_I] = de_StagingDistributionDnsNameList(__getArrayIfSingleItem(output[_I][_DNn]), context);
   }
   return contents;
 };
@@ -14013,9 +14013,9 @@ const de_StatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_SCt] != null) {
-    contents[_It] = de_StatusCodeList(__getArrayIfSingleItem(output[_It][_SCt]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_SCt] != null) {
+    contents[_I] = de_StatusCodeList(__getArrayIfSingleItem(output[_I][_SCt]), context);
   }
   return contents;
 };
@@ -14102,9 +14102,9 @@ const de_StreamingDistributionList = (output: any, context: __SerdeContext): Str
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_SDS] != null) {
-    contents[_It] = de_StreamingDistributionSummaryList(__getArrayIfSingleItem(output[_It][_SDS]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_SDS] != null) {
+    contents[_I] = de_StreamingDistributionSummaryList(__getArrayIfSingleItem(output[_I][_SDS]), context);
   }
   return contents;
 };
@@ -14209,9 +14209,9 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
 const de_Tags = (output: any, context: __SerdeContext): Tags => {
   const contents: any = {};
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_Tag] != null) {
-    contents[_It] = de_TagList(__getArrayIfSingleItem(output[_It][_Tag]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Tag] != null) {
+    contents[_I] = de_TagList(__getArrayIfSingleItem(output[_I][_Tag]), context);
   }
   return contents;
 };
@@ -14281,9 +14281,9 @@ const de_TrustedKeyGroups = (output: any, context: __SerdeContext): TrustedKeyGr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_KG] != null) {
-    contents[_It] = de_TrustedKeyGroupIdList(__getArrayIfSingleItem(output[_It][_KG]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_KG] != null) {
+    contents[_I] = de_TrustedKeyGroupIdList(__getArrayIfSingleItem(output[_I][_KG]), context);
   }
   return contents;
 };
@@ -14300,9 +14300,9 @@ const de_TrustedSigners = (output: any, context: __SerdeContext): TrustedSigners
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_It] = [];
-  } else if (output[_It] != null && output[_It][_AAN] != null) {
-    contents[_It] = de_AwsAccountNumberList(__getArrayIfSingleItem(output[_It][_AAN]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_AAN] != null) {
+    contents[_I] = de_AwsAccountNumberList(__getArrayIfSingleItem(output[_I][_AAN]), context);
   }
   return contents;
 };
@@ -14499,7 +14499,7 @@ const _HTTPSP = "HTTPSPort";
 const _HV = "HttpVersion";
 const _HVe = "HeaderValue";
 const _He = "Headers";
-const _I = "Integer";
+const _I = "Items";
 const _IAMCI = "IAMCertificateId";
 const _IB = "InvalidationBatch";
 const _IBn = "IncludeBody";
@@ -14516,7 +14516,6 @@ const _ISt = "ItemSelection";
 const _IT = "IsTruncated";
 const _ITTL = "IdleTTL";
 const _Id = "Id";
-const _It = "Items";
 const _K = "Key";
 const _KG = "KeyGroup";
 const _KGC = "KeyGroupConfig";

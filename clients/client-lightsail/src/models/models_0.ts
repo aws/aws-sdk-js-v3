@@ -1751,8 +1751,8 @@ export type BlueprintType = (typeof BlueprintType)[keyof typeof BlueprintType];
  */
 export interface Blueprint {
   /**
-   * <p>The ID for the virtual private server image (<code>app_wordpress_4_4</code> or
-   *         <code>app_lamp_7_0</code>).</p>
+   * <p>The ID for the virtual private server image (<code>app_wordpress_x_x</code> or
+   *         <code>app_lamp_x_x</code>).</p>
    * @public
    */
   blueprintId?: string;
@@ -1801,7 +1801,7 @@ export interface Blueprint {
 
   /**
    * <p>The version number of the operating system, application, or stack (
-   *         <code>2016.03.0</code>).</p>
+   *       <code>2016.03.0</code>).</p>
    * @public
    */
   version?: string;
@@ -2155,13 +2155,13 @@ export interface Bundle {
   diskSizeInGb?: number;
 
   /**
-   * <p>The bundle ID (<code>micro_1_0</code>).</p>
+   * <p>The bundle ID (<code>micro_x_x</code>).</p>
    * @public
    */
   bundleId?: string;
 
   /**
-   * <p>The Amazon EC2 instance type (<code>t2.micro</code>).</p>
+   * <p>The instance type (<code>micro</code>).</p>
    * @public
    */
   instanceType?: string;
@@ -2179,11 +2179,11 @@ export interface Bundle {
   name?: string;
 
   /**
-   * <p>A numeric value that represents the power of the bundle (<code>500</code>). You can
-   *       use the bundle's power value in conjunction with a blueprint's minimum power value to
-   *       determine whether the blueprint will run on the bundle. For example, you need a bundle with a
-   *       power value of 500 or more to create an instance that uses a blueprint with a minimum power
-   *       value of 500.</p>
+   * <p>A numeric value that represents the power of the bundle (<code>500</code>). You can use
+   *       the bundle's power value in conjunction with a blueprint's minimum power value to determine
+   *       whether the blueprint will run on the bundle. For example, you need a bundle with a power
+   *       value of 500 or more to create an instance that uses a blueprint with a minimum power value of
+   *       500.</p>
    * @public
    */
   power?: number;
@@ -2219,7 +2219,8 @@ export interface Bundle {
   supportedAppCategories?: AppCategory[];
 
   /**
-   * <p>An integer that indicates the public ipv4 address count included in the bundle, the value is either 0 or 1.</p>
+   * <p>An integer that indicates the public ipv4 address count included in the bundle, the value
+   *       is either 0 or 1.</p>
    * @public
    */
   publicIpv4AddressCount?: number;
@@ -2882,8 +2883,8 @@ export interface Certificate {
   serialNumber?: string;
 
   /**
-   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>)
-   *       and subdomains (<code>blog.example.com</code>) of the certificate.</p>
+   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>) and
+   *       subdomains (<code>blog.example.com</code>) of the certificate.</p>
    * @public
    */
   subjectAlternativeNames?: string[];
@@ -3105,6 +3106,7 @@ export interface CertificateSummary {
 export const NetworkProtocol = {
   ALL: "all",
   ICMP: "icmp",
+  ICMPV6: "icmpv6",
   TCP: "tcp",
   UDP: "udp",
 } as const;
@@ -3202,6 +3204,13 @@ export interface PortInfo {
    *           When you specify <code>icmp</code> as the <code>protocol</code>, you must specify the ICMP
    *           type using the <code>fromPort</code> parameter, and ICMP code using the
    *             <code>toPort</code> parameter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>icmp6</code> - Internet Control Message Protocol (ICMP) for IPv6. When you
+   *           specify <code>icmp6</code> as the <code>protocol</code>, you must specify the ICMP type
+   *           using the <code>fromPort</code> parameter, and ICMP code using the <code>toPort</code>
+   *           parameter.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4645,8 +4654,8 @@ export interface CreateCertificateRequest {
   domainName: string | undefined;
 
   /**
-   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>)
-   *       and subdomains (<code>blog.example.com</code>) for the certificate.</p>
+   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>) and
+   *       subdomains (<code>blog.example.com</code>) for the certificate.</p>
    *          <p>You can specify a maximum of nine alternate domains (in addition to the primary domain
    *       name).</p>
    *          <p>Wildcard domain entries (<code>*.example.com</code>) are not supported.</p>
@@ -5061,8 +5070,8 @@ export interface CreateDiskRequest {
   diskName: string | undefined;
 
   /**
-   * <p>The Availability Zone where you want to create the disk (<code>us-east-2a</code>).
-   *       Use the same Availability Zone as the Lightsail instance to which you want to attach the
+   * <p>The Availability Zone where you want to create the disk (<code>us-east-2a</code>). Use the
+   *       same Availability Zone as the Lightsail instance to which you want to attach the
    *       disk.</p>
    *          <p>Use the <code>get regions</code> operation to list the Availability Zones where
    *       Lightsail is currently available.</p>
@@ -5113,8 +5122,8 @@ export interface CreateDiskFromSnapshotRequest {
   diskName: string | undefined;
 
   /**
-   * <p>The name of the disk snapshot (<code>my-snapshot</code>) from which to create the
-   *       new storage disk.</p>
+   * <p>The name of the disk snapshot (<code>my-snapshot</code>) from which to create the new
+   *       storage disk.</p>
    *          <p>Constraint:</p>
    *          <ul>
    *             <li>
@@ -5128,8 +5137,8 @@ export interface CreateDiskFromSnapshotRequest {
   diskSnapshotName?: string;
 
   /**
-   * <p>The Availability Zone where you want to create the disk (<code>us-east-2a</code>).
-   *       Choose the same Availability Zone as the Lightsail instance where you want to create the
+   * <p>The Availability Zone where you want to create the disk (<code>us-east-2a</code>). Choose
+   *       the same Availability Zone as the Lightsail instance where you want to create the
    *       disk.</p>
    *          <p>Use the GetRegions operation to list the Availability Zones where Lightsail is currently
    *       available.</p>
@@ -5244,15 +5253,15 @@ export interface CreateDiskSnapshotRequest {
   diskName?: string;
 
   /**
-   * <p>The name of the destination disk snapshot (<code>my-disk-snapshot</code>) based on
-   *       the source disk.</p>
+   * <p>The name of the destination disk snapshot (<code>my-disk-snapshot</code>) based on the
+   *       source disk.</p>
    * @public
    */
   diskSnapshotName: string | undefined;
 
   /**
-   * <p>The unique name of the source instance (<code>Amazon_Linux-512MB-Virginia-1</code>).
-   *       When this is defined, a snapshot of the instance's system volume is created.</p>
+   * <p>The unique name of the source instance (<code>Amazon_Linux-512MB-Virginia-1</code>). When
+   *       this is defined, a snapshot of the instance's system volume is created.</p>
    *          <note>
    *             <p>This parameter cannot be defined together with the <code>disk name</code> parameter. The
    *           <code>instance name</code> and <code>disk name</code> parameters are mutually
@@ -5289,6 +5298,7 @@ export interface CreateDiskSnapshotResult {
 export const IpAddressType = {
   DUALSTACK: "dualstack",
   IPV4: "ipv4",
+  IPV6: "ipv6",
 } as const;
 
 /**
@@ -5313,9 +5323,9 @@ export type OriginProtocolPolicyEnum = (typeof OriginProtocolPolicyEnum)[keyof t
 /**
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
- *          <p>An origin can be a Lightsail instance, bucket, container service, or load balancer. A distribution pulls
- *       content from an origin, caches it, and serves it to viewers via a worldwide network of edge
- *       servers.</p>
+ *          <p>An origin can be a Lightsail instance, bucket, container service, or load balancer. A
+ *       distribution pulls content from an origin, caches it, and serves it to viewers via a worldwide
+ *       network of edge servers.</p>
  * @public
  */
 export interface InputOrigin {
@@ -5339,8 +5349,9 @@ export interface InputOrigin {
   protocolPolicy?: OriginProtocolPolicyEnum;
 
   /**
-   * <p>The amount of time, in seconds, that the distribution waits for a response after forwarding a request to the origin.
-   *     The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.</p>
+   * <p>The amount of time, in seconds, that the distribution waits for a response after
+   *       forwarding a request to the origin. The minimum timeout is 1 second, the maximum is 60
+   *       seconds, and the default (if you don't specify otherwise) is 30 seconds.</p>
    * @public
    */
   responseTimeout?: number;
@@ -5427,7 +5438,8 @@ export interface CreateDistributionRequest {
 
   /**
    * <p>The name of the SSL/TLS certificate that you want to attach to the distribution.</p>
-   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html">GetCertificates</a> action to get a list of certificate names that you can specify.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html">GetCertificates</a>
+   *       action to get a list of certificate names that you can specify.</p>
    * @public
    */
   certificateName?: string;
@@ -5474,8 +5486,9 @@ export interface Origin {
   protocolPolicy?: OriginProtocolPolicyEnum;
 
   /**
-   * <p>The amount of time, in seconds, that the distribution waits for a response after forwarding a request to the origin.
-   *     The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.</p>
+   * <p>The amount of time, in seconds, that the distribution waits for a response after
+   *       forwarding a request to the origin. The minimum timeout is 1 second, the maximum is 60
+   *       seconds, and the default (if you don't specify otherwise) is 30 seconds.</p>
    * @public
    */
   responseTimeout?: number;
@@ -5623,7 +5636,8 @@ export interface LightsailDistribution {
   tags?: Tag[];
 
   /**
-   * <p>The minimum TLS protocol version that the distribution can use to communicate with viewers.</p>
+   * <p>The minimum TLS protocol version that the distribution can use to communicate with
+   *       viewers.</p>
    * @public
    */
   viewerMinimumTlsProtocolVersion?: string;
@@ -5695,7 +5709,8 @@ export interface DomainEntry {
   name?: string;
 
   /**
-   * <p>The target IP address (<code>192.0.2.0</code>), or AWS name server (<code>ns-111.awsdns-22.com.</code>).</p>
+   * <p>The target IP address (<code>192.0.2.0</code>), or AWS name server
+   *         (<code>ns-111.awsdns-22.com.</code>).</p>
    *          <p>For Lightsail load balancers, the value looks like
    *         <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>. For
    *       Lightsail distributions, the value looks like <code>exampled1182ne.cloudfront.net</code>.
@@ -5940,8 +5955,8 @@ export interface CreateInstancesRequest {
   customImageName?: string;
 
   /**
-   * <p>The ID for a virtual private server image (<code>app_wordpress_4_4</code> or
-   *         <code>app_lamp_7_0</code>). Use the <code>get blueprints</code> operation to return a list
+   * <p>The ID for a virtual private server image (<code>app_wordpress_x_x</code> or
+   *         <code>app_lamp_x_x</code>). Use the <code>get blueprints</code> operation to return a list
    *       of available images (or <i>blueprints</i>).</p>
    *          <note>
    *             <p>Use active blueprints when creating new instances. Inactive blueprints are listed to
@@ -5955,7 +5970,7 @@ export interface CreateInstancesRequest {
 
   /**
    * <p>The bundle of specification information for your virtual private server (or
-   *         <i>instance</i>), including the pricing plan (<code>micro_1_0</code>).</p>
+   *         <i>instance</i>), including the pricing plan (<code>medium_x_x</code>).</p>
    * @public
    */
   bundleId: string | undefined;
@@ -5994,8 +6009,8 @@ export interface CreateInstancesRequest {
 
   /**
    * <p>The IP address type for the instance.</p>
-   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
-   *       IPv4 and IPv6.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    * @public
    */
@@ -6057,7 +6072,7 @@ export interface CreateInstancesFromSnapshotRequest {
 
   /**
    * <p>The bundle of specification information for your virtual private server (or
-   *         <i>instance</i>), including the pricing plan (<code>micro_1_0</code>).</p>
+   *         <i>instance</i>), including the pricing plan (<code>micro_x_x</code>).</p>
    * @public
    */
   bundleId: string | undefined;
@@ -6096,8 +6111,8 @@ export interface CreateInstancesFromSnapshotRequest {
 
   /**
    * <p>The IP address type for the instance.</p>
-   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
-   *       IPv4 and IPv6.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    * @public
    */
@@ -6242,7 +6257,8 @@ export interface KeyPair {
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the key pair (<code>arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the key pair
+   *         (<code>arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>).</p>
    * @public
    */
   arn?: string;
@@ -6352,7 +6368,8 @@ export interface CreateLoadBalancerRequest {
   certificateName?: string;
 
   /**
-   * <p>The domain name with which your certificate is associated (<code>example.com</code>).</p>
+   * <p>The domain name with which your certificate is associated
+   *       (<code>example.com</code>).</p>
    *          <p>If you specify <code>certificateDomainName</code>, then <code>certificateName</code> is
    *       required (and vice-versa).</p>
    * @public
@@ -6361,7 +6378,7 @@ export interface CreateLoadBalancerRequest {
 
   /**
    * <p>The optional alternative domains and subdomains to use with your SSL/TLS certificate
-   *       (<code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
+   *         (<code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
    *         <code>blog.example.com</code>).</p>
    * @public
    */
@@ -6376,8 +6393,8 @@ export interface CreateLoadBalancerRequest {
 
   /**
    * <p>The IP address type for the load balancer.</p>
-   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
-   *       IPv4 and IPv6.</p>
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, <code>ipv6</code> for IPv6 only,
+   *       and <code>dualstack</code> for IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    * @public
    */
@@ -6435,7 +6452,8 @@ export interface CreateLoadBalancerTlsCertificateRequest {
   /**
    * <p>An array of strings listing alternative domains and subdomains for your SSL/TLS
    *       certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9
-   *       alternative names (in addition to the 1 primary domain). We do not support wildcards (<code>*.example.com</code>).</p>
+   *       alternative names (in addition to the 1 primary domain). We do not support wildcards
+   *         (<code>*.example.com</code>).</p>
    * @public
    */
   certificateAlternativeNames?: string[];
@@ -7508,7 +7526,8 @@ export interface DetachCertificateFromDistributionResult {
  */
 export interface DetachDiskRequest {
   /**
-   * <p>The unique name of the disk you want to detach from your instance (<code>my-disk</code>).</p>
+   * <p>The unique name of the disk you want to detach from your instance
+   *       (<code>my-disk</code>).</p>
    * @public
    */
   diskName: string | undefined;
@@ -8143,7 +8162,8 @@ export interface Domain {
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain recordset (<code>arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the domain recordset
+   *         (<code>arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE</code>).</p>
    * @public
    */
   arn?: string;
@@ -8281,13 +8301,13 @@ export interface ExportSnapshotResult {
  */
 export interface InstanceSnapshotInfo {
   /**
-   * <p>The bundle ID from which the source instance was created (<code>micro_1_0</code>).</p>
+   * <p>The bundle ID from which the source instance was created (<code>micro_x_x</code>).</p>
    * @public
    */
   fromBundleId?: string;
 
   /**
-   * <p>The blueprint ID from which the source instance (<code>os_debian_8_3</code>).</p>
+   * <p>The blueprint ID from which the source instance (<code>amazon_linux_2023</code>).</p>
    * @public
    */
   fromBlueprintId?: string;
@@ -8321,7 +8341,7 @@ export type ExportSnapshotRecordSourceType =
 export interface ExportSnapshotRecordSourceInfo {
   /**
    * <p>The Lightsail resource type (<code>InstanceSnapshot</code> or
-   *         <code>DiskSnapshot</code>).</p>
+   *       <code>DiskSnapshot</code>).</p>
    * @public
    */
   resourceType?: ExportSnapshotRecordSourceType;
@@ -8529,7 +8549,8 @@ export interface GetAutoSnapshotsResult {
   resourceName?: string;
 
   /**
-   * <p>The resource type of the automatic snapshot. The possible values are <code>Instance</code>, and <code>Disk</code>.</p>
+   * <p>The resource type of the automatic snapshot. The possible values are
+   *       <code>Instance</code>, and <code>Disk</code>.</p>
    * @public
    */
   resourceType?: ResourceType;

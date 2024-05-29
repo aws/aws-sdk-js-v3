@@ -230,6 +230,14 @@ CreateCampaign
 </details>
 <details>
 <summary>
+CreateDataDeletionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/CreateDataDeletionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/CreateDataDeletionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/CreateDataDeletionJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateDataset
 </summary>
 
@@ -422,6 +430,14 @@ DescribeCampaign
 </details>
 <details>
 <summary>
+DescribeDataDeletionJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/DescribeDataDeletionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/DescribeDataDeletionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/DescribeDataDeletionJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDataset
 </summary>
 
@@ -554,6 +570,14 @@ ListCampaigns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/ListCampaignsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/ListCampaignsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/ListCampaignsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataDeletionJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/ListDataDeletionJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/ListDataDeletionJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/ListDataDeletionJobsCommandOutput/)
 
 </details>
 <details>

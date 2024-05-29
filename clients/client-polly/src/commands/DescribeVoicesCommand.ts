@@ -50,7 +50,7 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * // const { PollyClient, DescribeVoicesCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
  * const input = { // DescribeVoicesInput
- *   Engine: "standard" || "neural" || "long-form",
+ *   Engine: "standard" || "neural" || "long-form" || "generative",
  *   LanguageCode: "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE",
  *   IncludeAdditionalLanguageCodes: true || false,
  *   NextToken: "STRING_VALUE",
@@ -69,7 +69,7 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * //         "arb" || "cmn-CN" || "cy-GB" || "da-DK" || "de-DE" || "en-AU" || "en-GB" || "en-GB-WLS" || "en-IN" || "en-US" || "es-ES" || "es-MX" || "es-US" || "fr-CA" || "fr-FR" || "is-IS" || "it-IT" || "ja-JP" || "hi-IN" || "ko-KR" || "nb-NO" || "nl-NL" || "pl-PL" || "pt-BR" || "pt-PT" || "ro-RO" || "ru-RU" || "sv-SE" || "tr-TR" || "en-NZ" || "en-ZA" || "ca-ES" || "de-AT" || "yue-CN" || "ar-AE" || "fi-FI" || "en-IE" || "nl-BE" || "fr-BE",
  * //       ],
  * //       SupportedEngines: [ // EngineList
- * //         "standard" || "neural" || "long-form",
+ * //         "standard" || "neural" || "long-form" || "generative",
  * //       ],
  * //     },
  * //   ],

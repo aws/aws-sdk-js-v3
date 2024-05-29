@@ -34,6 +34,7 @@ import {
   DataSourceParameters,
   FieldFolder,
   Group,
+  GroupMember,
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableFilterSensitiveLog,
@@ -50,7 +51,6 @@ import {
   TemplateAlias,
   TemplateSourceEntity,
   TemplateVersionDefinition,
-  ThemeConfiguration,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
@@ -61,28 +61,238 @@ import {
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
+  DataSource,
   DataSourceSearchFilter,
   DataSourceSummary,
+  FailedKeyRegistrationEntry,
   FolderSearchFilter,
   FolderSummary,
   GroupSearchFilter,
   IAMPolicyAssignmentSummary,
   IdentityType,
   Ingestion,
+  MemberIdArnPair,
   NamespaceInfoV2,
   NetworkInterface,
+  RegisteredCustomerManagedKey,
   SessionTag,
   SessionTagFilterSensitiveLog,
   SnapshotConfiguration,
   ThemeAlias,
+  ThemeConfiguration,
   ThemeType,
   TopicDetails,
   TopicRefreshSchedule,
+  TopicUserExperienceVersion,
   User,
   UserRole,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListDataSourcesResponse {
+  /**
+   * <p>A list of data sources.</p>
+   * @public
+   */
+  DataSources?: DataSource[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListFolderMembersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   * @public
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListFolderMembersResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>A structure that contains all of the folder members (dashboards, analyses, and datasets) in the folder.</p>
+   * @public
+   */
+  FolderMemberList?: MemberIdArnPair[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFoldersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListFoldersResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
+   * @public
+   */
+  FolderSummaryList?: FolderSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupMembershipsRequest {
+  /**
+   * <p>The name of the group that you want to see a membership list of.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want a list of users from.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupMembershipsResponse {
+  /**
+   * <p>The list of the members of the group.</p>
+   * @public
+   */
+  GroupMemberList?: GroupMember[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
 
 /**
  * @public
@@ -1216,6 +1426,12 @@ export interface TopicSummary {
    * @public
    */
   Name?: string;
+
+  /**
+   * <p>The user experience version of the topic.</p>
+   * @public
+   */
+  UserExperienceVersion?: TopicUserExperienceVersion;
 }
 
 /**
@@ -1510,6 +1726,20 @@ export interface ListVPCConnectionsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const PurchaseMode = {
+  AUTO_PURCHASE: "AUTO_PURCHASE",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type PurchaseMode = (typeof PurchaseMode)[keyof typeof PurchaseMode];
+
+/**
+ * @public
  */
 export interface PutDataSetRefreshPropertiesRequest {
   /**
@@ -1553,20 +1783,7 @@ export interface PutDataSetRefreshPropertiesResponse {
  */
 export interface RegisterUserRequest {
   /**
-   * <p>Amazon QuickSight supports several ways of managing the identity of users. This
-   * 			parameter accepts two values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>IAM</code>: A user whose identity maps to an existing IAM user or role.
-   * 				</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by
-   * 					Amazon QuickSight. </p>
-   *             </li>
-   *          </ul>
+   * <p>The identity type that your Amazon QuickSight account uses to manage the identity of users.</p>
    * @public
    */
   IdentityType: IdentityType | undefined;
@@ -1594,6 +1811,18 @@ export interface RegisterUserRequest {
    *                <p>
    *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
    * 					settings.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1676,7 +1905,7 @@ export interface RegisterUserRequest {
    *             permissions to a Amazon QuickSight user. </p>
    *          <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
    *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
-   *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
+   *             default security cohorts in Amazon QuickSight (admin, author, reader, admin pro, author pro, reader pro).</p>
    *          <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
    * @public
    */
@@ -3887,6 +4116,64 @@ export interface UpdateIpRestrictionResponse {
 /**
  * @public
  */
+export interface UpdateKeyRegistrationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects to be updated to the Amazon QuickSight account.</p>
+   * @public
+   */
+  KeyRegistration: RegisteredCustomerManagedKey[] | undefined;
+}
+
+/**
+ * <p>A success entry that occurs when a <code>KeyRegistration</code> job is successfully applied to the Amazon QuickSight account.</p>
+ * @public
+ */
+export interface SuccessfulKeyRegistrationEntry {
+  /**
+   * <p>The ARN of the KMS key that is associated with the <code>SuccessfulKeyRegistrationEntry</code> entry.</p>
+   * @public
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The HTTP status of a <code>SuccessfulKeyRegistrationEntry</code> entry.</p>
+   * @public
+   */
+  StatusCode: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKeyRegistrationResponse {
+  /**
+   * <p>A list of all customer managed key registrations that failed to update.</p>
+   * @public
+   */
+  FailedKeyRegistration?: FailedKeyRegistrationEntry[];
+
+  /**
+   * <p>A list of all customer managed key registrations that were successfully updated.</p>
+   * @public
+   */
+  SuccessfulKeyRegistration?: SuccessfulKeyRegistrationEntry[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
 export interface UpdatePublicSharingSettingsRequest {
   /**
    * <p>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</p>
@@ -4003,6 +4290,50 @@ export interface UpdateRoleCustomPermissionRequest {
  * @public
  */
 export interface UpdateRoleCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSPICECapacityConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the SPICE configuration that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>Determines how SPICE capacity can be purchased. The following options are available. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MANUAL</code>: SPICE capacity can only be purchased manually.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_PURCHASE</code>: Extra SPICE capacity is automatically purchased on your behalf as needed. SPICE capacity can also be purchased manually with this option.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PurchaseMode: PurchaseMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSPICECapacityConfigurationResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
@@ -4672,6 +5003,18 @@ export interface UpdateUserRequest {
    *                <p>
    *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
    * 					settings.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon QuickSight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
    *             </li>
    *          </ul>
    *          <p>The name of the Amazon QuickSight role is invisible to the user except for the console

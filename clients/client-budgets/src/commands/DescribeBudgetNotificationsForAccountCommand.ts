@@ -36,9 +36,7 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- * 			Lists the budget names and notifications that are associated with an account.
- * 		</p>
+ * <p> Lists the budget names and notifications that are associated with an account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

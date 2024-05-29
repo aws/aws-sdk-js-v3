@@ -32,6 +32,10 @@ import {
   CreateBatchSegmentJobCommandOutput,
 } from "../commands/CreateBatchSegmentJobCommand";
 import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "../commands/CreateCampaignCommand";
+import {
+  CreateDataDeletionJobCommandInput,
+  CreateDataDeletionJobCommandOutput,
+} from "../commands/CreateDataDeletionJobCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import {
   CreateDatasetExportJobCommandInput,
@@ -77,6 +81,10 @@ import {
   DescribeBatchSegmentJobCommandOutput,
 } from "../commands/DescribeBatchSegmentJobCommand";
 import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "../commands/DescribeCampaignCommand";
+import {
+  DescribeDataDeletionJobCommandInput,
+  DescribeDataDeletionJobCommandOutput,
+} from "../commands/DescribeDataDeletionJobCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
   DescribeDatasetExportJobCommandInput,
@@ -124,6 +132,10 @@ import {
   ListBatchSegmentJobsCommandOutput,
 } from "../commands/ListBatchSegmentJobsCommand";
 import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "../commands/ListCampaignsCommand";
+import {
+  ListDataDeletionJobsCommandInput,
+  ListDataDeletionJobsCommandOutput,
+} from "../commands/ListDataDeletionJobsCommand";
 import {
   ListDatasetExportJobsCommandInput,
   ListDatasetExportJobsCommandOutput,
@@ -193,6 +205,7 @@ import {
   CreateBatchInferenceJobRequest,
   CreateBatchSegmentJobRequest,
   CreateCampaignRequest,
+  CreateDataDeletionJobRequest,
   CreateDatasetExportJobRequest,
   CreateDatasetGroupRequest,
   CreateDatasetImportJobRequest,
@@ -204,6 +217,8 @@ import {
   CreateSchemaRequest,
   CreateSolutionRequest,
   CreateSolutionVersionRequest,
+  DataDeletionJob,
+  DataDeletionJobSummary,
   Dataset,
   DatasetExportJob,
   DatasetExportJobOutput,
@@ -236,6 +251,8 @@ import {
   DescribeBatchSegmentJobResponse,
   DescribeCampaignRequest,
   DescribeCampaignResponse,
+  DescribeDataDeletionJobRequest,
+  DescribeDataDeletionJobResponse,
   DescribeDatasetExportJobRequest,
   DescribeDatasetExportJobResponse,
   DescribeDatasetGroupRequest,
@@ -284,6 +301,8 @@ import {
   ListBatchSegmentJobsResponse,
   ListCampaignsRequest,
   ListCampaignsResponse,
+  ListDataDeletionJobsRequest,
+  ListDataDeletionJobsResponse,
   ListDatasetExportJobsRequest,
   ListDatasetExportJobsResponse,
   ListDatasetGroupsRequest,
@@ -381,6 +400,19 @@ export const se_CreateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateCampaign");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateDataDeletionJobCommand
+ */
+export const se_CreateDataDeletionJobCommand = async (
+  input: CreateDataDeletionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateDataDeletionJob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -699,6 +731,19 @@ export const se_DescribeCampaignCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeDataDeletionJobCommand
+ */
+export const se_DescribeDataDeletionJobCommand = async (
+  input: DescribeDataDeletionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDataDeletionJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeDatasetCommand
  */
 export const se_DescribeDatasetCommand = async (
@@ -914,6 +959,19 @@ export const se_ListCampaignsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListCampaigns");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListDataDeletionJobsCommand
+ */
+export const se_ListDataDeletionJobsCommand = async (
+  input: ListDataDeletionJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDataDeletionJobs");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1272,6 +1330,26 @@ export const de_CreateCampaignCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: CreateCampaignCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataDeletionJobCommand
+ */
+export const de_CreateDataDeletionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataDeletionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDataDeletionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1732,6 +1810,26 @@ export const de_DescribeCampaignCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeDataDeletionJobCommand
+ */
+export const de_DescribeDataDeletionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataDeletionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataDeletionJobResponse(data, context);
+  const response: DescribeDataDeletionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeDatasetCommand
  */
 export const de_DescribeDatasetCommand = async (
@@ -2065,6 +2163,26 @@ export const de_ListCampaignsCommand = async (
   let contents: any = {};
   contents = de_ListCampaignsResponse(data, context);
   const response: ListCampaignsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDataDeletionJobsCommand
+ */
+export const de_ListDataDeletionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataDeletionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDataDeletionJobsResponse(data, context);
+  const response: ListDataDeletionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2754,6 +2872,8 @@ const se_ContinuousHyperParameterRanges = (input: ContinuousHyperParameterRange[
 
 // se_CreateCampaignRequest omitted.
 
+// se_CreateDataDeletionJobRequest omitted.
+
 // se_CreateDatasetExportJobRequest omitted.
 
 // se_CreateDatasetGroupRequest omitted.
@@ -2820,6 +2940,8 @@ const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __Serde
 // se_DescribeBatchSegmentJobRequest omitted.
 
 // se_DescribeCampaignRequest omitted.
+
+// se_DescribeDataDeletionJobRequest omitted.
 
 // se_DescribeDatasetExportJobRequest omitted.
 
@@ -2892,6 +3014,8 @@ const se_HyperParameterRanges = (input: HyperParameterRanges, context: __SerdeCo
 // se_ListBatchSegmentJobsRequest omitted.
 
 // se_ListCampaignsRequest omitted.
+
+// se_ListDataDeletionJobsRequest omitted.
 
 // se_ListDatasetExportJobsRequest omitted.
 
@@ -3213,6 +3337,8 @@ const de_ContinuousHyperParameterRanges = (output: any, context: __SerdeContext)
 
 // de_CreateCampaignResponse omitted.
 
+// de_CreateDataDeletionJobResponse omitted.
+
 // de_CreateDatasetExportJobResponse omitted.
 
 // de_CreateDatasetGroupResponse omitted.
@@ -3234,6 +3360,51 @@ const de_ContinuousHyperParameterRanges = (output: any, context: __SerdeContext)
 // de_CreateSolutionResponse omitted.
 
 // de_CreateSolutionVersionResponse omitted.
+
+/**
+ * deserializeAws_json1_1DataDeletionJob
+ */
+const de_DataDeletionJob = (output: any, context: __SerdeContext): DataDeletionJob => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataDeletionJobArn: __expectString,
+    dataSource: _json,
+    datasetGroupArn: __expectString,
+    failureReason: __expectString,
+    jobName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    numDeleted: __expectInt32,
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DataDeletionJobs
+ */
+const de_DataDeletionJobs = (output: any, context: __SerdeContext): DataDeletionJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataDeletionJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1DataDeletionJobSummary
+ */
+const de_DataDeletionJobSummary = (output: any, context: __SerdeContext): DataDeletionJobSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataDeletionJobArn: __expectString,
+    datasetGroupArn: __expectString,
+    failureReason: __expectString,
+    jobName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1Dataset
@@ -3546,6 +3717,15 @@ const de_DescribeCampaignResponse = (output: any, context: __SerdeContext): Desc
 };
 
 /**
+ * deserializeAws_json1_1DescribeDataDeletionJobResponse
+ */
+const de_DescribeDataDeletionJobResponse = (output: any, context: __SerdeContext): DescribeDataDeletionJobResponse => {
+  return take(output, {
+    dataDeletionJob: (_: any) => de_DataDeletionJob(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeDatasetExportJobResponse
  */
 const de_DescribeDatasetExportJobResponse = (
@@ -3854,6 +4034,16 @@ const de_ListBatchSegmentJobsResponse = (output: any, context: __SerdeContext): 
 const de_ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
   return take(output, {
     campaigns: (_: any) => de_Campaigns(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDataDeletionJobsResponse
+ */
+const de_ListDataDeletionJobsResponse = (output: any, context: __SerdeContext): ListDataDeletionJobsResponse => {
+  return take(output, {
+    dataDeletionJobs: (_: any) => de_DataDeletionJobs(_, context),
     nextToken: __expectString,
   }) as any;
 };

@@ -60,10 +60,26 @@ import {
 } from "./commands/CreateWorkspaceApiKeyCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
 import {
+  CreateWorkspaceServiceAccountCommandInput,
+  CreateWorkspaceServiceAccountCommandOutput,
+} from "./commands/CreateWorkspaceServiceAccountCommand";
+import {
+  CreateWorkspaceServiceAccountTokenCommandInput,
+  CreateWorkspaceServiceAccountTokenCommandOutput,
+} from "./commands/CreateWorkspaceServiceAccountTokenCommand";
+import {
   DeleteWorkspaceApiKeyCommandInput,
   DeleteWorkspaceApiKeyCommandOutput,
 } from "./commands/DeleteWorkspaceApiKeyCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import {
+  DeleteWorkspaceServiceAccountCommandInput,
+  DeleteWorkspaceServiceAccountCommandOutput,
+} from "./commands/DeleteWorkspaceServiceAccountCommand";
+import {
+  DeleteWorkspaceServiceAccountTokenCommandInput,
+  DeleteWorkspaceServiceAccountTokenCommandOutput,
+} from "./commands/DeleteWorkspaceServiceAccountTokenCommand";
 import {
   DescribeWorkspaceAuthenticationCommandInput,
   DescribeWorkspaceAuthenticationCommandOutput,
@@ -84,6 +100,14 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
 import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
+import {
+  ListWorkspaceServiceAccountsCommandInput,
+  ListWorkspaceServiceAccountsCommandOutput,
+} from "./commands/ListWorkspaceServiceAccountsCommand";
+import {
+  ListWorkspaceServiceAccountTokensCommandInput,
+  ListWorkspaceServiceAccountTokensCommandOutput,
+} from "./commands/ListWorkspaceServiceAccountTokensCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdatePermissionsCommandInput, UpdatePermissionsCommandOutput } from "./commands/UpdatePermissionsCommand";
@@ -114,8 +138,12 @@ export type ServiceInputTypes =
   | AssociateLicenseCommandInput
   | CreateWorkspaceApiKeyCommandInput
   | CreateWorkspaceCommandInput
+  | CreateWorkspaceServiceAccountCommandInput
+  | CreateWorkspaceServiceAccountTokenCommandInput
   | DeleteWorkspaceApiKeyCommandInput
   | DeleteWorkspaceCommandInput
+  | DeleteWorkspaceServiceAccountCommandInput
+  | DeleteWorkspaceServiceAccountTokenCommandInput
   | DescribeWorkspaceAuthenticationCommandInput
   | DescribeWorkspaceCommandInput
   | DescribeWorkspaceConfigurationCommandInput
@@ -123,6 +151,8 @@ export type ServiceInputTypes =
   | ListPermissionsCommandInput
   | ListTagsForResourceCommandInput
   | ListVersionsCommandInput
+  | ListWorkspaceServiceAccountTokensCommandInput
+  | ListWorkspaceServiceAccountsCommandInput
   | ListWorkspacesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -138,8 +168,12 @@ export type ServiceOutputTypes =
   | AssociateLicenseCommandOutput
   | CreateWorkspaceApiKeyCommandOutput
   | CreateWorkspaceCommandOutput
+  | CreateWorkspaceServiceAccountCommandOutput
+  | CreateWorkspaceServiceAccountTokenCommandOutput
   | DeleteWorkspaceApiKeyCommandOutput
   | DeleteWorkspaceCommandOutput
+  | DeleteWorkspaceServiceAccountCommandOutput
+  | DeleteWorkspaceServiceAccountTokenCommandOutput
   | DescribeWorkspaceAuthenticationCommandOutput
   | DescribeWorkspaceCommandOutput
   | DescribeWorkspaceConfigurationCommandOutput
@@ -147,6 +181,8 @@ export type ServiceOutputTypes =
   | ListPermissionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVersionsCommandOutput
+  | ListWorkspaceServiceAccountTokensCommandOutput
+  | ListWorkspaceServiceAccountsCommandOutput
   | ListWorkspacesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

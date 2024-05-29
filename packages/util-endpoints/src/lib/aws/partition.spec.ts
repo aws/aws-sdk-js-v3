@@ -110,7 +110,7 @@ describe("partition", () => {
 
     useDefaultPartitionInfo();
     // result is matched by regex, but customization is no longer present.
-    expect(partition(testRegion)["description"]).not.toBeDefined();
+    expect((partition(testRegion) as any)["description"]).not.toBeDefined();
   });
 
   it("should optionally set a user agent prefix", async () => {

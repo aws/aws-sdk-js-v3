@@ -96,11 +96,19 @@ import {
   BatchDisassociateAnalyticsDataSetCommandOutput,
 } from "../commands/BatchDisassociateAnalyticsDataSetCommand";
 import {
+  BatchGetAttachedFileMetadataCommandInput,
+  BatchGetAttachedFileMetadataCommandOutput,
+} from "../commands/BatchGetAttachedFileMetadataCommand";
+import {
   BatchGetFlowAssociationCommandInput,
   BatchGetFlowAssociationCommandOutput,
 } from "../commands/BatchGetFlowAssociationCommand";
 import { BatchPutContactCommandInput, BatchPutContactCommandOutput } from "../commands/BatchPutContactCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "../commands/ClaimPhoneNumberCommand";
+import {
+  CompleteAttachedFileUploadCommandInput,
+  CompleteAttachedFileUploadCommandOutput,
+} from "../commands/CompleteAttachedFileUploadCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "../commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
 import {
@@ -159,6 +167,7 @@ import {
   DeactivateEvaluationFormCommandInput,
   DeactivateEvaluationFormCommandOutput,
 } from "../commands/DeactivateEvaluationFormCommand";
+import { DeleteAttachedFileCommandInput, DeleteAttachedFileCommandOutput } from "../commands/DeleteAttachedFileCommand";
 import {
   DeleteContactEvaluationCommandInput,
   DeleteContactEvaluationCommandOutput,
@@ -327,6 +336,7 @@ import {
   DisassociateUserProficienciesCommandOutput,
 } from "../commands/DisassociateUserProficienciesCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "../commands/DismissUserContactCommand";
+import { GetAttachedFileCommandInput, GetAttachedFileCommandOutput } from "../commands/GetAttachedFileCommand";
 import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -486,6 +496,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchContactFlowModulesCommandInput,
+  SearchContactFlowModulesCommandOutput,
+} from "../commands/SearchContactFlowModulesCommand";
+import { SearchContactFlowsCommandInput, SearchContactFlowsCommandOutput } from "../commands/SearchContactFlowsCommand";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "../commands/SearchContactsCommand";
 import {
   SearchHoursOfOperationsCommandInput,
@@ -516,6 +531,10 @@ import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
 } from "../commands/SendChatIntegrationEventCommand";
+import {
+  StartAttachedFileUploadCommandInput,
+  StartAttachedFileUploadCommandOutput,
+} from "../commands/StartAttachedFileUploadCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
 import {
   StartContactEvaluationCommandInput,
@@ -718,21 +737,25 @@ import {
   AgentContactReference,
   AgentHierarchyGroups,
   AgentInfo,
+  AgentQualityMetrics,
   AgentStatus,
   AgentStatusReference,
   AgentStatusSummary,
   AllowedCapabilities,
   Application,
   AssignContactCategoryActionDefinition,
+  AttributeCondition,
+  AudioQualityMetricsInfo,
   Campaign,
   Channel,
-  Contact,
   ContactDataRequest,
-  ContactFlowNotPublishedException,
   ContactInitiationMethod,
   ContactState,
   CreateCaseActionDefinition,
+  CreatedByInfo,
   CrossChannelBehavior,
+  CustomerQualityMetrics,
+  CustomerVoiceActivity,
   Distribution,
   DuplicateResourceException,
   EmptyFieldValue,
@@ -756,13 +779,12 @@ import {
   EvaluationNote,
   EvaluationScore,
   EventBridgeActionDefinition,
+  Expiry,
   FieldValue,
   FieldValueUnion,
-  HoursOfOperation,
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
-  Instance,
   InstanceStorageConfig,
   InternalServiceException,
   InvalidContactFlowException,
@@ -786,6 +808,7 @@ import {
   PhoneNumberQuickConnectConfig,
   PredefinedAttributeValues,
   PropertyValidationException,
+  QualityMetrics,
   QueueInfo,
   QueueQuickConnectConfig,
   QuickConnectConfig,
@@ -801,6 +824,7 @@ import {
   RuleAction,
   RuleTriggerEventSource,
   S3Config,
+  SegmentAttributeValue,
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
@@ -822,9 +846,8 @@ import {
   ViewInputContent,
 } from "../models/models_0";
 import {
-  ConflictException,
-  ContactAnalysis,
   ContactFilter,
+  ContactFlowNotPublishedException,
   Credentials,
   CurrentMetric,
   CurrentMetricData,
@@ -844,7 +867,9 @@ import {
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
+  HoursOfOperation,
   HoursOfOperationSummary,
+  Instance,
   InstanceSummary,
   IntervalDetails,
   MetricDataV2,
@@ -873,9 +898,6 @@ import {
   RoutingProfileSummary,
   Rule,
   RuleSummary,
-  SearchableContactAttributes,
-  SearchableContactAttributesCriteria,
-  SearchCriteria,
   SecurityKey,
   SecurityProfile,
   SecurityProfileSummary,
@@ -885,8 +907,6 @@ import {
   TelephonyConfig,
   Threshold,
   ThresholdV2,
-  Transcript,
-  TranscriptCriteria,
   User,
   UserData,
   UserDataFilters,
@@ -902,6 +922,13 @@ import {
   ChatMessage,
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
+  ConflictException,
+  Contact,
+  ContactAnalysis,
+  ContactFlowModuleSearchCriteria,
+  ContactFlowModuleSearchFilter,
+  ContactFlowSearchCriteria,
+  ContactFlowSearchFilter,
   ContactNotFoundException,
   ContactSearchSummary,
   ContactSearchSummaryAgentInfo,
@@ -915,6 +942,7 @@ import {
   EvaluationFormContent,
   EvaluationFormItem,
   EvaluationFormSection,
+  Expression,
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
@@ -935,16 +963,22 @@ import {
   QuickConnectSearchCriteria,
   QuickConnectSearchFilter,
   ResourceTagsSearchCriteria,
+  RoutingCriteria,
   RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
+  SearchableContactAttributes,
+  SearchableContactAttributesCriteria,
   SearchContactsTimeRange,
+  SearchCriteria,
   SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
-  SegmentAttributeValue,
   Sort,
+  Step,
   StringCondition,
   TagCondition,
   TagSearchCondition,
+  Transcript,
+  TranscriptCriteria,
   UpdateParticipantRoleConfigChannelInfo,
   UserSearchCriteria,
   UserSearchFilter,
@@ -1358,6 +1392,32 @@ export const se_BatchDisassociateAnalyticsDataSetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1BatchGetAttachedFileMetadataCommand
+ */
+export const se_BatchGetAttachedFileMetadataCommand = async (
+  input: BatchGetAttachedFileMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/attached-files/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      FileIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1BatchGetFlowAssociationCommand
  */
 export const se_BatchGetFlowAssociationCommand = async (
@@ -1433,6 +1493,26 @@ export const se_ClaimPhoneNumberCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CompleteAttachedFileUploadCommand
+ */
+export const se_CompleteAttachedFileUploadCommand = async (
+  input: CompleteAttachedFileUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/attached-files/{InstanceId}/{FileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("FileId", () => input.FileId!, "{FileId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateAgentStatusCommand
  */
 export const se_CreateAgentStatusCommand = async (
@@ -1478,6 +1558,7 @@ export const se_CreateContactFlowCommand = async (
       Content: [],
       Description: [],
       Name: [],
+      Status: [],
       Tags: (_) => _json(_),
       Type: [],
     })
@@ -2105,6 +2186,26 @@ export const se_DeactivateEvaluationFormCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAttachedFileCommand
+ */
+export const se_DeleteAttachedFileCommand = async (
+  input: DeleteAttachedFileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/attached-files/{InstanceId}/{FileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("FileId", () => input.FileId!, "{FileId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3188,6 +3289,27 @@ export const se_DismissUserContactCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAttachedFileCommand
+ */
+export const se_GetAttachedFileCommand = async (
+  input: GetAttachedFileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/attached-files/{InstanceId}/{FileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("FileId", () => input.FileId!, "{FileId}", false);
+  const query: any = map({
+    [_uEIS]: [() => input.UrlExpiryInSeconds !== void 0, () => input[_UEIS]!.toString()],
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4556,6 +4678,58 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchContactFlowModulesCommand
+ */
+export const se_SearchContactFlowModulesCommand = async (
+  input: SearchContactFlowModulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-contact-flow-modules");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_ContactFlowModuleSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchContactFlowsCommand
+ */
+export const se_SearchContactFlowsCommand = async (
+  input: SearchContactFlowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-contact-flows");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_ContactFlowSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SearchContactsCommand
  */
 export const se_SearchContactsCommand = async (
@@ -4865,6 +5039,38 @@ export const se_SendChatIntegrationEventCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartAttachedFileUploadCommand
+ */
+export const se_StartAttachedFileUploadCommand = async (
+  input: StartAttachedFileUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/attached-files/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_aRA]: [, __expectNonNull(input[_ARA]!, `AssociatedResourceArn`)],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      CreatedBy: (_) => _json(_),
+      FileName: [],
+      FileSizeInBytes: [],
+      FileUseCaseType: [],
+      Tags: (_) => _json(_),
+      UrlExpiryInSeconds: [],
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -6786,6 +6992,28 @@ export const de_BatchDisassociateAnalyticsDataSetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchGetAttachedFileMetadataCommand
+ */
+export const de_BatchGetAttachedFileMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAttachedFileMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Errors: _json,
+    Files: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1BatchGetFlowAssociationCommand
  */
 export const de_BatchGetFlowAssociationCommand = async (
@@ -6847,6 +7075,23 @@ export const de_ClaimPhoneNumberCommand = async (
     PhoneNumberId: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CompleteAttachedFileUploadCommand
+ */
+export const de_CompleteAttachedFileUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteAttachedFileUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -7391,6 +7636,23 @@ export const de_DeactivateEvaluationFormCommand = async (
     EvaluationFormVersion: __expectInt32,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAttachedFileCommand
+ */
+export const de_DeleteAttachedFileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttachedFileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -8514,6 +8776,37 @@ export const de_DismissUserContactCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAttachedFileCommand
+ */
+export const de_GetAttachedFileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAttachedFileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AssociatedResourceArn: __expectString,
+    CreatedBy: (_) => _json(__expectUnion(_)),
+    CreationTime: __expectString,
+    DownloadUrlMetadata: _json,
+    FileArn: __expectString,
+    FileId: __expectString,
+    FileName: __expectString,
+    FileSizeInBytes: __expectLong,
+    FileStatus: __expectString,
+    FileUseCaseType: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -9910,6 +10203,52 @@ export const de_SearchAvailablePhoneNumbersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchContactFlowModulesCommand
+ */
+export const de_SearchContactFlowModulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactFlowModulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    ContactFlowModules: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchContactFlowsCommand
+ */
+export const de_SearchContactFlowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactFlowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    ContactFlows: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchContactsCommand
  */
 export const de_SearchContactsCommand = async (
@@ -10177,6 +10516,32 @@ export const de_SendChatIntegrationEventCommand = async (
   const doc = take(data, {
     InitialContactId: __expectString,
     NewChatCreated: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartAttachedFileUploadCommand
+ */
+export const de_StartAttachedFileUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAttachedFileUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedBy: (_) => _json(__expectUnion(_)),
+    CreationTime: __expectString,
+    FileArn: __expectString,
+    FileId: __expectString,
+    FileStatus: __expectString,
+    UploadUrlMetadata: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -11658,6 +12023,7 @@ const de_InvalidRequestExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     Message: __expectString,
+    Reason: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   const exception = new InvalidRequestException({
@@ -11979,6 +12345,60 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_ContactFilter omitted.
 
+/**
+ * serializeAws_restJson1ContactFlowModuleSearchConditionList
+ */
+const se_ContactFlowModuleSearchConditionList = (
+  input: ContactFlowModuleSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ContactFlowModuleSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ContactFlowModuleSearchCriteria
+ */
+const se_ContactFlowModuleSearchCriteria = (input: ContactFlowModuleSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
+    OrConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_ContactFlowModuleSearchFilter omitted.
+
+/**
+ * serializeAws_restJson1ContactFlowSearchConditionList
+ */
+const se_ContactFlowSearchConditionList = (input: ContactFlowSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ContactFlowSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ContactFlowSearchCriteria
+ */
+const se_ContactFlowSearchCriteria = (input: ContactFlowSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_ContactFlowSearchConditionList(_, context),
+    OrConditions: (_) => se_ContactFlowSearchConditionList(_, context),
+    StateCondition: [],
+    StatusCondition: [],
+    StringCondition: _json,
+    TypeCondition: [],
+  });
+};
+
+// se_ContactFlowSearchFilter omitted.
+
 // se_ContactReferences omitted.
 
 // se_ContactStates omitted.
@@ -11998,6 +12418,8 @@ const se_CreateCaseActionDefinition = (input: CreateCaseActionDefinition, contex
     TemplateId: [],
   });
 };
+
+// se_CreatedByInfo omitted.
 
 // se_CrossChannelBehavior omitted.
 
@@ -12171,6 +12593,8 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
     StringValue: [],
   });
 };
+
+// se_FileIdList omitted.
 
 // se_Filters omitted.
 
@@ -12791,14 +13215,28 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
   return retVal;
 };
 
+// de_AgentHierarchyGroup omitted.
+
 /**
  * deserializeAws_restJson1AgentInfo
  */
 const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return take(output, {
     AgentPauseDurationInSeconds: __expectInt32,
+    Capabilities: _json,
     ConnectedToAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeviceInfo: _json,
+    HierarchyGroups: _json,
     Id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AgentQualityMetrics
+ */
+const de_AgentQualityMetrics = (output: any, context: __SerdeContext): AgentQualityMetrics => {
+  return take(output, {
+    Audio: (_: any) => de_AudioQualityMetricsInfo(_, context),
   }) as any;
 };
 
@@ -12871,11 +13309,31 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 
 // de_AssignContactCategoryActionDefinition omitted.
 
+// de_AttachedFile omitted.
+
+// de_AttachedFileError omitted.
+
+// de_AttachedFileErrorsList omitted.
+
+// de_AttachedFilesList omitted.
+
 // de_AttachmentReference omitted.
 
 // de_Attendee omitted.
 
 // de_Attribute omitted.
+
+/**
+ * deserializeAws_restJson1AttributeCondition
+ */
+const de_AttributeCondition = (output: any, context: __SerdeContext): AttributeCondition => {
+  return take(output, {
+    ComparisonOperator: __expectString,
+    Name: __expectString,
+    ProficiencyLevel: __limitedParseFloat32,
+    Value: __expectString,
+  }) as any;
+};
 
 // de_Attributes omitted.
 
@@ -12883,9 +13341,21 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 
 // de_AudioFeatures omitted.
 
+/**
+ * deserializeAws_restJson1AudioQualityMetricsInfo
+ */
+const de_AudioQualityMetricsInfo = (output: any, context: __SerdeContext): AudioQualityMetricsInfo => {
+  return take(output, {
+    PotentialQualityIssues: _json,
+    QualityScore: __limitedParseFloat32,
+  }) as any;
+};
+
 // de_AvailableNumbersList omitted.
 
 // de_AvailableNumberSummary omitted.
+
+// de_Campaign omitted.
 
 // de_ChannelToCountMap omitted.
 
@@ -12899,9 +13369,15 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 const de_Contact = (output: any, context: __SerdeContext): Contact => {
   return take(output, {
     AgentInfo: (_: any) => de_AgentInfo(_, context),
+    AnsweringMachineDetectionStatus: __expectString,
     Arn: __expectString,
+    Campaign: _json,
     Channel: __expectString,
+    ConnectedToSystemTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Customer: _json,
+    CustomerVoiceActivity: (_: any) => de_CustomerVoiceActivity(_, context),
     Description: __expectString,
+    DisconnectDetails: _json,
     DisconnectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Id: __expectString,
     InitialContactId: __expectString,
@@ -12912,11 +13388,14 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     LastUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     PreviousContactId: __expectString,
+    QualityMetrics: (_: any) => de_QualityMetrics(_, context),
     QueueInfo: (_: any) => de_QueueInfo(_, context),
     QueuePriority: __expectLong,
     QueueTimeAdjustmentSeconds: __expectInt32,
     RelatedContactId: __expectString,
+    RoutingCriteria: (_: any) => de_RoutingCriteria(_, context),
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentAttributes: _json,
     Tags: _json,
     TotalPauseCount: __expectInt32,
     TotalPauseDurationInSeconds: __expectInt32,
@@ -12928,9 +13407,13 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
 
 // de_ContactFlowModule omitted.
 
+// de_ContactFlowModuleSearchSummaryList omitted.
+
 // de_ContactFlowModulesSummaryList omitted.
 
 // de_ContactFlowModuleSummary omitted.
+
+// de_ContactFlowSearchSummaryList omitted.
 
 // de_ContactFlowSummary omitted.
 
@@ -13001,6 +13484,8 @@ const de_CreateCaseActionDefinition = (output: any, context: __SerdeContext): Cr
   }) as any;
 };
 
+// de_CreatedByInfo omitted.
+
 /**
  * deserializeAws_restJson1Credentials
  */
@@ -13061,6 +13546,27 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
   return retVal;
 };
 
+// de_Customer omitted.
+
+/**
+ * deserializeAws_restJson1CustomerQualityMetrics
+ */
+const de_CustomerQualityMetrics = (output: any, context: __SerdeContext): CustomerQualityMetrics => {
+  return take(output, {
+    Audio: (_: any) => de_AudioQualityMetricsInfo(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CustomerVoiceActivity
+ */
+const de_CustomerVoiceActivity = (output: any, context: __SerdeContext): CustomerVoiceActivity => {
+  return take(output, {
+    GreetingEndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    GreetingStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_DataSetIds omitted.
 
 // de_DateReference omitted.
@@ -13069,13 +13575,19 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
 
 // de_DefaultVocabularyList omitted.
 
+// de_DeviceInfo omitted.
+
 // de_Dimensions omitted.
 
 // de_DimensionsV2Map omitted.
 
+// de_DisconnectDetails omitted.
+
 // de_Distribution omitted.
 
 // de_DistributionList omitted.
+
+// de_DownloadUrlMetadata omitted.
 
 // de_EmailReference omitted.
 
@@ -13398,6 +13910,39 @@ const de_EvaluationSummaryList = (output: any, context: __SerdeContext): Evaluat
 
 // de_EventBridgeActionDefinition omitted.
 
+/**
+ * deserializeAws_restJson1Expiry
+ */
+const de_Expiry = (output: any, context: __SerdeContext): Expiry => {
+  return take(output, {
+    DurationInSeconds: __expectInt32,
+    ExpiryTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Expression
+ */
+const de_Expression = (output: any, context: __SerdeContext): Expression => {
+  return take(output, {
+    AndExpression: (_: any) => de_Expressions(_, context),
+    AttributeCondition: (_: any) => de_AttributeCondition(_, context),
+    OrExpression: (_: any) => de_Expressions(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Expressions
+ */
+const de_Expressions = (output: any, context: __SerdeContext): Expression[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Expression(entry, context);
+    });
+  return retVal;
+};
+
 // de_FailedRequest omitted.
 
 // de_FailedRequestList omitted.
@@ -13457,6 +14002,8 @@ const de_HierarchyGroup = (output: any, context: __SerdeContext): HierarchyGroup
     Tags: _json,
   }) as any;
 };
+
+// de_HierarchyGroups omitted.
 
 /**
  * deserializeAws_restJson1HierarchyGroupSummary
@@ -13704,6 +14251,8 @@ const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceS
 
 // de_IntegrationAssociationSummaryList omitted.
 
+// de_InvalidRequestExceptionReason omitted.
+
 // de_InvisibleFieldInfo omitted.
 
 // de_InvisibleTaskTemplateFields omitted.
@@ -13821,6 +14370,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_OutboundCallerConfig omitted.
 
+// de_ParticipantCapabilities omitted.
+
 // de_ParticipantTokenCredentials omitted.
 
 // de_PermissionsList omitted.
@@ -13832,6 +14383,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 // de_PhoneNumberSummary omitted.
 
 // de_PhoneNumberSummaryList omitted.
+
+// de_PotentialAudioQualityIssues omitted.
 
 /**
  * deserializeAws_restJson1PredefinedAttribute
@@ -13943,6 +14496,16 @@ const de_PromptSummaryList = (output: any, context: __SerdeContext): PromptSumma
 // de_PropertyValidationExceptionProperty omitted.
 
 // de_PropertyValidationExceptionPropertyList omitted.
+
+/**
+ * deserializeAws_restJson1QualityMetrics
+ */
+const de_QualityMetrics = (output: any, context: __SerdeContext): QualityMetrics => {
+  return take(output, {
+    Agent: (_: any) => de_AgentQualityMetrics(_, context),
+    Customer: (_: any) => de_CustomerQualityMetrics(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Queue
@@ -14230,6 +14793,17 @@ const de_RealTimeContactAnalysisTimeData = (output: any, context: __SerdeContext
 // de_RequiredTaskTemplateFields omitted.
 
 /**
+ * deserializeAws_restJson1RoutingCriteria
+ */
+const de_RoutingCriteria = (output: any, context: __SerdeContext): RoutingCriteria => {
+  return take(output, {
+    ActivationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Index: __expectInt32,
+    Steps: (_: any) => de_Steps(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1RoutingProfile
  */
 const de_RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile => {
@@ -14448,6 +15022,10 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
   return retVal;
 };
 
+// de_SegmentAttributes omitted.
+
+// de_SegmentAttributeValue omitted.
+
 // de_SendNotificationActionDefinition omitted.
 
 // de_SignInConfig omitted.
@@ -14459,6 +15037,29 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
 // de_SingleSelectOptions omitted.
 
 // de_SingleSelectQuestionRuleCategoryAutomation omitted.
+
+/**
+ * deserializeAws_restJson1Step
+ */
+const de_Step = (output: any, context: __SerdeContext): Step => {
+  return take(output, {
+    Expiry: (_: any) => de_Expiry(_, context),
+    Expression: (_: any) => de_Expression(_, context),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Steps
+ */
+const de_Steps = (output: any, context: __SerdeContext): Step[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Step(entry, context);
+    });
+  return retVal;
+};
 
 // de_StringReference omitted.
 
@@ -14571,6 +15172,10 @@ const de_UpdateCaseActionDefinition = (output: any, context: __SerdeContext): Up
     Fields: (_: any) => de_FieldValues(_, context),
   }) as any;
 };
+
+// de_UploadUrlMetadata omitted.
+
+// de_UrlMetadataSignedHeaders omitted.
 
 // de_UrlReference omitted.
 
@@ -14791,6 +15396,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _ARA = "AssociatedResourceArn";
 const _AST = "AgentStatusTypes";
 const _BN = "BotName";
 const _CFMS = "ContactFlowModuleState";
@@ -14821,7 +15427,9 @@ const _S = "Status";
 const _SV = "SnapshotVersion";
 const _T = "Type";
 const _TK = "TagKeys";
+const _UEIS = "UrlExpiryInSeconds";
 const _UI = "UserId";
+const _aRA = "associatedResourceArn";
 const _bN = "botName";
 const _cFT = "contactFlowTypes";
 const _cI = "contactId";
@@ -14848,4 +15456,5 @@ const _sV = "snapshotVersion";
 const _st = "status";
 const _t = "type";
 const _tK = "tagKeys";
+const _uEIS = "urlExpiryInSeconds";
 const _v = "version";

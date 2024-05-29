@@ -113,11 +113,19 @@ import {
   BatchDisassociateAnalyticsDataSetCommandOutput,
 } from "./commands/BatchDisassociateAnalyticsDataSetCommand";
 import {
+  BatchGetAttachedFileMetadataCommandInput,
+  BatchGetAttachedFileMetadataCommandOutput,
+} from "./commands/BatchGetAttachedFileMetadataCommand";
+import {
   BatchGetFlowAssociationCommandInput,
   BatchGetFlowAssociationCommandOutput,
 } from "./commands/BatchGetFlowAssociationCommand";
 import { BatchPutContactCommandInput, BatchPutContactCommandOutput } from "./commands/BatchPutContactCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "./commands/ClaimPhoneNumberCommand";
+import {
+  CompleteAttachedFileUploadCommandInput,
+  CompleteAttachedFileUploadCommandOutput,
+} from "./commands/CompleteAttachedFileUploadCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "./commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
 import {
@@ -176,6 +184,7 @@ import {
   DeactivateEvaluationFormCommandInput,
   DeactivateEvaluationFormCommandOutput,
 } from "./commands/DeactivateEvaluationFormCommand";
+import { DeleteAttachedFileCommandInput, DeleteAttachedFileCommandOutput } from "./commands/DeleteAttachedFileCommand";
 import {
   DeleteContactEvaluationCommandInput,
   DeleteContactEvaluationCommandOutput,
@@ -344,6 +353,7 @@ import {
   DisassociateUserProficienciesCommandOutput,
 } from "./commands/DisassociateUserProficienciesCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "./commands/DismissUserContactCommand";
+import { GetAttachedFileCommandInput, GetAttachedFileCommandOutput } from "./commands/GetAttachedFileCommand";
 import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -503,6 +513,11 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import {
+  SearchContactFlowModulesCommandInput,
+  SearchContactFlowModulesCommandOutput,
+} from "./commands/SearchContactFlowModulesCommand";
+import { SearchContactFlowsCommandInput, SearchContactFlowsCommandOutput } from "./commands/SearchContactFlowsCommand";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand";
 import {
   SearchHoursOfOperationsCommandInput,
@@ -533,6 +548,10 @@ import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
 } from "./commands/SendChatIntegrationEventCommand";
+import {
+  StartAttachedFileUploadCommandInput,
+  StartAttachedFileUploadCommandOutput,
+} from "./commands/StartAttachedFileUploadCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
   StartContactEvaluationCommandInput,
@@ -760,9 +779,11 @@ export type ServiceInputTypes =
   | AssociateUserProficienciesCommandInput
   | BatchAssociateAnalyticsDataSetCommandInput
   | BatchDisassociateAnalyticsDataSetCommandInput
+  | BatchGetAttachedFileMetadataCommandInput
   | BatchGetFlowAssociationCommandInput
   | BatchPutContactCommandInput
   | ClaimPhoneNumberCommandInput
+  | CompleteAttachedFileUploadCommandInput
   | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
   | CreateContactFlowModuleCommandInput
@@ -788,6 +809,7 @@ export type ServiceInputTypes =
   | CreateViewVersionCommandInput
   | CreateVocabularyCommandInput
   | DeactivateEvaluationFormCommandInput
+  | DeleteAttachedFileCommandInput
   | DeleteContactEvaluationCommandInput
   | DeleteContactFlowCommandInput
   | DeleteContactFlowModuleCommandInput
@@ -848,6 +870,7 @@ export type ServiceInputTypes =
   | DisassociateTrafficDistributionGroupUserCommandInput
   | DisassociateUserProficienciesCommandInput
   | DismissUserContactCommandInput
+  | GetAttachedFileCommandInput
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
   | GetCurrentUserDataCommandInput
@@ -911,6 +934,8 @@ export type ServiceInputTypes =
   | ResumeContactCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchContactFlowModulesCommandInput
+  | SearchContactFlowsCommandInput
   | SearchContactsCommandInput
   | SearchHoursOfOperationsCommandInput
   | SearchPredefinedAttributesCommandInput
@@ -923,6 +948,7 @@ export type ServiceInputTypes =
   | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
   | SendChatIntegrationEventCommandInput
+  | StartAttachedFileUploadCommandInput
   | StartChatContactCommandInput
   | StartContactEvaluationCommandInput
   | StartContactRecordingCommandInput
@@ -1008,9 +1034,11 @@ export type ServiceOutputTypes =
   | AssociateUserProficienciesCommandOutput
   | BatchAssociateAnalyticsDataSetCommandOutput
   | BatchDisassociateAnalyticsDataSetCommandOutput
+  | BatchGetAttachedFileMetadataCommandOutput
   | BatchGetFlowAssociationCommandOutput
   | BatchPutContactCommandOutput
   | ClaimPhoneNumberCommandOutput
+  | CompleteAttachedFileUploadCommandOutput
   | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput
   | CreateContactFlowModuleCommandOutput
@@ -1036,6 +1064,7 @@ export type ServiceOutputTypes =
   | CreateViewVersionCommandOutput
   | CreateVocabularyCommandOutput
   | DeactivateEvaluationFormCommandOutput
+  | DeleteAttachedFileCommandOutput
   | DeleteContactEvaluationCommandOutput
   | DeleteContactFlowCommandOutput
   | DeleteContactFlowModuleCommandOutput
@@ -1096,6 +1125,7 @@ export type ServiceOutputTypes =
   | DisassociateTrafficDistributionGroupUserCommandOutput
   | DisassociateUserProficienciesCommandOutput
   | DismissUserContactCommandOutput
+  | GetAttachedFileCommandOutput
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
   | GetCurrentUserDataCommandOutput
@@ -1159,6 +1189,8 @@ export type ServiceOutputTypes =
   | ResumeContactCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchContactFlowModulesCommandOutput
+  | SearchContactFlowsCommandOutput
   | SearchContactsCommandOutput
   | SearchHoursOfOperationsCommandOutput
   | SearchPredefinedAttributesCommandOutput
@@ -1171,6 +1203,7 @@ export type ServiceOutputTypes =
   | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
   | SendChatIntegrationEventCommandOutput
+  | StartAttachedFileUploadCommandOutput
   | StartChatContactCommandOutput
   | StartContactEvaluationCommandOutput
   | StartContactRecordingCommandOutput

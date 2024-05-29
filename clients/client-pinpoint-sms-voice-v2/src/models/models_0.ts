@@ -53,6 +53,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export const AccountAttributeName = {
   ACCOUNT_TIER: "ACCOUNT_TIER",
+  DEFAULT_PROTECT_CONFIGURATION_ID: "DEFAULT_PROTECT_CONFIGURATION_ID",
 } as const;
 
 /**
@@ -202,6 +203,7 @@ export interface AssociateOriginationIdentityResult {
 export const ConflictExceptionReason = {
   CREATE_REGISTRATION_VERSION_NOT_ALLOWED: "CREATE_REGISTRATION_VERSION_NOT_ALLOWED",
   DELETION_PROTECTION_ENABLED: "DELETION_PROTECTION_ENABLED",
+  DESTINATION_COUNTRY_BLOCKED_BY_PROTECT_CONFIGURATION: "DESTINATION_COUNTRY_BLOCKED_BY_PROTECT_CONFIGURATION",
   DESTINATION_PHONE_NUMBER_NOT_VERIFIED: "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
   DESTINATION_PHONE_NUMBER_OPTED_OUT: "DESTINATION_PHONE_NUMBER_OPTED_OUT",
   DISASSOCIATE_REGISTRATION_NOT_ALLOWED: "DISASSOCIATE_REGISTRATION_NOT_ALLOWED",
@@ -218,6 +220,10 @@ export const ConflictExceptionReason = {
   PHONE_NUMBER_ASSOCIATED_TO_REGISTRATION: "PHONE_NUMBER_ASSOCIATED_TO_REGISTRATION",
   PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL: "PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL",
   PHONE_NUMBER_NOT_IN_REGISTRATION_REGION: "PHONE_NUMBER_NOT_IN_REGISTRATION_REGION",
+  PROTECT_CONFIGURATION_ASSOCIATED_WITH_CONFIGURATION_SET: "PROTECT_CONFIGURATION_ASSOCIATED_WITH_CONFIGURATION_SET",
+  PROTECT_CONFIGURATION_IS_ACCOUNT_DEFAULT: "PROTECT_CONFIGURATION_IS_ACCOUNT_DEFAULT",
+  PROTECT_CONFIGURATION_NOT_ASSOCIATED_WITH_CONFIGURATION_SET:
+    "PROTECT_CONFIGURATION_NOT_ASSOCIATED_WITH_CONFIGURATION_SET",
   REGISTRATION_ALREADY_SUBMITTED: "REGISTRATION_ALREADY_SUBMITTED",
   REGISTRATION_NOT_COMPLETE: "REGISTRATION_NOT_COMPLETE",
   RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
@@ -251,6 +257,7 @@ export const ResourceType = {
   OPT_OUT_LIST: "opt-out-list",
   PHONE_NUMBER: "phone-number",
   POOL: "pool",
+  PROTECT_CONFIGURATION: "protect-configuration",
   REGISTRATION: "registration",
   REGISTRATION_ATTACHMENT: "registration-attachment",
   SENDER_ID: "sender-id",
@@ -383,6 +390,7 @@ export const ServiceQuotaExceededExceptionReason = {
   EVENT_DESTINATIONS_PER_CONFIGURATION_SET: "EVENT_DESTINATIONS_PER_CONFIGURATION_SET",
   KEYWORDS_PER_PHONE_NUMBER: "KEYWORDS_PER_PHONE_NUMBER",
   KEYWORDS_PER_POOL: "KEYWORDS_PER_POOL",
+  MONTHLY_SPEND_LIMIT_REACHED_FOR_MEDIA: "MONTHLY_SPEND_LIMIT_REACHED_FOR_MEDIA",
   MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT: "MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT",
   MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE: "MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE",
   OPT_OUT_LISTS_PER_ACCOUNT: "OPT_OUT_LISTS_PER_ACCOUNT",
@@ -390,6 +398,7 @@ export const ServiceQuotaExceededExceptionReason = {
   PHONE_NUMBERS_PER_ACCOUNT: "PHONE_NUMBERS_PER_ACCOUNT",
   PHONE_NUMBERS_PER_REGISTRATION: "PHONE_NUMBERS_PER_REGISTRATION",
   POOLS_PER_ACCOUNT: "POOLS_PER_ACCOUNT",
+  PROTECT_CONFIGURATIONS_PER_ACCOUNT: "PROTECT_CONFIGURATIONS_PER_ACCOUNT",
   REGISTRATIONS_PER_ACCOUNT: "REGISTRATIONS_PER_ACCOUNT",
   REGISTRATION_ATTACHMENTS_CREATED_PER_DAY: "REGISTRATION_ATTACHMENTS_CREATED_PER_DAY",
   REGISTRATION_ATTACHMENTS_PER_ACCOUNT: "REGISTRATION_ATTACHMENTS_PER_ACCOUNT",
@@ -498,6 +507,7 @@ export const ValidationExceptionReason = {
   INVALID_REGISTRATION_ASSOCIATION: "INVALID_REGISTRATION_ASSOCIATION",
   INVALID_REQUEST: "INVALID_REQUEST",
   MAXIMUM_SIZE_EXCEEDED: "MAXIMUM_SIZE_EXCEEDED",
+  MEDIA_TYPE_NOT_SUPPORTED: "MEDIA_TYPE_NOT_SUPPORTED",
   MISSING_PARAMETER: "MISSING_PARAMETER",
   OTHER: "OTHER",
   PARAMETERS_CANNOT_BE_USED_TOGETHER: "PARAMETERS_CANNOT_BE_USED_TOGETHER",
@@ -566,6 +576,52 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ */
+export interface AssociateProtectConfigurationRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The name of the ConfigurationSet.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetArn: string | undefined;
+
+  /**
+   * <p>The name of the ConfigurationSet.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const AttachmentStatus = {
@@ -601,7 +657,7 @@ export type AttachmentUploadErrorReason =
  */
 export interface CloudWatchLogsDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role
+   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management role
    *             that is able to write event data to an Amazon CloudWatch destination.</p>
    * @public
    */
@@ -623,6 +679,7 @@ export const ConfigurationSetFilterName = {
   DEFAULT_SENDER_ID: "default-sender-id",
   EVENT_DESTINATION_NAME: "event-destination-name",
   MATCHING_EVENT_TYPES: "matching-event-types",
+  PROTECT_CONFIGURATION_ID: "protect-configuration-id",
 } as const;
 
 /**
@@ -663,7 +720,7 @@ export const MessageType = {
 export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
- * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with an Kinesis Data Firehose event
+ * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with a Kinesis Data Firehose event
  *             destination.</p>
  *          <p>Event destinations, such as Kinesis Data Firehose, are associated with configuration
  *             sets, which enable you to publish message sending events.</p>
@@ -671,8 +728,8 @@ export type MessageType = (typeof MessageType)[keyof typeof MessageType];
  */
 export interface KinesisFirehoseDestination {
   /**
-   * <p>The ARN of an Amazon Identity and Access Management (IAM) role that is able to write
-   *             event data to an Amazon Firehose destination.</p>
+   * <p>The ARN of an Identity and Access Management role that is able to write
+   *             event data to an Amazon Kinesis Data Firehose destination.</p>
    * @public
    */
   IamRoleArn: string | undefined;
@@ -690,6 +747,23 @@ export interface KinesisFirehoseDestination {
  */
 export const EventType = {
   ALL: "ALL",
+  MEDIA_ALL: "MEDIA_ALL",
+  MEDIA_BLOCKED: "MEDIA_BLOCKED",
+  MEDIA_CARRIER_BLOCKED: "MEDIA_CARRIER_BLOCKED",
+  MEDIA_CARRIER_UNREACHABLE: "MEDIA_CARRIER_UNREACHABLE",
+  MEDIA_DELIVERED: "MEDIA_DELIVERED",
+  MEDIA_FILE_INACCESSIBLE: "MEDIA_FILE_INACCESSIBLE",
+  MEDIA_FILE_SIZE_EXCEEDED: "MEDIA_FILE_SIZE_EXCEEDED",
+  MEDIA_FILE_TYPE_UNSUPPORTED: "MEDIA_FILE_TYPE_UNSUPPORTED",
+  MEDIA_INVALID: "MEDIA_INVALID",
+  MEDIA_INVALID_MESSAGE: "MEDIA_INVALID_MESSAGE",
+  MEDIA_PENDING: "MEDIA_PENDING",
+  MEDIA_QUEUED: "MEDIA_QUEUED",
+  MEDIA_SPAM: "MEDIA_SPAM",
+  MEDIA_SUCCESSFUL: "MEDIA_SUCCESSFUL",
+  MEDIA_TTL_EXPIRED: "MEDIA_TTL_EXPIRED",
+  MEDIA_UNKNOWN: "MEDIA_UNKNOWN",
+  MEDIA_UNREACHABLE: "MEDIA_UNREACHABLE",
   TEXT_ALL: "TEXT_ALL",
   TEXT_BLOCKED: "TEXT_BLOCKED",
   TEXT_CARRIER_BLOCKED: "TEXT_CARRIER_BLOCKED",
@@ -738,7 +812,7 @@ export interface SnsDestination {
 /**
  * <p>Contains information about an event destination.</p>
  *          <p>Event destinations are associated with configuration sets, which enable you to publish
- *             message sending events to CloudWatch, Kinesis Data Firehose,or Amazon SNS.</p>
+ *             message sending events to CloudWatch, Kinesis Data Firehose, or Amazon SNS.</p>
  * @public
  */
 export interface EventDestination {
@@ -771,8 +845,7 @@ export interface EventDestination {
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Amazon
-   *             Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Amazon Kinesis Data Firehose.</p>
    * @public
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
@@ -829,6 +902,12 @@ export interface ConfigurationSetInformation {
    * @public
    */
   CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId?: string;
 }
 
 /**
@@ -932,15 +1011,13 @@ export interface CreateEventDestinationRequest {
   MatchingEventTypes: EventType[] | undefined;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Amazon
-   *             CloudWatch logs.</p>
+   * <p>An object that contains information about an event destination for logging to Amazon CloudWatch Logs.</p>
    * @public
    */
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Amazon
-   *             Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Amazon Kinesis Data Firehose.</p>
    * @public
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
@@ -1201,6 +1278,74 @@ export interface CreatePoolResult {
    * @public
    */
   CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateProtectConfigurationRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *            request. If you don't specify a client token, a randomly generated token is used for the
+   *            request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false.
+   *        </p>
+   * @public
+   */
+  DeletionProtectionEnabled?: boolean;
+
+  /**
+   * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The time when the protect configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>This is true if the protect configuration is set as your account default protect configuration.</p>
+   * @public
+   */
+  AccountDefault: boolean | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false.
+   *        </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -1739,6 +1884,28 @@ export interface CreateVerifiedDestinationNumberResult {
 /**
  * @public
  */
+export interface DeleteAccountDefaultProtectConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface DeleteAccountDefaultProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the account default protect configuration.</p>
+   * @public
+   */
+  DefaultProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the account default protect configuration.</p>
+   * @public
+   */
+  DefaultProtectConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteConfigurationSetRequest {
   /**
    * <p>The name of the configuration set or the configuration set ARN that you want to
@@ -1979,6 +2146,22 @@ export interface DeleteKeywordResult {
 /**
  * @public
  */
+export interface DeleteMediaMessageSpendLimitOverrideRequest {}
+
+/**
+ * @public
+ */
+export interface DeleteMediaMessageSpendLimitOverrideResult {
+  /**
+   * <p>The current monthly limit, in US dollars.</p>
+   * @public
+   */
+  MonthlyLimit?: number;
+}
+
+/**
+ * @public
+ */
 export interface DeleteOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p>
@@ -2161,6 +2344,53 @@ export interface DeletePoolResult {
    * @public
    */
   CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProtectConfigurationRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The time when the protect configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>This is true if the protect configuration is set as your account default protect configuration.</p>
+   * @public
+   */
+  AccountDefault: boolean | undefined;
+
+  /**
+   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false.
+   *        </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
 }
 
 /**
@@ -2980,6 +3210,7 @@ export interface DescribePhoneNumbersRequest {
  * @enum
  */
 export const NumberCapability = {
+  MMS: "MMS",
   SMS: "SMS",
   VOICE: "VOICE",
 } as const;
@@ -3339,6 +3570,124 @@ export interface DescribePoolsResult {
   /**
    * <p>The token to be used for the next set of paginated results. If this field is empty
    *             then there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectConfigurationFilterName = {
+  ACCOUNT_DEFAULT: "account-default",
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectConfigurationFilterName =
+  (typeof ProtectConfigurationFilterName)[keyof typeof ProtectConfigurationFilterName];
+
+/**
+ * <p>The filter definition for filtering protect configurations that meet a specified criteria.</p>
+ * @public
+ */
+export interface ProtectConfigurationFilter {
+  /**
+   * <p>The name of the attribute to filter on.</p>
+   * @public
+   */
+  Name: ProtectConfigurationFilterName | undefined;
+
+  /**
+   * <p>An array of values to filter for.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeProtectConfigurationsRequest {
+  /**
+   * <p>An array of protect configuration identifiers to search for.</p>
+   * @public
+   */
+  ProtectConfigurationIds?: string[];
+
+  /**
+   * <p>An array of ProtectConfigurationFilter objects to filter the results.</p>
+   * @public
+   */
+  Filters?: ProtectConfigurationFilter[];
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *            value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Provides information on the specified protect configuration.</p>
+ * @public
+ */
+export interface ProtectConfigurationInformation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The time when the protect configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>This is true if the protect configuration is set as your account default protect configuration.</p>
+   * @public
+   */
+  AccountDefault: boolean | undefined;
+
+  /**
+   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false.
+   *        </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeProtectConfigurationsResult {
+  /**
+   * <p>An array of ProtectConfigurationInformation objects that contain the details for the request. </p>
+   * @public
+   */
+  ProtectConfigurations?: ProtectConfigurationInformation[];
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *            value for this field in the initial request.</p>
    * @public
    */
   NextToken?: string;
@@ -4760,6 +5109,7 @@ export interface DescribeSpendLimitsRequest {
  * @enum
  */
 export const SpendLimitName = {
+  MEDIA_MESSAGE_MONTHLY_SPEND_LIMIT: "MEDIA_MESSAGE_MONTHLY_SPEND_LIMIT",
   TEXT_MESSAGE_MONTHLY_SPEND_LIMIT: "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
   VOICE_MESSAGE_MONTHLY_SPEND_LIMIT: "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
 } as const;
@@ -5049,6 +5399,52 @@ export interface DisassociateOriginationIdentityResult {
 /**
  * @public
  */
+export interface DisassociateProtectConfigurationRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The name of the ConfigurationSet.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetArn: string | undefined;
+
+  /**
+   * <p>The name of the ConfigurationSet.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DiscardRegistrationVersionRequest {
   /**
    * <p>The unique identifier for the registration.</p>
@@ -5124,6 +5520,79 @@ export interface DiscardRegistrationVersionResult {
    * @public
    */
   RegistrationVersionStatusHistory: RegistrationVersionStatusHistory | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectConfigurationCountryRuleSetRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The capability type to return the CountryRuleSet for. Valid values are <code>SMS</code>, <code>VOICE</code>, or <code>MMS</code>.</p>
+   * @public
+   */
+  NumberCapability: NumberCapability | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectStatus = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectStatus = (typeof ProtectStatus)[keyof typeof ProtectStatus];
+
+/**
+ * <p>The types of statuses that can be used.</p>
+ * @public
+ */
+export interface ProtectConfigurationCountryRuleSetInformation {
+  /**
+   * <p>The types of protection that can be used.</p>
+   * @public
+   */
+  ProtectStatus: ProtectStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectConfigurationCountryRuleSetResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The capability type associated with the returned ProtectConfigurationCountryRuleSetInformation objects.</p>
+   * @public
+   */
+  NumberCapability: NumberCapability | undefined;
+
+  /**
+   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the
+   *             details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the Amazon Pinpoint SMS user guide.</p>
+   * @public
+   */
+  CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
 }
 
 /**
@@ -6246,6 +6715,89 @@ export interface SendDestinationNumberVerificationCodeResult {
 /**
  * @public
  */
+export interface SendMediaMessageRequest {
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The origination identity of the message. This can be either the PhoneNumber,
+   *            PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   * @public
+   */
+  OriginationIdentity: string | undefined;
+
+  /**
+   * <p>The text body of the message.</p>
+   * @public
+   */
+  MessageBody?: string;
+
+  /**
+   * <p>An array of URLs to each media file to send. </p>
+   *          <p>The media files have to be stored in a publicly available S3 bucket. Supported media file formats
+   *            are listed in <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/mms-limitations-character.html">MMS file types, size and character limits</a>. For more information on creating an S3 bucket and managing
+   *            objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html">Creating a bucket</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html">Uploading objects</a> in the S3 user guide.</p>
+   * @public
+   */
+  MediaUrls?: string[];
+
+  /**
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
+   *            or ConfigurationSetArn.</p>
+   * @public
+   */
+  ConfigurationSetName?: string;
+
+  /**
+   * <p>The maximum amount that you want to spend, in US dollars, per each MMS message.</p>
+   * @public
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>How long the text message is valid for. By default this is 72 hours.</p>
+   * @public
+   */
+  TimeToLive?: number;
+
+  /**
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event
+   *            destination.</p>
+   * @public
+   */
+  Context?: Record<string, string>;
+
+  /**
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end
+   *            recipient.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The unique identifier of the protect configuration to use.</p>
+   * @public
+   */
+  ProtectConfigurationId?: string;
+}
+
+/**
+ * @public
+ */
+export interface SendMediaMessageResult {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId?: string;
+}
+
+/**
+ * @public
+ */
 export interface SendTextMessageRequest {
   /**
    * <p>The destination phone number in E.164 format.</p>
@@ -6323,6 +6875,12 @@ export interface SendTextMessageRequest {
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId?: string;
 }
 
 /**
@@ -6500,6 +7058,12 @@ export interface SendVoiceMessageRequest {
    * @public
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId?: string;
 }
 
 /**
@@ -6511,6 +7075,34 @@ export interface SendVoiceMessageResult {
    * @public
    */
   MessageId?: string;
+}
+
+/**
+ * @public
+ */
+export interface SetAccountDefaultProtectConfigurationRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetAccountDefaultProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the account default protect configuration.</p>
+   * @public
+   */
+  DefaultProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the account default protect configuration.</p>
+   * @public
+   */
+  DefaultProtectConfigurationId: string | undefined;
 }
 
 /**
@@ -6599,6 +7191,28 @@ export interface SetDefaultSenderIdResult {
    * @public
    */
   SenderId?: string;
+}
+
+/**
+ * @public
+ */
+export interface SetMediaMessageSpendLimitOverrideRequest {
+  /**
+   * <p>The new monthly limit to enforce on text messages.</p>
+   * @public
+   */
+  MonthlyLimit: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetMediaMessageSpendLimitOverrideResult {
+  /**
+   * <p>The current monthly limit to enforce on sending text messages.</p>
+   * @public
+   */
+  MonthlyLimit?: number;
 }
 
 /**
@@ -7152,6 +7766,113 @@ export interface UpdatePoolResult {
    * @public
    */
   CreatedTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false.
+   *        </p>
+   * @public
+   */
+  DeletionProtectionEnabled?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The time when the protect configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>This is true if the protect configuration is set as your account default protect configuration.</p>
+   * @public
+   */
+  AccountDefault: boolean | undefined;
+
+  /**
+   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false.
+   *        </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationCountryRuleSetRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The number capability to apply the CountryRuleSetUpdates updates to.</p>
+   * @public
+   */
+  NumberCapability: NumberCapability | undefined;
+
+  /**
+   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the
+   *            details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the Amazon Pinpoint SMS user guide.</p>
+   * @public
+   */
+  CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationCountryRuleSetResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The number capability that was updated</p>
+   * @public
+   */
+  NumberCapability: NumberCapability | undefined;
+
+  /**
+   * <p>An array of ProtectConfigurationCountryRuleSetInformation containing the rules for the NumberCapability.</p>
+   * @public
+   */
+  CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
 }
 
 /**

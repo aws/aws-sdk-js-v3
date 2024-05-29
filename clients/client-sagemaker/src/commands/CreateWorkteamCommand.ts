@@ -58,6 +58,14 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  *   NotificationConfiguration: { // NotificationConfiguration
  *     NotificationTopicArn: "STRING_VALUE",
  *   },
+ *   WorkerAccessConfiguration: { // WorkerAccessConfiguration
+ *     S3Presign: { // S3Presign
+ *       IamPolicyConstraints: { // IamPolicyConstraints
+ *         SourceIp: "Enabled" || "Disabled",
+ *         VpcSourceIp: "Enabled" || "Disabled",
+ *       },
+ *     },
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

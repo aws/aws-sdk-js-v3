@@ -66,6 +66,7 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  *   DeviceName: "STRING_VALUE",
  *   IpAddress: "STRING_VALUE",
  *   DryRun: true || false,
+ *   BgpAsnExtended: Number("long"),
  * };
  * const command = new CreateCustomerGatewayCommand(input);
  * const response = await client.send(command);
@@ -84,6 +85,7 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     BgpAsnExtended: "STRING_VALUE",
  * //   },
  * // };
  *

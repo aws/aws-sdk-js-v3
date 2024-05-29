@@ -103,7 +103,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ClusterId: "STRING_VALUE",
  *       IAMParameters: { // RedshiftIAMParameters
  *         RoleArn: "STRING_VALUE", // required
- *         DatabaseUser: "STRING_VALUE", // required
+ *         DatabaseUser: "STRING_VALUE",
  *         DatabaseGroups: [ // DatabaseGroupList
  *           "STRING_VALUE",
  *         ],
@@ -239,7 +239,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             ClusterId: "STRING_VALUE",
  *             IAMParameters: {
  *               RoleArn: "STRING_VALUE", // required
- *               DatabaseUser: "STRING_VALUE", // required
+ *               DatabaseUser: "STRING_VALUE",
  *               DatabaseGroups: [
  *                 "STRING_VALUE",
  *               ],

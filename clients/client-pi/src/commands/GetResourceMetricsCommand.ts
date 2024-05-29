@@ -48,7 +48,7 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  *       Metric: "STRING_VALUE", // required
  *       GroupBy: { // DimensionGroup
  *         Group: "STRING_VALUE", // required
- *         Dimensions: [ // RequestStringList
+ *         Dimensions: [ // SanitizedStringList
  *           "STRING_VALUE",
  *         ],
  *         Limit: Number("int"),

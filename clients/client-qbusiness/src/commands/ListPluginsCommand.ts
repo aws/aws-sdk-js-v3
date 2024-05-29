@@ -47,9 +47,10 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * //     { // Plugin
  * //       pluginId: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
- * //       type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK",
+ * //       type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
  * //       serverUrl: "STRING_VALUE",
  * //       state: "ENABLED" || "DISABLED",
+ * //       buildStatus: "READY" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

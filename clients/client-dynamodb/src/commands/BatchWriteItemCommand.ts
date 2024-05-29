@@ -108,6 +108,11 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *             <li>
  *                <p>The total request size exceeds 16 MB.</p>
  *             </li>
+ *             <li>
+ *                <p>Any individual items with keys exceeding the key length limits. For a
+ *                     partition key, the limit is 2048 bytes and for a sort key, the limit is 1024
+ *                     bytes.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

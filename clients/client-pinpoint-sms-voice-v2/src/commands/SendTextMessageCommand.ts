@@ -59,6 +59,7 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  *     "<keys>": "STRING_VALUE",
  *   },
  *   DryRun: true || false,
+ *   ProtectConfigurationId: "STRING_VALUE",
  * };
  * const command = new SendTextMessageCommand(input);
  * const response = await client.send(command);

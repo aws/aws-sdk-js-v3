@@ -27,9 +27,8 @@ export interface ListSharesCommandInput extends ListSharesRequest {}
 export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Lists all shares associated with an account.
- *     </p>
+ * <p>Retrieves the resource shares associated with an account. Use the filter parameter to
+ *              retrieve a specific subset of the shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +44,9 @@ export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataB
  *     status: [ // StatusList
  *       "STRING_VALUE",
  *     ],
+ *     type: [ // TypeList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -56,6 +58,7 @@ export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataB
  * //     { // ShareDetails
  * //       shareId: "STRING_VALUE",
  * //       resourceArn: "STRING_VALUE",
+ * //       resourceId: "STRING_VALUE",
  * //       principalSubscriber: "STRING_VALUE",
  * //       ownerId: "STRING_VALUE",
  * //       status: "STRING_VALUE",

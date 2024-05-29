@@ -47,7 +47,7 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * //   NextToken: "STRING_VALUE",
  * //   SynthesisTasks: [ // SynthesisTasks
  * //     { // SynthesisTask
- * //       Engine: "standard" || "neural" || "long-form",
+ * //       Engine: "standard" || "neural" || "long-form" || "generative",
  * //       TaskId: "STRING_VALUE",
  * //       TaskStatus: "scheduled" || "inProgress" || "completed" || "failed",
  * //       TaskStatusReason: "STRING_VALUE",

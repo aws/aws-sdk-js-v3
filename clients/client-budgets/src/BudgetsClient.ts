@@ -99,6 +99,12 @@ import {
   ExecuteBudgetActionCommandInput,
   ExecuteBudgetActionCommandOutput,
 } from "./commands/ExecuteBudgetActionCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBudgetActionCommandInput, UpdateBudgetActionCommandOutput } from "./commands/UpdateBudgetActionCommand";
 import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "./commands/UpdateBudgetCommand";
 import { UpdateNotificationCommandInput, UpdateNotificationCommandOutput } from "./commands/UpdateNotificationCommand";
@@ -137,6 +143,9 @@ export type ServiceInputTypes =
   | DescribeNotificationsForBudgetCommandInput
   | DescribeSubscribersForNotificationCommandInput
   | ExecuteBudgetActionCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateBudgetActionCommandInput
   | UpdateBudgetCommandInput
   | UpdateNotificationCommandInput
@@ -165,6 +174,9 @@ export type ServiceOutputTypes =
   | DescribeNotificationsForBudgetCommandOutput
   | DescribeSubscribersForNotificationCommandOutput
   | ExecuteBudgetActionCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateBudgetActionCommandOutput
   | UpdateBudgetCommandOutput
   | UpdateNotificationCommandOutput

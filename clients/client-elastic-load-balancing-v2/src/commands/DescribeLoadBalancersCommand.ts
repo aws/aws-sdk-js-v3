@@ -83,7 +83,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * //       SecurityGroups: [ // SecurityGroups
  * //         "STRING_VALUE",
  * //       ],
- * //       IpAddressType: "ipv4" || "dualstack",
+ * //       IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
  * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
  * //     },

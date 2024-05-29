@@ -803,6 +803,7 @@ export const UpstreamRegistry = {
   DockerHub: "docker-hub",
   EcrPublic: "ecr-public",
   GitHubContainerRegistry: "github-container-registry",
+  GitLabContainerRegistry: "gitlab-container-registry",
   K8s: "k8s",
   Quay: "quay",
 } as const;
@@ -852,6 +853,11 @@ export interface CreatePullThroughCacheRuleRequest {
    *             <li>
    *                <p>Microsoft Azure Container Registry (<code>azure-container-registry</code>) -
    *                         <code><custom>.azurecr.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>GitLab Container Registry (<code>gitlab-container-registry</code>) -
+   *                         <code>registry.gitlab.com</code>
    *                </p>
    *             </li>
    *          </ul>

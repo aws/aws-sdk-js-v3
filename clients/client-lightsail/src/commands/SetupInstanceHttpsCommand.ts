@@ -33,7 +33,8 @@ export interface SetupInstanceHttpsCommandOutput extends SetupInstanceHttpsResul
 /**
  * <p>Creates an SSL/TLS certificate that secures traffic for your website. After the
  *       certificate is created, it is installed on the specified Lightsail instance.</p>
- *          <p>If you provide more than one domain name in the request, at least one name must be less than or equal to 63 characters in length.</p>
+ *          <p>If you provide more than one domain name in the request, at least one name must be less
+ *       than or equal to 63 characters in length.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

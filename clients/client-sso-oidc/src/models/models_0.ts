@@ -146,6 +146,14 @@ export interface CreateTokenRequest {
    * @public
    */
   redirectUri?: string;
+
+  /**
+   * <p>Used only when calling this API for the Authorization Code grant type. This value is generated
+   *       by the client and presented to validate the original code challenge value the client passed at
+   *       authorization time.</p>
+   * @public
+   */
+  codeVerifier?: string;
 }
 
 /**
@@ -153,7 +161,7 @@ export interface CreateTokenRequest {
  */
 export interface CreateTokenResponse {
   /**
-   * <p>A bearer token to access AWS accounts and applications assigned to a user.</p>
+   * <p>A bearer token to access Amazon Web Services accounts and applications assigned to a user.</p>
    * @public
    */
   accessToken?: string;
@@ -616,6 +624,14 @@ export interface CreateTokenWithIAMRequest {
    * @public
    */
   requestedTokenType?: string;
+
+  /**
+   * <p>Used only when calling this API for the Authorization Code grant type. This value is generated
+   *       by the client and presented to validate the original code challenge value the client passed at
+   *       authorization time.</p>
+   * @public
+   */
+  codeVerifier?: string;
 }
 
 /**
@@ -623,7 +639,7 @@ export interface CreateTokenWithIAMRequest {
  */
 export interface CreateTokenWithIAMResponse {
   /**
-   * <p>A bearer token to access AWS accounts and applications assigned to a user.</p>
+   * <p>A bearer token to access Amazon Web Services accounts and applications assigned to a user.</p>
    * @public
    */
   accessToken?: string;
@@ -765,6 +781,41 @@ export class InvalidClientMetadataException extends __BaseException {
 }
 
 /**
+ * <p>Indicates that one or more redirect URI in the request is not supported for this operation.</p>
+ * @public
+ */
+export class InvalidRedirectUriException extends __BaseException {
+  readonly name: "InvalidRedirectUriException" = "InvalidRedirectUriException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Single error code.
+   *       For this exception the value will be <code>invalid_redirect_uri</code>.</p>
+   * @public
+   */
+  error?: string;
+
+  /**
+   * <p>Human-readable text providing additional information, used to assist the
+   *       client developer in understanding the error that occurred.</p>
+   * @public
+   */
+  error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRedirectUriException, __BaseException>) {
+    super({
+      name: "InvalidRedirectUriException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRedirectUriException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
+}
+
+/**
  * @public
  */
 export interface RegisterClientRequest {
@@ -787,6 +838,33 @@ export interface RegisterClientRequest {
    * @public
    */
   scopes?: string[];
+
+  /**
+   * <p>The list of redirect URI that are defined by the client. At completion of authorization,
+   *       this list is used to restrict what locations the user agent can be redirected back to.</p>
+   * @public
+   */
+  redirectUris?: string[];
+
+  /**
+   * <p>The list of OAuth 2.0 grant types that are defined by the client. This list is used to
+   *       restrict the token granting flows available to the client.</p>
+   * @public
+   */
+  grantTypes?: string[];
+
+  /**
+   * <p>The IAM Identity Center Issuer URL associated with an instance of IAM Identity Center. This value is needed for user access to resources through the client.</p>
+   * @public
+   */
+  issuerUrl?: string;
+
+  /**
+   * <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At
+   *       authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.</p>
+   * @public
+   */
+  entitledApplicationArn?: string;
 }
 
 /**
@@ -913,6 +991,7 @@ export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): a
   ...obj,
   ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
   ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
+  ...(obj.codeVerifier && { codeVerifier: SENSITIVE_STRING }),
 });
 
 /**
@@ -933,6 +1012,7 @@ export const CreateTokenWithIAMRequestFilterSensitiveLog = (obj: CreateTokenWith
   ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
   ...(obj.assertion && { assertion: SENSITIVE_STRING }),
   ...(obj.subjectToken && { subjectToken: SENSITIVE_STRING }),
+  ...(obj.codeVerifier && { codeVerifier: SENSITIVE_STRING }),
 });
 
 /**

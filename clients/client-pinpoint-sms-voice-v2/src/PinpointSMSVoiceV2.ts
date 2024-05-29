@@ -8,6 +8,11 @@ import {
   AssociateOriginationIdentityCommandOutput,
 } from "./commands/AssociateOriginationIdentityCommand";
 import {
+  AssociateProtectConfigurationCommand,
+  AssociateProtectConfigurationCommandInput,
+  AssociateProtectConfigurationCommandOutput,
+} from "./commands/AssociateProtectConfigurationCommand";
+import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -23,6 +28,11 @@ import {
   CreateOptOutListCommandOutput,
 } from "./commands/CreateOptOutListCommand";
 import { CreatePoolCommand, CreatePoolCommandInput, CreatePoolCommandOutput } from "./commands/CreatePoolCommand";
+import {
+  CreateProtectConfigurationCommand,
+  CreateProtectConfigurationCommandInput,
+  CreateProtectConfigurationCommandOutput,
+} from "./commands/CreateProtectConfigurationCommand";
 import {
   CreateRegistrationAssociationCommand,
   CreateRegistrationAssociationCommandInput,
@@ -49,6 +59,11 @@ import {
   CreateVerifiedDestinationNumberCommandOutput,
 } from "./commands/CreateVerifiedDestinationNumberCommand";
 import {
+  DeleteAccountDefaultProtectConfigurationCommand,
+  DeleteAccountDefaultProtectConfigurationCommandInput,
+  DeleteAccountDefaultProtectConfigurationCommandOutput,
+} from "./commands/DeleteAccountDefaultProtectConfigurationCommand";
+import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -74,6 +89,11 @@ import {
   DeleteKeywordCommandOutput,
 } from "./commands/DeleteKeywordCommand";
 import {
+  DeleteMediaMessageSpendLimitOverrideCommand,
+  DeleteMediaMessageSpendLimitOverrideCommandInput,
+  DeleteMediaMessageSpendLimitOverrideCommandOutput,
+} from "./commands/DeleteMediaMessageSpendLimitOverrideCommand";
+import {
   DeleteOptedOutNumberCommand,
   DeleteOptedOutNumberCommandInput,
   DeleteOptedOutNumberCommandOutput,
@@ -84,6 +104,11 @@ import {
   DeleteOptOutListCommandOutput,
 } from "./commands/DeleteOptOutListCommand";
 import { DeletePoolCommand, DeletePoolCommandInput, DeletePoolCommandOutput } from "./commands/DeletePoolCommand";
+import {
+  DeleteProtectConfigurationCommand,
+  DeleteProtectConfigurationCommandInput,
+  DeleteProtectConfigurationCommandOutput,
+} from "./commands/DeleteProtectConfigurationCommand";
 import {
   DeleteRegistrationAttachmentCommand,
   DeleteRegistrationAttachmentCommandInput,
@@ -155,6 +180,11 @@ import {
   DescribePoolsCommandOutput,
 } from "./commands/DescribePoolsCommand";
 import {
+  DescribeProtectConfigurationsCommand,
+  DescribeProtectConfigurationsCommandInput,
+  DescribeProtectConfigurationsCommandOutput,
+} from "./commands/DescribeProtectConfigurationsCommand";
+import {
   DescribeRegistrationAttachmentsCommand,
   DescribeRegistrationAttachmentsCommandInput,
   DescribeRegistrationAttachmentsCommandOutput,
@@ -210,10 +240,20 @@ import {
   DisassociateOriginationIdentityCommandOutput,
 } from "./commands/DisassociateOriginationIdentityCommand";
 import {
+  DisassociateProtectConfigurationCommand,
+  DisassociateProtectConfigurationCommandInput,
+  DisassociateProtectConfigurationCommandOutput,
+} from "./commands/DisassociateProtectConfigurationCommand";
+import {
   DiscardRegistrationVersionCommand,
   DiscardRegistrationVersionCommandInput,
   DiscardRegistrationVersionCommandOutput,
 } from "./commands/DiscardRegistrationVersionCommand";
+import {
+  GetProtectConfigurationCountryRuleSetCommand,
+  GetProtectConfigurationCountryRuleSetCommandInput,
+  GetProtectConfigurationCountryRuleSetCommandOutput,
+} from "./commands/GetProtectConfigurationCountryRuleSetCommand";
 import {
   ListPoolOriginationIdentitiesCommand,
   ListPoolOriginationIdentitiesCommandInput,
@@ -266,6 +306,11 @@ import {
   SendDestinationNumberVerificationCodeCommandOutput,
 } from "./commands/SendDestinationNumberVerificationCodeCommand";
 import {
+  SendMediaMessageCommand,
+  SendMediaMessageCommandInput,
+  SendMediaMessageCommandOutput,
+} from "./commands/SendMediaMessageCommand";
+import {
   SendTextMessageCommand,
   SendTextMessageCommandInput,
   SendTextMessageCommandOutput,
@@ -276,6 +321,11 @@ import {
   SendVoiceMessageCommandOutput,
 } from "./commands/SendVoiceMessageCommand";
 import {
+  SetAccountDefaultProtectConfigurationCommand,
+  SetAccountDefaultProtectConfigurationCommandInput,
+  SetAccountDefaultProtectConfigurationCommandOutput,
+} from "./commands/SetAccountDefaultProtectConfigurationCommand";
+import {
   SetDefaultMessageTypeCommand,
   SetDefaultMessageTypeCommandInput,
   SetDefaultMessageTypeCommandOutput,
@@ -285,6 +335,11 @@ import {
   SetDefaultSenderIdCommandInput,
   SetDefaultSenderIdCommandOutput,
 } from "./commands/SetDefaultSenderIdCommand";
+import {
+  SetMediaMessageSpendLimitOverrideCommand,
+  SetMediaMessageSpendLimitOverrideCommandInput,
+  SetMediaMessageSpendLimitOverrideCommandOutput,
+} from "./commands/SetMediaMessageSpendLimitOverrideCommand";
 import {
   SetTextMessageSpendLimitOverrideCommand,
   SetTextMessageSpendLimitOverrideCommandInput,
@@ -318,6 +373,16 @@ import {
 } from "./commands/UpdatePhoneNumberCommand";
 import { UpdatePoolCommand, UpdatePoolCommandInput, UpdatePoolCommandOutput } from "./commands/UpdatePoolCommand";
 import {
+  UpdateProtectConfigurationCommand,
+  UpdateProtectConfigurationCommandInput,
+  UpdateProtectConfigurationCommandOutput,
+} from "./commands/UpdateProtectConfigurationCommand";
+import {
+  UpdateProtectConfigurationCountryRuleSetCommand,
+  UpdateProtectConfigurationCountryRuleSetCommandInput,
+  UpdateProtectConfigurationCountryRuleSetCommandOutput,
+} from "./commands/UpdateProtectConfigurationCountryRuleSetCommand";
+import {
   UpdateSenderIdCommand,
   UpdateSenderIdCommandInput,
   UpdateSenderIdCommandOutput,
@@ -331,23 +396,28 @@ import { PinpointSMSVoiceV2Client, PinpointSMSVoiceV2ClientConfig } from "./Pinp
 
 const commands = {
   AssociateOriginationIdentityCommand,
+  AssociateProtectConfigurationCommand,
   CreateConfigurationSetCommand,
   CreateEventDestinationCommand,
   CreateOptOutListCommand,
   CreatePoolCommand,
+  CreateProtectConfigurationCommand,
   CreateRegistrationCommand,
   CreateRegistrationAssociationCommand,
   CreateRegistrationAttachmentCommand,
   CreateRegistrationVersionCommand,
   CreateVerifiedDestinationNumberCommand,
+  DeleteAccountDefaultProtectConfigurationCommand,
   DeleteConfigurationSetCommand,
   DeleteDefaultMessageTypeCommand,
   DeleteDefaultSenderIdCommand,
   DeleteEventDestinationCommand,
   DeleteKeywordCommand,
+  DeleteMediaMessageSpendLimitOverrideCommand,
   DeleteOptedOutNumberCommand,
   DeleteOptOutListCommand,
   DeletePoolCommand,
+  DeleteProtectConfigurationCommand,
   DeleteRegistrationCommand,
   DeleteRegistrationAttachmentCommand,
   DeleteRegistrationFieldValueCommand,
@@ -362,6 +432,7 @@ const commands = {
   DescribeOptOutListsCommand,
   DescribePhoneNumbersCommand,
   DescribePoolsCommand,
+  DescribeProtectConfigurationsCommand,
   DescribeRegistrationAttachmentsCommand,
   DescribeRegistrationFieldDefinitionsCommand,
   DescribeRegistrationFieldValuesCommand,
@@ -373,7 +444,9 @@ const commands = {
   DescribeSpendLimitsCommand,
   DescribeVerifiedDestinationNumbersCommand,
   DisassociateOriginationIdentityCommand,
+  DisassociateProtectConfigurationCommand,
   DiscardRegistrationVersionCommand,
+  GetProtectConfigurationCountryRuleSetCommand,
   ListPoolOriginationIdentitiesCommand,
   ListRegistrationAssociationsCommand,
   ListTagsForResourceCommand,
@@ -385,10 +458,13 @@ const commands = {
   RequestPhoneNumberCommand,
   RequestSenderIdCommand,
   SendDestinationNumberVerificationCodeCommand,
+  SendMediaMessageCommand,
   SendTextMessageCommand,
   SendVoiceMessageCommand,
+  SetAccountDefaultProtectConfigurationCommand,
   SetDefaultMessageTypeCommand,
   SetDefaultSenderIdCommand,
+  SetMediaMessageSpendLimitOverrideCommand,
   SetTextMessageSpendLimitOverrideCommand,
   SetVoiceMessageSpendLimitOverrideCommand,
   SubmitRegistrationVersionCommand,
@@ -397,6 +473,8 @@ const commands = {
   UpdateEventDestinationCommand,
   UpdatePhoneNumberCommand,
   UpdatePoolCommand,
+  UpdateProtectConfigurationCommand,
+  UpdateProtectConfigurationCountryRuleSetCommand,
   UpdateSenderIdCommand,
   VerifyDestinationNumberCommand,
 };
@@ -417,6 +495,23 @@ export interface PinpointSMSVoiceV2 {
     args: AssociateOriginationIdentityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateOriginationIdentityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateProtectConfigurationCommand}
+   */
+  associateProtectConfiguration(
+    args: AssociateProtectConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateProtectConfigurationCommandOutput>;
+  associateProtectConfiguration(
+    args: AssociateProtectConfigurationCommandInput,
+    cb: (err: any, data?: AssociateProtectConfigurationCommandOutput) => void
+  ): void;
+  associateProtectConfiguration(
+    args: AssociateProtectConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateProtectConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -479,6 +574,24 @@ export interface PinpointSMSVoiceV2 {
     args: CreatePoolCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProtectConfigurationCommand}
+   */
+  createProtectConfiguration(): Promise<CreateProtectConfigurationCommandOutput>;
+  createProtectConfiguration(
+    args: CreateProtectConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProtectConfigurationCommandOutput>;
+  createProtectConfiguration(
+    args: CreateProtectConfigurationCommandInput,
+    cb: (err: any, data?: CreateProtectConfigurationCommandOutput) => void
+  ): void;
+  createProtectConfiguration(
+    args: CreateProtectConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProtectConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -568,6 +681,24 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DeleteAccountDefaultProtectConfigurationCommand}
+   */
+  deleteAccountDefaultProtectConfiguration(): Promise<DeleteAccountDefaultProtectConfigurationCommandOutput>;
+  deleteAccountDefaultProtectConfiguration(
+    args: DeleteAccountDefaultProtectConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountDefaultProtectConfigurationCommandOutput>;
+  deleteAccountDefaultProtectConfiguration(
+    args: DeleteAccountDefaultProtectConfigurationCommandInput,
+    cb: (err: any, data?: DeleteAccountDefaultProtectConfigurationCommandOutput) => void
+  ): void;
+  deleteAccountDefaultProtectConfiguration(
+    args: DeleteAccountDefaultProtectConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountDefaultProtectConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteConfigurationSetCommand}
    */
   deleteConfigurationSet(
@@ -647,6 +778,24 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DeleteMediaMessageSpendLimitOverrideCommand}
+   */
+  deleteMediaMessageSpendLimitOverride(): Promise<DeleteMediaMessageSpendLimitOverrideCommandOutput>;
+  deleteMediaMessageSpendLimitOverride(
+    args: DeleteMediaMessageSpendLimitOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMediaMessageSpendLimitOverrideCommandOutput>;
+  deleteMediaMessageSpendLimitOverride(
+    args: DeleteMediaMessageSpendLimitOverrideCommandInput,
+    cb: (err: any, data?: DeleteMediaMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+  deleteMediaMessageSpendLimitOverride(
+    args: DeleteMediaMessageSpendLimitOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMediaMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteOptedOutNumberCommand}
    */
   deleteOptedOutNumber(
@@ -689,6 +838,23 @@ export interface PinpointSMSVoiceV2 {
     args: DeletePoolCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProtectConfigurationCommand}
+   */
+  deleteProtectConfiguration(
+    args: DeleteProtectConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProtectConfigurationCommandOutput>;
+  deleteProtectConfiguration(
+    args: DeleteProtectConfigurationCommandInput,
+    cb: (err: any, data?: DeleteProtectConfigurationCommandOutput) => void
+  ): void;
+  deleteProtectConfiguration(
+    args: DeleteProtectConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProtectConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -932,6 +1098,24 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DescribeProtectConfigurationsCommand}
+   */
+  describeProtectConfigurations(): Promise<DescribeProtectConfigurationsCommandOutput>;
+  describeProtectConfigurations(
+    args: DescribeProtectConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProtectConfigurationsCommandOutput>;
+  describeProtectConfigurations(
+    args: DescribeProtectConfigurationsCommandInput,
+    cb: (err: any, data?: DescribeProtectConfigurationsCommandOutput) => void
+  ): void;
+  describeProtectConfigurations(
+    args: DescribeProtectConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProtectConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeRegistrationAttachmentsCommand}
    */
   describeRegistrationAttachments(): Promise<DescribeRegistrationAttachmentsCommandOutput>;
@@ -1125,6 +1309,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link DisassociateProtectConfigurationCommand}
+   */
+  disassociateProtectConfiguration(
+    args: DisassociateProtectConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateProtectConfigurationCommandOutput>;
+  disassociateProtectConfiguration(
+    args: DisassociateProtectConfigurationCommandInput,
+    cb: (err: any, data?: DisassociateProtectConfigurationCommandOutput) => void
+  ): void;
+  disassociateProtectConfiguration(
+    args: DisassociateProtectConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateProtectConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DiscardRegistrationVersionCommand}
    */
   discardRegistrationVersion(
@@ -1139,6 +1340,23 @@ export interface PinpointSMSVoiceV2 {
     args: DiscardRegistrationVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DiscardRegistrationVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProtectConfigurationCountryRuleSetCommand}
+   */
+  getProtectConfigurationCountryRuleSet(
+    args: GetProtectConfigurationCountryRuleSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProtectConfigurationCountryRuleSetCommandOutput>;
+  getProtectConfigurationCountryRuleSet(
+    args: GetProtectConfigurationCountryRuleSetCommandInput,
+    cb: (err: any, data?: GetProtectConfigurationCountryRuleSetCommandOutput) => void
+  ): void;
+  getProtectConfigurationCountryRuleSet(
+    args: GetProtectConfigurationCountryRuleSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProtectConfigurationCountryRuleSetCommandOutput) => void
   ): void;
 
   /**
@@ -1317,6 +1535,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link SendMediaMessageCommand}
+   */
+  sendMediaMessage(
+    args: SendMediaMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendMediaMessageCommandOutput>;
+  sendMediaMessage(
+    args: SendMediaMessageCommandInput,
+    cb: (err: any, data?: SendMediaMessageCommandOutput) => void
+  ): void;
+  sendMediaMessage(
+    args: SendMediaMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendMediaMessageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendTextMessageCommand}
    */
   sendTextMessage(
@@ -1345,6 +1580,23 @@ export interface PinpointSMSVoiceV2 {
     args: SendVoiceMessageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendVoiceMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetAccountDefaultProtectConfigurationCommand}
+   */
+  setAccountDefaultProtectConfiguration(
+    args: SetAccountDefaultProtectConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetAccountDefaultProtectConfigurationCommandOutput>;
+  setAccountDefaultProtectConfiguration(
+    args: SetAccountDefaultProtectConfigurationCommandInput,
+    cb: (err: any, data?: SetAccountDefaultProtectConfigurationCommandOutput) => void
+  ): void;
+  setAccountDefaultProtectConfiguration(
+    args: SetAccountDefaultProtectConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetAccountDefaultProtectConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1379,6 +1631,23 @@ export interface PinpointSMSVoiceV2 {
     args: SetDefaultSenderIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetDefaultSenderIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetMediaMessageSpendLimitOverrideCommand}
+   */
+  setMediaMessageSpendLimitOverride(
+    args: SetMediaMessageSpendLimitOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetMediaMessageSpendLimitOverrideCommandOutput>;
+  setMediaMessageSpendLimitOverride(
+    args: SetMediaMessageSpendLimitOverrideCommandInput,
+    cb: (err: any, data?: SetMediaMessageSpendLimitOverrideCommandOutput) => void
+  ): void;
+  setMediaMessageSpendLimitOverride(
+    args: SetMediaMessageSpendLimitOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetMediaMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -1500,6 +1769,40 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link UpdateProtectConfigurationCommand}
+   */
+  updateProtectConfiguration(
+    args: UpdateProtectConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProtectConfigurationCommandOutput>;
+  updateProtectConfiguration(
+    args: UpdateProtectConfigurationCommandInput,
+    cb: (err: any, data?: UpdateProtectConfigurationCommandOutput) => void
+  ): void;
+  updateProtectConfiguration(
+    args: UpdateProtectConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProtectConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProtectConfigurationCountryRuleSetCommand}
+   */
+  updateProtectConfigurationCountryRuleSet(
+    args: UpdateProtectConfigurationCountryRuleSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProtectConfigurationCountryRuleSetCommandOutput>;
+  updateProtectConfigurationCountryRuleSet(
+    args: UpdateProtectConfigurationCountryRuleSetCommandInput,
+    cb: (err: any, data?: UpdateProtectConfigurationCountryRuleSetCommandOutput) => void
+  ): void;
+  updateProtectConfigurationCountryRuleSet(
+    args: UpdateProtectConfigurationCountryRuleSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProtectConfigurationCountryRuleSetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateSenderIdCommand}
    */
   updateSenderId(
@@ -1538,12 +1841,11 @@ export interface PinpointSMSVoiceV2 {
  *          <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with
  *             your recipients across multiple messaging channels. The Amazon Pinpoint SMS and
  *             Voice, version 2 API provides programmatic access to options that are unique to the SMS
- *             and voice channels and supplements the resources provided by the Amazon Pinpoint
- *             API.</p>
- *          <p>If you're new to Amazon Pinpoint, it's also helpful to review the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">
- *                 Amazon Pinpoint Developer Guide</a>. The <i>Amazon Pinpoint
+ *             and voice channels. Amazon Pinpoint SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p>
+ *          <p>If you're new to Amazon Pinpoint SMS, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html">
+ *                 Amazon Pinpoint SMS User Guide</a>. The <i>Amazon Pinpoint
  *                 Developer Guide</i> provides tutorials, code samples, and procedures that
- *             demonstrate how to use Amazon Pinpoint features programmatically and how to integrate
+ *             demonstrate how to use Amazon Pinpoint SMS features programmatically and how to integrate
  *                 Amazon Pinpoint functionality into mobile apps and other types of applications.
  *             The guide also provides key information, such as Amazon Pinpoint integration with
  *             other Amazon Web Services services, and the quotas that apply to use of the

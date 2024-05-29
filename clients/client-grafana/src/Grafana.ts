@@ -18,6 +18,16 @@ import {
   CreateWorkspaceCommandOutput,
 } from "./commands/CreateWorkspaceCommand";
 import {
+  CreateWorkspaceServiceAccountCommand,
+  CreateWorkspaceServiceAccountCommandInput,
+  CreateWorkspaceServiceAccountCommandOutput,
+} from "./commands/CreateWorkspaceServiceAccountCommand";
+import {
+  CreateWorkspaceServiceAccountTokenCommand,
+  CreateWorkspaceServiceAccountTokenCommandInput,
+  CreateWorkspaceServiceAccountTokenCommandOutput,
+} from "./commands/CreateWorkspaceServiceAccountTokenCommand";
+import {
   DeleteWorkspaceApiKeyCommand,
   DeleteWorkspaceApiKeyCommandInput,
   DeleteWorkspaceApiKeyCommandOutput,
@@ -27,6 +37,16 @@ import {
   DeleteWorkspaceCommandInput,
   DeleteWorkspaceCommandOutput,
 } from "./commands/DeleteWorkspaceCommand";
+import {
+  DeleteWorkspaceServiceAccountCommand,
+  DeleteWorkspaceServiceAccountCommandInput,
+  DeleteWorkspaceServiceAccountCommandOutput,
+} from "./commands/DeleteWorkspaceServiceAccountCommand";
+import {
+  DeleteWorkspaceServiceAccountTokenCommand,
+  DeleteWorkspaceServiceAccountTokenCommandInput,
+  DeleteWorkspaceServiceAccountTokenCommandOutput,
+} from "./commands/DeleteWorkspaceServiceAccountTokenCommand";
 import {
   DescribeWorkspaceAuthenticationCommand,
   DescribeWorkspaceAuthenticationCommandInput,
@@ -67,6 +87,16 @@ import {
   ListWorkspacesCommandInput,
   ListWorkspacesCommandOutput,
 } from "./commands/ListWorkspacesCommand";
+import {
+  ListWorkspaceServiceAccountsCommand,
+  ListWorkspaceServiceAccountsCommandInput,
+  ListWorkspaceServiceAccountsCommandOutput,
+} from "./commands/ListWorkspaceServiceAccountsCommand";
+import {
+  ListWorkspaceServiceAccountTokensCommand,
+  ListWorkspaceServiceAccountTokensCommandInput,
+  ListWorkspaceServiceAccountTokensCommandOutput,
+} from "./commands/ListWorkspaceServiceAccountTokensCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -99,8 +129,12 @@ const commands = {
   AssociateLicenseCommand,
   CreateWorkspaceCommand,
   CreateWorkspaceApiKeyCommand,
+  CreateWorkspaceServiceAccountCommand,
+  CreateWorkspaceServiceAccountTokenCommand,
   DeleteWorkspaceCommand,
   DeleteWorkspaceApiKeyCommand,
+  DeleteWorkspaceServiceAccountCommand,
+  DeleteWorkspaceServiceAccountTokenCommand,
   DescribeWorkspaceCommand,
   DescribeWorkspaceAuthenticationCommand,
   DescribeWorkspaceConfigurationCommand,
@@ -109,6 +143,8 @@ const commands = {
   ListTagsForResourceCommand,
   ListVersionsCommand,
   ListWorkspacesCommand,
+  ListWorkspaceServiceAccountsCommand,
+  ListWorkspaceServiceAccountTokensCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdatePermissionsCommand,
@@ -167,6 +203,40 @@ export interface Grafana {
   ): void;
 
   /**
+   * @see {@link CreateWorkspaceServiceAccountCommand}
+   */
+  createWorkspaceServiceAccount(
+    args: CreateWorkspaceServiceAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceServiceAccountCommandOutput>;
+  createWorkspaceServiceAccount(
+    args: CreateWorkspaceServiceAccountCommandInput,
+    cb: (err: any, data?: CreateWorkspaceServiceAccountCommandOutput) => void
+  ): void;
+  createWorkspaceServiceAccount(
+    args: CreateWorkspaceServiceAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceServiceAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkspaceServiceAccountTokenCommand}
+   */
+  createWorkspaceServiceAccountToken(
+    args: CreateWorkspaceServiceAccountTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceServiceAccountTokenCommandOutput>;
+  createWorkspaceServiceAccountToken(
+    args: CreateWorkspaceServiceAccountTokenCommandInput,
+    cb: (err: any, data?: CreateWorkspaceServiceAccountTokenCommandOutput) => void
+  ): void;
+  createWorkspaceServiceAccountToken(
+    args: CreateWorkspaceServiceAccountTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceServiceAccountTokenCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWorkspaceCommand}
    */
   deleteWorkspace(
@@ -195,6 +265,40 @@ export interface Grafana {
     args: DeleteWorkspaceApiKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWorkspaceApiKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkspaceServiceAccountCommand}
+   */
+  deleteWorkspaceServiceAccount(
+    args: DeleteWorkspaceServiceAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceServiceAccountCommandOutput>;
+  deleteWorkspaceServiceAccount(
+    args: DeleteWorkspaceServiceAccountCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceServiceAccountCommandOutput) => void
+  ): void;
+  deleteWorkspaceServiceAccount(
+    args: DeleteWorkspaceServiceAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceServiceAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkspaceServiceAccountTokenCommand}
+   */
+  deleteWorkspaceServiceAccountToken(
+    args: DeleteWorkspaceServiceAccountTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceServiceAccountTokenCommandOutput>;
+  deleteWorkspaceServiceAccountToken(
+    args: DeleteWorkspaceServiceAccountTokenCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceServiceAccountTokenCommandOutput) => void
+  ): void;
+  deleteWorkspaceServiceAccountToken(
+    args: DeleteWorkspaceServiceAccountTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceServiceAccountTokenCommandOutput) => void
   ): void;
 
   /**
@@ -321,6 +425,40 @@ export interface Grafana {
     args: ListWorkspacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkspacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkspaceServiceAccountsCommand}
+   */
+  listWorkspaceServiceAccounts(
+    args: ListWorkspaceServiceAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkspaceServiceAccountsCommandOutput>;
+  listWorkspaceServiceAccounts(
+    args: ListWorkspaceServiceAccountsCommandInput,
+    cb: (err: any, data?: ListWorkspaceServiceAccountsCommandOutput) => void
+  ): void;
+  listWorkspaceServiceAccounts(
+    args: ListWorkspaceServiceAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkspaceServiceAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkspaceServiceAccountTokensCommand}
+   */
+  listWorkspaceServiceAccountTokens(
+    args: ListWorkspaceServiceAccountTokensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkspaceServiceAccountTokensCommandOutput>;
+  listWorkspaceServiceAccountTokens(
+    args: ListWorkspaceServiceAccountTokensCommandInput,
+    cb: (err: any, data?: ListWorkspaceServiceAccountTokensCommandOutput) => void
+  ): void;
+  listWorkspaceServiceAccountTokens(
+    args: ListWorkspaceServiceAccountTokensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkspaceServiceAccountTokensCommandOutput) => void
   ): void;
 
   /**

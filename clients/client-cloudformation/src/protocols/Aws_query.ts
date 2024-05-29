@@ -419,7 +419,6 @@ import {
   ScannedResource,
   ScannedResourceIdentifier,
   SetStackPolicyInput,
-  SetTypeConfigurationInput,
   Stack,
   StackDriftInformation,
   StackDriftInformationSummary,
@@ -472,6 +471,7 @@ import {
 } from "../models/models_0";
 import {
   ResourceScanLimitExceededException,
+  SetTypeConfigurationInput,
   SetTypeConfigurationOutput,
   SetTypeDefaultVersionInput,
   SetTypeDefaultVersionOutput,
@@ -4675,6 +4675,9 @@ const se_DeleteStackInput = (input: DeleteStackInput, context: __SerdeContext): 
   }
   if (input[_CRT] != null) {
     entries[_CRT] = input[_CRT];
+  }
+  if (input[_DM] != null) {
+    entries[_DM] = input[_DM];
   }
   return entries;
 };
@@ -9501,6 +9504,9 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
   if (output[_REOC] != null) {
     contents[_REOC] = __parseBoolean(output[_REOC]);
   }
+  if (output[_DM] != null) {
+    contents[_DM] = __expectString(output[_DM]);
+  }
   if (output[_DSeta] != null) {
     contents[_DSeta] = __expectString(output[_DSeta]);
   }
@@ -11135,6 +11141,7 @@ const _DDS = "DriftDetectionStatus";
 const _DGT = "DeleteGeneratedTemplate";
 const _DGTe = "DescribeGeneratedTemplate";
 const _DI = "DriftInformation";
+const _DM = "DeletionMode";
 const _DOA = "DeactivateOrganizationsAccess";
 const _DOAe = "DescribeOrganizationsAccess";
 const _DP = "DescribePublisher";

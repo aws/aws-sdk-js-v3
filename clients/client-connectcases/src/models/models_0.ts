@@ -655,6 +655,7 @@ export interface AuditEventPerformedBy {
 export const RelatedItemType = {
   COMMENT: "Comment",
   CONTACT: "Contact",
+  FILE: "File",
 } as const;
 
 /**
@@ -846,12 +847,25 @@ export interface Contact {
 }
 
 /**
+ * <p>An object that represents a content of an Amazon Connect file object.</p>
+ * @public
+ */
+export interface FileContent {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a File in Amazon Connect.</p>
+   * @public
+   */
+  fileArn: string | undefined;
+}
+
+/**
  * <p>Represents the content of a related item to be created.</p>
  * @public
  */
 export type RelatedItemInputContent =
   | RelatedItemInputContent.CommentMember
   | RelatedItemInputContent.ContactMember
+  | RelatedItemInputContent.FileMember
   | RelatedItemInputContent.$UnknownMember;
 
 /**
@@ -865,6 +879,7 @@ export namespace RelatedItemInputContent {
   export interface ContactMember {
     contact: Contact;
     comment?: never;
+    file?: never;
     $unknown?: never;
   }
 
@@ -875,6 +890,18 @@ export namespace RelatedItemInputContent {
   export interface CommentMember {
     contact?: never;
     comment: CommentContent;
+    file?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A file of related items.</p>
+   * @public
+   */
+  export interface FileMember {
+    contact?: never;
+    comment?: never;
+    file: FileContent;
     $unknown?: never;
   }
 
@@ -884,18 +911,21 @@ export namespace RelatedItemInputContent {
   export interface $UnknownMember {
     contact?: never;
     comment?: never;
+    file?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     contact: (value: Contact) => T;
     comment: (value: CommentContent) => T;
+    file: (value: FileContent) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RelatedItemInputContent, visitor: Visitor<T>): T => {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
+    if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -998,12 +1028,25 @@ export interface ContactFilter {
 }
 
 /**
+ * <p>A filter for related items of type <code>File</code>.</p>
+ * @public
+ */
+export interface FileFilter {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file.</p>
+   * @public
+   */
+  fileArn?: string;
+}
+
+/**
  * <p>The list of types of related items and their parameters to use for filtering.</p>
  * @public
  */
 export type RelatedItemTypeFilter =
   | RelatedItemTypeFilter.CommentMember
   | RelatedItemTypeFilter.ContactMember
+  | RelatedItemTypeFilter.FileMember
   | RelatedItemTypeFilter.$UnknownMember;
 
 /**
@@ -1017,6 +1060,7 @@ export namespace RelatedItemTypeFilter {
   export interface ContactMember {
     contact: ContactFilter;
     comment?: never;
+    file?: never;
     $unknown?: never;
   }
 
@@ -1027,6 +1071,18 @@ export namespace RelatedItemTypeFilter {
   export interface CommentMember {
     contact?: never;
     comment: CommentFilter;
+    file?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A filter for related items of this type of <code>File</code>.</p>
+   * @public
+   */
+  export interface FileMember {
+    contact?: never;
+    comment?: never;
+    file: FileFilter;
     $unknown?: never;
   }
 
@@ -1036,18 +1092,21 @@ export namespace RelatedItemTypeFilter {
   export interface $UnknownMember {
     contact?: never;
     comment?: never;
+    file?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     contact: (value: ContactFilter) => T;
     comment: (value: CommentFilter) => T;
+    file: (value: FileFilter) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RelatedItemTypeFilter, visitor: Visitor<T>): T => {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
+    if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1120,6 +1179,7 @@ export interface ContactContent {
 export type RelatedItemContent =
   | RelatedItemContent.CommentMember
   | RelatedItemContent.ContactMember
+  | RelatedItemContent.FileMember
   | RelatedItemContent.$UnknownMember;
 
 /**
@@ -1133,6 +1193,7 @@ export namespace RelatedItemContent {
   export interface ContactMember {
     contact: ContactContent;
     comment?: never;
+    file?: never;
     $unknown?: never;
   }
 
@@ -1143,6 +1204,18 @@ export namespace RelatedItemContent {
   export interface CommentMember {
     contact?: never;
     comment: CommentContent;
+    file?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of a File to be returned to agents.</p>
+   * @public
+   */
+  export interface FileMember {
+    contact?: never;
+    comment?: never;
+    file: FileContent;
     $unknown?: never;
   }
 
@@ -1152,18 +1225,21 @@ export namespace RelatedItemContent {
   export interface $UnknownMember {
     contact?: never;
     comment?: never;
+    file?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     contact: (value: ContactContent) => T;
     comment: (value: CommentContent) => T;
+    file: (value: FileContent) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RelatedItemContent, visitor: Visitor<T>): T => {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
+    if (value.file !== undefined) return visitor.file(value.file);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1885,19 +1961,19 @@ export interface GetFieldResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>Indicates whether the resource has been deleted.</p>
+   * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
   deleted?: boolean;
 
   /**
-   * <p>The timestamp for when the resource was created.</p>
+   * <p>Timestamp at which the resource was created.</p>
    * @public
    */
   createdTime?: Date;
 
   /**
-   * <p>The timestamp for when the resource was created or last modified.</p>
+   * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
   lastModifiedTime?: Date;
@@ -2056,13 +2132,13 @@ export interface CreateFieldResponse {
  */
 export interface DeleteFieldRequest {
   /**
-   * <p>The unique identifier of the Cases domain. </p>
+   * <p>The unique identifier of the Cases domain.</p>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The unique identifier of a field.</p>
+   * <p>Unique identifier of the field.</p>
    * @public
    */
   fieldId: string | undefined;
@@ -2423,7 +2499,7 @@ export interface CreateLayoutResponse {
  */
 export interface DeleteLayoutRequest {
   /**
-   * <p>The unique identifier of the Cases domain. </p>
+   * <p>The unique identifier of the Cases domain.</p>
    * @public
    */
   domainId: string | undefined;
@@ -2493,19 +2569,19 @@ export interface GetLayoutResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>Indicates whether the resource has been deleted.</p>
+   * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
   deleted?: boolean;
 
   /**
-   * <p>The timestamp for when the resource was created.</p>
+   * <p>Timestamp at which the resource was created.</p>
    * @public
    */
   createdTime?: Date;
 
   /**
-   * <p>The timestamp for when the resource was created or last modified.</p>
+   * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
   lastModifiedTime?: Date;
@@ -2752,7 +2828,7 @@ export interface CreateTemplateResponse {
  */
 export interface DeleteTemplateRequest {
   /**
-   * <p>The unique identifier of the Cases domain. </p>
+   * <p>The unique identifier of the Cases domain.</p>
    * @public
    */
   domainId: string | undefined;
@@ -2840,19 +2916,19 @@ export interface GetTemplateResponse {
   status: TemplateStatus | undefined;
 
   /**
-   * <p>Indicates whether the resource has been deleted.</p>
+   * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
   deleted?: boolean;
 
   /**
-   * <p>The timestamp for when the resource was created.</p>
+   * <p>Timestamp at which the resource was created.</p>
    * @public
    */
   createdTime?: Date;
 
   /**
-   * <p>The timestamp for when the resource was created or last modified.</p>
+   * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
   lastModifiedTime?: Date;

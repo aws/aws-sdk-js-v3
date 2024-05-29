@@ -96,6 +96,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *         ReadCapacityUnits: Number("long"), // required
  *         WriteCapacityUnits: Number("long"), // required
  *       },
+ *       OnDemandThroughput: { // OnDemandThroughput
+ *         MaxReadRequestUnits: Number("long"),
+ *         MaxWriteRequestUnits: Number("long"),
+ *       },
  *     },
  *   ],
  *   BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
@@ -121,6 +125,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *   DeletionProtectionEnabled: true || false,
  *   ResourcePolicy: "STRING_VALUE",
+ *   OnDemandThroughput: {
+ *     MaxReadRequestUnits: Number("long"),
+ *     MaxWriteRequestUnits: Number("long"),
+ *   },
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
@@ -203,6 +211,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //         IndexSizeBytes: Number("long"),
  * //         ItemCount: Number("long"),
  * //         IndexArn: "STRING_VALUE",
+ * //         OnDemandThroughput: { // OnDemandThroughput
+ * //           MaxReadRequestUnits: Number("long"),
+ * //           MaxWriteRequestUnits: Number("long"),
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -222,11 +234,17 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
  * //           ReadCapacityUnits: Number("long"),
  * //         },
+ * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
+ * //           MaxReadRequestUnits: Number("long"),
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
  * //             ProvisionedThroughputOverride: {
  * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //             OnDemandThroughputOverride: {
+ * //               MaxReadRequestUnits: Number("long"),
  * //             },
  * //           },
  * //         ],
@@ -259,6 +277,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //       LastUpdateDateTime: new Date("TIMESTAMP"),
  * //     },
  * //     DeletionProtectionEnabled: true || false,
+ * //     OnDemandThroughput: {
+ * //       MaxReadRequestUnits: Number("long"),
+ * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
  * //   },
  * // };
  *

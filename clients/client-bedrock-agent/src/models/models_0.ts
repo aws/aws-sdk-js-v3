@@ -37,7 +37,7 @@ export const CustomControlMethod = {
 export type CustomControlMethod = (typeof CustomControlMethod)[keyof typeof CustomControlMethod];
 
 /**
- * <p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+ * <p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
  * @public
  */
 export type ActionGroupExecutor =
@@ -438,7 +438,7 @@ export interface CreateAgentActionGroupRequest {
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
@@ -524,7 +524,7 @@ export interface AgentActionGroup {
   parentActionSignature?: ActionGroupSignature;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
@@ -934,6 +934,24 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
+ * <p>The details of the guardrails configuration.</p>
+ * @public
+ */
+export interface GuardrailConfiguration {
+  /**
+   * <p>The guardrails identifier assigned to the guardrails configuration.</p>
+   * @public
+   */
+  guardrailIdentifier?: string;
+
+  /**
+   * <p>The guardrails version assigned to the guardrails configuration.</p>
+   * @public
+   */
+  guardrailVersion?: string;
+}
+
+/**
  * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  * @public
  */
@@ -1059,7 +1077,7 @@ export interface PromptConfiguration {
   promptState?: PromptState;
 
   /**
-   * <p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
+   * <p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts-configure.html">Configure the prompt templates</a>.</p>
    * @public
    */
   basePromptTemplate?: string;
@@ -1089,7 +1107,7 @@ export interface PromptOverrideConfiguration {
   promptConfigurations: PromptConfiguration[] | undefined;
 
   /**
-   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>.</p>
+   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser Lambda function in Agents for Amazon Bedrock</a>.</p>
    * @public
    */
   overrideLambda?: string;
@@ -1232,6 +1250,12 @@ export interface Agent {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The guardrails configuration assigned to the agent.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1243,7 +1267,13 @@ export interface AgentAliasRoutingConfigurationListItem {
    * <p>The version of the agent with which the alias is associated.</p>
    * @public
    */
-  agentVersion: string | undefined;
+  agentVersion?: string;
+
+  /**
+   * <p>Information on the Provisioned Throughput assigned to an agent alias.</p>
+   * @public
+   */
+  provisionedThroughput?: string;
 }
 
 /**
@@ -1375,6 +1405,12 @@ export interface AgentAlias {
    * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
+
+  /**
+   * <p>Information on the failure of Provisioned Throughput assigned to an agent alias.</p>
+   * @public
+   */
+  failureReasons?: string[];
 }
 
 /**
@@ -1582,6 +1618,12 @@ export interface CreateAgentRequest {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The unique Guardrail configuration assigned to the agent when it is created.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1708,6 +1750,12 @@ export interface AgentSummary {
    * @public
    */
   latestAgentVersion?: string;
+
+  /**
+   * <p>The details of the guardrails configuration in the agent summary.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1825,6 +1873,12 @@ export interface UpdateAgentRequest {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The unique Guardrail configuration assigned to the agent when it is updated.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1939,6 +1993,12 @@ export interface AgentVersion {
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
+
+  /**
+   * <p>The guardrails configuration assigned to the agent version.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -1981,6 +2041,12 @@ export interface AgentVersionSummary {
    * @public
    */
   description?: string;
+
+  /**
+   * <p>The details of the guardrails configuration in the agent version summary.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration;
 }
 
 /**
@@ -2222,7 +2288,7 @@ export interface S3DataSourceConfiguration {
   inclusionPrefixes?: string[];
 
   /**
-   * <p>The account ID for the owner of the S3 bucket.</p>
+   * <p>The bucket account owner ID for the S3 bucket.</p>
    * @public
    */
   bucketOwnerAccountId?: string;
@@ -2379,7 +2445,7 @@ export interface CreateDataSourceRequest {
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * <p>The deletion policy for the requested data source</p>
+   * <p>The data deletion policy assigned to the data source.</p>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy;
@@ -2474,7 +2540,7 @@ export interface DataSource {
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
 
   /**
-   * <p>The deletion policy for the data source.</p>
+   * <p>The data deletion policy for a data source.</p>
    * @public
    */
   dataDeletionPolicy?: DataDeletionPolicy;
@@ -2492,7 +2558,7 @@ export interface DataSource {
   updatedAt: Date | undefined;
 
   /**
-   * <p>The details of the failure reasons related to the data source.</p>
+   * <p>The detailed reasons on the failure to delete a data source.</p>
    * @public
    */
   failureReasons?: string[];
@@ -3243,6 +3309,78 @@ export interface KnowledgeBaseConfiguration {
  * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
+export interface MongoDbAtlasFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * @public
+   */
+  vectorField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the storage configuration of the knowledge base in MongoDB Atlas. </p>
+ * @public
+ */
+export interface MongoDbAtlasConfiguration {
+  /**
+   * <p>The endpoint URL of your MongoDB Atlas cluster for your knowledge base.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The database name in your MongoDB Atlas cluster for your knowledge base.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>The collection name of the knowledge base in MongoDB Atlas.</p>
+   * @public
+   */
+  collectionName: string | undefined;
+
+  /**
+   * <p>The name of the MongoDB Atlas vector search index.</p>
+   * @public
+   */
+  vectorIndexName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that contains user credentials for your MongoDB Atlas cluster.</p>
+   * @public
+   */
+  credentialsSecretArn: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: MongoDbAtlasFieldMapping | undefined;
+
+  /**
+   * <p>The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.</p>
+   * @public
+   */
+  endpointServiceName?: string;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
 export interface OpenSearchServerlessFieldMapping {
   /**
    * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
@@ -3460,6 +3598,7 @@ export interface RedisEnterpriseCloudConfiguration {
  * @enum
  */
 export const KnowledgeBaseStorageType = {
+  MONGO_DB_ATLAS: "MONGO_DB_ATLAS",
   OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
   PINECONE: "PINECONE",
   RDS: "RDS",
@@ -3505,6 +3644,12 @@ export interface StorageConfiguration {
    * @public
    */
   rdsConfiguration?: RdsConfiguration;
+
+  /**
+   * <p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>
+   * @public
+   */
+  mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration;
 }
 
 /**

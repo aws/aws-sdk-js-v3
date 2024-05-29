@@ -442,6 +442,7 @@ export * from "./GetGroupsForCapacityReservationCommand";
 export * from "./GetHostReservationPurchasePreviewCommand";
 export * from "./GetImageBlockPublicAccessStateCommand";
 export * from "./GetInstanceMetadataDefaultsCommand";
+export * from "./GetInstanceTpmEkPubCommand";
 export * from "./GetInstanceTypesFromInstanceRequirementsCommand";
 export * from "./GetInstanceUefiDataCommand";
 export * from "./GetIpamAddressHistoryCommand";

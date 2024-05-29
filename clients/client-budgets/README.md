@@ -65,16 +65,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BudgetsClient` and
-the commands you need, for example `DescribeBudgetsCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { BudgetsClient, DescribeBudgetsCommand } = require("@aws-sdk/client-budgets");
+const { BudgetsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-budgets");
 ```
 
 ```ts
 // ES6+ example
-import { BudgetsClient, DescribeBudgetsCommand } from "@aws-sdk/client-budgets";
+import { BudgetsClient, ListTagsForResourceCommand } from "@aws-sdk/client-budgets";
 ```
 
 ### Usage
@@ -93,7 +93,7 @@ const client = new BudgetsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeBudgetsCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -172,7 +172,7 @@ const client = new AWS.Budgets({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeBudgets(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -180,7 +180,7 @@ try {
 
 // Promises.
 client
-  .describeBudgets(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -189,7 +189,7 @@ client
   });
 
 // callbacks.
-client.describeBudgets(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -395,6 +395,30 @@ ExecuteBudgetAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/ExecuteBudgetActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/ExecuteBudgetActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/ExecuteBudgetActionCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>

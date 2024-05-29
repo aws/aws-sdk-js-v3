@@ -89,6 +89,10 @@ import {
 import { ExtendTransactionCommandInput, ExtendTransactionCommandOutput } from "../commands/ExtendTransactionCommand";
 import { GetDataCellsFilterCommandInput, GetDataCellsFilterCommandOutput } from "../commands/GetDataCellsFilterCommand";
 import {
+  GetDataLakePrincipalCommandInput,
+  GetDataLakePrincipalCommandOutput,
+} from "../commands/GetDataLakePrincipalCommand";
+import {
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput,
 } from "../commands/GetDataLakeSettingsCommand";
@@ -705,6 +709,24 @@ export const se_GetDataCellsFilterCommand = async (
       TableName: [],
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDataLakePrincipalCommand
+ */
+export const se_GetDataLakePrincipalCommand = async (
+  input: GetDataLakePrincipalCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetDataLakePrincipal");
+  let body: any;
+  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1965,6 +1987,27 @@ export const de_GetDataCellsFilterCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DataCellsFilter: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataLakePrincipalCommand
+ */
+export const de_GetDataLakePrincipalCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataLakePrincipalCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Identity: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

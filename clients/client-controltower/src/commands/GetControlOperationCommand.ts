@@ -45,11 +45,15 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * const response = await client.send(command);
  * // { // GetControlOperationOutput
  * //   controlOperation: { // ControlOperation
- * //     operationType: "STRING_VALUE",
+ * //     operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
- * //     status: "STRING_VALUE",
+ * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
  * //     statusMessage: "STRING_VALUE",
+ * //     operationIdentifier: "STRING_VALUE",
+ * //     controlIdentifier: "STRING_VALUE",
+ * //     targetIdentifier: "STRING_VALUE",
+ * //     enabledControlIdentifier: "STRING_VALUE",
  * //   },
  * // };
  *

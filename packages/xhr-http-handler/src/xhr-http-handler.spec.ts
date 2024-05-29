@@ -16,7 +16,7 @@ class XhrMock {
 
   private captureArgs =
     (caller: string) =>
-    (...args) => {
+    (...args: any[]) => {
       XhrMock.captures.push([caller, ...args]);
     };
 
@@ -37,12 +37,12 @@ class XhrMock {
   }
   setRequestHeader = this.captureArgs("setRequestHeader");
   open = this.captureArgs("open");
-  send(...args) {
+  send(...args: any[]) {
     this.captureArgs("send")(...args);
     this.eventListeners["readystatechange"][0]();
   }
   abort = this.captureArgs("abort");
-  addEventListener(...args) {
+  addEventListener(...args: any[]) {
     this.captureArgs("addEventListener")(...args);
     const [event, callback] = args;
     this.eventListeners[event] = [callback];
@@ -80,7 +80,7 @@ describe(XhrHttpHandler.name, () => {
     const handler = new XhrHttpHandler();
 
     handler.on(XhrHttpHandler.EVENTS.BEFORE_XHR_SEND, (xhr) => {
-      xhr.eventListeners.error.forEach((handler) => handler(new Error("Network Failure")));
+      xhr.eventListeners.error.forEach((handler: any) => handler(new Error("Network Failure")));
     });
 
     try {

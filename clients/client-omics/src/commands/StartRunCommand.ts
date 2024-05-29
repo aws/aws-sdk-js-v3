@@ -29,9 +29,15 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
 /**
  * <p>Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
  *       remaining parameters are copied from the previous run.</p>
+ *          <p>StartRun will not support re-run for a workflow that is shared with you.</p>
  *          <p>The total number of runs in your account is subject to a quota per Region. To avoid
  *       needing to delete runs manually, you can set the retention mode to <code>REMOVE</code>.
  *       Runs with this setting are deleted automatically when the run quoata is exceeded.</p>
+ *          <p>By default, the run uses STATIC storage. For STATIC storage, set the <code>storageCapacity</code> field.
+ *       You can set the storage type to DYNAMIC. You do not set <code>storageCapacity</code>,
+ *       because HealthOmics dynamically scales the storage up or down as required.
+ *       For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a>
+ *       in the <i>AWS HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +61,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   },
  *   requestId: "STRING_VALUE", // required
  *   retentionMode: "STRING_VALUE",
+ *   storageType: "STRING_VALUE",
+ *   workflowOwnerId: "STRING_VALUE",
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);

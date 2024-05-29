@@ -162,6 +162,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *       ],
  *       DefaultBehavior: "KEEP" || "DROP", // required
  *     },
+ *     LogType: "WAF_LOGS",
+ *     LogScope: "CUSTOMER" || "SECURITY_LAKE",
  *   },
  * };
  * const command = new PutLoggingConfigurationCommand(input);
@@ -252,6 +254,8 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * //       ],
  * //       DefaultBehavior: "KEEP" || "DROP", // required
  * //     },
+ * //     LogType: "WAF_LOGS",
+ * //     LogScope: "CUSTOMER" || "SECURITY_LAKE",
  * //   },
  * // };
  *

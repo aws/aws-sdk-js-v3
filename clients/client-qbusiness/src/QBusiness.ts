@@ -12,6 +12,7 @@ import {
   BatchPutDocumentCommandInput,
   BatchPutDocumentCommandOutput,
 } from "./commands/BatchPutDocumentCommand";
+import { ChatCommand, ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
 import { ChatSyncCommand, ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
 import {
   CreateApplicationCommand,
@@ -210,6 +211,7 @@ import { QBusinessClient, QBusinessClientConfig } from "./QBusinessClient";
 const commands = {
   BatchDeleteDocumentCommand,
   BatchPutDocumentCommand,
+  ChatCommand,
   ChatSyncCommand,
   CreateApplicationCommand,
   CreateDataSourceCommand,
@@ -299,6 +301,13 @@ export interface QBusiness {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchPutDocumentCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ChatCommand}
+   */
+  chat(args: ChatCommandInput, options?: __HttpHandlerOptions): Promise<ChatCommandOutput>;
+  chat(args: ChatCommandInput, cb: (err: any, data?: ChatCommandOutput) => void): void;
+  chat(args: ChatCommandInput, options: __HttpHandlerOptions, cb: (err: any, data?: ChatCommandOutput) => void): void;
 
   /**
    * @see {@link ChatSyncCommand}
@@ -1030,10 +1039,7 @@ export interface QBusiness {
 }
 
 /**
- * <note>
- *             <p>Amazon Q is in preview release and is subject to change.</p>
- *          </note>
- *          <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
+ * <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
  *             managed, generative-AI powered enterprise chat assistant that you can deploy within your
  *             organization. Amazon Q Business enhances employee productivity by supporting key tasks such
  *             as question-answering, knowledge discovery, writing email messages, summarizing text,

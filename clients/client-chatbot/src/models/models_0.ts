@@ -22,6 +22,24 @@ export interface AccountPreferences {
 }
 
 /**
+ * A tag applied to the configuration.
+ * @public
+ */
+export interface Tag {
+  /**
+   * The tag key.
+   * @public
+   */
+  TagKey: string | undefined;
+
+  /**
+   * The tag value.
+   * @public
+   */
+  TagValue: string | undefined;
+}
+
+/**
  * An AWS Chatbot configuration for Amazon Chime.
  * @public
  */
@@ -61,6 +79,12 @@ export interface ChimeWebhookConfiguration {
    * @public
    */
   LoggingLevel?: string;
+
+  /**
+   * A list of tags applied to the configuration.
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -168,6 +192,12 @@ export interface CreateChimeWebhookConfigurationRequest {
    * @public
    */
   LoggingLevel?: string;
+
+  /**
+   * A list of tags to apply to the configuration.
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -332,6 +362,12 @@ export interface CreateTeamsChannelConfigurationRequest {
    * @public
    */
   UserAuthorizationRequired?: boolean;
+
+  /**
+   * A list of tags to apply to the configuration.
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -410,6 +446,12 @@ export interface TeamsChannelConfiguration {
    * @public
    */
   UserAuthorizationRequired?: boolean;
+
+  /**
+   * A list of tags applied to the configuration.
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -502,6 +544,12 @@ export interface CreateSlackChannelConfigurationRequest {
    * @public
    */
   UserAuthorizationRequired?: boolean;
+
+  /**
+   * A list of tags to apply to the configuration.
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -574,6 +622,12 @@ export interface SlackChannelConfiguration {
    * @public
    */
   UserAuthorizationRequired?: boolean;
+
+  /**
+   * A list of tags applied to the configuration.
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -1272,6 +1326,29 @@ export interface GetTeamsChannelConfigurationResult {
 }
 
 /**
+ * Customer/consumer-facing internal service exception.
+ *         https://w.amazon.com/index.php/AWS/API_Standards/Exceptions#InternalServiceError
+ * @public
+ */
+export class InternalServiceError extends __BaseException {
+  readonly name: "InternalServiceError" = "InternalServiceError";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
+    super({
+      name: "InternalServiceError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceError.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * We can’t process your request right now because of a server issue. Try again later.
  * @public
  */
@@ -1498,6 +1575,112 @@ export interface ListMicrosoftTeamsUserIdentitiesResult {
    */
   NextToken?: string;
 }
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * The ARN of the configuration.
+   * @public
+   */
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * A list of tags applied to the configuration.
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * We can’t process your request right now because of a server issue. Try again later.
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * The ARN of the configuration.
+   * @public
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * A list of tags to apply to the configuration.
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * The supplied list of tags contains too many tags.
+ * @public
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * The ARN of the configuration.
+   * @public
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * A list of tag keys to remove from the configuration.
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * We can’t process your request right now because of a server issue. Try again later.

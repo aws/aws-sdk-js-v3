@@ -44,6 +44,7 @@ export interface GetIndexCommandOutput extends GetIndexResponse, __MetadataBeare
  * //   applicationId: "STRING_VALUE",
  * //   indexId: "STRING_VALUE",
  * //   displayName: "STRING_VALUE",
+ * //   type: "ENTERPRISE" || "STARTER",
  * //   indexArn: "STRING_VALUE",
  * //   status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING",
  * //   description: "STRING_VALUE",

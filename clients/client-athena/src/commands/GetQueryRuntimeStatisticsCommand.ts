@@ -28,11 +28,12 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
 
 /**
  * <p>Returns query execution runtime statistics related to a single execution of a query if
- *             you have access to the workgroup in which the query ran. Query execution runtime
- *             statistics are returned only when <a>QueryExecutionStatus$State</a> is in a
- *             SUCCEEDED or FAILED state. Stage-level input and output row count and data size
- *             statistics are not shown when a query has row-level filters defined in Lake
- *             Formation.</p>
+ *             you have access to the workgroup in which the query ran. Statistics from the
+ *                 <code>Timeline</code> section of the response object are available as soon as <a>QueryExecutionStatus$State</a> is in a SUCCEEDED or FAILED state. The
+ *             remaining non-timeline statistics in the response (like stage-level input and output row
+ *             count and data size) are updated asynchronously and may not be available immediately
+ *             after a query completes. The non-timeline statistics are also not included when a query
+ *             has row-level filters defined in Lake Formation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

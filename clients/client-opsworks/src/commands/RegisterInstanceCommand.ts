@@ -27,17 +27,18 @@ export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>
+ * <p>Registers instances that were created outside of OpsWorks Stacks with a specified stack.</p>
  *          <note>
  *             <p>We do not recommend using this action to register instances. The complete registration
- *       operation includes two tasks: installing the AWS OpsWorks Stacks agent on the instance, and registering
+ *           operation includes two tasks: installing the OpsWorks Stacks agent on the instance, and registering
  *       the instance with the stack. <code>RegisterInstance</code> handles only the second step. You
- *       should instead use the AWS CLI <code>register</code> command, which performs the entire
+ *           should instead use the CLI <code>register</code> command, which performs the entire
  *       registration operation. For more information,
  *       see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html">
- *       Registering an Instance with an AWS OpsWorks Stacks Stack</a>.</p>
+ *           Registering an Instance with an OpsWorks Stacks Stack</a>.</p>
  *          </note>
- *          <p>Registered instances have the same requirements as instances that are created by using the <a>CreateInstance</a> API.
+ *          <p>Registered instances have the same requirements as instances that are created by using the <a>CreateInstance</a>
+ *           API.
  *       For example, registered instances must be running a supported Linux-based operating system, and they must have a supported instance
  *       type. For more information about requirements for instances that you want to register, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html">
  *           Preparing the Instance</a>.</p>

@@ -1789,12 +1789,15 @@ export interface ProjectSourceVersion {
    *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
-   *                <p>For GitHub or GitLab: the commit ID, pull request ID, branch name, or tag name that
+   *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
    *                   corresponds to the version of the source code you want to build. If a pull
    *                   request ID is specified, it must use the format <code>pr/pull-request-ID</code>
    *                   (for example, <code>pr/25</code>). If a branch name is specified, the branch's
    *                   HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
    *                   used.</p>
+   *             </li>
+   *             <li>
+   *                <p>For GitLab: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *                <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
@@ -2582,7 +2585,7 @@ export interface Build {
   logs?: LogsLocation;
 
   /**
-   * <p>How long, in minutes, for CodeBuild to wait before timing out this build if it does not
+   * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before timing out this build if it does not
    *             get marked as completed.</p>
    * @public
    */
@@ -2807,6 +2810,7 @@ export interface ScalingConfigurationOutput {
  * @enum
  */
 export const FleetContextCode = {
+  ACTION_REQUIRED: "ACTION_REQUIRED",
   CREATE_FAILED: "CREATE_FAILED",
   UPDATE_FAILED: "UPDATE_FAILED",
 } as const;
@@ -3093,11 +3097,30 @@ export interface Fleet {
    *             </li>
    *             <li>
    *                <p>For overflow behavior <code>ON_DEMAND</code>, your overflow builds run on CodeBuild on-demand.</p>
+   *                <note>
+   *                   <p>If you choose to set your overflow behavior to on-demand while creating a VPC-connected
+   *                     fleet, make sure that you add the required VPC permissions to your project service role. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface">Example
+   *                     policy statement to allow CodeBuild access to Amazon Web Services services required to create a VPC network interface</a>.</p>
+   *                </note>
    *             </li>
    *          </ul>
    * @public
    */
   overflowBehavior?: FleetOverflowBehavior;
+
+  /**
+   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
+   *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
+   * @public
+   */
+  fleetServiceRole?: string;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -3691,6 +3714,17 @@ export interface Webhook {
   buildType?: WebhookBuildType;
 
   /**
+   * <p>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead returns <code>payloadUrl</code> and
+   *       <code>secret</code> values for the webhook. The <code>payloadUrl</code> and <code>secret</code> values in the output can
+   *       be used to manually create a webhook within GitHub.</p>
+   *          <note>
+   *             <p>manualCreation is only available for GitHub webhooks.</p>
+   *          </note>
+   * @public
+   */
+  manualCreation?: boolean;
+
+  /**
    * <p>A timestamp that indicates the last time a repository's secret token was modified.
    *     </p>
    * @public
@@ -3747,6 +3781,9 @@ export interface Project {
    *           (for example <code>pr/25</code>). If a branch name is specified, the branch's
    *           HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
    *           used.</p>
+   *             </li>
+   *             <li>
+   *                <p>For GitLab: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
    *                <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
@@ -3808,7 +3845,7 @@ export interface Project {
   serviceRole?: string;
 
   /**
-   * <p>How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before timing out any
+   * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before timing out any
    *       related build that did not get marked as completed. The default is 60 minutes.</p>
    * @public
    */
@@ -4608,11 +4645,30 @@ export interface CreateFleetInput {
    *             </li>
    *             <li>
    *                <p>For overflow behavior <code>ON_DEMAND</code>, your overflow builds run on CodeBuild on-demand.</p>
+   *                <note>
+   *                   <p>If you choose to set your overflow behavior to on-demand while creating a VPC-connected
+   *                     fleet, make sure that you add the required VPC permissions to your project service role. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface">Example
+   *                     policy statement to allow CodeBuild access to Amazon Web Services services required to create a VPC network interface</a>.</p>
+   *                </note>
    *             </li>
    *          </ul>
    * @public
    */
   overflowBehavior?: FleetOverflowBehavior;
+
+  /**
+   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
+   *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
+   * @public
+   */
+  fleetServiceRole?: string;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -4699,6 +4755,9 @@ export interface CreateProjectInput {
    *           used.</p>
    *             </li>
    *             <li>
+   *                <p>For GitLab: the commit ID, branch, or Git tag to use.</p>
+   *             </li>
+   *             <li>
    *                <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
    *           version of the source code you want to build. If a branch name is specified, the
    *           branch's HEAD commit ID is used. If not specified, the default branch's HEAD
@@ -4760,7 +4819,7 @@ export interface CreateProjectInput {
   serviceRole: string | undefined;
 
   /**
-   * <p>How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before it times out
+   * <p>How long, in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before it times out
    *       any build that has not been marked as completed. The default is 60 minutes.</p>
    * @public
    */
@@ -4796,6 +4855,9 @@ export interface CreateProjectInput {
 
   /**
    * <p>VpcConfig enables CodeBuild to access resources in an Amazon VPC.</p>
+   *          <note>
+   *             <p>If you're using compute fleets during project creation, do not provide vpcConfig.</p>
+   *          </note>
    * @public
    */
   vpcConfig?: VpcConfig;
@@ -4942,6 +5004,17 @@ export interface CreateWebhookInput {
    * @public
    */
   buildType?: WebhookBuildType;
+
+  /**
+   * <p>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead returns <code>payloadUrl</code> and
+   *       <code>secret</code> values for the webhook. The <code>payloadUrl</code> and <code>secret</code> values in the output can be
+   *       used to manually create a webhook within GitHub.</p>
+   *          <note>
+   *             <p>manualCreation is only available for GitHub webhooks.</p>
+   *          </note>
+   * @public
+   */
+  manualCreation?: boolean;
 }
 
 /**
@@ -5732,7 +5805,8 @@ export interface ImportSourceCredentialsInput {
 
   /**
    * <p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,
-   *             this is either the access token or the app password. </p>
+   *             this is either the access token or the app password. For the <code>authType</code> CODECONNECTIONS,
+   *             this is the <code>connectionArn</code>.</p>
    * @public
    */
   token: string | undefined;
@@ -5744,9 +5818,10 @@ export interface ImportSourceCredentialsInput {
   serverType: ServerType | undefined;
 
   /**
-   * <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, or
+   * <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
    *             Bitbucket repository. An OAUTH connection is not supported by the API and must be
-   *             created using the CodeBuild console. </p>
+   *             created using the CodeBuild console. Note that CODECONNECTIONS is only valid for
+   *             GitLab and GitLab Self Managed.</p>
    * @public
    */
   authType: AuthType | undefined;
@@ -6992,6 +7067,10 @@ export interface StartBuildInput {
    *                         HEAD commit ID is used. If not specified, the default branch's HEAD commit
    *                         ID is used.</p>
    *             </dd>
+   *             <dt>GitLab</dt>
+   *             <dd>
+   *                <p>The commit ID, branch, or Git tag to use.</p>
+   *             </dd>
    *             <dt>Bitbucket</dt>
    *             <dd>
    *                <p>The commit ID, branch name, or tag name that corresponds to the version of
@@ -7049,8 +7128,8 @@ export interface StartBuildInput {
 
   /**
    * <p>An authorization type for this build that overrides the one defined in the build
-   *             project. This override applies only if the build project's source is BitBucket or
-   *             GitHub.</p>
+   *             project. This override applies only if the build project's source is BitBucket, GitHub,
+   *             GitLab, or GitLab Self Managed.</p>
    * @public
    */
   sourceAuthOverride?: SourceAuth;
@@ -7171,7 +7250,7 @@ export interface StartBuildInput {
   privilegedModeOverride?: boolean;
 
   /**
-   * <p>The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this
+   * <p>The number of build timeout minutes, from 5 to 2160 (36 hours), that overrides, for this
    *             build only, the latest setting already defined in the build project.</p>
    * @public
    */
@@ -7748,11 +7827,30 @@ export interface UpdateFleetInput {
    *             </li>
    *             <li>
    *                <p>For overflow behavior <code>ON_DEMAND</code>, your overflow builds run on CodeBuild on-demand.</p>
+   *                <note>
+   *                   <p>If you choose to set your overflow behavior to on-demand while creating a VPC-connected
+   *                     fleet, make sure that you add the required VPC permissions to your project service role. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface">Example
+   *                     policy statement to allow CodeBuild access to Amazon Web Services services required to create a VPC network interface</a>.</p>
+   *                </note>
    *             </li>
    *          </ul>
    * @public
    */
   overflowBehavior?: FleetOverflowBehavior;
+
+  /**
+   * <p>Information about the VPC configuration that CodeBuild accesses.</p>
+   * @public
+   */
+  vpcConfig?: VpcConfig;
+
+  /**
+   * <p>The service role associated with the compute fleet. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html">
+   *             Allow a user to add a permission policy for a fleet service role</a> in the <i>CodeBuild User Guide</i>.</p>
+   * @public
+   */
+  fleetServiceRole?: string;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -7822,6 +7920,9 @@ export interface UpdateProjectInput {
    *             used.</p>
    *             </li>
    *             <li>
+   *                <p>For GitLab: the commit ID, branch, or Git tag to use.</p>
+   *             </li>
+   *             <li>
    *                <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the
    *             version of the source code you want to build. If a branch name is specified, the
    *             branch's HEAD commit ID is used. If not specified, the default branch's HEAD
@@ -7883,7 +7984,7 @@ export interface UpdateProjectInput {
   serviceRole?: string;
 
   /**
-   * <p>The replacement value in minutes, from 5 to 480 (8 hours), for CodeBuild to wait before
+   * <p>The replacement value in minutes, from 5 to 2160 (36 hours), for CodeBuild to wait before
    *       timing out any related build that did not get marked as completed.</p>
    * @public
    */

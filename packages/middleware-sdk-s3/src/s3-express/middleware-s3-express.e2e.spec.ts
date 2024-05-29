@@ -1,4 +1,4 @@
-import { GetObjectCommand, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
+import { GetObjectCommand, PutObjectCommand, S3, waitUntilBucketExists } from "@aws-sdk/client-s3";
 import { STS } from "@aws-sdk/client-sts";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import http from "http";
@@ -37,20 +37,17 @@ describe("s3 express CRUD test suite", () => {
   beforeAll(async () => {
     ({ s3, controller, bucketName, recorder } = await createClientAndRecorder());
 
-    await deleteBuckets(controller);
     await s3.createBucket({
       Bucket: bucketName,
       CreateBucketConfiguration: {
-        Location: {
-          Type: "AvailabilityZone",
-          Name: zone,
-        },
-        Bucket: {
-          Type: "Directory",
-          DataRedundancy: "SingleAvailabilityZone",
-        },
+        Location: { Type: "AvailabilityZone", Name: zone },
+        Bucket: { Type: "Directory", DataRedundancy: "SingleAvailabilityZone" },
       },
     });
+
+    // Wait for the bucket to exist
+    await waitUntilBucketExists({ client: s3, maxWaitTime: 120 }, { Bucket: bucketName });
+
     createRecorder = JSON.parse(JSON.stringify(recorder.calls));
     reset();
 
@@ -95,31 +92,22 @@ describe("s3 express CRUD test suite", () => {
   });
 
   afterAll(async () => {
-    await deleteBuckets(controller);
+    await emptyAndDeleteBucket(controller, bucketName);
   });
 
   it("can create a bucket", () => {
     expect(createRecorder).toEqual({
-      "CreateBucketCommand (normal)": {
-        [bucketName]: 1,
-      },
+      "CreateBucketCommand (normal)": { [bucketName]: 1 },
+      "HeadBucketCommand (s3 express)": { [bucketName]: 1 },
+      "CreateSessionCommand (normal)": { [bucketName]: 1 },
     });
   });
 
   it("can read/write/delete from a bucket", () => {
     expect(readWriteDeleteRecorder).toEqual({
-      "CreateSessionCommand (normal)": {
-        [bucketName]: 1,
-      },
-      "PutObjectCommand (s3 express)": {
-        [bucketName]: SCALE,
-      },
-      "GetObjectCommand (s3 express)": {
-        [bucketName]: SCALE,
-      },
-      "DeleteObjectCommand (s3 express)": {
-        [bucketName]: SCALE,
-      },
+      "PutObjectCommand (s3 express)": { [bucketName]: SCALE },
+      "GetObjectCommand (s3 express)": { [bucketName]: SCALE },
+      "DeleteObjectCommand (s3 express)": { [bucketName]: SCALE },
     });
   });
 
@@ -202,12 +190,10 @@ describe("s3 express CRUD test suite", () => {
 });
 
 async function createClientAndRecorder() {
-  const sts = new STS({
-    region,
-  });
+  const sts = new STS({ region });
   const accountId = (await sts.getCallerIdentity({})).Account;
 
-  const bucketName = `${accountId}-js-test-bucket-${(Date.now() / 1000) | 0}--${suffix}`;
+  const bucketName = `${accountId}-js-test-bucket-${(Math.random() + 1).toString(36).substring(2)}--${suffix}`;
 
   const s3 = new S3({
     region,
@@ -232,7 +218,9 @@ async function createClientAndRecorder() {
       const commandName = context.commandName + s3ExpressSuffix;
       const input = args.input;
       const commandRecorder = (recorder.calls[commandName] = recorder.calls[commandName] ?? {});
+      // @ts-expect-error Element implicitly has an 'any' type
       commandRecorder[input["Bucket"] ?? "-"] |= 0;
+      // @ts-expect-error Element implicitly has an 'any' type
       commandRecorder[input["Bucket"] ?? "-"]++;
 
       return continuation;
@@ -252,52 +240,34 @@ async function createClientAndRecorder() {
   };
 }
 
-async function deleteBuckets(s3: S3) {
-  const buckets = await s3.listDirectoryBuckets({});
+async function emptyAndDeleteBucket(s3: S3, bucketName: string) {
+  const Bucket = bucketName;
+  try {
+    await s3.headBucket({ Bucket });
+  } catch (e) {
+    return;
+  }
 
-  for (const bucket of buckets.Buckets ?? []) {
-    const Bucket = bucket.Name;
-
-    try {
-      await s3.headBucket({
-        Bucket,
-      });
-    } catch (e) {
-      return;
+  const list = await s3.listObjectsV2({ Bucket }).catch((e) => {
+    if (!String(e).includes("NoSuchBucket")) {
+      throw e;
     }
+    return {
+      Contents: [],
+    };
+  });
 
-    const list = await s3
-      .listObjectsV2({
-        Bucket,
-      })
-      .catch((e) => {
-        if (!String(e).includes("NoSuchBucket")) {
-          throw e;
-        }
-        return {
-          Contents: [],
-        };
-      });
+  const promises = [] as Promise<any>[];
+  for (const key of list.Contents ?? []) {
+    promises.push(s3.deleteObject({ Bucket, Key: key.Key }));
+  }
+  await Promise.all(promises);
 
-    const promises = [] as Promise<any>[];
-    for (const key of list.Contents ?? []) {
-      promises.push(
-        s3.deleteObject({
-          Bucket,
-          Key: key.Key,
-        })
-      );
-    }
-    await Promise.all(promises);
-
-    try {
-      return await s3.deleteBucket({
-        Bucket,
-      });
-    } catch (e) {
-      if (!String(e).includes("NoSuchBucket")) {
-        throw e;
-      }
+  try {
+    return await s3.deleteBucket({ Bucket });
+  } catch (e) {
+    if (!String(e).includes("NoSuchBucket")) {
+      throw e;
     }
   }
 }

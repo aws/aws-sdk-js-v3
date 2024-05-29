@@ -157,6 +157,12 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *             Charset: "STRING_VALUE",
  *             Data: "STRING_VALUE",
  *           },
+ *           Headers: [ // ListOfMessageHeader
+ *             { // MessageHeader
+ *               Name: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *             },
+ *           ],
  *         },
  *         Substitutions: "<MapOfListOf__string>",
  *       },
