@@ -1,4 +1,3 @@
-
 /**
  * Submodules annotated with "Legacy" are from prior to the submodule system.
  * They are exported from the package's root index to preserve backwards compatibility.
