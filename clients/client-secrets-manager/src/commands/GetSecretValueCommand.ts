@@ -10,7 +10,7 @@ import {
   GetSecretValueResponse,
   GetSecretValueResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_GetSecretValueCommand, se_GetSecretValueCommand } from "../protocols/Aws_json1_1";
+import { de_GetSecretValueCommand, se_GetSecretValueCommand } from "../protocols/Rpcv2cbor";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**

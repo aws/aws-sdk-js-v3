@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse } from "../models/models_0";
-import { de_ReplicateSecretToRegionsCommand, se_ReplicateSecretToRegionsCommand } from "../protocols/Aws_json1_1";
+import { de_ReplicateSecretToRegionsCommand, se_ReplicateSecretToRegionsCommand } from "../protocols/Rpcv2cbor";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**

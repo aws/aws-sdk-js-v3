@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
-import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Aws_json1_1";
+import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Rpcv2cbor";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**

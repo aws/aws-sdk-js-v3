@@ -10,7 +10,7 @@ import {
   PutSecretValueRequestFilterSensitiveLog,
   PutSecretValueResponse,
 } from "../models/models_0";
-import { de_PutSecretValueCommand, se_PutSecretValueCommand } from "../protocols/Aws_json1_1";
+import { de_PutSecretValueCommand, se_PutSecretValueCommand } from "../protocols/Rpcv2cbor";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**

@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAlarmsInput, DescribeAlarmsOutput } from "../models/models_0";
-import { de_DescribeAlarmsCommand, se_DescribeAlarmsCommand } from "../protocols/Aws_query";
+import { de_DescribeAlarmsCommand, se_DescribeAlarmsCommand } from "../protocols/Rpcv2cbor";
 
 /**
  * @public
