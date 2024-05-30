@@ -20,29 +20,34 @@
   "types": "./dist-types/index.d.ts",
   "exports": {
     ".": {
+      "module": "./dist-es/index.js",
       "node": "./dist-cjs/index.js",
       "import": "./dist-es/index.js",
       "require": "./dist-cjs/index.js",
       "types": "./dist-types/index.d.ts"
     },
     "./package.json": {
+      "module": "./package.json",
       "node": "./package.json",
       "import": "./package.json",
       "require": "./package.json"
     },
     "./client": {
+      "module": "./dist-es/submodules/client/index.js",
       "node": "./dist-cjs/submodules/client/index.js",
       "import": "./dist-es/submodules/client/index.js",
       "require": "./dist-cjs/submodules/client/index.js",
       "types": "./dist-types/submodules/client/index.d.ts"
     },
     "./httpAuthSchemes": {
+      "module": "./dist-es/submodules/httpAuthSchemes/index.js",
       "node": "./dist-cjs/submodules/httpAuthSchemes/index.js",
       "import": "./dist-es/submodules/httpAuthSchemes/index.js",
       "require": "./dist-cjs/submodules/httpAuthSchemes/index.js",
       "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts"
     },
     "./protocols": {
+      "module": "./dist-es/submodules/protocols/index.js",
       "node": "./dist-cjs/submodules/protocols/index.js",
       "import": "./dist-es/submodules/protocols/index.js",
       "require": "./dist-cjs/submodules/protocols/index.js",
