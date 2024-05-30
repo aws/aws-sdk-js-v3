@@ -6093,8 +6093,8 @@ export interface RoutingProfileSearchCriteria {
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *      <code>description</code>, and <code>resourceID</code>.</p>
+   *             <p>The currently supported values for <code>FieldName</code> are
+   *      <code>associatedQueueIds</code>, <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p>
    *          </note>
    * @public
    */

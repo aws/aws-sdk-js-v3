@@ -13309,6 +13309,8 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 
 // de_AssignContactCategoryActionDefinition omitted.
 
+// de_AssociatedQueueIdList omitted.
+
 // de_AttachedFile omitted.
 
 // de_AttachedFileError omitted.
@@ -14809,6 +14811,7 @@ const de_RoutingCriteria = (output: any, context: __SerdeContext): RoutingCriter
 const de_RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile => {
   return take(output, {
     AgentAvailabilityTimer: __expectString,
+    AssociatedQueueIds: _json,
     DefaultOutboundQueueId: __expectString,
     Description: __expectString,
     InstanceId: __expectString,

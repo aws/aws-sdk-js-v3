@@ -66,6 +66,9 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //     LastModifiedRegion: "STRING_VALUE",
  * //     IsDefault: true || false,
+ * //     AssociatedQueueIds: [ // AssociatedQueueIdList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

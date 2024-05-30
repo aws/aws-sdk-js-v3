@@ -1547,6 +1547,12 @@ export interface RoutingProfile {
    * @public
    */
   IsDefault?: boolean;
+
+  /**
+   * <p>The IDs of the associated queue.</p>
+   * @public
+   */
+  AssociatedQueueIds?: string[];
 }
 
 /**

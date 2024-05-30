@@ -112,6 +112,9 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       LastModifiedRegion: "STRING_VALUE",
  * //       IsDefault: true || false,
+ * //       AssociatedQueueIds: [ // AssociatedQueueIdList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
