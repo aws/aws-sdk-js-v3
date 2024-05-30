@@ -170,7 +170,7 @@ export const resolveAssumeRoleCredentials = async (
     if (!options.mfaCodeProvider) {
       throw new CredentialsProviderError(
         `Profile ${profileName} requires multi-factor authentication, but no MFA code callback was provided.`,
-        { logger: options.logger }
+        { logger: options.logger, tryNextLink: false }
       );
     }
     params.SerialNumber = mfa_serial;
