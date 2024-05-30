@@ -3276,6 +3276,30 @@ export const KnowledgeBaseType = {
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
 
 /**
+ * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * @public
+ */
+export interface BedrockEmbeddingModelConfiguration {
+  /**
+   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * @public
+   */
+  dimensions?: number;
+}
+
+/**
+ * <p>The configuration details for the embeddings model.</p>
+ * @public
+ */
+export interface EmbeddingModelConfiguration {
+  /**
+   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * @public
+   */
+  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration;
+}
+
+/**
  * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>
  * @public
  */
@@ -3285,6 +3309,12 @@ export interface VectorKnowledgeBaseConfiguration {
    * @public
    */
   embeddingModelArn: string | undefined;
+
+  /**
+   * <p>The embeddings model configuration details for the vector model used in Knowledge Base.</p>
+   * @public
+   */
+  embeddingModelConfiguration?: EmbeddingModelConfiguration;
 }
 
 /**

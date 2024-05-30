@@ -130,11 +130,13 @@ import {
   AgentVersion,
   AgentVersionSummary,
   APISchema,
+  BedrockEmbeddingModelConfiguration,
   ChunkingConfiguration,
   ConflictException,
   DataSource,
   DataSourceConfiguration,
   DataSourceSummary,
+  EmbeddingModelConfiguration,
   FixedSizeChunkingConfiguration,
   Function,
   FunctionSchema,
@@ -2103,9 +2105,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_APISchema omitted.
 
+// se_BedrockEmbeddingModelConfiguration omitted.
+
 // se_ChunkingConfiguration omitted.
 
 // se_DataSourceConfiguration omitted.
+
+// se_EmbeddingModelConfiguration omitted.
 
 // se_FixedSizeChunkingConfiguration omitted.
 
@@ -2486,6 +2492,8 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
 
 // de_APISchema omitted.
 
+// de_BedrockEmbeddingModelConfiguration omitted.
+
 // de_ChunkingConfiguration omitted.
 
 /**
@@ -2535,6 +2543,8 @@ const de_DataSourceSummary = (output: any, context: __SerdeContext): DataSourceS
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_EmbeddingModelConfiguration omitted.
 
 // de_FailureReasons omitted.
 

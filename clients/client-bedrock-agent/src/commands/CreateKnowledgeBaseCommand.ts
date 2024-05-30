@@ -74,6 +74,11 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *     type: "VECTOR", // required
  *     vectorKnowledgeBaseConfiguration: { // VectorKnowledgeBaseConfiguration
  *       embeddingModelArn: "STRING_VALUE", // required
+ *       embeddingModelConfiguration: { // EmbeddingModelConfiguration
+ *         bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
+ *           dimensions: Number("int"),
+ *         },
+ *       },
  *     },
  *   },
  *   storageConfiguration: { // StorageConfiguration
@@ -149,6 +154,11 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //       type: "VECTOR", // required
  * //       vectorKnowledgeBaseConfiguration: { // VectorKnowledgeBaseConfiguration
  * //         embeddingModelArn: "STRING_VALUE", // required
+ * //         embeddingModelConfiguration: { // EmbeddingModelConfiguration
+ * //           bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
+ * //             dimensions: Number("int"),
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //     storageConfiguration: { // StorageConfiguration
