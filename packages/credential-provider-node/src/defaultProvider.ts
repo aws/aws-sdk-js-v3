@@ -1,4 +1,5 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
+import type { FromHttpOptions } from "@aws-sdk/credential-provider-http";
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
 import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
@@ -14,6 +15,7 @@ import { remoteProvider } from "./remoteProvider";
  * @public
  */
 export type DefaultProviderInit = FromIniInit &
+  FromHttpOptions &
   RemoteProviderInit &
   FromProcessInit &
   (FromSSOInit & Partial<SsoCredentialsParameters>) &
@@ -60,42 +62,46 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
         ? []
         : [
             async () => {
-              init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromEnv");
+              init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
               return fromEnv(init)();
             },
           ]),
       async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromSSO");
+        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
         const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
           throw new CredentialsProviderError(
-            "Skipping SSO provider in default chain (inputs do not include SSO fields)."
+            "Skipping SSO provider in default chain (inputs do not include SSO fields).",
+            { logger: init.logger }
           );
         }
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
         return fromSSO(init)();
       },
       async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromIni");
+        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
         const { fromIni } = await import("@aws-sdk/credential-provider-ini");
         return fromIni(init)();
       },
       async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromProcess");
+        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
         const { fromProcess } = await import("@aws-sdk/credential-provider-process");
         return fromProcess(init)();
       },
       async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromTokenFile");
+        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
         const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
         return fromTokenFile(init)();
       },
       async () => {
-        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::remoteProvider");
+        init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
         return (await remoteProvider(init))();
       },
       async () => {
-        throw new CredentialsProviderError("Could not load credentials from any providers", false);
+        throw new CredentialsProviderError("Could not load credentials from any providers", {
+          tryNextLink: false,
+          logger: init.logger,
+        });
       }
     ),
     credentialsTreatedAsExpired,

@@ -4,9 +4,17 @@ import { Transform } from "stream";
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-flexible-checksums", () => {
+  const logger = {
+    trace() {},
+    debug() {},
+    info() {},
+    warn() {},
+    error() {},
+  };
+
   describe(S3.name, () => {
     it("should set flexible checksums (SHA256)", async () => {
-      const client = new S3({ region: "us-west-2" });
+      const client = new S3({ region: "us-west-2", logger });
 
       requireRequestsFrom(client).toMatch({
         method: "PUT",
@@ -44,7 +52,7 @@ describe("middleware-flexible-checksums", () => {
     });
 
     it("should set flexible checksums (SHA1)", async () => {
-      const client = new S3({ region: "us-west-2" });
+      const client = new S3({ region: "us-west-2", logger });
 
       requireRequestsFrom(client).toMatch({
         method: "PUT",
@@ -83,7 +91,7 @@ describe("middleware-flexible-checksums", () => {
     });
 
     it("should not set binary file content length", async () => {
-      const client = new S3({ region: "us-west-2" });
+      const client = new S3({ region: "us-west-2", logger });
 
       requireRequestsFrom(client).toMatch({
         method: "PUT",

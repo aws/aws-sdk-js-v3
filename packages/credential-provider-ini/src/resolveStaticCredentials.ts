@@ -29,7 +29,7 @@ export const resolveStaticCredentials = (
   profile: StaticCredsProfile,
   options?: FromIniInit
 ): Promise<AwsCredentialIdentity> => {
-  options?.logger?.debug("@aws-sdk/credential-provider-ini", "resolveStaticCredentials");
+  options?.logger?.debug("@aws-sdk/credential-provider-ini - resolveStaticCredentials");
   return Promise.resolve({
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,

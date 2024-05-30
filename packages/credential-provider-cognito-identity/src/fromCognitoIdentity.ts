@@ -1,6 +1,6 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, Provider } from "@smithy/types";
+import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { resolveLogins } from "./resolveLogins";
@@ -30,16 +30,16 @@ export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredenti
  */
 export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
   return async (): Promise<CognitoIdentityCredentials> => {
-    parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
+    parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
 
     const {
       Credentials: {
-        AccessKeyId = throwOnMissingAccessKeyId(),
+        AccessKeyId = throwOnMissingAccessKeyId(parameters.logger),
         Expiration,
-        SecretKey = throwOnMissingSecretKey(),
+        SecretKey = throwOnMissingSecretKey(parameters.logger),
         SessionToken,
-      } = throwOnMissingCredentials(),
+      } = throwOnMissingCredentials(parameters.logger),
     } = await (
       parameters.client ??
       new CognitoIdentityClient(
@@ -76,14 +76,14 @@ export interface FromCognitoIdentityParameters extends CognitoProviderParameters
   identityId: string;
 }
 
-function throwOnMissingAccessKeyId(): never {
-  throw new CredentialsProviderError("Response from Amazon Cognito contained no access key ID");
+function throwOnMissingAccessKeyId(logger?: Logger): never {
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no access key ID", { logger });
 }
 
-function throwOnMissingCredentials(): never {
-  throw new CredentialsProviderError("Response from Amazon Cognito contained no credentials");
+function throwOnMissingCredentials(logger?: Logger): never {
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no credentials", { logger });
 }
 
-function throwOnMissingSecretKey(): never {
-  throw new CredentialsProviderError("Response from Amazon Cognito contained no secret key");
+function throwOnMissingSecretKey(logger?: Logger): never {
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no secret key", { logger });
 }

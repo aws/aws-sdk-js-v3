@@ -117,7 +117,9 @@ describe(resolveSSOCredentials.name, () => {
         await resolveSSOCredentials(mockOptions);
         fail(`expected ${expectedError}`);
       } catch (error) {
-        expect(error).toStrictEqual(CredentialsProviderError.from(expectedError, SHOULD_FAIL_CREDENTIAL_CHAIN));
+        expect(error).toStrictEqual(
+          new CredentialsProviderError(expectedError.toString(), SHOULD_FAIL_CREDENTIAL_CHAIN)
+        );
       }
     });
 

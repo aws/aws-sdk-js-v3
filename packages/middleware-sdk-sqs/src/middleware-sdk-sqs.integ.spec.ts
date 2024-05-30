@@ -110,6 +110,14 @@ describe("middleware-sdk-sqs", () => {
     secretAccessKey: "integration_test",
   };
 
+  const logger = {
+    trace() {},
+    debug() {},
+    info() {},
+    warn() {},
+    error() {},
+  };
+
   describe(SQS.name + ` w/ useAwsQuery: ${useAwsQuery}`, () => {
     describe("correct md5 hashes", () => {
       beforeEach(() => {
@@ -120,6 +128,7 @@ describe("middleware-sdk-sqs", () => {
         const client = new SQS({
           region: "us-west-2",
           credentials: mockCredentials,
+          logger,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -143,6 +152,7 @@ describe("middleware-sdk-sqs", () => {
         const client = new SQS({
           region: "us-west-2",
           credentials: mockCredentials,
+          logger,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -167,6 +177,7 @@ describe("middleware-sdk-sqs", () => {
         const client = new SQS({
           region: "us-west-2",
           credentials: mockCredentials,
+          logger,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -210,6 +221,7 @@ describe("middleware-sdk-sqs", () => {
         const client = new SQS({
           region: "us-west-2",
           credentials: mockCredentials,
+          logger,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -237,6 +249,7 @@ describe("middleware-sdk-sqs", () => {
         const client = new SQS({
           region: "us-west-2",
           credentials: mockCredentials,
+          logger,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -265,6 +278,7 @@ describe("middleware-sdk-sqs", () => {
         const client = new SQS({
           region: "us-west-2",
           credentials: mockCredentials,
+          logger,
           requestHandler: new (class implements HttpHandler {
             async handle(): Promise<any> {
               const r = responses();
@@ -309,6 +323,7 @@ describe("middleware-sdk-sqs", () => {
       const client = new SQS({
         region: "us-west-2",
         credentials: mockCredentials,
+        logger,
       });
 
       requireRequestsFrom(client).toMatch({
@@ -346,6 +361,7 @@ describe("middleware-sdk-sqs", () => {
       const client = new SQS({
         region: "us-west-2",
         credentials: mockCredentials,
+        logger,
         endpoint: "https://custom-endpoint.com/",
       });
 

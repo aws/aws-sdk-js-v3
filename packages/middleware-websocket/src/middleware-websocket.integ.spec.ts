@@ -3,10 +3,18 @@ import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-websocket", () => {
+  const logger = {
+    trace() {},
+    debug() {},
+    info() {},
+    warn() {},
+    error() {},
+  };
   describe(RekognitionStreaming.name, () => {
     it("sets protocol, headers, moves params to query, and signs in the query", async () => {
       const client = new RekognitionStreaming({
         region: "us-west-2",
+        logger,
       });
       requireRequestsFrom(client).toMatch({
         protocol: "wss:",

@@ -1,4 +1,5 @@
 import { STS } from "@aws-sdk/client-sts";
+import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import { HttpResponse } from "@smithy/protocol-http";
 import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { HttpRequest, NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
@@ -489,6 +490,44 @@ describe("credential-provider-node integration test", () => {
         expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-sso-1-us-sso-region-1",
       });
+    });
+
+    it("should be able to combine a source_profile having credential_source with an origin profile having role_arn and source_profile", async () => {
+      process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI = "http://169.254.170.23";
+      process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN = "container-authorization";
+      iniProfileData.default.source_profile = "credential_source_profile";
+      iniProfileData.default.role_arn = "ROLE_ARN";
+      iniProfileData.credential_source_profile = {
+        credential_source: "EcsContainer",
+      };
+      const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
+      sts = new STS({
+        region: "us-west-2",
+        requestHandler: mockRequestHandler,
+        credentials: defaultProvider({
+          awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
+          awsContainerAuthorizationToken: process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN,
+          clientConfig: {
+            region: "us-west-2",
+          },
+        }),
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        credentialScope: "us-stsar-1__us-west-2",
+      });
+      expect(spy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          awsContainerCredentialsFullUri: process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI,
+          awsContainerAuthorizationToken: process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN,
+        })
+      );
+      spy.mockClear();
     });
   });
 

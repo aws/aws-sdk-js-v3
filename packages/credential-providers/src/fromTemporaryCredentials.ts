@@ -54,13 +54,16 @@ export interface FromTemporaryCredentialsOptions extends CredentialProviderOptio
 export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): AwsCredentialIdentityProvider => {
   let stsClient: STSClient;
   return async (): Promise<AwsCredentialIdentity> => {
-    options.logger?.debug("@aws-sdk/credential-providers", "fromTemporaryCredentials (STS)");
+    options.logger?.debug("@aws-sdk/credential-providers - fromTemporaryCredentials (STS)");
     const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
       if (!options.mfaCodeProvider) {
         throw new CredentialsProviderError(
           `Temporary credential requires multi-factor authentication,` + ` but no MFA code callback was provided.`,
-          false
+          {
+            tryNextLink: false,
+            logger: options.logger,
+          }
         );
       }
       params.TokenCode = await options.mfaCodeProvider(params?.SerialNumber);
@@ -76,7 +79,9 @@ export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOption
     }
     const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
-      throw new CredentialsProviderError(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
+      throw new CredentialsProviderError(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`, {
+        logger: options.logger,
+      });
     }
     return {
       accessKeyId: Credentials.AccessKeyId,

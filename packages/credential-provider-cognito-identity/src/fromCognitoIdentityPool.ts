@@ -1,5 +1,6 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { Logger } from "@smithy/types";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { CognitoIdentityCredentialProvider, fromCognitoIdentity } from "./fromCognitoIdentity";
@@ -29,7 +30,7 @@ export function fromCognitoIdentityPool({
   logger,
   parentClientConfig,
 }: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
-  logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
+  logger?.debug("@aws-sdk/credential-provider-cognito-identity - fromCognitoIdentity");
   const cacheKey: string | undefined = userIdentifier
     ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
     : undefined;
@@ -44,7 +45,7 @@ export function fromCognitoIdentityPool({
 
     let identityId: string | undefined = (cacheKey && (await cache.getItem(cacheKey))) as string | undefined;
     if (!identityId) {
-      const { IdentityId = throwOnMissingId() } = await _client.send(
+      const { IdentityId = throwOnMissingId(logger) } = await _client.send(
         new GetIdCommand({
           AccountId: accountId,
           IdentityPoolId: identityPoolId,
@@ -116,6 +117,6 @@ export interface FromCognitoIdentityPoolParameters extends CognitoProviderParame
   userIdentifier?: string;
 }
 
-function throwOnMissingId(): never {
-  throw new CredentialsProviderError("Response from Amazon Cognito contained no identity ID");
+function throwOnMissingId(logger?: Logger): never {
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no identity ID", { logger });
 }

@@ -2,7 +2,7 @@ import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { HttpRequest } from "@smithy/protocol-http";
 import { parseRfc3339DateTime } from "@smithy/smithy-client";
-import { HttpResponse } from "@smithy/types";
+import { HttpResponse, Logger } from "@smithy/types";
 import { sdkStreamMixin } from "@smithy/util-stream";
 
 import { HttpProviderCredentials } from "./fromHttpTypes";
@@ -27,11 +27,13 @@ export function createGetRequest(url: URL): HttpRequest {
 /**
  * @internal
  */
-export async function getCredentials(response: HttpResponse): Promise<AwsCredentialIdentity> {
+export async function getCredentials(response: HttpResponse, logger?: Logger): Promise<AwsCredentialIdentity> {
   const contentType = response?.headers["content-type"] ?? response?.headers["Content-Type"] ?? "";
 
   if (!contentType.includes("json")) {
-    console.warn(
+    const warn: (warning: string) => void =
+      logger?.constructor?.name === "NoOpLogger" || !logger ? console.warn : logger.warn;
+    warn(
       "HTTP credential provider response header content-type was not application/json. Observed: " + contentType + "."
     );
   }
@@ -50,7 +52,8 @@ export async function getCredentials(response: HttpResponse): Promise<AwsCredent
     ) {
       throw new CredentialsProviderError(
         "HTTP credential provider response not of the required format, an object matching: " +
-          "{ AccessKeyId: string, SecretAccessKey: string, Token: string, Expiration: string(rfc3339) }"
+          "{ AccessKeyId: string, SecretAccessKey: string, Token: string, Expiration: string(rfc3339) }",
+        { logger }
       );
     }
 
@@ -67,10 +70,13 @@ export async function getCredentials(response: HttpResponse): Promise<AwsCredent
       parsedBody = JSON.parse(str);
     } catch (e) {}
 
-    throw Object.assign(new CredentialsProviderError(`Server responded with status: ${response.statusCode}`), {
-      Code: parsedBody.Code,
-      Message: parsedBody.Message,
-    });
+    throw Object.assign(
+      new CredentialsProviderError(`Server responded with status: ${response.statusCode}`, { logger }),
+      {
+        Code: parsedBody.Code,
+        Message: parsedBody.Message,
+      }
+    );
   }
-  throw new CredentialsProviderError(`Server responded with status: ${response.statusCode}`);
+  throw new CredentialsProviderError(`Server responded with status: ${response.statusCode}`, { logger });
 }

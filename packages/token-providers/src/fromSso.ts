@@ -28,7 +28,7 @@ export interface FromSsoInit extends SourceProfileInit, CredentialProviderOption
 export const fromSso =
   (init: FromSsoInit = {}): TokenIdentityProvider =>
   async () => {
-    init.logger?.debug("@aws-sdk/token-providers", "fromSso");
+    init.logger?.debug("@aws-sdk/token-providers - fromSso");
 
     const profiles = await parseKnownFiles(init);
     const profileName = getProfileName(init);

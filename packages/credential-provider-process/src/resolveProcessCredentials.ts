@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
+import { AwsCredentialIdentity, Logger, ParsedIniData } from "@smithy/types";
 import { exec } from "child_process";
 import { promisify } from "util";
 
@@ -11,7 +11,8 @@ import { ProcessCredentials } from "./ProcessCredentials";
  */
 export const resolveProcessCredentials = async (
   profileName: string,
-  profiles: ParsedIniData
+  profiles: ParsedIniData,
+  logger?: Logger
 ): Promise<AwsCredentialIdentity> => {
   const profile = profiles[profileName];
 
@@ -29,16 +30,18 @@ export const resolveProcessCredentials = async (
         }
         return getValidatedProcessCredentials(profileName, data as ProcessCredentials);
       } catch (error) {
-        throw new CredentialsProviderError(error.message);
+        throw new CredentialsProviderError(error.message, { logger });
       }
     } else {
-      throw new CredentialsProviderError(`Profile ${profileName} did not contain credential_process.`);
+      throw new CredentialsProviderError(`Profile ${profileName} did not contain credential_process.`, { logger });
     }
   } else {
     // If the profile cannot be parsed or does not contain the default or
     // specified profile throw an error. This should be considered a terminal
     // resolution error if a profile has been specified by the user (whether via
     // a parameter, anenvironment variable, or another profile's `source_profile` key).
-    throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
+    throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`, {
+      logger,
+    });
   }
 };

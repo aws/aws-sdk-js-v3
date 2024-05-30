@@ -20,6 +20,7 @@ export const resolveSSOCredentials = async ({
   ssoClient,
   clientConfig,
   profile,
+  logger,
 }: FromSSOInit & SsoCredentialsParameters): Promise<AwsCredentialIdentity> => {
   let token: SSOToken;
   const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
@@ -32,24 +33,27 @@ export const resolveSSOCredentials = async ({
         expiresAt: new Date(_token.expiration!).toISOString(),
       };
     } catch (e) {
-      throw new CredentialsProviderError(e.message, SHOULD_FAIL_CREDENTIAL_CHAIN);
+      throw new CredentialsProviderError(e.message, {
+        tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
+        logger,
+      });
     }
   } else {
     try {
       token = await getSSOTokenFromFile(ssoStartUrl);
     } catch (e) {
-      throw new CredentialsProviderError(
-        `The SSO session associated with this profile is invalid. ${refreshMessage}`,
-        SHOULD_FAIL_CREDENTIAL_CHAIN
-      );
+      throw new CredentialsProviderError(`The SSO session associated with this profile is invalid. ${refreshMessage}`, {
+        tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
+        logger,
+      });
     }
   }
 
   if (new Date(token.expiresAt).getTime() - Date.now() <= 0) {
-    throw new CredentialsProviderError(
-      `The SSO session associated with this profile has expired. ${refreshMessage}`,
-      SHOULD_FAIL_CREDENTIAL_CHAIN
-    );
+    throw new CredentialsProviderError(`The SSO session associated with this profile has expired. ${refreshMessage}`, {
+      tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
+      logger,
+    });
   }
 
   const { accessToken } = token;
@@ -73,7 +77,10 @@ export const resolveSSOCredentials = async ({
       })
     );
   } catch (e) {
-    throw CredentialsProviderError.from(e, SHOULD_FAIL_CREDENTIAL_CHAIN);
+    throw new CredentialsProviderError(e, {
+      tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
+      logger,
+    });
   }
 
   const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration, credentialScope } = {} } =
@@ -88,7 +95,10 @@ export const resolveSSOCredentials = async ({
     };
 
   if (!accessKeyId || !secretAccessKey || !sessionToken || !expiration) {
-    throw new CredentialsProviderError("SSO returns an invalid temporary credential.", SHOULD_FAIL_CREDENTIAL_CHAIN);
+    throw new CredentialsProviderError("SSO returns an invalid temporary credential.", {
+      tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
+      logger,
+    });
   }
 
   return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration), credentialScope };
