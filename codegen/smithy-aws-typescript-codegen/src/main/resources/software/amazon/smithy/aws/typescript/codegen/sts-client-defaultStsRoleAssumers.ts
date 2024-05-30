@@ -87,7 +87,7 @@ export const getDefaultRoleAssumer = (
     }
     let accountId;
     try {
-      accountId = AssumedRoleUser.Arn.split(":")[4];
+      accountId = AssumedRoleUser!.Arn!.split(":")[4];
     } catch (error) {
       accountId = undefined;
     }
@@ -144,7 +144,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
     }
     let accountId;
     try {
-      accountId = AssumedRoleUser.Arn.split(":")[4];
+      accountId = AssumedRoleUser!.Arn!.split(":")[4];
     } catch (error) {
       accountId = undefined;
     }

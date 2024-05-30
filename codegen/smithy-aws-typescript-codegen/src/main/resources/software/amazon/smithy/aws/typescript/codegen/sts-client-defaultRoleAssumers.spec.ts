@@ -218,6 +218,17 @@ describe("getDefaultRoleAssumerWithWebIdentity", () => {
     });
   });
 
+  it("should return accountId in the credentials", async () => {
+    const roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity();
+    const params: AssumeRoleWithWebIdentityCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+      WebIdentityToken: "token",
+    };
+    const assumedRole = await roleAssumerWithWebIdentity(params);
+    expect(assumedRole.accountId).toEqual("123456789012");
+  });
+
   it("should use the STS client middleware", async () => {
     const customMiddlewareFunction = jest.fn();
     const roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity({}, [
