@@ -1166,8 +1166,8 @@ const se_SearchByAttributeValue = (input: SearchByAttributeValue, context: __Ser
     DICOMStudyDateAndTime: (value) => ({ DICOMStudyDateAndTime: _json(value) }),
     DICOMStudyId: (value) => ({ DICOMStudyId: value }),
     DICOMStudyInstanceUID: (value) => ({ DICOMStudyInstanceUID: value }),
-    createdAt: (value) => ({ createdAt: Math.round(value.getTime() / 1000) }),
-    updatedAt: (value) => ({ updatedAt: Math.round(value.getTime() / 1000) }),
+    createdAt: (value) => ({ createdAt: value.getTime() / 1_000 }),
+    updatedAt: (value) => ({ updatedAt: value.getTime() / 1_000 }),
     _: (name, value) => ({ name: value } as any),
   });
 };

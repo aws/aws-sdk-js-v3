@@ -822,7 +822,7 @@ const se_CreateScheduledQueryRequest = (input: CreateScheduledQueryRequest, cont
 const se_ExecuteScheduledQueryRequest = (input: ExecuteScheduledQueryRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
-    InvocationTime: (_) => Math.round(_.getTime() / 1000),
+    InvocationTime: (_) => _.getTime() / 1_000,
     ScheduledQueryArn: [],
   });
 };

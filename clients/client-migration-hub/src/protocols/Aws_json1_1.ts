@@ -931,7 +931,7 @@ const se_NotifyApplicationStateRequest = (input: NotifyApplicationStateRequest, 
     ApplicationId: [],
     DryRun: [],
     Status: [],
-    UpdateDateTime: (_) => Math.round(_.getTime() / 1000),
+    UpdateDateTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -945,7 +945,7 @@ const se_NotifyMigrationTaskStateRequest = (input: NotifyMigrationTaskStateReque
     NextUpdateSeconds: [],
     ProgressUpdateStream: [],
     Task: _json,
-    UpdateDateTime: (_) => Math.round(_.getTime() / 1000),
+    UpdateDateTime: (_) => _.getTime() / 1_000,
   });
 };
 

@@ -20,6 +20,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -557,11 +558,8 @@ export const se_ListDatasetContentsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_sOOA]: [
-      () => input.scheduledOnOrAfter !== void 0,
-      () => (input[_sOOA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_sB]: [() => input.scheduledBefore !== void 0, () => (input[_sB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sOOA]: [() => input.scheduledOnOrAfter !== void 0, () => __serializeDateTime(input[_sOOA]!).toString()],
+    [_sB]: [() => input.scheduledBefore !== void 0, () => __serializeDateTime(input[_sB]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -701,8 +699,8 @@ export const se_SampleChannelDataCommand = async (
   b.p("channelName", () => input.channelName!, "{channelName}", false);
   const query: any = map({
     [_mM]: [() => input.maxMessages !== void 0, () => input[_mM]!.toString()],
-    [_sT]: [() => input.startTime !== void 0, () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString()],
-    [_eT]: [() => input.endTime !== void 0, () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -726,8 +724,8 @@ export const se_StartPipelineReprocessingCommand = async (
   body = JSON.stringify(
     take(input, {
       channelMessages: (_) => _json(_),
-      endTime: (_) => Math.round(_.getTime() / 1000),
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
+      startTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);

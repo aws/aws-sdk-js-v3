@@ -17,6 +17,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -1241,18 +1242,12 @@ export const se_ListBackupJobsCommand = async (
     [_rA]: [, input[_BRA]!],
     [_s]: [, input[_BS]!],
     [_bVN]: [, input[_BBVN]!],
-    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => __serializeDateTime(input[_BCB]!).toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => __serializeDateTime(input[_BCA]!).toString()],
     [_rT]: [, input[_BRT]!],
     [_aI]: [, input[_BAI]!],
-    [_cAo]: [
-      () => input.ByCompleteAfter !== void 0,
-      () => (input[_BCAy]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cBo]: [
-      () => input.ByCompleteBefore !== void 0,
-      () => (input[_BCBy]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cAo]: [() => input.ByCompleteAfter !== void 0, () => __serializeDateTime(input[_BCAy]!).toString()],
+    [_cBo]: [() => input.ByCompleteBefore !== void 0, () => __serializeDateTime(input[_BCBy]!).toString()],
     [_pJI]: [, input[_BPJI]!],
     [_mC]: [, input[_BMC]!],
   });
@@ -1400,19 +1395,13 @@ export const se_ListCopyJobsCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_rA]: [, input[_BRA]!],
     [_s]: [, input[_BS]!],
-    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => __serializeDateTime(input[_BCB]!).toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => __serializeDateTime(input[_BCA]!).toString()],
     [_rT]: [, input[_BRT]!],
     [_dVA]: [, input[_BDVA]!],
     [_aI]: [, input[_BAI]!],
-    [_cBo]: [
-      () => input.ByCompleteBefore !== void 0,
-      () => (input[_BCBy]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cAo]: [
-      () => input.ByCompleteAfter !== void 0,
-      () => (input[_BCAy]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cBo]: [() => input.ByCompleteBefore !== void 0, () => __serializeDateTime(input[_BCBy]!).toString()],
+    [_cAo]: [() => input.ByCompleteAfter !== void 0, () => __serializeDateTime(input[_BCAy]!).toString()],
     [_pJI]: [, input[_BPJI]!],
     [_mC]: [, input[_BMC]!],
   });
@@ -1541,8 +1530,8 @@ export const se_ListRecoveryPointsByBackupVaultCommand = async (
     [_rA]: [, input[_BRA]!],
     [_rT]: [, input[_BRT]!],
     [_bPI]: [, input[_BBPI]!],
-    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => __serializeDateTime(input[_BCB]!).toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => __serializeDateTime(input[_BCA]!).toString()],
     [_pRPA]: [, input[_BPRPA]!],
   });
   let body: any;
@@ -1603,14 +1592,8 @@ export const se_ListReportJobsCommand = async (
   b.bp("/audit/report-jobs");
   const query: any = map({
     [_RPN]: [, input[_BRPN]!],
-    [_CB]: [
-      () => input.ByCreationBefore !== void 0,
-      () => (input[_BCByr]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_CA]: [
-      () => input.ByCreationAfter !== void 0,
-      () => (input[_BCAyr]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_CB]: [() => input.ByCreationBefore !== void 0, () => __serializeDateTime(input[_BCByr]!).toString()],
+    [_CA]: [() => input.ByCreationAfter !== void 0, () => __serializeDateTime(input[_BCAyr]!).toString()],
     [_St]: [, input[_BSyt]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
@@ -1654,17 +1637,11 @@ export const se_ListRestoreJobsCommand = async (
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_aI]: [, input[_BAI]!],
     [_rT]: [, input[_BRT]!],
-    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => __serializeDateTime(input[_BCB]!).toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => __serializeDateTime(input[_BCA]!).toString()],
     [_st]: [, input[_BSyt]!],
-    [_cBo]: [
-      () => input.ByCompleteBefore !== void 0,
-      () => (input[_BCBy]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cAo]: [
-      () => input.ByCompleteAfter !== void 0,
-      () => (input[_BCAy]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cBo]: [() => input.ByCompleteBefore !== void 0, () => __serializeDateTime(input[_BCBy]!).toString()],
+    [_cAo]: [() => input.ByCompleteAfter !== void 0, () => __serializeDateTime(input[_BCAy]!).toString()],
     [_rTPA]: [, input[_BRTPA]!],
   });
   let body: any;
@@ -1687,11 +1664,11 @@ export const se_ListRestoreJobsByProtectedResourceCommand = async (
     [_st]: [, input[_BSyt]!],
     [_rPCDA]: [
       () => input.ByRecoveryPointCreationDateAfter !== void 0,
-      () => (input[_BRPCDA]!.toISOString().split(".")[0] + "Z").toString(),
+      () => __serializeDateTime(input[_BRPCDA]!).toString(),
     ],
     [_rPCDB]: [
       () => input.ByRecoveryPointCreationDateBefore !== void 0,
-      () => (input[_BRPCDB]!.toISOString().split(".")[0] + "Z").toString(),
+      () => __serializeDateTime(input[_BRPCDB]!).toString(),
     ],
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
@@ -4584,8 +4561,8 @@ const de_ServiceUnavailableExceptionRes = async (
  */
 const se_DateRange = (input: DateRange, context: __SerdeContext): any => {
   return take(input, {
-    FromDate: (_) => Math.round(_.getTime() / 1000),
-    ToDate: (_) => Math.round(_.getTime() / 1000),
+    FromDate: (_) => _.getTime() / 1_000,
+    ToDate: (_) => _.getTime() / 1_000,
   });
 };
 

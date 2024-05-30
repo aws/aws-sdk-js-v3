@@ -36,6 +36,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
   strictParseByte as __strictParseByte,
@@ -3766,7 +3767,7 @@ export const serializeDatetimeOffsetsResponse = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      datetime: (_) => _.toISOString().split(".")[0] + "Z",
+      datetime: (_) => __serializeDateTime(_),
     })
   );
   if (
@@ -4039,7 +4040,7 @@ export const serializeFractionalSecondsResponse = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      datetime: (_) => _.toISOString().split(".")[0] + "Z",
+      datetime: (_) => __serializeDateTime(_),
     })
   );
   if (
@@ -5082,13 +5083,13 @@ export const serializeJsonTimestampsResponse = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      dateTime: (_) => _.toISOString().split(".")[0] + "Z",
-      dateTimeOnTarget: (_) => _.toISOString().split(".")[0] + "Z",
-      epochSeconds: (_) => Math.round(_.getTime() / 1000),
-      epochSecondsOnTarget: (_) => Math.round(_.getTime() / 1000),
+      dateTime: (_) => __serializeDateTime(_),
+      dateTimeOnTarget: (_) => __serializeDateTime(_),
+      epochSeconds: (_) => _.getTime() / 1_000,
+      epochSecondsOnTarget: (_) => _.getTime() / 1_000,
       httpDate: (_) => __dateToUtcString(_),
       httpDateOnTarget: (_) => __dateToUtcString(_),
-      normal: (_) => Math.round(_.getTime() / 1000),
+      normal: (_) => _.getTime() / 1_000,
     })
   );
   if (
@@ -7209,19 +7210,13 @@ export const serializeTimestampFormatHeadersResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xm]: [() => isSerializableHeaderValue(input[_mES]), () => Math.round(input[_mES]!.getTime() / 1000).toString()],
+    [_xm]: [() => isSerializableHeaderValue(input[_mES]), () => (input[_mES]!.getTime() / 1_000).toString()],
     [_xm_]: [() => isSerializableHeaderValue(input[_mHD]), () => __dateToUtcString(input[_mHD]!).toString()],
-    [_xm__]: [
-      () => isSerializableHeaderValue(input[_mDT]),
-      () => (input[_mDT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_xm__]: [() => isSerializableHeaderValue(input[_mDT]), () => __serializeDateTime(input[_mDT]!).toString()],
     [_xd_]: [() => isSerializableHeaderValue(input[_dF]), () => __dateToUtcString(input[_dF]!).toString()],
-    [_xt_]: [() => isSerializableHeaderValue(input[_tES]), () => Math.round(input[_tES]!.getTime() / 1000).toString()],
+    [_xt_]: [() => isSerializableHeaderValue(input[_tES]), () => (input[_tES]!.getTime() / 1_000).toString()],
     [_xt__]: [() => isSerializableHeaderValue(input[_tHD]), () => __dateToUtcString(input[_tHD]!).toString()],
-    [_xt___]: [
-      () => isSerializableHeaderValue(input[_tDT]),
-      () => (input[_tDT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_xt___]: [() => isSerializableHeaderValue(input[_tDT]), () => __serializeDateTime(input[_tDT]!).toString()],
   });
   let body: any;
   body = "{}";
@@ -7560,7 +7555,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     renamedStructureValue: (value) => ({ renamedStructureValue: se_RenamedGreeting(value, context) }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: se_GreetingStruct(value, context) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
+    timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -7880,7 +7875,7 @@ const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return entry.getTime() / 1_000;
     });
 };
 

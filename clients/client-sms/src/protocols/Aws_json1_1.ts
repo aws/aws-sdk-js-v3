@@ -1620,7 +1620,7 @@ const se_CreateReplicationJobRequest = (input: CreateReplicationJobRequest, cont
     numberOfRecentAmisToKeep: [],
     roleName: [],
     runOnce: [],
-    seedReplicationTime: (_) => Math.round(_.getTime() / 1000),
+    seedReplicationTime: (_) => _.getTime() / 1_000,
     serverId: [],
   });
 };
@@ -1771,7 +1771,7 @@ const se_ServerReplicationParameters = (input: ServerReplicationParameters, cont
     licenseType: [],
     numberOfRecentAmisToKeep: [],
     runOnce: [],
-    seedTime: (_) => Math.round(_.getTime() / 1000),
+    seedTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1809,7 +1809,7 @@ const se_UpdateReplicationJobRequest = (input: UpdateReplicationJobRequest, cont
     frequency: [],
     kmsKeyId: [],
     licenseType: [],
-    nextReplicationRunStartTime: (_) => Math.round(_.getTime() / 1000),
+    nextReplicationRunStartTime: (_) => _.getTime() / 1_000,
     numberOfRecentAmisToKeep: [],
     replicationJobId: [],
     roleName: [],

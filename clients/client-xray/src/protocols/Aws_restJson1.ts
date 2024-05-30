@@ -398,10 +398,10 @@ export const se_GetInsightImpactGraphCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EndTime: (_) => _.getTime() / 1_000,
       InsightId: [],
       NextToken: [],
-      StartTime: (_) => Math.round(_.getTime() / 1000),
+      StartTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -423,12 +423,12 @@ export const se_GetInsightSummariesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EndTime: (_) => _.getTime() / 1_000,
       GroupARN: [],
       GroupName: [],
       MaxResults: [],
       NextToken: [],
-      StartTime: (_) => Math.round(_.getTime() / 1000),
+      StartTime: (_) => _.getTime() / 1_000,
       States: (_) => _json(_),
     })
   );
@@ -517,11 +517,11 @@ export const se_GetServiceGraphCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EndTime: (_) => _.getTime() / 1_000,
       GroupARN: [],
       GroupName: [],
       NextToken: [],
-      StartTime: (_) => Math.round(_.getTime() / 1000),
+      StartTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -543,14 +543,14 @@ export const se_GetTimeSeriesServiceStatisticsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EndTime: (_) => _.getTime() / 1_000,
       EntitySelectorExpression: [],
       ForecastStatistics: [],
       GroupARN: [],
       GroupName: [],
       NextToken: [],
       Period: [],
-      StartTime: (_) => Math.round(_.getTime() / 1000),
+      StartTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -595,12 +595,12 @@ export const se_GetTraceSummariesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EndTime: (_) => _.getTime() / 1_000,
       FilterExpression: [],
       NextToken: [],
       Sampling: [],
       SamplingStrategy: (_) => se_SamplingStrategy(_, context),
-      StartTime: (_) => Math.round(_.getTime() / 1000),
+      StartTime: (_) => _.getTime() / 1_000,
       TimeRangeType: [],
     })
   );
@@ -1787,7 +1787,7 @@ const se_SamplingStatisticsDocument = (input: SamplingStatisticsDocument, contex
     RequestCount: [],
     RuleName: [],
     SampledCount: [],
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1828,7 +1828,7 @@ const se_TelemetryRecord = (input: TelemetryRecord, context: __SerdeContext): an
     SegmentsRejectedCount: [],
     SegmentsSentCount: [],
     SegmentsSpilloverCount: [],
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
   });
 };
 

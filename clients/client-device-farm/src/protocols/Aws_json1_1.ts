@@ -3298,10 +3298,10 @@ const se_GetDevicePoolCompatibilityRequest = (
  */
 const se_ListTestGridSessionsRequest = (input: ListTestGridSessionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    creationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    creationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    endTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    endTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    creationTimeAfter: (_) => _.getTime() / 1_000,
+    creationTimeBefore: (_) => _.getTime() / 1_000,
+    endTimeAfter: (_) => _.getTime() / 1_000,
+    endTimeBefore: (_) => _.getTime() / 1_000,
     maxResult: [],
     nextToken: [],
     projectArn: [],

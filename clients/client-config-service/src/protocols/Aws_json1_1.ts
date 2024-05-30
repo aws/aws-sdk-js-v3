@@ -4807,7 +4807,7 @@ const se_Evaluation = (input: Evaluation, context: __SerdeContext): any => {
     ComplianceResourceId: [],
     ComplianceResourceType: [],
     ComplianceType: [],
-    OrderingTimestamp: (_) => Math.round(_.getTime() / 1000),
+    OrderingTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4843,7 +4843,7 @@ const se_ExternalEvaluation = (input: ExternalEvaluation, context: __SerdeContex
     ComplianceResourceId: [],
     ComplianceResourceType: [],
     ComplianceType: [],
-    OrderingTimestamp: (_) => Math.round(_.getTime() / 1000),
+    OrderingTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4883,8 +4883,8 @@ const se_ExternalEvaluation = (input: ExternalEvaluation, context: __SerdeContex
 const se_GetResourceConfigHistoryRequest = (input: GetResourceConfigHistoryRequest, context: __SerdeContext): any => {
   return take(input, {
     chronologicalOrder: [],
-    earlierTime: (_) => Math.round(_.getTime() / 1000),
-    laterTime: (_) => Math.round(_.getTime() / 1000),
+    earlierTime: (_) => _.getTime() / 1_000,
+    laterTime: (_) => _.getTime() / 1_000,
     limit: [],
     nextToken: [],
     resourceId: [],
@@ -4980,7 +4980,7 @@ const se_PutExternalEvaluationRequest = (input: PutExternalEvaluationRequest, co
 const se_PutRemediationExceptionsRequest = (input: PutRemediationExceptionsRequest, context: __SerdeContext): any => {
   return take(input, {
     ConfigRuleName: [],
-    ExpirationTime: (_) => Math.round(_.getTime() / 1000),
+    ExpirationTime: (_) => _.getTime() / 1_000,
     Message: [],
     ResourceKeys: _json,
   });
@@ -5104,8 +5104,8 @@ const se_ResourceEvaluationFilters = (input: ResourceEvaluationFilters, context:
  */
 const se_TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 

@@ -14,6 +14,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -237,14 +238,8 @@ export const se_ListOrganizationRecommendationsCommand = async (
     [_aS]: [, input[_aS]!],
     [_s]: [, input[_s]!],
     [_cI]: [, input[_cI]!],
-    [_aLUA]: [
-      () => input.afterLastUpdatedAt !== void 0,
-      () => (input[_aLUA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_bLUA]: [
-      () => input.beforeLastUpdatedAt !== void 0,
-      () => (input[_bLUA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_aLUA]: [() => input.afterLastUpdatedAt !== void 0, () => __serializeDateTime(input[_aLUA]!).toString()],
+    [_bLUA]: [() => input.beforeLastUpdatedAt !== void 0, () => __serializeDateTime(input[_bLUA]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -293,14 +288,8 @@ export const se_ListRecommendationsCommand = async (
     [_aS]: [, input[_aS]!],
     [_s]: [, input[_s]!],
     [_cI]: [, input[_cI]!],
-    [_aLUA]: [
-      () => input.afterLastUpdatedAt !== void 0,
-      () => (input[_aLUA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_bLUA]: [
-      () => input.beforeLastUpdatedAt !== void 0,
-      () => (input[_bLUA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_aLUA]: [() => input.afterLastUpdatedAt !== void 0, () => __serializeDateTime(input[_aLUA]!).toString()],
+    [_bLUA]: [() => input.beforeLastUpdatedAt !== void 0, () => __serializeDateTime(input[_bLUA]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);

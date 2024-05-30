@@ -22,6 +22,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   strictParseInt32 as __strictParseInt32,
   take,
   withBaseException,
@@ -544,8 +545,8 @@ export const se_ListBatchJobExecutionsCommand = async (
     [_eIx]: [() => input.executionIds !== void 0, () => (input[_eIx]! || []).map((_entry) => _entry as any)],
     [_jN]: [, input[_jN]!],
     [_s]: [, input[_s]!],
-    [_sA]: [() => input.startedAfter !== void 0, () => (input[_sA]!.toISOString().split(".")[0] + "Z").toString()],
-    [_sB]: [() => input.startedBefore !== void 0, () => (input[_sB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sA]: [() => input.startedAfter !== void 0, () => __serializeDateTime(input[_sA]!).toString()],
+    [_sB]: [() => input.startedBefore !== void 0, () => __serializeDateTime(input[_sB]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);

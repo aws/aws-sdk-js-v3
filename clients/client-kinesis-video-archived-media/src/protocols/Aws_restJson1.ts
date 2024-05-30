@@ -160,7 +160,7 @@ export const se_GetImagesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+      EndTimestamp: (_) => _.getTime() / 1_000,
       Format: [],
       FormatConfig: (_) => _json(_),
       HeightPixels: [],
@@ -168,7 +168,7 @@ export const se_GetImagesCommand = async (
       MaxResults: [],
       NextToken: [],
       SamplingInterval: [],
-      StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+      StartTimestamp: (_) => _.getTime() / 1_000,
       StreamARN: [],
       StreamName: [],
       WidthPixels: [],
@@ -597,8 +597,8 @@ const se_ClipFragmentSelector = (input: ClipFragmentSelector, context: __SerdeCo
  */
 const se_ClipTimestampRange = (input: ClipTimestampRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
-    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+    EndTimestamp: (_) => _.getTime() / 1_000,
+    StartTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -617,8 +617,8 @@ const se_DASHFragmentSelector = (input: DASHFragmentSelector, context: __SerdeCo
  */
 const se_DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
-    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+    EndTimestamp: (_) => _.getTime() / 1_000,
+    StartTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -651,8 +651,8 @@ const se_HLSFragmentSelector = (input: HLSFragmentSelector, context: __SerdeCont
  */
 const se_HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
-    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+    EndTimestamp: (_) => _.getTime() / 1_000,
+    StartTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -661,8 +661,8 @@ const se_HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext)
  */
 const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
-    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+    EndTimestamp: (_) => _.getTime() / 1_000,
+    StartTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

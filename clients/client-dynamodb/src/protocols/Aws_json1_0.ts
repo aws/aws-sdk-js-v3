@@ -3232,7 +3232,7 @@ const se_ExportTableToPointInTimeInput = (input: ExportTableToPointInTimeInput, 
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ExportFormat: [],
-    ExportTime: (_) => Math.round(_.getTime() / 1000),
+    ExportTime: (_) => _.getTime() / 1_000,
     ExportType: [],
     IncrementalExportSpecification: (_) => se_IncrementalExportSpecification(_, context),
     S3Bucket: [],
@@ -3383,8 +3383,8 @@ const se_ImportTableInput = (input: ImportTableInput, context: __SerdeContext): 
  */
 const se_IncrementalExportSpecification = (input: IncrementalExportSpecification, context: __SerdeContext): any => {
   return take(input, {
-    ExportFromTime: (_) => Math.round(_.getTime() / 1000),
-    ExportToTime: (_) => Math.round(_.getTime() / 1000),
+    ExportFromTime: (_) => _.getTime() / 1_000,
+    ExportToTime: (_) => _.getTime() / 1_000,
     ExportViewType: [],
   });
 };
@@ -3467,8 +3467,8 @@ const se_ListBackupsInput = (input: ListBackupsInput, context: __SerdeContext): 
     ExclusiveStartBackupArn: [],
     Limit: [],
     TableName: [],
-    TimeRangeLowerBound: (_) => Math.round(_.getTime() / 1000),
-    TimeRangeUpperBound: (_) => Math.round(_.getTime() / 1000),
+    TimeRangeLowerBound: (_) => _.getTime() / 1_000,
+    TimeRangeUpperBound: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3772,7 +3772,7 @@ const se_RestoreTableToPointInTimeInput = (input: RestoreTableToPointInTimeInput
     LocalSecondaryIndexOverride: _json,
     OnDemandThroughputOverride: _json,
     ProvisionedThroughputOverride: _json,
-    RestoreDateTime: (_) => Math.round(_.getTime() / 1000),
+    RestoreDateTime: (_) => _.getTime() / 1_000,
     SSESpecificationOverride: _json,
     SourceTableArn: [],
     SourceTableName: [],

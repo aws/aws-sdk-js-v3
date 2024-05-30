@@ -25,6 +25,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -4984,8 +4985,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_ActivateReadSetFilter = (input: ActivateReadSetFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     status: [],
   });
 };
@@ -5009,8 +5010,8 @@ const se_ActivateReadSetFilter = (input: ActivateReadSetFilter, context: __Serde
  */
 const se_ExportReadSetFilter = (input: ExportReadSetFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     status: [],
   });
 };
@@ -5030,8 +5031,8 @@ const se_ExportReadSetFilter = (input: ExportReadSetFilter, context: __SerdeCont
  */
 const se_ImportReadSetFilter = (input: ImportReadSetFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     status: [],
   });
 };
@@ -5041,8 +5042,8 @@ const se_ImportReadSetFilter = (input: ImportReadSetFilter, context: __SerdeCont
  */
 const se_ImportReferenceFilter = (input: ImportReferenceFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     status: [],
   });
 };
@@ -5064,8 +5065,8 @@ const se_ImportReferenceFilter = (input: ImportReferenceFilter, context: __Serde
  */
 const se_ReadSetFilter = (input: ReadSetFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     creationType: [],
     generatedFrom: [],
     name: [],
@@ -5083,8 +5084,8 @@ const se_ReadSetFilter = (input: ReadSetFilter, context: __SerdeContext): any =>
  */
 const se_ReadSetUploadPartListFilter = (input: ReadSetUploadPartListFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
   });
 };
 
@@ -5093,8 +5094,8 @@ const se_ReadSetUploadPartListFilter = (input: ReadSetUploadPartListFilter, cont
  */
 const se_ReferenceFilter = (input: ReferenceFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     md5: [],
     name: [],
   });
@@ -5107,8 +5108,8 @@ const se_ReferenceFilter = (input: ReferenceFilter, context: __SerdeContext): an
  */
 const se_ReferenceStoreFilter = (input: ReferenceStoreFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     name: [],
   });
 };
@@ -5129,8 +5130,8 @@ const se_RunParameters = (input: __DocumentType, context: __SerdeContext): any =
  */
 const se_SequenceStoreFilter = (input: SequenceStoreFilter, context: __SerdeContext): any => {
   return take(input, {
-    createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
-    createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    createdAfter: __serializeDateTime,
+    createdBefore: __serializeDateTime,
     name: [],
   });
 };

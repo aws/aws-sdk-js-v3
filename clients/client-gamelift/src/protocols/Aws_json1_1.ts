@@ -4587,11 +4587,11 @@ const se_CreateScriptInput = (input: CreateScriptInput, context: __SerdeContext)
  */
 const se_DescribeFleetEventsInput = (input: DescribeFleetEventsInput, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     FleetId: [],
     Limit: [],
     NextToken: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 

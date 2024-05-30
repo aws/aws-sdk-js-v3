@@ -3490,8 +3490,8 @@ const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context:
  */
 const se_TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 

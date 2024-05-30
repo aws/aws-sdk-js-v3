@@ -1725,8 +1725,8 @@ const de_ResourceNotFoundExceptionRes = async (
 const se_AppsListData = (input: AppsListData, context: __SerdeContext): any => {
   return take(input, {
     AppsList: _json,
-    CreateTime: (_) => Math.round(_.getTime() / 1000),
-    LastUpdateTime: (_) => Math.round(_.getTime() / 1000),
+    CreateTime: (_) => _.getTime() / 1_000,
+    LastUpdateTime: (_) => _.getTime() / 1_000,
     ListId: [],
     ListName: [],
     ListUpdateToken: [],
@@ -1781,12 +1781,12 @@ const se_AppsListData = (input: AppsListData, context: __SerdeContext): any => {
  */
 const se_GetProtectionStatusRequest = (input: GetProtectionStatusRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     MemberAccountId: [],
     NextToken: [],
     PolicyId: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1859,8 +1859,8 @@ const se_GetProtectionStatusRequest = (input: GetProtectionStatusRequest, contex
  */
 const se_ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext): any => {
   return take(input, {
-    CreateTime: (_) => Math.round(_.getTime() / 1000),
-    LastUpdateTime: (_) => Math.round(_.getTime() / 1000),
+    CreateTime: (_) => _.getTime() / 1_000,
+    LastUpdateTime: (_) => _.getTime() / 1_000,
     ListId: [],
     ListName: [],
     ListUpdateToken: [],
@@ -1914,7 +1914,7 @@ const se_ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
   return take(input, {
     Description: [],
     Id: [],
-    LastUpdateTime: (_) => Math.round(_.getTime() / 1000),
+    LastUpdateTime: (_) => _.getTime() / 1_000,
     Name: [],
     ResourceSetStatus: [],
     ResourceTypeList: _json,

@@ -27,6 +27,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -758,7 +759,7 @@ const se_KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
     Float: __serializeFloat,
     HttpdateTimestamp: __dateToUtcString,
     Integer: [],
-    Iso8601Timestamp: (_) => _.toISOString().split(".")[0] + "Z",
+    Iso8601Timestamp: __serializeDateTime,
     JsonValue: __LazyJsonString.fromObject,
     ListOfLists: _json,
     ListOfMapsOfStrings: _json,
@@ -775,8 +776,8 @@ const se_KitchenSink = (input: KitchenSink, context: __SerdeContext): any => {
     SimpleStruct: _json,
     String: [],
     StructWithJsonName: (_) => se_StructWithJsonName(_, context),
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
-    UnixTimestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
+    UnixTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -833,7 +834,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     numberValue: (value) => ({ numberValue: value }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: _json(value) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
+    timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
     _: (name, value) => ({ name: value } as any),
   });
 };

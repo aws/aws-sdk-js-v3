@@ -18,6 +18,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -428,8 +429,8 @@ export const se_ListJobRunsCommand = async (
   b.bp("/virtualclusters/{virtualClusterId}/jobruns");
   b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   const query: any = map({
-    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
     [_n]: [, input[_n]!],
     [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -451,8 +452,8 @@ export const se_ListJobTemplatesCommand = async (
   const headers: any = {};
   b.bp("/jobtemplates");
   const query: any = map({
-    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -473,8 +474,8 @@ export const se_ListManagedEndpointsCommand = async (
   b.bp("/virtualclusters/{virtualClusterId}/endpoints");
   b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   const query: any = map({
-    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
     [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
     [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -496,8 +497,8 @@ export const se_ListSecurityConfigurationsCommand = async (
   const headers: any = {};
   b.bp("/securityconfigurations");
   const query: any = map({
-    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -535,8 +536,8 @@ export const se_ListVirtualClustersCommand = async (
   const query: any = map({
     [_cPI]: [, input[_cPI]!],
     [_cPT]: [, input[_cPT]!],
-    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => __serializeDateTime(input[_cA]!).toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => __serializeDateTime(input[_cB]!).toString()],
     [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],

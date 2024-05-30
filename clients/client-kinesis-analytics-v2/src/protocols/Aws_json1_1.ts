@@ -1700,7 +1700,7 @@ const se_CreateApplicationRequest = (input: CreateApplicationRequest, context: _
 const se_DeleteApplicationRequest = (input: DeleteApplicationRequest, context: __SerdeContext): any => {
   return take(input, {
     ApplicationName: [],
-    CreateTimestamp: (_) => Math.round(_.getTime() / 1000),
+    CreateTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1710,7 +1710,7 @@ const se_DeleteApplicationRequest = (input: DeleteApplicationRequest, context: _
 const se_DeleteApplicationSnapshotRequest = (input: DeleteApplicationSnapshotRequest, context: __SerdeContext): any => {
   return take(input, {
     ApplicationName: [],
-    SnapshotCreationTimestamp: (_) => Math.round(_.getTime() / 1000),
+    SnapshotCreationTimestamp: (_) => _.getTime() / 1_000,
     SnapshotName: [],
   });
 };

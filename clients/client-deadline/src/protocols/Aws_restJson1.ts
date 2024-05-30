@@ -25,6 +25,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseInt32 as __strictParseInt32,
   take,
@@ -2842,11 +2843,11 @@ export const se_StartSessionsStatisticsAggregationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endTime: (_) => _.toISOString().split(".")[0] + "Z",
+      endTime: (_) => __serializeDateTime(_),
       groupBy: (_) => _json(_),
       period: [],
       resourceIds: (_) => _json(_),
-      startTime: (_) => _.toISOString().split(".")[0] + "Z",
+      startTime: (_) => __serializeDateTime(_),
       statistics: (_) => _json(_),
       timezone: [],
     })
@@ -5948,7 +5949,7 @@ const se_CustomFleetAmountCapabilities = (input: FleetAmountCapability[], contex
  */
 const se_DateTimeFilterExpression = (input: DateTimeFilterExpression, context: __SerdeContext): any => {
   return take(input, {
-    dateTime: (_) => _.toISOString().split(".")[0] + "Z",
+    dateTime: __serializeDateTime,
     name: [],
     operator: [],
   });
@@ -5969,8 +5970,8 @@ const se_DateTimeFilterExpression = (input: DateTimeFilterExpression, context: _
  */
 const se_FixedBudgetSchedule = (input: FixedBudgetSchedule, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => _.toISOString().split(".")[0] + "Z",
-    startTime: (_) => _.toISOString().split(".")[0] + "Z",
+    endTime: __serializeDateTime,
+    startTime: __serializeDateTime,
   });
 };
 
@@ -6140,12 +6141,12 @@ const se_ServiceManagedEc2InstanceCapabilities = (
 const se_UpdatedSessionActionInfo = (input: UpdatedSessionActionInfo, context: __SerdeContext): any => {
   return take(input, {
     completedStatus: [],
-    endedAt: (_) => _.toISOString().split(".")[0] + "Z",
+    endedAt: __serializeDateTime,
     processExitCode: [],
     progressMessage: [],
     progressPercent: __serializeFloat,
-    startedAt: (_) => _.toISOString().split(".")[0] + "Z",
-    updatedAt: (_) => _.toISOString().split(".")[0] + "Z",
+    startedAt: __serializeDateTime,
+    updatedAt: __serializeDateTime,
   });
 };
 

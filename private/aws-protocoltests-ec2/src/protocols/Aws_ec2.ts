@@ -16,6 +16,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseByte as __strictParseByte,
   strictParseFloat as __strictParseFloat,
@@ -1195,13 +1196,13 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
 const se_QueryTimestampsInput = (input: QueryTimestampsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_nF] != null) {
-    entries[_NF] = input[_nF].toISOString().split(".")[0] + "Z";
+    entries[_NF] = __serializeDateTime(input[_nF]);
   }
   if (input[_eM] != null) {
-    entries[_EM] = Math.round(input[_eM].getTime() / 1000);
+    entries[_EM] = input[_eM].getTime() / 1_000;
   }
   if (input[_eT] != null) {
-    entries[_ET] = Math.round(input[_eT].getTime() / 1000);
+    entries[_ET] = input[_eT].getTime() / 1_000;
   }
   return entries;
 };

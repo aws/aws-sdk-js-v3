@@ -1249,7 +1249,7 @@ const se_AutoAdjustData = (input: AutoAdjustData, context: __SerdeContext): any 
   return take(input, {
     AutoAdjustType: [],
     HistoricalOptions: _json,
-    LastAutoAdjustTime: (_) => Math.round(_.getTime() / 1000),
+    LastAutoAdjustTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1265,7 +1265,7 @@ const se_Budget = (input: Budget, context: __SerdeContext): any => {
     CalculatedSpend: _json,
     CostFilters: _json,
     CostTypes: _json,
-    LastUpdatedTime: (_) => Math.round(_.getTime() / 1000),
+    LastUpdatedTime: (_) => _.getTime() / 1_000,
     PlannedBudgetLimits: _json,
     TimePeriod: (_) => se_TimePeriod(_, context),
     TimeUnit: [],
@@ -1501,8 +1501,8 @@ const se_NotificationWithSubscribersList = (input: NotificationWithSubscribers[]
  */
 const se_TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
   return take(input, {
-    End: (_) => Math.round(_.getTime() / 1000),
-    Start: (_) => Math.round(_.getTime() / 1000),
+    End: (_) => _.getTime() / 1_000,
+    Start: (_) => _.getTime() / 1_000,
   });
 };
 

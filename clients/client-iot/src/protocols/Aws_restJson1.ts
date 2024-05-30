@@ -18,6 +18,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -1288,7 +1289,7 @@ export const se_CreateAuditSuppressionCommand = async (
       checkName: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
-      expirationDate: (_) => Math.round(_.getTime() / 1000),
+      expirationDate: (_) => _.getTime() / 1_000,
       resourceIdentifier: (_) => _json(_),
       suppressIndefinitely: [],
     })
@@ -3827,12 +3828,12 @@ export const se_ListAuditFindingsCommand = async (
   body = JSON.stringify(
     take(input, {
       checkName: [],
-      endTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
       listSuppressedFindings: [],
       maxResults: [],
       nextToken: [],
       resourceIdentifier: (_) => _json(_),
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      startTime: (_) => _.getTime() / 1_000,
       taskId: [],
     })
   );
@@ -3878,14 +3879,8 @@ export const se_ListAuditMitigationActionsTasksCommand = async (
     [_tS]: [, input[_tS]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eTn]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eTn]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eTn]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eTn]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3929,14 +3924,8 @@ export const se_ListAuditTasksCommand = async (
   const headers: any = {};
   b.bp("/audit/tasks");
   const query: any = map({
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eTn]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eTn]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eTn]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eTn]!).toString()],
     [_tTa]: [, input[_tTa]!],
     [_tS]: [, input[_tS]!],
     [_nT]: [, input[_nT]!],
@@ -4102,8 +4091,8 @@ export const se_ListDetectMitigationActionsExecutionsCommand = async (
     [_tI]: [, input[_tI]!],
     [_vI]: [, input[_vI]!],
     [_tNh]: [, input[_tNh]!],
-    [_sT]: [() => input.startTime !== void 0, () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString()],
-    [_eTn]: [() => input.endTime !== void 0, () => (input[_eTn]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eTn]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eTn]!).toString()],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -4125,14 +4114,8 @@ export const se_ListDetectMitigationActionsTasksCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eTn]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eTn]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eTn]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eTn]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4338,14 +4321,8 @@ export const se_ListMetricValuesCommand = async (
     [_mN]: [, __expectNonNull(input[_mN]!, `metricName`)],
     [_dN]: [, input[_dN]!],
     [_dVO]: [, input[_dVO]!],
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eTn]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eTn]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eTn]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eTn]!).toString()],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -5032,14 +5009,8 @@ export const se_ListViolationEventsCommand = async (
   const headers: any = {};
   b.bp("/violation-events");
   const query: any = map({
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eTn]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eTn]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eTn]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eTn]!).toString()],
     [_tNh]: [, input[_tNh]!],
     [_sPN]: [, input[_sPN]!],
     [_bCT]: [, input[_bCT]!],
@@ -5699,7 +5670,7 @@ export const se_UpdateAuditSuppressionCommand = async (
     take(input, {
       checkName: [],
       description: [],
-      expirationDate: (_) => Math.round(_.getTime() / 1000),
+      expirationDate: (_) => _.getTime() / 1_000,
       resourceIdentifier: (_) => _json(_),
       suppressIndefinitely: [],
     })
@@ -13116,8 +13087,8 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
  */
 const se_ViolationEventOccurrenceRange = (input: ViolationEventOccurrenceRange, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 

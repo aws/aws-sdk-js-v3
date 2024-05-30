@@ -16,6 +16,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -224,8 +225,8 @@ export const se_ListHealthEventsCommand = async (
   b.bp("/v20210603/Monitors/{MonitorName}/HealthEvents");
   b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   const query: any = map({
-    [_ST]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
-    [_ET]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ST]: [() => input.StartTime !== void 0, () => __serializeDateTime(input[_ST]!).toString()],
+    [_ET]: [() => input.EndTime !== void 0, () => __serializeDateTime(input[_ET]!).toString()],
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_ES]: [, input[_ES]!],
@@ -249,8 +250,8 @@ export const se_ListInternetEventsCommand = async (
   const query: any = map({
     [_NT]: [, input[_NT]!],
     [_IEMR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_ST]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
-    [_ET]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ST]: [() => input.StartTime !== void 0, () => __serializeDateTime(input[_ST]!).toString()],
+    [_ET]: [() => input.EndTime !== void 0, () => __serializeDateTime(input[_ET]!).toString()],
     [_ES]: [, input[_ES]!],
     [_ETv]: [, input[_ETv]!],
   });
@@ -312,11 +313,11 @@ export const se_StartQueryCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => _.toISOString().split(".")[0] + "Z",
+      EndTime: (_) => __serializeDateTime(_),
       FilterParameters: (_) => _json(_),
       LinkedAccountId: [],
       QueryType: [],
-      StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+      StartTime: (_) => __serializeDateTime(_),
     })
   );
   b.m("POST").h(headers).b(body);

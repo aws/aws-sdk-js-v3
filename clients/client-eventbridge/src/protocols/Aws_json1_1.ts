@@ -2533,7 +2533,7 @@ const se_PutEventsRequestEntry = (input: PutEventsRequestEntry, context: __Serde
     EventBusName: [],
     Resources: _json,
     Source: [],
-    Time: (_) => Math.round(_.getTime() / 1000),
+    Time: (_) => _.getTime() / 1_000,
     TraceHeader: [],
   });
 };
@@ -2567,7 +2567,7 @@ const se_PutPartnerEventsRequestEntry = (input: PutPartnerEventsRequestEntry, co
     DetailType: [],
     Resources: _json,
     Source: [],
-    Time: (_) => Math.round(_.getTime() / 1000),
+    Time: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2633,9 +2633,9 @@ const se_StartReplayRequest = (input: StartReplayRequest, context: __SerdeContex
   return take(input, {
     Description: [],
     Destination: _json,
-    EventEndTime: (_) => Math.round(_.getTime() / 1000),
+    EventEndTime: (_) => _.getTime() / 1_000,
     EventSourceArn: [],
-    EventStartTime: (_) => Math.round(_.getTime() / 1000),
+    EventStartTime: (_) => _.getTime() / 1_000,
     ReplayName: [],
   });
 };

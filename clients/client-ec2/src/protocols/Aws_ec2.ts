@@ -9,6 +9,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -28094,10 +28095,10 @@ const se_AthenaIntegration = (input: AthenaIntegration, context: __SerdeContext)
     entries[_PLF] = input[_PLF];
   }
   if (input[_PSD] != null) {
-    entries[_PSD] = input[_PSD].toISOString().split(".")[0] + "Z";
+    entries[_PSD] = __serializeDateTime(input[_PSD]);
   }
   if (input[_PED] != null) {
-    entries[_PED] = input[_PED].toISOString().split(".")[0] + "Z";
+    entries[_PED] = __serializeDateTime(input[_PED]);
   }
   return entries;
 };
@@ -28934,13 +28935,13 @@ const se_ClientData = (input: ClientData, context: __SerdeContext): any => {
     entries[_Co] = input[_Co];
   }
   if (input[_UE] != null) {
-    entries[_UE] = input[_UE].toISOString().split(".")[0] + "Z";
+    entries[_UE] = __serializeDateTime(input[_UE]);
   }
   if (input[_USp] != null) {
     entries[_USp] = __serializeFloat(input[_USp]);
   }
   if (input[_USpl] != null) {
-    entries[_USpl] = input[_USpl].toISOString().split(".")[0] + "Z";
+    entries[_USpl] = __serializeDateTime(input[_USpl]);
   }
   return entries;
 };
@@ -29344,7 +29345,7 @@ const se_CreateCapacityReservationFleetRequest = (
     entries[_TTC] = input[_TTC];
   }
   if (input[_ED] != null) {
-    entries[_ED] = input[_ED].toISOString().split(".")[0] + "Z";
+    entries[_ED] = __serializeDateTime(input[_ED]);
   }
   if (input[_IMC] != null) {
     entries[_IMC] = input[_IMC];
@@ -29395,7 +29396,7 @@ const se_CreateCapacityReservationRequest = (input: CreateCapacityReservationReq
     entries[_ES] = input[_ES];
   }
   if (input[_ED] != null) {
-    entries[_ED] = input[_ED].toISOString().split(".")[0] + "Z";
+    entries[_ED] = __serializeDateTime(input[_ED]);
   }
   if (input[_EDT] != null) {
     entries[_EDT] = input[_EDT];
@@ -29777,10 +29778,10 @@ const se_CreateFleetRequest = (input: CreateFleetRequest, context: __SerdeContex
     entries[_T] = input[_T];
   }
   if (input[_VF] != null) {
-    entries[_VF] = input[_VF].toISOString().split(".")[0] + "Z";
+    entries[_VF] = __serializeDateTime(input[_VF]);
   }
   if (input[_VU] != null) {
-    entries[_VU] = input[_VU].toISOString().split(".")[0] + "Z";
+    entries[_VU] = __serializeDateTime(input[_VU]);
   }
   if (input[_RUI] != null) {
     entries[_RUI] = input[_RUI];
@@ -34399,10 +34400,10 @@ const se_DescribeCapacityBlockOfferingsRequest = (
     entries[_IC] = input[_IC];
   }
   if (input[_SDR] != null) {
-    entries[_SDR] = input[_SDR].toISOString().split(".")[0] + "Z";
+    entries[_SDR] = __serializeDateTime(input[_SDR]);
   }
   if (input[_EDR] != null) {
-    entries[_EDR] = input[_EDR].toISOString().split(".")[0] + "Z";
+    entries[_EDR] = __serializeDateTime(input[_EDR]);
   }
   if (input[_CDH] != null) {
     entries[_CDH] = input[_CDH];
@@ -35009,7 +35010,7 @@ const se_DescribeFleetHistoryRequest = (input: DescribeFleetHistoryRequest, cont
     entries[_FIl] = input[_FIl];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   return entries;
 };
@@ -36536,10 +36537,10 @@ const se_DescribeNetworkInsightsAccessScopeAnalysesRequest = (
     entries[_NIASI] = input[_NIASI];
   }
   if (input[_ASTB] != null) {
-    entries[_ASTB] = input[_ASTB].toISOString().split(".")[0] + "Z";
+    entries[_ASTB] = __serializeDateTime(input[_ASTB]);
   }
   if (input[_ASTE] != null) {
-    entries[_ASTE] = input[_ASTE].toISOString().split(".")[0] + "Z";
+    entries[_ASTE] = __serializeDateTime(input[_ASTE]);
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
@@ -36613,10 +36614,10 @@ const se_DescribeNetworkInsightsAnalysesRequest = (
     entries[_NIPI] = input[_NIPI];
   }
   if (input[_AST] != null) {
-    entries[_AST] = input[_AST].toISOString().split(".")[0] + "Z";
+    entries[_AST] = __serializeDateTime(input[_AST]);
   }
   if (input[_AET] != null) {
-    entries[_AET] = input[_AET].toISOString().split(".")[0] + "Z";
+    entries[_AET] = __serializeDateTime(input[_AET]);
   }
   if (input[_Fi] != null) {
     const memberEntries = se_FilterList(input[_Fi], context);
@@ -37439,7 +37440,7 @@ const se_DescribeSpotFleetRequestHistoryRequest = (
     entries[_SFRIp] = input[_SFRIp];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   return entries;
 };
@@ -37521,7 +37522,7 @@ const se_DescribeSpotPriceHistoryRequest = (input: DescribeSpotPriceHistoryReque
     entries[_DRr] = input[_DRr];
   }
   if (input[_ETn] != null) {
-    entries[_ETn] = input[_ETn].toISOString().split(".")[0] + "Z";
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
   }
   if (input[_ITnst] != null) {
     const memberEntries = se_InstanceTypeList(input[_ITnst], context);
@@ -37544,7 +37545,7 @@ const se_DescribeSpotPriceHistoryRequest = (input: DescribeSpotPriceHistoryReque
     });
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   return entries;
 };
@@ -39933,7 +39934,7 @@ const se_EnableImageDeprecationRequest = (input: EnableImageDeprecationRequest, 
     entries[_IIma] = input[_IIma];
   }
   if (input[_DAe] != null) {
-    entries[_DAe] = input[_DAe].toISOString().split(".")[0] + "Z";
+    entries[_DAe] = __serializeDateTime(input[_DAe]);
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -40792,10 +40793,10 @@ const se_GetAwsNetworkPerformanceDataRequest = (
     });
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ETn] != null) {
-    entries[_ETn] = input[_ETn].toISOString().split(".")[0] + "Z";
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
@@ -41124,10 +41125,10 @@ const se_GetIpamAddressHistoryRequest = (input: GetIpamAddressHistoryRequest, co
     entries[_VI] = input[_VI];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ETn] != null) {
-    entries[_ETn] = input[_ETn].toISOString().split(".")[0] + "Z";
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
@@ -44556,7 +44557,7 @@ const se_LaunchTemplateSpotMarketOptionsRequest = (
     entries[_BDMl] = input[_BDMl];
   }
   if (input[_VU] != null) {
-    entries[_VU] = input[_VU].toISOString().split(".")[0] + "Z";
+    entries[_VU] = __serializeDateTime(input[_VU]);
   }
   if (input[_IIB] != null) {
     entries[_IIB] = input[_IIB];
@@ -44898,7 +44899,7 @@ const se_LockSnapshotRequest = (input: LockSnapshotRequest, context: __SerdeCont
     entries[_LDo] = input[_LDo];
   }
   if (input[_EDx] != null) {
-    entries[_EDx] = input[_EDx].toISOString().split(".")[0] + "Z";
+    entries[_EDx] = __serializeDateTime(input[_EDx]);
   }
   return entries;
 };
@@ -45011,7 +45012,7 @@ const se_ModifyCapacityReservationFleetRequest = (
     entries[_TTC] = input[_TTC];
   }
   if (input[_ED] != null) {
-    entries[_ED] = input[_ED].toISOString().split(".")[0] + "Z";
+    entries[_ED] = __serializeDateTime(input[_ED]);
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -45034,7 +45035,7 @@ const se_ModifyCapacityReservationRequest = (input: ModifyCapacityReservationReq
     entries[_IC] = input[_IC];
   }
   if (input[_ED] != null) {
-    entries[_ED] = input[_ED].toISOString().split(".")[0] + "Z";
+    entries[_ED] = __serializeDateTime(input[_ED]);
   }
   if (input[_EDT] != null) {
     entries[_EDT] = input[_EDT];
@@ -45560,7 +45561,7 @@ const se_ModifyInstanceEventStartTimeRequest = (
     entries[_IEI] = input[_IEI];
   }
   if (input[_NB] != null) {
-    entries[_NB] = input[_NB].toISOString().split(".")[0] + "Z";
+    entries[_NB] = __serializeDateTime(input[_NB]);
   }
   return entries;
 };
@@ -48735,7 +48736,7 @@ const se_PurchaseReservedInstancesOfferingRequest = (
     });
   }
   if (input[_PTu] != null) {
-    entries[_PTu] = input[_PTu].toISOString().split(".")[0] + "Z";
+    entries[_PTu] = __serializeDateTime(input[_PTu]);
   }
   return entries;
 };
@@ -49460,7 +49461,7 @@ const se_ReportInstanceStatusRequest = (input: ReportInstanceStatusRequest, cont
     entries[_DRr] = input[_DRr];
   }
   if (input[_ETn] != null) {
-    entries[_ETn] = input[_ETn].toISOString().split(".")[0] + "Z";
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
   }
   if (input[_In] != null) {
     const memberEntries = se_InstanceIdStringList(input[_In], context);
@@ -49477,7 +49478,7 @@ const se_ReportInstanceStatusRequest = (input: ReportInstanceStatusRequest, cont
     });
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_Statu] != null) {
     entries[_Statu] = input[_Statu];
@@ -49820,10 +49821,10 @@ const se_RequestSpotInstancesRequest = (input: RequestSpotInstancesRequest, cont
     entries[_T] = input[_T];
   }
   if (input[_VF] != null) {
-    entries[_VF] = input[_VF].toISOString().split(".")[0] + "Z";
+    entries[_VF] = __serializeDateTime(input[_VF]);
   }
   if (input[_VU] != null) {
-    entries[_VU] = input[_VU].toISOString().split(".")[0] + "Z";
+    entries[_VU] = __serializeDateTime(input[_VU]);
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
@@ -51534,10 +51535,10 @@ const se_SendDiagnosticInterruptRequest = (input: SendDiagnosticInterruptRequest
 const se_SlotDateTimeRangeRequest = (input: SlotDateTimeRangeRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_ETa] != null) {
-    entries[_ETa] = input[_ETa].toISOString().split(".")[0] + "Z";
+    entries[_ETa] = __serializeDateTime(input[_ETa]);
   }
   if (input[_LTat] != null) {
-    entries[_LTat] = input[_LTat].toISOString().split(".")[0] + "Z";
+    entries[_LTat] = __serializeDateTime(input[_LTat]);
   }
   return entries;
 };
@@ -51548,10 +51549,10 @@ const se_SlotDateTimeRangeRequest = (input: SlotDateTimeRangeRequest, context: _
 const se_SlotStartTimeRangeRequest = (input: SlotStartTimeRangeRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_ETa] != null) {
-    entries[_ETa] = input[_ETa].toISOString().split(".")[0] + "Z";
+    entries[_ETa] = __serializeDateTime(input[_ETa]);
   }
   if (input[_LTat] != null) {
-    entries[_LTat] = input[_LTat].toISOString().split(".")[0] + "Z";
+    entries[_LTat] = __serializeDateTime(input[_LTat]);
   }
   return entries;
 };
@@ -51787,10 +51788,10 @@ const se_SpotFleetRequestConfigData = (input: SpotFleetRequestConfigData, contex
     entries[_T] = input[_T];
   }
   if (input[_VF] != null) {
-    entries[_VF] = input[_VF].toISOString().split(".")[0] + "Z";
+    entries[_VF] = __serializeDateTime(input[_VF]);
   }
   if (input[_VU] != null) {
-    entries[_VU] = input[_VU].toISOString().split(".")[0] + "Z";
+    entries[_VU] = __serializeDateTime(input[_VU]);
   }
   if (input[_RUI] != null) {
     entries[_RUI] = input[_RUI];
@@ -51923,7 +51924,7 @@ const se_SpotMarketOptions = (input: SpotMarketOptions, context: __SerdeContext)
     entries[_BDMl] = input[_BDMl];
   }
   if (input[_VU] != null) {
-    entries[_VU] = input[_VU].toISOString().split(".")[0] + "Z";
+    entries[_VU] = __serializeDateTime(input[_VU]);
   }
   if (input[_IIB] != null) {
     entries[_IIB] = input[_IIB];

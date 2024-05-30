@@ -15,6 +15,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   map,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -189,13 +190,13 @@ export const se_ListDeviceEventsCommand = async (
   const query: any = map({
     [_fTS]: [
       __expectNonNull(input.FromTimeStamp, `FromTimeStamp`) != null,
-      () => (input[_FTS]!.toISOString().split(".")[0] + "Z").toString(),
+      () => __serializeDateTime(input[_FTS]!).toString(),
     ],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
     [_tTS]: [
       __expectNonNull(input.ToTimeStamp, `ToTimeStamp`) != null,
-      () => (input[_TTS]!.toISOString().split(".")[0] + "Z").toString(),
+      () => __serializeDateTime(input[_TTS]!).toString(),
     ],
   });
   let body: any;

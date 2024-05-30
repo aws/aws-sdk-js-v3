@@ -16,6 +16,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseByte as __strictParseByte,
   strictParseFloat as __strictParseFloat,
@@ -1678,13 +1679,13 @@ const se_QueryMapsInput = (input: QueryMapsInput, context: __SerdeContext): any 
 const se_QueryTimestampsInput = (input: QueryTimestampsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_nF] != null) {
-    entries[_nF] = input[_nF].toISOString().split(".")[0] + "Z";
+    entries[_nF] = __serializeDateTime(input[_nF]);
   }
   if (input[_eM] != null) {
-    entries[_eM] = Math.round(input[_eM].getTime() / 1000);
+    entries[_eM] = input[_eM].getTime() / 1_000;
   }
   if (input[_eT] != null) {
-    entries[_eT] = Math.round(input[_eT].getTime() / 1000);
+    entries[_eT] = input[_eT].getTime() / 1_000;
   }
   return entries;
 };

@@ -2696,7 +2696,7 @@ const se_AutoTuneMaintenanceSchedule = (input: AutoTuneMaintenanceSchedule, cont
   return take(input, {
     CronExpressionForRecurrence: [],
     Duration: _json,
-    StartAt: (_) => Math.round(_.getTime() / 1000),
+    StartAt: (_) => _.getTime() / 1_000,
   });
 };
 

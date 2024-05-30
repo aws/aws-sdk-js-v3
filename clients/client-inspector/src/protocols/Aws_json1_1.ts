@@ -1807,8 +1807,8 @@ const se_ListFindingsRequest = (input: ListFindingsRequest, context: __SerdeCont
  */
 const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return take(input, {
-    beginDate: (_) => Math.round(_.getTime() / 1000),
-    endDate: (_) => Math.round(_.getTime() / 1000),
+    beginDate: (_) => _.getTime() / 1_000,
+    endDate: (_) => _.getTime() / 1_000,
   });
 };
 

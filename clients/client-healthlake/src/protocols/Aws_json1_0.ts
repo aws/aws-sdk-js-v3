@@ -674,8 +674,8 @@ const se_CreateFHIRDatastoreRequest = (input: CreateFHIRDatastoreRequest, contex
  */
 const se_DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     DatastoreName: [],
     DatastoreStatus: [],
   });
@@ -716,8 +716,8 @@ const se_ListFHIRExportJobsRequest = (input: ListFHIRExportJobsRequest, context:
     JobStatus: [],
     MaxResults: [],
     NextToken: [],
-    SubmittedAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmittedBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmittedAfter: (_) => _.getTime() / 1_000,
+    SubmittedBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -731,8 +731,8 @@ const se_ListFHIRImportJobsRequest = (input: ListFHIRImportJobsRequest, context:
     JobStatus: [],
     MaxResults: [],
     NextToken: [],
-    SubmittedAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmittedBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmittedAfter: (_) => _.getTime() / 1_000,
+    SubmittedBefore: (_) => _.getTime() / 1_000,
   });
 };
 

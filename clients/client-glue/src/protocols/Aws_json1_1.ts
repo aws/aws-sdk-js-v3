@@ -14,6 +14,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -9121,7 +9122,7 @@ const se_CodeGenConfigurationNodes = (
  */
 const se_ColumnStatistics = (input: ColumnStatistics, context: __SerdeContext): any => {
   return take(input, {
-    AnalyzedTime: (_) => Math.round(_.getTime() / 1000),
+    AnalyzedTime: (_) => _.getTime() / 1_000,
     ColumnName: [],
     ColumnType: [],
     StatisticsData: (_) => se_ColumnStatisticsData(_, context),
@@ -9383,8 +9384,8 @@ const se_DataQualityResultFilterCriteria = (input: DataQualityResultFilterCriter
     DataSource: _json,
     JobName: [],
     JobRunId: [],
-    StartedAfter: (_) => Math.round(_.getTime() / 1000),
-    StartedBefore: (_) => Math.round(_.getTime() / 1000),
+    StartedAfter: (_) => _.getTime() / 1_000,
+    StartedBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -9399,8 +9400,8 @@ const se_DataQualityRuleRecommendationRunFilter = (
 ): any => {
   return take(input, {
     DataSource: _json,
-    StartedAfter: (_) => Math.round(_.getTime() / 1000),
-    StartedBefore: (_) => Math.round(_.getTime() / 1000),
+    StartedAfter: (_) => _.getTime() / 1_000,
+    StartedBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -9413,8 +9414,8 @@ const se_DataQualityRulesetEvaluationRunFilter = (
 ): any => {
   return take(input, {
     DataSource: _json,
-    StartedAfter: (_) => Math.round(_.getTime() / 1000),
-    StartedBefore: (_) => Math.round(_.getTime() / 1000),
+    StartedAfter: (_) => _.getTime() / 1_000,
+    StartedBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -9423,11 +9424,11 @@ const se_DataQualityRulesetEvaluationRunFilter = (
  */
 const se_DataQualityRulesetFilterCriteria = (input: DataQualityRulesetFilterCriteria, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     Description: [],
-    LastModifiedAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedAfter: (_) => _.getTime() / 1_000,
+    LastModifiedBefore: (_) => _.getTime() / 1_000,
     Name: [],
     TargetTable: _json,
   });
@@ -9446,8 +9447,8 @@ const se_DataQualityRulesetFilterCriteria = (input: DataQualityRulesetFilterCrit
  */
 const se_DateColumnStatisticsData = (input: DateColumnStatisticsData, context: __SerdeContext): any => {
   return take(input, {
-    MaximumValue: (_) => Math.round(_.getTime() / 1000),
-    MinimumValue: (_) => Math.round(_.getTime() / 1000),
+    MaximumValue: (_) => _.getTime() / 1_000,
+    MinimumValue: (_) => _.getTime() / 1_000,
     NumberOfDistinctValues: [],
     NumberOfNulls: [],
   });
@@ -9777,7 +9778,7 @@ const se_GetPartitionsRequest = (input: GetPartitionsRequest, context: __SerdeCo
     Expression: [],
     MaxResults: [],
     NextToken: [],
-    QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
+    QueryAsOfTime: (_) => _.getTime() / 1_000,
     Segment: _json,
     TableName: [],
     TransactionId: [],
@@ -9818,7 +9819,7 @@ const se_GetTableRequest = (input: GetTableRequest, context: __SerdeContext): an
     CatalogId: [],
     DatabaseName: [],
     Name: [],
-    QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
+    QueryAsOfTime: (_) => _.getTime() / 1_000,
     TransactionId: [],
   });
 };
@@ -9833,7 +9834,7 @@ const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): 
     Expression: [],
     MaxResults: [],
     NextToken: [],
-    QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
+    QueryAsOfTime: (_) => _.getTime() / 1_000,
     TransactionId: [],
   });
 };
@@ -10030,7 +10031,7 @@ const se_KafkaStreamingSourceOptions = (input: KafkaStreamingSourceOptions, cont
     RetryIntervalMs: [],
     SecurityProtocol: [],
     StartingOffsets: [],
-    StartingTimestamp: (_) => _.toISOString().split(".")[0] + "Z",
+    StartingTimestamp: __serializeDateTime,
     SubscribePattern: [],
     TopicName: [],
   });
@@ -10061,7 +10062,7 @@ const se_KinesisStreamingSourceOptions = (input: KinesisStreamingSourceOptions, 
     RoleArn: [],
     RoleSessionName: [],
     StartingPosition: [],
-    StartingTimestamp: (_) => _.toISOString().split(".")[0] + "Z",
+    StartingTimestamp: __serializeDateTime,
     StreamArn: [],
     StreamName: [],
   });
@@ -10275,8 +10276,8 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
  */
 const se_PartitionInput = (input: PartitionInput, context: __SerdeContext): any => {
   return take(input, {
-    LastAccessTime: (_) => Math.round(_.getTime() / 1000),
-    LastAnalyzedTime: (_) => Math.round(_.getTime() / 1000),
+    LastAccessTime: (_) => _.getTime() / 1_000,
+    LastAnalyzedTime: (_) => _.getTime() / 1_000,
     Parameters: _json,
     StorageDescriptor: _json,
     Values: _json,
@@ -10353,7 +10354,7 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
     ClusterId: [],
     QueryAuthorizationId: [],
     QueryId: [],
-    QueryStartTime: (_) => Math.round(_.getTime() / 1000),
+    QueryStartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -10595,8 +10596,8 @@ const se_StringColumnStatisticsData = (input: StringColumnStatisticsData, contex
 const se_TableInput = (input: TableInput, context: __SerdeContext): any => {
   return take(input, {
     Description: [],
-    LastAccessTime: (_) => Math.round(_.getTime() / 1000),
-    LastAnalyzedTime: (_) => Math.round(_.getTime() / 1000),
+    LastAccessTime: (_) => _.getTime() / 1_000,
+    LastAnalyzedTime: (_) => _.getTime() / 1_000,
     Name: [],
     Owner: [],
     Parameters: _json,
@@ -10623,8 +10624,8 @@ const se_TableInput = (input: TableInput, context: __SerdeContext): any => {
  */
 const se_TaskRunFilterCriteria = (input: TaskRunFilterCriteria, context: __SerdeContext): any => {
   return take(input, {
-    StartedAfter: (_) => Math.round(_.getTime() / 1000),
-    StartedBefore: (_) => Math.round(_.getTime() / 1000),
+    StartedAfter: (_) => _.getTime() / 1_000,
+    StartedBefore: (_) => _.getTime() / 1_000,
     Status: [],
     TaskRunType: [],
   });
@@ -10643,11 +10644,11 @@ const se_TaskRunFilterCriteria = (input: TaskRunFilterCriteria, context: __Serde
  */
 const se_TransformFilterCriteria = (input: TransformFilterCriteria, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     GlueVersion: [],
-    LastModifiedAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedAfter: (_) => _.getTime() / 1_000,
+    LastModifiedBefore: (_) => _.getTime() / 1_000,
     Name: [],
     Schema: _json,
     Status: [],

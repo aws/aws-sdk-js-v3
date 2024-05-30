@@ -2359,8 +2359,8 @@ const se_ConfigurationList = (input: Configuration[], context: __SerdeContext): 
  */
 const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     JobFlowIds: _json,
     JobFlowStates: _json,
   });
@@ -2562,8 +2562,8 @@ const se_JobFlowInstancesConfig = (input: JobFlowInstancesConfig, context: __Ser
 const se_ListClustersInput = (input: ListClustersInput, context: __SerdeContext): any => {
   return take(input, {
     ClusterStates: _json,
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     Marker: [],
   });
 };
@@ -2581,10 +2581,10 @@ const se_ListNotebookExecutionsInput = (input: ListNotebookExecutionsInput, cont
   return take(input, {
     EditorId: [],
     ExecutionEngineId: [],
-    From: (_) => Math.round(_.getTime() / 1000),
+    From: (_) => _.getTime() / 1_000,
     Marker: [],
     Status: [],
-    To: (_) => Math.round(_.getTime() / 1000),
+    To: (_) => _.getTime() / 1_000,
   });
 };
 

@@ -4649,7 +4649,7 @@ const de_UpgradeDependencyFailureFaultRes = async (
 const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, context: __SerdeContext): any => {
   return take(input, {
     CdcStartPosition: [],
-    CdcStartTime: (_) => Math.round(_.getTime() / 1000),
+    CdcStartTime: (_) => _.getTime() / 1_000,
     CdcStopPosition: [],
     MigrationType: [],
     ReplicationInstanceArn: [],
@@ -4726,14 +4726,14 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
 const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   return take(input, {
     Duration: [],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     EventCategories: _json,
     Filters: _json,
     Marker: [],
     MaxRecords: [],
     SourceIdentifier: [],
     SourceType: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4879,7 +4879,7 @@ const se_ImportCertificateMessage = (input: ImportCertificateMessage, context: _
 const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, context: __SerdeContext): any => {
   return take(input, {
     CdcStartPosition: [],
-    CdcStartTime: (_) => Math.round(_.getTime() / 1000),
+    CdcStartTime: (_) => _.getTime() / 1_000,
     CdcStopPosition: [],
     MigrationType: [],
     ReplicationTaskArn: [],
@@ -4958,7 +4958,7 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
 const se_StartReplicationMessage = (input: StartReplicationMessage, context: __SerdeContext): any => {
   return take(input, {
     CdcStartPosition: [],
-    CdcStartTime: (_) => Math.round(_.getTime() / 1000),
+    CdcStartTime: (_) => _.getTime() / 1_000,
     CdcStopPosition: [],
     ReplicationConfigArn: [],
     StartReplicationType: [],
@@ -4975,7 +4975,7 @@ const se_StartReplicationMessage = (input: StartReplicationMessage, context: __S
 const se_StartReplicationTaskMessage = (input: StartReplicationTaskMessage, context: __SerdeContext): any => {
   return take(input, {
     CdcStartPosition: [],
-    CdcStartTime: (_) => Math.round(_.getTime() / 1000),
+    CdcStartTime: (_) => _.getTime() / 1_000,
     CdcStopPosition: [],
     ReplicationTaskArn: [],
     StartReplicationTaskType: [],

@@ -1216,8 +1216,8 @@ const se_ComprehendMedicalAsyncJobFilter = (input: ComprehendMedicalAsyncJobFilt
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 

@@ -3433,13 +3433,13 @@ export const se_GetMetricDataCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EndTime: (_) => _.getTime() / 1_000,
       Filters: (_) => _json(_),
       Groupings: (_) => _json(_),
       HistoricalMetrics: (_) => se_HistoricalMetrics(_, context),
       MaxResults: [],
       NextToken: [],
-      StartTime: (_) => Math.round(_.getTime() / 1000),
+      StartTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -3461,7 +3461,7 @@ export const se_GetMetricDataV2Command = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => Math.round(_.getTime() / 1000),
+      EndTime: (_) => _.getTime() / 1_000,
       Filters: (_) => _json(_),
       Groupings: (_) => _json(_),
       Interval: (_) => _json(_),
@@ -3469,7 +3469,7 @@ export const se_GetMetricDataV2Command = async (
       Metrics: (_) => se_MetricsV2(_, context),
       NextToken: [],
       ResourceArn: [],
-      StartTime: (_) => Math.round(_.getTime() / 1000),
+      StartTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -5241,7 +5241,7 @@ export const se_StartTaskContactCommand = async (
       QuickConnectId: [],
       References: (_) => _json(_),
       RelatedContactId: [],
-      ScheduledTime: (_) => Math.round(_.getTime() / 1000),
+      ScheduledTime: (_) => _.getTime() / 1_000,
       TaskTemplateId: [],
     })
   );
@@ -5789,7 +5789,7 @@ export const se_UpdateContactScheduleCommand = async (
     take(input, {
       ContactId: [],
       InstanceId: [],
-      ScheduledTime: (_) => Math.round(_.getTime() / 1000),
+      ScheduledTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -12970,8 +12970,8 @@ const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
  */
 const se_SearchContactsTimeRange = (input: SearchContactsTimeRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
     Type: [],
   });
 };

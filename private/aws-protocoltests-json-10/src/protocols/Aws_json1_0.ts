@@ -622,7 +622,7 @@ const se_Defaults = (input: Defaults, context: __SerdeContext): any => {
     defaultNullDocument: (_) => se_Document(_, context),
     defaultShort: [],
     defaultString: [],
-    defaultTimestamp: (_) => Math.round(_.getTime() / 1000),
+    defaultTimestamp: (_) => _.getTime() / 1_000,
     emptyBlob: context.base64Encoder,
     emptyString: [],
     falseBoolean: [],
@@ -672,7 +672,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     numberValue: (value) => ({ numberValue: value }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: _json(value) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
+    timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
     _: (name, value) => ({ name: value } as any),
   });
 };

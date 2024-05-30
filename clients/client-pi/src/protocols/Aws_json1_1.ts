@@ -617,10 +617,10 @@ const se_CreatePerformanceAnalysisReportRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     Identifier: [],
     ServiceType: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
     Tags: _json,
   });
 };
@@ -633,7 +633,7 @@ const se_CreatePerformanceAnalysisReportRequest = (
 const se_DescribeDimensionKeysRequest = (input: DescribeDimensionKeysRequest, context: __SerdeContext): any => {
   return take(input, {
     AdditionalMetrics: _json,
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     Filter: _json,
     GroupBy: _json,
     Identifier: [],
@@ -643,7 +643,7 @@ const se_DescribeDimensionKeysRequest = (input: DescribeDimensionKeysRequest, co
     PartitionBy: _json,
     PeriodInSeconds: [],
     ServiceType: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -662,7 +662,7 @@ const se_DescribeDimensionKeysRequest = (input: DescribeDimensionKeysRequest, co
  */
 const se_GetResourceMetricsRequest = (input: GetResourceMetricsRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     Identifier: [],
     MaxResults: [],
     MetricQueries: _json,
@@ -670,7 +670,7 @@ const se_GetResourceMetricsRequest = (input: GetResourceMetricsRequest, context:
     PeriodAlignment: [],
     PeriodInSeconds: [],
     ServiceType: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 

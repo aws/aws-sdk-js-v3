@@ -1432,12 +1432,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ListConfigurationHistoryRequest = (input: ListConfigurationHistoryRequest, context: __SerdeContext): any => {
   return take(input, {
     AccountId: [],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     EventStatus: [],
     MaxResults: [],
     NextToken: [],
     ResourceGroupName: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1452,11 +1452,11 @@ const se_ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeCont
   return take(input, {
     AccountId: [],
     ComponentName: [],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     ResourceGroupName: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
     Visibility: [],
   });
 };

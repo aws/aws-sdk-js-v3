@@ -8004,7 +8004,7 @@ const de_UnsupportedPlatformTypeRes = async (
 const se_AssociationStatus = (input: AssociationStatus, context: __SerdeContext): any => {
   return take(input, {
     AdditionalInfo: [],
-    Date: (_) => Math.round(_.getTime() / 1000),
+    Date: (_) => _.getTime() / 1_000,
     Message: [],
     Name: [],
   });
@@ -8046,7 +8046,7 @@ const se_AssociationStatus = (input: AssociationStatus, context: __SerdeContext)
 const se_ComplianceExecutionSummary = (input: ComplianceExecutionSummary, context: __SerdeContext): any => {
   return take(input, {
     ExecutionId: [],
-    ExecutionTime: (_) => Math.round(_.getTime() / 1000),
+    ExecutionTime: (_) => _.getTime() / 1_000,
     ExecutionType: [],
   });
 };
@@ -8074,7 +8074,7 @@ const se_CreateActivationRequest = (input: CreateActivationRequest, context: __S
   return take(input, {
     DefaultInstanceName: [],
     Description: [],
-    ExpirationDate: (_) => Math.round(_.getTime() / 1000),
+    ExpirationDate: (_) => _.getTime() / 1_000,
     IamRole: [],
     RegistrationLimit: [],
     RegistrationMetadata: _json,
@@ -8118,15 +8118,15 @@ const se_CreateMaintenanceWindowRequest = (input: CreateMaintenanceWindowRequest
 const se_CreateOpsItemRequest = (input: CreateOpsItemRequest, context: __SerdeContext): any => {
   return take(input, {
     AccountId: [],
-    ActualEndTime: (_) => Math.round(_.getTime() / 1000),
-    ActualStartTime: (_) => Math.round(_.getTime() / 1000),
+    ActualEndTime: (_) => _.getTime() / 1_000,
+    ActualStartTime: (_) => _.getTime() / 1_000,
     Category: [],
     Description: [],
     Notifications: _json,
     OperationalData: _json,
     OpsItemType: [],
-    PlannedEndTime: (_) => Math.round(_.getTime() / 1000),
-    PlannedStartTime: (_) => Math.round(_.getTime() / 1000),
+    PlannedEndTime: (_) => _.getTime() / 1_000,
+    PlannedStartTime: (_) => _.getTime() / 1_000,
     Priority: [],
     RelatedOpsItems: _json,
     Severity: [],
@@ -8798,8 +8798,8 @@ const se_StartChangeRequestExecutionRequest = (
     DocumentVersion: [],
     Parameters: _json,
     Runbooks: _json,
-    ScheduledEndTime: (_) => Math.round(_.getTime() / 1000),
-    ScheduledTime: (_) => Math.round(_.getTime() / 1000),
+    ScheduledEndTime: (_) => _.getTime() / 1_000,
+    ScheduledTime: (_) => _.getTime() / 1_000,
     Tags: _json,
   });
 };
@@ -8897,8 +8897,8 @@ const se_UpdateMaintenanceWindowTaskRequest = (
  */
 const se_UpdateOpsItemRequest = (input: UpdateOpsItemRequest, context: __SerdeContext): any => {
   return take(input, {
-    ActualEndTime: (_) => Math.round(_.getTime() / 1000),
-    ActualStartTime: (_) => Math.round(_.getTime() / 1000),
+    ActualEndTime: (_) => _.getTime() / 1_000,
+    ActualStartTime: (_) => _.getTime() / 1_000,
     Category: [],
     Description: [],
     Notifications: _json,
@@ -8906,8 +8906,8 @@ const se_UpdateOpsItemRequest = (input: UpdateOpsItemRequest, context: __SerdeCo
     OperationalDataToDelete: _json,
     OpsItemArn: [],
     OpsItemId: [],
-    PlannedEndTime: (_) => Math.round(_.getTime() / 1000),
-    PlannedStartTime: (_) => Math.round(_.getTime() / 1000),
+    PlannedEndTime: (_) => _.getTime() / 1_000,
+    PlannedStartTime: (_) => _.getTime() / 1_000,
     Priority: [],
     RelatedOpsItems: _json,
     Severity: [],

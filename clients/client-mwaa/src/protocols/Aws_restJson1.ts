@@ -764,7 +764,7 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
     Dimensions: _json,
     MetricName: [],
     StatisticValues: (_) => se_StatisticSet(_, context),
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
     Unit: [],
     Value: __serializeFloat,
   });

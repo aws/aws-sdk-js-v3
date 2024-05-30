@@ -16,6 +16,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -1237,10 +1238,10 @@ export const se_GetApplicationDateRangeKpiCommand = async (
   b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   b.p("KpiName", () => input.KpiName!, "{KpiName}", false);
   const query: any = map({
-    [_et]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_et]: [() => input.EndTime !== void 0, () => __serializeDateTime(input[_ET]!).toString()],
     [_nt]: [, input[_NT]!],
     [_ps]: [, input[_PS]!],
-    [_st]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
+    [_st]: [() => input.StartTime !== void 0, () => __serializeDateTime(input[_ST]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1350,10 +1351,10 @@ export const se_GetCampaignDateRangeKpiCommand = async (
   b.p("CampaignId", () => input.CampaignId!, "{CampaignId}", false);
   b.p("KpiName", () => input.KpiName!, "{KpiName}", false);
   const query: any = map({
-    [_et]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_et]: [() => input.EndTime !== void 0, () => __serializeDateTime(input[_ET]!).toString()],
     [_nt]: [, input[_NT]!],
     [_ps]: [, input[_PS]!],
-    [_st]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
+    [_st]: [() => input.StartTime !== void 0, () => __serializeDateTime(input[_ST]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1660,10 +1661,10 @@ export const se_GetJourneyDateRangeKpiCommand = async (
   b.p("JourneyId", () => input.JourneyId!, "{JourneyId}", false);
   b.p("KpiName", () => input.KpiName!, "{KpiName}", false);
   const query: any = map({
-    [_et]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_et]: [() => input.EndTime !== void 0, () => __serializeDateTime(input[_ET]!).toString()],
     [_nt]: [, input[_NT]!],
     [_ps]: [, input[_PS]!],
-    [_st]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
+    [_st]: [() => input.StartTime !== void 0, () => __serializeDateTime(input[_ST]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -5769,8 +5770,8 @@ const se_InAppTemplateRequest = (input: InAppTemplateRequest, context: __SerdeCo
  */
 const se_JourneySchedule = (input: JourneySchedule, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => _.toISOString().split(".")[0] + "Z",
-    StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    EndTime: __serializeDateTime,
+    StartTime: __serializeDateTime,
     Timezone: [],
   });
 };

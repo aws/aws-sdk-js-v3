@@ -1458,9 +1458,9 @@ const se_CreateLowLatencyHlsManifests = (
  */
 const se_FilterConfiguration = (input: FilterConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    End: (_) => Math.round(_.getTime() / 1000),
+    End: (_) => _.getTime() / 1_000,
     ManifestFilter: [],
-    Start: (_) => Math.round(_.getTime() / 1000),
+    Start: (_) => _.getTime() / 1_000,
     TimeDelaySeconds: [],
   });
 };

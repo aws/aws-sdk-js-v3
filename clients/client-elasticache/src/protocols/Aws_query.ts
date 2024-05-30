@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   withBaseException,
@@ -6180,10 +6181,10 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
     entries[_ST] = input[_ST];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_Du] != null) {
     entries[_Du] = input[_Du];
@@ -7956,10 +7957,10 @@ const se_TestMigrationMessage = (input: TestMigrationMessage, context: __SerdeCo
 const se_TimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   return entries;
 };

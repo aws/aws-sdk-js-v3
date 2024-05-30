@@ -448,7 +448,7 @@ export const se_CreateEventSourceMappingCommand = async (
       SelfManagedKafkaEventSourceConfig: (_) => _json(_),
       SourceAccessConfigurations: (_) => _json(_),
       StartingPosition: [],
-      StartingPositionTimestamp: (_) => Math.round(_.getTime() / 1000),
+      StartingPositionTimestamp: (_) => _.getTime() / 1_000,
       Topics: (_) => _json(_),
       TumblingWindowInSeconds: [],
     })

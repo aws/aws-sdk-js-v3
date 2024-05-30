@@ -1421,7 +1421,7 @@ const se_PickupDetails = (input: PickupDetails, context: __SerdeContext): any =>
   return take(input, {
     DevicePickupId: [],
     Email: [],
-    IdentificationExpirationDate: (_) => Math.round(_.getTime() / 1000),
+    IdentificationExpirationDate: (_) => _.getTime() / 1_000,
     IdentificationIssuingOrg: [],
     IdentificationNumber: [],
     Name: [],

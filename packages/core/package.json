@@ -62,10 +62,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/core": "^2.0.1",
+    "@smithy/core": "^2.1.0",
     "@smithy/protocol-http": "^4.0.0",
     "@smithy/signature-v4": "^3.0.0",
-    "@smithy/smithy-client": "^3.0.1",
+    "@smithy/smithy-client": "^3.1.0",
     "@smithy/types": "^3.0.0",
     "fast-xml-parser": "4.2.5",
     "tslib": "^2.6.2"

@@ -12,6 +12,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   strictParseLong as __strictParseLong,
   take,
   withBaseException,
@@ -137,8 +138,8 @@ export const se_ListObjectsCommand = async (
     [_sop]: [, input[_SOP]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nt]: [, input[_NT]!],
-    [_cb]: [() => input.CreatedBefore !== void 0, () => (input[_CB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_ca]: [() => input.CreatedAfter !== void 0, () => (input[_CA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cb]: [() => input.CreatedBefore !== void 0, () => __serializeDateTime(input[_CB]!).toString()],
+    [_ca]: [() => input.CreatedAfter !== void 0, () => __serializeDateTime(input[_CA]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);

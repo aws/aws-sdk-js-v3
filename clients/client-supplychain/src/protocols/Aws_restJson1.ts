@@ -104,7 +104,7 @@ export const se_SendDataIntegrationEventCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       data: [],
       eventGroupId: [],
-      eventTimestamp: (_) => Math.round(_.getTime() / 1000),
+      eventTimestamp: (_) => _.getTime() / 1_000,
       eventType: [],
     })
   );

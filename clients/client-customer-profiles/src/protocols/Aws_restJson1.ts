@@ -1116,8 +1116,8 @@ export const se_ListWorkflowsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      QueryEndDate: (_) => Math.round(_.getTime() / 1000),
-      QueryStartDate: (_) => Math.round(_.getTime() / 1000),
+      QueryEndDate: (_) => _.getTime() / 1_000,
+      QueryStartDate: (_) => _.getTime() / 1_000,
       Status: [],
       WorkflowType: [],
     })
@@ -2807,8 +2807,8 @@ const se_AutoMerging = (input: AutoMerging, context: __SerdeContext): any => {
  */
 const se_Batch = (input: Batch, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2928,11 +2928,11 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
 const se_ScheduledTriggerProperties = (input: ScheduledTriggerProperties, context: __SerdeContext): any => {
   return take(input, {
     DataPullMode: [],
-    FirstExecutionFrom: (_) => Math.round(_.getTime() / 1000),
-    ScheduleEndTime: (_) => Math.round(_.getTime() / 1000),
+    FirstExecutionFrom: (_) => _.getTime() / 1_000,
+    ScheduleEndTime: (_) => _.getTime() / 1_000,
     ScheduleExpression: [],
     ScheduleOffset: [],
-    ScheduleStartTime: (_) => Math.round(_.getTime() / 1000),
+    ScheduleStartTime: (_) => _.getTime() / 1_000,
     Timezone: [],
   });
 };

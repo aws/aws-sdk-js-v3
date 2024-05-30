@@ -414,8 +414,8 @@ export const se_GenerateAccessLogsCommand = async (
   body = JSON.stringify(
     take(input, {
       domainName: [],
-      endTime: (_) => Math.round(_.getTime() / 1000),
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
+      startTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -736,7 +736,7 @@ export const se_StartJobCommand = async (
     take(input, {
       commitId: [],
       commitMessage: [],
-      commitTime: (_) => Math.round(_.getTime() / 1000),
+      commitTime: (_) => _.getTime() / 1_000,
       jobId: [],
       jobReason: [],
       jobType: [],

@@ -770,14 +770,14 @@ const se_PutScalingPolicyRequest = (input: PutScalingPolicyRequest, context: __S
  */
 const se_PutScheduledActionRequest = (input: PutScheduledActionRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     ResourceId: [],
     ScalableDimension: [],
     ScalableTargetAction: _json,
     Schedule: [],
     ScheduledActionName: [],
     ServiceNamespace: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
     Timezone: [],
   });
 };

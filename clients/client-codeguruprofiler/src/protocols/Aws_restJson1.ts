@@ -15,6 +15,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -148,8 +149,8 @@ export const se_BatchGetFrameMetricDataCommand = async (
   b.bp("/profilingGroups/{profilingGroupName}/frames/-/metrics");
   b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    [_sT]: [() => input.startTime !== void 0, () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString()],
-    [_eT]: [() => input.endTime !== void 0, () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
     [_p]: [, input[_p]!],
     [_tR]: [, input[_tR]!],
   });
@@ -313,9 +314,9 @@ export const se_GetProfileCommand = async (
   b.bp("/profilingGroups/{profilingGroupName}/profile");
   b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    [_sT]: [() => input.startTime !== void 0, () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
     [_p]: [, input[_p]!],
-    [_eT]: [() => input.endTime !== void 0, () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_eT]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
     [_mD]: [() => input.maxDepth !== void 0, () => input[_mD]!.toString()],
   });
   let body: any;
@@ -335,14 +336,8 @@ export const se_GetRecommendationsCommand = async (
   b.bp("/internal/profilingGroups/{profilingGroupName}/recommendations");
   b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eT]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eT]!).toString()],
     [_l]: [, input[_l]!],
   });
   let body: any;
@@ -362,14 +357,8 @@ export const se_ListFindingsReportsCommand = async (
   b.bp("/internal/profilingGroups/{profilingGroupName}/findingsReports");
   b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eT]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eT]!).toString()],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_dRO]: [() => input.dailyReportsOnly !== void 0, () => input[_dRO]!.toString()],
@@ -391,14 +380,8 @@ export const se_ListProfileTimesCommand = async (
   b.bp("/profilingGroups/{profilingGroupName}/profileTimes");
   b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    [_sT]: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eT]: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sT]: [__expectNonNull(input.startTime, `startTime`) != null, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [__expectNonNull(input.endTime, `endTime`) != null, () => __serializeDateTime(input[_eT]!).toString()],
     [_p]: [, __expectNonNull(input[_p]!, `period`)],
     [_oB]: [, input[_oB]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],

@@ -19,6 +19,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   strictParseInt32 as __strictParseInt32,
   take,
   withBaseException,
@@ -1768,8 +1769,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext): any => {
   return take(input, {
     accessRole: [],
-    endTime: (_) => _.toISOString().split(".")[0] + "Z",
-    startTime: (_) => _.toISOString().split(".")[0] + "Z",
+    endTime: __serializeDateTime,
+    startTime: __serializeDateTime,
     trails: _json,
   });
 };

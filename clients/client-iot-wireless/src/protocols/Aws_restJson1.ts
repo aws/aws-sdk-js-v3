@@ -20,6 +20,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -1539,7 +1540,7 @@ export const se_GetPositionEstimateCommand = async (
       CellTowers: (_) => se_CellTowers(_, context),
       Gnss: (_) => se_Gnss(_, context),
       Ip: (_) => _json(_),
-      Timestamp: (_) => Math.round(_.getTime() / 1000),
+      Timestamp: (_) => _.getTime() / 1_000,
       WiFiAccessPoints: (_) => _json(_),
     })
   );
@@ -5456,7 +5457,7 @@ const se_LoRaWANMulticastSession = (input: LoRaWANMulticastSession, context: __S
     DlDr: [],
     DlFreq: [],
     PingSlotPeriod: [],
-    SessionStartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    SessionStartTime: __serializeDateTime,
     SessionTimeout: [],
   });
 };
@@ -5470,7 +5471,7 @@ const se_LoRaWANMulticastSession = (input: LoRaWANMulticastSession, context: __S
  */
 const se_LoRaWANStartFuotaTask = (input: LoRaWANStartFuotaTask, context: __SerdeContext): any => {
   return take(input, {
-    StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    StartTime: __serializeDateTime,
   });
 };
 
@@ -5616,10 +5617,10 @@ const se_SummaryMetricQuery = (input: SummaryMetricQuery, context: __SerdeContex
   return take(input, {
     AggregationPeriod: [],
     Dimensions: _json,
-    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    EndTimestamp: (_) => _.getTime() / 1_000,
     MetricName: [],
     QueryId: [],
-    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

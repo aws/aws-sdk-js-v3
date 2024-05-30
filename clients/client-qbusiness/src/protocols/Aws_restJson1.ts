@@ -22,6 +22,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -951,8 +952,8 @@ export const se_ListDataSourceSyncJobsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_sT]: [() => input.startTime !== void 0, () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString()],
-    [_eT]: [() => input.endTime !== void 0, () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sT]: [() => input.startTime !== void 0, () => __serializeDateTime(input[_sT]!).toString()],
+    [_eT]: [() => input.endTime !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
     [_sS]: [, input[_sF]!],
   });
   let body: any;
@@ -997,7 +998,7 @@ export const se_ListGroupsCommand = async (
   const query: any = map({
     [_uET]: [
       __expectNonNull(input.updatedEarlierThan, `updatedEarlierThan`) != null,
-      () => (input[_uET]!.toISOString().split(".")[0] + "Z").toString(),
+      () => __serializeDateTime(input[_uET]!).toString(),
     ],
     [_dSI]: [, input[_dSI]!],
     [_nT]: [, input[_nT]!],
@@ -1147,7 +1148,7 @@ export const se_PutFeedbackCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      messageCopiedAt: (_) => Math.round(_.getTime() / 1000),
+      messageCopiedAt: (_) => _.getTime() / 1_000,
       messageUsefulness: (_) => se_MessageUsefulnessFeedback(_, context),
     })
   );
@@ -3270,7 +3271,7 @@ const se_DocumentAttributeTarget = (input: DocumentAttributeTarget, context: __S
  */
 const se_DocumentAttributeValue = (input: DocumentAttributeValue, context: __SerdeContext): any => {
   return DocumentAttributeValue.visit(input, {
-    dateValue: (value) => ({ dateValue: Math.round(value.getTime() / 1000) }),
+    dateValue: (value) => ({ dateValue: value.getTime() / 1_000 }),
     longValue: (value) => ({ longValue: value }),
     stringListValue: (value) => ({ stringListValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
@@ -3382,7 +3383,7 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
   return take(input, {
     comment: [],
     reason: [],
-    submittedAt: (_) => Math.round(_.getTime() / 1000),
+    submittedAt: (_) => _.getTime() / 1_000,
     usefulness: [],
   });
 };

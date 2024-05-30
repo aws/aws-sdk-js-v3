@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -5629,10 +5630,10 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
     entries[_STo] = input[_STo];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ETn] != null) {
-    entries[_ETn] = input[_ETn].toISOString().split(".")[0] + "Z";
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
   }
   if (input[_Du] != null) {
     entries[_Du] = input[_Du];
@@ -6688,7 +6689,7 @@ const se_RestoreDBClusterToPointInTimeMessage = (
     entries[_SDBCI] = input[_SDBCI];
   }
   if (input[_RTT] != null) {
-    entries[_RTT] = input[_RTT].toISOString().split(".")[0] + "Z";
+    entries[_RTT] = __serializeDateTime(input[_RTT]);
   }
   if (input[_ULRT] != null) {
     entries[_ULRT] = input[_ULRT];

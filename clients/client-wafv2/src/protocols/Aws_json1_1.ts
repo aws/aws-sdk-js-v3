@@ -3024,8 +3024,8 @@ const se_Statements = (input: Statement[], context: __SerdeContext): any => {
  */
 const se_TimeWindow = (input: TimeWindow, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3043,7 +3043,7 @@ const se_UpdateManagedRuleSetVersionExpiryDateRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    ExpiryTimestamp: (_) => Math.round(_.getTime() / 1000),
+    ExpiryTimestamp: (_) => _.getTime() / 1_000,
     Id: [],
     LockToken: [],
     Name: [],

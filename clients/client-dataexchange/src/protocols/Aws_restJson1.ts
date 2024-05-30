@@ -20,6 +20,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -1677,7 +1678,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_DataUpdateRequestDetails = (input: DataUpdateRequestDetails, context: __SerdeContext): any => {
   return take(input, {
-    DataUpdatedAt: (_) => _.toISOString().split(".")[0] + "Z",
+    DataUpdatedAt: __serializeDateTime,
   });
 };
 
@@ -1686,7 +1687,7 @@ const se_DataUpdateRequestDetails = (input: DataUpdateRequestDetails, context: _
  */
 const se_DeprecationRequestDetails = (input: DeprecationRequestDetails, context: __SerdeContext): any => {
   return take(input, {
-    DeprecationAt: (_) => _.toISOString().split(".")[0] + "Z",
+    DeprecationAt: __serializeDateTime,
   });
 };
 
@@ -1779,7 +1780,7 @@ const se_NotificationDetails = (input: NotificationDetails, context: __SerdeCont
 const se_SchemaChangeRequestDetails = (input: SchemaChangeRequestDetails, context: __SerdeContext): any => {
   return take(input, {
     Changes: _json,
-    SchemaChangeAt: (_) => _.toISOString().split(".")[0] + "Z",
+    SchemaChangeAt: __serializeDateTime,
   });
 };
 

@@ -905,7 +905,7 @@ export const se_GetTableObjectsCommand = async (
       MaxResults: [],
       NextToken: [],
       PartitionPredicate: [],
-      QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
+      QueryAsOfTime: (_) => _.getTime() / 1_000,
       TableName: [],
       TransactionId: [],
     })
@@ -3201,7 +3201,7 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
   return take(input, {
     CatalogId: [],
     DatabaseName: [],
-    QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
+    QueryAsOfTime: (_) => _.getTime() / 1_000,
     QueryParameters: _json,
     TransactionId: [],
   });
@@ -3216,7 +3216,7 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
     ClusterId: [],
     QueryAuthorizationId: [],
     QueryId: [],
-    QueryStartTime: (_) => Math.round(_.getTime() / 1000),
+    QueryStartTime: (_) => _.getTime() / 1_000,
   });
 };
 

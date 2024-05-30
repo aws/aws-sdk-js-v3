@@ -827,7 +827,7 @@ const se_ActivatePipelineInput = (input: ActivatePipelineInput, context: __Serde
   return take(input, {
     parameterValues: _json,
     pipelineId: [],
-    startTimestamp: (_) => Math.round(_.getTime() / 1000),
+    startTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

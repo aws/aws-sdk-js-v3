@@ -17,6 +17,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -574,14 +575,8 @@ export const se_GetDomainStatisticsReportCommand = async (
   b.bp("/v1/email/deliverability-dashboard/statistics-report/{Domain}");
   b.p("Domain", () => input.Domain!, "{Domain}", false);
   const query: any = map({
-    [_SD]: [
-      __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input[_SD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_ED]: [
-      __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input[_ED]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_SD]: [__expectNonNull(input.StartDate, `StartDate`) != null, () => __serializeDateTime(input[_SD]!).toString()],
+    [_ED]: [__expectNonNull(input.EndDate, `EndDate`) != null, () => __serializeDateTime(input[_ED]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -673,14 +668,8 @@ export const se_ListDomainDeliverabilityCampaignsCommand = async (
   b.bp("/v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns");
   b.p("SubscribedDomain", () => input.SubscribedDomain!, "{SubscribedDomain}", false);
   const query: any = map({
-    [_SD]: [
-      __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input[_SD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_ED]: [
-      __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input[_ED]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_SD]: [__expectNonNull(input.StartDate, `StartDate`) != null, () => __serializeDateTime(input[_SD]!).toString()],
+    [_ED]: [__expectNonNull(input.EndDate, `EndDate`) != null, () => __serializeDateTime(input[_ED]!).toString()],
     [_NT]: [, input[_NT]!],
     [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
@@ -2191,7 +2180,7 @@ const se_DomainDeliverabilityTrackingOption = (
   return take(input, {
     Domain: [],
     InboxPlacementTrackingOption: _json,
-    SubscriptionStartDate: (_) => Math.round(_.getTime() / 1000),
+    SubscriptionStartDate: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2254,7 +2243,7 @@ const se_RawMessage = (input: RawMessage, context: __SerdeContext): any => {
  */
 const se_ReputationOptions = (input: ReputationOptions, context: __SerdeContext): any => {
   return take(input, {
-    LastFreshStart: (_) => Math.round(_.getTime() / 1000),
+    LastFreshStart: (_) => _.getTime() / 1_000,
     ReputationMetricsEnabled: [],
   });
 };

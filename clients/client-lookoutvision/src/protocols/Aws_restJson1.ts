@@ -17,6 +17,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   strictParseInt32 as __strictParseInt32,
   take,
   withBaseException,
@@ -332,14 +333,8 @@ export const se_ListDatasetEntriesCommand = async (
   const query: any = map({
     [_l]: [() => input.Labeled !== void 0, () => input[_L]!.toString()],
     [_aC]: [, input[_AC]!],
-    [_cB]: [
-      () => input.BeforeCreationDate !== void 0,
-      () => (input[_BCD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cA]: [
-      () => input.AfterCreationDate !== void 0,
-      () => (input[_ACD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cB]: [() => input.BeforeCreationDate !== void 0, () => __serializeDateTime(input[_BCD]!).toString()],
+    [_cA]: [() => input.AfterCreationDate !== void 0, () => __serializeDateTime(input[_ACD]!).toString()],
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_sRC]: [, input[_SRC]!],

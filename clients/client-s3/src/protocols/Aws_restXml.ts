@@ -22,6 +22,7 @@ import {
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   withBaseException,
@@ -550,10 +551,7 @@ export const se_CopyObjectCommand = async (
     [_xarp]: input[_RP]!,
     [_xat]: input[_T]!,
     [_xaolm]: input[_OLM]!,
-    [_xaolrud]: [
-      () => isSerializableHeaderValue(input[_OLRUD]),
-      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_xaolrud]: [() => isSerializableHeaderValue(input[_OLRUD]), () => __serializeDateTime(input[_OLRUD]!).toString()],
     [_xaollh]: input[_OLLHS]!,
     [_xaebo]: input[_EBO]!,
     [_xasebo]: input[_ESBO]!,
@@ -639,10 +637,7 @@ export const se_CreateMultipartUploadCommand = async (
     [_xarp]: input[_RP]!,
     [_xat]: input[_T]!,
     [_xaolm]: input[_OLM]!,
-    [_xaolrud]: [
-      () => isSerializableHeaderValue(input[_OLRUD]),
-      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_xaolrud]: [() => isSerializableHeaderValue(input[_OLRUD]), () => __serializeDateTime(input[_OLRUD]!).toString()],
     [_xaollh]: input[_OLLHS]!,
     [_xaebo]: input[_EBO]!,
     [_xaca]: input[_CA]!,
@@ -2650,10 +2645,7 @@ export const se_PutObjectCommand = async (
     [_xarp]: input[_RP]!,
     [_xat]: input[_T]!,
     [_xaolm]: input[_OLM]!,
-    [_xaolrud]: [
-      () => isSerializableHeaderValue(input[_OLRUD]),
-      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_xaolrud]: [() => isSerializableHeaderValue(input[_OLRUD]), () => __serializeDateTime(input[_OLRUD]!).toString()],
     [_xaollh]: input[_OLLHS]!,
     [_xaebo]: input[_EBO]!,
     ...(input.Metadata !== undefined &&
@@ -3082,7 +3074,7 @@ export const se_WriteGetObjectResponseCommand = async (
     [_xafhxaollh]: input[_OLLHS]!,
     [_xafhxaolrud]: [
       () => isSerializableHeaderValue(input[_OLRUD]),
-      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
+      () => __serializeDateTime(input[_OLRUD]!).toString(),
     ],
     [_xafhxampc]: [() => isSerializableHeaderValue(input[_PC]), () => input[_PC]!.toString()],
     [_xafhxars]: input[_RS]!,
@@ -6390,7 +6382,7 @@ const se_LambdaFunctionConfigurationList = (input: LambdaFunctionConfiguration[]
 const se_LifecycleExpiration = (input: LifecycleExpiration, context: __SerdeContext): any => {
   const bn = new __XmlNode(_LEi);
   if (input[_Dat] != null) {
-    bn.c(__XmlNode.of(_Dat, (input[_Dat].toISOString().split(".")[0] + "Z").toString()).n(_Dat));
+    bn.c(__XmlNode.of(_Dat, __serializeDateTime(input[_Dat]).toString()).n(_Dat));
   }
   if (input[_Da] != null) {
     bn.c(__XmlNode.of(_Da, String(input[_Da])).n(_Da));
@@ -6744,7 +6736,7 @@ const se_ObjectLockRetention = (input: ObjectLockRetention, context: __SerdeCont
     bn.c(__XmlNode.of(_OLRM, input[_Mo]).n(_Mo));
   }
   if (input[_RUD] != null) {
-    bn.c(__XmlNode.of(_Dat, (input[_RUD].toISOString().split(".")[0] + "Z").toString()).n(_RUD));
+    bn.c(__XmlNode.of(_Dat, __serializeDateTime(input[_RUD]).toString()).n(_RUD));
   }
   return bn;
 };
@@ -7445,7 +7437,7 @@ const se_TopicConfigurationList = (input: TopicConfiguration[], context: __Serde
 const se_Transition = (input: Transition, context: __SerdeContext): any => {
   const bn = new __XmlNode(_Tra);
   if (input[_Dat] != null) {
-    bn.c(__XmlNode.of(_Dat, (input[_Dat].toISOString().split(".")[0] + "Z").toString()).n(_Dat));
+    bn.c(__XmlNode.of(_Dat, __serializeDateTime(input[_Dat]).toString()).n(_Dat));
   }
   if (input[_Da] != null) {
     bn.c(__XmlNode.of(_Da, String(input[_Da])).n(_Da));

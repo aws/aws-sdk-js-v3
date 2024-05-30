@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -3187,7 +3188,7 @@ const se_DescribeEnvironmentsMessage = (input: DescribeEnvironmentsMessage, cont
     entries[_ID] = input[_ID];
   }
   if (input[_IDBT] != null) {
-    entries[_IDBT] = input[_IDBT].toISOString().split(".")[0] + "Z";
+    entries[_IDBT] = __serializeDateTime(input[_IDBT]);
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
@@ -3228,10 +3229,10 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
     entries[_Se] = input[_Se];
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];

@@ -1682,7 +1682,7 @@ const se_GetShardIteratorInput = (input: GetShardIteratorInput, context: __Serde
     StartingSequenceNumber: [],
     StreamARN: [],
     StreamName: [],
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1698,7 +1698,7 @@ const se_ListShardsInput = (input: ListShardsInput, context: __SerdeContext): an
     NextToken: [],
     ShardFilter: (_) => se_ShardFilter(_, context),
     StreamARN: [],
-    StreamCreationTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StreamCreationTimestamp: (_) => _.getTime() / 1_000,
     StreamName: [],
   });
 };
@@ -1711,7 +1711,7 @@ const se_ListStreamConsumersInput = (input: ListStreamConsumersInput, context: _
     MaxResults: [],
     NextToken: [],
     StreamARN: [],
-    StreamCreationTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StreamCreationTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1782,7 +1782,7 @@ const se_PutRecordsRequestEntryList = (input: PutRecordsRequestEntry[], context:
 const se_ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
   return take(input, {
     ShardId: [],
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
     Type: [],
   });
 };
@@ -1795,7 +1795,7 @@ const se_ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
 const se_StartingPosition = (input: StartingPosition, context: __SerdeContext): any => {
   return take(input, {
     SequenceNumber: [],
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
     Type: [],
   });
 };

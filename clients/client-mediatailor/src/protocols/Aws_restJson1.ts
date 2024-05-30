@@ -2249,8 +2249,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_PrefetchConsumption = (input: PrefetchConsumption, context: __SerdeContext): any => {
   return take(input, {
     AvailMatchingCriteria: _json,
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2260,8 +2260,8 @@ const se_PrefetchConsumption = (input: PrefetchConsumption, context: __SerdeCont
 const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext): any => {
   return take(input, {
     DynamicVariables: _json,
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 

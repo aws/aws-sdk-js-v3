@@ -2419,11 +2419,11 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: __SerdeContext): any => {
   return take(input, {
-    ActiveDate: (_) => Math.round(_.getTime() / 1000),
+    ActiveDate: (_) => _.getTime() / 1_000,
     Certificate: [],
     CertificateChain: [],
     Description: [],
-    InactiveDate: (_) => Math.round(_.getTime() / 1000),
+    InactiveDate: (_) => _.getTime() / 1_000,
     PrivateKey: [],
     Tags: _json,
     Usage: [],
@@ -2525,10 +2525,10 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
  */
 const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: __SerdeContext): any => {
   return take(input, {
-    ActiveDate: (_) => Math.round(_.getTime() / 1000),
+    ActiveDate: (_) => _.getTime() / 1_000,
     CertificateId: [],
     Description: [],
-    InactiveDate: (_) => Math.round(_.getTime() / 1000),
+    InactiveDate: (_) => _.getTime() / 1_000,
   });
 };
 

@@ -810,7 +810,7 @@ const se_RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeCont
     encryptionSpecificationOverride: _json,
     pointInTimeRecoveryOverride: _json,
     replicaSpecifications: (_) => se_ReplicaSpecificationList(_, context),
-    restoreTimestamp: (_) => Math.round(_.getTime() / 1000),
+    restoreTimestamp: (_) => _.getTime() / 1_000,
     sourceKeyspaceName: [],
     sourceTableName: [],
     tagsOverride: _json,

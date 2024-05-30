@@ -2523,12 +2523,12 @@ const de_UserQuotaExceededFaultRes = async (
 const se_DescribeEventsRequest = (input: DescribeEventsRequest, context: __SerdeContext): any => {
   return take(input, {
     Duration: [],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SourceName: [],
     SourceType: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 

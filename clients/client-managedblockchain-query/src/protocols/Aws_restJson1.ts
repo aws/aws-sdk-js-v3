@@ -686,7 +686,7 @@ const se_BatchGetTokenBalanceInputItem = (input: BatchGetTokenBalanceInputItem, 
  */
 const se_BlockchainInstant = (input: BlockchainInstant, context: __SerdeContext): any => {
   return take(input, {
-    time: (_) => Math.round(_.getTime() / 1000),
+    time: (_) => _.getTime() / 1_000,
   });
 };
 
