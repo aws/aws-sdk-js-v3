@@ -718,6 +718,13 @@ export interface GetDashboardForJobRunRequest {
    * @public
    */
   jobRunId: string | undefined;
+
+  /**
+   * <p>An optimal parameter that indicates the amount of attempts for the job. If not specified,
+   *          this value defaults to the attempt of the latest job.</p>
+   * @public
+   */
+  attempt?: number;
 }
 
 /**
@@ -746,6 +753,13 @@ export interface GetJobRunRequest {
    * @public
    */
   jobRunId: string | undefined;
+
+  /**
+   * <p>An optimal parameter that indicates the amount of attempts for the job. If not specified,
+   *       this value defaults to the attempt of the latest job.</p>
+   * @public
+   */
+  attempt?: number;
 }
 
 /**
@@ -879,6 +893,38 @@ export namespace JobDriver {
  * @public
  * @enum
  */
+export const JobRunMode = {
+  BATCH: "BATCH",
+  STREAMING: "STREAMING",
+} as const;
+
+/**
+ * @public
+ */
+export type JobRunMode = (typeof JobRunMode)[keyof typeof JobRunMode];
+
+/**
+ * <p>The retry policy to use for a job run.</p>
+ * @public
+ */
+export interface RetryPolicy {
+  /**
+   * <p>Maximum number of attempts for the job run. This parameter is only applicable for <code>BATCH</code> mode.</p>
+   * @public
+   */
+  maxAttempts?: number;
+
+  /**
+   * <p>Maximum number of failed attempts per hour. This [arameter is only applicable for <code>STREAMING</code> mode.</p>
+   * @public
+   */
+  maxFailedAttemptsPerHour?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const JobRunState = {
   CANCELLED: "CANCELLED",
   CANCELLING: "CANCELLING",
@@ -926,6 +972,149 @@ export interface TotalResourceUtilization {
 /**
  * @public
  */
+export interface ListJobRunAttemptsRequest {
+  /**
+   * <p>The ID of the application for which to list job runs.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the job run to list.</p>
+   * @public
+   */
+  jobRunId: string | undefined;
+
+  /**
+   * <p>The token for the next set of job run attempt results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of job run attempts to list.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>The summary of attributes associated with a job run attempt.</p>
+ * @public
+ */
+export interface JobRunAttemptSummary {
+  /**
+   * <p>The ID of the application the job is running on.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The ID of the job run attempt.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the job run attempt.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The mode of the job run attempt.</p>
+   * @public
+   */
+  mode?: JobRunMode;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job run.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The user who created the job run.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The date and time of when the job run was created.</p>
+   * @public
+   */
+  jobCreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the job run attempt was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time of when the job run attempt was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the execution role of the job run..</p>
+   * @public
+   */
+  executionRole: string | undefined;
+
+  /**
+   * <p>The state of the job run attempt.</p>
+   * @public
+   */
+  state: JobRunState | undefined;
+
+  /**
+   * <p>The state details of the job run attempt.</p>
+   * @public
+   */
+  stateDetails: string | undefined;
+
+  /**
+   * <p>The Amazon EMR release label of the job run attempt.</p>
+   * @public
+   */
+  releaseLabel: string | undefined;
+
+  /**
+   * <p>The type of the job run, such as Spark or Hive.</p>
+   * @public
+   */
+  type?: string;
+
+  /**
+   * <p>The attempt number of the job run execution.</p>
+   * @public
+   */
+  attempt?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListJobRunAttemptsResponse {
+  /**
+   * <p>The array of the listed job run attempt objects.</p>
+   * @public
+   */
+  jobRunAttempts: JobRunAttemptSummary[] | undefined;
+
+  /**
+   * <p>The output displays the token for the next set of application results.
+   *          This is required for pagination and is available as a response of the previous request.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListJobRunsRequest {
   /**
    * <p>The ID of the application for which to list the job run.</p>
@@ -963,6 +1152,12 @@ export interface ListJobRunsRequest {
    * @public
    */
   states?: JobRunState[];
+
+  /**
+   * <p>The mode of the job runs to list.</p>
+   * @public
+   */
+  mode?: JobRunMode;
 }
 
 /**
@@ -987,6 +1182,12 @@ export interface JobRunSummary {
    * @public
    */
   name?: string;
+
+  /**
+   * <p>The mode of the job run.</p>
+   * @public
+   */
+  mode?: JobRunMode;
 
   /**
    * <p>The ARN of the job run.</p>
@@ -1042,6 +1243,24 @@ export interface JobRunSummary {
    * @public
    */
   type?: string;
+
+  /**
+   * <p>The attempt number of the job run execution.</p>
+   * @public
+   */
+  attempt?: number;
+
+  /**
+   * <p>The date and time of when the job run attempt was created.</p>
+   * @public
+   */
+  attemptCreatedAt?: Date;
+
+  /**
+   * <p>The date and time of when the job run attempt was last updated.</p>
+   * @public
+   */
+  attemptUpdatedAt?: Date;
 }
 
 /**
@@ -1701,6 +1920,36 @@ export interface JobRun {
    * @public
    */
   billedResourceUtilization?: ResourceUtilization;
+
+  /**
+   * <p>The mode of the job run.</p>
+   * @public
+   */
+  mode?: JobRunMode;
+
+  /**
+   * <p>The retry policy of the job run.</p>
+   * @public
+   */
+  retryPolicy?: RetryPolicy;
+
+  /**
+   * <p>The attempt of the job run.</p>
+   * @public
+   */
+  attempt?: number;
+
+  /**
+   * <p>The date and time of when the job run attempt was created.</p>
+   * @public
+   */
+  attemptCreatedAt?: Date;
+
+  /**
+   * <p>The date and time of when the job run attempt was last updated.</p>
+   * @public
+   */
+  attemptUpdatedAt?: Date;
 }
 
 /**
@@ -1756,6 +2005,18 @@ export interface StartJobRunRequest {
    * @public
    */
   name?: string;
+
+  /**
+   * <p>The mode of the job run when it starts.</p>
+   * @public
+   */
+  mode?: JobRunMode;
+
+  /**
+   * <p>The retry policy when job run starts.</p>
+   * @public
+   */
+  retryPolicy?: RetryPolicy;
 }
 
 /**

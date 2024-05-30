@@ -6,6 +6,7 @@ export * from "./GetApplicationCommand";
 export * from "./GetDashboardForJobRunCommand";
 export * from "./GetJobRunCommand";
 export * from "./ListApplicationsCommand";
+export * from "./ListJobRunAttemptsCommand";
 export * from "./ListJobRunsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartApplicationCommand";

@@ -281,6 +281,14 @@ ListApplications
 </details>
 <details>
 <summary>
+ListJobRunAttempts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr-serverless/command/ListJobRunAttemptsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-serverless/Interface/ListJobRunAttemptsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-serverless/Interface/ListJobRunAttemptsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListJobRuns
 </summary>
 

@@ -63,6 +63,7 @@ import {
 } from "./commands/GetDashboardForJobRunCommand";
 import { GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import { ListJobRunAttemptsCommandInput, ListJobRunAttemptsCommandOutput } from "./commands/ListJobRunAttemptsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -96,6 +97,7 @@ export type ServiceInputTypes =
   | GetDashboardForJobRunCommandInput
   | GetJobRunCommandInput
   | ListApplicationsCommandInput
+  | ListJobRunAttemptsCommandInput
   | ListJobRunsCommandInput
   | ListTagsForResourceCommandInput
   | StartApplicationCommandInput
@@ -116,6 +118,7 @@ export type ServiceOutputTypes =
   | GetDashboardForJobRunCommandOutput
   | GetJobRunCommandOutput
   | ListApplicationsCommandOutput
+  | ListJobRunAttemptsCommandOutput
   | ListJobRunsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartApplicationCommandOutput

@@ -100,6 +100,11 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *   },
  *   executionTimeoutMinutes: Number("long"),
  *   name: "STRING_VALUE",
+ *   mode: "STRING_VALUE",
+ *   retryPolicy: { // RetryPolicy
+ *     maxAttempts: Number("int"),
+ *     maxFailedAttemptsPerHour: Number("int"),
+ *   },
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);

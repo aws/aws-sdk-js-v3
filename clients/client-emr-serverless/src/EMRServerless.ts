@@ -33,6 +33,11 @@ import {
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
+import {
+  ListJobRunAttemptsCommand,
+  ListJobRunAttemptsCommandInput,
+  ListJobRunAttemptsCommandOutput,
+} from "./commands/ListJobRunAttemptsCommand";
 import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
 import {
   ListTagsForResourceCommand,
@@ -71,6 +76,7 @@ const commands = {
   GetDashboardForJobRunCommand,
   GetJobRunCommand,
   ListApplicationsCommand,
+  ListJobRunAttemptsCommand,
   ListJobRunsCommand,
   ListTagsForResourceCommand,
   StartApplicationCommand,
@@ -185,6 +191,23 @@ export interface EMRServerless {
     args: ListApplicationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListJobRunAttemptsCommand}
+   */
+  listJobRunAttempts(
+    args: ListJobRunAttemptsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobRunAttemptsCommandOutput>;
+  listJobRunAttempts(
+    args: ListJobRunAttemptsCommandInput,
+    cb: (err: any, data?: ListJobRunAttemptsCommandOutput) => void
+  ): void;
+  listJobRunAttempts(
+    args: ListJobRunAttemptsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobRunAttemptsCommandOutput) => void
   ): void;
 
   /**

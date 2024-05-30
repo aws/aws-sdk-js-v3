@@ -37,6 +37,7 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * const input = { // GetJobRunRequest
  *   applicationId: "STRING_VALUE", // required
  *   jobRunId: "STRING_VALUE", // required
+ *   attempt: Number("int"),
  * };
  * const command = new GetJobRunCommand(input);
  * const response = await client.send(command);
@@ -133,6 +134,14 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //       memoryGBHour: Number("double"),
  * //       storageGBHour: Number("double"),
  * //     },
+ * //     mode: "STRING_VALUE",
+ * //     retryPolicy: { // RetryPolicy
+ * //       maxAttempts: Number("int"),
+ * //       maxFailedAttemptsPerHour: Number("int"),
+ * //     },
+ * //     attempt: Number("int"),
+ * //     attemptCreatedAt: new Date("TIMESTAMP"),
+ * //     attemptUpdatedAt: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

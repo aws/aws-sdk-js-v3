@@ -43,6 +43,7 @@ import {
 } from "../commands/GetDashboardForJobRunCommand";
 import { GetJobRunCommandInput, GetJobRunCommandOutput } from "../commands/GetJobRunCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
+import { ListJobRunAttemptsCommandInput, ListJobRunAttemptsCommandOutput } from "../commands/ListJobRunAttemptsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -71,6 +72,7 @@ import {
   InternalServerException,
   JobDriver,
   JobRun,
+  JobRunAttemptSummary,
   JobRunSummary,
   ManagedPersistenceMonitoringConfiguration,
   MaximumAllowedResources,
@@ -79,6 +81,7 @@ import {
   PrometheusMonitoringConfiguration,
   ResourceNotFoundException,
   ResourceUtilization,
+  RetryPolicy,
   S3MonitoringConfiguration,
   ServiceQuotaExceededException,
   SparkSubmit,
@@ -186,8 +189,11 @@ export const se_GetDashboardForJobRunCommand = async (
   b.bp("/applications/{applicationId}/jobruns/{jobRunId}/dashboard");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("jobRunId", () => input.jobRunId!, "{jobRunId}", false);
+  const query: any = map({
+    [_a]: [() => input.attempt !== void 0, () => input[_a]!.toString()],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -203,8 +209,11 @@ export const se_GetJobRunCommand = async (
   b.bp("/applications/{applicationId}/jobruns/{jobRunId}");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   b.p("jobRunId", () => input.jobRunId!, "{jobRunId}", false);
+  const query: any = map({
+    [_a]: [() => input.attempt !== void 0, () => input[_a]!.toString()],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -229,6 +238,27 @@ export const se_ListApplicationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListJobRunAttemptsCommand
+ */
+export const se_ListJobRunAttemptsCommand = async (
+  input: ListJobRunAttemptsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{applicationId}/jobruns/{jobRunId}/attempts");
+  b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
+  b.p("jobRunId", () => input.jobRunId!, "{jobRunId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListJobRunsCommand
  */
 export const se_ListJobRunsCommand = async (
@@ -245,6 +275,7 @@ export const se_ListJobRunsCommand = async (
     [_cAA]: [() => input.createdAtAfter !== void 0, () => __serializeDateTime(input[_cAA]!).toString()],
     [_cAB]: [() => input.createdAtBefore !== void 0, () => __serializeDateTime(input[_cAB]!).toString()],
     [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_m]: [, input[_m]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -304,7 +335,9 @@ export const se_StartJobRunCommand = async (
       executionRoleArn: [],
       executionTimeoutMinutes: [],
       jobDriver: (_) => _json(_),
+      mode: [],
       name: [],
+      retryPolicy: (_) => _json(_),
       tags: (_) => _json(_),
     })
   );
@@ -549,6 +582,28 @@ export const de_ListApplicationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     applications: (_) => de_ApplicationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListJobRunAttemptsCommand
+ */
+export const de_ListJobRunAttemptsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobRunAttemptsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobRunAttempts: (_) => de_JobRunAttempts(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -906,6 +961,8 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 
 // se_PrometheusMonitoringConfiguration omitted.
 
+// se_RetryPolicy omitted.
+
 // se_S3MonitoringConfiguration omitted.
 
 // se_SecurityGroupIds omitted.
@@ -1043,6 +1100,9 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
   return take(output, {
     applicationId: __expectString,
     arn: __expectString,
+    attempt: __expectInt32,
+    attemptCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    attemptUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     billedResourceUtilization: (_: any) => de_ResourceUtilization(_, context),
     configurationOverrides: (_: any) => de_ConfigurationOverrides(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1051,14 +1111,51 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
     executionTimeoutMinutes: __expectLong,
     jobDriver: (_: any) => _json(__expectUnion(_)),
     jobRunId: __expectString,
+    mode: __expectString,
     name: __expectString,
     networkConfiguration: _json,
     releaseLabel: __expectString,
+    retryPolicy: _json,
     state: __expectString,
     stateDetails: __expectString,
     tags: _json,
     totalExecutionDurationSeconds: __expectInt32,
     totalResourceUtilization: (_: any) => de_TotalResourceUtilization(_, context),
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1JobRunAttempts
+ */
+const de_JobRunAttempts = (output: any, context: __SerdeContext): JobRunAttemptSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobRunAttemptSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1JobRunAttemptSummary
+ */
+const de_JobRunAttemptSummary = (output: any, context: __SerdeContext): JobRunAttemptSummary => {
+  return take(output, {
+    applicationId: __expectString,
+    arn: __expectString,
+    attempt: __expectInt32,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    executionRole: __expectString,
+    id: __expectString,
+    jobCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    mode: __expectString,
+    name: __expectString,
+    releaseLabel: __expectString,
+    state: __expectString,
+    stateDetails: __expectString,
+    type: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -1082,10 +1179,14 @@ const de_JobRunSummary = (output: any, context: __SerdeContext): JobRunSummary =
   return take(output, {
     applicationId: __expectString,
     arn: __expectString,
+    attempt: __expectInt32,
+    attemptCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    attemptUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     createdBy: __expectString,
     executionRole: __expectString,
     id: __expectString,
+    mode: __expectString,
     name: __expectString,
     releaseLabel: __expectString,
     state: __expectString,
@@ -1119,6 +1220,8 @@ const de_ResourceUtilization = (output: any, context: __SerdeContext): ResourceU
     vCPUHour: __limitedParseDouble,
   }) as any;
 };
+
+// de_RetryPolicy omitted.
 
 // de_S3MonitoringConfiguration omitted.
 
@@ -1168,8 +1271,10 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _a = "attempt";
 const _cAA = "createdAtAfter";
 const _cAB = "createdAtBefore";
+const _m = "mode";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _s = "states";
