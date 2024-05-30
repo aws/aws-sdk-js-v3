@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.587.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.586.0...v3.587.0) (2024-05-30)
+
+
+### Bug Fixes
+
+* **credentials-provider-ini:** include general http provider when sourcing EcsContainer credentials ([#6132](https://github.com/aws/aws-sdk-js-v3/issues/6132)) ([8cdaf0a](https://github.com/aws/aws-sdk-js-v3/commit/8cdaf0a12a0352687e50f299939d2c9ed76c1f10))
+
+
+### Features
+
+* **client-acm:** add v2 smoke tests and smithy smokeTests trait for SDK testing. ([c87de6a](https://github.com/aws/aws-sdk-js-v3/commit/c87de6ae55d719150fe4f5172cfd1f4cb3bb1aa2))
+* **client-bedrock-agent:** With this release, Knowledge bases for Bedrock adds support for Titan Text Embedding v2. ([c2f93e1](https://github.com/aws/aws-sdk-js-v3/commit/c2f93e18c1a4cbc770e38fa4cd9ca691abf5f93d))
+* **client-bedrock-runtime:** This release adds Converse and ConverseStream APIs to Bedrock Runtime ([512d901](https://github.com/aws/aws-sdk-js-v3/commit/512d901499b7bc31fdddc8372a18339dc9909b15))
+* **client-cloudtrail:** CloudTrail Lake returns PartitionKeys in the GetEventDataStore API response. Events are grouped into partitions based on these keys for better query performance. For example, the calendarday key groups events by day, while combining the calendarday key with the hour key groups them by day and hour. ([88273ba](https://github.com/aws/aws-sdk-js-v3/commit/88273bad20d44ca5b8627cf5da424063b0c6f847))
+* **client-connect:** Adding associatedQueueIds as a SearchCriteria and response field to the SearchRoutingProfiles API ([b46048a](https://github.com/aws/aws-sdk-js-v3/commit/b46048a89f684f9959508d386b84dfc18e2f3589))
+* **client-emr-serverless:** The release adds support for spark structured streaming. ([572bc93](https://github.com/aws/aws-sdk-js-v3/commit/572bc93e8481256e5094947151d2c24c0c1c149f))
+* **client-sagemaker:** Adds Model Card information as a new component to Model Package. Autopilot launches algorithm selection for TimeSeries modality to generate AutoML candidates per algorithm. ([393afc7](https://github.com/aws/aws-sdk-js-v3/commit/393afc7e402b2114a6ff8b00b62213e7a63ab717))
+* **clients:** update client endpoints as of 2024-05-30 ([d131ac0](https://github.com/aws/aws-sdk-js-v3/commit/d131ac0a406571287bcbbce61693522874031434))
+
+
+
+
+
 # [3.586.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.585.0...v3.586.0) (2024-05-29)
 
 

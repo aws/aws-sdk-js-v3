@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.587.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.586.0...v3.587.0) (2024-05-30)
+
+
+### Features
+
+* **client-emr-serverless:** The release adds support for spark structured streaming. ([572bc93](https://github.com/aws/aws-sdk-js-v3/commit/572bc93e8481256e5094947151d2c24c0c1c149f))
+
+
+
+
+
 # [3.583.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.582.0...v3.583.0) (2024-05-23)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.587.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.586.0...v3.587.0) (2024-05-30)
+
+
+### Features
+
+* **client-connect:** Adding associatedQueueIds as a SearchCriteria and response field to the SearchRoutingProfiles API ([b46048a](https://github.com/aws/aws-sdk-js-v3/commit/b46048a89f684f9959508d386b84dfc18e2f3589))
+
+
+
+
+
 # [3.586.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.585.0...v3.586.0) (2024-05-29)
 
 
