@@ -1,7 +1,9 @@
 jest.mock("@aws-sdk/credential-provider-env");
+jest.mock("@aws-sdk/credential-provider-http");
 jest.mock("@smithy/credential-provider-imds");
 
 import { fromEnv } from "@aws-sdk/credential-provider-env";
+import { fromHttp } from "@aws-sdk/credential-provider-http";
 import { fromContainerMetadata, fromInstanceMetadata } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
 
@@ -23,6 +25,9 @@ describe(resolveCredentialSource.name, () => {
   beforeEach(() => {
     (fromEnv as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
     (fromContainerMetadata as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
+    (fromHttp as jest.Mock).mockReturnValue(() => {
+      throw new CredentialsProviderError("try next", {});
+    });
     (fromInstanceMetadata as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
   });
 

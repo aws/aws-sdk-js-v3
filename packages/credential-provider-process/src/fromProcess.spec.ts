@@ -47,7 +47,7 @@ describe(fromProcess.name, () => {
     }
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
     expect(getProfileName).toHaveBeenCalledWith(mockInit);
-    expect(resolveProcessCredentials).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles);
+    expect(resolveProcessCredentials).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles, undefined);
   });
 
   it("returns resolved process creds", async () => {
@@ -60,6 +60,6 @@ describe(fromProcess.name, () => {
     expect(receivedCreds).toStrictEqual(expectedCreds);
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
     expect(getProfileName).toHaveBeenCalledWith(mockInit);
-    expect(resolveProcessCredentials).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles);
+    expect(resolveProcessCredentials).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles, undefined);
   });
 });

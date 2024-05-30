@@ -98,7 +98,7 @@ describe(fromSSO.name, () => {
       } catch (error) {
         expect(error).toStrictEqual(expectedError);
       }
-      expect(validateSsoProfile).toHaveBeenCalledWith(mockSsoProfile);
+      expect(validateSsoProfile).toHaveBeenCalledWith(mockSsoProfile, undefined);
     });
 
     it("calls resolveSSOCredentials with values from validated SSO profile", async () => {

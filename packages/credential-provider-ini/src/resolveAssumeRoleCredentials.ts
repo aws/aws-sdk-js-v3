@@ -61,7 +61,7 @@ interface AssumeRoleWithProviderProfile extends Profile {
  */
 export const isAssumeRoleProfile = (
   arg: any,
-  { profile = "default", logger }: { profile: string; logger?: Logger }
+  { profile = "default", logger }: { profile?: string; logger?: Logger } = {}
 ) => {
   return (
     Boolean(arg) &&

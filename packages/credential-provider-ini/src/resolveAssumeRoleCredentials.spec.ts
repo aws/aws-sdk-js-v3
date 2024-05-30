@@ -162,7 +162,9 @@ describe(resolveAssumeRoleCredentials.name, () => {
         source_profile: mockProfileName,
         ...mockRoleAssumeParams,
       },
-      [mockProfileName]: {},
+      [mockProfileName]: {
+        role_arn: "mock_role_arn",
+      },
     };
 
     const receivedCreds = await resolveAssumeRoleCredentials(mockProfileCurrent, mockProfilesWithSource, mockOptions);
@@ -186,7 +188,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
     const receivedCreds = await resolveAssumeRoleCredentials(mockProfileName, mockProfilesWithCredSource, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(resolveProfileData).not.toHaveBeenCalled();
-    expect(resolveCredentialSource).toHaveBeenCalledWith(mockCredentialSource, mockProfileName);
+    expect(resolveCredentialSource).toHaveBeenCalledWith(mockCredentialSource, mockProfileName, undefined);
     expect(mockOptions.roleAssumer).toHaveBeenCalledWith(mockSourceCredsFromCredential, {
       RoleArn: mockRoleAssumeParams.role_arn,
       RoleSessionName: mockRoleAssumeParams.role_session_name,
