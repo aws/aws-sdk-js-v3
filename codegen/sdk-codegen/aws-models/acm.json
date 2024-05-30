@@ -1844,7 +1844,7 @@
         "ResourceRecord": {
           "target": "com.amazonaws.acm#ResourceRecord",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the CNAME record that you add to your DNS database for domain validation. For\n      more information, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html\">Use DNS to Validate Domain Ownership</a>.</p>\n         <p>Note: The CNAME information that you need does not include the name of your domain. If you\n      include  your domain name in the DNS database CNAME record, validation fails.  For example, if\n      the name is \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only\n      \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.</p>"
+            "smithy.api#documentation": "<p>Contains the CNAME record that you add to your DNS database for domain validation. For\n      more information, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html\">Use DNS to Validate Domain Ownership</a>.</p>\n         <p>Note: The CNAME information that you need does not include the name of your domain. If you\n      include\u2028 your domain name in the DNS database CNAME record, validation fails.\u2028 For example, if\n      the name is \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only\n      \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.</p>"
           }
         },
         "ValidationMethod": {
@@ -2291,7 +2291,22 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of\n      the certificate of the issuing CA and the intermediate certificates of any other subordinate\n      CAs. All of the certificates are base64 encoded. You can use <a href=\"https://wiki.openssl.org/index.php/Command_Line_Utilities\">OpenSSL</a> to decode\n      the certificates and inspect individual fields.</p>"
+        "smithy.api#documentation": "<p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of\n      the certificate of the issuing CA and the intermediate certificates of any other subordinate\n      CAs. All of the certificates are base64 encoded. You can use <a href=\"https://wiki.openssl.org/index.php/Command_Line_Utilities\">OpenSSL</a> to decode\n      the certificates and inspect individual fields.</p>",
+        "smithy.test#smokeTests": [
+          {
+            "id": "GetCertificateFailure",
+            "params": {
+              "CertificateArn": "arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+            },
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "failure": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.acm#GetCertificateRequest": {
@@ -2697,7 +2712,20 @@
           "outputToken": "NextToken",
           "items": "CertificateSummaryList",
           "pageSize": "MaxItems"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListCertificatesSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.acm#ListCertificatesRequest": {
