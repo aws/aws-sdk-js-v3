@@ -491,7 +491,7 @@ export class NoManagementAccountSLRExistsException extends __BaseException {
 /**
  * <p>This exception is thrown when the Amazon Web Services account making the request to
  *          create or update an organization trail or event data store is not the management account
- *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">Create an event data store</a>.</p>
+ *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html">Organization event data stores</a>.</p>
  * @public
  */
 export class NotOrganizationMasterAccountException extends __BaseException {
@@ -920,6 +920,11 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::QApps:QApp</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::QBusiness::Application</code>
    *                      </p>
    *                   </li>
@@ -1000,17 +1005,22 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>AWS::SWF::Domain</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
    *                         <code>AWS::SQS::Queue</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::SSM::ManagedNode</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::SSMMessages::ControlChannel</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SWF::Domain</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -1038,6 +1048,11 @@ export interface AdvancedFieldSelector {
    *                         <code>AWS::VerifiedPermissions::PolicyStore</code>
    *                      </p>
    *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::XRay::Trace</code>
+   *                      </p>
+   *                   </li>
    *                </ul>
    *                <p> You can have only one <code>resources.type</code> ﬁeld per selector. To log data
    *                events on more than one resource type, add another selector.</p>
@@ -1049,8 +1064,12 @@ export interface AdvancedFieldSelector {
    *                   </b> - You can use any
    *                operator with <code>resources.ARN</code>, but if you use <code>Equals</code> or
    *                   <code>NotEquals</code>, the value must exactly match the ARN of a valid resource
-   *                of the type you've speciﬁed in the template as the value of resources.type. For
-   *                example, if resources.type equals <code>AWS::S3::Object</code>, the ARN must be in
+   *                of the type you've speciﬁed in the template as the value of resources.type.</p>
+   *                <note>
+   *                   <p>You can't use the <code>resources.ARN</code> field to filter resource types that do not have ARNs.</p>
+   *                </note>
+   *                <p>The <code>resources.ARN</code> field can be set one of the following.</p>
+   *                <p>If resources.type equals <code>AWS::S3::Object</code>, the ARN must be in
    *                one of the following formats. To log all data events for all objects in a specific S3
    *                bucket, use the <code>StartsWith</code> operator, and include only the bucket ARN as
    *                the matching value.</p>
@@ -1398,6 +1417,16 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QApps:QApp</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qapps:<region>:<account_ID>:application/<application_UUID>/qapp/<qapp_UUID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Application</code>,
    *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
    *                must be in the following format:</p>
@@ -1560,16 +1589,6 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SWF::Domain</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::SQS::Queue</code>,
    *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
    *                must be in the following format:</p>
@@ -1580,6 +1599,21 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SSM::ManagedNode</code>, and
+   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
+   *                in one of the following formats:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:ssm:<region>:<account_ID>:managed-instance/<instance_ID></code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:ec2:<region>:<account_ID>:instance/<instance_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::SSMMessages::ControlChannel</code>, and
    *                      the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
    *                      in the following format:</p>
@@ -1587,6 +1621,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SWF::Domain</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -2204,7 +2248,7 @@ export class InvalidSourceException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
+ * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
  * @public
  */
 export class CloudTrailAccessNotEnabledException extends __BaseException {
@@ -2244,9 +2288,9 @@ export interface CreateEventDataStoreRequest {
    *          configure up to five advanced event selectors for each event data store.</p>
    *          <p> For more information about how to use advanced event selectors to log CloudTrail
    *          events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">Log events by using advanced event selectors</a> in the CloudTrail User Guide.</p>
-   *          <p>For more information about how to use advanced event selectors to include Config configuration items in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-eds-config">Create an event data store for Config configuration
+   *          <p>For more information about how to use advanced event selectors to include Config configuration items in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-eds-cli.html#lake-cli-create-eds-config">Create an event data store for Config configuration
    *             items</a> in the CloudTrail User Guide.</p>
-   *          <p>For more information about how to use advanced event selectors to include non-Amazon Web Services events in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration">Create an integration to log events from outside Amazon Web Services</a> in the CloudTrail User Guide.</p>
+   *          <p>For more information about how to use advanced event selectors to include events outside of Amazon Web Services events in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-integrations-cli.html#lake-cli-create-integration">Create an integration to log events from outside Amazon Web Services</a> in the CloudTrail User Guide.</p>
    * @public
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
@@ -2865,15 +2909,16 @@ export interface CreateTrailRequest {
 
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files.
-   *          See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3
-   *             Bucket Naming Requirements</a>.</p>
+   *          For information about bucket naming rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a>
+   *          in the <i>Amazon Simple Storage Service User Guide</i>.
+   *         </p>
    * @public
    */
   S3BucketName: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
-   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200
+   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your CloudTrail Log Files</a>. The maximum length is 200
    *          characters.</p>
    * @public
    */
@@ -3002,7 +3047,7 @@ export interface CreateTrailResponse {
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
-   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>.</p>
+   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your CloudTrail Log Files</a>.</p>
    * @public
    */
   S3KeyPrefix?: string;
@@ -3971,15 +4016,15 @@ export interface Trail {
 
   /**
    * <p>Name of the Amazon S3 bucket into which CloudTrail delivers your trail
-   *          files. See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3
-   *             Bucket Naming Requirements</a>.</p>
+   *          files. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Amazon S3
+   *             Bucket naming rules</a>.</p>
    * @public
    */
   S3BucketName?: string;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
-   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200
+   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your CloudTrail Log Files</a>. The maximum length is 200
    *          characters.</p>
    * @public
    */
@@ -4355,6 +4400,24 @@ export interface GetEventDataStoreRequest {
 }
 
 /**
+ * <p>Contains information about a partition key for an event data store.</p>
+ * @public
+ */
+export interface PartitionKey {
+  /**
+   * <p>The name of the partition key.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The data type of the partition key. For example, <code>bigint</code> or <code>string</code>.</p>
+   * @public
+   */
+  Type: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetEventDataStoreResponse {
@@ -4454,6 +4517,13 @@ export interface GetEventDataStoreResponse {
    * @public
    */
   FederationRoleArn?: string;
+
+  /**
+   * <p>The partition keys for the event data store. To improve query performance and efficiency, CloudTrail Lake organizes
+   *          event data into partitions based on values derived from partition keys.</p>
+   * @public
+   */
+  PartitionKeys?: PartitionKey[];
 }
 
 /**
@@ -4492,10 +4562,28 @@ export interface GetEventSelectorsRequest {
 }
 
 /**
- * <p>The Amazon S3 buckets, Lambda functions, or Amazon DynamoDB tables that you specify in your event selectors for your trail to log data events. Data
- *          events provide information about the resource operations performed on or within a resource
+ * <p>Data events provide information about the resource operations performed on or within a resource
  *          itself. These are also known as data plane operations. You can specify up to 250 data
  *          resources for a trail.</p>
+ *          <p>Configure the <code>DataResource</code> to specify the resource type and resource ARNs for which you want to log data events.</p>
+ *          <p>You can specify the following resource types in your event selectors for your trail:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AWS::DynamoDB::Table</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AWS::Lambda::Function</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AWS::S3::Object</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  *          <note>
  *             <p>The total number of allowed data resources is 250. This number can be distributed
  *             between 1 and 5 event selectors, but the total cannot exceed 250 across all
@@ -4583,7 +4671,7 @@ export interface DataResource {
 
   /**
    * <p>An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified
-   *          objects.</p>
+   *          resource type.</p>
    *          <ul>
    *             <li>
    *                <p>To log data events for all objects in all S3 buckets in your Amazon Web Services account, specify the prefix as <code>arn:aws:s3</code>.</p>
@@ -5309,9 +5397,9 @@ export interface GetTrailStatusResponse {
    *             Responses</a> in the Amazon S3 API Reference. </p>
    *          <note>
    *             <p>This error occurs only when there is a problem with the destination S3 bucket, and
-   *             does not occur for requests that time out. To resolve the issue, create a new bucket,
-   *             and then call <code>UpdateTrail</code> to specify the new bucket; or fix the existing
-   *             objects so that CloudTrail can again write to the bucket.</p>
+   *             does not occur for requests that time out. To resolve the issue,
+   *             fix the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html">bucket policy</a> so that CloudTrail
+   *             can write to the bucket; or create a new bucket and call <code>UpdateTrail</code> to specify the new bucket.</p>
    *          </note>
    * @public
    */
@@ -5381,9 +5469,9 @@ export interface GetTrailStatusResponse {
    *             Responses</a> in the Amazon S3 API Reference. </p>
    *          <note>
    *             <p>This error occurs only when there is a problem with the destination S3 bucket, and
-   *             does not occur for requests that time out. To resolve the issue, create a new bucket,
-   *             and then call <code>UpdateTrail</code> to specify the new bucket; or fix the existing
-   *             objects so that CloudTrail can again write to the bucket.</p>
+   *             does not occur for requests that time out. To resolve the issue,
+   *             fix the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html">bucket policy</a> so that CloudTrail
+   *             can write to the bucket; or create a new bucket and call <code>UpdateTrail</code> to specify the new bucket.</p>
    *          </note>
    * @public
    */
@@ -5483,7 +5571,7 @@ export interface ListEventDataStoresRequest {
 /**
  * <p>A storage lake of event data against which you can run complex SQL-based queries. An
  *          event data store can include events that you have logged on your account. To select events for an event data
- *          store, use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">advanced event selectors</a>.</p>
+ *          store, use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors">advanced event selectors</a>.</p>
  * @public
  */
 export interface EventDataStore {
@@ -7797,15 +7885,15 @@ export interface UpdateTrailRequest {
 
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log files.
-   *          See <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon S3
-   *             Bucket Naming Requirements</a>.</p>
+   *          See <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Amazon S3
+   *             Bucket naming rules</a>.</p>
    * @public
    */
   S3BucketName?: string;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
-   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your CloudTrail Log Files</a>. The maximum length is 200
+   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your CloudTrail Log Files</a>. The maximum length is 200
    *          characters.</p>
    * @public
    */
@@ -7929,7 +8017,7 @@ export interface UpdateTrailResponse {
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
-   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding Your IAM Log Files</a>.</p>
+   *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your IAM Log Files</a>.</p>
    * @public
    */
   S3KeyPrefix?: string;

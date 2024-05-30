@@ -80,6 +80,12 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  * //   BillingMode: "EXTENDABLE_RETENTION_PRICING" || "FIXED_RETENTION_PRICING",
  * //   FederationStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED",
  * //   FederationRoleArn: "STRING_VALUE",
+ * //   PartitionKeys: [ // PartitionKeyList
+ * //     { // PartitionKey
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

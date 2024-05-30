@@ -3921,6 +3921,7 @@ const de_GetEventDataStoreResponse = (output: any, context: __SerdeContext): Get
     MultiRegionEnabled: __expectBoolean,
     Name: __expectString,
     OrganizationEnabled: __expectBoolean,
+    PartitionKeys: _json,
     RetentionPeriod: __expectInt32,
     Status: __expectString,
     TerminationProtectionEnabled: __expectBoolean,
@@ -4237,6 +4238,10 @@ const de_LookupEventsResponse = (output: any, context: __SerdeContext): LookupEv
 // de_OrganizationNotInAllFeaturesModeException omitted.
 
 // de_OrganizationsNotInUseException omitted.
+
+// de_PartitionKey omitted.
+
+// de_PartitionKeyList omitted.
 
 /**
  * deserializeAws_json1_1PublicKey

@@ -30,7 +30,7 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * <p>Configures an event selector or advanced event selectors for your trail. Use event
  *          selectors or advanced event selectors to specify management and data event settings for
  *          your trail. If you want your trail to log Insights events, be sure the event selector
- *          enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging Insights events for trails</a> in the <i>CloudTrail User Guide</i>.
+ *          enables logging of the Insights event types you want configured for your trail. For more information about logging Insights events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging Insights events</a> in the <i>CloudTrail User Guide</i>.
  *          By default, trails created without specific event selectors are configured to
  *          log all read and write management events, and no data events.</p>
  *          <p>When an event occurs in your account, CloudTrail evaluates the event selectors or
@@ -267,7 +267,7 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * @throws {@link NotOrganizationMasterAccountException} (client fault)
  *  <p>This exception is thrown when the Amazon Web Services account making the request to
  *          create or update an organization trail or event data store is not the management account
- *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">Create an event data store</a>.</p>
+ *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html">Organization event data stores</a>.</p>
  *
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>

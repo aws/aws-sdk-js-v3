@@ -32,7 +32,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
  *          services. If you want to import CloudTrail events contained in another prefix, you
  *          must include the prefix in the <code>S3LocationUri</code>. For more considerations about
- *          importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>. </p>
+ *          importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations for copying trail events</a> in the <i>CloudTrail User Guide</i>. </p>
  *          <p> When you start a new import, the <code>Destinations</code> and
  *             <code>ImportSource</code> parameters are required. Before starting a new import, disable
  *          any access control lists (ACLs) attached to the source S3 bucket. For more information
