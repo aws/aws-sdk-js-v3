@@ -91,7 +91,7 @@ const se_RawMetricData = (input: RawMetricData, context: __SerdeContext): any =>
   return take(input, {
     MetricName: [],
     Step: [],
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
     Value: __serializeFloat,
   });
 };

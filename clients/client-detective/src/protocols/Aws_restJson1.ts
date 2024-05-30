@@ -16,6 +16,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -632,8 +633,8 @@ export const se_StartInvestigationCommand = async (
     take(input, {
       EntityArn: [],
       GraphArn: [],
-      ScopeEndTime: (_) => _.toISOString().split(".")[0] + "Z",
-      ScopeStartTime: (_) => _.toISOString().split(".")[0] + "Z",
+      ScopeEndTime: (_) => __serializeDateTime(_),
+      ScopeStartTime: (_) => __serializeDateTime(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1560,8 +1561,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_DateFilter = (input: DateFilter, context: __SerdeContext): any => {
   return take(input, {
-    EndInclusive: (_) => _.toISOString().split(".")[0] + "Z",
-    StartInclusive: (_) => _.toISOString().split(".")[0] + "Z",
+    EndInclusive: __serializeDateTime,
+    StartInclusive: __serializeDateTime,
   });
 };
 

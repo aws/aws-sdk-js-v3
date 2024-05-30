@@ -393,7 +393,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ListPriceListsRequest = (input: ListPriceListsRequest, context: __SerdeContext): any => {
   return take(input, {
     CurrencyCode: [],
-    EffectiveDate: (_) => Math.round(_.getTime() / 1000),
+    EffectiveDate: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     RegionCode: [],

@@ -22,6 +22,7 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -1919,8 +1920,8 @@ export const se_ListNotificationsCommand = async (
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   const query: any = map({
     [_t]: [, __expectNonNull(input[_t]!, `type`)],
-    [_aT]: [() => input.afterTimestamp !== void 0, () => (input[_aT]!.toISOString().split(".")[0] + "Z").toString()],
-    [_bT]: [() => input.beforeTimestamp !== void 0, () => (input[_bT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_aT]: [() => input.afterTimestamp !== void 0, () => __serializeDateTime(input[_aT]!).toString()],
+    [_bT]: [() => input.beforeTimestamp !== void 0, () => __serializeDateTime(input[_bT]!).toString()],
     [_su]: [() => input.subjects !== void 0, () => (input[_su]! || []).map((_entry) => _entry as any)],
     [_tS]: [, input[_tS]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -2110,8 +2111,8 @@ export const se_ListTimeSeriesDataPointsCommand = async (
   b.p("entityType", () => input.entityType!, "{entityType}", false);
   const query: any = map({
     [_fN]: [, __expectNonNull(input[_fN]!, `formName`)],
-    [_sA]: [() => input.startedAt !== void 0, () => (input[_sA]!.toISOString().split(".")[0] + "Z").toString()],
-    [_eA]: [() => input.endedAt !== void 0, () => (input[_eA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sA]: [() => input.startedAt !== void 0, () => __serializeDateTime(input[_sA]!).toString()],
+    [_eA]: [() => input.endedAt !== void 0, () => __serializeDateTime(input[_eA]!).toString()],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -6001,7 +6002,7 @@ const se_TimeSeriesDataPointFormInput = (input: TimeSeriesDataPointFormInput, co
   return take(input, {
     content: [],
     formName: [],
-    timestamp: (_) => Math.round(_.getTime() / 1000),
+    timestamp: (_) => _.getTime() / 1_000,
     typeIdentifier: [],
     typeRevision: [],
   });

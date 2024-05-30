@@ -20,6 +20,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -173,7 +174,7 @@ export const se_GetRevocationStatusCommand = async (
   const query: any = map({
     [_sT]: [
       __expectNonNull(input.signatureTimestamp, `signatureTimestamp`) != null,
-      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
+      () => __serializeDateTime(input[_sT]!).toString(),
     ],
     [_pI]: [, __expectNonNull(input[_pI]!, `platformId`)],
     [_pVA]: [, __expectNonNull(input[_pVA]!, `profileVersionArn`)],
@@ -267,14 +268,8 @@ export const se_ListSigningJobsCommand = async (
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
     [_iR]: [() => input.isRevoked !== void 0, () => input[_iR]!.toString()],
-    [_sEB]: [
-      () => input.signatureExpiresBefore !== void 0,
-      () => (input[_sEB]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_sEA]: [
-      () => input.signatureExpiresAfter !== void 0,
-      () => (input[_sEA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sEB]: [() => input.signatureExpiresBefore !== void 0, () => __serializeDateTime(input[_sEB]!).toString()],
+    [_sEA]: [() => input.signatureExpiresAfter !== void 0, () => __serializeDateTime(input[_sEA]!).toString()],
     [_jI]: [, input[_jI]!],
   });
   let body: any;
@@ -430,7 +425,7 @@ export const se_RevokeSigningProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      effectiveTime: (_) => Math.round(_.getTime() / 1000),
+      effectiveTime: (_) => _.getTime() / 1_000,
       profileVersion: [],
       reason: [],
     })

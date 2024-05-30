@@ -1649,7 +1649,7 @@ const de_ServiceFaultRes = async (parsedOutput: any, context: __SerdeContext): P
  */
 const se_UpdateExpirationForHITRequest = (input: UpdateExpirationForHITRequest, context: __SerdeContext): any => {
   return take(input, {
-    ExpireAt: (_) => Math.round(_.getTime() / 1000),
+    ExpireAt: (_) => _.getTime() / 1_000,
     HITId: [],
   });
 };

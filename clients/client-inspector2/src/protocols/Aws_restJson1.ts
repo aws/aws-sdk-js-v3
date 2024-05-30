@@ -3132,8 +3132,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_CisDateFilter = (input: CisDateFilter, context: __SerdeContext): any => {
   return take(input, {
-    earliestScanStartTime: (_) => Math.round(_.getTime() / 1000),
-    latestScanStartTime: (_) => Math.round(_.getTime() / 1000),
+    earliestScanStartTime: (_) => _.getTime() / 1_000,
+    latestScanStartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3221,8 +3221,8 @@ const se_CisSessionMessages = (input: CisSessionMessage[], context: __SerdeConte
  */
 const se_CoverageDateFilter = (input: CoverageDateFilter, context: __SerdeContext): any => {
   return take(input, {
-    endInclusive: (_) => Math.round(_.getTime() / 1000),
-    startInclusive: (_) => Math.round(_.getTime() / 1000),
+    endInclusive: (_) => _.getTime() / 1_000,
+    startInclusive: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3277,8 +3277,8 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
  */
 const se_DateFilter = (input: DateFilter, context: __SerdeContext): any => {
   return take(input, {
-    endInclusive: (_) => Math.round(_.getTime() / 1000),
-    startInclusive: (_) => Math.round(_.getTime() / 1000),
+    endInclusive: (_) => _.getTime() / 1_000,
+    startInclusive: (_) => _.getTime() / 1_000,
   });
 };
 

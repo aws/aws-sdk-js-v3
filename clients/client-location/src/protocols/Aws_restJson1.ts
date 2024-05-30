@@ -20,6 +20,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -453,11 +454,11 @@ export const se_CalculateRouteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ArrivalTime: (_) => _.toISOString().split(".")[0] + "Z",
+      ArrivalTime: (_) => __serializeDateTime(_),
       CarModeOptions: (_) => _json(_),
       DepartNow: [],
       DeparturePosition: (_) => se_Position(_, context),
-      DepartureTime: (_) => _.toISOString().split(".")[0] + "Z",
+      DepartureTime: (_) => __serializeDateTime(_),
       DestinationPosition: (_) => se_Position(_, context),
       DistanceUnit: [],
       IncludeLegGeometry: [],
@@ -501,7 +502,7 @@ export const se_CalculateRouteMatrixCommand = async (
       CarModeOptions: (_) => _json(_),
       DepartNow: [],
       DeparturePositions: (_) => se_PositionList(_, context),
-      DepartureTime: (_) => _.toISOString().split(".")[0] + "Z",
+      DepartureTime: (_) => __serializeDateTime(_),
       DestinationPositions: (_) => se_PositionList(_, context),
       DistanceUnit: [],
       TravelMode: [],
@@ -571,7 +572,7 @@ export const se_CreateKeyCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
-      ExpireTime: (_) => _.toISOString().split(".")[0] + "Z",
+      ExpireTime: (_) => __serializeDateTime(_),
       KeyName: [],
       NoExpiry: [],
       Restrictions: (_) => _json(_),
@@ -1089,10 +1090,10 @@ export const se_GetDevicePositionHistoryCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTimeExclusive: (_) => _.toISOString().split(".")[0] + "Z",
+      EndTimeExclusive: (_) => __serializeDateTime(_),
       MaxResults: [],
       NextToken: [],
-      StartTimeInclusive: (_) => _.toISOString().split(".")[0] + "Z",
+      StartTimeInclusive: (_) => __serializeDateTime(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1843,7 +1844,7 @@ export const se_UpdateKeyCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
-      ExpireTime: (_) => _.toISOString().split(".")[0] + "Z",
+      ExpireTime: (_) => __serializeDateTime(_),
       ForceUpdate: [],
       NoExpiry: [],
       Restrictions: (_) => _json(_),
@@ -3531,7 +3532,7 @@ const se_DevicePositionUpdate = (input: DevicePositionUpdate, context: __SerdeCo
     DeviceId: [],
     Position: (_) => se_Position(_, context),
     PositionProperties: _json,
-    SampleTime: (_) => _.toISOString().split(".")[0] + "Z",
+    SampleTime: __serializeDateTime,
   });
 };
 

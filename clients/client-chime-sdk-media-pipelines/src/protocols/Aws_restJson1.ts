@@ -1903,8 +1903,8 @@ const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
  */
 const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
-    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+    EndTimestamp: (_) => _.getTime() / 1_000,
+    StartTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

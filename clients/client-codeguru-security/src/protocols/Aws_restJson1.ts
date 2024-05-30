@@ -21,6 +21,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -195,10 +196,7 @@ export const se_GetMetricsSummaryCommand = async (
   const headers: any = {};
   b.bp("/metrics/summary");
   const query: any = map({
-    [_d]: [
-      __expectNonNull(input.date, `date`) != null,
-      () => (input[_d]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_d]: [__expectNonNull(input.date, `date`) != null, () => __serializeDateTime(input[_d]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -237,14 +235,8 @@ export const se_ListFindingsMetricsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_sD]: [
-      __expectNonNull(input.startDate, `startDate`) != null,
-      () => (input[_sD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eD]: [
-      __expectNonNull(input.endDate, `endDate`) != null,
-      () => (input[_eD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sD]: [__expectNonNull(input.startDate, `startDate`) != null, () => __serializeDateTime(input[_sD]!).toString()],
+    [_eD]: [__expectNonNull(input.endDate, `endDate`) != null, () => __serializeDateTime(input[_eD]!).toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);

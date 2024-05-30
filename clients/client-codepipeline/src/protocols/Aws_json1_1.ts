@@ -2333,7 +2333,7 @@ const de_WebhookNotFoundExceptionRes = async (
  */
 const se_ActionRevision = (input: ActionRevision, context: __SerdeContext): any => {
   return take(input, {
-    created: (_) => Math.round(_.getTime() / 1000),
+    created: (_) => _.getTime() / 1_000,
     revisionChangeId: [],
     revisionId: [],
   });
@@ -2381,7 +2381,7 @@ const se_ActionRevision = (input: ActionRevision, context: __SerdeContext): any 
 const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): any => {
   return take(input, {
     changeIdentifier: [],
-    created: (_) => Math.round(_.getTime() / 1000),
+    created: (_) => _.getTime() / 1_000,
     revision: [],
     revisionSummary: [],
   });

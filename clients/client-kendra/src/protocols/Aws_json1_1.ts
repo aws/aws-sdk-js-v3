@@ -2885,7 +2885,7 @@ const se_BatchPutDocumentRequest = (input: BatchPutDocumentRequest, context: __S
  */
 const se_ClickFeedback = (input: ClickFeedback, context: __SerdeContext): any => {
   return take(input, {
-    ClickTime: (_) => Math.round(_.getTime() / 1000),
+    ClickTime: (_) => _.getTime() / 1_000,
     ResultId: [],
   });
 };
@@ -3228,7 +3228,7 @@ const se_DocumentAttributeTarget = (input: DocumentAttributeTarget, context: __S
  */
 const se_DocumentAttributeValue = (input: DocumentAttributeValue, context: __SerdeContext): any => {
   return take(input, {
-    DateValue: (_) => Math.round(_.getTime() / 1000),
+    DateValue: (_) => _.getTime() / 1_000,
     LongValue: [],
     StringListValue: _json,
     StringValue: [],
@@ -3651,8 +3651,8 @@ const se_TemplateConfiguration = (input: TemplateConfiguration, context: __Serde
  */
 const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 

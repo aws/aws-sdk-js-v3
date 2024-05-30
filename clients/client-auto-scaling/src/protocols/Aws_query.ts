@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -4079,10 +4080,10 @@ const se_DescribeScheduledActionsType = (input: DescribeScheduledActionsType, co
     });
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
@@ -4476,10 +4477,10 @@ const se_GetPredictiveScalingForecastType = (input: GetPredictiveScalingForecast
     entries[_PN] = input[_PN];
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   return entries;
 };
@@ -5657,13 +5658,13 @@ const se_PutScheduledUpdateGroupActionType = (
     entries[_SANc] = input[_SANc];
   }
   if (input[_Ti] != null) {
-    entries[_Ti] = input[_Ti].toISOString().split(".")[0] + "Z";
+    entries[_Ti] = __serializeDateTime(input[_Ti]);
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_R] != null) {
     entries[_R] = input[_R];
@@ -5842,10 +5843,10 @@ const se_ScheduledUpdateGroupActionRequest = (
     entries[_SANc] = input[_SANc];
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_R] != null) {
     entries[_R] = input[_R];

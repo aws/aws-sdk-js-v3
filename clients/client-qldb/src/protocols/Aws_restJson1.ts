@@ -214,8 +214,8 @@ export const se_ExportJournalToS3Command = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ExclusiveEndTime: (_) => Math.round(_.getTime() / 1000),
-      InclusiveStartTime: (_) => Math.round(_.getTime() / 1000),
+      ExclusiveEndTime: (_) => _.getTime() / 1_000,
+      InclusiveStartTime: (_) => _.getTime() / 1_000,
       OutputFormat: [],
       RoleArn: [],
       S3ExportConfiguration: (_) => _json(_),
@@ -400,8 +400,8 @@ export const se_StreamJournalToKinesisCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ExclusiveEndTime: (_) => Math.round(_.getTime() / 1000),
-      InclusiveStartTime: (_) => Math.round(_.getTime() / 1000),
+      ExclusiveEndTime: (_) => _.getTime() / 1_000,
+      InclusiveStartTime: (_) => _.getTime() / 1_000,
       KinesisConfiguration: (_) => _json(_),
       RoleArn: [],
       StreamName: [],

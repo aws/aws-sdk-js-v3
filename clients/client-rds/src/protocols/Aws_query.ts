@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -9994,7 +9995,7 @@ const se_BacktrackDBClusterMessage = (input: BacktrackDBClusterMessage, context:
     entries[_DBCI] = input[_DBCI];
   }
   if (input[_BT] != null) {
-    entries[_BT] = input[_BT].toISOString().split(".")[0] + "Z";
+    entries[_BT] = __serializeDateTime(input[_BT]);
   }
   if (input[_F] != null) {
     entries[_F] = input[_F];
@@ -12465,10 +12466,10 @@ const se_DescribeDBProxyTargetsRequest = (input: DescribeDBProxyTargetsRequest, 
 const se_DescribeDBRecommendationsMessage = (input: DescribeDBRecommendationsMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_LUA] != null) {
-    entries[_LUA] = input[_LUA].toISOString().split(".")[0] + "Z";
+    entries[_LUA] = __serializeDateTime(input[_LUA]);
   }
   if (input[_LUB] != null) {
-    entries[_LUB] = input[_LUB].toISOString().split(".")[0] + "Z";
+    entries[_LUB] = __serializeDateTime(input[_LUB]);
   }
   if (input[_L] != null) {
     entries[_L] = input[_L];
@@ -12761,10 +12762,10 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
     entries[_STo] = input[_STo];
   }
   if (input[_STta] != null) {
-    entries[_STta] = input[_STta].toISOString().split(".")[0] + "Z";
+    entries[_STta] = __serializeDateTime(input[_STta]);
   }
   if (input[_ETn] != null) {
-    entries[_ETn] = input[_ETn].toISOString().split(".")[0] + "Z";
+    entries[_ETn] = __serializeDateTime(input[_ETn]);
   }
   if (input[_Du] != null) {
     entries[_Du] = input[_Du];
@@ -15229,7 +15230,7 @@ const se_RestoreDBClusterToPointInTimeMessage = (
     entries[_SDBCI] = input[_SDBCI];
   }
   if (input[_RTT] != null) {
-    entries[_RTT] = input[_RTT].toISOString().split(".")[0] + "Z";
+    entries[_RTT] = __serializeDateTime(input[_RTT]);
   }
   if (input[_ULRT] != null) {
     entries[_ULRT] = input[_ULRT];
@@ -15728,7 +15729,7 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
     entries[_TDBII] = input[_TDBII];
   }
   if (input[_RTe] != null) {
-    entries[_RTe] = input[_RTe].toISOString().split(".")[0] + "Z";
+    entries[_RTe] = __serializeDateTime(input[_RTe]);
   }
   if (input[_ULRT] != null) {
     entries[_ULRT] = input[_ULRT];

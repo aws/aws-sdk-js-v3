@@ -2251,9 +2251,9 @@ const se_StartArchiveExportRequest = (input: StartArchiveExportRequest, context:
     ArchiveId: [],
     ExportDestinationConfiguration: _json,
     Filters: _json,
-    FromTimestamp: (_) => Math.round(_.getTime() / 1000),
+    FromTimestamp: (_) => _.getTime() / 1_000,
     MaxResults: [],
-    ToTimestamp: (_) => Math.round(_.getTime() / 1000),
+    ToTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2264,9 +2264,9 @@ const se_StartArchiveSearchRequest = (input: StartArchiveSearchRequest, context:
   return take(input, {
     ArchiveId: [],
     Filters: _json,
-    FromTimestamp: (_) => Math.round(_.getTime() / 1000),
+    FromTimestamp: (_) => _.getTime() / 1_000,
     MaxResults: [],
-    ToTimestamp: (_) => Math.round(_.getTime() / 1000),
+    ToTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

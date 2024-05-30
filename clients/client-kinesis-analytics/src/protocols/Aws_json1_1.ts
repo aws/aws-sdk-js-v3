@@ -1099,7 +1099,7 @@ const de_UnsupportedOperationExceptionRes = async (
 const se_DeleteApplicationRequest = (input: DeleteApplicationRequest, context: __SerdeContext): any => {
   return take(input, {
     ApplicationName: [],
-    CreateTimestamp: (_) => Math.round(_.getTime() / 1000),
+    CreateTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

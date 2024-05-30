@@ -1122,7 +1122,7 @@ const de_TooManyRequestsExceptionRes = async (
  */
 const se_RecordPatch = (input: RecordPatch, context: __SerdeContext): any => {
   return take(input, {
-    DeviceLastModifiedDate: (_) => Math.round(_.getTime() / 1000),
+    DeviceLastModifiedDate: (_) => _.getTime() / 1_000,
     Key: [],
     Op: [],
     SyncCount: [],

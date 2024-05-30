@@ -1421,11 +1421,11 @@ const se_ExportPreferences = (input: ExportPreferences, context: __SerdeContext)
  */
 const se_StartExportTaskRequest = (input: StartExportTaskRequest, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     exportDataFormat: _json,
     filters: _json,
     preferences: (_) => se_ExportPreferences(_, context),
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 

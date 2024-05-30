@@ -1844,7 +1844,7 @@ export const se_StartResourceStateUpdateCommand = async (
       includeResources: (_) => _json(_),
       resourceArn: [],
       state: (_) => _json(_),
-      updateAt: (_) => Math.round(_.getTime() / 1000),
+      updateAt: (_) => _.getTime() / 1_000,
     })
   );
   b.m("PUT").h(headers).b(body);

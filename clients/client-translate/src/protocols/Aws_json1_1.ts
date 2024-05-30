@@ -1167,8 +1167,8 @@ const se_TextTranslationJobFilter = (input: TextTranslationJobFilter, context: _
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmittedAfterTime: (_) => Math.round(_.getTime() / 1000),
-    SubmittedBeforeTime: (_) => Math.round(_.getTime() / 1000),
+    SubmittedAfterTime: (_) => _.getTime() / 1_000,
+    SubmittedBeforeTime: (_) => _.getTime() / 1_000,
   });
 };
 

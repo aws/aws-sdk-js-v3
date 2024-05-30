@@ -1682,11 +1682,11 @@ const se_CreateContactRequest = (input: CreateContactRequest, context: __SerdeCo
  */
 const se_CreateRotationOverrideRequest = (input: CreateRotationOverrideRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     IdempotencyToken: [],
     NewContactIds: _json,
     RotationId: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1699,7 +1699,7 @@ const se_CreateRotationRequest = (input: CreateRotationRequest, context: __Serde
     IdempotencyToken: [],
     Name: [],
     Recurrence: _json,
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
     Tags: _json,
     TimeZoneId: [],
   });
@@ -1762,14 +1762,14 @@ const se_ListEngagementsRequest = (input: ListEngagementsRequest, context: __Ser
  */
 const se_ListPreviewRotationShiftsRequest = (input: ListPreviewRotationShiftsRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     Members: _json,
     NextToken: [],
     Overrides: (_) => se_OverrideList(_, context),
     Recurrence: _json,
-    RotationStartTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    RotationStartTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
     TimeZoneId: [],
   });
 };
@@ -1779,11 +1779,11 @@ const se_ListPreviewRotationShiftsRequest = (input: ListPreviewRotationShiftsReq
  */
 const se_ListRotationOverridesRequest = (input: ListRotationOverridesRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     RotationId: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1792,11 +1792,11 @@ const se_ListRotationOverridesRequest = (input: ListRotationOverridesRequest, co
  */
 const se_ListRotationShiftsRequest = (input: ListRotationShiftsRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     RotationId: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1826,9 +1826,9 @@ const se_OverrideList = (input: PreviewOverride[], context: __SerdeContext): any
  */
 const se_PreviewOverride = (input: PreviewOverride, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     NewMembers: _json,
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1889,8 +1889,8 @@ const se_StartEngagementRequest = (input: StartEngagementRequest, context: __Ser
  */
 const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1908,7 +1908,7 @@ const se_UpdateRotationRequest = (input: UpdateRotationRequest, context: __Serde
     ContactIds: _json,
     Recurrence: _json,
     RotationId: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
     TimeZoneId: [],
   });
 };

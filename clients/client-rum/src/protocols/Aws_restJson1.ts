@@ -1039,7 +1039,7 @@ const se_RumEvent = (input: RumEvent, context: __SerdeContext): any => {
     details: __LazyJsonString.fromObject,
     id: [],
     metadata: __LazyJsonString.fromObject,
-    timestamp: (_) => Math.round(_.getTime() / 1000),
+    timestamp: (_) => _.getTime() / 1_000,
     type: [],
   });
 };

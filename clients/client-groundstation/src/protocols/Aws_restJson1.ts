@@ -229,7 +229,7 @@ export const se_CreateEphemerisCommand = async (
     take(input, {
       enabled: [],
       ephemeris: (_) => se_EphemerisData(_, context),
-      expirationTime: (_) => Math.round(_.getTime() / 1000),
+      expirationTime: (_) => _.getTime() / 1_000,
       kmsKeyArn: [],
       name: [],
       priority: [],
@@ -506,13 +506,13 @@ export const se_ListContactsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
       groundStation: [],
       maxResults: [],
       missionProfileArn: [],
       nextToken: [],
       satelliteArn: [],
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      startTime: (_) => _.getTime() / 1_000,
       statusList: (_) => _json(_),
     })
   );
@@ -558,9 +558,9 @@ export const se_ListEphemeridesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
       satelliteId: [],
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      startTime: (_) => _.getTime() / 1_000,
       statusList: (_) => _json(_),
     })
   );
@@ -680,11 +680,11 @@ export const se_ReserveContactCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
       groundStation: [],
       missionProfileArn: [],
       satelliteArn: [],
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      startTime: (_) => _.getTime() / 1_000,
       tags: (_) => _json(_),
     })
   );
@@ -1885,8 +1885,8 @@ const se_SpectrumConfig = (input: SpectrumConfig, context: __SerdeContext): any 
  */
 const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 

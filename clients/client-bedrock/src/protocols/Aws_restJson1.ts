@@ -20,6 +20,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -503,14 +504,8 @@ export const se_ListCustomModelsCommand = async (
   const headers: any = {};
   b.bp("/custom-models");
   const query: any = map({
-    [_cTB]: [
-      () => input.creationTimeBefore !== void 0,
-      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cTA]: [
-      () => input.creationTimeAfter !== void 0,
-      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
+    [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
     [_nC]: [, input[_nC]!],
     [_bMAE]: [, input[_bMAE]!],
     [_fMAE]: [, input[_fMAE]!],
@@ -535,14 +530,8 @@ export const se_ListEvaluationJobsCommand = async (
   const headers: any = {};
   b.bp("/evaluation-jobs");
   const query: any = map({
-    [_cTA]: [
-      () => input.creationTimeAfter !== void 0,
-      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cTB]: [
-      () => input.creationTimeBefore !== void 0,
-      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
+    [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
     [_sE]: [, input[_sE]!],
     [_nC]: [, input[_nC]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -607,14 +596,8 @@ export const se_ListModelCustomizationJobsCommand = async (
   const headers: any = {};
   b.bp("/model-customization-jobs");
   const query: any = map({
-    [_cTA]: [
-      () => input.creationTimeAfter !== void 0,
-      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cTB]: [
-      () => input.creationTimeBefore !== void 0,
-      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
+    [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
     [_sE]: [, input[_sE]!],
     [_nC]: [, input[_nC]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -638,14 +621,8 @@ export const se_ListProvisionedModelThroughputsCommand = async (
   const headers: any = {};
   b.bp("/provisioned-model-throughputs");
   const query: any = map({
-    [_cTA]: [
-      () => input.creationTimeAfter !== void 0,
-      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_cTB]: [
-      () => input.creationTimeBefore !== void 0,
-      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
+    [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
     [_sE]: [, input[_sE]!],
     [_mAE]: [, input[_mAE]!],
     [_nC]: [, input[_nC]!],

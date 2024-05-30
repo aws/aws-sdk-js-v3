@@ -644,8 +644,8 @@ const de_UnsupportedLocaleRes = async (parsedOutput: any, context: __SerdeContex
  */
 const se_DateTimeRange = (input: DateTimeRange, context: __SerdeContext): any => {
   return take(input, {
-    from: (_) => Math.round(_.getTime() / 1000),
-    to: (_) => Math.round(_.getTime() / 1000),
+    from: (_) => _.getTime() / 1_000,
+    to: (_) => _.getTime() / 1_000,
   });
 };
 

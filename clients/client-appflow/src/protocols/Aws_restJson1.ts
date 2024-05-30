@@ -1766,12 +1766,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ScheduledTriggerProperties = (input: ScheduledTriggerProperties, context: __SerdeContext): any => {
   return take(input, {
     dataPullMode: [],
-    firstExecutionFrom: (_) => Math.round(_.getTime() / 1000),
+    firstExecutionFrom: (_) => _.getTime() / 1_000,
     flowErrorDeactivationThreshold: [],
-    scheduleEndTime: (_) => Math.round(_.getTime() / 1000),
+    scheduleEndTime: (_) => _.getTime() / 1_000,
     scheduleExpression: [],
     scheduleOffset: [],
-    scheduleStartTime: (_) => Math.round(_.getTime() / 1000),
+    scheduleStartTime: (_) => _.getTime() / 1_000,
     timezone: [],
   });
 };

@@ -829,7 +829,7 @@ const se_PipeSourceKinesisStreamParameters = (
     OnPartialBatchItemFailure: [],
     ParallelizationFactor: [],
     StartingPosition: [],
-    StartingPositionTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartingPositionTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

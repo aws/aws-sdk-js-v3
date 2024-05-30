@@ -356,7 +356,7 @@ const se_ActionInteraction = (input: ActionInteraction, context: __SerdeContext)
     properties: __LazyJsonString.fromObject,
     recommendationId: [],
     sessionId: [],
-    timestamp: (_) => Math.round(_.getTime() / 1000),
+    timestamp: (_) => _.getTime() / 1_000,
     userId: [],
   });
 };
@@ -396,7 +396,7 @@ const se_Event = (input: Event, context: __SerdeContext): any => {
     metricAttribution: _json,
     properties: __LazyJsonString.fromObject,
     recommendationId: [],
-    sentAt: (_) => Math.round(_.getTime() / 1000),
+    sentAt: (_) => _.getTime() / 1_000,
   });
 };
 

@@ -18,6 +18,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   map,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -1223,7 +1224,7 @@ const se_DialRequest = (input: DialRequest, context: __SerdeContext): any => {
   return take(input, {
     attributes: _json,
     clientToken: [],
-    expirationTime: (_) => _.toISOString().split(".")[0] + "Z",
+    expirationTime: __serializeDateTime,
     phoneNumber: [],
   });
 };

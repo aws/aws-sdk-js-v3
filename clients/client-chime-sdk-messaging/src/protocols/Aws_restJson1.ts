@@ -15,6 +15,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -916,8 +917,8 @@ export const se_ListChannelMessagesCommand = async (
   b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
     [_so]: [, input[_SO]!],
-    [_nb]: [() => input.NotBefore !== void 0, () => (input[_NB]!.toISOString().split(".")[0] + "Z").toString()],
-    [_na]: [() => input.NotAfter !== void 0, () => (input[_NA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_nb]: [() => input.NotBefore !== void 0, () => __serializeDateTime(input[_NB]!).toString()],
+    [_na]: [() => input.NotAfter !== void 0, () => __serializeDateTime(input[_NA]!).toString()],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nt]: [, input[_NT]!],
     [_sci]: [, input[_SCI]!],

@@ -22,6 +22,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -241,8 +242,8 @@ export const se_ListJobRunsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
-    [_cAA]: [() => input.createdAtAfter !== void 0, () => (input[_cAA]!.toISOString().split(".")[0] + "Z").toString()],
-    [_cAB]: [() => input.createdAtBefore !== void 0, () => (input[_cAB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cAA]: [() => input.createdAtAfter !== void 0, () => __serializeDateTime(input[_cAA]!).toString()],
+    [_cAB]: [() => input.createdAtBefore !== void 0, () => __serializeDateTime(input[_cAB]!).toString()],
     [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
   });
   let body: any;

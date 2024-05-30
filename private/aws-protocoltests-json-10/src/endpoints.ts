@@ -108,7 +108,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-iso-e": {
-    regions: [],
+    regions: ["eu-isoe-west-1"],
     regionRegex: "^eu\\-isoe\\-\\w+\\-\\d+$",
     variants: [
       {

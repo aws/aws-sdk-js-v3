@@ -3579,7 +3579,7 @@ const de_UnsupportedOperationExceptionRes = async (
 const se_ListInsightsMetricDataRequest = (input: ListInsightsMetricDataRequest, context: __SerdeContext): any => {
   return take(input, {
     DataType: [],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     ErrorCode: [],
     EventName: [],
     EventSource: [],
@@ -3587,7 +3587,7 @@ const se_ListInsightsMetricDataRequest = (input: ListInsightsMetricDataRequest, 
     MaxResults: [],
     NextToken: [],
     Period: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3596,9 +3596,9 @@ const se_ListInsightsMetricDataRequest = (input: ListInsightsMetricDataRequest, 
  */
 const se_ListPublicKeysRequest = (input: ListPublicKeysRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     NextToken: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3607,12 +3607,12 @@ const se_ListPublicKeysRequest = (input: ListPublicKeysRequest, context: __Serde
  */
 const se_ListQueriesRequest = (input: ListQueriesRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     EventDataStore: [],
     MaxResults: [],
     NextToken: [],
     QueryStatus: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3629,12 +3629,12 @@ const se_ListQueriesRequest = (input: ListQueriesRequest, context: __SerdeContex
  */
 const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     EventCategory: [],
     LookupAttributes: _json,
     MaxResults: [],
     NextToken: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3666,10 +3666,10 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
 const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContext): any => {
   return take(input, {
     Destinations: _json,
-    EndEventTime: (_) => Math.round(_.getTime() / 1000),
+    EndEventTime: (_) => _.getTime() / 1_000,
     ImportId: [],
     ImportSource: _json,
-    StartEventTime: (_) => Math.round(_.getTime() / 1000),
+    StartEventTime: (_) => _.getTime() / 1_000,
   });
 };
 

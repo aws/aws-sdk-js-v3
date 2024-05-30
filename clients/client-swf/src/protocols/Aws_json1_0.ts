@@ -1755,8 +1755,8 @@ const se_CountOpenWorkflowExecutionsInput = (input: CountOpenWorkflowExecutionsI
  */
 const se_ExecutionTimeFilter = (input: ExecutionTimeFilter, context: __SerdeContext): any => {
   return take(input, {
-    latestDate: (_) => Math.round(_.getTime() / 1000),
-    oldestDate: (_) => Math.round(_.getTime() / 1000),
+    latestDate: (_) => _.getTime() / 1_000,
+    oldestDate: (_) => _.getTime() / 1_000,
   });
 };
 

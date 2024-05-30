@@ -1244,11 +1244,11 @@ const se_GetEC2RecommendationProjectedMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     instanceArn: [],
     period: [],
     recommendationPreferences: _json,
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     stat: [],
   });
 };
@@ -1261,10 +1261,10 @@ const se_GetECSServiceRecommendationProjectedMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     period: [],
     serviceArn: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     stat: [],
   });
 };

@@ -4238,8 +4238,8 @@ const se_ListDeploymentsInput = (input: ListDeploymentsInput, context: __SerdeCo
  */
 const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return take(input, {
-    end: (_) => Math.round(_.getTime() / 1000),
-    start: (_) => Math.round(_.getTime() / 1000),
+    end: (_) => _.getTime() / 1_000,
+    start: (_) => _.getTime() / 1_000,
   });
 };
 

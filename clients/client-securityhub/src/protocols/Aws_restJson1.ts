@@ -22,6 +22,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -1911,11 +1912,11 @@ export const se_GetFindingHistoryCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      EndTime: (_) => _.toISOString().split(".")[0] + "Z",
+      EndTime: (_) => __serializeDateTime(_),
       FindingIdentifier: (_) => _json(_),
       MaxResults: [],
       NextToken: [],
-      StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+      StartTime: (_) => __serializeDateTime(_),
     })
   );
   b.m("POST").h(headers).b(body);

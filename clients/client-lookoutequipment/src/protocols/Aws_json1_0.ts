@@ -2028,13 +2028,13 @@ const se_CreateLabelGroupRequest = (input: CreateLabelGroupRequest, context: __S
 const se_CreateLabelRequest = (input: CreateLabelRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     Equipment: [],
     FaultCode: [],
     LabelGroupName: [],
     Notes: [],
     Rating: [],
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2047,8 +2047,8 @@ const se_CreateModelRequest = (input: CreateModelRequest, context: __SerdeContex
     DataPreProcessingConfiguration: _json,
     DatasetName: [],
     DatasetSchema: (_) => se_DatasetSchema(_, context),
-    EvaluationDataEndTime: (_) => Math.round(_.getTime() / 1000),
-    EvaluationDataStartTime: (_) => Math.round(_.getTime() / 1000),
+    EvaluationDataEndTime: (_) => _.getTime() / 1_000,
+    EvaluationDataStartTime: (_) => _.getTime() / 1_000,
     LabelsInputConfiguration: _json,
     ModelDiagnosticsOutputConfiguration: _json,
     ModelName: [],
@@ -2056,8 +2056,8 @@ const se_CreateModelRequest = (input: CreateModelRequest, context: __SerdeContex
     RoleArn: [],
     ServerSideKmsKeyId: [],
     Tags: _json,
-    TrainingDataEndTime: (_) => Math.round(_.getTime() / 1000),
-    TrainingDataStartTime: (_) => Math.round(_.getTime() / 1000),
+    TrainingDataEndTime: (_) => _.getTime() / 1_000,
+    TrainingDataStartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2071,7 +2071,7 @@ const se_CreateRetrainingSchedulerRequest = (input: CreateRetrainingSchedulerReq
     ModelName: [],
     PromoteMode: [],
     RetrainingFrequency: [],
-    RetrainingStartDate: (_) => Math.round(_.getTime() / 1000),
+    RetrainingStartDate: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2178,8 +2178,8 @@ const se_ImportModelVersionRequest = (input: ImportModelVersionRequest, context:
 const se_ListInferenceEventsRequest = (input: ListInferenceEventsRequest, context: __SerdeContext): any => {
   return take(input, {
     InferenceSchedulerName: [],
-    IntervalEndTime: (_) => Math.round(_.getTime() / 1000),
-    IntervalStartTime: (_) => Math.round(_.getTime() / 1000),
+    IntervalEndTime: (_) => _.getTime() / 1_000,
+    IntervalStartTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
   });
@@ -2190,8 +2190,8 @@ const se_ListInferenceEventsRequest = (input: ListInferenceEventsRequest, contex
  */
 const se_ListInferenceExecutionsRequest = (input: ListInferenceExecutionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    DataEndTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    DataStartTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    DataEndTimeBefore: (_) => _.getTime() / 1_000,
+    DataStartTimeAfter: (_) => _.getTime() / 1_000,
     InferenceSchedulerName: [],
     MaxResults: [],
     NextToken: [],
@@ -2210,8 +2210,8 @@ const se_ListLabelsRequest = (input: ListLabelsRequest, context: __SerdeContext)
   return take(input, {
     Equipment: [],
     FaultCode: [],
-    IntervalEndTime: (_) => Math.round(_.getTime() / 1000),
-    IntervalStartTime: (_) => Math.round(_.getTime() / 1000),
+    IntervalEndTime: (_) => _.getTime() / 1_000,
+    IntervalStartTime: (_) => _.getTime() / 1_000,
     LabelGroupName: [],
     MaxResults: [],
     NextToken: [],
@@ -2225,8 +2225,8 @@ const se_ListLabelsRequest = (input: ListLabelsRequest, context: __SerdeContext)
  */
 const se_ListModelVersionsRequest = (input: ListModelVersionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAtEndTime: (_) => Math.round(_.getTime() / 1000),
-    CreatedAtStartTime: (_) => Math.round(_.getTime() / 1000),
+    CreatedAtEndTime: (_) => _.getTime() / 1_000,
+    CreatedAtStartTime: (_) => _.getTime() / 1_000,
     MaxModelVersion: [],
     MaxResults: [],
     MinModelVersion: [],
@@ -2306,7 +2306,7 @@ const se_UpdateRetrainingSchedulerRequest = (input: UpdateRetrainingSchedulerReq
     ModelName: [],
     PromoteMode: [],
     RetrainingFrequency: [],
-    RetrainingStartDate: (_) => Math.round(_.getTime() / 1000),
+    RetrainingStartDate: (_) => _.getTime() / 1_000,
   });
 };
 

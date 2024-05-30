@@ -12,6 +12,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -80,7 +81,7 @@ export const se_PutDeploymentParameterCommand = async (
       agreementId: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       deploymentParameter: (_) => _json(_),
-      expirationDate: (_) => _.toISOString().split(".")[0] + "Z",
+      expirationDate: (_) => __serializeDateTime(_),
       tags: (_) => _json(_),
     })
   );

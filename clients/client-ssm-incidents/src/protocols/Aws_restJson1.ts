@@ -251,7 +251,7 @@ export const se_CreateTimelineEventCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       eventData: [],
       eventReferences: (_) => _json(_),
-      eventTime: (_) => Math.round(_.getTime() / 1000),
+      eventTime: (_) => _.getTime() / 1_000,
       eventType: [],
       incidentRecordArn: [],
     })
@@ -877,7 +877,7 @@ export const se_UpdateTimelineEventCommand = async (
       eventData: [],
       eventId: [],
       eventReferences: (_) => _json(_),
-      eventTime: (_) => Math.round(_.getTime() / 1000),
+      eventTime: (_) => _.getTime() / 1_000,
       eventType: [],
       incidentRecordArn: [],
     })
@@ -1702,8 +1702,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_Condition = (input: Condition, context: __SerdeContext): any => {
   return Condition.visit(input, {
-    after: (value) => ({ after: Math.round(value.getTime() / 1000) }),
-    before: (value) => ({ before: Math.round(value.getTime() / 1000) }),
+    after: (value) => ({ after: value.getTime() / 1_000 }),
+    before: (value) => ({ before: value.getTime() / 1_000 }),
     equals: (value) => ({ equals: _json(value) }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -1797,7 +1797,7 @@ const se_TriggerDetails = (input: TriggerDetails, context: __SerdeContext): any 
   return take(input, {
     rawData: [],
     source: [],
-    timestamp: (_) => Math.round(_.getTime() / 1000),
+    timestamp: (_) => _.getTime() / 1_000,
     triggerArn: [],
   });
 };

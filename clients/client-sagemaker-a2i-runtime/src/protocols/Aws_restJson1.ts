@@ -13,6 +13,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -84,14 +85,8 @@ export const se_ListHumanLoopsCommand = async (
   const headers: any = {};
   b.bp("/human-loops");
   const query: any = map({
-    [_CTA]: [
-      () => input.CreationTimeAfter !== void 0,
-      () => (input[_CTA]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_CTB]: [
-      () => input.CreationTimeBefore !== void 0,
-      () => (input[_CTB]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_CTA]: [() => input.CreationTimeAfter !== void 0, () => __serializeDateTime(input[_CTA]!).toString()],
+    [_CTB]: [() => input.CreationTimeBefore !== void 0, () => __serializeDateTime(input[_CTB]!).toString()],
     [_FDA]: [, __expectNonNull(input[_FDA]!, `FlowDefinitionArn`)],
     [_SO]: [, input[_SO]!],
     [_NT]: [, input[_NT]!],

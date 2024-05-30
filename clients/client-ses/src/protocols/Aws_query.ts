@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   strictParseFloat as __strictParseFloat,
   strictParseLong as __strictParseLong,
   withBaseException,
@@ -4796,7 +4797,7 @@ const se_MessageDsn = (input: MessageDsn, context: __SerdeContext): any => {
     entries[_RM] = input[_RM];
   }
   if (input[_AD] != null) {
-    entries[_AD] = input[_AD].toISOString().split(".")[0] + "Z";
+    entries[_AD] = __serializeDateTime(input[_AD]);
   }
   if (input[_EF] != null) {
     const memberEntries = se_ExtensionFieldList(input[_EF], context);
@@ -5094,7 +5095,7 @@ const se_RecipientDsnFields = (input: RecipientDsnFields, context: __SerdeContex
     entries[_DCi] = input[_DCi];
   }
   if (input[_LAD] != null) {
-    entries[_LAD] = input[_LAD].toISOString().split(".")[0] + "Z";
+    entries[_LAD] = __serializeDateTime(input[_LAD]);
   }
   if (input[_EF] != null) {
     const memberEntries = se_ExtensionFieldList(input[_EF], context);

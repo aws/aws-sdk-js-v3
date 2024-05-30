@@ -1507,7 +1507,7 @@ const se_ListOperationsRequest = (input: ListOperationsRequest, context: __Serde
     SortBy: [],
     SortOrder: [],
     Status: _json,
-    SubmittedSince: (_) => Math.round(_.getTime() / 1000),
+    SubmittedSince: (_) => _.getTime() / 1_000,
     Type: _json,
   });
 };
@@ -1577,10 +1577,10 @@ const se_UpdateDomainContactRequest = (input: UpdateDomainContactRequest, contex
  */
 const se_ViewBillingRequest = (input: ViewBillingRequest, context: __SerdeContext): any => {
   return take(input, {
-    End: (_) => Math.round(_.getTime() / 1000),
+    End: (_) => _.getTime() / 1_000,
     Marker: [],
     MaxItems: [],
-    Start: (_) => Math.round(_.getTime() / 1000),
+    Start: (_) => _.getTime() / 1_000,
   });
 };
 

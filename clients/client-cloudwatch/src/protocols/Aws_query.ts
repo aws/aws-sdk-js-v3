@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
@@ -2092,10 +2093,10 @@ const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context:
     entries[_HIT] = input[_HIT];
   }
   if (input[_SD] != null) {
-    entries[_SD] = input[_SD].toISOString().split(".")[0] + "Z";
+    entries[_SD] = __serializeDateTime(input[_SD]);
   }
   if (input[_ED] != null) {
-    entries[_ED] = input[_ED].toISOString().split(".")[0] + "Z";
+    entries[_ED] = __serializeDateTime(input[_ED]);
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
@@ -2422,10 +2423,10 @@ const se_GetInsightRuleReportInput = (input: GetInsightRuleReportInput, context:
     entries[_RNu] = input[_RNu];
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_P] != null) {
     entries[_P] = input[_P];
@@ -2465,10 +2466,10 @@ const se_GetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContex
     });
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
@@ -2511,10 +2512,10 @@ const se_GetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: _
     });
   }
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_P] != null) {
     entries[_P] = input[_P];
@@ -2873,7 +2874,7 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
     });
   }
   if (input[_Ti] != null) {
-    entries[_Ti] = input[_Ti].toISOString().split(".")[0] + "Z";
+    entries[_Ti] = __serializeDateTime(input[_Ti]);
   }
   if (input[_Va] != null) {
     entries[_Va] = __serializeFloat(input[_Va]);
@@ -3522,10 +3523,10 @@ const se_PutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeCo
 const se_Range = (input: Range, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_ST] != null) {
-    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
+    entries[_ST] = __serializeDateTime(input[_ST]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   return entries;
 };

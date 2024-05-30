@@ -6392,7 +6392,7 @@ const se_CreateRelationalDatabaseFromSnapshotRequest = (
     relationalDatabaseBundleId: [],
     relationalDatabaseName: [],
     relationalDatabaseSnapshotName: [],
-    restoreTime: (_) => Math.round(_.getTime() / 1000),
+    restoreTime: (_) => _.getTime() / 1_000,
     sourceRelationalDatabaseName: [],
     tags: _json,
     useLatestRestorableTime: [],
@@ -6493,10 +6493,10 @@ const se_CreateRelationalDatabaseFromSnapshotRequest = (
 const se_GetBucketMetricDataRequest = (input: GetBucketMetricDataRequest, context: __SerdeContext): any => {
   return take(input, {
     bucketName: [],
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     metricName: [],
     period: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     statistics: _json,
     unit: [],
   });
@@ -6522,11 +6522,11 @@ const se_GetBucketMetricDataRequest = (input: GetBucketMetricDataRequest, contex
 const se_GetContainerLogRequest = (input: GetContainerLogRequest, context: __SerdeContext): any => {
   return take(input, {
     containerName: [],
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     filterPattern: [],
     pageToken: [],
     serviceName: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -6540,11 +6540,11 @@ const se_GetContainerServiceMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     metricName: [],
     period: [],
     serviceName: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     statistics: _json,
   });
 };
@@ -6558,9 +6558,9 @@ const se_GetContainerServiceMetricDataRequest = (
  */
 const se_GetCostEstimateRequest = (input: GetCostEstimateRequest, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     resourceName: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -6582,10 +6582,10 @@ const se_GetCostEstimateRequest = (input: GetCostEstimateRequest, context: __Ser
 const se_GetDistributionMetricDataRequest = (input: GetDistributionMetricDataRequest, context: __SerdeContext): any => {
   return take(input, {
     distributionName: [],
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     metricName: [],
     period: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     statistics: _json,
     unit: [],
   });
@@ -6606,11 +6606,11 @@ const se_GetDistributionMetricDataRequest = (input: GetDistributionMetricDataReq
  */
 const se_GetInstanceMetricDataRequest = (input: GetInstanceMetricDataRequest, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     instanceName: [],
     metricName: [],
     period: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     statistics: _json,
     unit: [],
   });
@@ -6637,11 +6637,11 @@ const se_GetInstanceMetricDataRequest = (input: GetInstanceMetricDataRequest, co
  */
 const se_GetLoadBalancerMetricDataRequest = (input: GetLoadBalancerMetricDataRequest, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     loadBalancerName: [],
     metricName: [],
     period: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     statistics: _json,
     unit: [],
   });
@@ -6677,12 +6677,12 @@ const se_GetRelationalDatabaseLogEventsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     logStreamName: [],
     pageToken: [],
     relationalDatabaseName: [],
     startFromHead: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -6698,11 +6698,11 @@ const se_GetRelationalDatabaseMetricDataRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     metricName: [],
     period: [],
     relationalDatabaseName: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     statistics: _json,
     unit: [],
   });

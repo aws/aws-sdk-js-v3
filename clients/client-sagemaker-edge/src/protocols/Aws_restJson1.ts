@@ -215,10 +215,10 @@ const de_InternalServiceExceptionRes = async (
  */
 const se_DeploymentResult = (input: DeploymentResult, context: __SerdeContext): any => {
   return take(input, {
-    DeploymentEndTime: (_) => Math.round(_.getTime() / 1000),
+    DeploymentEndTime: (_) => _.getTime() / 1_000,
     DeploymentModels: _json,
     DeploymentName: [],
-    DeploymentStartTime: (_) => Math.round(_.getTime() / 1000),
+    DeploymentStartTime: (_) => _.getTime() / 1_000,
     DeploymentStatus: [],
     DeploymentStatusMessage: [],
   });
@@ -231,7 +231,7 @@ const se_EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
   return take(input, {
     Dimension: [],
     MetricName: [],
-    Timestamp: (_) => Math.round(_.getTime() / 1000),
+    Timestamp: (_) => _.getTime() / 1_000,
     Value: __serializeFloat,
   });
 };
@@ -252,8 +252,8 @@ const se_EdgeMetrics = (input: EdgeMetric[], context: __SerdeContext): any => {
  */
 const se_Model = (input: Model, context: __SerdeContext): any => {
   return take(input, {
-    LatestInference: (_) => Math.round(_.getTime() / 1000),
-    LatestSampleTime: (_) => Math.round(_.getTime() / 1000),
+    LatestInference: (_) => _.getTime() / 1_000,
+    LatestSampleTime: (_) => _.getTime() / 1_000,
     ModelMetrics: (_) => se_EdgeMetrics(_, context),
     ModelName: [],
     ModelVersion: [],

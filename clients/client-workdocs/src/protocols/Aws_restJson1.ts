@@ -16,6 +16,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -603,8 +604,8 @@ export const se_DescribeActivitiesCommand = async (
   });
   b.bp("/api/v1/activities");
   const query: any = map({
-    [_sT]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
-    [_eT]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sT]: [() => input.StartTime !== void 0, () => __serializeDateTime(input[_ST]!).toString()],
+    [_eT]: [() => input.EndTime !== void 0, () => __serializeDateTime(input[_ET]!).toString()],
     [_oI]: [, input[_OI]!],
     [_aT]: [, input[_ATc]!],
     [_rI]: [, input[_RI]!],
@@ -973,8 +974,8 @@ export const se_InitiateDocumentVersionUploadCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ContentCreatedTimestamp: (_) => Math.round(_.getTime() / 1000),
-      ContentModifiedTimestamp: (_) => Math.round(_.getTime() / 1000),
+      ContentCreatedTimestamp: (_) => _.getTime() / 1_000,
+      ContentModifiedTimestamp: (_) => _.getTime() / 1_000,
       ContentType: [],
       DocumentSizeInBytes: [],
       Id: [],
@@ -2655,8 +2656,8 @@ const de_UnauthorizedResourceAccessExceptionRes = async (
  */
 const se_DateRangeType = (input: DateRangeType, context: __SerdeContext): any => {
   return take(input, {
-    EndValue: (_) => Math.round(_.getTime() / 1000),
-    StartValue: (_) => Math.round(_.getTime() / 1000),
+    EndValue: (_) => _.getTime() / 1_000,
+    StartValue: (_) => _.getTime() / 1_000,
   });
 };
 

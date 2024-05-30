@@ -1773,8 +1773,8 @@ const se_ListAttacksRequest = (input: ListAttacksRequest, context: __SerdeContex
  */
 const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return take(input, {
-    FromInclusive: (_) => Math.round(_.getTime() / 1000),
-    ToExclusive: (_) => Math.round(_.getTime() / 1000),
+    FromInclusive: (_) => _.getTime() / 1_000,
+    ToExclusive: (_) => _.getTime() / 1_000,
   });
 };
 

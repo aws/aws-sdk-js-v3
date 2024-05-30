@@ -21,6 +21,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   take,
   withBaseException,
@@ -1729,14 +1730,8 @@ export const se_GetAssetPropertyAggregatesCommand = async (
     ],
     [_r]: [, __expectNonNull(input[_r]!, `resolution`)],
     [_q]: [() => input.qualities !== void 0, () => (input[_q]! || []).map((_entry) => _entry as any)],
-    [_sD]: [
-      __expectNonNull(input.startDate, `startDate`) != null,
-      () => (input[_sD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_eD]: [
-      __expectNonNull(input.endDate, `endDate`) != null,
-      () => (input[_eD]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_sD]: [__expectNonNull(input.startDate, `startDate`) != null, () => __serializeDateTime(input[_sD]!).toString()],
+    [_eD]: [__expectNonNull(input.endDate, `endDate`) != null, () => __serializeDateTime(input[_eD]!).toString()],
     [_tO]: [, input[_tO]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -1796,8 +1791,8 @@ export const se_GetAssetPropertyValueHistoryCommand = async (
     [_aI]: [, input[_aI]!],
     [_pI]: [, input[_pI]!],
     [_pA]: [, input[_pA]!],
-    [_sD]: [() => input.startDate !== void 0, () => (input[_sD]!.toISOString().split(".")[0] + "Z").toString()],
-    [_eD]: [() => input.endDate !== void 0, () => (input[_eD]!.toISOString().split(".")[0] + "Z").toString()],
+    [_sD]: [() => input.startDate !== void 0, () => __serializeDateTime(input[_sD]!).toString()],
+    [_eD]: [() => input.endDate !== void 0, () => __serializeDateTime(input[_eD]!).toString()],
     [_q]: [() => input.qualities !== void 0, () => (input[_q]! || []).map((_entry) => _entry as any)],
     [_tO]: [, input[_tO]!],
     [_nT]: [, input[_nT]!],
@@ -5166,13 +5161,13 @@ const se_BatchGetAssetPropertyAggregatesEntry = (
   return take(input, {
     aggregateTypes: _json,
     assetId: [],
-    endDate: (_) => Math.round(_.getTime() / 1000),
+    endDate: (_) => _.getTime() / 1_000,
     entryId: [],
     propertyAlias: [],
     propertyId: [],
     qualities: _json,
     resolution: [],
-    startDate: (_) => Math.round(_.getTime() / 1000),
+    startDate: (_) => _.getTime() / 1_000,
     timeOrdering: [],
   });
 };
@@ -5204,12 +5199,12 @@ const se_BatchGetAssetPropertyValueHistoryEntry = (
 ): any => {
   return take(input, {
     assetId: [],
-    endDate: (_) => Math.round(_.getTime() / 1000),
+    endDate: (_) => _.getTime() / 1_000,
     entryId: [],
     propertyAlias: [],
     propertyId: [],
     qualities: _json,
-    startDate: (_) => Math.round(_.getTime() / 1000),
+    startDate: (_) => _.getTime() / 1_000,
     timeOrdering: [],
   });
 };

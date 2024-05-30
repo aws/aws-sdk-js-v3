@@ -20,6 +20,7 @@ import {
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -6159,10 +6160,10 @@ const se_JobManifestGeneratorFilter = (input: JobManifestGeneratorFilter, contex
     bn.c(__XmlNode.of(_Bo, String(input[_EFR])).n(_EFR));
   }
   if (input[_CAr] != null) {
-    bn.c(__XmlNode.of(_OCT, input[_CAr].toISOString().split(".")[0] + "Z").n(_CAr));
+    bn.c(__XmlNode.of(_OCT, __serializeDateTime(input[_CAr])).n(_CAr));
   }
   if (input[_CB] != null) {
-    bn.c(__XmlNode.of(_OCT, input[_CB].toISOString().split(".")[0] + "Z").n(_CB));
+    bn.c(__XmlNode.of(_OCT, __serializeDateTime(input[_CB])).n(_CB));
   }
   bn.lc(input, "ObjectReplicationStatuses", "ObjectReplicationStatuses", () =>
     se_ReplicationStatusFilterList(input[_ORS]!, context)
@@ -6310,7 +6311,7 @@ const se_LifecycleConfiguration = (input: LifecycleConfiguration, context: __Ser
 const se_LifecycleExpiration = (input: LifecycleExpiration, context: __SerdeContext): any => {
   const bn = new __XmlNode(_LE);
   if (input[_Da] != null) {
-    bn.c(__XmlNode.of(_Da, input[_Da].toISOString().split(".")[0] + "Z").n(_Da));
+    bn.c(__XmlNode.of(_Da, __serializeDateTime(input[_Da])).n(_Da));
   }
   if (input[_Day] != null) {
     bn.c(__XmlNode.of(_Day, String(input[_Day])).n(_Day));
@@ -6945,7 +6946,7 @@ const se_S3CopyObjectOperation = (input: S3CopyObjectOperation, context: __Serde
     bn.c(__XmlNode.of(_SMD, input[_MDe]).n(_MDe));
   }
   if (input[_MSC] != null) {
-    bn.c(__XmlNode.of(_TSi, input[_MSC].toISOString().split(".")[0] + "Z").n(_MSC));
+    bn.c(__XmlNode.of(_TSi, __serializeDateTime(input[_MSC])).n(_MSC));
   }
   if (input[_NOM] != null) {
     bn.c(se_S3ObjectMetadata(input[_NOM], context).n(_NOM));
@@ -6961,7 +6962,7 @@ const se_S3CopyObjectOperation = (input: S3CopyObjectOperation, context: __Serde
     bn.c(__XmlNode.of(_SSCt, input[_SC]).n(_SC));
   }
   if (input[_UMSC] != null) {
-    bn.c(__XmlNode.of(_TSi, input[_UMSC].toISOString().split(".")[0] + "Z").n(_UMSC));
+    bn.c(__XmlNode.of(_TSi, __serializeDateTime(input[_UMSC])).n(_UMSC));
   }
   if (input[_SSEAKKI] != null) {
     bn.c(__XmlNode.of(_KKAS, input[_SSEAKKI]).n(_SSEAKKI));
@@ -6976,7 +6977,7 @@ const se_S3CopyObjectOperation = (input: S3CopyObjectOperation, context: __Serde
     bn.c(__XmlNode.of(_SOLM, input[_OLM]).n(_OLM));
   }
   if (input[_OLRUD] != null) {
-    bn.c(__XmlNode.of(_TSi, input[_OLRUD].toISOString().split(".")[0] + "Z").n(_OLRUD));
+    bn.c(__XmlNode.of(_TSi, __serializeDateTime(input[_OLRUD])).n(_OLRUD));
   }
   if (input[_BKE] != null) {
     bn.c(__XmlNode.of(_Bo, String(input[_BKE])).n(_BKE));
@@ -7137,7 +7138,7 @@ const se_S3ObjectMetadata = (input: S3ObjectMetadata, context: __SerdeContext): 
     bn.c(__XmlNode.of(_NEMLSon, input[_CTon]).n(_CTon));
   }
   if (input[_HED] != null) {
-    bn.c(__XmlNode.of(_TSi, input[_HED].toISOString().split(".")[0] + "Z").n(_HED));
+    bn.c(__XmlNode.of(_TSi, __serializeDateTime(input[_HED])).n(_HED));
   }
   if (input[_RCe] != null) {
     bn.c(__XmlNode.of(_Bo, String(input[_RCe])).n(_RCe));
@@ -7176,7 +7177,7 @@ const se_S3ReplicateObjectOperation = (input: S3ReplicateObjectOperation, contex
 const se_S3Retention = (input: S3Retention, context: __SerdeContext): any => {
   const bn = new __XmlNode(_SR);
   if (input[_RUD] != null) {
-    bn.c(__XmlNode.of(_TSi, input[_RUD].toISOString().split(".")[0] + "Z").n(_RUD));
+    bn.c(__XmlNode.of(_TSi, __serializeDateTime(input[_RUD])).n(_RUD));
   }
   if (input[_Mo] != null) {
     bn.c(__XmlNode.of(_SOLRM, input[_Mo]).n(_Mo));
@@ -7620,7 +7621,7 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
 const se_Transition = (input: Transition, context: __SerdeContext): any => {
   const bn = new __XmlNode(_Tra);
   if (input[_Da] != null) {
-    bn.c(__XmlNode.of(_Da, input[_Da].toISOString().split(".")[0] + "Z").n(_Da));
+    bn.c(__XmlNode.of(_Da, __serializeDateTime(input[_Da])).n(_Da));
   }
   if (input[_Day] != null) {
     bn.c(__XmlNode.of(_Day, String(input[_Day])).n(_Day));

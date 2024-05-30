@@ -463,12 +463,12 @@ export const se_GetExperimentResultsCommand = async (
   body = JSON.stringify(
     take(input, {
       baseStat: [],
-      endTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
       metricNames: (_) => _json(_),
       period: [],
       reportNames: (_) => _json(_),
       resultStats: (_) => _json(_),
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      startTime: (_) => _.getTime() / 1_000,
       treatmentNames: (_) => _json(_),
     })
   );
@@ -727,7 +727,7 @@ export const se_StartExperimentCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      analysisCompleteTime: (_) => Math.round(_.getTime() / 1000),
+      analysisCompleteTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2028,7 +2028,7 @@ const se_EvaluationRequestsList = (input: EvaluationRequest[], context: __SerdeC
 const se_Event = (input: Event, context: __SerdeContext): any => {
   return take(input, {
     data: __LazyJsonString.fromObject,
-    timestamp: (_) => Math.round(_.getTime() / 1000),
+    timestamp: (_) => _.getTime() / 1_000,
     type: [],
   });
 };
@@ -2125,7 +2125,7 @@ const se_ScheduledSplitConfig = (input: ScheduledSplitConfig, context: __SerdeCo
   return take(input, {
     groupWeights: _json,
     segmentOverrides: _json,
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 

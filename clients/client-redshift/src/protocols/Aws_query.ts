@@ -11,6 +11,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  serializeDateTime as __serializeDateTime,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -9188,10 +9189,10 @@ const se_CreateScheduledActionMessage = (input: CreateScheduledActionMessage, co
     entries[_SAD] = input[_SAD];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_Ena] != null) {
     entries[_Ena] = input[_Ena];
@@ -9817,10 +9818,10 @@ const se_DescribeClusterSnapshotsMessage = (input: DescribeClusterSnapshotsMessa
     entries[_STn] = input[_STn];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
@@ -10125,10 +10126,10 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
     entries[_ST] = input[_ST];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_Du] != null) {
     entries[_Du] = input[_Du];
@@ -10481,10 +10482,10 @@ const se_DescribeScheduledActionsMessage = (input: DescribeScheduledActionsMessa
     entries[_TAT] = input[_TAT];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_Act] != null) {
     entries[_Act] = input[_Act];
@@ -11134,10 +11135,10 @@ const se_ModifyClusterMaintenanceMessage = (input: ModifyClusterMaintenanceMessa
     entries[_DMI] = input[_DMI];
   }
   if (input[_DMST] != null) {
-    entries[_DMST] = input[_DMST].toISOString().split(".")[0] + "Z";
+    entries[_DMST] = __serializeDateTime(input[_DMST]);
   }
   if (input[_DMET] != null) {
-    entries[_DMET] = input[_DMET].toISOString().split(".")[0] + "Z";
+    entries[_DMET] = __serializeDateTime(input[_DMET]);
   }
   if (input[_DMD] != null) {
     entries[_DMD] = input[_DMD];
@@ -11491,10 +11492,10 @@ const se_ModifyScheduledActionMessage = (input: ModifyScheduledActionMessage, co
     entries[_SAD] = input[_SAD];
   }
   if (input[_STt] != null) {
-    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
+    entries[_STt] = __serializeDateTime(input[_STt]);
   }
   if (input[_ET] != null) {
-    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
+    entries[_ET] = __serializeDateTime(input[_ET]);
   }
   if (input[_Ena] != null) {
     entries[_Ena] = input[_Ena];

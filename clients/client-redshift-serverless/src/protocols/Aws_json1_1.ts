@@ -2314,13 +2314,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, context: __SerdeContext): any => {
   return take(input, {
     enabled: [],
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     namespaceName: [],
     roleArn: [],
     schedule: (_) => se_Schedule(_, context),
     scheduledActionDescription: [],
     scheduledActionName: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     targetAction: _json,
   });
 };
@@ -2388,12 +2388,12 @@ const se_CreateScheduledActionRequest = (input: CreateScheduledActionRequest, co
  */
 const se_ListRecoveryPointsRequest = (input: ListRecoveryPointsRequest, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     maxResults: [],
     namespaceArn: [],
     namespaceName: [],
     nextToken: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2406,13 +2406,13 @@ const se_ListRecoveryPointsRequest = (input: ListRecoveryPointsRequest, context:
  */
 const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeContext): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     maxResults: [],
     namespaceArn: [],
     namespaceName: [],
     nextToken: [],
     ownerAccount: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -2441,7 +2441,7 @@ const se_ListSnapshotsRequest = (input: ListSnapshotsRequest, context: __SerdeCo
  */
 const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
   return Schedule.visit(input, {
-    at: (value) => ({ at: Math.round(value.getTime() / 1000) }),
+    at: (value) => ({ at: value.getTime() / 1_000 }),
     cron: (value) => ({ cron: value }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -2475,12 +2475,12 @@ const se_Schedule = (input: Schedule, context: __SerdeContext): any => {
 const se_UpdateScheduledActionRequest = (input: UpdateScheduledActionRequest, context: __SerdeContext): any => {
   return take(input, {
     enabled: [],
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     roleArn: [],
     schedule: (_) => se_Schedule(_, context),
     scheduledActionDescription: [],
     scheduledActionName: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
     targetAction: _json,
   });
 };

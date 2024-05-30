@@ -10358,7 +10358,7 @@ const se_AssetBundleImportJobRefreshScheduleOverrideParameters = (
   return take(input, {
     DataSetId: [],
     ScheduleId: [],
-    StartAfterDateTime: (_) => Math.round(_.getTime() / 1000),
+    StartAfterDateTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -11267,7 +11267,7 @@ const se_DateTimeDatasetParameterValueList = (input: Date[], context: __SerdeCon
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return entry.getTime() / 1_000;
     });
 };
 
@@ -11278,7 +11278,7 @@ const se_DateTimeDefaultValueList = (input: Date[], context: __SerdeContext): an
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return entry.getTime() / 1_000;
     });
 };
 
@@ -11349,7 +11349,7 @@ const se_DateTimeValueWhenUnsetConfiguration = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CustomValue: (_) => Math.round(_.getTime() / 1000),
+    CustomValue: (_) => _.getTime() / 1_000,
     ValueWhenUnsetOption: [],
   });
 };
@@ -13671,7 +13671,7 @@ const se_RefreshSchedule = (input: RefreshSchedule, context: __SerdeContext): an
     RefreshType: [],
     ScheduleFrequency: _json,
     ScheduleId: [],
-    StartAfterDateTime: (_) => Math.round(_.getTime() / 1000),
+    StartAfterDateTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -13965,7 +13965,7 @@ const se_SensitiveTimestampList = (input: Date[], context: __SerdeContext): any 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return entry.getTime() / 1_000;
     });
 };
 
@@ -14402,7 +14402,7 @@ const se_TimeEqualityFilter = (input: TimeEqualityFilter, context: __SerdeContex
     ParameterName: [],
     RollingDate: _json,
     TimeGranularity: [],
-    Value: (_) => Math.round(_.getTime() / 1000),
+    Value: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -14412,8 +14412,8 @@ const se_TimeEqualityFilter = (input: TimeEqualityFilter, context: __SerdeContex
 const se_TimeRangeDrillDownFilter = (input: TimeRangeDrillDownFilter, context: __SerdeContext): any => {
   return take(input, {
     Column: _json,
-    RangeMaximum: (_) => Math.round(_.getTime() / 1000),
-    RangeMinimum: (_) => Math.round(_.getTime() / 1000),
+    RangeMaximum: (_) => _.getTime() / 1_000,
+    RangeMinimum: (_) => _.getTime() / 1_000,
     TimeGranularity: [],
   });
 };
@@ -14443,7 +14443,7 @@ const se_TimeRangeFilterValue = (input: TimeRangeFilterValue, context: __SerdeCo
   return take(input, {
     Parameter: [],
     RollingDate: _json,
-    StaticValue: (_) => Math.round(_.getTime() / 1000),
+    StaticValue: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -14562,7 +14562,7 @@ const se_TopicRefreshSchedule = (input: TopicRefreshSchedule, context: __SerdeCo
     BasedOnSpiceSchedule: [],
     IsEnabled: [],
     RepeatAt: [],
-    StartingAt: (_) => Math.round(_.getTime() / 1000),
+    StartingAt: (_) => _.getTime() / 1_000,
     Timezone: [],
     TopicScheduleType: [],
   });
@@ -14918,7 +14918,7 @@ const se_WaterfallVisual = (input: WaterfallVisual, context: __SerdeContext): an
  */
 const se_WhatIfPointScenario = (input: WhatIfPointScenario, context: __SerdeContext): any => {
   return take(input, {
-    Date: (_) => Math.round(_.getTime() / 1000),
+    Date: (_) => _.getTime() / 1_000,
     Value: __serializeFloat,
   });
 };
@@ -14928,8 +14928,8 @@ const se_WhatIfPointScenario = (input: WhatIfPointScenario, context: __SerdeCont
  */
 const se_WhatIfRangeScenario = (input: WhatIfRangeScenario, context: __SerdeContext): any => {
   return take(input, {
-    EndDate: (_) => Math.round(_.getTime() / 1000),
-    StartDate: (_) => Math.round(_.getTime() / 1000),
+    EndDate: (_) => _.getTime() / 1_000,
+    StartDate: (_) => _.getTime() / 1_000,
     Value: __serializeFloat,
   });
 };

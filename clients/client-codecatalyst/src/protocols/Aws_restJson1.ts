@@ -14,6 +14,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -149,7 +150,7 @@ export const se_CreateAccessTokenCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      expiresTime: (_) => _.toISOString().split(".")[0] + "Z",
+      expiresTime: (_) => __serializeDateTime(_),
       name: [],
     })
   );
@@ -597,11 +598,11 @@ export const se_ListEventLogsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endTime: (_) => _.toISOString().split(".")[0] + "Z",
+      endTime: (_) => __serializeDateTime(_),
       eventName: [],
       maxResults: [],
       nextToken: [],
-      startTime: (_) => _.toISOString().split(".")[0] + "Z",
+      startTime: (_) => __serializeDateTime(_),
     })
   );
   b.m("POST").h(headers).b(body);

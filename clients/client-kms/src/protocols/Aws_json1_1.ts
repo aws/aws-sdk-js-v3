@@ -2978,7 +2978,7 @@ const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: _
     ExpirationModel: [],
     ImportToken: context.base64Encoder,
     KeyId: [],
-    ValidTo: (_) => Math.round(_.getTime() / 1000),
+    ValidTo: (_) => _.getTime() / 1_000,
   });
 };
 

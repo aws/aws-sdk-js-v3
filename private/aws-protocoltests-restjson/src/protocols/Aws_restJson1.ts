@@ -36,6 +36,7 @@ import {
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
   strictParseByte as __strictParseByte,
@@ -378,10 +379,10 @@ export const se_AllQueryStringTypesCommand = async (
       () => input.queryBooleanList !== void 0,
       () => (input[_qBL]! || []).map((_entry) => _entry.toString() as any),
     ],
-    [_T]: [() => input.queryTimestamp !== void 0, () => (input[_qT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_T]: [() => input.queryTimestamp !== void 0, () => __serializeDateTime(input[_qT]!).toString()],
     [_TL]: [
       () => input.queryTimestampList !== void 0,
-      () => (input[_qTL]! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
+      () => (input[_qTL]! || []).map((_entry) => __serializeDateTime(_entry).toString() as any),
     ],
     [_E]: [, input[_qE]!],
     [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
@@ -879,7 +880,7 @@ export const se_HttpRequestWithLabelsCommand = async (
   b.p("float", () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()), "{float}", false);
   b.p("double", () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()), "{double}", false);
   b.p("boolean", () => input.boolean!.toString(), "{boolean}", false);
-  b.p("timestamp", () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(), "{timestamp}", false);
+  b.p("timestamp", () => __serializeDateTime(input.timestamp!).toString(), "{timestamp}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -899,36 +900,21 @@ export const se_HttpRequestWithLabelsAndTimestampFormatCommand = async (
   );
   b.p(
     "memberEpochSeconds",
-    () => Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
+    () => (input.memberEpochSeconds!.getTime() / 1_000).toString(),
     "{memberEpochSeconds}",
     false
   );
   b.p("memberHttpDate", () => __dateToUtcString(input.memberHttpDate!).toString(), "{memberHttpDate}", false);
-  b.p(
-    "memberDateTime",
-    () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
-    "{memberDateTime}",
-    false
-  );
-  b.p(
-    "defaultFormat",
-    () => (input.defaultFormat!.toISOString().split(".")[0] + "Z").toString(),
-    "{defaultFormat}",
-    false
-  );
+  b.p("memberDateTime", () => __serializeDateTime(input.memberDateTime!).toString(), "{memberDateTime}", false);
+  b.p("defaultFormat", () => __serializeDateTime(input.defaultFormat!).toString(), "{defaultFormat}", false);
   b.p(
     "targetEpochSeconds",
-    () => Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
+    () => (input.targetEpochSeconds!.getTime() / 1_000).toString(),
     "{targetEpochSeconds}",
     false
   );
   b.p("targetHttpDate", () => __dateToUtcString(input.targetHttpDate!).toString(), "{targetHttpDate}", false);
-  b.p(
-    "targetDateTime",
-    () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
-    "{targetDateTime}",
-    false
-  );
+  b.p("targetDateTime", () => __serializeDateTime(input.targetDateTime!).toString(), "{targetDateTime}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1214,13 +1200,13 @@ export const se_JsonTimestampsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      dateTime: (_) => _.toISOString().split(".")[0] + "Z",
-      dateTimeOnTarget: (_) => _.toISOString().split(".")[0] + "Z",
-      epochSeconds: (_) => Math.round(_.getTime() / 1000),
-      epochSecondsOnTarget: (_) => Math.round(_.getTime() / 1000),
+      dateTime: (_) => __serializeDateTime(_),
+      dateTimeOnTarget: (_) => __serializeDateTime(_),
+      epochSeconds: (_) => _.getTime() / 1_000,
+      epochSecondsOnTarget: (_) => _.getTime() / 1_000,
       httpDate: (_) => __dateToUtcString(_),
       httpDateOnTarget: (_) => __dateToUtcString(_),
-      normal: (_) => Math.round(_.getTime() / 1000),
+      normal: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1718,7 +1704,7 @@ export const se_MalformedTimestampBodyDateTimeCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      timestamp: (_) => _.toISOString().split(".")[0] + "Z",
+      timestamp: (_) => __serializeDateTime(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1740,7 +1726,7 @@ export const se_MalformedTimestampBodyDefaultCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      timestamp: (_) => Math.round(_.getTime() / 1000),
+      timestamp: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1778,7 +1764,7 @@ export const se_MalformedTimestampHeaderDateTimeCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_t]: [() => isSerializableHeaderValue(input[_t]), () => (input[_t]!.toISOString().split(".")[0] + "Z").toString()],
+    [_t]: [() => isSerializableHeaderValue(input[_t]), () => __serializeDateTime(input[_t]!).toString()],
   });
   b.bp("/MalformedTimestampHeaderDateTime");
   let body: any;
@@ -1812,7 +1798,7 @@ export const se_MalformedTimestampHeaderEpochCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_t]: [() => isSerializableHeaderValue(input[_t]), () => Math.round(input[_t]!.getTime() / 1000).toString()],
+    [_t]: [() => isSerializableHeaderValue(input[_t]), () => (input[_t]!.getTime() / 1_000).toString()],
   });
   b.bp("/MalformedTimestampHeaderEpoch");
   let body: any;
@@ -1830,7 +1816,7 @@ export const se_MalformedTimestampPathDefaultCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/MalformedTimestampPathDefault/{timestamp}");
-  b.p("timestamp", () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(), "{timestamp}", false);
+  b.p("timestamp", () => __serializeDateTime(input.timestamp!).toString(), "{timestamp}", false);
   let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
@@ -1846,7 +1832,7 @@ export const se_MalformedTimestampPathEpochCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/MalformedTimestampPathEpoch/{timestamp}");
-  b.p("timestamp", () => Math.round(input.timestamp!.getTime() / 1000).toString(), "{timestamp}", false);
+  b.p("timestamp", () => (input.timestamp!.getTime() / 1_000).toString(), "{timestamp}", false);
   let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
@@ -1879,10 +1865,7 @@ export const se_MalformedTimestampQueryDefaultCommand = async (
   const headers: any = {};
   b.bp("/MalformedTimestampQueryDefault");
   const query: any = map({
-    [_t]: [
-      __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => (input[_t]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_t]: [__expectNonNull(input.timestamp, `timestamp`) != null, () => __serializeDateTime(input[_t]!).toString()],
   });
   let body: any;
   b.m("POST").h(headers).q(query).b(body);
@@ -1900,10 +1883,7 @@ export const se_MalformedTimestampQueryEpochCommand = async (
   const headers: any = {};
   b.bp("/MalformedTimestampQueryEpoch");
   const query: any = map({
-    [_t]: [
-      __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => Math.round(input[_t]!.getTime() / 1000).toString(),
-    ],
+    [_t]: [__expectNonNull(input.timestamp, `timestamp`) != null, () => (input[_t]!.getTime() / 1_000).toString()],
   });
   let body: any;
   b.m("POST").h(headers).q(query).b(body);
@@ -2095,7 +2075,7 @@ export const se_OmitsSerializingEmptyListsCommand = async (
     ],
     [_TL]: [
       () => input.queryTimestampList !== void 0,
-      () => (input[_qTL]! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
+      () => (input[_qTL]! || []).map((_entry) => __serializeDateTime(_entry).toString() as any),
     ],
     [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
     [_IEL]: [
@@ -2489,19 +2469,13 @@ export const se_TimestampFormatHeadersCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xm]: [() => isSerializableHeaderValue(input[_mES]), () => Math.round(input[_mES]!.getTime() / 1000).toString()],
+    [_xm]: [() => isSerializableHeaderValue(input[_mES]), () => (input[_mES]!.getTime() / 1_000).toString()],
     [_xm_]: [() => isSerializableHeaderValue(input[_mHD]), () => __dateToUtcString(input[_mHD]!).toString()],
-    [_xm__]: [
-      () => isSerializableHeaderValue(input[_mDT]),
-      () => (input[_mDT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_xm__]: [() => isSerializableHeaderValue(input[_mDT]), () => __serializeDateTime(input[_mDT]!).toString()],
     [_xd_]: [() => isSerializableHeaderValue(input[_dF]), () => __dateToUtcString(input[_dF]!).toString()],
-    [_xt_]: [() => isSerializableHeaderValue(input[_tES]), () => Math.round(input[_tES]!.getTime() / 1000).toString()],
+    [_xt_]: [() => isSerializableHeaderValue(input[_tES]), () => (input[_tES]!.getTime() / 1_000).toString()],
     [_xt__]: [() => isSerializableHeaderValue(input[_tHD]), () => __dateToUtcString(input[_tHD]!).toString()],
-    [_xt___]: [
-      () => isSerializableHeaderValue(input[_tDT]),
-      () => (input[_tDT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_xt___]: [() => isSerializableHeaderValue(input[_tDT]), () => __serializeDateTime(input[_tDT]!).toString()],
   });
   b.bp("/TimestampFormatHeaders");
   let body: any;
@@ -4518,7 +4492,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     renamedStructureValue: (value) => ({ renamedStructureValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: _json(value) }),
-    timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
+    timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -4710,7 +4684,7 @@ const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return Math.round(entry.getTime() / 1000);
+      return entry.getTime() / 1_000;
     });
 };
 

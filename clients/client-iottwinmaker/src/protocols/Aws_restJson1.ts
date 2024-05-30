@@ -762,7 +762,7 @@ export const se_GetPropertyValueHistoryCommand = async (
       componentName: [],
       componentPath: [],
       componentTypeId: [],
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       endTime: [],
       entityId: [],
       interpolation: (_) => _json(_),
@@ -771,7 +771,7 @@ export const se_GetPropertyValueHistoryCommand = async (
       orderByTime: [],
       propertyFilters: (_) => se_PropertyFilters(_, context),
       selectedProperties: (_) => _json(_),
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
       startTime: [],
     })
   );
@@ -2952,7 +2952,7 @@ const se_PropertyRequests = (input: Record<string, PropertyRequest>, context: __
 const se_PropertyValue = (input: PropertyValue, context: __SerdeContext): any => {
   return take(input, {
     time: [],
-    timestamp: (_) => Math.round(_.getTime() / 1000),
+    timestamp: (_) => _.getTime() / 1_000,
     value: (_) => se_DataValue(_, context),
   });
 };

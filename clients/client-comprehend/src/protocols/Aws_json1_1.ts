@@ -3810,8 +3810,8 @@ const se_CreateFlywheelRequest = (input: CreateFlywheelRequest, context: __Serde
  */
 const se_DatasetFilter = (input: DatasetFilter, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     DatasetType: [],
     Status: [],
   });
@@ -3897,8 +3897,8 @@ const se_DocumentClassificationJobFilter = (input: DocumentClassificationJobFilt
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3913,8 +3913,8 @@ const se_DocumentClassifierFilter = (input: DocumentClassifierFilter, context: _
   return take(input, {
     DocumentClassifierName: [],
     Status: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3934,8 +3934,8 @@ const se_DominantLanguageDetectionJobFilter = (
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3944,8 +3944,8 @@ const se_DominantLanguageDetectionJobFilter = (
  */
 const se_EndpointFilter = (input: EndpointFilter, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     ModelArn: [],
     Status: [],
   });
@@ -3958,8 +3958,8 @@ const se_EntitiesDetectionJobFilter = (input: EntitiesDetectionJobFilter, contex
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3980,8 +3980,8 @@ const se_EntityRecognizerFilter = (input: EntityRecognizerFilter, context: __Ser
   return take(input, {
     RecognizerName: [],
     Status: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -3998,8 +3998,8 @@ const se_EventsDetectionJobFilter = (input: EventsDetectionJobFilter, context: _
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4008,8 +4008,8 @@ const se_EventsDetectionJobFilter = (input: EventsDetectionJobFilter, context: _
  */
 const se_FlywheelFilter = (input: FlywheelFilter, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     Status: [],
   });
 };
@@ -4019,8 +4019,8 @@ const se_FlywheelFilter = (input: FlywheelFilter, context: __SerdeContext): any 
  */
 const se_FlywheelIterationFilter = (input: FlywheelIterationFilter, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4035,8 +4035,8 @@ const se_KeyPhrasesDetectionJobFilter = (input: KeyPhrasesDetectionJobFilter, co
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4251,8 +4251,8 @@ const se_PiiEntitiesDetectionJobFilter = (input: PiiEntitiesDetectionJobFilter, 
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4269,8 +4269,8 @@ const se_SentimentDetectionJobFilter = (input: SentimentDetectionJobFilter, cont
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4486,8 +4486,8 @@ const se_TargetedSentimentDetectionJobFilter = (
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -4504,8 +4504,8 @@ const se_TopicsDetectionJobFilter = (input: TopicsDetectionJobFilter, context: _
   return take(input, {
     JobName: [],
     JobStatus: [],
-    SubmitTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    SubmitTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    SubmitTimeAfter: (_) => _.getTime() / 1_000,
+    SubmitTimeBefore: (_) => _.getTime() / 1_000,
   });
 };
 

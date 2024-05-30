@@ -83,7 +83,7 @@ export const se_CreateSavingsPlanCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       commitment: [],
-      purchaseTime: (_) => Math.round(_.getTime() / 1000),
+      purchaseTime: (_) => _.getTime() / 1_000,
       savingsPlanOfferingId: [],
       tags: (_) => _json(_),
       upfrontPaymentAmount: [],

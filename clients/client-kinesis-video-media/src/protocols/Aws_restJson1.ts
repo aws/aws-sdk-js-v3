@@ -241,7 +241,7 @@ const se_StartSelector = (input: StartSelector, context: __SerdeContext): any =>
     AfterFragmentNumber: [],
     ContinuationToken: [],
     StartSelectorType: [],
-    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+    StartTimestamp: (_) => _.getTime() / 1_000,
   });
 };
 

@@ -274,8 +274,8 @@ export const se_DescribeAccountOverviewCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      FromTime: (_) => Math.round(_.getTime() / 1000),
-      ToTime: (_) => Math.round(_.getTime() / 1000),
+      FromTime: (_) => _.getTime() / 1_000,
+      ToTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -399,9 +399,9 @@ export const se_DescribeOrganizationOverviewCommand = async (
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
-      FromTime: (_) => Math.round(_.getTime() / 1000),
+      FromTime: (_) => _.getTime() / 1_000,
       OrganizationalUnitIds: (_) => _json(_),
-      ToTime: (_) => Math.round(_.getTime() / 1000),
+      ToTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1754,8 +1754,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_EndTimeRange = (input: EndTimeRange, context: __SerdeContext): any => {
   return take(input, {
-    FromTime: (_) => Math.round(_.getTime() / 1000),
-    ToTime: (_) => Math.round(_.getTime() / 1000),
+    FromTime: (_) => _.getTime() / 1_000,
+    ToTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1766,8 +1766,8 @@ const se_EndTimeRange = (input: EndTimeRange, context: __SerdeContext): any => {
  */
 const se_EventTimeRange = (input: EventTimeRange, context: __SerdeContext): any => {
   return take(input, {
-    FromTime: (_) => Math.round(_.getTime() / 1000),
-    ToTime: (_) => Math.round(_.getTime() / 1000),
+    FromTime: (_) => _.getTime() / 1_000,
+    ToTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -1869,8 +1869,8 @@ const se_ListInsightsStatusFilter = (input: ListInsightsStatusFilter, context: _
  */
 const se_StartTimeRange = (input: StartTimeRange, context: __SerdeContext): any => {
   return take(input, {
-    FromTime: (_) => Math.round(_.getTime() / 1000),
-    ToTime: (_) => Math.round(_.getTime() / 1000),
+    FromTime: (_) => _.getTime() / 1_000,
+    ToTime: (_) => _.getTime() / 1_000,
   });
 };
 

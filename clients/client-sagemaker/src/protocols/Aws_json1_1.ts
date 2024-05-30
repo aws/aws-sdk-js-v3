@@ -13119,12 +13119,12 @@ const se_CreatePipelineRequest = (input: CreatePipelineRequest, context: __Serde
 const se_CreateTrialComponentRequest = (input: CreateTrialComponentRequest, context: __SerdeContext): any => {
   return take(input, {
     DisplayName: [],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     InputArtifacts: _json,
     MetadataProperties: _json,
     OutputArtifacts: _json,
     Parameters: (_) => se_TrialComponentParameters(_, context),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
     Status: _json,
     Tags: _json,
     TrialComponentName: [],
@@ -13740,8 +13740,8 @@ const se_InferenceComponentSpecification = (input: InferenceComponentSpecificati
  */
 const se_InferenceExperimentSchedule = (input: InferenceExperimentSchedule, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => Math.round(_.getTime() / 1000),
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
+    StartTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -13815,8 +13815,8 @@ const se_InferenceExperimentSchedule = (input: InferenceExperimentSchedule, cont
 const se_ListActionsRequest = (input: ListActionsRequest, context: __SerdeContext): any => {
   return take(input, {
     ActionType: [],
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortBy: [],
@@ -13830,8 +13830,8 @@ const se_ListActionsRequest = (input: ListActionsRequest, context: __SerdeContex
  */
 const se_ListAlgorithmsInput = (input: ListAlgorithmsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -13847,11 +13847,11 @@ const se_ListAlgorithmsInput = (input: ListAlgorithmsInput, context: __SerdeCont
  */
 const se_ListAppImageConfigsRequest = (input: ListAppImageConfigsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
-    ModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    ModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    ModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    ModifiedTimeBefore: (_) => _.getTime() / 1_000,
     NameContains: [],
     NextToken: [],
     SortBy: [],
@@ -13867,8 +13867,8 @@ const se_ListAppImageConfigsRequest = (input: ListAppImageConfigsRequest, contex
 const se_ListArtifactsRequest = (input: ListArtifactsRequest, context: __SerdeContext): any => {
   return take(input, {
     ArtifactType: [],
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortBy: [],
@@ -13883,8 +13883,8 @@ const se_ListArtifactsRequest = (input: ListArtifactsRequest, context: __SerdeCo
 const se_ListAssociationsRequest = (input: ListAssociationsRequest, context: __SerdeContext): any => {
   return take(input, {
     AssociationType: [],
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     DestinationArn: [],
     DestinationType: [],
     MaxResults: [],
@@ -13901,10 +13901,10 @@ const se_ListAssociationsRequest = (input: ListAssociationsRequest, context: __S
  */
 const se_ListAutoMLJobsRequest = (input: ListAutoMLJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -13922,8 +13922,8 @@ const se_ListAutoMLJobsRequest = (input: ListAutoMLJobsRequest, context: __Serde
 const se_ListClusterNodesRequest = (input: ListClusterNodesRequest, context: __SerdeContext): any => {
   return take(input, {
     ClusterName: [],
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     InstanceGroupNameContains: [],
     MaxResults: [],
     NextToken: [],
@@ -13937,8 +13937,8 @@ const se_ListClusterNodesRequest = (input: ListClusterNodesRequest, context: __S
  */
 const se_ListClustersRequest = (input: ListClustersRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -13952,10 +13952,10 @@ const se_ListClustersRequest = (input: ListClustersRequest, context: __SerdeCont
  */
 const se_ListCodeRepositoriesInput = (input: ListCodeRepositoriesInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -13969,10 +13969,10 @@ const se_ListCodeRepositoriesInput = (input: ListCodeRepositoriesInput, context:
  */
 const se_ListCompilationJobsRequest = (input: ListCompilationJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -13988,8 +13988,8 @@ const se_ListCompilationJobsRequest = (input: ListCompilationJobsRequest, contex
 const se_ListContextsRequest = (input: ListContextsRequest, context: __SerdeContext): any => {
   return take(input, {
     ContextType: [],
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortBy: [],
@@ -14006,8 +14006,8 @@ const se_ListDataQualityJobDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     EndpointName: [],
     MaxResults: [],
     NameContains: [],
@@ -14022,10 +14022,10 @@ const se_ListDataQualityJobDefinitionsRequest = (
  */
 const se_ListDeviceFleetsRequest = (input: ListDeviceFleetsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14040,7 +14040,7 @@ const se_ListDeviceFleetsRequest = (input: ListDeviceFleetsRequest, context: __S
 const se_ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
   return take(input, {
     DeviceFleetName: [],
-    LatestHeartbeatAfter: (_) => Math.round(_.getTime() / 1000),
+    LatestHeartbeatAfter: (_) => _.getTime() / 1_000,
     MaxResults: [],
     ModelName: [],
     NextToken: [],
@@ -14054,11 +14054,11 @@ const se_ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContex
  */
 const se_ListEdgeDeploymentPlansRequest = (input: ListEdgeDeploymentPlansRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     DeviceFleetNameContains: [],
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14072,10 +14072,10 @@ const se_ListEdgeDeploymentPlansRequest = (input: ListEdgeDeploymentPlansRequest
  */
 const se_ListEdgePackagingJobsRequest = (input: ListEdgePackagingJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     ModelNameContains: [],
     NameContains: [],
@@ -14091,8 +14091,8 @@ const se_ListEdgePackagingJobsRequest = (input: ListEdgePackagingJobsRequest, co
  */
 const se_ListEndpointConfigsInput = (input: ListEndpointConfigsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14106,10 +14106,10 @@ const se_ListEndpointConfigsInput = (input: ListEndpointConfigsInput, context: _
  */
 const se_ListEndpointsInput = (input: ListEndpointsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14124,8 +14124,8 @@ const se_ListEndpointsInput = (input: ListEndpointsInput, context: __SerdeContex
  */
 const se_ListExperimentsRequest = (input: ListExperimentsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortBy: [],
@@ -14138,8 +14138,8 @@ const se_ListExperimentsRequest = (input: ListExperimentsRequest, context: __Ser
  */
 const se_ListFeatureGroupsRequest = (input: ListFeatureGroupsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     FeatureGroupStatusEquals: [],
     MaxResults: [],
     NameContains: [],
@@ -14155,8 +14155,8 @@ const se_ListFeatureGroupsRequest = (input: ListFeatureGroupsRequest, context: _
  */
 const se_ListFlowDefinitionsRequest = (input: ListFlowDefinitionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortOrder: [],
@@ -14168,8 +14168,8 @@ const se_ListFlowDefinitionsRequest = (input: ListFlowDefinitionsRequest, contex
  */
 const se_ListHubContentsRequest = (input: ListHubContentsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     HubContentType: [],
     HubName: [],
     MaxResults: [],
@@ -14186,8 +14186,8 @@ const se_ListHubContentsRequest = (input: ListHubContentsRequest, context: __Ser
  */
 const se_ListHubContentVersionsRequest = (input: ListHubContentVersionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     HubContentName: [],
     HubContentType: [],
     HubName: [],
@@ -14205,10 +14205,10 @@ const se_ListHubContentVersionsRequest = (input: ListHubContentVersionsRequest, 
  */
 const se_ListHubsRequest = (input: ListHubsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14222,8 +14222,8 @@ const se_ListHubsRequest = (input: ListHubsRequest, context: __SerdeContext): an
  */
 const se_ListHumanTaskUisRequest = (input: ListHumanTaskUisRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortOrder: [],
@@ -14238,10 +14238,10 @@ const se_ListHyperParameterTuningJobsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14256,10 +14256,10 @@ const se_ListHyperParameterTuningJobsRequest = (
  */
 const se_ListImagesRequest = (input: ListImagesRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14273,11 +14273,11 @@ const se_ListImagesRequest = (input: ListImagesRequest, context: __SerdeContext)
  */
 const se_ListImageVersionsRequest = (input: ListImageVersionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     ImageName: [],
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortBy: [],
@@ -14290,11 +14290,11 @@ const se_ListImageVersionsRequest = (input: ListImageVersionsRequest, context: _
  */
 const se_ListInferenceComponentsInput = (input: ListInferenceComponentsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     EndpointNameEquals: [],
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14310,10 +14310,10 @@ const se_ListInferenceComponentsInput = (input: ListInferenceComponentsInput, co
  */
 const se_ListInferenceExperimentsRequest = (input: ListInferenceExperimentsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14332,10 +14332,10 @@ const se_ListInferenceRecommendationsJobsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     ModelNameEquals: [],
     ModelPackageVersionArnEquals: [],
@@ -14357,8 +14357,8 @@ const se_ListLabelingJobsForWorkteamRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     JobReferenceCodeContains: [],
     MaxResults: [],
     NextToken: [],
@@ -14373,10 +14373,10 @@ const se_ListLabelingJobsForWorkteamRequest = (
  */
 const se_ListLabelingJobsRequest = (input: ListLabelingJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14393,8 +14393,8 @@ const se_ListLabelingJobsRequest = (input: ListLabelingJobsRequest, context: __S
  */
 const se_ListLineageGroupsRequest = (input: ListLineageGroupsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     SortBy: [],
@@ -14410,8 +14410,8 @@ const se_ListModelBiasJobDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     EndpointName: [],
     MaxResults: [],
     NameContains: [],
@@ -14426,8 +14426,8 @@ const se_ListModelBiasJobDefinitionsRequest = (
  */
 const se_ListModelCardExportJobsRequest = (input: ListModelCardExportJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     ModelCardExportJobNameContains: [],
     ModelCardName: [],
@@ -14444,8 +14444,8 @@ const se_ListModelCardExportJobsRequest = (input: ListModelCardExportJobsRequest
  */
 const se_ListModelCardsRequest = (input: ListModelCardsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     ModelCardStatus: [],
     NameContains: [],
@@ -14460,8 +14460,8 @@ const se_ListModelCardsRequest = (input: ListModelCardsRequest, context: __Serde
  */
 const se_ListModelCardVersionsRequest = (input: ListModelCardVersionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     ModelCardName: [],
     ModelCardStatus: [],
@@ -14479,8 +14479,8 @@ const se_ListModelExplainabilityJobDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     EndpointName: [],
     MaxResults: [],
     NameContains: [],
@@ -14497,8 +14497,8 @@ const se_ListModelExplainabilityJobDefinitionsRequest = (
  */
 const se_ListModelPackageGroupsInput = (input: ListModelPackageGroupsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14512,8 +14512,8 @@ const se_ListModelPackageGroupsInput = (input: ListModelPackageGroupsInput, cont
  */
 const se_ListModelPackagesInput = (input: ListModelPackagesInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     ModelApprovalStatus: [],
     ModelPackageGroupName: [],
@@ -14533,8 +14533,8 @@ const se_ListModelQualityJobDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     EndpointName: [],
     MaxResults: [],
     NameContains: [],
@@ -14549,8 +14549,8 @@ const se_ListModelQualityJobDefinitionsRequest = (
  */
 const se_ListModelsInput = (input: ListModelsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14567,8 +14567,8 @@ const se_ListMonitoringAlertHistoryRequest = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     MonitoringAlertName: [],
     MonitoringScheduleName: [],
@@ -14586,18 +14586,18 @@ const se_ListMonitoringAlertHistoryRequest = (
  */
 const se_ListMonitoringExecutionsRequest = (input: ListMonitoringExecutionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     EndpointName: [],
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     MonitoringJobDefinitionName: [],
     MonitoringScheduleName: [],
     MonitoringTypeEquals: [],
     NextToken: [],
-    ScheduledTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    ScheduledTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    ScheduledTimeAfter: (_) => _.getTime() / 1_000,
+    ScheduledTimeBefore: (_) => _.getTime() / 1_000,
     SortBy: [],
     SortOrder: [],
     StatusEquals: [],
@@ -14609,11 +14609,11 @@ const se_ListMonitoringExecutionsRequest = (input: ListMonitoringExecutionsReque
  */
 const se_ListMonitoringSchedulesRequest = (input: ListMonitoringSchedulesRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     EndpointName: [],
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     MonitoringJobDefinitionName: [],
     MonitoringTypeEquals: [],
@@ -14633,10 +14633,10 @@ const se_ListNotebookInstanceLifecycleConfigsInput = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14651,11 +14651,11 @@ const se_ListNotebookInstanceLifecycleConfigsInput = (
 const se_ListNotebookInstancesInput = (input: ListNotebookInstancesInput, context: __SerdeContext): any => {
   return take(input, {
     AdditionalCodeRepositoryEquals: [],
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     DefaultCodeRepositoryContains: [],
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14671,8 +14671,8 @@ const se_ListNotebookInstancesInput = (input: ListNotebookInstancesInput, contex
  */
 const se_ListPipelineExecutionsRequest = (input: ListPipelineExecutionsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     PipelineName: [],
@@ -14690,8 +14690,8 @@ const se_ListPipelineExecutionsRequest = (input: ListPipelineExecutionsRequest, 
  */
 const se_ListPipelinesRequest = (input: ListPipelinesRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
     PipelineNamePrefix: [],
@@ -14705,10 +14705,10 @@ const se_ListPipelinesRequest = (input: ListPipelinesRequest, context: __SerdeCo
  */
 const se_ListProcessingJobsRequest = (input: ListProcessingJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14723,8 +14723,8 @@ const se_ListProcessingJobsRequest = (input: ListProcessingJobsRequest, context:
  */
 const se_ListProjectsInput = (input: ListProjectsInput, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14738,8 +14738,8 @@ const se_ListProjectsInput = (input: ListProjectsInput, context: __SerdeContext)
  */
 const se_ListResourceCatalogsRequest = (input: ListResourceCatalogsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14761,11 +14761,11 @@ const se_ListStudioLifecycleConfigsRequest = (
 ): any => {
   return take(input, {
     AppTypeEquals: [],
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
-    ModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    ModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    ModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    ModifiedTimeBefore: (_) => _.getTime() / 1_000,
     NameContains: [],
     NextToken: [],
     SortBy: [],
@@ -14784,10 +14784,10 @@ const se_ListStudioLifecycleConfigsRequest = (
  */
 const se_ListTrainingJobsRequest = (input: ListTrainingJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14803,10 +14803,10 @@ const se_ListTrainingJobsRequest = (input: ListTrainingJobsRequest, context: __S
  */
 const se_ListTransformJobsRequest = (input: ListTransformJobsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeAfter: (_) => Math.round(_.getTime() / 1000),
-    LastModifiedTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeAfter: (_) => _.getTime() / 1_000,
+    CreationTimeBefore: (_) => _.getTime() / 1_000,
+    LastModifiedTimeAfter: (_) => _.getTime() / 1_000,
+    LastModifiedTimeBefore: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -14823,8 +14823,8 @@ const se_ListTransformJobsRequest = (input: ListTransformJobsRequest, context: _
  */
 const se_ListTrialComponentsRequest = (input: ListTrialComponentsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     ExperimentName: [],
     MaxResults: [],
     NextToken: [],
@@ -14840,8 +14840,8 @@ const se_ListTrialComponentsRequest = (input: ListTrialComponentsRequest, contex
  */
 const se_ListTrialsRequest = (input: ListTrialsRequest, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     ExperimentName: [],
     MaxResults: [],
     NextToken: [],
@@ -15211,11 +15211,11 @@ const se_ProductionVariantList = (input: ProductionVariant[], context: __SerdeCo
  */
 const se_QueryFilters = (input: QueryFilters, context: __SerdeContext): any => {
   return take(input, {
-    CreatedAfter: (_) => Math.round(_.getTime() / 1000),
-    CreatedBefore: (_) => Math.round(_.getTime() / 1000),
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
     LineageTypes: _json,
-    ModifiedAfter: (_) => Math.round(_.getTime() / 1000),
-    ModifiedBefore: (_) => Math.round(_.getTime() / 1000),
+    ModifiedAfter: (_) => _.getTime() / 1_000,
+    ModifiedBefore: (_) => _.getTime() / 1_000,
     Properties: _json,
     Types: _json,
   });
@@ -15745,14 +15745,14 @@ const se_UpdateMonitoringScheduleRequest = (input: UpdateMonitoringScheduleReque
 const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, context: __SerdeContext): any => {
   return take(input, {
     DisplayName: [],
-    EndTime: (_) => Math.round(_.getTime() / 1000),
+    EndTime: (_) => _.getTime() / 1_000,
     InputArtifacts: _json,
     InputArtifactsToRemove: _json,
     OutputArtifacts: _json,
     OutputArtifactsToRemove: _json,
     Parameters: (_) => se_TrialComponentParameters(_, context),
     ParametersToRemove: _json,
-    StartTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => _.getTime() / 1_000,
     Status: _json,
     TrialComponentName: [],
   });

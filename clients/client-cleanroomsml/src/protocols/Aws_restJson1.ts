@@ -16,6 +16,7 @@ import {
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -158,8 +159,8 @@ export const se_CreateAudienceModelCommand = async (
       kmsKeyArn: [],
       name: [],
       tags: (_) => _json(_),
-      trainingDataEndTime: (_) => _.toISOString().split(".")[0] + "Z",
-      trainingDataStartTime: (_) => _.toISOString().split(".")[0] + "Z",
+      trainingDataEndTime: (_) => __serializeDateTime(_),
+      trainingDataStartTime: (_) => __serializeDateTime(_),
       trainingDatasetArn: [],
     })
   );

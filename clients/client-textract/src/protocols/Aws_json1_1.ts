@@ -1489,8 +1489,8 @@ const se_DocumentPages = (input: Document[], context: __SerdeContext): any => {
  */
 const se_ListAdaptersRequest = (input: ListAdaptersRequest, context: __SerdeContext): any => {
   return take(input, {
-    AfterCreationTime: (_) => Math.round(_.getTime() / 1000),
-    BeforeCreationTime: (_) => Math.round(_.getTime() / 1000),
+    AfterCreationTime: (_) => _.getTime() / 1_000,
+    BeforeCreationTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
   });
@@ -1502,8 +1502,8 @@ const se_ListAdaptersRequest = (input: ListAdaptersRequest, context: __SerdeCont
 const se_ListAdapterVersionsRequest = (input: ListAdapterVersionsRequest, context: __SerdeContext): any => {
   return take(input, {
     AdapterId: [],
-    AfterCreationTime: (_) => Math.round(_.getTime() / 1000),
-    BeforeCreationTime: (_) => Math.round(_.getTime() / 1000),
+    AfterCreationTime: (_) => _.getTime() / 1_000,
+    BeforeCreationTime: (_) => _.getTime() / 1_000,
     MaxResults: [],
     NextToken: [],
   });

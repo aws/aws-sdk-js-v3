@@ -18,6 +18,7 @@ import {
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
+  serializeDateTime as __serializeDateTime,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -1029,14 +1030,8 @@ export const se_ListAppsCommand = async (
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_n]: [, input[_n]!],
     [_aA]: [, input[_aA]!],
-    [_fLAT]: [
-      () => input.fromLastAssessmentTime !== void 0,
-      () => (input[_fLAT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    [_tLAT]: [
-      () => input.toLastAssessmentTime !== void 0,
-      () => (input[_tLAT]!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_fLAT]: [() => input.fromLastAssessmentTime !== void 0, () => __serializeDateTime(input[_fLAT]!).toString()],
+    [_tLAT]: [() => input.toLastAssessmentTime !== void 0, () => __serializeDateTime(input[_tLAT]!).toString()],
     [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
   });
   let body: any;
@@ -1136,10 +1131,10 @@ export const se_ListAppVersionsCommand = async (
   body = JSON.stringify(
     take(input, {
       appArn: [],
-      endTime: (_) => Math.round(_.getTime() / 1000),
+      endTime: (_) => _.getTime() / 1_000,
       maxResults: [],
       nextToken: [],
-      startTime: (_) => Math.round(_.getTime() / 1000),
+      startTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);

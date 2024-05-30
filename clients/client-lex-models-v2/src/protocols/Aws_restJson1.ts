@@ -1946,13 +1946,13 @@ export const se_ListIntentMetricsCommand = async (
   body = JSON.stringify(
     take(input, {
       binBy: (_) => _json(_),
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       filters: (_) => _json(_),
       groupBy: (_) => _json(_),
       maxResults: [],
       metrics: (_) => _json(_),
       nextToken: [],
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1975,10 +1975,10 @@ export const se_ListIntentPathsCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       filters: (_) => _json(_),
       intentPath: [],
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2030,13 +2030,13 @@ export const se_ListIntentStageMetricsCommand = async (
   body = JSON.stringify(
     take(input, {
       binBy: (_) => _json(_),
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       filters: (_) => _json(_),
       groupBy: (_) => _json(_),
       maxResults: [],
       metrics: (_) => _json(_),
       nextToken: [],
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2086,12 +2086,12 @@ export const se_ListSessionAnalyticsDataCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
       sortBy: (_) => _json(_),
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2115,13 +2115,13 @@ export const se_ListSessionMetricsCommand = async (
   body = JSON.stringify(
     take(input, {
       binBy: (_) => _json(_),
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       filters: (_) => _json(_),
       groupBy: (_) => _json(_),
       maxResults: [],
       metrics: (_) => _json(_),
       nextToken: [],
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2314,12 +2314,12 @@ export const se_ListUtteranceAnalyticsDataCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       filters: (_) => _json(_),
       maxResults: [],
       nextToken: [],
       sortBy: (_) => _json(_),
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2344,13 +2344,13 @@ export const se_ListUtteranceMetricsCommand = async (
     take(input, {
       attributes: (_) => _json(_),
       binBy: (_) => _json(_),
-      endDateTime: (_) => Math.round(_.getTime() / 1000),
+      endDateTime: (_) => _.getTime() / 1_000,
       filters: (_) => _json(_),
       groupBy: (_) => _json(_),
       maxResults: [],
       metrics: (_) => _json(_),
       nextToken: [],
-      startDateTime: (_) => Math.round(_.getTime() / 1000),
+      startDateTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("POST").h(headers).b(body);
@@ -5906,9 +5906,9 @@ const se_ConversationLogsDataSourceFilterBy = (
   context: __SerdeContext
 ): any => {
   return take(input, {
-    endTime: (_) => Math.round(_.getTime() / 1000),
+    endTime: (_) => _.getTime() / 1_000,
     inputMode: [],
-    startTime: (_) => Math.round(_.getTime() / 1000),
+    startTime: (_) => _.getTime() / 1_000,
   });
 };
 
@@ -5935,8 +5935,8 @@ const se_ConversationLogsDataSourceFilterBy = (
  */
 const se_DateRangeFilter = (input: DateRangeFilter, context: __SerdeContext): any => {
   return take(input, {
-    endDateTime: (_) => Math.round(_.getTime() / 1000),
-    startDateTime: (_) => Math.round(_.getTime() / 1000),
+    endDateTime: (_) => _.getTime() / 1_000,
+    startDateTime: (_) => _.getTime() / 1_000,
   });
 };
 
