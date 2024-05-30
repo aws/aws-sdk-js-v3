@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -7,19 +12,25 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
   expectString as __expectString,
   map,
   resolvedPath as __resolvedPath,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { ConverseCommandInput, ConverseCommandOutput } from "../commands/ConverseCommand";
+import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "../commands/ConverseStreamCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "../commands/InvokeModelCommand";
 import {
   InvokeModelWithResponseStreamCommandInput,
@@ -28,7 +39,22 @@ import {
 import { BedrockRuntimeServiceException as __BaseException } from "../models/BedrockRuntimeServiceException";
 import {
   AccessDeniedException,
+  AnyToolChoice,
+  AutoToolChoice,
+  ContentBlock,
+  ContentBlockDeltaEvent,
+  ContentBlockStartEvent,
+  ContentBlockStopEvent,
+  ConverseOutput,
+  ConverseStreamMetadataEvent,
+  ConverseStreamOutput,
+  ImageBlock,
+  ImageSource,
+  InferenceConfiguration,
   InternalServerException,
+  Message,
+  MessageStartEvent,
+  MessageStopEvent,
   ModelErrorException,
   ModelNotReadyException,
   ModelStreamErrorException,
@@ -37,9 +63,75 @@ import {
   ResourceNotFoundException,
   ResponseStream,
   ServiceQuotaExceededException,
+  SpecificToolChoice,
+  SystemContentBlock,
   ThrottlingException,
+  Tool,
+  ToolChoice,
+  ToolConfiguration,
+  ToolInputSchema,
+  ToolResultBlock,
+  ToolResultContentBlock,
+  ToolSpecification,
+  ToolUseBlock,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1ConverseCommand
+ */
+export const se_ConverseCommand = async (
+  input: ConverseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model/{modelId}/converse");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      additionalModelRequestFields: (_) => se_Document(_, context),
+      additionalModelResponseFieldPaths: (_) => _json(_),
+      inferenceConfig: (_) => se_InferenceConfiguration(_, context),
+      messages: (_) => se_Messages(_, context),
+      system: (_) => _json(_),
+      toolConfig: (_) => se_ToolConfiguration(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ConverseStreamCommand
+ */
+export const se_ConverseStreamCommand = async (
+  input: ConverseStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model/{modelId}/converse-stream");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      additionalModelRequestFields: (_) => se_Document(_, context),
+      additionalModelResponseFieldPaths: (_) => _json(_),
+      inferenceConfig: (_) => se_InferenceConfiguration(_, context),
+      messages: (_) => se_Messages(_, context),
+      system: (_) => _json(_),
+      toolConfig: (_) => se_ToolConfiguration(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1InvokeModelCommand
@@ -89,6 +181,49 @@ export const se_InvokeModelWithResponseStreamCommand = async (
   }
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1ConverseCommand
+ */
+export const de_ConverseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConverseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    additionalModelResponseFields: (_) => de_Document(_, context),
+    metrics: _json,
+    output: (_) => de_ConverseOutput(__expectUnion(_), context),
+    stopReason: __expectString,
+    usage: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ConverseStreamCommand
+ */
+export const de_ConverseStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<ConverseStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = output.body;
+  contents.stream = de_ConverseStreamOutput(data, context);
+  return contents;
 };
 
 /**
@@ -157,15 +292,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.bedrockruntime#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockruntime#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.bedrockruntime#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.bedrockruntime#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.bedrockruntime#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ModelStreamErrorException":
     case "com.amazonaws.bedrockruntime#ModelStreamErrorException":
       throw await de_ModelStreamErrorExceptionRes(parsedOutput, context);
@@ -376,6 +511,70 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_restJson1ConverseStreamOutput
+ */
+const de_ConverseStreamOutput = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<ConverseStreamOutput> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["messageStart"] != null) {
+      return {
+        messageStart: await de_MessageStartEvent_event(event["messageStart"], context),
+      };
+    }
+    if (event["contentBlockStart"] != null) {
+      return {
+        contentBlockStart: await de_ContentBlockStartEvent_event(event["contentBlockStart"], context),
+      };
+    }
+    if (event["contentBlockDelta"] != null) {
+      return {
+        contentBlockDelta: await de_ContentBlockDeltaEvent_event(event["contentBlockDelta"], context),
+      };
+    }
+    if (event["contentBlockStop"] != null) {
+      return {
+        contentBlockStop: await de_ContentBlockStopEvent_event(event["contentBlockStop"], context),
+      };
+    }
+    if (event["messageStop"] != null) {
+      return {
+        messageStop: await de_MessageStopEvent_event(event["messageStop"], context),
+      };
+    }
+    if (event["metadata"] != null) {
+      return {
+        metadata: await de_ConverseStreamMetadataEvent_event(event["metadata"], context),
+      };
+    }
+    if (event["internalServerException"] != null) {
+      return {
+        internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
+      };
+    }
+    if (event["modelStreamErrorException"] != null) {
+      return {
+        modelStreamErrorException: await de_ModelStreamErrorException_event(
+          event["modelStreamErrorException"],
+          context
+        ),
+      };
+    }
+    if (event["validationException"] != null) {
+      return {
+        validationException: await de_ValidationException_event(event["validationException"], context),
+      };
+    }
+    if (event["throttlingException"] != null) {
+      return {
+        throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+/**
  * deserializeAws_restJson1ResponseStream
  */
 const de_ResponseStream = (
@@ -419,6 +618,39 @@ const de_ResponseStream = (
     return { $unknown: output };
   });
 };
+const de_ContentBlockDeltaEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ContentBlockDeltaEvent> => {
+  const contents: ContentBlockDeltaEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_ContentBlockStartEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ContentBlockStartEvent> => {
+  const contents: ContentBlockStartEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_ContentBlockStopEvent_event = async (output: any, context: __SerdeContext): Promise<ContentBlockStopEvent> => {
+  const contents: ContentBlockStopEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_ConverseStreamMetadataEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ConverseStreamMetadataEvent> => {
+  const contents: ConverseStreamMetadataEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
 const de_InternalServerException_event = async (
   output: any,
   context: __SerdeContext
@@ -428,6 +660,18 @@ const de_InternalServerException_event = async (
     body: await parseBody(output.body, context),
   };
   return de_InternalServerExceptionRes(parsedOutput, context);
+};
+const de_MessageStartEvent_event = async (output: any, context: __SerdeContext): Promise<MessageStartEvent> => {
+  const contents: MessageStartEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_MessageStopEvent_event = async (output: any, context: __SerdeContext): Promise<MessageStopEvent> => {
+  const contents: MessageStopEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_MessageStopEvent(data, context));
+  return contents;
 };
 const de_ModelStreamErrorException_event = async (
   output: any,
@@ -466,6 +710,312 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
   };
   return de_ValidationExceptionRes(parsedOutput, context);
 };
+// se_AdditionalModelResponseFieldPaths omitted.
+
+// se_AnyToolChoice omitted.
+
+// se_AutoToolChoice omitted.
+
+/**
+ * serializeAws_restJson1ContentBlock
+ */
+const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
+  return ContentBlock.visit(input, {
+    image: (value) => ({ image: se_ImageBlock(value, context) }),
+    text: (value) => ({ text: value }),
+    toolResult: (value) => ({ toolResult: se_ToolResultBlock(value, context) }),
+    toolUse: (value) => ({ toolUse: se_ToolUseBlock(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1ContentBlocks
+ */
+const se_ContentBlocks = (input: ContentBlock[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ContentBlock(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ImageBlock
+ */
+const se_ImageBlock = (input: ImageBlock, context: __SerdeContext): any => {
+  return take(input, {
+    format: [],
+    source: (_) => se_ImageSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ImageSource
+ */
+const se_ImageSource = (input: ImageSource, context: __SerdeContext): any => {
+  return ImageSource.visit(input, {
+    bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1InferenceConfiguration
+ */
+const se_InferenceConfiguration = (input: InferenceConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    maxTokens: [],
+    stopSequences: _json,
+    temperature: __serializeFloat,
+    topP: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1Message
+ */
+const se_Message = (input: Message, context: __SerdeContext): any => {
+  return take(input, {
+    content: (_) => se_ContentBlocks(_, context),
+    role: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1Messages
+ */
+const se_Messages = (input: Message[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Message(entry, context);
+    });
+};
+
+// se_NonEmptyStringList omitted.
+
+// se_SpecificToolChoice omitted.
+
+// se_SystemContentBlock omitted.
+
+// se_SystemContentBlocks omitted.
+
+/**
+ * serializeAws_restJson1Tool
+ */
+const se_Tool = (input: Tool, context: __SerdeContext): any => {
+  return Tool.visit(input, {
+    toolSpec: (value) => ({ toolSpec: se_ToolSpecification(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+// se_ToolChoice omitted.
+
+/**
+ * serializeAws_restJson1ToolConfiguration
+ */
+const se_ToolConfiguration = (input: ToolConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    toolChoice: _json,
+    tools: (_) => se_Tools(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ToolInputSchema
+ */
+const se_ToolInputSchema = (input: ToolInputSchema, context: __SerdeContext): any => {
+  return ToolInputSchema.visit(input, {
+    json: (value) => ({ json: se_Document(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1ToolResultBlock
+ */
+const se_ToolResultBlock = (input: ToolResultBlock, context: __SerdeContext): any => {
+  return take(input, {
+    content: (_) => se_ToolResultContentBlocks(_, context),
+    status: [],
+    toolUseId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ToolResultContentBlock
+ */
+const se_ToolResultContentBlock = (input: ToolResultContentBlock, context: __SerdeContext): any => {
+  return ToolResultContentBlock.visit(input, {
+    image: (value) => ({ image: se_ImageBlock(value, context) }),
+    json: (value) => ({ json: se_Document(value, context) }),
+    text: (value) => ({ text: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1ToolResultContentBlocks
+ */
+const se_ToolResultContentBlocks = (input: ToolResultContentBlock[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ToolResultContentBlock(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1Tools
+ */
+const se_Tools = (input: Tool[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Tool(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ToolSpecification
+ */
+const se_ToolSpecification = (input: ToolSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    inputSchema: (_) => se_ToolInputSchema(_, context),
+    name: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ToolUseBlock
+ */
+const se_ToolUseBlock = (input: ToolUseBlock, context: __SerdeContext): any => {
+  return take(input, {
+    input: (_) => se_Document(_, context),
+    name: [],
+    toolUseId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * deserializeAws_restJson1ContentBlock
+ */
+const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => {
+  if (output.image != null) {
+    return {
+      image: de_ImageBlock(output.image, context),
+    };
+  }
+  if (__expectString(output.text) !== undefined) {
+    return { text: __expectString(output.text) as any };
+  }
+  if (output.toolResult != null) {
+    return {
+      toolResult: de_ToolResultBlock(output.toolResult, context),
+    };
+  }
+  if (output.toolUse != null) {
+    return {
+      toolUse: de_ToolUseBlock(output.toolUse, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_ContentBlockDelta omitted.
+
+// de_ContentBlockDeltaEvent omitted.
+
+/**
+ * deserializeAws_restJson1ContentBlocks
+ */
+const de_ContentBlocks = (output: any, context: __SerdeContext): ContentBlock[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContentBlock(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+// de_ContentBlockStart omitted.
+
+// de_ContentBlockStartEvent omitted.
+
+// de_ContentBlockStopEvent omitted.
+
+// de_ConverseMetrics omitted.
+
+/**
+ * deserializeAws_restJson1ConverseOutput
+ */
+const de_ConverseOutput = (output: any, context: __SerdeContext): ConverseOutput => {
+  if (output.message != null) {
+    return {
+      message: de_Message(output.message, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_ConverseStreamMetadataEvent omitted.
+
+// de_ConverseStreamMetrics omitted.
+
+/**
+ * deserializeAws_restJson1ImageBlock
+ */
+const de_ImageBlock = (output: any, context: __SerdeContext): ImageBlock => {
+  return take(output, {
+    format: __expectString,
+    source: (_: any) => de_ImageSource(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImageSource
+ */
+const de_ImageSource = (output: any, context: __SerdeContext): ImageSource => {
+  if (output.bytes != null) {
+    return {
+      bytes: context.base64Decoder(output.bytes),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1Message
+ */
+const de_Message = (output: any, context: __SerdeContext): Message => {
+  return take(output, {
+    content: (_: any) => de_ContentBlocks(_, context),
+    role: __expectString,
+  }) as any;
+};
+
+// de_MessageStartEvent omitted.
+
+/**
+ * deserializeAws_restJson1MessageStopEvent
+ */
+const de_MessageStopEvent = (output: any, context: __SerdeContext): MessageStopEvent => {
+  return take(output, {
+    additionalModelResponseFields: (_: any) => de_Document(_, context),
+    stopReason: __expectString,
+  }) as any;
+};
+
 /**
  * deserializeAws_restJson1PayloadPart
  */
@@ -473,6 +1023,73 @@ const de_PayloadPart = (output: any, context: __SerdeContext): PayloadPart => {
   return take(output, {
     bytes: context.base64Decoder,
   }) as any;
+};
+
+// de_TokenUsage omitted.
+
+/**
+ * deserializeAws_restJson1ToolResultBlock
+ */
+const de_ToolResultBlock = (output: any, context: __SerdeContext): ToolResultBlock => {
+  return take(output, {
+    content: (_: any) => de_ToolResultContentBlocks(_, context),
+    status: __expectString,
+    toolUseId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ToolResultContentBlock
+ */
+const de_ToolResultContentBlock = (output: any, context: __SerdeContext): ToolResultContentBlock => {
+  if (output.image != null) {
+    return {
+      image: de_ImageBlock(output.image, context),
+    };
+  }
+  if (output.json != null) {
+    return {
+      json: de_Document(output.json, context),
+    };
+  }
+  if (__expectString(output.text) !== undefined) {
+    return { text: __expectString(output.text) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1ToolResultContentBlocks
+ */
+const de_ToolResultContentBlocks = (output: any, context: __SerdeContext): ToolResultContentBlock[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ToolResultContentBlock(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ToolUseBlock
+ */
+const de_ToolUseBlock = (output: any, context: __SerdeContext): ToolUseBlock => {
+  return take(output, {
+    input: (_: any) => de_Document(_, context),
+    name: __expectString,
+    toolUseId: __expectString,
+  }) as any;
+};
+
+// de_ToolUseBlockDelta omitted.
+
+// de_ToolUseBlockStart omitted.
+
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

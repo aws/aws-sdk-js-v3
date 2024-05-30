@@ -59,6 +59,8 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
+import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "./commands/ConverseStreamCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
 import {
   InvokeModelWithResponseStreamCommandInput,
@@ -78,12 +80,20 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = InvokeModelCommandInput | InvokeModelWithResponseStreamCommandInput;
+export type ServiceInputTypes =
+  | ConverseCommandInput
+  | ConverseStreamCommandInput
+  | InvokeModelCommandInput
+  | InvokeModelWithResponseStreamCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = InvokeModelCommandOutput | InvokeModelWithResponseStreamCommandOutput;
+export type ServiceOutputTypes =
+  | ConverseCommandOutput
+  | ConverseStreamCommandOutput
+  | InvokeModelCommandOutput
+  | InvokeModelWithResponseStreamCommandOutput;
 
 /**
  * @public

@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BedrockRuntimeClient` and
-the commands you need, for example `InvokeModelCommand`:
+the commands you need, for example `ConverseCommand`:
 
 ```js
 // ES5 example
-const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
+const { BedrockRuntimeClient, ConverseCommand } = require("@aws-sdk/client-bedrock-runtime");
 ```
 
 ```ts
 // ES6+ example
-import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
+import { BedrockRuntimeClient, ConverseCommand } from "@aws-sdk/client-bedrock-runtime";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new BedrockRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new InvokeModelCommand(params);
+const command = new ConverseCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.BedrockRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.invokeModel(params);
+  const data = await client.converse(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .invokeModel(params)
+  .converse(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.invokeModel(params, (err, data) => {
+client.converse(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -203,6 +203,22 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+Converse
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ConverseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ConverseCommandOutput/)
+
+</details>
+<details>
+<summary>
+ConverseStream
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ConverseStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ConverseStreamCommandOutput/)
+
+</details>
 <details>
 <summary>
 InvokeModel

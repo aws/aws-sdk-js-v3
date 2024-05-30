@@ -3,6 +3,12 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BedrockRuntimeClient, BedrockRuntimeClientConfig } from "./BedrockRuntimeClient";
+import { ConverseCommand, ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
+import {
+  ConverseStreamCommand,
+  ConverseStreamCommandInput,
+  ConverseStreamCommandOutput,
+} from "./commands/ConverseStreamCommand";
 import { InvokeModelCommand, InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
 import {
   InvokeModelWithResponseStreamCommand,
@@ -11,11 +17,38 @@ import {
 } from "./commands/InvokeModelWithResponseStreamCommand";
 
 const commands = {
+  ConverseCommand,
+  ConverseStreamCommand,
   InvokeModelCommand,
   InvokeModelWithResponseStreamCommand,
 };
 
 export interface BedrockRuntime {
+  /**
+   * @see {@link ConverseCommand}
+   */
+  converse(args: ConverseCommandInput, options?: __HttpHandlerOptions): Promise<ConverseCommandOutput>;
+  converse(args: ConverseCommandInput, cb: (err: any, data?: ConverseCommandOutput) => void): void;
+  converse(
+    args: ConverseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ConverseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ConverseStreamCommand}
+   */
+  converseStream(
+    args: ConverseStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ConverseStreamCommandOutput>;
+  converseStream(args: ConverseStreamCommandInput, cb: (err: any, data?: ConverseStreamCommandOutput) => void): void;
+  converseStream(
+    args: ConverseStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ConverseStreamCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link InvokeModelCommand}
    */
