@@ -13413,7 +13413,11 @@ export interface RestoreDBInstanceFromS3Message {
   S3Prefix?: string;
 
   /**
-   * <p>An Amazon Web Services Identity and Access Management (IAM) role to allow Amazon RDS to access your Amazon S3 bucket.</p>
+   * <p>An Amazon Web Services Identity and Access Management (IAM) role with a trust policy and a permissions policy that allows Amazon RDS to access your Amazon S3 bucket.
+   *         For information about this role,
+   *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html#MySQL.Procedural.Importing.Enabling.IAM">
+   *             Creating an IAM role manually</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    * @public
    */
   S3IngestionRoleArn: string | undefined;

@@ -571,9 +571,10 @@ export class SubscriptionNotFoundFault extends __BaseException {
 
 /**
  * <p>Metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging
- *             Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
- *          </p>
+ *          <p>For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i>
+ *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.
+ *             </p>
  * @public
  */
 export interface Tag {
@@ -4393,9 +4394,8 @@ export interface CreateDBClusterMessage {
   CharacterSetName?: string;
 
   /**
-   * <p>The name for your database of up to 64 alphanumeric characters. If you don't
-   *             provide a name, Amazon RDS doesn't create a database in the DB cluster you are
-   *             creating.</p>
+   * <p>The name for your database of up to 64 alphanumeric characters.
+   *             A database named <code>postgres</code> is always created. If this parameter is specified, an additional database with this name is created.</p>
    *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    * @public
    */
@@ -7074,8 +7074,7 @@ export interface CreateDBInstanceMessage {
    *             <dt>Amazon Aurora PostgreSQL</dt>
    *             <dd>
    *                <p>The name of the database to create when the primary DB instance of the Aurora PostgreSQL DB cluster is
-   *                   created. If this parameter isn't specified for an Aurora PostgreSQL DB cluster,
-   *                   a database named <code>postgres</code> is created in the DB cluster.</p>
+   *                     created. A database named <code>postgres</code> is always created. If this parameter is specified, an additional database with this name is created.</p>
    *                <p>Constraints:</p>
    *                <ul>
    *                   <li>
@@ -7182,8 +7181,7 @@ export interface CreateDBInstanceMessage {
    *             </dd>
    *             <dt>RDS for PostgreSQL</dt>
    *             <dd>
-   *                <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, a database named <code>postgres</code>
-   *                   is created in the DB instance.</p>
+   *                <p>The name of the database to create when the DB instance is created. A database named <code>postgres</code> is always created. If this parameter is specified, an additional database with this name is created.</p>
    *                <p>Constraints:</p>
    *                <ul>
    *                   <li>
