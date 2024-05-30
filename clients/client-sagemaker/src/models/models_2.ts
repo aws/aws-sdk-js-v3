@@ -11,7 +11,6 @@ import {
   AlgorithmValidationSpecification,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
-  AppSpecification,
   AppStatus,
   AppType,
   ArtifactSource,
@@ -128,6 +127,9 @@ import {
   ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
   ModelMetrics,
+  ModelPackageModelCard,
+  ModelPackageModelCardFilterSensitiveLog,
+  ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
@@ -139,18 +141,13 @@ import {
   MonitoringStoppingCondition,
   MonitoringType,
   NeoVpcConfig,
-  NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
   ParallelismConfiguration,
-  ProcessingInput,
   ProcessingInstanceType,
-  ProcessingOutputConfig,
-  ProcessingResources,
-  ProcessingStoppingCondition,
   Processor,
   ProductionVariant,
   ProductionVariantAcceleratorType,
@@ -169,6 +166,52 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const StudioLifecycleConfigAppType = {
+  CodeEditor: "CodeEditor",
+  JupyterLab: "JupyterLab",
+  JupyterServer: "JupyterServer",
+  KernelGateway: "KernelGateway",
+} as const;
+
+/**
+ * @public
+ */
+export type StudioLifecycleConfigAppType =
+  (typeof StudioLifecycleConfigAppType)[keyof typeof StudioLifecycleConfigAppType];
+
+/**
+ * @public
+ */
+export interface CreateStudioLifecycleConfigRequest {
+  /**
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to create.</p>
+   * @public
+   */
+  StudioLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
+   * @public
+   */
+  StudioLifecycleConfigContent: string | undefined;
+
+  /**
+   * <p>The App type that the Lifecycle Configuration is attached to.</p>
+   * @public
+   */
+  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | undefined;
+
+  /**
+   * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
+   * @public
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -3405,8 +3448,8 @@ export interface DescribeAutoMLJobResponse {
   PartialFailureReasons?: AutoMLPartialFailureReason[];
 
   /**
-   * <p>The best model candidate selected by SageMaker Autopilot using both the best objective metric and
-   *          lowest <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">InferenceLatency</a> for
+   * <p>The best model candidate selected by SageMaker Autopilot using both the best
+   *          objective metric and lowest <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">InferenceLatency</a> for
    *          an experiment.</p>
    * @public
    */
@@ -3500,8 +3543,8 @@ export interface DescribeAutoMLJobV2Response {
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
-   * <p>The ARN of the IAM role that has read permission to the input data location and
-   *          write permission to the output data location in Amazon S3.</p>
+   * <p>The ARN of the IAM role that has read permission to the input data
+   *          location and write permission to the output data location in Amazon S3.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -3606,7 +3649,8 @@ export interface DescribeAutoMLJobV2Response {
   DataSplitConfig?: AutoMLDataSplitConfig;
 
   /**
-   * <p>Returns the security configuration for traffic encryption or Amazon VPC settings.</p>
+   * <p>Returns the security configuration for traffic encryption or Amazon VPC
+   *          settings.</p>
    * @public
    */
   SecurityConfig?: AutoMLSecurityConfig;
@@ -8858,6 +8902,25 @@ export interface DescribeModelPackageOutput {
    * @public
    */
   SourceUri?: string;
+
+  /**
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * @public
+   */
+  SecurityConfig?: ModelPackageSecurityConfig;
+
+  /**
+   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
+   *             tied to a model package, it is a specific usage of a model card and its schema is
+   *             simplified compared to the schema of <code>ModelCard</code>. The
+   *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
+   *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
+   *             <code>model_artifact</code> properties. For more information about
+   *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
+   *                 the Details of a Model Version</a>.</p>
+   * @public
+   */
+  ModelCard?: ModelPackageModelCard;
 }
 
 /**
@@ -9804,154 +9867,6 @@ export const ProcessingJobStatus = {
 export type ProcessingJobStatus = (typeof ProcessingJobStatus)[keyof typeof ProcessingJobStatus];
 
 /**
- * @public
- */
-export interface DescribeProcessingJobResponse {
-  /**
-   * <p>The inputs for a processing job.</p>
-   * @public
-   */
-  ProcessingInputs?: ProcessingInput[];
-
-  /**
-   * <p>Output configuration for the processing job.</p>
-   * @public
-   */
-  ProcessingOutputConfig?: ProcessingOutputConfig;
-
-  /**
-   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
-   * @public
-   */
-  ProcessingJobName: string | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
-   *             processing job. In distributed training, you specify more than one instance.</p>
-   * @public
-   */
-  ProcessingResources: ProcessingResources | undefined;
-
-  /**
-   * <p>The time limit for how long the processing job is allowed to run.</p>
-   * @public
-   */
-  StoppingCondition?: ProcessingStoppingCondition;
-
-  /**
-   * <p>Configures the processing job to run a specified container image.</p>
-   * @public
-   */
-  AppSpecification: AppSpecification | undefined;
-
-  /**
-   * <p>The environment variables set in the Docker container.</p>
-   * @public
-   */
-  Environment?: Record<string, string>;
-
-  /**
-   * <p>Networking options for a processing job.</p>
-   * @public
-   */
-  NetworkConfig?: NetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
-   *             your behalf.</p>
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The configuration information used to create an experiment.</p>
-   * @public
-   */
-  ExperimentConfig?: ExperimentConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
-   * @public
-   */
-  ProcessingJobArn: string | undefined;
-
-  /**
-   * <p>Provides the status of a processing job.</p>
-   * @public
-   */
-  ProcessingJobStatus: ProcessingJobStatus | undefined;
-
-  /**
-   * <p>An optional string, up to one KB in size, that contains metadata from the processing
-   *             container when the processing job exits.</p>
-   * @public
-   */
-  ExitMessage?: string;
-
-  /**
-   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
-   *             it failed.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The time at which the processing job completed.</p>
-   * @public
-   */
-  ProcessingEndTime?: Date;
-
-  /**
-   * <p>The time at which the processing job started.</p>
-   * @public
-   */
-  ProcessingStartTime?: Date;
-
-  /**
-   * <p>The time at which the processing job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The time at which the processing job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
-   *             job.</p>
-   * @public
-   */
-  MonitoringScheduleArn?: string;
-
-  /**
-   * <p>The ARN of an AutoML job associated with this processing job.</p>
-   * @public
-   */
-  AutoMLJobArn?: string;
-
-  /**
-   * <p>The ARN of a training job associated with this processing job.</p>
-   * @public
-   */
-  TrainingJobArn?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeProjectInput {
-  /**
-   * <p>The name of the project to describe.</p>
-   * @public
-   */
-  ProjectName: string | undefined;
-}
-
-/**
  * @internal
  */
 export const OidcConfigFilterSensitiveLog = (obj: OidcConfig): any => ({
@@ -9973,4 +9888,12 @@ export const CreateWorkforceRequestFilterSensitiveLog = (obj: CreateWorkforceReq
 export const DescribeModelCardResponseFilterSensitiveLog = (obj: DescribeModelCardResponse): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeModelPackageOutputFilterSensitiveLog = (obj: DescribeModelPackageOutput): any => ({
+  ...obj,
+  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
 });

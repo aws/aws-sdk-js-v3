@@ -116,13 +116,22 @@ export interface DescribeAutoMLJobV2CommandOutput extends DescribeAutoMLJobV2Res
  * //           CountryCode: "STRING_VALUE",
  * //         },
  * //       ],
- * //     },
- * //     TabularJobConfig: { // TabularJobConfig
  * //       CandidateGenerationConfig: { // CandidateGenerationConfig
  * //         AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
  * //           { // AutoMLAlgorithmConfig
  * //             AutoMLAlgorithms: [ // AutoMLAlgorithms // required
- * //               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
+ * //               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai" || "cnn-qr" || "deepar" || "prophet" || "npts" || "arima" || "ets",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     TabularJobConfig: { // TabularJobConfig
+ * //       CandidateGenerationConfig: {
+ * //         AlgorithmsConfig: [
+ * //           {
+ * //             AutoMLAlgorithms: [ // required
+ * //               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai" || "cnn-qr" || "deepar" || "prophet" || "npts" || "arima" || "ets",
  * //             ],
  * //           },
  * //         ],

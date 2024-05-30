@@ -5128,13 +5128,19 @@ export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
  * @enum
  */
 export const AutoMLAlgorithm = {
+  ARIMA: "arima",
   CATBOOST: "catboost",
+  CNN_QR: "cnn-qr",
+  DEEPAR: "deepar",
+  ETS: "ets",
   EXTRA_TREES: "extra-trees",
   FASTAI: "fastai",
   LIGHTGBM: "lightgbm",
   LINEAR_LEARNER: "linear-learner",
   MLP: "mlp",
   NN_TORCH: "nn-torch",
+  NPTS: "npts",
+  PROPHET: "prophet",
   RANDOMFOREST: "randomforest",
   XGBOOST: "xgboost",
 } as const;
@@ -5145,60 +5151,97 @@ export const AutoMLAlgorithm = {
 export type AutoMLAlgorithm = (typeof AutoMLAlgorithm)[keyof typeof AutoMLAlgorithm];
 
 /**
- * <p>The collection of algorithms run on a dataset for training the model candidates of an
- *          Autopilot job.</p>
+ * <p>The selection of algorithms trained on your dataset to generate the model candidates for
+ *          an Autopilot job.</p>
  * @public
  */
 export interface AutoMLAlgorithmConfig {
   /**
-   * <p>The selection of algorithms run on a dataset to train the model candidates of an Autopilot
-   *          job. </p>
-   *          <note>
-   *             <p>Selected algorithms must belong to the list corresponding to the training mode set in
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a> (<code>ENSEMBLING</code> or
-   *                <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm. </p>
-   *          </note>
+   * <p>The selection of algorithms trained on your dataset to generate the model candidates for
+   *          an Autopilot job.</p>
    *          <ul>
    *             <li>
-   *                <p>In <code>ENSEMBLING</code> mode:</p>
+   *                <p>
+   *                   <b>For the tabular problem type <code>TabularJobConfig</code>:</b>
+   *                </p>
+   *                <note>
+   *                   <p>Selected algorithms must belong to the list corresponding to the training mode
+   *                   set in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a> (<code>ENSEMBLING</code> or
+   *                      <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm.</p>
+   *                </note>
    *                <ul>
    *                   <li>
-   *                      <p>"catboost"</p>
+   *                      <p>In <code>ENSEMBLING</code> mode:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>"catboost"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"extra-trees"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"fastai"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"lightgbm"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"linear-learner"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"nn-torch"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"randomforest"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"xgboost"</p>
+   *                         </li>
+   *                      </ul>
    *                   </li>
    *                   <li>
-   *                      <p>"extra-trees"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"fastai"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"lightgbm"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"linear-learner"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"nn-torch"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"randomforest"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"xgboost"</p>
+   *                      <p>In <code>HYPERPARAMETER_TUNING</code> mode:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>"linear-learner"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"mlp"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"xgboost"</p>
+   *                         </li>
+   *                      </ul>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>In <code>HYPERPARAMETER_TUNING</code> mode:</p>
+   *                <p>
+   *                   <b>For the time-series forecasting problem type <code>TimeSeriesForecastingJobConfig</code>:</b>
+   *                </p>
    *                <ul>
    *                   <li>
-   *                      <p>"linear-learner"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"mlp"</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>"xgboost"</p>
+   *                      <p>Choose your algorithms from this list.</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>"cnn-qr"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"deepar"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"prophet"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"arima"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"npts"</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>"ets"</p>
+   *                         </li>
+   *                      </ul>
    *                   </li>
    *                </ul>
    *             </li>
@@ -5221,14 +5264,16 @@ export interface CandidateArtifactLocations {
   Explainability: string | undefined;
 
   /**
-   * <p>The Amazon S3 prefix to the model insight artifacts generated for the AutoML candidate.</p>
+   * <p>The Amazon S3 prefix to the model insight artifacts generated for the AutoML
+   *          candidate.</p>
    * @public
    */
   ModelInsights?: string;
 
   /**
-   * <p>The Amazon S3 prefix to the accuracy metrics and the inference results observed over the
-   *          testing window. Available only for the time-series forecasting problem type.</p>
+   * <p>The Amazon S3 prefix to the accuracy metrics and the inference results observed
+   *          over the testing window. Available only for the time-series forecasting problem
+   *          type.</p>
    * @public
    */
   BacktestResults?: string;
@@ -5618,9 +5663,9 @@ export interface AutoMLCandidate {
  */
 export interface AutoMLCandidateGenerationConfig {
   /**
-   * <p>A URL to the Amazon S3 data source containing selected features from the input data source to
-   *          run an Autopilot job. You can input <code>FeatureAttributeNames</code> (optional) in JSON
-   *          format as shown below: </p>
+   * <p>A URL to the Amazon S3 data source containing selected features from the input
+   *          data source to run an Autopilot job. You can input <code>FeatureAttributeNames</code>
+   *          (optional) in JSON format as shown below: </p>
    *          <p>
    *             <code>\{ "FeatureAttributeNames":["col1", "col2", ...] \}</code>.</p>
    *          <p>You can also specify the data type of the feature (optional) in the format shown
@@ -5649,33 +5694,31 @@ export interface AutoMLCandidateGenerationConfig {
   FeatureSpecificationS3Uri?: string;
 
   /**
-   * <p>Stores the configuration information for the selection of algorithms used to train the
-   *          model candidates.</p>
+   * <p>Stores the configuration information for the selection of algorithms trained on tabular data.</p>
    *          <p>The list of available algorithms to choose from depends on the training mode set in
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
-   *                <code>AutoMLJobConfig.Mode</code>
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html">
+   *                <code>TabularJobConfig.Mode</code>
    *             </a>.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training
-   *                mode.</p>
+   *                   <code>AlgorithmsConfig</code> should not be set if the training mode is set on <code>AUTO</code>.</p>
    *             </li>
    *             <li>
    *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
    *                attribute must be set and one only.</p>
    *                <p>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
-   *                empty, <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms
-   *                for the given training mode.</p>
+   *                empty, <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
+   *                given training mode.</p>
    *             </li>
    *             <li>
    *                <p>When <code>AlgorithmsConfig</code> is not provided,
-   *                   <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms for
-   *                the given training mode.</p>
+   *                <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
+   *                given training mode.</p>
    *             </li>
    *          </ul>
-   *          <p>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
-   *             AutoMLAlgorithmConfig</a>.</p>
+   *          <p>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *          AutoMLAlgorithmConfig</a>.</p>
    *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
    * @public
    */
@@ -5721,8 +5764,8 @@ export interface AutoMLS3DataSource {
    *          <ul>
    *             <li>
    *                <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name
-   *                prefix. SageMaker uses all objects that match the specified key name prefix for model
-   *                training.</p>
+   *                prefix. SageMaker uses all objects that match the specified key name prefix
+   *                for model training.</p>
    *                <p>The <code>S3Prefix</code> should have the following format:</p>
    *                <p>
    *                   <code>s3://DOC-EXAMPLE-BUCKET/DOC-EXAMPLE-FOLDER-OR-FILE</code>
@@ -5730,8 +5773,7 @@ export interface AutoMLS3DataSource {
    *             </li>
    *             <li>
    *                <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
-   *                that is a manifest file containing a list of object keys that you want SageMaker to use
-   *                for model training.</p>
+   *                that is a manifest file containing a list of object keys that you want SageMaker to use for model training.</p>
    *                <p>A <code>ManifestFile</code> should have the format shown below:</p>
    *                <p>
    *                   <code>[ \{"prefix":
@@ -5770,8 +5812,8 @@ export interface AutoMLS3DataSource {
   S3DataType: AutoMLS3DataType | undefined;
 
   /**
-   * <p>The URL to the Amazon S3 data source. The Uri refers to the Amazon S3 prefix or ManifestFile
-   *          depending on the data type.</p>
+   * <p>The URL to the Amazon S3 data source. The Uri refers to the Amazon S3
+   *          prefix or ManifestFile depending on the data type.</p>
    * @public
    */
   S3Uri: string | undefined;
@@ -6131,14 +6173,14 @@ export interface AutoMLJobObjective {
    *                      <p>List of available metrics: </p>
    *                      <ul>
    *                         <li>
-   *                            <p> Regression: <code>MAE</code>,
-   *                               <code>MSE</code>, <code>R2</code>, <code>RMSE</code>
+   *                            <p> Regression: <code>MAE</code>, <code>MSE</code>, <code>R2</code>,
+   *                               <code>RMSE</code>
    *                            </p>
    *                         </li>
    *                         <li>
    *                            <p> Binary classification: <code>Accuracy</code>, <code>AUC</code>,
    *                               <code>BalancedAccuracy</code>, <code>F1</code>,
-   *                               <code>Precision</code>, <code>Recall</code>
+   *                            <code>Precision</code>, <code>Recall</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -6385,34 +6427,68 @@ export interface ImageClassificationJobConfig {
  */
 export interface CandidateGenerationConfig {
   /**
-   * <p>Stores the configuration information for the selection of algorithms used to train model
-   *          candidates on tabular data.</p>
-   *          <p>The list of available algorithms to choose from depends on the training mode set in
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html">
-   *                <code>TabularJobConfig.Mode</code>
-   *             </a>.</p>
+   * <p>Your Autopilot job trains a default set of algorithms on your dataset. For tabular and
+   *          time-series data, you can customize the algorithm list by selecting a subset of algorithms
+   *          for your problem type.</p>
+   *          <p>
+   *             <code>AlgorithmsConfig</code> stores the customized selection of algorithms to train on
+   *          your data.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training
-   *                mode.</p>
+   *                   <b>For the tabular problem type <code>TabularJobConfig</code>,</b>
+   *             the list of available algorithms to choose from depends on the training mode set
+   *                in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html">
+   *                      <code>AutoMLJobConfig.Mode</code>
+   *                   </a>.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>AlgorithmsConfig</code> should not be set when the training mode
+   *                         <code>AutoMLJobConfig.Mode</code> is set to <code>AUTO</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>When <code>AlgorithmsConfig</code> is provided, one
+   *                         <code>AutoMLAlgorithms</code> attribute must be set and one only.</p>
+   *                      <p>If the list of algorithms provided as values for
+   *                         <code>AutoMLAlgorithms</code> is empty,
+   *                         <code>CandidateGenerationConfig</code> uses the full set of algorithms for
+   *                      the given training mode.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>When <code>AlgorithmsConfig</code> is not provided,
+   *                         <code>CandidateGenerationConfig</code> uses the full set of algorithms for
+   *                      the given training mode.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *                   AlgorithmConfig</a>.</p>
+   *                <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in the Autopilot developer guide.</p>
    *             </li>
    *             <li>
-   *                <p>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
-   *                attribute must be set and one only.</p>
-   *                <p>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
-   *                empty, <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
-   *                given training mode.</p>
-   *             </li>
-   *             <li>
-   *                <p>When <code>AlgorithmsConfig</code> is not provided,
-   *                   <code>CandidateGenerationConfig</code> uses the full set of algorithms for the
-   *                given training mode.</p>
+   *                <p>
+   *                   <b>For the time-series forecasting problem type <code>TimeSeriesForecastingJobConfig</code>,</b>
+   *             choose your algorithms from the list provided in
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *                   AlgorithmConfig</a>.</p>
+   *                <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-forecasting-algorithms.html">Algorithms support for time-series forecasting</a> section in the Autopilot developer guide.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>When <code>AlgorithmsConfig</code> is provided, one
+   *                         <code>AutoMLAlgorithms</code> attribute must be set and one only.</p>
+   *                      <p>If the list of algorithms provided as values for
+   *                         <code>AutoMLAlgorithms</code> is empty,
+   *                         <code>CandidateGenerationConfig</code> uses the full set of algorithms for
+   *                      time-series forecasting.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>When <code>AlgorithmsConfig</code> is not provided,
+   *                         <code>CandidateGenerationConfig</code> uses the full set of algorithms for
+   *                      time-series forecasting.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *          </ul>
-   *          <p>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
-   *             AutoMLAlgorithmConfig</a>.</p>
-   *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
    * @public
    */
   AlgorithmsConfig?: AutoMLAlgorithmConfig[];
@@ -6452,9 +6528,9 @@ export interface TabularJobConfig {
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 
   /**
-   * <p>A URL to the Amazon S3 data source containing selected features from the input data source to
-   *          run an Autopilot job V2. You can input <code>FeatureAttributeNames</code> (optional) in JSON
-   *          format as shown below: </p>
+   * <p>A URL to the Amazon S3 data source containing selected features from the input
+   *          data source to run an Autopilot job V2. You can input <code>FeatureAttributeNames</code>
+   *          (optional) in JSON format as shown below: </p>
    *          <p>
    *             <code>\{ "FeatureAttributeNames":["col1", "col2", ...] \}</code>.</p>
    *          <p>You can also specify the data type of the feature (optional) in the format shown
@@ -6797,12 +6873,13 @@ export interface TimeSeriesTransformations {
  */
 export interface TimeSeriesForecastingJobConfig {
   /**
-   * <p>A URL to the Amazon S3 data source containing additional selected features that complement
-   *          the target, itemID, timestamp, and grouped columns set in <code>TimeSeriesConfig</code>.
-   *          When not provided, the AutoML job V2 includes all the columns from the original dataset
-   *          that are not already declared in <code>TimeSeriesConfig</code>. If provided, the AutoML job
-   *          V2 only considers these additional columns as a complement to the ones declared in
-   *             <code>TimeSeriesConfig</code>.</p>
+   * <p>A URL to the Amazon S3 data source containing additional selected features that
+   *          complement the target, itemID, timestamp, and grouped columns set in
+   *             <code>TimeSeriesConfig</code>. When not provided, the AutoML job V2 includes all the
+   *          columns from the original dataset that are not already declared in
+   *             <code>TimeSeriesConfig</code>. If provided, the AutoML job V2 only considers these
+   *          additional columns as a complement to the ones declared in
+   *          <code>TimeSeriesConfig</code>.</p>
    *          <p>You can input <code>FeatureAttributeNames</code> (optional) in JSON format as shown
    *          below: </p>
    *          <p>
@@ -6898,6 +6975,13 @@ export interface TimeSeriesForecastingJobConfig {
    * @public
    */
   HolidayConfig?: HolidayConfigAttributes[];
+
+  /**
+   * <p>Stores the configuration information for how model candidates are generated using an
+   *          AutoML job V2.</p>
+   * @public
+   */
+  CandidateGenerationConfig?: CandidateGenerationConfig;
 }
 
 /**
@@ -10846,8 +10930,8 @@ export interface CreateAutoMLJobRequest {
   InputDataConfig: AutoMLChannel[] | undefined;
 
   /**
-   * <p>Provides information about encryption and the Amazon S3 output path needed to store artifacts
-   *          from an AutoML job. Format(s) supported: CSV.</p>
+   * <p>Provides information about encryption and the Amazon S3 output path needed to
+   *          store artifacts from an AutoML job. Format(s) supported: CSV.</p>
    * @public
    */
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
@@ -10953,8 +11037,8 @@ export interface CreateAutoMLJobV2Request {
   AutoMLJobInputDataConfig: AutoMLJobChannel[] | undefined;
 
   /**
-   * <p>Provides information about encryption and the Amazon S3 output path needed to store artifacts
-   *          from an AutoML job.</p>
+   * <p>Provides information about encryption and the Amazon S3 output path needed to
+   *          store artifacts from an AutoML job.</p>
    * @public
    */
   OutputDataConfig: AutoMLOutputDataConfig | undefined;

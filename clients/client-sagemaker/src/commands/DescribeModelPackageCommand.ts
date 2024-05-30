@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/models_2";
+import {
+  DescribeModelPackageInput,
+  DescribeModelPackageOutput,
+  DescribeModelPackageOutputFilterSensitiveLog,
+} from "../models/models_2";
 import { de_DescribeModelPackageCommand, se_DescribeModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -29,6 +33,11 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
 /**
  * <p>Returns a description of the specified model package, which is used to create SageMaker
  *             models or list them on Amazon Web Services Marketplace.</p>
+ *          <important>
+ *             <p>If you provided a KMS Key ID when you created your model package,
+ *             you will see the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html">KMS
+ *                 Decrypt</a> API call in your CloudTrail logs when you use this API.</p>
+ *          </important>
  *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
  *             Marketplace.</p>
  * @example
@@ -323,6 +332,13 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * //   ],
  * //   SkipModelValidation: "All" || "None",
  * //   SourceUri: "STRING_VALUE",
+ * //   SecurityConfig: { // ModelPackageSecurityConfig
+ * //     KmsKeyId: "STRING_VALUE", // required
+ * //   },
+ * //   ModelCard: { // ModelPackageModelCard
+ * //     ModelCardContent: "STRING_VALUE",
+ * //     ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ * //   },
  * // };
  *
  * ```
@@ -357,7 +373,7 @@ export class DescribeModelPackageCommand extends $Command
   })
   .s("SageMaker", "DescribeModelPackage", {})
   .n("SageMakerClient", "DescribeModelPackageCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeModelPackageOutputFilterSensitiveLog)
   .ser(se_DescribeModelPackageCommand)
   .de(de_DescribeModelPackageCommand)
   .build() {}

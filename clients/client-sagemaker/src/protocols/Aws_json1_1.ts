@@ -1140,7 +1140,6 @@ import {
   CreateProjectOutput,
   CreateSpaceRequest,
   CreateSpaceResponse,
-  CreateStudioLifecycleConfigRequest,
   CustomFileSystem,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
@@ -1227,6 +1226,8 @@ import {
   ModelInfrastructureConfig,
   ModelLatencyThreshold,
   ModelMetrics,
+  ModelPackageModelCard,
+  ModelPackageSecurityConfig,
   ModelPackageValidationProfile,
   ModelPackageValidationSpecification,
   ModelQuality,
@@ -1320,6 +1321,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateStudioLifecycleConfigRequest,
   CreateStudioLifecycleConfigResponse,
   CreateTrainingJobRequest,
   CreateTrainingJobResponse,
@@ -1511,8 +1513,6 @@ import {
   DescribePipelineRequest,
   DescribePipelineResponse,
   DescribeProcessingJobRequest,
-  DescribeProcessingJobResponse,
-  DescribeProjectInput,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1581,6 +1581,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeProcessingJobResponse,
+  DescribeProjectInput,
   DescribeProjectOutput,
   DescribeSpaceRequest,
   DescribeSpaceResponse,
@@ -1775,7 +1777,6 @@ import {
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
-  ListNotebookInstancesOutput,
   MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
@@ -1795,7 +1796,6 @@ import {
   MonitoringSchedule,
   MonitoringScheduleSummary,
   NotebookInstanceLifecycleConfigSummary,
-  NotebookInstanceSummary,
   OidcConfigForResponse,
   PredefinedMetricSpecification,
   ProductionVariantServerlessUpdateConfig,
@@ -1821,6 +1821,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
   ListPipelineExecutionStepsRequest,
@@ -1872,6 +1873,7 @@ import {
   ModelStepMetadata,
   ModelVariantAction,
   NestedFilters,
+  NotebookInstanceSummary,
   OnlineStoreConfigUpdate,
   OwnershipSettingsSummary,
   Parameter,
@@ -13030,11 +13032,13 @@ const se_CreateModelPackageInput = (input: CreateModelPackageInput, context: __S
     InferenceSpecification: _json,
     MetadataProperties: _json,
     ModelApprovalStatus: [],
+    ModelCard: _json,
     ModelMetrics: _json,
     ModelPackageDescription: [],
     ModelPackageGroupName: [],
     ModelPackageName: [],
     SamplePayloadUrl: [],
+    SecurityConfig: _json,
     SkipModelValidation: [],
     SourceAlgorithmSpecification: _json,
     SourceUri: [],
@@ -14933,6 +14937,10 @@ const se_ModelExplainabilityJobInput = (input: ModelExplainabilityJobInput, cont
 // se_ModelPackageContainerDefinition omitted.
 
 // se_ModelPackageContainerDefinitionList omitted.
+
+// se_ModelPackageModelCard omitted.
+
+// se_ModelPackageSecurityConfig omitted.
 
 // se_ModelPackageValidationProfile omitted.
 
@@ -19704,6 +19712,7 @@ const de_DescribeModelPackageOutput = (output: any, context: __SerdeContext): De
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MetadataProperties: (_: any) => de_MetadataProperties(_, context),
     ModelApprovalStatus: __expectString,
+    ModelCard: (_: any) => de_ModelPackageModelCard(_, context),
     ModelMetrics: (_: any) => de_ModelMetrics(_, context),
     ModelPackageArn: __expectString,
     ModelPackageDescription: __expectString,
@@ -19713,6 +19722,7 @@ const de_DescribeModelPackageOutput = (output: any, context: __SerdeContext): De
     ModelPackageStatusDetails: (_: any) => de_ModelPackageStatusDetails(_, context),
     ModelPackageVersion: __expectInt32,
     SamplePayloadUrl: __expectString,
+    SecurityConfig: (_: any) => de_ModelPackageSecurityConfig(_, context),
     SkipModelValidation: __expectString,
     SourceAlgorithmSpecification: (_: any) => de_SourceAlgorithmSpecification(_, context),
     SourceUri: __expectString,
@@ -24286,6 +24296,7 @@ const de_ModelPackage = (output: any, context: __SerdeContext): ModelPackage => 
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MetadataProperties: (_: any) => de_MetadataProperties(_, context),
     ModelApprovalStatus: __expectString,
+    ModelCard: (_: any) => de_ModelPackageModelCard(_, context),
     ModelMetrics: (_: any) => de_ModelMetrics(_, context),
     ModelPackageArn: __expectString,
     ModelPackageDescription: __expectString,
@@ -24295,6 +24306,7 @@ const de_ModelPackage = (output: any, context: __SerdeContext): ModelPackage => 
     ModelPackageStatusDetails: (_: any) => de_ModelPackageStatusDetails(_, context),
     ModelPackageVersion: __expectInt32,
     SamplePayloadUrl: __expectString,
+    SecurityConfig: (_: any) => de_ModelPackageSecurityConfig(_, context),
     SkipModelValidation: __expectString,
     SourceAlgorithmSpecification: (_: any) => de_SourceAlgorithmSpecification(_, context),
     SourceUri: __expectString,
@@ -24377,6 +24389,25 @@ const de_ModelPackageGroupSummaryList = (output: any, context: __SerdeContext): 
       return de_ModelPackageGroupSummary(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ModelPackageModelCard
+ */
+const de_ModelPackageModelCard = (output: any, context: __SerdeContext): ModelPackageModelCard => {
+  return take(output, {
+    ModelCardContent: __expectString,
+    ModelCardStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ModelPackageSecurityConfig
+ */
+const de_ModelPackageSecurityConfig = (output: any, context: __SerdeContext): ModelPackageSecurityConfig => {
+  return take(output, {
+    KmsKeyId: __expectString,
+  }) as any;
 };
 
 /**
@@ -27512,6 +27543,7 @@ const de_TimeSeriesConfig = (output: any, context: __SerdeContext): TimeSeriesCo
  */
 const de_TimeSeriesForecastingJobConfig = (output: any, context: __SerdeContext): TimeSeriesForecastingJobConfig => {
   return take(output, {
+    CandidateGenerationConfig: (_: any) => de_CandidateGenerationConfig(_, context),
     CompletionCriteria: (_: any) => de_AutoMLJobCompletionCriteria(_, context),
     FeatureSpecificationS3Uri: __expectString,
     ForecastFrequency: __expectString,

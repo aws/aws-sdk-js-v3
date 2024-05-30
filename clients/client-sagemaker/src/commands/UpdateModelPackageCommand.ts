@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateModelPackageInput, UpdateModelPackageOutput } from "../models/models_4";
+import {
+  UpdateModelPackageInput,
+  UpdateModelPackageInputFilterSensitiveLog,
+  UpdateModelPackageOutput,
+} from "../models/models_4";
 import { de_UpdateModelPackageCommand, se_UpdateModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -143,6 +147,10 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  *     ],
  *   },
  *   SourceUri: "STRING_VALUE",
+ *   ModelCard: { // ModelPackageModelCard
+ *     ModelCardContent: "STRING_VALUE",
+ *     ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ *   },
  * };
  * const command = new UpdateModelPackageCommand(input);
  * const response = await client.send(command);
@@ -186,7 +194,7 @@ export class UpdateModelPackageCommand extends $Command
   })
   .s("SageMaker", "UpdateModelPackage", {})
   .n("SageMakerClient", "UpdateModelPackageCommand")
-  .f(void 0, void 0)
+  .f(UpdateModelPackageInputFilterSensitiveLog, void 0)
   .ser(se_UpdateModelPackageCommand)
   .de(de_UpdateModelPackageCommand)
   .build() {}

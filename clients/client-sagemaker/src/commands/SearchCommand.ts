@@ -1305,6 +1305,13 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           },
  * //         ],
  * //         SourceUri: "STRING_VALUE",
+ * //         SecurityConfig: { // ModelPackageSecurityConfig
+ * //           KmsKeyId: "STRING_VALUE", // required
+ * //         },
+ * //         ModelCard: { // ModelPackageModelCard
+ * //           ModelCardContent: "STRING_VALUE",
+ * //           ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ * //         },
  * //         Tags: "<TagList>",
  * //         CustomerMetadataProperties: { // CustomerMetadataMap
  * //           "<keys>": "STRING_VALUE",

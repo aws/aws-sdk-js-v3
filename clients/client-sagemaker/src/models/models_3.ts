@@ -9,6 +9,7 @@ import {
   AppImageConfigDetails,
   AppImageConfigSortKey,
   AppSortKey,
+  AppSpecification,
   ArtifactSummary,
   AssociationEdgeType,
   AssociationSummary,
@@ -50,7 +51,6 @@ import {
 } from "./models_0";
 
 import {
-  _InstanceType,
   DockerSettings,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
@@ -67,16 +67,20 @@ import {
   ModelCardStatus,
   MonitoringScheduleConfig,
   MonitoringType,
+  NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OwnershipSettings,
+  ProcessingInput,
+  ProcessingOutputConfig,
+  ProcessingResources,
+  ProcessingStoppingCondition,
   RecommendationJobType,
   ResourceLimits,
   RetryStrategy,
   ServiceCatalogProvisioningDetails,
   SpaceSettings,
   SpaceSharingSettings,
-  StudioLifecycleConfigAppType,
   UserSettings,
 } from "./models_1";
 
@@ -125,6 +129,7 @@ import {
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
+  ProcessingJobStatus,
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -134,6 +139,7 @@ import {
   RuleEvaluationStatus,
   ScheduleStatus,
   SourceIpConfig,
+  StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
   TrainingJobStatus,
   TrainingJobStatusCounters,
@@ -142,6 +148,154 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeProcessingJobResponse {
+  /**
+   * <p>The inputs for a processing job.</p>
+   * @public
+   */
+  ProcessingInputs?: ProcessingInput[];
+
+  /**
+   * <p>Output configuration for the processing job.</p>
+   * @public
+   */
+  ProcessingOutputConfig?: ProcessingOutputConfig;
+
+  /**
+   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
+   *             Amazon Web Services account.</p>
+   * @public
+   */
+  ProcessingJobName: string | undefined;
+
+  /**
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
+   *             processing job. In distributed training, you specify more than one instance.</p>
+   * @public
+   */
+  ProcessingResources: ProcessingResources | undefined;
+
+  /**
+   * <p>The time limit for how long the processing job is allowed to run.</p>
+   * @public
+   */
+  StoppingCondition?: ProcessingStoppingCondition;
+
+  /**
+   * <p>Configures the processing job to run a specified container image.</p>
+   * @public
+   */
+  AppSpecification: AppSpecification | undefined;
+
+  /**
+   * <p>The environment variables set in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * <p>Networking options for a processing job.</p>
+   * @public
+   */
+  NetworkConfig?: NetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
+   *             your behalf.</p>
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The configuration information used to create an experiment.</p>
+   * @public
+   */
+  ExperimentConfig?: ExperimentConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
+   * @public
+   */
+  ProcessingJobArn: string | undefined;
+
+  /**
+   * <p>Provides the status of a processing job.</p>
+   * @public
+   */
+  ProcessingJobStatus: ProcessingJobStatus | undefined;
+
+  /**
+   * <p>An optional string, up to one KB in size, that contains metadata from the processing
+   *             container when the processing job exits.</p>
+   * @public
+   */
+  ExitMessage?: string;
+
+  /**
+   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
+   *             it failed.</p>
+   * @public
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The time at which the processing job completed.</p>
+   * @public
+   */
+  ProcessingEndTime?: Date;
+
+  /**
+   * <p>The time at which the processing job started.</p>
+   * @public
+   */
+  ProcessingStartTime?: Date;
+
+  /**
+   * <p>The time at which the processing job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The time at which the processing job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
+   *             job.</p>
+   * @public
+   */
+  MonitoringScheduleArn?: string;
+
+  /**
+   * <p>The ARN of an AutoML job associated with this processing job.</p>
+   * @public
+   */
+  AutoMLJobArn?: string;
+
+  /**
+   * <p>The ARN of a training job associated with this processing job.</p>
+   * @public
+   */
+  TrainingJobArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeProjectInput {
+  /**
+   * <p>The name of the project to describe.</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+}
 
 /**
  * @public
@@ -6023,7 +6177,7 @@ export interface ListAppsRequest {
   NextToken?: string;
 
   /**
-   * <p>This parameter defines the maximum number of results that can be returned in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
+   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
    *           more results available than the value specified, a <code>NextToken</code>
    *         is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
    * @public
@@ -7201,7 +7355,7 @@ export interface ListDomainsRequest {
   NextToken?: string;
 
   /**
-   * <p>This parameter defines the maximum number of results that can be returned in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
+   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
    *       more results available than the value specified, a <code>NextToken</code>
    *       is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
    * @public
@@ -11123,104 +11277,4 @@ export interface ListNotebookInstancesInput {
    * @public
    */
   AdditionalCodeRepositoryEquals?: string;
-}
-
-/**
- * <p>Provides summary information for an SageMaker notebook instance.</p>
- * @public
- */
-export interface NotebookInstanceSummary {
-  /**
-   * <p>The name of the notebook instance that you want a summary for.</p>
-   * @public
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook instance.</p>
-   * @public
-   */
-  NotebookInstanceArn: string | undefined;
-
-  /**
-   * <p>The status of the notebook instance.</p>
-   * @public
-   */
-  NotebookInstanceStatus?: NotebookInstanceStatus;
-
-  /**
-   * <p>The URL that you use to connect to the Jupyter notebook running in your notebook
-   *          instance. </p>
-   * @public
-   */
-  Url?: string;
-
-  /**
-   * <p>The type of ML compute instance that the notebook instance is running on.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType;
-
-  /**
-   * <p>A timestamp that shows when the notebook instance was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>A timestamp that shows when the notebook instance was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The name of a notebook instance lifecycle configuration associated with this notebook
-   *          instance.</p>
-   *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
-   *          2.1: (Optional) Customize a Notebook Instance</a>.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigName?: string;
-
-  /**
-   * <p>The Git repository associated with the notebook instance as its default code
-   *          repository. This can be either the name of a Git repository stored as a resource in your
-   *          account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *          or in any other Git repository. When you open a notebook instance, it opens in the
-   *          directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *             Repositories with SageMaker Notebook Instances</a>.</p>
-   * @public
-   */
-  DefaultCodeRepository?: string;
-
-  /**
-   * <p>An array of up to three Git repositories associated with the notebook instance. These
-   *          can be either the names of Git repositories stored as resources in your account, or the
-   *          URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *          or in any other Git repository. These repositories are cloned at the same level as the
-   *          default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *             Repositories with SageMaker Notebook Instances</a>.</p>
-   * @public
-   */
-  AdditionalCodeRepositories?: string[];
-}
-
-/**
- * @public
- */
-export interface ListNotebookInstancesOutput {
-  /**
-   * <p>If the response to the previous <code>ListNotebookInstances</code> request was
-   *             truncated, SageMaker returns this token. To retrieve the next set of notebook instances, use
-   *             the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An array of <code>NotebookInstanceSummary</code> objects, one for each notebook
-   *             instance.</p>
-   * @public
-   */
-  NotebookInstances?: NotebookInstanceSummary[];
 }

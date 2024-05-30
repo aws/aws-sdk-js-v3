@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateModelPackageInput, CreateModelPackageOutput } from "../models/models_1";
+import {
+  CreateModelPackageInput,
+  CreateModelPackageInputFilterSensitiveLog,
+  CreateModelPackageOutput,
+} from "../models/models_1";
 import { de_CreateModelPackageCommand, se_CreateModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -299,6 +303,13 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *   ],
  *   SkipModelValidation: "All" || "None",
  *   SourceUri: "STRING_VALUE",
+ *   SecurityConfig: { // ModelPackageSecurityConfig
+ *     KmsKeyId: "STRING_VALUE", // required
+ *   },
+ *   ModelCard: { // ModelPackageModelCard
+ *     ModelCardContent: "STRING_VALUE",
+ *     ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ *   },
  * };
  * const command = new CreateModelPackageCommand(input);
  * const response = await client.send(command);
@@ -346,7 +357,7 @@ export class CreateModelPackageCommand extends $Command
   })
   .s("SageMaker", "CreateModelPackage", {})
   .n("SageMakerClient", "CreateModelPackageCommand")
-  .f(void 0, void 0)
+  .f(CreateModelPackageInputFilterSensitiveLog, void 0)
   .ser(se_CreateModelPackageCommand)
   .de(de_CreateModelPackageCommand)
   .build() {}

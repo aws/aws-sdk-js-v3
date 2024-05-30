@@ -9774,6 +9774,51 @@ export interface DriftCheckBaselines {
 }
 
 /**
+ * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
+ *             tied to a model package, it is a specific usage of a model card and its schema is
+ *             simplified compared to the schema of <code>ModelCard</code>. The
+ *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
+ *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
+ *             <code>model_artifact</code> properties. For more information about
+ *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
+ *                 the Details of a Model Version</a>.</p>
+ * @public
+ */
+export interface ModelPackageModelCard {
+  /**
+   * <p>The content of the model card.</p>
+   * @public
+   */
+  ModelCardContent?: string;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Draft</code>: The model card is a work in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingReview</code>: The model card is pending review.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Approved</code>: The model card is approved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>: The model card is archived. No more updates can be made to the model
+   *                card content. If you try to update the model card content, you will receive the message <code>Model Card
+   *  	       is in Archived state</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ModelCardStatus?: ModelCardStatus;
+}
+
+/**
  * <p>Contains explainability metrics for a model.</p>
  * @public
  */
@@ -9849,6 +9894,20 @@ export interface ModelMetrics {
    * @public
    */
   Explainability?: Explainability;
+}
+
+/**
+ * <p>An optional Key Management Service
+ *          key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with
+ *          highly sensitive data.</p>
+ * @public
+ */
+export interface ModelPackageSecurityConfig {
+  /**
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * @public
+   */
+  KmsKeyId: string | undefined;
 }
 
 /**
@@ -10121,6 +10180,25 @@ export interface CreateModelPackageInput {
    * @public
    */
   SourceUri?: string;
+
+  /**
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * @public
+   */
+  SecurityConfig?: ModelPackageSecurityConfig;
+
+  /**
+   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
+   *            tied to a model package, it is a specific usage of a model card and its schema is
+   *            simplified compared to the schema of <code>ModelCard</code>. The
+   *            <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
+   *            and <code>model_overview</code> is composed of the <code>model_creator</code> and
+   *            <code>model_artifact</code> properties. For more information about
+   *            the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
+   *                the Details of a Model Version</a>.</p>
+   * @public
+   */
+  ModelCard?: ModelPackageModelCard;
 }
 
 /**
@@ -12203,55 +12281,25 @@ export interface CreateSpaceResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const StudioLifecycleConfigAppType = {
-  CodeEditor: "CodeEditor",
-  JupyterLab: "JupyterLab",
-  JupyterServer: "JupyterServer",
-  KernelGateway: "KernelGateway",
-} as const;
-
-/**
- * @public
- */
-export type StudioLifecycleConfigAppType =
-  (typeof StudioLifecycleConfigAppType)[keyof typeof StudioLifecycleConfigAppType];
-
-/**
- * @public
- */
-export interface CreateStudioLifecycleConfigRequest {
-  /**
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to create.</p>
-   * @public
-   */
-  StudioLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
-   * @public
-   */
-  StudioLifecycleConfigContent: string | undefined;
-
-  /**
-   * <p>The App type that the Lifecycle Configuration is attached to.</p>
-   * @public
-   */
-  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | undefined;
-
-  /**
-   * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
  * @internal
  */
 export const CreateModelCardRequestFilterSensitiveLog = (obj: CreateModelCardRequest): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModelPackageModelCardFilterSensitiveLog = (obj: ModelPackageModelCard): any => ({
+  ...obj,
+  ...(obj.ModelCardContent && { ModelCardContent: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateModelPackageInputFilterSensitiveLog = (obj: CreateModelPackageInput): any => ({
+  ...obj,
+  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
 });
