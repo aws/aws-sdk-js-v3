@@ -3520,9 +3520,9 @@ export interface WebhookFilter {
    *                                 PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> filters all push, pull
    *                             request created, and pull request updated events. </p>
    *                      <note>
-   *                         <p> The <code>PULL_REQUEST_REOPENED</code> works with GitHub and GitHub
-   *                                 Enterprise only. The <code>RELEASED</code>, <code>PRERELEASED</code>,
-   *                                 and <code>WORKFLOW_JOB_QUEUED</code> work with GitHub only.</p>
+   *                         <p> Types <code>PULL_REQUEST_REOPENED</code> and <code>WORKFLOW_JOB_QUEUED</code>
+   *                                 work with GitHub and GitHub Enterprise only. Types <code>RELEASED</code> and
+   *                                 <code>PRERELEASED</code> work with GitHub only.</p>
    *                      </note>
    *                   </li>
    *                </ul>
@@ -5010,7 +5010,8 @@ export interface CreateWebhookInput {
    *       <code>secret</code> values for the webhook. The <code>payloadUrl</code> and <code>secret</code> values in the output can be
    *       used to manually create a webhook within GitHub.</p>
    *          <note>
-   *             <p>manualCreation is only available for GitHub webhooks.</p>
+   *             <p>
+   *                <code>manualCreation</code> is only available for GitHub webhooks.</p>
    *          </note>
    * @public
    */
