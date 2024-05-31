@@ -2,8 +2,7 @@
 /* eslint-disable */
 /**
  * <note>
- *             <p>Amazon CodeGuru Security is in preview release and is subject to
- *         change.</p>
+ *             <p>Amazon CodeGuru Security is in preview release and is subject to change.</p>
  *          </note>
  *          <p>This section provides documentation for the Amazon CodeGuru Security API operations.
  *       CodeGuru Security is a service that uses program analysis and machine learning to detect

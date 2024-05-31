@@ -496,6 +496,7 @@ export const de_GetScanCommand = async (
   const doc = take(data, {
     analysisType: __expectString,
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    errorMessage: __expectString,
     numberOfRevisions: __expectLong,
     runId: __expectString,
     scanName: __expectString,

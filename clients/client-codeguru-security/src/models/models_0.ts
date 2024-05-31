@@ -45,73 +45,74 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The severity of the issue in the code that generated a finding.</p>
+ * <p>A numeric value corresponding to the severity of a finding, such as the number of open
+ *       findings or the average time it takes to close findings of a given severity.</p>
  * @public
  */
 export interface FindingMetricsValuePerSeverity {
   /**
-   * <p>The finding is related to quality or readability improvements and not considered
-   *       actionable.</p>
+   * <p>A numeric value corresponding to an informational finding.</p>
    * @public
    */
   info?: number;
 
   /**
-   * <p>The severity of the finding is low and does require action on its own.</p>
+   * <p>A numeric value corresponding to a low severity finding.</p>
    * @public
    */
   low?: number;
 
   /**
-   * <p>The severity of the finding is medium and should be addressed as a mid-term priority.</p>
+   * <p>A numeric value corresponding to a medium severity finding.</p>
    * @public
    */
   medium?: number;
 
   /**
-   * <p>The severity of the finding is high and should be addressed as a near-term priority.</p>
+   * <p>A numeric value corresponding to a high severity finding.</p>
    * @public
    */
   high?: number;
 
   /**
-   * <p>The severity of the finding is critical and should be addressed immediately.</p>
+   * <p>A numeric value corresponding to a critical finding.</p>
    * @public
    */
   critical?: number;
 }
 
 /**
- * <p>A summary of findings metrics in an account.</p>
+ * <p>A summary of findings metrics for an account on a specified date.</p>
  * @public
  */
 export interface AccountFindingsMetric {
   /**
-   * <p>The date from which the finding metrics were retrieved.</p>
+   * <p>The date from which the findings metrics were retrieved.</p>
    * @public
    */
   date?: Date;
 
   /**
-   * <p>The number of new findings of each severity in account on the specified date.</p>
+   * <p>The number of new findings of each severity on the specified date.</p>
    * @public
    */
   newFindings?: FindingMetricsValuePerSeverity;
 
   /**
-   * <p>The number of closed findings of each severity in an account on the specified date.</p>
+   * <p>The number of closed findings of each severity on the specified date.</p>
    * @public
    */
   closedFindings?: FindingMetricsValuePerSeverity;
 
   /**
-   * <p>The number of open findings of each severity in an account as of the specified date.</p>
+   * <p>The number of open findings of each severity as of the specified date.</p>
    * @public
    */
   openFindings?: FindingMetricsValuePerSeverity;
 
   /**
-   * <p>The average time it takes to close findings of each severity in days.</p>
+   * <p>The average time in days it takes to close findings of each severity as of a specified
+   *       date.</p>
    * @public
    */
   meanTimeToClose?: FindingMetricsValuePerSeverity;
@@ -239,7 +240,7 @@ export interface SuggestedFix {
   description?: string;
 
   /**
-   * <p>The suggested code to add to your file. </p>
+   * <p>The suggested code fix. If applicable, includes code patch to replace your source code. </p>
    * @public
    */
   code?: string;
@@ -265,19 +266,18 @@ export interface Remediation {
 }
 
 /**
- * <p>Information about a resource, such as an Amazon S3 bucket or AWS Lambda function, that
- *       contains a finding.</p>
+ * <p>Information about a resource that contains a finding.</p>
  * @public
  */
 export interface Resource {
   /**
-   * <p>The identifier for the resource.</p>
+   * <p>The <code>scanName</code> of the scan that was run on the resource.</p>
    * @public
    */
   id?: string;
 
   /**
-   * <p>The identifier for a section of the resource, such as an AWS Lambda layer.</p>
+   * <p>The identifier for a section of the resource.</p>
    * @public
    */
   subResourceId?: string;
@@ -403,7 +403,9 @@ export interface Vulnerability {
   filePath?: FilePath;
 
   /**
-   * <p> The number of times the vulnerability appears in your code.</p>
+   * @deprecated
+   *
+   * <p>The number of times the vulnerability appears in your code.</p>
    * @public
    */
   itemCount?: number;
@@ -427,8 +429,7 @@ export interface Finding {
   description?: string;
 
   /**
-   * <p>The identifier for the component that generated a finding such as AWSCodeGuruSecurity or
-   *       AWSInspector.</p>
+   * <p>The identifier for the component that generated a finding such as AmazonCodeGuruSecurity.</p>
    * @public
    */
   generatorId?: string;
@@ -471,7 +472,10 @@ export interface Finding {
   vulnerability?: Vulnerability;
 
   /**
-   * <p>The severity of the finding.</p>
+   * <p>The severity of the finding. Severity can be critical, high, medium, low, or
+   *       informational. For information on severity levels, see
+   *       <a href="https://docs.aws.amazon.com/codeguru/latest/security-ug/findings-overview.html#severity-distribution">Finding severity</a> in the
+   *       <i>Amazon CodeGuru Security User Guide</i>.</p>
    * @public
    */
   severity?: Severity;
@@ -521,7 +525,7 @@ export interface Finding {
  */
 export interface BatchGetFindingsResponse {
   /**
-   * <p> A list of all requested findings.</p>
+   * <p> A list of all findings which were successfully fetched.</p>
    * @public
    */
   findings: Finding[] | undefined;
@@ -727,7 +731,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The identifier for a resource object that contains resources where a finding was detected.</p>
+ * <p>The identifier for a resource object that contains resources to scan. Specifying a
+ *       codeArtifactId is required to create a scan.</p>
  * @public
  */
 export type ResourceId = ResourceId.CodeArtifactIdMember | ResourceId.$UnknownMember;
@@ -737,7 +742,8 @@ export type ResourceId = ResourceId.CodeArtifactIdMember | ResourceId.$UnknownMe
  */
 export namespace ResourceId {
   /**
-   * <p>The identifier for the code file uploaded to the resource where a finding was detected.</p>
+   * <p>The identifier for the code file uploaded to the resource object. Returned by
+   *       <code>CreateUploadUrl</code> when you upload resources to be scanned.</p>
    * @public
    */
   export interface CodeArtifactIdMember {
@@ -790,15 +796,14 @@ export interface CreateScanRequest {
   clientToken?: string;
 
   /**
-   * <p>The identifier for an input resource used to create a scan.</p>
+   * <p>The identifier for the resource object to be scanned.</p>
    * @public
    */
   resourceId: ResourceId | undefined;
 
   /**
-   * <p>The unique name that CodeGuru Security uses to track revisions across multiple
-   *       scans of the same resource. Only allowed for a <code>STANDARD</code> scan type. If not
-   *       specified, it will be auto generated. </p>
+   * <p>The unique name that CodeGuru Security uses to track revisions across multiple scans of
+   *       the same resource. Only allowed for a <code>STANDARD</code> scan type. </p>
    * @public
    */
   scanName: string | undefined;
@@ -952,7 +957,7 @@ export interface CreateUploadUrlRequest {
  */
 export interface CreateUploadUrlResponse {
   /**
-   * <p>A pre-signed S3 URL. You can upload the code file you want to scan and add the required
+   * <p>A pre-signed S3 URL. You can upload the code file you want to scan with the required
    *       <code>requestHeaders</code> using any HTTP client.</p>
    * @public
    */
@@ -966,7 +971,8 @@ export interface CreateUploadUrlResponse {
   requestHeaders: Record<string, string> | undefined;
 
   /**
-   * <p>The identifier for the uploaded code resource. </p>
+   * <p>The identifier for the uploaded code resource. Pass this to <code>CreateScan</code> to use
+   *       the uploaded resources.</p>
    * @public
    */
   codeArtifactId: string | undefined;
@@ -978,13 +984,14 @@ export interface CreateUploadUrlResponse {
 export interface GetAccountConfigurationRequest {}
 
 /**
- * <p>Information about account-level configuration.</p>
+ * <p>Information about the encryption configuration for an account. Required to call
+ *       <code>UpdateAccountConfiguration</code>.</p>
  * @public
  */
 export interface EncryptionConfig {
   /**
-   * <p>The KMS key ARN to use for encryption. This must be provided as a header when uploading
-   *       your code resource.</p>
+   * <p>The KMS key ARN that is used for encryption. If an AWS-managed key is used for encryption,
+   *       returns empty.</p>
    * @public
    */
   kmsKeyArn?: string;
@@ -995,9 +1002,10 @@ export interface EncryptionConfig {
  */
 export interface GetAccountConfigurationResponse {
   /**
-   * <p>An <code>EncryptionConfig</code> object that contains the KMS key ARN to use for
+   * <p>An <code>EncryptionConfig</code> object that contains the KMS key ARN that is used for
    *       encryption. By default, CodeGuru Security uses an AWS-managed key for encryption. To specify
-   *       your own key, call <code>UpdateAccountConfiguration</code>.</p>
+   *       your own key, call <code>UpdateAccountConfiguration</code>. If you do not specify a
+   *       customer-managed key, returns empty.</p>
    * @public
    */
   encryptionConfig: EncryptionConfig | undefined;
@@ -1025,7 +1033,7 @@ export interface GetFindingsRequest {
    * <p>The maximum number of results to return in the response. Use this parameter when
    *       paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code>
    *       element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve
-   *       additional results.</p>
+   *       additional results. If not specified, returns 1000 results.</p>
    * @public
    */
   maxResults?: number;
@@ -1062,8 +1070,7 @@ export interface GetFindingsResponse {
 export interface GetMetricsSummaryRequest {
   /**
    * <p>The date you want to retrieve summary metrics from, rounded to the nearest day. The date
-   *       must be within the past two years since metrics data is only stored for two years. If a date
-   *       outside of this range is passed, the response will be empty.</p>
+   *       must be within the past two years.</p>
    * @public
    */
   date: Date | undefined;
@@ -1089,7 +1096,7 @@ export interface CategoryWithFindingNum {
 }
 
 /**
- * <p>Information about a scan with open findings.</p>
+ * <p>Information about the number of findings generated by a scan.</p>
  * @public
  */
 export interface ScanNameWithFindingNum {
@@ -1100,14 +1107,14 @@ export interface ScanNameWithFindingNum {
   scanName?: string;
 
   /**
-   * <p>The number of open findings generated by a scan.</p>
+   * <p>The number of findings generated by a scan.</p>
    * @public
    */
   findingNumber?: number;
 }
 
 /**
- * <p>Information about summary metrics in an account.</p>
+ * <p>A summary of metrics for an account as of a specified date.</p>
  * @public
  */
 export interface MetricsSummary {
@@ -1118,28 +1125,28 @@ export interface MetricsSummary {
   date?: Date;
 
   /**
-   * <p>The number of open findings of each severity in an account.</p>
+   * <p>The number of open findings of each severity.</p>
    * @public
    */
   openFindings?: FindingMetricsValuePerSeverity;
 
   /**
    * <p>A list of <code>CategoryWithFindingNum</code> objects for the top 5 finding categories
-   *       with the most open findings in an account.</p>
+   *       with the most findings.</p>
    * @public
    */
   categoriesWithMostFindings?: CategoryWithFindingNum[];
 
   /**
    * <p>A list of <code>ScanNameWithFindingNum</code> objects for the top 3 scans with the most
-   *       number of open critical findings in an account.</p>
+   *       number of open findings.</p>
    * @public
    */
   scansWithMostOpenFindings?: ScanNameWithFindingNum[];
 
   /**
    * <p>A list of <code>ScanNameWithFindingNum</code> objects for the top 3 scans with the most
-   *       number of open findings in an account.</p>
+   *       number of open critical findings.</p>
    * @public
    */
   scansWithMostOpenCriticalFindings?: ScanNameWithFindingNum[];
@@ -1191,7 +1198,7 @@ export interface GetScanResponse {
   runId: string | undefined;
 
   /**
-   * <p>The current state of the scan. Pass either <code>InProgress</code>,
+   * <p>The current state of the scan. Returns either <code>InProgress</code>,
    *       <code>Successful</code>, or <code>Failed</code>.</p>
    * @public
    */
@@ -1229,6 +1236,12 @@ export interface GetScanResponse {
    * @public
    */
   scanNameArn?: string;
+
+  /**
+   * <p>Details about the error that causes a scan to fail to be retrieved.</p>
+   * @public
+   */
+  errorMessage?: string;
 }
 
 /**
@@ -1248,19 +1261,21 @@ export interface ListFindingsMetricsRequest {
    * <p>The maximum number of results to return in the response. Use this parameter when
    *       paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code>
    *       element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve
-   *       additional results.</p>
+   *       additional results. If not specified, returns 1000 results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * <p>The start date of the interval which you want to retrieve metrics from.</p>
+   * <p>The start date of the interval which you want to retrieve metrics from. Rounds to the
+   *       nearest day.</p>
    * @public
    */
   startDate: Date | undefined;
 
   /**
-   * <p>The end date of the interval which you want to retrieve metrics from.</p>
+   * <p>The end date of the interval which you want to retrieve metrics from. Round to the nearest
+   *       day.</p>
    * @public
    */
   endDate: Date | undefined;
@@ -1300,7 +1315,7 @@ export interface ListScansRequest {
    * <p>The maximum number of results to return in the response. Use this parameter when
    *       paginating results. If additional results exist beyond the number you specify, the <code>nextToken</code>
    *       element is returned in the response. Use <code>nextToken</code> in a subsequent request to retrieve
-   *       additional results.</p>
+   *       additional results. If not specified, returns 100 results.</p>
    * @public
    */
   maxResults?: number;
@@ -1373,7 +1388,7 @@ export interface ListScansResponse {
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling
-   *         <code>ListScans</code> or <code>GetScan</code>.</p>
+   *         <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -1408,7 +1423,7 @@ export interface ListTagsForResourceResponse {
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling
-   *       <code>ListScans</code> or <code>GetScan</code>.</p>
+   *         <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -1443,7 +1458,7 @@ export interface TagResourceResponse {}
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling
-   *       <code>ListScans</code> or <code>GetScan</code>.</p>
+   *         <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -1465,7 +1480,10 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountConfigurationRequest {
   /**
-   * <p>The KMS key ARN you want to use for encryption. Defaults to service-side encryption if missing.</p>
+   * <p>The customer-managed KMS key ARN you want to use for encryption. If not specified,
+   *       CodeGuru Security will use an AWS-managed key for encryption. If you previously specified a
+   *       customer-managed KMS key and want CodeGuru Security to use an AWS-managed key for encryption
+   *       instead, pass nothing.</p>
    * @public
    */
   encryptionConfig: EncryptionConfig | undefined;
@@ -1476,8 +1494,9 @@ export interface UpdateAccountConfigurationRequest {
  */
 export interface UpdateAccountConfigurationResponse {
   /**
-   * <p>An <code>EncryptionConfig</code> object that contains the KMS key ARN to use for
-   *       encryption.</p>
+   * <p>An <code>EncryptionConfig</code> object that contains the KMS key ARN that is used for
+   *       encryption. If you did not specify a customer-managed KMS key in the request, returns empty.
+   *     </p>
    * @public
    */
   encryptionConfig: EncryptionConfig | undefined;

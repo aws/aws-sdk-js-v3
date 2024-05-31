@@ -27,7 +27,7 @@ export interface GetAccountConfigurationCommandInput extends GetAccountConfigura
 export interface GetAccountConfigurationCommandOutput extends GetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Use to get account level configuration.</p>
+ * <p>Use to get the encryption configuration for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,7 @@ export interface CreateScanCommandInput extends CreateScanRequest {}
 export interface CreateScanCommandOutput extends CreateScanResponse, __MetadataBearer {}
 
 /**
- * <p>Use to create a scan using code uploaded to an S3 bucket.</p>
+ * <p>Use to create a scan using code uploaded to an Amazon S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,7 @@ export interface BatchGetFindingsCommandInput extends BatchGetFindingsRequest {}
 export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all requested findings.</p>
+ * <p>Returns a list of requested findings from standard scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

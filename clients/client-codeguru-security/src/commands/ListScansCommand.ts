@@ -27,7 +27,7 @@ export interface ListScansCommandInput extends ListScansRequest {}
 export interface ListScansCommandOutput extends ListScansResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the standard scans in an account. Does not return express
+ * <p>Returns a list of all scans in an account. Does not return <code>EXPRESS</code>
  *       scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

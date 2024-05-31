@@ -49,6 +49,7 @@ export interface GetScanCommandOutput extends GetScanResponse, __MetadataBearer 
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   numberOfRevisions: Number("long"),
  * //   scanNameArn: "STRING_VALUE",
+ * //   errorMessage: "STRING_VALUE",
  * // };
  *
  * ```
@@ -70,6 +71,9 @@ export interface GetScanCommandOutput extends GetScanResponse, __MetadataBearer 
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
  *
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>

@@ -31,8 +31,9 @@ export interface CreateUploadUrlCommandInput extends CreateUploadUrlRequest {}
 export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a pre-signed URL and request headers used to upload a code resource.</p>
- *          <p>You can upload your code resource to the URL and add the request headers using any HTTP
+ * <p>Generates a pre-signed URL, request headers used to upload a code resource, and code
+ *       artifact identifier for the uploaded resource.</p>
+ *          <p>You can upload your code resource to the URL with the request headers using any HTTP
  *       client.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

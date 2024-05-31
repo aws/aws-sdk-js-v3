@@ -27,7 +27,7 @@ export interface UpdateAccountConfigurationCommandInput extends UpdateAccountCon
 export interface UpdateAccountConfigurationCommandOutput extends UpdateAccountConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Use to update account-level configuration with an encryption key.</p>
+ * <p>Use to update the encryption configuration for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
