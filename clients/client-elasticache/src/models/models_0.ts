@@ -9927,7 +9927,7 @@ export interface DescribeUserGroupsResult {
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of
    *             results from this operation. If this parameter is specified, the response includes only
-   *             records beyond the marker, up to the value specified by MaxRecords. ></p>
+   *             records beyond the marker, up to the value specified by MaxRecords.></p>
    * @public
    */
   Marker?: string;
@@ -10727,10 +10727,13 @@ export interface ModifyCacheClusterMessage {
    *             specified with the <code>auth-token</code> parameter. Possible values:</p>
    *          <ul>
    *             <li>
-   *                <p>Rotate</p>
+   *                <p>ROTATE - default, if no update strategy is provided</p>
    *             </li>
    *             <li>
-   *                <p>Set</p>
+   *                <p>SET - allowed only after ROTATE</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE - allowed only when transitioning to RBAC</p>
    *             </li>
    *          </ul>
    *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
@@ -11213,10 +11216,13 @@ export interface ModifyReplicationGroupMessage {
    *             specified with the <code>auth-token</code> parameter. Possible values:</p>
    *          <ul>
    *             <li>
-   *                <p>Rotate</p>
+   *                <p>ROTATE - default, if no update strategy is provided</p>
    *             </li>
    *             <li>
-   *                <p>Set</p>
+   *                <p>SET - allowed only after ROTATE</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETE - allowed only when transitioning to RBAC</p>
    *             </li>
    *          </ul>
    *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>

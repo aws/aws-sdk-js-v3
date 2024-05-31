@@ -127,7 +127,7 @@ export interface TestFailoverMessage {
 
   /**
    * <p>The name of the node group (called shard in the console) in this replication group on
-   *             which automatic failover is to be tested. You may test automatic failover on up to 5
+   *             which automatic failover is to be tested. You may test automatic failover on up to 15
    *             node groups in any rolling 24-hour period.</p>
    * @public
    */
