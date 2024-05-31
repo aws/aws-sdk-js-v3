@@ -58,15 +58,25 @@ import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./c
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import {
+  GetWorkloadDeploymentPatternCommandInput,
+  GetWorkloadDeploymentPatternCommandOutput,
+} from "./commands/GetWorkloadDeploymentPatternCommand";
+import {
   ListDeploymentEventsCommandInput,
   ListDeploymentEventsCommandOutput,
 } from "./commands/ListDeploymentEventsCommand";
 import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWorkloadDeploymentPatternsCommandInput,
   ListWorkloadDeploymentPatternsCommandOutput,
 } from "./commands/ListWorkloadDeploymentPatternsCommand";
 import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -86,10 +96,14 @@ export type ServiceInputTypes =
   | DeleteDeploymentCommandInput
   | GetDeploymentCommandInput
   | GetWorkloadCommandInput
+  | GetWorkloadDeploymentPatternCommandInput
   | ListDeploymentEventsCommandInput
   | ListDeploymentsCommandInput
+  | ListTagsForResourceCommandInput
   | ListWorkloadDeploymentPatternsCommandInput
-  | ListWorkloadsCommandInput;
+  | ListWorkloadsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 /**
  * @public
@@ -99,10 +113,14 @@ export type ServiceOutputTypes =
   | DeleteDeploymentCommandOutput
   | GetDeploymentCommandOutput
   | GetWorkloadCommandOutput
+  | GetWorkloadDeploymentPatternCommandOutput
   | ListDeploymentEventsCommandOutput
   | ListDeploymentsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWorkloadDeploymentPatternsCommandOutput
-  | ListWorkloadsCommandOutput;
+  | ListWorkloadsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 /**
  * @public

@@ -48,6 +48,9 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *     "<keys>": "STRING_VALUE",
  *   },
  *   dryRun: true || false,
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);

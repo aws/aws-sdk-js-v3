@@ -8,8 +8,8 @@ import { LaunchWizardServiceException as __BaseException } from "./LaunchWizardS
  */
 export interface CreateDeploymentInput {
   /**
-   * <p>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html">
-   *                <code>ListWorkloadDeploymentPatterns</code>
+   * <p>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html">
+   *                <code>ListWorkloads</code>
    *             </a> operation to discover supported
    *          values for this parameter.</p>
    * @public
@@ -32,8 +32,13 @@ export interface CreateDeploymentInput {
   name: string | undefined;
 
   /**
-   * <p>The settings specified for the deployment. For more information on the specifications
-   *          required for creating a deployment, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications.html">Workload specifications</a>.</p>
+   * <p>The settings specified for the deployment. These settings define how to deploy and configure your
+   *          resources created by the deployment. For more information about the specifications
+   *          required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment
+   *          specifications</a>. To retrieve the specifications required to create a deployment for other workloads,
+   *          use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html">
+   *                <code>GetWorkloadDeploymentPattern</code>
+   *             </a> operation.</p>
    * @public
    */
   specifications: Record<string, string> | undefined;
@@ -46,6 +51,12 @@ export interface CreateDeploymentInput {
    * @public
    */
   dryRun?: boolean;
+
+  /**
+   * <p>The tags to add to the deployment.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -342,8 +353,13 @@ export interface DeploymentData {
   createdAt?: Date;
 
   /**
-   * <p>The specifications of the deployment. For more information on specifications for each
-   *          deployment, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications.html">Workload specifications</a>.</p>
+   * <p>The settings specified for the deployment. These settings define how to deploy and configure your
+   *          resources created by the deployment. For more information about the specifications
+   *          required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment
+   *          specifications</a>. To retrieve the specifications required to create a deployment for other workloads,
+   *          use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html">
+   *                <code>GetWorkloadDeploymentPattern</code>
+   *             </a> operation.</p>
    * @public
    */
   specifications?: Record<string, string>;
@@ -359,6 +375,18 @@ export interface DeploymentData {
    * @public
    */
   deletedAt?: Date;
+
+  /**
+   * <p>Information about the tags attached to a deployment.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * @public
+   */
+  deploymentArn?: string;
 }
 
 /**
@@ -417,12 +445,14 @@ export interface ListDeploymentsInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>WORKLOAD_NAME</code>
-   *                </p>
+   *                   <code>WORKLOAD_NAME</code> - The name used in deployments.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DEPLOYMENT_STATUS</code>
+   *                   <code>DEPLOYMENT_STATUS</code> - <code>COMPLETED</code> | <code>CREATING</code> |
+   *                   <code>DELETE_IN_PROGRESS</code> | <code>DELETE_INITIATING</code> |
+   *                   <code>DELETE_FAILED</code> | <code>DELETED</code> | <code>FAILED</code> |
+   *                   <code>IN_PROGRESS</code> | <code>VALIDATING</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -503,6 +533,68 @@ export interface ListDeploymentsOutput {
    * @public
    */
   nextToken?: string;
+}
+
+/**
+ * <p>A field that details a condition of the specifications for a deployment.</p>
+ * @public
+ */
+export interface DeploymentConditionalField {
+  /**
+   * <p>The name of the deployment condition.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The value of the condition.</p>
+   * @public
+   */
+  value?: string;
+
+  /**
+   * <p>The comparator of the condition.</p>
+   *          <p>Valid values: <code>Equal | NotEqual</code>
+   *          </p>
+   * @public
+   */
+  comparator?: string;
+}
+
+/**
+ * <p>A field that details a specification of a deployment pattern.</p>
+ * @public
+ */
+export interface DeploymentSpecificationsField {
+  /**
+   * <p>The name of the deployment specification.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The description of the deployment specification.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The allowed values of the deployment specification.</p>
+   * @public
+   */
+  allowedValues?: string[];
+
+  /**
+   * <p>Indicates if the deployment specification is required.</p>
+   * @public
+   */
+  required?: string;
+
+  /**
+   * <p>The conditionals used for the deployment specification.</p>
+   * @public
+   */
+  conditionals?: DeploymentConditionalField[];
 }
 
 /**
@@ -594,6 +686,177 @@ export interface GetWorkloadOutput {
 /**
  * @public
  */
+export interface GetWorkloadDeploymentPatternInput {
+  /**
+   * <p>The name of the workload.</p>
+   * @public
+   */
+  workloadName: string | undefined;
+
+  /**
+   * <p>The name of the deployment pattern.</p>
+   * @public
+   */
+  deploymentPatternName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkloadDeploymentPatternStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkloadDeploymentPatternStatus =
+  (typeof WorkloadDeploymentPatternStatus)[keyof typeof WorkloadDeploymentPatternStatus];
+
+/**
+ * <p>The data that details a workload deployment pattern.</p>
+ * @public
+ */
+export interface WorkloadDeploymentPatternData {
+  /**
+   * <p>The workload name of the deployment pattern.</p>
+   * @public
+   */
+  workloadName?: string;
+
+  /**
+   * <p>The name of the deployment pattern.</p>
+   * @public
+   */
+  deploymentPatternName?: string;
+
+  /**
+   * <p>The workload version name of the deployment pattern.</p>
+   * @public
+   */
+  workloadVersionName?: string;
+
+  /**
+   * <p>The display name of the deployment pattern.</p>
+   * @public
+   */
+  displayName?: string;
+
+  /**
+   * <p>The description of the deployment pattern.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The status of the deployment pattern.</p>
+   * @public
+   */
+  status?: WorkloadDeploymentPatternStatus;
+
+  /**
+   * <p>The status message of the deployment pattern.</p>
+   * @public
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The settings specified for the deployment. These settings define how to deploy and configure your
+   *          resources created by the deployment. For more information about the specifications
+   *          required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment
+   *          specifications</a>. To retrieve the specifications required to create a deployment for other workloads,
+   *          use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html">
+   *                <code>GetWorkloadDeploymentPattern</code>
+   *             </a> operation.</p>
+   * @public
+   */
+  specifications?: DeploymentSpecificationsField[];
+}
+
+/**
+ * @public
+ */
+export interface GetWorkloadDeploymentPatternOutput {
+  /**
+   * <p>Details about the workload deployment pattern.</p>
+   * @public
+   */
+  workloadDeploymentPattern?: WorkloadDeploymentPatternData;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>Information about the tags.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>One or more tags to attach to the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceOutput {}
+
+/**
+ * @public
+ */
+export interface UntagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Keys identifying the tags to remove.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceOutput {}
+
+/**
+ * @public
+ */
 export interface ListWorkloadsInput {
   /**
    * <p>The maximum number of items to return for this request. To get the next page of items,
@@ -670,23 +933,6 @@ export interface ListWorkloadDeploymentPatternsInput {
    */
   nextToken?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const WorkloadDeploymentPatternStatus = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  DISABLED: "DISABLED",
-  INACTIVE: "INACTIVE",
-} as const;
-
-/**
- * @public
- */
-export type WorkloadDeploymentPatternStatus =
-  (typeof WorkloadDeploymentPatternStatus)[keyof typeof WorkloadDeploymentPatternStatus];
 
 /**
  * <p>Describes a workload deployment pattern.</p>

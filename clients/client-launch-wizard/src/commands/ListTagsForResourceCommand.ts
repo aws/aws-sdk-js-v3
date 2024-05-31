@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
-import { ListWorkloadsInput, ListWorkloadsOutput } from "../models/models_0";
-import { de_ListWorkloadsCommand, se_ListWorkloadsCommand } from "../protocols/Aws_restJson1";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,51 +16,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListWorkloadsCommand}.
+ * The input for {@link ListTagsForResourceCommand}.
  */
-export interface ListWorkloadsCommandInput extends ListWorkloadsInput {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
 /**
  * @public
  *
- * The output of {@link ListWorkloadsCommand}.
+ * The output of {@link ListTagsForResourceCommand}.
  */
-export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __MetadataBearer {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the available workload names. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html">ListWorkloadDeploymentPatterns</a> operation to discover the available deployment patterns for a given workload.</p>
+ * <p>Lists the tags associated with a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LaunchWizardClient, ListWorkloadsCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
- * // const { LaunchWizardClient, ListWorkloadsCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
+ * import { LaunchWizardClient, ListTagsForResourceCommand } from "@aws-sdk/client-launch-wizard"; // ES Modules import
+ * // const { LaunchWizardClient, ListTagsForResourceCommand } = require("@aws-sdk/client-launch-wizard"); // CommonJS import
  * const client = new LaunchWizardClient(config);
- * const input = { // ListWorkloadsInput
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // ListTagsForResourceInput
+ *   resourceArn: "STRING_VALUE", // required
  * };
- * const command = new ListWorkloadsCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * // { // ListWorkloadsOutput
- * //   workloads: [ // WorkloadDataSummaryList
- * //     { // WorkloadDataSummary
- * //       workloadName: "STRING_VALUE",
- * //       displayName: "STRING_VALUE",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // ListTagsForResourceOutput
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListWorkloadsCommandInput - {@link ListWorkloadsCommandInput}
- * @returns {@link ListWorkloadsCommandOutput}
- * @see {@link ListWorkloadsCommandInput} for command's `input` shape.
- * @see {@link ListWorkloadsCommandOutput} for command's `response` shape.
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
  *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified workload or deployment resource can't be found.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
@@ -70,10 +68,10 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  *
  * @public
  */
-export class ListWorkloadsCommand extends $Command
+export class ListTagsForResourceCommand extends $Command
   .classBuilder<
-    ListWorkloadsCommandInput,
-    ListWorkloadsCommandOutput,
+    ListTagsForResourceCommandInput,
+    ListTagsForResourceCommandOutput,
     LaunchWizardClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -87,9 +85,9 @@ export class ListWorkloadsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("LaunchWizard", "ListWorkloads", {})
-  .n("LaunchWizardClient", "ListWorkloadsCommand")
+  .s("LaunchWizard", "ListTagsForResource", {})
+  .n("LaunchWizardClient", "ListTagsForResourceCommand")
   .f(void 0, void 0)
-  .ser(se_ListWorkloadsCommand)
-  .de(de_ListWorkloadsCommand)
+  .ser(se_ListTagsForResourceCommand)
+  .de(de_ListTagsForResourceCommand)
   .build() {}

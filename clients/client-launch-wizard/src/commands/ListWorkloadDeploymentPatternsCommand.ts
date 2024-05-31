@@ -32,7 +32,7 @@ export interface ListWorkloadDeploymentPatternsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the workload deployment patterns.</p>
+ * <p>Lists the workload deployment patterns for a given workload name. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html">ListWorkloads</a> operation to discover the available workload names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

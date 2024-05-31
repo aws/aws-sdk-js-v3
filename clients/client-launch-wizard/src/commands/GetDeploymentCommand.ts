@@ -52,6 +52,10 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * //     },
  * //     resourceGroup: "STRING_VALUE",
  * //     deletedAt: new Date("TIMESTAMP"),
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     deploymentArn: "STRING_VALUE",
  * //   },
  * // };
  *

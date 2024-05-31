@@ -10,8 +10,10 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  resolvedPath as __resolvedPath,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -26,15 +28,25 @@ import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "../
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "../commands/GetDeploymentCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "../commands/GetWorkloadCommand";
 import {
+  GetWorkloadDeploymentPatternCommandInput,
+  GetWorkloadDeploymentPatternCommandOutput,
+} from "../commands/GetWorkloadDeploymentPatternCommand";
+import {
   ListDeploymentEventsCommandInput,
   ListDeploymentEventsCommandOutput,
 } from "../commands/ListDeploymentEventsCommand";
 import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "../commands/ListDeploymentsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   ListWorkloadDeploymentPatternsCommandInput,
   ListWorkloadDeploymentPatternsCommandOutput,
 } from "../commands/ListWorkloadDeploymentPatternsCommand";
 import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "../commands/ListWorkloadsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { LaunchWizardServiceException as __BaseException } from "../models/LaunchWizardServiceException";
 import {
   DeploymentData,
@@ -66,6 +78,7 @@ export const se_CreateDeploymentCommand = async (
       dryRun: [],
       name: [],
       specifications: (_) => _json(_),
+      tags: (_) => _json(_),
       workloadName: [],
     })
   );
@@ -140,6 +153,29 @@ export const se_GetWorkloadCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetWorkloadDeploymentPatternCommand
+ */
+export const se_GetWorkloadDeploymentPatternCommand = async (
+  input: GetWorkloadDeploymentPatternCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/getWorkloadDeploymentPattern");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      deploymentPatternName: [],
+      workloadName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDeploymentEventsCommand
  */
 export const se_ListDeploymentEventsCommand = async (
@@ -188,6 +224,22 @@ export const se_ListDeploymentsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListWorkloadDeploymentPatternsCommand
  */
 export const se_ListWorkloadDeploymentPatternsCommand = async (
@@ -231,6 +283,51 @@ export const se_ListWorkloadsCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    [_tK]: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -320,6 +417,27 @@ export const de_GetWorkloadCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetWorkloadDeploymentPatternCommand
+ */
+export const de_GetWorkloadDeploymentPatternCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkloadDeploymentPatternCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workloadDeploymentPattern: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListDeploymentEventsCommand
  */
 export const de_ListDeploymentEventsCommand = async (
@@ -358,6 +476,27 @@ export const de_ListDeploymentsCommand = async (
   const doc = take(data, {
     deployments: (_) => de_DeploymentDataSummaryList(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -404,6 +543,40 @@ export const de_ListWorkloadsCommand = async (
     workloads: _json,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -525,6 +698,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DeploymentSpecifications omitted.
 
+// se_Tags omitted.
+
+// de_AllowedValues omitted.
+
+// de_DeploymentConditionalField omitted.
+
 /**
  * deserializeAws_restJson1DeploymentData
  */
@@ -532,12 +711,14 @@ const de_DeploymentData = (output: any, context: __SerdeContext): DeploymentData
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     deletedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentArn: __expectString,
     id: __expectString,
     name: __expectString,
     patternName: __expectString,
     resourceGroup: __expectString,
     specifications: _json,
     status: __expectString,
+    tags: _json,
     workloadName: __expectString,
   }) as any;
 };
@@ -595,11 +776,21 @@ const de_DeploymentEventDataSummaryList = (output: any, context: __SerdeContext)
 
 // de_DeploymentSpecifications omitted.
 
+// de_DeploymentSpecificationsData omitted.
+
+// de_DeploymentSpecificationsField omitted.
+
+// de_SpecificationsConditionalData omitted.
+
+// de_Tags omitted.
+
 // de_WorkloadData omitted.
 
 // de_WorkloadDataSummary omitted.
 
 // de_WorkloadDataSummaryList omitted.
+
+// de_WorkloadDeploymentPatternData omitted.
 
 // de_WorkloadDeploymentPatternDataSummary omitted.
 
@@ -623,3 +814,5 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _tK = "tagKeys";

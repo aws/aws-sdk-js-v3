@@ -19,6 +19,11 @@ import {
 } from "./commands/GetDeploymentCommand";
 import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import {
+  GetWorkloadDeploymentPatternCommand,
+  GetWorkloadDeploymentPatternCommandInput,
+  GetWorkloadDeploymentPatternCommandOutput,
+} from "./commands/GetWorkloadDeploymentPatternCommand";
+import {
   ListDeploymentEventsCommand,
   ListDeploymentEventsCommandInput,
   ListDeploymentEventsCommandOutput,
@@ -29,6 +34,11 @@ import {
   ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWorkloadDeploymentPatternsCommand,
   ListWorkloadDeploymentPatternsCommandInput,
   ListWorkloadDeploymentPatternsCommandOutput,
@@ -38,6 +48,12 @@ import {
   ListWorkloadsCommandInput,
   ListWorkloadsCommandOutput,
 } from "./commands/ListWorkloadsCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { LaunchWizardClient, LaunchWizardClientConfig } from "./LaunchWizardClient";
 
 const commands = {
@@ -45,10 +61,14 @@ const commands = {
   DeleteDeploymentCommand,
   GetDeploymentCommand,
   GetWorkloadCommand,
+  GetWorkloadDeploymentPatternCommand,
   ListDeploymentEventsCommand,
   ListDeploymentsCommand,
+  ListTagsForResourceCommand,
   ListWorkloadDeploymentPatternsCommand,
   ListWorkloadsCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
 };
 
 export interface LaunchWizard {
@@ -109,6 +129,23 @@ export interface LaunchWizard {
   ): void;
 
   /**
+   * @see {@link GetWorkloadDeploymentPatternCommand}
+   */
+  getWorkloadDeploymentPattern(
+    args: GetWorkloadDeploymentPatternCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkloadDeploymentPatternCommandOutput>;
+  getWorkloadDeploymentPattern(
+    args: GetWorkloadDeploymentPatternCommandInput,
+    cb: (err: any, data?: GetWorkloadDeploymentPatternCommandOutput) => void
+  ): void;
+  getWorkloadDeploymentPattern(
+    args: GetWorkloadDeploymentPatternCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkloadDeploymentPatternCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDeploymentEventsCommand}
    */
   listDeploymentEvents(
@@ -141,6 +178,23 @@ export interface LaunchWizard {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListWorkloadDeploymentPatternsCommand}
    */
   listWorkloadDeploymentPatterns(
@@ -167,6 +221,28 @@ export interface LaunchWizard {
     args: ListWorkloadsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkloadsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 }
 
