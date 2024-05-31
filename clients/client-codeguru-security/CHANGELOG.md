@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.588.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.587.0...v3.588.0) (2024-05-31)
+
+
+### Features
+
+* **client-codeguru-security:** This release includes minor model updates and documentation updates. ([ed7b888](https://github.com/aws/aws-sdk-js-v3/commit/ed7b888af9a2e6dfcc5c2210bd17bae801e98536))
+
+
+
+
+
 # [3.587.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.586.0...v3.587.0) (2024-05-30)
 
 **Note:** Version bump only for package @aws-sdk/client-codeguru-security

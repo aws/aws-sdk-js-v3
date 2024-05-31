@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.588.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.587.0...v3.588.0) (2024-05-31)
+
+
+### Bug Fixes
+
+* **core:** set module exports field for bundlers ([#6149](https://github.com/aws/aws-sdk-js-v3/issues/6149)) ([da60fe0](https://github.com/aws/aws-sdk-js-v3/commit/da60fe0b96b13b8af9eb906655eac656f81af183))
+
+
+
+
+
 # [3.587.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.586.0...v3.587.0) (2024-05-30)
 
 **Note:** Version bump only for package @aws-sdk/core

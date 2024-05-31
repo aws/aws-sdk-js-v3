@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.588.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.587.0...v3.588.0) (2024-05-31)
+
+
+### Features
+
+* **client-launch-wizard:** This release adds support for describing workload deployment specifications, deploying additional workload types, and managing tags for Launch Wizard resources with API operations. ([5a28a05](https://github.com/aws/aws-sdk-js-v3/commit/5a28a0581f2dd46c42d8cee1b1da00ce2b6b95e9))
+
+
+
+
+
 # [3.587.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.586.0...v3.587.0) (2024-05-30)
 
 **Note:** Version bump only for package @aws-sdk/client-launch-wizard
