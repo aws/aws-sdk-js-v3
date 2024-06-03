@@ -668,7 +668,10 @@ export interface CreateBackendEnvironmentRequest {
 }
 
 /**
- * <p>Describes the backend environment for an Amplify app. </p>
+ * <p>Describes the backend environment associated with a <code>Branch</code> of a Gen 1
+ *                 Amplify app. Amplify Gen 1 applications are created
+ *             using Amplify Studio or the Amplify command line
+ *             interface (CLI).</p>
  * @public
  */
 export interface BackendEnvironment {
@@ -745,8 +748,11 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Describes the backend properties associated with an Amplify
+ * <p>Describes the backend associated with an Amplify
  *             <code>Branch</code>.</p>
+ *          <p>This property is available to Amplify Gen 2 apps only. When you deploy an application with
+ *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+ *             code.</p>
  * @public
  */
 export interface Backend {
@@ -870,8 +876,11 @@ export interface CreateBranchRequest {
   pullRequestEnvironmentName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
+   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify
    *             app. </p>
+   *          <p>This field is available to Amplify Gen 1 apps only where the
+   *             backend is created using Amplify Studio or the Amplify
+   *             command line interface (CLI).</p>
    * @public
    */
   backendEnvironmentArn?: string;
@@ -879,6 +888,9 @@ export interface CreateBranchRequest {
   /**
    * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
    *             backend created from an CloudFormation stack.</p>
+   *          <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with
+   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+   *             code.</p>
    * @public
    */
   backend?: Backend;
@@ -1052,15 +1064,20 @@ export interface Branch {
   sourceBranch?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
-   *             app. </p>
+   * <p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app. </p>
+   *          <p>This property is available to Amplify Gen 1 apps only. When you deploy an application with
+   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+   *             code.</p>
    * @public
    */
   backendEnvironmentArn?: string;
 
   /**
-   * <p>Describes the backend properties associated with an Amplify
+   * <p>Describes the backend associated with an Amplify
    *             <code>Branch</code>.</p>
+   *          <p>This property is available to Amplify Gen 2 apps only. When you deploy an application with
+   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+   *             code.</p>
    * @public
    */
   backend?: Backend;
@@ -3041,8 +3058,11 @@ export interface UpdateBranchRequest {
   pullRequestEnvironmentName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
+   * <p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify
    *             app. </p>
+   *          <p>This field is available to Amplify Gen 1 apps only where the
+   *             backend is created using Amplify Studio or the Amplify
+   *             command line interface (CLI).</p>
    * @public
    */
   backendEnvironmentArn?: string;
@@ -3050,6 +3070,9 @@ export interface UpdateBranchRequest {
   /**
    * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
    *             backend created from an CloudFormation stack.</p>
+   *          <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with
+   *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
+   *             code.</p>
    * @public
    */
   backend?: Backend;
