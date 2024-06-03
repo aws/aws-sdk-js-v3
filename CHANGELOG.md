@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.589.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.588.0...v3.589.0) (2024-06-03)
+
+
+### Features
+
+* **client-batch:** This release adds support for the AWS Batch GetJobQueueSnapshot API operation. ([2129ba2](https://github.com/aws/aws-sdk-js-v3/commit/2129ba28dedff5c6e41993d87cd25657b4b733ae))
+* **client-eks:** Adds support for EKS add-ons pod identity associations integration ([d391abe](https://github.com/aws/aws-sdk-js-v3/commit/d391abe72739e4e938c4439ab366ad9895d30f8e))
+* **client-iottwinmaker:** Support RESET_VALUE UpdateType for PropertyUpdates to reset property value to default or null ([822d606](https://github.com/aws/aws-sdk-js-v3/commit/822d606d46e42fe666fb1005c7bf3c3599e8bb5d))
+* **clients:** update client endpoints as of 2024-06-03 ([b9d72a6](https://github.com/aws/aws-sdk-js-v3/commit/b9d72a6a1cd7fc2cb3c461401447252f3a1e4ce3))
+
+
+
+
+
 # [3.588.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.587.0...v3.588.0) (2024-05-31)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.589.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.588.0...v3.589.0) (2024-06-03)
+
+
+### Features
+
+* **client-iottwinmaker:** Support RESET_VALUE UpdateType for PropertyUpdates to reset property value to default or null ([822d606](https://github.com/aws/aws-sdk-js-v3/commit/822d606d46e42fe666fb1005c7bf3c3599e8bb5d))
+
+
+
+
+
 # [3.588.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.587.0...v3.588.0) (2024-05-31)
 
 **Note:** Version bump only for package @aws-sdk/client-iottwinmaker

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.589.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.588.0...v3.589.0) (2024-06-03)
+
+
+### Features
+
+* **client-eks:** Adds support for EKS add-ons pod identity associations integration ([d391abe](https://github.com/aws/aws-sdk-js-v3/commit/d391abe72739e4e938c4439ab366ad9895d30f8e))
+
+
+
+
+
 # [3.588.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.587.0...v3.588.0) (2024-05-31)
 
 **Note:** Version bump only for package @aws-sdk/client-eks
