@@ -57,6 +57,7 @@ export interface ListPodIdentityAssociationsCommandOutput
  * //       serviceAccount: "STRING_VALUE",
  * //       associationArn: "STRING_VALUE",
  * //       associationId: "STRING_VALUE",
+ * //       ownerArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

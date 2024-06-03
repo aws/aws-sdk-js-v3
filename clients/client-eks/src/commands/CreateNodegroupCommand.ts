@@ -31,8 +31,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *          <p>You can only create a node group for your cluster that is equal to the current Kubernetes
  *             version for the cluster. All node groups are created with the latest AMI release version
  *             for the respective minor Kubernetes version of the cluster, unless you deploy a custom AMI
- *             using a launch template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
- *                 template support</a>.</p>
+ *             using a launch template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a>.</p>
  *          <p>An Amazon EKS managed node group is an Amazon EC2
  *             Auto Scaling group and associated Amazon EC2 instances that are managed by
  *                 Amazon Web Services for an Amazon EKS cluster. For more information, see

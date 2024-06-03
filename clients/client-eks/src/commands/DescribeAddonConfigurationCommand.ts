@@ -44,6 +44,14 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * //   addonName: "STRING_VALUE",
  * //   addonVersion: "STRING_VALUE",
  * //   configurationSchema: "STRING_VALUE",
+ * //   podIdentityConfiguration: [ // AddonPodIdentityConfigurationList
+ * //     { // AddonPodIdentityConfiguration
+ * //       serviceAccount: "STRING_VALUE",
+ * //       recommendedManagedPolicies: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -63,6 +63,7 @@ export interface UpdatePodIdentityAssociationCommandOutput
  * //     },
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     ownerArn: "STRING_VALUE",
  * //   },
  * // };
  *

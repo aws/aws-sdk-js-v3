@@ -205,6 +205,8 @@ export interface AccessScope {
  */
 export const AddonIssueCode = {
   ACCESS_DENIED: "AccessDenied",
+  ADDON_PERMISSION_FAILURE: "AddonPermissionFailure",
+  ADDON_SUBSCRIPTION_NEEDED: "AddonSubscriptionNeeded",
   ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
   CLUSTER_UNREACHABLE: "ClusterUnreachable",
   CONFIGURATION_CONFLICT: "ConfigurationConflict",
@@ -385,6 +387,13 @@ export interface Addon {
    * @public
    */
   configurationValues?: string;
+
+  /**
+   * <p>An array of Pod Identity Assocations owned by the Addon. Each EKS Pod Identity association maps a role to a service account in a namespace in the cluster.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+   * @public
+   */
+  podIdentityAssociations?: string[];
 }
 
 /**
@@ -439,6 +448,12 @@ export interface AddonVersionInfo {
    * @public
    */
   requiresConfiguration?: boolean;
+
+  /**
+   * <p>Indicates if the Addon requires IAM Permissions to operate, such as networking permissions.</p>
+   * @public
+   */
+  requiresIamPermissions?: boolean;
 }
 
 /**
@@ -482,6 +497,44 @@ export interface AddonInfo {
    * @public
    */
   marketplaceInformation?: MarketplaceInformation;
+}
+
+/**
+ * <p>A type of Pod Identity Association owned by an Amazon EKS Add-on.</p>
+ *          <p>Each EKS Pod Identity Association maps a role to a service account in a namespace in the cluster.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+ * @public
+ */
+export interface AddonPodIdentityAssociations {
+  /**
+   * <p>The name of a Kubernetes Service Account.</p>
+   * @public
+   */
+  serviceAccount: string | undefined;
+
+  /**
+   * <p>The ARN of an IAM Role.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+}
+
+/**
+ * <p>Information about how to configure IAM for an Addon.</p>
+ * @public
+ */
+export interface AddonPodIdentityConfiguration {
+  /**
+   * <p>The Kubernetes Service Account name used by the addon.</p>
+   * @public
+   */
+  serviceAccount?: string;
+
+  /**
+   * <p>A suggested IAM Policy for the addon.</p>
+   * @public
+   */
+  recommendedManagedPolicies?: string[];
 }
 
 /**
@@ -631,7 +684,7 @@ export class InvalidParameterException extends __BaseException {
   addonName?: string;
 
   /**
-   * <p>The Amazon EKS  subscription ID with the exception.</p>
+   * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
   subscriptionId?: string;
@@ -682,7 +735,7 @@ export class InvalidRequestException extends __BaseException {
   addonName?: string;
 
   /**
-   * <p>The Amazon EKS  subscription ID with the exception.</p>
+   * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
   subscriptionId?: string;
@@ -738,7 +791,7 @@ export class ResourceNotFoundException extends __BaseException {
   addonName?: string;
 
   /**
-   * <p>The Amazon EKS  subscription ID with the exception.</p>
+   * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
   subscriptionId?: string;
@@ -787,7 +840,7 @@ export class ServerException extends __BaseException {
   addonName?: string;
 
   /**
-   * <p>The Amazon EKS  subscription ID with the exception.</p>
+   * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
   subscriptionId?: string;
@@ -818,10 +871,10 @@ export interface Provider {
   /**
    * <p>Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be
    *             symmetric and created in the same Amazon Web Services Region as the cluster. If the
-   *             KMS key was created in a different account, the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> must
+   *                 KMS key was created in a different account, the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> must
    *             have access to the KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
    *                 users in other accounts to use a KMS key</a> in the
-   *             <i>Key Management Service Developer Guide</i>.</p>
+   *                     <i>Key Management Service Developer Guide</i>.</p>
    * @public
    */
   keyArn?: string;
@@ -985,6 +1038,7 @@ export const UpdateParamType = {
   MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
   MIN_SIZE: "MinSize",
   PLATFORM_VERSION: "PlatformVersion",
+  POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
   PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
   RELEASE_VERSION: "ReleaseVersion",
   RESOLVE_CONFLICTS: "ResolveConflicts",
@@ -1138,7 +1192,7 @@ export class ClientException extends __BaseException {
   addonName?: string;
 
   /**
-   * <p>The Amazon EKS  subscription ID with the exception.</p>
+   * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
   subscriptionId?: string;
@@ -1356,11 +1410,13 @@ export interface CreateAccessEntryRequest {
    * <p>The ARN of the IAM principal for the <code>AccessEntry</code>. You can specify one ARN for each access entry. You can't specify the
    *             same ARN in more than one access entry. This value can't be changed after access entry
    *             creation.</p>
-   *          <p>The valid principals differ depending on the type of the access entry in the <code>type</code> field.
-   *             The only valid ARN is IAM roles for the types of access entries for nodes: <code></code>
+   *          <p>The valid principals differ depending on the type of the access entry in the
+   *                 <code>type</code> field. The only valid ARN is IAM roles for the types of access
+   *             entries for nodes: <code></code>
    *             <code></code>. You can use every IAM principal type for <code>STANDARD</code> access entries.
-   *             You can't use the STS session principal type with access entries because this is a temporary
-   *             principal for each session and not a permanent identity that can be assigned permissions.</p>
+   *             You can't use the STS session principal type with access entries because this is a
+   *             temporary principal for each session and not a permanent identity that can be assigned
+   *             permissions.</p>
    *          <p>
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM best practices</a> recommend using IAM roles with
    *             temporary credentials, rather than IAM users with long-term credentials.
@@ -1420,7 +1476,8 @@ export interface CreateAccessEntryRequest {
 
   /**
    * <p>The type of the new access entry. Valid values are <code>Standard</code>,
-   *             <code>FARGATE_LINUX</code>, <code>EC2_LINUX</code>, and <code>EC2_WINDOWS</code>.</p>
+   *                 <code>FARGATE_LINUX</code>, <code>EC2_LINUX</code>, and
+   *             <code>EC2_WINDOWS</code>.</p>
    *          <p>If the <code>principalArn</code> is for an IAM role that's used for
    *             self-managed Amazon EC2 nodes, specify <code>EC2_LINUX</code> or
    *                 <code>EC2_WINDOWS</code>. Amazon EKS grants the necessary permissions to the
@@ -1473,7 +1530,7 @@ export class ResourceLimitExceededException extends __BaseException {
   nodegroupName?: string;
 
   /**
-   * <p>The Amazon EKS  subscription ID with the exception.</p>
+   * <p>The Amazon EKS subscription ID with the exception.</p>
    * @public
    */
   subscriptionId?: string;
@@ -1602,6 +1659,13 @@ export interface CreateAddonRequest {
    * @public
    */
   configurationValues?: string;
+
+  /**
+   * <p>An array of Pod Identity Assocations to be created. Each EKS Pod Identity association maps a Kubernetes service account to an IAM Role.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+   * @public
+   */
+  podIdentityAssociations?: AddonPodIdentityAssociations[];
 }
 
 /**
@@ -1764,8 +1828,8 @@ export interface Logging {
  */
 export interface ControlPlanePlacementRequest {
   /**
-   * <p>The name of the placement group for the Kubernetes control plane instances. This
-   *             setting can't be changed after cluster creation. </p>
+   * <p>The name of the placement group for the Kubernetes control plane instances. This setting
+   *             can't be changed after cluster creation. </p>
    * @public
    */
   groupName?: string;
@@ -2064,9 +2128,7 @@ export const ClusterIssueCode = {
 export type ClusterIssueCode = (typeof ClusterIssueCode)[keyof typeof ClusterIssueCode];
 
 /**
- * <p>An issue with your local Amazon EKS cluster on an Amazon Web Services Outpost.
- *             You can't use this API with an Amazon EKS cluster on the Amazon Web Services
- *             cloud.</p>
+ * <p>An issue with your Amazon EKS cluster.</p>
  * @public
  */
 export interface ClusterIssue {
@@ -2090,15 +2152,12 @@ export interface ClusterIssue {
 }
 
 /**
- * <p>An object representing the health of your local Amazon EKS cluster on an
- *                 Amazon Web Services Outpost. You can't use this API with an Amazon EKS
- *             cluster on the Amazon Web Services cloud. </p>
+ * <p>An object representing the health of your Amazon EKS cluster.</p>
  * @public
  */
 export interface ClusterHealth {
   /**
-   * <p>An object representing the health issues of your local Amazon EKS cluster on
-   *             an Amazon Web Services Outpost.</p>
+   * <p>An object representing the health issues of your Amazon EKS cluster.</p>
    * @public
    */
   issues?: ClusterIssue[];
@@ -2426,8 +2485,7 @@ export interface Cluster {
   id?: string;
 
   /**
-   * <p>An object representing the health of your local Amazon EKS cluster on an
-   *                 Amazon Web Services Outpost. This object isn't available for clusters on the Amazon Web Services cloud.</p>
+   * <p>An object representing the health of your Amazon EKS cluster.</p>
    * @public
    */
   health?: ClusterHealth;
@@ -2558,7 +2616,8 @@ export type EksAnywhereSubscriptionTermUnit =
  */
 export interface EksAnywhereSubscriptionTerm {
   /**
-   * <p>The duration of the subscription term. Valid values are 12 and 36, indicating a 12 month or 36 month subscription.</p>
+   * <p>The duration of the subscription term. Valid values are 12 and 36, indicating a 12
+   *             month or 36 month subscription.</p>
    * @public
    */
   duration?: number;
@@ -2931,7 +2990,7 @@ export type CapacityTypes = (typeof CapacityTypes)[keyof typeof CapacityTypes];
  *             update will fail. For more information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">
  *                <code>CreateLaunchTemplate</code>
  *             </a> in the Amazon EC2 API
- *             Reference. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *             Reference. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
  *          <p>You must specify either the launch template ID or the launch template name in the
  *             request, but not both.</p>
  * @public
@@ -3126,7 +3185,7 @@ export interface CreateNodegroupRequest {
    * <p>The root device disk size (in GiB) for your node group instances. The default disk
    *             size is 20 GiB for Linux and Bottlerocket. The default disk size is 50 GiB for Windows.
    *             If you specify <code>launchTemplate</code>, then don't specify  <code>diskSize</code>, or the node group
-   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   diskSize?: number;
@@ -3136,7 +3195,7 @@ export interface CreateNodegroupRequest {
    *             If you specify <code>launchTemplate</code>, then don't specify  <code>
    *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">SubnetId</a>
    *             </code> in your launch template, or the node group  deployment
-   *             will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   subnets: string[] | undefined;
@@ -3151,7 +3210,7 @@ export interface CreateNodegroupRequest {
    *             deployment will fail. If you don't specify an instance type in a launch template or for
    *                 <code>instanceTypes</code>, then <code>t3.medium</code> is used, by default. If you
    *             specify <code>Spot</code> for <code>capacityType</code>, then we recommend specifying
-   *             multiple values for <code>instanceTypes</code>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in
+   *             multiple values for <code>instanceTypes</code>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in
    *             the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
@@ -3163,7 +3222,7 @@ export interface CreateNodegroupRequest {
    *             will fail. If your launch template uses a Windows custom AMI, then add
    *                 <code>eks:kube-proxy-windows</code> to your Windows nodes <code>rolearn</code> in
    *             the <code>aws-auth</code>
-   *             <code>ConfigMap</code>. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             <code>ConfigMap</code>. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   amiType?: AMITypes;
@@ -3172,7 +3231,7 @@ export interface CreateNodegroupRequest {
    * <p>The remote access configuration to use with your node group. For Linux, the protocol
    *             is SSH. For Windows, the protocol is RDP. If you specify <code>launchTemplate</code>, then don't specify
    *                 <code>remoteAccess</code>, or the node group  deployment will fail.
-   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   remoteAccess?: RemoteAccessConfig;
@@ -3189,7 +3248,7 @@ export interface CreateNodegroupRequest {
    *                     <code>
    *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">IamInstanceProfile</a>
    *             </code> in your launch template, or the node group
-   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   nodeRole: string | undefined;
@@ -3225,10 +3284,12 @@ export interface CreateNodegroupRequest {
   clientRequestToken?: string;
 
   /**
-   * <p>An object representing a node group's launch template specification. If specified,
-   *             then do not specify <code>instanceTypes</code>, <code>diskSize</code>, or
-   *                 <code>remoteAccess</code> and make sure that the launch template meets the
-   *             requirements in <code>launchTemplateSpecification</code>.</p>
+   * <p>An object representing a node group's launch template specification. When using this
+   *             object, don't directly specify <code>instanceTypes</code>, <code>diskSize</code>, or
+   *             <code>remoteAccess</code>. Make sure that
+   *             the launch template meets the requirements in <code>launchTemplateSpecification</code>. Also refer to
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in
+   *             the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   launchTemplate?: LaunchTemplateSpecification;
@@ -3249,7 +3310,7 @@ export interface CreateNodegroupRequest {
    * <p>The Kubernetes version to use for your managed nodes. By default, the Kubernetes version of the
    *             cluster is used, and this is the only accepted specified value. If you specify <code>launchTemplate</code>,
    *             and your launch template uses a custom AMI, then don't specify  <code>version</code>, or the node group
-   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   version?: string;
@@ -3262,7 +3323,7 @@ export interface CreateNodegroupRequest {
    *             <i>Amazon EKS User Guide</i>.</p>
    *          <p>If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify
    *                 <code>releaseVersion</code>, or the node group  deployment will fail.
-   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   releaseVersion?: string;
@@ -3847,6 +3908,12 @@ export interface PodIdentityAssociation {
    * @public
    */
   modifiedAt?: Date;
+
+  /**
+   * <p>If defined, the Pod Identity Association is owned by an Amazon EKS Addon.</p>
+   * @public
+   */
+  ownerArn?: string;
 }
 
 /**
@@ -4175,6 +4242,12 @@ export interface DescribeAddonConfigurationResponse {
    * @public
    */
   configurationSchema?: string;
+
+  /**
+   * <p>The Kubernetes service account name used by the addon, and any suggested IAM policies. Use this information to create an IAM Role for the Addon.</p>
+   * @public
+   */
+  podIdentityConfiguration?: AddonPodIdentityConfiguration[];
 }
 
 /**
@@ -4535,7 +4608,7 @@ export const Category = {
 export type Category = (typeof Category)[keyof typeof Category];
 
 /**
- * <p>Details about  clients using the deprecated resources.</p>
+ * <p>Details about clients using the deprecated resources.</p>
  * @public
  */
 export interface ClientStat {
@@ -4577,13 +4650,15 @@ export interface DeprecationDetail {
   replacedWith?: string;
 
   /**
-   * <p>The version of the software where the deprecated resource version will stop being served.</p>
+   * <p>The version of the software where the deprecated resource version will stop being
+   *             served.</p>
    * @public
    */
   stopServingVersion?: string;
 
   /**
-   * <p>The version of the software where the newer resource version became available to migrate to if applicable.</p>
+   * <p>The version of the software where the newer resource version became available to
+   *             migrate to if applicable.</p>
    * @public
    */
   startServingReplacementVersion?: string;
@@ -4668,7 +4743,8 @@ export interface InsightResourceDetail {
 }
 
 /**
- * <p>A check that provides recommendations to remedy potential upgrade-impacting issues.</p>
+ * <p>A check that provides recommendations to remedy potential upgrade-impacting
+ *             issues.</p>
  * @public
  */
 export interface Insight {
@@ -4697,7 +4773,8 @@ export interface Insight {
   kubernetesVersion?: string;
 
   /**
-   * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the cluster.</p>
+   * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the
+   *             cluster.</p>
    * @public
    */
   lastRefreshTime?: Date;
@@ -4709,7 +4786,8 @@ export interface Insight {
   lastTransitionTime?: Date;
 
   /**
-   * <p>The description of the insight which includes alert criteria, remediation recommendation, and additional resources (contains Markdown).</p>
+   * <p>The description of the insight which includes alert criteria, remediation
+   *             recommendation, and additional resources (contains Markdown).</p>
    * @public
    */
   description?: string;
@@ -5089,7 +5167,7 @@ export interface ListAddonsResponse {
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListAddons</code>
    *             request. When the results of a <code>ListAddons</code> request exceed
-   *             <code>maxResults</code>, you can use this value to retrieve the next page of
+   *                 <code>maxResults</code>, you can use this value to retrieve the next page of
    *             results. This value is <code>null</code> when there are no more results to
    *             return.</p>
    *          <note>
@@ -5275,9 +5353,9 @@ export interface ListEksAnywhereSubscriptionsRequest {
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
-   *                 <code>ListEksAnywhereSubscriptions</code> request where <code>maxResults</code> was used and the
-   *             results exceeded the value of that parameter. Pagination continues from the end of the
-   *             previous results that returned the <code>nextToken</code> value.</p>
+   *                 <code>ListEksAnywhereSubscriptions</code> request where <code>maxResults</code> was
+   *             used and the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous results that returned the <code>nextToken</code> value.</p>
    * @public
    */
   nextToken?: string;
@@ -5465,7 +5543,8 @@ export interface ListInsightsRequest {
   clusterName: string | undefined;
 
   /**
-   * <p>The criteria to filter your list of insights for your cluster. You can filter which insights are returned by category, associated Kubernetes version, and status.</p>
+   * <p>The criteria to filter your list of insights for your cluster. You can filter which
+   *             insights are returned by category, associated Kubernetes version, and status.</p>
    * @public
    */
   filter?: InsightsFilter;
@@ -5485,10 +5564,10 @@ export interface ListInsightsRequest {
   maxResults?: number;
 
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated <code>ListInsights</code>
-   *             request. When the results of a <code>ListInsights</code> request exceed
-   *                 <code>maxResults</code>, you can use this value to retrieve the next page of
-   *             results. This value is <code>null</code> when there are no more results to
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListInsights</code> request. When the results of a <code>ListInsights</code>
+   *             request exceed <code>maxResults</code>, you can use this value to retrieve the next page
+   *             of results. This value is <code>null</code> when there are no more results to
    *             return.</p>
    * @public
    */
@@ -5525,7 +5604,8 @@ export interface InsightSummary {
   kubernetesVersion?: string;
 
   /**
-   * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the cluster.</p>
+   * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the
+   *             cluster.</p>
    * @public
    */
   lastRefreshTime?: Date;
@@ -5537,7 +5617,8 @@ export interface InsightSummary {
   lastTransitionTime?: Date;
 
   /**
-   * <p>The description of the insight which includes alert criteria, remediation recommendation, and additional resources (contains Markdown).</p>
+   * <p>The description of the insight which includes alert criteria, remediation
+   *             recommendation, and additional resources (contains Markdown).</p>
    * @public
    */
   description?: string;
@@ -5562,7 +5643,7 @@ export interface ListInsightsResponse {
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListInsights</code>
    *             request. When the results of a <code>ListInsights</code> request exceed
-   *             <code>maxResults</code>, you can use this value to retrieve the next page of
+   *                 <code>maxResults</code>, you can use this value to retrieve the next page of
    *             results. This value is <code>null</code> when there are no more results to
    *             return.</p>
    * @public
@@ -5720,7 +5801,8 @@ export interface PodIdentityAssociationSummary {
   namespace?: string;
 
   /**
-   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.</p>
+   * <p>The name of the Kubernetes service account inside the cluster to associate the IAM
+   *             credentials with.</p>
    * @public
    */
   serviceAccount?: string;
@@ -5736,6 +5818,12 @@ export interface PodIdentityAssociationSummary {
    * @public
    */
   associationId?: string;
+
+  /**
+   * <p>If defined, the Pod Identity Association is owned by an Amazon EKS Addon.</p>
+   * @public
+   */
+  ownerArn?: string;
 }
 
 /**
@@ -5743,8 +5831,8 @@ export interface PodIdentityAssociationSummary {
  */
 export interface ListPodIdentityAssociationsResponse {
   /**
-   * <p>The list of summarized descriptions of the associations that are in the cluster and match any
-   *             filters that you provided.</p>
+   * <p>The list of summarized descriptions of the associations that are in the cluster and match
+   *             any filters that you provided.</p>
    *          <p>Each summary is simplified by removing these fields compared to the full <code>
    *                <a>PodIdentityAssociation</a>
    *             </code>:</p>
@@ -6219,6 +6307,13 @@ export interface UpdateAddonRequest {
    * @public
    */
   configurationValues?: string;
+
+  /**
+   * <p>An array of Pod Identity Assocations to be updated. Each EKS Pod Identity association maps a Kubernetes service account to an IAM Role. If this value is left blank, no change. If an empty array is provided, existing Pod Identity Assocations owned by the Addon are deleted.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</p>
+   * @public
+   */
+  podIdentityAssociations?: AddonPodIdentityAssociations[];
 }
 
 /**
@@ -6491,7 +6586,7 @@ export interface UpdateNodegroupVersionRequest {
    *             the node group does not change. You can specify the Kubernetes version of the cluster to
    *             update the node group to the latest AMI version of the cluster's Kubernetes version.
    *             If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify  <code>version</code>,
-   *             or the node group  update will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             or the node group  update will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   version?: string;
@@ -6504,7 +6599,7 @@ export interface UpdateNodegroupVersionRequest {
    *             <i>Amazon EKS User Guide</i>.</p>
    *          <p>If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify
    *                 <code>releaseVersion</code>, or the node group  update will fail.
-   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</p>
    * @public
    */
   releaseVersion?: string;

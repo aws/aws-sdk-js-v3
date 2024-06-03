@@ -49,7 +49,7 @@ export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __Met
  * //     health: { // AddonHealth
  * //       issues: [ // AddonIssueList
  * //         { // AddonIssue
- * //           code: "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound",
+ * //           code: "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound" || "AddonSubscriptionNeeded" || "AddonPermissionFailure",
  * //           message: "STRING_VALUE",
  * //           resourceIds: [ // StringList
  * //             "STRING_VALUE",
@@ -71,6 +71,9 @@ export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __Met
  * //       productUrl: "STRING_VALUE",
  * //     },
  * //     configurationValues: "STRING_VALUE",
+ * //     podIdentityAssociations: [
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

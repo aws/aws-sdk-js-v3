@@ -42,6 +42,12 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
  *   resolveConflicts: "OVERWRITE" || "NONE" || "PRESERVE",
  *   clientRequestToken: "STRING_VALUE",
  *   configurationValues: "STRING_VALUE",
+ *   podIdentityAssociations: [ // AddonPodIdentityAssociationsList
+ *     { // AddonPodIdentityAssociations
+ *       serviceAccount: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateAddonCommand(input);
  * const response = await client.send(command);
@@ -52,7 +58,7 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
  * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode" || "PodIdentityAssociations",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],

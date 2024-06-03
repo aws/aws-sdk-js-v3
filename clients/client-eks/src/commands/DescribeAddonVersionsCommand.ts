@@ -75,6 +75,7 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * //             },
  * //           ],
  * //           requiresConfiguration: true || false,
+ * //           requiresIamPermissions: true || false,
  * //         },
  * //       ],
  * //       publisher: "STRING_VALUE",

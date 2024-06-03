@@ -59,6 +59,7 @@ export interface DeletePodIdentityAssociationCommandOutput
  * //     },
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     ownerArn: "STRING_VALUE",
  * //   },
  * // };
  *

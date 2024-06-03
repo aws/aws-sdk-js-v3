@@ -178,6 +178,7 @@ import {
   AccessEntry,
   AccessScope,
   Addon,
+  AddonPodIdentityAssociations,
   AssociatedAccessPolicy,
   BadRequestException,
   Category,
@@ -353,6 +354,7 @@ export const se_CreateAddonCommand = async (
       addonVersion: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationValues: [],
+      podIdentityAssociations: (_) => _json(_),
       resolveConflicts: [],
       serviceAccountRoleArn: [],
       tags: (_) => _json(_),
@@ -1297,6 +1299,7 @@ export const se_UpdateAddonCommand = async (
       addonVersion: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configurationValues: [],
+      podIdentityAssociations: (_) => _json(_),
       resolveConflicts: [],
       serviceAccountRoleArn: [],
     })
@@ -1897,6 +1900,7 @@ export const de_DescribeAddonConfigurationCommand = async (
     addonName: __expectString,
     addonVersion: __expectString,
     configurationSchema: __expectString,
+    podIdentityConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2981,6 +2985,10 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_AccessScope omitted.
 
+// se_AddonPodIdentityAssociations omitted.
+
+// se_AddonPodIdentityAssociationsList omitted.
+
 // se_CategoryList omitted.
 
 // se_ConnectorConfigRequest omitted.
@@ -3095,6 +3103,7 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
     marketplaceInformation: _json,
     modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     owner: __expectString,
+    podIdentityAssociations: _json,
     publisher: __expectString,
     serviceAccountRoleArn: __expectString,
     status: __expectString,
@@ -3109,6 +3118,10 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
 // de_AddonIssue omitted.
 
 // de_AddonIssueList omitted.
+
+// de_AddonPodIdentityConfiguration omitted.
+
+// de_AddonPodIdentityConfigurationList omitted.
 
 // de_Addons omitted.
 
@@ -3460,6 +3473,7 @@ const de_PodIdentityAssociation = (output: any, context: __SerdeContext): PodIde
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     namespace: __expectString,
+    ownerArn: __expectString,
     roleArn: __expectString,
     serviceAccount: __expectString,
     tags: _json,

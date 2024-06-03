@@ -48,6 +48,12 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  *     "<keys>": "STRING_VALUE",
  *   },
  *   configurationValues: "STRING_VALUE",
+ *   podIdentityAssociations: [ // AddonPodIdentityAssociationsList
+ *     { // AddonPodIdentityAssociations
+ *       serviceAccount: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateAddonCommand(input);
  * const response = await client.send(command);
@@ -60,7 +66,7 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * //     health: { // AddonHealth
  * //       issues: [ // AddonIssueList
  * //         { // AddonIssue
- * //           code: "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound",
+ * //           code: "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound" || "AddonSubscriptionNeeded" || "AddonPermissionFailure",
  * //           message: "STRING_VALUE",
  * //           resourceIds: [ // StringList
  * //             "STRING_VALUE",
@@ -82,6 +88,9 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * //       productUrl: "STRING_VALUE",
  * //     },
  * //     configurationValues: "STRING_VALUE",
+ * //     podIdentityAssociations: [
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
