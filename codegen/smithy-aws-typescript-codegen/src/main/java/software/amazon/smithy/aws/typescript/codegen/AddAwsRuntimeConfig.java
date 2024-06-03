@@ -94,13 +94,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.writeDocs("Enables FIPS compatible endpoints.")
                     .write("useFipsEndpoint?: boolean | __Provider<boolean>;\n");
         }
-        if (!settings.getExperimentalIdentityAndAuth()) {
-            if (isSigV4Service(settings, model)) {
-                writer.writeDocs(isAwsService(settings, model)
-                                    ? "The AWS region to which this client will send requests"
-                                    : "The AWS region to use as signing region for AWS Auth")
-                        .write("region?: string | __Provider<string>;\n");
-            }
+        if (isSigV4Service(settings, model)) {
+            writer.writeDocs(isAwsService(settings, model)
+                    ? "The AWS region to which this client will send requests"
+                    : "The AWS region to use as signing region for AWS Auth")
+                .write("region?: string | __Provider<string>;\n");
         }
     }
 
@@ -130,7 +128,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         Model model,
         TypeScriptSettings settings
     ) {
-        if (isAwsService(settings, model)) {
+        if (isSigV4Service(settings, model)) {
             return List.of(new AwsRegionExtensionConfiguration());
         }
         return Collections.emptyList();
@@ -155,33 +153,33 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             TypeScriptSettings settings,
             Model model
     ) {
-        if (!isSigV4Service(settings, model) || !isAwsService(settings, model)) {
-            return Collections.emptyMap();
-        }
-        switch (target) {
-            case BROWSER:
-                return MapUtils.of("region", writer -> {
-                    writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.addImport("invalidProvider", "invalidProvider",
+        if (isSigV4Service(settings, model)) {
+            switch (target) {
+                case BROWSER:
+                    return MapUtils.of("region", writer -> {
+                        writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                        writer.addImport("invalidProvider", "invalidProvider",
                             TypeScriptDependency.INVALID_DEPENDENCY);
-                    writer.write("invalidProvider(\"Region is missing\")");
-                });
-            case NODE:
-                return MapUtils.of("region", writer -> {
-                    writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                    writer.addImport("loadConfig", "loadNodeConfig",
+                        writer.write("invalidProvider(\"Region is missing\")");
+                    });
+                case NODE:
+                    return MapUtils.of("region", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("loadConfig", "loadNodeConfig",
                             TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                    writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                    writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
+                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                        writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
                             TypeScriptDependency.CONFIG_RESOLVER);
-                    writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
+                        writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
                             TypeScriptDependency.CONFIG_RESOLVER);
-                    writer.write(
+                        writer.write(
                             "loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS)");
-                });
-            default:
-                return Collections.emptyMap();
+                    });
+                default:
+                    return Collections.emptyMap();
+            }
         }
+        return Collections.emptyMap();
     }
 
     private Map<String, Consumer<TypeScriptWriter>> getEndpointConfigWriters(
