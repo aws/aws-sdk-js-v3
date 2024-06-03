@@ -554,6 +554,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 export const PropertyUpdateType = {
   CREATE: "CREATE",
   DELETE: "DELETE",
+  RESET_VALUE: "RESET_VALUE",
   UPDATE: "UPDATE",
 } as const;
 
