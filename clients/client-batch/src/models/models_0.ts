@@ -5630,6 +5630,64 @@ export interface DescribeSchedulingPoliciesResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetJobQueueSnapshotRequest {
+  /**
+   * <p>The job queue’s name or full queue Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  jobQueue: string | undefined;
+}
+
+/**
+ * <p>An object that represents summary details for the first 100 <code>RUNNABLE</code> jobs in a job queue.</p>
+ * @public
+ */
+export interface FrontOfQueueJobSummary {
+  /**
+   * <p>The ARN for a job in a named job queue.</p>
+   * @public
+   */
+  jobArn?: string;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the job transitioned to its current position in the job queue.</p>
+   * @public
+   */
+  earliestTimeAtPosition?: number;
+}
+
+/**
+ * <p>Contains a list of the first 100 <code>RUNNABLE</code> jobs associated to a single job queue.</p>
+ * @public
+ */
+export interface FrontOfQueueDetail {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the first 100 <code>RUNNABLE</code> jobs in a named job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
+   * @public
+   */
+  jobs?: FrontOfQueueJobSummary[];
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when each of the first 100 <code>RUNNABLE</code> jobs were last updated. </p>
+   * @public
+   */
+  lastUpdatedAt?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetJobQueueSnapshotResponse {
+  /**
+   * <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For fair share scheduling (FSS) job queues, jobs are ordered based on their job priority and share usage.</p>
+   * @public
+   */
+  frontOfQueue?: FrontOfQueueDetail;
+}
+
+/**
  * <p>A filter name and value pair that's used to return a more specific list of results from a
  *     <code>ListJobs</code> API operation.</p>
  * @public
@@ -5683,13 +5741,23 @@ export interface ListJobsRequest {
   jobStatus?: JobStatus;
 
   /**
-   * <p>The maximum number of results returned by <code>ListJobs</code> in paginated output. When
-   *       this parameter is used, <code>ListJobs</code> only returns <code>maxResults</code> results in
-   *       a single page and a <code>nextToken</code> response element. The remaining results of the
-   *       initial request can be seen by sending another <code>ListJobs</code> request with the returned
-   *         <code>nextToken</code> value. This value can be between 1 and
-   *       100. If this parameter isn't used, then <code>ListJobs</code> returns up to
-   *       100 results and a <code>nextToken</code> value if applicable.</p>
+   * <p>The maximum number of results returned by <code>ListJobs</code> in a paginated output. When this parameter is used, <code>ListJobs</code> returns up to <code>maxResults</code> results in a single page and a <code>nextToken</code> response element, if applicable. The remaining results of the initial request can be seen by sending another <code>ListJobs</code> request with the returned <code>nextToken</code> value.</p>
+   *          <p>The following outlines key parameters and limitations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The minimum value is 1. </p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>--job-status</code> is used, Batch returns up to 1000 values. </p>
+   *             </li>
+   *             <li>
+   *                <p>When <code>--filters</code> is used, Batch returns up to 100 values.</p>
+   *             </li>
+   *             <li>
+   *                <p>If neither parameter is used, then <code>ListJobs</code> returns up to
+   *       1000 results (jobs that are in the <code>RUNNING</code> status) and a <code>nextToken</code> value, if applicable.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   maxResults?: number;

@@ -320,6 +320,14 @@ DescribeSchedulingPolicies
 </details>
 <details>
 <summary>
+GetJobQueueSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/batch/command/GetJobQueueSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/GetJobQueueSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-batch/Interface/GetJobQueueSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListJobs
 </summary>
 

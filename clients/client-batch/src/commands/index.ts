@@ -12,6 +12,7 @@ export * from "./DescribeJobDefinitionsCommand";
 export * from "./DescribeJobQueuesCommand";
 export * from "./DescribeJobsCommand";
 export * from "./DescribeSchedulingPoliciesCommand";
+export * from "./GetJobQueueSnapshotCommand";
 export * from "./ListJobsCommand";
 export * from "./ListSchedulingPoliciesCommand";
 export * from "./ListTagsForResourceCommand";

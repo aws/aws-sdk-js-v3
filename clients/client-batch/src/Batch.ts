@@ -64,6 +64,11 @@ import {
   DescribeSchedulingPoliciesCommandInput,
   DescribeSchedulingPoliciesCommandOutput,
 } from "./commands/DescribeSchedulingPoliciesCommand";
+import {
+  GetJobQueueSnapshotCommand,
+  GetJobQueueSnapshotCommandInput,
+  GetJobQueueSnapshotCommandOutput,
+} from "./commands/GetJobQueueSnapshotCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListSchedulingPoliciesCommand,
@@ -122,6 +127,7 @@ const commands = {
   DescribeJobQueuesCommand,
   DescribeJobsCommand,
   DescribeSchedulingPoliciesCommand,
+  GetJobQueueSnapshotCommand,
   ListJobsCommand,
   ListSchedulingPoliciesCommand,
   ListTagsForResourceCommand,
@@ -340,6 +346,23 @@ export interface Batch {
     args: DescribeSchedulingPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSchedulingPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetJobQueueSnapshotCommand}
+   */
+  getJobQueueSnapshot(
+    args: GetJobQueueSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobQueueSnapshotCommandOutput>;
+  getJobQueueSnapshot(
+    args: GetJobQueueSnapshotCommandInput,
+    cb: (err: any, data?: GetJobQueueSnapshotCommandOutput) => void
+  ): void;
+  getJobQueueSnapshot(
+    args: GetJobQueueSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJobQueueSnapshotCommandOutput) => void
   ): void;
 
   /**

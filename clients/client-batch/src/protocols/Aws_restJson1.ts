@@ -63,6 +63,10 @@ import {
   DescribeSchedulingPoliciesCommandInput,
   DescribeSchedulingPoliciesCommandOutput,
 } from "../commands/DescribeSchedulingPoliciesCommand";
+import {
+  GetJobQueueSnapshotCommandInput,
+  GetJobQueueSnapshotCommandOutput,
+} from "../commands/GetJobQueueSnapshotCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListSchedulingPoliciesCommandInput,
@@ -467,6 +471,28 @@ export const se_DescribeSchedulingPoliciesCommand = async (
   body = JSON.stringify(
     take(input, {
       arns: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetJobQueueSnapshotCommand
+ */
+export const se_GetJobQueueSnapshotCommand = async (
+  input: GetJobQueueSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/getjobqueuesnapshot");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      jobQueue: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1010,6 +1036,27 @@ export const de_DescribeSchedulingPoliciesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     schedulingPolicies: (_) => de_SchedulingPolicyDetailList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetJobQueueSnapshotCommand
+ */
+export const de_GetJobQueueSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobQueueSnapshotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    frontOfQueue: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1675,6 +1722,12 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 };
 
 // de_FargatePlatformConfiguration omitted.
+
+// de_FrontOfQueueDetail omitted.
+
+// de_FrontOfQueueJobSummary omitted.
+
+// de_FrontOfQueueJobSummaryList omitted.
 
 // de_Host omitted.
 

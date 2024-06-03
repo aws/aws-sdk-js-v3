@@ -90,6 +90,10 @@ import {
   DescribeSchedulingPoliciesCommandInput,
   DescribeSchedulingPoliciesCommandOutput,
 } from "./commands/DescribeSchedulingPoliciesCommand";
+import {
+  GetJobQueueSnapshotCommandInput,
+  GetJobQueueSnapshotCommandOutput,
+} from "./commands/GetJobQueueSnapshotCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListSchedulingPoliciesCommandInput,
@@ -144,6 +148,7 @@ export type ServiceInputTypes =
   | DescribeJobQueuesCommandInput
   | DescribeJobsCommandInput
   | DescribeSchedulingPoliciesCommandInput
+  | GetJobQueueSnapshotCommandInput
   | ListJobsCommandInput
   | ListSchedulingPoliciesCommandInput
   | ListTagsForResourceCommandInput
@@ -173,6 +178,7 @@ export type ServiceOutputTypes =
   | DescribeJobQueuesCommandOutput
   | DescribeJobsCommandOutput
   | DescribeSchedulingPoliciesCommandOutput
+  | GetJobQueueSnapshotCommandOutput
   | ListJobsCommandOutput
   | ListSchedulingPoliciesCommandOutput
   | ListTagsForResourceCommandOutput
