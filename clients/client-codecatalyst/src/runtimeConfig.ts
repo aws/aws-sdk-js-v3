@@ -6,6 +6,8 @@ import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/cor
 import { FromSsoInit, nodeProvider } from "@aws-sdk/token-providers";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
+  NODE_REGION_CONFIG_FILE_OPTIONS,
+  NODE_REGION_CONFIG_OPTIONS,
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "@smithy/config-resolver";
@@ -51,6 +53,7 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
       },
     ],
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
+    region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
