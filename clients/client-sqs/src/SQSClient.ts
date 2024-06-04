@@ -256,6 +256,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
    * A constructor for a class implementing the {@link __Checksum} interface
    * that computes MD5 hashes, or false to prevent MD5 computation.
    */
@@ -266,11 +271,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

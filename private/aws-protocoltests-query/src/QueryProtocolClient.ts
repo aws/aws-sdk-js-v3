@@ -288,6 +288,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
    * Fetch related hostname, signing name or signing region with given region.
    * @internal
    */
@@ -298,11 +303,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

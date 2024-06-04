@@ -69,7 +69,6 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
-  AwsCredentialIdentityProvider,
   Provider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
@@ -190,22 +189,15 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   disableHostPrefix?: boolean;
 
   /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
-   * The AWS region to which this client will send requests
+   * The AWS region to use as signing region for AWS Auth
    */
   region?: string | __Provider<string>;
 
   /**
-   * Default credentials provider; Not available in browser runtime.
-   * @deprecated
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
-  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * The service name to use as the signing service for AWS Auth
