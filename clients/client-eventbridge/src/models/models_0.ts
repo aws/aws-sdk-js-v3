@@ -2297,6 +2297,53 @@ export interface DescribeRuleRequest {
  * @public
  * @enum
  */
+export const FlexibleTimeWindowMode = {
+  OFF: "OFF",
+  FLEXIBLE: "FLEXIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type FlexibleTimeWindowMode = (typeof FlexibleTimeWindowMode)[keyof typeof FlexibleTimeWindowMode];
+
+/**
+ * @public
+ */
+export type FlexibleTimeWindow = {
+  [key in "OFF" | "5min" | "10min" | "15min" | "30min" | "1hour" | "2hour" | "4hour"]: {
+    Mode: FlexibleTimeWindowMode;
+    MaximumWindowInMinutes?: number;
+  };
+};
+
+const createFlexibleTimeWindow = (
+  minutes: number
+): { Mode: FlexibleTimeWindowMode; MaximumWindowInMinutes: number } => ({
+  Mode: FlexibleTimeWindowMode.FLEXIBLE,
+  MaximumWindowInMinutes: minutes,
+});
+
+/**
+ * @public
+ */
+export const FlexibleTimeWindow: FlexibleTimeWindow = {
+  OFF: {
+    Mode: FlexibleTimeWindowMode.OFF,
+  },
+  "5min": createFlexibleTimeWindow(5),
+  "10min": createFlexibleTimeWindow(10),
+  "15min": createFlexibleTimeWindow(15),
+  "30min": createFlexibleTimeWindow(30),
+  "1hour": createFlexibleTimeWindow(60),
+  "2hour": createFlexibleTimeWindow(120),
+  "4hour": createFlexibleTimeWindow(240),
+};
+
+/**
+ * @public
+ * @enum
+ */
 export const RuleState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -2340,10 +2387,34 @@ export interface DescribeRuleResponse {
   ScheduleExpression?: string;
 
   /**
+   * <p>The scheduling expression time zone. For example, "America/Sao_Paulo".</p>
+   * @public
+   */
+  ScheduleExpressionTimezone?: string;
+
+  /**
+   * <p>The start date of the schedule, represented as a Unix timestamp. For example, the number of milliseconds since 1970-01-01 00:00:00 UTC.</p>
+   * @public
+   */
+  StartDate?: number;
+
+  /**
+   * <p>The end date of the schedule, represented as a Unix timestamp. For example, the number of milliseconds since 1970-01-01 00:00:00 UTC.</p>
+   * @public
+   */
+  EndDate?: number;
+
+  /**
    * <p>Specifies whether the rule is enabled or disabled.</p>
    * @public
    */
   State?: RuleState;
+
+  /**
+   * <p>If you choose a flexible time window, Scheduler invokes your schedule within the time window you specify. For example, if you choose 15 minutes, your schedule runs within 15 minutes after the schedule start time.</p>
+   * @public
+   */
+  FlexibleTimeWindow?: FlexibleTimeWindow;
 
   /**
    * <p>The description of the rule.</p>
@@ -3350,6 +3421,12 @@ export interface Rule {
   State?: RuleState;
 
   /**
+   * <p>If you choose a flexible time window, Scheduler invokes your schedule within the time window you specify. For example, if you choose 15 minutes, your schedule runs within 15 minutes after the schedule start time.</p>
+   * @public
+   */
+  FlexibleTimeWindow?: FlexibleTimeWindow;
+
+  /**
    * <p>The description of the rule.</p>
    * @public
    */
@@ -3362,6 +3439,24 @@ export interface Rule {
    * @public
    */
   ScheduleExpression?: string;
+
+  /**
+   * <p>The scheduling expression time zone. For example, "America/Sao_Paulo".</p>
+   * @public
+   */
+  ScheduleExpressionTimezone?: string;
+
+  /**
+   * <p>The start date of the schedule, represented as a Unix timestamp. For example, the number of milliseconds since 1970-01-01 00:00:00 UTC.</p>
+   * @public
+   */
+  StartDate?: number;
+
+  /**
+   * <p>The end date of the schedule, represented as a Unix timestamp. For example, the number of milliseconds since 1970-01-01 00:00:00 UTC.</p>
+   * @public
+   */
+  EndDate?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that is used for target invocation.</p>
@@ -4765,6 +4860,24 @@ export interface PutRuleRequest {
   ScheduleExpression?: string;
 
   /**
+   * <p>The scheduling expression time zone. For example, "America/Sao_Paulo".</p>
+   * @public
+   */
+  ScheduleExpressionTimezone?: string;
+
+  /**
+   * <p>The start date of the schedule, represented as a Unix timestamp. For example, the number of milliseconds since 1970-01-01 00:00:00 UTC.</p>
+   * @public
+   */
+  StartDate?: number;
+
+  /**
+   * <p>The end date of the schedule, represented as a Unix timestamp. For example, the number of milliseconds since 1970-01-01 00:00:00 UTC.</p>
+   * @public
+   */
+  EndDate?: number;
+
+  /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event
    *         patterns</a> in the <i>
    *                <i>Amazon EventBridge User Guide</i>
@@ -4805,6 +4918,12 @@ export interface PutRuleRequest {
    * @public
    */
   State?: RuleState;
+
+  /**
+   * <p>If you choose a flexible time window, Scheduler invokes your schedule within the time window you specify. For example, if you choose 15 minutes, your schedule runs within 15 minutes after the schedule start time.</p>
+   * @public
+   */
+  FlexibleTimeWindow?: FlexibleTimeWindow;
 
   /**
    * <p>A description of the rule.</p>
