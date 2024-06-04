@@ -63,13 +63,8 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
         TypeScriptWriter writer
     ) {
         ServiceShape service = settings.getService(model);
-        if (isAwsService(service) || isSigV4Service(service)) {
-            writer
-                .writeDocs("The AWS region to which this client will send requests")
-                .write("region?: string | __Provider<string>;\n");
-        }
 
-        if (isSigV4Service(service) && !areAllOptionalAuthOperations(model, service)) {
+        if (isAwsService(service) && isSigV4Service(service) && !areAllOptionalAuthOperations(model, service)) {
             writer
                 .addImport("AwsCredentialIdentityProvider", null, TypeScriptDependency.SMITHY_TYPES)
                 .writeDocs("""

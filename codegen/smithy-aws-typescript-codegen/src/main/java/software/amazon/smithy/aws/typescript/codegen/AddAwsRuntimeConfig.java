@@ -95,15 +95,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     .write("useFipsEndpoint?: boolean | __Provider<boolean>;\n");
         }
         if (isSigV4Service(settings, model) || isAwsService(settings, model)) {
-            if (!settings.getExperimentalIdentityAndAuth()) {
-                // This additional ID&A check is applied because
-                // the AwsSdkCustomizeSigV4Auth class also adds region
-                // under these conditions.
-                writer.writeDocs(isAwsService(settings, model)
-                        ? "The AWS region to which this client will send requests"
-                        : "The AWS region to use as signing region for AWS Auth")
-                    .write("region?: string | __Provider<string>;\n");
-            }
+            writer.writeDocs(isAwsService(settings, model)
+                    ? "The AWS region to which this client will send requests"
+                    : "The AWS region to use as signing region for AWS Auth")
+                .write("region?: string | __Provider<string>;\n");
         }
     }
 
