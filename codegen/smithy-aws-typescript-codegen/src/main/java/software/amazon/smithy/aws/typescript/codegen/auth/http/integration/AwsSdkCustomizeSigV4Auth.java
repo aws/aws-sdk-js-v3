@@ -63,20 +63,15 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
         TypeScriptWriter writer
     ) {
         ServiceShape service = settings.getService(model);
-        if (isAwsService(service) && isSigV4Service(service)) {
-            writer
-                .writeDocs("The AWS region to which this client will send requests")
-                .write("region?: string | __Provider<string>;\n");
-            if (!areAllOptionalAuthOperations(model, service)) {
 
-                writer
-                    .addImport("AwsCredentialIdentityProvider", null, TypeScriptDependency.SMITHY_TYPES)
-                    .writeDocs("""
+        if (isAwsService(service) && isSigV4Service(service) && !areAllOptionalAuthOperations(model, service)) {
+            writer
+                .addImport("AwsCredentialIdentityProvider", null, TypeScriptDependency.SMITHY_TYPES)
+                .writeDocs("""
                         Default credentials provider; Not available in browser runtime.
                         @deprecated
                         @internal""")
-                    .write("credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;\n");
-            }
+                .write("credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;\n");
         }
     }
 

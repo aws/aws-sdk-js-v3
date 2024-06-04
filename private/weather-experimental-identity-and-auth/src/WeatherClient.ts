@@ -189,6 +189,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   disableHostPrefix?: boolean;
 
   /**
+   * The AWS region to use as signing region for AWS Auth
+   */
+  region?: string | __Provider<string>;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */

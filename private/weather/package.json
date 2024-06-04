@@ -28,6 +28,7 @@
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-token": "*",
     "@aws-sdk/middleware-user-agent": "*",
+    "@aws-sdk/region-config-resolver": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
