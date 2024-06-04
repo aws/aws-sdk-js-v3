@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
+
+
+### Bug Fixes
+
+* **codegen:** consistently add region as config option when generated client is Sigv4 but not AWS ([#6156](https://github.com/aws/aws-sdk-js-v3/issues/6156)) ([06f51cc](https://github.com/aws/aws-sdk-js-v3/commit/06f51ccdc1c825f4b4de6a865520ace78c098ff3))
+* **codegen:** fix path for copying sts test file ([#6148](https://github.com/aws/aws-sdk-js-v3/issues/6148)) ([6965b33](https://github.com/aws/aws-sdk-js-v3/commit/6965b330dca3ca4c5513570811e7fa839844f71f))
+
+
+### Features
+
+* **client-ec2:** U7i instances with up to 32 TiB of DDR5 memory and 896 vCPUs are now available. C7i-flex instances are launched and are lower-priced variants of the Amazon EC2 C7i instances that offer a baseline level of CPU performance with the ability to scale up to the full compute performance 95% of the time. ([370c001](https://github.com/aws/aws-sdk-js-v3/commit/370c001783ddf3927e9c4088be411a485f972991))
+* **client-pipes:** This release adds Timestream for LiveAnalytics as a supported target in EventBridge Pipes ([d7010ea](https://github.com/aws/aws-sdk-js-v3/commit/d7010ea8419ca8a12378454f7249a3c4086a8597))
+* **client-sagemaker:** Extend DescribeClusterNode response with private DNS hostname and IP address, and placement information about availability zone and availability zone ID. ([60d759d](https://github.com/aws/aws-sdk-js-v3/commit/60d759d3ab38e1c552f7851adbc7ca74851a27f2))
+* **client-taxsettings:** Initial release of AWS Tax Settings API ([06b3ef4](https://github.com/aws/aws-sdk-js-v3/commit/06b3ef4ad00de058cd050134771fd71a9d1d79af))
+* **clients:** update client endpoints as of 2024-06-04 ([5258f66](https://github.com/aws/aws-sdk-js-v3/commit/5258f662a951577ac17fa48de3f80117f4f1453c))
+
+
+
+
+
 # [3.589.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.588.0...v3.589.0) (2024-06-03)
 
 
