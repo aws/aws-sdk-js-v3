@@ -165,7 +165,7 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             writer.write("export * from $S", "./" + ROLE_ASSUMERS_FILE);
         });
         // test/defaultRoleAssumers.spec.ts
-        writerFactory.accept("test/" + ROLE_ASSUMERS_TEST_FILE + ".spec.ts", writer -> {
+        writerFactory.accept("test/" + ROLE_ASSUMERS_TEST_FILE + ".ts", writer -> {
             String resourceName = STS_CLIENT_PREFIX + ROLE_ASSUMERS_TEST_FILE + ".ts";
             writer
                 .pushState()
