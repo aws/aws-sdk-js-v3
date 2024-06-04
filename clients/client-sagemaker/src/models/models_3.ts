@@ -124,12 +124,10 @@ import {
   ModelConfiguration,
   ModelPackageGroupStatus,
   MonitoringExecutionSummary,
-  NotebookInstanceStatus,
   NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
-  ProcessingJobStatus,
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -148,6 +146,23 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingJobStatus = (typeof ProcessingJobStatus)[keyof typeof ProcessingJobStatus];
 
 /**
  * @public
@@ -11177,104 +11192,3 @@ export const NotebookInstanceSortOrder = {
  * @public
  */
 export type NotebookInstanceSortOrder = (typeof NotebookInstanceSortOrder)[keyof typeof NotebookInstanceSortOrder];
-
-/**
- * @public
- */
-export interface ListNotebookInstancesInput {
-  /**
-   * <p> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
-   *             response includes a <code>NextToken</code>. You can use this token in your subsequent
-   *                 <code>ListNotebookInstances</code> request to fetch the next set of notebook
-   *             instances. </p>
-   *          <note>
-   *             <p>You might specify a filter or a sort order in your request. When response is
-   *                 truncated, you must use the same values for the filer and sort order in the next
-   *                 request. </p>
-   *          </note>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of notebook instances to return.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   * @public
-   */
-  SortBy?: NotebookInstanceSortKey;
-
-  /**
-   * <p>The sort order for results. </p>
-   * @public
-   */
-  SortOrder?: NotebookInstanceSortOrder;
-
-  /**
-   * <p>A string in the notebook instances' name. This filter returns only notebook
-   *             instances whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only notebook instances that were created before the
-   *             specified time (timestamp). </p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were created after the specified
-   *             time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were modified before the
-   *             specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances that were modified after the
-   *             specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only notebook instances with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: NotebookInstanceStatus;
-
-  /**
-   * <p>A string in the name of a notebook instances lifecycle configuration associated with
-   *             this notebook instance. This filter returns only notebook instances associated with a
-   *             lifecycle configuration with a name that contains the specified string.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigNameContains?: string;
-
-  /**
-   * <p>A string in the name or URL of a Git repository associated with this notebook
-   *             instance. This filter returns only notebook instances associated with a git repository
-   *             with a name that contains the specified string.</p>
-   * @public
-   */
-  DefaultCodeRepositoryContains?: string;
-
-  /**
-   * <p>A filter that returns only notebook instances with associated with the specified git
-   *             repository.</p>
-   * @public
-   */
-  AdditionalCodeRepositoryEquals?: string;
-}

@@ -27,7 +27,7 @@ export interface DescribeClusterNodeCommandInput extends DescribeClusterNodeRequ
 export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information of an instance (also called a <i>node</i>
+ * <p>Retrieves information of a node (also called a <i>instance</i>
  *          interchangeably) of a SageMaker HyperPod cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +56,12 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //       OnCreate: "STRING_VALUE", // required
  * //     },
  * //     ThreadsPerCore: Number("int"),
+ * //     PrivatePrimaryIp: "STRING_VALUE",
+ * //     PrivateDnsHostname: "STRING_VALUE",
+ * //     Placement: { // ClusterInstancePlacement
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

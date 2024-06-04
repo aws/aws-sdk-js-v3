@@ -938,6 +938,7 @@ import {
   ClarifyTextConfig,
   ClusterInstanceGroupDetails,
   ClusterInstanceGroupSpecification,
+  ClusterInstancePlacement,
   ClusterInstanceStatusDetails,
   ClusterLifeCycleConfig,
   ClusterNodeDetails,
@@ -1037,7 +1038,6 @@ import {
   TabularJobConfig,
   TabularResolvedAttributes,
   Tag,
-  TargetPlatform,
   TextClassificationJobConfig,
   TextGenerationJobConfig,
   TextGenerationResolvedAttributes,
@@ -1139,7 +1139,6 @@ import {
   CreateProjectInput,
   CreateProjectOutput,
   CreateSpaceRequest,
-  CreateSpaceResponse,
   CustomFileSystem,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
@@ -1310,6 +1309,7 @@ import {
   SpaceSharingSettings,
   SpaceStorageSettings,
   Stairs,
+  TargetPlatform,
   TensorBoardAppSettings,
   ThroughputConfig,
   TrafficPattern,
@@ -1321,6 +1321,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
   CreateStudioLifecycleConfigResponse,
   CreateTrainingJobRequest,
@@ -1776,7 +1777,6 @@ import {
   ListMonitoringSchedulesResponse,
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
-  ListNotebookInstancesInput,
   MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
@@ -1821,6 +1821,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListNotebookInstancesInput,
   ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
@@ -17294,6 +17295,16 @@ const de_ClusterInstanceGroupDetailsList = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_json1_1ClusterInstancePlacement
+ */
+const de_ClusterInstancePlacement = (output: any, context: __SerdeContext): ClusterInstancePlacement => {
+  return take(output, {
+    AvailabilityZone: __expectString,
+    AvailabilityZoneId: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ClusterInstanceStatusDetails
  */
 const de_ClusterInstanceStatusDetails = (output: any, context: __SerdeContext): ClusterInstanceStatusDetails => {
@@ -17324,6 +17335,9 @@ const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNod
     InstanceType: __expectString,
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
+    Placement: (_: any) => de_ClusterInstancePlacement(_, context),
+    PrivateDnsHostname: __expectString,
+    PrivatePrimaryIp: __expectString,
     ThreadsPerCore: __expectInt32,
   }) as any;
 };

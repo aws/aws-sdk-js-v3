@@ -169,6 +169,17 @@ import {
 
 /**
  * @public
+ */
+export interface CreateSpaceResponse {
+  /**
+   * <p>The space's Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  SpaceArn?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const StudioLifecycleConfigAppType = {
@@ -3721,13 +3732,13 @@ export interface DescribeClusterResponse {
  */
 export interface DescribeClusterNodeRequest {
   /**
-   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the instance is.</p>
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the node is.</p>
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The ID of the SageMaker HyperPod cluster node.</p>
    * @public
    */
   NodeId: string | undefined;
@@ -3738,7 +3749,7 @@ export interface DescribeClusterNodeRequest {
  */
 export interface DescribeClusterNodeResponse {
   /**
-   * <p>The details of the instance.</p>
+   * <p>The details of the SageMaker HyperPod cluster node.</p>
    * @public
    */
   NodeDetails: ClusterNodeDetails | undefined;
@@ -9848,23 +9859,6 @@ export interface DescribeProcessingJobRequest {
    */
   ProcessingJobName: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ProcessingJobStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type ProcessingJobStatus = (typeof ProcessingJobStatus)[keyof typeof ProcessingJobStatus];
 
 /**
  * @internal
