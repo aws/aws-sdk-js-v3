@@ -50,6 +50,7 @@ import {
   CloudwatchLogsLogDestinationParameters,
   ConflictException,
   DeadLetterConfig,
+  DimensionMapping,
   EcsContainerOverride,
   EcsEnvironmentFile,
   EcsEnvironmentVariable,
@@ -64,6 +65,8 @@ import {
   InternalException,
   MQBrokerAccessCredentials,
   MSKAccessCredentials,
+  MultiMeasureAttributeMapping,
+  MultiMeasureMapping,
   NetworkConfiguration,
   NotFoundException,
   Pipe,
@@ -90,6 +93,7 @@ import {
   PipeTargetSageMakerPipelineParameters,
   PipeTargetSqsQueueParameters,
   PipeTargetStateMachineParameters,
+  PipeTargetTimestreamParameters,
   PlacementConstraint,
   PlacementStrategy,
   S3LogDestinationParameters,
@@ -97,6 +101,7 @@ import {
   SelfManagedKafkaAccessConfigurationCredentials,
   SelfManagedKafkaAccessConfigurationVpc,
   ServiceQuotaExceededException,
+  SingleMeasureMapping,
   Tag,
   ThrottlingException,
   UpdatePipeSourceActiveMQBrokerParameters,
@@ -755,6 +760,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DeadLetterConfig omitted.
 
+// se_DimensionMapping omitted.
+
+// se_DimensionMappings omitted.
+
 // se_EcsContainerOverride omitted.
 
 // se_EcsContainerOverrideList omitted.
@@ -798,6 +807,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_MQBrokerAccessCredentials omitted.
 
 // se_MSKAccessCredentials omitted.
+
+// se_MultiMeasureAttributeMapping omitted.
+
+// se_MultiMeasureAttributeMappings omitted.
+
+// se_MultiMeasureMapping omitted.
+
+// se_MultiMeasureMappings omitted.
 
 // se_NetworkConfiguration omitted.
 
@@ -881,6 +898,8 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // se_PipeTargetStateMachineParameters omitted.
 
+// se_PipeTargetTimestreamParameters omitted.
+
 // se_PlacementConstraint omitted.
 
 // se_PlacementConstraints omitted.
@@ -904,6 +923,10 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 // se_SelfManagedKafkaAccessConfigurationCredentials omitted.
 
 // se_SelfManagedKafkaAccessConfigurationVpc omitted.
+
+// se_SingleMeasureMapping omitted.
+
+// se_SingleMeasureMappings omitted.
 
 // se_Sqls omitted.
 
@@ -965,6 +988,10 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // de_DeadLetterConfig omitted.
 
+// de_DimensionMapping omitted.
+
+// de_DimensionMappings omitted.
+
 // de_EcsContainerOverride omitted.
 
 // de_EcsContainerOverrideList omitted.
@@ -1008,6 +1035,14 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 // de_MQBrokerAccessCredentials omitted.
 
 // de_MSKAccessCredentials omitted.
+
+// de_MultiMeasureAttributeMapping omitted.
+
+// de_MultiMeasureAttributeMappings omitted.
+
+// de_MultiMeasureMapping omitted.
+
+// de_MultiMeasureMappings omitted.
 
 // de_NetworkConfiguration omitted.
 
@@ -1121,6 +1156,8 @@ const de_PipeSourceParameters = (output: any, context: __SerdeContext): PipeSour
 
 // de_PipeTargetStateMachineParameters omitted.
 
+// de_PipeTargetTimestreamParameters omitted.
+
 // de_PlacementConstraint omitted.
 
 // de_PlacementConstraints omitted.
@@ -1144,6 +1181,10 @@ const de_PipeSourceParameters = (output: any, context: __SerdeContext): PipeSour
 // de_SelfManagedKafkaAccessConfigurationCredentials omitted.
 
 // de_SelfManagedKafkaAccessConfigurationVpc omitted.
+
+// de_SingleMeasureMapping omitted.
+
+// de_SingleMeasureMappings omitted.
 
 // de_Sqls omitted.
 

@@ -339,6 +339,39 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * //       LogStreamName: "STRING_VALUE",
  * //       Timestamp: "STRING_VALUE",
  * //     },
+ * //     TimestreamParameters: { // PipeTargetTimestreamParameters
+ * //       TimeValue: "STRING_VALUE", // required
+ * //       EpochTimeUnit: "STRING_VALUE",
+ * //       TimeFieldType: "STRING_VALUE",
+ * //       TimestampFormat: "STRING_VALUE",
+ * //       VersionValue: "STRING_VALUE", // required
+ * //       DimensionMappings: [ // DimensionMappings // required
+ * //         { // DimensionMapping
+ * //           DimensionValue: "STRING_VALUE", // required
+ * //           DimensionValueType: "STRING_VALUE", // required
+ * //           DimensionName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       SingleMeasureMappings: [ // SingleMeasureMappings
+ * //         { // SingleMeasureMapping
+ * //           MeasureValue: "STRING_VALUE", // required
+ * //           MeasureValueType: "STRING_VALUE", // required
+ * //           MeasureName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       MultiMeasureMappings: [ // MultiMeasureMappings
+ * //         { // MultiMeasureMapping
+ * //           MultiMeasureName: "STRING_VALUE", // required
+ * //           MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappings // required
+ * //             { // MultiMeasureAttributeMapping
+ * //               MeasureValue: "STRING_VALUE", // required
+ * //               MeasureValueType: "STRING_VALUE", // required
+ * //               MultiMeasureAttributeName: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   RoleArn: "STRING_VALUE",
  * //   Tags: { // TagMap

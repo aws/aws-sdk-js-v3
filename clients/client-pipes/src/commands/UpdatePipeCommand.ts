@@ -27,13 +27,18 @@ export interface UpdatePipeCommandInput extends UpdatePipeRequest {}
 export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataBearer {}
 
 /**
- * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the updates fields you have specified in the request; the rest remain unchanged.
- *          The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
- *          <code>TargetParameters</code> objects. For example, <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>.
- *          EventBridge updates the fields in these objects atomically as one and overrides existing values.
- *          This is by design, and means that if you don't specify an optional field in one of these <code>Parameters</code> objects, EventBridge sets that field to its system-default value during the update.</p>
+ * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the
+ *          updates fields you have specified in the request; the rest remain unchanged. The exception
+ *          to this is if you modify any Amazon Web Services-service specific fields in the
+ *             <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
+ *             <code>TargetParameters</code> objects. For example,
+ *             <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>.
+ *          EventBridge updates the fields in these objects atomically as one and overrides existing
+ *          values. This is by design, and means that if you don't specify an optional field in one of
+ *          these <code>Parameters</code> objects, EventBridge sets that field to its system-default
+ *          value during the update.</p>
  *          <p>For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">
- *          Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+ *             Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -320,6 +325,39 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  *     CloudWatchLogsParameters: { // PipeTargetCloudWatchLogsParameters
  *       LogStreamName: "STRING_VALUE",
  *       Timestamp: "STRING_VALUE",
+ *     },
+ *     TimestreamParameters: { // PipeTargetTimestreamParameters
+ *       TimeValue: "STRING_VALUE", // required
+ *       EpochTimeUnit: "STRING_VALUE",
+ *       TimeFieldType: "STRING_VALUE",
+ *       TimestampFormat: "STRING_VALUE",
+ *       VersionValue: "STRING_VALUE", // required
+ *       DimensionMappings: [ // DimensionMappings // required
+ *         { // DimensionMapping
+ *           DimensionValue: "STRING_VALUE", // required
+ *           DimensionValueType: "STRING_VALUE", // required
+ *           DimensionName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       SingleMeasureMappings: [ // SingleMeasureMappings
+ *         { // SingleMeasureMapping
+ *           MeasureValue: "STRING_VALUE", // required
+ *           MeasureValueType: "STRING_VALUE", // required
+ *           MeasureName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       MultiMeasureMappings: [ // MultiMeasureMappings
+ *         { // MultiMeasureMapping
+ *           MultiMeasureName: "STRING_VALUE", // required
+ *           MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappings // required
+ *             { // MultiMeasureAttributeMapping
+ *               MeasureValue: "STRING_VALUE", // required
+ *               MeasureValueType: "STRING_VALUE", // required
+ *               MultiMeasureAttributeName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required

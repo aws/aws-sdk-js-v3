@@ -27,7 +27,8 @@ export interface CreatePipeCommandInput extends CreatePipeRequest {}
 export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataBearer {}
 
 /**
- * <p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
+ * <p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces
+ *          the need for specialized knowledge and integration code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -330,6 +331,39 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  *     CloudWatchLogsParameters: { // PipeTargetCloudWatchLogsParameters
  *       LogStreamName: "STRING_VALUE",
  *       Timestamp: "STRING_VALUE",
+ *     },
+ *     TimestreamParameters: { // PipeTargetTimestreamParameters
+ *       TimeValue: "STRING_VALUE", // required
+ *       EpochTimeUnit: "STRING_VALUE",
+ *       TimeFieldType: "STRING_VALUE",
+ *       TimestampFormat: "STRING_VALUE",
+ *       VersionValue: "STRING_VALUE", // required
+ *       DimensionMappings: [ // DimensionMappings // required
+ *         { // DimensionMapping
+ *           DimensionValue: "STRING_VALUE", // required
+ *           DimensionValueType: "STRING_VALUE", // required
+ *           DimensionName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       SingleMeasureMappings: [ // SingleMeasureMappings
+ *         { // SingleMeasureMapping
+ *           MeasureValue: "STRING_VALUE", // required
+ *           MeasureValueType: "STRING_VALUE", // required
+ *           MeasureName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       MultiMeasureMappings: [ // MultiMeasureMappings
+ *         { // MultiMeasureMapping
+ *           MultiMeasureName: "STRING_VALUE", // required
+ *           MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappings // required
+ *             { // MultiMeasureAttributeMapping
+ *               MeasureValue: "STRING_VALUE", // required
+ *               MeasureValueType: "STRING_VALUE", // required
+ *               MultiMeasureAttributeName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
