@@ -185,6 +185,9 @@ it("MachinelearningPredictEndpoint:Request", async () => {
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
 
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("custom.example.com");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{\"MLModelId\": \"foo\", \"Record\": {}, \"PredictEndpoint\": \"https://custom.example.com/\"}`;
