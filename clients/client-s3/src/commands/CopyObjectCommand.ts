@@ -318,6 +318,8 @@ export class CopyObjectCommand extends $Command
     ...commonParams,
     DisableS3ExpressSessionAuth: { type: "staticContextParams", value: true },
     Bucket: { type: "contextParams", name: "Bucket" },
+    Key: { type: "contextParams", name: "Key" },
+    CopySource: { type: "contextParams", name: "CopySource" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
