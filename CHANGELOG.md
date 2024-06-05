@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.591.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.590.0...v3.591.0) (2024-06-05)
+
+
+### Features
+
+* **client-global-accelerator:** This release contains a new optional ip-addresses input field for the update accelerator and update custom routing accelerator apis. This input enables consumers to replace IPv4 addresses on existing accelerators with addresses provided in the input. ([659cea7](https://github.com/aws/aws-sdk-js-v3/commit/659cea798a1a5bd353f6df7b53c938c91c854622))
+* **client-glue:** AWS Glue now supports native SaaS connectivity: Salesforce connector available now ([759dc88](https://github.com/aws/aws-sdk-js-v3/commit/759dc888a1c7925a8d13e7bf272e805c9af94584))
+* **client-s3:** Added new params copySource and key to copyObject API for supporting S3 Access Grants plugin. These changes will not change any of the existing S3 API functionality. ([ad0e8d9](https://github.com/aws/aws-sdk-js-v3/commit/ad0e8d9c766f82e3231398d6f544b9ab09d69985))
+* **clients:** update client endpoints as of 2024-06-05 ([6d6148e](https://github.com/aws/aws-sdk-js-v3/commit/6d6148e47aed481736d3383d606747a49bbbca29))
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

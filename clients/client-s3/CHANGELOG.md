@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.591.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.590.0...v3.591.0) (2024-06-05)
+
+
+### Features
+
+* **client-s3:** Added new params copySource and key to copyObject API for supporting S3 Access Grants plugin. These changes will not change any of the existing S3 API functionality. ([ad0e8d9](https://github.com/aws/aws-sdk-js-v3/commit/ad0e8d9c766f82e3231398d6f544b9ab09d69985))
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 **Note:** Version bump only for package @aws-sdk/client-s3
