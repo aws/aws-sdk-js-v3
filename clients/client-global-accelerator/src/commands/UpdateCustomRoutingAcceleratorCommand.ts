@@ -47,6 +47,9 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  *   AcceleratorArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   IpAddressType: "IPV4" || "DUAL_STACK",
+ *   IpAddresses: [ // IpAddresses
+ *     "STRING_VALUE",
+ *   ],
  *   Enabled: true || false,
  * };
  * const command = new UpdateCustomRoutingAcceleratorCommand(input);

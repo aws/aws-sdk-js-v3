@@ -3220,6 +3220,12 @@ export interface UpdateAcceleratorRequest {
   IpAddressType?: IpAddressType;
 
   /**
+   * <p>The IP addresses for an accelerator.</p>
+   * @public
+   */
+  IpAddresses?: string[];
+
+  /**
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
    *          <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    * @public
@@ -3371,6 +3377,12 @@ export interface UpdateCustomRoutingAcceleratorRequest {
    * @public
    */
   IpAddressType?: IpAddressType;
+
+  /**
+   * <p>The IP addresses for an accelerator.</p>
+   * @public
+   */
+  IpAddresses?: string[];
 
   /**
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
