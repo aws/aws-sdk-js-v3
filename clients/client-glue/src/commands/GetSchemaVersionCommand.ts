@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetSchemaVersionInput, GetSchemaVersionResponse } from "../models/models_1";
+import { GetSchemaVersionInput, GetSchemaVersionResponse } from "../models/models_2";
 import { de_GetSchemaVersionCommand, se_GetSchemaVersionCommand } from "../protocols/Aws_json1_1";
 
 /**

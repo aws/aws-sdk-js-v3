@@ -5,12 +5,13 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
 
 import {
   Action,
+  AuthenticationConfiguration,
+  AuthenticationConfigurationInput,
   Blueprint,
   Column,
-  ConnectionPropertyKey,
   ConnectionsList,
-  ConnectionType,
   Crawler,
+  CrawlerTargets,
   CsvHeaderOption,
   CsvSerdeOption,
   DataFormat,
@@ -23,11 +24,14 @@ import {
   EventBatchingCondition,
   GlueTable,
   JobRun,
+  LakeFormationConfiguration,
+  LineageConfiguration,
   Partition,
   PartitionInput,
   PartitionValueList,
-  PhysicalConnectionRequirements,
   Predicate,
+  RecrawlPolicy,
+  SchemaChangePolicy,
   SchemaId,
   StorageDescriptor,
   TableOptimizerConfiguration,
@@ -36,6 +40,418 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionPropertyKey = {
+  CONFIG_FILES: "CONFIG_FILES",
+  CONNECTION_URL: "CONNECTION_URL",
+  CONNECTOR_CLASS_NAME: "CONNECTOR_CLASS_NAME",
+  CONNECTOR_TYPE: "CONNECTOR_TYPE",
+  CONNECTOR_URL: "CONNECTOR_URL",
+  CUSTOM_JDBC_CERT: "CUSTOM_JDBC_CERT",
+  CUSTOM_JDBC_CERT_STRING: "CUSTOM_JDBC_CERT_STRING",
+  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
+  ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD: "ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD",
+  ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD: "ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD",
+  ENCRYPTED_PASSWORD: "ENCRYPTED_PASSWORD",
+  HOST: "HOST",
+  INSTANCE_ID: "INSTANCE_ID",
+  JDBC_CONNECTION_URL: "JDBC_CONNECTION_URL",
+  JDBC_DRIVER_CLASS_NAME: "JDBC_DRIVER_CLASS_NAME",
+  JDBC_DRIVER_JAR_URI: "JDBC_DRIVER_JAR_URI",
+  JDBC_ENFORCE_SSL: "JDBC_ENFORCE_SSL",
+  JDBC_ENGINE: "JDBC_ENGINE",
+  JDBC_ENGINE_VERSION: "JDBC_ENGINE_VERSION",
+  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
+  KAFKA_CLIENT_KEYSTORE: "KAFKA_CLIENT_KEYSTORE",
+  KAFKA_CLIENT_KEYSTORE_PASSWORD: "KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  KAFKA_CLIENT_KEY_PASSWORD: "KAFKA_CLIENT_KEY_PASSWORD",
+  KAFKA_CUSTOM_CERT: "KAFKA_CUSTOM_CERT",
+  KAFKA_SASL_GSSAPI_KEYTAB: "KAFKA_SASL_GSSAPI_KEYTAB",
+  KAFKA_SASL_GSSAPI_KRB5_CONF: "KAFKA_SASL_GSSAPI_KRB5_CONF",
+  KAFKA_SASL_GSSAPI_PRINCIPAL: "KAFKA_SASL_GSSAPI_PRINCIPAL",
+  KAFKA_SASL_GSSAPI_SERVICE: "KAFKA_SASL_GSSAPI_SERVICE",
+  KAFKA_SASL_MECHANISM: "KAFKA_SASL_MECHANISM",
+  KAFKA_SASL_PLAIN_PASSWORD: "KAFKA_SASL_PLAIN_PASSWORD",
+  KAFKA_SASL_PLAIN_USERNAME: "KAFKA_SASL_PLAIN_USERNAME",
+  KAFKA_SASL_SCRAM_PASSWORD: "KAFKA_SASL_SCRAM_PASSWORD",
+  KAFKA_SASL_SCRAM_SECRETS_ARN: "KAFKA_SASL_SCRAM_SECRETS_ARN",
+  KAFKA_SASL_SCRAM_USERNAME: "KAFKA_SASL_SCRAM_USERNAME",
+  KAFKA_SKIP_CUSTOM_CERT_VALIDATION: "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
+  KAFKA_SSL_ENABLED: "KAFKA_SSL_ENABLED",
+  PASSWORD: "PASSWORD",
+  PORT: "PORT",
+  ROLE_ARN: "ROLE_ARN",
+  SECRET_ID: "SECRET_ID",
+  SKIP_CUSTOM_JDBC_CERT_VALIDATION: "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
+  USER_NAME: "USERNAME",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionPropertyKey = (typeof ConnectionPropertyKey)[keyof typeof ConnectionPropertyKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  CUSTOM: "CUSTOM",
+  JDBC: "JDBC",
+  KAFKA: "KAFKA",
+  MARKETPLACE: "MARKETPLACE",
+  MONGODB: "MONGODB",
+  NETWORK: "NETWORK",
+  SALESFORCE: "SALESFORCE",
+  SFTP: "SFTP",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * <p>The OAuth client app in GetConnection response.</p>
+ * @public
+ */
+export interface PhysicalConnectionRequirements {
+  /**
+   * <p>The subnet ID used by the connection.</p>
+   * @public
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The security group ID list used by the connection.</p>
+   * @public
+   */
+  SecurityGroupIdList?: string[];
+
+  /**
+   * <p>The connection's Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+}
+
+/**
+ * <p>A structure that is used to specify a connection to create or update.</p>
+ * @public
+ */
+export interface ConnectionInput {
+  /**
+   * <p>The name of the connection.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the connection.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of the connection. Currently, these types are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC</code> - Designates a connection to a database through Java Database Connectivity (JDBC).</p>
+   *                <p>
+   *                   <code>JDBC</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: All of (<code>HOST</code>, <code>PORT</code>, <code>JDBC_ENGINE</code>) or <code>JDBC_CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>JDBC_ENFORCE_SSL</code>, <code>CUSTOM_JDBC_CERT</code>, <code>CUSTOM_JDBC_CERT_STRING</code>, <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code>.  These parameters are used to configure SSL with JDBC.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA</code> - Designates a connection to an Apache Kafka streaming platform.</p>
+   *                <p>
+   *                   <code>KAFKA</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>KAFKA_BOOTSTRAP_SERVERS</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SSL_ENABLED</code>, <code>KAFKA_CUSTOM_CERT</code>, <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code>. These parameters are used to configure SSL with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_CLIENT_KEYSTORE</code>, <code>KAFKA_CLIENT_KEYSTORE_PASSWORD</code>, <code>KAFKA_CLIENT_KEY_PASSWORD</code>, <code>ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD</code>, <code>ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD</code>. These parameters are used to configure TLS client configuration with SSL in <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_MECHANISM</code>. Can be specified as <code>SCRAM-SHA-512</code>, <code>GSSAPI</code>, or <code>AWS_MSK_IAM</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_SCRAM_USERNAME</code>, <code>KAFKA_SASL_SCRAM_PASSWORD</code>, <code>ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD</code>. These parameters are used to configure SASL/SCRAM-SHA-512 authentication with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_GSSAPI_KEYTAB</code>, <code>KAFKA_SASL_GSSAPI_KRB5_CONF</code>, <code>KAFKA_SASL_GSSAPI_SERVICE</code>, <code>KAFKA_SASL_GSSAPI_PRINCIPAL</code>. These parameters are used to configure SASL/GSSAPI authentication with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MONGODB</code> - Designates a connection to a MongoDB document database.</p>
+   *                <p>
+   *                   <code>MONGODB</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SALESFORCE</code> - Designates a connection to Salesforce using OAuth authencation.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Requires the <code>AuthenticationConfiguration</code> member to be configured.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NETWORK</code> - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>
+   *                <p>
+   *                   <code>NETWORK</code> Connections do not require ConnectionParameters. Instead, provide a PhysicalConnectionRequirements.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from Amazon Web Services Marketplace to read from and write to data stores that are not natively supported by Glue.</p>
+   *                <p>
+   *                   <code>MARKETPLACE</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>CONNECTOR_TYPE</code>, <code>CONNECTOR_URL</code>, <code>CONNECTOR_CLASS_NAME</code>, <code>CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required for <code>JDBC</code>
+   *                         <code>CONNECTOR_TYPE</code> connections: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by Glue.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>SFTP</code> is not supported.</p>
+   *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue, consult <a href="https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html">Glue connection properties</a>.</p>
+   *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue Studio, consult <a href="https://docs.aws.amazon.com/glue/latest/ug/connectors-chapter.html">Using connectors and connections</a>.</p>
+   * @public
+   */
+  ConnectionType: ConnectionType | undefined;
+
+  /**
+   * <p>A list of criteria that can be used in selecting this connection.</p>
+   * @public
+   */
+  MatchCriteria?: string[];
+
+  /**
+   * <p>These key-value pairs define parameters for the connection.</p>
+   * @public
+   */
+  ConnectionProperties: Partial<Record<ConnectionPropertyKey, string>> | undefined;
+
+  /**
+   * <p>The physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to successfully make this connection.</p>
+   * @public
+   */
+  PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
+
+  /**
+   * <p>The authentication properties of the connection. Used for a Salesforce connection.</p>
+   * @public
+   */
+  AuthenticationConfiguration?: AuthenticationConfigurationInput;
+
+  /**
+   * <p>A flag to validate the credentials during create connection. Used for a Salesforce connection. Default is true. </p>
+   * @public
+   */
+  ValidateCredentials?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectionRequest {
+  /**
+   * <p>The ID of the Data Catalog in which to create the connection. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>A <code>ConnectionInput</code> object defining the connection
+   *       to create.</p>
+   * @public
+   */
+  ConnectionInput: ConnectionInput | undefined;
+
+  /**
+   * <p>The tags you assign to the connection.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
+ */
+export interface CreateConnectionResponse {
+  /**
+   * <p>The status of the connection creation request. The request can take some time for certain authentication types, for example when creating an OAuth connection with token exchange over VPC.</p>
+   * @public
+   */
+  CreateConnectionStatus?: ConnectionStatus;
+}
+
+/**
+ * @public
+ */
+export interface CreateCrawlerRequest {
+  /**
+   * <p>Name of the new crawler.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to
+   *       access customer resources.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The Glue database where results are written, such as:
+   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
+   * @public
+   */
+  DatabaseName?: string;
+
+  /**
+   * <p>A description of the new crawler.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of collection of targets to crawl.</p>
+   * @public
+   */
+  Targets: CrawlerTargets | undefined;
+
+  /**
+   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   * @public
+   */
+  Schedule?: string;
+
+  /**
+   * <p>A list of custom classifiers that the user has registered. By default, all built-in
+   *       classifiers are included in a crawl, but these custom classifiers always override the default
+   *       classifiers for a given classification.</p>
+   * @public
+   */
+  Classifiers?: string[];
+
+  /**
+   * <p>The table prefix used for catalog tables that are created.</p>
+   * @public
+   */
+  TablePrefix?: string;
+
+  /**
+   * <p>The policy for the crawler's update and deletion behavior.</p>
+   * @public
+   */
+  SchemaChangePolicy?: SchemaChangePolicy;
+
+  /**
+   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
+   * @public
+   */
+  RecrawlPolicy?: RecrawlPolicy;
+
+  /**
+   * <p>Specifies data lineage configuration settings for the crawler.</p>
+   * @public
+   */
+  LineageConfiguration?: LineageConfiguration;
+
+  /**
+   * <p>Specifies Lake Formation configuration settings for the crawler.</p>
+   * @public
+   */
+  LakeFormationConfiguration?: LakeFormationConfiguration;
+
+  /**
+   * <p>Crawler configuration information. This versioned JSON
+   *       string allows users to specify aspects of a crawler's behavior.
+   *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Setting crawler configuration options</a>.</p>
+   * @public
+   */
+  Configuration?: string;
+
+  /**
+   * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
+   *       crawler.</p>
+   * @public
+   */
+  CrawlerSecurityConfiguration?: string;
+
+  /**
+   * <p>The tags to use with this crawler request. You may use tags to limit access to the
+   *             crawler. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer
+   *             guide.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateCrawlerResponse {}
 
 /**
  * @public
@@ -4774,20 +5190,19 @@ export interface Connection {
   ConnectionProperties?: Partial<Record<ConnectionPropertyKey, string>>;
 
   /**
-   * <p>A map of physical connection requirements, such as virtual private cloud (VPC) and
-   *         <code>SecurityGroup</code>, that are needed to make this connection successfully.</p>
+   * <p>The physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to make this connection successfully.</p>
    * @public
    */
   PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
 
   /**
-   * <p>The time that this connection definition was created.</p>
+   * <p>The timestamp of the time that this connection definition was created.</p>
    * @public
    */
   CreationTime?: Date;
 
   /**
-   * <p>The last time that this connection definition was updated.</p>
+   * <p>The timestamp of the last time the connection definition was updated.</p>
    * @public
    */
   LastUpdatedTime?: Date;
@@ -4797,6 +5212,30 @@ export interface Connection {
    * @public
    */
   LastUpdatedBy?: string;
+
+  /**
+   * <p>The status of the connection. Can be one of: <code>READY</code>, <code>IN_PROGRESS</code>, or <code>FAILED</code>.</p>
+   * @public
+   */
+  Status?: ConnectionStatus;
+
+  /**
+   * <p>The reason for the connection status.</p>
+   * @public
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>A timestamp of the time this connection was last validated.</p>
+   * @public
+   */
+  LastConnectionValidationTime?: Date;
+
+  /**
+   * <p>The authentication properties of the connection.</p>
+   * @public
+   */
+  AuthenticationConfiguration?: AuthenticationConfiguration;
 }
 
 /**
@@ -7965,207 +8404,4 @@ export interface GetSchemaByDefinitionResponse {
    * @public
    */
   CreatedTime?: string;
-}
-
-/**
- * <p>A structure containing the schema version information.</p>
- * @public
- */
-export interface SchemaVersionNumber {
-  /**
-   * <p>The latest version available for the schema.</p>
-   * @public
-   */
-  LatestVersion?: boolean;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  VersionNumber?: number;
-}
-
-/**
- * @public
- */
-export interface GetSchemaVersionInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   *          <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SchemaId?: SchemaId;
-
-  /**
-   * <p>The <code>SchemaVersionId</code> of the schema version. This field is required for fetching by schema ID. Either this or the <code>SchemaId</code> wrapper has to be provided.</p>
-   * @public
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber;
-}
-
-/**
- * @public
- */
-export interface GetSchemaVersionResponse {
-  /**
-   * <p>The <code>SchemaVersionId</code> of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>The schema definition for the schema ID.</p>
-   * @public
-   */
-  SchemaDefinition?: string;
-
-  /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
-   * @public
-   */
-  DataFormat?: DataFormat;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   * @public
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The status of the schema version. </p>
-   * @public
-   */
-  Status?: SchemaVersionStatus;
-
-  /**
-   * <p>The date and time the schema version was created.</p>
-   * @public
-   */
-  CreatedTime?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const SchemaDiffType = {
-  SYNTAX_DIFF: "SYNTAX_DIFF",
-} as const;
-
-/**
- * @public
- */
-export type SchemaDiffType = (typeof SchemaDiffType)[keyof typeof SchemaDiffType];
-
-/**
- * @public
- */
-export interface GetSchemaVersionsDiffInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   *          <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SchemaId: SchemaId | undefined;
-
-  /**
-   * <p>The first of the two schema versions to be compared.</p>
-   * @public
-   */
-  FirstSchemaVersionNumber: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The second of the two schema versions to be compared.</p>
-   * @public
-   */
-  SecondSchemaVersionNumber: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
-   * @public
-   */
-  SchemaDiffType: SchemaDiffType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSchemaVersionsDiffResponse {
-  /**
-   * <p>The difference between schemas as a string in JsonPatch format.</p>
-   * @public
-   */
-  Diff?: string;
-}
-
-/**
- * @public
- */
-export interface GetSecurityConfigurationRequest {
-  /**
-   * <p>The name of the security configuration to retrieve.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * <p>Specifies a security configuration.</p>
- * @public
- */
-export interface SecurityConfiguration {
-  /**
-   * <p>The name of the security configuration.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The time at which this security configuration was created.</p>
-   * @public
-   */
-  CreatedTimeStamp?: Date;
-
-  /**
-   * <p>The encryption configuration associated with this security configuration.</p>
-   * @public
-   */
-  EncryptionConfiguration?: EncryptionConfiguration;
-}
-
-/**
- * @public
- */
-export interface GetSecurityConfigurationResponse {
-  /**
-   * <p>The requested security configuration.</p>
-   * @public
-   */
-  SecurityConfiguration?: SecurityConfiguration;
 }

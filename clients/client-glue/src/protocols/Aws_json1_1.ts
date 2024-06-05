@@ -502,6 +502,8 @@ import {
   AmazonRedshiftTarget,
   AthenaConnectorSource,
   AuditContext,
+  AuthenticationConfigurationInput,
+  AuthorizationCodeProperties,
   BasicCatalogTarget,
   BatchCreatePartitionRequest,
   BatchDeleteConnectionRequest,
@@ -545,8 +547,6 @@ import {
   CheckSchemaVersionValidityInput,
   Column,
   Condition,
-  ConnectionInput,
-  ConnectionPropertyKey,
   ConnectionsList,
   ConnectorDataSource,
   ConnectorDataTarget,
@@ -556,8 +556,6 @@ import {
   CrawlerTargets,
   CreateBlueprintRequest,
   CreateClassifierRequest,
-  CreateConnectionRequest,
-  CreateCrawlerRequest,
   CreateCsvClassifierRequest,
   CreateGrokClassifierRequest,
   CreateJsonClassifierRequest,
@@ -636,6 +634,8 @@ import {
   NotificationProperty,
   NullCheckBoxList,
   NullValueField,
+  OAuth2ClientApplication,
+  OAuth2PropertiesInput,
   OperationTimeoutException,
   Option,
   OracleSQLCatalogSource,
@@ -644,7 +644,6 @@ import {
   Partition,
   PartitionInput,
   PartitionValueList,
-  PhysicalConnectionRequirements,
   PIIDetection,
   PostgreSQLCatalogSource,
   PostgreSQLCatalogTarget,
@@ -724,9 +723,13 @@ import {
   ConditionCheckFailureException,
   ConflictException,
   Connection,
+  ConnectionInput,
   ConnectionPasswordEncryption,
+  ConnectionPropertyKey,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateConnectionRequest,
+  CreateCrawlerRequest,
   CreateCustomEntityTypeRequest,
   CreateDatabaseRequest,
   CreateDataQualityRulesetRequest,
@@ -871,10 +874,6 @@ import {
   GetResourcePolicyResponse,
   GetSchemaByDefinitionInput,
   GetSchemaInput,
-  GetSchemaVersionInput,
-  GetSchemaVersionsDiffInput,
-  GetSecurityConfigurationRequest,
-  GetSecurityConfigurationResponse,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
@@ -889,14 +888,13 @@ import {
   OpenTableFormatInput,
   PartitionIndex,
   Permission,
+  PhysicalConnectionRequirements,
   PrincipalPermissions,
   RegistryId,
   ResourceUri,
   S3Encryption,
   SchedulerTransitioningException,
   SchemaColumn,
-  SchemaVersionNumber,
-  SecurityConfiguration,
   Segment,
   Session,
   SessionCommand,
@@ -939,6 +937,10 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetSchemaVersionInput,
+  GetSchemaVersionsDiffInput,
+  GetSecurityConfigurationRequest,
+  GetSecurityConfigurationResponse,
   GetSecurityConfigurationsRequest,
   GetSecurityConfigurationsResponse,
   GetSessionRequest,
@@ -1028,8 +1030,10 @@ import {
   RunStatementRequest,
   SchedulerNotRunningException,
   SchedulerRunningException,
+  SchemaVersionNumber,
   SearchTablesRequest,
   SearchTablesResponse,
+  SecurityConfiguration,
   SortCriterion,
   StartBlueprintRunRequest,
   StartColumnStatisticsTaskRunRequest,
@@ -8835,6 +8839,10 @@ const se_ApplyMapping = (input: ApplyMapping, context: __SerdeContext): any => {
 
 // se_AuditContext omitted.
 
+// se_AuthenticationConfigurationInput omitted.
+
+// se_AuthorizationCodeProperties omitted.
+
 // se_BasicCatalogTarget omitted.
 
 /**
@@ -10245,6 +10253,10 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
 
 // se_NullValueFields omitted.
 
+// se_OAuth2ClientApplication omitted.
+
+// se_OAuth2PropertiesInput omitted.
+
 // se_OneInput omitted.
 
 // se_OpenTableFormatInput omitted.
@@ -10633,6 +10645,8 @@ const se_TaskRunFilterCriteria = (input: TaskRunFilterCriteria, context: __Serde
 
 // se_TaskRunSortCriteria omitted.
 
+// se_TokenUrlParametersMap omitted.
+
 // se_TransformConfigParameter omitted.
 
 // se_TransformConfigParameterList omitted.
@@ -10886,6 +10900,8 @@ const de_ApplyMapping = (output: any, context: __SerdeContext): ApplyMapping => 
 };
 
 // de_AthenaConnectorSource omitted.
+
+// de_AuthenticationConfiguration omitted.
 
 // de_BackfillError omitted.
 
@@ -11478,15 +11494,19 @@ const de_ColumnStatisticsTaskRunsList = (output: any, context: __SerdeContext): 
  */
 const de_Connection = (output: any, context: __SerdeContext): Connection => {
   return take(output, {
+    AuthenticationConfiguration: _json,
     ConnectionProperties: _json,
     ConnectionType: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    LastConnectionValidationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdatedBy: __expectString,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MatchCriteria: _json,
     Name: __expectString,
     PhysicalConnectionRequirements: _json,
+    Status: __expectString,
+    StatusReason: __expectString,
   }) as any;
 };
 
@@ -13639,6 +13659,10 @@ const de_NodeList = (output: any, context: __SerdeContext): Node[] => {
 
 // de_NullValueFields omitted.
 
+// de_OAuth2ClientApplication omitted.
+
+// de_OAuth2Properties omitted.
+
 // de_OneInput omitted.
 
 // de_OperationTimeoutException omitted.
@@ -14208,6 +14232,8 @@ const de_TaskRunList = (output: any, context: __SerdeContext): TaskRun[] => {
 };
 
 // de_TaskRunProperties omitted.
+
+// de_TokenUrlParametersMap omitted.
 
 // de_TransformConfigParameter omitted.
 

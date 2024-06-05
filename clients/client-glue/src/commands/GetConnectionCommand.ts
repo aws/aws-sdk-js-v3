@@ -45,7 +45,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * //   Connection: { // Connection
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM",
+ * //     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE",
  * //     MatchCriteria: [ // MatchCriteria
  * //       "STRING_VALUE",
  * //     ],
@@ -62,6 +62,24 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     LastUpdatedBy: "STRING_VALUE",
+ * //     Status: "READY" || "IN_PROGRESS" || "FAILED",
+ * //     StatusReason: "STRING_VALUE",
+ * //     LastConnectionValidationTime: new Date("TIMESTAMP"),
+ * //     AuthenticationConfiguration: { // AuthenticationConfiguration
+ * //       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
+ * //       SecretArn: "STRING_VALUE",
+ * //       OAuth2Properties: { // OAuth2Properties
+ * //         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
+ * //         OAuth2ClientApplication: { // OAuth2ClientApplication
+ * //           UserManagedClientApplicationClientId: "STRING_VALUE",
+ * //           AWSManagedClientApplicationReference: "STRING_VALUE",
+ * //         },
+ * //         TokenUrl: "STRING_VALUE",
+ * //         TokenUrlParametersMap: { // TokenUrlParametersMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

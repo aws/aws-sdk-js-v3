@@ -40,7 +40,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *   ConnectionInput: { // ConnectionInput
  *     Name: "STRING_VALUE", // required
  *     Description: "STRING_VALUE",
- *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM", // required
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM" || "SALESFORCE", // required
  *     MatchCriteria: [ // MatchCriteria
  *       "STRING_VALUE",
  *     ],
@@ -54,6 +54,26 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *       ],
  *       AvailabilityZone: "STRING_VALUE",
  *     },
+ *     AuthenticationConfiguration: { // AuthenticationConfigurationInput
+ *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM",
+ *       SecretArn: "STRING_VALUE",
+ *       OAuth2Properties: { // OAuth2PropertiesInput
+ *         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
+ *         OAuth2ClientApplication: { // OAuth2ClientApplication
+ *           UserManagedClientApplicationClientId: "STRING_VALUE",
+ *           AWSManagedClientApplicationReference: "STRING_VALUE",
+ *         },
+ *         TokenUrl: "STRING_VALUE",
+ *         TokenUrlParametersMap: { // TokenUrlParametersMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         AuthorizationCodeProperties: { // AuthorizationCodeProperties
+ *           AuthorizationCode: "STRING_VALUE",
+ *           RedirectUri: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     ValidateCredentials: true || false,
  *   },
  * };
  * const command = new UpdateConnectionCommand(input);

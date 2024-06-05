@@ -17,7 +17,6 @@ import {
   CatalogKinesisSource,
   CatalogSource,
   Column,
-  ConnectionInput,
   ConnectionsList,
   ConnectorDataSource,
   ConnectorDataTarget,
@@ -26,6 +25,7 @@ import {
   CsvSerdeOption,
   CustomCode,
   CustomEntityType,
+  DataFormat,
   DataSource,
   DirectJDBCSource,
   DirectKafkaSource,
@@ -117,10 +117,12 @@ import {
 import {
   ColumnStatistics,
   Compatibility,
+  ConnectionInput,
   DatabaseInput,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   DataQualityTargetTable,
+  EncryptionConfiguration,
   JobBookmarkEntry,
   Permission,
   PrincipalType,
@@ -129,9 +131,7 @@ import {
   ResourceShareType,
   ResourceUri,
   SchemaStatus,
-  SchemaVersionNumber,
   SchemaVersionStatus,
-  SecurityConfiguration,
   Segment,
   Session,
   TableIdentifier,
@@ -141,6 +141,209 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * <p>A structure containing the schema version information.</p>
+ * @public
+ */
+export interface SchemaVersionNumber {
+  /**
+   * <p>The latest version available for the schema.</p>
+   * @public
+   */
+  LatestVersion?: boolean;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  VersionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetSchemaVersionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The <code>SchemaVersionId</code> of the schema version. This field is required for fetching by schema ID. Either this or the <code>SchemaId</code> wrapper has to be provided.</p>
+   * @public
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+}
+
+/**
+ * @public
+ */
+export interface GetSchemaVersionResponse {
+  /**
+   * <p>The <code>SchemaVersionId</code> of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The schema definition for the schema ID.</p>
+   * @public
+   */
+  SchemaDefinition?: string;
+
+  /**
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
+   * @public
+   */
+  DataFormat?: DataFormat;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * @public
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The status of the schema version. </p>
+   * @public
+   */
+  Status?: SchemaVersionStatus;
+
+  /**
+   * <p>The date and time the schema version was created.</p>
+   * @public
+   */
+  CreatedTime?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaDiffType = {
+  SYNTAX_DIFF: "SYNTAX_DIFF",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaDiffType = (typeof SchemaDiffType)[keyof typeof SchemaDiffType];
+
+/**
+ * @public
+ */
+export interface GetSchemaVersionsDiffInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The first of the two schema versions to be compared.</p>
+   * @public
+   */
+  FirstSchemaVersionNumber: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>The second of the two schema versions to be compared.</p>
+   * @public
+   */
+  SecondSchemaVersionNumber: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
+   * @public
+   */
+  SchemaDiffType: SchemaDiffType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSchemaVersionsDiffResponse {
+  /**
+   * <p>The difference between schemas as a string in JsonPatch format.</p>
+   * @public
+   */
+  Diff?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityConfigurationRequest {
+  /**
+   * <p>The name of the security configuration to retrieve.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>Specifies a security configuration.</p>
+ * @public
+ */
+export interface SecurityConfiguration {
+  /**
+   * <p>The name of the security configuration.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The time at which this security configuration was created.</p>
+   * @public
+   */
+  CreatedTimeStamp?: Date;
+
+  /**
+   * <p>The encryption configuration associated with this security configuration.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityConfigurationResponse {
+  /**
+   * <p>The requested security configuration.</p>
+   * @public
+   */
+  SecurityConfiguration?: SecurityConfiguration;
+}
 
 /**
  * @public
@@ -463,7 +666,7 @@ export interface ViewRepresentation {
    * <p>The expanded SQL for the view. This SQL is used by engines while processing a query on a view. Engines may perform operations during view creation to transform <code>ViewOriginalText</code> to <code>ViewExpandedText</code>. For example:</p>
    *          <ul>
    *             <li>
-   *                <p>Fully qualify identifiers: <code>SELECT * from table1 → SELECT * from db1.table1</code>
+   *                <p>Fully qualified identifiers: <code>SELECT * from table1 -> SELECT * from db1.table1</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4583,8 +4786,8 @@ export interface StartJobRunRequest {
 
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
-   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job.</p>
-   *          <p>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880 minutes (48 hours).</p>
+   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job. </p>
+   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number;
@@ -7075,7 +7278,8 @@ export interface CreateJobRequest {
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
    *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
+   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
+   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number;
@@ -7330,7 +7534,8 @@ export interface Job {
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
    *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
+   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
+   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number;
@@ -7562,7 +7767,8 @@ export interface JobUpdate {
   /**
    * <p>The job timeout in minutes.  This is the maximum time that a job run
    *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
+   *       status. The default is 2,880 minutes (48 hours) for batch jobs.</p>
+   *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
   Timeout?: number;
