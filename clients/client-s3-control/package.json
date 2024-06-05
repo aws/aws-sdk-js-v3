@@ -38,7 +38,7 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/xml-builder": "*",
     "@smithy/config-resolver": "^3.0.1",
-    "@smithy/core": "^2.1.1",
+    "@smithy/core": "^2.2.0",
     "@smithy/fetch-http-handler": "^3.0.1",
     "@smithy/hash-blob-browser": "^3.0.0",
     "@smithy/hash-node": "^3.0.0",
