@@ -33,7 +33,7 @@
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@smithy/config-resolver": "^3.0.1",
-    "@smithy/core": "^2.1.1",
+    "@smithy/core": "^2.2.0",
     "@smithy/fetch-http-handler": "^3.0.1",
     "@smithy/hash-node": "^3.0.0",
     "@smithy/invalid-dependency": "^3.0.0",
