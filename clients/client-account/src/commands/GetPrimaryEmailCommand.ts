@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableRegionRequest } from "../models/models_0";
-import { de_DisableRegionCommand, se_DisableRegionCommand } from "../protocols/Aws_restJson1";
+import {
+  GetPrimaryEmailRequest,
+  GetPrimaryEmailResponse,
+  GetPrimaryEmailResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_GetPrimaryEmailCommand, se_GetPrimaryEmailCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,56 +21,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DisableRegionCommand}.
+ * The input for {@link GetPrimaryEmailCommand}.
  */
-export interface DisableRegionCommandInput extends DisableRegionRequest {}
+export interface GetPrimaryEmailCommandInput extends GetPrimaryEmailRequest {}
 /**
  * @public
  *
- * The output of {@link DisableRegionCommand}.
+ * The output of {@link GetPrimaryEmailCommand}.
  */
-export interface DisableRegionCommandOutput extends __MetadataBearer {}
+export interface GetPrimaryEmailCommandOutput extends GetPrimaryEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Disables (opts-out) a particular Region for an account.</p>
- *          <note>
- *             <p>The act of disabling a Region will remove all IAM access to any resources that
- *                 reside in that Region.</p>
- *          </note>
+ * <p>Retrieves the primary email address for the specified account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, DisableRegionCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, DisableRegionCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, GetPrimaryEmailCommand } from "@aws-sdk/client-account"; // ES Modules import
+ * // const { AccountClient, GetPrimaryEmailCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
- * const input = { // DisableRegionRequest
- *   AccountId: "STRING_VALUE",
- *   RegionName: "STRING_VALUE", // required
+ * const input = { // GetPrimaryEmailRequest
+ *   AccountId: "STRING_VALUE", // required
  * };
- * const command = new DisableRegionCommand(input);
+ * const command = new GetPrimaryEmailCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetPrimaryEmailResponse
+ * //   PrimaryEmail: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DisableRegionCommandInput - {@link DisableRegionCommandInput}
- * @returns {@link DisableRegionCommandOutput}
- * @see {@link DisableRegionCommandInput} for command's `input` shape.
- * @see {@link DisableRegionCommandOutput} for command's `response` shape.
+ * @param GetPrimaryEmailCommandInput - {@link GetPrimaryEmailCommandInput}
+ * @returns {@link GetPrimaryEmailCommandOutput}
+ * @see {@link GetPrimaryEmailCommandInput} for command's `input` shape.
+ * @see {@link GetPrimaryEmailCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The operation failed because the calling identity doesn't have the minimum required
  *             permissions.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of a conflict in the current status of the
- *             resource. For example, this happens if you try to enable a Region that is currently being disabled
- *             (in a status of DISABLING).</p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
  *             later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation failed because it specified a resource that can't be found.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The operation failed because it was called too frequently and exceeded a throttle
@@ -80,10 +79,10 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DisableRegionCommand extends $Command
+export class GetPrimaryEmailCommand extends $Command
   .classBuilder<
-    DisableRegionCommandInput,
-    DisableRegionCommandOutput,
+    GetPrimaryEmailCommandInput,
+    GetPrimaryEmailCommandOutput,
     AccountClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,9 +96,9 @@ export class DisableRegionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Account", "DisableRegion", {})
-  .n("AccountClient", "DisableRegionCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableRegionCommand)
-  .de(de_DisableRegionCommand)
+  .s("Account", "GetPrimaryEmail", {})
+  .n("AccountClient", "GetPrimaryEmailCommand")
+  .f(void 0, GetPrimaryEmailResponseFilterSensitiveLog)
+  .ser(se_GetPrimaryEmailCommand)
+  .de(de_GetPrimaryEmailCommand)
   .build() {}

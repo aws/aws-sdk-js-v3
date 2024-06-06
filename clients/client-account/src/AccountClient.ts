@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AcceptPrimaryEmailUpdateCommandInput,
+  AcceptPrimaryEmailUpdateCommandOutput,
+} from "./commands/AcceptPrimaryEmailUpdateCommand";
+import {
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
 } from "./commands/DeleteAlternateContactCommand";
@@ -67,6 +71,7 @@ import {
   GetContactInformationCommandInput,
   GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
+import { GetPrimaryEmailCommandInput, GetPrimaryEmailCommandOutput } from "./commands/GetPrimaryEmailCommand";
 import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "./commands/GetRegionOptStatusCommand";
 import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
@@ -77,6 +82,10 @@ import {
   PutContactInformationCommandInput,
   PutContactInformationCommandOutput,
 } from "./commands/PutContactInformationCommand";
+import {
+  StartPrimaryEmailUpdateCommandInput,
+  StartPrimaryEmailUpdateCommandOutput,
+} from "./commands/StartPrimaryEmailUpdateCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -92,29 +101,35 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptPrimaryEmailUpdateCommandInput
   | DeleteAlternateContactCommandInput
   | DisableRegionCommandInput
   | EnableRegionCommandInput
   | GetAlternateContactCommandInput
   | GetContactInformationCommandInput
+  | GetPrimaryEmailCommandInput
   | GetRegionOptStatusCommandInput
   | ListRegionsCommandInput
   | PutAlternateContactCommandInput
-  | PutContactInformationCommandInput;
+  | PutContactInformationCommandInput
+  | StartPrimaryEmailUpdateCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptPrimaryEmailUpdateCommandOutput
   | DeleteAlternateContactCommandOutput
   | DisableRegionCommandOutput
   | EnableRegionCommandOutput
   | GetAlternateContactCommandOutput
   | GetContactInformationCommandOutput
+  | GetPrimaryEmailCommandOutput
   | GetRegionOptStatusCommandOutput
   | ListRegionsCommandOutput
   | PutAlternateContactCommandOutput
-  | PutContactInformationCommandOutput;
+  | PutContactInformationCommandOutput
+  | StartPrimaryEmailUpdateCommandOutput;
 
 /**
  * @public

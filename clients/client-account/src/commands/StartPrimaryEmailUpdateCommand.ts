@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableRegionRequest } from "../models/models_0";
-import { de_DisableRegionCommand, se_DisableRegionCommand } from "../protocols/Aws_restJson1";
+import {
+  StartPrimaryEmailUpdateRequest,
+  StartPrimaryEmailUpdateRequestFilterSensitiveLog,
+  StartPrimaryEmailUpdateResponse,
+} from "../models/models_0";
+import { de_StartPrimaryEmailUpdateCommand, se_StartPrimaryEmailUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,42 +21,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DisableRegionCommand}.
+ * The input for {@link StartPrimaryEmailUpdateCommand}.
  */
-export interface DisableRegionCommandInput extends DisableRegionRequest {}
+export interface StartPrimaryEmailUpdateCommandInput extends StartPrimaryEmailUpdateRequest {}
 /**
  * @public
  *
- * The output of {@link DisableRegionCommand}.
+ * The output of {@link StartPrimaryEmailUpdateCommand}.
  */
-export interface DisableRegionCommandOutput extends __MetadataBearer {}
+export interface StartPrimaryEmailUpdateCommandOutput extends StartPrimaryEmailUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Disables (opts-out) a particular Region for an account.</p>
- *          <note>
- *             <p>The act of disabling a Region will remove all IAM access to any resources that
- *                 reside in that Region.</p>
- *          </note>
+ * <p>Starts the process to update the primary email address for the specified
+ *             account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccountClient, DisableRegionCommand } from "@aws-sdk/client-account"; // ES Modules import
- * // const { AccountClient, DisableRegionCommand } = require("@aws-sdk/client-account"); // CommonJS import
+ * import { AccountClient, StartPrimaryEmailUpdateCommand } from "@aws-sdk/client-account"; // ES Modules import
+ * // const { AccountClient, StartPrimaryEmailUpdateCommand } = require("@aws-sdk/client-account"); // CommonJS import
  * const client = new AccountClient(config);
- * const input = { // DisableRegionRequest
- *   AccountId: "STRING_VALUE",
- *   RegionName: "STRING_VALUE", // required
+ * const input = { // StartPrimaryEmailUpdateRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   PrimaryEmail: "STRING_VALUE", // required
  * };
- * const command = new DisableRegionCommand(input);
+ * const command = new StartPrimaryEmailUpdateCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartPrimaryEmailUpdateResponse
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DisableRegionCommandInput - {@link DisableRegionCommandInput}
- * @returns {@link DisableRegionCommandOutput}
- * @see {@link DisableRegionCommandInput} for command's `input` shape.
- * @see {@link DisableRegionCommandOutput} for command's `response` shape.
+ * @param StartPrimaryEmailUpdateCommandInput - {@link StartPrimaryEmailUpdateCommandInput}
+ * @returns {@link StartPrimaryEmailUpdateCommandOutput}
+ * @see {@link StartPrimaryEmailUpdateCommandInput} for command's `input` shape.
+ * @see {@link StartPrimaryEmailUpdateCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -68,6 +71,9 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
  *             later.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation failed because it specified a resource that can't be found.</p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The operation failed because it was called too frequently and exceeded a throttle
  *             limit.</p>
@@ -80,10 +86,10 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DisableRegionCommand extends $Command
+export class StartPrimaryEmailUpdateCommand extends $Command
   .classBuilder<
-    DisableRegionCommandInput,
-    DisableRegionCommandOutput,
+    StartPrimaryEmailUpdateCommandInput,
+    StartPrimaryEmailUpdateCommandOutput,
     AccountClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,9 +103,9 @@ export class DisableRegionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Account", "DisableRegion", {})
-  .n("AccountClient", "DisableRegionCommand")
-  .f(void 0, void 0)
-  .ser(se_DisableRegionCommand)
-  .de(de_DisableRegionCommand)
+  .s("Account", "StartPrimaryEmailUpdate", {})
+  .n("AccountClient", "StartPrimaryEmailUpdateCommand")
+  .f(StartPrimaryEmailUpdateRequestFilterSensitiveLog, void 0)
+  .ser(se_StartPrimaryEmailUpdateCommand)
+  .de(de_StartPrimaryEmailUpdateCommand)
   .build() {}
