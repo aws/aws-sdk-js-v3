@@ -1634,6 +1634,9 @@ it("RestJsonEndpointTrait:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EndpointOperation");
 
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.example.com");
+
     expect(r.body).toBeFalsy();
   }
 });
@@ -1665,6 +1668,9 @@ it("RestJsonEndpointTraitWithHostLabel:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EndpointWithHostLabelOperation");
+
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.bar.example.com");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;

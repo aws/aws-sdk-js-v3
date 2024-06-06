@@ -252,6 +252,9 @@ it("AwsJson10EndpointTrait:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
 
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.example.com");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
@@ -287,6 +290,9 @@ it("AwsJson10EndpointTraitWithHostLabel:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/");
+
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.bar.example.com");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
