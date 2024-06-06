@@ -63,7 +63,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *             system. If a file system with the specified client request token exists and the
  *             parameters don't match, this call returns <code>IncompatibleParameterError</code>. If a
  *             file system with the specified client request token doesn't exist,
- *                 <code>CreateFileSystem</code> does the following: </p>
+ *                 <code>CreateFileSystem</code> does the following:</p>
  *          <ul>
  *             <li>
  *                <p>Creates a new, empty Amazon FSx file system with an assigned ID, and
@@ -157,6 +157,10 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *       NoSquashNids: [ // LustreNoSquashNids
  *         "STRING_VALUE",
  *       ],
+ *     },
+ *     MetadataConfiguration: { // CreateFileSystemLustreMetadataConfiguration
+ *       Iops: Number("int"),
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  *     },
  *   },
  *   OntapConfiguration: { // CreateFileSystemOntapConfiguration
@@ -322,6 +326,10 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //         Iops: Number("int"),
+ * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //       },
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
@@ -424,6 +432,10 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //               NoSquashNids: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //             },
+ * //             MetadataConfiguration: {
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
  * //           },
  * //           AdministrativeActions: [

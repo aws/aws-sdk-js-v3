@@ -119,6 +119,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>MetadataConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>PerUnitStorageThroughput</code>
  *                </p>
  *             </li>
@@ -298,6 +303,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       ],
  *     },
  *     PerUnitStorageThroughput: Number("int"),
+ *     MetadataConfiguration: { // UpdateFileSystemLustreMetadataConfiguration
+ *       Iops: Number("int"),
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *     },
  *   },
  *   OntapConfiguration: { // UpdateFileSystemOntapConfiguration
  *     AutomaticBackupRetentionDays: Number("int"),
@@ -436,6 +445,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //         Iops: Number("int"),
+ * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //       },
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
@@ -538,6 +551,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               NoSquashNids: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //             },
+ * //             MetadataConfiguration: {
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
  * //           },
  * //           AdministrativeActions: [

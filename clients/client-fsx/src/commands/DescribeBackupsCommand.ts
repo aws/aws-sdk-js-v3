@@ -196,6 +196,10 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //             Iops: Number("int"),
+ * //             Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //           },
  * //         },
  * //         AdministrativeActions: [ // AdministrativeActions
  * //           { // AdministrativeAction
@@ -293,6 +297,10 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                   NoSquashNids: [
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                 },
+ * //                 MetadataConfiguration: {
+ * //                   Iops: Number("int"),
+ * //                   Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                 },
  * //               },
  * //               AdministrativeActions: [

@@ -32,14 +32,14 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
  *          <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
  *             volumes and storage virtual machines (SVMs) on the file system. Then provide a
- *                 <code>FileSystemId</code> value to the <code>DeleFileSystem</code> operation.</p>
+ *                 <code>FileSystemId</code> value to the <code>DeleteFileSystem</code> operation.</p>
  *          <p>By default, when you delete an Amazon FSx for Windows File Server file system,
  *             a final backup is created upon deletion. This final backup isn't subject to the file
  *             system's retention policy, and must be manually deleted.</p>
  *          <p>To delete an Amazon FSx for Lustre file system, first
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html">unmount</a>
  *             it from every connected Amazon EC2 instance, then provide a <code>FileSystemId</code>
- *             value to the <code>DeleFileSystem</code> operation. By default, Amazon FSx will not
+ *             value to the <code>DeleteFileSystem</code> operation. By default, Amazon FSx will not
  *             take a final backup when the <code>DeleteFileSystem</code> operation is invoked. On file systems
  *             not linked to an Amazon S3 bucket, set <code>SkipFinalBackup</code> to <code>false</code>
  *             to take a final backup of the file system you are deleting. Backups cannot be enabled on S3-linked

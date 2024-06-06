@@ -155,6 +155,10 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //             Iops: Number("int"),
+ * //             Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //           },
  * //         },
  * //         AdministrativeActions: [
  * //           {
@@ -257,6 +261,10 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //                   NoSquashNids: [
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                 },
+ * //                 MetadataConfiguration: {
+ * //                   Iops: Number("int"),
+ * //                   Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                 },
  * //               },
  * //               AdministrativeActions: "<AdministrativeActions>",

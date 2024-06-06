@@ -203,6 +203,10 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
+ * //               MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //                 Iops: Number("int"),
+ * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //               },
  * //             },
  * //             AdministrativeActions: [
  * //               {
@@ -300,6 +304,10 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * //                       NoSquashNids: [
  * //                         "STRING_VALUE",
  * //                       ],
+ * //                     },
+ * //                     MetadataConfiguration: {
+ * //                       Iops: Number("int"),
+ * //                       Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                     },
  * //                   },
  * //                   AdministrativeActions: "<AdministrativeActions>",

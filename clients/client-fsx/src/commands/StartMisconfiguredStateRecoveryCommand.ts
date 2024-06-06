@@ -148,6 +148,10 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //         Iops: Number("int"),
+ * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //       },
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
@@ -250,6 +254,10 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //               NoSquashNids: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //             },
+ * //             MetadataConfiguration: {
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
  * //           },
  * //           AdministrativeActions: [

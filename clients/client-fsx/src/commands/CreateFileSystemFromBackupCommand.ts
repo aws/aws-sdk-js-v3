@@ -142,6 +142,10 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     MetadataConfiguration: { // CreateFileSystemLustreMetadataConfiguration
+ *       Iops: Number("int"),
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ *     },
  *   },
  *   StorageType: "SSD" || "HDD",
  *   KmsKeyId: "STRING_VALUE",
@@ -290,6 +294,10 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //         Iops: Number("int"),
+ * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //       },
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
@@ -392,6 +400,10 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //               NoSquashNids: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //             },
+ * //             MetadataConfiguration: {
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
  * //           },
  * //           AdministrativeActions: [

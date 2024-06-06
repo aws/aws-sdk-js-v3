@@ -158,6 +158,10 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //             Iops: Number("int"),
+ * //             Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //           },
  * //         },
  * //         AdministrativeActions: [
  * //           {
@@ -260,6 +264,10 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
  * //                   NoSquashNids: [
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                 },
+ * //                 MetadataConfiguration: {
+ * //                   Iops: Number("int"),
+ * //                   Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                 },
  * //               },
  * //               AdministrativeActions: "<AdministrativeActions>",

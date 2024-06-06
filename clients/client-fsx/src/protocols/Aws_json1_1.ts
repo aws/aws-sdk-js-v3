@@ -173,6 +173,7 @@ import {
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupResponse,
   CreateFileSystemLustreConfiguration,
+  CreateFileSystemLustreMetadataConfiguration,
   CreateFileSystemOntapConfiguration,
   CreateFileSystemOpenZFSConfiguration,
   CreateFileSystemRequest,
@@ -300,6 +301,7 @@ import {
   UpdateFileCacheRequest,
   UpdateFileCacheResponse,
   UpdateFileSystemLustreConfiguration,
+  UpdateFileSystemLustreMetadataConfiguration,
   UpdateFileSystemOntapConfiguration,
   UpdateFileSystemOpenZFSConfiguration,
   UpdateFileSystemRequest,
@@ -2605,6 +2607,8 @@ const se_CreateFileSystemFromBackupRequest = (
 
 // se_CreateFileSystemLustreConfiguration omitted.
 
+// se_CreateFileSystemLustreMetadataConfiguration omitted.
+
 // se_CreateFileSystemOntapConfiguration omitted.
 
 // se_CreateFileSystemOpenZFSConfiguration omitted.
@@ -3018,6 +3022,8 @@ const se_UpdateFileCacheRequest = (input: UpdateFileCacheRequest, context: __Ser
 };
 
 // se_UpdateFileSystemLustreConfiguration omitted.
+
+// se_UpdateFileSystemLustreMetadataConfiguration omitted.
 
 // se_UpdateFileSystemOntapConfiguration omitted.
 
@@ -3674,6 +3680,8 @@ const de_FileSystem = (output: any, context: __SerdeContext): FileSystem => {
 // de_FileSystemEndpoints omitted.
 
 // de_FileSystemFailureDetails omitted.
+
+// de_FileSystemLustreMetadataConfiguration omitted.
 
 // de_FileSystemMaintenanceOperations omitted.
 

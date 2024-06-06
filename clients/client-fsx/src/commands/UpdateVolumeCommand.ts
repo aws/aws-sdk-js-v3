@@ -273,6 +273,10 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
+ * //             MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //             },
  * //           },
  * //           AdministrativeActions: [
  * //             {
@@ -370,6 +374,10 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * //                     NoSquashNids: [
  * //                       "STRING_VALUE",
  * //                     ],
+ * //                   },
+ * //                   MetadataConfiguration: {
+ * //                     Iops: Number("int"),
+ * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                   },
  * //                 },
  * //                 AdministrativeActions: "<AdministrativeActions>",

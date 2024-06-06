@@ -268,6 +268,10 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
+ * //             MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //             },
  * //           },
  * //           AdministrativeActions: [
  * //             {
@@ -365,6 +369,10 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //                     NoSquashNids: [
  * //                       "STRING_VALUE",
  * //                     ],
+ * //                   },
+ * //                   MetadataConfiguration: {
+ * //                     Iops: Number("int"),
+ * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                   },
  * //                 },
  * //                 AdministrativeActions: "<AdministrativeActions>",

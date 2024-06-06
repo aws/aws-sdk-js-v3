@@ -217,6 +217,10 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //           Iops: Number("int"),
+ * //           Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //         },
  * //       },
  * //       AdministrativeActions: [ // AdministrativeActions
  * //         { // AdministrativeAction
@@ -314,6 +318,10 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //                 NoSquashNids: [
  * //                   "STRING_VALUE",
  * //                 ],
+ * //               },
+ * //               MetadataConfiguration: {
+ * //                 Iops: Number("int"),
+ * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //               },
  * //             },
  * //             AdministrativeActions: [

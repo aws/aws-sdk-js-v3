@@ -165,6 +165,10 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
+ * //             MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //             },
  * //           },
  * //           AdministrativeActions: [
  * //             {
@@ -262,6 +266,10 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * //                     NoSquashNids: [
  * //                       "STRING_VALUE",
  * //                     ],
+ * //                   },
+ * //                   MetadataConfiguration: {
+ * //                     Iops: Number("int"),
+ * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                   },
  * //                 },
  * //                 AdministrativeActions: "<AdministrativeActions>",
