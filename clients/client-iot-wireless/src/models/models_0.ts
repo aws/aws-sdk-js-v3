@@ -3612,6 +3612,7 @@ export type EventNotificationResourceType =
  * @enum
  */
 export const FuotaDeviceStatus = {
+  Device_exist_in_conflict_fuota_task: "Device_exist_in_conflict_fuota_task",
   FragAlgo_unsupported: "FragAlgo_unsupported",
   FragIndex_unsupported: "FragIndex_unsupported",
   Initial: "Initial",
