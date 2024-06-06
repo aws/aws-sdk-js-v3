@@ -266,8 +266,8 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       DataTableColumns: "STRING_VALUE",
  *       CopyOptions: "STRING_VALUE",
  *     },
- *     Username: "STRING_VALUE", // required
- *     Password: "STRING_VALUE", // required
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
  *     RetryOptions: { // RedshiftRetryOptions
  *       DurationInSeconds: Number("int"),
  *     },
@@ -331,6 +331,11 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       },
  *     },
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     SecretsManagerConfiguration: { // SecretsManagerConfiguration
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   ElasticsearchDestinationConfiguration: { // ElasticsearchDestinationConfiguration
  *     RoleARN: "STRING_VALUE", // required
@@ -432,7 +437,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *   SplunkDestinationConfiguration: { // SplunkDestinationConfiguration
  *     HECEndpoint: "STRING_VALUE", // required
  *     HECEndpointType: "Raw" || "Event", // required
- *     HECToken: "STRING_VALUE", // required
+ *     HECToken: "STRING_VALUE",
  *     HECAcknowledgmentTimeoutInSeconds: Number("int"),
  *     RetryOptions: { // SplunkRetryOptions
  *       DurationInSeconds: Number("int"),
@@ -457,6 +462,11 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *     BufferingHints: { // SplunkBufferingHints
  *       IntervalInSeconds: Number("int"),
  *       SizeInMBs: Number("int"),
+ *     },
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
  *     },
  *   },
  *   HttpEndpointDestinationConfiguration: { // HttpEndpointDestinationConfiguration
@@ -486,6 +496,11 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *     },
  *     S3BackupMode: "FailedDataOnly" || "AllData",
  *     S3Configuration: "<S3DestinationConfiguration>", // required
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   Tags: [ // TagDeliveryStreamInputTagList
  *     { // Tag
@@ -528,9 +543,9 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *   },
  *   SnowflakeDestinationConfiguration: { // SnowflakeDestinationConfiguration
  *     AccountUrl: "STRING_VALUE", // required
- *     PrivateKey: "STRING_VALUE", // required
+ *     PrivateKey: "STRING_VALUE",
  *     KeyPassphrase: "STRING_VALUE",
- *     User: "STRING_VALUE", // required
+ *     User: "STRING_VALUE",
  *     Database: "STRING_VALUE", // required
  *     Schema: "STRING_VALUE", // required
  *     Table: "STRING_VALUE", // required
@@ -552,6 +567,11 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *     },
  *     S3BackupMode: "FailedDataOnly" || "AllData",
  *     S3Configuration: "<S3DestinationConfiguration>", // required
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  * };
  * const command = new CreateDeliveryStreamCommand(input);

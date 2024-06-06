@@ -280,6 +280,11 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       },
  *     },
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     SecretsManagerConfiguration: { // SecretsManagerConfiguration
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   ElasticsearchDestinationUpdate: { // ElasticsearchDestinationUpdate
  *     RoleARN: "STRING_VALUE",
@@ -387,6 +392,11 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       IntervalInSeconds: Number("int"),
  *       SizeInMBs: Number("int"),
  *     },
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   HttpEndpointDestinationUpdate: { // HttpEndpointDestinationUpdate
  *     EndpointConfiguration: { // HttpEndpointConfiguration
@@ -415,6 +425,11 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *     },
  *     S3BackupMode: "FailedDataOnly" || "AllData",
  *     S3Update: "<S3DestinationUpdate>",
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   AmazonOpenSearchServerlessDestinationUpdate: { // AmazonOpenSearchServerlessDestinationUpdate
  *     RoleARN: "STRING_VALUE",
@@ -454,6 +469,11 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *     },
  *     S3BackupMode: "FailedDataOnly" || "AllData",
  *     S3Update: "<S3DestinationUpdate>",
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  * };
  * const command = new UpdateDestinationCommand(input);

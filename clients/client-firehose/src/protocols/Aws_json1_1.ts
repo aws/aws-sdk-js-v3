@@ -132,6 +132,7 @@ import {
   S3DestinationConfiguration,
   S3DestinationUpdate,
   SchemaConfiguration,
+  SecretsManagerConfiguration,
   Serializer,
   ServiceUnavailableException,
   SnowflakeDestinationConfiguration,
@@ -985,6 +986,8 @@ const se__Record = (input: _Record, context: __SerdeContext): any => {
 
 // se_SchemaConfiguration omitted.
 
+// se_SecretsManagerConfiguration omitted.
+
 // se_SecurityGroupIdList omitted.
 
 /**
@@ -1324,6 +1327,8 @@ const de_OutputFormatConfiguration = (output: any, context: __SerdeContext): Out
 // de_S3DestinationDescription omitted.
 
 // de_SchemaConfiguration omitted.
+
+// de_SecretsManagerConfiguration omitted.
 
 // de_SecurityGroupIdList omitted.
 

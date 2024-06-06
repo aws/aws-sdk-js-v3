@@ -1885,7 +1885,7 @@ export type ParquetWriterVersion = (typeof ParquetWriterVersion)[keyof typeof Pa
 
 /**
  * <p>A serializer to use for converting data to the Parquet format before storing it in
- *          Amazon S3. For more information, see <a href="https://parquet.apache.org/documentation/latest/">Apache Parquet</a>.</p>
+ *          Amazon S3. For more information, see <a href="https://parquet.apache.org/docs/">Apache Parquet</a>.</p>
  * @public
  */
 export interface ParquetSerDe {
@@ -2372,6 +2372,36 @@ export const HttpEndpointS3BackupMode = {
 export type HttpEndpointS3BackupMode = (typeof HttpEndpointS3BackupMode)[keyof typeof HttpEndpointS3BackupMode];
 
 /**
+ * <p>The structure that defines how Firehose accesses the secret.</p>
+ * @public
+ */
+export interface SecretsManagerConfiguration {
+  /**
+   * <p>The ARN of the secret that stores your credentials. It must be in the same region as the
+   *          Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when <b>Enabled</b> is set to <code>True</code>.</p>
+   * @public
+   */
+  SecretARN?: string;
+
+  /**
+   * <p>
+   *          Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
+   *       </p>
+   * @public
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>Specifies whether you want to use the the secrets manager feature. When set as
+   *             <code>True</code> the secrets manager configuration overwrites the existing secrets in
+   *          the destination configuration. When it's set to <code>False</code> Firehose falls back to
+   *          the credentials in the destination configuration.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
  * <p>Describes the configuration of the HTTP endpoint destination.</p>
  * @public
  */
@@ -2399,7 +2429,7 @@ export interface HttpEndpointDestinationConfiguration {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 
   /**
-   * <p>The configuration of the requeste sent to the HTTP endpoint specified as the
+   * <p>The configuration of the request sent to the HTTP endpoint that is specified as the
    *          destination.</p>
    * @public
    */
@@ -2440,6 +2470,14 @@ export interface HttpEndpointDestinationConfiguration {
    * @public
    */
   S3Configuration: S3DestinationConfiguration | undefined;
+
+  /**
+   * <p>
+   *        The configuration that defines how you access secrets for HTTP Endpoint destination.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -2549,13 +2587,13 @@ export interface RedshiftDestinationConfiguration {
    * <p>The name of the user.</p>
    * @public
    */
-  Username: string | undefined;
+  Username?: string;
 
   /**
    * <p>The user password.</p>
    * @public
    */
-  Password: string | undefined;
+  Password?: string;
 
   /**
    * <p>The retry behavior in case Firehose is unable to deliver documents to
@@ -2600,6 +2638,14 @@ export interface RedshiftDestinationConfiguration {
    * @public
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Amazon Redshift.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -2699,7 +2745,7 @@ export interface SnowflakeDestinationConfiguration {
    * <p>The private key used to encrypt your Snowflake client. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
    * @public
    */
-  PrivateKey: string | undefined;
+  PrivateKey?: string;
 
   /**
    * <p>Passphrase to decrypt the private key when the key is encrypted. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
@@ -2711,7 +2757,7 @@ export interface SnowflakeDestinationConfiguration {
    * <p>User login name for the Snowflake account.</p>
    * @public
    */
-  User: string | undefined;
+  User?: string;
 
   /**
    * <p>All data in Snowflake is maintained in databases.</p>
@@ -2798,6 +2844,14 @@ export interface SnowflakeDestinationConfiguration {
    * @public
    */
   S3Configuration: S3DestinationConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Snowflake.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -2887,7 +2941,7 @@ export interface SplunkDestinationConfiguration {
    *          endpoint.</p>
    * @public
    */
-  HECToken: string | undefined;
+  HECToken?: string;
 
   /**
    * <p>The amount of time that Firehose waits to receive an acknowledgment from
@@ -2941,6 +2995,14 @@ export interface SplunkDestinationConfiguration {
    * @public
    */
   BufferingHints?: SplunkBufferingHints;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Splunk.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -3670,6 +3732,14 @@ export interface HttpEndpointDestinationDescription {
    * @public
    */
   S3DestinationDescription?: S3DestinationDescription;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for HTTP Endpoint destination.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -3701,7 +3771,7 @@ export interface RedshiftDestinationDescription {
    * <p>The name of the user.</p>
    * @public
    */
-  Username: string | undefined;
+  Username?: string;
 
   /**
    * <p>The retry behavior in case Firehose is unable to deliver documents to
@@ -3739,6 +3809,14 @@ export interface RedshiftDestinationDescription {
    * @public
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Amazon Redshift.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -3844,6 +3922,14 @@ export interface SnowflakeDestinationDescription {
    * @public
    */
   S3DestinationDescription?: S3DestinationDescription;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Snowflake.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -3920,6 +4006,14 @@ export interface SplunkDestinationDescription {
    * @public
    */
   BufferingHints?: SplunkBufferingHints;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Splunk.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -4840,6 +4934,14 @@ export interface HttpEndpointDestinationUpdate {
    * @public
    */
   S3Update?: S3DestinationUpdate;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for HTTP Endpoint destination.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -4920,6 +5022,14 @@ export interface RedshiftDestinationUpdate {
    * @public
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Amazon Redshift.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -5037,6 +5147,14 @@ export interface SnowflakeDestinationUpdate {
    * @public
    */
   S3Update?: S3DestinationUpdate;
+
+  /**
+   * <p>
+   *          Describes the Secrets Manager configuration in Snowflake.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -5116,6 +5234,14 @@ export interface SplunkDestinationUpdate {
    * @public
    */
   BufferingHints?: SplunkBufferingHints;
+
+  /**
+   * <p>
+   *          The configuration that defines how you access secrets for Splunk.
+   *       </p>
+   * @public
+   */
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 }
 
 /**
@@ -5196,7 +5322,7 @@ export interface UpdateDestinationInput {
   AmazonOpenSearchServerlessDestinationUpdate?: AmazonOpenSearchServerlessDestinationUpdate;
 
   /**
-   * <p>Update to the Snowflake destination condiguration settings</p>
+   * <p>Update to the Snowflake destination configuration settings.</p>
    * @public
    */
   SnowflakeDestinationUpdate?: SnowflakeDestinationUpdate;

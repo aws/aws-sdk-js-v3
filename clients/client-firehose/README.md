@@ -11,10 +11,9 @@ AWS SDK for JavaScript Firehose Client for Node.js, Browser and React Native.
 
 <p>Amazon Data Firehose was previously known as Amazon Kinesis Data Firehose.</p>
 </note>
-<p>Amazon Data Firehose is a fully managed service that delivers real-time
-streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon
-OpenSearch Service, Amazon Redshift, Splunk, and various other supportd
-destinations.</p>
+<p>Amazon Data Firehose is a fully managed service that delivers real-time streaming
+data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch
+Service, Amazon Redshift, Splunk, and various other supported destinations.</p>
 
 ## Installing
 

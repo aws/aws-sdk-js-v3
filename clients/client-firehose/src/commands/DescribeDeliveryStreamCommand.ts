@@ -243,7 +243,7 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             DataTableColumns: "STRING_VALUE",
  * //             CopyOptions: "STRING_VALUE",
  * //           },
- * //           Username: "STRING_VALUE", // required
+ * //           Username: "STRING_VALUE",
  * //           RetryOptions: { // RedshiftRetryOptions
  * //             DurationInSeconds: Number("int"),
  * //           },
@@ -307,6 +307,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             },
  * //           },
  * //           CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ * //           SecretsManagerConfiguration: { // SecretsManagerConfiguration
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
  * //         },
  * //         ElasticsearchDestinationDescription: { // ElasticsearchDestinationDescription
  * //           RoleARN: "STRING_VALUE",
@@ -436,6 +441,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             IntervalInSeconds: Number("int"),
  * //             SizeInMBs: Number("int"),
  * //           },
+ * //           SecretsManagerConfiguration: {
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
  * //         },
  * //         HttpEndpointDestinationDescription: { // HttpEndpointDestinationDescription
  * //           EndpointConfiguration: { // HttpEndpointDescription
@@ -463,6 +473,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //           },
  * //           S3BackupMode: "FailedDataOnly" || "AllData",
  * //           S3DestinationDescription: "<S3DestinationDescription>",
+ * //           SecretsManagerConfiguration: {
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
  * //         },
  * //         SnowflakeDestinationDescription: { // SnowflakeDestinationDescription
  * //           AccountUrl: "STRING_VALUE",
@@ -488,6 +503,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //           },
  * //           S3BackupMode: "FailedDataOnly" || "AllData",
  * //           S3DestinationDescription: "<S3DestinationDescription>",
+ * //           SecretsManagerConfiguration: {
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
  * //         },
  * //         AmazonOpenSearchServerlessDestinationDescription: { // AmazonOpenSearchServerlessDestinationDescription
  * //           RoleARN: "STRING_VALUE",

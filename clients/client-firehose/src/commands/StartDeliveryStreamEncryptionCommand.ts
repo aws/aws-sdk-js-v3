@@ -52,7 +52,9 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  *          CMK is of type <code>CUSTOMER_MANAGED_CMK</code>, Firehose creates a grant
  *          that enables it to use the new CMK to encrypt and decrypt data and to manage the
  *          grant.</p>
- *          <p>For the KMS grant creation to be successful, Firehose APIs <code>StartDeliveryStreamEncryption</code> and <code>CreateDeliveryStream</code> should not be called with session credentials that are more than 6 hours old.</p>
+ *          <p>For the KMS grant creation to be successful, the Firehose API operations
+ *             <code>StartDeliveryStreamEncryption</code> and <code>CreateDeliveryStream</code> should
+ *          not be called with session credentials that are more than 6 hours old.</p>
  *          <p>If a delivery stream already has encryption enabled and then you invoke this operation
  *          to change the ARN of the CMK or both its type and ARN and you get
  *             <code>ENABLING_FAILED</code>, this only means that the attempt to change the CMK failed.
