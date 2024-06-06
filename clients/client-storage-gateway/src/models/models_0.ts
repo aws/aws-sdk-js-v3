@@ -795,6 +795,20 @@ export interface AutomaticTapeCreationPolicyInfo {
  * @public
  * @enum
  */
+export const AutomaticUpdatePolicy = {
+  ALL_VERSIONS: "ALL_VERSIONS",
+  EMERGENCY_VERSIONS_ONLY: "EMERGENCY_VERSIONS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type AutomaticUpdatePolicy = (typeof AutomaticUpdatePolicy)[keyof typeof AutomaticUpdatePolicy];
+
+/**
+ * @public
+ * @enum
+ */
 export const AvailabilityMonitorTestStatus = {
   COMPLETE: "COMPLETE",
   FAILED: "FAILED",
@@ -3380,8 +3394,30 @@ export interface DescribeMaintenanceStartTimeInput {
 }
 
 /**
+ * <p>A set of variables indicating the software update preferences for the gateway.</p>
+ * @public
+ */
+export interface SoftwareUpdatePreferences {
+  /**
+   * <p>Indicates the automatic update policy for a gateway.</p>
+   *          <p>
+   *             <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>
+   *          <p>
+   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance
+   *          updates.</p>
+   * @public
+   */
+  AutomaticUpdatePolicy?: AutomaticUpdatePolicy;
+}
+
+/**
  * <p>A JSON object containing the following fields:</p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeMaintenanceStartTimeOutput$SoftwareUpdatePreferences</a>
+ *                </p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <a>DescribeMaintenanceStartTimeOutput$DayOfMonth</a>
@@ -3444,8 +3480,8 @@ export interface DescribeMaintenanceStartTimeOutput {
 
   /**
    * <p>The day of the month component of the maintenance start time represented as an ordinal
-   *          number from 1 to 28, where 1 represents the first day of the month and 28 represents the
-   *          last day of the month.</p>
+   *          number from 1 to 28, where 1 represents the first day of the month. It is not possible to
+   *          set the maintenance schedule to start on days 29 through 31.</p>
    * @public
    */
   DayOfMonth?: number;
@@ -3456,6 +3492,18 @@ export interface DescribeMaintenanceStartTimeOutput {
    * @public
    */
   Timezone?: string;
+
+  /**
+   * <p>A set of variables indicating the software update preferences for the gateway.</p>
+   *          <p>Includes <code>AutomaticUpdatePolicy</code> field with the following inputs:</p>
+   *          <p>
+   *             <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>
+   *          <p>
+   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance
+   *          updates.</p>
+   * @public
+   */
+  SoftwareUpdatePreferences?: SoftwareUpdatePreferences;
 }
 
 /**
@@ -4196,26 +4244,26 @@ export interface DescribeSMBSettingsOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MandatorySigning</code>: If you use this option, File Gateway only allows
+   *                   <code>MandatorySigning</code>: If you choose this option, File Gateway only allows
    *                connections from SMBv2 or SMBv3 clients that have signing turned on. This option
    *                works with SMB clients on Microsoft Windows Vista, Windows Server 2008, or later.
    *             </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MandatoryEncryption</code>: If you use this option, File Gateway only allows
-   *                connections from SMBv3 clients that have encryption turned on. Both 256-bit and
-   *                128-bit algorithms are allowed. This option is recommended for environments that
+   *                   <code>MandatoryEncryption</code>: If you choose this option, File Gateway only
+   *                allows connections from SMBv3 clients that have encryption turned on. Both 256-bit
+   *                and 128-bit algorithms are allowed. This option is recommended for environments that
    *                handle sensitive data. It works with SMB clients on Microsoft Windows 8, Windows
    *                Server 2012, or later.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>EnforceEncryption</code>: If you use this option, File Gateway only allows
-   *                connections from SMBv3 clients that use 256-bit AES encryption algorithms. 128-bit
-   *                algorithms are not allowed. This option is recommended for environments that handle
-   *                sensitive data. It works with SMB clients on Microsoft Windows 8, Windows Server
-   *                2012, or later.</p>
+   *                   <code>MandatoryEncryptionNoAes128</code>: If you choose this option, File Gateway
+   *                only allows connections from SMBv3 clients that use 256-bit AES encryption
+   *                algorithms. 128-bit algorithms are not allowed. This option is recommended for
+   *                environments that handle sensitive data. It works with SMB clients on Microsoft
+   *                Windows 8, Windows Server 2012, or later.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6953,7 +7001,9 @@ export interface UpdateGatewayInformationInput {
   CloudWatchLogGroupARN?: string;
 
   /**
-   * <p>Specifies the size of the gateway's metadata cache.</p>
+   * <p>Specifies the size of the gateway's metadata cache. This setting impacts gateway
+   *          performance and hardware recommendations. For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/performance-multiple-file-shares.html">Performance guidance for gateways with multiple file shares</a>
+   *          in the <i>Amazon S3 File Gateway User Guide</i>.</p>
    * @public
    */
   GatewayCapacity?: GatewayCapacity;
@@ -7011,6 +7061,11 @@ export interface UpdateGatewaySoftwareNowOutput {
  *          <ul>
  *             <li>
  *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$SoftwareUpdatePreferences</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>UpdateMaintenanceStartTimeInput$DayOfMonth</a>
  *                </p>
  *             </li>
@@ -7046,7 +7101,7 @@ export interface UpdateMaintenanceStartTimeInput {
    *          zone of the gateway.</p>
    * @public
    */
-  HourOfDay: number | undefined;
+  HourOfDay?: number;
 
   /**
    * <p>The minute component of the maintenance start time represented as
@@ -7054,22 +7109,34 @@ export interface UpdateMaintenanceStartTimeInput {
    *          minute of the hour is in the time zone of the gateway.</p>
    * @public
    */
-  MinuteOfHour: number | undefined;
+  MinuteOfHour?: number;
 
   /**
    * <p>The day of the week component of the maintenance start time week represented as an
-   *          ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
+   *          ordinal number from 0 to 6, where 0 represents Sunday and 6 represents Saturday.</p>
    * @public
    */
   DayOfWeek?: number;
 
   /**
    * <p>The day of the month component of the maintenance start time represented as an ordinal
-   *          number from 1 to 28, where 1 represents the first day of the month and 28 represents the
-   *          last day of the month.</p>
+   *          number from 1 to 28, where 1 represents the first day of the month. It is not possible to
+   *          set the maintenance schedule to start on days 29 through 31.</p>
    * @public
    */
   DayOfMonth?: number;
+
+  /**
+   * <p>A set of variables indicating the software update preferences for the gateway.</p>
+   *          <p>Includes <code>AutomaticUpdatePolicy</code> field with the following inputs:</p>
+   *          <p>
+   *             <code>ALL_VERSIONS</code> - Enables regular gateway maintenance updates.</p>
+   *          <p>
+   *             <code>EMERGENCY_VERSIONS_ONLY</code> - Disables regular gateway maintenance
+   *          updates.</p>
+   * @public
+   */
+  SoftwareUpdatePreferences?: SoftwareUpdatePreferences;
 }
 
 /**
@@ -7547,17 +7614,26 @@ export interface UpdateSMBSecurityStrategyInput {
 
   /**
    * <p>Specifies the type of security strategy.</p>
-   *          <p>ClientSpecified: if you use this option, requests are established based on what is
-   *          negotiated by the client. This option is recommended when you want to maximize
-   *          compatibility across different clients in your environment. Supported only in S3 File
+   *          <p>
+   *             <code>ClientSpecified</code>: If you choose this option, requests are established based
+   *          on what is negotiated by the client. This option is recommended when you want to maximize
+   *          compatibility across different clients in your environment. Supported only for S3 File
    *          Gateway.</p>
-   *          <p>MandatorySigning: if you use this option, file gateway only allows connections from
-   *          SMBv2 or SMBv3 clients that have signing enabled. This option works with SMB clients on
-   *          Microsoft Windows Vista, Windows Server 2008 or newer.</p>
-   *          <p>MandatoryEncryption: if you use this option, file gateway only allows connections from
-   *          SMBv3 clients that have encryption enabled. This option is highly recommended for
+   *          <p>
+   *             <code>MandatorySigning</code>: If you choose this option, File Gateway only allows
+   *          connections from SMBv2 or SMBv3 clients that have signing enabled. This option works with
+   *          SMB clients on Microsoft Windows Vista, Windows Server 2008 or newer.</p>
+   *          <p>
+   *             <code>MandatoryEncryption</code>: If you choose this option, File Gateway only allows
+   *          connections from SMBv3 clients that have encryption enabled. This option is recommended for
    *          environments that handle sensitive data. This option works with SMB clients on Microsoft
    *          Windows 8, Windows Server 2012 or newer.</p>
+   *          <p>
+   *             <code>MandatoryEncryptionNoAes128</code>: If you choose this option, File Gateway only
+   *          allows connections from SMBv3 clients that use 256-bit AES encryption algorithms. 128-bit
+   *          algorithms are not allowed. This option is recommended for environments that handle
+   *          sensitive data. It works with SMB clients on Microsoft Windows 8, Windows Server 2012, or
+   *          later.</p>
    * @public
    */
   SMBSecurityStrategy: SMBSecurityStrategy | undefined;

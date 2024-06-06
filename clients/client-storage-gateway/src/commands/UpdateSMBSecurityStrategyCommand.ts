@@ -28,11 +28,13 @@ export interface UpdateSMBSecurityStrategyCommandInput extends UpdateSMBSecurity
 export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurityStrategyOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the SMB security strategy on a file gateway. This action is only supported in
- *          file gateways.</p>
+ * <p>Updates the SMB security strategy level for an Amazon S3 file gateway. This
+ *          action is only supported for Amazon S3 file gateways.</p>
  *          <note>
- *             <p>This API is called Security level in the User Guide.</p>
- *             <p>A higher security level can affect performance of the gateway.</p>
+ *             <p>For information about configuring this setting using the Amazon Web Services console,
+ *             see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/security-strategy.html">Setting a security level for your gateway</a> in the <i>Amazon S3
+ *                File Gateway User Guide</i>.</p>
+ *             <p>A higher security strategy level can affect performance of the gateway.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

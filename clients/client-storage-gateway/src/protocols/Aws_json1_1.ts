@@ -357,6 +357,7 @@ import {
   SetSMBGuestPasswordInput,
   ShutdownGatewayInput,
   SMBLocalGroups,
+  SoftwareUpdatePreferences,
   StartAvailabilityMonitorTestInput,
   StartGatewayInput,
   StorediSCSIVolume,
@@ -3607,6 +3608,8 @@ const de_ServiceUnavailableErrorRes = async (
 
 // se_SMBLocalGroups omitted.
 
+// se_SoftwareUpdatePreferences omitted.
+
 // se_StartAvailabilityMonitorTestInput omitted.
 
 // se_StartGatewayInput omitted.
@@ -4000,6 +4003,8 @@ const de_ListTapesOutput = (output: any, context: __SerdeContext): ListTapesOutp
 // de_SMBFileShareInfoList omitted.
 
 // de_SMBLocalGroups omitted.
+
+// de_SoftwareUpdatePreferences omitted.
 
 // de_StartAvailabilityMonitorTestOutput omitted.
 

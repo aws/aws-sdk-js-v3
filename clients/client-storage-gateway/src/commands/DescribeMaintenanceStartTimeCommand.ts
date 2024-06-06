@@ -33,8 +33,9 @@ export interface DescribeMaintenanceStartTimeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns your gateway's weekly maintenance start time including the day and time of
- *          the week. Note that values are in terms of the gateway's time zone.</p>
+ * <p>Returns your gateway's maintenance window schedule information, with values for
+ *          monthly or weekly cadence, specific day and time to begin maintenance, and which types of
+ *          updates to apply. Time values returned are for the gateway's time zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,9 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * //   DayOfWeek: Number("int"),
  * //   DayOfMonth: Number("int"),
  * //   Timezone: "STRING_VALUE",
+ * //   SoftwareUpdatePreferences: { // SoftwareUpdatePreferences
+ * //     AutomaticUpdatePolicy: "ALL_VERSIONS" || "EMERGENCY_VERSIONS_ONLY",
+ * //   },
  * // };
  *
  * ```
