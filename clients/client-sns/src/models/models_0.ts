@@ -515,7 +515,7 @@ export interface CreateTopicInput {
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
-   *          <p>The following lists the names, descriptions, and values of the special request
+   *          <p>The following lists names, descriptions, and values of the special request
    *             parameters that the <code>CreateTopic</code> action uses:</p>
    *          <ul>
    *             <li>
@@ -1124,22 +1124,22 @@ export interface GetSubscriptionAttributesResponse {
    *                     with.</p>
    *             </li>
    *          </ul>
-   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *          <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
    *                <ul>
    *                   <li>
-   *                      <p>Permission to write to the Kinesis Data Firehose delivery stream</p>
+   *                      <p>Permission to write to the Firehose delivery stream</p>
    *                   </li>
    *                   <li>
    *                      <p>Amazon SNS listed as a trusted entity</p>
    *                   </li>
    *                </ul>
-   *                <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions.
+   *                <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions.
    *                 For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
-   *                     to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                     to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2157,9 +2157,8 @@ export interface PublishInput {
    * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
    *             email endpoints. This field will also be included, if present, in the standard JSON
    *             messages delivered to other endpoints.</p>
-   *          <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
-   *             punctuation mark; must not include line breaks or control characters; and must be less
-   *             than 100 characters long.</p>
+   *          <p>Constraints: Subjects must be UTF-8 text with no line breaks or control characters,
+   *             and less than 100 characters long.</p>
    * @public
    */
   Subject?: string;
@@ -2960,22 +2959,22 @@ export interface SetSubscriptionAttributesInput {
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
    *          </ul>
-   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *          <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
    *                <ul>
    *                   <li>
-   *                      <p>Permission to write to the Kinesis Data Firehose delivery stream</p>
+   *                      <p>Permission to write to the Firehose delivery stream</p>
    *                   </li>
    *                   <li>
    *                      <p>Amazon SNS listed as a trusted entity</p>
    *                   </li>
    *                </ul>
-   *                <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions.
+   *                <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions.
    *                 For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
-   *                     to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                     to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3374,22 +3373,22 @@ export interface SubscribeInput {
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
    *          </ul>
-   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *          <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
    *                <ul>
    *                   <li>
-   *                      <p>Permission to write to the Kinesis Data Firehose delivery stream</p>
+   *                      <p>Permission to write to the Firehose delivery stream</p>
    *                   </li>
    *                   <li>
    *                      <p>Amazon SNS listed as a trusted entity</p>
    *                   </li>
    *                </ul>
-   *                <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions.
+   *                <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions.
    *                 For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
-   *                     to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                     to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
    *             </li>
    *          </ul>
    *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>

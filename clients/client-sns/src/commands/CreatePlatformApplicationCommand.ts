@@ -38,22 +38,22 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *             the notification service.</p>
  *          <ul>
  *             <li>
- *                <p>For <code>ADM</code>, <code>PlatformPrincipal</code> is <code>client id</code>
+ *                <p>For ADM, <code>PlatformPrincipal</code> is <code>client id</code>
  *                     and <code>PlatformCredential</code> is <code>client secret</code>.</p>
  *             </li>
  *             <li>
- *                <p>For <code>Baidu</code>, <code>PlatformPrincipal</code> is <code>API key</code>
- *                     and <code>PlatformCredential</code> is <code>secret key</code>.</p>
- *             </li>
- *             <li>
- *                <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate
+ *                <p>For APNS and <code>APNS_SANDBOX</code> using certificate
  *                     credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and
  *                         <code>PlatformCredential</code> is <code>private key</code>.</p>
  *             </li>
  *             <li>
- *                <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials,
+ *                <p>For APNS and <code>APNS_SANDBOX</code> using token credentials,
  *                         <code>PlatformPrincipal</code> is <code>signing key ID</code> and
  *                         <code>PlatformCredential</code> is <code>signing key</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For Baidu, <code>PlatformPrincipal</code> is <code>API key</code>
+ *                     and <code>PlatformCredential</code> is <code>secret key</code>.</p>
  *             </li>
  *             <li>
  *                <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no
@@ -69,12 +69,12 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *                         @json <<< cat service.json`</code>.</p>
  *             </li>
  *             <li>
- *                <p>For <code>MPNS</code>, <code>PlatformPrincipal</code> is <code>TLS
+ *                <p>For MPNS, <code>PlatformPrincipal</code> is <code>TLS
  *                         certificate</code> and <code>PlatformCredential</code> is <code>private
  *                         key</code>.</p>
  *             </li>
  *             <li>
- *                <p>For <code>WNS</code>, <code>PlatformPrincipal</code> is <code>Package Security
+ *                <p>For WNS, <code>PlatformPrincipal</code> is <code>Package Security
  *                         Identifier</code> and <code>PlatformCredential</code> is <code>secret
  *                         key</code>.</p>
  *             </li>
