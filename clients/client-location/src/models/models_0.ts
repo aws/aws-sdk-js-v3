@@ -1167,8 +1167,8 @@ export interface Circle {
 
 /**
  * <p>Contains the geofence geometry details.</p>
- *          <p>A geofence geometry is made up of either a polygon or a circle. Can be either a
- *             polygon or a circle. Including both will return a validation error.</p>
+ *          <p>A geofence geometry is made up of either a polygon or a circle. Can be a
+ *             polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>
  *          <note>
  *             <p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons
  *                 that are wound clockwise, or that cross the antimeridian. </p>
@@ -1199,6 +1199,13 @@ export interface GeofenceGeometry {
    * @public
    */
   Circle?: Circle;
+
+  /**
+   * <p>Geobuf is a compact binary encoding for geographic data that provides lossless compression of GeoJSON polygons. The Geobuf must be Base64-encoded.</p>
+   *          <p>A polygon in Geobuf format can have up to 100,000 vertices.</p>
+   * @public
+   */
+  Geobuf?: Uint8Array;
 }
 
 /**
@@ -1213,11 +1220,11 @@ export interface BatchPutGeofenceRequestEntry {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the details of the position of the geofence. Can be either a
-   *             polygon or a circle. Including both will return a validation error.</p>
+   * <p>Contains the details to specify the position of the geofence. Can be a
+   *             polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>
    *          <note>
-   *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
-   *                 geofence polygon</a> can have a maximum of 1,000 vertices.</p>
+   *             <p>The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
+   *                 geofence polygon</a> format supports a maximum of 1,000 vertices. The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">Geofence geobuf</a> format supports a maximum of 100,000 vertices.</p>
    *          </note>
    * @public
    */
@@ -2392,6 +2399,138 @@ export interface CalculateRouteMatrixResponse {
 }
 
 /**
+ * <p>LTE local identification information (local ID).</p>
+ * @public
+ */
+export interface LteLocalId {
+  /**
+   * <p>E-UTRA (Evolved Universal Terrestrial Radio Access) absolute radio frequency channel number (EARFCN).</p>
+   * @public
+   */
+  Earfcn: number | undefined;
+
+  /**
+   * <p>Physical Cell ID (PCI).</p>
+   * @public
+   */
+  Pci: number | undefined;
+}
+
+/**
+ * <p>LTE network measurements.</p>
+ * @public
+ */
+export interface LteNetworkMeasurements {
+  /**
+   * <p>E-UTRA (Evolved Universal Terrestrial Radio Access) absolute radio frequency channel number (EARFCN).</p>
+   * @public
+   */
+  Earfcn: number | undefined;
+
+  /**
+   * <p>E-UTRAN Cell Identifier (ECI).</p>
+   * @public
+   */
+  CellId: number | undefined;
+
+  /**
+   * <p>Physical Cell ID (PCI).</p>
+   * @public
+   */
+  Pci: number | undefined;
+
+  /**
+   * <p>Signal power of the reference signal received, measured in dBm (decibel-milliwatts).</p>
+   * @public
+   */
+  Rsrp?: number;
+
+  /**
+   * <p>Signal quality of the reference Signal received, measured in decibels (dB).</p>
+   * @public
+   */
+  Rsrq?: number;
+}
+
+/**
+ * <p>Details about the Long-Term Evolution (LTE) network.</p>
+ * @public
+ */
+export interface LteCellDetails {
+  /**
+   * <p>The E-UTRAN Cell Identifier (ECI).</p>
+   * @public
+   */
+  CellId: number | undefined;
+
+  /**
+   * <p>The Mobile Country Code (MCC).</p>
+   * @public
+   */
+  Mcc: number | undefined;
+
+  /**
+   * <p>The Mobile Network Code (MNC)</p>
+   * @public
+   */
+  Mnc: number | undefined;
+
+  /**
+   * <p>The LTE local identification information (local ID).</p>
+   * @public
+   */
+  LocalId?: LteLocalId;
+
+  /**
+   * <p>The network measurements.</p>
+   * @public
+   */
+  NetworkMeasurements?: LteNetworkMeasurements[];
+
+  /**
+   * <p>Timing Advance (TA).</p>
+   * @public
+   */
+  TimingAdvance?: number;
+
+  /**
+   * <p>Indicates whether the LTE object is capable of supporting NR (new radio).</p>
+   * @public
+   */
+  NrCapable?: boolean;
+
+  /**
+   * <p>Signal power of the reference signal received, measured in decibel-milliwatts (dBm).</p>
+   * @public
+   */
+  Rsrp?: number;
+
+  /**
+   * <p>Signal quality of the reference Signal received, measured in decibels (dB).</p>
+   * @public
+   */
+  Rsrq?: number;
+
+  /**
+   * <p>LTE Tracking Area Code (TAC).</p>
+   * @public
+   */
+  Tac?: number;
+}
+
+/**
+ * <p>The cellular network communication infrastructure that the device uses.</p>
+ * @public
+ */
+export interface CellSignals {
+  /**
+   * <p>Information about the Long-Term Evolution (LTE) network the device is connected to.</p>
+   * @public
+   */
+  LteCellDetails: LteCellDetails[] | undefined;
+}
+
+/**
  * @public
  */
 export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "RequestBasedUsage";
@@ -2527,11 +2666,9 @@ export interface MapConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>VectorEsriNavigation</code> – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a
-   *                 custom navigation map style that's designed for use during the day in mobile devices. It also includes a richer set of places,
-   *                 such as shops, services, restaurants, attractions, and other points of interest.
-   *                 Enable the <code>POI</code> layer by setting it in CustomLayers to leverage the additional places data.</p>
-   *                <p/>
+   *                   <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A
+   *                     vector basemap with a dark gray, neutral background with minimal colors, labels,
+   *                     and features that's designed to draw attention to your thematic content. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -2560,9 +2697,9 @@ export interface MapConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A
-   *                     vector basemap with a dark gray, neutral background with minimal colors, labels,
-   *                     and features that's designed to draw attention to your thematic content. </p>
+   *                   <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
+   *                     provides a detailed basemap for the world symbolized with a custom navigation
+   *                     map style that's designed for use during the day in mobile devices.</p>
    *             </li>
    *          </ul>
    *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
@@ -2570,9 +2707,28 @@ export interface MapConfiguration {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a
+   *                     high contrast
+   *                     detailed base map of the world that blends 3D and 2D rendering.</p>
+   *                <note>
+   *                   <p>The <code>VectorHereContrast</code> style has been renamed from
+   *                     <code>VectorHereBerlin</code>.
+   *                     <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
+   *                     applications that use it.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>VectorHereExplore</code> – A default HERE map style containing a
    *                     neutral, global map and its features including roads, buildings, landmarks,
    *                     and water features. It also now includes a fully designed map of Japan.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorHereExploreTruck</code> – A global map containing truck
+   *                     restrictions and attributes (e.g. width / height / HAZMAT) symbolized with
+   *                     highlighted segments and icons on top of HERE Explore to support use cases
+   *                     within transport and logistics.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2591,25 +2747,6 @@ export interface MapConfiguration {
    *                     either vector or raster tiles alone. Your charges will include all tiles
    *                     retrieved.</p>
    *                </note>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a
-   *                     high contrast
-   *                     detailed base map of the world that blends 3D and 2D rendering.</p>
-   *                <note>
-   *                   <p>The <code>VectorHereContrast</code> style has been renamed from
-   *                     <code>VectorHereBerlin</code>.
-   *                     <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
-   *                     applications that use it.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VectorHereExploreTruck</code> – A global map containing truck
-   *                     restrictions and attributes (e.g. width / height / HAZMAT) symbolized with
-   *                     highlighted segments and icons on top of HERE Explore to support use cases
-   *                     within transport and logistics.</p>
    *             </li>
    *          </ul>
    *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps map styles</a>:</p>
@@ -2684,11 +2821,10 @@ export interface MapConfiguration {
   PoliticalView?: string;
 
   /**
-   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as <code>POI</code> layer for the VectorEsriNavigation style.
+   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.
    * Default is <code>unset</code>.</p>
    *          <note>
-   *             <p>Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
-   * For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers">Custom Layers</a>.</p>
+   *             <p>Not all map resources or styles support custom layers. See Custom Layers for more information.</p>
    *          </note>
    * @public
    */
@@ -3907,6 +4043,73 @@ export interface DescribeTrackerResponse {
 }
 
 /**
+ * <p>Wi-Fi access point.</p>
+ * @public
+ */
+export interface WiFiAccessPoint {
+  /**
+   * <p>Medium access control address (Mac).</p>
+   * @public
+   */
+  MacAddress: string | undefined;
+
+  /**
+   * <p>Received signal strength (dBm) of the WLAN measurement data.</p>
+   * @public
+   */
+  Rss: number | undefined;
+}
+
+/**
+ * <p>The device's position, IP address, and Wi-Fi access points.</p>
+ * @public
+ */
+export interface DeviceState {
+  /**
+   * <p>The device identifier.</p>
+   * @public
+   */
+  DeviceId: string | undefined;
+
+  /**
+   * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
+   *            format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * @public
+   */
+  SampleTime: Date | undefined;
+
+  /**
+   * <p>The last known device position.</p>
+   * @public
+   */
+  Position: number[] | undefined;
+
+  /**
+   * <p>Defines the level of certainty of the position.</p>
+   * @public
+   */
+  Accuracy?: PositionalAccuracy;
+
+  /**
+   * <p>The device's Ipv4 address.</p>
+   * @public
+   */
+  Ipv4Address?: string;
+
+  /**
+   * <p>The Wi-Fi access points the device is using.</p>
+   * @public
+   */
+  WiFiAccessPoints?: WiFiAccessPoint[];
+
+  /**
+   * <p>The cellular network infrastructure that the device is connected to.</p>
+   * @public
+   */
+  CellSignals?: CellSignals;
+}
+
+/**
  * @public
  */
 export interface DisassociateTrackerConsumerRequest {
@@ -3935,6 +4138,181 @@ export interface DisassociateTrackerConsumerRequest {
  * @public
  */
 export interface DisassociateTrackerConsumerResponse {}
+
+/**
+ * @public
+ */
+export type ForecastedGeofenceEventType = "ENTER" | "EXIT" | "IDLE";
+
+/**
+ * <p>A forecasted event represents a geofence event in relation to the requested device state, that may occur
+ *       given the provided device state and time horizon.</p>
+ * @public
+ */
+export interface ForecastedEvent {
+  /**
+   * <p>The forecasted event identifier.</p>
+   * @public
+   */
+  EventId: string | undefined;
+
+  /**
+   * <p>The geofence identifier pertaining to the forecasted event.</p>
+   * @public
+   */
+  GeofenceId: string | undefined;
+
+  /**
+   * <p>Indicates if the device is located within the geofence.</p>
+   * @public
+   */
+  IsDeviceInGeofence: boolean | undefined;
+
+  /**
+   * <p>The closest distance from the device's position to the geofence.</p>
+   * @public
+   */
+  NearestDistance: number | undefined;
+
+  /**
+   * <p>The event type, forecasting three states for which
+   *           a device can be in relative to a geofence:</p>
+   *          <p>
+   *             <code>ENTER</code>: If a device is outside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>
+   *          <p>
+   *             <code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>
+   *          <p>
+   *             <code>IDLE</code>: If a device is inside of a geofence, and the device is not moving.</p>
+   * @public
+   */
+  EventType: ForecastedGeofenceEventType | undefined;
+
+  /**
+   * <p>The forecasted time the device will breach the geofence in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *           format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
+   *          </p>
+   * @public
+   */
+  ForecastedBreachTime?: Date;
+
+  /**
+   * <p>The geofence properties.</p>
+   * @public
+   */
+  GeofenceProperties?: Record<string, string>;
+}
+
+/**
+ * <p>The device's position, IP address, and WiFi access points.</p>
+ * @public
+ */
+export interface ForecastGeofenceEventsDeviceState {
+  /**
+   * <p>The device's position.</p>
+   * @public
+   */
+  Position: number[] | undefined;
+
+  /**
+   * <p>The device's speed.</p>
+   * @public
+   */
+  Speed?: number;
+}
+
+/**
+ * @public
+ */
+export type SpeedUnit = "KilometersPerHour" | "MilesPerHour";
+
+/**
+ * @public
+ */
+export interface ForecastGeofenceEventsRequest {
+  /**
+   * <p>The name of the geofence collection.</p>
+   * @public
+   */
+  CollectionName: string | undefined;
+
+  /**
+   * <p>The device's state, including current position and speed.</p>
+   * @public
+   */
+  DeviceState: ForecastGeofenceEventsDeviceState | undefined;
+
+  /**
+   * <p>Specifies the time horizon in minutes for the forecasted events.</p>
+   * @public
+   */
+  TimeHorizonMinutes?: number;
+
+  /**
+   * <p>The distance unit used for the <code>NearestDistance</code> property returned in a forecasted event.
+   *           The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code>
+   *           is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.
+   *       </p>
+   *          <p>Default Value: <code>Kilometers</code>
+   *          </p>
+   * @public
+   */
+  DistanceUnit?: DistanceUnit;
+
+  /**
+   * <p>The speed unit for the device captured by the device state. The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code>
+   *           is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.</p>
+   *          <p>Default Value: <code>KilometersPerHour</code>.</p>
+   * @public
+   */
+  SpeedUnit?: SpeedUnit;
+
+  /**
+   * <p>The pagination token specifying which page of results to return in the response. If no
+   *             token is provided, the default page is the first page.</p>
+   *          <p>Default value: <code>null</code>
+   *          </p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An optional limit for the number of resources returned in a single call.</p>
+   *          <p>Default value: <code>20</code>
+   *          </p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ForecastGeofenceEventsResponse {
+  /**
+   * <p>The list of forecasted events.</p>
+   * @public
+   */
+  ForecastedEvents: ForecastedEvent[] | undefined;
+
+  /**
+   * <p>The pagination token specifying which page of results to return in the response. If no
+   *             token is provided, the default page is the first page. </p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The distance unit for the forecasted events.</p>
+   * @public
+   */
+  DistanceUnit: DistanceUnit | undefined;
+
+  /**
+   * <p>The speed unit for the forecasted events.</p>
+   * @public
+   */
+  SpeedUnit: SpeedUnit | undefined;
+}
 
 /**
  * @public
@@ -4171,6 +4549,9 @@ export interface ListGeofenceCollectionsRequest {
 
 /**
  * <p>Contains the geofence collection details.</p>
+ *          <note>
+ *             <p>The returned geometry will always match the geometry format used when the geofence was created.</p>
+ *          </note>
  * @public
  */
 export interface ListGeofenceCollectionsResponseEntry {
@@ -4267,6 +4648,9 @@ export interface ListGeofencesRequest {
 
 /**
  * <p>Contains a list of geofences stored in a given geofence collection.</p>
+ *          <note>
+ *             <p>The returned geometry will always match the geometry format used when the geofence was created.</p>
+ *          </note>
  * @public
  */
 export interface ListGeofenceResponseEntry {
@@ -4375,11 +4759,11 @@ export interface PutGeofenceRequest {
   GeofenceId: string | undefined;
 
   /**
-   * <p>Contains the details to specify the position of the geofence. Can be either a
-   *             polygon or a circle. Including both will return a validation error.</p>
+   * <p>Contains the details to specify the position of the geofence. Can be a
+   *             polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>
    *          <note>
-   *             <p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
-   *                 geofence polygon</a> can have a maximum of 1,000 vertices.</p>
+   *             <p>The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">
+   *                 geofence polygon</a> format supports a maximum of 1,000 vertices. The <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">Geofence Geobuf</a> format supports a maximum of 100,000 vertices.</p>
    *          </note>
    * @public
    */
@@ -4525,7 +4909,7 @@ export interface GetDevicePositionResponse {
   SampleTime: Date | undefined;
 
   /**
-   * <p>The timestamp for when the tracker resource received the device position in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
+   * <p>The timestamp for when the tracker resource received the device position. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    * @public
    */
@@ -4671,7 +5055,7 @@ export interface GetMapGlyphsRequest {
    *             </li>
    *             <li>
    *                <p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code>
-   *                     | <code>Arial Bold</code> | <code>Arial Unicode MS Bold</code> | <code>Arial Unicode MS Regular</code>
+   *                     | <code>Arial Bold</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4958,37 +5342,6 @@ export interface GetPlaceRequest {
 
   /**
    * <p>The identifier of the place to find.</p>
-   *          <p>While you can use PlaceID in subsequent requests,
-   *       PlaceID is not intended to be a permanent
-   *             identifier and the ID can change between consecutive API calls.
-   *             Please see the following PlaceID behaviour for each data provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Esri: Place IDs will change every quarter at a minimum. The typical time period for these changes would be March, June, September, and December. Place IDs might also change between the typical quarterly change but that will be much less frequent.</p>
-   *             </li>
-   *             <li>
-   *                <p>HERE: We recommend
-   *         that you cache data for no longer than a week
-   *         to keep your data data fresh. You can
-   *         assume that less than 1% ID shifts will
-   *          release over release which is approximately 1 - 2 times per week.</p>
-   *             </li>
-   *             <li>
-   *                <p>Grab:  Place IDs can expire or become invalid in the following situations.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Data operations: The POI may be removed from Grab POI database by Grab Map Ops based on the ground-truth,
-   *              such as being closed in the real world, being detected as a duplicate POI, or having incorrect information. Grab will synchronize data to the Waypoint environment on weekly basis.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Interpolated POI: Interpolated POI is a temporary POI generated in real time when serving a request,
-   *             and it will be marked as derived in the <code>place.result_type</code> field in the response.
-   *             The information of interpolated POIs will be retained for at least 30 days, which means that within 30 days, you are able to obtain POI details by
-   *             Place ID from Place Details API. After 30 days, the interpolated POIs(both Place ID and details) may expire and inaccessible from the Places Details API.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
    * @public
    */
   PlaceId: string | undefined;
@@ -5164,7 +5517,7 @@ export interface Place {
    * <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,
    *                 <code>Apartment</code>.</p>
    *          <note>
-   *             <p>This property is returned only for a place index that uses Esri as a data provider.</p>
+   *             <p>Returned only for a place index that uses Esri as a data provider.</p>
    *          </note>
    * @public
    */
@@ -5174,7 +5527,7 @@ export interface Place {
    * <p>For addresses with multiple units, the unit identifier. Can include numbers and
    *             letters, for example <code>3B</code> or <code>Unit 123</code>.</p>
    *          <note>
-   *             <p>This property is returned only for a place index that uses Esri or Grab as a data provider. It is
+   *             <p>Returned only for a place index that uses Esri or Grab as a data provider. Is
    *                 not returned for <code>SearchPlaceIndexForPosition</code>.</p>
    *          </note>
    * @public
@@ -5198,12 +5551,11 @@ export interface Place {
   SupplementalCategories?: string[];
 
   /**
-   * <p>An area that's part of a larger municipality. For example, <code>Blissville</code>
+   * <p>An area that's part of a larger municipality. For example, <code>Blissville </code>
    *             is a submunicipality in the Queen County in New York.</p>
    *          <note>
-   *             <p>This property is only returned for a place index that uses Esri as a data provider. The property is represented as a <code>district</code>.</p>
+   *             <p>This property supported by Esri and OpenData. The Esri property is <code>district</code>, and the OpenData property is <code>borough</code>.</p>
    *          </note>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    * @public
    */
   SubMunicipality?: string;
@@ -5218,6 +5570,36 @@ export interface GetPlaceResponse {
    * @public
    */
   Place: Place | undefined;
+}
+
+/**
+ * <p>The inferred state of the device, given the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>
+ * @public
+ */
+export interface InferredState {
+  /**
+   * <p>The device position inferred by the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>
+   * @public
+   */
+  Position?: number[];
+
+  /**
+   * <p>The level of certainty of the inferred position.</p>
+   * @public
+   */
+  Accuracy?: PositionalAccuracy;
+
+  /**
+   * <p>The distance between the inferred position and the device's self-reported position.</p>
+   * @public
+   */
+  DeviationDistance?: number;
+
+  /**
+   * <p>Indicates if a proxy was used.</p>
+   * @public
+   */
+  ProxyDetected: boolean | undefined;
 }
 
 /**
@@ -5782,11 +6164,10 @@ export interface MapConfigurationUpdate {
   PoliticalView?: string;
 
   /**
-   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as <code>POI</code> layer for the VectorEsriNavigation style.
+   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.
    * Default is <code>unset</code>.</p>
    *          <note>
-   *             <p>Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
-   * For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers">Custom Layers</a>.</p>
+   *             <p>Not all map resources or styles support custom layers. See Custom Layers for more information.</p>
    *          </note>
    * @public
    */
@@ -6152,37 +6533,6 @@ export interface SearchForSuggestionsResult {
    *                     <code>PlaceId</code> is returned by place indexes that use Esri, Grab, or HERE
    *                 as data providers.</p>
    *          </note>
-   *          <p>While you can use PlaceID in subsequent requests,
-   *       PlaceID is not intended to be a permanent
-   *             identifier and the ID can change between consecutive API calls.
-   *             Please see the following PlaceID behaviour for each data provider:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Esri: Place IDs will change every quarter at a minimum. The typical time period for these changes would be March, June, September, and December. Place IDs might also change between the typical quarterly change but that will be much less frequent.</p>
-   *             </li>
-   *             <li>
-   *                <p>HERE: We recommend
-   *         that you cache data for no longer than a week
-   *         to keep your data data fresh. You can
-   *         assume that less than 1% ID shifts will
-   *          release over release which is approximately 1 - 2 times per week.</p>
-   *             </li>
-   *             <li>
-   *                <p>Grab:  Place IDs can expire or become invalid in the following situations.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Data operations: The POI may be removed from Grab POI database by Grab Map Ops based on the ground-truth,
-   *              such as being closed in the real world, being detected as a duplicate POI, or having incorrect information. Grab will synchronize data to the Waypoint environment on weekly basis.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Interpolated POI: Interpolated POI is a temporary POI generated in real time when serving a request,
-   *             and it will be marked as derived in the <code>place.result_type</code> field in the response.
-   *             The information of interpolated POIs will be retained for at least 30 days, which means that within 30 days, you are able to obtain POI details by
-   *             Place ID from Place Details API. After 30 days, the interpolated POIs(both Place ID and details) may expire and inaccessible from the Places Details API.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
    * @public
    */
   PlaceId?: string;
@@ -6812,6 +7162,68 @@ export interface UpdateTrackerResponse {
 }
 
 /**
+ * @public
+ */
+export interface VerifyDevicePositionRequest {
+  /**
+   * <p>The name of the tracker resource to be associated with verification request.</p>
+   * @public
+   */
+  TrackerName: string | undefined;
+
+  /**
+   * <p>The device's state, including position, IP address, cell signals and Wi-Fi access points.</p>
+   * @public
+   */
+  DeviceState: DeviceState | undefined;
+
+  /**
+   * <p>The distance unit for the verification request.</p>
+   *          <p>Default Value: <code>Kilometers</code>
+   *          </p>
+   * @public
+   */
+  DistanceUnit?: DistanceUnit;
+}
+
+/**
+ * @public
+ */
+export interface VerifyDevicePositionResponse {
+  /**
+   * <p>The inferred state of the device, given the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>
+   * @public
+   */
+  InferredState: InferredState | undefined;
+
+  /**
+   * <p>The device identifier.</p>
+   * @public
+   */
+  DeviceId: string | undefined;
+
+  /**
+   * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
+   *            format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * @public
+   */
+  SampleTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the tracker resource received the device position in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * @public
+   */
+  ReceivedTime: Date | undefined;
+
+  /**
+   * <p>The distance unit for the verification response.</p>
+   * @public
+   */
+  DistanceUnit: DistanceUnit | undefined;
+}
+
+/**
  * @internal
  */
 export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any => ({
@@ -6880,6 +7292,7 @@ export const GeofenceGeometryFilterSensitiveLog = (obj: GeofenceGeometry): any =
   ...obj,
   ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
   ...(obj.Circle && { Circle: SENSITIVE_STRING }),
+  ...(obj.Geobuf && { Geobuf: SENSITIVE_STRING }),
 });
 
 /**
@@ -6980,6 +7393,48 @@ export const CalculateRouteMatrixResponseFilterSensitiveLog = (obj: CalculateRou
   ...obj,
   ...(obj.SnappedDeparturePositions && { SnappedDeparturePositions: SENSITIVE_STRING }),
   ...(obj.SnappedDestinationPositions && { SnappedDestinationPositions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeviceStateFilterSensitiveLog = (obj: DeviceState): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ForecastedEventFilterSensitiveLog = (obj: ForecastedEvent): any => ({
+  ...obj,
+  ...(obj.GeofenceProperties && { GeofenceProperties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ForecastGeofenceEventsDeviceStateFilterSensitiveLog = (obj: ForecastGeofenceEventsDeviceState): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ForecastGeofenceEventsRequestFilterSensitiveLog = (obj: ForecastGeofenceEventsRequest): any => ({
+  ...obj,
+  ...(obj.DeviceState && { DeviceState: ForecastGeofenceEventsDeviceStateFilterSensitiveLog(obj.DeviceState) }),
+});
+
+/**
+ * @internal
+ */
+export const ForecastGeofenceEventsResponseFilterSensitiveLog = (obj: ForecastGeofenceEventsResponse): any => ({
+  ...obj,
+  ...(obj.ForecastedEvents && {
+    ForecastedEvents: obj.ForecastedEvents.map((item) => ForecastedEventFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -7098,6 +7553,14 @@ export const PlaceFilterSensitiveLog = (obj: Place): any => ({
 export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any => ({
   ...obj,
   ...(obj.Place && { Place: PlaceFilterSensitiveLog(obj.Place) }),
+});
+
+/**
+ * @internal
+ */
+export const InferredStateFilterSensitiveLog = (obj: InferredState): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
 });
 
 /**
@@ -7241,4 +7704,20 @@ export const SearchPlaceIndexForTextResponseFilterSensitiveLog = (obj: SearchPla
   ...obj,
   ...(obj.Summary && { Summary: SearchPlaceIndexForTextSummaryFilterSensitiveLog(obj.Summary) }),
   ...(obj.Results && { Results: obj.Results.map((item) => SearchForTextResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const VerifyDevicePositionRequestFilterSensitiveLog = (obj: VerifyDevicePositionRequest): any => ({
+  ...obj,
+  ...(obj.DeviceState && { DeviceState: DeviceStateFilterSensitiveLog(obj.DeviceState) }),
+});
+
+/**
+ * @internal
+ */
+export const VerifyDevicePositionResponseFilterSensitiveLog = (obj: VerifyDevicePositionResponse): any => ({
+  ...obj,
+  ...(obj.InferredState && { InferredState: InferredStateFilterSensitiveLog(obj.InferredState) }),
 });

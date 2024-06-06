@@ -64,6 +64,7 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * //           ],
  * //           Radius: Number("double"), // required
  * //         },
+ * //         Geobuf: new Uint8Array(),
  * //       },
  * //       Status: "STRING_VALUE", // required
  * //       CreateTime: new Date("TIMESTAMP"), // required

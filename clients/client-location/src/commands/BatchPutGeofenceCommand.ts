@@ -59,6 +59,7 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  *           ],
  *           Radius: Number("double"), // required
  *         },
+ *         Geobuf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       },
  *       GeofenceProperties: { // PropertyMap
  *         "<keys>": "STRING_VALUE",

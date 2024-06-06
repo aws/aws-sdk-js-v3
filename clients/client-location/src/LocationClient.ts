@@ -123,6 +123,10 @@ import {
   DisassociateTrackerConsumerCommandInput,
   DisassociateTrackerConsumerCommandOutput,
 } from "./commands/DisassociateTrackerConsumerCommand";
+import {
+  ForecastGeofenceEventsCommandInput,
+  ForecastGeofenceEventsCommandOutput,
+} from "./commands/ForecastGeofenceEventsCommand";
 import { GetDevicePositionCommandInput, GetDevicePositionCommandOutput } from "./commands/GetDevicePositionCommand";
 import {
   GetDevicePositionHistoryCommandInput,
@@ -190,6 +194,10 @@ import {
 } from "./commands/UpdateRouteCalculatorCommand";
 import { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "./commands/UpdateTrackerCommand";
 import {
+  VerifyDevicePositionCommandInput,
+  VerifyDevicePositionCommandOutput,
+} from "./commands/VerifyDevicePositionCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -232,6 +240,7 @@ export type ServiceInputTypes =
   | DescribeRouteCalculatorCommandInput
   | DescribeTrackerCommandInput
   | DisassociateTrackerConsumerCommandInput
+  | ForecastGeofenceEventsCommandInput
   | GetDevicePositionCommandInput
   | GetDevicePositionHistoryCommandInput
   | GetGeofenceCommandInput
@@ -261,7 +270,8 @@ export type ServiceInputTypes =
   | UpdateMapCommandInput
   | UpdatePlaceIndexCommandInput
   | UpdateRouteCalculatorCommandInput
-  | UpdateTrackerCommandInput;
+  | UpdateTrackerCommandInput
+  | VerifyDevicePositionCommandInput;
 
 /**
  * @public
@@ -295,6 +305,7 @@ export type ServiceOutputTypes =
   | DescribeRouteCalculatorCommandOutput
   | DescribeTrackerCommandOutput
   | DisassociateTrackerConsumerCommandOutput
+  | ForecastGeofenceEventsCommandOutput
   | GetDevicePositionCommandOutput
   | GetDevicePositionHistoryCommandOutput
   | GetGeofenceCommandOutput
@@ -324,7 +335,8 @@ export type ServiceOutputTypes =
   | UpdateMapCommandOutput
   | UpdatePlaceIndexCommandOutput
   | UpdateRouteCalculatorCommandOutput
-  | UpdateTrackerCommandOutput;
+  | UpdateTrackerCommandOutput
+  | VerifyDevicePositionCommandOutput;
 
 /**
  * @public

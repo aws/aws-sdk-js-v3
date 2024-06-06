@@ -119,6 +119,11 @@ import {
   DisassociateTrackerConsumerCommandOutput,
 } from "./commands/DisassociateTrackerConsumerCommand";
 import {
+  ForecastGeofenceEventsCommand,
+  ForecastGeofenceEventsCommandInput,
+  ForecastGeofenceEventsCommandOutput,
+} from "./commands/ForecastGeofenceEventsCommand";
+import {
   GetDevicePositionCommand,
   GetDevicePositionCommandInput,
   GetDevicePositionCommandOutput,
@@ -232,6 +237,11 @@ import {
   UpdateTrackerCommandInput,
   UpdateTrackerCommandOutput,
 } from "./commands/UpdateTrackerCommand";
+import {
+  VerifyDevicePositionCommand,
+  VerifyDevicePositionCommandInput,
+  VerifyDevicePositionCommandOutput,
+} from "./commands/VerifyDevicePositionCommand";
 import { LocationClient, LocationClientConfig } from "./LocationClient";
 
 const commands = {
@@ -263,6 +273,7 @@ const commands = {
   DescribeRouteCalculatorCommand,
   DescribeTrackerCommand,
   DisassociateTrackerConsumerCommand,
+  ForecastGeofenceEventsCommand,
   GetDevicePositionCommand,
   GetDevicePositionHistoryCommand,
   GetGeofenceCommand,
@@ -293,6 +304,7 @@ const commands = {
   UpdatePlaceIndexCommand,
   UpdateRouteCalculatorCommand,
   UpdateTrackerCommand,
+  VerifyDevicePositionCommand,
 };
 
 export interface Location {
@@ -719,6 +731,23 @@ export interface Location {
   ): void;
 
   /**
+   * @see {@link ForecastGeofenceEventsCommand}
+   */
+  forecastGeofenceEvents(
+    args: ForecastGeofenceEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ForecastGeofenceEventsCommandOutput>;
+  forecastGeofenceEvents(
+    args: ForecastGeofenceEventsCommandInput,
+    cb: (err: any, data?: ForecastGeofenceEventsCommandOutput) => void
+  ): void;
+  forecastGeofenceEvents(
+    args: ForecastGeofenceEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ForecastGeofenceEventsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDevicePositionCommand}
    */
   getDevicePosition(
@@ -1142,6 +1171,23 @@ export interface Location {
     args: UpdateTrackerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTrackerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link VerifyDevicePositionCommand}
+   */
+  verifyDevicePosition(
+    args: VerifyDevicePositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyDevicePositionCommandOutput>;
+  verifyDevicePosition(
+    args: VerifyDevicePositionCommandInput,
+    cb: (err: any, data?: VerifyDevicePositionCommandOutput) => void
+  ): void;
+  verifyDevicePosition(
+    args: VerifyDevicePositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: VerifyDevicePositionCommandOutput) => void
   ): void;
 }
 
