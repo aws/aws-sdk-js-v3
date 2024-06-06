@@ -12,7 +12,8 @@ import { de_BatchGetDataQualityResultCommand, se_BatchGetDataQualityResultComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeContainerInstancesCommand, se_DescribeContainerInstancesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

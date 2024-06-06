@@ -12,7 +12,8 @@ import { de_GetSchemaVersionCommand, se_GetSchemaVersionCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteMatchmakingRuleSetCommand, se_DeleteMatchmakingRuleSetCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

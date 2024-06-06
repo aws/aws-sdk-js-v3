@@ -17,7 +17,8 @@ import { de_UpdateDirectoryConfigCommand, se_UpdateDirectoryConfigCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

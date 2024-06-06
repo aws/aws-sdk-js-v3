@@ -15,8 +15,8 @@
 export * from "./SSMContactsClient";
 export * from "./SSMContacts";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { SSMContactsExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { SSMContactsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

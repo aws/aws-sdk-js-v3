@@ -12,7 +12,8 @@ import { de_DeleteBackendEnvironmentCommand, se_DeleteBackendEnvironmentCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

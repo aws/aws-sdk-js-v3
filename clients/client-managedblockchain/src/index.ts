@@ -11,8 +11,8 @@
 export * from "./ManagedBlockchainClient";
 export * from "./ManagedBlockchain";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ManagedBlockchainExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ManagedBlockchainExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

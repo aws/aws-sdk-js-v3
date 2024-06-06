@@ -84,8 +84,8 @@
 export * from "./ApplicationAutoScalingClient";
 export * from "./ApplicationAutoScaling";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ApplicationAutoScalingExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ApplicationAutoScalingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

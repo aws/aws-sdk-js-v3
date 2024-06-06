@@ -16,7 +16,8 @@ import { de_CreateProtectConfigurationCommand, se_CreateProtectConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

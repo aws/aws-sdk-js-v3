@@ -16,7 +16,8 @@ import { de_DeleteReplicationInstanceCommand, se_DeleteReplicationInstanceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

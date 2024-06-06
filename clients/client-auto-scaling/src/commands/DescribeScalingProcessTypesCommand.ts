@@ -12,7 +12,8 @@ import { de_DescribeScalingProcessTypesCommand, se_DescribeScalingProcessTypesCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_RequestSenderIdCommand, se_RequestSenderIdCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

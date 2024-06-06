@@ -12,7 +12,8 @@ import { de_DescribeIdentityIdFormatCommand, se_DescribeIdentityIdFormatCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

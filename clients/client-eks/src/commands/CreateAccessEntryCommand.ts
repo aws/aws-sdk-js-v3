@@ -12,7 +12,8 @@ import { de_CreateAccessEntryCommand, se_CreateAccessEntryCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

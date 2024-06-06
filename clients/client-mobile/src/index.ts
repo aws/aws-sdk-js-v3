@@ -12,8 +12,8 @@
 export * from "./MobileClient";
 export * from "./Mobile";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { MobileExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { MobileExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

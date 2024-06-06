@@ -12,7 +12,8 @@ import { de_GetInsightsCommand, se_GetInsightsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

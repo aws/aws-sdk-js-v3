@@ -16,7 +16,8 @@ import { de_StartProductSubscriptionCommand, se_StartProductSubscriptionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

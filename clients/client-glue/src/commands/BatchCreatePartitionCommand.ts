@@ -12,7 +12,8 @@ import { de_BatchCreatePartitionCommand, se_BatchCreatePartitionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

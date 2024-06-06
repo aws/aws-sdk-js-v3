@@ -10,7 +10,8 @@ import { de_RecursiveXmlShapesCommand, se_RecursiveXmlShapesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_PutAccountConfigurationCommand, se_PutAccountConfigurationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

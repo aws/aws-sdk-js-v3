@@ -16,7 +16,8 @@ import { de_UpdateFleetPortSettingsCommand, se_UpdateFleetPortSettingsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

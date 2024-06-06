@@ -12,7 +12,8 @@ import { de_DeregisterJobDefinitionCommand, se_DeregisterJobDefinitionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

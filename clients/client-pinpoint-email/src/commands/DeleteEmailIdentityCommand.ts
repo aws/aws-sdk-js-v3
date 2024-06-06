@@ -12,7 +12,8 @@ import { de_DeleteEmailIdentityCommand, se_DeleteEmailIdentityCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

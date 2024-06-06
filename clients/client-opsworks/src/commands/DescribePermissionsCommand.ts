@@ -12,7 +12,8 @@ import { de_DescribePermissionsCommand, se_DescribePermissionsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

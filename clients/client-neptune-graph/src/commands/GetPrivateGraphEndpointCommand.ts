@@ -12,7 +12,8 @@ import { de_GetPrivateGraphEndpointCommand, se_GetPrivateGraphEndpointCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

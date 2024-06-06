@@ -16,7 +16,8 @@ import { de_GetProfileObjectTypeCommand, se_GetProfileObjectTypeCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeAutoScalingInstancesCommand, se_DescribeAutoScalingInstances
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

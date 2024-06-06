@@ -12,7 +12,8 @@ import { de_SetTerminationProtectionCommand, se_SetTerminationProtectionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetPositionConfigurationCommand, se_GetPositionConfigurationCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

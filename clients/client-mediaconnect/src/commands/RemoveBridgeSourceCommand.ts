@@ -12,7 +12,8 @@ import { de_RemoveBridgeSourceCommand, se_RemoveBridgeSourceCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

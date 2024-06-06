@@ -12,7 +12,8 @@ import { de_DescribeCapacityReservationsCommand, se_DescribeCapacityReservations
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

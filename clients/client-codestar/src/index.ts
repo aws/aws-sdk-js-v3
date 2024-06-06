@@ -97,8 +97,8 @@
 export * from "./CodeStarClient";
 export * from "./CodeStar";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { CodeStarExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { CodeStarExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

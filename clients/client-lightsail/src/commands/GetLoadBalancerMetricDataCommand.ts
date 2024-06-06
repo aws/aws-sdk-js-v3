@@ -12,7 +12,8 @@ import { de_GetLoadBalancerMetricDataCommand, se_GetLoadBalancerMetricDataComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

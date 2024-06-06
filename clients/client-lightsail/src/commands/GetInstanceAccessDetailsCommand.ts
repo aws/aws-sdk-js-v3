@@ -12,7 +12,8 @@ import { de_GetInstanceAccessDetailsCommand, se_GetInstanceAccessDetailsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

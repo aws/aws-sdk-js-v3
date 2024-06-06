@@ -17,7 +17,8 @@ import { de_GetWorkUnitResultsCommand, se_GetWorkUnitResultsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

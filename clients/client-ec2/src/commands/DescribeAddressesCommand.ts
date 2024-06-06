@@ -12,7 +12,8 @@ import { de_DescribeAddressesCommand, se_DescribeAddressesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

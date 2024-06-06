@@ -12,7 +12,8 @@ import { de_ListMetricAttributionsCommand, se_ListMetricAttributionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

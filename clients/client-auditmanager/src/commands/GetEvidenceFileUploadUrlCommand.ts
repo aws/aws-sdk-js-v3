@@ -17,7 +17,8 @@ import { de_GetEvidenceFileUploadUrlCommand, se_GetEvidenceFileUploadUrlCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

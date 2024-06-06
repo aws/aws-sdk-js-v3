@@ -12,7 +12,8 @@ import { de_DescribeSchedulingPoliciesCommand, se_DescribeSchedulingPoliciesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

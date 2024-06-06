@@ -12,7 +12,8 @@ import { de_CreateOutboundConnectionCommand, se_CreateOutboundConnectionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetTemplateSummaryCommand, se_GetTemplateSummaryCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

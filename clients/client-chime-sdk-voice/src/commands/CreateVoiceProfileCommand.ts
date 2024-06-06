@@ -16,7 +16,8 @@ import { de_CreateVoiceProfileCommand, se_CreateVoiceProfileCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

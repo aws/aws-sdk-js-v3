@@ -12,7 +12,8 @@ import { de_UpdateEndpointsBatchCommand, se_UpdateEndpointsBatchCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

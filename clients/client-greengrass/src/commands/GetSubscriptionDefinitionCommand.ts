@@ -12,7 +12,8 @@ import { de_GetSubscriptionDefinitionCommand, se_GetSubscriptionDefinitionComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

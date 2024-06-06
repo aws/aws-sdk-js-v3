@@ -12,7 +12,8 @@ import { de_DeleteTrafficMirrorFilterCommand, se_DeleteTrafficMirrorFilterComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

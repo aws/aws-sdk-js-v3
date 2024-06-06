@@ -16,7 +16,8 @@ import { de_AdminForgetDeviceCommand, se_AdminForgetDeviceCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

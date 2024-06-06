@@ -17,7 +17,8 @@ import { de_DetectTargetedSentimentCommand, se_DetectTargetedSentimentCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

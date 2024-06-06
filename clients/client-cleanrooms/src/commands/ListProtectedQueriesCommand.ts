@@ -12,7 +12,8 @@ import { de_ListProtectedQueriesCommand, se_ListProtectedQueriesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

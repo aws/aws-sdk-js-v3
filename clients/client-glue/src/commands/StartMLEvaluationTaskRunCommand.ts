@@ -12,7 +12,8 @@ import { de_StartMLEvaluationTaskRunCommand, se_StartMLEvaluationTaskRunCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

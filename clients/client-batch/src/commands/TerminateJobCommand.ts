@@ -12,7 +12,8 @@ import { de_TerminateJobCommand, se_TerminateJobCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

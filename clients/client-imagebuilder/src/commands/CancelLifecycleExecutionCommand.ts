@@ -12,7 +12,8 @@ import { de_CancelLifecycleExecutionCommand, se_CancelLifecycleExecutionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

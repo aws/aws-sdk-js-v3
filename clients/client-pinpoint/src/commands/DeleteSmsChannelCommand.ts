@@ -12,7 +12,8 @@ import { de_DeleteSmsChannelCommand, se_DeleteSmsChannelCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

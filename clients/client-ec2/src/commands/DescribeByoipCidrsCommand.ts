@@ -12,7 +12,8 @@ import { de_DescribeByoipCidrsCommand, se_DescribeByoipCidrsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

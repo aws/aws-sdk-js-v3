@@ -12,7 +12,8 @@ import { de_DeleteObjectCommand, se_DeleteObjectCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

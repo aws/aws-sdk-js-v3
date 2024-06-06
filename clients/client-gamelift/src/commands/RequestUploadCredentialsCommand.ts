@@ -16,7 +16,8 @@ import { de_RequestUploadCredentialsCommand, se_RequestUploadCredentialsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

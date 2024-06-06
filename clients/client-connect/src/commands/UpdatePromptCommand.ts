@@ -12,7 +12,8 @@ import { de_UpdatePromptCommand, se_UpdatePromptCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

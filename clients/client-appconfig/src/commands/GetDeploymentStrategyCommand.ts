@@ -12,7 +12,8 @@ import { de_GetDeploymentStrategyCommand, se_GetDeploymentStrategyCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

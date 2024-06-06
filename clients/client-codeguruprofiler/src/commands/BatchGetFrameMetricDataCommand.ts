@@ -12,7 +12,8 @@ import { de_BatchGetFrameMetricDataCommand, se_BatchGetFrameMetricDataCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

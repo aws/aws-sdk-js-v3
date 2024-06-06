@@ -12,7 +12,8 @@ import { de_DeleteViewCommand, se_DeleteViewCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

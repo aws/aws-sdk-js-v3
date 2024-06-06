@@ -12,7 +12,8 @@ import { de_ListRuleBasedMatchesCommand, se_ListRuleBasedMatchesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

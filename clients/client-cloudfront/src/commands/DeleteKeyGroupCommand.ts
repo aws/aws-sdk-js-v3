@@ -12,7 +12,8 @@ import { de_DeleteKeyGroupCommand, se_DeleteKeyGroupCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

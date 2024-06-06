@@ -12,7 +12,8 @@ import { de_AssociateFileSystemAliasesCommand, se_AssociateFileSystemAliasesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

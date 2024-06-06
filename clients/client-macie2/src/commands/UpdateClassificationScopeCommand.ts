@@ -12,7 +12,8 @@ import { de_UpdateClassificationScopeCommand, se_UpdateClassificationScopeComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

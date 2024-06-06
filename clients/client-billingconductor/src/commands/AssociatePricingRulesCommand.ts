@@ -12,7 +12,8 @@ import { de_AssociatePricingRulesCommand, se_AssociatePricingRulesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

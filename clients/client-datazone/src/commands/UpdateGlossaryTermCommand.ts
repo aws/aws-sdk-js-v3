@@ -17,7 +17,8 @@ import { de_UpdateGlossaryTermCommand, se_UpdateGlossaryTermCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

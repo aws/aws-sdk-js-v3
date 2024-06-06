@@ -16,7 +16,8 @@ import { de_GetInstanceAccessCommand, se_GetInstanceAccessCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

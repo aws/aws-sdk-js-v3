@@ -12,7 +12,8 @@ import { de_DeleteContainerImageCommand, se_DeleteContainerImageCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

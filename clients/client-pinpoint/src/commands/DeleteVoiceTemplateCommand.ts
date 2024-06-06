@@ -12,7 +12,8 @@ import { de_DeleteVoiceTemplateCommand, se_DeleteVoiceTemplateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

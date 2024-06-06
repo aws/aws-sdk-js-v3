@@ -16,7 +16,8 @@ import { de_CreateTrafficPolicyCommand, se_CreateTrafficPolicyCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

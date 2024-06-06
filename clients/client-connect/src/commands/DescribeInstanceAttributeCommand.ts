@@ -12,7 +12,8 @@ import { de_DescribeInstanceAttributeCommand, se_DescribeInstanceAttributeComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

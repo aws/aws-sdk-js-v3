@@ -12,7 +12,8 @@ import { de_DescribeAccountHealthCommand, se_DescribeAccountHealthCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

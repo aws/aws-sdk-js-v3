@@ -16,7 +16,8 @@ import { de_StartApplicationCommand, se_StartApplicationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

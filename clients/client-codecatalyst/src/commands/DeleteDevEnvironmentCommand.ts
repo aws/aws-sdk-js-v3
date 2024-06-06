@@ -12,7 +12,8 @@ import { de_DeleteDevEnvironmentCommand, se_DeleteDevEnvironmentCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

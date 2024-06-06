@@ -12,7 +12,8 @@ import { de_AssociateRoleToGroupCommand, se_AssociateRoleToGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

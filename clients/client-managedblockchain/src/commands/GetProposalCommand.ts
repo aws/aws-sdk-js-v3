@@ -16,7 +16,8 @@ import { de_GetProposalCommand, se_GetProposalCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

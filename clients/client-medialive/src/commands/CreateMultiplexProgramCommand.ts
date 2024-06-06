@@ -12,7 +12,8 @@ import { de_CreateMultiplexProgramCommand, se_CreateMultiplexProgramCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

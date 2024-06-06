@@ -12,7 +12,8 @@ import { de_DeleteVpcConnectionCommand, se_DeleteVpcConnectionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

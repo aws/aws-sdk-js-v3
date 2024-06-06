@@ -12,7 +12,8 @@ import { de_CancelOpenCypherQueryCommand, se_CancelOpenCypherQueryCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

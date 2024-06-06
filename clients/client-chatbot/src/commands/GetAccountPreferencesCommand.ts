@@ -12,7 +12,8 @@ import { de_GetAccountPreferencesCommand, se_GetAccountPreferencesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

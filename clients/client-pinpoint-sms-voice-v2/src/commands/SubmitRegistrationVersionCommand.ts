@@ -16,7 +16,8 @@ import { de_SubmitRegistrationVersionCommand, se_SubmitRegistrationVersionComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

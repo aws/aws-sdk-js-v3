@@ -16,7 +16,8 @@ import { de_CreateHomeRegionControlCommand, se_CreateHomeRegionControlCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

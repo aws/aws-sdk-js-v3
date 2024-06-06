@@ -12,7 +12,8 @@ import { de_GetCoverageStatisticsCommand, se_GetCoverageStatisticsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

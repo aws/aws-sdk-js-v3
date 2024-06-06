@@ -12,7 +12,8 @@ import { de_GetCoreDefinitionVersionCommand, se_GetCoreDefinitionVersionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

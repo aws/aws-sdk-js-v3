@@ -12,7 +12,8 @@ import { de_CopyDBClusterParameterGroupCommand, se_CopyDBClusterParameterGroupCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

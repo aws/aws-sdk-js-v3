@@ -12,7 +12,8 @@ import { de_ListEncoderConfigurationsCommand, se_ListEncoderConfigurationsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

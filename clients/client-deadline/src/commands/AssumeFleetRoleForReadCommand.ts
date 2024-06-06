@@ -16,7 +16,8 @@ import { de_AssumeFleetRoleForReadCommand, se_AssumeFleetRoleForReadCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

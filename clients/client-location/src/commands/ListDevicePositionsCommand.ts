@@ -17,7 +17,8 @@ import { de_ListDevicePositionsCommand, se_ListDevicePositionsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

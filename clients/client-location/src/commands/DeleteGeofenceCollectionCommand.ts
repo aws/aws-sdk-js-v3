@@ -12,7 +12,8 @@ import { de_DeleteGeofenceCollectionCommand, se_DeleteGeofenceCollectionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

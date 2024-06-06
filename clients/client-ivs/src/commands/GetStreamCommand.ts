@@ -12,7 +12,8 @@ import { de_GetStreamCommand, se_GetStreamCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

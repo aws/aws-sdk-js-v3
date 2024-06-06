@@ -12,7 +12,8 @@ import { de_BatchPutPropertyValuesCommand, se_BatchPutPropertyValuesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

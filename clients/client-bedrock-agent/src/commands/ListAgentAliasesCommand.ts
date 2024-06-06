@@ -12,7 +12,8 @@ import { de_ListAgentAliasesCommand, se_ListAgentAliasesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

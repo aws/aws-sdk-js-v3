@@ -17,7 +17,8 @@ import { de_CreatePackageVersionCommand, se_CreatePackageVersionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

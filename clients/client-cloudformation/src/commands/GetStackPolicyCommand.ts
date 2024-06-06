@@ -12,7 +12,8 @@ import { de_GetStackPolicyCommand, se_GetStackPolicyCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

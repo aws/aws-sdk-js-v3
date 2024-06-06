@@ -12,7 +12,8 @@ import { de_GetSupportedResourceTypesCommand, se_GetSupportedResourceTypesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

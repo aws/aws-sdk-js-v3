@@ -12,7 +12,8 @@ import { de_RemoveAutoTerminationPolicyCommand, se_RemoveAutoTerminationPolicyCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

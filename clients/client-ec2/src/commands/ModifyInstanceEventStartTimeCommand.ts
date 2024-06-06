@@ -12,7 +12,8 @@ import { de_ModifyInstanceEventStartTimeCommand, se_ModifyInstanceEventStartTime
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

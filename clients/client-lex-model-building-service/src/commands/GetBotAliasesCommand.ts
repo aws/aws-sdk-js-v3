@@ -16,7 +16,8 @@ import { de_GetBotAliasesCommand, se_GetBotAliasesCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

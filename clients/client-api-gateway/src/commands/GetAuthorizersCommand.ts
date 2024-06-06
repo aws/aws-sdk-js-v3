@@ -12,7 +12,8 @@ import { de_GetAuthorizersCommand, se_GetAuthorizersCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

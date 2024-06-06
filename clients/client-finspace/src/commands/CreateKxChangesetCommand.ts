@@ -12,7 +12,8 @@ import { de_CreateKxChangesetCommand, se_CreateKxChangesetCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

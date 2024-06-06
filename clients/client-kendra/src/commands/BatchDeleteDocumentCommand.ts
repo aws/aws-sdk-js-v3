@@ -12,7 +12,8 @@ import { de_BatchDeleteDocumentCommand, se_BatchDeleteDocumentCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

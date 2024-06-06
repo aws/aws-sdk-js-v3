@@ -12,7 +12,8 @@ import { de_DeleteEventTypeCommand, se_DeleteEventTypeCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

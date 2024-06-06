@@ -12,7 +12,8 @@ import { de_CreateClusterV2Command, se_CreateClusterV2Command } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

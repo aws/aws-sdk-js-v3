@@ -12,7 +12,8 @@ import { de_ListMetricValuesCommand, se_ListMetricValuesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

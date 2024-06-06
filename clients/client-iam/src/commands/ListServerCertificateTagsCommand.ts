@@ -12,7 +12,8 @@ import { de_ListServerCertificateTagsCommand, se_ListServerCertificateTagsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

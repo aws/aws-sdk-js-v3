@@ -12,7 +12,8 @@ import { de_ListBotResourceGenerationsCommand, se_ListBotResourceGenerationsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

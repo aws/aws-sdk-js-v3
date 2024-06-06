@@ -12,7 +12,8 @@ import { de_DeleteDestinationCommand, se_DeleteDestinationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

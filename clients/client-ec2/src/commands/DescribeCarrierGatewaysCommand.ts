@@ -12,7 +12,8 @@ import { de_DescribeCarrierGatewaysCommand, se_DescribeCarrierGatewaysCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

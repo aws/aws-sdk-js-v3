@@ -16,7 +16,8 @@ import { de_GetExportCommand, se_GetExportCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DetectStackSetDriftCommand, se_DetectStackSetDriftCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

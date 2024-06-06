@@ -12,7 +12,8 @@ import { de_DeleteSequenceStoreCommand, se_DeleteSequenceStoreCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CancelMetadataTransferJobCommand, se_CancelMetadataTransferJobComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

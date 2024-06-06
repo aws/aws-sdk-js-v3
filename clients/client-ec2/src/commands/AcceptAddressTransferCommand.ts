@@ -12,7 +12,8 @@ import { de_AcceptAddressTransferCommand, se_AcceptAddressTransferCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

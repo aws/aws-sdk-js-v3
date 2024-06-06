@@ -12,7 +12,8 @@ import { de_DeleteWorkerCommand, se_DeleteWorkerCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

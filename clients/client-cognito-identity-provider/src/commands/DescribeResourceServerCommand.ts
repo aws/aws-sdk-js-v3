@@ -16,7 +16,8 @@ import { de_DescribeResourceServerCommand, se_DescribeResourceServerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

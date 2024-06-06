@@ -12,7 +12,8 @@ import { de_DescribeReservedCacheNodesCommand, se_DescribeReservedCacheNodesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_MonitorContactCommand, se_MonitorContactCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

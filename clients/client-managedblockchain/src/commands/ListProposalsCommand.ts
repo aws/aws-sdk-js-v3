@@ -16,7 +16,8 @@ import { de_ListProposalsCommand, se_ListProposalsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateDatasourcePackagesCommand, se_UpdateDatasourcePackagesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteInstanceConnectEndpointCommand, se_DeleteInstanceConnectEndpoi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

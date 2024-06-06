@@ -12,7 +12,8 @@ import { de_DescribeEC2InstanceLimitsCommand, se_DescribeEC2InstanceLimitsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

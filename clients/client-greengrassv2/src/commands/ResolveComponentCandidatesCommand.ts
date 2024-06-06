@@ -12,7 +12,8 @@ import { de_ResolveComponentCandidatesCommand, se_ResolveComponentCandidatesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

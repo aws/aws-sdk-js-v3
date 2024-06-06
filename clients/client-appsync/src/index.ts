@@ -9,8 +9,8 @@
 export * from "./AppSyncClient";
 export * from "./AppSync";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { AppSyncExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { AppSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

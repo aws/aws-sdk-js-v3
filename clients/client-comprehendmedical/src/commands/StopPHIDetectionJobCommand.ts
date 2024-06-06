@@ -16,7 +16,8 @@ import { de_StopPHIDetectionJobCommand, se_StopPHIDetectionJobCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

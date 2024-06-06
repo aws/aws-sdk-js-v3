@@ -12,7 +12,8 @@ import { de_UpdateNodegroupConfigCommand, se_UpdateNodegroupConfigCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

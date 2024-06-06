@@ -12,7 +12,8 @@ import { de_DeleteCacheParameterGroupCommand, se_DeleteCacheParameterGroupComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_CreateGroupProfileCommand, se_CreateGroupProfileCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

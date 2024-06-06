@@ -12,7 +12,8 @@ import { de_DeleteSuiteDefinitionCommand, se_DeleteSuiteDefinitionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_restJson1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

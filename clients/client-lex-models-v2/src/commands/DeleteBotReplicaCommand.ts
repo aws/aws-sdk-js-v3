@@ -12,7 +12,8 @@ import { de_DeleteBotReplicaCommand, se_DeleteBotReplicaCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

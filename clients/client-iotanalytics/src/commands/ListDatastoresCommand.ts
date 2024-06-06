@@ -12,7 +12,8 @@ import { de_ListDatastoresCommand, se_ListDatastoresCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

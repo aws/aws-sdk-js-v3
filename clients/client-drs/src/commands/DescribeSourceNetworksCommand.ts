@@ -16,7 +16,8 @@ import { de_DescribeSourceNetworksCommand, se_DescribeSourceNetworksCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

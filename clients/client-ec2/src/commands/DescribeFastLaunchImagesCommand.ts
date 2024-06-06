@@ -12,7 +12,8 @@ import { de_DescribeFastLaunchImagesCommand, se_DescribeFastLaunchImagesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

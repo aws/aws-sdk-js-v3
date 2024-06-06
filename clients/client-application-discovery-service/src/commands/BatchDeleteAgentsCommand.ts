@@ -16,7 +16,8 @@ import { de_BatchDeleteAgentsCommand, se_BatchDeleteAgentsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

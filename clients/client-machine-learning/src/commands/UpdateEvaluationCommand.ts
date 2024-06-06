@@ -12,7 +12,8 @@ import { de_UpdateEvaluationCommand, se_UpdateEvaluationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

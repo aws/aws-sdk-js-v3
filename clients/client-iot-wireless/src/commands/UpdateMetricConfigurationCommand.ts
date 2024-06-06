@@ -12,7 +12,8 @@ import { de_UpdateMetricConfigurationCommand, se_UpdateMetricConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

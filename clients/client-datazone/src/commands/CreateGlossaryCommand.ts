@@ -17,7 +17,8 @@ import { de_CreateGlossaryCommand, se_CreateGlossaryCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

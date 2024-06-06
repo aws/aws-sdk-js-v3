@@ -12,7 +12,8 @@ import { de_DisableTopicRuleCommand, se_DisableTopicRuleCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

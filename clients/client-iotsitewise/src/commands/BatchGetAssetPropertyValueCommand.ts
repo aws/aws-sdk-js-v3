@@ -12,7 +12,8 @@ import { de_BatchGetAssetPropertyValueCommand, se_BatchGetAssetPropertyValueComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

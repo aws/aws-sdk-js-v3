@@ -12,7 +12,8 @@ import { de_DescribeDryRunProgressCommand, se_DescribeDryRunProgressCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

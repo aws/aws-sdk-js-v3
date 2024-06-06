@@ -12,7 +12,8 @@ import { de_AssignPrivateIpAddressesCommand, se_AssignPrivateIpAddressesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

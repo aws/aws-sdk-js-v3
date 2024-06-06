@@ -12,7 +12,8 @@ import { de_CreateCapacityProviderCommand, se_CreateCapacityProviderCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

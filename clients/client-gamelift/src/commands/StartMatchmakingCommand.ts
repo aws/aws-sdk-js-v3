@@ -17,7 +17,8 @@ import { de_StartMatchmakingCommand, se_StartMatchmakingCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

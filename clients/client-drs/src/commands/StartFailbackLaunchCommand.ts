@@ -17,7 +17,8 @@ import { de_StartFailbackLaunchCommand, se_StartFailbackLaunchCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

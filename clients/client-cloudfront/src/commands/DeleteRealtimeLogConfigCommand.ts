@@ -12,7 +12,8 @@ import { de_DeleteRealtimeLogConfigCommand, se_DeleteRealtimeLogConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

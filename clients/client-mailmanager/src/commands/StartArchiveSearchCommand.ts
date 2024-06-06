@@ -12,7 +12,8 @@ import { de_StartArchiveSearchCommand, se_StartArchiveSearchCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteAnalyzerCommand, se_DeleteAnalyzerCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

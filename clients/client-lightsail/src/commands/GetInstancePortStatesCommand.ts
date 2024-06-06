@@ -12,7 +12,8 @@ import { de_GetInstancePortStatesCommand, se_GetInstancePortStatesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

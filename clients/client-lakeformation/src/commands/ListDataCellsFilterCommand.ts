@@ -12,7 +12,8 @@ import { de_ListDataCellsFilterCommand, se_ListDataCellsFilterCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

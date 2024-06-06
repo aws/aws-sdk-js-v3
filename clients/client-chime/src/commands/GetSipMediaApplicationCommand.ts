@@ -16,7 +16,8 @@ import { de_GetSipMediaApplicationCommand, se_GetSipMediaApplicationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_query";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

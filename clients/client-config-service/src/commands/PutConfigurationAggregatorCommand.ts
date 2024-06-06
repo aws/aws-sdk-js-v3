@@ -12,7 +12,8 @@ import { de_PutConfigurationAggregatorCommand, se_PutConfigurationAggregatorComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

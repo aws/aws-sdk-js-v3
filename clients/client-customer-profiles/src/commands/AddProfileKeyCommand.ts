@@ -12,7 +12,8 @@ import { de_AddProfileKeyCommand, se_AddProfileKeyCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

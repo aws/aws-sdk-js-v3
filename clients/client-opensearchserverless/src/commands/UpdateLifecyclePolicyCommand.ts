@@ -16,7 +16,8 @@ import { de_UpdateLifecyclePolicyCommand, se_UpdateLifecyclePolicyCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

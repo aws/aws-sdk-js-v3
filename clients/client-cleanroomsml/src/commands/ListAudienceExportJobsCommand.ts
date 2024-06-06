@@ -12,7 +12,8 @@ import { de_ListAudienceExportJobsCommand, se_ListAudienceExportJobsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

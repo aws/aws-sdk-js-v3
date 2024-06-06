@@ -17,7 +17,8 @@ import { de_BatchDetectEntitiesCommand, se_BatchDetectEntitiesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_StopDataSourceSyncJobCommand, se_StopDataSourceSyncJobCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_ListEndpointGroupsCommand, se_ListEndpointGroupsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ValidateTemplateCommand, se_ValidateTemplateCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

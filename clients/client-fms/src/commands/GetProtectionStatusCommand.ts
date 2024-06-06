@@ -12,7 +12,8 @@ import { de_GetProtectionStatusCommand, se_GetProtectionStatusCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_CreateWhatIfAnalysisCommand, se_CreateWhatIfAnalysisCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

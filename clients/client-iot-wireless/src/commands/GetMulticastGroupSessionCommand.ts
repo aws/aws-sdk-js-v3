@@ -12,7 +12,8 @@ import { de_GetMulticastGroupSessionCommand, se_GetMulticastGroupSessionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

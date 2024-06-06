@@ -12,7 +12,8 @@ import { de_ListHsmsCommand, se_ListHsmsCommand } from "../protocols/Aws_json1_1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -21,7 +21,8 @@ import { de_CreateMediaCapturePipelineCommand, se_CreateMediaCapturePipelineComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

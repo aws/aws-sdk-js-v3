@@ -12,7 +12,8 @@ import { de_DescribeInterconnectsCommand, se_DescribeInterconnectsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

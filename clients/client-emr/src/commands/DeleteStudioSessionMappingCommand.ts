@@ -12,7 +12,8 @@ import { de_DeleteStudioSessionMappingCommand, se_DeleteStudioSessionMappingComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteResourceDefinitionCommand, se_DeleteResourceDefinitionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

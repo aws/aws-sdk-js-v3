@@ -12,7 +12,8 @@ import { de_DeleteQueueEnvironmentCommand, se_DeleteQueueEnvironmentCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

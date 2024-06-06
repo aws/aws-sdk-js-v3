@@ -16,7 +16,8 @@ import { de_GetVoiceToneAnalysisTaskCommand, se_GetVoiceToneAnalysisTaskCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdatePullRequestStatusCommand, se_UpdatePullRequestStatusCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

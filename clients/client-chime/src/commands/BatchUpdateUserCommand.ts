@@ -16,7 +16,8 @@ import { de_BatchUpdateUserCommand, se_BatchUpdateUserCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

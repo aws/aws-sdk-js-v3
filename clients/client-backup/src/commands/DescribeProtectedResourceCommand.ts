@@ -12,7 +12,8 @@ import { de_DescribeProtectedResourceCommand, se_DescribeProtectedResourceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

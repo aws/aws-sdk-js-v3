@@ -12,7 +12,8 @@ import { de_DescribeSubnetGroupsCommand, se_DescribeSubnetGroupsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

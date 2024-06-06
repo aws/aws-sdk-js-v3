@@ -12,7 +12,8 @@ import { de_GetCompatibleVersionsCommand, se_GetCompatibleVersionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

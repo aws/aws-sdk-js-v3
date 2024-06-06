@@ -12,7 +12,8 @@ import { de_AssociateUserProficienciesCommand, se_AssociateUserProficienciesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

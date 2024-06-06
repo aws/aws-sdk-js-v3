@@ -12,7 +12,8 @@ import { de_ListDomainAssociationsCommand, se_ListDomainAssociationsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

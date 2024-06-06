@@ -12,7 +12,8 @@ import { de_DescribeGameServerGroupCommand, se_DescribeGameServerGroupCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetRunCommand, se_GetRunCommand } from "../protocols/Aws_json1_1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

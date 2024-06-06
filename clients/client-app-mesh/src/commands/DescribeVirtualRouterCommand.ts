@@ -12,7 +12,8 @@ import { de_DescribeVirtualRouterCommand, se_DescribeVirtualRouterCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_StartChatContactCommand, se_StartChatContactCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

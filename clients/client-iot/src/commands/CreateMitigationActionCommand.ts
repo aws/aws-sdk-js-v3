@@ -12,7 +12,8 @@ import { de_CreateMitigationActionCommand, se_CreateMitigationActionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

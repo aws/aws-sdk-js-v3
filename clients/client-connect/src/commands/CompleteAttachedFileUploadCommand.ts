@@ -12,7 +12,8 @@ import { de_CompleteAttachedFileUploadCommand, se_CompleteAttachedFileUploadComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

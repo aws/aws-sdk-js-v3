@@ -12,7 +12,8 @@ import { de_SearchOrganizationInsightsCommand, se_SearchOrganizationInsightsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

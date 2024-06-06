@@ -12,7 +12,8 @@ import { de_CreateOrganizationalUnitCommand, se_CreateOrganizationalUnitCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

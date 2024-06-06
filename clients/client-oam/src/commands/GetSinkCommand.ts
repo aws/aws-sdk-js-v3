@@ -12,7 +12,8 @@ import { de_GetSinkCommand, se_GetSinkCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

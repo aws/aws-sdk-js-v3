@@ -12,7 +12,8 @@ import { de_RejectInboundConnectionCommand, se_RejectInboundConnectionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

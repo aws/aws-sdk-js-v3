@@ -12,7 +12,8 @@ import { de_UpdateCampaignDialerConfigCommand, se_UpdateCampaignDialerConfigComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

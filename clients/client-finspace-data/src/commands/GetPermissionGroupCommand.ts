@@ -16,7 +16,8 @@ import { de_GetPermissionGroupCommand, se_GetPermissionGroupCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

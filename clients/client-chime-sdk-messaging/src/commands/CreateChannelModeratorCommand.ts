@@ -20,7 +20,8 @@ import { de_CreateChannelModeratorCommand, se_CreateChannelModeratorCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

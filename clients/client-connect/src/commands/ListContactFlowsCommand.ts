@@ -12,7 +12,8 @@ import { de_ListContactFlowsCommand, se_ListContactFlowsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

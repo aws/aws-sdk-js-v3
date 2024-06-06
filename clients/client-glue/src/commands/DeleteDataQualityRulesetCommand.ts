@@ -12,7 +12,8 @@ import { de_DeleteDataQualityRulesetCommand, se_DeleteDataQualityRulesetCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

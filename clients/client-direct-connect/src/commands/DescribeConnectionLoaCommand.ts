@@ -12,7 +12,8 @@ import { de_DescribeConnectionLoaCommand, se_DescribeConnectionLoaCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

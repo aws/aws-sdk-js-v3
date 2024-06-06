@@ -12,7 +12,8 @@ import { de_CreateRelatedItemCommand, se_CreateRelatedItemCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

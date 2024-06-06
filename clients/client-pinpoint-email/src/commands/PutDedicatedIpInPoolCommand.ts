@@ -12,7 +12,8 @@ import { de_PutDedicatedIpInPoolCommand, se_PutDedicatedIpInPoolCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

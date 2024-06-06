@@ -16,7 +16,8 @@ import { de_DescribePlacementCommand, se_DescribePlacementCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_GetTokenBalanceCommand, se_GetTokenBalanceCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_EnableVpcClassicLinkCommand, se_EnableVpcClassicLinkCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

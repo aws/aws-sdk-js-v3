@@ -12,7 +12,8 @@ import { de_GetUnfilteredTableMetadataCommand, se_GetUnfilteredTableMetadataComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

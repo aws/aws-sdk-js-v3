@@ -12,7 +12,8 @@ import { de_UpdateFleetCapacityCommand, se_UpdateFleetCapacityCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

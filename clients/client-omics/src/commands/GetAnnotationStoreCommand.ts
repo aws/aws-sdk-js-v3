@@ -12,7 +12,8 @@ import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

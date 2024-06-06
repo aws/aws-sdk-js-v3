@@ -12,7 +12,8 @@ import { de_ProvisionPublicIpv4PoolCidrCommand, se_ProvisionPublicIpv4PoolCidrCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

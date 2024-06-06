@@ -12,7 +12,8 @@ import { de_StopConfigurationRecorderCommand, se_StopConfigurationRecorderComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

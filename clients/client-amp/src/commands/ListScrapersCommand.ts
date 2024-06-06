@@ -12,7 +12,8 @@ import { de_ListScrapersCommand, se_ListScrapersCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_StartStreamEncryptionCommand, se_StartStreamEncryptionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreateGlobalTableCommand, se_CreateGlobalTableCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

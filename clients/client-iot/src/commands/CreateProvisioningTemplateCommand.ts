@@ -12,7 +12,8 @@ import { de_CreateProvisioningTemplateCommand, se_CreateProvisioningTemplateComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

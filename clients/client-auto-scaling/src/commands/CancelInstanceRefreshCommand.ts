@@ -12,7 +12,8 @@ import { de_CancelInstanceRefreshCommand, se_CancelInstanceRefreshCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

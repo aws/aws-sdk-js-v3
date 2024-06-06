@@ -12,7 +12,8 @@ import { de_UpdateAgentKnowledgeBaseCommand, se_UpdateAgentKnowledgeBaseCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

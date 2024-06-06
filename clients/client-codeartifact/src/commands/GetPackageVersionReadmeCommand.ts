@@ -12,7 +12,8 @@ import { de_GetPackageVersionReadmeCommand, se_GetPackageVersionReadmeCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

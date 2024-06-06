@@ -12,7 +12,8 @@ import { de_DeleteVoiceProfileDomainCommand, se_DeleteVoiceProfileDomainCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

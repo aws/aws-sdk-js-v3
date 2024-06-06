@@ -16,7 +16,8 @@ import { de_UpdateAssessmentStatusCommand, se_UpdateAssessmentStatusCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

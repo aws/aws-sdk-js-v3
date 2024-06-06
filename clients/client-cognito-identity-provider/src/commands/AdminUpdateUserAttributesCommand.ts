@@ -20,7 +20,8 @@ import { de_AdminUpdateUserAttributesCommand, se_AdminUpdateUserAttributesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

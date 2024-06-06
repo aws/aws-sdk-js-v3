@@ -12,7 +12,8 @@ import { de_DeleteBlueprintCommand, se_DeleteBlueprintCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

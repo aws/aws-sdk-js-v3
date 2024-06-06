@@ -12,7 +12,8 @@ import { de_EnableKeyCommand, se_EnableKeyCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_ListSubscriptionTargetsCommand, se_ListSubscriptionTargetsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

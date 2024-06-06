@@ -12,7 +12,8 @@ import { de_ListPreparedStatementsCommand, se_ListPreparedStatementsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -18,7 +18,8 @@ import { de_StartConversationCommand, se_StartConversationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

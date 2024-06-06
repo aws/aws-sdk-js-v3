@@ -12,7 +12,8 @@ import { de_ListAgentKnowledgeBasesCommand, se_ListAgentKnowledgeBasesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_CreateLocationFsxOpenZfsCommand, se_CreateLocationFsxOpenZfsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

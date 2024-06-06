@@ -12,7 +12,8 @@ import { de_GetTermForReportCommand, se_GetTermForReportCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

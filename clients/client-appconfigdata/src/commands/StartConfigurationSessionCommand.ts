@@ -12,7 +12,8 @@ import { de_StartConfigurationSessionCommand, se_StartConfigurationSessionComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

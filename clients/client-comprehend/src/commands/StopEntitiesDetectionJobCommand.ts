@@ -12,7 +12,8 @@ import { de_StopEntitiesDetectionJobCommand, se_StopEntitiesDetectionJobCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

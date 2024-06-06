@@ -12,7 +12,8 @@ import { de_GetApiAssociationCommand, se_GetApiAssociationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

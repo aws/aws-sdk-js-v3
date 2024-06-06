@@ -12,7 +12,8 @@ import { de_DeleteRelationalDatabaseCommand, se_DeleteRelationalDatabaseCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

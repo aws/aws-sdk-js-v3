@@ -12,7 +12,8 @@ import { de_ListBackupPlansCommand, se_ListBackupPlansCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

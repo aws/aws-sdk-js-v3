@@ -12,7 +12,8 @@ import { de_ListUserProficienciesCommand, se_ListUserProficienciesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

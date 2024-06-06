@@ -20,7 +20,8 @@ import { de_CreateNotificationRuleCommand, se_CreateNotificationRuleCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

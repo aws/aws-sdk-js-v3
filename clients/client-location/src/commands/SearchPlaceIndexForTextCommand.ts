@@ -17,7 +17,8 @@ import { de_SearchPlaceIndexForTextCommand, se_SearchPlaceIndexForTextCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

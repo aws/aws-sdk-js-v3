@@ -12,7 +12,8 @@ import { de_DetachPrincipalPolicyCommand, se_DetachPrincipalPolicyCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

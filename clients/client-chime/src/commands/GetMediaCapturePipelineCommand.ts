@@ -16,7 +16,8 @@ import { de_GetMediaCapturePipelineCommand, se_GetMediaCapturePipelineCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

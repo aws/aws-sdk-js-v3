@@ -12,7 +12,8 @@ import { de_CreateRecipeJobCommand, se_CreateRecipeJobCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

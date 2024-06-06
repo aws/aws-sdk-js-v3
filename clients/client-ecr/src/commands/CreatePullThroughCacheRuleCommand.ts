@@ -12,7 +12,8 @@ import { de_CreatePullThroughCacheRuleCommand, se_CreatePullThroughCacheRuleComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

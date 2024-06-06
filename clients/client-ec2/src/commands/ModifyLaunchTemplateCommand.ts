@@ -12,7 +12,8 @@ import { de_ModifyLaunchTemplateCommand, se_ModifyLaunchTemplateCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

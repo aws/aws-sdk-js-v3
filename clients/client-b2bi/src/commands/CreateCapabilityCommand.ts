@@ -12,7 +12,8 @@ import { de_CreateCapabilityCommand, se_CreateCapabilityCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

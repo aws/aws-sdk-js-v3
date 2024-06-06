@@ -16,7 +16,8 @@ import { de_GetKeyCommand, se_GetKeyCommand } from "../protocols/Aws_json1_0";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

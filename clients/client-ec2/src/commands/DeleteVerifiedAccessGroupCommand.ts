@@ -12,7 +12,8 @@ import { de_DeleteVerifiedAccessGroupCommand, se_DeleteVerifiedAccessGroupComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

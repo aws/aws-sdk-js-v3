@@ -20,7 +20,8 @@ import { de_RotateTunnelAccessTokenCommand, se_RotateTunnelAccessTokenCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateAvailabilityOptionsCommand, se_UpdateAvailabilityOptionsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

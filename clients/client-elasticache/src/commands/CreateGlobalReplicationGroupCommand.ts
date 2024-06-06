@@ -12,7 +12,8 @@ import { de_CreateGlobalReplicationGroupCommand, se_CreateGlobalReplicationGroup
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

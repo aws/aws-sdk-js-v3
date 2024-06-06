@@ -12,7 +12,8 @@ import { de_CreateOriginEndpointCommand, se_CreateOriginEndpointCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

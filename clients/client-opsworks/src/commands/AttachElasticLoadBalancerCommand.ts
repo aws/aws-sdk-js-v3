@@ -12,7 +12,8 @@ import { de_AttachElasticLoadBalancerCommand, se_AttachElasticLoadBalancerComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

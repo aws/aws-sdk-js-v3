@@ -16,7 +16,8 @@ import { de_ListApplicationSnapshotsCommand, se_ListApplicationSnapshotsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteCapabilityCommand, se_DeleteCapabilityCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

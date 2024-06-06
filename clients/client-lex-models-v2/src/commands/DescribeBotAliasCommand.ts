@@ -12,7 +12,8 @@ import { de_DescribeBotAliasCommand, se_DescribeBotAliasCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

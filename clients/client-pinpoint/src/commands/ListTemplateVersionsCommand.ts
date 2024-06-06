@@ -12,7 +12,8 @@ import { de_ListTemplateVersionsCommand, se_ListTemplateVersionsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

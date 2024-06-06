@@ -17,7 +17,8 @@ import { de_UpdateFunctionCodeCommand, se_UpdateFunctionCodeCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

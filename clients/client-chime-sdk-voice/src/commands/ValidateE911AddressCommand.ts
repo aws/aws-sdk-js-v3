@@ -17,7 +17,8 @@ import { de_ValidateE911AddressCommand, se_ValidateE911AddressCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

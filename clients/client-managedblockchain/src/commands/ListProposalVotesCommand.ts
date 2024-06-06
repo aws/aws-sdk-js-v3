@@ -16,7 +16,8 @@ import { de_ListProposalVotesCommand, se_ListProposalVotesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

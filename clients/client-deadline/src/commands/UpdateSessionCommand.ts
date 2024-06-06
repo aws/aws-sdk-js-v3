@@ -12,7 +12,8 @@ import { de_UpdateSessionCommand, se_UpdateSessionCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

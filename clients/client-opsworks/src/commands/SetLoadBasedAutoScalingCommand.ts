@@ -12,7 +12,8 @@ import { de_SetLoadBasedAutoScalingCommand, se_SetLoadBasedAutoScalingCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

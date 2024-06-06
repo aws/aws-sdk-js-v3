@@ -12,7 +12,8 @@ import { de_ListTimeSeriesDataPointsCommand, se_ListTimeSeriesDataPointsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

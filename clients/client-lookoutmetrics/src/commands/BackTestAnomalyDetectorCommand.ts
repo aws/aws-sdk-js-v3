@@ -12,7 +12,8 @@ import { de_BackTestAnomalyDetectorCommand, se_BackTestAnomalyDetectorCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

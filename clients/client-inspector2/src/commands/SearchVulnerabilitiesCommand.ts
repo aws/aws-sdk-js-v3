@@ -12,7 +12,8 @@ import { de_SearchVulnerabilitiesCommand, se_SearchVulnerabilitiesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

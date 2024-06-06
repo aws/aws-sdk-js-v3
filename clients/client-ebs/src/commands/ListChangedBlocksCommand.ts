@@ -16,7 +16,8 @@ import { de_ListChangedBlocksCommand, se_ListChangedBlocksCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

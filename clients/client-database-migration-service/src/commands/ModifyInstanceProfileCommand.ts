@@ -16,7 +16,8 @@ import { de_ModifyInstanceProfileCommand, se_ModifyInstanceProfileCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreateEventDataStoreCommand, se_CreateEventDataStoreCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ListMitigationActionsCommand, se_ListMitigationActionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeConnectorCommand, se_DescribeConnectorCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

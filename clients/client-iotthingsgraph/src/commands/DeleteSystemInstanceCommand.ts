@@ -12,7 +12,8 @@ import { de_DeleteSystemInstanceCommand, se_DeleteSystemInstanceCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

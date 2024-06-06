@@ -12,7 +12,8 @@ import { de_DeleteSourceCredentialsCommand, se_DeleteSourceCredentialsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

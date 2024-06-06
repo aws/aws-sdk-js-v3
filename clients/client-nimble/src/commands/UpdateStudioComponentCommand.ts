@@ -17,7 +17,8 @@ import { de_UpdateStudioComponentCommand, se_UpdateStudioComponentCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

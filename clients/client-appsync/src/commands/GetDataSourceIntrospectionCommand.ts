@@ -12,7 +12,8 @@ import { de_GetDataSourceIntrospectionCommand, se_GetDataSourceIntrospectionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

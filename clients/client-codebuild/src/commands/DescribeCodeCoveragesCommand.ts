@@ -12,7 +12,8 @@ import { de_DescribeCodeCoveragesCommand, se_DescribeCodeCoveragesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_DeleteChannelMessageCommand, se_DeleteChannelMessageCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeTransitGatewaysCommand, se_DescribeTransitGatewaysCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

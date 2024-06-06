@@ -12,7 +12,8 @@ import { de_ListFunctionDefinitionsCommand, se_ListFunctionDefinitionsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

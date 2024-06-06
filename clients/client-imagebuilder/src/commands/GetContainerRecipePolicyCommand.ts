@@ -12,7 +12,8 @@ import { de_GetContainerRecipePolicyCommand, se_GetContainerRecipePolicyCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

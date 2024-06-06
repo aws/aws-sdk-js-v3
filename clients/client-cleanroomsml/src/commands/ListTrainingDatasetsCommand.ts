@@ -12,7 +12,8 @@ import { de_ListTrainingDatasetsCommand, se_ListTrainingDatasetsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

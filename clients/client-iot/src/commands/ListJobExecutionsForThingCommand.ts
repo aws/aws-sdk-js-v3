@@ -12,7 +12,8 @@ import { de_ListJobExecutionsForThingCommand, se_ListJobExecutionsForThingComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

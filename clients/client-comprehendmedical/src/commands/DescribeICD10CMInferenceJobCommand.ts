@@ -16,7 +16,8 @@ import { de_DescribeICD10CMInferenceJobCommand, se_DescribeICD10CMInferenceJobCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_DeleteReplicationConfigCommand, se_DeleteReplicationConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ListAssociatedStacksCommand, se_ListAssociatedStacksCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

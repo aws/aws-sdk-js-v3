@@ -12,7 +12,8 @@ import { de_GetWebhookCommand, se_GetWebhookCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_StartNotebookExecutionCommand, se_StartNotebookExecutionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

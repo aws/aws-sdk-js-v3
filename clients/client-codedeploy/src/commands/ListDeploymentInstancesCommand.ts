@@ -12,7 +12,8 @@ import { de_ListDeploymentInstancesCommand, se_ListDeploymentInstancesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

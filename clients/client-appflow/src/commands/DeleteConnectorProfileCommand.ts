@@ -12,7 +12,8 @@ import { de_DeleteConnectorProfileCommand, se_DeleteConnectorProfileCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

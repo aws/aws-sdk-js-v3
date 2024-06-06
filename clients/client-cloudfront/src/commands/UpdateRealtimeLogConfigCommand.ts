@@ -12,7 +12,8 @@ import { de_UpdateRealtimeLogConfigCommand, se_UpdateRealtimeLogConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

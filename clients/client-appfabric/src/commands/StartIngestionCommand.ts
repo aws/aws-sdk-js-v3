@@ -12,7 +12,8 @@ import { de_StartIngestionCommand, se_StartIngestionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

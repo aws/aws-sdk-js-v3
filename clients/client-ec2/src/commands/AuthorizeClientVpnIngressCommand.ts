@@ -12,7 +12,8 @@ import { de_AuthorizeClientVpnIngressCommand, se_AuthorizeClientVpnIngressComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

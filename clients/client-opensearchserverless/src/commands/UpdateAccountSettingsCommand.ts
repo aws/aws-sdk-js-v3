@@ -16,7 +16,8 @@ import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

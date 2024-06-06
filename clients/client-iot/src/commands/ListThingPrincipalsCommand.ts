@@ -12,7 +12,8 @@ import { de_ListThingPrincipalsCommand, se_ListThingPrincipalsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

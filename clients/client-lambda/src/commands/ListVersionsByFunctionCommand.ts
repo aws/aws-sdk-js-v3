@@ -16,7 +16,8 @@ import { de_ListVersionsByFunctionCommand, se_ListVersionsByFunctionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

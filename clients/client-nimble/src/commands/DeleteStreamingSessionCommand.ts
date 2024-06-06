@@ -12,7 +12,8 @@ import { de_DeleteStreamingSessionCommand, se_DeleteStreamingSessionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

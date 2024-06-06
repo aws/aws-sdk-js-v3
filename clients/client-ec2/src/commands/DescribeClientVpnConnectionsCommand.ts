@@ -12,7 +12,8 @@ import { de_DescribeClientVpnConnectionsCommand, se_DescribeClientVpnConnections
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_ModifyTrustStoreCommand, se_ModifyTrustStoreCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

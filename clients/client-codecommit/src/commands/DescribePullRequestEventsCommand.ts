@@ -12,7 +12,8 @@ import { de_DescribePullRequestEventsCommand, se_DescribePullRequestEventsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

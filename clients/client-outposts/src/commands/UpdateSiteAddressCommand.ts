@@ -12,7 +12,8 @@ import { de_UpdateSiteAddressCommand, se_UpdateSiteAddressCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

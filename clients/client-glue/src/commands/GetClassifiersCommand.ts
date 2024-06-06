@@ -12,7 +12,8 @@ import { de_GetClassifiersCommand, se_GetClassifiersCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

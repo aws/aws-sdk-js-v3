@@ -12,7 +12,8 @@ import { de_ListProgressUpdateStreamsCommand, se_ListProgressUpdateStreamsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

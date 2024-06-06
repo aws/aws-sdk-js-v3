@@ -12,7 +12,8 @@ import { de_EnableControlCommand, se_EnableControlCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

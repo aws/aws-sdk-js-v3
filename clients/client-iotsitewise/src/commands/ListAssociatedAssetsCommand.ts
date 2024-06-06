@@ -12,7 +12,8 @@ import { de_ListAssociatedAssetsCommand, se_ListAssociatedAssetsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

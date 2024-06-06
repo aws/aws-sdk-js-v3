@@ -12,7 +12,8 @@ import { de_StopQueryCommand, se_StopQueryCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

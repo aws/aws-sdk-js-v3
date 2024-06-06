@@ -12,7 +12,8 @@ import { de_GetRestApisCommand, se_GetRestApisCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

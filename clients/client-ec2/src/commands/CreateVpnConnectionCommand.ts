@@ -17,7 +17,8 @@ import { de_CreateVpnConnectionCommand, se_CreateVpnConnectionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

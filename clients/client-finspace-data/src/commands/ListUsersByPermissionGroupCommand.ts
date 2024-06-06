@@ -16,7 +16,8 @@ import { de_ListUsersByPermissionGroupCommand, se_ListUsersByPermissionGroupComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

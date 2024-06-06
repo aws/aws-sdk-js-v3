@@ -16,7 +16,8 @@ import { de_StartMetadataModelImportCommand, se_StartMetadataModelImportCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

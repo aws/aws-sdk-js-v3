@@ -16,7 +16,8 @@ import { de_AssumeQueueRoleForWorkerCommand, se_AssumeQueueRoleForWorkerCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

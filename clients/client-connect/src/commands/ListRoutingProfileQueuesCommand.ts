@@ -12,7 +12,8 @@ import { de_ListRoutingProfileQueuesCommand, se_ListRoutingProfileQueuesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

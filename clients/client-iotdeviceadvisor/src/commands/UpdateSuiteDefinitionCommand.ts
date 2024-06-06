@@ -12,7 +12,8 @@ import { de_UpdateSuiteDefinitionCommand, se_UpdateSuiteDefinitionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

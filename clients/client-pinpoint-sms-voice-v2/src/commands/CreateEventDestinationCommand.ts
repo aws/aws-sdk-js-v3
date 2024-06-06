@@ -16,7 +16,8 @@ import { de_CreateEventDestinationCommand, se_CreateEventDestinationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ModifyAddressAttributeCommand, se_ModifyAddressAttributeCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

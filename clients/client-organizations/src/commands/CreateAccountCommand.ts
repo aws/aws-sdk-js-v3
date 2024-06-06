@@ -17,7 +17,8 @@ import { de_CreateAccountCommand, se_CreateAccountCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

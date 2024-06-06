@@ -12,7 +12,8 @@ import { de_DescribeCertificatesCommand, se_DescribeCertificatesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

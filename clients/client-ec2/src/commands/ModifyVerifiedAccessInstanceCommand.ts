@@ -12,7 +12,8 @@ import { de_ModifyVerifiedAccessInstanceCommand, se_ModifyVerifiedAccessInstance
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

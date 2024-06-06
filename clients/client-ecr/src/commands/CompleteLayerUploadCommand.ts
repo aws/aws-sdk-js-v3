@@ -12,7 +12,8 @@ import { de_CompleteLayerUploadCommand, se_CompleteLayerUploadCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetApnsVoipChannelCommand, se_GetApnsVoipChannelCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

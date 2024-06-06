@@ -12,7 +12,8 @@ import { de_CreateDatasetContentCommand, se_CreateDatasetContentCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

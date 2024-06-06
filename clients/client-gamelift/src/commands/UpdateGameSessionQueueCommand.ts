@@ -12,7 +12,8 @@ import { de_UpdateGameSessionQueueCommand, se_UpdateGameSessionQueueCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

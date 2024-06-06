@@ -12,7 +12,8 @@ import { de_UploadEntityDefinitionsCommand, se_UploadEntityDefinitionsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

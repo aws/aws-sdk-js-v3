@@ -12,7 +12,8 @@ import { de_DescribeBulkImportJobCommand, se_DescribeBulkImportJobCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

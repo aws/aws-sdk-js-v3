@@ -12,7 +12,8 @@ import { de_EnableEnhancedMonitoringCommand, se_EnableEnhancedMonitoringCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

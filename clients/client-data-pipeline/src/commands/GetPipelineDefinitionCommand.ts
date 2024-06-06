@@ -12,7 +12,8 @@ import { de_GetPipelineDefinitionCommand, se_GetPipelineDefinitionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

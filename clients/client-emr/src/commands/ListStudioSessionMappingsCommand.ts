@@ -12,7 +12,8 @@ import { de_ListStudioSessionMappingsCommand, se_ListStudioSessionMappingsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

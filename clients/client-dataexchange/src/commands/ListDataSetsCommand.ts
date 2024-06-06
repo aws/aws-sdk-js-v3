@@ -12,7 +12,8 @@ import { de_ListDataSetsCommand, se_ListDataSetsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

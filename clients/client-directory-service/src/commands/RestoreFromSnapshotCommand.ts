@@ -12,7 +12,8 @@ import { de_RestoreFromSnapshotCommand, se_RestoreFromSnapshotCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

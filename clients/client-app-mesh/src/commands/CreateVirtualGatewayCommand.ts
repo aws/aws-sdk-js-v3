@@ -12,7 +12,8 @@ import { de_CreateVirtualGatewayCommand, se_CreateVirtualGatewayCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

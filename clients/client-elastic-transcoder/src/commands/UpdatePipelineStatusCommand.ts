@@ -16,7 +16,8 @@ import { de_UpdatePipelineStatusCommand, se_UpdatePipelineStatusCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

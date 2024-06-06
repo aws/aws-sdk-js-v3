@@ -12,7 +12,8 @@ import { de_DeleteClassifierCommand, se_DeleteClassifierCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_GetVoiceConnectorProxyCommand, se_GetVoiceConnectorProxyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

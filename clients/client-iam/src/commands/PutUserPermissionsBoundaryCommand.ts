@@ -12,7 +12,8 @@ import { de_PutUserPermissionsBoundaryCommand, se_PutUserPermissionsBoundaryComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

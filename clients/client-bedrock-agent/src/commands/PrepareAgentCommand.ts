@@ -12,7 +12,8 @@ import { de_PrepareAgentCommand, se_PrepareAgentCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

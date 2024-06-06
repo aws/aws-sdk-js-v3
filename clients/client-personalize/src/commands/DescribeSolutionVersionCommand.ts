@@ -12,7 +12,8 @@ import { de_DescribeSolutionVersionCommand, se_DescribeSolutionVersionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

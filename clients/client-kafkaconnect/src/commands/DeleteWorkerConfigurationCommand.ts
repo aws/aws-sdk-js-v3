@@ -12,7 +12,8 @@ import { de_DeleteWorkerConfigurationCommand, se_DeleteWorkerConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

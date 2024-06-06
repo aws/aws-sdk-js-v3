@@ -12,7 +12,8 @@ import { de_ListVehiclesInFleetCommand, se_ListVehiclesInFleetCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

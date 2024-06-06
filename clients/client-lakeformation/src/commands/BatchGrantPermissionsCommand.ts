@@ -12,7 +12,8 @@ import { de_BatchGrantPermissionsCommand, se_BatchGrantPermissionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

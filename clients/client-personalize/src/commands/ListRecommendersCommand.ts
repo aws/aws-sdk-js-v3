@@ -12,7 +12,8 @@ import { de_ListRecommendersCommand, se_ListRecommendersCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

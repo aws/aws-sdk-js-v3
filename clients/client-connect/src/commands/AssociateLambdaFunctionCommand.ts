@@ -12,7 +12,8 @@ import { de_AssociateLambdaFunctionCommand, se_AssociateLambdaFunctionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeApiDestinationCommand, se_DescribeApiDestinationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

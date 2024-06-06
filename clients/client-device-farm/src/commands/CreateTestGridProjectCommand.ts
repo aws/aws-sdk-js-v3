@@ -12,7 +12,8 @@ import { de_CreateTestGridProjectCommand, se_CreateTestGridProjectCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

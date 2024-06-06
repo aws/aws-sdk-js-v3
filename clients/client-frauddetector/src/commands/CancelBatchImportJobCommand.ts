@@ -12,7 +12,8 @@ import { de_CancelBatchImportJobCommand, se_CancelBatchImportJobCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

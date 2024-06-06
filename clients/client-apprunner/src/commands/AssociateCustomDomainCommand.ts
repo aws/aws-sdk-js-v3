@@ -12,7 +12,8 @@ import { de_AssociateCustomDomainCommand, se_AssociateCustomDomainCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

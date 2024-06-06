@@ -12,7 +12,8 @@ import { de_StopMonitoringMembersCommand, se_StopMonitoringMembersCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

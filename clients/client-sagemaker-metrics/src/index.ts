@@ -16,8 +16,8 @@
 export * from "./SageMakerMetricsClient";
 export * from "./SageMakerMetrics";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { SageMakerMetricsExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { SageMakerMetricsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

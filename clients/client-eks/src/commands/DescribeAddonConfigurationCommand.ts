@@ -12,7 +12,8 @@ import { de_DescribeAddonConfigurationCommand, se_DescribeAddonConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

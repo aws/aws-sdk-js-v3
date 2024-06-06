@@ -16,7 +16,8 @@ import { de_DeactivateDeviceIdentifierCommand, se_DeactivateDeviceIdentifierComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

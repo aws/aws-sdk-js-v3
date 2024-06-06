@@ -8,8 +8,8 @@
 export * from "./MarketplaceDeploymentClient";
 export * from "./MarketplaceDeployment";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { MarketplaceDeploymentExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { MarketplaceDeploymentExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

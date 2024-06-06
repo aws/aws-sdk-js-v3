@@ -12,7 +12,8 @@ import { de_CreateWirelessGatewayTaskCommand, se_CreateWirelessGatewayTaskComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

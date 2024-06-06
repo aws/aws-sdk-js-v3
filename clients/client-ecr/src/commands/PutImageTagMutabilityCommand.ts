@@ -12,7 +12,8 @@ import { de_PutImageTagMutabilityCommand, se_PutImageTagMutabilityCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

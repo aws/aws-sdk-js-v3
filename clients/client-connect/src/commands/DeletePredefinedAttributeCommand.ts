@@ -12,7 +12,8 @@ import { de_DeletePredefinedAttributeCommand, se_DeletePredefinedAttributeComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

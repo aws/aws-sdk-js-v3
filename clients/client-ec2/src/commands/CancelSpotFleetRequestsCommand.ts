@@ -12,7 +12,8 @@ import { de_CancelSpotFleetRequestsCommand, se_CancelSpotFleetRequestsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetDelegatedAdminAccountCommand, se_GetDelegatedAdminAccountCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_CreateLocationFsxOntapCommand, se_CreateLocationFsxOntapCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

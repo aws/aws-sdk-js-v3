@@ -12,7 +12,8 @@ import { de_DescribeAccountPoliciesCommand, se_DescribeAccountPoliciesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

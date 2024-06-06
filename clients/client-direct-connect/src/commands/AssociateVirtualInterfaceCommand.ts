@@ -12,7 +12,8 @@ import { de_AssociateVirtualInterfaceCommand, se_AssociateVirtualInterfaceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

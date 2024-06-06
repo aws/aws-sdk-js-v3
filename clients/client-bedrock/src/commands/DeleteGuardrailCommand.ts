@@ -12,7 +12,8 @@ import { de_DeleteGuardrailCommand, se_DeleteGuardrailCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_AddAttributesToFindingsCommand, se_AddAttributesToFindingsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

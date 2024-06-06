@@ -12,7 +12,8 @@ import { de_RegisterPackageVersionCommand, se_RegisterPackageVersionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

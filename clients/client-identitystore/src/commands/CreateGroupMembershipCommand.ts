@@ -12,7 +12,8 @@ import { de_CreateGroupMembershipCommand, se_CreateGroupMembershipCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

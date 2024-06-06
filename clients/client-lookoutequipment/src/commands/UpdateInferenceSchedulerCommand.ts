@@ -12,7 +12,8 @@ import { de_UpdateInferenceSchedulerCommand, se_UpdateInferenceSchedulerCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

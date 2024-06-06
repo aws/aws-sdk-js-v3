@@ -12,7 +12,8 @@ import { de_UpdateRelayCommand, se_UpdateRelayCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_RemoveSourceServerActionCommand, se_RemoveSourceServerActionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

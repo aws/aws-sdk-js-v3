@@ -12,7 +12,8 @@ import { de_GetCachePolicyConfigCommand, se_GetCachePolicyConfigCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

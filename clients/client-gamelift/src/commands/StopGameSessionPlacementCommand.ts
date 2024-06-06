@@ -16,7 +16,8 @@ import { de_StopGameSessionPlacementCommand, se_StopGameSessionPlacementCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

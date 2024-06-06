@@ -12,7 +12,8 @@ import { de_ListResourceTagsCommand, se_ListResourceTagsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

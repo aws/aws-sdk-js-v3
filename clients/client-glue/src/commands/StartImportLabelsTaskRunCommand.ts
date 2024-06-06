@@ -12,7 +12,8 @@ import { de_StartImportLabelsTaskRunCommand, se_StartImportLabelsTaskRunCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

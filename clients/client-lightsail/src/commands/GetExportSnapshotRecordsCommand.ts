@@ -12,7 +12,8 @@ import { de_GetExportSnapshotRecordsCommand, se_GetExportSnapshotRecordsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

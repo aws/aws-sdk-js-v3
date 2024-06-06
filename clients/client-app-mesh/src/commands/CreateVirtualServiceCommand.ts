@@ -12,7 +12,8 @@ import { de_CreateVirtualServiceCommand, se_CreateVirtualServiceCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

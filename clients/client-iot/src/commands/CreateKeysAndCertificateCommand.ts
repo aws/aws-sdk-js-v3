@@ -16,7 +16,8 @@ import { de_CreateKeysAndCertificateCommand, se_CreateKeysAndCertificateCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

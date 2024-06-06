@@ -12,7 +12,8 @@ import { de_CreateServerlessCacheCommand, se_CreateServerlessCacheCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_AuthorizeSecurityGroupEgressCommand, se_AuthorizeSecurityGroupEgress
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

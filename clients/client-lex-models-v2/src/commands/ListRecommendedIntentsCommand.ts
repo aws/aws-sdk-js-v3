@@ -12,7 +12,8 @@ import { de_ListRecommendedIntentsCommand, se_ListRecommendedIntentsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteBotCommand, se_DeleteBotCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

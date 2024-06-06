@@ -16,7 +16,8 @@ import { de_DescribeInstanceHealthCommand, se_DescribeInstanceHealthCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

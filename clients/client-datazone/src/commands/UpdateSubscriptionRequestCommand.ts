@@ -17,7 +17,8 @@ import { de_UpdateSubscriptionRequestCommand, se_UpdateSubscriptionRequestComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

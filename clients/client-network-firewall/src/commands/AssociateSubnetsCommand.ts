@@ -12,7 +12,8 @@ import { de_AssociateSubnetsCommand, se_AssociateSubnetsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

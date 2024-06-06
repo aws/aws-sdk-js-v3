@@ -12,7 +12,8 @@ import { de_ListFleetMetricsCommand, se_ListFleetMetricsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

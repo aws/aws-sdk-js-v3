@@ -12,7 +12,8 @@ import { de_ModifySubnetAttributeCommand, se_ModifySubnetAttributeCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

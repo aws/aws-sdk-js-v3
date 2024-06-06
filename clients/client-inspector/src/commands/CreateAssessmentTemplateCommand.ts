@@ -12,7 +12,8 @@ import { de_CreateAssessmentTemplateCommand, se_CreateAssessmentTemplateCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_SearchGroupProfilesCommand, se_SearchGroupProfilesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

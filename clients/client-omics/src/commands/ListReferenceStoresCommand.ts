@@ -12,7 +12,8 @@ import { de_ListReferenceStoresCommand, se_ListReferenceStoresCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

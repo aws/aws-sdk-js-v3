@@ -12,7 +12,8 @@ import { de_UpdateQueueStatusCommand, se_UpdateQueueStatusCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

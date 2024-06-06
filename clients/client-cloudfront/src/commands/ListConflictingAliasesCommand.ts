@@ -12,7 +12,8 @@ import { de_ListConflictingAliasesCommand, se_ListConflictingAliasesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

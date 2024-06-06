@@ -12,7 +12,8 @@ import { de_AssociateThirdPartyFirewallCommand, se_AssociateThirdPartyFirewallCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

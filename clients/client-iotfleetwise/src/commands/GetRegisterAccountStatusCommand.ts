@@ -12,7 +12,8 @@ import { de_GetRegisterAccountStatusCommand, se_GetRegisterAccountStatusCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

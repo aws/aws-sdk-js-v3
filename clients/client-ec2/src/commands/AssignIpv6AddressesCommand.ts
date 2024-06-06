@@ -12,7 +12,8 @@ import { de_AssignIpv6AddressesCommand, se_AssignIpv6AddressesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

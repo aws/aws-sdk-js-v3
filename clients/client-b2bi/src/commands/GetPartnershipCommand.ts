@@ -16,7 +16,8 @@ import { de_GetPartnershipCommand, se_GetPartnershipCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

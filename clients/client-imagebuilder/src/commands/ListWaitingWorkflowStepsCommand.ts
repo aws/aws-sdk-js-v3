@@ -12,7 +12,8 @@ import { de_ListWaitingWorkflowStepsCommand, se_ListWaitingWorkflowStepsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

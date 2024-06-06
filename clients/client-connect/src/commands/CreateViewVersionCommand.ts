@@ -16,7 +16,8 @@ import { de_CreateViewVersionCommand, se_CreateViewVersionCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ListDevelopmentSchemaArnsCommand, se_ListDevelopmentSchemaArnsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

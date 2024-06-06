@@ -12,7 +12,8 @@ import { de_ListPhoneNumbersV2Command, se_ListPhoneNumbersV2Command } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

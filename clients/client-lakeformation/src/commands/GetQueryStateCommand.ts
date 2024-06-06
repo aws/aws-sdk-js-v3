@@ -12,7 +12,8 @@ import { de_GetQueryStateCommand, se_GetQueryStateCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

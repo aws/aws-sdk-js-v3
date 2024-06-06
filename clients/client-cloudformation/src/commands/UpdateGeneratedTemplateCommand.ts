@@ -12,7 +12,8 @@ import { de_UpdateGeneratedTemplateCommand, se_UpdateGeneratedTemplateCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

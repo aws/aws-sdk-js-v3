@@ -12,7 +12,8 @@ import { de_UpdateImagePermissionsCommand, se_UpdateImagePermissionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

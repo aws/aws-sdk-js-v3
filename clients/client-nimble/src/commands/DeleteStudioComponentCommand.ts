@@ -16,7 +16,8 @@ import { de_DeleteStudioComponentCommand, se_DeleteStudioComponentCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

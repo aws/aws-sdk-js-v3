@@ -12,7 +12,8 @@ import { de_CreateMatchingWorkflowCommand, se_CreateMatchingWorkflowCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

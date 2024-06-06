@@ -12,7 +12,8 @@ import { de_SearchTransitGatewayRoutesCommand, se_SearchTransitGatewayRoutesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

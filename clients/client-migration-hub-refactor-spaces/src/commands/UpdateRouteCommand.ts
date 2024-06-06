@@ -16,7 +16,8 @@ import { de_UpdateRouteCommand, se_UpdateRouteCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

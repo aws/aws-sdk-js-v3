@@ -12,7 +12,8 @@ import { de_ListInputDevicesCommand, se_ListInputDevicesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

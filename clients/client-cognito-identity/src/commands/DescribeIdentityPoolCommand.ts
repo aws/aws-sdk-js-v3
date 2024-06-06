@@ -12,7 +12,8 @@ import { de_DescribeIdentityPoolCommand, se_DescribeIdentityPoolCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

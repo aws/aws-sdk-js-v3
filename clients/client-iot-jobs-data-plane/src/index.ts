@@ -18,8 +18,8 @@
 export * from "./IoTJobsDataPlaneClient";
 export * from "./IoTJobsDataPlane";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { IoTJobsDataPlaneExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { IoTJobsDataPlaneExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

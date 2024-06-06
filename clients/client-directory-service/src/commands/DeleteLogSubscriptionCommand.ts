@@ -12,7 +12,8 @@ import { de_DeleteLogSubscriptionCommand, se_DeleteLogSubscriptionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

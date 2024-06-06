@@ -12,7 +12,8 @@ import { de_DescribeTestSetGenerationCommand, se_DescribeTestSetGenerationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

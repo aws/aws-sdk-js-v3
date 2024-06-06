@@ -12,7 +12,8 @@ import { de_CreateDataSourceFromS3Command, se_CreateDataSourceFromS3Command } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CopyImageCommand, se_CopyImageCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

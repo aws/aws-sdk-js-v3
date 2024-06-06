@@ -12,7 +12,8 @@ import { de_UpdateProfilingGroupCommand, se_UpdateProfilingGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetVehicleStatusCommand, se_GetVehicleStatusCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

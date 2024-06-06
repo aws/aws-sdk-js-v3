@@ -16,7 +16,8 @@ import { de_DescribeSenderIdsCommand, se_DescribeSenderIdsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

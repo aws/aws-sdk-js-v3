@@ -12,7 +12,8 @@ import { de_DeleteDocumentationPartCommand, se_DeleteDocumentationPartCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

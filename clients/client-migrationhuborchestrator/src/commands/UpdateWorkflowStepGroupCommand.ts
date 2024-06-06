@@ -16,7 +16,8 @@ import { de_UpdateWorkflowStepGroupCommand, se_UpdateWorkflowStepGroupCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

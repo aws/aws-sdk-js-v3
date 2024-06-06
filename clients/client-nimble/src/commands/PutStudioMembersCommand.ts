@@ -12,7 +12,8 @@ import { de_PutStudioMembersCommand, se_PutStudioMembersCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetDefaultCreditSpecificationCommand, se_GetDefaultCreditSpecificati
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

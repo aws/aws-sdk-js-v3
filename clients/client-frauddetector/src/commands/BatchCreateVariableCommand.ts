@@ -12,7 +12,8 @@ import { de_BatchCreateVariableCommand, se_BatchCreateVariableCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

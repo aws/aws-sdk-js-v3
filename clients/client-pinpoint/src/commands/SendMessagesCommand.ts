@@ -12,7 +12,8 @@ import { de_SendMessagesCommand, se_SendMessagesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

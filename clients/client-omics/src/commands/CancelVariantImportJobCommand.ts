@@ -12,7 +12,8 @@ import { de_CancelVariantImportJobCommand, se_CancelVariantImportJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteWhatIfAnalysisCommand, se_DeleteWhatIfAnalysisCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

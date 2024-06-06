@@ -12,7 +12,8 @@ import { de_BatchCreateRoomMembershipCommand, se_BatchCreateRoomMembershipComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

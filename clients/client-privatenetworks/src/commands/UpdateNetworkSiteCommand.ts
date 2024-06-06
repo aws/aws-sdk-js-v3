@@ -16,7 +16,8 @@ import { de_UpdateNetworkSiteCommand, se_UpdateNetworkSiteCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

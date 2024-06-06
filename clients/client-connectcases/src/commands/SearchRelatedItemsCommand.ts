@@ -12,7 +12,8 @@ import { de_SearchRelatedItemsCommand, se_SearchRelatedItemsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

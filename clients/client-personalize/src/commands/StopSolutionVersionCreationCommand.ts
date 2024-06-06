@@ -12,7 +12,8 @@ import { de_StopSolutionVersionCreationCommand, se_StopSolutionVersionCreationCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

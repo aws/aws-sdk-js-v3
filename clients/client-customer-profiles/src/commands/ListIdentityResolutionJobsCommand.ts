@@ -12,7 +12,8 @@ import { de_ListIdentityResolutionJobsCommand, se_ListIdentityResolutionJobsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

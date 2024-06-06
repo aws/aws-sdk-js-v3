@@ -12,7 +12,8 @@ import { de_DescribeImageScanFindingsCommand, se_DescribeImageScanFindingsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

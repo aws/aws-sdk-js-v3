@@ -12,7 +12,8 @@ import { de_GetLifecyclePolicyPreviewCommand, se_GetLifecyclePolicyPreviewComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

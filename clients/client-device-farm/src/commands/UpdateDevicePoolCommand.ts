@@ -12,7 +12,8 @@ import { de_UpdateDevicePoolCommand, se_UpdateDevicePoolCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateTaskExecutionCommand, se_UpdateTaskExecutionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

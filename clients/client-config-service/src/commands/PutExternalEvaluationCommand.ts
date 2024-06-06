@@ -12,7 +12,8 @@ import { de_PutExternalEvaluationCommand, se_PutExternalEvaluationCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

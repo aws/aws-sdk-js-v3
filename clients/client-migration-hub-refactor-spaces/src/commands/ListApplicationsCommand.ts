@@ -20,7 +20,8 @@ import { de_ListApplicationsCommand, se_ListApplicationsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

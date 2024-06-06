@@ -12,7 +12,8 @@ import { de_DeleteShareCommand, se_DeleteShareCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

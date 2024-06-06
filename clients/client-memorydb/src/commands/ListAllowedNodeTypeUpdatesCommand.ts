@@ -12,7 +12,8 @@ import { de_ListAllowedNodeTypeUpdatesCommand, se_ListAllowedNodeTypeUpdatesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_ExportServerEngineAttributeCommand, se_ExportServerEngineAttributeCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

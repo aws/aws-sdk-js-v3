@@ -16,7 +16,8 @@ import { de_RevokeSubscriptionCommand, se_RevokeSubscriptionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

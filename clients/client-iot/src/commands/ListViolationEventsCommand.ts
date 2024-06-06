@@ -12,7 +12,8 @@ import { de_ListViolationEventsCommand, se_ListViolationEventsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

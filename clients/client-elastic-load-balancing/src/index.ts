@@ -28,8 +28,8 @@
 export * from "./ElasticLoadBalancingClient";
 export * from "./ElasticLoadBalancing";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ElasticLoadBalancingExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ElasticLoadBalancingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

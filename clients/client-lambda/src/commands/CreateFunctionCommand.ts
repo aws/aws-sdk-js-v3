@@ -17,7 +17,8 @@ import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

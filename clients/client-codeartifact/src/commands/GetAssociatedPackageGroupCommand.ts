@@ -12,7 +12,8 @@ import { de_GetAssociatedPackageGroupCommand, se_GetAssociatedPackageGroupComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

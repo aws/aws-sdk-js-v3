@@ -17,7 +17,8 @@ import { de_CreateFileSystemCommand, se_CreateFileSystemCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

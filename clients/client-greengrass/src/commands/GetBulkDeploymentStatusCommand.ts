@@ -12,7 +12,8 @@ import { de_GetBulkDeploymentStatusCommand, se_GetBulkDeploymentStatusCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

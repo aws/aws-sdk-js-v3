@@ -16,7 +16,8 @@ import { de_GetBucketAccessKeysCommand, se_GetBucketAccessKeysCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

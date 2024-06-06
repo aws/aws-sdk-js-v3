@@ -16,7 +16,8 @@ import { de_GetFunctionConfigurationCommand, se_GetFunctionConfigurationCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

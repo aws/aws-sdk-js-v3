@@ -20,7 +20,8 @@ import { de_UpdateNotificationRuleCommand, se_UpdateNotificationRuleCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

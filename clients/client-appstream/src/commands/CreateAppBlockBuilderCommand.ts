@@ -12,7 +12,8 @@ import { de_CreateAppBlockBuilderCommand, se_CreateAppBlockBuilderCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

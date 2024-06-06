@@ -16,7 +16,8 @@ import { de_CreateCustomKeyStoreCommand, se_CreateCustomKeyStoreCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteGeneratedTemplateCommand, se_DeleteGeneratedTemplateCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

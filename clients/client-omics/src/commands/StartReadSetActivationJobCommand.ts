@@ -12,7 +12,8 @@ import { de_StartReadSetActivationJobCommand, se_StartReadSetActivationJobComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

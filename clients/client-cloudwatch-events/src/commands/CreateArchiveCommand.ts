@@ -12,7 +12,8 @@ import { de_CreateArchiveCommand, se_CreateArchiveCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

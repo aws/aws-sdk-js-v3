@@ -12,7 +12,8 @@ import { de_DeleteImportedKeyMaterialCommand, se_DeleteImportedKeyMaterialComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

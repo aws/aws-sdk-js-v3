@@ -16,7 +16,8 @@ import { de_PutUsersCommand, se_PutUsersCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

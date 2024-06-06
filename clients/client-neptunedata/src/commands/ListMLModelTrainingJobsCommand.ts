@@ -12,7 +12,8 @@ import { de_ListMLModelTrainingJobsCommand, se_ListMLModelTrainingJobsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

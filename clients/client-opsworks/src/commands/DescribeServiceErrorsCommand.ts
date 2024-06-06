@@ -12,7 +12,8 @@ import { de_DescribeServiceErrorsCommand, se_DescribeServiceErrorsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

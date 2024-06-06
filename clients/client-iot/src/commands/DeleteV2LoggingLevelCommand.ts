@@ -12,7 +12,8 @@ import { de_DeleteV2LoggingLevelCommand, se_DeleteV2LoggingLevelCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreateLocationFsxLustreCommand, se_CreateLocationFsxLustreCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetCampaignActivitiesCommand, se_GetCampaignActivitiesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

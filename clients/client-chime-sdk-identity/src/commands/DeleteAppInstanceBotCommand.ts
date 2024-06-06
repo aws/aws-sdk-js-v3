@@ -12,7 +12,8 @@ import { de_DeleteAppInstanceBotCommand, se_DeleteAppInstanceBotCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

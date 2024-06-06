@@ -12,7 +12,8 @@ import { de_DescribeDimensionKeysCommand, se_DescribeDimensionKeysCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

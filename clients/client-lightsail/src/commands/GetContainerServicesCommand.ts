@@ -13,7 +13,8 @@ import { de_GetContainerServicesCommand, se_GetContainerServicesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

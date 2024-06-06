@@ -12,7 +12,8 @@ import { de_DeleteSyncConfigurationCommand, se_DeleteSyncConfigurationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

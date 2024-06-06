@@ -12,7 +12,8 @@ import { de_DeactivatePipelineCommand, se_DeactivatePipelineCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

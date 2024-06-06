@@ -21,7 +21,8 @@ import { de_ReEncryptDataCommand, se_ReEncryptDataCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

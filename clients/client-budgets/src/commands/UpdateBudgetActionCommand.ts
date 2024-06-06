@@ -17,7 +17,8 @@ import { de_UpdateBudgetActionCommand, se_UpdateBudgetActionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

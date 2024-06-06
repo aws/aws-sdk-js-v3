@@ -16,7 +16,8 @@ import { de_UpdateLocationAzureBlobCommand, se_UpdateLocationAzureBlobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -21,7 +21,8 @@ import { de_AdminListDevicesCommand, se_AdminListDevicesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

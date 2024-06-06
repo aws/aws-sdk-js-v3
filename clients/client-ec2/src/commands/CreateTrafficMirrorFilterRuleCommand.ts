@@ -12,7 +12,8 @@ import { de_CreateTrafficMirrorFilterRuleCommand, se_CreateTrafficMirrorFilterRu
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteDetectorVersionCommand, se_DeleteDetectorVersionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

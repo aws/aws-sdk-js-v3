@@ -12,7 +12,8 @@ import { de_CreateInternetGatewayCommand, se_CreateInternetGatewayCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

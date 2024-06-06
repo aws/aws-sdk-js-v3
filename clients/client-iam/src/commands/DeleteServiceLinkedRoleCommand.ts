@@ -12,7 +12,8 @@ import { de_DeleteServiceLinkedRoleCommand, se_DeleteServiceLinkedRoleCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

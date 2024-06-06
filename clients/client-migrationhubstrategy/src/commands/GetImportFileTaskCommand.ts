@@ -16,7 +16,8 @@ import { de_GetImportFileTaskCommand, se_GetImportFileTaskCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

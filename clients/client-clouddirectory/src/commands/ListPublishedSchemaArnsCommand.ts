@@ -12,7 +12,8 @@ import { de_ListPublishedSchemaArnsCommand, se_ListPublishedSchemaArnsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

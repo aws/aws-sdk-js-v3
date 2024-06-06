@@ -12,7 +12,8 @@ import { de_DeleteVerifiedAccessInstanceCommand, se_DeleteVerifiedAccessInstance
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

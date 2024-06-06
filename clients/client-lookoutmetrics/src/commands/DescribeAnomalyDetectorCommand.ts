@@ -12,7 +12,8 @@ import { de_DescribeAnomalyDetectorCommand, se_DescribeAnomalyDetectorCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

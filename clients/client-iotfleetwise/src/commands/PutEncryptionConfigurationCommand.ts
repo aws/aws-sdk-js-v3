@@ -12,7 +12,8 @@ import { de_PutEncryptionConfigurationCommand, se_PutEncryptionConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

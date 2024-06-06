@@ -12,7 +12,8 @@ import { de_DescribeContinuousBackupsCommand, se_DescribeContinuousBackupsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

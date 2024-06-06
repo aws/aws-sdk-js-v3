@@ -12,7 +12,8 @@ import { de_CreateCisScanConfigurationCommand, se_CreateCisScanConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_RedactConversationMessageCommand, se_RedactConversationMessageComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

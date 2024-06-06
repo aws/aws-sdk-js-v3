@@ -12,7 +12,8 @@ import { de_BatchGetQueryExecutionCommand, se_BatchGetQueryExecutionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

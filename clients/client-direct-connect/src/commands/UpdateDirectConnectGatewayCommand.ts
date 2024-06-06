@@ -12,7 +12,8 @@ import { de_UpdateDirectConnectGatewayCommand, se_UpdateDirectConnectGatewayComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

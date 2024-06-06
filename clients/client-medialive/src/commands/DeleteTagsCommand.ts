@@ -12,7 +12,8 @@ import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

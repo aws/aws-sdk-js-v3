@@ -12,7 +12,8 @@ import { de_CancelJobRunCommand, se_CancelJobRunCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

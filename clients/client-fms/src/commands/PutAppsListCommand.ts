@@ -12,7 +12,8 @@ import { de_PutAppsListCommand, se_PutAppsListCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

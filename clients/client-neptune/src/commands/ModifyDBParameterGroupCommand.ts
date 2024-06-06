@@ -12,7 +12,8 @@ import { de_ModifyDBParameterGroupCommand, se_ModifyDBParameterGroupCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

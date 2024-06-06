@@ -12,7 +12,8 @@ import { de_UpdateTableObjectsCommand, se_UpdateTableObjectsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

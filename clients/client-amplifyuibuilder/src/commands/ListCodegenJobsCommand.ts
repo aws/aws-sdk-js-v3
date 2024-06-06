@@ -12,7 +12,8 @@ import { de_ListCodegenJobsCommand, se_ListCodegenJobsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

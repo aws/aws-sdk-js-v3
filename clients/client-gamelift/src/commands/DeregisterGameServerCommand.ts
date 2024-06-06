@@ -12,7 +12,8 @@ import { de_DeregisterGameServerCommand, se_DeregisterGameServerCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_UpdateAnalysisTemplateCommand, se_UpdateAnalysisTemplateCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

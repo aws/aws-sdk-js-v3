@@ -12,7 +12,8 @@ import { de_UpdateFunctionUrlConfigCommand, se_UpdateFunctionUrlConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

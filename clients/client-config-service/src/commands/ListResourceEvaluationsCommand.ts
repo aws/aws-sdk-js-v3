@@ -12,7 +12,8 @@ import { de_ListResourceEvaluationsCommand, se_ListResourceEvaluationsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_GetTemplateStepCommand, se_GetTemplateStepCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

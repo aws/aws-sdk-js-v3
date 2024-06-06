@@ -16,7 +16,8 @@ import { de_CreateReplicationTaskCommand, se_CreateReplicationTaskCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

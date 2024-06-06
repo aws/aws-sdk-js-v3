@@ -12,7 +12,8 @@ import { de_GetBucketsCommand, se_GetBucketsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

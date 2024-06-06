@@ -12,7 +12,8 @@ import { de_CreateUploadCommand, se_CreateUploadCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

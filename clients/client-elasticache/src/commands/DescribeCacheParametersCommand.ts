@@ -12,7 +12,8 @@ import { de_DescribeCacheParametersCommand, se_DescribeCacheParametersCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

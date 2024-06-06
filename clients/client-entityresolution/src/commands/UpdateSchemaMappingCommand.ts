@@ -12,7 +12,8 @@ import { de_UpdateSchemaMappingCommand, se_UpdateSchemaMappingCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

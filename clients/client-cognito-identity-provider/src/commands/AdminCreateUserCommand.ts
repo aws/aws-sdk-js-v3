@@ -21,7 +21,8 @@ import { de_AdminCreateUserCommand, se_AdminCreateUserCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

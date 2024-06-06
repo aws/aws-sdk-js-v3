@@ -12,7 +12,8 @@ import { de_SetVisibleToAllUsersCommand, se_SetVisibleToAllUsersCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

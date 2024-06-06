@@ -16,7 +16,8 @@ import { de_TerminateRecoveryInstancesCommand, se_TerminateRecoveryInstancesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

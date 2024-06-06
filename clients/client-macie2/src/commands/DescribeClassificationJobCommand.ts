@@ -12,7 +12,8 @@ import { de_DescribeClassificationJobCommand, se_DescribeClassificationJobComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetAnnotationImportJobCommand, se_GetAnnotationImportJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

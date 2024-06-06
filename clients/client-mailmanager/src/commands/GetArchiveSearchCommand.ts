@@ -12,7 +12,8 @@ import { de_GetArchiveSearchCommand, se_GetArchiveSearchCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

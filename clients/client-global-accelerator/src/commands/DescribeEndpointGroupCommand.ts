@@ -16,7 +16,8 @@ import { de_DescribeEndpointGroupCommand, se_DescribeEndpointGroupCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

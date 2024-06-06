@@ -12,7 +12,8 @@ import { de_MergePullRequestBySquashCommand, se_MergePullRequestBySquashCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeCustomMetricCommand, se_DescribeCustomMetricCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

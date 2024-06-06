@@ -12,7 +12,8 @@ import { de_GetMergeConflictsCommand, se_GetMergeConflictsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

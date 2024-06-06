@@ -17,7 +17,8 @@ import { de_UpdateWorkerScheduleCommand, se_UpdateWorkerScheduleCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

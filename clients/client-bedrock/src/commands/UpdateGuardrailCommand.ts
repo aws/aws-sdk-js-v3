@@ -16,7 +16,8 @@ import { de_UpdateGuardrailCommand, se_UpdateGuardrailCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

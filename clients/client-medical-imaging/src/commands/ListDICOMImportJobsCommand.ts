@@ -12,7 +12,8 @@ import { de_ListDICOMImportJobsCommand, se_ListDICOMImportJobsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

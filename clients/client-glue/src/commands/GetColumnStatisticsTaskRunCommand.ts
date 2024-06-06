@@ -12,7 +12,8 @@ import { de_GetColumnStatisticsTaskRunCommand, se_GetColumnStatisticsTaskRunComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetAccessKeyLastUsedCommand, se_GetAccessKeyLastUsedCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

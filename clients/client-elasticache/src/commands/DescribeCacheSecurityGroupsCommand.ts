@@ -12,7 +12,8 @@ import { de_DescribeCacheSecurityGroupsCommand, se_DescribeCacheSecurityGroupsCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

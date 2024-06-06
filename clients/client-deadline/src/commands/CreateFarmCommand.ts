@@ -12,7 +12,8 @@ import { de_CreateFarmCommand, se_CreateFarmCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

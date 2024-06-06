@@ -12,7 +12,8 @@ import { de_DeleteLoadBalancerCommand, se_DeleteLoadBalancerCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeLDAPSSettingsCommand, se_DescribeLDAPSSettingsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

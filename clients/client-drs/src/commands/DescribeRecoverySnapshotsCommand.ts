@@ -12,7 +12,8 @@ import { de_DescribeRecoverySnapshotsCommand, se_DescribeRecoverySnapshotsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

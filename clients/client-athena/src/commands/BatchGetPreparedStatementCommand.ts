@@ -12,7 +12,8 @@ import { de_BatchGetPreparedStatementCommand, se_BatchGetPreparedStatementComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

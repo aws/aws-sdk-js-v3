@@ -12,7 +12,8 @@ import { de_GetMFADeviceCommand, se_GetMFADeviceCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

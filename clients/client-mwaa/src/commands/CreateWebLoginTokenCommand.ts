@@ -16,7 +16,8 @@ import { de_CreateWebLoginTokenCommand, se_CreateWebLoginTokenCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

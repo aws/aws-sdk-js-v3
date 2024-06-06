@@ -12,7 +12,8 @@ import { de_CreateContactMethodCommand, se_CreateContactMethodCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

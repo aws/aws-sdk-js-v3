@@ -16,7 +16,8 @@ import { de_DeleteSecurityPolicyCommand, se_DeleteSecurityPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

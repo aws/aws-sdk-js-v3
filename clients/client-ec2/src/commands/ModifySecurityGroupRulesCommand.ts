@@ -12,7 +12,8 @@ import { de_ModifySecurityGroupRulesCommand, se_ModifySecurityGroupRulesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

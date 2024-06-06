@@ -12,7 +12,8 @@ import { de_UpdateFirewallDescriptionCommand, se_UpdateFirewallDescriptionComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

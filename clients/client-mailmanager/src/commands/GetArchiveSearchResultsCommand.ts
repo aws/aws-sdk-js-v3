@@ -12,7 +12,8 @@ import { de_GetArchiveSearchResultsCommand, se_GetArchiveSearchResultsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

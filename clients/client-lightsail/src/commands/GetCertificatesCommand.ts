@@ -12,7 +12,8 @@ import { de_GetCertificatesCommand, se_GetCertificatesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

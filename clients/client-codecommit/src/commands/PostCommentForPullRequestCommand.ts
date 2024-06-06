@@ -12,7 +12,8 @@ import { de_PostCommentForPullRequestCommand, se_PostCommentForPullRequestComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

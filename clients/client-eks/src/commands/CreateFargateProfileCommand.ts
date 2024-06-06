@@ -12,7 +12,8 @@ import { de_CreateFargateProfileCommand, se_CreateFargateProfileCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

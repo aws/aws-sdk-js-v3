@@ -12,7 +12,8 @@ import { de_DeleteQueryDefinitionCommand, se_DeleteQueryDefinitionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

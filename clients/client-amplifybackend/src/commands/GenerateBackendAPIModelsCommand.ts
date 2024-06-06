@@ -12,7 +12,8 @@ import { de_GenerateBackendAPIModelsCommand, se_GenerateBackendAPIModelsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

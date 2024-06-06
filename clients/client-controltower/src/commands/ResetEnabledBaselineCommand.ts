@@ -12,7 +12,8 @@ import { de_ResetEnabledBaselineCommand, se_ResetEnabledBaselineCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

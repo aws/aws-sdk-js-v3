@@ -12,7 +12,8 @@ import { de_PutAttributesCommand, se_PutAttributesCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

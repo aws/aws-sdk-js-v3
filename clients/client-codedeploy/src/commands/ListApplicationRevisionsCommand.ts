@@ -12,7 +12,8 @@ import { de_ListApplicationRevisionsCommand, se_ListApplicationRevisionsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

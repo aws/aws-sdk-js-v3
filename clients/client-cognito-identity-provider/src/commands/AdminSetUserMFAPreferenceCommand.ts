@@ -20,7 +20,8 @@ import { de_AdminSetUserMFAPreferenceCommand, se_AdminSetUserMFAPreferenceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

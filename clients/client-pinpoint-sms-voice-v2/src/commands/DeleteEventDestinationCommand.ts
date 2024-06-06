@@ -16,7 +16,8 @@ import { de_DeleteEventDestinationCommand, se_DeleteEventDestinationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

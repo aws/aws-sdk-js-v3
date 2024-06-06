@@ -12,7 +12,8 @@ import { de_GetDataRetrievalPolicyCommand, se_GetDataRetrievalPolicyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

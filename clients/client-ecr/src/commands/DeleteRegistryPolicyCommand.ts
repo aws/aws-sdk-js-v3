@@ -12,7 +12,8 @@ import { de_DeleteRegistryPolicyCommand, se_DeleteRegistryPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

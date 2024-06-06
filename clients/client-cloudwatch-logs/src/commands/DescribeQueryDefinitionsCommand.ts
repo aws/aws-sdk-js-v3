@@ -12,7 +12,8 @@ import { de_DescribeQueryDefinitionsCommand, se_DescribeQueryDefinitionsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

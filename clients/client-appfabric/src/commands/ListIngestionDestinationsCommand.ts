@@ -12,7 +12,8 @@ import { de_ListIngestionDestinationsCommand, se_ListIngestionDestinationsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

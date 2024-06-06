@@ -12,7 +12,8 @@ import { de_GetResourceConfigHistoryCommand, se_GetResourceConfigHistoryCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

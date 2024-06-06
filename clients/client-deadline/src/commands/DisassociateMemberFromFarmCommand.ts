@@ -12,7 +12,8 @@ import { de_DisassociateMemberFromFarmCommand, se_DisassociateMemberFromFarmComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

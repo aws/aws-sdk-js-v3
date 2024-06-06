@@ -17,7 +17,8 @@ import { de_GetPlaceCommand, se_GetPlaceCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

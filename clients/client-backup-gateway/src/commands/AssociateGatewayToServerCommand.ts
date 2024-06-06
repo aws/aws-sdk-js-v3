@@ -12,7 +12,8 @@ import { de_AssociateGatewayToServerCommand, se_AssociateGatewayToServerCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

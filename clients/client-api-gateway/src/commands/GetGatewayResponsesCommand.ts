@@ -12,7 +12,8 @@ import { de_GetGatewayResponsesCommand, se_GetGatewayResponsesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

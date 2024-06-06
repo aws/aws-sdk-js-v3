@@ -16,7 +16,8 @@ import { de_DescribeRxNormInferenceJobCommand, se_DescribeRxNormInferenceJobComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

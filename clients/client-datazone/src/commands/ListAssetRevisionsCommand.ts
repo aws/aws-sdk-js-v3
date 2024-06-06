@@ -12,7 +12,8 @@ import { de_ListAssetRevisionsCommand, se_ListAssetRevisionsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

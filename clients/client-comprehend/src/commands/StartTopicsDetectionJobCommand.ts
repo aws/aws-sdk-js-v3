@@ -12,7 +12,8 @@ import { de_StartTopicsDetectionJobCommand, se_StartTopicsDetectionJobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

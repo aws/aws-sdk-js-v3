@@ -12,7 +12,8 @@ import { de_DescribeDBParametersCommand, se_DescribeDBParametersCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

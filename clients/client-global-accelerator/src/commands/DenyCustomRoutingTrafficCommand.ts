@@ -16,7 +16,8 @@ import { de_DenyCustomRoutingTrafficCommand, se_DenyCustomRoutingTrafficCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

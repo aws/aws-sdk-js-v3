@@ -41,8 +41,8 @@
 export * from "./PinpointSMSVoiceV2Client";
 export * from "./PinpointSMSVoiceV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { PinpointSMSVoiceV2ExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { PinpointSMSVoiceV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -12,7 +12,8 @@ import { de_RestoreTableToPointInTimeCommand, se_RestoreTableToPointInTimeComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

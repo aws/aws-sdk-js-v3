@@ -12,7 +12,8 @@ import { de_RegisterSchemaVersionCommand, se_RegisterSchemaVersionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

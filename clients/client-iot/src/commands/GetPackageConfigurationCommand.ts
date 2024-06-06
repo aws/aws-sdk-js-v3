@@ -12,7 +12,8 @@ import { de_GetPackageConfigurationCommand, se_GetPackageConfigurationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

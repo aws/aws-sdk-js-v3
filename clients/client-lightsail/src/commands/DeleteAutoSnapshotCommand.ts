@@ -12,7 +12,8 @@ import { de_DeleteAutoSnapshotCommand, se_DeleteAutoSnapshotCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

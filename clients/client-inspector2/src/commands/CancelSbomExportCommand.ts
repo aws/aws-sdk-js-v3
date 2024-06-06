@@ -12,7 +12,8 @@ import { de_CancelSbomExportCommand, se_CancelSbomExportCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

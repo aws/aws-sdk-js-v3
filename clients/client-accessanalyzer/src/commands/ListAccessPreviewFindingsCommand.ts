@@ -12,7 +12,8 @@ import { de_ListAccessPreviewFindingsCommand, se_ListAccessPreviewFindingsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

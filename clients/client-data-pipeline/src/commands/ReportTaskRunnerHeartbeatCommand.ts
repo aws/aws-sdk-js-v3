@@ -12,7 +12,8 @@ import { de_ReportTaskRunnerHeartbeatCommand, se_ReportTaskRunnerHeartbeatComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
