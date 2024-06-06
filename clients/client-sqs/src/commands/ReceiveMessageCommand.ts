@@ -189,8 +189,8 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request
+ *                     quota for an account and Region. </p>
  *             </li>
  *             <li>
  *                <p>A burst or sustained high rate of requests to change the state of the same KMS

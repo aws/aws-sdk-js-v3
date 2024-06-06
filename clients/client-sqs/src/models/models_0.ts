@@ -134,8 +134,8 @@ export class QueueDoesNotExist extends __BaseException {
  * <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request
+ *                     quota for an account and Region. </p>
  *             </li>
  *             <li>
  *                <p>A burst or sustained high rate of requests to change the state of the same KMS
@@ -1808,10 +1808,9 @@ export interface ReceiveMessageRequest {
    * @deprecated
    *
    * <important>
-   *             <p>
-   *                 This parameter has been deprecated but will be supported for backward compatibility.
-   *                 To provide attribute names, you are encouraged to use <code>MessageSystemAttributeNames</code>.
-   *             </p>
+   *             <p> This parameter has been deprecated but will be supported for backward
+   *                 compatibility. To provide attribute names, you are encouraged to use
+   *                     <code>MessageSystemAttributeNames</code>. </p>
    *          </important>
    *          <p>A list of attributes that need to be returned along with each message. These
    *             attributes include:</p>
@@ -1921,11 +1920,11 @@ export interface ReceiveMessageRequest {
    *                <ul>
    *                   <li>
    *                      <p>For a user, returns the user ID, for example
-   *                             <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p>
+   *                                 <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p>
    *                   </li>
    *                   <li>
    *                      <p>For an IAM role, returns the IAM role ID, for example
-   *                             <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p>
+   *                                 <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2376,11 +2375,11 @@ export interface SendMessageRequest {
    * <p>The message to send. The minimum size is one character. The maximum size is 256
    *             KiB.</p>
    *          <important>
-   *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
+   *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
    *             <p>
    *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
    *             </p>
-   *             <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
+   *             <p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p>
    *          </important>
    * @public
    */

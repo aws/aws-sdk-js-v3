@@ -40,11 +40,11 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *             sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144
  *             bytes).</p>
  *          <important>
- *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
+ *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
  *             <p>
  *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
  *             </p>
- *             <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
+ *             <p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p>
  *          </important>
  *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses
  *             the default value for the queue.</p>
@@ -183,8 +183,8 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request
+ *                     quota for an account and Region. </p>
  *             </li>
  *             <li>
  *                <p>A burst or sustained high rate of requests to change the state of the same KMS

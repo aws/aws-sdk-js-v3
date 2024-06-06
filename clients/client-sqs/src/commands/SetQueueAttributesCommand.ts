@@ -28,12 +28,13 @@ export interface SetQueueAttributesCommandInput extends SetQueueAttributesReques
 export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the value of one or more queue attributes, like a policy. When you change a queue's attributes,
- *             the change can take up to 60 seconds for most of the attributes to propagate throughout
- *             the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can
- *             take up to 15 minutes and will impact existing messages in the queue potentially causing
- *             them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced
- *             below the age of existing messages.</p>
+ * <p>Sets the value of one or more queue attributes, like a policy. When you change a
+ *             queue's attributes, the change can take up to 60 seconds for most of the attributes to
+ *             propagate throughout the Amazon SQS system. Changes made to the
+ *                 <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will
+ *             impact existing messages in the queue potentially causing them to be expired and deleted
+ *             if the <code>MessageRetentionPeriod</code> is reduced below the age of existing
+ *             messages.</p>
  *          <note>
  *             <ul>
  *                <li>
@@ -98,8 +99,8 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request
+ *                     quota for an account and Region. </p>
  *             </li>
  *             <li>
  *                <p>A burst or sustained high rate of requests to change the state of the same KMS
