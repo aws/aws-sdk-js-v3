@@ -352,6 +352,9 @@ it("AwsQueryEndpointTrait:Request", async () => {
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
 
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.example.com");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `Action=EndpointOperation&Version=2020-01-08`;
@@ -390,6 +393,9 @@ it("AwsQueryEndpointTraitWithHostLabel:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.bar.example.com");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;

@@ -477,6 +477,9 @@ it("AwsJson11EndpointTrait:Request", async () => {
     expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EndpointOperation");
 
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.example.com");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
@@ -517,6 +520,9 @@ it("AwsJson11EndpointTraitWithHostLabel:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
     expect(r.headers["x-amz-target"]).toBeDefined();
     expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EndpointWithHostLabelOperation");
+
+    expect(r.headers["host"]).toBeDefined();
+    expect(r.headers["host"]).toBe("foo.bar.example.com");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
