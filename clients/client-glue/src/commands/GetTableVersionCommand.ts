@@ -152,6 +152,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * //             DialectVersion: "STRING_VALUE",
  * //             ViewOriginalText: "STRING_VALUE",
  * //             ViewExpandedText: "STRING_VALUE",
+ * //             ValidationConnection: "STRING_VALUE",
  * //             IsStale: true || false,
  * //           },
  * //         ],

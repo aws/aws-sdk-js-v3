@@ -156,6 +156,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //             DialectVersion: "STRING_VALUE",
  * //             ViewOriginalText: "STRING_VALUE",
  * //             ViewExpandedText: "STRING_VALUE",
+ * //             ValidationConnection: "STRING_VALUE",
  * //             IsStale: true || false,
  * //           },
  * //         ],

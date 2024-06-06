@@ -168,6 +168,7 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * //             DialectVersion: "STRING_VALUE",
  * //             ViewOriginalText: "STRING_VALUE",
  * //             ViewExpandedText: "STRING_VALUE",
+ * //             ValidationConnection: "STRING_VALUE",
  * //             IsStale: true || false,
  * //           },
  * //         ],

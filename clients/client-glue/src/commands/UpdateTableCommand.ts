@@ -121,10 +121,28 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *       Name: "STRING_VALUE",
  *       Region: "STRING_VALUE",
  *     },
+ *     ViewDefinition: { // ViewDefinitionInput
+ *       IsProtected: true || false,
+ *       Definer: "STRING_VALUE",
+ *       Representations: [ // ViewRepresentationInputList
+ *         { // ViewRepresentationInput
+ *           Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
+ *           DialectVersion: "STRING_VALUE",
+ *           ViewOriginalText: "STRING_VALUE",
+ *           ValidationConnection: "STRING_VALUE",
+ *           ViewExpandedText: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SubObjects: [ // ViewSubObjectsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   SkipArchive: true || false,
  *   TransactionId: "STRING_VALUE",
  *   VersionId: "STRING_VALUE",
+ *   ViewUpdateAction: "ADD" || "REPLACE" || "ADD_OR_REPLACE" || "DROP",
+ *   Force: true || false,
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);

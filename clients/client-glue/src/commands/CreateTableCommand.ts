@@ -121,6 +121,22 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *       Name: "STRING_VALUE",
  *       Region: "STRING_VALUE",
  *     },
+ *     ViewDefinition: { // ViewDefinitionInput
+ *       IsProtected: true || false,
+ *       Definer: "STRING_VALUE",
+ *       Representations: [ // ViewRepresentationInputList
+ *         { // ViewRepresentationInput
+ *           Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
+ *           DialectVersion: "STRING_VALUE",
+ *           ViewOriginalText: "STRING_VALUE",
+ *           ValidationConnection: "STRING_VALUE",
+ *           ViewExpandedText: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SubObjects: [ // ViewSubObjectsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   PartitionIndexes: [ // PartitionIndexList
  *     { // PartitionIndex

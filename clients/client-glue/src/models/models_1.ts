@@ -2456,6 +2456,87 @@ export interface TableIdentifier {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ViewDialect = {
+  ATHENA: "ATHENA",
+  REDSHIFT: "REDSHIFT",
+  SPARK: "SPARK",
+} as const;
+
+/**
+ * @public
+ */
+export type ViewDialect = (typeof ViewDialect)[keyof typeof ViewDialect];
+
+/**
+ * <p>A structure containing details of a representation to update or create a Lake Formation view.</p>
+ * @public
+ */
+export interface ViewRepresentationInput {
+  /**
+   * <p>A parameter that specifies the engine type of a specific representation.</p>
+   * @public
+   */
+  Dialect?: ViewDialect;
+
+  /**
+   * <p>A parameter that specifies the version of the engine of a specific representation.</p>
+   * @public
+   */
+  DialectVersion?: string;
+
+  /**
+   * <p>A string that represents the original SQL query that describes the view.</p>
+   * @public
+   */
+  ViewOriginalText?: string;
+
+  /**
+   * <p>The name of the connection to be used to validate the specific representation of the view.</p>
+   * @public
+   */
+  ValidationConnection?: string;
+
+  /**
+   * <p>A string that represents the SQL query that describes the view with expanded resource ARNs</p>
+   * @public
+   */
+  ViewExpandedText?: string;
+}
+
+/**
+ * <p>A structure containing details for creating or updating an Glue view.</p>
+ * @public
+ */
+export interface ViewDefinitionInput {
+  /**
+   * <p>You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>
+   * @public
+   */
+  IsProtected?: boolean;
+
+  /**
+   * <p>The definer of a view in SQL.</p>
+   * @public
+   */
+  Definer?: string;
+
+  /**
+   * <p>A list of structures that contains the dialect of the view, and the query that defines the view.</p>
+   * @public
+   */
+  Representations?: ViewRepresentationInput[];
+
+  /**
+   * <p>A list of base table ARNs that make up the view.</p>
+   * @public
+   */
+  SubObjects?: string[];
+}
+
+/**
  * <p>A structure used to define a table.</p>
  * @public
  */
@@ -2562,6 +2643,12 @@ export interface TableInput {
    * @public
    */
   TargetTable?: TableIdentifier;
+
+  /**
+   * <p>A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.</p>
+   * @public
+   */
+  ViewDefinition?: ViewDefinitionInput;
 }
 
 /**
@@ -8261,147 +8348,4 @@ export interface GetSchemaInput {
    * @public
    */
   SchemaId: SchemaId | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSchemaResponse {
-  /**
-   * <p>The name of the registry.</p>
-   * @public
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry.</p>
-   * @public
-   */
-  RegistryArn?: string;
-
-  /**
-   * <p>The name of the schema.</p>
-   * @public
-   */
-  SchemaName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   * @public
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>A description of schema if specified when created</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
-   * @public
-   */
-  DataFormat?: DataFormat;
-
-  /**
-   * <p>The compatibility mode of the schema.</p>
-   * @public
-   */
-  Compatibility?: Compatibility;
-
-  /**
-   * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
-   * @public
-   */
-  SchemaCheckpoint?: number;
-
-  /**
-   * <p>The latest version of the schema associated with the returned schema definition.</p>
-   * @public
-   */
-  LatestSchemaVersion?: number;
-
-  /**
-   * <p>The next version of the schema associated with the returned schema definition.</p>
-   * @public
-   */
-  NextSchemaVersion?: number;
-
-  /**
-   * <p>The status of the schema.</p>
-   * @public
-   */
-  SchemaStatus?: SchemaStatus;
-
-  /**
-   * <p>The date and time the schema was created.</p>
-   * @public
-   */
-  CreatedTime?: string;
-
-  /**
-   * <p>The date and time the schema was updated.</p>
-   * @public
-   */
-  UpdatedTime?: string;
-}
-
-/**
- * @public
- */
-export interface GetSchemaByDefinitionInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   *          <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SchemaId: SchemaId | undefined;
-
-  /**
-   * <p>The definition of the schema for which schema details are required.</p>
-   * @public
-   */
-  SchemaDefinition: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSchemaByDefinitionResponse {
-  /**
-   * <p>The schema ID of the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   * @public
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
-   * @public
-   */
-  DataFormat?: DataFormat;
-
-  /**
-   * <p>The status of the schema version.</p>
-   * @public
-   */
-  Status?: SchemaVersionStatus;
-
-  /**
-   * <p>The date and time the schema was created.</p>
-   * @public
-   */
-  CreatedTime?: string;
 }

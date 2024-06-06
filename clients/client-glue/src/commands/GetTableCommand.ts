@@ -153,6 +153,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //           DialectVersion: "STRING_VALUE",
  * //           ViewOriginalText: "STRING_VALUE",
  * //           ViewExpandedText: "STRING_VALUE",
+ * //           ValidationConnection: "STRING_VALUE",
  * //           IsStale: true || false,
  * //         },
  * //       ],

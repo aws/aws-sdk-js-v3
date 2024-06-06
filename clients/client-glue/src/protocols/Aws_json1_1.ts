@@ -872,7 +872,6 @@ import {
   GetResourcePoliciesResponse,
   GetResourcePolicyRequest,
   GetResourcePolicyResponse,
-  GetSchemaByDefinitionInput,
   GetSchemaInput,
   GluePolicy,
   GrokClassifier,
@@ -910,6 +909,8 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
   ValidationException,
+  ViewDefinitionInput,
+  ViewRepresentationInput,
   XMLClassifier,
 } from "../models/models_1";
 import {
@@ -937,6 +938,7 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetSchemaByDefinitionInput,
   GetSchemaVersionInput,
   GetSchemaVersionsDiffInput,
   GetSecurityConfigurationRequest,
@@ -10618,6 +10620,7 @@ const se_TableInput = (input: TableInput, context: __SerdeContext): any => {
     StorageDescriptor: _json,
     TableType: [],
     TargetTable: _json,
+    ViewDefinition: _json,
     ViewExpandedText: [],
     ViewOriginalText: [],
   });
@@ -10837,10 +10840,12 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
   return take(input, {
     CatalogId: [],
     DatabaseName: [],
+    Force: [],
     SkipArchive: [],
     TableInput: (_) => se_TableInput(_, context),
     TransactionId: [],
     VersionId: [],
+    ViewUpdateAction: [],
   });
 };
 
@@ -10857,6 +10862,14 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
 // se_UserDefinedFunctionInput omitted.
 
 // se_ValueStringList omitted.
+
+// se_ViewDefinitionInput omitted.
+
+// se_ViewRepresentationInput omitted.
+
+// se_ViewRepresentationInputList omitted.
+
+// se_ViewSubObjectsList omitted.
 
 // se_WorkflowNames omitted.
 

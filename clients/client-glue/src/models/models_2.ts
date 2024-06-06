@@ -140,7 +140,151 @@ import {
   TransformParameters,
   TransformSortCriteria,
   UserDefinedFunctionInput,
+  ViewDialect,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetSchemaResponse {
+  /**
+   * <p>The name of the registry.</p>
+   * @public
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   * @public
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>The name of the schema.</p>
+   * @public
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * @public
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>A description of schema if specified when created</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
+   * @public
+   */
+  DataFormat?: DataFormat;
+
+  /**
+   * <p>The compatibility mode of the schema.</p>
+   * @public
+   */
+  Compatibility?: Compatibility;
+
+  /**
+   * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
+   * @public
+   */
+  SchemaCheckpoint?: number;
+
+  /**
+   * <p>The latest version of the schema associated with the returned schema definition.</p>
+   * @public
+   */
+  LatestSchemaVersion?: number;
+
+  /**
+   * <p>The next version of the schema associated with the returned schema definition.</p>
+   * @public
+   */
+  NextSchemaVersion?: number;
+
+  /**
+   * <p>The status of the schema.</p>
+   * @public
+   */
+  SchemaStatus?: SchemaStatus;
+
+  /**
+   * <p>The date and time the schema was created.</p>
+   * @public
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date and time the schema was updated.</p>
+   * @public
+   */
+  UpdatedTime?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetSchemaByDefinitionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The definition of the schema for which schema details are required.</p>
+   * @public
+   */
+  SchemaDefinition: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSchemaByDefinitionResponse {
+  /**
+   * <p>The schema ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * @public
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
+   * @public
+   */
+  DataFormat?: DataFormat;
+
+  /**
+   * <p>The status of the schema version.</p>
+   * @public
+   */
+  Status?: SchemaVersionStatus;
+
+  /**
+   * <p>The date and time the schema was created.</p>
+   * @public
+   */
+  CreatedTime?: string;
+}
 
 /**
  * <p>A structure containing the schema version information.</p>
@@ -625,21 +769,6 @@ export interface FederatedTable {
 }
 
 /**
- * @public
- * @enum
- */
-export const ViewDialect = {
-  ATHENA: "ATHENA",
-  REDSHIFT: "REDSHIFT",
-  SPARK: "SPARK",
-} as const;
-
-/**
- * @public
- */
-export type ViewDialect = (typeof ViewDialect)[keyof typeof ViewDialect];
-
-/**
  * <p>A structure that contains the dialect of the view, and the query that defines the view.</p>
  * @public
  */
@@ -673,6 +802,12 @@ export interface ViewRepresentation {
    * @public
    */
   ViewExpandedText?: string;
+
+  /**
+   * <p>The name of the connection to be used to validate the specific representation of the view.</p>
+   * @public
+   */
+  ValidationConnection?: string;
 
   /**
    * <p>Dialects marked as stale are no longer valid and must be updated before they can be queried in their respective query engines.</p>
@@ -6393,6 +6528,22 @@ export interface UpdateSourceControlFromJobResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ViewUpdateAction = {
+  ADD: "ADD",
+  ADD_OR_REPLACE: "ADD_OR_REPLACE",
+  DROP: "DROP",
+  REPLACE: "REPLACE",
+} as const;
+
+/**
+ * @public
+ */
+export type ViewUpdateAction = (typeof ViewUpdateAction)[keyof typeof ViewUpdateAction];
+
+/**
+ * @public
  */
 export interface UpdateTableRequest {
   /**
@@ -6435,6 +6586,18 @@ export interface UpdateTableRequest {
    * @public
    */
   VersionId?: string;
+
+  /**
+   * <p>The operation to be performed when updating the view.</p>
+   * @public
+   */
+  ViewUpdateAction?: ViewUpdateAction;
+
+  /**
+   * <p>A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.</p>
+   * @public
+   */
+  Force?: boolean;
 }
 
 /**
