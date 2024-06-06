@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+
+### Features
+
+* **client-fsx:** This release adds support to increase metadata performance on FSx for Lustre file systems beyond the default level provisioned when a file system is created. This can be done by specifying MetadataConfiguration during the creation of Persistent_2 file systems or by updating it on demand. ([8c1f604](https://github.com/aws/aws-sdk-js-v3/commit/8c1f604f9e0887cf4c1050dfa8603d3ef6cda84a))
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

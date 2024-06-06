@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+
+### Features
+
+* **client-firehose:** Adds integration with Secrets Manager for Redshift, Splunk, HttpEndpoint, and Snowflake destinations ([ae7c3b0](https://github.com/aws/aws-sdk-js-v3/commit/ae7c3b0197636e0a4eb7e576ab2f4b647546f0ed))
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

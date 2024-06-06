@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+
+### Features
+
+* **client-glue:** This release adds support for creating and updating Glue Data Catalog Views. ([349fcc9](https://github.com/aws/aws-sdk-js-v3/commit/349fcc9804529d411f69fc0118de018e52f88b53))
+
+
+
+
+
 # [3.591.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.590.0...v3.591.0) (2024-06-05)
 
 

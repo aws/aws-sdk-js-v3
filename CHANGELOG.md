@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+
+### Features
+
+* **client-account:** This release adds 3 new APIs (AcceptPrimaryEmailUpdate, GetPrimaryEmail, and StartPrimaryEmailUpdate) used to centrally manage the root user email address of member accounts within an AWS organization. ([23c9d39](https://github.com/aws/aws-sdk-js-v3/commit/23c9d39c484d02e5a2ebb527cf40cc17d139df39))
+* **client-firehose:** Adds integration with Secrets Manager for Redshift, Splunk, HttpEndpoint, and Snowflake destinations ([ae7c3b0](https://github.com/aws/aws-sdk-js-v3/commit/ae7c3b0197636e0a4eb7e576ab2f4b647546f0ed))
+* **client-fsx:** This release adds support to increase metadata performance on FSx for Lustre file systems beyond the default level provisioned when a file system is created. This can be done by specifying MetadataConfiguration during the creation of Persistent_2 file systems or by updating it on demand. ([8c1f604](https://github.com/aws/aws-sdk-js-v3/commit/8c1f604f9e0887cf4c1050dfa8603d3ef6cda84a))
+* **client-glue:** This release adds support for creating and updating Glue Data Catalog Views. ([349fcc9](https://github.com/aws/aws-sdk-js-v3/commit/349fcc9804529d411f69fc0118de018e52f88b53))
+* **client-iot-wireless:** Adds support for wireless device to be in Conflict FUOTA Device Status due to a FUOTA Task, so it couldn't be attached to a new one. ([7dd6fdf](https://github.com/aws/aws-sdk-js-v3/commit/7dd6fdf2ad4714c19a7dd9f104d9a5d2fd8dccd2))
+* **client-location:** Added two new APIs, VerifyDevicePosition and ForecastGeofenceEvents. Added support for putting larger geofences up to 100,000 vertices with Geobuf fields. ([7c01057](https://github.com/aws/aws-sdk-js-v3/commit/7c01057a8400c8ad9a196d832b857ca19f3fc95a))
+* **client-storage-gateway:** Adds SoftwareUpdatePreferences to DescribeMaintenanceStartTime and UpdateMaintenanceStartTime, a structure which contains AutomaticUpdatePolicy. ([f7b019e](https://github.com/aws/aws-sdk-js-v3/commit/f7b019edf3dbd37836ba06da9b1dd599870c326e))
+
+
+
+
+
 # [3.591.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.590.0...v3.591.0) (2024-06-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+
+### Features
+
+* **client-iot-wireless:** Adds support for wireless device to be in Conflict FUOTA Device Status due to a FUOTA Task, so it couldn't be attached to a new one. ([7dd6fdf](https://github.com/aws/aws-sdk-js-v3/commit/7dd6fdf2ad4714c19a7dd9f104d9a5d2fd8dccd2))
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

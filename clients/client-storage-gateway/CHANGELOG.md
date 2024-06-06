@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+
+### Features
+
+* **client-storage-gateway:** Adds SoftwareUpdatePreferences to DescribeMaintenanceStartTime and UpdateMaintenanceStartTime, a structure which contains AutomaticUpdatePolicy. ([f7b019e](https://github.com/aws/aws-sdk-js-v3/commit/f7b019edf3dbd37836ba06da9b1dd599870c326e))
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 
