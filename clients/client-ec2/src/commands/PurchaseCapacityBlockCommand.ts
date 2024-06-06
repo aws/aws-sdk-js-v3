@@ -12,7 +12,8 @@ import { de_PurchaseCapacityBlockCommand, se_PurchaseCapacityBlockCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

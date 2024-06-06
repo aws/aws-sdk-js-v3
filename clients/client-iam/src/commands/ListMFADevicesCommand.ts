@@ -12,7 +12,8 @@ import { de_ListMFADevicesCommand, se_ListMFADevicesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteCodeSigningConfigCommand, se_DeleteCodeSigningConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

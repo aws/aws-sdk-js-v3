@@ -12,7 +12,8 @@ import { de_DeleteImageRecipeCommand, se_DeleteImageRecipeCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteComponentTypeCommand, se_DeleteComponentTypeCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

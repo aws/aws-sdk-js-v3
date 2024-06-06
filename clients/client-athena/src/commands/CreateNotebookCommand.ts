@@ -12,7 +12,8 @@ import { de_CreateNotebookCommand, se_CreateNotebookCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ModifyFpgaImageAttributeCommand, se_ModifyFpgaImageAttributeCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

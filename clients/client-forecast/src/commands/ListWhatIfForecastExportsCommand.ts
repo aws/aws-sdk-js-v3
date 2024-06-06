@@ -12,7 +12,8 @@ import { de_ListWhatIfForecastExportsCommand, se_ListWhatIfForecastExportsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

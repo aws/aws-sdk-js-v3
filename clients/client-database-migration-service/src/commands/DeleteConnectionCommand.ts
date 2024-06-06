@@ -16,7 +16,8 @@ import { de_DeleteConnectionCommand, se_DeleteConnectionCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteDiskSnapshotCommand, se_DeleteDiskSnapshotCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

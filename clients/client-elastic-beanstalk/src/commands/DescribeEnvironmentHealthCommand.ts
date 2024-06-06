@@ -12,7 +12,8 @@ import { de_DescribeEnvironmentHealthCommand, se_DescribeEnvironmentHealthComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -20,7 +20,8 @@ import { de_CreateElasticsearchDomainCommand, se_CreateElasticsearchDomainComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_GetEvaluationJobCommand, se_GetEvaluationJobCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

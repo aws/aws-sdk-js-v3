@@ -16,7 +16,8 @@ import { de_DescribeRegistrationsCommand, se_DescribeRegistrationsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

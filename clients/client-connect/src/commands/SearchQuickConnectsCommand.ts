@@ -12,7 +12,8 @@ import { de_SearchQuickConnectsCommand, se_SearchQuickConnectsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

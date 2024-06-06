@@ -16,7 +16,8 @@ import { de_GetChannelMessageStatusCommand, se_GetChannelMessageStatusCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

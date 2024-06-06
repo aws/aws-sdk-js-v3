@@ -12,7 +12,8 @@ import { de_DescribeFeedbackCommand, se_DescribeFeedbackCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

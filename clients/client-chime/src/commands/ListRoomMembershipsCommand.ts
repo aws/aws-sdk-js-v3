@@ -16,7 +16,8 @@ import { de_ListRoomMembershipsCommand, se_ListRoomMembershipsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

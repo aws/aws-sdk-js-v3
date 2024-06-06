@@ -12,7 +12,8 @@ import { de_DeleteCorsPolicyCommand, se_DeleteCorsPolicyCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

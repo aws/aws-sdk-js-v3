@@ -12,7 +12,8 @@ import { de_DeleteOriginEndpointPolicyCommand, se_DeleteOriginEndpointPolicyComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

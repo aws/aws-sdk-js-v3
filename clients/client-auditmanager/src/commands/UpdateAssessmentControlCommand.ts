@@ -17,7 +17,8 @@ import { de_UpdateAssessmentControlCommand, se_UpdateAssessmentControlCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

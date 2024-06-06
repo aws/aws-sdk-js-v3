@@ -12,7 +12,8 @@ import { de_DescribeAutoPredictorCommand, se_DescribeAutoPredictorCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

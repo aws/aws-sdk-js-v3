@@ -12,7 +12,8 @@ import { de_DisassociateLexBotCommand, se_DisassociateLexBotCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

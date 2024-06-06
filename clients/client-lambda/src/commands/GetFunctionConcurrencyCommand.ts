@@ -12,7 +12,8 @@ import { de_GetFunctionConcurrencyCommand, se_GetFunctionConcurrencyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

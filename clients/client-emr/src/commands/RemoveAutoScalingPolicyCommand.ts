@@ -12,7 +12,8 @@ import { de_RemoveAutoScalingPolicyCommand, se_RemoveAutoScalingPolicyCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

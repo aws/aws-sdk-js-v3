@@ -16,7 +16,8 @@ import { de_DiscardRegistrationVersionCommand, se_DiscardRegistrationVersionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

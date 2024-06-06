@@ -16,7 +16,8 @@ import { de_GetStorageProfileForQueueCommand, se_GetStorageProfileForQueueComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

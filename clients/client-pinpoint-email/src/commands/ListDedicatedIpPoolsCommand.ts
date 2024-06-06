@@ -12,7 +12,8 @@ import { de_ListDedicatedIpPoolsCommand, se_ListDedicatedIpPoolsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

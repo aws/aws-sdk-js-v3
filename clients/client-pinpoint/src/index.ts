@@ -8,8 +8,8 @@
 export * from "./PinpointClient";
 export * from "./Pinpoint";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { PinpointExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { PinpointExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

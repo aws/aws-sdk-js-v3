@@ -12,7 +12,8 @@ import { de_GetRemainingFreeTrialDaysCommand, se_GetRemainingFreeTrialDaysComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

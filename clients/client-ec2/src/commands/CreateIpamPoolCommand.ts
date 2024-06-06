@@ -12,7 +12,8 @@ import { de_CreateIpamPoolCommand, se_CreateIpamPoolCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

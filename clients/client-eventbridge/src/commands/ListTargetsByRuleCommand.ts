@@ -16,7 +16,8 @@ import { de_ListTargetsByRuleCommand, se_ListTargetsByRuleCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeResourceGroupsCommand, se_DescribeResourceGroupsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

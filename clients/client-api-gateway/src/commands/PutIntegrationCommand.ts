@@ -12,7 +12,8 @@ import { de_PutIntegrationCommand, se_PutIntegrationCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

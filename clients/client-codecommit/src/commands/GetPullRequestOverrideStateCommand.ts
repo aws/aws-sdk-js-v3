@@ -12,7 +12,8 @@ import { de_GetPullRequestOverrideStateCommand, se_GetPullRequestOverrideStateCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

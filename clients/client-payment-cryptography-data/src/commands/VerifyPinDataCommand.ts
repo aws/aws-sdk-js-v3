@@ -16,7 +16,8 @@ import { de_VerifyPinDataCommand, se_VerifyPinDataCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

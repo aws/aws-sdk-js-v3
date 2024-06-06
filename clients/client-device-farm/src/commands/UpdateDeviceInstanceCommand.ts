@@ -12,7 +12,8 @@ import { de_UpdateDeviceInstanceCommand, se_UpdateDeviceInstanceCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

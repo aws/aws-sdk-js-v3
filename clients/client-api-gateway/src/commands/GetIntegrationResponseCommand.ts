@@ -12,7 +12,8 @@ import { de_GetIntegrationResponseCommand, se_GetIntegrationResponseCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

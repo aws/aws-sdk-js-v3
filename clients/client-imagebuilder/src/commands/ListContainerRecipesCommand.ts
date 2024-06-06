@@ -12,7 +12,8 @@ import { de_ListContainerRecipesCommand, se_ListContainerRecipesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

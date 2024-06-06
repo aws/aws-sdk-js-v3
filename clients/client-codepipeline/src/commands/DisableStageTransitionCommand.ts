@@ -12,7 +12,8 @@ import { de_DisableStageTransitionCommand, se_DisableStageTransitionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

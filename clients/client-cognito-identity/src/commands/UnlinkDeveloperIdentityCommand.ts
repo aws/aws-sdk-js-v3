@@ -12,7 +12,8 @@ import { de_UnlinkDeveloperIdentityCommand, se_UnlinkDeveloperIdentityCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

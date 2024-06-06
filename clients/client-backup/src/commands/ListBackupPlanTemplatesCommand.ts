@@ -12,7 +12,8 @@ import { de_ListBackupPlanTemplatesCommand, se_ListBackupPlanTemplatesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

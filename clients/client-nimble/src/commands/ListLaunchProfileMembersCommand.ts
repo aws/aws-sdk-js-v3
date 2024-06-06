@@ -12,7 +12,8 @@ import { de_ListLaunchProfileMembersCommand, se_ListLaunchProfileMembersCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

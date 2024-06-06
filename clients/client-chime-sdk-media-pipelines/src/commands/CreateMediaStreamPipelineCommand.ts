@@ -21,7 +21,8 @@ import { de_CreateMediaStreamPipelineCommand, se_CreateMediaStreamPipelineComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

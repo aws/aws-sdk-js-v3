@@ -12,7 +12,8 @@ import { de_AcknowledgeThirdPartyJobCommand, se_AcknowledgeThirdPartyJobCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

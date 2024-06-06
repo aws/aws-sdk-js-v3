@@ -12,7 +12,8 @@ import { de_DescribeVodSourceCommand, se_DescribeVodSourceCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

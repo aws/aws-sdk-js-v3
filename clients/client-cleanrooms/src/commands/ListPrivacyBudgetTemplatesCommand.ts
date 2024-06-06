@@ -12,7 +12,8 @@ import { de_ListPrivacyBudgetTemplatesCommand, se_ListPrivacyBudgetTemplatesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

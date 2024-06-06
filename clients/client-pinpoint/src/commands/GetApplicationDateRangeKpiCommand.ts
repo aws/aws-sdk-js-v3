@@ -12,7 +12,8 @@ import { de_GetApplicationDateRangeKpiCommand, se_GetApplicationDateRangeKpiComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

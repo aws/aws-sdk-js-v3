@@ -12,7 +12,8 @@ import { de_UpdateExperienceCommand, se_UpdateExperienceCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

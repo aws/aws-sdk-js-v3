@@ -12,7 +12,8 @@ import { de_DeleteUserDefinedFunctionCommand, se_DeleteUserDefinedFunctionComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

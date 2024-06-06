@@ -10,7 +10,8 @@ import { de_PutAndGetInlineDocumentsCommand, se_PutAndGetInlineDocumentsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

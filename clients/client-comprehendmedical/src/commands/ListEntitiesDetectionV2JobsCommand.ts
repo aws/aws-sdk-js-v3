@@ -16,7 +16,8 @@ import { de_ListEntitiesDetectionV2JobsCommand, se_ListEntitiesDetectionV2JobsCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

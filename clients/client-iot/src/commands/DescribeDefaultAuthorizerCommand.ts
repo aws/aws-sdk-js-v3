@@ -12,7 +12,8 @@ import { de_DescribeDefaultAuthorizerCommand, se_DescribeDefaultAuthorizerComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

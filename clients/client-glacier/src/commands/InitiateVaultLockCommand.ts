@@ -12,7 +12,8 @@ import { de_InitiateVaultLockCommand, se_InitiateVaultLockCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

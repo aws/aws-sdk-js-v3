@@ -16,7 +16,8 @@ import { de_CreateBackupPlanCommand, se_CreateBackupPlanCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeEnvironmentResourcesCommand, se_DescribeEnvironmentResources
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

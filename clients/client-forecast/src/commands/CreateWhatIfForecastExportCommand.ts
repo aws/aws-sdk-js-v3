@@ -16,7 +16,8 @@ import { de_CreateWhatIfForecastExportCommand, se_CreateWhatIfForecastExportComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

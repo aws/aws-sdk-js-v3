@@ -12,7 +12,8 @@ import { de_ListComponentBuildVersionsCommand, se_ListComponentBuildVersionsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

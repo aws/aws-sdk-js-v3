@@ -12,7 +12,8 @@ import { de_GetBulkPublishDetailsCommand, se_GetBulkPublishDetailsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

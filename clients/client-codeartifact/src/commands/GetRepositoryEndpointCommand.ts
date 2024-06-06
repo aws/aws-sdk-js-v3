@@ -12,7 +12,8 @@ import { de_GetRepositoryEndpointCommand, se_GetRepositoryEndpointCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

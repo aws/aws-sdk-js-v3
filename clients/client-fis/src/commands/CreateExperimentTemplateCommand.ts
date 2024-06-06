@@ -12,7 +12,8 @@ import { de_CreateExperimentTemplateCommand, se_CreateExperimentTemplateCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

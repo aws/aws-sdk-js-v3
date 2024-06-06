@@ -12,7 +12,8 @@ import { de_GetDomainPermissionsPolicyCommand, se_GetDomainPermissionsPolicyComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

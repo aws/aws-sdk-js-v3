@@ -12,7 +12,8 @@ import { de_ListArchiveRulesCommand, se_ListArchiveRulesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

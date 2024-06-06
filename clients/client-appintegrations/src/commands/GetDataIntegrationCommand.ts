@@ -12,7 +12,8 @@ import { de_GetDataIntegrationCommand, se_GetDataIntegrationCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

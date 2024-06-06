@@ -12,7 +12,8 @@ import { de_RemoveFromGlobalClusterCommand, se_RemoveFromGlobalClusterCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_AcceptCertificateTransferCommand, se_AcceptCertificateTransferComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

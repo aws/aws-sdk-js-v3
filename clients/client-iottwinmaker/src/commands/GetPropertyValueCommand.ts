@@ -12,7 +12,8 @@ import { de_GetPropertyValueCommand, se_GetPropertyValueCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

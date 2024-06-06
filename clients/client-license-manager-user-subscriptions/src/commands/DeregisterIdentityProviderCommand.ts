@@ -16,7 +16,8 @@ import { de_DeregisterIdentityProviderCommand, se_DeregisterIdentityProviderComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

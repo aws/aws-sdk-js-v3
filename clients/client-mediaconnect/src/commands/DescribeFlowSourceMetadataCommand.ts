@@ -12,7 +12,8 @@ import { de_DescribeFlowSourceMetadataCommand, se_DescribeFlowSourceMetadataComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_EnableAddressTransferCommand, se_EnableAddressTransferCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteVpcCommand, se_DeleteVpcCommand } from "../protocols/Aws_ec2";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_UpdateResourceCommand, se_UpdateResourceCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

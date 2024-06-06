@@ -12,7 +12,8 @@ import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

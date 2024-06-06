@@ -12,7 +12,8 @@ import { de_ListLifecycleExecutionsCommand, se_ListLifecycleExecutionsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

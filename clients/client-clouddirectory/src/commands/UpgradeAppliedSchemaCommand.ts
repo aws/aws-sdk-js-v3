@@ -12,7 +12,8 @@ import { de_UpgradeAppliedSchemaCommand, se_UpgradeAppliedSchemaCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

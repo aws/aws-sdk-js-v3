@@ -16,7 +16,8 @@ import { de_DisassociateUserCommand, se_DisassociateUserCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

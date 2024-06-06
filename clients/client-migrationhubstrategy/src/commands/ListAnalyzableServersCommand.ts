@@ -16,7 +16,8 @@ import { de_ListAnalyzableServersCommand, se_ListAnalyzableServersCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

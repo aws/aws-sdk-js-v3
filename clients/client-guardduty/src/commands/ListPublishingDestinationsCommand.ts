@@ -12,7 +12,8 @@ import { de_ListPublishingDestinationsCommand, se_ListPublishingDestinationsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

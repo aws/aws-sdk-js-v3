@@ -12,7 +12,8 @@ import { de_ListProviderServicesCommand, se_ListProviderServicesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

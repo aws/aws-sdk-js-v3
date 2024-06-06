@@ -12,7 +12,8 @@ import { de_DeleteSchedulingPolicyCommand, se_DeleteSchedulingPolicyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

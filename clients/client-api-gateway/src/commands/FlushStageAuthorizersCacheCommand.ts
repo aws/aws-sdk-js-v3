@@ -12,7 +12,8 @@ import { de_FlushStageAuthorizersCacheCommand, se_FlushStageAuthorizersCacheComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

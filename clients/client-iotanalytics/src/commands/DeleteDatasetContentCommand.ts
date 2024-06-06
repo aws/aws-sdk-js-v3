@@ -12,7 +12,8 @@ import { de_DeleteDatasetContentCommand, se_DeleteDatasetContentCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

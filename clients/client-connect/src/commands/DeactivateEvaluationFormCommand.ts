@@ -12,7 +12,8 @@ import { de_DeactivateEvaluationFormCommand, se_DeactivateEvaluationFormCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

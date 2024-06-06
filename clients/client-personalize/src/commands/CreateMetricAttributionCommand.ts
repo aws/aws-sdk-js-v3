@@ -12,7 +12,8 @@ import { de_CreateMetricAttributionCommand, se_CreateMetricAttributionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

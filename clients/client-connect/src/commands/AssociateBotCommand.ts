@@ -12,7 +12,8 @@ import { de_AssociateBotCommand, se_AssociateBotCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

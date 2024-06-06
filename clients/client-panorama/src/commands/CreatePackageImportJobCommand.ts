@@ -12,7 +12,8 @@ import { de_CreatePackageImportJobCommand, se_CreatePackageImportJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

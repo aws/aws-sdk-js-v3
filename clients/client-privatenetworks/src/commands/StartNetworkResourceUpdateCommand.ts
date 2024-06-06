@@ -17,7 +17,8 @@ import { de_StartNetworkResourceUpdateCommand, se_StartNetworkResourceUpdateComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

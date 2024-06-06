@@ -12,7 +12,8 @@ import { de_GetMetricStatisticsCommand, se_GetMetricStatisticsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

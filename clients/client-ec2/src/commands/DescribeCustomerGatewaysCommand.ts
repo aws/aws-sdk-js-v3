@@ -12,7 +12,8 @@ import { de_DescribeCustomerGatewaysCommand, se_DescribeCustomerGatewaysCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

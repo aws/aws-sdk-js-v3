@@ -12,7 +12,8 @@ import { de_DescribeDataIngestionJobCommand, se_DescribeDataIngestionJobCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

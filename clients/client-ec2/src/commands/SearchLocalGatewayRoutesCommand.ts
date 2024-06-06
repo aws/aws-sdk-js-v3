@@ -12,7 +12,8 @@ import { de_SearchLocalGatewayRoutesCommand, se_SearchLocalGatewayRoutesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

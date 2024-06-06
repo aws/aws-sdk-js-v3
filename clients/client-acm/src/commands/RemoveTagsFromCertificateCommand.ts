@@ -12,7 +12,8 @@ import { de_RemoveTagsFromCertificateCommand, se_RemoveTagsFromCertificateComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

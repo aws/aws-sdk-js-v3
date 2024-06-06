@@ -12,7 +12,8 @@ import { de_GetDeliveryDestinationCommand, se_GetDeliveryDestinationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

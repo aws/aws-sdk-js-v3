@@ -12,7 +12,8 @@ import { de_GetCampaignStateBatchCommand, se_GetCampaignStateBatchCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

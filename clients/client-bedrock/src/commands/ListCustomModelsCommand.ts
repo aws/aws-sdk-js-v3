@@ -12,7 +12,8 @@ import { de_ListCustomModelsCommand, se_ListCustomModelsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

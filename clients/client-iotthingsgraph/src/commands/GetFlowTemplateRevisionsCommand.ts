@@ -12,7 +12,8 @@ import { de_GetFlowTemplateRevisionsCommand, se_GetFlowTemplateRevisionsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

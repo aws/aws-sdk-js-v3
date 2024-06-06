@@ -12,7 +12,8 @@ import { de_ModifyIpamResourceCidrCommand, se_ModifyIpamResourceCidrCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

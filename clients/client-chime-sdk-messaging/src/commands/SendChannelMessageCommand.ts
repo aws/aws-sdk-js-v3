@@ -20,7 +20,8 @@ import { de_SendChannelMessageCommand, se_SendChannelMessageCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

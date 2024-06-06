@@ -12,7 +12,8 @@ import { de_DiscoverPollEndpointCommand, se_DiscoverPollEndpointCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

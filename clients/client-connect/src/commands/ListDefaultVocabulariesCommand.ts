@@ -12,7 +12,8 @@ import { de_ListDefaultVocabulariesCommand, se_ListDefaultVocabulariesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

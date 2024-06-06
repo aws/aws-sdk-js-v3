@@ -17,7 +17,8 @@ import { de_CreateServerCommand, se_CreateServerCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

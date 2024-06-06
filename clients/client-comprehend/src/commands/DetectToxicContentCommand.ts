@@ -16,7 +16,8 @@ import { de_DetectToxicContentCommand, se_DetectToxicContentCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteAllowListCommand, se_DeleteAllowListCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

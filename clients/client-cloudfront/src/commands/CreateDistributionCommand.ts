@@ -17,7 +17,8 @@ import { de_CreateDistributionCommand, se_CreateDistributionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

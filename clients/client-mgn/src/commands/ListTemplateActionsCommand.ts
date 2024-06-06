@@ -12,7 +12,8 @@ import { de_ListTemplateActionsCommand, se_ListTemplateActionsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

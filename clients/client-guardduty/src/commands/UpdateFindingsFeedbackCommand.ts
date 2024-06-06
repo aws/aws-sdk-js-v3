@@ -12,7 +12,8 @@ import { de_UpdateFindingsFeedbackCommand, se_UpdateFindingsFeedbackCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreatePublicIpv4PoolCommand, se_CreatePublicIpv4PoolCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

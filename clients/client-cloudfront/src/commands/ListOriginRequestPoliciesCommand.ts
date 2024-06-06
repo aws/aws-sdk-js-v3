@@ -12,7 +12,8 @@ import { de_ListOriginRequestPoliciesCommand, se_ListOriginRequestPoliciesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

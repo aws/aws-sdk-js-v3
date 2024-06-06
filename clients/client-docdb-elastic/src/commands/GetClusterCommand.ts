@@ -12,7 +12,8 @@ import { de_GetClusterCommand, se_GetClusterCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

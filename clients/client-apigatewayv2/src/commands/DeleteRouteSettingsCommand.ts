@@ -12,7 +12,8 @@ import { de_DeleteRouteSettingsCommand, se_DeleteRouteSettingsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

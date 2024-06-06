@@ -12,7 +12,8 @@ import { de_DisconnectRecoveryInstanceCommand, se_DisconnectRecoveryInstanceComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

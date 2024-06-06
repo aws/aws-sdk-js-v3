@@ -12,7 +12,8 @@ import { de_PutAutoScalingPolicyCommand, se_PutAutoScalingPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

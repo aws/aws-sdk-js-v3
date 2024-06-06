@@ -12,7 +12,8 @@ import { de_DeleteStackCommand, se_DeleteStackCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

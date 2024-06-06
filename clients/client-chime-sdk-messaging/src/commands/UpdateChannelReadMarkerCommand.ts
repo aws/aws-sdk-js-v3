@@ -16,7 +16,8 @@ import { de_UpdateChannelReadMarkerCommand, se_UpdateChannelReadMarkerCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

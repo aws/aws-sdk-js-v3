@@ -12,7 +12,8 @@ import { de_StartDataSourceSyncJobCommand, se_StartDataSourceSyncJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

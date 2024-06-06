@@ -12,7 +12,8 @@ import { de_DescribeOrganizationsAccessCommand, se_DescribeOrganizationsAccessCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

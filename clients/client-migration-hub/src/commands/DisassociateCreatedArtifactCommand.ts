@@ -12,7 +12,8 @@ import { de_DisassociateCreatedArtifactCommand, se_DisassociateCreatedArtifactCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeAcceleratorsCommand, se_DescribeAcceleratorsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

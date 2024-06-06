@@ -12,7 +12,8 @@ import { de_UpdatePredefinedAttributeCommand, se_UpdatePredefinedAttributeComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

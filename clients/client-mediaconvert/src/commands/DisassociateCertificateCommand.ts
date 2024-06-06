@@ -12,7 +12,8 @@ import { de_DisassociateCertificateCommand, se_DisassociateCertificateCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

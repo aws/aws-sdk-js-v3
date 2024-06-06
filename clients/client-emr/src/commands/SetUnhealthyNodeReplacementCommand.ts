@@ -12,7 +12,8 @@ import { de_SetUnhealthyNodeReplacementCommand, se_SetUnhealthyNodeReplacementCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

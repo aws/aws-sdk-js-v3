@@ -12,7 +12,8 @@ import { de_ListManagedResourcesCommand, se_ListManagedResourcesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

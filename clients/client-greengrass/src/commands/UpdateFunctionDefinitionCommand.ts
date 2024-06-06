@@ -12,7 +12,8 @@ import { de_UpdateFunctionDefinitionCommand, se_UpdateFunctionDefinitionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

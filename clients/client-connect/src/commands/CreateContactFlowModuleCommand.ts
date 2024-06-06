@@ -12,7 +12,8 @@ import { de_CreateContactFlowModuleCommand, se_CreateContactFlowModuleCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

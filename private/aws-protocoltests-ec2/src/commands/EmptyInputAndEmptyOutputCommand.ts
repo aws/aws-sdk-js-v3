@@ -10,7 +10,8 @@ import { de_EmptyInputAndEmptyOutputCommand, se_EmptyInputAndEmptyOutputCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

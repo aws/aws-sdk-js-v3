@@ -12,7 +12,8 @@ import { de_GetFindingsStatisticsCommand, se_GetFindingsStatisticsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

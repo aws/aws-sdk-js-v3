@@ -12,7 +12,8 @@ import { de_ListEntitledApplicationsCommand, se_ListEntitledApplicationsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

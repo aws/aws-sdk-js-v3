@@ -20,7 +20,8 @@ import { de_SetUserSettingsCommand, se_SetUserSettingsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ListJobRunsCommand, se_ListJobRunsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

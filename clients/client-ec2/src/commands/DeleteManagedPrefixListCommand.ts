@@ -12,7 +12,8 @@ import { de_DeleteManagedPrefixListCommand, se_DeleteManagedPrefixListCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

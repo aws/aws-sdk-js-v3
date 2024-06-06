@@ -12,7 +12,8 @@ import { de_UpdateJobExecutionCommand, se_UpdateJobExecutionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

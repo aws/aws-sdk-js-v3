@@ -12,7 +12,8 @@ import { de_GetRoutesCommand, se_GetRoutesCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

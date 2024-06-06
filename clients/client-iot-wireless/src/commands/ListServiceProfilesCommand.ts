@@ -12,7 +12,8 @@ import { de_ListServiceProfilesCommand, se_ListServiceProfilesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

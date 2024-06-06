@@ -12,7 +12,8 @@ import { de_DescribeRecommenderCommand, se_DescribeRecommenderCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

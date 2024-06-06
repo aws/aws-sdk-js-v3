@@ -12,7 +12,8 @@ import { de_ListResolversByFunctionCommand, se_ListResolversByFunctionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

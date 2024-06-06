@@ -12,7 +12,8 @@ import { de_GetQueryResultsCommand, se_GetQueryResultsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

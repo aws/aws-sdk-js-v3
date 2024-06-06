@@ -12,7 +12,8 @@ import { de_ProvideAnomalyFeedbackCommand, se_ProvideAnomalyFeedbackCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

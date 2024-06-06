@@ -12,7 +12,8 @@ import { de_DescribeIpv6PoolsCommand, se_DescribeIpv6PoolsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteLocalGatewayRouteTableCommand, se_DeleteLocalGatewayRouteTable
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

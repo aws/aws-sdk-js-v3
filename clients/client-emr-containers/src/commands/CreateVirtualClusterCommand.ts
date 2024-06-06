@@ -12,7 +12,8 @@ import { de_CreateVirtualClusterCommand, se_CreateVirtualClusterCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

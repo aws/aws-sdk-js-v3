@@ -12,7 +12,8 @@ import { de_UpdateAuditSuppressionCommand, se_UpdateAuditSuppressionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

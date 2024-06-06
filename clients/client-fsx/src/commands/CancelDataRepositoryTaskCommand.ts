@@ -12,7 +12,8 @@ import { de_CancelDataRepositoryTaskCommand, se_CancelDataRepositoryTaskCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

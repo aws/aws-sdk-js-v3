@@ -20,7 +20,8 @@ import { de_ListUserPoolClientsCommand, se_ListUserPoolClientsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

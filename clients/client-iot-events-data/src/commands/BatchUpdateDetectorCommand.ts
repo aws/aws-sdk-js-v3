@@ -12,7 +12,8 @@ import { de_BatchUpdateDetectorCommand, se_BatchUpdateDetectorCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

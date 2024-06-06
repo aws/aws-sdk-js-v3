@@ -16,7 +16,8 @@ import { de_ListMediaPipelinesCommand, se_ListMediaPipelinesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

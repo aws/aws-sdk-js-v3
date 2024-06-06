@@ -12,7 +12,8 @@ import { de_UpdateRepositoryNameCommand, se_UpdateRepositoryNameCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

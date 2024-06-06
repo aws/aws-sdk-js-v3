@@ -12,7 +12,8 @@ import { de_ListWorkflowExecutionsCommand, se_ListWorkflowExecutionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

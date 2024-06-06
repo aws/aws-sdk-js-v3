@@ -12,7 +12,8 @@ import { de_GetResourceLogLevelCommand, se_GetResourceLogLevelCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

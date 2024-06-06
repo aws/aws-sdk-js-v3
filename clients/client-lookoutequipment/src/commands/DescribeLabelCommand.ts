@@ -12,7 +12,8 @@ import { de_DescribeLabelCommand, se_DescribeLabelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

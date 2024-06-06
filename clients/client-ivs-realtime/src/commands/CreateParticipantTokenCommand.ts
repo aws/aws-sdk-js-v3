@@ -16,7 +16,8 @@ import { de_CreateParticipantTokenCommand, se_CreateParticipantTokenCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

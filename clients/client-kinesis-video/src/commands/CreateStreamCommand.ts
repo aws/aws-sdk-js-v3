@@ -12,7 +12,8 @@ import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

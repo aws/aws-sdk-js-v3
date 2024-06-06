@@ -12,7 +12,8 @@ import { de_BatchDisassociateResourceCommand, se_BatchDisassociateResourceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteCisScanConfigurationCommand, se_DeleteCisScanConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

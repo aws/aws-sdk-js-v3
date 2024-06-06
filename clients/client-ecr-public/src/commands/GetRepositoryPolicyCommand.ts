@@ -12,7 +12,8 @@ import { de_GetRepositoryPolicyCommand, se_GetRepositoryPolicyCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

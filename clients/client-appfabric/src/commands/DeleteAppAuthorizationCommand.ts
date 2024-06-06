@@ -12,7 +12,8 @@ import { de_DeleteAppAuthorizationCommand, se_DeleteAppAuthorizationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

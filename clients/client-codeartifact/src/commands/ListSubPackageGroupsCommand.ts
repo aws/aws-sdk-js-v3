@@ -12,7 +12,8 @@ import { de_ListSubPackageGroupsCommand, se_ListSubPackageGroupsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

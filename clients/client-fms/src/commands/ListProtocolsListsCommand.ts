@@ -12,7 +12,8 @@ import { de_ListProtocolsListsCommand, se_ListProtocolsListsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

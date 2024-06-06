@@ -12,7 +12,8 @@ import { de_StartContactRecordingCommand, se_StartContactRecordingCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

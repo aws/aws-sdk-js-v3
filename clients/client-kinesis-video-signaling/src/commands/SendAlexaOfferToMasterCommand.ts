@@ -16,7 +16,8 @@ import { de_SendAlexaOfferToMasterCommand, se_SendAlexaOfferToMasterCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreateResourceDefinitionCommand, se_CreateResourceDefinitionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

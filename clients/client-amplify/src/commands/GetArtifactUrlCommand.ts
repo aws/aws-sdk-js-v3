@@ -12,7 +12,8 @@ import { de_GetArtifactUrlCommand, se_GetArtifactUrlCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

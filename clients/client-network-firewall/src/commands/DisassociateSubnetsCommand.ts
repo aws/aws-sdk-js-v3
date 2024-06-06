@@ -12,7 +12,8 @@ import { de_DisassociateSubnetsCommand, se_DisassociateSubnetsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

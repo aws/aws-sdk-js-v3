@@ -20,7 +20,8 @@ import { de_GetActionRecommendationsCommand, se_GetActionRecommendationsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

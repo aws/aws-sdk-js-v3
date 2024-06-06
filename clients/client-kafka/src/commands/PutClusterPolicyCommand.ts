@@ -12,7 +12,8 @@ import { de_PutClusterPolicyCommand, se_PutClusterPolicyCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

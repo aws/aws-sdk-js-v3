@@ -16,7 +16,8 @@ import { de_DescribeAgreementCommand, se_DescribeAgreementCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteBackupPlanCommand, se_DeleteBackupPlanCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

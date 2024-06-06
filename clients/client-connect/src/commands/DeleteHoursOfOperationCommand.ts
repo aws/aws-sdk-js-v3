@@ -12,7 +12,8 @@ import { de_DeleteHoursOfOperationCommand, se_DeleteHoursOfOperationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

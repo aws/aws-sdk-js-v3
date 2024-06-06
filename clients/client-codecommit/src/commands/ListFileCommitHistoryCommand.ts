@@ -13,7 +13,8 @@ import { de_ListFileCommitHistoryCommand, se_ListFileCommitHistoryCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

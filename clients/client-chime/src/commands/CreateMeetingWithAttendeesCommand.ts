@@ -17,7 +17,8 @@ import { de_CreateMeetingWithAttendeesCommand, se_CreateMeetingWithAttendeesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateStreamingDistributionCommand, se_UpdateStreamingDistributionCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

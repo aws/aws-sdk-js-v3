@@ -12,7 +12,8 @@ import { de_GetMLModelTransformJobCommand, se_GetMLModelTransformJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

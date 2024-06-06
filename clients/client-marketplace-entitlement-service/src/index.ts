@@ -24,8 +24,8 @@
 export * from "./MarketplaceEntitlementServiceClient";
 export * from "./MarketplaceEntitlementService";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { MarketplaceEntitlementServiceExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { MarketplaceEntitlementServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -12,7 +12,8 @@ import { de_ListSpeechSynthesisTasksCommand, se_ListSpeechSynthesisTasksCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

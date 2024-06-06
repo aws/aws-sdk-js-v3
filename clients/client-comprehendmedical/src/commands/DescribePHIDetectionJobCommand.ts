@@ -16,7 +16,8 @@ import { de_DescribePHIDetectionJobCommand, se_DescribePHIDetectionJobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

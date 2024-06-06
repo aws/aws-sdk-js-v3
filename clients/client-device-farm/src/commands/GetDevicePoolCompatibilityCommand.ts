@@ -12,7 +12,8 @@ import { de_GetDevicePoolCompatibilityCommand, se_GetDevicePoolCompatibilityComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

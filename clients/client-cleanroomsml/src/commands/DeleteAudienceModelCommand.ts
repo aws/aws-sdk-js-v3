@@ -12,7 +12,8 @@ import { de_DeleteAudienceModelCommand, se_DeleteAudienceModelCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

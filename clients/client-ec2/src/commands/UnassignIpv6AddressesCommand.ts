@@ -12,7 +12,8 @@ import { de_UnassignIpv6AddressesCommand, se_UnassignIpv6AddressesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

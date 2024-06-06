@@ -12,7 +12,8 @@ import { de_GetWorkflowRunPropertiesCommand, se_GetWorkflowRunPropertiesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

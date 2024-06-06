@@ -12,7 +12,8 @@ import { de_ModifyClientVpnEndpointCommand, se_ModifyClientVpnEndpointCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

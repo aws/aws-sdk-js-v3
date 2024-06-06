@@ -12,7 +12,8 @@ import { de_DeleteDevEndpointCommand, se_DeleteDevEndpointCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

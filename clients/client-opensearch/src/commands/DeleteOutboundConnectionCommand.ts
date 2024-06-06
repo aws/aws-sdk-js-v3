@@ -12,7 +12,8 @@ import { de_DeleteOutboundConnectionCommand, se_DeleteOutboundConnectionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

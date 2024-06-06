@@ -16,7 +16,8 @@ import { de_GetImageSetMetadataCommand, se_GetImageSetMetadataCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

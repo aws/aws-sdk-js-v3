@@ -12,7 +12,8 @@ import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

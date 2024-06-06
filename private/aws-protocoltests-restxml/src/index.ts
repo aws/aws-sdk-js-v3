@@ -7,8 +7,8 @@
  */
 export * from "./RestXmlProtocolClient";
 export * from "./RestXmlProtocol";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { RestXmlProtocolExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { RestXmlProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

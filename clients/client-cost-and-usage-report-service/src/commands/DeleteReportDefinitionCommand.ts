@@ -16,7 +16,8 @@ import { de_DeleteReportDefinitionCommand, se_DeleteReportDefinitionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetVoiceTemplateCommand, se_GetVoiceTemplateCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

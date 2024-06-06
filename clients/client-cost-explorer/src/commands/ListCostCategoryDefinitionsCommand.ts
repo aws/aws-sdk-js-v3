@@ -12,7 +12,8 @@ import { de_ListCostCategoryDefinitionsCommand, se_ListCostCategoryDefinitionsCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

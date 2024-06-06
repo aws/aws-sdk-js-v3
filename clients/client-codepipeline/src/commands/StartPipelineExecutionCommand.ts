@@ -12,7 +12,8 @@ import { de_StartPipelineExecutionCommand, se_StartPipelineExecutionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

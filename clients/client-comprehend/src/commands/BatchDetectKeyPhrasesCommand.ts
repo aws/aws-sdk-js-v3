@@ -17,7 +17,8 @@ import { de_BatchDetectKeyPhrasesCommand, se_BatchDetectKeyPhrasesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

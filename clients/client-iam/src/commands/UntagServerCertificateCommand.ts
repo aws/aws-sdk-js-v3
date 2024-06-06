@@ -12,7 +12,8 @@ import { de_UntagServerCertificateCommand, se_UntagServerCertificateCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

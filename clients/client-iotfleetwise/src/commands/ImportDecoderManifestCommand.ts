@@ -12,7 +12,8 @@ import { de_ImportDecoderManifestCommand, se_ImportDecoderManifestCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CopyJobTemplateCommand, se_CopyJobTemplateCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

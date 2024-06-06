@@ -12,7 +12,8 @@ import { de_GrantFlowEntitlementsCommand, se_GrantFlowEntitlementsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

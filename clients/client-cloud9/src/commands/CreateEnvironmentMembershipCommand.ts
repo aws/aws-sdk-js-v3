@@ -12,7 +12,8 @@ import { de_CreateEnvironmentMembershipCommand, se_CreateEnvironmentMembershipCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

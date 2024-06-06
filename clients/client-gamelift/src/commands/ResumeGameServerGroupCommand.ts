@@ -13,7 +13,8 @@ import { de_ResumeGameServerGroupCommand, se_ResumeGameServerGroupCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

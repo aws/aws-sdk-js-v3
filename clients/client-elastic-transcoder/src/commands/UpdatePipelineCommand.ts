@@ -16,7 +16,8 @@ import { de_UpdatePipelineCommand, se_UpdatePipelineCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

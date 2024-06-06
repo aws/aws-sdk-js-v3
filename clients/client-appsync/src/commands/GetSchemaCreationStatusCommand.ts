@@ -12,7 +12,8 @@ import { de_GetSchemaCreationStatusCommand, se_GetSchemaCreationStatusCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

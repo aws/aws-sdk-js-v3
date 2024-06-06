@@ -12,7 +12,8 @@ import { de_GetDataflowEndpointGroupCommand, se_GetDataflowEndpointGroupCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

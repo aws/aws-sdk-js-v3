@@ -12,7 +12,8 @@ import { de_GetConfiguredAudienceModelCommand, se_GetConfiguredAudienceModelComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

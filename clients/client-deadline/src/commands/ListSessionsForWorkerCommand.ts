@@ -12,7 +12,8 @@ import { de_ListSessionsForWorkerCommand, se_ListSessionsForWorkerCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

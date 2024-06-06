@@ -12,7 +12,8 @@ import { de_GetMergeCommitCommand, se_GetMergeCommitCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

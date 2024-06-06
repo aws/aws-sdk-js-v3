@@ -12,7 +12,8 @@ import { de_PollForThirdPartyJobsCommand, se_PollForThirdPartyJobsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

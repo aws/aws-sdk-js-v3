@@ -12,7 +12,8 @@ import { de_DeleteMulticastGroupCommand, se_DeleteMulticastGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteDynamicThingGroupCommand, se_DeleteDynamicThingGroupCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

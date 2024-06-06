@@ -12,7 +12,8 @@ import { de_DeregisterCertificateCommand, se_DeregisterCertificateCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

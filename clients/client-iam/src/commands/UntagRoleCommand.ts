@@ -12,7 +12,8 @@ import { de_UntagRoleCommand, se_UntagRoleCommand } from "../protocols/Aws_query
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

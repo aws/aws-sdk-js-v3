@@ -12,7 +12,8 @@ import { de_UpdateConditionalForwarderCommand, se_UpdateConditionalForwarderComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

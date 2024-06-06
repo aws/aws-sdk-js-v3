@@ -12,7 +12,8 @@ import { de_UntagSAMLProviderCommand, se_UntagSAMLProviderCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

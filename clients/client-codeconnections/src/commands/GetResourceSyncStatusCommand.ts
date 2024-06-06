@@ -12,7 +12,8 @@ import { de_GetResourceSyncStatusCommand, se_GetResourceSyncStatusCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

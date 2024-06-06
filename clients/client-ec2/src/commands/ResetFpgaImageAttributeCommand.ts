@@ -12,7 +12,8 @@ import { de_ResetFpgaImageAttributeCommand, se_ResetFpgaImageAttributeCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

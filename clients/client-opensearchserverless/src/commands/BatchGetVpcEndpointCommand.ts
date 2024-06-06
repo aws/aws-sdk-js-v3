@@ -16,7 +16,8 @@ import { de_BatchGetVpcEndpointCommand, se_BatchGetVpcEndpointCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

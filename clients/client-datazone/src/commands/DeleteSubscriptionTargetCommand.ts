@@ -12,7 +12,8 @@ import { de_DeleteSubscriptionTargetCommand, se_DeleteSubscriptionTargetCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

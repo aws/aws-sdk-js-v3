@@ -16,7 +16,8 @@ import { de_StopWorkflowCommand, se_StopWorkflowCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

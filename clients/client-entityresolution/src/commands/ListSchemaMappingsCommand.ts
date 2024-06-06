@@ -12,7 +12,8 @@ import { de_ListSchemaMappingsCommand, se_ListSchemaMappingsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

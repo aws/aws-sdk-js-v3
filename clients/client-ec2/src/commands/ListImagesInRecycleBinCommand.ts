@@ -12,7 +12,8 @@ import { de_ListImagesInRecycleBinCommand, se_ListImagesInRecycleBinCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

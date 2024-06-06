@@ -12,7 +12,8 @@ import { de_ContainsPiiEntitiesCommand, se_ContainsPiiEntitiesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

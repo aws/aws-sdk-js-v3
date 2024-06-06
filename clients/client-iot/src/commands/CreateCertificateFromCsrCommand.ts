@@ -12,7 +12,8 @@ import { de_CreateCertificateFromCsrCommand, se_CreateCertificateFromCsrCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

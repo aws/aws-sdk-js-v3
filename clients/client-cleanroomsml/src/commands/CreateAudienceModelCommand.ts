@@ -12,7 +12,8 @@ import { de_CreateAudienceModelCommand, se_CreateAudienceModelCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_CreateDistributionWithTagsCommand, se_CreateDistributionWithTagsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

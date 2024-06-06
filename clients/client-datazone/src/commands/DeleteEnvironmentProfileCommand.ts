@@ -12,7 +12,8 @@ import { de_DeleteEnvironmentProfileCommand, se_DeleteEnvironmentProfileCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

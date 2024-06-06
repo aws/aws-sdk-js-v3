@@ -12,7 +12,8 @@ import { de_AddThingToThingGroupCommand, se_AddThingToThingGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

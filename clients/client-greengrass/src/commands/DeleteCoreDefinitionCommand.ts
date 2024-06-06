@@ -12,7 +12,8 @@ import { de_DeleteCoreDefinitionCommand, se_DeleteCoreDefinitionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

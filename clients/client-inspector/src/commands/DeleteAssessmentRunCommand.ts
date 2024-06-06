@@ -12,7 +12,8 @@ import { de_DeleteAssessmentRunCommand, se_DeleteAssessmentRunCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

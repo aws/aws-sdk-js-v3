@@ -12,7 +12,8 @@ import { de_ListBatchInferenceJobsCommand, se_ListBatchInferenceJobsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

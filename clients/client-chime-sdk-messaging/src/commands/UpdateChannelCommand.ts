@@ -20,7 +20,8 @@ import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

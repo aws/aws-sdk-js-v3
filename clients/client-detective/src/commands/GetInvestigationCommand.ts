@@ -12,7 +12,8 @@ import { de_GetInvestigationCommand, se_GetInvestigationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

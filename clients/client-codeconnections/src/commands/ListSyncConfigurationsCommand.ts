@@ -12,7 +12,8 @@ import { de_ListSyncConfigurationsCommand, se_ListSyncConfigurationsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

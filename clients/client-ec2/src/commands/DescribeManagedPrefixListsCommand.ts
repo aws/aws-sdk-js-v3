@@ -12,7 +12,8 @@ import { de_DescribeManagedPrefixListsCommand, se_DescribeManagedPrefixListsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

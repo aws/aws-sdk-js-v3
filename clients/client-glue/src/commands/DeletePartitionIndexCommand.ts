@@ -12,7 +12,8 @@ import { de_DeletePartitionIndexCommand, se_DeletePartitionIndexCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

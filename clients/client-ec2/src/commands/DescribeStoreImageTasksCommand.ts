@@ -12,7 +12,8 @@ import { de_DescribeStoreImageTasksCommand, se_DescribeStoreImageTasksCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

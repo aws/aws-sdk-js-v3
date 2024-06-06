@@ -12,7 +12,8 @@ import { de_UpdateRuntimeConfigurationCommand, se_UpdateRuntimeConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

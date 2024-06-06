@@ -12,7 +12,8 @@ import { de_DeprecateFlowTemplateCommand, se_DeprecateFlowTemplateCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

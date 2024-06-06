@@ -12,7 +12,8 @@ import { de_PurchaseScheduledInstancesCommand, se_PurchaseScheduledInstancesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

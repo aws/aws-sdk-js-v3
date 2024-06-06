@@ -12,7 +12,8 @@ import { de_ListAssignmentsForHITCommand, se_ListAssignmentsForHITCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

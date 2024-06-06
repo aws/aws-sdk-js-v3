@@ -12,7 +12,8 @@ import { de_ModifyCapacityReservationCommand, se_ModifyCapacityReservationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

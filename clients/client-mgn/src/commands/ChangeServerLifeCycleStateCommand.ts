@@ -12,7 +12,8 @@ import { de_ChangeServerLifeCycleStateCommand, se_ChangeServerLifeCycleStateComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteChannelMembershipCommand, se_DeleteChannelMembershipCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

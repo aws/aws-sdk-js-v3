@@ -12,7 +12,8 @@ import { de_AttachPrincipalPolicyCommand, se_AttachPrincipalPolicyCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

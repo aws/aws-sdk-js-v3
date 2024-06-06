@@ -12,7 +12,8 @@ import { de_DeletePublicIpv4PoolCommand, se_DeletePublicIpv4PoolCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

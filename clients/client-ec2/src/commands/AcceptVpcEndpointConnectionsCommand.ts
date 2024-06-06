@@ -12,7 +12,8 @@ import { de_AcceptVpcEndpointConnectionsCommand, se_AcceptVpcEndpointConnections
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

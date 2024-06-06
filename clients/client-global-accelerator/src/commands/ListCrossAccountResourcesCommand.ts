@@ -16,7 +16,8 @@ import { de_ListCrossAccountResourcesCommand, se_ListCrossAccountResourcesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

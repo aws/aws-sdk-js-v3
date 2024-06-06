@@ -12,7 +12,8 @@ import { de_GetApnsSandboxChannelCommand, se_GetApnsSandboxChannelCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

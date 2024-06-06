@@ -12,7 +12,8 @@ import { de_GetIpamDiscoveredAccountsCommand, se_GetIpamDiscoveredAccountsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

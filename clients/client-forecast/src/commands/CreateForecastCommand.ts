@@ -16,7 +16,8 @@ import { de_CreateForecastCommand, se_CreateForecastCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

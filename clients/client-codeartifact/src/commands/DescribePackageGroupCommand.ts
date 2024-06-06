@@ -12,7 +12,8 @@ import { de_DescribePackageGroupCommand, se_DescribePackageGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

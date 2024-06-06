@@ -16,7 +16,8 @@ import { de_StartAssessmentCommand, se_StartAssessmentCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateTaskProtectionCommand, se_UpdateTaskProtectionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

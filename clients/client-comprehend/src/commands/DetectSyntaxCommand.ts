@@ -17,7 +17,8 @@ import { de_DetectSyntaxCommand, se_DetectSyntaxCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

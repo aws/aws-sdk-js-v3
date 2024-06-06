@@ -12,7 +12,8 @@ import { de_ListBotAliasReplicasCommand, se_ListBotAliasReplicasCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

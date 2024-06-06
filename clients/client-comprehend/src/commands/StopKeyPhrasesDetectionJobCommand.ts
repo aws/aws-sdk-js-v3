@@ -12,7 +12,8 @@ import { de_StopKeyPhrasesDetectionJobCommand, se_StopKeyPhrasesDetectionJobComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateDomainConfigurationCommand, se_UpdateDomainConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

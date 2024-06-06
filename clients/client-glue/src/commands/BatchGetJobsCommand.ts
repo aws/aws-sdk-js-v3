@@ -13,7 +13,8 @@ import { de_BatchGetJobsCommand, se_BatchGetJobsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteKxDataviewCommand, se_DeleteKxDataviewCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_BatchGetResourceConfigCommand, se_BatchGetResourceConfigCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

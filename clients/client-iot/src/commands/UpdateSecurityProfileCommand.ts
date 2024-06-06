@@ -12,7 +12,8 @@ import { de_UpdateSecurityProfileCommand, se_UpdateSecurityProfileCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

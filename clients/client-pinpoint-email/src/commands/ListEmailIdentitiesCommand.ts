@@ -12,7 +12,8 @@ import { de_ListEmailIdentitiesCommand, se_ListEmailIdentitiesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

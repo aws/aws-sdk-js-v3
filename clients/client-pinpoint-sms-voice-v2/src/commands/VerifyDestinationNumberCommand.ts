@@ -16,7 +16,8 @@ import { de_VerifyDestinationNumberCommand, se_VerifyDestinationNumberCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

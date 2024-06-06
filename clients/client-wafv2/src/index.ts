@@ -65,8 +65,8 @@
 export * from "./WAFV2Client";
 export * from "./WAFV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { WAFV2ExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { WAFV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

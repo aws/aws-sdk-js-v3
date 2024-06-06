@@ -12,7 +12,8 @@ import { de_BatchGetDeploymentsCommand, se_BatchGetDeploymentsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ListVPCEConfigurationsCommand, se_ListVPCEConfigurationsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

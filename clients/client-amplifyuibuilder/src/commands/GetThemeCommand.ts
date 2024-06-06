@@ -12,7 +12,8 @@ import { de_GetThemeCommand, se_GetThemeCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

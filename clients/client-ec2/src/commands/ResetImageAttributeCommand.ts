@@ -12,7 +12,8 @@ import { de_ResetImageAttributeCommand, se_ResetImageAttributeCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

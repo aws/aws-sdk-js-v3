@@ -16,7 +16,8 @@ import { de_StopContinuousExportCommand, se_StopContinuousExportCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

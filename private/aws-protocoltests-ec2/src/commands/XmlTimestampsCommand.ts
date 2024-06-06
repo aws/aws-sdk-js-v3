@@ -10,7 +10,8 @@ import { de_XmlTimestampsCommand, se_XmlTimestampsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

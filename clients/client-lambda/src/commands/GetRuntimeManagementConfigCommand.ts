@@ -12,7 +12,8 @@ import { de_GetRuntimeManagementConfigCommand, se_GetRuntimeManagementConfigComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

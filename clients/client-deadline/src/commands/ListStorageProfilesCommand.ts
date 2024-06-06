@@ -12,7 +12,8 @@ import { de_ListStorageProfilesCommand, se_ListStorageProfilesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

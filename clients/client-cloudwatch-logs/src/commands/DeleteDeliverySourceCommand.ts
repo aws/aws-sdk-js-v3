@@ -12,7 +12,8 @@ import { de_DeleteDeliverySourceCommand, se_DeleteDeliverySourceCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

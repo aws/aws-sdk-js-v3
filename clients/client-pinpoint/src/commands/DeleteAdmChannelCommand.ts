@@ -12,7 +12,8 @@ import { de_DeleteAdmChannelCommand, se_DeleteAdmChannelCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

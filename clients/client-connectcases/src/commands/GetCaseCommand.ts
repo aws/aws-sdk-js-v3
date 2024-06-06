@@ -12,7 +12,8 @@ import { de_GetCaseCommand, se_GetCaseCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

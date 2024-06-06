@@ -12,7 +12,8 @@ import { de_CreateSubnetCidrReservationCommand, se_CreateSubnetCidrReservationCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

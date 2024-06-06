@@ -12,7 +12,8 @@ import { de_DeleteQueuedMessagesCommand, se_DeleteQueuedMessagesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

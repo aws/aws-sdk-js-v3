@@ -12,7 +12,8 @@ import { de_StartOnDemandAuditTaskCommand, se_StartOnDemandAuditTaskCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

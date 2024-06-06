@@ -12,7 +12,8 @@ import { de_CreateBatchPredictionJobCommand, se_CreateBatchPredictionJobCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

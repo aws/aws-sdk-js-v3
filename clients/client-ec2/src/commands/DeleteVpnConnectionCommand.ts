@@ -12,7 +12,8 @@ import { de_DeleteVpnConnectionCommand, se_DeleteVpnConnectionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

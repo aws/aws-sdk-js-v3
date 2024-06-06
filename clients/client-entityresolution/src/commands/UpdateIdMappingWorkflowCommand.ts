@@ -12,7 +12,8 @@ import { de_UpdateIdMappingWorkflowCommand, se_UpdateIdMappingWorkflowCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

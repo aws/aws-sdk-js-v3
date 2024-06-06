@@ -12,7 +12,8 @@ import { de_ModifyIpamResourceDiscoveryCommand, se_ModifyIpamResourceDiscoveryCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

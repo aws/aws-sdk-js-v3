@@ -2,8 +2,8 @@
 /* eslint-disable */
 export * from "./JsonProtocolClient";
 export * from "./JsonProtocol";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { JsonProtocolExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { JsonProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

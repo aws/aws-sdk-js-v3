@@ -17,7 +17,8 @@ import { de_ListChannelModeratorsCommand, se_ListChannelModeratorsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

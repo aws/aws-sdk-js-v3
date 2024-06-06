@@ -12,7 +12,8 @@ import { de_StartClusterCommand, se_StartClusterCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

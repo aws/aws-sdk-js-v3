@@ -12,7 +12,8 @@ import { de_ListQueueFleetAssociationsCommand, se_ListQueueFleetAssociationsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

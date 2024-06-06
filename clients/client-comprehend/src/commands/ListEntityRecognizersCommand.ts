@@ -16,7 +16,8 @@ import { de_ListEntityRecognizersCommand, se_ListEntityRecognizersCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ListIndexCommand, se_ListIndexCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

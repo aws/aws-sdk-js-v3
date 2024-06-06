@@ -12,7 +12,8 @@ import { de_GetInstanceSnapshotCommand, se_GetInstanceSnapshotCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

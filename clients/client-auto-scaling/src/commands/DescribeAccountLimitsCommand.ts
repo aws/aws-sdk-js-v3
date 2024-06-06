@@ -12,7 +12,8 @@ import { de_DescribeAccountLimitsCommand, se_DescribeAccountLimitsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

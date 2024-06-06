@@ -16,7 +16,8 @@ import { de_CreateRestoreTestingPlanCommand, se_CreateRestoreTestingPlanCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

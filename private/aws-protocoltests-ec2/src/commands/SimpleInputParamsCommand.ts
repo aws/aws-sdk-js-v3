@@ -10,7 +10,8 @@ import { de_SimpleInputParamsCommand, se_SimpleInputParamsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

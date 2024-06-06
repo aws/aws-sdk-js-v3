@@ -12,7 +12,8 @@ import { de_ListExtensionAssociationsCommand, se_ListExtensionAssociationsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

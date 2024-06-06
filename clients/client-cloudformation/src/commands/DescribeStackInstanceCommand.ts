@@ -12,7 +12,8 @@ import { de_DescribeStackInstanceCommand, se_DescribeStackInstanceCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

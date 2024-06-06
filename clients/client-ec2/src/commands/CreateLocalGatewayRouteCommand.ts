@@ -12,7 +12,8 @@ import { de_CreateLocalGatewayRouteCommand, se_CreateLocalGatewayRouteCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

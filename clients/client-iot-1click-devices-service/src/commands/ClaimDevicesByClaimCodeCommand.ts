@@ -16,7 +16,8 @@ import { de_ClaimDevicesByClaimCodeCommand, se_ClaimDevicesByClaimCodeCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

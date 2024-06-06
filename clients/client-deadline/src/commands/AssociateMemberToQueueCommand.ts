@@ -12,7 +12,8 @@ import { de_AssociateMemberToQueueCommand, se_AssociateMemberToQueueCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

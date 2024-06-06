@@ -20,7 +20,8 @@ import { de_GetParametersForExportCommand, se_GetParametersForExportCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

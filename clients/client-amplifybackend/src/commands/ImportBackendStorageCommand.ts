@@ -12,7 +12,8 @@ import { de_ImportBackendStorageCommand, se_ImportBackendStorageCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

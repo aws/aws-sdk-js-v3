@@ -12,7 +12,8 @@ import { de_AssociateEncryptionConfigCommand, se_AssociateEncryptionConfigComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

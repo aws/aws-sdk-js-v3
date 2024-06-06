@@ -12,7 +12,8 @@ import { de_BatchGetBuildsCommand, se_BatchGetBuildsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

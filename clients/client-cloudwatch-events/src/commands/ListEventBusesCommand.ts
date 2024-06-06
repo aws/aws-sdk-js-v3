@@ -12,7 +12,8 @@ import { de_ListEventBusesCommand, se_ListEventBusesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

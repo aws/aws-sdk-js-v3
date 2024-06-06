@@ -12,7 +12,8 @@ import { de_PutComponentPolicyCommand, se_PutComponentPolicyCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

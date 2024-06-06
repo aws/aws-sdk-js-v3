@@ -12,7 +12,8 @@ import { de_DeleteCollaborationCommand, se_DeleteCollaborationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreatePresignedNotebookUrlCommand, se_CreatePresignedNotebookUrlComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

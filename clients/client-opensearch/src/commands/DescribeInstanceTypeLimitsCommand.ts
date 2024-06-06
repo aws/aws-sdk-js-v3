@@ -12,7 +12,8 @@ import { de_DescribeInstanceTypeLimitsCommand, se_DescribeInstanceTypeLimitsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

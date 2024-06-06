@@ -12,7 +12,8 @@ import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

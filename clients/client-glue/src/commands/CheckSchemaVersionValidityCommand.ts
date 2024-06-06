@@ -12,7 +12,8 @@ import { de_CheckSchemaVersionValidityCommand, se_CheckSchemaVersionValidityComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

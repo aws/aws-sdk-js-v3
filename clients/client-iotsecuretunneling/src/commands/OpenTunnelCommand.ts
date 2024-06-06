@@ -16,7 +16,8 @@ import { de_OpenTunnelCommand, se_OpenTunnelCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

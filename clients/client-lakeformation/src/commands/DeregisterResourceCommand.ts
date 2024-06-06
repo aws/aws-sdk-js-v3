@@ -12,7 +12,8 @@ import { de_DeregisterResourceCommand, se_DeregisterResourceCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_CreateMicrosoftADCommand, se_CreateMicrosoftADCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

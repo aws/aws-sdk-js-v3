@@ -12,7 +12,8 @@ import { de_DeleteVoiceConnectorCommand, se_DeleteVoiceConnectorCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

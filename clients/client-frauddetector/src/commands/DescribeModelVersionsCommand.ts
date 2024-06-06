@@ -12,7 +12,8 @@ import { de_DescribeModelVersionsCommand, se_DescribeModelVersionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreateConnectAttachmentCommand, se_CreateConnectAttachmentCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

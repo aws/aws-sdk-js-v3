@@ -16,7 +16,8 @@ import { de_DeleteWorkflowStepGroupCommand, se_DeleteWorkflowStepGroupCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

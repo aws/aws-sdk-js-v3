@@ -12,7 +12,8 @@ import { de_UpdateKeyDescriptionCommand, se_UpdateKeyDescriptionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

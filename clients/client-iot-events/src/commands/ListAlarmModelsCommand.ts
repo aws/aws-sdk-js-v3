@@ -12,7 +12,8 @@ import { de_ListAlarmModelsCommand, se_ListAlarmModelsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

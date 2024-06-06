@@ -12,7 +12,8 @@ import { de_DeleteJobExecutionCommand, se_DeleteJobExecutionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

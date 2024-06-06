@@ -16,7 +16,8 @@ import { de_DeleteKeywordCommand, se_DeleteKeywordCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

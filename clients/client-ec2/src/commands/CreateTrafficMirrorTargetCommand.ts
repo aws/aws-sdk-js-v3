@@ -12,7 +12,8 @@ import { de_CreateTrafficMirrorTargetCommand, se_CreateTrafficMirrorTargetComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteCertificateProviderCommand, se_DeleteCertificateProviderComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

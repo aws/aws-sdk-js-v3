@@ -16,7 +16,8 @@ import { de_SetIpAddressTypeCommand, se_SetIpAddressTypeCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

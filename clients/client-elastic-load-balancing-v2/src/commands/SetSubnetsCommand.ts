@@ -16,7 +16,8 @@ import { de_SetSubnetsCommand, se_SetSubnetsCommand } from "../protocols/Aws_que
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetInstancesCommand, se_GetInstancesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

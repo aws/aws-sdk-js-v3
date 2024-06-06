@@ -12,7 +12,8 @@ import { de_CreateBatchPredictionCommand, se_CreateBatchPredictionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

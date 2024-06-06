@@ -12,7 +12,8 @@ import { de_ListChangeSetsCommand, se_ListChangeSetsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

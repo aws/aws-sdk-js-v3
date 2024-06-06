@@ -16,7 +16,8 @@ import { de_UpdatePoolCommand, se_UpdatePoolCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

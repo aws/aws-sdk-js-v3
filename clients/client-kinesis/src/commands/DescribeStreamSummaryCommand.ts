@@ -12,7 +12,8 @@ import { de_DescribeStreamSummaryCommand, se_DescribeStreamSummaryCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

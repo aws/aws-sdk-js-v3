@@ -16,7 +16,8 @@ import { de_ListKeysCommand, se_ListKeysCommand } from "../protocols/Aws_json1_0
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

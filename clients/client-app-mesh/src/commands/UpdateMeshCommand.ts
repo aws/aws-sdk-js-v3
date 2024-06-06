@@ -12,7 +12,8 @@ import { de_UpdateMeshCommand, se_UpdateMeshCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_CreateCoipCidrCommand, se_CreateCoipCidrCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

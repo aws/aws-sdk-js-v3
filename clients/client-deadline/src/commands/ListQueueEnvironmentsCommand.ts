@@ -12,7 +12,8 @@ import { de_ListQueueEnvironmentsCommand, se_ListQueueEnvironmentsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

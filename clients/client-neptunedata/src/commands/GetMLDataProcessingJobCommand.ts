@@ -12,7 +12,8 @@ import { de_GetMLDataProcessingJobCommand, se_GetMLDataProcessingJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

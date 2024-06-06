@@ -17,7 +17,8 @@ import { de_CalculateRouteMatrixCommand, se_CalculateRouteMatrixCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

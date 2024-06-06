@@ -12,7 +12,8 @@ import { de_StopInferenceSchedulerCommand, se_StopInferenceSchedulerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

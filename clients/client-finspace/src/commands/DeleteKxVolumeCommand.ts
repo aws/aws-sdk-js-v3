@@ -12,7 +12,8 @@ import { de_DeleteKxVolumeCommand, se_DeleteKxVolumeCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

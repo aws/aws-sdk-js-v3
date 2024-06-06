@@ -12,7 +12,8 @@ import { de_GetDownloadUrlForLayerCommand, se_GetDownloadUrlForLayerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_RemoveListenerCertificatesCommand, se_RemoveListenerCertificatesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

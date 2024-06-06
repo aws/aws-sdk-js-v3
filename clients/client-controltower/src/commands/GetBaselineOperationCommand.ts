@@ -12,7 +12,8 @@ import { de_GetBaselineOperationCommand, se_GetBaselineOperationCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_DescribeChannelMembershipCommand, se_DescribeChannelMembershipComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

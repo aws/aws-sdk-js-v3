@@ -12,7 +12,8 @@ import { de_RestoreSnapshotFromRecycleBinCommand, se_RestoreSnapshotFromRecycleB
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

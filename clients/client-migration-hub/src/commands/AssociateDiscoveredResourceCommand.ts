@@ -12,7 +12,8 @@ import { de_AssociateDiscoveredResourceCommand, se_AssociateDiscoveredResourceCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

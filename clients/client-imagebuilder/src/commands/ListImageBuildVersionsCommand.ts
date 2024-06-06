@@ -12,7 +12,8 @@ import { de_ListImageBuildVersionsCommand, se_ListImageBuildVersionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

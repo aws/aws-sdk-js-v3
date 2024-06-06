@@ -12,7 +12,8 @@ import { de_ResetDBClusterParameterGroupCommand, se_ResetDBClusterParameterGroup
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

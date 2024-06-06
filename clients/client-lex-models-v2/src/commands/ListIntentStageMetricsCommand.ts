@@ -12,7 +12,8 @@ import { de_ListIntentStageMetricsCommand, se_ListIntentStageMetricsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

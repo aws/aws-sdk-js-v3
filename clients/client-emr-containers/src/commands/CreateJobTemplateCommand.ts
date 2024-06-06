@@ -16,7 +16,8 @@ import { de_CreateJobTemplateCommand, se_CreateJobTemplateCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

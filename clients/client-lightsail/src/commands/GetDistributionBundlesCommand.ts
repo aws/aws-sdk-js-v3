@@ -12,7 +12,8 @@ import { de_GetDistributionBundlesCommand, se_GetDistributionBundlesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_CreateLaunchTemplateVersionCommand, se_CreateLaunchTemplateVersionCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

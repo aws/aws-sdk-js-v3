@@ -12,7 +12,8 @@ import { de_DeleteWhatIfForecastExportCommand, se_DeleteWhatIfForecastExportComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

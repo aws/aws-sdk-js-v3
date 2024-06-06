@@ -12,7 +12,8 @@ import { de_DescribeVpnGatewaysCommand, se_DescribeVpnGatewaysCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

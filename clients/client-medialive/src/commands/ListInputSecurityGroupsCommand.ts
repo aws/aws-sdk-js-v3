@@ -12,7 +12,8 @@ import { de_ListInputSecurityGroupsCommand, se_ListInputSecurityGroupsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

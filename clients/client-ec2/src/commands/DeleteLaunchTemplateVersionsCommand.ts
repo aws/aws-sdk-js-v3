@@ -12,7 +12,8 @@ import { de_DeleteLaunchTemplateVersionsCommand, se_DeleteLaunchTemplateVersions
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

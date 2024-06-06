@@ -16,7 +16,8 @@ import { de_ModifyReplicationInstanceCommand, se_ModifyReplicationInstanceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteCustomEntityTypeCommand, se_DeleteCustomEntityTypeCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

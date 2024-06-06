@@ -12,7 +12,8 @@ import { de_BatchSnoozeAlarmCommand, se_BatchSnoozeAlarmCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

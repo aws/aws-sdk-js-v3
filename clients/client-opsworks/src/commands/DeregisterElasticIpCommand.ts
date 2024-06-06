@@ -12,7 +12,8 @@ import { de_DeregisterElasticIpCommand, se_DeregisterElasticIpCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_ListCustomDataIdentifiersCommand, se_ListCustomDataIdentifiersComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

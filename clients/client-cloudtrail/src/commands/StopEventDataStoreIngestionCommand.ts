@@ -12,7 +12,8 @@ import { de_StopEventDataStoreIngestionCommand, se_StopEventDataStoreIngestionCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_CreateFormTypeCommand, se_CreateFormTypeCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_UpdateAppCommand, se_UpdateAppCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

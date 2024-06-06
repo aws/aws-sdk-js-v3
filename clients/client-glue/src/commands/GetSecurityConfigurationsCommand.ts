@@ -12,7 +12,8 @@ import { de_GetSecurityConfigurationsCommand, se_GetSecurityConfigurationsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

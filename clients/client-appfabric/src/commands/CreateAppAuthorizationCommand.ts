@@ -16,7 +16,8 @@ import { de_CreateAppAuthorizationCommand, se_CreateAppAuthorizationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

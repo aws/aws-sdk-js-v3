@@ -16,7 +16,8 @@ import { de_DescribeApplicationVersionCommand, se_DescribeApplicationVersionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

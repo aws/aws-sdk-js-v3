@@ -12,7 +12,8 @@ import { de_ListTargetResourceTypesCommand, se_ListTargetResourceTypesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

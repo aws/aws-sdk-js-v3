@@ -12,7 +12,8 @@ import { de_UpdateReportPlanCommand, se_UpdateReportPlanCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

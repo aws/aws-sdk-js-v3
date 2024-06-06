@@ -12,7 +12,8 @@ import { de_CreateExclusionsPreviewCommand, se_CreateExclusionsPreviewCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

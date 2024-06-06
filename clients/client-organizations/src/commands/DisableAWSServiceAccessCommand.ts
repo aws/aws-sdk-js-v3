@@ -12,7 +12,8 @@ import { de_DisableAWSServiceAccessCommand, se_DisableAWSServiceAccessCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

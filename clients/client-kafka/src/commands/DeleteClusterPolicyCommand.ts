@@ -12,7 +12,8 @@ import { de_DeleteClusterPolicyCommand, se_DeleteClusterPolicyCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

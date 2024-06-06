@@ -12,7 +12,8 @@ import { de_DeleteGitHubAccountTokenCommand, se_DeleteGitHubAccountTokenCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

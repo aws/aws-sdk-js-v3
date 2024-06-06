@@ -12,7 +12,8 @@ import { de_DescribeAggregateIdFormatCommand, se_DescribeAggregateIdFormatComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

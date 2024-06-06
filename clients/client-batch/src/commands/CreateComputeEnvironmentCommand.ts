@@ -12,7 +12,8 @@ import { de_CreateComputeEnvironmentCommand, se_CreateComputeEnvironmentCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

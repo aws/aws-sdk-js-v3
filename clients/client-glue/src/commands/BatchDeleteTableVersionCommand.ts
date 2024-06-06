@@ -12,7 +12,8 @@ import { de_BatchDeleteTableVersionCommand, se_BatchDeleteTableVersionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

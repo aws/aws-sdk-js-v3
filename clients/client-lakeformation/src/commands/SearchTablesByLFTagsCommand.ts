@@ -12,7 +12,8 @@ import { de_SearchTablesByLFTagsCommand, se_SearchTablesByLFTagsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

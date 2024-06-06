@@ -12,7 +12,8 @@ import { de_CreateCodeSigningConfigCommand, se_CreateCodeSigningConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

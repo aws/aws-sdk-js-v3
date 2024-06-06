@@ -12,7 +12,8 @@ import { de_GetTableAutoScalingSettingsCommand, se_GetTableAutoScalingSettingsCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

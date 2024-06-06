@@ -12,7 +12,8 @@ import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DisconnectCustomKeyStoreCommand, se_DisconnectCustomKeyStoreCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

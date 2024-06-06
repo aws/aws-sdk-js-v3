@@ -12,7 +12,8 @@ import { de_CreateOTAUpdateCommand, se_CreateOTAUpdateCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

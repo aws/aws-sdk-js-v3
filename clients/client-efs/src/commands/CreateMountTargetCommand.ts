@@ -12,7 +12,8 @@ import { de_CreateMountTargetCommand, se_CreateMountTargetCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -20,7 +20,8 @@ import { de_UpdateDeviceStatusCommand, se_UpdateDeviceStatusCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

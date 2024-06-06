@@ -12,7 +12,8 @@ import { de_ListLicenseConfigurationsCommand, se_ListLicenseConfigurationsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

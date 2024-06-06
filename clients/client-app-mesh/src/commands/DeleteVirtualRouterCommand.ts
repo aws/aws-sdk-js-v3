@@ -12,7 +12,8 @@ import { de_DeleteVirtualRouterCommand, se_DeleteVirtualRouterCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

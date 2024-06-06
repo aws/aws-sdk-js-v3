@@ -12,7 +12,8 @@ import { de_GetAnnotationStoreVersionCommand, se_GetAnnotationStoreVersionComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

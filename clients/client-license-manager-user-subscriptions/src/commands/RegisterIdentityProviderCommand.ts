@@ -16,7 +16,8 @@ import { de_RegisterIdentityProviderCommand, se_RegisterIdentityProviderCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

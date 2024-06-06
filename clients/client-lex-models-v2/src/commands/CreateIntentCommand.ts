@@ -12,7 +12,8 @@ import { de_CreateIntentCommand, se_CreateIntentCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

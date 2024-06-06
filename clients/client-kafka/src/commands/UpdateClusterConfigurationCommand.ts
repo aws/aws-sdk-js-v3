@@ -12,7 +12,8 @@ import { de_UpdateClusterConfigurationCommand, se_UpdateClusterConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

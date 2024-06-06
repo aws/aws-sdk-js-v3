@@ -12,7 +12,8 @@ import { de_DisableDirectoryCommand, se_DisableDirectoryCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

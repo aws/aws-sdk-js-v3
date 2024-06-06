@@ -12,7 +12,8 @@ import { de_DescribeAgentStatusCommand, se_DescribeAgentStatusCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

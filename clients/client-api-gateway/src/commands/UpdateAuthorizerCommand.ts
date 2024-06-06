@@ -12,7 +12,8 @@ import { de_UpdateAuthorizerCommand, se_UpdateAuthorizerCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

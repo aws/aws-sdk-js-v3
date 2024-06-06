@@ -12,7 +12,8 @@ import { de_GetPipelineStateCommand, se_GetPipelineStateCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

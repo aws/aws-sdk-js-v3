@@ -12,7 +12,8 @@ import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_query
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

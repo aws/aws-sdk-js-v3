@@ -12,7 +12,8 @@ import { de_StartSentimentDetectionJobCommand, se_StartSentimentDetectionJobComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

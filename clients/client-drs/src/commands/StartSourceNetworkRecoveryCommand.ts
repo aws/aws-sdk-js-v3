@@ -17,7 +17,8 @@ import { de_StartSourceNetworkRecoveryCommand, se_StartSourceNetworkRecoveryComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UnassignPrivateIpAddressesCommand, se_UnassignPrivateIpAddressesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

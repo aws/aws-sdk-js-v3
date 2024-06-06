@@ -21,7 +21,8 @@ import { de_RetrieveAndGenerateCommand, se_RetrieveAndGenerateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

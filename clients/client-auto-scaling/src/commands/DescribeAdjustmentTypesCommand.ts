@@ -12,7 +12,8 @@ import { de_DescribeAdjustmentTypesCommand, se_DescribeAdjustmentTypesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

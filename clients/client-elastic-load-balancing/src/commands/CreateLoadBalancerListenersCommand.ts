@@ -16,7 +16,8 @@ import { de_CreateLoadBalancerListenersCommand, se_CreateLoadBalancerListenersCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

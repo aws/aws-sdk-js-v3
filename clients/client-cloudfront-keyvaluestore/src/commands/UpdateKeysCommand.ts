@@ -16,7 +16,8 @@ import { de_UpdateKeysCommand, se_UpdateKeysCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeMyUserProfileCommand, se_DescribeMyUserProfileCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

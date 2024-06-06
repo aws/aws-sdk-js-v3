@@ -12,7 +12,8 @@ import { de_GetBlacklistReportsCommand, se_GetBlacklistReportsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

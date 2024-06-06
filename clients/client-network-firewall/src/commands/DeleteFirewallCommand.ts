@@ -12,7 +12,8 @@ import { de_DeleteFirewallCommand, se_DeleteFirewallCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

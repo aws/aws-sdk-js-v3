@@ -20,7 +20,8 @@ import { de_AdminDeleteUserAttributesCommand, se_AdminDeleteUserAttributesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

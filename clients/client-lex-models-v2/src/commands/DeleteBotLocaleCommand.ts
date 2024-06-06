@@ -12,7 +12,8 @@ import { de_DeleteBotLocaleCommand, se_DeleteBotLocaleCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

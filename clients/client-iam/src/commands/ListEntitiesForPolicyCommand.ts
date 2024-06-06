@@ -12,7 +12,8 @@ import { de_ListEntitiesForPolicyCommand, se_ListEntitiesForPolicyCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

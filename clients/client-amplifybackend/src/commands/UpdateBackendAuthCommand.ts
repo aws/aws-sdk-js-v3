@@ -16,7 +16,8 @@ import { de_UpdateBackendAuthCommand, se_UpdateBackendAuthCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

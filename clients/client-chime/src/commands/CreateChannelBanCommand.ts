@@ -16,7 +16,8 @@ import { de_CreateChannelBanCommand, se_CreateChannelBanCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

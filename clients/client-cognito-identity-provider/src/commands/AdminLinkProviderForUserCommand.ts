@@ -16,7 +16,8 @@ import { de_AdminLinkProviderForUserCommand, se_AdminLinkProviderForUserCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

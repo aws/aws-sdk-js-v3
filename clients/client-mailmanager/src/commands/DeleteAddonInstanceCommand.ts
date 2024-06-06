@@ -12,7 +12,8 @@ import { de_DeleteAddonInstanceCommand, se_DeleteAddonInstanceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

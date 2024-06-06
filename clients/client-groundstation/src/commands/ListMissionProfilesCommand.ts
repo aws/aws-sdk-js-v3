@@ -12,7 +12,8 @@ import { de_ListMissionProfilesCommand, se_ListMissionProfilesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

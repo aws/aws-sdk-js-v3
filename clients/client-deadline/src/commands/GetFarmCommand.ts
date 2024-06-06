@@ -12,7 +12,8 @@ import { de_GetFarmCommand, se_GetFarmCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

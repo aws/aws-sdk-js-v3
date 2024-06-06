@@ -16,7 +16,8 @@ import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

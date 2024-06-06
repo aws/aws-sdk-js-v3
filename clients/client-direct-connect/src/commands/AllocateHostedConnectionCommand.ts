@@ -12,7 +12,8 @@ import { de_AllocateHostedConnectionCommand, se_AllocateHostedConnectionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

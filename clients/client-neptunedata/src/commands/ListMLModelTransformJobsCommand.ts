@@ -12,7 +12,8 @@ import { de_ListMLModelTransformJobsCommand, se_ListMLModelTransformJobsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

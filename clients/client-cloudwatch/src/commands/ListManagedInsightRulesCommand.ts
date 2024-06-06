@@ -12,7 +12,8 @@ import { de_ListManagedInsightRulesCommand, se_ListManagedInsightRulesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

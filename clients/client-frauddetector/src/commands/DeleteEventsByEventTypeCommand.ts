@@ -12,7 +12,8 @@ import { de_DeleteEventsByEventTypeCommand, se_DeleteEventsByEventTypeCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_EnableRuleCommand, se_EnableRuleCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

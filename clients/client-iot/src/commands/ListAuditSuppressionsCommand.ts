@@ -12,7 +12,8 @@ import { de_ListAuditSuppressionsCommand, se_ListAuditSuppressionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

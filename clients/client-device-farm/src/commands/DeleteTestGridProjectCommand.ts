@@ -12,7 +12,8 @@ import { de_DeleteTestGridProjectCommand, se_DeleteTestGridProjectCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

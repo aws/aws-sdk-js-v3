@@ -17,7 +17,8 @@ import { de_SearchImageSetsCommand, se_SearchImageSetsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

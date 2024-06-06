@@ -12,7 +12,8 @@ import { de_DeleteScheduledAuditCommand, se_DeleteScheduledAuditCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

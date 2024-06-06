@@ -12,7 +12,8 @@ import { de_ListApplicationStatesCommand, se_ListApplicationStatesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

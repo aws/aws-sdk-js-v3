@@ -12,7 +12,8 @@ import { de_GetMetadataTransferJobCommand, se_GetMetadataTransferJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

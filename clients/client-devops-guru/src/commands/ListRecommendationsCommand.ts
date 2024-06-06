@@ -12,7 +12,8 @@ import { de_ListRecommendationsCommand, se_ListRecommendationsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

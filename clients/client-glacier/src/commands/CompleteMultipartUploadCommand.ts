@@ -12,7 +12,8 @@ import { de_CompleteMultipartUploadCommand, se_CompleteMultipartUploadCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

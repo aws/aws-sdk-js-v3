@@ -12,7 +12,8 @@ import { de_DeleteFileSystemPolicyCommand, se_DeleteFileSystemPolicyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

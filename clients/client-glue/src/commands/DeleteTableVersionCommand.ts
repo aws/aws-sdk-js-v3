@@ -12,7 +12,8 @@ import { de_DeleteTableVersionCommand, se_DeleteTableVersionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

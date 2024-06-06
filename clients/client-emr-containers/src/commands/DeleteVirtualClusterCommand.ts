@@ -12,7 +12,8 @@ import { de_DeleteVirtualClusterCommand, se_DeleteVirtualClusterCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

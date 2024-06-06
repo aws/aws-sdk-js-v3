@@ -12,7 +12,8 @@ import { de_ListCapacityTasksCommand, se_ListCapacityTasksCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

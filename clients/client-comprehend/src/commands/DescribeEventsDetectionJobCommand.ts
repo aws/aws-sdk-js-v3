@@ -12,7 +12,8 @@ import { de_DescribeEventsDetectionJobCommand, se_DescribeEventsDetectionJobComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

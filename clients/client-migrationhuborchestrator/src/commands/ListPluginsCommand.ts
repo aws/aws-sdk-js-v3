@@ -16,7 +16,8 @@ import { de_ListPluginsCommand, se_ListPluginsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

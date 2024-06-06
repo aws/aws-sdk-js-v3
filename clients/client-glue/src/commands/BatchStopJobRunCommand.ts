@@ -12,7 +12,8 @@ import { de_BatchStopJobRunCommand, se_BatchStopJobRunCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

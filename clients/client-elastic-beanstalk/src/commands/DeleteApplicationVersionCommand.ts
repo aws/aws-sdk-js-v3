@@ -12,7 +12,8 @@ import { de_DeleteApplicationVersionCommand, se_DeleteApplicationVersionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

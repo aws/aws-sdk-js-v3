@@ -17,7 +17,8 @@ import { de_UpdateBotRecommendationCommand, se_UpdateBotRecommendationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

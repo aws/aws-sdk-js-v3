@@ -12,7 +12,8 @@ import { de_CreateStackInstancesCommand, se_CreateStackInstancesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

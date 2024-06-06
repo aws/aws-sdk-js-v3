@@ -12,7 +12,8 @@ import { de_DeregisterEventTopicCommand, se_DeregisterEventTopicCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

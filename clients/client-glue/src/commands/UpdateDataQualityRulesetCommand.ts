@@ -12,7 +12,8 @@ import { de_UpdateDataQualityRulesetCommand, se_UpdateDataQualityRulesetCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

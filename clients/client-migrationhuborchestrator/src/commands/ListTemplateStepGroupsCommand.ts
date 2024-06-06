@@ -16,7 +16,8 @@ import { de_ListTemplateStepGroupsCommand, se_ListTemplateStepGroupsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

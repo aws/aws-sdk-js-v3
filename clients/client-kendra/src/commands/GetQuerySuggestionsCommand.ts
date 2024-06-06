@@ -13,7 +13,8 @@ import { de_GetQuerySuggestionsCommand, se_GetQuerySuggestionsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

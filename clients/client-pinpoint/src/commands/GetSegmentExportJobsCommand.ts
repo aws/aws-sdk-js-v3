@@ -12,7 +12,8 @@ import { de_GetSegmentExportJobsCommand, se_GetSegmentExportJobsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateServerCommand, se_UpdateServerCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

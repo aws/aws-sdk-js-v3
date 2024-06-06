@@ -12,7 +12,8 @@ import { de_ListFieldsCommand, se_ListFieldsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

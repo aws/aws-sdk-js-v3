@@ -12,8 +12,8 @@
 export * from "./WorkMailMessageFlowClient";
 export * from "./WorkMailMessageFlow";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { WorkMailMessageFlowExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { WorkMailMessageFlowExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

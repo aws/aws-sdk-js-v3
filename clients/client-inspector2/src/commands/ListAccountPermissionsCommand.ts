@@ -12,7 +12,8 @@ import { de_ListAccountPermissionsCommand, se_ListAccountPermissionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

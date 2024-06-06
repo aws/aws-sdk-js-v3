@@ -12,7 +12,8 @@ import { de_DeleteDirectConnectGatewayCommand, se_DeleteDirectConnectGatewayComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_UpdateViewContentCommand, se_UpdateViewContentCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

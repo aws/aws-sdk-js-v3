@@ -12,7 +12,8 @@ import { de_DescribeAlarmsForMetricCommand, se_DescribeAlarmsForMetricCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

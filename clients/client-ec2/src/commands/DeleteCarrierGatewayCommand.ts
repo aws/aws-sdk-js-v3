@@ -12,7 +12,8 @@ import { de_DeleteCarrierGatewayCommand, se_DeleteCarrierGatewayCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

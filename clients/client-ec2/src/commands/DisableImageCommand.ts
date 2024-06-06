@@ -12,7 +12,8 @@ import { de_DisableImageCommand, se_DisableImageCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

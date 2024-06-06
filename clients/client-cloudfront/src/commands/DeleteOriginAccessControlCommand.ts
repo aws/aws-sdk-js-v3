@@ -12,7 +12,8 @@ import { de_DeleteOriginAccessControlCommand, se_DeleteOriginAccessControlComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

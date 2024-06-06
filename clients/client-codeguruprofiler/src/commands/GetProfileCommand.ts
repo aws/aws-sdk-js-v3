@@ -13,7 +13,8 @@ import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

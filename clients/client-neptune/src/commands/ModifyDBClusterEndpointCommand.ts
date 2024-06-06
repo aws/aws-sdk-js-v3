@@ -12,7 +12,8 @@ import { de_ModifyDBClusterEndpointCommand, se_ModifyDBClusterEndpointCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

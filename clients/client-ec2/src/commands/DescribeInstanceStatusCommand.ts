@@ -12,7 +12,8 @@ import { de_DescribeInstanceStatusCommand, se_DescribeInstanceStatusCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

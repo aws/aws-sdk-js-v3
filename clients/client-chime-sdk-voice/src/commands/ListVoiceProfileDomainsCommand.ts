@@ -16,7 +16,8 @@ import { de_ListVoiceProfileDomainsCommand, se_ListVoiceProfileDomainsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

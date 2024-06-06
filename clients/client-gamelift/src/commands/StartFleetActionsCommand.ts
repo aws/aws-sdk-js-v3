@@ -12,7 +12,8 @@ import { de_StartFleetActionsCommand, se_StartFleetActionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

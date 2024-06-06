@@ -16,7 +16,8 @@ import { de_DeleteDefaultMessageTypeCommand, se_DeleteDefaultMessageTypeCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

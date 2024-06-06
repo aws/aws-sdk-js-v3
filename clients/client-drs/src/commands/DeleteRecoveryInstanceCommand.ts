@@ -12,7 +12,8 @@ import { de_DeleteRecoveryInstanceCommand, se_DeleteRecoveryInstanceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_BatchApplyUpdateActionCommand, se_BatchApplyUpdateActionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_AcceptVpcPeeringConnectionCommand, se_AcceptVpcPeeringConnectionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

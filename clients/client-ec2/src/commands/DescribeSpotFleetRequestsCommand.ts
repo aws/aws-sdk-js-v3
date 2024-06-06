@@ -16,7 +16,8 @@ import { de_DescribeSpotFleetRequestsCommand, se_DescribeSpotFleetRequestsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

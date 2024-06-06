@@ -12,7 +12,8 @@ import { de_DeleteServicePrincipalNameCommand, se_DeleteServicePrincipalNameComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

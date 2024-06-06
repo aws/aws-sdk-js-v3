@@ -16,7 +16,8 @@ import { de_StopApplicationCommand, se_StopApplicationCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

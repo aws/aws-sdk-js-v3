@@ -12,7 +12,8 @@ import { de_CreateInstanceConnectEndpointCommand, se_CreateInstanceConnectEndpoi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

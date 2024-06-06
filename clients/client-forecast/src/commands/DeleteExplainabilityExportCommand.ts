@@ -12,7 +12,8 @@ import { de_DeleteExplainabilityExportCommand, se_DeleteExplainabilityExportComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_SendDataSetNotificationCommand, se_SendDataSetNotificationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

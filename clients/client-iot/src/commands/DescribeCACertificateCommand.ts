@@ -12,7 +12,8 @@ import { de_DescribeCACertificateCommand, se_DescribeCACertificateCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

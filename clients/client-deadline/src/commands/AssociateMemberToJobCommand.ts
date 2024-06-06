@@ -12,7 +12,8 @@ import { de_AssociateMemberToJobCommand, se_AssociateMemberToJobCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

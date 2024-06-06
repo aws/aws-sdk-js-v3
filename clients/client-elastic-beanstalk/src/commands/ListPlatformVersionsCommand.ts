@@ -12,7 +12,8 @@ import { de_ListPlatformVersionsCommand, se_ListPlatformVersionsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

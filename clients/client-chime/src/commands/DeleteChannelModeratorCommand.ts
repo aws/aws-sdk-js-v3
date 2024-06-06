@@ -12,7 +12,8 @@ import { de_DeleteChannelModeratorCommand, se_DeleteChannelModeratorCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

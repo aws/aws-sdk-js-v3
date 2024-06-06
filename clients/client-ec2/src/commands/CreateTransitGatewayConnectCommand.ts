@@ -12,7 +12,8 @@ import { de_CreateTransitGatewayConnectCommand, se_CreateTransitGatewayConnectCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

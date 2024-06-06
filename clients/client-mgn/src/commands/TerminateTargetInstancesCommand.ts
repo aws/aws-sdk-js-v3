@@ -17,7 +17,8 @@ import { de_TerminateTargetInstancesCommand, se_TerminateTargetInstancesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_CreateIngressPointCommand, se_CreateIngressPointCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

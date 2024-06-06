@@ -12,7 +12,8 @@ import { de_ListWorkflowRunsCommand, se_ListWorkflowRunsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

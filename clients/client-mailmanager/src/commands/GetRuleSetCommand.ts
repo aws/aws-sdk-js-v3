@@ -12,7 +12,8 @@ import { de_GetRuleSetCommand, se_GetRuleSetCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

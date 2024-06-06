@@ -12,7 +12,8 @@ import { de_DeleteConfigurationTemplateCommand, se_DeleteConfigurationTemplateCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

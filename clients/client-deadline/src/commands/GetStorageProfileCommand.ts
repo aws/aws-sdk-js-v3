@@ -16,7 +16,8 @@ import { de_GetStorageProfileCommand, se_GetStorageProfileCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

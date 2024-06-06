@@ -12,7 +12,8 @@ import { de_UpdateDetectorModelCommand, se_UpdateDetectorModelCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

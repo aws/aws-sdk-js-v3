@@ -12,7 +12,8 @@ import { de_GetCompositionCommand, se_GetCompositionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

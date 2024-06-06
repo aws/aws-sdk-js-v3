@@ -12,7 +12,8 @@ import { de_SearchCasesCommand, se_SearchCasesCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

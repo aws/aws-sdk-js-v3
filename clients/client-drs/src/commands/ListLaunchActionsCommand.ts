@@ -12,7 +12,8 @@ import { de_ListLaunchActionsCommand, se_ListLaunchActionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

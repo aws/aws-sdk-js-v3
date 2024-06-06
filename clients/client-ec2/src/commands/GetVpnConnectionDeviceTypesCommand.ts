@@ -12,7 +12,8 @@ import { de_GetVpnConnectionDeviceTypesCommand, se_GetVpnConnectionDeviceTypesCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

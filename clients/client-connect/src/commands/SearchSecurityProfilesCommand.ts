@@ -12,7 +12,8 @@ import { de_SearchSecurityProfilesCommand, se_SearchSecurityProfilesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

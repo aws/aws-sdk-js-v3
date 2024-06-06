@@ -16,7 +16,8 @@ import { de_DeleteMediaPipelineCommand, se_DeleteMediaPipelineCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

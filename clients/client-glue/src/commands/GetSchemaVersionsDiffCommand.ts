@@ -12,7 +12,8 @@ import { de_GetSchemaVersionsDiffCommand, se_GetSchemaVersionsDiffCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

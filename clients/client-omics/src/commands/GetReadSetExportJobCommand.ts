@@ -12,7 +12,8 @@ import { de_GetReadSetExportJobCommand, se_GetReadSetExportJobCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

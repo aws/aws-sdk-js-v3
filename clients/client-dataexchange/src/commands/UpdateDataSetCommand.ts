@@ -12,7 +12,8 @@ import { de_UpdateDataSetCommand, se_UpdateDataSetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

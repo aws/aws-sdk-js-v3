@@ -12,7 +12,8 @@ import { de_UpdateEventConfigurationsCommand, se_UpdateEventConfigurationsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DescribeFleetCapacityCommand, se_DescribeFleetCapacityCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

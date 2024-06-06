@@ -12,7 +12,8 @@ import { de_BatchGetReportsCommand, se_BatchGetReportsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

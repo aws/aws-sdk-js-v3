@@ -12,7 +12,8 @@ import { de_ListWorkGroupsCommand, se_ListWorkGroupsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

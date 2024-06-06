@@ -12,7 +12,8 @@ import { de_DescribeCacheSubnetGroupsCommand, se_DescribeCacheSubnetGroupsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

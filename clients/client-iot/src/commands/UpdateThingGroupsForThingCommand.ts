@@ -12,7 +12,8 @@ import { de_UpdateThingGroupsForThingCommand, se_UpdateThingGroupsForThingComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

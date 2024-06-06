@@ -12,7 +12,8 @@ import { de_EnableFastSnapshotRestoresCommand, se_EnableFastSnapshotRestoresComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_DeleteDomainConfigurationCommand, se_DeleteDomainConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

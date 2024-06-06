@@ -12,7 +12,8 @@ import { de_DescribeServiceIntegrationCommand, se_DescribeServiceIntegrationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

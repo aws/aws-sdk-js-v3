@@ -12,7 +12,8 @@ import { de_GetPartitionIndexesCommand, se_GetPartitionIndexesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

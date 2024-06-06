@@ -12,7 +12,8 @@ import { de_BatchGetApplicationsCommand, se_BatchGetApplicationsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

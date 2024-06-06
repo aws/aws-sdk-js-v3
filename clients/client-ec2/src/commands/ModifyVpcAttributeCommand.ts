@@ -12,7 +12,8 @@ import { de_ModifyVpcAttributeCommand, se_ModifyVpcAttributeCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

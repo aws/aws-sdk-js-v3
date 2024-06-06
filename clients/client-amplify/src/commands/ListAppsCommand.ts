@@ -12,7 +12,8 @@ import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

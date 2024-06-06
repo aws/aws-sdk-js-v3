@@ -12,7 +12,8 @@ import { de_ListPackagesForDomainCommand, se_ListPackagesForDomainCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

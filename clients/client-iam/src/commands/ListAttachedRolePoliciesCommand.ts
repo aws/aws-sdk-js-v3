@@ -12,7 +12,8 @@ import { de_ListAttachedRolePoliciesCommand, se_ListAttachedRolePoliciesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

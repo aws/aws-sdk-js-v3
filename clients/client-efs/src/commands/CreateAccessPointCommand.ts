@@ -12,7 +12,8 @@ import { de_CreateAccessPointCommand, se_CreateAccessPointCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

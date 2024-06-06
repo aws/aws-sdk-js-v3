@@ -12,7 +12,8 @@ import { de_DescribeRetrainingSchedulerCommand, se_DescribeRetrainingSchedulerCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

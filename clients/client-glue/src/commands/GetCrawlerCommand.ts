@@ -12,7 +12,8 @@ import { de_GetCrawlerCommand, se_GetCrawlerCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

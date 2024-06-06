@@ -16,7 +16,8 @@ import { de_PutKeywordCommand, se_PutKeywordCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

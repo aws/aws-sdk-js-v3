@@ -12,7 +12,8 @@ import { de_ListTableStorageOptimizersCommand, se_ListTableStorageOptimizersComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_PutJobFailureResultCommand, se_PutJobFailureResultCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

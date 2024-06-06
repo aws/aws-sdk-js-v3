@@ -12,7 +12,8 @@ import { de_StopBackupJobCommand, se_StopBackupJobCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

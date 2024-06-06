@@ -12,7 +12,8 @@ import { de_AttachThingPrincipalCommand, se_AttachThingPrincipalCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

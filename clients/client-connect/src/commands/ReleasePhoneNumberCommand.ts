@@ -12,7 +12,8 @@ import { de_ReleasePhoneNumberCommand, se_ReleasePhoneNumberCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

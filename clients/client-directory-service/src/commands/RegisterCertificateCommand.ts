@@ -12,7 +12,8 @@ import { de_RegisterCertificateCommand, se_RegisterCertificateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

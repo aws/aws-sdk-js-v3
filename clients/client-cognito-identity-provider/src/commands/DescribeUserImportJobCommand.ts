@@ -16,7 +16,8 @@ import { de_DescribeUserImportJobCommand, se_DescribeUserImportJobCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

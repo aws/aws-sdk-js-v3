@@ -16,7 +16,8 @@ import { de_StartExportTaskCommand, se_StartExportTaskCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

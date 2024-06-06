@@ -12,7 +12,8 @@ import { de_GetResourceCommand, se_GetResourceCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_UpdateEventIntegrationCommand, se_UpdateEventIntegrationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

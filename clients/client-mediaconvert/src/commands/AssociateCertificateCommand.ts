@@ -12,7 +12,8 @@ import { de_AssociateCertificateCommand, se_AssociateCertificateCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -17,7 +17,8 @@ import { de_InviteAccountToOrganizationCommand, se_InviteAccountToOrganizationCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_RestoreGraphFromSnapshotCommand, se_RestoreGraphFromSnapshotCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

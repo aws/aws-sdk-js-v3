@@ -12,7 +12,8 @@ import { de_DeleteEvaluationResultsCommand, se_DeleteEvaluationResultsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

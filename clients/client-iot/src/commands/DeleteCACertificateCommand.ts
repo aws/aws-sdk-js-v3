@@ -12,7 +12,8 @@ import { de_DeleteCACertificateCommand, se_DeleteCACertificateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

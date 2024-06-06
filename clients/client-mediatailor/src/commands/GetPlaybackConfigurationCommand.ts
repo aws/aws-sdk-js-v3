@@ -12,7 +12,8 @@ import { de_GetPlaybackConfigurationCommand, se_GetPlaybackConfigurationCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

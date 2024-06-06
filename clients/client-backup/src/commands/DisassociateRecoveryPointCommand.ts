@@ -12,7 +12,8 @@ import { de_DisassociateRecoveryPointCommand, se_DisassociateRecoveryPointComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

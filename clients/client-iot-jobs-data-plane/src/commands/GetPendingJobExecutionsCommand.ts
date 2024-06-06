@@ -12,7 +12,8 @@ import { de_GetPendingJobExecutionsCommand, se_GetPendingJobExecutionsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

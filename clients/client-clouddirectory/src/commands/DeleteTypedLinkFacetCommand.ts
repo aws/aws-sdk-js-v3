@@ -12,7 +12,8 @@ import { de_DeleteTypedLinkFacetCommand, se_DeleteTypedLinkFacetCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

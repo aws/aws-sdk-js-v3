@@ -12,7 +12,8 @@ import { de_DeleteTopicRuleDestinationCommand, se_DeleteTopicRuleDestinationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

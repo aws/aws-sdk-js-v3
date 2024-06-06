@@ -16,7 +16,8 @@ import { de_BatchDeleteImportDataCommand, se_BatchDeleteImportDataCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

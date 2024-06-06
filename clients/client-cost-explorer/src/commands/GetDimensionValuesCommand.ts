@@ -12,7 +12,8 @@ import { de_GetDimensionValuesCommand, se_GetDimensionValuesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

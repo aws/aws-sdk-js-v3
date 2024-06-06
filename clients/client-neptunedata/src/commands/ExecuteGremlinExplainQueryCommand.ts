@@ -13,7 +13,8 @@ import { de_ExecuteGremlinExplainQueryCommand, se_ExecuteGremlinExplainQueryComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

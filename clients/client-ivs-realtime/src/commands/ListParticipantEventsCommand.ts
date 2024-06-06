@@ -12,7 +12,8 @@ import { de_ListParticipantEventsCommand, se_ListParticipantEventsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

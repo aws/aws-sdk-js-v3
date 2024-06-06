@@ -12,7 +12,8 @@ import { de_DescribeScalingParametersCommand, se_DescribeScalingParametersComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

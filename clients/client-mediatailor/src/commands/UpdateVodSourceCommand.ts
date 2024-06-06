@@ -12,7 +12,8 @@ import { de_UpdateVodSourceCommand, se_UpdateVodSourceCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

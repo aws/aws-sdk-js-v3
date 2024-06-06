@@ -11,7 +11,8 @@ import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_GetAuthorizationTokenCommand, se_GetAuthorizationTokenCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -12,7 +12,8 @@ import { de_RegisterStreamConsumerCommand, se_RegisterStreamConsumerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

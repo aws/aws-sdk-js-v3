@@ -12,7 +12,8 @@ import { de_ListHoursOfOperationsCommand, se_ListHoursOfOperationsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

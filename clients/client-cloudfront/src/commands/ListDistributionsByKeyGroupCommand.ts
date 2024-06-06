@@ -12,7 +12,8 @@ import { de_ListDistributionsByKeyGroupCommand, se_ListDistributionsByKeyGroupCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

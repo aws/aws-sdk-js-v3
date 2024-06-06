@@ -12,7 +12,8 @@ import { de_DescribeIdentityCommand, se_DescribeIdentityCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

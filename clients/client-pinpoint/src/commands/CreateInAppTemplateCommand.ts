@@ -12,7 +12,8 @@ import { de_CreateInAppTemplateCommand, se_CreateInAppTemplateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

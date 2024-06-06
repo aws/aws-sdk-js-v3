@@ -12,7 +12,8 @@ import { de_DescribeVerifiedAccessGroupsCommand, se_DescribeVerifiedAccessGroups
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

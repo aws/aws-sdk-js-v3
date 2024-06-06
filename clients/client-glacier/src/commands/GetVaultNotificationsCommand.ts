@@ -12,7 +12,8 @@ import { de_GetVaultNotificationsCommand, se_GetVaultNotificationsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

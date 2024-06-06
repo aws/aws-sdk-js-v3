@@ -12,7 +12,8 @@ import { de_UpdateLogAnomalyDetectorCommand, se_UpdateLogAnomalyDetectorCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

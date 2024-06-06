@@ -16,7 +16,8 @@ import { de_CreateConnectorProfileCommand, se_CreateConnectorProfileCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

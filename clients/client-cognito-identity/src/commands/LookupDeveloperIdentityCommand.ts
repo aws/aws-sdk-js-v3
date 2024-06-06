@@ -12,7 +12,8 @@ import { de_LookupDeveloperIdentityCommand, se_LookupDeveloperIdentityCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

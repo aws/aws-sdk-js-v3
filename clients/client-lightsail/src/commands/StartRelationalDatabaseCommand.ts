@@ -12,7 +12,8 @@ import { de_StartRelationalDatabaseCommand, se_StartRelationalDatabaseCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

@@ -16,7 +16,8 @@ import { de_AuthorizeVpcEndpointAccessCommand, se_AuthorizeVpcEndpointAccessComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *

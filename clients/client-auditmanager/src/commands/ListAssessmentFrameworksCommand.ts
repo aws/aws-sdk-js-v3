@@ -16,7 +16,8 @@ import { de_ListAssessmentFrameworksCommand, se_ListAssessmentFrameworksCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
