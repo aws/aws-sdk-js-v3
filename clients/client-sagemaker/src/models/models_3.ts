@@ -149,6 +149,18 @@ import {
 
 /**
  * @public
+ */
+export interface DescribeProcessingJobRequest {
+  /**
+   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
+   *             Amazon Web Services account.</p>
+   * @public
+   */
+  ProcessingJobName: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ProcessingJobStatus = {
@@ -11178,17 +11190,3 @@ export const NotebookInstanceSortKey = {
  * @public
  */
 export type NotebookInstanceSortKey = (typeof NotebookInstanceSortKey)[keyof typeof NotebookInstanceSortKey];
-
-/**
- * @public
- * @enum
- */
-export const NotebookInstanceSortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type NotebookInstanceSortOrder = (typeof NotebookInstanceSortOrder)[keyof typeof NotebookInstanceSortOrder];

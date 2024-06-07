@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateSpaceRequest } from "../models/models_1";
-import { CreateSpaceResponse } from "../models/models_2";
+import { CreateSpaceRequest, CreateSpaceResponse } from "../models/models_2";
 import { de_CreateSpaceCommand, se_CreateSpaceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

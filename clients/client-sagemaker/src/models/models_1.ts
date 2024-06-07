@@ -2487,6 +2487,20 @@ export interface ProductionVariantCoreDumpConfig {
  * @public
  * @enum
  */
+export const ProductionVariantInferenceAmiVersion = {
+  AL2_GPU_2: "al2-ami-sagemaker-inference-gpu-2",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductionVariantInferenceAmiVersion =
+  (typeof ProductionVariantInferenceAmiVersion)[keyof typeof ProductionVariantInferenceAmiVersion];
+
+/**
+ * @public
+ * @enum
+ */
 export const ManagedInstanceScalingStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -2706,6 +2720,18 @@ export interface ProductionVariant {
    * @public
    */
   RoutingConfig?: ProductionVariantRoutingConfig;
+
+  /**
+   * <p>Specifies an option from a collection of preconfigured Amazon Machine Image (AMI)
+   *             images. Each image is configured by Amazon Web Services with a set of software and driver
+   *             versions. Amazon Web Services optimizes these configurations for different machine
+   *             learning workloads.</p>
+   *          <p>By selecting an AMI version, you can ensure that your inference environment is
+   *             compatible with specific software requirements, such as CUDA driver versions, Linux
+   *             kernel versions, or Amazon Web Services Neuron driver versions.</p>
+   * @public
+   */
+  InferenceAmiVersion?: ProductionVariantInferenceAmiVersion;
 }
 
 /**
@@ -9859,14 +9885,18 @@ export interface DriftCheckBaselines {
  *             simplified compared to the schema of <code>ModelCard</code>. The
  *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
  *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
- *             <code>model_artifact</code> properties. For more information about
+ *             <code>model_artifact</code> properties. For more information about the model package model
+ *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+ *                 package model card schema</a>. For more information about
  *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
  *                 the Details of a Model Version</a>.</p>
  * @public
  */
 export interface ModelPackageModelCard {
   /**
-   * <p>The content of the model card.</p>
+   * <p>The content of the model card. The content must follow the schema described
+   *            in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                Package Model Card Schema</a>.</p>
    * @public
    */
   ModelCardContent?: string;
@@ -10273,7 +10303,9 @@ export interface CreateModelPackageInput {
    *            simplified compared to the schema of <code>ModelCard</code>. The
    *            <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
    *            and <code>model_overview</code> is composed of the <code>model_creator</code> and
-   *            <code>model_artifact</code> properties. For more information about
+   *            <code>model_artifact</code> properties. For more information about the model package model
+   *            card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                package model card schema</a>. For more information about
    *            the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
    *                the Details of a Model Version</a>.</p>
    * @public
@@ -12298,55 +12330,6 @@ export interface SpaceSharingSettings {
    * @public
    */
   SharingType: SharingType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSpaceRequest {
-  /**
-   * <p>The ID of the associated domain.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   * @public
-   */
-  SpaceName: string | undefined;
-
-  /**
-   * <p>Tags to associated with the space. Each tag consists of a key and an optional value.
-   *       Tag keys must be unique for each resource. Tags are searchable using the
-   *       <code>Search</code> API.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A collection of space settings.</p>
-   * @public
-   */
-  SpaceSettings?: SpaceSettings;
-
-  /**
-   * <p>A collection of ownership settings.</p>
-   * @public
-   */
-  OwnershipSettings?: OwnershipSettings;
-
-  /**
-   * <p>A collection of space sharing settings.</p>
-   * @public
-   */
-  SpaceSharingSettings?: SpaceSharingSettings;
-
-  /**
-   * <p>The name of the space that appears in the SageMaker Studio UI.</p>
-   * @public
-   */
-  SpaceDisplayName?: string;
 }
 
 /**

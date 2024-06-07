@@ -1138,7 +1138,6 @@ import {
   CreateProcessingJobResponse,
   CreateProjectInput,
   CreateProjectOutput,
-  CreateSpaceRequest,
   CustomFileSystem,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
@@ -1321,6 +1320,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateSpaceRequest,
   CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
   CreateStudioLifecycleConfigResponse,
@@ -1513,7 +1513,6 @@ import {
   DescribePipelineExecutionResponse,
   DescribePipelineRequest,
   DescribePipelineResponse,
-  DescribeProcessingJobRequest,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1582,6 +1581,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeProcessingJobRequest,
   DescribeProcessingJobResponse,
   DescribeProjectInput,
   DescribeProjectOutput,
@@ -15161,6 +15161,7 @@ const se_ProductionVariant = (input: ProductionVariant, context: __SerdeContext)
     ContainerStartupHealthCheckTimeoutInSeconds: [],
     CoreDumpConfig: _json,
     EnableSSMAccess: [],
+    InferenceAmiVersion: [],
     InitialInstanceCount: [],
     InitialVariantWeight: __serializeFloat,
     InstanceType: [],
@@ -25937,6 +25938,7 @@ const de_ProductionVariant = (output: any, context: __SerdeContext): ProductionV
     ContainerStartupHealthCheckTimeoutInSeconds: __expectInt32,
     CoreDumpConfig: (_: any) => de_ProductionVariantCoreDumpConfig(_, context),
     EnableSSMAccess: __expectBoolean,
+    InferenceAmiVersion: __expectString,
     InitialInstanceCount: __expectInt32,
     InitialVariantWeight: __limitedParseFloat32,
     InstanceType: __expectString,

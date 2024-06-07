@@ -146,6 +146,7 @@ import {
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
+  OwnershipSettings,
   ParallelismConfiguration,
   ProcessingInstanceType,
   Processor,
@@ -162,10 +163,61 @@ import {
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
+  SpaceSettings,
+  SpaceSharingSettings,
   ThroughputMode,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateSpaceRequest {
+  /**
+   * <p>The ID of the associated domain.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   * @public
+   */
+  SpaceName: string | undefined;
+
+  /**
+   * <p>Tags to associated with the space. Each tag consists of a key and an optional value.
+   *       Tag keys must be unique for each resource. Tags are searchable using the
+   *       <code>Search</code> API.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A collection of space settings.</p>
+   * @public
+   */
+  SpaceSettings?: SpaceSettings;
+
+  /**
+   * <p>A collection of ownership settings.</p>
+   * @public
+   */
+  OwnershipSettings?: OwnershipSettings;
+
+  /**
+   * <p>A collection of space sharing settings.</p>
+   * @public
+   */
+  SpaceSharingSettings?: SpaceSharingSettings;
+
+  /**
+   * <p>The name of the space that appears in the SageMaker Studio UI.</p>
+   * @public
+   */
+  SpaceDisplayName?: string;
+}
 
 /**
  * @public
@@ -439,17 +491,15 @@ export interface RemoteDebugConfig {
 
 /**
  * <p>Contains information about attribute-based access control (ABAC) for a training job.
- *             The session chaining configuration uses Amazon Security Token Service (STS) for your
- *             training job to request temporary, limited-privilege credentials to tenants. For more
- *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-access-training-data.html#model-access-training-data-abac">Attribute-based access control (ABAC) for multi-tenancy
- *                 training</a>.</p>
+ *             The session chaining configuration uses Amazon Security Token Service (STS) for your training job to
+ *             request temporary, limited-privilege credentials to tenants. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-access-training-data.html#model-access-training-data-abac">Attribute-based access control (ABAC) for multi-tenancy training</a>.</p>
  * @public
  */
 export interface SessionChainingConfig {
   /**
-   * <p>Set to <code>True</code> to allow SageMaker to extract session tags from a
-   *             training job creation role and reuse these tags when assuming the training
-   *             job execution role.</p>
+   * <p>Set to <code>True</code> to allow SageMaker to extract session tags from a training job
+   *             creation role and reuse these tags when assuming the training job execution role.</p>
    * @public
    */
   EnableSessionTagChaining?: boolean;
@@ -3820,8 +3870,8 @@ export interface DescribeCompilationJobRequest {
  *          <p>Model artifacts are outputs that result from training a model. They typically consist
  *             of trained parameters, a model definition that describes how to compute inferences, and
  *             other metadata. A SageMaker container stores your trained model artifacts in the
- *                 <code>/opt/ml/model</code> directory. After training has completed, by default, these artifacts
- *             are uploaded to your Amazon S3 bucket as compressed files.</p>
+ *                 <code>/opt/ml/model</code> directory. After training has completed, by default,
+ *             these artifacts are uploaded to your Amazon S3 bucket as compressed files.</p>
  * @public
  */
 export interface ModelArtifacts {
@@ -8926,7 +8976,9 @@ export interface DescribeModelPackageOutput {
    *             simplified compared to the schema of <code>ModelCard</code>. The
    *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
    *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
-   *             <code>model_artifact</code> properties. For more information about
+   *             <code>model_artifact</code> properties. For more information about the model package model
+   *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                 package model card schema</a>. For more information about
    *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
    *                 the Details of a Model Version</a>.</p>
    * @public
@@ -9846,18 +9898,6 @@ export interface DescribePipelineExecutionResponse {
    * @public
    */
   SelectiveExecutionConfig?: SelectiveExecutionConfig;
-}
-
-/**
- * @public
- */
-export interface DescribeProcessingJobRequest {
-  /**
-   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
-   * @public
-   */
-  ProcessingJobName: string | undefined;
 }
 
 /**
