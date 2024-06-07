@@ -48,7 +48,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *   sourceRevisions: [ // SourceRevisionOverrideList
  *     { // SourceRevisionOverride
  *       actionName: "STRING_VALUE", // required
- *       revisionType: "COMMIT_ID" || "IMAGE_DIGEST" || "S3_OBJECT_VERSION_ID", // required
+ *       revisionType: "COMMIT_ID" || "IMAGE_DIGEST" || "S3_OBJECT_VERSION_ID" || "S3_OBJECT_KEY", // required
  *       revisionValue: "STRING_VALUE", // required
  *     },
  *   ],

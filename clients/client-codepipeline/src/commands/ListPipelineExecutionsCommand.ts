@@ -29,6 +29,11 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
 
 /**
  * <p>Gets a summary of the most recent executions for a pipeline.</p>
+ *          <note>
+ *             <p>When applying the filter for pipeline executions that have succeeded in the stage,
+ *                 the operation returns all executions in the current pipeline version beginning on
+ *                 February 1, 2024.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

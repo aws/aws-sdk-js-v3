@@ -1999,12 +1999,14 @@ export const Result = {
 export type Result = (typeof Result)[keyof typeof Result];
 
 /**
- * <p>The configuration that specifies the result, such as rollback, to occur upon stage failure. </p>
+ * <p>The configuration that specifies the result, such as rollback, to occur upon stage
+ *             failure. </p>
  * @public
  */
 export interface FailureConditions {
   /**
-   * <p>The specified result for when the failure conditions are met, such as rolling back the stage.</p>
+   * <p>The specified result for when the failure conditions are met, such as rolling back the
+   *             stage.</p>
    * @public
    */
   result?: Result;
@@ -2034,7 +2036,9 @@ export interface StageDeclaration {
   actions: ActionDeclaration[] | undefined;
 
   /**
-   * <p>The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.</p>
+   * <p>The method to use when a stage has not completed successfully. For example,
+   *             configuring this field for rollback will roll back a failed stage automatically to the
+   *             last successful pipeline execution in the stage.</p>
    * @public
    */
   onFailure?: FailureConditions;
@@ -3398,7 +3402,8 @@ export interface StageExecution {
   status: StageExecutionStatus | undefined;
 
   /**
-   * <p>The type of pipeline execution for the stage, such as a rollback pipeline execution.</p>
+   * <p>The type of pipeline execution for the stage, such as a rollback pipeline
+   *             execution.</p>
    * @public
    */
   type?: ExecutionType;
@@ -3710,10 +3715,6 @@ export interface ListActionExecutionsInput {
    *             results, make another call with the returned nextToken value. Action execution history
    *             is retained for up to 12 months, based on action execution start times. Default value is
    *             100. </p>
-   *          <note>
-   *             <p>Detailed execution history is available for executions run on or after February
-   *                 21, 2019.</p>
-   *          </note>
    * @public
    */
   maxResults?: number;
@@ -3791,13 +3792,14 @@ export interface ListActionTypesOutput {
 }
 
 /**
- * <p>Filter for pipeline executions that have successfully completed the stage in the current pipeline version.</p>
+ * <p>Filter for pipeline executions that have successfully completed the stage in the
+ *             current pipeline version.</p>
  * @public
  */
 export interface SucceededInStageFilter {
   /**
-   * <p>The name of the stage for filtering for pipeline executions where the stage was successful in the current pipeline
-   *             version.</p>
+   * <p>The name of the stage for filtering for pipeline executions where the stage was
+   *             successful in the current pipeline version.</p>
    * @public
    */
   stageName?: string;
@@ -5163,7 +5165,8 @@ export class StageNotRetryableException extends __BaseException {
 }
 
 /**
- * <p>The specified pipeline execution is outdated and cannot be used as a target pipeline execution for rollback.</p>
+ * <p>The specified pipeline execution is outdated and cannot be used as a target pipeline
+ *             execution for rollback.</p>
  * @public
  */
 export class PipelineExecutionOutdatedException extends __BaseException {
@@ -5267,6 +5270,7 @@ export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseEx
 export const SourceRevisionType = {
   COMMIT_ID: "COMMIT_ID",
   IMAGE_DIGEST: "IMAGE_DIGEST",
+  S3_OBJECT_KEY: "S3_OBJECT_KEY",
   S3_OBJECT_VERSION_ID: "S3_OBJECT_VERSION_ID",
 } as const;
 
@@ -5279,6 +5283,11 @@ export type SourceRevisionType = (typeof SourceRevisionType)[keyof typeof Source
  * <p>A list that allows you to specify, or override, the source revision for a pipeline
  *             execution that's being started. A source revision is the version with all the changes to
  *             your application code, or source artifact, for the pipeline execution.</p>
+ *          <note>
+ *             <p>For the <code>S3_OBJECT_VERSION_ID</code> and <code>S3_OBJECT_KEY</code> types of source revisions, either
+ *                 of the types can be used independently, or they can be used together to override the
+ *                 source with a specific ObjectKey and VersionID.</p>
+ *          </note>
  * @public
  */
 export interface SourceRevisionOverride {

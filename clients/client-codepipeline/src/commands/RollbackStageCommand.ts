@@ -63,7 +63,8 @@ export interface RollbackStageCommandOutput extends RollbackStageOutput, __Metad
  *             execution ID does not belong to the specified pipeline. </p>
  *
  * @throws {@link PipelineExecutionOutdatedException} (client fault)
- *  <p>The specified pipeline execution is outdated and cannot be used as a target pipeline execution for rollback.</p>
+ *  <p>The specified pipeline execution is outdated and cannot be used as a target pipeline
+ *             execution for rollback.</p>
  *
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
