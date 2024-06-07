@@ -407,7 +407,7 @@ export interface CognitoGroupConfigurationItem {
 /**
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
- *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
+ *          <p>This data type part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
  *             used as a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
  *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
@@ -539,18 +539,193 @@ export interface CognitoUserPoolConfigurationItem {
 }
 
 /**
+ * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+ *          the entity type that you want to map it to. For example, this object can map the contents
+ *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfiguration.html">OpenIdConnectConfiguration</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectGroupConfiguration {
+  /**
+   * <p>The token claim that you want Verified Permissions to interpret as group membership. For example,
+   *             <code>groups</code>.</p>
+   * @public
+   */
+  groupClaim: string | undefined;
+
+  /**
+   * <p>The policy store entity type that you want to map your users' group claim to. For example,
+   *             <code>MyCorp::UserGroup</code>. A group entity type is an entity that can have a user
+   *          entity type as a member.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling access token
+ *          claims. Contains the claim that you want to identify as the principal in an authorization
+ *          request, and the values of the <code>aud</code> claim, or audiences, that you want to
+ *          accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelection.html">OpenIdConnectTokenSelection</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectAccessTokenConfiguration {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The access token <code>aud</code> claim values that you want to accept in your policy
+   *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
+   * @public
+   */
+  audiences?: string[];
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity (ID)
+ *          token claims. Contains the claim that you want to identify as the principal in an
+ *          authorization request, and the values of the  <code>aud</code> claim, or audiences, that
+ *          you want to accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelection.html">OpenIdConnectTokenSelection</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectIdentityTokenConfiguration {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
+   *          store from an OIDC identity provider. For example, <code>1example23456789,
+   *             2example10111213</code>.</p>
+   * @public
+   */
+  clientIds?: string[];
+}
+
+/**
+ * <p>The token type that you want to process from your OIDC identity provider. Your policy
+ *          store can process either identity (ID) or access tokens from a given OIDC identity
+ *          source.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfiguration.html">OpenIdConnectConfiguration</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ * @public
+ */
+export type OpenIdConnectTokenSelection =
+  | OpenIdConnectTokenSelection.AccessTokenOnlyMember
+  | OpenIdConnectTokenSelection.IdentityTokenOnlyMember
+  | OpenIdConnectTokenSelection.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OpenIdConnectTokenSelection {
+  /**
+   * <p>The OIDC configuration for processing access tokens. Contains allowed audience claims,
+   *          for example <code>https://auth.example.com</code>, and the claim that you want to map to the
+   *          principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface AccessTokenOnlyMember {
+    accessTokenOnly: OpenIdConnectAccessTokenConfiguration;
+    identityTokenOnly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The OIDC configuration for processing identity (ID) tokens. Contains allowed client ID
+   *          claims, for example <code>1example23456789</code>, and the claim that you want to map to
+   *          the principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface IdentityTokenOnlyMember {
+    accessTokenOnly?: never;
+    identityTokenOnly: OpenIdConnectIdentityTokenConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    accessTokenOnly?: never;
+    identityTokenOnly?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accessTokenOnly: (value: OpenIdConnectAccessTokenConfiguration) => T;
+    identityTokenOnly: (value: OpenIdConnectIdentityTokenConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OpenIdConnectTokenSelection, visitor: Visitor<T>): T => {
+    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
+    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+ *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+ *          specifies the issuer URL, token type that you want to use, and policy store entity
+ *          details.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure, which is a
+ *             parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectConfiguration {
+  /**
+   * <p>The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery
+   *          endpoint at the path <code>.well-known/openid-configuration</code>.</p>
+   * @public
+   */
+  issuer: string | undefined;
+
+  /**
+   * <p>A descriptive string that you want to prefix to user entities from your OIDC identity
+   *          provider. For example, if you set an <code>entityIdPrefix</code> of
+   *             <code>MyOIDCProvider</code>, you can reference principals in your policies in the format
+   *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
+   * @public
+   */
+  entityIdPrefix?: string;
+
+  /**
+   * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+   *          the entity type that you want to map it to. For example, this object can map the contents
+   *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+   * @public
+   */
+  groupConfiguration?: OpenIdConnectGroupConfiguration;
+
+  /**
+   * <p>The token type that you want to process from your OIDC identity provider. Your policy
+   *          store can process either identity (ID) or access tokens from a given OIDC identity
+   *          source.</p>
+   * @public
+   */
+  tokenSelection: OpenIdConnectTokenSelection | undefined;
+}
+
+/**
  * <p>Contains configuration information used when creating a new identity source.</p>
- *          <note>
- *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
- *                 configuration.</p>
- *             <p>Specifies a <code>userPoolArn</code>, a <code>groupConfiguration</code>, and a
- *                     <code>ClientId</code>.</p>
- *          </note>
  *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
  *             operation.</p>
  * @public
  */
-export type Configuration = Configuration.CognitoUserPoolConfigurationMember | Configuration.$UnknownMember;
+export type Configuration =
+  | Configuration.CognitoUserPoolConfigurationMember
+  | Configuration.OpenIdConnectConfigurationMember
+  | Configuration.$UnknownMember;
 
 /**
  * @public
@@ -568,6 +743,22 @@ export namespace Configuration {
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: CognitoUserPoolConfiguration;
+    openIdConnectConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+   *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+   *          specifies the issuer URL, token type that you want to use, and policy store entity
+   *          details.</p>
+   *          <p>Example:<code>"configuration":\{"openIdConnectConfiguration":\{"issuer":"https://auth.example.com","tokenSelection":\{"accessTokenOnly":\{"audiences":["https://myapp.example.com","https://myapp2.example.com"],"principalIdClaim":"sub"\}\},"entityIdPrefix":"MyOIDCProvider","groupConfiguration":\{"groupClaim":"groups","groupEntityType":"MyCorp::UserGroup"\}\}\}</code>
+   *          </p>
+   * @public
+   */
+  export interface OpenIdConnectConfigurationMember {
+    cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration: OpenIdConnectConfiguration;
     $unknown?: never;
   }
 
@@ -576,19 +767,201 @@ export namespace Configuration {
    */
   export interface $UnknownMember {
     cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: CognitoUserPoolConfiguration) => T;
+    openIdConnectConfiguration: (value: OpenIdConnectConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
     if (value.cognitoUserPoolConfiguration !== undefined)
       return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
+    if (value.openIdConnectConfiguration !== undefined)
+      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+ *          the entity type that you want to map it to. For example, this object can map the contents
+ *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfigurationDetail.html">OpenIdConnectConfigurationDetail</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectGroupConfigurationDetail {
+  /**
+   * <p>The token claim that you want Verified Permissions to interpret as group membership. For example,
+   *             <code>groups</code>.</p>
+   * @public
+   */
+  groupClaim: string | undefined;
+
+  /**
+   * <p>The policy store entity type that you want to map your users' group claim to. For example,
+   *             <code>MyCorp::UserGroup</code>. A group entity type is an entity that can have a user
+   *          entity type as a member.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling access token
+ *          claims. Contains the claim that you want to identify as the principal in an authorization
+ *          request, and the values of the <code>aud</code> claim, or audiences, that you want to
+ *          accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelectionDetail.html">OpenIdConnectTokenSelectionDetail</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectAccessTokenConfigurationDetail {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The access token <code>aud</code> claim values that you want to accept in your policy
+   *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
+   * @public
+   */
+  audiences?: string[];
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity (ID)
+ *             token claims. Contains the claim that you want to identify as the principal in an
+ *             authorization request, and the values of the  <code>aud</code> claim, or audiences, that
+ *             you want to accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelectionDetail.html">OpenIdConnectTokenSelectionDetail</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectIdentityTokenConfigurationDetail {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
+   *          store from an OIDC identity provider. For example, <code>1example23456789,
+   *             2example10111213</code>.</p>
+   * @public
+   */
+  clientIds?: string[];
+}
+
+/**
+ * <p>The token type that you want to process from your OIDC identity provider. Your policy
+ *          store can process either identity (ID) or access tokens from a given OIDC identity
+ *          source.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfigurationDetail.html">OpenIdConnectConfigurationDetail</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ * @public
+ */
+export type OpenIdConnectTokenSelectionDetail =
+  | OpenIdConnectTokenSelectionDetail.AccessTokenOnlyMember
+  | OpenIdConnectTokenSelectionDetail.IdentityTokenOnlyMember
+  | OpenIdConnectTokenSelectionDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OpenIdConnectTokenSelectionDetail {
+  /**
+   * <p>The OIDC configuration for processing access tokens. Contains allowed audience claims,
+   *          for example <code>https://auth.example.com</code>, and the claim that you want to map to the
+   *          principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface AccessTokenOnlyMember {
+    accessTokenOnly: OpenIdConnectAccessTokenConfigurationDetail;
+    identityTokenOnly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The OIDC configuration for processing identity (ID) tokens. Contains allowed client ID
+   *          claims, for example <code>1example23456789</code>, and the claim that you want to map to
+   *          the principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface IdentityTokenOnlyMember {
+    accessTokenOnly?: never;
+    identityTokenOnly: OpenIdConnectIdentityTokenConfigurationDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    accessTokenOnly?: never;
+    identityTokenOnly?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accessTokenOnly: (value: OpenIdConnectAccessTokenConfigurationDetail) => T;
+    identityTokenOnly: (value: OpenIdConnectIdentityTokenConfigurationDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OpenIdConnectTokenSelectionDetail, visitor: Visitor<T>): T => {
+    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
+    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+ *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+ *          specifies the issuer URL, token type that you want to use, and policy store entity
+ *          details.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a> structure,
+ *             which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectConfigurationDetail {
+  /**
+   * <p>The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery
+   *          endpoint at the path <code>.well-known/openid-configuration</code>.</p>
+   * @public
+   */
+  issuer: string | undefined;
+
+  /**
+   * <p>A descriptive string that you want to prefix to user entities from your OIDC identity
+   *          provider. For example, if you set an <code>entityIdPrefix</code> of
+   *             <code>MyOIDCProvider</code>, you can reference principals in your policies in the format
+   *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
+   * @public
+   */
+  entityIdPrefix?: string;
+
+  /**
+   * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+   *          the entity type that you want to map it to. For example, this object can map the contents
+   *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+   * @public
+   */
+  groupConfiguration?: OpenIdConnectGroupConfigurationDetail;
+
+  /**
+   * <p>The token type that you want to process from your OIDC identity provider. Your policy
+   *          store can process either identity (ID) or access tokens from a given OIDC identity
+   *          source.</p>
+   * @public
+   */
+  tokenSelection: OpenIdConnectTokenSelectionDetail | undefined;
 }
 
 /**
@@ -599,6 +972,7 @@ export namespace Configuration {
  */
 export type ConfigurationDetail =
   | ConfigurationDetail.CognitoUserPoolConfigurationMember
+  | ConfigurationDetail.OpenIdConnectConfigurationMember
   | ConfigurationDetail.$UnknownMember;
 
 /**
@@ -618,6 +992,22 @@ export namespace ConfigurationDetail {
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: CognitoUserPoolConfigurationDetail;
+    openIdConnectConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+   *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+   *          specifies the issuer URL, token type that you want to use, and policy store entity
+   *          details.</p>
+   *          <p>Example:<code>"configuration":\{"openIdConnectConfiguration":\{"issuer":"https://auth.example.com","tokenSelection":\{"accessTokenOnly":\{"audiences":["https://myapp.example.com","https://myapp2.example.com"],"principalIdClaim":"sub"\}\},"entityIdPrefix":"MyOIDCProvider","groupConfiguration":\{"groupClaim":"groups","groupEntityType":"MyCorp::UserGroup"\}\}\}</code>
+   *          </p>
+   * @public
+   */
+  export interface OpenIdConnectConfigurationMember {
+    cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration: OpenIdConnectConfigurationDetail;
     $unknown?: never;
   }
 
@@ -626,19 +1016,201 @@ export namespace ConfigurationDetail {
    */
   export interface $UnknownMember {
     cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: CognitoUserPoolConfigurationDetail) => T;
+    openIdConnectConfiguration: (value: OpenIdConnectConfigurationDetail) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ConfigurationDetail, visitor: Visitor<T>): T => {
     if (value.cognitoUserPoolConfiguration !== undefined)
       return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
+    if (value.openIdConnectConfiguration !== undefined)
+      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+ *          the entity type that you want to map it to. For example, this object can map the contents
+ *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfigurationItem.html">OpenIdConnectConfigurationItem</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySourcea</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectGroupConfigurationItem {
+  /**
+   * <p>The token claim that you want Verified Permissions to interpret as group membership. For example,
+   *             <code>groups</code>.</p>
+   * @public
+   */
+  groupClaim: string | undefined;
+
+  /**
+   * <p>The policy store entity type that you want to map your users' group claim to. For example,
+   *             <code>MyCorp::UserGroup</code>. A group entity type is an entity that can have a user
+   *          entity type as a member.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling access token
+ *          claims. Contains the claim that you want to identify as the principal in an authorization
+ *          request, and the values of the <code>aud</code> claim, or audiences, that you want to
+ *          accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelectionItem.html">OpenIdConnectTokenSelectionItem</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectAccessTokenConfigurationItem {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The access token <code>aud</code> claim values that you want to accept in your policy
+   *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
+   * @public
+   */
+  audiences?: string[];
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity (ID)
+ *             token claims. Contains the claim that you want to identify as the principal in an
+ *             authorization request, and the values of the  <code>aud</code> claim, or audiences, that
+ *             you want to accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectTokenSelectionItem.html">OpenIdConnectTokenSelectionItem</a> structure, which is a parameter of <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectIdentityTokenConfigurationItem {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
+   *          store from an OIDC identity provider. For example, <code>1example23456789,
+   *             2example10111213</code>.</p>
+   * @public
+   */
+  clientIds?: string[];
+}
+
+/**
+ * <p>The token type that you want to process from your OIDC identity provider. Your policy
+ *          store can process either identity (ID) or access tokens from a given OIDC identity
+ *          source.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_OpenIdConnectConfigurationItem.html">OpenIdConnectConfigurationItem</a> structure, which is a parameter of <a href="http://amazonaws.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ * @public
+ */
+export type OpenIdConnectTokenSelectionItem =
+  | OpenIdConnectTokenSelectionItem.AccessTokenOnlyMember
+  | OpenIdConnectTokenSelectionItem.IdentityTokenOnlyMember
+  | OpenIdConnectTokenSelectionItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OpenIdConnectTokenSelectionItem {
+  /**
+   * <p>The OIDC configuration for processing access tokens. Contains allowed audience claims,
+   *          for example <code>https://auth.example.com</code>, and the claim that you want to map to the
+   *          principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface AccessTokenOnlyMember {
+    accessTokenOnly: OpenIdConnectAccessTokenConfigurationItem;
+    identityTokenOnly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The OIDC configuration for processing identity (ID) tokens. Contains allowed client ID
+   *          claims, for example <code>1example23456789</code>, and the claim that you want to map to
+   *          the principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface IdentityTokenOnlyMember {
+    accessTokenOnly?: never;
+    identityTokenOnly: OpenIdConnectIdentityTokenConfigurationItem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    accessTokenOnly?: never;
+    identityTokenOnly?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accessTokenOnly: (value: OpenIdConnectAccessTokenConfigurationItem) => T;
+    identityTokenOnly: (value: OpenIdConnectIdentityTokenConfigurationItem) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OpenIdConnectTokenSelectionItem, visitor: Visitor<T>): T => {
+    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
+    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+ *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+ *          specifies the issuer URL, token type that you want to use, and policy store entity
+ *          details.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationItem</a> structure,
+ *             which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ * @public
+ */
+export interface OpenIdConnectConfigurationItem {
+  /**
+   * <p>The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery
+   *          endpoint at the path <code>.well-known/openid-configuration</code>.</p>
+   * @public
+   */
+  issuer: string | undefined;
+
+  /**
+   * <p>A descriptive string that you want to prefix to user entities from your OIDC identity
+   *          provider. For example, if you set an <code>entityIdPrefix</code> of
+   *             <code>MyOIDCProvider</code>, you can reference principals in your policies in the format
+   *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
+   * @public
+   */
+  entityIdPrefix?: string;
+
+  /**
+   * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+   *          the entity type that you want to map it to. For example, this object can map the contents
+   *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+   * @public
+   */
+  groupConfiguration?: OpenIdConnectGroupConfigurationItem;
+
+  /**
+   * <p>The token type that you want to process from your OIDC identity provider. Your policy
+   *          store can process either identity (ID) or access tokens from a given OIDC identity
+   *          source.</p>
+   * @public
+   */
+  tokenSelection: OpenIdConnectTokenSelectionItem | undefined;
 }
 
 /**
@@ -647,7 +1219,10 @@ export namespace ConfigurationDetail {
  *             operation.</p>
  * @public
  */
-export type ConfigurationItem = ConfigurationItem.CognitoUserPoolConfigurationMember | ConfigurationItem.$UnknownMember;
+export type ConfigurationItem =
+  | ConfigurationItem.CognitoUserPoolConfigurationMember
+  | ConfigurationItem.OpenIdConnectConfigurationMember
+  | ConfigurationItem.$UnknownMember;
 
 /**
  * @public
@@ -666,6 +1241,22 @@ export namespace ConfigurationItem {
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: CognitoUserPoolConfigurationItem;
+    openIdConnectConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+   *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+   *          specifies the issuer URL, token type that you want to use, and policy store entity
+   *          details.</p>
+   *          <p>Example:<code>"configuration":\{"openIdConnectConfiguration":\{"issuer":"https://auth.example.com","tokenSelection":\{"accessTokenOnly":\{"audiences":["https://myapp.example.com","https://myapp2.example.com"],"principalIdClaim":"sub"\}\},"entityIdPrefix":"MyOIDCProvider","groupConfiguration":\{"groupClaim":"groups","groupEntityType":"MyCorp::UserGroup"\}\}\}</code>
+   *          </p>
+   * @public
+   */
+  export interface OpenIdConnectConfigurationMember {
+    cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration: OpenIdConnectConfigurationItem;
     $unknown?: never;
   }
 
@@ -674,17 +1265,21 @@ export namespace ConfigurationItem {
    */
   export interface $UnknownMember {
     cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: CognitoUserPoolConfigurationItem) => T;
+    openIdConnectConfiguration: (value: OpenIdConnectConfigurationItem) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ConfigurationItem, visitor: Visitor<T>): T => {
     if (value.cognitoUserPoolConfiguration !== undefined)
       return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
+    if (value.openIdConnectConfiguration !== undefined)
+      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -769,12 +1364,6 @@ export interface CreateIdentitySourceInput {
   /**
    * <p>Specifies the details required to communicate with the identity provider (IdP)
    *             associated with this identity source.</p>
-   *          <note>
-   *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
-   *                 configuration.</p>
-   *             <p>You must specify a <code>UserPoolArn</code>, and optionally, a
-   *                     <code>ClientId</code>.</p>
-   *          </note>
    * @public
    */
   configuration: Configuration | undefined;
@@ -2152,18 +2741,191 @@ export interface UpdateCognitoUserPoolConfiguration {
 }
 
 /**
- * <p>Contains an updated configuration to replace the configuration in an existing
+ * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+ *          the entity type that you want to map it to. For example, this object can map the contents
+ *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateOpenIdConnectConfiguration.html">UpdateOpenIdConnectConfiguration</a> structure, which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateIdentitySource.html">UpdateIdentitySource</a>.</p>
+ * @public
+ */
+export interface UpdateOpenIdConnectGroupConfiguration {
+  /**
+   * <p>The token claim that you want Verified Permissions to interpret as group membership. For example,
+   *             <code>groups</code>.</p>
+   * @public
+   */
+  groupClaim: string | undefined;
+
+  /**
+   * <p>The policy store entity type that you want to map your users' group claim to. For example,
+   *             <code>MyCorp::UserGroup</code>. A group entity type is an entity that can have a user
+   *          entity type as a member.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling access token
+ *          claims. Contains the claim that you want to identify as the principal in an authorization
+ *          request, and the values of the <code>aud</code> claim, or audiences, that you want to
+ *          accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateOpenIdConnectTokenSelection.html">UpdateOpenIdConnectTokenSelection</a> structure, which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateIdentitySource.html">UpdateIdentitySource</a>.</p>
+ * @public
+ */
+export interface UpdateOpenIdConnectAccessTokenConfiguration {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The access token <code>aud</code> claim values that you want to accept in your policy
+   *          store. For example, <code>https://myapp.example.com, https://myapp2.example.com</code>.</p>
+   * @public
+   */
+  audiences?: string[];
+}
+
+/**
+ * <p>The configuration of an OpenID Connect (OIDC) identity source for handling identity (ID)
+ *          token claims. Contains the claim that you want to identify as the principal in an
+ *          authorization request, and the values of the  <code>aud</code> claim, or audiences, that
+ *          you want to accept.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateOpenIdConnectTokenSelection.html">UpdateOpenIdConnectTokenSelection</a> structure, which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateIdentitySource.html">UpdateIdentitySource</a>.</p>
+ * @public
+ */
+export interface UpdateOpenIdConnectIdentityTokenConfiguration {
+  /**
+   * <p>The claim that determines the principal in OIDC access tokens. For example,
+   *             <code>sub</code>.</p>
+   * @public
+   */
+  principalIdClaim?: string;
+
+  /**
+   * <p>The ID token audience, or client ID, claim values that you want to accept in your policy
+   *          store from an OIDC identity provider. For example, <code>1example23456789,
+   *             2example10111213</code>.</p>
+   * @public
+   */
+  clientIds?: string[];
+}
+
+/**
+ * <p>The token type that you want to process from your OIDC identity provider. Your policy
+ *          store can process either identity (ID) or access tokens from a given OIDC identity
+ *          source.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateOpenIdConnectConfiguration.html">UpdateOpenIdConnectConfiguration</a> structure, which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateIdentitySource.html">UpdateIdentitySource</a>.</p>
+ * @public
+ */
+export type UpdateOpenIdConnectTokenSelection =
+  | UpdateOpenIdConnectTokenSelection.AccessTokenOnlyMember
+  | UpdateOpenIdConnectTokenSelection.IdentityTokenOnlyMember
+  | UpdateOpenIdConnectTokenSelection.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UpdateOpenIdConnectTokenSelection {
+  /**
+   * <p>The OIDC configuration for processing access tokens. Contains allowed audience claims,
+   *          for example <code>https://auth.example.com</code>, and the claim that you want to map to the
+   *          principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface AccessTokenOnlyMember {
+    accessTokenOnly: UpdateOpenIdConnectAccessTokenConfiguration;
+    identityTokenOnly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The OIDC configuration for processing identity (ID) tokens. Contains allowed client ID
+   *          claims, for example <code>1example23456789</code>, and the claim that you want to map to
+   *          the principal, for example <code>sub</code>.</p>
+   * @public
+   */
+  export interface IdentityTokenOnlyMember {
+    accessTokenOnly?: never;
+    identityTokenOnly: UpdateOpenIdConnectIdentityTokenConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    accessTokenOnly?: never;
+    identityTokenOnly?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    accessTokenOnly: (value: UpdateOpenIdConnectAccessTokenConfiguration) => T;
+    identityTokenOnly: (value: UpdateOpenIdConnectIdentityTokenConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UpdateOpenIdConnectTokenSelection, visitor: Visitor<T>): T => {
+    if (value.accessTokenOnly !== undefined) return visitor.accessTokenOnly(value.accessTokenOnly);
+    if (value.identityTokenOnly !== undefined) return visitor.identityTokenOnly(value.identityTokenOnly);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+ *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+ *          specifies the issuer URL, token type that you want to use, and policy store entity
+ *          details.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateConfiguration.html">UpdateConfiguration</a> structure,
+ *             which is a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdateIdentitySource.html">UpdateIdentitySource</a>.</p>
+ * @public
+ */
+export interface UpdateOpenIdConnectConfiguration {
+  /**
+   * <p>The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery
+   *          endpoint at the path <code>.well-known/openid-configuration</code>.</p>
+   * @public
+   */
+  issuer: string | undefined;
+
+  /**
+   * <p>A descriptive string that you want to prefix to user entities from your OIDC identity
+   *          provider. For example, if you set an <code>entityIdPrefix</code> of
+   *             <code>MyOIDCProvider</code>, you can reference principals in your policies in the format
+   *             <code>MyCorp::User::MyOIDCProvider|Carlos</code>.</p>
+   * @public
+   */
+  entityIdPrefix?: string;
+
+  /**
+   * <p>The claim in OIDC identity provider tokens that indicates a user's group membership, and
+   *          the entity type that you want to map it to. For example, this object can map the contents
+   *          of a <code>groups</code> claim to <code>MyCorp::UserGroup</code>.</p>
+   * @public
+   */
+  groupConfiguration?: UpdateOpenIdConnectGroupConfiguration;
+
+  /**
+   * <p>The token type that you want to process from your OIDC identity provider. Your policy
+   *          store can process either identity (ID) or access tokens from a given OIDC identity
+   *          source.</p>
+   * @public
+   */
+  tokenSelection: UpdateOpenIdConnectTokenSelection | undefined;
+}
+
+/**
+ * <p>Contains an update to replace the configuration in an existing
  *             identity source.</p>
- *          <note>
- *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
- *                 configuration.</p>
- *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
- *                     <code>ClientId</code>.</p>
- *          </note>
  * @public
  */
 export type UpdateConfiguration =
   | UpdateConfiguration.CognitoUserPoolConfigurationMember
+  | UpdateConfiguration.OpenIdConnectConfigurationMember
   | UpdateConfiguration.$UnknownMember;
 
 /**
@@ -2176,6 +2938,20 @@ export namespace UpdateConfiguration {
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: UpdateCognitoUserPoolConfiguration;
+    openIdConnectConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configuration details of an OpenID Connect (OIDC) identity provider, or
+   *          identity source, that Verified Permissions can use to generate entities from authenticated identities. It
+   *          specifies the issuer URL, token type that you want to use, and policy store entity
+   *          details.</p>
+   * @public
+   */
+  export interface OpenIdConnectConfigurationMember {
+    cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration: UpdateOpenIdConnectConfiguration;
     $unknown?: never;
   }
 
@@ -2184,17 +2960,21 @@ export namespace UpdateConfiguration {
    */
   export interface $UnknownMember {
     cognitoUserPoolConfiguration?: never;
+    openIdConnectConfiguration?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     cognitoUserPoolConfiguration: (value: UpdateCognitoUserPoolConfiguration) => T;
+    openIdConnectConfiguration: (value: UpdateOpenIdConnectConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: UpdateConfiguration, visitor: Visitor<T>): T => {
     if (value.cognitoUserPoolConfiguration !== undefined)
       return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
+    if (value.openIdConnectConfiguration !== undefined)
+      return visitor.openIdConnectConfiguration(value.openIdConnectConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3457,7 +4237,13 @@ export interface EntityItem {
   attributes?: Record<string, AttributeValue>;
 
   /**
-   * <p>The parents in the hierarchy that contains the entity.</p>
+   * <p>The parent entities in the hierarchy that contains the entity. A principal or resource
+   *             entity can be defined with at most 99 <i>transitive parents</i> per
+   *             authorization request. </p>
+   *          <p>A transitive parent is an entity in the hierarchy of entities including all direct
+   *             parents, and parents of parents. For example, a user can be a member of 91 groups if one
+   *             of those groups is a member of eight groups, for a total of 100: one entity, 91 entity
+   *             parents, and eight parents of parents. </p>
    * @public
    */
   parents?: EntityIdentifier[];
@@ -3984,13 +4770,127 @@ export const CognitoUserPoolConfigurationItemFilterSensitiveLog = (obj: CognitoU
 /**
  * @internal
  */
+export const OpenIdConnectGroupConfigurationFilterSensitiveLog = (obj: OpenIdConnectGroupConfiguration): any => ({
+  ...obj,
+  ...(obj.groupClaim && { groupClaim: SENSITIVE_STRING }),
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectAccessTokenConfigurationFilterSensitiveLog = (
+  obj: OpenIdConnectAccessTokenConfiguration
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectIdentityTokenConfigurationFilterSensitiveLog = (
+  obj: OpenIdConnectIdentityTokenConfiguration
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectTokenSelectionFilterSensitiveLog = (obj: OpenIdConnectTokenSelection): any => {
+  if (obj.accessTokenOnly !== undefined)
+    return { accessTokenOnly: OpenIdConnectAccessTokenConfigurationFilterSensitiveLog(obj.accessTokenOnly) };
+  if (obj.identityTokenOnly !== undefined)
+    return { identityTokenOnly: OpenIdConnectIdentityTokenConfigurationFilterSensitiveLog(obj.identityTokenOnly) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const OpenIdConnectConfigurationFilterSensitiveLog = (obj: OpenIdConnectConfiguration): any => ({
+  ...obj,
+  ...(obj.entityIdPrefix && { entityIdPrefix: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: OpenIdConnectGroupConfigurationFilterSensitiveLog(obj.groupConfiguration),
+  }),
+  ...(obj.tokenSelection && { tokenSelection: OpenIdConnectTokenSelectionFilterSensitiveLog(obj.tokenSelection) }),
+});
+
+/**
+ * @internal
+ */
 export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => {
   if (obj.cognitoUserPoolConfiguration !== undefined)
     return {
       cognitoUserPoolConfiguration: CognitoUserPoolConfigurationFilterSensitiveLog(obj.cognitoUserPoolConfiguration),
     };
+  if (obj.openIdConnectConfiguration !== undefined)
+    return { openIdConnectConfiguration: OpenIdConnectConfigurationFilterSensitiveLog(obj.openIdConnectConfiguration) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
+
+/**
+ * @internal
+ */
+export const OpenIdConnectGroupConfigurationDetailFilterSensitiveLog = (
+  obj: OpenIdConnectGroupConfigurationDetail
+): any => ({
+  ...obj,
+  ...(obj.groupClaim && { groupClaim: SENSITIVE_STRING }),
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectAccessTokenConfigurationDetailFilterSensitiveLog = (
+  obj: OpenIdConnectAccessTokenConfigurationDetail
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectIdentityTokenConfigurationDetailFilterSensitiveLog = (
+  obj: OpenIdConnectIdentityTokenConfigurationDetail
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectTokenSelectionDetailFilterSensitiveLog = (obj: OpenIdConnectTokenSelectionDetail): any => {
+  if (obj.accessTokenOnly !== undefined)
+    return { accessTokenOnly: OpenIdConnectAccessTokenConfigurationDetailFilterSensitiveLog(obj.accessTokenOnly) };
+  if (obj.identityTokenOnly !== undefined)
+    return {
+      identityTokenOnly: OpenIdConnectIdentityTokenConfigurationDetailFilterSensitiveLog(obj.identityTokenOnly),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const OpenIdConnectConfigurationDetailFilterSensitiveLog = (obj: OpenIdConnectConfigurationDetail): any => ({
+  ...obj,
+  ...(obj.entityIdPrefix && { entityIdPrefix: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: OpenIdConnectGroupConfigurationDetailFilterSensitiveLog(obj.groupConfiguration),
+  }),
+  ...(obj.tokenSelection && {
+    tokenSelection: OpenIdConnectTokenSelectionDetailFilterSensitiveLog(obj.tokenSelection),
+  }),
+});
 
 /**
  * @internal
@@ -4002,8 +4902,67 @@ export const ConfigurationDetailFilterSensitiveLog = (obj: ConfigurationDetail):
         obj.cognitoUserPoolConfiguration
       ),
     };
+  if (obj.openIdConnectConfiguration !== undefined)
+    return {
+      openIdConnectConfiguration: OpenIdConnectConfigurationDetailFilterSensitiveLog(obj.openIdConnectConfiguration),
+    };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
+
+/**
+ * @internal
+ */
+export const OpenIdConnectGroupConfigurationItemFilterSensitiveLog = (
+  obj: OpenIdConnectGroupConfigurationItem
+): any => ({
+  ...obj,
+  ...(obj.groupClaim && { groupClaim: SENSITIVE_STRING }),
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectAccessTokenConfigurationItemFilterSensitiveLog = (
+  obj: OpenIdConnectAccessTokenConfigurationItem
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectIdentityTokenConfigurationItemFilterSensitiveLog = (
+  obj: OpenIdConnectIdentityTokenConfigurationItem
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenIdConnectTokenSelectionItemFilterSensitiveLog = (obj: OpenIdConnectTokenSelectionItem): any => {
+  if (obj.accessTokenOnly !== undefined)
+    return { accessTokenOnly: OpenIdConnectAccessTokenConfigurationItemFilterSensitiveLog(obj.accessTokenOnly) };
+  if (obj.identityTokenOnly !== undefined)
+    return { identityTokenOnly: OpenIdConnectIdentityTokenConfigurationItemFilterSensitiveLog(obj.identityTokenOnly) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const OpenIdConnectConfigurationItemFilterSensitiveLog = (obj: OpenIdConnectConfigurationItem): any => ({
+  ...obj,
+  ...(obj.entityIdPrefix && { entityIdPrefix: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: OpenIdConnectGroupConfigurationItemFilterSensitiveLog(obj.groupConfiguration),
+  }),
+  ...(obj.tokenSelection && { tokenSelection: OpenIdConnectTokenSelectionItemFilterSensitiveLog(obj.tokenSelection) }),
+});
 
 /**
  * @internal
@@ -4014,6 +4973,10 @@ export const ConfigurationItemFilterSensitiveLog = (obj: ConfigurationItem): any
       cognitoUserPoolConfiguration: CognitoUserPoolConfigurationItemFilterSensitiveLog(
         obj.cognitoUserPoolConfiguration
       ),
+    };
+  if (obj.openIdConnectConfiguration !== undefined)
+    return {
+      openIdConnectConfiguration: OpenIdConnectConfigurationItemFilterSensitiveLog(obj.openIdConnectConfiguration),
     };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
@@ -4250,12 +5213,75 @@ export const UpdateCognitoUserPoolConfigurationFilterSensitiveLog = (obj: Update
 /**
  * @internal
  */
+export const UpdateOpenIdConnectGroupConfigurationFilterSensitiveLog = (
+  obj: UpdateOpenIdConnectGroupConfiguration
+): any => ({
+  ...obj,
+  ...(obj.groupClaim && { groupClaim: SENSITIVE_STRING }),
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpenIdConnectAccessTokenConfigurationFilterSensitiveLog = (
+  obj: UpdateOpenIdConnectAccessTokenConfiguration
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpenIdConnectIdentityTokenConfigurationFilterSensitiveLog = (
+  obj: UpdateOpenIdConnectIdentityTokenConfiguration
+): any => ({
+  ...obj,
+  ...(obj.principalIdClaim && { principalIdClaim: SENSITIVE_STRING }),
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpenIdConnectTokenSelectionFilterSensitiveLog = (obj: UpdateOpenIdConnectTokenSelection): any => {
+  if (obj.accessTokenOnly !== undefined)
+    return { accessTokenOnly: UpdateOpenIdConnectAccessTokenConfigurationFilterSensitiveLog(obj.accessTokenOnly) };
+  if (obj.identityTokenOnly !== undefined)
+    return {
+      identityTokenOnly: UpdateOpenIdConnectIdentityTokenConfigurationFilterSensitiveLog(obj.identityTokenOnly),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const UpdateOpenIdConnectConfigurationFilterSensitiveLog = (obj: UpdateOpenIdConnectConfiguration): any => ({
+  ...obj,
+  ...(obj.entityIdPrefix && { entityIdPrefix: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: UpdateOpenIdConnectGroupConfigurationFilterSensitiveLog(obj.groupConfiguration),
+  }),
+  ...(obj.tokenSelection && {
+    tokenSelection: UpdateOpenIdConnectTokenSelectionFilterSensitiveLog(obj.tokenSelection),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateConfigurationFilterSensitiveLog = (obj: UpdateConfiguration): any => {
   if (obj.cognitoUserPoolConfiguration !== undefined)
     return {
       cognitoUserPoolConfiguration: UpdateCognitoUserPoolConfigurationFilterSensitiveLog(
         obj.cognitoUserPoolConfiguration
       ),
+    };
+  if (obj.openIdConnectConfiguration !== undefined)
+    return {
+      openIdConnectConfiguration: UpdateOpenIdConnectConfigurationFilterSensitiveLog(obj.openIdConnectConfiguration),
     };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
@@ -4487,15 +5513,7 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
  * @internal
  */
 export const ContextDefinitionFilterSensitiveLog = (obj: ContextDefinition): any => {
-  if (obj.contextMap !== undefined)
-    return {
-      contextMap: Object.entries(obj.contextMap).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => (
-          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
-        ),
-        {}
-      ),
-    };
+  if (obj.contextMap !== undefined) return { contextMap: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

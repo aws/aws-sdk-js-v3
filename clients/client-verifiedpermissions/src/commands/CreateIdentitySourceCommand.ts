@@ -36,31 +36,36 @@ export interface CreateIdentitySourceCommandInput extends CreateIdentitySourceIn
 export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a reference to an Amazon Cognito user pool as an external identity provider (IdP).
+ * <p>Adds an identity source to a policy store–an Amazon Cognito user pool or OpenID Connect
+ *             (OIDC) identity provider (IdP).
  *             </p>
  *          <p>After you create an identity source, you can use the identities provided by the IdP as proxies
- *             for the principal in authorization queries that use the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
- *             operation. These identities take the form of tokens that contain claims about the user,
- *             such as IDs, attributes and group memberships. Amazon Cognito provides both identity tokens and
- *             access tokens, and Verified Permissions can use either or both. Any combination of identity and access
- *             tokens results in the same Cedar principal. Verified Permissions automatically translates the
- *             information about the identities into the standard Cedar attributes that can be
- *             evaluated by your policies. Because the Amazon Cognito identity and access tokens can contain
- *             different information, the tokens you choose to use determine which principal attributes
- *             are available to access when evaluating Cedar policies.</p>
+ *             for the principal in authorization queries that use the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> or
+ *                 <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorizedWithToken.html">BatchIsAuthorizedWithToken</a> API operations. These identities take the form
+ *             of tokens that contain claims about the user, such as IDs, attributes and group
+ *             memberships. Identity sources provide identity (ID) tokens and access tokens. Verified Permissions
+ *             derives information about your user and session from token claims. Access tokens provide
+ *             action <code>context</code> to your policies, and ID tokens provide principal
+ *             <code>Attributes</code>.</p>
  *          <important>
- *             <p>If you delete a Amazon Cognito user pool or user, tokens from that deleted pool or that deleted user continue to be usable until they expire.</p>
+ *             <p>Tokens from an identity source user continue to be usable until they expire.
+ *     Token revocation and resource deletion have no effect on the validity of a token in your policy store</p>
  *          </important>
  *          <note>
- *             <p>To reference a user from this identity source in your Cedar policies, use the following
- *                 syntax.</p>
- *             <p>
- *                <i>IdentityType::"&lt;CognitoUserPoolIdentifier&gt;|&lt;CognitoClientId&gt;</i>
- *             </p>
- *             <p>Where <code>IdentityType</code> is the string that you provide to the
- *                     <code>PrincipalEntityType</code> parameter for this operation. The
- *                     <code>CognitoUserPoolId</code> and <code>CognitoClientId</code> are defined by
- *                 the Amazon Cognito user pool.</p>
+ *             <p>To reference a user from this identity source in your Cedar policies, refer to the
+ *                 following syntax examples.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Amazon Cognito user pool: <code>Namespace::[Entity type]::[User pool ID]|[user
+ *                             principal attribute]</code>, for example
+ *                             <code>MyCorp::User::us-east-1_EXAMPLE|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+ *                </li>
+ *                <li>
+ *                   <p>OpenID Connect (OIDC) provider: <code>Namespace::[Entity
+ *                             type]::[principalIdClaim]|[user principal attribute]</code>, for example
+ *                             <code>MyCorp::User::MyOIDCProvider|a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *          <note>
  *             <p>Verified Permissions is <i>
@@ -85,6 +90,28 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  *       ],
  *       groupConfiguration: { // CognitoGroupConfiguration
  *         groupEntityType: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     openIdConnectConfiguration: { // OpenIdConnectConfiguration
+ *       issuer: "STRING_VALUE", // required
+ *       entityIdPrefix: "STRING_VALUE",
+ *       groupConfiguration: { // OpenIdConnectGroupConfiguration
+ *         groupClaim: "STRING_VALUE", // required
+ *         groupEntityType: "STRING_VALUE", // required
+ *       },
+ *       tokenSelection: { // OpenIdConnectTokenSelection Union: only one key present
+ *         accessTokenOnly: { // OpenIdConnectAccessTokenConfiguration
+ *           principalIdClaim: "STRING_VALUE",
+ *           audiences: [ // Audiences
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         identityTokenOnly: { // OpenIdConnectIdentityTokenConfiguration
+ *           principalIdClaim: "STRING_VALUE",
+ *           clientIds: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *     },
  *   },

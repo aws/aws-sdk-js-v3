@@ -138,6 +138,11 @@ import {
   ListPolicyStoresOutput,
   ListPolicyTemplatesInput,
   ListPolicyTemplatesOutput,
+  OpenIdConnectAccessTokenConfiguration,
+  OpenIdConnectConfiguration,
+  OpenIdConnectGroupConfiguration,
+  OpenIdConnectIdentityTokenConfiguration,
+  OpenIdConnectTokenSelection,
   PolicyDefinition,
   PolicyFilter,
   PolicyItem,
@@ -156,6 +161,11 @@ import {
   UpdateConfiguration,
   UpdateIdentitySourceInput,
   UpdateIdentitySourceOutput,
+  UpdateOpenIdConnectAccessTokenConfiguration,
+  UpdateOpenIdConnectConfiguration,
+  UpdateOpenIdConnectGroupConfiguration,
+  UpdateOpenIdConnectIdentityTokenConfiguration,
+  UpdateOpenIdConnectTokenSelection,
   UpdatePolicyDefinition,
   UpdatePolicyInput,
   UpdatePolicyOutput,
@@ -1188,6 +1198,8 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
   });
 };
 
+// se_Audiences omitted.
+
 /**
  * serializeAws_json1_0BatchIsAuthorizedInput
  */
@@ -1448,6 +1460,16 @@ const se_IsAuthorizedWithTokenInput = (input: IsAuthorizedWithTokenInput, contex
 
 // se_ListPolicyTemplatesInput omitted.
 
+// se_OpenIdConnectAccessTokenConfiguration omitted.
+
+// se_OpenIdConnectConfiguration omitted.
+
+// se_OpenIdConnectGroupConfiguration omitted.
+
+// se_OpenIdConnectIdentityTokenConfiguration omitted.
+
+// se_OpenIdConnectTokenSelection omitted.
+
 // se_ParentList omitted.
 
 // se_PolicyDefinition omitted.
@@ -1493,6 +1515,16 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 // se_UpdateConfiguration omitted.
 
 // se_UpdateIdentitySourceInput omitted.
+
+// se_UpdateOpenIdConnectAccessTokenConfiguration omitted.
+
+// se_UpdateOpenIdConnectConfiguration omitted.
+
+// se_UpdateOpenIdConnectGroupConfiguration omitted.
+
+// se_UpdateOpenIdConnectIdentityTokenConfiguration omitted.
+
+// se_UpdateOpenIdConnectTokenSelection omitted.
 
 // se_UpdatePolicyDefinition omitted.
 
@@ -1542,6 +1574,8 @@ const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_Audiences omitted.
 
 /**
  * deserializeAws_json1_0BatchIsAuthorizedInputItem
@@ -1909,6 +1943,26 @@ const de_ListPolicyTemplatesOutput = (output: any, context: __SerdeContext): Lis
 };
 
 // de_NamespaceList omitted.
+
+// de_OpenIdConnectAccessTokenConfigurationDetail omitted.
+
+// de_OpenIdConnectAccessTokenConfigurationItem omitted.
+
+// de_OpenIdConnectConfigurationDetail omitted.
+
+// de_OpenIdConnectConfigurationItem omitted.
+
+// de_OpenIdConnectGroupConfigurationDetail omitted.
+
+// de_OpenIdConnectGroupConfigurationItem omitted.
+
+// de_OpenIdConnectIdentityTokenConfigurationDetail omitted.
+
+// de_OpenIdConnectIdentityTokenConfigurationItem omitted.
+
+// de_OpenIdConnectTokenSelectionDetail omitted.
+
+// de_OpenIdConnectTokenSelectionItem omitted.
 
 // de_PolicyDefinitionDetail omitted.
 

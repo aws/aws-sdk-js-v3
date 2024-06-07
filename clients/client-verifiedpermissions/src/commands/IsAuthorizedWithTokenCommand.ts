@@ -49,7 +49,8 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *          <p>Verified Permissions validates each token that is specified in a request by checking its expiration
  *             date and its signature.</p>
  *          <important>
- *             <p>If you delete a Amazon Cognito user pool or user, tokens from that deleted pool or that deleted user continue to be usable until they expire.</p>
+ *             <p>Tokens from an identity source user continue to be usable until they expire.
+ *     Token revocation and resource deletion have no effect on the validity of a token in your policy store</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

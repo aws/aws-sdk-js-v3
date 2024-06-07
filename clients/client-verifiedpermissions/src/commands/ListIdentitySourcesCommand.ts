@@ -84,6 +84,26 @@ export interface ListIdentitySourcesCommandOutput extends ListIdentitySourcesOut
  * //             groupEntityType: "STRING_VALUE",
  * //           },
  * //         },
+ * //         openIdConnectConfiguration: { // OpenIdConnectConfigurationItem
+ * //           issuer: "STRING_VALUE", // required
+ * //           entityIdPrefix: "STRING_VALUE",
+ * //           groupConfiguration: { // OpenIdConnectGroupConfigurationItem
+ * //             groupClaim: "STRING_VALUE", // required
+ * //             groupEntityType: "STRING_VALUE", // required
+ * //           },
+ * //           tokenSelection: { // OpenIdConnectTokenSelectionItem Union: only one key present
+ * //             accessTokenOnly: { // OpenIdConnectAccessTokenConfigurationItem
+ * //               principalIdClaim: "STRING_VALUE",
+ * //               audiences: [ // Audiences
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             identityTokenOnly: { // OpenIdConnectIdentityTokenConfigurationItem
+ * //               principalIdClaim: "STRING_VALUE",
+ * //               clientIds: "<ClientIds>",
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //   ],

@@ -36,7 +36,7 @@ export interface UpdateIdentitySourceCommandInput extends UpdateIdentitySourceIn
 export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified identity source to use a new identity provider (IdP) source, or to change
+ * <p>Updates the specified identity source to use a new identity provider (IdP), or to change
  *             the mapping of identities from the IdP to a different principal entity type.</p>
  *          <note>
  *             <p>Verified Permissions is <i>
@@ -61,6 +61,28 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  *       ],
  *       groupConfiguration: { // UpdateCognitoGroupConfiguration
  *         groupEntityType: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     openIdConnectConfiguration: { // UpdateOpenIdConnectConfiguration
+ *       issuer: "STRING_VALUE", // required
+ *       entityIdPrefix: "STRING_VALUE",
+ *       groupConfiguration: { // UpdateOpenIdConnectGroupConfiguration
+ *         groupClaim: "STRING_VALUE", // required
+ *         groupEntityType: "STRING_VALUE", // required
+ *       },
+ *       tokenSelection: { // UpdateOpenIdConnectTokenSelection Union: only one key present
+ *         accessTokenOnly: { // UpdateOpenIdConnectAccessTokenConfiguration
+ *           principalIdClaim: "STRING_VALUE",
+ *           audiences: [ // Audiences
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         identityTokenOnly: { // UpdateOpenIdConnectIdentityTokenConfiguration
+ *           principalIdClaim: "STRING_VALUE",
+ *           clientIds: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *     },
  *   },
