@@ -531,8 +531,18 @@ export interface AWSService {
 }
 
 /**
- * <p> The wrapper that contains the Amazon Web Services accounts and services that are in
+ * <p> The wrapper that contains the Amazon Web Services accounts that are in
  *          scope for the assessment. </p>
+ *          <note>
+ *             <p>You no longer need to specify which Amazon Web Services are in scope when you
+ *             create or update an assessment. Audit Manager infers the services in scope by
+ *             examining your assessment controls and their data sources, and then mapping this
+ *             information to the relevant Amazon Web Services. </p>
+ *             <p>If an underlying data source changes for your assessment, we automatically update the
+ *             services scope as needed to reflect the correct Amazon Web Services. This
+ *             ensures that your assessment collects accurate and comprehensive evidence about all of
+ *             the relevant services in your AWS environment.</p>
+ *          </note>
  * @public
  */
 export interface Scope {
@@ -544,8 +554,15 @@ export interface Scope {
   awsAccounts?: AWSAccount[];
 
   /**
+   * @deprecated
+   *
    * <p> The Amazon Web Services services that are included in the scope of the assessment.
    *       </p>
+   *          <important>
+   *             <p>This API parameter is no longer supported. If you use this parameter to specify one
+   *             or more Amazon Web Services, Audit Manager ignores this input. Instead, the
+   *             value for <code>awsServices</code> will show as empty.</p>
+   *          </important>
    * @public
    */
   awsServices?: AWSService[];
@@ -1739,8 +1756,18 @@ export interface CreateAssessmentRequest {
   assessmentReportsDestination: AssessmentReportsDestination | undefined;
 
   /**
-   * <p> The wrapper that contains the Amazon Web Services accounts and services that are in
+   * <p> The wrapper that contains the Amazon Web Services accounts that are in
    *          scope for the assessment. </p>
+   *          <note>
+   *             <p>You no longer need to specify which Amazon Web Services are in scope when you
+   *             create or update an assessment. Audit Manager infers the services in scope by
+   *             examining your assessment controls and their data sources, and then mapping this
+   *             information to the relevant Amazon Web Services. </p>
+   *             <p>If an underlying data source changes for your assessment, we automatically update the
+   *             services scope as needed to reflect the correct Amazon Web Services. This
+   *             ensures that your assessment collects accurate and comprehensive evidence about all of
+   *             the relevant services in your AWS environment.</p>
+   *          </note>
    * @public
    */
   scope: Scope | undefined;
@@ -2102,6 +2129,8 @@ export const SourceType = {
   AWS_CLOUDTRAIL: "AWS_Cloudtrail",
   AWS_CONFIG: "AWS_Config",
   AWS_SECURITY_HUB: "AWS_Security_Hub",
+  COMMON_CONTROL: "Common_Control",
+  CORE_CONTROL: "Core_Control",
   MANUAL: "MANUAL",
 } as const;
 
@@ -2135,14 +2164,28 @@ export interface ControlMappingSource {
   sourceDescription?: string;
 
   /**
-   * <p> The setup option for the data source. This option reflects if the evidence collection
-   *          is automated or manual. </p>
+   * <p>The setup option for the data source. This option reflects if the evidence collection
+   *          method is automated or manual. If you don’t provide a value for
+   *             <code>sourceSetUpOption</code>, Audit Manager automatically infers and populates
+   *          the correct value based on the <code>sourceType</code> that you specify.</p>
    * @public
    */
   sourceSetUpOption?: SourceSetUpOption;
 
   /**
-   * <p> Specifies one of the five data source types for evidence collection. </p>
+   * <p> Specifies which type of data source is used to collect evidence. </p>
+   *          <ul>
+   *             <li>
+   *                <p>The source can be an individual data source type, such as
+   *                   <code>AWS_Cloudtrail</code>, <code>AWS_Config</code>,
+   *                   <code>AWS_Security_Hub</code>, <code>AWS_API_Call</code>, or <code>MANUAL</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>The source can also be a managed grouping of data sources, such as a
+   *                   <code>Core_Control</code> or a <code>Common_Control</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   sourceType?: SourceType;
@@ -2200,7 +2243,22 @@ export interface ControlMappingSource {
  * @public
  * @enum
  */
+export const ControlState = {
+  ACTIVE: "ACTIVE",
+  END_OF_SUPPORT: "END_OF_SUPPORT",
+} as const;
+
+/**
+ * @public
+ */
+export type ControlState = (typeof ControlState)[keyof typeof ControlState];
+
+/**
+ * @public
+ * @enum
+ */
 export const ControlType = {
+  CORE: "Core",
   CUSTOM: "Custom",
   STANDARD: "Standard",
 } as const;
@@ -2306,6 +2364,15 @@ export interface Control {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The state of the control. The <code>END_OF_SUPPORT</code> state is applicable to
+   *          standard controls only. This state indicates that the standard control can still be used to
+   *          collect evidence, but Audit Manager is no longer updating or maintaining that
+   *          control.</p>
+   * @public
+   */
+  state?: ControlState;
 }
 
 /**
@@ -2487,7 +2554,7 @@ export interface CreateAssessmentReportResponse {
 }
 
 /**
- * <p> The control mapping fields that represent the source for evidence collection, along
+ * <p>The mapping attributes that determine the evidence source for a given control, along
  *          with related parameters and metadata. This doesn't contain <code>mappingID</code>. </p>
  * @public
  */
@@ -2506,14 +2573,28 @@ export interface CreateControlMappingSource {
   sourceDescription?: string;
 
   /**
-   * <p> The setup option for the data source, which reflects if the evidence collection is
-   *          automated or manual. </p>
+   * <p>The setup option for the data source. This option reflects if the evidence collection
+   *          method is automated or manual. If you don’t provide a value for
+   *             <code>sourceSetUpOption</code>, Audit Manager automatically infers and populates
+   *          the correct value based on the <code>sourceType</code> that you specify.</p>
    * @public
    */
   sourceSetUpOption?: SourceSetUpOption;
 
   /**
-   * <p> Specifies one of the five types of data sources for evidence collection. </p>
+   * <p> Specifies which type of data source is used to collect evidence. </p>
+   *          <ul>
+   *             <li>
+   *                <p>The source can be an individual data source type, such as
+   *                   <code>AWS_Cloudtrail</code>, <code>AWS_Config</code>,
+   *                   <code>AWS_Security_Hub</code>, <code>AWS_API_Call</code>, or <code>MANUAL</code>.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>The source can also be a managed grouping of data sources, such as a
+   *                   <code>Core_Control</code> or a <code>Common_Control</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   sourceType?: SourceType;
@@ -4113,6 +4194,12 @@ export interface GetSettingsResponse {
 export interface ListAssessmentControlInsightsByControlDomainRequest {
   /**
    * <p>The unique identifier for the control domain. </p>
+   *          <p>Audit Manager supports the control domains that are provided by Amazon Web Services
+   *          Control Catalog. For information about how to find a list of available control domains, see
+   *             <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html">
+   *                <code>ListDomains</code>
+   *             </a> in the Amazon Web Services Control
+   *          Catalog API Reference.</p>
    * @public
    */
   controlDomainId: string | undefined;
@@ -4421,7 +4508,12 @@ export interface ControlDomainInsights {
   name?: string;
 
   /**
-   * <p>The unique identifier for the control domain. </p>
+   * <p>The unique identifier for the control domain. Audit Manager supports the control
+   *          domains that are provided by Amazon Web Services Control Catalog. For information about how
+   *          to find a list of available control domains, see <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html">
+   *                <code>ListDomains</code>
+   *             </a> in the Amazon Web Services Control Catalog API
+   *          Reference.</p>
    * @public
    */
   id?: string;
@@ -4518,6 +4610,12 @@ export interface ListControlDomainInsightsByAssessmentResponse {
 export interface ListControlInsightsByControlDomainRequest {
   /**
    * <p>The unique identifier for the control domain. </p>
+   *          <p>Audit Manager supports the control domains that are provided by Amazon Web Services
+   *          Control Catalog. For information about how to find a list of available control domains, see
+   *             <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html">
+   *                <code>ListDomains</code>
+   *             </a> in the Amazon Web Services Control
+   *          Catalog API Reference.</p>
    * @public
    */
   controlDomainId: string | undefined;
@@ -4592,22 +4690,47 @@ export interface ListControlInsightsByControlDomainResponse {
  */
 export interface ListControlsRequest {
   /**
-   * <p> The type of control, such as a standard control or a custom control. </p>
+   * <p>A filter that narrows the list of controls to a specific type. </p>
    * @public
    */
   controlType: ControlType | undefined;
 
   /**
-   * <p> The pagination token that's used to fetch the next set of results. </p>
+   * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
   nextToken?: string;
 
   /**
-   * <p> Represents the maximum number of results on a page or for an API request call. </p>
+   * <p>The maximum number of results on a page or for an API request call. </p>
    * @public
    */
   maxResults?: number;
+
+  /**
+   * <p>A filter that narrows the list of controls to a specific resource from the Amazon Web Services
+   *          Control Catalog. </p>
+   *          <p>To use this parameter, specify the ARN of the Control Catalog resource. You can specify either
+   *          a control domain, a control objective, or a common control. For information about how to find the ARNs
+   *          for these resources, see <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html">
+   *                <code>ListDomains</code>
+   *             </a>, <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListObjectives.html">
+   *                <code>ListObjectives</code>
+   *             </a>, and <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListCommonControls.html">
+   *                <code>ListCommonControls</code>
+   *             </a>.</p>
+   *          <note>
+   *             <p>You can only filter by one Control Catalog resource at a time.
+   *             Specifying multiple resource ARNs isn’t currently supported. If you want to filter by more
+   *             than one ARN, we recommend that you run the <code>ListControls</code> operation separately
+   *             for each ARN. </p>
+   *          </note>
+   *          <p>Alternatively, specify <code>UNCATEGORIZED</code> to list controls that aren't
+   *          mapped to a Control Catalog resource. For example, this operation might return a list of
+   *          custom controls that don't belong to any control domain or control objective.</p>
+   * @public
+   */
+  controlCatalogId?: string;
 }
 
 /**
@@ -4665,7 +4788,7 @@ export interface ListControlsResponse {
   controlMetadataList?: ControlMetadata[];
 
   /**
-   * <p> The pagination token that's used to fetch the next set of results. </p>
+   * <p>The pagination token that's used to fetch the next set of results. </p>
    * @public
    */
   nextToken?: string;
@@ -4673,13 +4796,30 @@ export interface ListControlsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const DataSourceType = {
+  AWS_API_CALL: "AWS_API_Call",
+  AWS_CLOUDTRAIL: "AWS_Cloudtrail",
+  AWS_CONFIG: "AWS_Config",
+  AWS_SECURITY_HUB: "AWS_Security_Hub",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+/**
+ * @public
  */
 export interface ListKeywordsForDataSourceRequest {
   /**
-   * <p> The control mapping data source that the keywords apply to. </p>
+   * <p>The control mapping data source that the keywords apply to. </p>
    * @public
    */
-  source: SourceType | undefined;
+  source: DataSourceType | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -4699,7 +4839,7 @@ export interface ListKeywordsForDataSourceRequest {
  */
 export interface ListKeywordsForDataSourceResponse {
   /**
-   * <p> The list of keywords for the event mapping source. </p>
+   * <p>The list of keywords for the control mapping source.</p>
    * @public
    */
   keywords?: string[];
@@ -5452,6 +5592,7 @@ export const ControlCommentFilterSensitiveLog = (obj: ControlComment): any => ({
  */
 export const AssessmentControlFilterSensitiveLog = (obj: AssessmentControl): any => ({
   ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.comments && { comments: obj.comments.map((item) => ControlCommentFilterSensitiveLog(item)) }),
 });
 
@@ -5471,6 +5612,7 @@ export const DelegationFilterSensitiveLog = (obj: Delegation): any => ({
 export const AssessmentControlSetFilterSensitiveLog = (obj: AssessmentControlSet): any => ({
   ...obj,
   ...(obj.roles && { roles: SENSITIVE_STRING }),
+  ...(obj.controls && { controls: obj.controls.map((item) => AssessmentControlFilterSensitiveLog(item)) }),
   ...(obj.delegations && { delegations: SENSITIVE_STRING }),
 });
 
@@ -5713,6 +5855,7 @@ export const ControlMappingSourceFilterSensitiveLog = (obj: ControlMappingSource
  */
 export const ControlFilterSensitiveLog = (obj: Control): any => ({
   ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.testingInformation && { testingInformation: SENSITIVE_STRING }),
   ...(obj.actionPlanTitle && { actionPlanTitle: SENSITIVE_STRING }),
   ...(obj.actionPlanInstructions && { actionPlanInstructions: SENSITIVE_STRING }),
@@ -5779,6 +5922,7 @@ export const CreateControlMappingSourceFilterSensitiveLog = (obj: CreateControlM
  */
 export const CreateControlRequestFilterSensitiveLog = (obj: CreateControlRequest): any => ({
   ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.testingInformation && { testingInformation: SENSITIVE_STRING }),
   ...(obj.actionPlanTitle && { actionPlanTitle: SENSITIVE_STRING }),
   ...(obj.actionPlanInstructions && { actionPlanInstructions: SENSITIVE_STRING }),
@@ -6041,6 +6185,7 @@ export const UpdateAssessmentStatusResponseFilterSensitiveLog = (obj: UpdateAsse
  */
 export const UpdateControlRequestFilterSensitiveLog = (obj: UpdateControlRequest): any => ({
   ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.testingInformation && { testingInformation: SENSITIVE_STRING }),
   ...(obj.actionPlanTitle && { actionPlanTitle: SENSITIVE_STRING }),
   ...(obj.actionPlanInstructions && { actionPlanInstructions: SENSITIVE_STRING }),

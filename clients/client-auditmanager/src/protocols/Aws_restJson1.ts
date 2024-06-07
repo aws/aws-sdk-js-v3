@@ -1152,6 +1152,7 @@ export const se_ListControlsCommand = async (
     [_cT]: [, __expectNonNull(input[_cT]!, `controlType`)],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_cCI]: [, input[_cCI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3384,6 +3385,7 @@ const de_Control = (output: any, context: __SerdeContext): Control => {
     lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastUpdatedBy: __expectString,
     name: __expectString,
+    state: __expectString,
     tags: _json,
     testingInformation: __expectString,
     type: __expectString,
@@ -3825,6 +3827,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _aI = "assessmentId";
+const _cCI = "controlCatalogId";
 const _cDI = "controlDomainId";
 const _cI = "controlId";
 const _cSI = "controlSetId";

@@ -213,6 +213,9 @@ export interface UpdateAssessmentCommandOutput extends UpdateAssessmentResponse,
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p> The resource that's specified in the request can't be found. </p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
