@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.593.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.592.0...v3.593.0) (2024-06-07)
+
+
+### Features
+
+* **client-auditmanager:** New feature: common controls. When creating custom controls, you can now use pre-grouped AWS data sources based on common compliance themes. Also, the awsServices parameter is deprecated because we now manage services in scope for you. If used, the input is ignored and an empty list is returned. ([11be2e0](https://github.com/aws/aws-sdk-js-v3/commit/11be2e0185ccbdd15e9002f5f8ba67a1fd80a524))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-auditmanager

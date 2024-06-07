@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.593.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.592.0...v3.593.0) (2024-06-07)
+
+
+### Features
+
+* **client-b2bi:** Added exceptions to B2Bi List operations and ConflictException to B2Bi StartTransformerJob operation. Also made capabilities field explicitly required when creating a Partnership. ([9bed782](https://github.com/aws/aws-sdk-js-v3/commit/9bed7820cebce4c7a50a0fa7cf61659762fbda1e))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-b2bi

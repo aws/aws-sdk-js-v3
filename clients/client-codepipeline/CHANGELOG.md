@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.593.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.592.0...v3.593.0) (2024-06-07)
+
+
+### Features
+
+* **client-codepipeline:** CodePipeline now supports overriding S3 Source Object Key during StartPipelineExecution, as part of Source Overrides. ([4216496](https://github.com/aws/aws-sdk-js-v3/commit/4216496a8389f9d31607faf520c6437fe986fe6e))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

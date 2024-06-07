@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.593.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.592.0...v3.593.0) (2024-06-07)
+
+
+### Features
+
+* **client-auditmanager:** New feature: common controls. When creating custom controls, you can now use pre-grouped AWS data sources based on common compliance themes. Also, the awsServices parameter is deprecated because we now manage services in scope for you. If used, the input is ignored and an empty list is returned. ([11be2e0](https://github.com/aws/aws-sdk-js-v3/commit/11be2e0185ccbdd15e9002f5f8ba67a1fd80a524))
+* **client-b2bi:** Added exceptions to B2Bi List operations and ConflictException to B2Bi StartTransformerJob operation. Also made capabilities field explicitly required when creating a Partnership. ([9bed782](https://github.com/aws/aws-sdk-js-v3/commit/9bed7820cebce4c7a50a0fa7cf61659762fbda1e))
+* **client-codepipeline:** CodePipeline now supports overriding S3 Source Object Key during StartPipelineExecution, as part of Source Overrides. ([4216496](https://github.com/aws/aws-sdk-js-v3/commit/4216496a8389f9d31607faf520c6437fe986fe6e))
+* **client-sagemaker:** This release introduces a new optional parameter: InferenceAmiVersion, in ProductionVariant. ([1aa3572](https://github.com/aws/aws-sdk-js-v3/commit/1aa35725a55c5eeabdebbbbd0006885a6953b8f3))
+* **client-verifiedpermissions:** This release adds OpenIdConnect (OIDC) configuration support for IdentitySources, allowing for external IDPs to be used in authorization requests. ([41f4cc5](https://github.com/aws/aws-sdk-js-v3/commit/41f4cc50582c4231a576975f5f83c657072bdbc7))
+* **clients:** update client endpoints as of 2024-06-07 ([33e227b](https://github.com/aws/aws-sdk-js-v3/commit/33e227bd2f364a83f032601de7d324008b016cf1))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 
