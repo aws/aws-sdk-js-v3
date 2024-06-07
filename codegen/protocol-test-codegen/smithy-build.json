@@ -51,6 +51,31 @@
         }
       }
     },
+    "aws-protocoltests-json-machinelearning": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["com.amazonaws.machinelearning#AmazonML_20141212"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-json-machinelearning",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true,
+          "experimentalIdentityAndAuth": true
+        }
+      }
+    },
     "aws-protocoltests-json-10": {
       "transforms": [
         {
