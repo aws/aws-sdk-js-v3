@@ -66,6 +66,9 @@ export interface StartTransformerJobCommandOutput extends StartTransformerJobRes
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
  *

@@ -46,7 +46,7 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  *   name: "STRING_VALUE", // required
  *   email: "STRING_VALUE", // required
  *   phone: "STRING_VALUE",
- *   capabilities: [ // PartnershipCapabilities
+ *   capabilities: [ // PartnershipCapabilities // required
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",

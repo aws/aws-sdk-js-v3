@@ -62,6 +62,18 @@ export interface ListCapabilitiesCommandOutput extends ListCapabilitiesResponse,
  * @see {@link ListCapabilitiesCommandOutput} for command's `response` shape.
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Occurs when a B2BI object cannot be validated against a request from another object.</p>
+ *
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *

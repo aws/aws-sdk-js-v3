@@ -905,7 +905,7 @@ export interface CreatePartnershipRequest {
    * <p>Specifies a list of the capabilities associated with this partnership.</p>
    * @public
    */
-  capabilities?: string[];
+  capabilities: string[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
