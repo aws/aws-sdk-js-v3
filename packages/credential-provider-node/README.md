@@ -5,9 +5,9 @@
 
 ## AWS Credential Provider for Node.JS
 
-This module provides a factory function, `fromEnv`, that will attempt to source
-AWS credentials from a Node.JS environment. It will attempt to find credentials
-from the following sources (listed in order of precedence):
+This module provides a factory function, `defaultProvider`, that will attempt to
+source AWS credentials from a Node.JS environment. It will attempt to find
+credentials from the following sources (listed in order of precedence):
 
 - Environment variables exposed via `process.env`
 - SSO credentials from token cache
