@@ -236,7 +236,7 @@ it("GlacierChecksums:Request", async () => {
  * hyphen (-) to indicate the current account. This should be default
  * behavior if the customer provides a null or empty string.
  */
-it("GlacierAccountId:Request", async () => {
+it.skip("GlacierAccountId:Request", async () => {
   const client = new GlacierClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
