@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.594.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.593.0...v3.594.0) (2024-06-10)
+
+
+### Features
+
+* **client-ecs:** This release introduces a new cluster configuration to support the customer-managed keys for ECS managed storage encryption. ([c86da60](https://github.com/aws/aws-sdk-js-v3/commit/c86da60c1e44cc42c21df1c3fc02920479619f6e))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

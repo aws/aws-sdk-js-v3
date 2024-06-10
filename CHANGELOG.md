@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.594.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.593.0...v3.594.0) (2024-06-10)
+
+
+### Features
+
+* **client-application-signals:** This is the initial SDK release for Amazon CloudWatch Application Signals. Amazon CloudWatch Application Signals provides curated application performance monitoring for developers to monitor and troubleshoot application health using pre-built dashboards and Service Level Objectives. ([7276ded](https://github.com/aws/aws-sdk-js-v3/commit/7276deda97ee6bcb65c0fc02c538fa1a3ddff4a1))
+* **client-ecs:** This release introduces a new cluster configuration to support the customer-managed keys for ECS managed storage encryption. ([c86da60](https://github.com/aws/aws-sdk-js-v3/commit/c86da60c1e44cc42c21df1c3fc02920479619f6e))
+* **client-imagebuilder:** This release updates the regex pattern for Image Builder ARNs. ([8c25ebe](https://github.com/aws/aws-sdk-js-v3/commit/8c25ebe57898bf6f17f4026c176f9ac857eead40))
+* **clients:** update client endpoints as of 2024-06-10 ([29dc8aa](https://github.com/aws/aws-sdk-js-v3/commit/29dc8aa4569b6aa4ef1387be7159db55cee2ae9f))
+
+
+
+
+
 # [3.593.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.592.0...v3.593.0) (2024-06-07)
 
 
