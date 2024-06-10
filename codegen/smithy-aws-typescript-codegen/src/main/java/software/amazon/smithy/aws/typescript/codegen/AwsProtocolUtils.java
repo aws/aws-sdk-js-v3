@@ -331,6 +331,11 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        // TODO: remove when Glacier AccountID hyphen customization is implemented: SMITHY-2614
+        if (testCase.getId().equals("GlacierAccountId")) {
+            return true;
+        }
+
         return false;
     }
 
