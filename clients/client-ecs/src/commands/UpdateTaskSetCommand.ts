@@ -112,6 +112,9 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     fargateEphemeralStorage: { // DeploymentEphemeralStorage
+ * //       kmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

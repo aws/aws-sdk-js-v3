@@ -115,6 +115,9 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       fargateEphemeralStorage: { // DeploymentEphemeralStorage
+ * //         kmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures

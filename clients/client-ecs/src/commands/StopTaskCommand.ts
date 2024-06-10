@@ -35,6 +35,9 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * 				<code>SIGKILL</code> value is sent and the containers are forcibly stopped. If the
  * 			container handles the <code>SIGTERM</code> value gracefully and exits within 30 seconds
  * 			from receiving it, no <code>SIGKILL</code> value is sent.</p>
+ *          <p>For Windows containers, POSIX signals do not work and runtime stops the container by sending
+ * 			a <code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown
+ * 				of (Windows) container #25982</a> on GitHub.</p>
  *          <note>
  *             <p>The default 30-second timeout can be configured on the Amazon ECS container agent with
  * 				the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
@@ -209,6 +212,10 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * //     version: Number("long"),
  * //     ephemeralStorage: {
  * //       sizeInGiB: Number("int"), // required
+ * //     },
+ * //     fargateEphemeralStorage: { // TaskEphemeralStorage
+ * //       sizeInGiB: Number("int"),
+ * //       kmsKeyId: "STRING_VALUE",
  * //     },
  * //   },
  * // };

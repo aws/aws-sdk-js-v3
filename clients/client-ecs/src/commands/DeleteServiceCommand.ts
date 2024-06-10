@@ -177,6 +177,9 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //             value: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         fargateEphemeralStorage: { // DeploymentEphemeralStorage
+ * //           kmsKeyId: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     deployments: [ // Deployments
@@ -287,6 +290,9 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //             },
  * //           },
  * //         ],
+ * //         fargateEphemeralStorage: {
+ * //           kmsKeyId: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     roleArn: "STRING_VALUE",

@@ -207,6 +207,10 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * //       ephemeralStorage: {
  * //         sizeInGiB: Number("int"), // required
  * //       },
+ * //       fargateEphemeralStorage: { // TaskEphemeralStorage
+ * //         sizeInGiB: Number("int"),
+ * //         kmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures

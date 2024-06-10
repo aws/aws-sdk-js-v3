@@ -55,6 +55,10 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *         s3KeyPrefix: "STRING_VALUE",
  *       },
  *     },
+ *     managedStorageConfiguration: { // ManagedStorageConfiguration
+ *       kmsKeyId: "STRING_VALUE",
+ *       fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
+ *     },
  *   },
  *   serviceConnectDefaults: { // ClusterServiceConnectDefaultsRequest
  *     namespace: "STRING_VALUE", // required
@@ -77,6 +81,10 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * //           s3EncryptionEnabled: true || false,
  * //           s3KeyPrefix: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       managedStorageConfiguration: { // ManagedStorageConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //         fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "STRING_VALUE",

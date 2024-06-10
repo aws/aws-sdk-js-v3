@@ -279,6 +279,7 @@ import {
   ManagedAgent,
   ManagedAgentStateChange,
   ManagedScaling,
+  ManagedStorageConfiguration,
   MissingVersionException,
   MountPoint,
   NamespaceNotFoundException,
@@ -2942,6 +2943,8 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_ManagedScaling omitted.
 
+// se_ManagedStorageConfiguration omitted.
+
 // se_MountPoint omitted.
 
 // se_MountPointList omitted.
@@ -3429,6 +3432,7 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     desiredCount: __expectInt32,
     failedTasks: __expectInt32,
+    fargateEphemeralStorage: _json,
     id: __expectString,
     launchType: __expectString,
     networkConfiguration: _json,
@@ -3454,6 +3458,8 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
 // de_DeploymentConfiguration omitted.
 
 // de_DeploymentController omitted.
+
+// de_DeploymentEphemeralStorage omitted.
 
 /**
  * deserializeAws_json1_1Deployments
@@ -3709,6 +3715,8 @@ const de_ManagedAgents = (output: any, context: __SerdeContext): ManagedAgent[] 
 };
 
 // de_ManagedScaling omitted.
+
+// de_ManagedStorageConfiguration omitted.
 
 // de_MissingVersionException omitted.
 
@@ -4048,6 +4056,7 @@ const de_Task = (output: any, context: __SerdeContext): Task => {
     enableExecuteCommand: __expectBoolean,
     ephemeralStorage: _json,
     executionStoppedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fargateEphemeralStorage: _json,
     group: __expectString,
     healthStatus: __expectString,
     inferenceAccelerators: _json,
@@ -4120,6 +4129,8 @@ const de_TaskDefinitionList = (output: any, context: __SerdeContext): TaskDefini
 
 // de_TaskDefinitionPlacementConstraints omitted.
 
+// de_TaskEphemeralStorage omitted.
+
 // de_TaskOverride omitted.
 
 /**
@@ -4144,6 +4155,7 @@ const de_TaskSet = (output: any, context: __SerdeContext): TaskSet => {
     computedDesiredCount: __expectInt32,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     externalId: __expectString,
+    fargateEphemeralStorage: _json,
     id: __expectString,
     launchType: __expectString,
     loadBalancers: _json,

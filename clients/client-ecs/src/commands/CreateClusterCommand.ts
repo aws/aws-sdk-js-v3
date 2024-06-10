@@ -71,6 +71,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *         s3KeyPrefix: "STRING_VALUE",
  *       },
  *     },
+ *     managedStorageConfiguration: { // ManagedStorageConfiguration
+ *       kmsKeyId: "STRING_VALUE",
+ *       fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
+ *     },
  *   },
  *   capacityProviders: [ // StringList
  *     "STRING_VALUE",
@@ -103,6 +107,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //           s3EncryptionEnabled: true || false,
  * //           s3KeyPrefix: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       managedStorageConfiguration: { // ManagedStorageConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //         fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "STRING_VALUE",

@@ -112,6 +112,9 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     fargateEphemeralStorage: { // DeploymentEphemeralStorage
+ * //       kmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

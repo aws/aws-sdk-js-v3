@@ -657,7 +657,25 @@ export interface ExecuteCommandConfiguration {
 }
 
 /**
- * <p>The execute command configuration for the cluster.</p>
+ * <p>The managed storage configuration for the cluster.</p>
+ * @public
+ */
+export interface ManagedStorageConfiguration {
+  /**
+   * <p>Specify a Key Management Service key ID to encrypt the managed storage.</p>
+   * @public
+   */
+  kmsKeyId?: string;
+
+  /**
+   * <p>Specify the Key Management Service key ID for the Fargate ephemeral storage.</p>
+   * @public
+   */
+  fargateEphemeralStorageKmsKeyId?: string;
+}
+
+/**
+ * <p>The execute command and managed storage configuration for the cluster.</p>
  * @public
  */
 export interface ClusterConfiguration {
@@ -666,6 +684,12 @@ export interface ClusterConfiguration {
    * @public
    */
   executeCommandConfiguration?: ExecuteCommandConfiguration;
+
+  /**
+   * <p>The details of the managed storage configuration.</p>
+   * @public
+   */
+  managedStorageConfiguration?: ManagedStorageConfiguration;
 }
 
 /**
@@ -683,6 +707,12 @@ export interface ClusterConfiguration {
  * 				<code>FARGATE_SPOT</code> capacity providers. The Fargate capacity providers are
  * 			available to all accounts and only need to be associated with a cluster to be used in a
  * 			capacity provider strategy.</p>
+ *          <p>With <code>FARGATE_SPOT</code>, you can run interruption
+ * 			tolerant tasks at a rate that's discounted compared to the <code>FARGATE</code> price.
+ * 				<code>FARGATE_SPOT</code> runs tasks on spare compute capacity. When Amazon Web Services needs the
+ * 			capacity back, your tasks are interrupted with a two-minute warning.
+ * 				<code>FARGATE_SPOT</code> only supports Linux tasks with the X86_64 architecture on
+ * 			platform version 1.3.0 or later.</p>
  *          <p>A capacity provider strategy may contain a maximum of 6 capacity providers.</p>
  * @public
  */
@@ -2010,7 +2040,7 @@ export interface TimeoutConfiguration {
 }
 
 /**
- * <p>An object that represents the Amazon Web Services Private Certificate Authority certificate.</p>
+ * <p>The certificate root authority that secures your service.</p>
  * @public
  */
 export interface ServiceConnectTlsCertificateAuthority {
@@ -2022,7 +2052,7 @@ export interface ServiceConnectTlsCertificateAuthority {
 }
 
 /**
- * <p>An object that represents the configuration for Service Connect TLS.</p>
+ * <p>The key that encrypts and decrypts your resources for Service Connect TLS.</p>
  * @public
  */
 export interface ServiceConnectTlsConfiguration {
@@ -2855,6 +2885,18 @@ export interface CreateServiceRequest {
 }
 
 /**
+ * <p>The amount of ephemeral storage to allocate for the deployment.</p>
+ * @public
+ */
+export interface DeploymentEphemeralStorage {
+  /**
+   * <p>Specify an Key Management Service key ID to encrypt the ephemeral storage for deployment.</p>
+   * @public
+   */
+  kmsKeyId?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3075,6 +3117,12 @@ export interface Deployment {
    * @public
    */
   volumeConfigurations?: ServiceVolumeConfiguration[];
+
+  /**
+   * <p>The Fargate ephemeral storage settings for the deployment.</p>
+   * @public
+   */
+  fargateEphemeralStorage?: DeploymentEphemeralStorage;
 }
 
 /**
@@ -3391,6 +3439,12 @@ export interface TaskSet {
    * @public
    */
   tags?: Tag[];
+
+  /**
+   * <p>The Fargate ephemeral storage settings for the task set.</p>
+   * @public
+   */
+  fargateEphemeralStorage?: DeploymentEphemeralStorage;
 }
 
 /**
@@ -4707,16 +4761,16 @@ export interface FirelensConfiguration {
  *          <p>The following are notes about container health check support:</p>
  *          <ul>
  *             <li>
- *                <p>When the Amazon ECS agent cannot connect to the Amazon ECS service, the service reports
- * 					the container as <code>UNHEALTHY</code>. </p>
+ *                <p>If the Amazon ECS container agent becomes disconnected from the Amazon ECS service, this won't
+ * 					cause a container to transition to an <code>UNHEALTHY</code> status. This is by design,
+ * 					to ensure that containers remain running during agent restarts or temporary
+ * 					unavailability. The health check status is the "last heard from" response from the Amazon ECS
+ * 					agent, so if the container was considered <code>HEALTHY</code> prior to the disconnect,
+ * 					that status will remain until the agent reconnects and another health check occurs.
+ * 					There are no assumptions made about the status of the container health checks.</p>
  *             </li>
  *             <li>
- *                <p>The health check statuses are the "last heard from" response from the Amazon ECS
- * 					agent. There are no assumptions made about the status of the container health
- * 					checks.</p>
- *             </li>
- *             <li>
- *                <p>Container health checks require version 1.17.0 or greater of the Amazon ECS
+ *                <p>Container health checks require version <code>1.17.0</code> or greater of the Amazon ECS
  * 					container agent. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the
  * 						Amazon ECS container agent</a>.</p>
  *             </li>
@@ -5303,19 +5357,18 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 export interface ResourceRequirement {
   /**
    * <p>The value for the specified resource type.</p>
-   *          <p>If the <code>GPU</code> type is used, the value is the number of physical
-   * 				<code>GPUs</code> the Amazon ECS container agent reserves for the container. The number
-   * 			of GPUs that's reserved for all containers in a task can't exceed the number of
-   * 			available GPUs on the container instance that the task is launched on.</p>
-   *          <p>If the <code>InferenceAccelerator</code> type is used, the <code>value</code> matches
+   *          <p>When the type is <code>GPU</code>, the value is the number of physical <code>GPUs</code> the
+   * 			Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for
+   * 			all containers in a task can't exceed the number of available GPUs on the container
+   * 			instance that the task is launched on.</p>
+   *          <p>When the type is <code>InferenceAccelerator</code>, the <code>value</code> matches
    * 			the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a task definition.</p>
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The type of resource to assign to a container. The supported values are
-   * 				<code>GPU</code> or <code>InferenceAccelerator</code>.</p>
+   * <p>The type of resource to assign to a container. </p>
    * @public
    */
   type: ResourceType | undefined;
@@ -8418,6 +8471,26 @@ export interface Container {
 }
 
 /**
+ * <p>The amount of ephemeral storage to allocate for the task.</p>
+ * @public
+ */
+export interface TaskEphemeralStorage {
+  /**
+   * <p>The total amount, in GiB, of the ephemeral storage to set for the task. The minimum
+   * 			supported value is <code>20</code> GiB and the maximum supported value is  <code>200</code>
+   * 			GiB.</p>
+   * @public
+   */
+  sizeInGiB?: number;
+
+  /**
+   * <p>Specify an Key Management Service key ID to encrypt the ephemeral storage for the task.</p>
+   * @public
+   */
+  kmsKeyId?: string;
+}
+
+/**
  * <p>The overrides that are sent to a container. An empty container override can be passed
  * 			in. An example of an empty container override is <code>\{"containerOverrides": [ ]
  * 				\}</code>. If a non-empty container override is specified, the <code>name</code>
@@ -8961,6 +9034,12 @@ export interface Task {
    * @public
    */
   ephemeralStorage?: EphemeralStorage;
+
+  /**
+   * <p>The Fargate ephemeral storage settings for the task.</p>
+   * @public
+   */
+  fargateEphemeralStorage?: TaskEphemeralStorage;
 }
 
 /**
@@ -11037,8 +11116,6 @@ export interface RegisterTaskDefinitionRequest {
   /**
    * <p>The operating system that your tasks definitions run on. A platform family is
    * 			specified only for tasks using the Fargate launch type. </p>
-   *          <p>When you specify a task definition in a service, this value must match the
-   * 				<code>runtimePlatform</code> value of the service.</p>
    * @public
    */
   runtimePlatform?: RuntimePlatform;

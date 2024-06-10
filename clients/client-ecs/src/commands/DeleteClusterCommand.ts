@@ -61,6 +61,10 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //           s3KeyPrefix: "STRING_VALUE",
  * //         },
  * //       },
+ * //       managedStorageConfiguration: { // ManagedStorageConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //         fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //     status: "STRING_VALUE",
  * //     registeredContainerInstancesCount: Number("int"),

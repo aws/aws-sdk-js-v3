@@ -428,6 +428,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //             value: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         fargateEphemeralStorage: { // DeploymentEphemeralStorage
+ * //           kmsKeyId: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     deployments: [ // Deployments
@@ -538,6 +541,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //             },
  * //           },
  * //         ],
+ * //         fargateEphemeralStorage: {
+ * //           kmsKeyId: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //     roleArn: "STRING_VALUE",
