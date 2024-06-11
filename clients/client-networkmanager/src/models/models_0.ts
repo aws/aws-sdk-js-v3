@@ -55,6 +55,30 @@ export interface Tag {
 }
 
 /**
+ * <p>Describes proposed changes to a network function group. </p>
+ * @public
+ */
+export interface ProposedNetworkFunctionGroupChange {
+  /**
+   * <p>The list of proposed changes to the key-value tags associated with the network function group.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The proposed new attachment policy rule number for the network function group.</p>
+   * @public
+   */
+  AttachmentPolicyRuleNumber?: number;
+
+  /**
+   * <p>The proposed name change for the network function group name.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string;
+}
+
+/**
  * <p>Describes a proposed segment change. In some cases, the segment change must first be evaluated and accepted. </p>
  * @public
  */
@@ -165,6 +189,12 @@ export interface Attachment {
   SegmentName?: string;
 
   /**
+   * <p>The name of the network function group.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string;
+
+  /**
    * <p>The tags associated with the attachment.</p>
    * @public
    */
@@ -175,6 +205,12 @@ export interface Attachment {
    * @public
    */
   ProposedSegmentChange?: ProposedSegmentChange;
+
+  /**
+   * <p>Describes a proposed change to a network function group associated with the attachment.</p>
+   * @public
+   */
+  ProposedNetworkFunctionGroupChange?: ProposedNetworkFunctionGroupChange;
 
   /**
    * <p>The timestamp when the attachment was created.</p>
@@ -966,6 +1002,7 @@ export const ChangeType = {
   CORE_NETWORK_CONFIGURATION: "CORE_NETWORK_CONFIGURATION",
   CORE_NETWORK_EDGE: "CORE_NETWORK_EDGE",
   CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  NETWORK_FUNCTION_GROUP: "NETWORK_FUNCTION_GROUP",
   SEGMENTS_CONFIGURATION: "SEGMENTS_CONFIGURATION",
   SEGMENT_ACTIONS_CONFIGURATION: "SEGMENT_ACTIONS_CONFIGURATION",
 } as const;
@@ -1301,7 +1338,7 @@ export interface ConnectPeer {
   Tags?: Tag[];
 
   /**
-   * <p>The subnet ARN for the Connect peer.</p>
+   * <p>The subnet ARN for the Connect peer. This only applies only when the protocol is NO_ENCAP.</p>
    * @public
    */
   SubnetArn?: string;
@@ -1383,6 +1420,48 @@ export interface CoreNetworkEdge {
    * @public
    */
   InsideCidrBlocks?: string[];
+}
+
+/**
+ * <p>Describes the segments associated with the service insertion action.</p>
+ * @public
+ */
+export interface ServiceInsertionSegments {
+  /**
+   * <p>The list of segments associated with the <code>send-via</code> action.</p>
+   * @public
+   */
+  SendVia?: string[];
+
+  /**
+   * <p>The list of segments associated with the <code>send-to</code> action.</p>
+   * @public
+   */
+  SendTo?: string[];
+}
+
+/**
+ * <p>Describes a network function group.</p>
+ * @public
+ */
+export interface CoreNetworkNetworkFunctionGroup {
+  /**
+   * <p>The name of the network function group.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The core network edge locations.</p>
+   * @public
+   */
+  EdgeLocations?: string[];
+
+  /**
+   * <p>The segments associated with the network function group.</p>
+   * @public
+   */
+  Segments?: ServiceInsertionSegments;
 }
 
 /**
@@ -1473,6 +1552,12 @@ export interface CoreNetwork {
   Segments?: CoreNetworkSegment[];
 
   /**
+   * <p>The network function groups associated with a core network.</p>
+   * @public
+   */
+  NetworkFunctionGroups?: CoreNetworkNetworkFunctionGroup[];
+
+  /**
    * <p>The edges within a core network.</p>
    * @public
    */
@@ -1486,6 +1571,133 @@ export interface CoreNetwork {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SegmentActionServiceInsertion = {
+  SEND_TO: "send-to",
+  SEND_VIA: "send-via",
+} as const;
+
+/**
+ * @public
+ */
+export type SegmentActionServiceInsertion =
+  (typeof SegmentActionServiceInsertion)[keyof typeof SegmentActionServiceInsertion];
+
+/**
+ * @public
+ * @enum
+ */
+export const SendViaMode = {
+  DUAL_HOP: "dual-hop",
+  SINGLE_HOP: "single-hop",
+} as const;
+
+/**
+ * @public
+ */
+export type SendViaMode = (typeof SendViaMode)[keyof typeof SendViaMode];
+
+/**
+ * <p>Describes a network function group for service insertion.</p>
+ * @public
+ */
+export interface NetworkFunctionGroup {
+  /**
+   * <p>The name of the network function group.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
+ * <p>Describes the edge that's used for the override. </p>
+ * @public
+ */
+export interface EdgeOverride {
+  /**
+   * <p>The list of edge locations.</p>
+   * @public
+   */
+  EdgeSets?: string[][];
+
+  /**
+   * <p>The edge that should be used when overriding the current edge order.</p>
+   * @public
+   */
+  UseEdge?: string;
+}
+
+/**
+ * <p>The list of network function groups and edge overrides for the service insertion
+ *             action. Used for both the <code>send-to</code> and <code>send-via</code> actions.</p>
+ * @public
+ */
+export interface Via {
+  /**
+   * <p>The list of network function groups associated with the service insertion action.</p>
+   * @public
+   */
+  NetworkFunctionGroups?: NetworkFunctionGroup[];
+
+  /**
+   * <p>Describes any edge overrides. An edge override is a specific edge to be used for traffic.</p>
+   * @public
+   */
+  WithEdgeOverrides?: EdgeOverride[];
+}
+
+/**
+ * <p>Displays a list of the destination segments. Used only when the service insertion
+ *             action is <code>send-to</code>.  </p>
+ * @public
+ */
+export interface WhenSentTo {
+  /**
+   * <p>The list of destination segments when the service insertion action is <code>send-to</code>.</p>
+   * @public
+   */
+  WhenSentToSegmentsList?: string[];
+}
+
+/**
+ * <p>Describes the action that the service insertion will take for any segments associated with it.</p>
+ * @public
+ */
+export interface ServiceInsertionAction {
+  /**
+   * <p>The action the service insertion takes for traffic.
+   *             <code>send-via</code> sends east-west traffic between attachments.
+   *             <code>send-to</code> sends north-south traffic to the
+   *             security appliance, and then from that to either the Internet or to an on-premesis
+   *             location.  </p>
+   * @public
+   */
+  Action?: SegmentActionServiceInsertion;
+
+  /**
+   * <p>Describes the mode packets take for the <code>send-via</code> action. This is not used when the action is <code>send-to</code>. <code>dual-hop</code> packets traverse attachments in both the source to the destination core network edges. This mode requires that an inspection attachment must be present in all Regions of the service insertion-enabled segments.
+   *             For <code>single-hop</code>, packets traverse a single intermediate inserted attachment. You can use <code>EdgeOverride</code> to specify a specific edge to use. </p>
+   * @public
+   */
+  Mode?: SendViaMode;
+
+  /**
+   * <p>The list of destination segments if the service insertion action is <code>send-via</code>.</p>
+   * @public
+   */
+  WhenSentTo?: WhenSentTo;
+
+  /**
+   * <p>The list of network function groups and any edge overrides for the chosen service
+   *             insertion action. Used for both <code>send-to</code> or <code>send-via</code>.</p>
+   * @public
+   */
+  Via?: Via;
+}
+
+/**
  * <p>Describes a core network change.</p>
  * @public
  */
@@ -1495,6 +1707,12 @@ export interface CoreNetworkChangeValues {
    * @public
    */
   SegmentName?: string;
+
+  /**
+   * <p>The network function group name if the change event is associated with a network function group.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string;
 
   /**
    * <p>The Regions where edges are located in a core network. </p>
@@ -1531,6 +1749,12 @@ export interface CoreNetworkChangeValues {
    * @public
    */
   SharedSegments?: string[];
+
+  /**
+   * <p>Describes the service insertion action. </p>
+   * @public
+   */
+  ServiceInsertionActions?: ServiceInsertionAction[];
 }
 
 /**
@@ -1593,6 +1817,12 @@ export interface CoreNetworkChangeEventValues {
   SegmentName?: string;
 
   /**
+   * <p>The changed network function group name.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string;
+
+  /**
    * <p>The ID of the attachment if the change event is associated with an attachment.  </p>
    * @public
    */
@@ -1645,6 +1875,30 @@ export interface CoreNetworkChangeEvent {
    * @public
    */
   Values?: CoreNetworkChangeEventValues;
+}
+
+/**
+ * <p>Describes a core network </p>
+ * @public
+ */
+export interface CoreNetworkNetworkFunctionGroupIdentifier {
+  /**
+   * <p>The ID of the core network.</p>
+   * @public
+   */
+  CoreNetworkId?: string;
+
+  /**
+   * <p>The network function group name.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string;
+
+  /**
+   * <p>The location for the core network edge.</p>
+   * @public
+   */
+  EdgeLocation?: string;
 }
 
 /**
@@ -2003,7 +2257,7 @@ export interface CreateConnectPeerRequest {
   ConnectAttachmentId: string | undefined;
 
   /**
-   * <p>A Connect peer core network address.</p>
+   * <p>A Connect peer core network address. This only applies only when the protocol is <code>GRE</code>.</p>
    * @public
    */
   CoreNetworkAddress?: string;
@@ -2015,7 +2269,7 @@ export interface CreateConnectPeerRequest {
   PeerAddress: string | undefined;
 
   /**
-   * <p>The Connect peer BGP options.</p>
+   * <p>The Connect peer BGP options. This only applies only when the protocol is <code>GRE</code>.</p>
    * @public
    */
   BgpOptions?: BgpOptions;
@@ -2039,7 +2293,7 @@ export interface CreateConnectPeerRequest {
   ClientToken?: string;
 
   /**
-   * <p>The subnet ARN for the Connect peer.</p>
+   * <p>The subnet ARN for the Connect peer. This only applies only when the protocol is NO_ENCAP.</p>
    * @public
    */
   SubnetArn?: string;
@@ -4120,7 +4374,22 @@ export interface GetNetworkResourceCountsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>core-network</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4131,6 +4400,11 @@ export interface GetNetworkResourceCountsRequest {
    *             <li>
    *                <p>
    *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4282,7 +4556,22 @@ export interface GetNetworkResourceRelationshipsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>core-network</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4293,6 +4582,11 @@ export interface GetNetworkResourceRelationshipsRequest {
    *             <li>
    *                <p>
    *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4432,74 +4726,94 @@ export interface GetNetworkResourcesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>dxcon</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_Connection.html">Connection</a>.</p>
+   *                   <code>dxcon</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dx-gateway</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DirectConnectGateway.html">DirectConnectGateway</a>.</p>
+   *                   <code>dx-gateway</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dx-vif</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_VirtualInterface.html">VirtualInterface</a>.</p>
+   *                   <code>dx-vif</code>
+   *                </p>
    *             </li>
    *          </ul>
    *          <p>The following are the supported resource types for Network Manager:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>connection</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Connection.html">Connection</a>.</p>
+   *                   <code>attachment</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>device</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Device.html">Device</a>.</p>
+   *                   <code>connect-peer</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>link</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Link.html">Link</a>.</p>
+   *                   <code>connection</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>site</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Site.html">Site</a>.</p>
+   *                   <code>core-network</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>device</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>site</code>
+   *                </p>
    *             </li>
    *          </ul>
    *          <p>The following are the supported resource types for Amazon VPC:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>customer-gateway</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CustomerGateway.html">CustomerGateway</a>.</p>
+   *                   <code>customer-gateway</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>transit-gateway</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGateway.html">TransitGateway</a>.</p>
+   *                   <code>transit-gateway</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>transit-gateway-attachment</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachment.html">TransitGatewayAttachment</a>.</p>
+   *                   <code>transit-gateway-attachment</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>transit-gateway-connect-peer</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayConnectPeer.html">TransitGatewayConnectPeer</a>.</p>
+   *                   <code>transit-gateway-connect-peer</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>transit-gateway-route-table</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayRouteTable.html">TransitGatewayRouteTable</a>.</p>
+   *                   <code>transit-gateway-route-table</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vpn-connection</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnConnection.html">VpnConnection</a>.</p>
+   *                   <code>vpn-connection</code>
+   *                </p>
    *             </li>
    *          </ul>
    * @public
@@ -4578,7 +4892,22 @@ export interface NetworkResource {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>core-network</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4589,6 +4918,11 @@ export interface NetworkResource {
    *             <li>
    *                <p>
    *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4704,6 +5038,12 @@ export interface RouteTableIdentifier {
    * @public
    */
   CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier;
+
+  /**
+   * <p>The route table identifier associated with the network function group.</p>
+   * @public
+   */
+  CoreNetworkNetworkFunctionGroup?: CoreNetworkNetworkFunctionGroupIdentifier;
 }
 
 /**
@@ -4823,6 +5163,12 @@ export interface NetworkRouteDestination {
   SegmentName?: string;
 
   /**
+   * <p>The network function group name associated with the destination.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string;
+
+  /**
    * <p>The edge location for the network destination.</p>
    * @public
    */
@@ -4883,6 +5229,7 @@ export interface NetworkRoute {
  */
 export const RouteTableType = {
   CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  NETWORK_FUNCTION_GROUP: "NETWORK_FUNCTION_GROUP",
   TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
 } as const;
 
@@ -4961,73 +5308,16 @@ export interface GetNetworkTelemetryRequest {
   AccountId?: string;
 
   /**
-   * <p>The resource type.</p>
-   *          <p>The following are the supported resource types for Direct Connect:</p>
+   * <p>The resource type. The following are the supported resource types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>dxcon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dx-gateway</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dx-vif</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The following are the supported resource types for Network Manager:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>connection</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>device</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>link</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>site</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The following are the supported resource types for Amazon VPC:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>customer-gateway</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment</code>
+   *                   <code>connect-peer</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>transit-gateway-connect-peer</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table</code>
    *                </p>
    *             </li>
    *             <li>

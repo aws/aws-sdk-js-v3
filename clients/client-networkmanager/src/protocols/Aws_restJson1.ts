@@ -260,6 +260,7 @@ import {
   ConnectPeerSummary,
   CoreNetwork,
   CoreNetworkChangeEvent,
+  CoreNetworkNetworkFunctionGroupIdentifier,
   CoreNetworkPolicy,
   CoreNetworkPolicyException,
   CoreNetworkPolicyVersion,
@@ -4128,6 +4129,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ConstrainedStringList omitted.
 
+// se_CoreNetworkNetworkFunctionGroupIdentifier omitted.
+
 // se_CoreNetworkSegmentEdgeIdentifier omitted.
 
 // se_FilterMap omitted.
@@ -4170,7 +4173,9 @@ const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    NetworkFunctionGroupName: __expectString,
     OwnerAccountId: __expectString,
+    ProposedNetworkFunctionGroupChange: _json,
     ProposedSegmentChange: _json,
     ResourceArn: __expectString,
     SegmentName: __expectString,
@@ -4319,6 +4324,7 @@ const de_CoreNetwork = (output: any, context: __SerdeContext): CoreNetwork => {
     Description: __expectString,
     Edges: _json,
     GlobalNetworkId: __expectString,
+    NetworkFunctionGroups: _json,
     Segments: _json,
     State: __expectString,
     Tags: _json,
@@ -4362,6 +4368,10 @@ const de_CoreNetworkChangeEventList = (output: any, context: __SerdeContext): Co
 // de_CoreNetworkEdge omitted.
 
 // de_CoreNetworkEdgeList omitted.
+
+// de_CoreNetworkNetworkFunctionGroup omitted.
+
+// de_CoreNetworkNetworkFunctionGroupList omitted.
 
 /**
  * deserializeAws_restJson1CoreNetworkPolicy
@@ -4457,6 +4467,12 @@ const de_DeviceList = (output: any, context: __SerdeContext): Device[] => {
   return retVal;
 };
 
+// de_EdgeOverride omitted.
+
+// de_EdgeSet omitted.
+
+// de_EdgeSetList omitted.
+
 // de_ExceptionContextMap omitted.
 
 // de_ExternalRegionCodeList omitted.
@@ -4523,6 +4539,10 @@ const de_LinkList = (output: any, context: __SerdeContext): Link[] => {
 };
 
 // de_Location omitted.
+
+// de_NetworkFunctionGroup omitted.
+
+// de_NetworkFunctionGroupList omitted.
 
 /**
  * deserializeAws_restJson1NetworkResource
@@ -4636,6 +4656,8 @@ const de_PeeringList = (output: any, context: __SerdeContext): Peering[] => {
   return retVal;
 };
 
+// de_ProposedNetworkFunctionGroupChange omitted.
+
 // de_ProposedSegmentChange omitted.
 
 // de_ReasonContextMap omitted.
@@ -4668,6 +4690,12 @@ const de_RouteAnalysis = (output: any, context: __SerdeContext): RouteAnalysis =
 // de_RouteAnalysisEndpointOptions omitted.
 
 // de_RouteAnalysisPath omitted.
+
+// de_ServiceInsertionAction omitted.
+
+// de_ServiceInsertionActionList omitted.
+
+// de_ServiceInsertionSegments omitted.
 
 /**
  * deserializeAws_restJson1Site
@@ -4752,6 +4780,8 @@ const de_TransitGatewayRouteTableAttachment = (
 
 // de_ValidationExceptionFieldList omitted.
 
+// de_Via omitted.
+
 /**
  * deserializeAws_restJson1VpcAttachment
  */
@@ -4764,6 +4794,12 @@ const de_VpcAttachment = (output: any, context: __SerdeContext): VpcAttachment =
 };
 
 // de_VpcOptions omitted.
+
+// de_WhenSentTo omitted.
+
+// de_WhenSentToSegmentsList omitted.
+
+// de_WithEdgeOverridesList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

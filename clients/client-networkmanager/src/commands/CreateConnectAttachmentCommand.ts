@@ -68,6 +68,7 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * //       ResourceArn: "STRING_VALUE",
  * //       AttachmentPolicyRuleNumber: Number("int"),
  * //       SegmentName: "STRING_VALUE",
+ * //       NetworkFunctionGroupName: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",
@@ -83,6 +84,16 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * //         ],
  * //         AttachmentPolicyRuleNumber: Number("int"),
  * //         SegmentName: "STRING_VALUE",
+ * //       },
+ * //       ProposedNetworkFunctionGroupChange: { // ProposedNetworkFunctionGroupChange
+ * //         Tags: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         AttachmentPolicyRuleNumber: Number("int"),
+ * //         NetworkFunctionGroupName: "STRING_VALUE",
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       UpdatedAt: new Date("TIMESTAMP"),

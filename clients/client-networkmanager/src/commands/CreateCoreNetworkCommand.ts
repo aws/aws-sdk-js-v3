@@ -68,6 +68,22 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * //         ],
  * //       },
  * //     ],
+ * //     NetworkFunctionGroups: [ // CoreNetworkNetworkFunctionGroupList
+ * //       { // CoreNetworkNetworkFunctionGroup
+ * //         Name: "STRING_VALUE",
+ * //         EdgeLocations: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Segments: { // ServiceInsertionSegments
+ * //           SendVia: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           SendTo: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
  * //     Edges: [ // CoreNetworkEdgeList
  * //       { // CoreNetworkEdge
  * //         EdgeLocation: "STRING_VALUE",
