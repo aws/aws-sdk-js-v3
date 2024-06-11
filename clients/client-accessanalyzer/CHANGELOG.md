@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.595.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.594.0...v3.595.0) (2024-06-11)
+
+
+### Features
+
+* **client-accessanalyzer:** IAM Access Analyzer now provides policy recommendations to help resolve unused permissions for IAM roles and users. Additionally, IAM Access Analyzer now extends its custom policy checks to detect when IAM policies grant public access or access to critical resources ahead of deployments. ([c5dc054](https://github.com/aws/aws-sdk-js-v3/commit/c5dc054be6329129151ead323ef84c894e95b6ce))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-accessanalyzer

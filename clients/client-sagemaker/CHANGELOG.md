@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.595.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.594.0...v3.595.0) (2024-06-11)
+
+
+### Features
+
+* **client-sagemaker:** Introduced Scope and AuthenticationRequestExtraParams to SageMaker Workforce OIDC configuration; this allows customers to modify these options for their private Workforce IdP integration. Model Registry Cross-account model package groups are discoverable. ([4df90fe](https://github.com/aws/aws-sdk-js-v3/commit/4df90fe3a4ed3598d336f7dd6e9a71c0fcbc3bdb))
+
+
+
+
+
 # [3.593.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.592.0...v3.593.0) (2024-06-07)
 
 

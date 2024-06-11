@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.595.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.594.0...v3.595.0) (2024-06-11)
+
+
+### Features
+
+* **client-networkmanager:** This is model changes & documentation update for Service Insertion feature for AWS Cloud WAN. This feature allows insertion of AWS/3rd party security services on Cloud WAN. This allows to steer inter/intra segment traffic via security appliances and provide visibility to the route updates. ([89a8496](https://github.com/aws/aws-sdk-js-v3/commit/89a84962de2c908f6ad1c9186318984366ebfbfc))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-networkmanager
