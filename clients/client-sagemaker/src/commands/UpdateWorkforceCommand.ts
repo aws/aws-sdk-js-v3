@@ -80,6 +80,10 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *     UserInfoEndpoint: "STRING_VALUE", // required
  *     LogoutEndpoint: "STRING_VALUE", // required
  *     JwksUri: "STRING_VALUE", // required
+ *     Scope: "STRING_VALUE",
+ *     AuthenticationRequestExtraParams: { // AuthenticationRequestExtraParams
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   WorkforceVpcConfig: { // WorkforceVpcConfigRequest
  *     VpcId: "STRING_VALUE",
@@ -116,6 +120,10 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * //       UserInfoEndpoint: "STRING_VALUE",
  * //       LogoutEndpoint: "STRING_VALUE",
  * //       JwksUri: "STRING_VALUE",
+ * //       Scope: "STRING_VALUE",
+ * //       AuthenticationRequestExtraParams: { // AuthenticationRequestExtraParams
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //     CreateDate: new Date("TIMESTAMP"),
  * //     WorkforceVpcConfig: { // WorkforceVpcConfigResponse

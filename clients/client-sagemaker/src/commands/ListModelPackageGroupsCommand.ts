@@ -43,6 +43,7 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  *   NextToken: "STRING_VALUE",
  *   SortBy: "Name" || "CreationTime",
  *   SortOrder: "Ascending" || "Descending",
+ *   CrossAccountFilterOption: "SameAccount" || "CrossAccount",
  * };
  * const command = new ListModelPackageGroupsCommand(input);
  * const response = await client.send(command);

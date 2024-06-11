@@ -12572,6 +12572,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 
 // se_AttributeNames omitted.
 
+// se_AuthenticationRequestExtraParams omitted.
+
 // se_AutoMLAlgorithmConfig omitted.
 
 // se_AutoMLAlgorithms omitted.
@@ -14504,6 +14506,7 @@ const se_ListModelPackageGroupsInput = (input: ListModelPackageGroupsInput, cont
   return take(input, {
     CreationTimeAfter: (_) => _.getTime() / 1_000,
     CreationTimeBefore: (_) => _.getTime() / 1_000,
+    CrossAccountFilterOption: [],
     MaxResults: [],
     NameContains: [],
     NextToken: [],
@@ -16346,6 +16349,19 @@ const de_AttributeNames = (output: any, context: __SerdeContext): string[] => {
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AuthenticationRequestExtraParams
+ */
+const de_AuthenticationRequestExtraParams = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = __expectString(value) as any;
+    return acc;
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -25274,11 +25290,13 @@ const de_OfflineStoreStatus = (output: any, context: __SerdeContext): OfflineSto
  */
 const de_OidcConfigForResponse = (output: any, context: __SerdeContext): OidcConfigForResponse => {
   return take(output, {
+    AuthenticationRequestExtraParams: (_: any) => de_AuthenticationRequestExtraParams(_, context),
     AuthorizationEndpoint: __expectString,
     ClientId: __expectString,
     Issuer: __expectString,
     JwksUri: __expectString,
     LogoutEndpoint: __expectString,
+    Scope: __expectString,
     TokenEndpoint: __expectString,
     UserInfoEndpoint: __expectString,
   }) as any;

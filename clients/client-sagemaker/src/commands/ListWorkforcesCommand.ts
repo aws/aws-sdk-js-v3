@@ -69,6 +69,10 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * //         UserInfoEndpoint: "STRING_VALUE",
  * //         LogoutEndpoint: "STRING_VALUE",
  * //         JwksUri: "STRING_VALUE",
+ * //         Scope: "STRING_VALUE",
+ * //         AuthenticationRequestExtraParams: { // AuthenticationRequestExtraParams
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
  * //       },
  * //       CreateDate: new Date("TIMESTAMP"),
  * //       WorkforceVpcConfig: { // WorkforceVpcConfigResponse

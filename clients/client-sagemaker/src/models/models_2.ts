@@ -1428,6 +1428,18 @@ export interface OidcConfig {
    * @public
    */
   JwksUri: string | undefined;
+
+  /**
+   * <p>An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.</p>
+   * @public
+   */
+  Scope?: string;
+
+  /**
+   * <p>A string to string map of identifiers specific to the custom identity provider (IdP) being used.</p>
+   * @public
+   */
+  AuthenticationRequestExtraParams?: Record<string, string>;
 }
 
 /**

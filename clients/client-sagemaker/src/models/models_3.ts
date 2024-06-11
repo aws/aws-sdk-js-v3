@@ -85,6 +85,7 @@ import {
 } from "./models_1";
 
 import {
+  CrossAccountFilterOption,
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
@@ -2240,6 +2241,18 @@ export interface OidcConfigForResponse {
    * @public
    */
   JwksUri?: string;
+
+  /**
+   * <p>An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.</p>
+   * @public
+   */
+  Scope?: string;
+
+  /**
+   * <p>A string to string map of identifiers specific to the custom identity provider (IdP) being used.</p>
+   * @public
+   */
+  AuthenticationRequestExtraParams?: Record<string, string>;
 }
 
 /**
@@ -10010,6 +10023,16 @@ export interface ListModelPackageGroupsInput {
    * @public
    */
   SortOrder?: SortOrder;
+
+  /**
+   * <p>A filter that returns either model groups shared with you or model groups in
+   * 	  your own account. When the value is <code>CrossAccount</code>, the results show
+   * 	  the resources made discoverable to you from other accounts. When the value is
+   *           <code>SameAccount</code> or <code>null</code>, the results show resources from your
+   *  	  account. The default is <code>SameAccount</code>.</p>
+   * @public
+   */
+  CrossAccountFilterOption?: CrossAccountFilterOption;
 }
 
 /**

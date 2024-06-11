@@ -70,6 +70,10 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *     UserInfoEndpoint: "STRING_VALUE", // required
  *     LogoutEndpoint: "STRING_VALUE", // required
  *     JwksUri: "STRING_VALUE", // required
+ *     Scope: "STRING_VALUE",
+ *     AuthenticationRequestExtraParams: { // AuthenticationRequestExtraParams
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   SourceIpConfig: { // SourceIpConfig
  *     Cidrs: [ // Cidrs // required
