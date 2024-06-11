@@ -2,6 +2,10 @@
 import {
   AdminAccount,
   AutoEnableMembers,
+  CoverageFilterCriteria,
+  CoverageResource,
+  CoverageSortCriteria,
+  DataSource,
   DataSourceConfigurations,
   Destination,
   DestinationProperties,
@@ -12,6 +16,7 @@ import {
   FilterAction,
   FindingCriteria,
   FindingPublishingFrequency,
+  MalwareProtectionPlanActions,
   Member,
   MemberFilterSensitiveLog,
   OrgFeature,
@@ -21,6 +26,425 @@ import {
   SortCriteria,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageFeature = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EC2_RUNTIME_MONITORING: "EC2_RUNTIME_MONITORING",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
+  FLOW_LOGS: "FLOW_LOGS",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
+  RDS_DBI_PROTECTION_PROVISIONED: "RDS_DBI_PROTECTION_PROVISIONED",
+  RDS_DBI_PROTECTION_SERVERLESS: "RDS_DBI_PROTECTION_SERVERLESS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageFeature = (typeof UsageFeature)[keyof typeof UsageFeature];
+
+/**
+ * <p>Contains information about the criteria used to query usage statistics.</p>
+ * @public
+ */
+export interface UsageCriteria {
+  /**
+   * <p>The account IDs to aggregate usage statistics from.</p>
+   * @public
+   */
+  AccountIds?: string[];
+
+  /**
+   * @deprecated
+   *
+   * <p>The data sources to aggregate usage statistics from.</p>
+   * @public
+   */
+  DataSources?: DataSource[];
+
+  /**
+   * <p>The resources to aggregate usage statistics from. Only accepts exact resource
+   *       names.</p>
+   * @public
+   */
+  Resources?: string[];
+
+  /**
+   * <p>The features to aggregate usage statistics from.</p>
+   * @public
+   */
+  Features?: UsageFeature[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UsageStatisticType = {
+  SUM_BY_ACCOUNT: "SUM_BY_ACCOUNT",
+  SUM_BY_DATA_SOURCE: "SUM_BY_DATA_SOURCE",
+  SUM_BY_FEATURES: "SUM_BY_FEATURES",
+  SUM_BY_RESOURCE: "SUM_BY_RESOURCE",
+  TOP_ACCOUNTS_BY_FEATURE: "TOP_ACCOUNTS_BY_FEATURE",
+  TOP_RESOURCES: "TOP_RESOURCES",
+} as const;
+
+/**
+ * @public
+ */
+export type UsageStatisticType = (typeof UsageStatisticType)[keyof typeof UsageStatisticType];
+
+/**
+ * @public
+ */
+export interface GetUsageStatisticsRequest {
+  /**
+   * <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you
+   *       want to retrieve.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The type of usage statistics to retrieve.</p>
+   * @public
+   */
+  UsageStatisticType: UsageStatisticType | undefined;
+
+  /**
+   * <p>Represents the criteria used for querying usage.</p>
+   * @public
+   */
+  UsageCriteria: UsageCriteria | undefined;
+
+  /**
+   * <p>The currency unit you would like to view your usage statistics in. Current valid values
+   *       are USD.</p>
+   * @public
+   */
+  Unit?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *       NextToken value returned from the previous request to continue listing results after the first
+   *       page.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Contains the total usage with the corresponding currency unit for that value.</p>
+ * @public
+ */
+export interface Total {
+  /**
+   * <p>The total usage.</p>
+   * @public
+   */
+  Amount?: string;
+
+  /**
+   * <p>The currency unit that the amount is given in.</p>
+   * @public
+   */
+  Unit?: string;
+}
+
+/**
+ * <p>Contains information on the total of usage based on account IDs.</p>
+ * @public
+ */
+export interface UsageAccountResult {
+  /**
+   * <p>The Account ID that generated usage.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Represents the total of usage for the Account ID.</p>
+   * @public
+   */
+  Total?: Total;
+}
+
+/**
+ * <p>Contains information on the result of usage based on data source type.</p>
+ * @public
+ */
+export interface UsageDataSourceResult {
+  /**
+   * <p>The data source type that generated usage.</p>
+   * @public
+   */
+  DataSource?: DataSource;
+
+  /**
+   * <p>Represents the total of usage for the specified data source.</p>
+   * @public
+   */
+  Total?: Total;
+}
+
+/**
+ * <p>Contains information about the result of the total usage based on the feature.</p>
+ * @public
+ */
+export interface UsageFeatureResult {
+  /**
+   * <p>The feature that generated the usage cost.</p>
+   * @public
+   */
+  Feature?: UsageFeature;
+
+  /**
+   * <p>Contains the total usage with the corresponding currency unit for that value.</p>
+   * @public
+   */
+  Total?: Total;
+}
+
+/**
+ * <p>Contains information on the sum of usage based on an Amazon Web Services resource.</p>
+ * @public
+ */
+export interface UsageResourceResult {
+  /**
+   * <p>The Amazon Web Services resource that generated usage.</p>
+   * @public
+   */
+  Resource?: string;
+
+  /**
+   * <p>Represents the sum total of usage for the specified resource type.</p>
+   * @public
+   */
+  Total?: Total;
+}
+
+/**
+ * <p>Contains information on the total of usage based on the topmost 50
+ *       account IDs.</p>
+ * @public
+ */
+export interface UsageTopAccountResult {
+  /**
+   * <p>The unique account ID.</p>
+   * @public
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Contains the total usage with the corresponding currency unit for that value.</p>
+   * @public
+   */
+  Total?: Total;
+}
+
+/**
+ * <p>Information about the usage statistics, calculated
+ *       by top accounts by feature.</p>
+ * @public
+ */
+export interface UsageTopAccountsResult {
+  /**
+   * <p>Features by which you can generate the usage statistics.</p>
+   *          <p>
+   *             <code>RDS_LOGIN_EVENTS</code> is currently not supported
+   *       with <code>topAccountsByFeature</code>.</p>
+   * @public
+   */
+  Feature?: UsageFeature;
+
+  /**
+   * <p>The accounts that contributed to the total usage cost.</p>
+   * @public
+   */
+  Accounts?: UsageTopAccountResult[];
+}
+
+/**
+ * <p>Contains the result of GuardDuty usage. If a UsageStatisticType is provided the result for
+ *       other types will be null. </p>
+ * @public
+ */
+export interface UsageStatistics {
+  /**
+   * <p>The usage statistic sum organized by account ID.</p>
+   * @public
+   */
+  SumByAccount?: UsageAccountResult[];
+
+  /**
+   * <p>Lists the top 50 accounts by feature that have generated the most
+   *       GuardDuty usage, in the order from most to least expensive.</p>
+   *          <p>Currently, this doesn't support <code>RDS_LOGIN_EVENTS</code>.</p>
+   * @public
+   */
+  TopAccountsByFeature?: UsageTopAccountsResult[];
+
+  /**
+   * <p>The usage statistic sum organized by on data source.</p>
+   * @public
+   */
+  SumByDataSource?: UsageDataSourceResult[];
+
+  /**
+   * <p>The usage statistic sum organized by resource.</p>
+   * @public
+   */
+  SumByResource?: UsageResourceResult[];
+
+  /**
+   * <p>Lists the top 50 resources that have generated the most GuardDuty usage, in order from
+   *       most to least expensive.</p>
+   * @public
+   */
+  TopResources?: UsageResourceResult[];
+
+  /**
+   * <p>The usage statistic sum organized by feature.</p>
+   * @public
+   */
+  SumByFeature?: UsageFeatureResult[];
+}
+
+/**
+ * @public
+ */
+export interface GetUsageStatisticsResponse {
+  /**
+   * <p>The usage statistics object. If a UsageStatisticType was provided, the objects
+   *       representing other types will be null.</p>
+   * @public
+   */
+  UsageStatistics?: UsageStatistics;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface InviteMembersRequest {
+  /**
+   * <p>The unique ID of the detector of the GuardDuty account that you want to invite members
+   *       with.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account IDs of the accounts that you want to invite to GuardDuty as
+   *       members.</p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether you want to disable email notification to the
+   *       accounts that you are inviting to GuardDuty as members.</p>
+   * @public
+   */
+  DisableEmailNotification?: boolean;
+
+  /**
+   * <p>The invitation message that you want to send to the accounts that you're inviting to
+   *       GuardDuty as members.</p>
+   * @public
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ */
+export interface InviteMembersResponse {
+  /**
+   * <p>A list of objects that contain the unprocessed account and a result string that explains
+   *       why it was unprocessed.</p>
+   * @public
+   */
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoverageRequest {
+  /**
+   * <p>The unique ID of the detector whose coverage details you want to retrieve.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *       NextToken value returned from the previous request to continue listing results after the first
+   *       page.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Represents the criteria used to filter the coverage details.</p>
+   * @public
+   */
+  FilterCriteria?: CoverageFilterCriteria;
+
+  /**
+   * <p>Represents the criteria used to sort the coverage details.</p>
+   * @public
+   */
+  SortCriteria?: CoverageSortCriteria;
+}
+
+/**
+ * @public
+ */
+export interface ListCoverageResponse {
+  /**
+   * <p>A list of resources and their attributes providing cluster details.</p>
+   * @public
+   */
+  Resources: CoverageResource[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -427,6 +851,54 @@ export interface ListIPSetsResponse {
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMalwareProtectionPlansRequest {
+  /**
+   * <p>You can use this parameter when paginating results. Set the value
+   *       of this parameter to null on your first call to the list action.
+   *       For subsequent calls to the action, fill nextToken in the request
+   *       with the value of <code>NextToken</code> from the previous response to
+   *       continue listing data.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Information about the Malware Protection plan resource.</p>
+ * @public
+ */
+export interface MalwareProtectionPlanSummary {
+  /**
+   * <p>A unique identifier associated with Malware Protection plan.</p>
+   * @public
+   */
+  MalwareProtectionPlanId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMalwareProtectionPlansResponse {
+  /**
+   * <p>A list of unique identifiers associated with each Malware Protection plan.</p>
+   * @public
+   */
+  MalwareProtectionPlans?: MalwareProtectionPlanSummary[];
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value
+   *       of this parameter to null on your first call to the list action.
+   *       For subsequent calls to the action, fill nextToken in the request
+   *       with the value of <code>NextToken</code> from the previous response to
+   *       continue listing data.</p>
    * @public
    */
   NextToken?: string;
@@ -969,6 +1441,65 @@ export interface UpdateIPSetRequest {
  * @public
  */
 export interface UpdateIPSetResponse {}
+
+/**
+ * <p>Information about the protected S3 bucket resource.</p>
+ * @public
+ */
+export interface UpdateS3BucketResource {
+  /**
+   * <p>Information about the specified object prefixes. The S3 object will be scanned only
+   *       if it belongs to any of the specified object prefixes.</p>
+   * @public
+   */
+  ObjectPrefixes?: string[];
+}
+
+/**
+ * <p>Information about the protected resource
+ *       that is associated with the created Malware Protection plan.
+ *       Presently, <code>S3Bucket</code> is the only supported protected resource.</p>
+ * @public
+ */
+export interface UpdateProtectedResource {
+  /**
+   * <p>Information about the protected S3 bucket resource.</p>
+   * @public
+   */
+  S3Bucket?: UpdateS3BucketResource;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMalwareProtectionPlanRequest {
+  /**
+   * <p>A unique identifier associated with the Malware Protection plan.</p>
+   * @public
+   */
+  MalwareProtectionPlanId: string | undefined;
+
+  /**
+   * <p>IAM role with permissions required to scan and add tags to
+   *       the associated protected resource.</p>
+   * @public
+   */
+  Role?: string;
+
+  /**
+   * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
+   * @public
+   */
+  Actions?: MalwareProtectionPlanActions;
+
+  /**
+   * <p>Information about the protected resource that is associated
+   *       with the created Malware Protection plan. Presently, <code>S3Bucket</code>
+   *       is the only supported protected resource.</p>
+   * @public
+   */
+  ProtectedResource?: UpdateProtectedResource;
+}
 
 /**
  * @public

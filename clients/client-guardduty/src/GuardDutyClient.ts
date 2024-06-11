@@ -62,6 +62,10 @@ import { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "./com
 import { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "./commands/CreateDetectorCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
+import {
+  CreateMalwareProtectionPlanCommandInput,
+  CreateMalwareProtectionPlanCommandOutput,
+} from "./commands/CreateMalwareProtectionPlanCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
 import {
   CreatePublishingDestinationCommandInput,
@@ -80,6 +84,10 @@ import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "./comma
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand";
 import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
+import {
+  DeleteMalwareProtectionPlanCommandInput,
+  DeleteMalwareProtectionPlanCommandOutput,
+} from "./commands/DeleteMalwareProtectionPlanCommand";
 import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
 import {
   DeletePublishingDestinationCommandInput,
@@ -142,6 +150,10 @@ import {
 } from "./commands/GetInvitationsCountCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
+  GetMalwareProtectionPlanCommandInput,
+  GetMalwareProtectionPlanCommandOutput,
+} from "./commands/GetMalwareProtectionPlanCommand";
+import {
   GetMalwareScanSettingsCommandInput,
   GetMalwareScanSettingsCommandOutput,
 } from "./commands/GetMalwareScanSettingsCommand";
@@ -165,6 +177,10 @@ import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/Li
 import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
+import {
+  ListMalwareProtectionPlansCommandInput,
+  ListMalwareProtectionPlansCommandOutput,
+} from "./commands/ListMalwareProtectionPlansCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommandInput,
@@ -201,6 +217,10 @@ import {
   UpdateFindingsFeedbackCommandOutput,
 } from "./commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
+import {
+  UpdateMalwareProtectionPlanCommandInput,
+  UpdateMalwareProtectionPlanCommandOutput,
+} from "./commands/UpdateMalwareProtectionPlanCommand";
 import {
   UpdateMalwareScanSettingsCommandInput,
   UpdateMalwareScanSettingsCommandOutput,
@@ -242,6 +262,7 @@ export type ServiceInputTypes =
   | CreateDetectorCommandInput
   | CreateFilterCommandInput
   | CreateIPSetCommandInput
+  | CreateMalwareProtectionPlanCommandInput
   | CreateMembersCommandInput
   | CreatePublishingDestinationCommandInput
   | CreateSampleFindingsCommandInput
@@ -251,6 +272,7 @@ export type ServiceInputTypes =
   | DeleteFilterCommandInput
   | DeleteIPSetCommandInput
   | DeleteInvitationsCommandInput
+  | DeleteMalwareProtectionPlanCommandInput
   | DeleteMembersCommandInput
   | DeletePublishingDestinationCommandInput
   | DeleteThreatIntelSetCommandInput
@@ -270,6 +292,7 @@ export type ServiceInputTypes =
   | GetFindingsStatisticsCommandInput
   | GetIPSetCommandInput
   | GetInvitationsCountCommandInput
+  | GetMalwareProtectionPlanCommandInput
   | GetMalwareScanSettingsCommandInput
   | GetMasterAccountCommandInput
   | GetMemberDetectorsCommandInput
@@ -285,6 +308,7 @@ export type ServiceInputTypes =
   | ListFindingsCommandInput
   | ListIPSetsCommandInput
   | ListInvitationsCommandInput
+  | ListMalwareProtectionPlansCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
   | ListPublishingDestinationsCommandInput
@@ -300,6 +324,7 @@ export type ServiceInputTypes =
   | UpdateFilterCommandInput
   | UpdateFindingsFeedbackCommandInput
   | UpdateIPSetCommandInput
+  | UpdateMalwareProtectionPlanCommandInput
   | UpdateMalwareScanSettingsCommandInput
   | UpdateMemberDetectorsCommandInput
   | UpdateOrganizationConfigurationCommandInput
@@ -316,6 +341,7 @@ export type ServiceOutputTypes =
   | CreateDetectorCommandOutput
   | CreateFilterCommandOutput
   | CreateIPSetCommandOutput
+  | CreateMalwareProtectionPlanCommandOutput
   | CreateMembersCommandOutput
   | CreatePublishingDestinationCommandOutput
   | CreateSampleFindingsCommandOutput
@@ -325,6 +351,7 @@ export type ServiceOutputTypes =
   | DeleteFilterCommandOutput
   | DeleteIPSetCommandOutput
   | DeleteInvitationsCommandOutput
+  | DeleteMalwareProtectionPlanCommandOutput
   | DeleteMembersCommandOutput
   | DeletePublishingDestinationCommandOutput
   | DeleteThreatIntelSetCommandOutput
@@ -344,6 +371,7 @@ export type ServiceOutputTypes =
   | GetFindingsStatisticsCommandOutput
   | GetIPSetCommandOutput
   | GetInvitationsCountCommandOutput
+  | GetMalwareProtectionPlanCommandOutput
   | GetMalwareScanSettingsCommandOutput
   | GetMasterAccountCommandOutput
   | GetMemberDetectorsCommandOutput
@@ -359,6 +387,7 @@ export type ServiceOutputTypes =
   | ListFindingsCommandOutput
   | ListIPSetsCommandOutput
   | ListInvitationsCommandOutput
+  | ListMalwareProtectionPlansCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput
   | ListPublishingDestinationsCommandOutput
@@ -374,6 +403,7 @@ export type ServiceOutputTypes =
   | UpdateFilterCommandOutput
   | UpdateFindingsFeedbackCommandOutput
   | UpdateIPSetCommandOutput
+  | UpdateMalwareProtectionPlanCommandOutput
   | UpdateMalwareScanSettingsCommandOutput
   | UpdateMemberDetectorsCommandOutput
   | UpdateOrganizationConfigurationCommandOutput

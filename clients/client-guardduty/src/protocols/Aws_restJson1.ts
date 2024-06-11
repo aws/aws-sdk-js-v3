@@ -37,6 +37,10 @@ import { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "../co
 import { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "../commands/CreateDetectorCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "../commands/CreateFilterCommand";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "../commands/CreateIPSetCommand";
+import {
+  CreateMalwareProtectionPlanCommandInput,
+  CreateMalwareProtectionPlanCommandOutput,
+} from "../commands/CreateMalwareProtectionPlanCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "../commands/CreateMembersCommand";
 import {
   CreatePublishingDestinationCommandInput,
@@ -55,6 +59,10 @@ import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "../comm
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand";
 import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "../commands/DeleteInvitationsCommand";
 import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "../commands/DeleteIPSetCommand";
+import {
+  DeleteMalwareProtectionPlanCommandInput,
+  DeleteMalwareProtectionPlanCommandOutput,
+} from "../commands/DeleteMalwareProtectionPlanCommand";
 import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "../commands/DeleteMembersCommand";
 import {
   DeletePublishingDestinationCommandInput,
@@ -117,6 +125,10 @@ import {
 } from "../commands/GetInvitationsCountCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "../commands/GetIPSetCommand";
 import {
+  GetMalwareProtectionPlanCommandInput,
+  GetMalwareProtectionPlanCommandOutput,
+} from "../commands/GetMalwareProtectionPlanCommand";
+import {
   GetMalwareScanSettingsCommandInput,
   GetMalwareScanSettingsCommandOutput,
 } from "../commands/GetMalwareScanSettingsCommand";
@@ -140,6 +152,10 @@ import { ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/L
 import { ListFindingsCommandInput, ListFindingsCommandOutput } from "../commands/ListFindingsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
 import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "../commands/ListIPSetsCommand";
+import {
+  ListMalwareProtectionPlansCommandInput,
+  ListMalwareProtectionPlansCommandOutput,
+} from "../commands/ListMalwareProtectionPlansCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommandInput,
@@ -176,6 +192,10 @@ import {
   UpdateFindingsFeedbackCommandOutput,
 } from "../commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "../commands/UpdateIPSetCommand";
+import {
+  UpdateMalwareProtectionPlanCommandInput,
+  UpdateMalwareProtectionPlanCommandOutput,
+} from "../commands/UpdateMalwareProtectionPlanCommand";
 import {
   UpdateMalwareScanSettingsCommandInput,
   UpdateMalwareScanSettingsCommandOutput,
@@ -235,6 +255,8 @@ import {
   CoverageSortCriteria,
   CoverageStatistics,
   CoverageStatisticsType,
+  CreateProtectedResource,
+  CreateS3BucketResource,
   DataSource,
   DataSourceConfigurations,
   DataSourceConfigurationsResult,
@@ -275,6 +297,7 @@ import {
   ImpersonatedUser,
   InstanceDetails,
   InternalServerErrorException,
+  ItemPath,
   KubernetesApiCallAction,
   KubernetesAuditLogsConfiguration,
   KubernetesAuditLogsConfigurationResult,
@@ -295,6 +318,10 @@ import {
   MalwareProtectionConfiguration,
   MalwareProtectionConfigurationResult,
   MalwareProtectionDataSourceFreeTrial,
+  MalwareProtectionPlanActions,
+  MalwareProtectionPlanStatusReason,
+  MalwareProtectionPlanTaggingAction,
+  MalwareScanDetails,
   Master,
   Member,
   MemberAdditionalConfigurationResult,
@@ -333,11 +360,13 @@ import {
   RemotePortDetails,
   Resource,
   ResourceDetails,
+  ResourceNotFoundException,
   RuntimeContext,
   RuntimeDetails,
   S3BucketDetail,
   S3LogsConfiguration,
   S3LogsConfigurationResult,
+  S3ObjectDetail,
   Scan,
   ScanCondition,
   ScanConditionPair,
@@ -356,22 +385,13 @@ import {
   ServiceAdditionalInfo,
   SortCriteria,
   Tag,
+  Threat,
   ThreatDetectedByName,
   ThreatIntelligenceDetail,
   ThreatsDetectedItemCount,
-  Total,
   TriggerDetails,
   UnprocessedAccount,
   UnprocessedDataSourcesResult,
-  UsageAccountResult,
-  UsageCriteria,
-  UsageDataSourceResult,
-  UsageFeature,
-  UsageFeatureResult,
-  UsageResourceResult,
-  UsageStatistics,
-  UsageTopAccountResult,
-  UsageTopAccountsResult,
   Volume,
   VolumeDetail,
   VolumeMount,
@@ -379,6 +399,7 @@ import {
 } from "../models/models_0";
 import {
   Invitation,
+  MalwareProtectionPlanSummary,
   MemberAdditionalConfiguration,
   MemberFeaturesConfiguration,
   OrganizationAdditionalConfiguration,
@@ -390,6 +411,18 @@ import {
   OrganizationMalwareProtectionConfiguration,
   OrganizationS3LogsConfiguration,
   OrganizationScanEc2InstanceWithFindings,
+  Total,
+  UpdateProtectedResource,
+  UpdateS3BucketResource,
+  UsageAccountResult,
+  UsageCriteria,
+  UsageDataSourceResult,
+  UsageFeature,
+  UsageFeatureResult,
+  UsageResourceResult,
+  UsageStatistics,
+  UsageTopAccountResult,
+  UsageTopAccountsResult,
 } from "../models/models_1";
 
 /**
@@ -540,6 +573,32 @@ export const se_CreateIPSetCommand = async (
       format: [, , `Format`],
       location: [, , `Location`],
       name: [, , `Name`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateMalwareProtectionPlanCommand
+ */
+export const se_CreateMalwareProtectionPlanCommand = async (
+  input: CreateMalwareProtectionPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/malware-protection-plan");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actions: [, (_) => se_MalwareProtectionPlanActions(_, context), `Actions`],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken(), `ClientToken`],
+      protectedResource: [, (_) => se_CreateProtectedResource(_, context), `ProtectedResource`],
+      role: [, , `Role`],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -735,6 +794,22 @@ export const se_DeleteIPSetCommand = async (
   b.bp("/detector/{DetectorId}/ipset/{IpSetId}");
   b.p("DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   b.p("IpSetId", () => input.IpSetId!, "{IpSetId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteMalwareProtectionPlanCommand
+ */
+export const se_DeleteMalwareProtectionPlanCommand = async (
+  input: DeleteMalwareProtectionPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/malware-protection-plan/{MalwareProtectionPlanId}");
+  b.p("MalwareProtectionPlanId", () => input.MalwareProtectionPlanId!, "{MalwareProtectionPlanId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1116,6 +1191,22 @@ export const se_GetIPSetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMalwareProtectionPlanCommand
+ */
+export const se_GetMalwareProtectionPlanCommand = async (
+  input: GetMalwareProtectionPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/malware-protection-plan/{MalwareProtectionPlanId}");
+  b.p("MalwareProtectionPlanId", () => input.MalwareProtectionPlanId!, "{MalwareProtectionPlanId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetMalwareScanSettingsCommand
  */
 export const se_GetMalwareScanSettingsCommand = async (
@@ -1426,6 +1517,24 @@ export const se_ListIPSetsCommand = async (
   b.p("DetectorId", () => input.DetectorId!, "{DetectorId}", false);
   const query: any = map({
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListMalwareProtectionPlansCommand
+ */
+export const se_ListMalwareProtectionPlansCommand = async (
+  input: ListMalwareProtectionPlansCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/malware-protection-plan");
+  const query: any = map({
     [_nT]: [, input[_NT]!],
   });
   let body: any;
@@ -1770,6 +1879,31 @@ export const se_UpdateIPSetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateMalwareProtectionPlanCommand
+ */
+export const se_UpdateMalwareProtectionPlanCommand = async (
+  input: UpdateMalwareProtectionPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/malware-protection-plan/{MalwareProtectionPlanId}");
+  b.p("MalwareProtectionPlanId", () => input.MalwareProtectionPlanId!, "{MalwareProtectionPlanId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actions: [, (_) => se_MalwareProtectionPlanActions(_, context), `Actions`],
+      protectedResource: [, (_) => se_UpdateProtectedResource(_, context), `ProtectedResource`],
+      role: [, , `Role`],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateMalwareScanSettingsCommand
  */
 export const se_UpdateMalwareScanSettingsCommand = async (
@@ -2010,6 +2144,27 @@ export const de_CreateIPSetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateMalwareProtectionPlanCommand
+ */
+export const de_CreateMalwareProtectionPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMalwareProtectionPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MalwareProtectionPlanId: [, __expectString, `malwareProtectionPlanId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateMembersCommand
  */
 export const de_CreateMembersCommand = async (
@@ -2172,6 +2327,23 @@ export const de_DeleteIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIPSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMalwareProtectionPlanCommand
+ */
+export const de_DeleteMalwareProtectionPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMalwareProtectionPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2584,6 +2756,34 @@ export const de_GetIPSetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMalwareProtectionPlanCommand
+ */
+export const de_GetMalwareProtectionPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMalwareProtectionPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: [, (_) => de_MalwareProtectionPlanActions(_, context), `actions`],
+    Arn: [, __expectString, `arn`],
+    CreatedAt: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    ProtectedResource: [, (_) => de_CreateProtectedResource(_, context), `protectedResource`],
+    Role: [, __expectString, `role`],
+    Status: [, __expectString, `status`],
+    StatusReasons: [, (_) => de_MalwareProtectionPlanStatusReasonsList(_, context), `statusReasons`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetMalwareScanSettingsCommand
  */
 export const de_GetMalwareScanSettingsCommand = async (
@@ -2914,6 +3114,28 @@ export const de_ListIPSetsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListMalwareProtectionPlansCommand
+ */
+export const de_ListMalwareProtectionPlansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMalwareProtectionPlansCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MalwareProtectionPlans: [, (_) => de_MalwareProtectionPlansSummary(_, context), `malwareProtectionPlans`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListMembersCommand
  */
 export const de_ListMembersCommand = async (
@@ -3209,6 +3431,23 @@ export const de_UpdateIPSetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateMalwareProtectionPlanCommand
+ */
+export const de_UpdateMalwareProtectionPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMalwareProtectionPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateMalwareScanSettingsCommand
  */
 export const de_UpdateMalwareScanSettingsCommand = async (
@@ -3319,6 +3558,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConflictException":
     case "com.amazonaws.guardduty#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.guardduty#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3402,6 +3644,27 @@ const de_InternalServerErrorExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerErrorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    Type: [, __expectString, `__type`],
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3502,6 +3765,25 @@ const se_CoverageSortCriteria = (input: CoverageSortCriteria, context: __SerdeCo
 };
 
 // se_CoverageStatisticsTypeList omitted.
+
+/**
+ * serializeAws_restJson1CreateProtectedResource
+ */
+const se_CreateProtectedResource = (input: CreateProtectedResource, context: __SerdeContext): any => {
+  return take(input, {
+    s3Bucket: [, (_) => se_CreateS3BucketResource(_, context), `S3Bucket`],
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateS3BucketResource
+ */
+const se_CreateS3BucketResource = (input: CreateS3BucketResource, context: __SerdeContext): any => {
+  return take(input, {
+    bucketName: [, , `BucketName`],
+    objectPrefixes: [, _json, `ObjectPrefixes`],
+  });
+};
 
 /**
  * serializeAws_restJson1Criterion
@@ -3669,6 +3951,29 @@ const se_KubernetesConfiguration = (input: KubernetesConfiguration, context: __S
 const se_MalwareProtectionConfiguration = (input: MalwareProtectionConfiguration, context: __SerdeContext): any => {
   return take(input, {
     scanEc2InstanceWithFindings: [, (_) => se_ScanEc2InstanceWithFindings(_, context), `ScanEc2InstanceWithFindings`],
+  });
+};
+
+/**
+ * serializeAws_restJson1MalwareProtectionPlanActions
+ */
+const se_MalwareProtectionPlanActions = (input: MalwareProtectionPlanActions, context: __SerdeContext): any => {
+  return take(input, {
+    tagging: [, (_) => se_MalwareProtectionPlanTaggingAction(_, context), `Tagging`],
+  });
+};
+
+// se_MalwareProtectionPlanObjectPrefixesList omitted.
+
+/**
+ * serializeAws_restJson1MalwareProtectionPlanTaggingAction
+ */
+const se_MalwareProtectionPlanTaggingAction = (
+  input: MalwareProtectionPlanTaggingAction,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    status: [, , `Status`],
   });
 };
 
@@ -3939,6 +4244,24 @@ const se_SortCriteria = (input: SortCriteria, context: __SerdeContext): any => {
 };
 
 // se_TagMap omitted.
+
+/**
+ * serializeAws_restJson1UpdateProtectedResource
+ */
+const se_UpdateProtectedResource = (input: UpdateProtectedResource, context: __SerdeContext): any => {
+  return take(input, {
+    s3Bucket: [, (_) => se_UpdateS3BucketResource(_, context), `S3Bucket`],
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateS3BucketResource
+ */
+const se_UpdateS3BucketResource = (input: UpdateS3BucketResource, context: __SerdeContext): any => {
+  return take(input, {
+    objectPrefixes: [, _json, `ObjectPrefixes`],
+  });
+};
 
 /**
  * serializeAws_restJson1UsageCriteria
@@ -4413,6 +4736,25 @@ const de_CoverageStatistics = (output: any, context: __SerdeContext): CoverageSt
   return take(output, {
     CountByCoverageStatus: [, _json, `countByCoverageStatus`],
     CountByResourceType: [, _json, `countByResourceType`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CreateProtectedResource
+ */
+const de_CreateProtectedResource = (output: any, context: __SerdeContext): CreateProtectedResource => {
+  return take(output, {
+    S3Bucket: [, (_: any) => de_CreateS3BucketResource(_, context), `s3Bucket`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CreateS3BucketResource
+ */
+const de_CreateS3BucketResource = (output: any, context: __SerdeContext): CreateS3BucketResource => {
+  return take(output, {
+    BucketName: [, __expectString, `bucketName`],
+    ObjectPrefixes: [, _json, `objectPrefixes`],
   }) as any;
 };
 
@@ -4931,6 +5273,28 @@ const de_Invitations = (output: any, context: __SerdeContext): Invitation[] => {
 // de_Issues omitted.
 
 /**
+ * deserializeAws_restJson1ItemPath
+ */
+const de_ItemPath = (output: any, context: __SerdeContext): ItemPath => {
+  return take(output, {
+    Hash: [, __expectString, `hash`],
+    NestedItemPath: [, __expectString, `nestedItemPath`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ItemPaths
+ */
+const de_ItemPaths = (output: any, context: __SerdeContext): ItemPath[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ItemPath(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1KubernetesApiCallAction
  */
 const de_KubernetesApiCallAction = (output: any, context: __SerdeContext): KubernetesApiCallAction => {
@@ -5175,6 +5539,87 @@ const de_MalwareProtectionDataSourceFreeTrial = (
 ): MalwareProtectionDataSourceFreeTrial => {
   return take(output, {
     ScanEc2InstanceWithFindings: [, (_: any) => de_DataSourceFreeTrial(_, context), `scanEc2InstanceWithFindings`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MalwareProtectionPlanActions
+ */
+const de_MalwareProtectionPlanActions = (output: any, context: __SerdeContext): MalwareProtectionPlanActions => {
+  return take(output, {
+    Tagging: [, (_: any) => de_MalwareProtectionPlanTaggingAction(_, context), `tagging`],
+  }) as any;
+};
+
+// de_MalwareProtectionPlanObjectPrefixesList omitted.
+
+/**
+ * deserializeAws_restJson1MalwareProtectionPlansSummary
+ */
+const de_MalwareProtectionPlansSummary = (output: any, context: __SerdeContext): MalwareProtectionPlanSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MalwareProtectionPlanSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MalwareProtectionPlanStatusReason
+ */
+const de_MalwareProtectionPlanStatusReason = (
+  output: any,
+  context: __SerdeContext
+): MalwareProtectionPlanStatusReason => {
+  return take(output, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MalwareProtectionPlanStatusReasonsList
+ */
+const de_MalwareProtectionPlanStatusReasonsList = (
+  output: any,
+  context: __SerdeContext
+): MalwareProtectionPlanStatusReason[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MalwareProtectionPlanStatusReason(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MalwareProtectionPlanSummary
+ */
+const de_MalwareProtectionPlanSummary = (output: any, context: __SerdeContext): MalwareProtectionPlanSummary => {
+  return take(output, {
+    MalwareProtectionPlanId: [, __expectString, `malwareProtectionPlanId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MalwareProtectionPlanTaggingAction
+ */
+const de_MalwareProtectionPlanTaggingAction = (
+  output: any,
+  context: __SerdeContext
+): MalwareProtectionPlanTaggingAction => {
+  return take(output, {
+    Status: [, __expectString, `status`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MalwareScanDetails
+ */
+const de_MalwareScanDetails = (output: any, context: __SerdeContext): MalwareScanDetails => {
+  return take(output, {
+    Threats: [, (_: any) => de_Threats(_, context), `threats`],
   }) as any;
 };
 
@@ -5908,6 +6353,7 @@ const de_S3BucketDetail = (output: any, context: __SerdeContext): S3BucketDetail
     Name: [, __expectString, `name`],
     Owner: [, (_: any) => de_Owner(_, context), `owner`],
     PublicAccess: [, (_: any) => de_PublicAccess(_, context), `publicAccess`],
+    S3ObjectDetails: [, (_: any) => de_S3ObjectDetails(_, context), `s3ObjectDetails`],
     Tags: [, (_: any) => de_Tags(_, context), `tags`],
     Type: [, __expectString, `type`],
   }) as any;
@@ -5932,6 +6378,31 @@ const de_S3LogsConfigurationResult = (output: any, context: __SerdeContext): S3L
   return take(output, {
     Status: [, __expectString, `status`],
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1S3ObjectDetail
+ */
+const de_S3ObjectDetail = (output: any, context: __SerdeContext): S3ObjectDetail => {
+  return take(output, {
+    ETag: [, __expectString, `eTag`],
+    Hash: [, __expectString, `hash`],
+    Key: [, __expectString, `key`],
+    ObjectArn: [, __expectString, `objectArn`],
+    VersionId: [, __expectString, `versionId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1S3ObjectDetails
+ */
+const de_S3ObjectDetails = (output: any, context: __SerdeContext): S3ObjectDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_S3ObjectDetail(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -6146,6 +6617,7 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
     EventLastSeen: [, __expectString, `eventLastSeen`],
     Evidence: [, (_: any) => de_Evidence(_, context), `evidence`],
     FeatureName: [, __expectString, `featureName`],
+    MalwareScanDetails: [, (_: any) => de_MalwareScanDetails(_, context), `malwareScanDetails`],
     ResourceRole: [, __expectString, `resourceRole`],
     RuntimeDetails: [, (_: any) => de_RuntimeDetails(_, context), `runtimeDetails`],
     ServiceName: [, __expectString, `serviceName`],
@@ -6196,6 +6668,17 @@ const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
 };
 
 /**
+ * deserializeAws_restJson1Threat
+ */
+const de_Threat = (output: any, context: __SerdeContext): Threat => {
+  return take(output, {
+    ItemPaths: [, (_: any) => de_ItemPaths(_, context), `itemPaths`],
+    Name: [, __expectString, `name`],
+    Source: [, __expectString, `source`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ThreatDetectedByName
  */
 const de_ThreatDetectedByName = (output: any, context: __SerdeContext): ThreatDetectedByName => {
@@ -6233,6 +6716,18 @@ const de_ThreatIntelligenceDetails = (output: any, context: __SerdeContext): Thr
 // de_ThreatIntelSetIds omitted.
 
 // de_ThreatNames omitted.
+
+/**
+ * deserializeAws_restJson1Threats
+ */
+const de_Threats = (output: any, context: __SerdeContext): Threat[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Threat(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1ThreatsDetectedItemCount

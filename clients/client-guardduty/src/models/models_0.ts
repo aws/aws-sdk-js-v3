@@ -2903,6 +2903,128 @@ export interface CreateIPSetResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const MalwareProtectionPlanTaggingActionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type MalwareProtectionPlanTaggingActionStatus =
+  (typeof MalwareProtectionPlanTaggingActionStatus)[keyof typeof MalwareProtectionPlanTaggingActionStatus];
+
+/**
+ * <p>Information about adding tags to the scanned S3 object after the scan result.</p>
+ * @public
+ */
+export interface MalwareProtectionPlanTaggingAction {
+  /**
+   * <p>Indicates whether or not the tags will added.</p>
+   * @public
+   */
+  Status?: MalwareProtectionPlanTaggingActionStatus;
+}
+
+/**
+ * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
+ * @public
+ */
+export interface MalwareProtectionPlanActions {
+  /**
+   * <p>Indicates whether the scanned S3 object will have tags about the scan result.</p>
+   * @public
+   */
+  Tagging?: MalwareProtectionPlanTaggingAction;
+}
+
+/**
+ * <p>Information about the protected S3 bucket resource.</p>
+ * @public
+ */
+export interface CreateS3BucketResource {
+  /**
+   * <p>Name of the S3 bucket.</p>
+   * @public
+   */
+  BucketName?: string;
+
+  /**
+   * <p>Information about the specified object prefixes. The S3 object will be scanned only
+   *       if it belongs to any of the specified object prefixes.</p>
+   * @public
+   */
+  ObjectPrefixes?: string[];
+}
+
+/**
+ * <p>Information about the protected resource that
+ *       is associated with the created Malware Protection plan.
+ *       Presently, <code>S3Bucket</code> is the only supported
+ *       protected resource.</p>
+ * @public
+ */
+export interface CreateProtectedResource {
+  /**
+   * <p>Information about the protected S3 bucket resource.</p>
+   * @public
+   */
+  S3Bucket?: CreateS3BucketResource;
+}
+
+/**
+ * @public
+ */
+export interface CreateMalwareProtectionPlanRequest {
+  /**
+   * <p>The idempotency token for the create request.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>IAM role with permissions required to scan and add tags to the associated
+   *       protected resource.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>Information about the protected resource that is associated with the created
+   *       Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported
+   *       protected resource.</p>
+   * @public
+   */
+  ProtectedResource: CreateProtectedResource | undefined;
+
+  /**
+   * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
+   * @public
+   */
+  Actions?: MalwareProtectionPlanActions;
+
+  /**
+   * <p>Tags added to the Malware Protection plan resource. </p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateMalwareProtectionPlanResponse {
+  /**
+   * <p>A unique identifier associated with the Malware Protection plan resource.</p>
+   * @public
+   */
+  MalwareProtectionPlanId?: string;
+}
+
+/**
+ * @public
  */
 export interface CreateMembersRequest {
   /**
@@ -3402,6 +3524,50 @@ export interface DeleteIPSetResponse {}
 /**
  * @public
  */
+export interface DeleteMalwareProtectionPlanRequest {
+  /**
+   * <p>A unique identifier associated with Malware Protection plan resource.</p>
+   * @public
+   */
+  MalwareProtectionPlanId: string | undefined;
+}
+
+/**
+ * <p>The requested resource can't be found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string;
+
+  /**
+   * <p>The error type.</p>
+   * @public
+   */
+  Type?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+  }
+}
+
+/**
+ * @public
+ */
 export interface DeleteMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
@@ -3606,7 +3772,7 @@ export interface DescribeMalwareScansRequest {
  */
 export interface VolumeDetail {
   /**
-   * <p>EBS volume Arn information.</p>
+   * <p>EBS volume ARN information.</p>
    * @public
    */
   VolumeArn?: string;
@@ -3636,13 +3802,13 @@ export interface VolumeDetail {
   EncryptionType?: string;
 
   /**
-   * <p>Snapshot Arn of the EBS volume.</p>
+   * <p>Snapshot ARN of the EBS volume.</p>
    * @public
    */
   SnapshotArn?: string;
 
   /**
-   * <p>KMS key Arn used to encrypt the EBS volume.</p>
+   * <p>KMS key ARN used to encrypt the EBS volume.</p>
    * @public
    */
   KmsKeyArn?: string;
@@ -3654,7 +3820,7 @@ export interface VolumeDetail {
  */
 export interface ResourceDetails {
   /**
-   * <p>InstanceArn that was scanned in the scan entry.</p>
+   * <p>Instance ARN that was scanned in the scan entry.</p>
    * @public
    */
   InstanceArn?: string;
@@ -4583,7 +4749,7 @@ export interface ScanFilePath {
   FilePath?: string;
 
   /**
-   * <p>EBS volume Arn details of the infected file.</p>
+   * <p>EBS volume ARN details of the infected file.</p>
    * @public
    */
   VolumeArn?: string;
@@ -5620,6 +5786,43 @@ export interface PublicAccess {
 }
 
 /**
+ * <p>Information about the S3 object that was scanned</p>
+ * @public
+ */
+export interface S3ObjectDetail {
+  /**
+   * <p>Amazon Resource Name (ARN) of the S3 object.</p>
+   * @public
+   */
+  ObjectArn?: string;
+
+  /**
+   * <p>Key of the S3 object.</p>
+   * @public
+   */
+  Key?: string;
+
+  /**
+   * <p>The entity tag is a hash of the S3 object. The ETag reflects changes only to the contents of
+   *     an object, and not its metadata.</p>
+   * @public
+   */
+  ETag?: string;
+
+  /**
+   * <p>Hash of the threat detected in this finding.</p>
+   * @public
+   */
+  Hash?: string;
+
+  /**
+   * <p>Version ID of the object.</p>
+   * @public
+   */
+  VersionId?: string;
+}
+
+/**
  * <p>Contains information on the S3 bucket.</p>
  * @public
  */
@@ -5671,6 +5874,12 @@ export interface S3BucketDetail {
    * @public
    */
   PublicAccess?: PublicAccess;
+
+  /**
+   * <p>Information about the S3 object that was scanned.</p>
+   * @public
+   */
+  S3ObjectDetails?: S3ObjectDetail[];
 }
 
 /**
@@ -5772,6 +5981,64 @@ export interface ServiceAdditionalInfo {
    * @public
    */
   Type?: string;
+}
+
+/**
+ * <p>Information about the nested item path and hash of the protected
+ *       resource.</p>
+ * @public
+ */
+export interface ItemPath {
+  /**
+   * <p>The nested item path where the infected file was found.</p>
+   * @public
+   */
+  NestedItemPath?: string;
+
+  /**
+   * <p>The hash value of the infected resource.</p>
+   * @public
+   */
+  Hash?: string;
+}
+
+/**
+ * <p>Information about the detected threats associated with the
+ *       generated finding.</p>
+ * @public
+ */
+export interface Threat {
+  /**
+   * <p>Name of the detected threat that caused GuardDuty to generate this finding.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>Source of the threat that generated this finding.</p>
+   * @public
+   */
+  Source?: string;
+
+  /**
+   * <p>Information about the nested item path and
+   *       hash of the protected resource.</p>
+   * @public
+   */
+  ItemPaths?: ItemPath[];
+}
+
+/**
+ * <p>Information about the malware scan that generated a GuardDuty finding.</p>
+ * @public
+ */
+export interface MalwareScanDetails {
+  /**
+   * <p>Information about the detected threats associated with the
+   *       generated GuardDuty finding.</p>
+   * @public
+   */
+  Threats?: Threat[];
 }
 
 /**
@@ -6199,6 +6466,12 @@ export interface Service {
    * @public
    */
   Detection?: Detection;
+
+  /**
+   * <p>Returns details from the malware scan that generated a GuardDuty finding.</p>
+   * @public
+   */
+  MalwareScanDetails?: MalwareScanDetails;
 }
 
 /**
@@ -6658,6 +6931,112 @@ export interface GetIPSetResponse {
 
   /**
    * <p>The tags of the IPSet resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareProtectionPlanRequest {
+  /**
+   * <p>A unique identifier associated with Malware Protection plan resource.</p>
+   * @public
+   */
+  MalwareProtectionPlanId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MalwareProtectionPlanStatus = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type MalwareProtectionPlanStatus =
+  (typeof MalwareProtectionPlanStatus)[keyof typeof MalwareProtectionPlanStatus];
+
+/**
+ * <p>Information about the issue code and message associated to the status of
+ *       your Malware Protection plan.</p>
+ * @public
+ */
+export interface MalwareProtectionPlanStatusReason {
+  /**
+   * <p>Issue code.</p>
+   * @public
+   */
+  Code?: string;
+
+  /**
+   * <p>Issue message that specifies the reason. For information
+   *       about potential troubleshooting steps, see
+   *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/troubleshoot-s3-malware-protection-status-errors.html">Troubleshooting Malware Protection for S3 status issues</a> in the
+   *       <i>GuardDuty User Guide</i>.</p>
+   * @public
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareProtectionPlanResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the protected resource.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>IAM role that includes the permissions required to scan and
+   *       add tags to the associated protected resource.</p>
+   * @public
+   */
+  Role?: string;
+
+  /**
+   * <p>Information about the protected resource that is associated with the created
+   *       Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported
+   *       protected resource.</p>
+   * @public
+   */
+  ProtectedResource?: CreateProtectedResource;
+
+  /**
+   * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
+   * @public
+   */
+  Actions?: MalwareProtectionPlanActions;
+
+  /**
+   * <p>The timestamp when the Malware Protection plan resource was created.</p>
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>Malware Protection plan status.</p>
+   * @public
+   */
+  Status?: MalwareProtectionPlanStatus;
+
+  /**
+   * <p>Information about the issue code and message associated to the status of
+   *     your Malware Protection plan.</p>
+   * @public
+   */
+  StatusReasons?: MalwareProtectionPlanStatusReason[];
+
+  /**
+   * <p>Tags added to the Malware Protection plan resource.</p>
    * @public
    */
   Tags?: Record<string, string>;
@@ -7250,425 +7629,6 @@ export interface GetThreatIntelSetResponse {
    * @public
    */
   Tags?: Record<string, string>;
-}
-
-/**
- * @public
- * @enum
- */
-export const UsageFeature = {
-  CLOUD_TRAIL: "CLOUD_TRAIL",
-  DNS_LOGS: "DNS_LOGS",
-  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
-  EC2_RUNTIME_MONITORING: "EC2_RUNTIME_MONITORING",
-  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
-  EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
-  FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
-  FLOW_LOGS: "FLOW_LOGS",
-  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
-  RDS_DBI_PROTECTION_PROVISIONED: "RDS_DBI_PROTECTION_PROVISIONED",
-  RDS_DBI_PROTECTION_SERVERLESS: "RDS_DBI_PROTECTION_SERVERLESS",
-  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS: "S3_DATA_EVENTS",
-} as const;
-
-/**
- * @public
- */
-export type UsageFeature = (typeof UsageFeature)[keyof typeof UsageFeature];
-
-/**
- * <p>Contains information about the criteria used to query usage statistics.</p>
- * @public
- */
-export interface UsageCriteria {
-  /**
-   * <p>The account IDs to aggregate usage statistics from.</p>
-   * @public
-   */
-  AccountIds?: string[];
-
-  /**
-   * @deprecated
-   *
-   * <p>The data sources to aggregate usage statistics from.</p>
-   * @public
-   */
-  DataSources?: DataSource[];
-
-  /**
-   * <p>The resources to aggregate usage statistics from. Only accepts exact resource
-   *       names.</p>
-   * @public
-   */
-  Resources?: string[];
-
-  /**
-   * <p>The features to aggregate usage statistics from.</p>
-   * @public
-   */
-  Features?: UsageFeature[];
-}
-
-/**
- * @public
- * @enum
- */
-export const UsageStatisticType = {
-  SUM_BY_ACCOUNT: "SUM_BY_ACCOUNT",
-  SUM_BY_DATA_SOURCE: "SUM_BY_DATA_SOURCE",
-  SUM_BY_FEATURES: "SUM_BY_FEATURES",
-  SUM_BY_RESOURCE: "SUM_BY_RESOURCE",
-  TOP_ACCOUNTS_BY_FEATURE: "TOP_ACCOUNTS_BY_FEATURE",
-  TOP_RESOURCES: "TOP_RESOURCES",
-} as const;
-
-/**
- * @public
- */
-export type UsageStatisticType = (typeof UsageStatisticType)[keyof typeof UsageStatisticType];
-
-/**
- * @public
- */
-export interface GetUsageStatisticsRequest {
-  /**
-   * <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you
-   *       want to retrieve.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The type of usage statistics to retrieve.</p>
-   * @public
-   */
-  UsageStatisticType: UsageStatisticType | undefined;
-
-  /**
-   * <p>Represents the criteria used for querying usage.</p>
-   * @public
-   */
-  UsageCriteria: UsageCriteria | undefined;
-
-  /**
-   * <p>The currency unit you would like to view your usage statistics in. Current valid values
-   *       are USD.</p>
-   * @public
-   */
-  Unit?: string;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *       NextToken value returned from the previous request to continue listing results after the first
-   *       page.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Contains the total usage with the corresponding currency unit for that value.</p>
- * @public
- */
-export interface Total {
-  /**
-   * <p>The total usage.</p>
-   * @public
-   */
-  Amount?: string;
-
-  /**
-   * <p>The currency unit that the amount is given in.</p>
-   * @public
-   */
-  Unit?: string;
-}
-
-/**
- * <p>Contains information on the total of usage based on account IDs.</p>
- * @public
- */
-export interface UsageAccountResult {
-  /**
-   * <p>The Account ID that generated usage.</p>
-   * @public
-   */
-  AccountId?: string;
-
-  /**
-   * <p>Represents the total of usage for the Account ID.</p>
-   * @public
-   */
-  Total?: Total;
-}
-
-/**
- * <p>Contains information on the result of usage based on data source type.</p>
- * @public
- */
-export interface UsageDataSourceResult {
-  /**
-   * <p>The data source type that generated usage.</p>
-   * @public
-   */
-  DataSource?: DataSource;
-
-  /**
-   * <p>Represents the total of usage for the specified data source.</p>
-   * @public
-   */
-  Total?: Total;
-}
-
-/**
- * <p>Contains information about the result of the total usage based on the feature.</p>
- * @public
- */
-export interface UsageFeatureResult {
-  /**
-   * <p>The feature that generated the usage cost.</p>
-   * @public
-   */
-  Feature?: UsageFeature;
-
-  /**
-   * <p>Contains the total usage with the corresponding currency unit for that value.</p>
-   * @public
-   */
-  Total?: Total;
-}
-
-/**
- * <p>Contains information on the sum of usage based on an Amazon Web Services resource.</p>
- * @public
- */
-export interface UsageResourceResult {
-  /**
-   * <p>The Amazon Web Services resource that generated usage.</p>
-   * @public
-   */
-  Resource?: string;
-
-  /**
-   * <p>Represents the sum total of usage for the specified resource type.</p>
-   * @public
-   */
-  Total?: Total;
-}
-
-/**
- * <p>Contains information on the total of usage based on the topmost 50
- *       account IDs.</p>
- * @public
- */
-export interface UsageTopAccountResult {
-  /**
-   * <p>The unique account ID.</p>
-   * @public
-   */
-  AccountId?: string;
-
-  /**
-   * <p>Contains the total usage with the corresponding currency unit for that value.</p>
-   * @public
-   */
-  Total?: Total;
-}
-
-/**
- * <p>Information about the usage statistics, calculated
- *       by top accounts by feature.</p>
- * @public
- */
-export interface UsageTopAccountsResult {
-  /**
-   * <p>Features by which you can generate the usage statistics.</p>
-   *          <p>
-   *             <code>RDS_LOGIN_EVENTS</code> is currently not supported
-   *       with <code>topAccountsByFeature</code>.</p>
-   * @public
-   */
-  Feature?: UsageFeature;
-
-  /**
-   * <p>The accounts that contributed to the total usage cost.</p>
-   * @public
-   */
-  Accounts?: UsageTopAccountResult[];
-}
-
-/**
- * <p>Contains the result of GuardDuty usage. If a UsageStatisticType is provided the result for
- *       other types will be null. </p>
- * @public
- */
-export interface UsageStatistics {
-  /**
-   * <p>The usage statistic sum organized by account ID.</p>
-   * @public
-   */
-  SumByAccount?: UsageAccountResult[];
-
-  /**
-   * <p>Lists the top 50 accounts by feature that have generated the most
-   *       GuardDuty usage, in the order from most to least expensive.</p>
-   *          <p>Currently, this doesn't support <code>RDS_LOGIN_EVENTS</code>.</p>
-   * @public
-   */
-  TopAccountsByFeature?: UsageTopAccountsResult[];
-
-  /**
-   * <p>The usage statistic sum organized by on data source.</p>
-   * @public
-   */
-  SumByDataSource?: UsageDataSourceResult[];
-
-  /**
-   * <p>The usage statistic sum organized by resource.</p>
-   * @public
-   */
-  SumByResource?: UsageResourceResult[];
-
-  /**
-   * <p>Lists the top 50 resources that have generated the most GuardDuty usage, in order from
-   *       most to least expensive.</p>
-   * @public
-   */
-  TopResources?: UsageResourceResult[];
-
-  /**
-   * <p>The usage statistic sum organized by feature.</p>
-   * @public
-   */
-  SumByFeature?: UsageFeatureResult[];
-}
-
-/**
- * @public
- */
-export interface GetUsageStatisticsResponse {
-  /**
-   * <p>The usage statistics object. If a UsageStatisticType was provided, the objects
-   *       representing other types will be null.</p>
-   * @public
-   */
-  UsageStatistics?: UsageStatistics;
-
-  /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface InviteMembersRequest {
-  /**
-   * <p>The unique ID of the detector of the GuardDuty account that you want to invite members
-   *       with.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A list of account IDs of the accounts that you want to invite to GuardDuty as
-   *       members.</p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
-
-  /**
-   * <p>A Boolean value that specifies whether you want to disable email notification to the
-   *       accounts that you are inviting to GuardDuty as members.</p>
-   * @public
-   */
-  DisableEmailNotification?: boolean;
-
-  /**
-   * <p>The invitation message that you want to send to the accounts that you're inviting to
-   *       GuardDuty as members.</p>
-   * @public
-   */
-  Message?: string;
-}
-
-/**
- * @public
- */
-export interface InviteMembersResponse {
-  /**
-   * <p>A list of objects that contain the unprocessed account and a result string that explains
-   *       why it was unprocessed.</p>
-   * @public
-   */
-  UnprocessedAccounts: UnprocessedAccount[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCoverageRequest {
-  /**
-   * <p>The unique ID of the detector whose coverage details you want to retrieve.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *       NextToken value returned from the previous request to continue listing results after the first
-   *       page.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Represents the criteria used to filter the coverage details.</p>
-   * @public
-   */
-  FilterCriteria?: CoverageFilterCriteria;
-
-  /**
-   * <p>Represents the criteria used to sort the coverage details.</p>
-   * @public
-   */
-  SortCriteria?: CoverageSortCriteria;
-}
-
-/**
- * @public
- */
-export interface ListCoverageResponse {
-  /**
-   * <p>A list of resources and their attributes providing cluster details.</p>
-   * @public
-   */
-  Resources: CoverageResource[] | undefined;
-
-  /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**

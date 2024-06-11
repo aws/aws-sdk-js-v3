@@ -113,6 +113,15 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               },
  * //               EffectivePermission: "STRING_VALUE",
  * //             },
+ * //             S3ObjectDetails: [ // S3ObjectDetails
+ * //               { // S3ObjectDetail
+ * //                 ObjectArn: "STRING_VALUE",
+ * //                 Key: "STRING_VALUE",
+ * //                 ETag: "STRING_VALUE",
+ * //                 Hash: "STRING_VALUE",
+ * //                 VersionId: "STRING_VALUE",
+ * //               },
+ * //             ],
  * //           },
  * //         ],
  * //         InstanceDetails: { // InstanceDetails
@@ -793,6 +802,20 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               },
  * //             },
  * //           },
+ * //         },
+ * //         MalwareScanDetails: { // MalwareScanDetails
+ * //           Threats: [ // Threats
+ * //             { // Threat
+ * //               Name: "STRING_VALUE",
+ * //               Source: "STRING_VALUE",
+ * //               ItemPaths: [ // ItemPaths
+ * //                 { // ItemPath
+ * //                   NestedItemPath: "STRING_VALUE",
+ * //                   Hash: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       Severity: Number("double"), // required

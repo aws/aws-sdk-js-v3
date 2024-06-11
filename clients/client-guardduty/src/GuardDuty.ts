@@ -29,6 +29,11 @@ import {
 } from "./commands/CreateFilterCommand";
 import { CreateIPSetCommand, CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
+  CreateMalwareProtectionPlanCommand,
+  CreateMalwareProtectionPlanCommandInput,
+  CreateMalwareProtectionPlanCommandOutput,
+} from "./commands/CreateMalwareProtectionPlanCommand";
+import {
   CreateMembersCommand,
   CreateMembersCommandInput,
   CreateMembersCommandOutput,
@@ -69,6 +74,11 @@ import {
   DeleteInvitationsCommandOutput,
 } from "./commands/DeleteInvitationsCommand";
 import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
+import {
+  DeleteMalwareProtectionPlanCommand,
+  DeleteMalwareProtectionPlanCommandInput,
+  DeleteMalwareProtectionPlanCommandOutput,
+} from "./commands/DeleteMalwareProtectionPlanCommand";
 import {
   DeleteMembersCommand,
   DeleteMembersCommandInput,
@@ -149,6 +159,11 @@ import {
 } from "./commands/GetInvitationsCountCommand";
 import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
+  GetMalwareProtectionPlanCommand,
+  GetMalwareProtectionPlanCommandInput,
+  GetMalwareProtectionPlanCommandOutput,
+} from "./commands/GetMalwareProtectionPlanCommand";
+import {
   GetMalwareScanSettingsCommand,
   GetMalwareScanSettingsCommandInput,
   GetMalwareScanSettingsCommandOutput,
@@ -211,6 +226,11 @@ import {
   ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
 import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
+import {
+  ListMalwareProtectionPlansCommand,
+  ListMalwareProtectionPlansCommandInput,
+  ListMalwareProtectionPlansCommandOutput,
+} from "./commands/ListMalwareProtectionPlansCommand";
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommand,
@@ -275,6 +295,11 @@ import {
 } from "./commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
+  UpdateMalwareProtectionPlanCommand,
+  UpdateMalwareProtectionPlanCommandInput,
+  UpdateMalwareProtectionPlanCommandOutput,
+} from "./commands/UpdateMalwareProtectionPlanCommand";
+import {
   UpdateMalwareScanSettingsCommand,
   UpdateMalwareScanSettingsCommandInput,
   UpdateMalwareScanSettingsCommandOutput,
@@ -308,6 +333,7 @@ const commands = {
   CreateDetectorCommand,
   CreateFilterCommand,
   CreateIPSetCommand,
+  CreateMalwareProtectionPlanCommand,
   CreateMembersCommand,
   CreatePublishingDestinationCommand,
   CreateSampleFindingsCommand,
@@ -317,6 +343,7 @@ const commands = {
   DeleteFilterCommand,
   DeleteInvitationsCommand,
   DeleteIPSetCommand,
+  DeleteMalwareProtectionPlanCommand,
   DeleteMembersCommand,
   DeletePublishingDestinationCommand,
   DeleteThreatIntelSetCommand,
@@ -336,6 +363,7 @@ const commands = {
   GetFindingsStatisticsCommand,
   GetInvitationsCountCommand,
   GetIPSetCommand,
+  GetMalwareProtectionPlanCommand,
   GetMalwareScanSettingsCommand,
   GetMasterAccountCommand,
   GetMemberDetectorsCommand,
@@ -351,6 +379,7 @@ const commands = {
   ListFindingsCommand,
   ListInvitationsCommand,
   ListIPSetsCommand,
+  ListMalwareProtectionPlansCommand,
   ListMembersCommand,
   ListOrganizationAdminAccountsCommand,
   ListPublishingDestinationsCommand,
@@ -366,6 +395,7 @@ const commands = {
   UpdateFilterCommand,
   UpdateFindingsFeedbackCommand,
   UpdateIPSetCommand,
+  UpdateMalwareProtectionPlanCommand,
   UpdateMalwareScanSettingsCommand,
   UpdateMemberDetectorsCommand,
   UpdateOrganizationConfigurationCommand,
@@ -456,6 +486,23 @@ export interface GuardDuty {
     args: CreateIPSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIPSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMalwareProtectionPlanCommand}
+   */
+  createMalwareProtectionPlan(
+    args: CreateMalwareProtectionPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMalwareProtectionPlanCommandOutput>;
+  createMalwareProtectionPlan(
+    args: CreateMalwareProtectionPlanCommandInput,
+    cb: (err: any, data?: CreateMalwareProtectionPlanCommandOutput) => void
+  ): void;
+  createMalwareProtectionPlan(
+    args: CreateMalwareProtectionPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMalwareProtectionPlanCommandOutput) => void
   ): void;
 
   /**
@@ -588,6 +635,23 @@ export interface GuardDuty {
     args: DeleteIPSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIPSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMalwareProtectionPlanCommand}
+   */
+  deleteMalwareProtectionPlan(
+    args: DeleteMalwareProtectionPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMalwareProtectionPlanCommandOutput>;
+  deleteMalwareProtectionPlan(
+    args: DeleteMalwareProtectionPlanCommandInput,
+    cb: (err: any, data?: DeleteMalwareProtectionPlanCommandOutput) => void
+  ): void;
+  deleteMalwareProtectionPlan(
+    args: DeleteMalwareProtectionPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMalwareProtectionPlanCommandOutput) => void
   ): void;
 
   /**
@@ -885,6 +949,23 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link GetMalwareProtectionPlanCommand}
+   */
+  getMalwareProtectionPlan(
+    args: GetMalwareProtectionPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMalwareProtectionPlanCommandOutput>;
+  getMalwareProtectionPlan(
+    args: GetMalwareProtectionPlanCommandInput,
+    cb: (err: any, data?: GetMalwareProtectionPlanCommandOutput) => void
+  ): void;
+  getMalwareProtectionPlan(
+    args: GetMalwareProtectionPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMalwareProtectionPlanCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMalwareScanSettingsCommand}
    */
   getMalwareScanSettings(
@@ -1095,6 +1176,24 @@ export interface GuardDuty {
     args: ListIPSetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIPSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMalwareProtectionPlansCommand}
+   */
+  listMalwareProtectionPlans(): Promise<ListMalwareProtectionPlansCommandOutput>;
+  listMalwareProtectionPlans(
+    args: ListMalwareProtectionPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMalwareProtectionPlansCommandOutput>;
+  listMalwareProtectionPlans(
+    args: ListMalwareProtectionPlansCommandInput,
+    cb: (err: any, data?: ListMalwareProtectionPlansCommandOutput) => void
+  ): void;
+  listMalwareProtectionPlans(
+    args: ListMalwareProtectionPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMalwareProtectionPlansCommandOutput) => void
   ): void;
 
   /**
@@ -1318,6 +1417,23 @@ export interface GuardDuty {
     args: UpdateIPSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIPSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMalwareProtectionPlanCommand}
+   */
+  updateMalwareProtectionPlan(
+    args: UpdateMalwareProtectionPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMalwareProtectionPlanCommandOutput>;
+  updateMalwareProtectionPlan(
+    args: UpdateMalwareProtectionPlanCommandInput,
+    cb: (err: any, data?: UpdateMalwareProtectionPlanCommandOutput) => void
+  ): void;
+  updateMalwareProtectionPlan(
+    args: UpdateMalwareProtectionPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMalwareProtectionPlanCommandOutput) => void
   ): void;
 
   /**
