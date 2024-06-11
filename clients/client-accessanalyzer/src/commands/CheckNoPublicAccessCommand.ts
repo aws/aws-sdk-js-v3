@@ -7,11 +7,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  CheckAccessNotGrantedRequest,
-  CheckAccessNotGrantedRequestFilterSensitiveLog,
-  CheckAccessNotGrantedResponse,
+  CheckNoPublicAccessRequest,
+  CheckNoPublicAccessRequestFilterSensitiveLog,
+  CheckNoPublicAccessResponse,
 } from "../models/models_0";
-import { de_CheckAccessNotGrantedCommand, se_CheckAccessNotGrantedCommand } from "../protocols/Aws_restJson1";
+import { de_CheckNoPublicAccessCommand, se_CheckNoPublicAccessCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,41 +21,32 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CheckAccessNotGrantedCommand}.
+ * The input for {@link CheckNoPublicAccessCommand}.
  */
-export interface CheckAccessNotGrantedCommandInput extends CheckAccessNotGrantedRequest {}
+export interface CheckNoPublicAccessCommandInput extends CheckNoPublicAccessRequest {}
 /**
  * @public
  *
- * The output of {@link CheckAccessNotGrantedCommand}.
+ * The output of {@link CheckNoPublicAccessCommand}.
  */
-export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrantedResponse, __MetadataBearer {}
+export interface CheckNoPublicAccessCommandOutput extends CheckNoPublicAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether the specified access isn't allowed by a policy.</p>
+ * <p>Checks whether a resource policy can grant public access to the specified resource
+ *          type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, CheckAccessNotGrantedCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, CheckAccessNotGrantedCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, CheckNoPublicAccessCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, CheckNoPublicAccessCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = { // CheckAccessNotGrantedRequest
+ * const input = { // CheckNoPublicAccessRequest
  *   policyDocument: "STRING_VALUE", // required
- *   access: [ // AccessList // required
- *     { // Access
- *       actions: [ // ActionsList
- *         "STRING_VALUE",
- *       ],
- *       resources: [ // ResourcesList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   policyType: "STRING_VALUE", // required
+ *   resourceType: "STRING_VALUE", // required
  * };
- * const command = new CheckAccessNotGrantedCommand(input);
+ * const command = new CheckNoPublicAccessCommand(input);
  * const response = await client.send(command);
- * // { // CheckAccessNotGrantedResponse
+ * // { // CheckNoPublicAccessResponse
  * //   result: "STRING_VALUE",
  * //   message: "STRING_VALUE",
  * //   reasons: [ // ReasonSummaryList
@@ -69,10 +60,10 @@ export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrante
  *
  * ```
  *
- * @param CheckAccessNotGrantedCommandInput - {@link CheckAccessNotGrantedCommandInput}
- * @returns {@link CheckAccessNotGrantedCommandOutput}
- * @see {@link CheckAccessNotGrantedCommandInput} for command's `input` shape.
- * @see {@link CheckAccessNotGrantedCommandOutput} for command's `response` shape.
+ * @param CheckNoPublicAccessCommandInput - {@link CheckNoPublicAccessCommandInput}
+ * @returns {@link CheckNoPublicAccessCommandOutput}
+ * @see {@link CheckNoPublicAccessCommandInput} for command's `input` shape.
+ * @see {@link CheckNoPublicAccessCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -98,10 +89,10 @@ export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrante
  *
  * @public
  */
-export class CheckAccessNotGrantedCommand extends $Command
+export class CheckNoPublicAccessCommand extends $Command
   .classBuilder<
-    CheckAccessNotGrantedCommandInput,
-    CheckAccessNotGrantedCommandOutput,
+    CheckNoPublicAccessCommandInput,
+    CheckNoPublicAccessCommandOutput,
     AccessAnalyzerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,9 +106,9 @@ export class CheckAccessNotGrantedCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AccessAnalyzer", "CheckAccessNotGranted", {})
-  .n("AccessAnalyzerClient", "CheckAccessNotGrantedCommand")
-  .f(CheckAccessNotGrantedRequestFilterSensitiveLog, void 0)
-  .ser(se_CheckAccessNotGrantedCommand)
-  .de(de_CheckAccessNotGrantedCommand)
+  .s("AccessAnalyzer", "CheckNoPublicAccess", {})
+  .n("AccessAnalyzerClient", "CheckNoPublicAccessCommand")
+  .f(CheckNoPublicAccessRequestFilterSensitiveLog, void 0)
+  .ser(se_CheckNoPublicAccessCommand)
+  .de(de_CheckNoPublicAccessCommand)
   .build() {}

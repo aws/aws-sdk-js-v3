@@ -24,6 +24,11 @@ import {
   CheckNoNewAccessCommandOutput,
 } from "./commands/CheckNoNewAccessCommand";
 import {
+  CheckNoPublicAccessCommand,
+  CheckNoPublicAccessCommandInput,
+  CheckNoPublicAccessCommandOutput,
+} from "./commands/CheckNoPublicAccessCommand";
+import {
   CreateAccessPreviewCommand,
   CreateAccessPreviewCommandInput,
   CreateAccessPreviewCommandOutput,
@@ -49,6 +54,11 @@ import {
   DeleteArchiveRuleCommandOutput,
 } from "./commands/DeleteArchiveRuleCommand";
 import {
+  GenerateFindingRecommendationCommand,
+  GenerateFindingRecommendationCommandInput,
+  GenerateFindingRecommendationCommandOutput,
+} from "./commands/GenerateFindingRecommendationCommand";
+import {
   GetAccessPreviewCommand,
   GetAccessPreviewCommandInput,
   GetAccessPreviewCommandOutput,
@@ -65,6 +75,11 @@ import {
   GetArchiveRuleCommandOutput,
 } from "./commands/GetArchiveRuleCommand";
 import { GetFindingCommand, GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
+import {
+  GetFindingRecommendationCommand,
+  GetFindingRecommendationCommandInput,
+  GetFindingRecommendationCommandOutput,
+} from "./commands/GetFindingRecommendationCommand";
 import {
   GetFindingV2Command,
   GetFindingV2CommandInput,
@@ -157,16 +172,19 @@ const commands = {
   CancelPolicyGenerationCommand,
   CheckAccessNotGrantedCommand,
   CheckNoNewAccessCommand,
+  CheckNoPublicAccessCommand,
   CreateAccessPreviewCommand,
   CreateAnalyzerCommand,
   CreateArchiveRuleCommand,
   DeleteAnalyzerCommand,
   DeleteArchiveRuleCommand,
+  GenerateFindingRecommendationCommand,
   GetAccessPreviewCommand,
   GetAnalyzedResourceCommand,
   GetAnalyzerCommand,
   GetArchiveRuleCommand,
   GetFindingCommand,
+  GetFindingRecommendationCommand,
   GetFindingV2Command,
   GetGeneratedPolicyCommand,
   ListAccessPreviewFindingsCommand,
@@ -257,6 +275,23 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
+   * @see {@link CheckNoPublicAccessCommand}
+   */
+  checkNoPublicAccess(
+    args: CheckNoPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckNoPublicAccessCommandOutput>;
+  checkNoPublicAccess(
+    args: CheckNoPublicAccessCommandInput,
+    cb: (err: any, data?: CheckNoPublicAccessCommandOutput) => void
+  ): void;
+  checkNoPublicAccess(
+    args: CheckNoPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckNoPublicAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAccessPreviewCommand}
    */
   createAccessPreview(
@@ -336,6 +371,23 @@ export interface AccessAnalyzer {
   ): void;
 
   /**
+   * @see {@link GenerateFindingRecommendationCommand}
+   */
+  generateFindingRecommendation(
+    args: GenerateFindingRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateFindingRecommendationCommandOutput>;
+  generateFindingRecommendation(
+    args: GenerateFindingRecommendationCommandInput,
+    cb: (err: any, data?: GenerateFindingRecommendationCommandOutput) => void
+  ): void;
+  generateFindingRecommendation(
+    args: GenerateFindingRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateFindingRecommendationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAccessPreviewCommand}
    */
   getAccessPreview(
@@ -403,6 +455,23 @@ export interface AccessAnalyzer {
     args: GetFindingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFindingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFindingRecommendationCommand}
+   */
+  getFindingRecommendation(
+    args: GetFindingRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingRecommendationCommandOutput>;
+  getFindingRecommendation(
+    args: GetFindingRecommendationCommandInput,
+    cb: (err: any, data?: GetFindingRecommendationCommandOutput) => void
+  ): void;
+  getFindingRecommendation(
+    args: GetFindingRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingRecommendationCommandOutput) => void
   ): void;
 
   /**

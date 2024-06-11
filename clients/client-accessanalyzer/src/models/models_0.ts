@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { AccessAnalyzerServiceException as __BaseException } from "./AccessAnalyzerServiceException";
 
 /**
- * <p>Contains information about actions that define permissions to check against a
- *          policy.</p>
+ * <p>Contains information about actions and resources that define permissions to check
+ *          against a policy.</p>
  * @public
  */
 export interface Access {
@@ -14,7 +14,14 @@ export interface Access {
    *          in an IAM policy can be used in the list of actions to check.</p>
    * @public
    */
-  actions: string[] | undefined;
+  actions?: string[];
+
+  /**
+   * <p>A list of resources for the access permissions. Any strings that can be used as a
+   *          resource in an IAM policy can be used in the list of resources to check.</p>
+   * @public
+   */
+  resources?: string[];
 }
 
 /**
@@ -284,6 +291,7 @@ export interface ValidationExceptionField {
 export const ValidationExceptionReason = {
   CANNOT_PARSE: "cannotParse",
   FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  NOT_SUPPORTED: "notSupported",
   OTHER: "other",
   UNKNOWN_OPERATION: "unknownOperation",
 } as const;
@@ -883,7 +891,11 @@ export interface CheckAccessNotGrantedRequest {
 
   /**
    * <p>An access object containing the permissions that shouldn't be granted by the specified
-   *          policy.</p>
+   *          policy. If only actions are specified, IAM Access Analyzer checks for access of the actions on
+   *          all resources in the policy. If only resources are specified, then IAM Access Analyzer checks
+   *          which actions have access to the specified resources. If both actions and resources are
+   *          specified, then IAM Access Analyzer checks which of the specified actions have access to the
+   *          specified resources.</p>
    * @public
    */
   access: Access[] | undefined;
@@ -1069,6 +1081,99 @@ export interface CheckNoNewAccessResponse {
 
   /**
    * <p>A description of the reasoning of the result.</p>
+   * @public
+   */
+  reasons?: ReasonSummary[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessCheckResourceType = {
+  DYNAMODB_STREAM: "AWS::DynamoDB::Stream",
+  DYNAMODB_TABLE: "AWS::DynamoDB::Table",
+  EFS_FILESYSTEM: "AWS::EFS::FileSystem",
+  KINESIS_DATA_STREAM: "AWS::Kinesis::Stream",
+  KINESIS_STREAM_CONSUMER: "AWS::Kinesis::StreamConsumer",
+  KMS_KEY: "AWS::KMS::Key",
+  LAMBDA_FUNCTION: "AWS::Lambda::Function",
+  OPENSEARCHSERVICE_DOMAIN: "AWS::OpenSearchService::Domain",
+  ROLE_TRUST: "AWS::IAM::AssumeRolePolicyDocument",
+  S3EXPRESS_DIRECTORYBUCKET: "AWS::S3Express::DirectoryBucket",
+  S3_ACCESS_POINT: "AWS::S3::AccessPoint",
+  S3_BUCKET: "AWS::S3::Bucket",
+  S3_GLACIER: "AWS::S3::Glacier",
+  S3_OUTPOSTS_ACCESS_POINT: "AWS::S3Outposts::AccessPoint",
+  S3_OUTPOSTS_BUCKET: "AWS::S3Outposts::Bucket",
+  SECRETSMANAGER_SECRET: "AWS::SecretsManager::Secret",
+  SNS_TOPIC: "AWS::SNS::Topic",
+  SQS_QUEUE: "AWS::SQS::Queue",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessCheckResourceType = (typeof AccessCheckResourceType)[keyof typeof AccessCheckResourceType];
+
+/**
+ * @public
+ */
+export interface CheckNoPublicAccessRequest {
+  /**
+   * <p>The JSON policy document to evaluate for public access.</p>
+   * @public
+   */
+  policyDocument: string | undefined;
+
+  /**
+   * <p>The type of resource to evaluate for public access. For example, to check for public
+   *          access to Amazon S3 buckets, you can choose <code>AWS::S3::Bucket</code> for the resource
+   *          type.</p>
+   *          <p>For resource types not supported as valid values, IAM Access Analyzer will return an
+   *          error.</p>
+   * @public
+   */
+  resourceType: AccessCheckResourceType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CheckNoPublicAccessResult = {
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckNoPublicAccessResult = (typeof CheckNoPublicAccessResult)[keyof typeof CheckNoPublicAccessResult];
+
+/**
+ * @public
+ */
+export interface CheckNoPublicAccessResponse {
+  /**
+   * <p>The result of the check for public access to the specified resource type. If the result
+   *          is <code>PASS</code>, the policy doesn't allow public access to the specified resource
+   *          type. If the result is <code>FAIL</code>, the policy might allow public access to the
+   *          specified resource type.</p>
+   * @public
+   */
+  result?: CheckNoPublicAccessResult;
+
+  /**
+   * <p>The message indicating whether the specified policy allows public access to
+   *          resources.</p>
+   * @public
+   */
+  message?: string;
+
+  /**
+   * <p>A list of reasons why the specified resource policy grants public access for the
+   *          resource type.</p>
    * @public
    */
   reasons?: ReasonSummary[];
@@ -2415,6 +2520,24 @@ export interface CreateAccessPreviewResponse {
 /**
  * @public
  */
+export interface GenerateFindingRecommendationRequest {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
+   *             the analyzer</a> used to generate the finding recommendation.</p>
+   * @public
+   */
+  analyzerArn: string | undefined;
+
+  /**
+   * <p>The unique ID for the finding recommendation.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetAccessPreviewRequest {
   /**
    * <p>The unique ID for the access preview.</p>
@@ -2851,6 +2974,228 @@ export interface GetFindingResponse {
 /**
  * @public
  */
+export interface GetFindingRecommendationRequest {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
+   *             the analyzer</a> used to generate the finding recommendation.</p>
+   * @public
+   */
+  analyzerArn: string | undefined;
+
+  /**
+   * <p>The unique ID for the finding recommendation.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token used for pagination of results returned.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Contains information about the reason that the retrieval of a recommendation for a
+ *          finding failed.</p>
+ * @public
+ */
+export interface RecommendationError {
+  /**
+   * <p>The error code for a failed retrieval of a recommendation for a finding.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The error message for a failed retrieval of a recommendation for a finding.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationType = {
+  UNUSED_PERMISSION_RECOMMENDATION: "UnusedPermissionRecommendation",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendedRemediationAction = {
+  CREATE_POLICY: "CREATE_POLICY",
+  DETACH_POLICY: "DETACH_POLICY",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendedRemediationAction =
+  (typeof RecommendedRemediationAction)[keyof typeof RecommendedRemediationAction];
+
+/**
+ * <p>Contains information about the action to take for a policy in an unused permissions
+ *          finding.</p>
+ * @public
+ */
+export interface UnusedPermissionsRecommendedStep {
+  /**
+   * <p>The time at which the existing policy for the unused permissions finding was last
+   *          updated.</p>
+   * @public
+   */
+  policyUpdatedAt?: Date;
+
+  /**
+   * <p>A recommendation of whether to create or detach a policy for an unused permissions
+   *          finding.</p>
+   * @public
+   */
+  recommendedAction: RecommendedRemediationAction | undefined;
+
+  /**
+   * <p>If the recommended action for the unused permissions finding is to replace the existing
+   *          policy, the contents of the recommended policy to replace the policy specified in the
+   *             <code>existingPolicyId</code> field.</p>
+   * @public
+   */
+  recommendedPolicy?: string;
+
+  /**
+   * <p>If the recommended action for the unused permissions finding is to detach a policy, the
+   *          ID of an existing policy to be detached.</p>
+   * @public
+   */
+  existingPolicyId?: string;
+}
+
+/**
+ * <p>Contains information about a recommended step for an unused access analyzer
+ *          finding.</p>
+ * @public
+ */
+export type RecommendedStep = RecommendedStep.UnusedPermissionsRecommendedStepMember | RecommendedStep.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecommendedStep {
+  /**
+   * <p>A recommended step for an unused permissions finding.</p>
+   * @public
+   */
+  export interface UnusedPermissionsRecommendedStepMember {
+    unusedPermissionsRecommendedStep: UnusedPermissionsRecommendedStep;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    unusedPermissionsRecommendedStep?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    unusedPermissionsRecommendedStep: (value: UnusedPermissionsRecommendedStep) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RecommendedStep, visitor: Visitor<T>): T => {
+    if (value.unusedPermissionsRecommendedStep !== undefined)
+      return visitor.unusedPermissionsRecommendedStep(value.unusedPermissionsRecommendedStep);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
+export interface GetFindingRecommendationResponse {
+  /**
+   * <p>The time at which the retrieval of the finding recommendation was started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The time at which the retrieval of the finding recommendation was completed.</p>
+   * @public
+   */
+  completedAt?: Date;
+
+  /**
+   * <p>A token used for pagination of results returned.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Detailed information about the reason that the retrieval of a recommendation for the
+   *          finding failed.</p>
+   * @public
+   */
+  error?: RecommendationError;
+
+  /**
+   * <p>The ARN of the resource of the finding.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A group of recommended steps for the finding.</p>
+   * @public
+   */
+  recommendedSteps?: RecommendedStep[];
+
+  /**
+   * <p>The type of recommendation for the finding.</p>
+   * @public
+   */
+  recommendationType: RecommendationType | undefined;
+
+  /**
+   * <p>The status of the retrieval of the finding recommendation.</p>
+   * @public
+   */
+  status: Status | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetFindingV2Request {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
@@ -3010,7 +3355,7 @@ export interface UnusedPermissionDetails {
   serviceNamespace: string | undefined;
 
   /**
-   * <p>The time at which the permission last accessed.</p>
+   * <p>The time at which the permission was last accessed.</p>
    * @public
    */
   lastAccessed?: Date;
@@ -4870,4 +5215,12 @@ export const CheckNoNewAccessRequestFilterSensitiveLog = (obj: CheckNoNewAccessR
   ...obj,
   ...(obj.newPolicyDocument && { newPolicyDocument: SENSITIVE_STRING }),
   ...(obj.existingPolicyDocument && { existingPolicyDocument: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CheckNoPublicAccessRequestFilterSensitiveLog = (obj: CheckNoPublicAccessRequest): any => ({
+  ...obj,
+  ...(obj.policyDocument && { policyDocument: SENSITIVE_STRING }),
 });

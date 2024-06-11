@@ -42,6 +42,10 @@ import {
 } from "../commands/CheckAccessNotGrantedCommand";
 import { CheckNoNewAccessCommandInput, CheckNoNewAccessCommandOutput } from "../commands/CheckNoNewAccessCommand";
 import {
+  CheckNoPublicAccessCommandInput,
+  CheckNoPublicAccessCommandOutput,
+} from "../commands/CheckNoPublicAccessCommand";
+import {
   CreateAccessPreviewCommandInput,
   CreateAccessPreviewCommandOutput,
 } from "../commands/CreateAccessPreviewCommand";
@@ -49,6 +53,10 @@ import { CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput } from "../comm
 import { CreateArchiveRuleCommandInput, CreateArchiveRuleCommandOutput } from "../commands/CreateArchiveRuleCommand";
 import { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "../commands/DeleteAnalyzerCommand";
 import { DeleteArchiveRuleCommandInput, DeleteArchiveRuleCommandOutput } from "../commands/DeleteArchiveRuleCommand";
+import {
+  GenerateFindingRecommendationCommandInput,
+  GenerateFindingRecommendationCommandOutput,
+} from "../commands/GenerateFindingRecommendationCommand";
 import { GetAccessPreviewCommandInput, GetAccessPreviewCommandOutput } from "../commands/GetAccessPreviewCommand";
 import {
   GetAnalyzedResourceCommandInput,
@@ -57,6 +65,10 @@ import {
 import { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "../commands/GetAnalyzerCommand";
 import { GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput } from "../commands/GetArchiveRuleCommand";
 import { GetFindingCommandInput, GetFindingCommandOutput } from "../commands/GetFindingCommand";
+import {
+  GetFindingRecommendationCommandInput,
+  GetFindingRecommendationCommandOutput,
+} from "../commands/GetFindingRecommendationCommand";
 import { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "../commands/GetFindingV2Command";
 import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "../commands/GetGeneratedPolicyCommand";
 import {
@@ -135,6 +147,7 @@ import {
   RdsDbClusterSnapshotConfiguration,
   RdsDbSnapshotAttributeValue,
   RdsDbSnapshotConfiguration,
+  RecommendedStep,
   ResourceNotFoundException,
   S3AccessPointConfiguration,
   S3BucketAclGrantConfiguration,
@@ -155,6 +168,7 @@ import {
   UnusedIamUserAccessKeyDetails,
   UnusedIamUserPasswordDetails,
   UnusedPermissionDetails,
+  UnusedPermissionsRecommendedStep,
   ValidationException,
   VpcConfiguration,
 } from "../models/models_0";
@@ -241,6 +255,29 @@ export const se_CheckNoNewAccessCommand = async (
       existingPolicyDocument: [],
       newPolicyDocument: [],
       policyType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CheckNoPublicAccessCommand
+ */
+export const se_CheckNoPublicAccessCommand = async (
+  input: CheckNoPublicAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/policy/check-no-public-access");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      policyDocument: [],
+      resourceType: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -363,6 +400,25 @@ export const se_DeleteArchiveRuleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GenerateFindingRecommendationCommand
+ */
+export const se_GenerateFindingRecommendationCommand = async (
+  input: GenerateFindingRecommendationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/recommendation/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  const query: any = map({
+    [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAccessPreviewCommand
  */
 export const se_GetAccessPreviewCommand = async (
@@ -446,6 +502,27 @@ export const se_GetFindingCommand = async (
   b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
     [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFindingRecommendationCommand
+ */
+export const se_GetFindingRecommendationCommand = async (
+  input: GetFindingRecommendationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/recommendation/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  const query: any = map({
+    [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -946,6 +1023,29 @@ export const de_CheckNoNewAccessCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CheckNoPublicAccessCommand
+ */
+export const de_CheckNoPublicAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckNoPublicAccessCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+    reasons: _json,
+    result: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateAccessPreviewCommand
  */
 export const de_CreateAccessPreviewCommand = async (
@@ -1028,6 +1128,23 @@ export const de_DeleteArchiveRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteArchiveRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GenerateFindingRecommendationCommand
+ */
+export const de_GenerateFindingRecommendationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateFindingRecommendationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1138,6 +1255,34 @@ export const de_GetFindingCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     finding: (_) => de_Finding(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFindingRecommendationCommand
+ */
+export const de_GetFindingRecommendationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingRecommendationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    completedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    error: _json,
+    nextToken: __expectString,
+    recommendationType: __expectString,
+    recommendedSteps: (_) => de_RecommendedStepList(_, context),
+    resourceArn: __expectString,
+    startedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1843,6 +1988,8 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 
 // se_RegionList omitted.
 
+// se_ResourcesList omitted.
+
 // se_S3AccessPointConfiguration omitted.
 
 // se_S3AccessPointConfigurationsMap omitted.
@@ -2326,6 +2473,35 @@ const de_PolicyGenerationList = (output: any, context: __SerdeContext): PolicyGe
 
 // de_ReasonSummaryList omitted.
 
+// de_RecommendationError omitted.
+
+/**
+ * deserializeAws_restJson1RecommendedStep
+ */
+const de_RecommendedStep = (output: any, context: __SerdeContext): RecommendedStep => {
+  if (output.unusedPermissionsRecommendedStep != null) {
+    return {
+      unusedPermissionsRecommendedStep: de_UnusedPermissionsRecommendedStep(
+        output.unusedPermissionsRecommendedStep,
+        context
+      ),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1RecommendedStepList
+ */
+const de_RecommendedStepList = (output: any, context: __SerdeContext): RecommendedStep[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RecommendedStep(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
 // de_RegionList omitted.
 
 // de_S3AccessPointConfiguration omitted.
@@ -2422,6 +2598,21 @@ const de_UnusedPermissionDetails = (output: any, context: __SerdeContext): Unuse
     actions: (_: any) => de_UnusedActionList(_, context),
     lastAccessed: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     serviceNamespace: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UnusedPermissionsRecommendedStep
+ */
+const de_UnusedPermissionsRecommendedStep = (
+  output: any,
+  context: __SerdeContext
+): UnusedPermissionsRecommendedStep => {
+  return take(output, {
+    existingPolicyId: __expectString,
+    policyUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    recommendedAction: __expectString,
+    recommendedPolicy: __expectString,
   }) as any;
 };
 

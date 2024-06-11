@@ -64,6 +64,10 @@ import {
 } from "./commands/CheckAccessNotGrantedCommand";
 import { CheckNoNewAccessCommandInput, CheckNoNewAccessCommandOutput } from "./commands/CheckNoNewAccessCommand";
 import {
+  CheckNoPublicAccessCommandInput,
+  CheckNoPublicAccessCommandOutput,
+} from "./commands/CheckNoPublicAccessCommand";
+import {
   CreateAccessPreviewCommandInput,
   CreateAccessPreviewCommandOutput,
 } from "./commands/CreateAccessPreviewCommand";
@@ -71,6 +75,10 @@ import { CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput } from "./comma
 import { CreateArchiveRuleCommandInput, CreateArchiveRuleCommandOutput } from "./commands/CreateArchiveRuleCommand";
 import { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "./commands/DeleteAnalyzerCommand";
 import { DeleteArchiveRuleCommandInput, DeleteArchiveRuleCommandOutput } from "./commands/DeleteArchiveRuleCommand";
+import {
+  GenerateFindingRecommendationCommandInput,
+  GenerateFindingRecommendationCommandOutput,
+} from "./commands/GenerateFindingRecommendationCommand";
 import { GetAccessPreviewCommandInput, GetAccessPreviewCommandOutput } from "./commands/GetAccessPreviewCommand";
 import {
   GetAnalyzedResourceCommandInput,
@@ -79,6 +87,10 @@ import {
 import { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "./commands/GetAnalyzerCommand";
 import { GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput } from "./commands/GetArchiveRuleCommand";
 import { GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
+import {
+  GetFindingRecommendationCommandInput,
+  GetFindingRecommendationCommandOutput,
+} from "./commands/GetFindingRecommendationCommand";
 import { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "./commands/GetFindingV2Command";
 import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "./commands/GetGeneratedPolicyCommand";
 import {
@@ -131,16 +143,19 @@ export type ServiceInputTypes =
   | CancelPolicyGenerationCommandInput
   | CheckAccessNotGrantedCommandInput
   | CheckNoNewAccessCommandInput
+  | CheckNoPublicAccessCommandInput
   | CreateAccessPreviewCommandInput
   | CreateAnalyzerCommandInput
   | CreateArchiveRuleCommandInput
   | DeleteAnalyzerCommandInput
   | DeleteArchiveRuleCommandInput
+  | GenerateFindingRecommendationCommandInput
   | GetAccessPreviewCommandInput
   | GetAnalyzedResourceCommandInput
   | GetAnalyzerCommandInput
   | GetArchiveRuleCommandInput
   | GetFindingCommandInput
+  | GetFindingRecommendationCommandInput
   | GetFindingV2CommandInput
   | GetGeneratedPolicyCommandInput
   | ListAccessPreviewFindingsCommandInput
@@ -168,16 +183,19 @@ export type ServiceOutputTypes =
   | CancelPolicyGenerationCommandOutput
   | CheckAccessNotGrantedCommandOutput
   | CheckNoNewAccessCommandOutput
+  | CheckNoPublicAccessCommandOutput
   | CreateAccessPreviewCommandOutput
   | CreateAnalyzerCommandOutput
   | CreateArchiveRuleCommandOutput
   | DeleteAnalyzerCommandOutput
   | DeleteArchiveRuleCommandOutput
+  | GenerateFindingRecommendationCommandOutput
   | GetAccessPreviewCommandOutput
   | GetAnalyzedResourceCommandOutput
   | GetAnalyzerCommandOutput
   | GetArchiveRuleCommandOutput
   | GetFindingCommandOutput
+  | GetFindingRecommendationCommandOutput
   | GetFindingV2CommandOutput
   | GetGeneratedPolicyCommandOutput
   | ListAccessPreviewFindingsCommandOutput
