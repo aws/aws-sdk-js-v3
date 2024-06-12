@@ -1146,6 +1146,10 @@ import {
 import { DescribeSubnetsCommandInput, DescribeSubnetsCommandOutput } from "./commands/DescribeSubnetsCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
+  DescribeTrafficMirrorFilterRulesCommandInput,
+  DescribeTrafficMirrorFilterRulesCommandOutput,
+} from "./commands/DescribeTrafficMirrorFilterRulesCommand";
+import {
   DescribeTrafficMirrorFiltersCommandInput,
   DescribeTrafficMirrorFiltersCommandOutput,
 } from "./commands/DescribeTrafficMirrorFiltersCommand";
@@ -2501,6 +2505,7 @@ export type ServiceInputTypes =
   | DescribeStoreImageTasksCommandInput
   | DescribeSubnetsCommandInput
   | DescribeTagsCommandInput
+  | DescribeTrafficMirrorFilterRulesCommandInput
   | DescribeTrafficMirrorFiltersCommandInput
   | DescribeTrafficMirrorSessionsCommandInput
   | DescribeTrafficMirrorTargetsCommandInput
@@ -3127,6 +3132,7 @@ export type ServiceOutputTypes =
   | DescribeStoreImageTasksCommandOutput
   | DescribeSubnetsCommandOutput
   | DescribeTagsCommandOutput
+  | DescribeTrafficMirrorFilterRulesCommandOutput
   | DescribeTrafficMirrorFiltersCommandOutput
   | DescribeTrafficMirrorSessionsCommandOutput
   | DescribeTrafficMirrorTargetsCommandOutput

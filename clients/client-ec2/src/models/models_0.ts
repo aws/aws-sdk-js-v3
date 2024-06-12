@@ -223,6 +223,7 @@ export const ResourceType = {
   volume: "volume",
   vpc: "vpc",
   vpc_block_public_access_exclusion: "vpc-block-public-access-exclusion",
+  vpc_encryption_control: "vpc-encryption-control",
   vpc_endpoint: "vpc-endpoint",
   vpc_endpoint_connection: "vpc-endpoint-connection",
   vpc_endpoint_connection_device_type: "vpc-endpoint-connection-device-type",

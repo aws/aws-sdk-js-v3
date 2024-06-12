@@ -78,6 +78,12 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * //           DestinationCidrBlock: "STRING_VALUE",
  * //           SourceCidrBlock: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           Tags: [ // TagList
+ * //             { // Tag
+ * //               Key: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       EgressFilterRules: [
@@ -99,14 +105,20 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * //           DestinationCidrBlock: "STRING_VALUE",
  * //           SourceCidrBlock: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           Tags: [
+ * //             {
+ * //               Key: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       NetworkServices: [ // TrafficMirrorNetworkServiceList
  * //         "amazon-dns",
  * //       ],
  * //       Description: "STRING_VALUE",
- * //       Tags: [ // TagList
- * //         { // Tag
+ * //       Tags: [
+ * //         {
  * //           Key: "STRING_VALUE",
  * //           Value: "STRING_VALUE",
  * //         },

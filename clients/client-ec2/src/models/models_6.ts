@@ -149,7 +149,6 @@ import {
 
 import {
   InstanceFamilyCreditSpecification,
-  IpamAddressHistoryRecord,
   IpamComplianceStatus,
   IpamOverlapStatus,
   SnapshotBlockPublicAccessState,
@@ -158,6 +157,97 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamAddressHistoryResourceType = {
+  eip: "eip",
+  instance: "instance",
+  network_interface: "network-interface",
+  subnet: "subnet",
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamAddressHistoryResourceType =
+  (typeof IpamAddressHistoryResourceType)[keyof typeof IpamAddressHistoryResourceType];
+
+/**
+ * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
+ *       </p>
+ * @public
+ */
+export interface IpamAddressHistoryRecord {
+  /**
+   * <p>The ID of the resource owner.</p>
+   * @public
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The Amazon Web Services Region of the resource.</p>
+   * @public
+   */
+  ResourceRegion?: string;
+
+  /**
+   * <p>The type of the resource.</p>
+   * @public
+   */
+  ResourceType?: IpamAddressHistoryResourceType;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The CIDR of the resource.</p>
+   * @public
+   */
+  ResourceCidr?: string;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  ResourceName?: string;
+
+  /**
+   * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  ResourceComplianceStatus?: IpamComplianceStatus;
+
+  /**
+   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  ResourceOverlapStatus?: IpamOverlapStatus;
+
+  /**
+   * <p>The VPC ID of the resource.</p>
+   * @public
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Sampled start time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the start time may have occurred before this specific time.</p>
+   * @public
+   */
+  SampledStartTime?: Date;
+
+  /**
+   * <p>Sampled end time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the end time may have occurred before this specific time.</p>
+   * @public
+   */
+  SampledEndTime?: Date;
+}
 
 /**
  * @public
@@ -7250,7 +7340,10 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
  */
 export interface ModifyTrafficMirrorFilterRuleResult {
   /**
-   * <p>Modifies a Traffic Mirror rule.</p>
+   * <note>
+   *             <p>Tags are not returned for ModifyTrafficMirrorFilterRule.</p>
+   *          </note>
+   *          <p>A Traffic Mirror rule.</p>
    * @public
    */
   TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
@@ -9521,56 +9614,6 @@ export interface ProvisionByoipCidrResult {
    * @public
    */
   ByoipCidr?: ByoipCidr;
-}
-
-/**
- * <p>Provides authorization for Amazon to bring an Autonomous System Number (ASN) to a specific Amazon Web Services account using bring your own ASN (BYOASN).
- *             For details on the format of the message and signature, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
- * @public
- */
-export interface AsnAuthorizationContext {
-  /**
-   * <p>The authorization context's message.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The authorization context's signature.</p>
-   * @public
-   */
-  Signature: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionIpamByoasnRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>An IPAM ID.</p>
-   * @public
-   */
-  IpamId: string | undefined;
-
-  /**
-   * <p>A public 2-byte or 4-byte ASN.</p>
-   * @public
-   */
-  Asn: string | undefined;
-
-  /**
-   * <p>An ASN authorization context.</p>
-   * @public
-   */
-  AsnAuthorizationContext: AsnAuthorizationContext | undefined;
 }
 
 /**

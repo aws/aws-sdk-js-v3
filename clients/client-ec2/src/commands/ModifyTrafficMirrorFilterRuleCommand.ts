@@ -83,6 +83,12 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * //     DestinationCidrBlock: "STRING_VALUE",
  * //     SourceCidrBlock: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -49,6 +49,7 @@ import {
   SSEType,
   State,
   TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
   TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
@@ -819,6 +820,105 @@ export interface DescribeTagsResult {
    * @public
    */
   Tags?: TagDescription[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorFilterRulesRequest {
+  /**
+   * <p>Traffic filter rule IDs.</p>
+   * @public
+   */
+  TrafficMirrorFilterRuleIds?: string[];
+
+  /**
+   * <p>Traffic filter ID.</p>
+   * @public
+   */
+  TrafficMirrorFilterId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Traffic mirror filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-rule-id</code>: The ID of the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-id</code>: The ID of the filter that this rule is associated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rule-number</code>: The number of the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rule-action</code>: The action taken on the filtered traffic. Possible actions are <code>accept</code> and <code>reject</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-direction</code>: The traffic direction. Possible directions are <code>ingress</code> and <code>egress</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>protocol</code>: The protocol, for example UDP, assigned to the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-cidr-block</code>: The source CIDR block assigned to the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>destination-cidr-block</code>: The destination CIDR block assigned to the Traffic Mirror rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The description of the Traffic Mirror rule.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorFilterRulesResult {
+  /**
+   * <p>Traffic mirror rules.</p>
+   * @public
+   */
+  TrafficMirrorFilterRules?: TrafficMirrorFilterRule[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
@@ -8688,97 +8788,6 @@ export const IpamOverlapStatus = {
  * @public
  */
 export type IpamOverlapStatus = (typeof IpamOverlapStatus)[keyof typeof IpamOverlapStatus];
-
-/**
- * @public
- * @enum
- */
-export const IpamAddressHistoryResourceType = {
-  eip: "eip",
-  instance: "instance",
-  network_interface: "network-interface",
-  subnet: "subnet",
-  vpc: "vpc",
-} as const;
-
-/**
- * @public
- */
-export type IpamAddressHistoryResourceType =
-  (typeof IpamAddressHistoryResourceType)[keyof typeof IpamAddressHistoryResourceType];
-
-/**
- * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
- * @public
- */
-export interface IpamAddressHistoryRecord {
-  /**
-   * <p>The ID of the resource owner.</p>
-   * @public
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * <p>The Amazon Web Services Region of the resource.</p>
-   * @public
-   */
-  ResourceRegion?: string;
-
-  /**
-   * <p>The type of the resource.</p>
-   * @public
-   */
-  ResourceType?: IpamAddressHistoryResourceType;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The CIDR of the resource.</p>
-   * @public
-   */
-  ResourceCidr?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   * @public
-   */
-  ResourceName?: string;
-
-  /**
-   * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  ResourceComplianceStatus?: IpamComplianceStatus;
-
-  /**
-   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  ResourceOverlapStatus?: IpamOverlapStatus;
-
-  /**
-   * <p>The VPC ID of the resource.</p>
-   * @public
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Sampled start time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the start time may have occurred before this specific time.</p>
-   * @public
-   */
-  SampledStartTime?: Date;
-
-  /**
-   * <p>Sampled end time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the end time may have occurred before this specific time.</p>
-   * @public
-   */
-  SampledEndTime?: Date;
-}
 
 /**
  * @internal

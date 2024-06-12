@@ -1624,6 +1624,11 @@ import {
   DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
+  DescribeTrafficMirrorFilterRulesCommand,
+  DescribeTrafficMirrorFilterRulesCommandInput,
+  DescribeTrafficMirrorFilterRulesCommandOutput,
+} from "./commands/DescribeTrafficMirrorFilterRulesCommand";
+import {
   DescribeTrafficMirrorFiltersCommand,
   DescribeTrafficMirrorFiltersCommandInput,
   DescribeTrafficMirrorFiltersCommandOutput,
@@ -3375,6 +3380,7 @@ const commands = {
   DescribeStoreImageTasksCommand,
   DescribeSubnetsCommand,
   DescribeTagsCommand,
+  DescribeTrafficMirrorFilterRulesCommand,
   DescribeTrafficMirrorFiltersCommand,
   DescribeTrafficMirrorSessionsCommand,
   DescribeTrafficMirrorTargetsCommand,
@@ -9228,6 +9234,24 @@ export interface EC2 {
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTrafficMirrorFilterRulesCommand}
+   */
+  describeTrafficMirrorFilterRules(): Promise<DescribeTrafficMirrorFilterRulesCommandOutput>;
+  describeTrafficMirrorFilterRules(
+    args: DescribeTrafficMirrorFilterRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrafficMirrorFilterRulesCommandOutput>;
+  describeTrafficMirrorFilterRules(
+    args: DescribeTrafficMirrorFilterRulesCommandInput,
+    cb: (err: any, data?: DescribeTrafficMirrorFilterRulesCommandOutput) => void
+  ): void;
+  describeTrafficMirrorFilterRules(
+    args: DescribeTrafficMirrorFilterRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrafficMirrorFilterRulesCommandOutput) => void
   ): void;
 
   /**

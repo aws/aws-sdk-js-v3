@@ -83,6 +83,56 @@ import { Purchase } from "./models_5";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
 
 /**
+ * <p>Provides authorization for Amazon to bring an Autonomous System Number (ASN) to a specific Amazon Web Services account using bring your own ASN (BYOASN).
+ *             For details on the format of the message and signature, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ * @public
+ */
+export interface AsnAuthorizationContext {
+  /**
+   * <p>The authorization context's message.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The authorization context's signature.</p>
+   * @public
+   */
+  Signature: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionIpamByoasnRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>An IPAM ID.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>A public 2-byte or 4-byte ASN.</p>
+   * @public
+   */
+  Asn: string | undefined;
+
+  /**
+   * <p>An ASN authorization context.</p>
+   * @public
+   */
+  AsnAuthorizationContext: AsnAuthorizationContext | undefined;
+}
+
+/**
  * @public
  */
 export interface ProvisionIpamByoasnResult {

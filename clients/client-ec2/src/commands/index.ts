@@ -332,6 +332,7 @@ export * from "./DescribeStaleSecurityGroupsCommand";
 export * from "./DescribeStoreImageTasksCommand";
 export * from "./DescribeSubnetsCommand";
 export * from "./DescribeTagsCommand";
+export * from "./DescribeTrafficMirrorFilterRulesCommand";
 export * from "./DescribeTrafficMirrorFiltersCommand";
 export * from "./DescribeTrafficMirrorSessionsCommand";
 export * from "./DescribeTrafficMirrorTargetsCommand";

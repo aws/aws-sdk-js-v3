@@ -1117,6 +1117,10 @@ import {
 import { DescribeSubnetsCommandInput, DescribeSubnetsCommandOutput } from "../commands/DescribeSubnetsCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "../commands/DescribeTagsCommand";
 import {
+  DescribeTrafficMirrorFilterRulesCommandInput,
+  DescribeTrafficMirrorFilterRulesCommandOutput,
+} from "../commands/DescribeTrafficMirrorFilterRulesCommand";
+import {
   DescribeTrafficMirrorFiltersCommandInput,
   DescribeTrafficMirrorFiltersCommandOutput,
 } from "../commands/DescribeTrafficMirrorFiltersCommand";
@@ -3383,6 +3387,8 @@ import {
   DescribeSubnetsResult,
   DescribeTagsRequest,
   DescribeTagsResult,
+  DescribeTrafficMirrorFilterRulesRequest,
+  DescribeTrafficMirrorFilterRulesResult,
   DescribeTrafficMirrorFiltersRequest,
   DescribeTrafficMirrorFiltersResult,
   DescribeTrafficMirrorSessionsRequest,
@@ -3618,7 +3624,6 @@ import {
   InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
-  IpamAddressHistoryRecord,
   Ipv6CidrAssociation,
   MetricPoint,
   PrivateDnsDetails,
@@ -3649,7 +3654,6 @@ import {
   VpcEndpointConnection,
 } from "../models/models_5";
 import {
-  AsnAuthorizationContext,
   BlobAttributeValue,
   CapacityReservationSpecification,
   CidrAuthorizationContext,
@@ -3740,6 +3744,7 @@ import {
   InstanceCreditSpecificationRequest,
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
+  IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
   IpamDiscoveredPublicAddress,
   IpamDiscoveredResourceCidr,
@@ -3899,7 +3904,6 @@ import {
   PrefixListEntry,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
-  ProvisionIpamByoasnRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3934,6 +3938,7 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_6";
 import {
+  AsnAuthorizationContext,
   CpuOptionsRequest,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
@@ -3946,6 +3951,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionIpamByoasnRequest,
   ProvisionIpamByoasnResult,
   ProvisionIpamPoolCidrRequest,
   ProvisionIpamPoolCidrResult,
@@ -9743,6 +9749,23 @@ export const se_DescribeTagsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeTagsRequest(input, context),
     [_A]: _DTe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeTrafficMirrorFilterRulesCommand
+ */
+export const se_DescribeTrafficMirrorFilterRulesCommand = async (
+  input: DescribeTrafficMirrorFilterRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeTrafficMirrorFilterRulesRequest(input, context),
+    [_A]: _DTMFRe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -21224,6 +21247,26 @@ export const de_DescribeTagsCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DescribeTrafficMirrorFilterRulesCommand
+ */
+export const de_DescribeTrafficMirrorFilterRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrafficMirrorFilterRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrafficMirrorFilterRulesResult(data, context);
+  const response: DescribeTrafficMirrorFilterRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DescribeTrafficMirrorFiltersCommand
  */
 export const de_DescribeTrafficMirrorFiltersCommand = async (
@@ -31373,6 +31416,13 @@ const se_CreateTrafficMirrorFilterRuleRequest = (
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -37640,6 +37690,43 @@ const se_DescribeSubnetsRequest = (input: DescribeSubnetsRequest, context: __Ser
  */
 const se_DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeTrafficMirrorFilterRulesRequest
+ */
+const se_DescribeTrafficMirrorFilterRulesRequest = (
+  input: DescribeTrafficMirrorFilterRulesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_TMFRIr] != null) {
+    const memberEntries = se_TrafficMirrorFilterRuleIdList(input[_TMFRIr], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TrafficMirrorFilterRuleId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_TMFI] != null) {
+    entries[_TMFI] = input[_TMFI];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -52515,6 +52602,22 @@ const se_TrafficMirrorFilterRuleFieldList = (input: TrafficMirrorFilterRuleField
 };
 
 /**
+ * serializeAws_ec2TrafficMirrorFilterRuleIdList
+ */
+const se_TrafficMirrorFilterRuleIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2TrafficMirrorNetworkServiceList
  */
 const se_TrafficMirrorNetworkServiceList = (input: TrafficMirrorNetworkService[], context: __SerdeContext): any => {
@@ -61376,6 +61479,25 @@ const de_DescribeTagsResult = (output: any, context: __SerdeContext): DescribeTa
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagDescriptionList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeTrafficMirrorFilterRulesResult
+ */
+const de_DescribeTrafficMirrorFilterRulesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeTrafficMirrorFilterRulesResult => {
+  const contents: any = {};
+  if (output.trafficMirrorFilterRuleSet === "") {
+    contents[_TMFRr] = [];
+  } else if (output[_tMFRS] != null && output[_tMFRS][_i] != null) {
+    contents[_TMFRr] = de_TrafficMirrorFilterRuleSet(__getArrayIfSingleItem(output[_tMFRS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
   }
   return contents;
 };
@@ -78260,6 +78382,11 @@ const de_TrafficMirrorFilterRule = (output: any, context: __SerdeContext): Traff
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
   }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
   return contents;
 };
 
@@ -78267,6 +78394,17 @@ const de_TrafficMirrorFilterRule = (output: any, context: __SerdeContext): Traff
  * deserializeAws_ec2TrafficMirrorFilterRuleList
  */
 const de_TrafficMirrorFilterRuleList = (output: any, context: __SerdeContext): TrafficMirrorFilterRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrafficMirrorFilterRule(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2TrafficMirrorFilterRuleSet
+ */
+const de_TrafficMirrorFilterRuleSet = (output: any, context: __SerdeContext): TrafficMirrorFilterRule[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -82612,6 +82750,7 @@ const _DTI = "DisassociateTrunkInterface";
 const _DTIA = "DescribeTrunkInterfaceAssociations";
 const _DTMF = "DeleteTrafficMirrorFilter";
 const _DTMFR = "DeleteTrafficMirrorFilterRule";
+const _DTMFRe = "DescribeTrafficMirrorFilterRules";
 const _DTMFe = "DescribeTrafficMirrorFilters";
 const _DTMS = "DeleteTrafficMirrorSession";
 const _DTMSe = "DescribeTrafficMirrorSessions";
@@ -84158,6 +84297,8 @@ const _TMFI = "TrafficMirrorFilterId";
 const _TMFIr = "TrafficMirrorFilterIds";
 const _TMFR = "TrafficMirrorFilterRule";
 const _TMFRI = "TrafficMirrorFilterRuleId";
+const _TMFRIr = "TrafficMirrorFilterRuleIds";
+const _TMFRr = "TrafficMirrorFilterRules";
 const _TMFr = "TrafficMirrorFilters";
 const _TMMIMB = "TotalMediaMemoryInMiB";
 const _TMS = "TrafficMirrorSession";
@@ -85825,6 +85966,7 @@ const _tMF = "trafficMirrorFilter";
 const _tMFI = "trafficMirrorFilterId";
 const _tMFR = "trafficMirrorFilterRule";
 const _tMFRI = "trafficMirrorFilterRuleId";
+const _tMFRS = "trafficMirrorFilterRuleSet";
 const _tMFS = "trafficMirrorFilterSet";
 const _tMMIMB = "totalMediaMemoryInMiB";
 const _tMS = "trafficMirrorSession";

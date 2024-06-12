@@ -2346,7 +2346,7 @@ export interface CreateTrafficMirrorFilterRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2468,6 +2468,12 @@ export interface TrafficMirrorFilterRule {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>Tags on Traffic Mirroring filter rules.</p>
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -2537,7 +2543,7 @@ export interface CreateTrafficMirrorFilterResult {
   TrafficMirrorFilter?: TrafficMirrorFilter;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2636,10 +2642,16 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
+
+  /**
+   * <p>Traffic Mirroring tags specifications.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 /**
@@ -2653,7 +2665,7 @@ export interface CreateTrafficMirrorFilterRuleResult {
   TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2702,8 +2714,8 @@ export interface CreateTrafficMirrorSessionRequest {
 
   /**
    * <p>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN
-   *          protocol, see <a href="https://tools.ietf.org/html/rfc7348">RFC 7348</a>. If you do
-   *          not specify a <code>VirtualNetworkId</code>, an account-wide unique id is chosen at
+   *          protocol, see <a href="https://datatracker.ietf.org/doc/html/rfc7348">RFC 7348</a>. If you do
+   *          not specify a <code>VirtualNetworkId</code>, an account-wide unique ID is chosen at
    *          random.</p>
    * @public
    */
@@ -2730,7 +2742,7 @@ export interface CreateTrafficMirrorSessionRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2814,7 +2826,7 @@ export interface CreateTrafficMirrorSessionResult {
   TrafficMirrorSession?: TrafficMirrorSession;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2857,7 +2869,7 @@ export interface CreateTrafficMirrorTargetRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2949,7 +2961,7 @@ export interface CreateTrafficMirrorTargetResult {
   TrafficMirrorTarget?: TrafficMirrorTarget;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
