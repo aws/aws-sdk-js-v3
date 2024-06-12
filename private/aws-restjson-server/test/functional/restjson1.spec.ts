@@ -9,7 +9,7 @@ import {
 import { streamCollector as __streamCollector } from "@smithy/node-http-handler";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Encoder as __Encoder } from "@smithy/types";
-import { HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { toUtf8 as __utf8Encoder } from "@smithy/util-utf8";
 import { Readable } from "stream";
 
@@ -243,7 +243,9 @@ class RequestSerializationTestHandler implements HttpHandler {
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
+
   updateHttpClientConfig(key: never, value: never): void {}
+
   httpHandlerConfigs() {
     return {};
   }
@@ -256,9 +258,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   isSuccess: boolean;
   code: number;
   headers: HeaderBag;
-  body: String;
+  body: string | Uint8Array;
+  isBase64Body: boolean;
 
-  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: string) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -270,6 +273,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
       body = "";
     }
     this.body = body;
+    this.isBase64Body = String(body).length > 0 && Buffer.from(String(body), "base64").toString("base64") === body;
   }
 
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
@@ -277,11 +281,13 @@ class ResponseDeserializationTestHandler implements HttpHandler {
       response: new HttpResponse({
         statusCode: this.code,
         headers: this.headers,
-        body: Readable.from([this.body]),
+        body: this.isBase64Body ? toBytes(this.body as string) : Readable.from([this.body]),
       }),
     });
   }
+
   updateHttpClientConfig(key: never, value: never): void {}
+
   httpHandlerConfigs() {
     return {};
   }
@@ -322,11 +328,20 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
+  if (typeof (global as any).expect === "function") {
+    expect(normalizeByteArrayType(generated)).toEqual(normalizeByteArrayType(expected));
+    return true;
+  }
+
   const localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
     return true;
+  }
+
+  if (typeof expected !== "object") {
+    return expected === generated;
   }
 
   // If a test fails with an issue in the below 6 lines, it's likely
@@ -359,6 +374,14 @@ const equivalentContents = (expected: any, generated: any): boolean => {
 const clientParams = {
   region: "us-west-2",
   credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+  endpoint: () => {
+    const url = new URL("https://www.amazon.com/");
+    return Promise.resolve({
+      ...url,
+      path: url.pathname,
+      ...(url.port ? { port: Number(url.port) } : {}),
+    }) as Promise<Endpoint>;
+  },
 };
 
 /**
@@ -368,6 +391,37 @@ const clientParams = {
 const fail = (error?: any): never => {
   throw new Error(error);
 };
+
+/**
+ * Hexadecimal to byteArray.
+ */
+const toBytes = (hex: string) => {
+  return Buffer.from(hex, "base64");
+};
+
+function normalizeByteArrayType(data: any) {
+  // normalize float32 errors
+  if (typeof data === "number") {
+    const u = new Uint8Array(4);
+    const dv = new DataView(u.buffer, u.byteOffset, u.byteLength);
+    dv.setFloat32(0, data);
+    return dv.getFloat32(0);
+  }
+  if (!data || typeof data !== "object") {
+    return data;
+  }
+  if (data instanceof Uint8Array) {
+    return Uint8Array.from(data);
+  }
+  if (data instanceof String || data instanceof Boolean || data instanceof Number) {
+    return data.valueOf();
+  }
+  const output = {} as any;
+  for (const key of Object.getOwnPropertyNames(data)) {
+    output[key] = normalizeByteArrayType(data[key]);
+  }
+  return output;
+}
 
 /**
  * Serializes query string parameters with all supported types
@@ -424,115 +478,52 @@ it("RestJsonAllQueryStringTypes:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       queryString: "Hello there",
-
       queryStringList: ["a", "b", "c"],
-
       queryStringSet: ["a", "b", "c"],
-
       queryByte: 1,
-
       queryShort: 2,
-
       queryInteger: 3,
-
-      queryIntegerList: [
-        1,
-
-        2,
-
-        3,
-      ],
-
-      queryIntegerSet: [
-        1,
-
-        2,
-
-        3,
-      ],
-
+      queryIntegerList: [1, 2, 3],
+      queryIntegerSet: [1, 2, 3],
       queryLong: 4,
-
       queryFloat: 1.1,
-
       queryDouble: 1.1,
-
-      queryDoubleList: [
-        1.1,
-
-        2.1,
-
-        3.1,
-      ],
-
+      queryDoubleList: [1.1, 2.1, 3.1],
       queryBoolean: true,
-
       queryBooleanList: [true, false, true],
-
       queryTimestamp: new Date(1 * 1000),
-
       queryTimestampList: [new Date(1 * 1000), new Date(2 * 1000), new Date(3 * 1000)],
-
       queryEnum: "Foo",
-
       queryEnumList: ["Foo", "Baz", "Bar"],
-
       queryIntegerEnum: 1,
-
-      queryIntegerEnumList: [
-        1,
-
-        2,
-
-        3,
-      ],
-
+      queryIntegerEnumList: [1, 2, 3],
       queryParamsMapOfStringList: {
         String: ["Hello there"],
-
         StringList: ["a", "b", "c"],
-
         StringSet: ["a", "b", "c"],
-
         Byte: ["1"],
-
         Short: ["2"],
-
         Integer: ["3"],
-
         IntegerList: ["1", "2", "3"],
-
         IntegerSet: ["1", "2", "3"],
-
         Long: ["4"],
-
         Float: ["1.1"],
-
         Double: ["1.1"],
-
         DoubleList: ["1.1", "2.1", "3.1"],
-
         Boolean: ["true"],
-
         BooleanList: ["true", "false", "true"],
-
         Timestamp: ["1970-01-01T00:00:01Z"],
-
         TimestampList: ["1970-01-01T00:00:01Z", "1970-01-01T00:00:02Z", "1970-01-01T00:00:03Z"],
-
         Enum: ["Foo"],
-
         EnumList: ["Foo", "Baz", "Bar"],
-
         IntegerEnum: ["1"],
-
         IntegerEnumList: ["1", "2", "3"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -574,14 +565,13 @@ it("RestJsonQueryStringMap:ServerRequest", async () => {
     {
       queryParamsMapOfStringList: {
         QueryParamsStringKeyA: ["Foo"],
-
         QueryParamsStringKeyB: ["Bar"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -621,7 +611,6 @@ it("RestJsonQueryStringEscaping:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       queryString: " %:/?#[]@!$&'()*+,;=😹",
-
       queryParamsMapOfStringList: {
         String: [" %:/?#[]@!$&'()*+,;=😹"],
       },
@@ -629,7 +618,7 @@ it("RestJsonQueryStringEscaping:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -670,19 +659,16 @@ it("RestJsonSupportsNaNFloatQueryValues:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       queryFloat: NaN,
-
       queryDouble: NaN,
-
       queryParamsMapOfStringList: {
         Float: ["NaN"],
-
         Double: ["NaN"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -723,19 +709,16 @@ it("RestJsonSupportsInfinityFloatQueryValues:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       queryFloat: Infinity,
-
       queryDouble: Infinity,
-
       queryParamsMapOfStringList: {
         Float: ["Infinity"],
-
         Double: ["Infinity"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -776,19 +759,16 @@ it("RestJsonSupportsNegativeInfinityFloatQueryValues:ServerRequest", async () =>
   const paramsToValidate: any = [
     {
       queryFloat: -Infinity,
-
       queryDouble: -Infinity,
-
       queryParamsMapOfStringList: {
         Float: ["-Infinity"],
-
         Double: ["-Infinity"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -829,19 +809,16 @@ it("RestJsonZeroAndFalseQueryValues:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       queryInteger: 0,
-
       queryBoolean: false,
-
       queryParamsMapOfStringList: {
         Integer: ["0"],
-
         Boolean: ["false"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -886,7 +863,7 @@ it("RestJsonConstantAndVariableQueryStringMissingOneValue:ServerRequest", async 
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -928,13 +905,12 @@ it("RestJsonConstantAndVariableQueryStringAllValues:ServerRequest", async () => 
   const paramsToValidate: any = [
     {
       baz: "bam",
-
       maybeSet: "yes",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -979,7 +955,7 @@ it("RestJsonConstantQueryString:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1019,7 +995,6 @@ it("DocumentTypeInputWithObject:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       stringValue: "string",
-
       documentValue: {
         foo: "bar",
       },
@@ -1027,7 +1002,7 @@ it("DocumentTypeInputWithObject:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1067,13 +1042,12 @@ it("DocumentInputWithString:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       stringValue: "string",
-
       documentValue: "hello",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1113,13 +1087,12 @@ it("DocumentInputWithNumber:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       stringValue: "string",
-
       documentValue: 10,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1159,13 +1132,12 @@ it("DocumentInputWithBoolean:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       stringValue: "string",
-
       documentValue: true,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1207,18 +1179,10 @@ it("DocumentInputWithList:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       stringValue: "string",
-
       documentValue: [
         true,
-
         "hi",
-
-        [
-          1,
-
-          2,
-        ],
-
+        [1, 2],
         {
           foo: {
             baz: [3, 4],
@@ -1229,7 +1193,7 @@ it("DocumentInputWithList:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1241,7 +1205,6 @@ it("DocumentOutput:ServerResponse", async () => {
     DocumentType(input: any, ctx: {}): Promise<DocumentTypeServerOutput> {
       const response = {
         stringValue: "string",
-
         documentValue: {
           foo: "bar",
         },
@@ -1306,7 +1269,6 @@ it("DocumentOutputString:ServerResponse", async () => {
     DocumentType(input: any, ctx: {}): Promise<DocumentTypeServerOutput> {
       const response = {
         stringValue: "string",
-
         documentValue: "hello",
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -1367,7 +1329,6 @@ it("DocumentOutputNumber:ServerResponse", async () => {
     DocumentType(input: any, ctx: {}): Promise<DocumentTypeServerOutput> {
       const response = {
         stringValue: "string",
-
         documentValue: 10,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -1428,7 +1389,6 @@ it("DocumentOutputBoolean:ServerResponse", async () => {
     DocumentType(input: any, ctx: {}): Promise<DocumentTypeServerOutput> {
       const response = {
         stringValue: "string",
-
         documentValue: false,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -1489,7 +1449,6 @@ it("DocumentOutputArray:ServerResponse", async () => {
     DocumentType(input: any, ctx: {}): Promise<DocumentTypeServerOutput> {
       const response = {
         stringValue: "string",
-
         documentValue: [true, false],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -1587,16 +1546,14 @@ it("DocumentTypeAsMapValueInput:ServerRequest", async () => {
           f: 1,
           o: 2,
         },
-
         bar: ["b", "a", "r"],
-
         baz: "BAZ",
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1612,9 +1569,7 @@ it("DocumentTypeAsMapValueOutput:ServerResponse", async () => {
             f: 1,
             o: 2,
           },
-
           bar: ["b", "a", "r"],
-
           baz: "BAZ",
         } as any,
       } as any;
@@ -1713,7 +1668,7 @@ it("DocumentTypeAsPayloadInput:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1757,7 +1712,7 @@ it("DocumentTypeAsPayloadInputString:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2075,7 +2030,7 @@ it("RestJsonEndpointTraitWithHostLabel:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2147,9 +2102,7 @@ it("RestJsonComplexErrorWithNoMessage:ServerErrorResponse", async () => {
     GreetingWithErrors(input: any, ctx: {}): Promise<GreetingWithErrorsServerOutput> {
       const response = {
         Header: "Header",
-
         TopLevel: "Top level",
-
         Nested: {
           Foo: "bar",
         } as any,
@@ -2382,7 +2335,7 @@ it("RestJsonHttpChecksumRequired:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2421,7 +2374,7 @@ it("RestJsonEnumPayloadRequest:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2512,13 +2465,12 @@ it("RestJsonHttpPayloadTraitsWithBlob:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2562,7 +2514,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2604,13 +2556,12 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllContentTypes:ServerRequest", asyn
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       blob: Uint8Array.from("This is definitely a jpeg", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2652,13 +2603,12 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllAccepts:ServerRequest", async () 
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       blob: Uint8Array.from("This is definitely a jpeg", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2670,7 +2620,6 @@ it("RestJsonHttpPayloadTraitsWithBlob:ServerResponse", async () => {
     HttpPayloadTraits(input: any, ctx: {}): Promise<HttpPayloadTraitsServerOutput> {
       const response = {
         foo: "Foo",
-
         blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -2809,13 +2758,12 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2827,7 +2775,6 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:ServerResponse", async () => 
     HttpPayloadTraitsWithMediaType(input: any, ctx: {}): Promise<HttpPayloadTraitsWithMediaTypeServerOutput> {
       const response = {
         foo: "Foo",
-
         blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -2916,14 +2863,13 @@ it("RestJsonHttpPayloadWithStructure:ServerRequest", async () => {
     {
       nested: {
         greeting: "hello",
-
         name: "Phreddy",
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2936,7 +2882,6 @@ it("RestJsonHttpPayloadWithStructure:ServerResponse", async () => {
       const response = {
         nested: {
           greeting: "hello",
-
           name: "Phreddy",
         } as any,
       } as any;
@@ -3032,7 +2977,7 @@ it("RestJsonHttpPayloadWithUnion:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3216,17 +3161,15 @@ it("RestJsonHttpPrefixHeadersArePresent:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       fooMap: {
         abc: "Abc value",
-
         def: "Def value",
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3238,10 +3181,8 @@ it("RestJsonHttpPrefixHeadersArePresent:ServerResponse", async () => {
     HttpPrefixHeaders(input: any, ctx: {}): Promise<HttpPrefixHeadersServerOutput> {
       const response = {
         foo: "Foo",
-
         fooMap: {
           Abc: "Abc value",
-
           Def: "Def value",
         } as any,
       } as any;
@@ -3299,7 +3240,6 @@ it("HttpPrefixHeadersResponse:ServerResponse", async () => {
       const response = {
         prefixHeaders: {
           "X-Foo": "Foo",
-
           Hello: "Hello",
         } as any,
       } as any;
@@ -3380,13 +3320,12 @@ it("RestJsonSupportsNaNFloatLabels:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       float: NaN,
-
       double: NaN,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3424,13 +3363,12 @@ it("RestJsonSupportsInfinityFloatLabels:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       float: Infinity,
-
       double: Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3468,13 +3406,12 @@ it("RestJsonSupportsNegativeInfinityFloatLabels:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       float: -Infinity,
-
       double: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3512,13 +3449,12 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "hello/escape",
-
       baz: "there/guy",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3556,25 +3492,18 @@ it("RestJsonInputWithHeadersAndAllParams:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       string: "string",
-
       short: 1,
-
       integer: 2,
-
       long: 3,
-
       float: 4.1,
-
       double: 5.1,
-
       boolean: true,
-
       timestamp: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3612,25 +3541,18 @@ it("RestJsonHttpRequestLabelEscaping:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       string: " %:/?#[]@!$&'()*+,;=😹",
-
       short: 1,
-
       integer: 2,
-
       long: 3,
-
       float: 4.1,
-
       double: 5.1,
-
       boolean: true,
-
       timestamp: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3668,23 +3590,17 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:ServerRequest", async () => 
   const paramsToValidate: any = [
     {
       memberEpochSeconds: new Date(1576540098 * 1000),
-
       memberHttpDate: new Date(1576540098 * 1000),
-
       memberDateTime: new Date(1576540098 * 1000),
-
       defaultFormat: new Date(1576540098 * 1000),
-
       targetEpochSeconds: new Date(1576540098 * 1000),
-
       targetHttpDate: new Date(1576540098 * 1000),
-
       targetDateTime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3726,7 +3642,7 @@ it("RestJsonToleratesRegexCharsInSegments:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3882,7 +3798,7 @@ it("RestJsonStringPayloadRequest:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4031,15 +3947,13 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       headerString: "Hello",
-
       headerStringList: ["a", "b", "c"],
-
       headerStringSet: ["a", "b", "c"],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4083,7 +3997,7 @@ it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () 
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4129,29 +4043,17 @@ it("RestJsonInputAndOutputWithNumericHeaders:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       headerByte: 1,
-
       headerShort: 123,
-
       headerInteger: 123,
-
       headerLong: 123,
-
       headerFloat: 1.1,
-
       headerDouble: 1.1,
-
-      headerIntegerList: [
-        1,
-
-        2,
-
-        3,
-      ],
+      headerIntegerList: [1, 2, 3],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4193,15 +4095,13 @@ it("RestJsonInputAndOutputWithBooleanHeaders:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       headerTrueBool: true,
-
       headerFalseBool: false,
-
       headerBooleanList: [true, false, true],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4245,7 +4145,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4286,13 +4186,12 @@ it("RestJsonInputAndOutputWithEnumHeaders:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       headerEnum: "Foo",
-
       headerEnumList: ["Foo", "Bar", "Baz"],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4333,19 +4232,12 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       headerIntegerEnum: 1,
-
-      headerIntegerEnumList: [
-        1,
-
-        2,
-
-        3,
-      ],
+      headerIntegerEnumList: [1, 2, 3],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4386,13 +4278,12 @@ it("RestJsonSupportsNaNFloatHeaderInputs:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       headerFloat: NaN,
-
       headerDouble: NaN,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4433,13 +4324,12 @@ it("RestJsonSupportsInfinityFloatHeaderInputs:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       headerFloat: Infinity,
-
       headerDouble: Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4480,13 +4370,12 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderInputs:ServerRequest", async () =
   const paramsToValidate: any = [
     {
       headerFloat: -Infinity,
-
       headerDouble: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -4498,9 +4387,7 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerResponse", async () => {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerString: "Hello",
-
         headerStringList: ["a", "b", "c"],
-
         headerStringSet: ["a", "b", "c"],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -4606,24 +4493,12 @@ it("RestJsonInputAndOutputWithNumericHeaders:ServerResponse", async () => {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerByte: 1,
-
         headerShort: 123,
-
         headerInteger: 123,
-
         headerLong: 123,
-
         headerFloat: 1.1,
-
         headerDouble: 1.1,
-
-        headerIntegerList: [
-          1,
-
-          2,
-
-          3,
-        ],
+        headerIntegerList: [1, 2, 3],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
     }
@@ -4686,9 +4561,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:ServerResponse", async () => {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerTrueBool: true,
-
         headerFalseBool: false,
-
         headerBooleanList: [true, false, true],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -4794,7 +4667,6 @@ it("RestJsonInputAndOutputWithEnumHeaders:ServerResponse", async () => {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerEnum: "Foo",
-
         headerEnumList: ["Foo", "Bar", "Baz"],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -4848,14 +4720,7 @@ it("RestJsonInputAndOutputWithIntEnumHeaders:ServerResponse", async () => {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerIntegerEnum: 1,
-
-        headerIntegerEnumList: [
-          1,
-
-          2,
-
-          3,
-        ],
+        headerIntegerEnumList: [1, 2, 3],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
     }
@@ -4908,7 +4773,6 @@ it("RestJsonSupportsNaNFloatHeaderOutputs:ServerResponse", async () => {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerFloat: NaN,
-
         headerDouble: NaN,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -4962,7 +4826,6 @@ it("RestJsonSupportsInfinityFloatHeaderOutputs:ServerResponse", async () => {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerFloat: Infinity,
-
         headerDouble: Infinity,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -5016,7 +4879,6 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderOutputs:ServerResponse", async ()
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
         headerFloat: -Infinity,
-
         headerDouble: -Infinity,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -5102,7 +4964,7 @@ it("RestJsonJsonBlobs:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5202,25 +5064,19 @@ it("RestJsonJsonEnums:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       fooEnum1: "Foo",
-
       fooEnum2: "0",
-
       fooEnum3: "1",
-
       fooEnumList: ["Foo", "0"],
-
       fooEnumSet: ["Foo", "0"],
-
       fooEnumMap: {
         hi: "Foo",
-
         zero: "0",
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5232,18 +5088,12 @@ it("RestJsonJsonEnums:ServerResponse", async () => {
     JsonEnums(input: any, ctx: {}): Promise<JsonEnumsServerOutput> {
       const response = {
         fooEnum1: "Foo",
-
         fooEnum2: "0",
-
         fooEnum3: "1",
-
         fooEnumList: ["Foo", "0"],
-
         fooEnumSet: ["Foo", "0"],
-
         fooEnumMap: {
           hi: "Foo",
-
           zero: "0",
         } as any,
       } as any;
@@ -5348,35 +5198,19 @@ it("RestJsonJsonIntEnums:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       integerEnum1: 1,
-
       integerEnum2: 2,
-
       integerEnum3: 3,
-
-      integerEnumList: [
-        1,
-
-        2,
-
-        3,
-      ],
-
-      integerEnumSet: [
-        1,
-
-        2,
-      ],
-
+      integerEnumList: [1, 2, 3],
+      integerEnumSet: [1, 2],
       integerEnumMap: {
         abc: 1,
-
         def: 2,
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5388,28 +5222,12 @@ it("RestJsonJsonIntEnums:ServerResponse", async () => {
     JsonIntEnums(input: any, ctx: {}): Promise<JsonIntEnumsServerOutput> {
       const response = {
         integerEnum1: 1,
-
         integerEnum2: 2,
-
         integerEnum3: 3,
-
-        integerEnumList: [
-          1,
-
-          2,
-
-          3,
-        ],
-
-        integerEnumSet: [
-          1,
-
-          2,
-        ],
-
+        integerEnumList: [1, 2, 3],
+        integerEnumSet: [1, 2],
         integerEnumMap: {
           abc: 1,
-
           def: 2,
         } as any,
       } as any;
@@ -5515,43 +5333,23 @@ it("RestJsonLists:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       stringList: ["foo", "bar"],
-
       stringSet: ["foo", "bar"],
-
-      integerList: [
-        1,
-
-        2,
-      ],
-
+      integerList: [1, 2],
       booleanList: [true, false],
-
       timestampList: [new Date(1398796238 * 1000), new Date(1398796238 * 1000)],
-
       enumList: ["Foo", "0"],
-
-      intEnumList: [
-        1,
-
-        2,
-      ],
-
+      intEnumList: [1, 2],
       nestedStringList: [
         ["foo", "bar"],
-
         ["baz", "qux"],
       ],
-
       structureList: [
         {
           a: "1",
-
           b: "2",
         },
-
         {
           a: "3",
-
           b: "4",
         },
       ],
@@ -5559,7 +5357,7 @@ it("RestJsonLists:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5603,7 +5401,7 @@ it("RestJsonListsEmpty:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5615,43 +5413,23 @@ it("RestJsonLists:ServerResponse", async () => {
     JsonLists(input: any, ctx: {}): Promise<JsonListsServerOutput> {
       const response = {
         stringList: ["foo", "bar"],
-
         stringSet: ["foo", "bar"],
-
-        integerList: [
-          1,
-
-          2,
-        ],
-
+        integerList: [1, 2],
         booleanList: [true, false],
-
         timestampList: [new Date(1398796238000), new Date(1398796238000)],
-
         enumList: ["Foo", "0"],
-
-        intEnumList: [
-          1,
-
-          2,
-        ],
-
+        intEnumList: [1, 2],
         nestedStringList: [
           ["foo", "bar"],
-
           ["baz", "qux"],
         ],
-
         structureList: [
           {
             a: "1",
-
             b: "2",
           } as any,
-
           {
             a: "3",
-
             b: "4",
           } as any,
         ],
@@ -5851,7 +5629,6 @@ it("RestJsonJsonMaps:ServerRequest", async () => {
         foo: {
           hi: "there",
         },
-
         baz: {
           hi: "bye",
         },
@@ -5860,7 +5637,7 @@ it("RestJsonJsonMaps:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5904,7 +5681,6 @@ it("RestJsonSerializesZeroValuesInMaps:ServerRequest", async () => {
       denseNumberMap: {
         x: 0,
       },
-
       denseBooleanMap: {
         x: false,
       },
@@ -5912,7 +5688,7 @@ it("RestJsonSerializesZeroValuesInMaps:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5953,14 +5729,13 @@ it("RestJsonSerializesDenseSetMap:ServerRequest", async () => {
     {
       denseSetMap: {
         x: [],
-
         y: ["a", "b"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -5975,7 +5750,6 @@ it("RestJsonJsonMaps:ServerResponse", async () => {
           foo: {
             hi: "there",
           } as any,
-
           baz: {
             hi: "bye",
           } as any,
@@ -6047,7 +5821,6 @@ it("RestJsonDeserializesZeroValuesInMaps:ServerResponse", async () => {
         denseNumberMap: {
           x: 0,
         } as any,
-
         denseBooleanMap: {
           x: false,
         } as any,
@@ -6115,7 +5888,6 @@ it("RestJsonDeserializesDenseSetMap:ServerResponse", async () => {
       const response = {
         denseSetMap: {
           x: [],
-
           y: ["a", "b"],
         } as any,
       } as any;
@@ -6211,7 +5983,7 @@ it("RestJsonJsonTimestamps:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6255,7 +6027,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6299,7 +6071,7 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:ServerRequest", async () =>
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6343,7 +6115,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6387,7 +6159,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:ServerRequest", async (
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6431,7 +6203,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6475,7 +6247,7 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:ServerRequest", async () =>
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6927,7 +6699,7 @@ it("RestJsonSerializeStringUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -6973,7 +6745,7 @@ it("RestJsonSerializeBooleanUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7019,7 +6791,7 @@ it("RestJsonSerializeNumberUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7065,7 +6837,7 @@ it("RestJsonSerializeBlobUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7111,7 +6883,7 @@ it("RestJsonSerializeTimestampUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7157,7 +6929,7 @@ it("RestJsonSerializeEnumUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7203,7 +6975,7 @@ it("RestJsonSerializeListUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7247,7 +7019,6 @@ it("RestJsonSerializeMapUnionValue:ServerRequest", async () => {
       contents: {
         mapValue: {
           foo: "bar",
-
           spam: "eggs",
         },
       },
@@ -7255,7 +7026,7 @@ it("RestJsonSerializeMapUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7305,7 +7076,7 @@ it("RestJsonSerializeStructureUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7355,7 +7126,7 @@ it("RestJsonSerializeRenamedStructureUnionValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -7803,7 +7574,6 @@ it("RestJsonDeserializeMapUnionValue:ServerResponse", async () => {
         contents: {
           mapValue: {
             foo: "bar",
-
             spam: "eggs",
           } as any,
         } as any,
@@ -27491,7 +27261,7 @@ it("MediaTypeHeaderInputBase64:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -27794,9 +27564,7 @@ it("RestJsonNullAndEmptyHeaders:ServerResponse", async () => {
     NullAndEmptyHeadersServer(input: any, ctx: {}): Promise<NullAndEmptyHeadersServerServerOutput> {
       const response = {
         a: null,
-
         b: "",
-
         c: [],
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -27881,7 +27649,7 @@ it("RestJsonSerializesEmptyQueryValue:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -27925,7 +27693,7 @@ it("RestJsonServersAcceptStaticQueryParamAsEmptyString:ServerRequest", async () 
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -27971,7 +27739,7 @@ it("RestJsonInputUnionWithUnitMember:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28079,7 +27847,7 @@ it("PostUnionWithJsonNameRequest1:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28125,7 +27893,7 @@ it("PostUnionWithJsonNameRequest2:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28171,7 +27939,7 @@ it("PostUnionWithJsonNameRequest3:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28400,7 +28168,7 @@ it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28442,13 +28210,12 @@ it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async ()
   const paramsToValidate: any = [
     {
       encoding: "custom",
-
       data: "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\n",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28489,17 +28256,15 @@ it("RestJsonServersQueryParamsStringListMap:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       qux: "named",
-
       foo: {
         corge: ["named"],
-
         baz: ["bar", "qux"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28540,17 +28305,15 @@ it("RestJsonServersPutAllQueryParamsInMap:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "named",
-
       baz: {
         bar: "named",
-
         qux: "fromMap",
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28593,13 +28356,10 @@ it("RestJsonRecursiveShapes:ServerRequest", async () => {
     {
       nested: {
         foo: "Foo1",
-
         nested: {
           bar: "Bar1",
-
           recursiveMember: {
             foo: "Foo2",
-
             nested: {
               bar: "Bar2",
             },
@@ -28610,7 +28370,7 @@ it("RestJsonRecursiveShapes:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28623,13 +28383,10 @@ it("RestJsonRecursiveShapes:ServerResponse", async () => {
       const response = {
         nested: {
           foo: "Foo1",
-
           nested: {
             bar: "Bar1",
-
             recursiveMember: {
               foo: "Foo2",
-
               nested: {
                 bar: "Bar2",
               } as any,
@@ -28736,29 +28493,20 @@ it("RestJsonSimpleScalarProperties:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       stringValue: "string",
-
       trueBooleanValue: true,
-
       falseBooleanValue: false,
-
       byteValue: 1,
-
       shortValue: 2,
-
       integerValue: 3,
-
       longValue: 4,
-
       floatValue: 5.5,
-
       doubleValue: 6.5,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28832,13 +28580,12 @@ it("RestJsonSupportsNaNFloatInputs:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       floatValue: NaN,
-
       doubleValue: NaN,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28878,13 +28625,12 @@ it("RestJsonSupportsInfinityFloatInputs:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       floatValue: Infinity,
-
       doubleValue: Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28924,13 +28670,12 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       floatValue: -Infinity,
-
       doubleValue: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -28942,23 +28687,14 @@ it("RestJsonSimpleScalarProperties:ServerResponse", async () => {
     SimpleScalarProperties(input: any, ctx: {}): Promise<SimpleScalarPropertiesServerOutput> {
       const response = {
         foo: "Foo",
-
         stringValue: "string",
-
         trueBooleanValue: true,
-
         falseBooleanValue: false,
-
         byteValue: 1,
-
         shortValue: 2,
-
         integerValue: 3,
-
         longValue: 4,
-
         floatValue: 5.5,
-
         doubleValue: 6.5,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -29084,7 +28820,6 @@ it("RestJsonSupportsNaNFloatInputs:ServerResponse", async () => {
     SimpleScalarProperties(input: any, ctx: {}): Promise<SimpleScalarPropertiesServerOutput> {
       const response = {
         floatValue: NaN,
-
         doubleValue: NaN,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -29145,7 +28880,6 @@ it("RestJsonSupportsInfinityFloatInputs:ServerResponse", async () => {
     SimpleScalarProperties(input: any, ctx: {}): Promise<SimpleScalarPropertiesServerOutput> {
       const response = {
         floatValue: Infinity,
-
         doubleValue: Infinity,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -29206,7 +28940,6 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerResponse", async () => {
     SimpleScalarProperties(input: any, ctx: {}): Promise<SimpleScalarPropertiesServerOutput> {
       const response = {
         floatValue: -Infinity,
-
         doubleValue: -Infinity,
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -29299,7 +29032,7 @@ it("RestJsonSparseListsSerializeNull:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -29405,7 +29138,6 @@ it("RestJsonSparseJsonMaps:ServerRequest", async () => {
         foo: {
           hi: "there",
         },
-
         baz: {
           hi: "bye",
         },
@@ -29414,7 +29146,7 @@ it("RestJsonSparseJsonMaps:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -29458,15 +29190,12 @@ it("RestJsonSerializesSparseNullMapValues:ServerRequest", async () => {
       sparseBooleanMap: {
         x: null,
       },
-
       sparseNumberMap: {
         x: null,
       },
-
       sparseStringMap: {
         x: null,
       },
-
       sparseStructMap: {
         x: null,
       },
@@ -29474,7 +29203,7 @@ it("RestJsonSerializesSparseNullMapValues:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -29518,7 +29247,6 @@ it("RestJsonSerializesZeroValuesInSparseMaps:ServerRequest", async () => {
       sparseNumberMap: {
         x: 0,
       },
-
       sparseBooleanMap: {
         x: false,
       },
@@ -29526,7 +29254,7 @@ it("RestJsonSerializesZeroValuesInSparseMaps:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -29567,14 +29295,13 @@ it("RestJsonSerializesSparseSetMap:ServerRequest", async () => {
     {
       sparseSetMap: {
         x: [],
-
         y: ["a", "b"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -29617,16 +29344,14 @@ it("RestJsonSerializesSparseSetMapAndRetainsNull:ServerRequest", async () => {
     {
       sparseSetMap: {
         x: [],
-
         y: ["a", "b"],
-
         z: null,
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -29641,7 +29366,6 @@ it("RestJsonSparseJsonMaps:ServerResponse", async () => {
           foo: {
             hi: "there",
           } as any,
-
           baz: {
             hi: "bye",
           } as any,
@@ -29713,15 +29437,12 @@ it("RestJsonDeserializesSparseNullMapValues:ServerResponse", async () => {
         sparseBooleanMap: {
           x: null,
         } as any,
-
         sparseNumberMap: {
           x: null,
         } as any,
-
         sparseStringMap: {
           x: null,
         } as any,
-
         sparseStructMap: {
           x: null,
         } as any,
@@ -29796,7 +29517,6 @@ it("RestJsonDeserializesZeroValuesInSparseMaps:ServerResponse", async () => {
         sparseNumberMap: {
           x: 0,
         } as any,
-
         sparseBooleanMap: {
           x: false,
         } as any,
@@ -29864,7 +29584,6 @@ it("RestJsonDeserializesSparseSetMap:ServerResponse", async () => {
       const response = {
         sparseSetMap: {
           x: [],
-
           y: ["a", "b"],
         } as any,
       } as any;
@@ -29929,9 +29648,7 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:ServerResponse", async () => 
       const response = {
         sparseSetMap: {
           x: [],
-
           y: ["a", "b"],
-
           z: null,
         } as any,
       } as any;
@@ -30025,7 +29742,6 @@ it("RestJsonStreamingTraitsWithBlob:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
     },
   ][0];
@@ -30033,9 +29749,9 @@ it("RestJsonStreamingTraitsWithBlob:ServerRequest", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     if (param === "blob") {
-      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     }
   });
 });
@@ -30082,9 +29798,9 @@ it("RestJsonStreamingTraitsWithNoBlobBody:ServerRequest", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     if (param === "blob") {
-      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     }
   });
 });
@@ -30097,7 +29813,6 @@ it("RestJsonStreamingTraitsWithBlob:ServerResponse", async () => {
     StreamingTraits(input: any, ctx: {}): Promise<StreamingTraitsServerOutput> {
       const response = {
         foo: "Foo",
-
         blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -30238,7 +29953,6 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
     },
   ][0];
@@ -30246,9 +29960,9 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:ServerRequest", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     if (param === "blob") {
-      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     }
   });
 });
@@ -30295,9 +30009,9 @@ it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:ServerRequest", async () 
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     if (param === "blob") {
-      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     }
   });
 });
@@ -30339,7 +30053,6 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       foo: "Foo",
-
       blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
     },
   ][0];
@@ -30347,9 +30060,9 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:ServerRequest", async () => {
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
     if (param === "blob") {
-      expect(equivalentContents(comparableBlob, paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], comparableBlob)).toBe(true);
     } else {
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     }
   });
 });
@@ -30362,7 +30075,6 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:ServerResponse", async () => {
     StreamingTraitsWithMediaType(input: any, ctx: {}): Promise<StreamingTraitsWithMediaTypeServerOutput> {
       const response = {
         foo: "Foo",
-
         blob: Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)),
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });
@@ -30456,7 +30168,7 @@ it("RestJsonTestBodyStructure:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -30566,7 +30278,7 @@ it("RestJsonHttpWithHeaderMemberNoModeledBody:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -30640,13 +30352,12 @@ it("RestJsonTestPayloadBlob:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       contentType: "image/jpg",
-
       data: Uint8Array.from("1234", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -30726,7 +30437,7 @@ it("RestJsonTestPayloadStructure:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -30771,7 +30482,7 @@ it("RestJsonHttpWithHeadersButNoPayload:ServerRequest", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -30817,23 +30528,17 @@ it("RestJsonTimestampFormatHeaders:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       memberEpochSeconds: new Date(1576540098 * 1000),
-
       memberHttpDate: new Date(1576540098 * 1000),
-
       memberDateTime: new Date(1576540098 * 1000),
-
       defaultFormat: new Date(1576540098 * 1000),
-
       targetEpochSeconds: new Date(1576540098 * 1000),
-
       targetHttpDate: new Date(1576540098 * 1000),
-
       targetDateTime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -30845,17 +30550,11 @@ it("RestJsonTimestampFormatHeaders:ServerResponse", async () => {
     TimestampFormatHeaders(input: any, ctx: {}): Promise<TimestampFormatHeadersServerOutput> {
       const response = {
         memberEpochSeconds: new Date(1576540098000),
-
         memberHttpDate: new Date(1576540098000),
-
         memberDateTime: new Date(1576540098000),
-
         defaultFormat: new Date(1576540098000),
-
         targetEpochSeconds: new Date(1576540098000),
-
         targetHttpDate: new Date(1576540098000),
-
         targetDateTime: new Date(1576540098000),
       } as any;
       return Promise.resolve({ ...response, $metadata: {} });

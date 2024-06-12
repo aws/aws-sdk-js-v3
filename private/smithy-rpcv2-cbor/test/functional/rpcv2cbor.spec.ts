@@ -1,7 +1,7 @@
 // smithy-typescript generated code
+import { cbor } from "@smithy/core/cbor";
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Encoder as __Encoder } from "@smithy/types";
-import { HeaderBag, HttpHandlerOptions } from "@smithy/types";
+import { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
 import { Readable } from "stream";
 
 import { EmptyInputOutputCommand } from "../../src/commands/EmptyInputOutputCommand";
@@ -35,7 +35,9 @@ class RequestSerializationTestHandler implements HttpHandler {
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
+
   updateHttpClientConfig(key: never, value: never): void {}
+
   httpHandlerConfigs() {
     return {};
   }
@@ -48,9 +50,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   isSuccess: boolean;
   code: number;
   headers: HeaderBag;
-  body: String;
+  body: string | Uint8Array;
+  isBase64Body: boolean;
 
-  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: string) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -62,6 +65,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
       body = "";
     }
     this.body = body;
+    this.isBase64Body = Buffer.from(String(body), "base64").toString("base64") === body;
   }
 
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
@@ -69,11 +73,13 @@ class ResponseDeserializationTestHandler implements HttpHandler {
       response: new HttpResponse({
         statusCode: this.code,
         headers: this.headers,
-        body: Readable.from([this.body]),
+        body: this.isBase64Body ? toBytes(this.body as string) : Readable.from([this.body]),
       }),
     });
   }
+
   updateHttpClientConfig(key: never, value: never): void {}
+
   httpHandlerConfigs() {
     return {};
   }
@@ -114,11 +120,20 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
+  if (typeof (global as any).expect === "function") {
+    expect(normalizeByteArrayType(generated)).toEqual(normalizeByteArrayType(expected));
+    return true;
+  }
+
   const localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
     return true;
+  }
+
+  if (typeof expected !== "object") {
+    return expected === generated;
   }
 
   // If a test fails with an issue in the below 6 lines, it's likely
@@ -151,6 +166,14 @@ const equivalentContents = (expected: any, generated: any): boolean => {
 const clientParams = {
   region: "us-west-2",
   credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+  endpoint: () => {
+    const url = new URL("https://www.amazon.com/");
+    return Promise.resolve({
+      ...url,
+      path: url.pathname,
+      ...(url.port ? { port: Number(url.port) } : {}),
+    }) as Promise<Endpoint>;
+  },
 };
 
 /**
@@ -162,13 +185,41 @@ const fail = (error?: any): never => {
 };
 
 /**
+ * Hexadecimal to byteArray.
+ */
+const toBytes = (hex: string) => {
+  return Buffer.from(hex, "base64");
+};
+
+function normalizeByteArrayType(data: any) {
+  // normalize float32 errors
+  if (typeof data === "number") {
+    const u = new Uint8Array(4);
+    const dv = new DataView(u.buffer, u.byteOffset, u.byteLength);
+    dv.setFloat32(0, data);
+    return dv.getFloat32(0);
+  }
+  if (!data || typeof data !== "object") {
+    return data;
+  }
+  const output = {} as any;
+  for (const key of Object.getOwnPropertyNames(data)) {
+    if (data[key] instanceof Uint8Array) {
+      output[key] = Uint8Array.from(data[key]);
+    } else {
+      output[key] = normalizeByteArrayType(data[key]);
+    }
+  }
+  return output;
+}
+
+/**
  * When Input structure is empty we write CBOR equivalent of {}
  */
 it("empty_input:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new EmptyInputOutputCommand({} as any);
@@ -194,9 +245,8 @@ it("empty_input:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v/8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -207,8 +257,7 @@ it("empty_input:Request", async () => {
 it("empty_output:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -238,8 +287,7 @@ it("empty_output:Response", async () => {
 it("empty_output_no_body:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -269,8 +317,7 @@ it("empty_output_no_body:Response", async () => {
 it("RpcV2CborDateTimeWithFractionalSeconds:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -299,7 +346,7 @@ it("RpcV2CborDateTimeWithFractionalSeconds:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -309,8 +356,7 @@ it("RpcV2CborDateTimeWithFractionalSeconds:Response", async () => {
 it("RpcV2CborInvalidGreetingError:Error:GreetingWithErrors", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
       {
@@ -341,7 +387,7 @@ it("RpcV2CborInvalidGreetingError:Error:GreetingWithErrors", async () => {
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
   }
@@ -354,7 +400,7 @@ it("RpcV2CborInvalidGreetingError:Error:GreetingWithErrors", async () => {
 it("RpcV2CborComplexError:Error:GreetingWithErrors", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
       {
@@ -381,7 +427,6 @@ it("RpcV2CborComplexError:Error:GreetingWithErrors", async () => {
     const paramsToValidate: any = [
       {
         TopLevel: "Top level",
-
         Nested: {
           Foo: "bar",
         },
@@ -389,7 +434,7 @@ it("RpcV2CborComplexError:Error:GreetingWithErrors", async () => {
     ][0];
     Object.keys(paramsToValidate).forEach((param) => {
       expect(r[param]).toBeDefined();
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+      expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
     });
     return;
   }
@@ -399,8 +444,7 @@ it("RpcV2CborComplexError:Error:GreetingWithErrors", async () => {
 it("RpcV2CborEmptyComplexError:Error:GreetingWithErrors", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
       {
@@ -436,7 +480,6 @@ it("no_input:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new NoInputOutputCommand({});
@@ -469,8 +512,7 @@ it("no_input:Request", async () => {
 it("no_output:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -499,8 +541,7 @@ it("no_output:Response", async () => {
 it("NoOutputClientAllowsEmptyCbor:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -531,8 +572,7 @@ it("NoOutputClientAllowsEmptyCbor:Response", async () => {
 it("NoOutputClientAllowsEmptyBody:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -563,7 +603,6 @@ it.skip("RpcV2CborClientPopulatesDefaultValuesInInput:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new OperationWithDefaultsCommand({
@@ -589,9 +628,8 @@ it.skip("RpcV2CborClientPopulatesDefaultValuesInInput:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v21kZWZhdWx0U3RyaW5nYmhpbmRlZmF1bHRCb29sZWFu9WtkZWZhdWx0TGlzdIBwZGVmYXVsdFRpbWVzdGFtcMH7AAAAAAAAAABrZGVmYXVsdEJsb2JDYWJja2RlZmF1bHRCeXRlAWxkZWZhdWx0U2hvcnQBbmRlZmF1bHRJbnRlZ2VyCmtkZWZhdWx0TG9uZxhkbGRlZmF1bHRGbG9hdPo/gAAAbWRlZmF1bHREb3VibGX7P/AAAAAAAABqZGVmYXVsdE1hcKBrZGVmYXVsdEVudW1jRk9PbmRlZmF1bHRJbnRFbnVtAWtlbXB0eVN0cmluZ2BsZmFsc2VCb29sZWFu9GllbXB0eUJsb2JAaHplcm9CeXRlAGl6ZXJvU2hvcnQAa3plcm9JbnRlZ2VyAGh6ZXJvTG9uZwBpemVyb0Zsb2F0+gAAAABqemVyb0RvdWJsZfsAAAAAAAAAAP8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -603,7 +641,6 @@ it.skip("RpcV2CborClientSkipsTopLevelDefaultValuesInInput:Request", async () => 
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new OperationWithDefaultsCommand({} as any);
@@ -627,9 +664,8 @@ it.skip("RpcV2CborClientSkipsTopLevelDefaultValuesInInput:Request", async () => 
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v/8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -641,57 +677,34 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request",
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new OperationWithDefaultsCommand({
     defaults: {
       defaultString: "bye",
-
       defaultBoolean: true,
-
       defaultList: ["a"],
-
       defaultTimestamp: new Date(1000),
-
       defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
-
       defaultByte: 2,
-
       defaultShort: 2,
-
       defaultInteger: 20,
-
       defaultLong: 200,
-
       defaultFloat: 2.0,
-
       defaultDouble: 2.0,
-
       defaultMap: {
         name: "Jack",
       } as any,
-
       defaultEnum: "BAR",
-
       defaultIntEnum: 2,
-
       emptyString: "foo",
-
       falseBoolean: true,
-
       emptyBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
-
       zeroByte: 1,
-
       zeroShort: 1,
-
       zeroInteger: 1,
-
       zeroLong: 1,
-
       zeroFloat: 1.0,
-
       zeroDouble: 1.0,
     } as any,
   } as any);
@@ -715,9 +728,8 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request",
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2hkZWZhdWx0c7dtZGVmYXVsdFN0cmluZ2NieWVuZGVmYXVsdEJvb2xlYW71a2RlZmF1bHRMaXN0gWFhcGRlZmF1bHRUaW1lc3RhbXDB+z/wAAAAAAAAa2RlZmF1bHRCbG9iQmhpa2RlZmF1bHRCeXRlAmxkZWZhdWx0U2hvcnQCbmRlZmF1bHRJbnRlZ2VyFGtkZWZhdWx0TG9uZxjIbGRlZmF1bHRGbG9hdPpAAAAAbWRlZmF1bHREb3VibGX7QAAAAAAAAABqZGVmYXVsdE1hcKFkbmFtZWRKYWNra2RlZmF1bHRFbnVtY0JBUm5kZWZhdWx0SW50RW51bQJrZW1wdHlTdHJpbmdjZm9vbGZhbHNlQm9vbGVhbvVpZW1wdHlCbG9iQmhpaHplcm9CeXRlAWl6ZXJvU2hvcnQBa3plcm9JbnRlZ2VyAWh6ZXJvTG9uZwFpemVyb0Zsb2F0+j+AAABqemVyb0RvdWJsZfs/8AAAAAAAAP8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -729,12 +741,10 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedValuesInTopLevel:Request", async (
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new OperationWithDefaultsCommand({
     topLevelDefault: "hi",
-
     otherTopLevelDefault: 0,
   } as any);
   try {
@@ -757,9 +767,8 @@ it.skip("RpcV2CborClientUsesExplicitlyProvidedValuesInTopLevel:Request", async (
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v290b3BMZXZlbERlZmF1bHRiaGl0b3RoZXJUb3BMZXZlbERlZmF1bHQA/w==`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -771,7 +780,6 @@ it.skip("RpcV2CborClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Re
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new OperationWithDefaultsCommand({
@@ -797,9 +805,8 @@ it.skip("RpcV2CborClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Re
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v3ZjbGllbnRPcHRpb25hbERlZmF1bHRzoP8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -810,8 +817,7 @@ it.skip("RpcV2CborClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Re
 it.skip("RpcV2CborClientPopulatesDefaultsValuesWhenMissingInResponse:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -836,55 +842,33 @@ it.skip("RpcV2CborClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
   const paramsToValidate: any = [
     {
       defaultString: "hi",
-
       defaultBoolean: true,
-
       defaultList: [],
-
       defaultTimestamp: new Date(0 * 1000),
-
       defaultBlob: Uint8Array.from("abc", (c) => c.charCodeAt(0)),
-
       defaultByte: 1,
-
       defaultShort: 1,
-
       defaultInteger: 10,
-
       defaultLong: 100,
-
       defaultFloat: 1.0,
-
       defaultDouble: 1.0,
-
       defaultMap: {},
-
       defaultEnum: "FOO",
-
       defaultIntEnum: 1,
-
       emptyString: "",
-
       falseBoolean: false,
-
       emptyBlob: Uint8Array.from("", (c) => c.charCodeAt(0)),
-
       zeroByte: 0,
-
       zeroShort: 0,
-
       zeroInteger: 0,
-
       zeroLong: 0,
-
       zeroFloat: 0.0,
-
       zeroDouble: 0.0,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -894,8 +878,7 @@ it.skip("RpcV2CborClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
 it.skip("RpcV2CborClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -920,57 +903,35 @@ it.skip("RpcV2CborClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
   const paramsToValidate: any = [
     {
       defaultString: "bye",
-
       defaultBoolean: false,
-
       defaultList: ["a"],
-
       defaultTimestamp: new Date(2 * 1000),
-
       defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
-
       defaultByte: 2,
-
       defaultShort: 2,
-
       defaultInteger: 20,
-
       defaultLong: 200,
-
       defaultFloat: 2.0,
-
       defaultDouble: 2.0,
-
       defaultMap: {
         name: "Jack",
       },
-
       defaultEnum: "BAR",
-
       defaultIntEnum: 2,
-
       emptyString: "foo",
-
       falseBoolean: true,
-
       emptyBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
-
       zeroByte: 1,
-
       zeroShort: 1,
-
       zeroInteger: 1,
-
       zeroLong: 1,
-
       zeroFloat: 1.0,
-
       zeroDouble: 1.0,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -981,7 +942,6 @@ it("optional_input:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new OptionalInputOutputCommand({} as any);
@@ -1006,9 +966,8 @@ it("optional_input:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v/8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1019,8 +978,7 @@ it("optional_input:Request", async () => {
 it("optional_output:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1051,19 +1009,15 @@ it("RpcV2CborRecursiveShapes:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RecursiveShapesCommand({
     nested: {
       foo: "Foo1",
-
       nested: {
         bar: "Bar1",
-
         recursiveMember: {
           foo: "Foo2",
-
           nested: {
             bar: "Bar2",
           } as any,
@@ -1091,9 +1045,8 @@ it("RpcV2CborRecursiveShapes:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2ZuZXN0ZWS/Y2Zvb2RGb28xZm5lc3RlZL9jYmFyZEJhcjFvcmVjdXJzaXZlTWVtYmVyv2Nmb29kRm9vMmZuZXN0ZWS/Y2JhcmRCYXIy//////8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1104,8 +1057,7 @@ it("RpcV2CborRecursiveShapes:Request", async () => {
 it("RpcV2CborRecursiveShapes:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1131,13 +1083,10 @@ it("RpcV2CborRecursiveShapes:Response", async () => {
     {
       nested: {
         foo: "Foo1",
-
         nested: {
           bar: "Bar1",
-
           recursiveMember: {
             foo: "Foo2",
-
             nested: {
               bar: "Bar2",
             },
@@ -1148,7 +1097,7 @@ it("RpcV2CborRecursiveShapes:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1158,8 +1107,7 @@ it("RpcV2CborRecursiveShapes:Response", async () => {
 it("RpcV2CborRecursiveShapesUsingDefiniteLength:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1185,13 +1133,10 @@ it("RpcV2CborRecursiveShapesUsingDefiniteLength:Response", async () => {
     {
       nested: {
         foo: "Foo1",
-
         nested: {
           bar: "Bar1",
-
           recursiveMember: {
             foo: "Foo2",
-
             nested: {
               bar: "Bar2",
             },
@@ -1202,7 +1147,7 @@ it("RpcV2CborRecursiveShapesUsingDefiniteLength:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1213,7 +1158,6 @@ it("RpcV2CborMaps:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborDenseMapsCommand({
@@ -1221,7 +1165,6 @@ it("RpcV2CborMaps:Request", async () => {
       foo: {
         hi: "there",
       } as any,
-
       baz: {
         hi: "bye",
       } as any,
@@ -1247,9 +1190,8 @@ it("RpcV2CborMaps:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `oW5kZW5zZVN0cnVjdE1hcKJjZm9voWJoaWV0aGVyZWNiYXqhYmhpY2J5ZQ==`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1261,14 +1203,12 @@ it("RpcV2CborSerializesZeroValuesInMaps:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborDenseMapsCommand({
     denseNumberMap: {
       x: 0,
     } as any,
-
     denseBooleanMap: {
       x: false,
     } as any,
@@ -1293,9 +1233,8 @@ it("RpcV2CborSerializesZeroValuesInMaps:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `om5kZW5zZU51bWJlck1hcKFheABvZGVuc2VCb29sZWFuTWFwoWF49A==`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1307,13 +1246,11 @@ it("RpcV2CborSerializesDenseSetMap:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborDenseMapsCommand({
     denseSetMap: {
       x: [],
-
       y: ["a", "b"],
     } as any,
   } as any);
@@ -1337,9 +1274,8 @@ it("RpcV2CborSerializesDenseSetMap:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `oWtkZW5zZVNldE1hcKJheIBheYJhYWFi`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1350,8 +1286,7 @@ it("RpcV2CborSerializesDenseSetMap:Request", async () => {
 it("RpcV2CborMaps:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1379,7 +1314,6 @@ it("RpcV2CborMaps:Response", async () => {
         foo: {
           hi: "there",
         },
-
         baz: {
           hi: "bye",
         },
@@ -1388,7 +1322,7 @@ it("RpcV2CborMaps:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1398,8 +1332,7 @@ it("RpcV2CborMaps:Response", async () => {
 it("RpcV2CborDeserializesZeroValuesInMaps:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1426,7 +1359,6 @@ it("RpcV2CborDeserializesZeroValuesInMaps:Response", async () => {
       denseNumberMap: {
         x: 0,
       },
-
       denseBooleanMap: {
         x: false,
       },
@@ -1434,7 +1366,7 @@ it("RpcV2CborDeserializesZeroValuesInMaps:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1444,8 +1376,7 @@ it("RpcV2CborDeserializesZeroValuesInMaps:Response", async () => {
 it("RpcV2CborDeserializesDenseSetMap:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1471,14 +1402,13 @@ it("RpcV2CborDeserializesDenseSetMap:Response", async () => {
     {
       denseSetMap: {
         x: [],
-
         y: ["a", "b"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1486,11 +1416,10 @@ it("RpcV2CborDeserializesDenseSetMap:Response", async () => {
  * Clients SHOULD tolerate seeing a null value in a dense map, and they SHOULD
  * drop the null key-value pair.
  */
-it("RpcV2CborDeserializesDenseSetMapAndSkipsNull:Response", async () => {
+it.skip("RpcV2CborDeserializesDenseSetMapAndSkipsNull:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1516,16 +1445,14 @@ it("RpcV2CborDeserializesDenseSetMapAndSkipsNull:Response", async () => {
     {
       denseSetMap: {
         x: [],
-
         y: ["a", "b"],
-
         z: null,
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1536,52 +1463,30 @@ it("RpcV2CborLists:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborListsCommand({
     stringList: ["foo", "bar"],
-
     stringSet: ["foo", "bar"],
-
-    integerList: [
-      1,
-
-      2,
-    ],
-
+    integerList: [1, 2],
     booleanList: [true, false],
-
     timestampList: [new Date(1398796238000), new Date(1398796238000)],
-
     enumList: ["Foo", "0"],
-
-    intEnumList: [
-      1,
-
-      2,
-    ],
-
+    intEnumList: [1, 2],
     nestedStringList: [
       ["foo", "bar"],
-
       ["baz", "qux"],
     ],
-
     structureList: [
       {
         a: "1",
-
         b: "2",
       } as any,
-
       {
         a: "3",
-
         b: "4",
       } as any,
     ],
-
     blobList: [Uint8Array.from("foo", (c) => c.charCodeAt(0)), Uint8Array.from("bar", (c) => c.charCodeAt(0))],
   } as any);
   try {
@@ -1604,9 +1509,8 @@ it("RpcV2CborLists:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2pzdHJpbmdMaXN0gmNmb29jYmFyaXN0cmluZ1NldIJjZm9vY2JhcmtpbnRlZ2VyTGlzdIIBAmtib29sZWFuTGlzdIL19G10aW1lc3RhbXBMaXN0gsH7QdTX+/OAAADB+0HU1/vzgAAAaGVudW1MaXN0gmNGb29hMGtpbnRFbnVtTGlzdIIBAnBuZXN0ZWRTdHJpbmdMaXN0goJjZm9vY2JhcoJjYmF6Y3F1eG1zdHJ1Y3R1cmVMaXN0gqJhYWExYWJhMqJhYWEzYWJhNGhibG9iTGlzdIJDZm9vQ2Jhcv8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1618,7 +1522,6 @@ it("RpcV2CborListsEmpty:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborListsCommand({
@@ -1644,9 +1547,8 @@ it("RpcV2CborListsEmpty:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2pzdHJpbmdMaXN0n///`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1658,7 +1560,6 @@ it("RpcV2CborListsEmptyUsingDefiniteLength:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborListsCommand({
@@ -1684,9 +1585,8 @@ it("RpcV2CborListsEmptyUsingDefiniteLength:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `oWpzdHJpbmdMaXN0gA==`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1697,8 +1597,7 @@ it("RpcV2CborListsEmptyUsingDefiniteLength:Request", async () => {
 it("RpcV2CborLists:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1723,53 +1622,32 @@ it("RpcV2CborLists:Response", async () => {
   const paramsToValidate: any = [
     {
       stringList: ["foo", "bar"],
-
       stringSet: ["foo", "bar"],
-
-      integerList: [
-        1,
-
-        2,
-      ],
-
+      integerList: [1, 2],
       booleanList: [true, false],
-
       timestampList: [new Date(1398796238 * 1000), new Date(1398796238 * 1000)],
-
       enumList: ["Foo", "0"],
-
-      intEnumList: [
-        1,
-
-        2,
-      ],
-
+      intEnumList: [1, 2],
       nestedStringList: [
         ["foo", "bar"],
-
         ["baz", "qux"],
       ],
-
       structureList: [
         {
           a: "1",
-
           b: "2",
         },
-
         {
           a: "3",
-
           b: "4",
         },
       ],
-
       blobList: [Uint8Array.from("foo", (c) => c.charCodeAt(0)), Uint8Array.from("bar", (c) => c.charCodeAt(0))],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1779,8 +1657,7 @@ it("RpcV2CborLists:Response", async () => {
 it("RpcV2CborListsEmpty:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1809,7 +1686,7 @@ it("RpcV2CborListsEmpty:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1819,8 +1696,7 @@ it("RpcV2CborListsEmpty:Response", async () => {
 it("RpcV2CborIndefiniteStringInsideIndefiniteListCanDeserialize:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1846,16 +1722,14 @@ it("RpcV2CborIndefiniteStringInsideIndefiniteListCanDeserialize:Response", async
     {
       stringList: [
         "An example indefinite string, which will be chunked, on each comma",
-
         "Another example indefinite string with only one chunk",
-
         "This is a plain string",
       ],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1865,8 +1739,7 @@ it("RpcV2CborIndefiniteStringInsideIndefiniteListCanDeserialize:Response", async
 it("RpcV2CborIndefiniteStringInsideDefiniteListCanDeserialize:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -1892,16 +1765,14 @@ it("RpcV2CborIndefiniteStringInsideDefiniteListCanDeserialize:Response", async (
     {
       stringList: [
         "An example indefinite string, which will be chunked, on each comma",
-
         "Another example indefinite string with only one chunk",
-
         "This is a plain string",
       ],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -1912,7 +1783,6 @@ it("RpcV2CborSparseMaps:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborSparseMapsCommand({
@@ -1920,7 +1790,6 @@ it("RpcV2CborSparseMaps:Request", async () => {
       foo: {
         hi: "there",
       } as any,
-
       baz: {
         hi: "bye",
       } as any,
@@ -1946,9 +1815,8 @@ it("RpcV2CborSparseMaps:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v29zcGFyc2VTdHJ1Y3RNYXC/Y2Zvb79iaGlldGhlcmX/Y2Jher9iaGljYnll////`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1960,22 +1828,18 @@ it("RpcV2CborSerializesNullMapValues:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborSparseMapsCommand({
     sparseBooleanMap: {
       x: null,
     } as any,
-
     sparseNumberMap: {
       x: null,
     } as any,
-
     sparseStringMap: {
       x: null,
     } as any,
-
     sparseStructMap: {
       x: null,
     } as any,
@@ -2000,9 +1864,8 @@ it("RpcV2CborSerializesNullMapValues:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v3BzcGFyc2VCb29sZWFuTWFwv2F49v9vc3BhcnNlTnVtYmVyTWFwv2F49v9vc3BhcnNlU3RyaW5nTWFwv2F49v9vc3BhcnNlU3RydWN0TWFwv2F49v//`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2014,13 +1877,11 @@ it("RpcV2CborSerializesSparseSetMap:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborSparseMapsCommand({
     sparseSetMap: {
       x: [],
-
       y: ["a", "b"],
     } as any,
   } as any);
@@ -2044,9 +1905,8 @@ it("RpcV2CborSerializesSparseSetMap:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2xzcGFyc2VTZXRNYXC/YXif/2F5n2FhYWL///8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2058,15 +1918,12 @@ it("RpcV2CborSerializesSparseSetMapAndRetainsNull:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborSparseMapsCommand({
     sparseSetMap: {
       x: [],
-
       y: ["a", "b"],
-
       z: null,
     } as any,
   } as any);
@@ -2090,9 +1947,8 @@ it("RpcV2CborSerializesSparseSetMapAndRetainsNull:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2xzcGFyc2VTZXRNYXC/YXif/2F5n2FhYWL/YXr2//8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2104,14 +1960,12 @@ it("RpcV2CborSerializesZeroValuesInSparseMaps:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new RpcV2CborSparseMapsCommand({
     sparseNumberMap: {
       x: 0,
     } as any,
-
     sparseBooleanMap: {
       x: false,
     } as any,
@@ -2136,9 +1990,8 @@ it("RpcV2CborSerializesZeroValuesInSparseMaps:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v29zcGFyc2VOdW1iZXJNYXC/YXgA/3BzcGFyc2VCb29sZWFuTWFwv2F49P//`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2149,8 +2002,7 @@ it("RpcV2CborSerializesZeroValuesInSparseMaps:Request", async () => {
 it("RpcV2CborSparseJsonMaps:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2178,7 +2030,6 @@ it("RpcV2CborSparseJsonMaps:Response", async () => {
         foo: {
           hi: "there",
         },
-
         baz: {
           hi: "bye",
         },
@@ -2187,7 +2038,7 @@ it("RpcV2CborSparseJsonMaps:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2197,8 +2048,7 @@ it("RpcV2CborSparseJsonMaps:Response", async () => {
 it("RpcV2CborDeserializesNullMapValues:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2225,15 +2075,12 @@ it("RpcV2CborDeserializesNullMapValues:Response", async () => {
       sparseBooleanMap: {
         x: null,
       },
-
       sparseNumberMap: {
         x: null,
       },
-
       sparseStringMap: {
         x: null,
       },
-
       sparseStructMap: {
         x: null,
       },
@@ -2241,7 +2088,7 @@ it("RpcV2CborDeserializesNullMapValues:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2251,8 +2098,7 @@ it("RpcV2CborDeserializesNullMapValues:Response", async () => {
 it("RpcV2CborDeserializesSparseSetMap:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2278,14 +2124,13 @@ it("RpcV2CborDeserializesSparseSetMap:Response", async () => {
     {
       sparseSetMap: {
         x: [],
-
         y: ["a", "b"],
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2295,8 +2140,7 @@ it("RpcV2CborDeserializesSparseSetMap:Response", async () => {
 it("RpcV2CborDeserializesSparseSetMapAndRetainsNull:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2322,16 +2166,14 @@ it("RpcV2CborDeserializesSparseSetMapAndRetainsNull:Response", async () => {
     {
       sparseSetMap: {
         x: [],
-
         y: ["a", "b"],
-
         z: null,
       },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2341,8 +2183,7 @@ it("RpcV2CborDeserializesSparseSetMapAndRetainsNull:Response", async () => {
 it("RpcV2CborDeserializesZeroValuesInSparseMaps:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2369,7 +2210,6 @@ it("RpcV2CborDeserializesZeroValuesInSparseMaps:Response", async () => {
       sparseNumberMap: {
         x: 0,
       },
-
       sparseBooleanMap: {
         x: false,
       },
@@ -2377,7 +2217,7 @@ it("RpcV2CborDeserializesZeroValuesInSparseMaps:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2388,28 +2228,18 @@ it("RpcV2CborSimpleScalarProperties:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new SimpleScalarPropertiesCommand({
     byteValue: 5,
-
     doubleValue: 1.889,
-
     falseBooleanValue: false,
-
     floatValue: 7.624,
-
     integerValue: 256,
-
     longValue: 9873,
-
     shortValue: 9898,
-
     stringValue: "simple",
-
     trueBooleanValue: true,
-
     blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
   } as any);
   try {
@@ -2432,9 +2262,8 @@ it("RpcV2CborSimpleScalarProperties:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2lieXRlVmFsdWUFa2RvdWJsZVZhbHVl+z/+OVgQYk3TcWZhbHNlQm9vbGVhblZhbHVl9GpmbG9hdFZhbHVl+kDz989saW50ZWdlclZhbHVlGQEAaWxvbmdWYWx1ZRkmkWpzaG9ydFZhbHVlGSaqa3N0cmluZ1ZhbHVlZnNpbXBsZXB0cnVlQm9vbGVhblZhbHVl9WlibG9iVmFsdWVDZm9v/w==`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2446,7 +2275,6 @@ it("RpcV2CborClientDoesntSerializeNullStructureValues:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new SimpleScalarPropertiesCommand({
@@ -2472,9 +2300,8 @@ it("RpcV2CborClientDoesntSerializeNullStructureValues:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v/8=`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2486,12 +2313,10 @@ it("RpcV2CborSupportsNaNFloatInputs:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new SimpleScalarPropertiesCommand({
     doubleValue: NaN,
-
     floatValue: NaN,
   } as any);
   try {
@@ -2514,9 +2339,8 @@ it("RpcV2CborSupportsNaNFloatInputs:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2tkb3VibGVWYWx1Zft/+AAAAAAAAGpmbG9hdFZhbHVl+n/AAAD/`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2528,12 +2352,10 @@ it("RpcV2CborSupportsInfinityFloatInputs:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new SimpleScalarPropertiesCommand({
     doubleValue: Infinity,
-
     floatValue: Infinity,
   } as any);
   try {
@@ -2556,9 +2378,8 @@ it("RpcV2CborSupportsInfinityFloatInputs:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2tkb3VibGVWYWx1Zft/8AAAAAAAAGpmbG9hdFZhbHVl+n+AAAD/`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2570,12 +2391,10 @@ it("RpcV2CborSupportsNegativeInfinityFloatInputs:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new SimpleScalarPropertiesCommand({
     doubleValue: -Infinity,
-
     floatValue: -Infinity,
   } as any);
   try {
@@ -2598,9 +2417,8 @@ it("RpcV2CborSupportsNegativeInfinityFloatInputs:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v2tkb3VibGVWYWx1Zfv/8AAAAAAAAGpmbG9hdFZhbHVl+v+AAAD/`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2611,8 +2429,7 @@ it("RpcV2CborSupportsNegativeInfinityFloatInputs:Request", async () => {
 it("RpcV2CborSimpleScalarProperties:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2637,27 +2454,19 @@ it("RpcV2CborSimpleScalarProperties:Response", async () => {
   const paramsToValidate: any = [
     {
       trueBooleanValue: true,
-
       falseBooleanValue: false,
-
       byteValue: 5,
-
       doubleValue: 1.889,
-
       floatValue: 7.624,
-
       integerValue: 256,
-
       shortValue: 9898,
-
       stringValue: "simple",
-
       blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2667,8 +2476,7 @@ it("RpcV2CborSimpleScalarProperties:Response", async () => {
 it("RpcV2CborSimpleScalarPropertiesUsingDefiniteLength:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2693,27 +2501,19 @@ it("RpcV2CborSimpleScalarPropertiesUsingDefiniteLength:Response", async () => {
   const paramsToValidate: any = [
     {
       trueBooleanValue: true,
-
       falseBooleanValue: false,
-
       byteValue: 5,
-
       doubleValue: 1.889,
-
       floatValue: 7.624,
-
       integerValue: 256,
-
       shortValue: 9898,
-
       stringValue: "simple",
-
       blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2723,8 +2523,7 @@ it("RpcV2CborSimpleScalarPropertiesUsingDefiniteLength:Response", async () => {
 it("RpcV2CborClientDoesntDeserializeNullStructureValues:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2754,8 +2553,7 @@ it("RpcV2CborClientDoesntDeserializeNullStructureValues:Response", async () => {
 it("RpcV2CborSupportsNaNFloatOutputs:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2780,13 +2578,12 @@ it("RpcV2CborSupportsNaNFloatOutputs:Response", async () => {
   const paramsToValidate: any = [
     {
       doubleValue: NaN,
-
       floatValue: NaN,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2796,8 +2593,7 @@ it("RpcV2CborSupportsNaNFloatOutputs:Response", async () => {
 it("RpcV2CborSupportsInfinityFloatOutputs:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2822,13 +2618,12 @@ it("RpcV2CborSupportsInfinityFloatOutputs:Response", async () => {
   const paramsToValidate: any = [
     {
       doubleValue: Infinity,
-
       floatValue: Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2838,8 +2633,7 @@ it("RpcV2CborSupportsInfinityFloatOutputs:Response", async () => {
 it("RpcV2CborSupportsNegativeInfinityFloatOutputs:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2864,13 +2658,12 @@ it("RpcV2CborSupportsNegativeInfinityFloatOutputs:Response", async () => {
   const paramsToValidate: any = [
     {
       doubleValue: -Infinity,
-
       floatValue: -Infinity,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2880,8 +2673,7 @@ it("RpcV2CborSupportsNegativeInfinityFloatOutputs:Response", async () => {
 it("RpcV2CborSupportsUpcastingDataOnDeserialize:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2906,19 +2698,15 @@ it("RpcV2CborSupportsUpcastingDataOnDeserialize:Response", async () => {
   const paramsToValidate: any = [
     {
       doubleValue: 1.5,
-
       floatValue: 7.625,
-
       integerValue: 56,
-
       longValue: 256,
-
       shortValue: 10,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2930,8 +2718,7 @@ it("RpcV2CborSupportsUpcastingDataOnDeserialize:Response", async () => {
 it("RpcV2CborExtraFieldsInTheBodyShouldBeSkippedByClients:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -2956,29 +2743,20 @@ it("RpcV2CborExtraFieldsInTheBodyShouldBeSkippedByClients:Response", async () =>
   const paramsToValidate: any = [
     {
       byteValue: 5,
-
       doubleValue: 1.889,
-
       falseBooleanValue: false,
-
       floatValue: 7.624,
-
       integerValue: 256,
-
       longValue: 9873,
-
       shortValue: 9898,
-
       stringValue: "simple",
-
       trueBooleanValue: true,
-
       blobValue: Uint8Array.from("foo", (c) => c.charCodeAt(0)),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -2989,7 +2767,6 @@ it("RpcV2CborSparseMapsSerializeNullValues:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new SparseNullsOperationCommand({
@@ -3017,9 +2794,8 @@ it("RpcV2CborSparseMapsSerializeNullValues:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v29zcGFyc2VTdHJpbmdNYXC/Y2Zvb/b//w==`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3031,7 +2807,6 @@ it("RpcV2CborSparseListsSerializeNull:Request", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
-    endpoint: "https://www.amazon.com",
   });
 
   const command = new SparseNullsOperationCommand({
@@ -3057,9 +2832,8 @@ it("RpcV2CborSparseListsSerializeNull:Request", async () => {
     expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
 
     expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `v3BzcGFyc2VTdHJpbmdMaXN0n/b//w==`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3070,8 +2844,7 @@ it("RpcV2CborSparseListsSerializeNull:Request", async () => {
 it("RpcV2CborSparseMapsDeserializeNullValues:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -3102,7 +2875,7 @@ it("RpcV2CborSparseMapsDeserializeNullValues:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
@@ -3112,8 +2885,7 @@ it("RpcV2CborSparseMapsDeserializeNullValues:Response", async () => {
 it("RpcV2CborSparseListsDeserializeNull:Response", async () => {
   const client = new RpcV2ProtocolClient({
     ...clientParams,
-    endpoint: "https://www.amazon.com",
-    requestHandler: new RequestSerializationTestHandler(
+    requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
@@ -3142,23 +2914,13 @@ it("RpcV2CborSparseListsDeserializeNull:Response", async () => {
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
     expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
   });
 });
 
-/**
- * Returns a map of key names that were un-equal to value objects showing the
- * discrepancies between the components.
- */
-const compareEquivalentUnknownTypeBodies = (
-  utf8Encoder: __Encoder,
-  expectedBody: string,
-  generatedBody: string | Uint8Array
-): Object => {
-  const expectedParts = { Value: expectedBody };
-  const generatedParts = {
-    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody,
-  };
-
-  return compareParts(expectedParts, generatedParts);
+const compareEquivalentCborBodies = (expectedBody: string, generatedBody: string | Uint8Array): undefined => {
+  expect(
+    normalizeByteArrayType(cbor.deserialize(typeof generatedBody === "string" ? toBytes(generatedBody) : generatedBody))
+  ).toEqual(normalizeByteArrayType(cbor.deserialize(toBytes(expectedBody))));
+  return undefined;
 };

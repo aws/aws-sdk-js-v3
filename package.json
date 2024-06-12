@@ -41,7 +41,7 @@
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
     "test:integration:legacy": "yarn test:e2e:legacy",
     "test:integration:legacy:since:release": "yarn test:e2e:legacy:since:release",
-    "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-protocoltests-*'",
+    "test:protocols": "yarn build:protocols && lerna run test --scope '{@aws-sdk/smithy-rpcv2-cbor,@aws-sdk/aws-protocoltests-}*'",
     "test:server-protocols": "yarn build:server-protocols && lerna run test --scope '@aws-sdk/*-server'",
     "test:size": "cd scripts/benchmark-size/runner && yarn && ts-node ./cli.ts",
     "test:unit": "jest --config jest.config.js",

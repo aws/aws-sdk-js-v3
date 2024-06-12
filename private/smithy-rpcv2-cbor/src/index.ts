@@ -2,8 +2,8 @@
 /* eslint-disable */
 export * from "./RpcV2ProtocolClient";
 export * from "./RpcV2Protocol";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { RpcV2ProtocolExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { RpcV2ProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

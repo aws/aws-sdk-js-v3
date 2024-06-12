@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Rpcv2cbor";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_query";
 
 /**
  * @public

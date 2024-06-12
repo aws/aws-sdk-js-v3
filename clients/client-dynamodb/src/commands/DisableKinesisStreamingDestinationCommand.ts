@@ -10,7 +10,7 @@ import { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } f
 import {
   de_DisableKinesisStreamingDestinationCommand,
   se_DisableKinesisStreamingDestinationCommand,
-} from "../protocols/Rpcv2cbor";
+} from "../protocols/Aws_json1_0";
 
 /**
  * @public

@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GetMetricDataInput, GetMetricDataOutput } from "../models/models_0";
-import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/Rpcv2cbor";
+import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/Aws_query";
 
 /**
  * @public

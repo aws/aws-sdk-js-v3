@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DisableInsightRulesInput, DisableInsightRulesOutput } from "../models/models_0";
-import { de_DisableInsightRulesCommand, se_DisableInsightRulesCommand } from "../protocols/Rpcv2cbor";
+import { de_DisableInsightRulesCommand, se_DisableInsightRulesCommand } from "../protocols/Aws_query";
 
 /**
  * @public

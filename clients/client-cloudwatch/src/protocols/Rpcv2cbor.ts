@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   cbor,
+  dateToTag as __dateToTag,
   loadSmithyRpcV2CborErrorCode,
   parseCborBody as parseBody,
   parseCborErrorBody as parseErrorBody,
@@ -17,7 +18,6 @@ import {
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
-  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -1951,11 +1951,7 @@ const se_AnomalyDetectorExcludedTimeRanges = (input: Range[], context: __SerdeCo
  * serializeRpcv2cborCounts
  */
 const se_Counts = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return __serializeFloat(entry);
-    });
+  return input.filter((e: any) => e != null);
 };
 
 // se_DashboardNames omitted.
@@ -1977,12 +1973,12 @@ const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context:
   return take(input, {
     AlarmName: [],
     AlarmTypes: _json,
-    EndDate: (_) => _.getTime() / 1_000,
+    EndDate: __dateToTag,
     HistoryItemType: [],
     MaxRecords: [],
     NextToken: [],
     ScanBy: [],
-    StartDate: (_) => _.getTime() / 1_000,
+    StartDate: __dateToTag,
   });
 };
 
@@ -2019,13 +2015,13 @@ const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context:
  */
 const se_GetInsightRuleReportInput = (input: GetInsightRuleReportInput, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => _.getTime() / 1_000,
+    EndTime: __dateToTag,
     MaxContributorCount: [],
     Metrics: _json,
     OrderBy: [],
     Period: [],
     RuleName: [],
-    StartTime: (_) => _.getTime() / 1_000,
+    StartTime: __dateToTag,
   });
 };
 
@@ -2034,13 +2030,13 @@ const se_GetInsightRuleReportInput = (input: GetInsightRuleReportInput, context:
  */
 const se_GetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => _.getTime() / 1_000,
+    EndTime: __dateToTag,
     LabelOptions: _json,
     MaxDatapoints: [],
     MetricDataQueries: _json,
     NextToken: [],
     ScanBy: [],
-    StartTime: (_) => _.getTime() / 1_000,
+    StartTime: __dateToTag,
   });
 };
 
@@ -2050,12 +2046,12 @@ const se_GetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContex
 const se_GetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: __SerdeContext): any => {
   return take(input, {
     Dimensions: _json,
-    EndTime: (_) => _.getTime() / 1_000,
+    EndTime: __dateToTag,
     ExtendedStatistics: _json,
     MetricName: [],
     Namespace: [],
     Period: [],
-    StartTime: (_) => _.getTime() / 1_000,
+    StartTime: __dateToTag,
     Statistics: _json,
     Unit: [],
   });
@@ -2114,9 +2110,9 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
     MetricName: [],
     StatisticValues: (_) => se_StatisticSet(_, context),
     StorageResolution: [],
-    Timestamp: (_) => _.getTime() / 1_000,
+    Timestamp: __dateToTag,
     Unit: [],
-    Value: __serializeFloat,
+    Value: [],
     Values: (_) => se_Values(_, context),
   });
 };
@@ -2190,7 +2186,7 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
     Period: [],
     Statistic: [],
     Tags: _json,
-    Threshold: __serializeFloat,
+    Threshold: [],
     ThresholdMetricId: [],
     TreatMissingData: [],
     Unit: [],
@@ -2214,8 +2210,8 @@ const se_PutMetricDataInput = (input: PutMetricDataInput, context: __SerdeContex
  */
 const se_Range = (input: Range, context: __SerdeContext): any => {
   return take(input, {
-    EndTime: (_) => _.getTime() / 1_000,
-    StartTime: (_) => _.getTime() / 1_000,
+    EndTime: __dateToTag,
+    StartTime: __dateToTag,
   });
 };
 
@@ -2234,10 +2230,10 @@ const se_Range = (input: Range, context: __SerdeContext): any => {
  */
 const se_StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   return take(input, {
-    Maximum: __serializeFloat,
-    Minimum: __serializeFloat,
-    SampleCount: __serializeFloat,
-    Sum: __serializeFloat,
+    Maximum: [],
+    Minimum: [],
+    SampleCount: [],
+    Sum: [],
   });
 };
 
@@ -2257,11 +2253,7 @@ const se_StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
  * serializeRpcv2cborValues
  */
 const se_Values = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return __serializeFloat(entry);
-    });
+  return input.filter((e: any) => e != null);
 };
 
 /**
@@ -2588,7 +2580,7 @@ const de_GetMetricStreamOutput = (output: any, context: __SerdeContext): GetMetr
  */
 const de_GetMetricWidgetImageOutput = (output: any, context: __SerdeContext): GetMetricWidgetImageOutput => {
   return take(output, {
-    MetricWidgetImage: context.base64Decoder,
+    MetricWidgetImage: [],
   }) as any;
 };
 

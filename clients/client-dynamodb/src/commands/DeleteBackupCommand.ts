@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteBackupInput, DeleteBackupOutput } from "../models/models_0";
-import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Rpcv2cbor";
+import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public

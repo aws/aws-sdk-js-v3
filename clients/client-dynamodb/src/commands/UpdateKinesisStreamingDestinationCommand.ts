@@ -10,7 +10,7 @@ import { UpdateKinesisStreamingDestinationInput, UpdateKinesisStreamingDestinati
 import {
   de_UpdateKinesisStreamingDestinationCommand,
   se_UpdateKinesisStreamingDestinationCommand,
-} from "../protocols/Rpcv2cbor";
+} from "../protocols/Aws_json1_0";
 
 /**
  * @public

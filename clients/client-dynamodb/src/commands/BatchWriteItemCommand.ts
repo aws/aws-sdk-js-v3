@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchWriteItemInput, BatchWriteItemOutput } from "../models/models_0";
-import { de_BatchWriteItemCommand, se_BatchWriteItemCommand } from "../protocols/Rpcv2cbor";
+import { de_BatchWriteItemCommand, se_BatchWriteItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public

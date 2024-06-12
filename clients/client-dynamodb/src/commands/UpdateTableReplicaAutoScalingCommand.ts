@@ -10,7 +10,7 @@ import { UpdateTableReplicaAutoScalingInput, UpdateTableReplicaAutoScalingOutput
 import {
   de_UpdateTableReplicaAutoScalingCommand,
   se_UpdateTableReplicaAutoScalingCommand,
-} from "../protocols/Rpcv2cbor";
+} from "../protocols/Aws_json1_0";
 
 /**
  * @public

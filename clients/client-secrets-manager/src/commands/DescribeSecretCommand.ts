@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeSecretRequest, DescribeSecretResponse } from "../models/models_0";
-import { de_DescribeSecretCommand, se_DescribeSecretCommand } from "../protocols/Rpcv2cbor";
+import { de_DescribeSecretCommand, se_DescribeSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**

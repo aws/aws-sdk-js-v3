@@ -270,9 +270,7 @@ export class RpcV2ProtocolClient extends __Client<
   readonly config: RpcV2ProtocolClientResolvedConfig;
 
   constructor(...[configuration]: __CheckOptionalClientConfig<RpcV2ProtocolClientConfig>) {
-    const _config_0 = __getRuntimeConfig({
-      ...configuration,
-    });
+    const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveCustomEndpointsConfig(_config_0);
     const _config_2 = resolveRetryConfig(_config_1);
     const _config_3 = resolveHostHeaderConfig(_config_2);

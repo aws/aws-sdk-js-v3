@@ -7,7 +7,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDashboardsInput, DeleteDashboardsOutput } from "../models/models_0";
-import { de_DeleteDashboardsCommand, se_DeleteDashboardsCommand } from "../protocols/Rpcv2cbor";
+import { de_DeleteDashboardsCommand, se_DeleteDashboardsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
