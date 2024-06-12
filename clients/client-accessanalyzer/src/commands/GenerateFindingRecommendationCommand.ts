@@ -70,6 +70,30 @@ export interface GenerateFindingRecommendationCommandOutput extends __MetadataBe
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  * @public
+ * @example Successfully started generating finding recommendation
+ * ```javascript
+ * //
+ * const input = {
+ *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   "id": "finding-id"
+ * };
+ * const command = new GenerateFindingRecommendationCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
+ * @example Failed field validation for id value
+ * ```javascript
+ * //
+ * const input = {
+ *   "analyzerArn": "arn:aws:access-analyzer:us-east-1:111122223333:analyzer/a",
+ *   "id": "!"
+ * };
+ * const command = new GenerateFindingRecommendationCommand(input);
+ * await client.send(command);
+ * // example id: example-2
+ * ```
+ *
  */
 export class GenerateFindingRecommendationCommand extends $Command
   .classBuilder<

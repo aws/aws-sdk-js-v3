@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+
+### Features
+
+* **client-securitylake:** This release updates request validation regex to account for non-commercial aws partitions. ([b6bd981](https://github.com/aws/aws-sdk-js-v3/commit/b6bd98148960c3b556c0df0e8378f0e77d11f06f))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-securitylake

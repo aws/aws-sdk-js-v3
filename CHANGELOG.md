@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+
+### Features
+
+* **client-apptest:** AWS Mainframe Modernization Application Testing is an AWS Mainframe Modernization service feature that automates functional equivalence testing for mainframe application modernization and migration to AWS, and regression testing. ([5392a53](https://github.com/aws/aws-sdk-js-v3/commit/5392a539f82cdb66b858772c850953bc5ae506fe))
+* **client-ec2:** Tagging support for Traffic Mirroring FilterRule resource ([9539a33](https://github.com/aws/aws-sdk-js-v3/commit/9539a33ea4fcd0bfa5dd74cb8863c38636fdcfe0))
+* **client-osis:** SDK changes for self-managed vpc endpoint to OpenSearch ingestion pipelines. ([ef64589](https://github.com/aws/aws-sdk-js-v3/commit/ef6458966dad6d6aecae69e3b20d8ad915c323be))
+* **client-secrets-manager:** Introducing RotationToken parameter for PutSecretValue API ([57ae98d](https://github.com/aws/aws-sdk-js-v3/commit/57ae98d316228ce9571f5a87d56c98c1ff2b283b))
+* **client-securitylake:** This release updates request validation regex to account for non-commercial aws partitions. ([b6bd981](https://github.com/aws/aws-sdk-js-v3/commit/b6bd98148960c3b556c0df0e8378f0e77d11f06f))
+* **client-sesv2:** This release adds support for Amazon EventBridge as an email sending events destination. ([13844af](https://github.com/aws/aws-sdk-js-v3/commit/13844afd942020dca03c802206e52181e2a70cb5))
+* **clients:** update client endpoints as of 2024-06-12 ([e701cc4](https://github.com/aws/aws-sdk-js-v3/commit/e701cc43679d5fd5a9b3aa9c16b7bf3d218b28d4))
+
+
+
+
+
 # [3.595.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.594.0...v3.595.0) (2024-06-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+
+### Features
+
+* **client-osis:** SDK changes for self-managed vpc endpoint to OpenSearch ingestion pipelines. ([ef64589](https://github.com/aws/aws-sdk-js-v3/commit/ef6458966dad6d6aecae69e3b20d8ad915c323be))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-osis

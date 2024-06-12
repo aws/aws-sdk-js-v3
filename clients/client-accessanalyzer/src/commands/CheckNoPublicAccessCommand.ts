@@ -88,6 +88,49 @@ export interface CheckNoPublicAccessCommandOutput extends CheckNoPublicAccessRes
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
  * @public
+ * @example Passing check. S3 Bucket policy without public access.
+ * ```javascript
+ * //
+ * const input = {
+ *   "policyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Bob\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::111122223333:user/JohnDoe\"},\"Action\":[\"s3:GetObject\"]}]}",
+ *   "resourceType": "AWS::S3::Bucket"
+ * };
+ * const command = new CheckNoPublicAccessCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "message": "The resource policy does not grant public access for the given resource type.",
+ *   "result": "PASS"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example Failing check. S3 Bucket policy with public access.
+ * ```javascript
+ * //
+ * const input = {
+ *   "policyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Bob\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":[\"s3:GetObject\"]}]}",
+ *   "resourceType": "AWS::S3::Bucket"
+ * };
+ * const command = new CheckNoPublicAccessCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "message": "The resource policy grants public access for the given resource type.",
+ *   "reasons": [
+ *     {
+ *       "description": "Public access granted in the following statement with sid: Bob.",
+ *       "statementId": "Bob",
+ *       "statementIndex": 0
+ *     }
+ *   ],
+ *   "result": "FAIL"
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
  */
 export class CheckNoPublicAccessCommand extends $Command
   .classBuilder<

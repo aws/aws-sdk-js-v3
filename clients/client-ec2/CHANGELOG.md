@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+
+### Features
+
+* **client-ec2:** Tagging support for Traffic Mirroring FilterRule resource ([9539a33](https://github.com/aws/aws-sdk-js-v3/commit/9539a33ea4fcd0bfa5dd74cb8863c38636fdcfe0))
+
+
+
+
+
 # [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
