@@ -30,10 +30,6 @@ const { solo } = yargs(process.argv.slice(2))
     const clientFolder = join(SDK_CLIENTS_DIR, `client-${solo}`);
     const libFolder = join(SDK_CLIENTS_DIR, "..", "lib", `lib-${solo}`);
 
-    // examples merging
-    require("../api-examples/get-examples");
-    require("../api-examples/merge-examples").merge(void 0, solo);
-
     console.log("================ starting eslint ================", "\n", new Date().toString(), solo);
     try {
       await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${clientFolder}/src/**/*`]);
