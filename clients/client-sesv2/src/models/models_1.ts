@@ -17,6 +17,32 @@ import {
 } from "./models_0";
 
 /**
+ * <p>A request to set the attributes that control how bounce and complaint events are
+ *             processed.</p>
+ * @public
+ */
+export interface PutEmailIdentityFeedbackAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>Sets the feedback forwarding configuration for the identity.</p>
+   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
+   *             complaint events occur. These notifications are sent to the address that you specified
+   *             in the <code>Return-Path</code> header of the original email.</p>
+   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
+   *             set up another mechanism for receiving bounce or complaint notifications (for example,
+   *             by setting up an event destination), you receive an email notification when these events
+   *             occur (even if this setting is disabled).</p>
+   * @public
+   */
+  EmailForwardingEnabled?: boolean;
+}
+
+/**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  * @public

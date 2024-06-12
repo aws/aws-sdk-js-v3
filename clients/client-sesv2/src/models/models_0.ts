@@ -1686,6 +1686,19 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * <p>An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to
+ *             send notifications when certain email events occur.</p>
+ * @public
+ */
+export interface EventBridgeDestination {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported. </p>
+   * @public
+   */
+  EventBusArn: string | undefined;
+}
+
+/**
  * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
  *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
  * @public
@@ -1745,7 +1758,7 @@ export interface PinpointDestination {
 
 /**
  * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
- *             send notification when certain email events occur.</p>
+ *             send notifications when certain email events occur.</p>
  * @public
  */
 export interface SnsDestination {
@@ -1798,10 +1811,17 @@ export interface EventDestinationDefinition {
 
   /**
    * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
+   *             send notifications when certain email events occur.</p>
    * @public
    */
   SnsDestination?: SnsDestination;
+
+  /**
+   * <p>An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to
+   *             send notifications when certain email events occur.</p>
+   * @public
+   */
+  EventBridgeDestination?: EventBridgeDestination;
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -4076,10 +4096,17 @@ export interface EventDestination {
 
   /**
    * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
+   *             send notifications when certain email events occur.</p>
    * @public
    */
   SnsDestination?: SnsDestination;
+
+  /**
+   * <p>An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to
+   *             send notifications when certain email events occur.</p>
+   * @public
+   */
+  EventBridgeDestination?: EventBridgeDestination;
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -7399,32 +7426,6 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    * @public
    */
   DkimTokens?: string[];
-}
-
-/**
- * <p>A request to set the attributes that control how bounce and complaint events are
- *             processed.</p>
- * @public
- */
-export interface PutEmailIdentityFeedbackAttributesRequest {
-  /**
-   * <p>The email identity.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>Sets the feedback forwarding configuration for the identity.</p>
-   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
-   *             complaint events occur. These notifications are sent to the address that you specified
-   *             in the <code>Return-Path</code> header of the original email.</p>
-   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
-   *             set up another mechanism for receiving bounce or complaint notifications (for example,
-   *             by setting up an event destination), you receive an email notification when these events
-   *             occur (even if this setting is disabled).</p>
-   * @public
-   */
-  EmailForwardingEnabled?: boolean;
 }
 
 /**

@@ -337,6 +337,7 @@ import {
   EmailTemplateContent,
   EmailTemplateMetadata,
   EngagementEventType,
+  EventBridgeDestination,
   EventDestinationDefinition,
   EventType,
   ExportDataSource,
@@ -4577,6 +4578,8 @@ const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
 
 // se_EmailTemplateContent omitted.
 
+// se_EventBridgeDestination omitted.
+
 // se_EventDestinationDefinition omitted.
 
 // se_EventTypes omitted.
@@ -5025,6 +5028,8 @@ const de_EmailTemplateMetadataList = (output: any, context: __SerdeContext): Ema
 };
 
 // de_Esps omitted.
+
+// de_EventBridgeDestination omitted.
 
 // de_EventDestination omitted.
 

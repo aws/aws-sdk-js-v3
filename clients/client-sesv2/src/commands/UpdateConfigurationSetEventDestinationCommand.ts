@@ -41,9 +41,8 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
  *             and complaints. <i>Event destinations</i> are places that you can send
- *             information about these events to. For example, you can send event data to Amazon SNS to
- *             receive notifications when you receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to
- *             stream data to Amazon S3 for long-term storage.</p>
+ *             information about these events to. For example, you can send event data to Amazon EventBridge and
+ *             associate a rule to send the event to the specified target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +72,9 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *     },
  *     SnsDestination: { // SnsDestination
  *       TopicArn: "STRING_VALUE", // required
+ *     },
+ *     EventBridgeDestination: { // EventBridgeDestination
+ *       EventBusArn: "STRING_VALUE", // required
  *     },
  *     PinpointDestination: { // PinpointDestination
  *       ApplicationArn: "STRING_VALUE",
