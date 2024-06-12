@@ -28,16 +28,6 @@ export function createGetRequest(url: URL): HttpRequest {
  * @internal
  */
 export async function getCredentials(response: HttpResponse, logger?: Logger): Promise<AwsCredentialIdentity> {
-  const contentType = response?.headers["content-type"] ?? response?.headers["Content-Type"] ?? "";
-
-  if (!contentType.includes("json")) {
-    const warn: (warning: string) => void =
-      logger?.constructor?.name === "NoOpLogger" || !logger ? console.warn : logger.warn;
-    warn(
-      "HTTP credential provider response header content-type was not application/json. Observed: " + contentType + "."
-    );
-  }
-
   const stream = sdkStreamMixin(response.body);
   const str = await stream.transformToString();
 
