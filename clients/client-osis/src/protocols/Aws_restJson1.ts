@@ -964,6 +964,7 @@ const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
     Status: __expectString,
     StatusReason: _json,
     Tags: _json,
+    VpcEndpointService: __expectString,
     VpcEndpoints: _json,
   }) as any;
 };

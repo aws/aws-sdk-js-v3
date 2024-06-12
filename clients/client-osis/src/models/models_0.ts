@@ -124,6 +124,20 @@ export interface VpcAttachmentOptions {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const VpcEndpointManagement = {
+  CUSTOMER: "CUSTOMER",
+  SERVICE: "SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEndpointManagement = (typeof VpcEndpointManagement)[keyof typeof VpcEndpointManagement];
+
+/**
  * <p>Options that specify the subnets and security groups for an OpenSearch Ingestion
  *    VPC endpoint.</p>
  * @public
@@ -146,6 +160,12 @@ export interface VpcOptions {
    * @public
    */
   VpcAttachmentOptions?: VpcAttachmentOptions;
+
+  /**
+   * <p>Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.</p>
+   * @public
+   */
+  VpcEndpointManagement?: VpcEndpointManagement;
 }
 
 /**
@@ -409,6 +429,12 @@ export interface Pipeline {
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
+
+  /**
+   * <p>The VPC endpoint service name for the pipeline.</p>
+   * @public
+   */
+  VpcEndpointService?: string;
 
   /**
    * <p>A list of VPC endpoints that OpenSearch Ingestion has created to other Amazon Web Services services.</p>

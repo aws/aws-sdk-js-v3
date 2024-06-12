@@ -57,6 +57,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *       AttachToVpc: true || false, // required
  *       CidrBlock: "STRING_VALUE",
  *     },
+ *     VpcEndpointManagement: "CUSTOMER" || "SERVICE",
  *   },
  *   BufferOptions: { // BufferOptions
  *     PersistentBufferEnabled: true || false, // required
@@ -110,6 +111,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * //             AttachToVpc: true || false, // required
  * //             CidrBlock: "STRING_VALUE",
  * //           },
+ * //           VpcEndpointManagement: "CUSTOMER" || "SERVICE",
  * //         },
  * //       },
  * //     ],
@@ -119,6 +121,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
  * //       KmsKeyArn: "STRING_VALUE", // required
  * //     },
+ * //     VpcEndpointService: "STRING_VALUE",
  * //     ServiceVpcEndpoints: [ // ServiceVpcEndpointsList
  * //       { // ServiceVpcEndpoint
  * //         ServiceName: "OPENSEARCH_SERVERLESS",

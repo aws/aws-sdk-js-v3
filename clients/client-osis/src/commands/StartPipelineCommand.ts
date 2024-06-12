@@ -77,6 +77,7 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * //             AttachToVpc: true || false, // required
  * //             CidrBlock: "STRING_VALUE",
  * //           },
+ * //           VpcEndpointManagement: "CUSTOMER" || "SERVICE",
  * //         },
  * //       },
  * //     ],
@@ -86,6 +87,7 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
  * //       KmsKeyArn: "STRING_VALUE", // required
  * //     },
+ * //     VpcEndpointService: "STRING_VALUE",
  * //     ServiceVpcEndpoints: [ // ServiceVpcEndpointsList
  * //       { // ServiceVpcEndpoint
  * //         ServiceName: "OPENSEARCH_SERVERLESS",
