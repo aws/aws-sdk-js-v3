@@ -506,6 +506,7 @@ export interface CreateSecretRequest {
    *          <p>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not
    *       both.</p>
    *          <p>This parameter is not available in the Secrets Manager console.</p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretBinary?: Uint8Array;
@@ -518,6 +519,7 @@ export interface CreateSecretRequest {
    *          <p>If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected
    *       secret text in only the <code>SecretString</code> parameter. The Secrets Manager console stores the
    *       information as a JSON structure of key/value pairs that a Lambda rotation function can parse.</p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretString?: string;
@@ -966,7 +968,7 @@ export interface DescribeSecretResponse {
   KmsKeyId?: string;
 
   /**
-   * <p>Specifies whether automatic rotation is turned on for this secret.</p>
+   * <p>Specifies whether automatic rotation is turned on for this secret.  If the secret has never been configured for rotation, Secrets Manager returns null.</p>
    *          <p>To turn on rotation, use <a>RotateSecret</a>. To turn off
    *       rotation, use <a>CancelRotateSecret</a>.</p>
    * @public
@@ -1216,7 +1218,7 @@ export interface GetResourcePolicyResponse {
  */
 export interface GetSecretValueRequest {
   /**
-   * <p>The ARN or name of the secret to retrieve.</p>
+   * <p>The ARN or name of the secret to retrieve. To retrieve a secret from another account, you must use an ARN.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
    *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    * @public
@@ -1273,6 +1275,7 @@ export interface GetSecretValueResponse {
    *          <p>If the secret was created by using the Secrets Manager console, or if the secret value was
    *       originally provided as a string, then this field is omitted. The secret value appears in
    *       <code>SecretString</code> instead.</p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretBinary?: Uint8Array;
@@ -1282,6 +1285,7 @@ export interface GetSecretValueResponse {
    *       through the Secrets Manager console.</p>
    *          <p>If this secret was created by using the console, then Secrets Manager stores the information as a
    *       JSON structure of key/value pairs. </p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretString?: string;
@@ -1742,6 +1746,7 @@ export interface PutSecretValueRequest {
    *       contents of the file as a parameter. </p>
    *          <p>You must include <code>SecretBinary</code> or <code>SecretString</code>, but not both.</p>
    *          <p>You can't access this value from the Secrets Manager console.</p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretBinary?: Uint8Array;
@@ -1750,6 +1755,7 @@ export interface PutSecretValueRequest {
    * <p>The text to encrypt and store in the new version of the secret. </p>
    *          <p>You must include <code>SecretBinary</code> or <code>SecretString</code>, but not both.</p>
    *          <p>We recommend you create the secret string as JSON key/value pairs, as shown in the example.</p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretString?: string;
@@ -1768,6 +1774,13 @@ export interface PutSecretValueRequest {
    * @public
    */
   VersionStages?: string[];
+
+  /**
+   * <p>A unique identifier that indicates the source of the request. For cross-account rotation (when you rotate a secret in one account by using a Lambda rotation function in another account) and the Lambda rotation function assumes an IAM role to call Secrets Manager, Secrets Manager validates the identity with the rotation token. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">How rotation works</a>.</p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
+   * @public
+   */
+  RotationToken?: string;
 }
 
 /**
@@ -2109,6 +2122,7 @@ export interface UpdateSecretRequest {
    *          <p>Either <code>SecretBinary</code> or
    *         <code>SecretString</code> must have a value, but not both.</p>
    *          <p>You can't access this parameter in the Secrets Manager console.</p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretBinary?: Uint8Array;
@@ -2118,6 +2132,7 @@ export interface UpdateSecretRequest {
    *       version of the secret. We recommend you use a JSON structure of key/value pairs for your secret value. </p>
    *          <p>Either <code>SecretBinary</code> or <code>SecretString</code> must have
    *       a value, but not both. </p>
+   *          <p>Sensitive: This field contains sensitive information, so the service does not include it in CloudTrail log entries. If you create your own log entries, you must also avoid logging the information in this field.</p>
    * @public
    */
   SecretString?: string;
@@ -2207,7 +2222,7 @@ export interface UpdateSecretVersionStageResponse {
  */
 export interface ValidateResourcePolicyRequest {
   /**
-   * <p>This field is reserved for internal use.</p>
+   * <p>The ARN or name of the secret with the resource-based policy you want to validate.</p>
    * @public
    */
   SecretId?: string;
@@ -2306,6 +2321,7 @@ export const PutSecretValueRequestFilterSensitiveLog = (obj: PutSecretValueReque
   ...obj,
   ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
   ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+  ...(obj.RotationToken && { RotationToken: SENSITIVE_STRING }),
 });
 
 /**

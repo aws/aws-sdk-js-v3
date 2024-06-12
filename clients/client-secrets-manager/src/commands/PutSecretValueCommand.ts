@@ -53,7 +53,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *       same secret data, the operation succeeds but does nothing. However, if the secret data is
  *       different, then the operation fails because you can't modify an existing version; you can
  *       only create new ones.</p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code> or <code>SecretString</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except <code>SecretBinary</code>, <code>SecretString</code>, or <code>RotationToken</code> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:PutSecretValue</code>.
@@ -74,6 +74,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *   VersionStages: [ // SecretVersionStagesType
  *     "STRING_VALUE",
  *   ],
+ *   RotationToken: "STRING_VALUE",
  * };
  * const command = new PutSecretValueCommand(input);
  * const response = await client.send(command);
