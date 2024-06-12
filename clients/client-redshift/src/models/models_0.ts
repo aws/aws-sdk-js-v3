@@ -2766,7 +2766,7 @@ export interface ReservedNodeExchangeStatus {
   SourceReservedNodeId?: string;
 
   /**
-   * <p>The source reserved-node type, for example ds2.xlarge.</p>
+   * <p>The source reserved-node type, for example ra3.4xlarge.</p>
    * @public
    */
   SourceReservedNodeType?: string;
@@ -2830,21 +2830,21 @@ export interface RestoreStatus {
   /**
    * <p>The number of megabytes per second being transferred from the backup storage.
    *             Returns the average rate for a completed backup.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   *             This field is only updated when you restore to DC2 node types. </p>
    * @public
    */
   CurrentRestoreRateInMegaBytesPerSecond?: number;
 
   /**
    * <p>The size of the set of snapshot data used to restore the cluster.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   *             This field is only updated when you restore to DC2 node types. </p>
    * @public
    */
   SnapshotSizeInMegaBytes?: number;
 
   /**
    * <p>The number of megabytes that have been transferred from snapshot storage.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   *             This field is only updated when you restore to DC2 node types. </p>
    * @public
    */
   ProgressInMegaBytes?: number;
@@ -2852,7 +2852,7 @@ export interface RestoreStatus {
   /**
    * <p>The amount of time an in-progress restore has been running, or the amount of time
    *             it took a completed restore to finish.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   *             This field is only updated when you restore to DC2 node types. </p>
    * @public
    */
   ElapsedTimeInSeconds?: number;
@@ -2860,7 +2860,7 @@ export interface RestoreStatus {
   /**
    * <p>The estimate of the time remaining before the restore will complete. Returns 0 for
    *             a completed restore.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   *             This field is only updated when you restore to DC2 node types. </p>
    * @public
    */
   EstimatedTimeToCompletionInSeconds?: number;
@@ -4490,8 +4490,7 @@ export interface CreateClusterMessage {
    * <p>The node type to be provisioned for the cluster. For information about node types,
    *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
    *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
-   *          <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
-   *                 <code>dc1.large</code> | <code>dc1.8xlarge</code> |
+   *          <p>Valid Values:
    *                 <code>dc2.large</code> | <code>dc2.8xlarge</code> |
    *                 <code>ra3.xlplus</code> |  <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
@@ -4663,7 +4662,7 @@ export interface CreateClusterMessage {
    *                 with ra3 nodes, it isn't required that you change the port to these ranges.)</p>
    *             </li>
    *             <li>
-   *                <p>For clusters with ds2 or dc2 nodes - Select a port within the range <code>1150-65535</code>.</p>
+   *                <p>For clusters with dc2 nodes - Select a port within the range <code>1150-65535</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6824,7 +6823,7 @@ export interface ScheduledAction {
 
   /**
    * <p>A JSON format string of the Amazon Redshift API operation with input parameters. </p>
-   *          <p>"<code>\{\"ResizeCluster\":\{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3\}\}</code>". </p>
+   *          <p>"<code>\{\"ResizeCluster\":\{\"NodeType\":\"ra3.4xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3\}\}</code>". </p>
    * @public
    */
   TargetAction?: ScheduledActionType;
