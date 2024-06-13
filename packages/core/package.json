@@ -60,7 +60,8 @@
     "dist-*/**",
     "./client.js",
     "./httpAuthSchemes.js",
-    "./protocols.js"
+    "./protocols.js",
+    "./account-id-endpoint.js"
   ],
   "sideEffects": false,
   "author": {
