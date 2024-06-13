@@ -4246,6 +4246,8 @@ export const MetricName = {
   DeviceJoinRequestCount: "DeviceJoinRequestCount",
   DeviceRSSI: "DeviceRSSI",
   DeviceRoamingDownlinkCount: "DeviceRoamingDownlinkCount",
+  DeviceRoamingRSSI: "DeviceRoamingRSSI",
+  DeviceRoamingSNR: "DeviceRoamingSNR",
   DeviceRoamingUplinkCount: "DeviceRoamingUplinkCount",
   DeviceSNR: "DeviceSNR",
   DeviceUplinkCount: "DeviceUplinkCount",
