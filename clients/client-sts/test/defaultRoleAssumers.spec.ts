@@ -89,6 +89,17 @@ describe("getDefaultRoleAssumer", () => {
     );
   });
 
+  it("should return accountId in the credentials", async () => {
+    const roleAssumer = getDefaultRoleAssumer();
+    const params: AssumeRoleCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+    };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    const assumedRole = await roleAssumer(sourceCred, params);
+    expect(assumedRole.accountId).toEqual("123456789012");
+  });
+
   it("should use the STS client config", async () => {
     const logger = console;
     const region = "some-region";
@@ -207,6 +218,17 @@ describe("getDefaultRoleAssumerWithWebIdentity", () => {
       requestHandler: handler,
       region,
     });
+  });
+
+  it("should return accountId in the credentials", async () => {
+    const roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity();
+    const params: AssumeRoleWithWebIdentityCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+      WebIdentityToken: "token",
+    };
+    const assumedRole = await roleAssumerWithWebIdentity(params);
+    expect(assumedRole.accountId).toEqual("123456789012");
   });
 
   it("should use the STS client middleware", async () => {
