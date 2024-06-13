@@ -20,6 +20,20 @@ export const BackupState = {
 export type BackupState = (typeof BackupState)[keyof typeof BackupState];
 
 /**
+ * @public
+ * @enum
+ */
+export const ClusterMode = {
+  FIPS: "FIPS",
+  NON_FIPS: "NON_FIPS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterMode = (typeof ClusterMode)[keyof typeof ClusterMode];
+
+/**
  * <p>Contains a tag. A tag is a key-value pair.</p>
  * @public
  */
@@ -116,6 +130,18 @@ export interface Backup {
    * @public
    */
   TagList?: Tag[];
+
+  /**
+   * <p>The HSM type of the cluster that was backed up.</p>
+   * @public
+   */
+  HsmType?: string;
+
+  /**
+   * <p>The mode of the cluster that was backed up.</p>
+   * @public
+   */
+  Mode?: ClusterMode;
 }
 
 /**
@@ -378,8 +404,8 @@ export interface CreateClusterRequest {
   BackupRetentionPolicy?: BackupRetentionPolicy;
 
   /**
-   * <p>The type of HSM to use in the cluster. Currently the only allowed value is
-   *       <code>hsm1.medium</code>.</p>
+   * <p>The type of HSM to use in the cluster. The allowed values are
+   *       <code>hsm1.medium</code> and <code>hsm2m.medium</code>.</p>
    * @public
    */
   HsmType: string | undefined;
@@ -412,6 +438,13 @@ export interface CreateClusterRequest {
    * @public
    */
   TagList?: Tag[];
+
+  /**
+   * <p>The mode to use in the cluster. The allowed values are
+   *       <code>FIPS</code> and <code>NON_FIPS</code>.</p>
+   * @public
+   */
+  Mode?: ClusterMode;
 }
 
 /**
@@ -641,6 +674,12 @@ export interface Cluster {
    * @public
    */
   TagList?: Tag[];
+
+  /**
+   * <p>The mode of the cluster.</p>
+   * @public
+   */
+  Mode?: ClusterMode;
 }
 
 /**

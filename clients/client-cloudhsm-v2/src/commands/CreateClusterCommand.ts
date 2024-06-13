@@ -51,6 +51,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Mode: "FIPS" || "NON_FIPS",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -98,6 +99,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *

@@ -85,6 +85,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *

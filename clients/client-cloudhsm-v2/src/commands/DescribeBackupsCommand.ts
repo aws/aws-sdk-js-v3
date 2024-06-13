@@ -71,6 +71,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //           Value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       HsmType: "STRING_VALUE",
+ * //       Mode: "FIPS" || "NON_FIPS",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

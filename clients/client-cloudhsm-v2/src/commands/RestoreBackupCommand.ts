@@ -60,6 +60,8 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     HsmType: "STRING_VALUE",
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *

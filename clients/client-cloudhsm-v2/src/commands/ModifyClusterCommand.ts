@@ -88,6 +88,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *

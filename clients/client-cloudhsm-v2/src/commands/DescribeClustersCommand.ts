@@ -96,6 +96,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //           Value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       Mode: "FIPS" || "NON_FIPS",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
