@@ -43,6 +43,7 @@
       "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts"
     },
     "./account-id-endpoint": {
+      "module": "./dist-es/submodules/account-id-endpoint/index.js",
       "node": "./dist-cjs/submodules/account-id-endpoint/index.js",
       "import": "./dist-es/submodules/account-id-endpoint/index.js",
       "require": "./dist-cjs/submodules/account-id-endpoint/index.js",
