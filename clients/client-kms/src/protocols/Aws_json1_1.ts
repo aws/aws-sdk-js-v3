@@ -43,6 +43,7 @@ import {
   DeleteImportedKeyMaterialCommandInput,
   DeleteImportedKeyMaterialCommandOutput,
 } from "../commands/DeleteImportedKeyMaterialCommand";
+import { DeriveSharedSecretCommandInput, DeriveSharedSecretCommandOutput } from "../commands/DeriveSharedSecretCommand";
 import {
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput,
@@ -149,6 +150,8 @@ import {
   DeleteCustomKeyStoreRequest,
   DeleteImportedKeyMaterialRequest,
   DependencyTimeoutException,
+  DeriveSharedSecretRequest,
+  DeriveSharedSecretResponse,
   DescribeCustomKeyStoresRequest,
   DescribeCustomKeyStoresResponse,
   DescribeKeyRequest,
@@ -383,6 +386,19 @@ export const se_DeleteImportedKeyMaterialCommand = async (
   const headers: __HeaderBag = sharedHeaders("DeleteImportedKeyMaterial");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeriveSharedSecretCommand
+ */
+export const se_DeriveSharedSecretCommand = async (
+  input: DeriveSharedSecretCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeriveSharedSecret");
+  let body: any;
+  body = JSON.stringify(se_DeriveSharedSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1113,6 +1129,26 @@ export const de_DeleteImportedKeyMaterialCommand = async (
   await collectBody(output.body, context);
   const response: DeleteImportedKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeriveSharedSecretCommand
+ */
+export const de_DeriveSharedSecretCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeriveSharedSecretCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeriveSharedSecretResponse(data, context);
+  const response: DeriveSharedSecretCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -2868,6 +2904,20 @@ const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any 
 
 // se_DeleteImportedKeyMaterialRequest omitted.
 
+/**
+ * serializeAws_json1_1DeriveSharedSecretRequest
+ */
+const se_DeriveSharedSecretRequest = (input: DeriveSharedSecretRequest, context: __SerdeContext): any => {
+  return take(input, {
+    DryRun: [],
+    GrantTokens: _json,
+    KeyAgreementAlgorithm: [],
+    KeyId: [],
+    PublicKey: context.base64Encoder,
+    Recipient: (_) => se_RecipientInfo(_, context),
+  });
+};
+
 // se_DescribeCustomKeyStoresRequest omitted.
 
 // se_DescribeKeyRequest omitted.
@@ -3208,6 +3258,19 @@ const de_DecryptResponse = (output: any, context: __SerdeContext): DecryptRespon
 // de_DependencyTimeoutException omitted.
 
 /**
+ * deserializeAws_json1_1DeriveSharedSecretResponse
+ */
+const de_DeriveSharedSecretResponse = (output: any, context: __SerdeContext): DeriveSharedSecretResponse => {
+  return take(output, {
+    CiphertextForRecipient: context.base64Decoder,
+    KeyAgreementAlgorithm: __expectString,
+    KeyId: __expectString,
+    KeyOrigin: __expectString,
+    SharedSecret: context.base64Decoder,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeCustomKeyStoresResponse
  */
 const de_DescribeCustomKeyStoresResponse = (output: any, context: __SerdeContext): DescribeCustomKeyStoresResponse => {
@@ -3359,6 +3422,7 @@ const de_GetPublicKeyResponse = (output: any, context: __SerdeContext): GetPubli
   return take(output, {
     CustomerMasterKeySpec: __expectString,
     EncryptionAlgorithms: _json,
+    KeyAgreementAlgorithms: _json,
     KeyId: __expectString,
     KeySpec: __expectString,
     KeyUsage: __expectString,
@@ -3424,6 +3488,8 @@ const de_GrantListEntry = (output: any, context: __SerdeContext): GrantListEntry
 
 // de_InvalidMarkerException omitted.
 
+// de_KeyAgreementAlgorithmSpecList omitted.
+
 // de_KeyList omitted.
 
 // de_KeyListEntry omitted.
@@ -3444,6 +3510,7 @@ const de_KeyMetadata = (output: any, context: __SerdeContext): KeyMetadata => {
     Enabled: __expectBoolean,
     EncryptionAlgorithms: _json,
     ExpirationModel: __expectString,
+    KeyAgreementAlgorithms: _json,
     KeyId: __expectString,
     KeyManager: __expectString,
     KeySpec: __expectString,

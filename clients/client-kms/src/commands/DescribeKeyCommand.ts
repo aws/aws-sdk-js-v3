@@ -134,7 +134,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     Enabled: true || false,
  * //     Description: "STRING_VALUE",
- * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
  * //     KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
  * //     DeletionDate: new Date("TIMESTAMP"),
  * //     ValidTo: new Date("TIMESTAMP"),
@@ -150,6 +150,9 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * //     ],
  * //     SigningAlgorithms: [ // SigningAlgorithmSpecList
  * //       "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //     ],
+ * //     KeyAgreementAlgorithms: [ // KeyAgreementAlgorithmSpecList
+ * //       "ECDH",
  * //     ],
  * //     MultiRegion: true || false,
  * //     MultiRegionConfiguration: { // MultiRegionConfiguration

@@ -102,7 +102,7 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * //       RetiringPrincipal: "STRING_VALUE",
  * //       IssuingAccount: "STRING_VALUE",
  * //       Operations: [ // GrantOperationList
- * //         "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac",
+ * //         "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac" || "DeriveSharedSecret",
  * //       ],
  * //       Constraints: { // GrantConstraints
  * //         EncryptionContextSubset: { // EncryptionContextType

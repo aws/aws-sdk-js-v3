@@ -380,6 +380,14 @@ DeleteImportedKeyMaterial
 </details>
 <details>
 <summary>
+DeriveSharedSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kms/command/DeriveSharedSecretCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/DeriveSharedSecretCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kms/Interface/DeriveSharedSecretCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeCustomKeyStores
 </summary>
 

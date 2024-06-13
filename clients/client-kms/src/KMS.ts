@@ -33,6 +33,11 @@ import {
   DeleteImportedKeyMaterialCommandOutput,
 } from "./commands/DeleteImportedKeyMaterialCommand";
 import {
+  DeriveSharedSecretCommand,
+  DeriveSharedSecretCommandInput,
+  DeriveSharedSecretCommandOutput,
+} from "./commands/DeriveSharedSecretCommand";
+import {
   DescribeCustomKeyStoresCommand,
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput,
@@ -191,6 +196,7 @@ const commands = {
   DeleteAliasCommand,
   DeleteCustomKeyStoreCommand,
   DeleteImportedKeyMaterialCommand,
+  DeriveSharedSecretCommand,
   DescribeCustomKeyStoresCommand,
   DescribeKeyCommand,
   DisableKeyCommand,
@@ -375,6 +381,23 @@ export interface KMS {
     args: DeleteImportedKeyMaterialCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteImportedKeyMaterialCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeriveSharedSecretCommand}
+   */
+  deriveSharedSecret(
+    args: DeriveSharedSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeriveSharedSecretCommandOutput>;
+  deriveSharedSecret(
+    args: DeriveSharedSecretCommandInput,
+    cb: (err: any, data?: DeriveSharedSecretCommandOutput) => void
+  ): void;
+  deriveSharedSecret(
+    args: DeriveSharedSecretCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeriveSharedSecretCommandOutput) => void
   ): void;
 
   /**

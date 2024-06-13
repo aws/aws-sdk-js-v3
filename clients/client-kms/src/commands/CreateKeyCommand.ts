@@ -71,9 +71,12 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an
  *             SM2 key pair (China Regions only). The private key in an asymmetric KMS key never leaves
  *             KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to
- *             download the public key so it can be used outside of KMS. KMS keys with RSA or SM2 key
- *             pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
- *             KMS keys with ECC key pairs can be used only to sign and verify messages. For
+ *             download the public key so it can be used outside of KMS. Each KMS key can have only one key usage. KMS keys with RSA key
+ *             pairs can be used to encrypt and decrypt data or sign and verify messages (but not both).
+ *             KMS keys with NIST-recommended ECC key pairs can be used to sign and verify messages or
+ *             derive shared secrets (but not both). KMS keys with <code>ECC_SECG_P256K1</code>
+ *             can be used only to sign and verify messages. KMS keys with SM2 key pairs (China Regions only)
+ *             can be used to either encrypt and decrypt data, sign and verify messages, or derive shared secrets (you must choose one key usage type). For
  *             information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the
  *             <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
@@ -204,7 +207,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * const input = { // CreateKeyRequest
  *   Policy: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ *   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
  *   CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
  *   KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
  *   Origin: "AWS_KMS" || "EXTERNAL" || "AWS_CLOUDHSM" || "EXTERNAL_KEY_STORE",
@@ -229,7 +232,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     Enabled: true || false,
  * //     Description: "STRING_VALUE",
- * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
  * //     KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
  * //     DeletionDate: new Date("TIMESTAMP"),
  * //     ValidTo: new Date("TIMESTAMP"),
@@ -245,6 +248,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * //     ],
  * //     SigningAlgorithms: [ // SigningAlgorithmSpecList
  * //       "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //     ],
+ * //     KeyAgreementAlgorithms: [ // KeyAgreementAlgorithmSpecList
+ * //       "ECDH",
  * //     ],
  * //     MultiRegion: true || false,
  * //     MultiRegionConfiguration: { // MultiRegionConfiguration

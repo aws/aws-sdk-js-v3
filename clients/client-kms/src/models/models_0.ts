@@ -1173,6 +1173,7 @@ export interface GrantConstraints {
 export const GrantOperation = {
   CreateGrant: "CreateGrant",
   Decrypt: "Decrypt",
+  DeriveSharedSecret: "DeriveSharedSecret",
   DescribeKey: "DescribeKey",
   Encrypt: "Encrypt",
   GenerateDataKey: "GenerateDataKey",
@@ -1462,6 +1463,7 @@ export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
 export const KeyUsageType = {
   ENCRYPT_DECRYPT: "ENCRYPT_DECRYPT",
   GENERATE_VERIFY_MAC: "GENERATE_VERIFY_MAC",
+  KEY_AGREEMENT: "KEY_AGREEMENT",
   SIGN_VERIFY: "SIGN_VERIFY",
 } as const;
 
@@ -1570,16 +1572,20 @@ export interface CreateKeyRequest {
    *                <p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For asymmetric KMS keys with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or
+   *                <p>For asymmetric KMS keys with RSA key pairs, specify <code>ENCRYPT_DECRYPT</code> or
    *             <code>SIGN_VERIFY</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For asymmetric KMS keys with ECC key material, specify
+   *                <p>For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify
+   *           <code>SIGN_VERIFY</code> or <code>KEY_AGREEMENT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For asymmetric KMS keys with <code>ECC_SECG_P256K1</code> key pairs specify
    *           <code>SIGN_VERIFY</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For asymmetric KMS keys with SM2 key material (China Regions only), specify
-   *             <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p>
+   *                <p>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify
+   *             <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, or <code>KEY_AGREEMENT</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1655,7 +1661,7 @@ export interface CreateKeyRequest {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Asymmetric RSA key pairs</p>
+   *                <p>Asymmetric RSA key pairs (encryption and decryption -or- signing and verification)</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -1675,7 +1681,7 @@ export interface CreateKeyRequest {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Asymmetric NIST-recommended elliptic curve key pairs</p>
+   *                <p>Asymmetric NIST-recommended elliptic curve key pairs (signing and verification -or- deriving shared secrets)</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -1692,7 +1698,7 @@ export interface CreateKeyRequest {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Other asymmetric elliptic curve key pairs</p>
+   *                <p>Other asymmetric elliptic curve key pairs (signing and verification)</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -1702,12 +1708,11 @@ export interface CreateKeyRequest {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>SM2 key pairs (China Regions only)</p>
+   *                <p>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving shared secrets)</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>SM2</code>
-   *                      </p>
+   *                         <code>SM2</code> (China Regions only)</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -1863,6 +1868,19 @@ export const ExpirationModelType = {
  * @public
  */
 export type ExpirationModelType = (typeof ExpirationModelType)[keyof typeof ExpirationModelType];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyAgreementAlgorithmSpec = {
+  ECDH: "ECDH",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyAgreementAlgorithmSpec = (typeof KeyAgreementAlgorithmSpec)[keyof typeof KeyAgreementAlgorithmSpec];
 
 /**
  * @public
@@ -2171,6 +2189,12 @@ export interface KeyMetadata {
    * @public
    */
   SigningAlgorithms?: SigningAlgorithmSpec[];
+
+  /**
+   * <p>The key agreement algorithm used to derive a shared secret.</p>
+   * @public
+   */
+  KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[];
 
   /**
    * <p>Indicates whether the KMS key is a multi-Region (<code>True</code>) or regional
@@ -2996,7 +3020,8 @@ export class InvalidCiphertextException extends __BaseException {
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *       <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
@@ -3090,6 +3115,145 @@ export interface DeleteImportedKeyMaterialRequest {
    * @public
    */
   KeyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeriveSharedSecretRequest {
+  /**
+   * <p>Identifies an asymmetric NIST-recommended ECC or SM2 (China Regions only) KMS key. KMS
+   *       uses the private key in the specified key pair to derive the shared secret. The key usage of
+   *       the KMS key must be <code>KEY_AGREEMENT</code>. To find the
+   *       <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
+   *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
+   * @public
+   */
+  KeyAgreementAlgorithm: KeyAgreementAlgorithmSpec | undefined;
+
+  /**
+   * <p>Specifies the public key in your peer's NIST-recommended elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
+   *          <p>The public key must be a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
+   *          <p>
+   *             <a>GetPublicKey</a> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p>
+   *          <note>
+   *             <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>,
+   *         you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a
+   *         second time, resulting in a <code>ValidationException</code>.</p>
+   *          </note>
+   *          <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or
+   *       in-line using a Base64 encoded string.</p>
+   * @public
+   */
+  PublicKey: Uint8Array | undefined;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
+   *     <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  GrantTokens?: string[];
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+   *          <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
+   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
+   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To call
+   *       DeriveSharedSecret for an Amazon Web Services Nitro Enclaves, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> to generate the attestation
+   *       document and then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation
+   *       document for the enclave.</p>
+   *          <p>When you use this parameter, instead of returning a plaintext copy of the shared secret,
+   *       KMS encrypts the plaintext shared secret under the public key in the attestation
+   *       document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code>
+   *       field in the response. This ciphertext can be decrypted only with the private key in the
+   *       enclave. The <code>CiphertextBlob</code> field in the response contains the encrypted shared
+   *       secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key
+   *       specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in
+   *       the response is null or empty.</p>
+   *          <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  Recipient?: RecipientInfo;
+}
+
+/**
+ * @public
+ */
+export interface DeriveSharedSecretResponse {
+  /**
+   * <p>Identifies the KMS key used to derive the shared secret.</p>
+   * @public
+   */
+  KeyId?: string;
+
+  /**
+   * <p>The raw secret derived from the specified key agreement algorithm, private key in the
+   *       asymmetric KMS key, and your peer's public key.</p>
+   *          <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or
+   *       empty.</p>
+   * @public
+   */
+  SharedSecret?: Uint8Array;
+
+  /**
+   * <p>The plaintext shared secret encrypted with the public key in the attestation document.</p>
+   *          <p>This field is included in the response only when the <code>Recipient</code> parameter in
+   *       the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
+   *       For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  CiphertextForRecipient?: Uint8Array;
+
+  /**
+   * <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
+   * @public
+   */
+  KeyAgreementAlgorithm?: KeyAgreementAlgorithmSpec;
+
+  /**
+   * <p>The source of the key material for the specified KMS key.</p>
+   *          <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>,
+   *       the key material was imported or the KMS key doesn't have any key material.</p>
+   *          <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret
+   *       does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or
+   *       <code>EXTERNAL_KEY_STORE</code>.</p>
+   * @public
+   */
+  KeyOrigin?: OriginType;
 }
 
 /**
@@ -3694,8 +3858,10 @@ export interface GenerateDataKeyPairRequest {
    * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
    *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
    *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-   *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
+   *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To call
+   *       DeriveSharedSecret for an Amazon Web Services Nitro Enclaves, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> to generate the attestation
+   *       document and then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation
+   *       document for the enclave.</p>
    *          <p>When you use this parameter, instead of returning a plaintext copy of the private data
    *       key, KMS encrypts the plaintext private data key under the public key in the attestation
    *       document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code>
@@ -4247,19 +4413,13 @@ export interface GetParametersForImportRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>The algorithm you will use with the asymmetric public key (<code>PublicKey</code>) in the
+   * <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the
    *       response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you
    *       generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping
-   *       algorithms, you encrypt your key material directly with the RSA public key from KMS.
-   *       For SM2PKE wrapping algorithms, you encrypt your key material directly with the SM2 public key
-   *       from KMS.</p>
+   *       algorithms, you encrypt your key material directly with the RSA public key from KMS.</p>
    *          <p>The wrapping algorithms that you can use depend on the type of key material that you are
-   *       importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm, except
-   *       in China Regions, where you must use the SM2PKE wrapping algorithm to import an RSA private key.</p>
-   *          <p>The SM2PKE wrapping algorithm is available only in China Regions. The
-   *       <code>RSA_AES_KEY_WRAP_SHA_256</code> and <code>RSA_AES_KEY_WRAP_SHA_1</code>
-   *       wrapping algorithms are not supported in China Regions.</p>
+   *       importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4290,23 +4450,17 @@ export interface GetParametersForImportRequest {
    *                   <b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October
    *           10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SM2PKE</b> (China Regions only) — supported for
-   *           wrapping RSA, ECC, and SM2 key material.</p>
-   *             </li>
    *          </ul>
    * @public
    */
   WrappingAlgorithm: AlgorithmSpec | undefined;
 
   /**
-   * <p>The type of public key to return in the response. You will use this wrapping key with
+   * <p>The type of RSA public key to return in the response. You will use this wrapping key with
    *       the specified wrapping algorithm to protect your key material during import. </p>
-   *          <p>Use the longest wrapping key that is practical. </p>
+   *          <p>Use the longest RSA wrapping key that is practical. </p>
    *          <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key.
    *       Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
-   *          <p>The SM2 wrapping key spec is available only in China Regions.</p>
    * @public
    */
   WrappingKeySpec: WrappingKeySpec | undefined;
@@ -4424,9 +4578,9 @@ export interface GetPublicKeyResponse {
   KeySpec?: KeySpec;
 
   /**
-   * <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or
-   *         <code>SIGN_VERIFY</code>. </p>
-   *          <p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage
+   * <p>The permitted use of the public key. Valid values for asymmetric key pairs are <code>ENCRYPT_DECRYPT</code>,
+   *         <code>SIGN_VERIFY</code>, and <code>KEY_AGREEMENT</code>. </p>
+   *          <p>This information is critical. For example, if a public key with <code>SIGN_VERIFY</code> key usage
    *       encrypts data outside of KMS, the ciphertext cannot be decrypted. </p>
    * @public
    */
@@ -4449,6 +4603,12 @@ export interface GetPublicKeyResponse {
    * @public
    */
   SigningAlgorithms?: SigningAlgorithmSpec[];
+
+  /**
+   * <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
+   * @public
+   */
+  KeyAgreementAlgorithms?: KeyAgreementAlgorithmSpec[];
 }
 
 /**
@@ -6581,6 +6741,14 @@ export const CustomKeyStoresListEntryFilterSensitiveLog = (obj: CustomKeyStoresL
 export const DecryptResponseFilterSensitiveLog = (obj: DecryptResponse): any => ({
   ...obj,
   ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeriveSharedSecretResponseFilterSensitiveLog = (obj: DeriveSharedSecretResponse): any => ({
+  ...obj,
+  ...(obj.SharedSecret && { SharedSecret: SENSITIVE_STRING }),
 });
 
 /**

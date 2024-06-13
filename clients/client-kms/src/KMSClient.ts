@@ -75,6 +75,7 @@ import {
   DeleteImportedKeyMaterialCommandInput,
   DeleteImportedKeyMaterialCommandOutput,
 } from "./commands/DeleteImportedKeyMaterialCommand";
+import { DeriveSharedSecretCommandInput, DeriveSharedSecretCommandOutput } from "./commands/DeriveSharedSecretCommand";
 import {
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput,
@@ -178,6 +179,7 @@ export type ServiceInputTypes =
   | DeleteAliasCommandInput
   | DeleteCustomKeyStoreCommandInput
   | DeleteImportedKeyMaterialCommandInput
+  | DeriveSharedSecretCommandInput
   | DescribeCustomKeyStoresCommandInput
   | DescribeKeyCommandInput
   | DisableKeyCommandInput
@@ -235,6 +237,7 @@ export type ServiceOutputTypes =
   | DeleteAliasCommandOutput
   | DeleteCustomKeyStoreCommandOutput
   | DeleteImportedKeyMaterialCommandOutput
+  | DeriveSharedSecretCommandOutput
   | DescribeCustomKeyStoresCommandOutput
   | DescribeKeyCommandOutput
   | DisableKeyCommandOutput
