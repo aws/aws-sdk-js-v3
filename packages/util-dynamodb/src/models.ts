@@ -1,3 +1,5 @@
+import type { Exact } from "@smithy/types";
+
 /**
  * A interface recognizable as a numeric value that stores the underlying number
  * as a string.
@@ -10,6 +12,9 @@ export interface NumberValue {
   readonly value: string;
 }
 
+/**
+ * @public
+ */
 export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
@@ -17,6 +22,9 @@ export type NativeAttributeValue =
   | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>
   | InstanceType<{ new (...args: any[]): any }>; // accepts any class instance with options.convertClassInstanceToMap
 
+/**
+ * @public
+ */
 export type NativeScalarAttributeValue =
   | null
   | undefined
@@ -36,9 +44,16 @@ declare global {
   interface File {}
 }
 
+type Unavailable = never;
+type BlobDefined = Exact<Blob, {}> extends true ? false : true;
+type BlobOptionalType = BlobDefined extends true ? Blob : Unavailable;
+
+/**
+ * @public
+ */
 export type NativeAttributeBinary =
   | ArrayBuffer
-  | Blob
+  | BlobOptionalType
   | Buffer
   | DataView
   | File
