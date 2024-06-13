@@ -67,6 +67,7 @@ export interface GetDataQualityRulesetEvaluationRunCommandOutput
  * //   AdditionalRunOptions: { // DataQualityEvaluationRunAdditionalRunOptions
  * //     CloudWatchMetricsEnabled: true || false,
  * //     ResultsS3Prefix: "STRING_VALUE",
+ * //     CompositeRuleEvaluationMethod: "COLUMN" || "ROW",
  * //   },
  * //   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
  * //   ErrorString: "STRING_VALUE",

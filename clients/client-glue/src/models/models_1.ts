@@ -6168,6 +6168,21 @@ export interface GetDataQualityRulesetEvaluationRunRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DQCompositeRuleEvaluationMethod = {
+  COLUMN: "COLUMN",
+  ROW: "ROW",
+} as const;
+
+/**
+ * @public
+ */
+export type DQCompositeRuleEvaluationMethod =
+  (typeof DQCompositeRuleEvaluationMethod)[keyof typeof DQCompositeRuleEvaluationMethod];
+
+/**
  * <p>Additional run options you can specify for an evaluation run.</p>
  * @public
  */
@@ -6183,6 +6198,12 @@ export interface DataQualityEvaluationRunAdditionalRunOptions {
    * @public
    */
   ResultsS3Prefix?: string;
+
+  /**
+   * <p>Set the evaluation method for composite rules in the ruleset to ROW/COLUMN</p>
+   * @public
+   */
+  CompositeRuleEvaluationMethod?: DQCompositeRuleEvaluationMethod;
 }
 
 /**
@@ -6262,7 +6283,7 @@ export interface GetDataQualityRulesetEvaluationRunResponse {
   ExecutionTime?: number;
 
   /**
-   * <p>A list of ruleset names for the run.</p>
+   * <p>A list of ruleset names for the run. Currently, this parameter takes only one Ruleset name.</p>
    * @public
    */
   RulesetNames?: string[];
@@ -8329,23 +8350,4 @@ export interface GetResourcePolicyResponse {
    * @public
    */
   UpdateTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetSchemaInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   *          <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SchemaId: SchemaId | undefined;
 }

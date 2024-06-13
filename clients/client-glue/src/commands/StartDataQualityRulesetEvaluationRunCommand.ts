@@ -62,6 +62,7 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  *   AdditionalRunOptions: { // DataQualityEvaluationRunAdditionalRunOptions
  *     CloudWatchMetricsEnabled: true || false,
  *     ResultsS3Prefix: "STRING_VALUE",
+ *     CompositeRuleEvaluationMethod: "COLUMN" || "ROW",
  *   },
  *   RulesetNames: [ // RulesetNames // required
  *     "STRING_VALUE",
