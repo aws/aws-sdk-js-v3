@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.597.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.596.0...v3.597.0) (2024-06-13)
+
+
+### Features
+
+* **client-cloudhsm-v2:** Added support for hsm type hsm2m.medium. Added supported for creating a cluster in FIPS or NON_FIPS mode. ([59f9e1a](https://github.com/aws/aws-sdk-js-v3/commit/59f9e1a016f98719f1ce1cc0ed8084a2174c1616))
+* **client-glue:** This release adds support for configuration of evaluation method for composite rules in Glue Data Quality rulesets. ([5fff081](https://github.com/aws/aws-sdk-js-v3/commit/5fff081c46cc2174b69b4985852cd62a75ddca90))
+* **client-iot-wireless:** Add RoamingDeviceSNR and RoamingDeviceRSSI to Customer Metrics. ([b0de95c](https://github.com/aws/aws-sdk-js-v3/commit/b0de95cb5301e485120a0639880d3517bf3d454d))
+* **client-kms:** This feature allows customers to use their keys stored in KMS to derive a shared secret which can then be used to establish a secured channel for communication, provide proof of possession, or establish trust with other parties. ([06c6041](https://github.com/aws/aws-sdk-js-v3/commit/06c60417c8c2fc350f3eb92e459dd647a929ec2c))
+* **client-mediapackagev2:** This release adds support for CMAF ingest (DASH-IF live media ingest protocol interface 1) ([b35cc16](https://github.com/aws/aws-sdk-js-v3/commit/b35cc161214ce9a205490ba049cae602aff8e0c0))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 

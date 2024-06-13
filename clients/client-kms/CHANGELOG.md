@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.597.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.596.0...v3.597.0) (2024-06-13)
+
+
+### Features
+
+* **client-kms:** This feature allows customers to use their keys stored in KMS to derive a shared secret which can then be used to establish a secured channel for communication, provide proof of possession, or establish trust with other parties. ([06c6041](https://github.com/aws/aws-sdk-js-v3/commit/06c60417c8c2fc350f3eb92e459dd647a929ec2c))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

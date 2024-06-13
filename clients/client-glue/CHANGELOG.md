@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.597.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.596.0...v3.597.0) (2024-06-13)
+
+
+### Features
+
+* **client-glue:** This release adds support for configuration of evaluation method for composite rules in Glue Data Quality rulesets. ([5fff081](https://github.com/aws/aws-sdk-js-v3/commit/5fff081c46cc2174b69b4985852cd62a75ddca90))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

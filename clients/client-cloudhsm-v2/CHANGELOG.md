@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.597.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.596.0...v3.597.0) (2024-06-13)
+
+
+### Features
+
+* **client-cloudhsm-v2:** Added support for hsm type hsm2m.medium. Added supported for creating a cluster in FIPS or NON_FIPS mode. ([59f9e1a](https://github.com/aws/aws-sdk-js-v3/commit/59f9e1a016f98719f1ce1cc0ed8084a2174c1616))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudhsm-v2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.597.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.596.0...v3.597.0) (2024-06-13)
+
+
+### Features
+
+* **client-mediapackagev2:** This release adds support for CMAF ingest (DASH-IF live media ingest protocol interface 1) ([b35cc16](https://github.com/aws/aws-sdk-js-v3/commit/b35cc161214ce9a205490ba049cae602aff8e0c0))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2
