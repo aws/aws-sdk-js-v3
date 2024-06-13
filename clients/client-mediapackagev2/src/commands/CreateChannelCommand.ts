@@ -39,6 +39,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   ChannelGroupName: "STRING_VALUE", // required
  *   ChannelName: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
+ *   InputType: "HLS" || "CMAF",
  *   Description: "STRING_VALUE",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -59,6 +60,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       Url: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   InputType: "HLS" || "CMAF",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

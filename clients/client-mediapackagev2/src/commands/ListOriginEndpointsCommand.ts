@@ -74,6 +74,11 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //           Url: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ * //         EndpointErrorConditions: [ // EndpointErrorConditions
+ * //           "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

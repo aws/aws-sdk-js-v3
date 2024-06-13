@@ -91,7 +91,9 @@ import {
   Encryption,
   EncryptionContractConfiguration,
   EncryptionMethod,
+  EndpointErrorCondition,
   FilterConfiguration,
+  ForceEndpointErrorConfiguration,
   GetDashManifestConfiguration,
   GetHlsManifestConfiguration,
   GetLowLatencyHlsManifestConfiguration,
@@ -128,6 +130,7 @@ export const se_CreateChannelCommand = async (
     take(input, {
       ChannelName: [],
       Description: [],
+      InputType: [],
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -181,6 +184,7 @@ export const se_CreateOriginEndpointCommand = async (
       ContainerType: [],
       DashManifests: (_) => se_CreateDashManifests(_, context),
       Description: [],
+      ForceEndpointErrorConfiguration: (_) => _json(_),
       HlsManifests: (_) => se_CreateHlsManifests(_, context),
       LowLatencyHlsManifests: (_) => se_CreateLowLatencyHlsManifests(_, context),
       OriginEndpointName: [],
@@ -606,6 +610,7 @@ export const se_UpdateOriginEndpointCommand = async (
       ContainerType: [],
       DashManifests: (_) => se_CreateDashManifests(_, context),
       Description: [],
+      ForceEndpointErrorConfiguration: (_) => _json(_),
       HlsManifests: (_) => se_CreateHlsManifests(_, context),
       LowLatencyHlsManifests: (_) => se_CreateLowLatencyHlsManifests(_, context),
       Segment: (_) => _json(_),
@@ -638,6 +643,7 @@ export const de_CreateChannelCommand = async (
     Description: __expectString,
     ETag: __expectString,
     IngestEndpoints: _json,
+    InputType: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
   });
@@ -696,6 +702,7 @@ export const de_CreateOriginEndpointCommand = async (
     DashManifests: (_) => de_GetDashManifests(_, context),
     Description: __expectString,
     ETag: __expectString,
+    ForceEndpointErrorConfiguration: _json,
     HlsManifests: (_) => de_GetHlsManifests(_, context),
     LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -815,6 +822,7 @@ export const de_GetChannelCommand = async (
     Description: __expectString,
     ETag: __expectString,
     IngestEndpoints: _json,
+    InputType: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
   });
@@ -896,6 +904,7 @@ export const de_GetOriginEndpointCommand = async (
     DashManifests: (_) => de_GetDashManifests(_, context),
     Description: __expectString,
     ETag: __expectString,
+    ForceEndpointErrorConfiguration: _json,
     HlsManifests: (_) => de_GetHlsManifests(_, context),
     LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1109,6 +1118,7 @@ export const de_UpdateChannelCommand = async (
     Description: __expectString,
     ETag: __expectString,
     IngestEndpoints: _json,
+    InputType: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: [, _json, `tags`],
   });
@@ -1167,6 +1177,7 @@ export const de_UpdateOriginEndpointCommand = async (
     DashManifests: (_) => de_GetDashManifests(_, context),
     Description: __expectString,
     ETag: __expectString,
+    ForceEndpointErrorConfiguration: _json,
     HlsManifests: (_) => de_GetHlsManifests(_, context),
     LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1453,6 +1464,8 @@ const se_CreateLowLatencyHlsManifests = (
 
 // se_EncryptionMethod omitted.
 
+// se_EndpointErrorConditions omitted.
+
 /**
  * serializeAws_restJson1FilterConfiguration
  */
@@ -1464,6 +1477,8 @@ const se_FilterConfiguration = (input: FilterConfiguration, context: __SerdeCont
     TimeDelaySeconds: [],
   });
 };
+
+// se_ForceEndpointErrorConfiguration omitted.
 
 // se_Scte omitted.
 
@@ -1526,6 +1541,7 @@ const de_ChannelListConfiguration = (output: any, context: __SerdeContext): Chan
     ChannelName: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    InputType: __expectString,
     ModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -1542,6 +1558,8 @@ const de_ChannelListConfiguration = (output: any, context: __SerdeContext): Chan
 
 // de_EncryptionMethod omitted.
 
+// de_EndpointErrorConditions omitted.
+
 /**
  * deserializeAws_restJson1FilterConfiguration
  */
@@ -1553,6 +1571,8 @@ const de_FilterConfiguration = (output: any, context: __SerdeContext): FilterCon
     TimeDelaySeconds: __expectInt32,
   }) as any;
 };
+
+// de_ForceEndpointErrorConfiguration omitted.
 
 /**
  * deserializeAws_restJson1GetDashManifestConfiguration
@@ -1674,6 +1694,7 @@ const de_OriginEndpointListConfiguration = (output: any, context: __SerdeContext
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DashManifests: _json,
     Description: __expectString,
+    ForceEndpointErrorConfiguration: _json,
     HlsManifests: _json,
     LowLatencyHlsManifests: _json,
     ModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

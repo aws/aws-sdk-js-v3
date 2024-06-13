@@ -232,10 +232,13 @@ export const ValidationExceptionType = {
   NONE_MODE_WITH_TIMING_SOURCE: "NONE_MODE_WITH_TIMING_SOURCE",
   NUM_MANIFESTS_HIGH: "NUM_MANIFESTS_HIGH",
   NUM_MANIFESTS_LOW: "NUM_MANIFESTS_LOW",
+  ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION:
+    "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION",
   PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES: "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
   ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
   ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
   ROLE_ARN_NOT_ASSUMABLE: "ROLE_ARN_NOT_ASSUMABLE",
+  SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY: "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY",
   TIMING_SOURCE_MISSING: "TIMING_SOURCE_MISSING",
   TS_CONTAINER_TYPE_WITH_DASH_MANIFEST: "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST",
   UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION: "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION",
@@ -396,6 +399,20 @@ export interface PutChannelPolicyResponse {}
 
 /**
  * @public
+ * @enum
+ */
+export const InputType = {
+  CMAF: "CMAF",
+  HLS: "HLS",
+} as const;
+
+/**
+ * @public
+ */
+export type InputType = (typeof InputType)[keyof typeof InputType];
+
+/**
+ * @public
  */
 export interface CreateChannelRequest {
   /**
@@ -415,6 +432,23 @@ export interface CreateChannelRequest {
    * @public
    */
   ClientToken?: string;
+
+  /**
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+   *          <p>The allowed values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InputType?: InputType;
 
   /**
    * <p>Enter any descriptive text that helps you to identify the channel.</p>
@@ -498,6 +532,23 @@ export interface CreateChannelResponse {
    * @public
    */
   IngestEndpoints?: IngestEndpoint[];
+
+  /**
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+   *          <p>The allowed values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InputType?: InputType;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
@@ -620,6 +671,23 @@ export interface GetChannelResponse {
   IngestEndpoints?: IngestEndpoint[];
 
   /**
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+   *          <p>The allowed values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InputType?: InputType;
+
+  /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
@@ -695,6 +763,23 @@ export interface ChannelListConfiguration {
    * @public
    */
   Description?: string;
+
+  /**
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+   *          <p>The allowed values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InputType?: InputType;
 }
 
 /**
@@ -937,6 +1022,52 @@ export interface CreateDashManifestConfiguration {
    * @public
    */
   UtcTiming?: DashUtcTiming;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointErrorCondition = {
+  INCOMPLETE_MANIFEST: "INCOMPLETE_MANIFEST",
+  MISSING_DRM_KEY: "MISSING_DRM_KEY",
+  SLATE_INPUT: "SLATE_INPUT",
+  STALE_MANIFEST: "STALE_MANIFEST",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointErrorCondition = (typeof EndpointErrorCondition)[keyof typeof EndpointErrorCondition];
+
+/**
+ * <p>The failover settings for the endpoint.</p>
+ * @public
+ */
+export interface ForceEndpointErrorConfiguration {
+  /**
+   * <p>The failover conditions for the endpoint. The options are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndpointErrorConditions?: EndpointErrorCondition[];
 }
 
 /**
@@ -1470,6 +1601,12 @@ export interface CreateOriginEndpointRequest {
   DashManifests?: CreateDashManifestConfiguration[];
 
   /**
+   * <p>The failover settings for the endpoint.</p>
+   * @public
+   */
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+
+  /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
    *          <p>
    *             <code>"Key1": "Value1",</code>
@@ -1755,6 +1892,12 @@ export interface CreateOriginEndpointResponse {
   DashManifests?: GetDashManifestConfiguration[];
 
   /**
+   * <p>The failover settings for the endpoint.</p>
+   * @public
+   */
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+
+  /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
@@ -1895,6 +2038,18 @@ export interface GetOriginEndpointResponse {
   LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[];
 
   /**
+   * <p>A DASH manifest configuration.</p>
+   * @public
+   */
+  DashManifests?: GetDashManifestConfiguration[];
+
+  /**
+   * <p>The failover settings for the endpoint.</p>
+   * @public
+   */
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+
+  /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
@@ -1905,12 +2060,6 @@ export interface GetOriginEndpointResponse {
    * @public
    */
   Tags?: Record<string, string>;
-
-  /**
-   * <p>A DASH manifest configuration.</p>
-   * @public
-   */
-  DashManifests?: GetDashManifestConfiguration[];
 }
 
 /**
@@ -2078,6 +2227,12 @@ export interface OriginEndpointListConfiguration {
    * @public
    */
   DashManifests?: ListDashManifestConfiguration[];
+
+  /**
+   * <p>The failover settings for the endpoint.</p>
+   * @public
+   */
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
 }
 
 /**
@@ -2276,6 +2431,12 @@ export interface UpdateOriginEndpointRequest {
   DashManifests?: CreateDashManifestConfiguration[];
 
   /**
+   * <p>The failover settings for the endpoint.</p>
+   * @public
+   */
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+
+  /**
    * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
    * @public
    */
@@ -2357,6 +2518,12 @@ export interface UpdateOriginEndpointResponse {
    * @public
    */
   LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[];
+
+  /**
+   * <p>The failover settings for the endpoint.</p>
+   * @public
+   */
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
@@ -2451,6 +2618,23 @@ export interface UpdateChannelResponse {
    * @public
    */
   IngestEndpoints?: IngestEndpoint[];
+
+  /**
+   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p>
+   *          <p>The allowed values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InputType?: InputType;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>

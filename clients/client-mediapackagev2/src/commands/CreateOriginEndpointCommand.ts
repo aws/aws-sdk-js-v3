@@ -136,6 +136,11 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       },
  *     },
  *   ],
+ *   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ *     EndpointErrorConditions: [ // EndpointErrorConditions
+ *       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ *     ],
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -248,6 +253,11 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       },
  * //     },
  * //   ],
+ * //   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ * //     EndpointErrorConditions: [ // EndpointErrorConditions
+ * //       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ * //     ],
+ * //   },
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

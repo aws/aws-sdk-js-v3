@@ -136,6 +136,11 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       },
  *     },
  *   ],
+ *   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ *     EndpointErrorConditions: [ // EndpointErrorConditions
+ *       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ *     ],
+ *   },
  *   ETag: "STRING_VALUE",
  * };
  * const command = new UpdateOriginEndpointCommand(input);
@@ -218,6 +223,11 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       },
  * //     },
  * //   ],
+ * //   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ * //     EndpointErrorConditions: [ // EndpointErrorConditions
+ * //       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ * //     ],
+ * //   },
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

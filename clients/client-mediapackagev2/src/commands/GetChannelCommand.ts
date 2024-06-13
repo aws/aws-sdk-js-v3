@@ -54,6 +54,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //       Url: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   InputType: "HLS" || "CMAF",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

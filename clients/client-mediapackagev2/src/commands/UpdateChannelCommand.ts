@@ -57,6 +57,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       Url: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   InputType: "HLS" || "CMAF",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

@@ -120,10 +120,6 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       },
  * //     },
  * //   ],
- * //   ETag: "STRING_VALUE",
- * //   Tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
  * //   DashManifests: [ // GetDashManifests
  * //     { // GetDashManifestConfiguration
  * //       ManifestName: "STRING_VALUE", // required
@@ -152,6 +148,15 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       },
  * //     },
  * //   ],
+ * //   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ * //     EndpointErrorConditions: [ // EndpointErrorConditions
+ * //       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ * //     ],
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

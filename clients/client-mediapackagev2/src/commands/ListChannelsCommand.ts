@@ -51,6 +51,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //       CreatedAt: new Date("TIMESTAMP"), // required
  * //       ModifiedAt: new Date("TIMESTAMP"), // required
  * //       Description: "STRING_VALUE",
+ * //       InputType: "HLS" || "CMAF",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
