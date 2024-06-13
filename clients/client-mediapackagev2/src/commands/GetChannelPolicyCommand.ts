@@ -74,6 +74,25 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Getting a Channel Policy
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannel"
+ * };
+ * const command = new GetChannelPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannel",
+ *   "Policy": "{...}"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetChannelPolicyCommand extends $Command
   .classBuilder<

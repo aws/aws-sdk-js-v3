@@ -22,10 +22,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^3.1.0",
-    "@smithy/types": "^3.0.0",
+    "@smithy/node-config-provider": "^3.1.1",
+    "@smithy/types": "^3.1.0",
     "@smithy/util-config-provider": "^3.0.0",
-    "@smithy/util-middleware": "^3.0.0",
+    "@smithy/util-middleware": "^3.0.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
