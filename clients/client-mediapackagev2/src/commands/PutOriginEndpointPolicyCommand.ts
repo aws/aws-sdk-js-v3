@@ -75,6 +75,20 @@ export interface PutOriginEndpointPolicyCommandOutput extends PutOriginEndpointP
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Creating an Origin Endpoint Policy
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannel",
+ *   "OriginEndpointName": "exampleOriginEndpoint",
+ *   "Policy": "{...}"
+ * };
+ * const command = new PutOriginEndpointPolicyCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class PutOriginEndpointPolicyCommand extends $Command
   .classBuilder<

@@ -86,6 +86,33 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Updating a Channel Group
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "Description": "Updated description for exampleChannelGroup"
+ * };
+ * const command = new UpdateChannelGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "CreatedAt": "2022-10-18T09:36:00.00Z",
+ *   "Description": "Updated description for exampleChannelGroup",
+ *   "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   "EgressDomain": "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
+ *   "ModifiedAt": "2022-10-18T10:36:00.00Z",
+ *   "Tags": {
+ *     "key1": "value1",
+ *     "key2": "value2"
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateChannelGroupCommand extends $Command
   .classBuilder<

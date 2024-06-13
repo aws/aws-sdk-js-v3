@@ -70,6 +70,18 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Deleting a Channel
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannel"
+ * };
+ * const command = new DeleteChannelCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteChannelCommand extends $Command
   .classBuilder<

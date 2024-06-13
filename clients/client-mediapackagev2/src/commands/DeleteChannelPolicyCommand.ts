@@ -70,6 +70,18 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Deleting a Channel Policy
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup",
+ *   "ChannelName": "exampleChannel"
+ * };
+ * const command = new DeleteChannelPolicyCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteChannelPolicyCommand extends $Command
   .classBuilder<

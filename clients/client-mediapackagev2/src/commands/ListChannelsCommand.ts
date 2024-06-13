@@ -83,6 +83,38 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
+ * @example Listing all Channels
+ * ```javascript
+ * //
+ * const input = {
+ *   "ChannelGroupName": "exampleChannelGroup"
+ * };
+ * const command = new ListChannelsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Items": [
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "exampleChannel",
+ *       "CreatedAt": "2022-10-18T09:36:00.00Z",
+ *       "Description": "Description for exampleChannel",
+ *       "ModifiedAt": "2022-10-18T09:36:00.00Z"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/anotherExampleChannel",
+ *       "ChannelGroupName": "exampleChannelGroup",
+ *       "ChannelName": "anotherExampleChannel",
+ *       "CreatedAt": "2022-10-18T10:36:00.00Z",
+ *       "ModifiedAt": "2022-10-18T10:36:00.00Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListChannelsCommand extends $Command
   .classBuilder<
