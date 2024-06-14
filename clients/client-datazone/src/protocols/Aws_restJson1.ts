@@ -40,6 +40,10 @@ import {
   AcceptSubscriptionRequestCommandOutput,
 } from "../commands/AcceptSubscriptionRequestCommand";
 import {
+  AssociateEnvironmentRoleCommandInput,
+  AssociateEnvironmentRoleCommandOutput,
+} from "../commands/AssociateEnvironmentRoleCommand";
+import {
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
 } from "../commands/CancelMetadataGenerationRunCommand";
@@ -52,6 +56,10 @@ import {
 import { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "../commands/CreateAssetTypeCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import {
+  CreateEnvironmentActionCommandInput,
+  CreateEnvironmentActionCommandOutput,
+} from "../commands/CreateEnvironmentActionCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "../commands/CreateEnvironmentCommand";
 import {
   CreateEnvironmentProfileCommandInput,
@@ -88,6 +96,10 @@ import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "../co
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import {
+  DeleteEnvironmentActionCommandInput,
+  DeleteEnvironmentActionCommandOutput,
+} from "../commands/DeleteEnvironmentActionCommand";
+import {
   DeleteEnvironmentBlueprintConfigurationCommandInput,
   DeleteEnvironmentBlueprintConfigurationCommandOutput,
 } from "../commands/DeleteEnvironmentBlueprintConfigurationCommand";
@@ -121,11 +133,19 @@ import {
   DeleteTimeSeriesDataPointsCommandInput,
   DeleteTimeSeriesDataPointsCommandOutput,
 } from "../commands/DeleteTimeSeriesDataPointsCommand";
+import {
+  DisassociateEnvironmentRoleCommandInput,
+  DisassociateEnvironmentRoleCommandOutput,
+} from "../commands/DisassociateEnvironmentRoleCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "../commands/GetAssetTypeCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "../commands/GetDataSourceRunCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
+import {
+  GetEnvironmentActionCommandInput,
+  GetEnvironmentActionCommandOutput,
+} from "../commands/GetEnvironmentActionCommand";
 import {
   GetEnvironmentBlueprintCommandInput,
   GetEnvironmentBlueprintCommandOutput,
@@ -179,6 +199,10 @@ import {
 import { ListDataSourceRunsCommandInput, ListDataSourceRunsCommandOutput } from "../commands/ListDataSourceRunsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
+import {
+  ListEnvironmentActionsCommandInput,
+  ListEnvironmentActionsCommandOutput,
+} from "../commands/ListEnvironmentActionsCommand";
 import {
   ListEnvironmentBlueprintConfigurationsCommandInput,
   ListEnvironmentBlueprintConfigurationsCommandOutput,
@@ -254,6 +278,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
+import {
+  UpdateEnvironmentActionCommandInput,
+  UpdateEnvironmentActionCommandOutput,
+} from "../commands/UpdateEnvironmentActionCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "../commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentProfileCommandInput,
@@ -281,6 +309,7 @@ import {
   AcceptChoice,
   AcceptRule,
   AccessDeniedException,
+  ActionParameters,
   AssetItem,
   AssetItemAdditionalAttributes,
   AssetListing,
@@ -289,6 +318,7 @@ import {
   AssetRevision,
   AssetTargetNameMap,
   AssetTypeItem,
+  AwsConsoleLinkParameters,
   BusinessNameGenerationConfiguration,
   ConflictException,
   DataProductSummary,
@@ -315,7 +345,6 @@ import {
   Model,
   NotificationOutput,
   PredictionConfiguration,
-  ProjectSummary,
   RecommendationConfiguration,
   RedshiftClusterStorage,
   RedshiftCredentialConfiguration,
@@ -331,9 +360,6 @@ import {
   SubscribedListingInput,
   SubscribedPrincipalInput,
   SubscribedProjectInput,
-  SubscriptionGrantSummary,
-  SubscriptionRequestSummary,
-  SubscriptionSummary,
   SubscriptionTargetForm,
   TermRelations,
   ThrottlingException,
@@ -350,6 +376,7 @@ import {
   GlossaryTermItem,
   MetadataGenerationRunItem,
   MetadataGenerationRunTarget,
+  ProjectSummary,
   RejectChoice,
   RejectRule,
   SearchInItem,
@@ -358,6 +385,9 @@ import {
   SearchResultItem,
   SearchSort,
   SearchTypesResultItem,
+  SubscriptionGrantSummary,
+  SubscriptionRequestSummary,
+  SubscriptionSummary,
   SubscriptionTargetSummary,
   TimeSeriesDataPointFormInput,
 } from "../models/models_1";
@@ -411,6 +441,24 @@ export const se_AcceptSubscriptionRequestCommand = async (
       decisionComment: [],
     })
   );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateEnvironmentRoleCommand
+ */
+export const se_AssociateEnvironmentRoleCommand = async (
+  input: AssociateEnvironmentRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/roles/{environmentRoleArn}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
+  b.p("environmentRoleArn", () => input.environmentRoleArn!, "{environmentRoleArn}", false);
+  let body: any;
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -616,11 +664,40 @@ export const se_CreateEnvironmentCommand = async (
   body = JSON.stringify(
     take(input, {
       description: [],
+      environmentAccountIdentifier: [],
+      environmentAccountRegion: [],
+      environmentBlueprintIdentifier: [],
       environmentProfileIdentifier: [],
       glossaryTerms: (_) => _json(_),
       name: [],
       projectIdentifier: [],
       userParameters: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateEnvironmentActionCommand
+ */
+export const se_CreateEnvironmentActionCommand = async (
+  input: CreateEnvironmentActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      parameters: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -997,6 +1074,7 @@ export const se_DeleteDataSourceCommand = async (
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   const query: any = map({
     [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+    [_rPORF]: [() => input.retainPermissionsOnRevokeFailure !== void 0, () => input[_rPORF]!.toString()],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1034,6 +1112,24 @@ export const se_DeleteEnvironmentCommand = async (
   const headers: any = {};
   b.bp("/v2/domains/{domainIdentifier}/environments/{identifier}");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteEnvironmentActionCommand
+ */
+export const se_DeleteEnvironmentActionCommand = async (
+  input: DeleteEnvironmentActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
@@ -1266,6 +1362,24 @@ export const se_DeleteTimeSeriesDataPointsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateEnvironmentRoleCommand
+ */
+export const se_DisassociateEnvironmentRoleCommand = async (
+  input: DisassociateEnvironmentRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/roles/{environmentRoleArn}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
+  b.p("environmentRoleArn", () => input.environmentRoleArn!, "{environmentRoleArn}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAssetCommand
  */
 export const se_GetAssetCommand = async (
@@ -1366,6 +1480,24 @@ export const se_GetEnvironmentCommand = async (
   const headers: any = {};
   b.bp("/v2/domains/{domainIdentifier}/environments/{identifier}");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetEnvironmentActionCommand
+ */
+export const se_GetEnvironmentActionCommand = async (
+  input: GetEnvironmentActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -1784,6 +1916,27 @@ export const se_ListDomainsCommand = async (
     [_s]: [, input[_s]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListEnvironmentActionsCommand
+ */
+export const se_ListEnvironmentActionsCommand = async (
+  input: ListEnvironmentActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2514,6 +2667,7 @@ export const se_UpdateDataSourceCommand = async (
       name: [],
       publishOnImport: [],
       recommendation: (_) => _json(_),
+      retainPermissionsOnRevokeFailure: [],
       schedule: (_) => _json(_),
     })
   );
@@ -2570,6 +2724,33 @@ export const se_UpdateEnvironmentCommand = async (
       description: [],
       glossaryTerms: (_) => _json(_),
       name: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateEnvironmentActionCommand
+ */
+export const se_UpdateEnvironmentActionCommand = async (
+  input: UpdateEnvironmentActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+      parameters: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -2872,6 +3053,23 @@ export const de_AcceptSubscriptionRequestCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateEnvironmentRoleCommand
+ */
+export const de_AssociateEnvironmentRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateEnvironmentRoleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelMetadataGenerationRunCommand
  */
 export const de_CancelMetadataGenerationRunCommand = async (
@@ -3135,6 +3333,32 @@ export const de_CreateEnvironmentCommand = async (
     status: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     userParameters: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateEnvironmentActionCommand
+ */
+export const de_CreateEnvironmentActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEnvironmentActionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    description: __expectString,
+    domainId: __expectString,
+    environmentId: __expectString,
+    id: __expectString,
+    name: __expectString,
+    parameters: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3534,7 +3758,9 @@ export const de_DeleteDataSourceCommand = async (
     name: __expectString,
     projectId: __expectString,
     publishOnImport: __expectBoolean,
+    retainPermissionsOnRevokeFailure: __expectBoolean,
     schedule: _json,
+    selfGrantStatus: (_) => _json(__expectUnion(_)),
     status: __expectString,
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -3571,6 +3797,23 @@ export const de_DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEnvironmentActionCommand
+ */
+export const de_DeleteEnvironmentActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEnvironmentActionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3800,6 +4043,23 @@ export const de_DeleteTimeSeriesDataPointsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateEnvironmentRoleCommand
+ */
+export const de_DisassociateEnvironmentRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateEnvironmentRoleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAssetCommand
  */
 export const de_GetAssetCommand = async (
@@ -3902,6 +4162,7 @@ export const de_GetDataSourceCommand = async (
     publishOnImport: __expectBoolean,
     recommendation: _json,
     schedule: _json,
+    selfGrantStatus: (_) => _json(__expectUnion(_)),
     status: __expectString,
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -4011,6 +4272,32 @@ export const de_GetEnvironmentCommand = async (
     status: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     userParameters: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEnvironmentActionCommand
+ */
+export const de_GetEnvironmentActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEnvironmentActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    description: __expectString,
+    domainId: __expectString,
+    environmentId: __expectString,
+    id: __expectString,
+    name: __expectString,
+    parameters: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4618,6 +4905,28 @@ export const de_ListDomainsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     items: (_) => de_DomainSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEnvironmentActionsCommand
+ */
+export const de_ListEnvironmentActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEnvironmentActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: _json,
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -5307,7 +5616,9 @@ export const de_UpdateDataSourceCommand = async (
     projectId: __expectString,
     publishOnImport: __expectBoolean,
     recommendation: _json,
+    retainPermissionsOnRevokeFailure: __expectBoolean,
     schedule: _json,
+    selfGrantStatus: (_) => _json(__expectUnion(_)),
     status: __expectString,
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -5378,6 +5689,32 @@ export const de_UpdateEnvironmentCommand = async (
     status: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     userParameters: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEnvironmentActionCommand
+ */
+export const de_UpdateEnvironmentActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEnvironmentActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    description: __expectString,
+    domainId: __expectString,
+    environmentId: __expectString,
+    id: __expectString,
+    name: __expectString,
+    parameters: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -5856,6 +6193,8 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
   });
 };
 
+// se_ActionParameters omitted.
+
 // se_ApplicableAssetTypes omitted.
 
 // se_AssetTargetNameMap omitted.
@@ -5863,6 +6202,8 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
 // se_AssetTargetNames omitted.
 
 // se_AuthorizedPrincipalIdentifiers omitted.
+
+// se_AwsConsoleLinkParameters omitted.
 
 // se_BusinessNameGenerationConfiguration omitted.
 
@@ -6019,6 +6360,8 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
     });
 };
 
+// de_ActionParameters omitted.
+
 // de_ApplicableAssetTypes omitted.
 
 /**
@@ -6152,6 +6495,8 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 };
 
 // de_AuthorizedPrincipalIdentifiers omitted.
+
+// de_AwsConsoleLinkParameters omitted.
 
 // de_BusinessNameGenerationConfiguration omitted.
 
@@ -6331,6 +6676,8 @@ const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary =
 // de_EnabledRegionList omitted.
 
 // de_EnvironmentActionList omitted.
+
+// de_EnvironmentActionSummary omitted.
 
 /**
  * deserializeAws_restJson1EnvironmentBlueprintConfigurationItem
@@ -6537,6 +6884,8 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_GlueRunConfigurationOutput omitted.
 
+// de_GlueSelfGrantStatusOutput omitted.
+
 // de_GrantedEntity omitted.
 
 // de_GroupDetails omitted.
@@ -6550,6 +6899,8 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 // de_Import omitted.
 
 // de_ImportList omitted.
+
+// de_ListEnvironmentActionSummaries omitted.
 
 /**
  * deserializeAws_restJson1ListingItem
@@ -6681,6 +7032,8 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 
 // de_RedshiftRunConfigurationOutput omitted.
 
+// de_RedshiftSelfGrantStatusOutput omitted.
+
 // de_RedshiftServerlessStorage omitted.
 
 // de_RedshiftStorage omitted.
@@ -6792,6 +7145,12 @@ const de_SearchTypesResultItems = (output: any, context: __SerdeContext): Search
     });
   return retVal;
 };
+
+// de_SelfGrantStatusDetail omitted.
+
+// de_SelfGrantStatusDetails omitted.
+
+// de_SelfGrantStatusOutput omitted.
 
 // de_SingleSignOn omitted.
 
@@ -7087,6 +7446,7 @@ const _oPI = "owningProjectId";
 const _p = "provider";
 const _pI = "projectIdentifier";
 const _r = "revision";
+const _rPORF = "retainPermissionsOnRevokeFailure";
 const _s = "status";
 const _sA = "startedAt";
 const _sB = "sortBy";

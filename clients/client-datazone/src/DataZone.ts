@@ -13,6 +13,11 @@ import {
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
 import {
+  AssociateEnvironmentRoleCommand,
+  AssociateEnvironmentRoleCommandInput,
+  AssociateEnvironmentRoleCommandOutput,
+} from "./commands/AssociateEnvironmentRoleCommand";
+import {
   CancelMetadataGenerationRunCommand,
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
@@ -43,6 +48,11 @@ import {
   CreateDomainCommandInput,
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
+import {
+  CreateEnvironmentActionCommand,
+  CreateEnvironmentActionCommandInput,
+  CreateEnvironmentActionCommandOutput,
+} from "./commands/CreateEnvironmentActionCommand";
 import {
   CreateEnvironmentCommand,
   CreateEnvironmentCommandInput,
@@ -125,6 +135,11 @@ import {
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  DeleteEnvironmentActionCommand,
+  DeleteEnvironmentActionCommandInput,
+  DeleteEnvironmentActionCommandOutput,
+} from "./commands/DeleteEnvironmentActionCommand";
+import {
   DeleteEnvironmentBlueprintConfigurationCommand,
   DeleteEnvironmentBlueprintConfigurationCommandInput,
   DeleteEnvironmentBlueprintConfigurationCommandOutput,
@@ -189,6 +204,11 @@ import {
   DeleteTimeSeriesDataPointsCommandInput,
   DeleteTimeSeriesDataPointsCommandOutput,
 } from "./commands/DeleteTimeSeriesDataPointsCommand";
+import {
+  DisassociateEnvironmentRoleCommand,
+  DisassociateEnvironmentRoleCommandInput,
+  DisassociateEnvironmentRoleCommandOutput,
+} from "./commands/DisassociateEnvironmentRoleCommand";
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import {
   GetAssetTypeCommand,
@@ -206,6 +226,11 @@ import {
   GetDataSourceRunCommandOutput,
 } from "./commands/GetDataSourceRunCommand";
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import {
+  GetEnvironmentActionCommand,
+  GetEnvironmentActionCommandInput,
+  GetEnvironmentActionCommandOutput,
+} from "./commands/GetEnvironmentActionCommand";
 import {
   GetEnvironmentBlueprintCommand,
   GetEnvironmentBlueprintCommandInput,
@@ -301,6 +326,11 @@ import {
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListEnvironmentActionsCommand,
+  ListEnvironmentActionsCommandInput,
+  ListEnvironmentActionsCommandOutput,
+} from "./commands/ListEnvironmentActionsCommand";
 import {
   ListEnvironmentBlueprintConfigurationsCommand,
   ListEnvironmentBlueprintConfigurationsCommandInput,
@@ -440,6 +470,11 @@ import {
   UpdateDomainCommandOutput,
 } from "./commands/UpdateDomainCommand";
 import {
+  UpdateEnvironmentActionCommand,
+  UpdateEnvironmentActionCommandInput,
+  UpdateEnvironmentActionCommandOutput,
+} from "./commands/UpdateEnvironmentActionCommand";
+import {
   UpdateEnvironmentCommand,
   UpdateEnvironmentCommandInput,
   UpdateEnvironmentCommandOutput,
@@ -494,6 +529,7 @@ import { DataZoneClient, DataZoneClientConfig } from "./DataZoneClient";
 const commands = {
   AcceptPredictionsCommand,
   AcceptSubscriptionRequestCommand,
+  AssociateEnvironmentRoleCommand,
   CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
   CreateAssetCommand,
@@ -502,6 +538,7 @@ const commands = {
   CreateDataSourceCommand,
   CreateDomainCommand,
   CreateEnvironmentCommand,
+  CreateEnvironmentActionCommand,
   CreateEnvironmentProfileCommand,
   CreateFormTypeCommand,
   CreateGlossaryCommand,
@@ -519,6 +556,7 @@ const commands = {
   DeleteDataSourceCommand,
   DeleteDomainCommand,
   DeleteEnvironmentCommand,
+  DeleteEnvironmentActionCommand,
   DeleteEnvironmentBlueprintConfigurationCommand,
   DeleteEnvironmentProfileCommand,
   DeleteFormTypeCommand,
@@ -531,12 +569,14 @@ const commands = {
   DeleteSubscriptionRequestCommand,
   DeleteSubscriptionTargetCommand,
   DeleteTimeSeriesDataPointsCommand,
+  DisassociateEnvironmentRoleCommand,
   GetAssetCommand,
   GetAssetTypeCommand,
   GetDataSourceCommand,
   GetDataSourceRunCommand,
   GetDomainCommand,
   GetEnvironmentCommand,
+  GetEnvironmentActionCommand,
   GetEnvironmentBlueprintCommand,
   GetEnvironmentBlueprintConfigurationCommand,
   GetEnvironmentProfileCommand,
@@ -559,6 +599,7 @@ const commands = {
   ListDataSourceRunsCommand,
   ListDataSourcesCommand,
   ListDomainsCommand,
+  ListEnvironmentActionsCommand,
   ListEnvironmentBlueprintConfigurationsCommand,
   ListEnvironmentBlueprintsCommand,
   ListEnvironmentProfilesCommand,
@@ -590,6 +631,7 @@ const commands = {
   UpdateDataSourceCommand,
   UpdateDomainCommand,
   UpdateEnvironmentCommand,
+  UpdateEnvironmentActionCommand,
   UpdateEnvironmentProfileCommand,
   UpdateGlossaryCommand,
   UpdateGlossaryTermCommand,
@@ -634,6 +676,23 @@ export interface DataZone {
     args: AcceptSubscriptionRequestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptSubscriptionRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateEnvironmentRoleCommand}
+   */
+  associateEnvironmentRole(
+    args: AssociateEnvironmentRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEnvironmentRoleCommandOutput>;
+  associateEnvironmentRole(
+    args: AssociateEnvironmentRoleCommandInput,
+    cb: (err: any, data?: AssociateEnvironmentRoleCommandOutput) => void
+  ): void;
+  associateEnvironmentRole(
+    args: AssociateEnvironmentRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEnvironmentRoleCommandOutput) => void
   ): void;
 
   /**
@@ -755,6 +814,23 @@ export interface DataZone {
     args: CreateEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEnvironmentActionCommand}
+   */
+  createEnvironmentAction(
+    args: CreateEnvironmentActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEnvironmentActionCommandOutput>;
+  createEnvironmentAction(
+    args: CreateEnvironmentActionCommandInput,
+    cb: (err: any, data?: CreateEnvironmentActionCommandOutput) => void
+  ): void;
+  createEnvironmentAction(
+    args: CreateEnvironmentActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEnvironmentActionCommandOutput) => void
   ): void;
 
   /**
@@ -1020,6 +1096,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link DeleteEnvironmentActionCommand}
+   */
+  deleteEnvironmentAction(
+    args: DeleteEnvironmentActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEnvironmentActionCommandOutput>;
+  deleteEnvironmentAction(
+    args: DeleteEnvironmentActionCommandInput,
+    cb: (err: any, data?: DeleteEnvironmentActionCommandOutput) => void
+  ): void;
+  deleteEnvironmentAction(
+    args: DeleteEnvironmentActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEnvironmentActionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEnvironmentBlueprintConfigurationCommand}
    */
   deleteEnvironmentBlueprintConfiguration(
@@ -1206,6 +1299,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link DisassociateEnvironmentRoleCommand}
+   */
+  disassociateEnvironmentRole(
+    args: DisassociateEnvironmentRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEnvironmentRoleCommandOutput>;
+  disassociateEnvironmentRole(
+    args: DisassociateEnvironmentRoleCommandInput,
+    cb: (err: any, data?: DisassociateEnvironmentRoleCommandOutput) => void
+  ): void;
+  disassociateEnvironmentRole(
+    args: DisassociateEnvironmentRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEnvironmentRoleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAssetCommand}
    */
   getAsset(args: GetAssetCommandInput, options?: __HttpHandlerOptions): Promise<GetAssetCommandOutput>;
@@ -1278,6 +1388,23 @@ export interface DataZone {
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEnvironmentActionCommand}
+   */
+  getEnvironmentAction(
+    args: GetEnvironmentActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEnvironmentActionCommandOutput>;
+  getEnvironmentAction(
+    args: GetEnvironmentActionCommandInput,
+    cb: (err: any, data?: GetEnvironmentActionCommandOutput) => void
+  ): void;
+  getEnvironmentAction(
+    args: GetEnvironmentActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEnvironmentActionCommandOutput) => void
   ): void;
 
   /**
@@ -1608,6 +1735,23 @@ export interface DataZone {
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnvironmentActionsCommand}
+   */
+  listEnvironmentActions(
+    args: ListEnvironmentActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnvironmentActionsCommandOutput>;
+  listEnvironmentActions(
+    args: ListEnvironmentActionsCommandInput,
+    cb: (err: any, data?: ListEnvironmentActionsCommandOutput) => void
+  ): void;
+  listEnvironmentActions(
+    args: ListEnvironmentActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnvironmentActionsCommandOutput) => void
   ): void;
 
   /**
@@ -2096,6 +2240,23 @@ export interface DataZone {
     args: UpdateEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEnvironmentActionCommand}
+   */
+  updateEnvironmentAction(
+    args: UpdateEnvironmentActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEnvironmentActionCommandOutput>;
+  updateEnvironmentAction(
+    args: UpdateEnvironmentActionCommandInput,
+    cb: (err: any, data?: UpdateEnvironmentActionCommandOutput) => void
+  ): void;
+  updateEnvironmentAction(
+    args: UpdateEnvironmentActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEnvironmentActionCommandOutput) => void
   ): void;
 
   /**

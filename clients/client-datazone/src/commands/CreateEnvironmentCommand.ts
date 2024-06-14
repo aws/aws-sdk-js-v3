@@ -54,6 +54,9 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   glossaryTerms: [ // GlossaryTerms
  *     "STRING_VALUE",
  *   ],
+ *   environmentAccountIdentifier: "STRING_VALUE",
+ *   environmentAccountRegion: "STRING_VALUE",
+ *   environmentBlueprintIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -66,7 +69,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   environmentProfileId: "STRING_VALUE", // required
+ * //   environmentProfileId: "STRING_VALUE",
  * //   awsAccountId: "STRING_VALUE",
  * //   awsAccountRegion: "STRING_VALUE",
  * //   provider: "STRING_VALUE", // required

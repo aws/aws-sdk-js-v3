@@ -6,13 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListProjectsInput,
-  ListProjectsInputFilterSensitiveLog,
-  ListProjectsOutput,
-  ListProjectsOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws_restJson1";
+import { ListEnvironmentActionsInput, ListEnvironmentActionsOutput } from "../models/models_0";
+import { de_ListEnvironmentActionsCommand, se_ListEnvironmentActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -22,51 +17,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListProjectsCommand}.
+ * The input for {@link ListEnvironmentActionsCommand}.
  */
-export interface ListProjectsCommandInput extends ListProjectsInput {}
+export interface ListEnvironmentActionsCommandInput extends ListEnvironmentActionsInput {}
 /**
  * @public
  *
- * The output of {@link ListProjectsCommand}.
+ * The output of {@link ListEnvironmentActionsCommand}.
  */
-export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
+export interface ListEnvironmentActionsCommandOutput extends ListEnvironmentActionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists Amazon DataZone projects.</p>
+ * <p>Lists existing environment actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, ListProjectsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, ListProjectsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, ListEnvironmentActionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, ListEnvironmentActionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // ListProjectsInput
+ * const input = { // ListEnvironmentActionsInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   userIdentifier: "STRING_VALUE",
- *   groupIdentifier: "STRING_VALUE",
- *   name: "STRING_VALUE",
+ *   environmentIdentifier: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListProjectsCommand(input);
+ * const command = new ListEnvironmentActionsCommand(input);
  * const response = await client.send(command);
- * // { // ListProjectsOutput
- * //   items: [ // ProjectSummaries
- * //     { // ProjectSummary
+ * // { // ListEnvironmentActionsOutput
+ * //   items: [ // ListEnvironmentActionSummaries
+ * //     { // EnvironmentActionSummary
  * //       domainId: "STRING_VALUE", // required
+ * //       environmentId: "STRING_VALUE", // required
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
- * //       failureReasons: [ // FailureReasons
- * //         { // ProjectDeletionError
- * //           code: "STRING_VALUE",
- * //           message: "STRING_VALUE",
+ * //       parameters: { // ActionParameters Union: only one key present
+ * //         awsConsoleLink: { // AwsConsoleLinkParameters
+ * //           uri: "STRING_VALUE",
  * //         },
- * //       ],
- * //       createdBy: "STRING_VALUE", // required
- * //       createdAt: new Date("TIMESTAMP"),
- * //       updatedAt: new Date("TIMESTAMP"),
+ * //       },
+ * //       description: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -74,10 +63,10 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  *
  * ```
  *
- * @param ListProjectsCommandInput - {@link ListProjectsCommandInput}
- * @returns {@link ListProjectsCommandOutput}
- * @see {@link ListProjectsCommandInput} for command's `input` shape.
- * @see {@link ListProjectsCommandOutput} for command's `response` shape.
+ * @param ListEnvironmentActionsCommandInput - {@link ListEnvironmentActionsCommandInput}
+ * @returns {@link ListEnvironmentActionsCommandOutput}
+ * @see {@link ListEnvironmentActionsCommandInput} for command's `input` shape.
+ * @see {@link ListEnvironmentActionsCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,10 +89,10 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  *
  * @public
  */
-export class ListProjectsCommand extends $Command
+export class ListEnvironmentActionsCommand extends $Command
   .classBuilder<
-    ListProjectsCommandInput,
-    ListProjectsCommandOutput,
+    ListEnvironmentActionsCommandInput,
+    ListEnvironmentActionsCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -117,9 +106,9 @@ export class ListProjectsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "ListProjects", {})
-  .n("DataZoneClient", "ListProjectsCommand")
-  .f(ListProjectsInputFilterSensitiveLog, ListProjectsOutputFilterSensitiveLog)
-  .ser(se_ListProjectsCommand)
-  .de(de_ListProjectsCommand)
+  .s("DataZone", "ListEnvironmentActions", {})
+  .n("DataZoneClient", "ListEnvironmentActionsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListEnvironmentActionsCommand)
+  .de(de_ListEnvironmentActionsCommand)
   .build() {}

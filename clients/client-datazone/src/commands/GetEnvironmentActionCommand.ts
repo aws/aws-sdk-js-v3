@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListProjectMembershipsInput, ListProjectMembershipsOutput } from "../models/models_1";
-import { de_ListProjectMembershipsCommand, se_ListProjectMembershipsCommand } from "../protocols/Aws_restJson1";
+import { GetEnvironmentActionInput, GetEnvironmentActionOutput } from "../models/models_0";
+import { de_GetEnvironmentActionCommand, se_GetEnvironmentActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,57 +17,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListProjectMembershipsCommand}.
+ * The input for {@link GetEnvironmentActionCommand}.
  */
-export interface ListProjectMembershipsCommandInput extends ListProjectMembershipsInput {}
+export interface GetEnvironmentActionCommandInput extends GetEnvironmentActionInput {}
 /**
  * @public
  *
- * The output of {@link ListProjectMembershipsCommand}.
+ * The output of {@link GetEnvironmentActionCommand}.
  */
-export interface ListProjectMembershipsCommandOutput extends ListProjectMembershipsOutput, __MetadataBearer {}
+export interface GetEnvironmentActionCommandOutput extends GetEnvironmentActionOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all members of the specified project.</p>
+ * <p>Gets the specified environment action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, ListProjectMembershipsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, ListProjectMembershipsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, GetEnvironmentActionCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, GetEnvironmentActionCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // ListProjectMembershipsInput
+ * const input = { // GetEnvironmentActionInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   projectIdentifier: "STRING_VALUE", // required
- *   sortBy: "NAME",
- *   sortOrder: "ASCENDING" || "DESCENDING",
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   environmentIdentifier: "STRING_VALUE", // required
+ *   identifier: "STRING_VALUE", // required
  * };
- * const command = new ListProjectMembershipsCommand(input);
+ * const command = new GetEnvironmentActionCommand(input);
  * const response = await client.send(command);
- * // { // ListProjectMembershipsOutput
- * //   members: [ // ProjectMembers // required
- * //     { // ProjectMember
- * //       memberDetails: { // MemberDetails Union: only one key present
- * //         user: { // UserDetails
- * //           userId: "STRING_VALUE", // required
- * //         },
- * //         group: { // GroupDetails
- * //           groupId: "STRING_VALUE", // required
- * //         },
- * //       },
- * //       designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR", // required
+ * // { // GetEnvironmentActionOutput
+ * //   domainId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   parameters: { // ActionParameters Union: only one key present
+ * //     awsConsoleLink: { // AwsConsoleLinkParameters
+ * //       uri: "STRING_VALUE",
  * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * //   },
+ * //   description: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListProjectMembershipsCommandInput - {@link ListProjectMembershipsCommandInput}
- * @returns {@link ListProjectMembershipsCommandOutput}
- * @see {@link ListProjectMembershipsCommandInput} for command's `input` shape.
- * @see {@link ListProjectMembershipsCommandOutput} for command's `response` shape.
+ * @param GetEnvironmentActionCommandInput - {@link GetEnvironmentActionCommandInput}
+ * @returns {@link GetEnvironmentActionCommandOutput}
+ * @see {@link GetEnvironmentActionCommandInput} for command's `input` shape.
+ * @see {@link GetEnvironmentActionCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -93,10 +86,10 @@ export interface ListProjectMembershipsCommandOutput extends ListProjectMembersh
  *
  * @public
  */
-export class ListProjectMembershipsCommand extends $Command
+export class GetEnvironmentActionCommand extends $Command
   .classBuilder<
-    ListProjectMembershipsCommandInput,
-    ListProjectMembershipsCommandOutput,
+    GetEnvironmentActionCommandInput,
+    GetEnvironmentActionCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,9 +103,9 @@ export class ListProjectMembershipsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "ListProjectMemberships", {})
-  .n("DataZoneClient", "ListProjectMembershipsCommand")
+  .s("DataZone", "GetEnvironmentAction", {})
+  .n("DataZoneClient", "GetEnvironmentActionCommand")
   .f(void 0, void 0)
-  .ser(se_ListProjectMembershipsCommand)
-  .de(de_ListProjectMembershipsCommand)
+  .ser(se_GetEnvironmentActionCommand)
+  .de(de_GetEnvironmentActionCommand)
   .build() {}
