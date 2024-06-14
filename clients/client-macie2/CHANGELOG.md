@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+
+### Features
+
+* **client-macie2:** This release adds support for managing the status of automated sensitive data discovery for individual accounts in an organization, and determining whether individual S3 buckets are included in the scope of the analyses. ([5d00c7e](https://github.com/aws/aws-sdk-js-v3/commit/5d00c7e9bfaf02d39eac9fa9065abc88e23afe7d))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 **Note:** Version bump only for package @aws-sdk/client-macie2
