@@ -276,7 +276,9 @@ export class Upload extends EventEmitter {
       const partResult = await this.client.send(
         new UploadPartCommand({
           ...this.params,
-          ContentLength: partSize || undefined,
+          // dataPart.data is chunked into a non-streaming buffer
+          // so the ContentLength from the input should not be used for MPU.
+          ContentLength: undefined,
           UploadId: this.uploadId,
           Body: dataPart.data,
           PartNumber: dataPart.partNumber,
