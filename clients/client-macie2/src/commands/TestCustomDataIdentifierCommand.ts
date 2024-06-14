@@ -28,7 +28,7 @@ export interface TestCustomDataIdentifierCommandInput extends TestCustomDataIden
 export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
- * <p>Tests a custom data identifier.</p>
+ * <p>Tests criteria for a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

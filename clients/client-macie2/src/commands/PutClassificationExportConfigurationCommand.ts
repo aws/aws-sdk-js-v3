@@ -36,7 +36,7 @@ export interface PutClassificationExportConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates or updates the configuration settings for storing data classification results.</p>
+ * <p>Adds or updates the configuration settings for storing data classification results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

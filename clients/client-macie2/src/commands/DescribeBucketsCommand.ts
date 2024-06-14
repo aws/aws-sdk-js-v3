@@ -65,6 +65,7 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * //     { // BucketMetadata
  * //       accountId: "STRING_VALUE",
  * //       allowsUnencryptedObjectUploads: "TRUE" || "FALSE" || "UNKNOWN",
+ * //       automatedDiscoveryMonitoringStatus: "MONITORED" || "NOT_MONITORED",
  * //       bucketArn: "STRING_VALUE",
  * //       bucketCreatedAt: new Date("TIMESTAMP"),
  * //       bucketName: "STRING_VALUE",

@@ -6,10 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { ListResourceProfileArtifactsRequest, ListResourceProfileArtifactsResponse } from "../models/models_1";
+import { ListAutomatedDiscoveryAccountsRequest, ListAutomatedDiscoveryAccountsResponse } from "../models/models_0";
 import {
-  de_ListResourceProfileArtifactsCommand,
-  se_ListResourceProfileArtifactsCommand,
+  de_ListAutomatedDiscoveryAccountsCommand,
+  se_ListAutomatedDiscoveryAccountsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -20,38 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListResourceProfileArtifactsCommand}.
+ * The input for {@link ListAutomatedDiscoveryAccountsCommand}.
  */
-export interface ListResourceProfileArtifactsCommandInput extends ListResourceProfileArtifactsRequest {}
+export interface ListAutomatedDiscoveryAccountsCommandInput extends ListAutomatedDiscoveryAccountsRequest {}
 /**
  * @public
  *
- * The output of {@link ListResourceProfileArtifactsCommand}.
+ * The output of {@link ListAutomatedDiscoveryAccountsCommand}.
  */
-export interface ListResourceProfileArtifactsCommandOutput
-  extends ListResourceProfileArtifactsResponse,
+export interface ListAutomatedDiscoveryAccountsCommandOutput
+  extends ListAutomatedDiscoveryAccountsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about objects that Amazon Macie selected from an S3 bucket for automated sensitive data discovery.</p>
+ * <p>Retrieves the status of automated sensitive data discovery for one or more accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListResourceProfileArtifactsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListResourceProfileArtifactsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListAutomatedDiscoveryAccountsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, ListAutomatedDiscoveryAccountsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const input = { // ListResourceProfileArtifactsRequest
+ * const input = { // ListAutomatedDiscoveryAccountsRequest
+ *   accountIds: [ // __listOf__string
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   resourceArn: "STRING_VALUE", // required
  * };
- * const command = new ListResourceProfileArtifactsCommand(input);
+ * const command = new ListAutomatedDiscoveryAccountsCommand(input);
  * const response = await client.send(command);
- * // { // ListResourceProfileArtifactsResponse
- * //   artifacts: [ // __listOfResourceProfileArtifact
- * //     { // ResourceProfileArtifact
- * //       arn: "STRING_VALUE", // required
- * //       classificationResultStatus: "STRING_VALUE", // required
- * //       sensitive: true || false,
+ * // { // ListAutomatedDiscoveryAccountsResponse
+ * //   items: [ // __listOfAutomatedDiscoveryAccount
+ * //     { // AutomatedDiscoveryAccount
+ * //       accountId: "STRING_VALUE",
+ * //       status: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -59,10 +61,10 @@ export interface ListResourceProfileArtifactsCommandOutput
  *
  * ```
  *
- * @param ListResourceProfileArtifactsCommandInput - {@link ListResourceProfileArtifactsCommandInput}
- * @returns {@link ListResourceProfileArtifactsCommandOutput}
- * @see {@link ListResourceProfileArtifactsCommandInput} for command's `input` shape.
- * @see {@link ListResourceProfileArtifactsCommandOutput} for command's `response` shape.
+ * @param ListAutomatedDiscoveryAccountsCommandInput - {@link ListAutomatedDiscoveryAccountsCommandInput}
+ * @returns {@link ListAutomatedDiscoveryAccountsCommandOutput}
+ * @see {@link ListAutomatedDiscoveryAccountsCommandInput} for command's `input` shape.
+ * @see {@link ListAutomatedDiscoveryAccountsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -85,10 +87,10 @@ export interface ListResourceProfileArtifactsCommandOutput
  *
  * @public
  */
-export class ListResourceProfileArtifactsCommand extends $Command
+export class ListAutomatedDiscoveryAccountsCommand extends $Command
   .classBuilder<
-    ListResourceProfileArtifactsCommandInput,
-    ListResourceProfileArtifactsCommandOutput,
+    ListAutomatedDiscoveryAccountsCommandInput,
+    ListAutomatedDiscoveryAccountsCommandOutput,
     Macie2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,9 +104,9 @@ export class ListResourceProfileArtifactsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Macie2", "ListResourceProfileArtifacts", {})
-  .n("Macie2Client", "ListResourceProfileArtifactsCommand")
+  .s("Macie2", "ListAutomatedDiscoveryAccounts", {})
+  .n("Macie2Client", "ListAutomatedDiscoveryAccountsCommand")
   .f(void 0, void 0)
-  .ser(se_ListResourceProfileArtifactsCommand)
-  .de(de_ListResourceProfileArtifactsCommand)
+  .ser(se_ListAutomatedDiscoveryAccountsCommand)
+  .de(de_ListAutomatedDiscoveryAccountsCommand)
   .build() {}

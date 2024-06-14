@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./AcceptInvitationCommand";
 export * from "./BatchGetCustomDataIdentifiersCommand";
+export * from "./BatchUpdateAutomatedDiscoveryAccountsCommand";
 export * from "./CreateAllowListCommand";
 export * from "./CreateClassificationJobCommand";
 export * from "./CreateCustomDataIdentifierCommand";
@@ -47,6 +48,7 @@ export * from "./GetSensitivityInspectionTemplateCommand";
 export * from "./GetUsageStatisticsCommand";
 export * from "./GetUsageTotalsCommand";
 export * from "./ListAllowListsCommand";
+export * from "./ListAutomatedDiscoveryAccountsCommand";
 export * from "./ListClassificationJobsCommand";
 export * from "./ListClassificationScopesCommand";
 export * from "./ListCustomDataIdentifiersCommand";

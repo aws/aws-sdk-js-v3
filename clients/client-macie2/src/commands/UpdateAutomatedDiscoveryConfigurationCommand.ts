@@ -37,7 +37,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables or disables automated sensitive data discovery for an account.</p>
+ * <p>Changes the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +45,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * // const { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // UpdateAutomatedDiscoveryConfigurationRequest
+ *   autoEnableOrganizationMembers: "ALL" || "NEW" || "NONE",
  *   status: "ENABLED" || "DISABLED", // required
  * };
  * const command = new UpdateAutomatedDiscoveryConfigurationCommand(input);
