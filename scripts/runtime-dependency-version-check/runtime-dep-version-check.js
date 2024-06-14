@@ -54,7 +54,14 @@ readPackages(clientPackages);
 checkVersions();
 
 for (const pkg of nonClientPackages) {
-  const pkgJson = require(path.join(pkg, "package.json"));
+  const pkgJsonPath = path.join(pkg, "package.json");
+
+  // Check if package.json exists before requiring it
+  if (!fs.existsSync(pkgJsonPath)) {
+    continue;
+  }
+
+  const pkgJson = require(pkgJsonPath);
   const { dependencies = {}, devDependencies = {} } = pkgJson;
 
   for (const [name, version] of Object.entries(dependencies)) {
@@ -115,7 +122,7 @@ for (const pkg of nonClientPackages) {
     }
   }
 
-  fs.writeFileSync(path.join(pkg, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n", "utf-8");
+  fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2) + "\n", "utf-8");
 }
 
 readPackages(nonClientPackages);
@@ -147,7 +154,14 @@ function checkVersions() {
 
 function readPackages(packages) {
   for (const pkg of packages) {
-    const pkgJson = require(path.join(pkg, "package.json"));
+    const pkgJsonPath = path.join(pkg, "package.json");
+
+    // Check if package.json exists before requiring it
+    if (!fs.existsSync(pkgJsonPath)) {
+      continue;
+    }
+
+    const pkgJson = require(pkgJsonPath);
     const { dependencies = {}, devDependencies = {} } = pkgJson;
     for (const [name, version] of Object.entries(dependencies)) {
       if (version.startsWith("file:")) {
