@@ -73,7 +73,7 @@ public enum AwsDependency implements Dependency {
     AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser"),
     AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node"),
     MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery"),
-    AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "3.0.0"),
+    AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "5.2.0"),
     SIGNATURE_V4_MULTIREGION(NORMAL_DEPENDENCY, "@aws-sdk/signature-v4-multi-region"),
     RECURSION_DETECTION_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-recursion-detection"),
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),
