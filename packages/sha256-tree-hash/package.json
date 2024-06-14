@@ -25,7 +25,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-crypto/sha256-js": "3.0.0",
+    "@aws-crypto/sha256-js": "5.2.0",
     "@smithy/util-hex-encoding": "^3.0.0",
     "@smithy/util-utf8": "^3.0.0",
     "@tsconfig/recommended": "1.0.1",
