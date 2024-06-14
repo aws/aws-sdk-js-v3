@@ -109,6 +109,6 @@ export const resolveSSOCredentials = async ({
     sessionToken,
     expiration: new Date(expiration),
     credentialScope,
-    accountId: ssoAccountId,
+    accountId,
   };
 };
