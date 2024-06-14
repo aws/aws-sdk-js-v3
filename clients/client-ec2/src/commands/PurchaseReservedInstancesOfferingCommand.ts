@@ -40,9 +40,9 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * 			new Reserved Instance with <a>DescribeReservedInstances</a>.</p>
  *          <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a
  *       purchase time, the default is the current time.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
- *    	   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
- *    	   in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
+ *         Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
+ *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

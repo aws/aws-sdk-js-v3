@@ -72,7 +72,8 @@ export interface NetworkInterfaceIpv6Address {
   Ipv6Address?: string;
 
   /**
-   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
    * @public
    */
   IsPrimaryIpv6?: boolean;
@@ -161,7 +162,7 @@ export interface NetworkInterface {
   AvailabilityZone?: string;
 
   /**
-   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingConfiguration?: ConnectionTrackingConfiguration;
@@ -689,7 +690,7 @@ export interface CreateReplaceRootVolumeTaskRequest {
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
    *       If you do not specify a client token, a randomly generated token is used for the request
-   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -1125,7 +1126,7 @@ export interface CreateRouteTableRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -1338,7 +1339,7 @@ export interface Route {
  */
 export interface RouteTable {
   /**
-   * <p>The associations between the route table and one or more subnets or a gateway.</p>
+   * <p>The associations between the route table and your subnets or gateways.</p>
    * @public
    */
   Associations?: RouteTableAssociation[];
@@ -1584,7 +1585,7 @@ export interface Snapshot {
   Encrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the
+   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to protect the
    *       volume encryption key for the parent volume.</p>
    * @public
    */
@@ -1623,7 +1624,7 @@ export interface Snapshot {
 
   /**
    * <p>Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails
-   *       (for example, if the proper Key Management Service (KMS) permissions are not obtained) this field displays error
+   *       (for example, if the proper KMS permissions are not obtained) this field displays error
    *       state details to help you diagnose why the error occurred. This parameter is only returned by
    *       <a>DescribeSnapshots</a>.</p>
    * @public
@@ -2074,7 +2075,7 @@ export interface CreateSubnetRequest {
    *           do not necessarily select a different zone for each subnet.</p>
    *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
    *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
-   *            see <a href="http://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/">Local Zones locations</a>.</p>
+   *            see <a href="https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html">Available Local Zones</a>.</p>
    *          <p>To create a subnet in an Outpost, set this value to the Availability Zone for the
    *            Outpost and specify the Outpost ARN.</p>
    * @public
@@ -4834,7 +4835,7 @@ export interface CreateVerifiedAccessEndpointRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5112,7 +5113,7 @@ export interface CreateVerifiedAccessGroupRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5227,7 +5228,7 @@ export interface CreateVerifiedAccessInstanceRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5386,7 +5387,7 @@ export interface CreateVerifiedAccessTrustProviderRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5460,7 +5461,7 @@ export interface CreateVolumeRequest {
    *             </li>
    *          </ul>
    *          <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on
-   * <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+   * <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
    * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
    *          <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The default for <code>gp3</code> volumes is 3,000 IOPS.
    *       This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
@@ -5469,7 +5470,7 @@ export interface CreateVolumeRequest {
   Iops?: number;
 
   /**
-   * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
    *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
    *       specified, the encrypted state must be <code>true</code>.</p>
    *          <p>You can specify the KMS key using any of the following:</p>
@@ -5587,7 +5588,7 @@ export interface CreateVolumeRequest {
 
   /**
    * <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
-   *     	volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is
+   *       volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is
    *     	supported with <code>io1</code> and <code>io2</code> volumes only. For more information,
    *     	see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
    *     		Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -5605,7 +5606,7 @@ export interface CreateVolumeRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
-   *       of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure
+   *       of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure
    *         Idempotency</a>.</p>
    * @public
    */
@@ -5663,7 +5664,7 @@ export interface Volume {
   Encrypted?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS key that was used to protect the
+   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to protect the
    *       volume encryption key for the volume.</p>
    * @public
    */
@@ -6027,7 +6028,7 @@ export interface CreateVpcEndpointRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
    *                 idempotency</a>.</p>
    * @public
    */
@@ -6335,7 +6336,7 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
    *                 idempotency</a>.</p>
    * @public
    */
@@ -6483,7 +6484,7 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *             For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
    *                 idempotency</a>.</p>
    * @public
    */

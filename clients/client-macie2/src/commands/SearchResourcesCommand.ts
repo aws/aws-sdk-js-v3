@@ -42,7 +42,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  *         { // SearchResourcesCriteria
  *           simpleCriterion: { // SearchResourcesSimpleCriterion
  *             comparator: "EQ" || "NE",
- *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS" || "AUTOMATED_DISCOVERY_MONITORING_STATUS",
  *             values: [ // __listOf__string
  *               "STRING_VALUE",
  *             ],
@@ -64,7 +64,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  *         {
  *           simpleCriterion: {
  *             comparator: "EQ" || "NE",
- *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS" || "AUTOMATED_DISCOVERY_MONITORING_STATUS",
  *             values: [
  *               "STRING_VALUE",
  *             ],
@@ -96,6 +96,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * //     { // MatchingResource
  * //       matchingBucket: { // MatchingBucket
  * //         accountId: "STRING_VALUE",
+ * //         automatedDiscoveryMonitoringStatus: "MONITORED" || "NOT_MONITORED",
  * //         bucketName: "STRING_VALUE",
  * //         classifiableObjectCount: Number("long"),
  * //         classifiableSizeInBytes: Number("long"),

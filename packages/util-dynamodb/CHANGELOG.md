@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+
+### Bug Fixes
+
+* **util-dynamodb:** fix signature overload resolution for marshall() fn ([#6195](https://github.com/aws/aws-sdk-js-v3/issues/6195)) ([3682a43](https://github.com/aws/aws-sdk-js-v3/commit/3682a4365c47c43396d103fefba7d28126784674))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 **Note:** Version bump only for package @aws-sdk/util-dynamodb

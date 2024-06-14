@@ -43,6 +43,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   retainPermissionsOnRevokeFailure: true || false,
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
@@ -129,6 +130,29 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   selfGrantStatus: { // SelfGrantStatusOutput Union: only one key present
+ * //     glueSelfGrantStatus: { // GlueSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // SelfGrantStatusDetails // required
+ * //         { // SelfGrantStatusDetail
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     redshiftSelfGrantStatus: { // RedshiftSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // required
+ * //         {
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   retainPermissionsOnRevokeFailure: true || false,
  * // };
  *
  * ```

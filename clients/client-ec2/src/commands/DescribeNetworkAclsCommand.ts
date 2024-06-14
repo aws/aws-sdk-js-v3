@@ -28,7 +28,9 @@ export interface DescribeNetworkAclsCommandInput extends DescribeNetworkAclsRequ
 export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your network ACLs.</p>
+ * <p>Describes your network ACLs. The default is to describe all your network ACLs.
+ *            Alternatively, you can specify specific network ACL IDs or filter the results to
+ *            include only the network ACLs that match specific criteria.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network ACLs</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
  * @example

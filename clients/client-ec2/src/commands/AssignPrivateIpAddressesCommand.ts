@@ -32,8 +32,7 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
  *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
  *             The number of secondary IP addresses that you can assign to an instance varies by instance type.
- *             For information about instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about
- *             Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             For more information about Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>When you move a secondary private IP address to another network interface, any Elastic IP address
  *             that is associated with the IP address is also moved.</p>
  *          <p>Remapping an IP address is an asynchronous operation. When you move an IP address from one network
@@ -43,7 +42,7 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  *          <p>You can optionally use Prefix Delegation on the network interface. You must specify
  *             either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count. For
  *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
- *                 Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 Assigning prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

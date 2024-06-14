@@ -35,7 +35,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *          instance types to fulfill your Spot request, or you can specify the instance types by using
  *             <code>InstanceTypes</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in
- *          the Amazon EC2 User Guide.</p>
+ *          the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,10 @@ export interface DescribeDhcpOptionsCommandInput extends DescribeDhcpOptionsRequ
 export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your DHCP options sets.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
+ * <p>Describes your DHCP option sets. The default is to describe all your DHCP option sets.
+ * 		        Alternatively, you can specify specific DHCP option set IDs or filter the results to
+ * 		        include only the DHCP option sets that match specific criteria.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

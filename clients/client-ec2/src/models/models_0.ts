@@ -330,7 +330,7 @@ export const AddressTransferStatus = {
 export type AddressTransferStatus = (typeof AddressTransferStatus)[keyof typeof AddressTransferStatus];
 
 /**
- * <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @public
  */
 export interface AddressTransfer {
@@ -3180,7 +3180,6 @@ export interface AllocateAddressRequest {
    * <p> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services
    *       advertises IP addresses. Use this parameter to limit the IP address to this location. IP
    *       addresses cannot move between network border groups.</p>
-   *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p>
    * @public
    */
   NetworkBorderGroup?: string;
@@ -3314,7 +3313,7 @@ export interface AllocateHostsRequest {
    *             instance type configuration, or if it only accepts Host tenancy instance launches that
    *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: <code>on</code>
+   *          <p>Default: <code>off</code>
    *          </p>
    * @public
    */
@@ -3483,7 +3482,7 @@ export interface AllocateIpamPoolCidrRequest {
   NetmaskLength?: number;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -3864,8 +3863,8 @@ export interface AssignPrivateIpAddressesRequest {
 export interface Ipv4PrefixSpecification {
   /**
    * <p>The IPv4 prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
-   *             Assigning prefixes to Amazon EC2 network interfaces</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             Assigning prefixes to network interfaces</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Ipv4Prefix?: string;
@@ -4105,7 +4104,8 @@ export interface AssociateClientVpnTargetNetworkRequest {
   SubnetId: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5278,8 +5278,8 @@ export interface AssociateTrunkInterfaceRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5367,8 +5367,8 @@ export interface AssociateTrunkInterfaceResult {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5756,7 +5756,7 @@ export interface AttachVerifiedAccessTrustProviderRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -6302,7 +6302,8 @@ export interface AuthorizeClientVpnIngressRequest {
   Description?: string;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -7807,7 +7808,7 @@ export interface CopyFpgaImageRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *       	For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -8013,7 +8014,7 @@ export interface CopySnapshotRequest {
   Encrypted?: boolean;
 
   /**
-   * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
    *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
    *       specified, the encrypted state must be <code>true</code>.</p>
    *          <p>You can specify the KMS key using any of the following:</p>
@@ -8047,8 +8048,8 @@ export interface CopySnapshotRequest {
    *         <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The
    *         <code>PresignedUrl</code> must be signed using Amazon Web Services Signature Version 4. Because EBS
    *       snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic
-   *       that is described in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query
-   *         Parameters (Amazon Web Services Signature Version 4)</a> in the <i>Amazon Simple Storage Service API Reference</i>. An
+   *       that is described in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
+   *         Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>. An
    *       invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail
    *       asynchronously, and the snapshot will move to an <code>error</code> state.</p>
    * @public
@@ -9471,11 +9472,11 @@ export interface ReservationFleetInstanceSpecification {
   InstancePlatform?: CapacityReservationInstancePlatform;
 
   /**
-   * <p>The number of capacity units provided by the specified instance type. This value, together with the
-   * 			total target capacity that you specify for the Fleet determine the number of instances for which the
-   * 			Fleet reserves capacity. Both values are based on units that make sense for your workload. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
-   * 			in the Amazon EC2 User Guide.</p>
+   * <p>The number of capacity units provided by the specified instance type. This value, together
+   * 			with the total target capacity that you specify for the Fleet determine the number of
+   * 			instances for which the Fleet reserves capacity. Both values are based on units that
+   * 			make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Weight?: number;
@@ -9506,10 +9507,10 @@ export interface ReservationFleetInstanceSpecification {
   EbsOptimized?: boolean;
 
   /**
-   * <p>The priority to assign to the instance type. This value is used to determine which of the instance types
-   * 			specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type priority</a>
-   * 			in the Amazon EC2 User Guide.</p>
+   * <p>The priority to assign to the instance type. This value is used to determine which of the
+   * 			instance types specified for the Fleet should be prioritized for use. A lower value
+   * 			indicates a high priority. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
+   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Priority?: number;
@@ -9534,10 +9535,10 @@ export type FleetCapacityReservationTenancy =
  */
 export interface CreateCapacityReservationFleetRequest {
   /**
-   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
-   * 			specified instance types to use. Currently, only the <code>prioritized</code>
-   * 			allocation strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
-   * 				Allocation strategy</a> in the Amazon EC2 User Guide.</p>
+   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the specified
+   * 			instance types to use. Currently, only the <code>prioritized</code> allocation strategy
+   * 			is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy"> Allocation
+   * 				strategy</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Valid values: <code>prioritized</code>
    *          </p>
    * @public
@@ -9578,10 +9579,11 @@ export interface CreateCapacityReservationFleetRequest {
 
   /**
    * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This
-   * 			value, together with the instance type weights that you assign to each instance type used by
-   * 			the Fleet determine the number of instances for which the Fleet reserves capacity. Both values
-   * 			are based on units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">
-   * 				Total target capacity</a> in the Amazon EC2 User Guide.</p>
+   * 			value, together with the instance type weights that you assign to each instance type
+   * 			used by the Fleet determine the number of instances for which the Fleet reserves
+   * 			capacity. Both values are based on units that make sense for your workload. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   TotalTargetCapacity: number | undefined;
@@ -9666,9 +9668,9 @@ export interface FleetCapacityReservation {
   TotalInstanceCount?: number;
 
   /**
-   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">
-   * 				Total target capacity</a> in the Amazon EC2 User Guide.</p>
+   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   FulfilledCapacity?: number;
@@ -9686,17 +9688,17 @@ export interface FleetCapacityReservation {
   CreateDate?: Date;
 
   /**
-   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">
-   * 				Instance type weight</a> in the Amazon EC2 User Guide.</p>
+   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">Instance type
+   * 				weight</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Weight?: number;
 
   /**
    * <p>The priority of the instance type in the Capacity Reservation Fleet. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">
-   * 				Instance type priority</a> in the Amazon EC2 User Guide.</p>
+   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
+   * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Priority?: number;

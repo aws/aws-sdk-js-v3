@@ -51,8 +51,8 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *       are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes
  *       and any associated snapshots always remain protected.</p>
  *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
- *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html">Amazon Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
+ *         resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html">Amazon EBS</a> and <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -221,6 +221,14 @@ BatchGetCustomDataIdentifiers
 </details>
 <details>
 <summary>
+BatchUpdateAutomatedDiscoveryAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/macie2/command/BatchUpdateAutomatedDiscoveryAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/BatchUpdateAutomatedDiscoveryAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/BatchUpdateAutomatedDiscoveryAccountsCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateAllowList
 </summary>
 
@@ -585,6 +593,14 @@ ListAllowLists
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/macie2/command/ListAllowListsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAllowListsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAllowListsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAutomatedDiscoveryAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/macie2/command/ListAutomatedDiscoveryAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAutomatedDiscoveryAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAutomatedDiscoveryAccountsCommandOutput/)
 
 </details>
 <details>

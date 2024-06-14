@@ -28,7 +28,9 @@ export interface DescribeRouteTablesCommandInput extends DescribeRouteTablesRequ
 export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your route tables.</p>
+ * <p>Describes your route tables. The default is to describe all your route tables.
+ *            Alternatively, you can specify specific route table IDs or filter the results to
+ *            include only the route tables that match specific criteria.</p>
  *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>

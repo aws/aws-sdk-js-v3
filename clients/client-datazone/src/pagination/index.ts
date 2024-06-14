@@ -5,6 +5,7 @@ export * from "./ListDataSourceRunActivitiesPaginator";
 export * from "./ListDataSourceRunsPaginator";
 export * from "./ListDataSourcesPaginator";
 export * from "./ListDomainsPaginator";
+export * from "./ListEnvironmentActionsPaginator";
 export * from "./ListEnvironmentBlueprintConfigurationsPaginator";
 export * from "./ListEnvironmentBlueprintsPaginator";
 export * from "./ListEnvironmentProfilesPaginator";

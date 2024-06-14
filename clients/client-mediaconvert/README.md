@@ -389,6 +389,14 @@ PutPolicy
 </details>
 <details>
 <summary>
+SearchJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediaconvert/command/SearchJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconvert/Interface/SearchJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconvert/Interface/SearchJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

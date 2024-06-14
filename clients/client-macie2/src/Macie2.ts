@@ -13,6 +13,11 @@ import {
   BatchGetCustomDataIdentifiersCommandOutput,
 } from "./commands/BatchGetCustomDataIdentifiersCommand";
 import {
+  BatchUpdateAutomatedDiscoveryAccountsCommand,
+  BatchUpdateAutomatedDiscoveryAccountsCommandInput,
+  BatchUpdateAutomatedDiscoveryAccountsCommandOutput,
+} from "./commands/BatchUpdateAutomatedDiscoveryAccountsCommand";
+import {
   CreateAllowListCommand,
   CreateAllowListCommandInput,
   CreateAllowListCommandOutput,
@@ -231,6 +236,11 @@ import {
   ListAllowListsCommandOutput,
 } from "./commands/ListAllowListsCommand";
 import {
+  ListAutomatedDiscoveryAccountsCommand,
+  ListAutomatedDiscoveryAccountsCommandInput,
+  ListAutomatedDiscoveryAccountsCommandOutput,
+} from "./commands/ListAutomatedDiscoveryAccountsCommand";
+import {
   ListClassificationJobsCommand,
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
@@ -382,6 +392,7 @@ import { Macie2Client, Macie2ClientConfig } from "./Macie2Client";
 const commands = {
   AcceptInvitationCommand,
   BatchGetCustomDataIdentifiersCommand,
+  BatchUpdateAutomatedDiscoveryAccountsCommand,
   CreateAllowListCommand,
   CreateClassificationJobCommand,
   CreateCustomDataIdentifierCommand,
@@ -428,6 +439,7 @@ const commands = {
   GetUsageStatisticsCommand,
   GetUsageTotalsCommand,
   ListAllowListsCommand,
+  ListAutomatedDiscoveryAccountsCommand,
   ListClassificationJobsCommand,
   ListClassificationScopesCommand,
   ListCustomDataIdentifiersCommand,
@@ -495,6 +507,24 @@ export interface Macie2 {
     args: BatchGetCustomDataIdentifiersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetCustomDataIdentifiersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateAutomatedDiscoveryAccountsCommand}
+   */
+  batchUpdateAutomatedDiscoveryAccounts(): Promise<BatchUpdateAutomatedDiscoveryAccountsCommandOutput>;
+  batchUpdateAutomatedDiscoveryAccounts(
+    args: BatchUpdateAutomatedDiscoveryAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateAutomatedDiscoveryAccountsCommandOutput>;
+  batchUpdateAutomatedDiscoveryAccounts(
+    args: BatchUpdateAutomatedDiscoveryAccountsCommandInput,
+    cb: (err: any, data?: BatchUpdateAutomatedDiscoveryAccountsCommandOutput) => void
+  ): void;
+  batchUpdateAutomatedDiscoveryAccounts(
+    args: BatchUpdateAutomatedDiscoveryAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateAutomatedDiscoveryAccountsCommandOutput) => void
   ): void;
 
   /**
@@ -1236,6 +1266,24 @@ export interface Macie2 {
     args: ListAllowListsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAllowListsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutomatedDiscoveryAccountsCommand}
+   */
+  listAutomatedDiscoveryAccounts(): Promise<ListAutomatedDiscoveryAccountsCommandOutput>;
+  listAutomatedDiscoveryAccounts(
+    args: ListAutomatedDiscoveryAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutomatedDiscoveryAccountsCommandOutput>;
+  listAutomatedDiscoveryAccounts(
+    args: ListAutomatedDiscoveryAccountsCommandInput,
+    cb: (err: any, data?: ListAutomatedDiscoveryAccountsCommandOutput) => void
+  ): void;
+  listAutomatedDiscoveryAccounts(
+    args: ListAutomatedDiscoveryAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutomatedDiscoveryAccountsCommandOutput) => void
   ): void;
 
   /**

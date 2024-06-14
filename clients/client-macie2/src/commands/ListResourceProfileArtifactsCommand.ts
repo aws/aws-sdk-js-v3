@@ -33,7 +33,7 @@ export interface ListResourceProfileArtifactsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
+ * <p>Retrieves information about objects that Amazon Macie selected from an S3 bucket for automated sensitive data discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

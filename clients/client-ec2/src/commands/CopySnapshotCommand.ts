@@ -36,8 +36,8 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *          <p>You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).</p>
  *          <p>When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
  *     	Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for the
- *     	snapshot copy operation. By default, encrypted snapshot copies use the default Key Management Service (KMS)
- *     	KMS key; however, you can specify a different KMS key. To copy an encrypted
+ *     	snapshot copy operation. By default, encrypted snapshot copies use the default KMS key;
+ *     	however, you can specify a different KMS key. To copy an encrypted
  *     	snapshot that has been shared from another account, you must have permissions for the KMS key
  *     	used to encrypt the snapshot.</p>
  *          <p>Snapshots copied to an Outpost are encrypted by default using the default

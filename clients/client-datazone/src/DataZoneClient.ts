@@ -59,6 +59,10 @@ import {
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
 import {
+  AssociateEnvironmentRoleCommandInput,
+  AssociateEnvironmentRoleCommandOutput,
+} from "./commands/AssociateEnvironmentRoleCommand";
+import {
   CancelMetadataGenerationRunCommandInput,
   CancelMetadataGenerationRunCommandOutput,
 } from "./commands/CancelMetadataGenerationRunCommand";
@@ -71,6 +75,10 @@ import {
 import { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "./commands/CreateAssetTypeCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import {
+  CreateEnvironmentActionCommandInput,
+  CreateEnvironmentActionCommandOutput,
+} from "./commands/CreateEnvironmentActionCommand";
 import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
 import {
   CreateEnvironmentProfileCommandInput,
@@ -107,6 +115,10 @@ import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./com
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
+  DeleteEnvironmentActionCommandInput,
+  DeleteEnvironmentActionCommandOutput,
+} from "./commands/DeleteEnvironmentActionCommand";
+import {
   DeleteEnvironmentBlueprintConfigurationCommandInput,
   DeleteEnvironmentBlueprintConfigurationCommandOutput,
 } from "./commands/DeleteEnvironmentBlueprintConfigurationCommand";
@@ -140,11 +152,19 @@ import {
   DeleteTimeSeriesDataPointsCommandInput,
   DeleteTimeSeriesDataPointsCommandOutput,
 } from "./commands/DeleteTimeSeriesDataPointsCommand";
+import {
+  DisassociateEnvironmentRoleCommandInput,
+  DisassociateEnvironmentRoleCommandOutput,
+} from "./commands/DisassociateEnvironmentRoleCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import {
+  GetEnvironmentActionCommandInput,
+  GetEnvironmentActionCommandOutput,
+} from "./commands/GetEnvironmentActionCommand";
 import {
   GetEnvironmentBlueprintCommandInput,
   GetEnvironmentBlueprintCommandOutput,
@@ -198,6 +218,10 @@ import {
 import { ListDataSourceRunsCommandInput, ListDataSourceRunsCommandOutput } from "./commands/ListDataSourceRunsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListEnvironmentActionsCommandInput,
+  ListEnvironmentActionsCommandOutput,
+} from "./commands/ListEnvironmentActionsCommand";
 import {
   ListEnvironmentBlueprintConfigurationsCommandInput,
   ListEnvironmentBlueprintConfigurationsCommandOutput,
@@ -273,6 +297,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import {
+  UpdateEnvironmentActionCommandInput,
+  UpdateEnvironmentActionCommandOutput,
+} from "./commands/UpdateEnvironmentActionCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentProfileCommandInput,
@@ -312,6 +340,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptPredictionsCommandInput
   | AcceptSubscriptionRequestCommandInput
+  | AssociateEnvironmentRoleCommandInput
   | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
   | CreateAssetCommandInput
@@ -319,6 +348,7 @@ export type ServiceInputTypes =
   | CreateAssetTypeCommandInput
   | CreateDataSourceCommandInput
   | CreateDomainCommandInput
+  | CreateEnvironmentActionCommandInput
   | CreateEnvironmentCommandInput
   | CreateEnvironmentProfileCommandInput
   | CreateFormTypeCommandInput
@@ -336,6 +366,7 @@ export type ServiceInputTypes =
   | DeleteAssetTypeCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
+  | DeleteEnvironmentActionCommandInput
   | DeleteEnvironmentBlueprintConfigurationCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteEnvironmentProfileCommandInput
@@ -349,11 +380,13 @@ export type ServiceInputTypes =
   | DeleteSubscriptionRequestCommandInput
   | DeleteSubscriptionTargetCommandInput
   | DeleteTimeSeriesDataPointsCommandInput
+  | DisassociateEnvironmentRoleCommandInput
   | GetAssetCommandInput
   | GetAssetTypeCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceRunCommandInput
   | GetDomainCommandInput
+  | GetEnvironmentActionCommandInput
   | GetEnvironmentBlueprintCommandInput
   | GetEnvironmentBlueprintConfigurationCommandInput
   | GetEnvironmentCommandInput
@@ -377,6 +410,7 @@ export type ServiceInputTypes =
   | ListDataSourceRunsCommandInput
   | ListDataSourcesCommandInput
   | ListDomainsCommandInput
+  | ListEnvironmentActionsCommandInput
   | ListEnvironmentBlueprintConfigurationsCommandInput
   | ListEnvironmentBlueprintsCommandInput
   | ListEnvironmentProfilesCommandInput
@@ -407,6 +441,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDomainCommandInput
+  | UpdateEnvironmentActionCommandInput
   | UpdateEnvironmentCommandInput
   | UpdateEnvironmentProfileCommandInput
   | UpdateGlossaryCommandInput
@@ -424,6 +459,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptPredictionsCommandOutput
   | AcceptSubscriptionRequestCommandOutput
+  | AssociateEnvironmentRoleCommandOutput
   | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
   | CreateAssetCommandOutput
@@ -431,6 +467,7 @@ export type ServiceOutputTypes =
   | CreateAssetTypeCommandOutput
   | CreateDataSourceCommandOutput
   | CreateDomainCommandOutput
+  | CreateEnvironmentActionCommandOutput
   | CreateEnvironmentCommandOutput
   | CreateEnvironmentProfileCommandOutput
   | CreateFormTypeCommandOutput
@@ -448,6 +485,7 @@ export type ServiceOutputTypes =
   | DeleteAssetTypeCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput
+  | DeleteEnvironmentActionCommandOutput
   | DeleteEnvironmentBlueprintConfigurationCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteEnvironmentProfileCommandOutput
@@ -461,11 +499,13 @@ export type ServiceOutputTypes =
   | DeleteSubscriptionRequestCommandOutput
   | DeleteSubscriptionTargetCommandOutput
   | DeleteTimeSeriesDataPointsCommandOutput
+  | DisassociateEnvironmentRoleCommandOutput
   | GetAssetCommandOutput
   | GetAssetTypeCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceRunCommandOutput
   | GetDomainCommandOutput
+  | GetEnvironmentActionCommandOutput
   | GetEnvironmentBlueprintCommandOutput
   | GetEnvironmentBlueprintConfigurationCommandOutput
   | GetEnvironmentCommandOutput
@@ -489,6 +529,7 @@ export type ServiceOutputTypes =
   | ListDataSourceRunsCommandOutput
   | ListDataSourcesCommandOutput
   | ListDomainsCommandOutput
+  | ListEnvironmentActionsCommandOutput
   | ListEnvironmentBlueprintConfigurationsCommandOutput
   | ListEnvironmentBlueprintsCommandOutput
   | ListEnvironmentProfilesCommandOutput
@@ -519,6 +560,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDomainCommandOutput
+  | UpdateEnvironmentActionCommandOutput
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentProfileCommandOutput
   | UpdateGlossaryCommandOutput

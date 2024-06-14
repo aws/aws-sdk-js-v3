@@ -128,6 +128,28 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   selfGrantStatus: { // SelfGrantStatusOutput Union: only one key present
+ * //     glueSelfGrantStatus: { // GlueSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // SelfGrantStatusDetails // required
+ * //         { // SelfGrantStatusDetail
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     redshiftSelfGrantStatus: { // RedshiftSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // required
+ * //         {
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```

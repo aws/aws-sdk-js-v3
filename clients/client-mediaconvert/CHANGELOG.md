@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+
+### Features
+
+* **client-mediaconvert:** This release adds the ability to search for historical job records within the management console using a search box and/or via the SDK/CLI with partial string matching search on input file name. ([33a5089](https://github.com/aws/aws-sdk-js-v3/commit/33a5089f4aa00a125e3fb2497e8f527f77ca86bf))
+
+
+
+
+
 # [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

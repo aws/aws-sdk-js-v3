@@ -85,6 +85,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateJobTemplateCommandInput, UpdateJobTemplateCommandOutput } from "./commands/UpdateJobTemplateCommand";
@@ -128,6 +129,7 @@ export type ServiceInputTypes =
   | ListQueuesCommandInput
   | ListTagsForResourceCommandInput
   | PutPolicyCommandInput
+  | SearchJobsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateJobTemplateCommandInput
@@ -161,6 +163,7 @@ export type ServiceOutputTypes =
   | ListQueuesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutPolicyCommandOutput
+  | SearchJobsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateJobTemplateCommandOutput

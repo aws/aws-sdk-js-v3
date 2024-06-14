@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { ListCustomDataIdentifiersRequest, ListCustomDataIdentifiersResponse } from "../models/models_0";
+import { ListCustomDataIdentifiersRequest, ListCustomDataIdentifiersResponse } from "../models/models_1";
 import { de_ListCustomDataIdentifiersCommand, se_ListCustomDataIdentifiersCommand } from "../protocols/Aws_restJson1";
 
 /**

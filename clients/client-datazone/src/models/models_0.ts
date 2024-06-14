@@ -593,6 +593,56 @@ export interface AcceptSubscriptionRequestOutput {
 }
 
 /**
+ * <p>The parameters of the console link specified as part of the environment action.</p>
+ * @public
+ */
+export interface AwsConsoleLinkParameters {
+  /**
+   * <p>The URI of the console link specified as part of the environment action.</p>
+   * @public
+   */
+  uri?: string;
+}
+
+/**
+ * <p>The parameters of the environment action.</p>
+ * @public
+ */
+export type ActionParameters = ActionParameters.AwsConsoleLinkMember | ActionParameters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ActionParameters {
+  /**
+   * <p>The console link specified as part of the environment action.</p>
+   * @public
+   */
+  export interface AwsConsoleLinkMember {
+    awsConsoleLink: AwsConsoleLinkParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    awsConsoleLink?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    awsConsoleLink: (value: AwsConsoleLinkParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ActionParameters, visitor: Visitor<T>): T => {
+    if (value.awsConsoleLink !== undefined) return visitor.awsConsoleLink(value.awsConsoleLink);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  * @enum
  */
@@ -1996,6 +2046,34 @@ export interface AssetTypeItem {
 
 /**
  * @public
+ */
+export interface AssociateEnvironmentRoleInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the environment role is associated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon DataZone environment.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the environment role.</p>
+   * @public
+   */
+  environmentRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateEnvironmentRoleOutput {}
+
+/**
+ * @public
  * @enum
  */
 export const AuthType = {
@@ -3289,6 +3367,24 @@ export interface CreateEnvironmentInput {
    * @public
    */
   glossaryTerms?: string[];
+
+  /**
+   * <p>The ID of the account in which the environment is being created.</p>
+   * @public
+   */
+  environmentAccountIdentifier?: string;
+
+  /**
+   * <p>The region of the account in which the environment is being created.</p>
+   * @public
+   */
+  environmentAccountRegion?: string;
+
+  /**
+   * <p>The ID of the blueprint with which the environment is being created.</p>
+   * @public
+   */
+  environmentBlueprintIdentifier?: string;
 }
 
 /**
@@ -3595,7 +3691,7 @@ export interface CreateEnvironmentOutput {
    *          created.</p>
    * @public
    */
-  environmentProfileId: string | undefined;
+  environmentProfileId?: string;
 
   /**
    * <p>The Amazon Web Services account in which the Amazon DataZone environment is created.</p>
@@ -3668,6 +3764,83 @@ export interface CreateEnvironmentOutput {
    * @public
    */
   environmentBlueprintId?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnvironmentActionInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the environment action is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment in which the environment action is created.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the environment action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The parameters of the environment action.</p>
+   * @public
+   */
+  parameters: ActionParameters | undefined;
+
+  /**
+   * <p>The description of the environment action that is being created in the
+   *          environment.</p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnvironmentActionOutput {
+  /**
+   * <p>The ID of the domain in which the environment action is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the environment in which the environment is created.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The ID of the environment action.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the environment action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The parameters of the environment action.</p>
+   * @public
+   */
+  parameters: ActionParameters | undefined;
+
+  /**
+   * <p>The description of the environment action.</p>
+   * @public
+   */
+  description?: string;
 }
 
 /**
@@ -5572,6 +5745,142 @@ export interface DeleteDataSourceInput {
    * @public
    */
   clientToken?: string;
+
+  /**
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
+   *          functionality failure for a data source.</p>
+   * @public
+   */
+  retainPermissionsOnRevokeFailure?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SelfGrantStatus = {
+  GRANTED: "GRANTED",
+  GRANT_FAILED: "GRANT_FAILED",
+  GRANT_IN_PROGRESS: "GRANT_IN_PROGRESS",
+  GRANT_PENDING: "GRANT_PENDING",
+  REVOKE_FAILED: "REVOKE_FAILED",
+  REVOKE_IN_PROGRESS: "REVOKE_IN_PROGRESS",
+  REVOKE_PENDING: "REVOKE_PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SelfGrantStatus = (typeof SelfGrantStatus)[keyof typeof SelfGrantStatus];
+
+/**
+ * <p>The details for the self granting status.</p>
+ * @public
+ */
+export interface SelfGrantStatusDetail {
+  /**
+   * <p>The name of the database used for the data source.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>The name of the schema used in the data source.</p>
+   * @public
+   */
+  schemaName?: string;
+
+  /**
+   * <p>The self granting status of the data source.</p>
+   * @public
+   */
+  status: SelfGrantStatus | undefined;
+
+  /**
+   * <p>The reason for why the operation failed.</p>
+   * @public
+   */
+  failureCause?: string;
+}
+
+/**
+ * <p>The details of the self granting status.</p>
+ * @public
+ */
+export interface GlueSelfGrantStatusOutput {
+  /**
+   * <p>The details for the self granting status for a Glue data source.</p>
+   * @public
+   */
+  selfGrantStatusDetails: SelfGrantStatusDetail[] | undefined;
+}
+
+/**
+ * <p>The details for the self granting status for an Amazon Redshift data source.</p>
+ * @public
+ */
+export interface RedshiftSelfGrantStatusOutput {
+  /**
+   * <p>The details for the self granting status for an Amazon Redshift data source.</p>
+   * @public
+   */
+  selfGrantStatusDetails: SelfGrantStatusDetail[] | undefined;
+}
+
+/**
+ * <p>The details for the self granting status for a data source.</p>
+ * @public
+ */
+export type SelfGrantStatusOutput =
+  | SelfGrantStatusOutput.GlueSelfGrantStatusMember
+  | SelfGrantStatusOutput.RedshiftSelfGrantStatusMember
+  | SelfGrantStatusOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SelfGrantStatusOutput {
+  /**
+   * <p>The details for the self granting status for a Glue data source.</p>
+   * @public
+   */
+  export interface GlueSelfGrantStatusMember {
+    glueSelfGrantStatus: GlueSelfGrantStatusOutput;
+    redshiftSelfGrantStatus?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details for the self granting status for an Amazon Redshift data source.</p>
+   * @public
+   */
+  export interface RedshiftSelfGrantStatusMember {
+    glueSelfGrantStatus?: never;
+    redshiftSelfGrantStatus: RedshiftSelfGrantStatusOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    glueSelfGrantStatus?: never;
+    redshiftSelfGrantStatus?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    glueSelfGrantStatus: (value: GlueSelfGrantStatusOutput) => T;
+    redshiftSelfGrantStatus: (value: RedshiftSelfGrantStatusOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SelfGrantStatusOutput, visitor: Visitor<T>): T => {
+    if (value.glueSelfGrantStatus !== undefined) return visitor.glueSelfGrantStatus(value.glueSelfGrantStatus);
+    if (value.redshiftSelfGrantStatus !== undefined)
+      return visitor.redshiftSelfGrantStatus(value.redshiftSelfGrantStatus);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -5696,6 +6005,19 @@ export interface DeleteDataSourceOutput {
    * @public
    */
   updatedAt?: Date;
+
+  /**
+   * <p>Specifies the status of the self-granting functionality.</p>
+   * @public
+   */
+  selfGrantStatus?: SelfGrantStatusOutput;
+
+  /**
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
+   *          functionality failure for a data source.</p>
+   * @public
+   */
+  retainPermissionsOnRevokeFailure?: boolean;
 }
 
 /**
@@ -5847,6 +6169,12 @@ export interface GetDataSourceOutput {
    * @public
    */
   updatedAt?: Date;
+
+  /**
+   * <p>Specifies the status of the self-granting functionality.</p>
+   * @public
+   */
+  selfGrantStatus?: SelfGrantStatusOutput;
 }
 
 /**
@@ -6093,6 +6421,13 @@ export interface UpdateDataSourceInput {
    * @public
    */
   recommendation?: RecommendationConfiguration;
+
+  /**
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
+   *          functionality failure for a data source.</p>
+   * @public
+   */
+  retainPermissionsOnRevokeFailure?: boolean;
 }
 
 /**
@@ -6225,6 +6560,19 @@ export interface UpdateDataSourceOutput {
    * @public
    */
   updatedAt?: Date;
+
+  /**
+   * <p>Specifies the status of the self-granting functionality.</p>
+   * @public
+   */
+  selfGrantStatus?: SelfGrantStatusOutput;
+
+  /**
+   * <p>Specifies that the granted permissions are retained in case of a self-subscribe
+   *          functionality failure for a data source.</p>
+   * @public
+   */
+  retainPermissionsOnRevokeFailure?: boolean;
 }
 
 /**
@@ -6713,6 +7061,29 @@ export interface DeleteEnvironmentInput {
 /**
  * @public
  */
+export interface DeleteEnvironmentActionInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which an environment action is deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment where an environment action is deleted.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment action that is deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteEnvironmentProfileInput {
   /**
    * <p>The ID of the Amazon DataZone domain in which the environment profile is deleted.</p>
@@ -6967,6 +7338,34 @@ export interface DeleteTimeSeriesDataPointsInput {
  * @public
  */
 export interface DeleteTimeSeriesDataPointsOutput {}
+
+/**
+ * @public
+ */
+export interface DisassociateEnvironmentRoleInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which an environment role is disassociated.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the environment role.</p>
+   * @public
+   */
+  environmentRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateEnvironmentRoleOutput {}
 
 /**
  * @public
@@ -7805,7 +8204,7 @@ export interface GetEnvironmentOutput {
    * <p>The ID of the environment profile with which the environment is created.</p>
    * @public
    */
-  environmentProfileId: string | undefined;
+  environmentProfileId?: string;
 
   /**
    * <p>The ID of the Amazon Web Services account where the environment exists.</p>
@@ -7878,6 +8277,71 @@ export interface GetEnvironmentOutput {
    * @public
    */
   environmentBlueprintId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetEnvironmentActionInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the <code>GetEnvironmentAction</code> API is
+   *          invoked. </p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The environment ID of the environment action.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the environment action</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEnvironmentActionOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the environment action lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The environment ID of the environment action.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The ID of the environment action.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the environment action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The parameters of the environment action.</p>
+   * @public
+   */
+  parameters: ActionParameters | undefined;
+
+  /**
+   * <p>The description of the environment action.</p>
+   * @public
+   */
+  description?: string;
 }
 
 /**
@@ -9324,6 +9788,110 @@ export interface ListDataSourceRunActivitiesOutput {
 /**
  * @public
  */
+export interface ListEnvironmentActionsInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the environment actions are listed.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the envrironment whose environment actions are listed.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>When the number of environment actions is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of environment actions, the
+   *          response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code>
+   *          to list the next set of environment actions.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of environment actions to return in a single call to
+   *             <code>ListEnvironmentActions</code>. When the number of environment actions to be listed
+   *          is greater than the value of <code>MaxResults</code>, the response contains a
+   *             <code>NextToken</code> value that you can use in a subsequent call to
+   *             <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>The details about the specified action configured for an environment. For example, the
+ *          details of the specified console links for an analytics tool that is available in this
+ *          environment.</p>
+ * @public
+ */
+export interface EnvironmentActionSummary {
+  /**
+   * <p>The Amazon DataZone domain ID of the environment action.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The environment ID of the environment action.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The ID of the environment action.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the environment action.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The parameters of the environment action.</p>
+   * @public
+   */
+  parameters: ActionParameters | undefined;
+
+  /**
+   * <p>The environment action description.</p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentActionsOutput {
+  /**
+   * <p>The results of <code>ListEnvironmentActions</code>.</p>
+   * @public
+   */
+  items?: EnvironmentActionSummary[];
+
+  /**
+   * <p>When the number of environment actions is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of environment actions, the
+   *          response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code>
+   *          to list the next set of environment actions.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListEnvironmentBlueprintsInput {
   /**
    * <p>The identifier of the Amazon DataZone domain.</p>
@@ -9734,7 +10302,7 @@ export interface EnvironmentSummary {
    * <p>The identifier of the environment profile with which the environment was created.</p>
    * @public
    */
-  environmentProfileId: string | undefined;
+  environmentProfileId?: string;
 
   /**
    * <p>The identifier of the Amazon Web Services account in which an environment exists.</p>
@@ -10225,823 +10793,6 @@ export const SortOrder = {
  * @public
  */
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
- * @public
- */
-export interface ListProjectMembershipsInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to list project
-   *          memberships.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the project whose memberships you want to list.</p>
-   * @public
-   */
-  projectIdentifier: string | undefined;
-
-  /**
-   * <p>The method by which you want to sort the project memberships.</p>
-   * @public
-   */
-  sortBy?: SortFieldProject;
-
-  /**
-   * <p>The sort order of the project memberships.</p>
-   * @public
-   */
-  sortOrder?: SortOrder;
-
-  /**
-   * <p>When the number of memberships is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of memberships, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code>
-   *          to list the next set of memberships.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of memberships to return in a single call to
-   *             <code>ListProjectMemberships</code>. When the number of memberships to be listed is
-   *          greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListProjectMemberships</code> to list the next set of memberships.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * <p>The details of a group in Amazon DataZone.</p>
- * @public
- */
-export interface GroupDetails {
-  /**
-   * <p>The identifier of the group in Amazon DataZone.</p>
-   * @public
-   */
-  groupId: string | undefined;
-}
-
-/**
- * <p>The user details of a project member.</p>
- * @public
- */
-export interface UserDetails {
-  /**
-   * <p>The identifier of the Amazon DataZone user.</p>
-   * @public
-   */
-  userId: string | undefined;
-}
-
-/**
- * <p>The details about a project member.</p>
- * @public
- */
-export type MemberDetails = MemberDetails.GroupMember | MemberDetails.UserMember | MemberDetails.$UnknownMember;
-
-/**
- * @public
- */
-export namespace MemberDetails {
-  /**
-   * <p>The user details of a project member.</p>
-   * @public
-   */
-  export interface UserMember {
-    user: UserDetails;
-    group?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The group details of a project member.</p>
-   * @public
-   */
-  export interface GroupMember {
-    user?: never;
-    group: GroupDetails;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    user?: never;
-    group?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    user: (value: UserDetails) => T;
-    group: (value: GroupDetails) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: MemberDetails, visitor: Visitor<T>): T => {
-    if (value.user !== undefined) return visitor.user(value.user);
-    if (value.group !== undefined) return visitor.group(value.group);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>The details of a project member.</p>
- * @public
- */
-export interface ProjectMember {
-  /**
-   * <p>The membership details of a project member.</p>
-   * @public
-   */
-  memberDetails: MemberDetails | undefined;
-
-  /**
-   * <p>The designated role of a project member.</p>
-   * @public
-   */
-  designation: UserDesignation | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProjectMembershipsOutput {
-  /**
-   * <p>The members of the project.</p>
-   * @public
-   */
-  members: ProjectMember[] | undefined;
-
-  /**
-   * <p>When the number of memberships is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of memberships, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code>
-   *          to list the next set of memberships.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListProjectsInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon DataZone user.</p>
-   * @public
-   */
-  userIdentifier?: string;
-
-  /**
-   * <p>The identifier of a group.</p>
-   * @public
-   */
-  groupIdentifier?: string;
-
-  /**
-   * <p>The name of the project.</p>
-   * @public
-   */
-  name?: string;
-
-  /**
-   * <p>When the number of projects is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of projects, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list
-   *          the next set of projects.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of projects to return in a single call to <code>ListProjects</code>.
-   *          When the number of projects to be listed is greater than the value of
-   *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
-   *          can use in a subsequent call to <code>ListProjects</code> to list the next set of
-   *          projects.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * <p>The details of a Amazon DataZone project.</p>
- * @public
- */
-export interface ProjectSummary {
-  /**
-   * <p>The identifier of a Amazon DataZone domain where the project exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of a project.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of a project.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of a project.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The status of the project.</p>
-   * @public
-   */
-  projectStatus?: ProjectStatus;
-
-  /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully
-   *          completed.</p>
-   * @public
-   */
-  failureReasons?: ProjectDeletionError[];
-
-  /**
-   * <p>The Amazon DataZone user who created the project.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The timestamp of when a project was created.</p>
-   * @public
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The timestamp of when the project was updated.</p>
-   * @public
-   */
-  updatedAt?: Date;
-}
-
-/**
- * @public
- */
-export interface ListProjectsOutput {
-  /**
-   * <p>The results of the <code>ListProjects</code> action.</p>
-   * @public
-   */
-  items?: ProjectSummary[];
-
-  /**
-   * <p>When the number of projects is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of projects, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list
-   *          the next set of projects.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortKey = {
-  CREATED_AT: "CREATED_AT",
-  UPDATED_AT: "UPDATED_AT",
-} as const;
-
-/**
- * @public
- */
-export type SortKey = (typeof SortKey)[keyof typeof SortKey];
-
-/**
- * @public
- */
-export interface ListSubscriptionGrantsInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon DataZone environment.</p>
-   * @public
-   */
-  environmentId?: string;
-
-  /**
-   * <p>The identifier of the subscription target.</p>
-   * @public
-   */
-  subscriptionTargetId?: string;
-
-  /**
-   * <p>The identifier of the subscribed listing.</p>
-   * @public
-   */
-  subscribedListingId?: string;
-
-  /**
-   * <p>The identifier of the subscription.</p>
-   * @public
-   */
-  subscriptionId?: string;
-
-  /**
-   * <p>Specifies the way of sorting the results of this action.</p>
-   * @public
-   */
-  sortBy?: SortKey;
-
-  /**
-   * <p>Specifies the sort order of this action.</p>
-   * @public
-   */
-  sortOrder?: SortOrder;
-
-  /**
-   * <p>The maximum number of subscription grants to return in a single call to
-   *             <code>ListSubscriptionGrants</code>. When the number of subscription grants to be listed
-   *          is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>When the number of subscription grants is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription grants, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code>
-   *          to list the next set of subscription grants.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>The details of the subscription grant.</p>
- * @public
- */
-export interface SubscriptionGrantSummary {
-  /**
-   * <p>The identifier of the subscription grant.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The datazone user who created the subscription grant.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the subscription grant.</p>
-   * @public
-   */
-  updatedBy?: string;
-
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription grant exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The timestamp of when a subscription grant was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestampf of when the subscription grant was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The identifier of the target of the subscription grant.</p>
-   * @public
-   */
-  subscriptionTargetId: string | undefined;
-
-  /**
-   * <p>The entity to which the subscription is granted.</p>
-   * @public
-   */
-  grantedEntity: GrantedEntity | undefined;
-
-  /**
-   * <p>The status of the subscription grant.</p>
-   * @public
-   */
-  status: SubscriptionGrantOverallStatus | undefined;
-
-  /**
-   * <p>The assets included in the subscription grant.</p>
-   * @public
-   */
-  assets?: SubscribedAsset[];
-
-  /**
-   * <p>The ID of the subscription grant.</p>
-   * @public
-   */
-  subscriptionId?: string;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionGrantsOutput {
-  /**
-   * <p>The results of the <code>ListSubscriptionGrants</code> action. </p>
-   * @public
-   */
-  items: SubscriptionGrantSummary[] | undefined;
-
-  /**
-   * <p>When the number of subscription grants is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription grants, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code>
-   *          to list the next set of subscription grants.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionRequestsInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>Specifies the status of the subscription requests.</p>
-   * @public
-   */
-  status?: SubscriptionRequestStatus;
-
-  /**
-   * <p>The identifier of the subscribed listing.</p>
-   * @public
-   */
-  subscribedListingId?: string;
-
-  /**
-   * <p>The identifier of the project for the subscription requests.</p>
-   * @public
-   */
-  owningProjectId?: string;
-
-  /**
-   * <p>The identifier of the subscription request approver's project.</p>
-   * @public
-   */
-  approverProjectId?: string;
-
-  /**
-   * <p>Specifies the way to sort the results of this action.</p>
-   * @public
-   */
-  sortBy?: SortKey;
-
-  /**
-   * <p>Specifies the sort order for the results of this action.</p>
-   * @public
-   */
-  sortOrder?: SortOrder;
-
-  /**
-   * <p>The maximum number of subscription requests to return in a single call to
-   *             <code>ListSubscriptionRequests</code>. When the number of subscription requests to be
-   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListSubscriptionRequests</code> to list the next set of subscription
-   *          requests.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>When the number of subscription requests is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription requests, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionRequests</code> to list the next set of subscription
-   *          requests.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>The details of the subscription request.</p>
- * @public
- */
-export interface SubscriptionRequestSummary {
-  /**
-   * <p>The identifier of the subscription request.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the subscription request.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon DataZone user who updated the subscription request.</p>
-   * @public
-   */
-  updatedBy?: string;
-
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription request exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The status of the subscription request.</p>
-   * @public
-   */
-  status: SubscriptionRequestStatus | undefined;
-
-  /**
-   * <p>The timestamp of when a subscription request was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription request was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The reason for the subscription request.</p>
-   * @public
-   */
-  requestReason: string | undefined;
-
-  /**
-   * <p>The principals included in the subscription request. </p>
-   * @public
-   */
-  subscribedPrincipals: SubscribedPrincipal[] | undefined;
-
-  /**
-   * <p>The listings included in the subscription request.</p>
-   * @public
-   */
-  subscribedListings: SubscribedListing[] | undefined;
-
-  /**
-   * <p>The identifier of the subscription request reviewer.</p>
-   * @public
-   */
-  reviewerId?: string;
-
-  /**
-   * <p>The decision comment of the subscription request.</p>
-   * @public
-   */
-  decisionComment?: string;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionRequestsOutput {
-  /**
-   * <p>The results of the <code>ListSubscriptionRequests</code> action. </p>
-   * @public
-   */
-  items: SubscriptionRequestSummary[] | undefined;
-
-  /**
-   * <p>When the number of subscription requests is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription requests, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionRequests</code> to list the next set of subscription
-   *          requests.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionsInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the subscription request for the subscriptions that you want to
-   *          list.</p>
-   * @public
-   */
-  subscriptionRequestIdentifier?: string;
-
-  /**
-   * <p>The status of the subscriptions that you want to list.</p>
-   * @public
-   */
-  status?: SubscriptionStatus;
-
-  /**
-   * <p>The identifier of the subscribed listing for the subscriptions that you want to
-   *          list.</p>
-   * @public
-   */
-  subscribedListingId?: string;
-
-  /**
-   * <p>The identifier of the owning project.</p>
-   * @public
-   */
-  owningProjectId?: string;
-
-  /**
-   * <p>The identifier of the project for the subscription's approver.</p>
-   * @public
-   */
-  approverProjectId?: string;
-
-  /**
-   * <p>Specifies the way in which the results of this action are to be sorted.</p>
-   * @public
-   */
-  sortBy?: SortKey;
-
-  /**
-   * <p>Specifies the sort order for the results of this action.</p>
-   * @public
-   */
-  sortOrder?: SortOrder;
-
-  /**
-   * <p>The maximum number of subscriptions to return in a single call to
-   *             <code>ListSubscriptions</code>. When the number of subscriptions to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListSubscriptions</code> to list the
-   *          next set of Subscriptions. </p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>When the number of subscriptions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscriptions, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to
-   *          list the next set of subscriptions.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>The details of the subscription.</p>
- * @public
- */
-export interface SubscriptionSummary {
-  /**
-   * <p>The identifier of the subscription.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the subscription.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the subscription.</p>
-   * @public
-   */
-  updatedBy?: string;
-
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The status of the subscription.</p>
-   * @public
-   */
-  status: SubscriptionStatus | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The principal included in the subscription.</p>
-   * @public
-   */
-  subscribedPrincipal: SubscribedPrincipal | undefined;
-
-  /**
-   * <p>The listing included in the subscription.</p>
-   * @public
-   */
-  subscribedListing: SubscribedListing | undefined;
-
-  /**
-   * <p>The identifier of the subscription request for the subscription.</p>
-   * @public
-   */
-  subscriptionRequestId?: string;
-
-  /**
-   * <p>The retain permissions included in the subscription.</p>
-   * @public
-   */
-  retainPermissions?: boolean;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionsOutput {
-  /**
-   * <p>The results of the <code>ListSubscriptions</code> action.</p>
-   * @public
-   */
-  items: SubscriptionSummary[] | undefined;
-
-  /**
-   * <p>When the number of subscriptions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscriptions, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to
-   *          list the next set of subscriptions.</p>
-   * @public
-   */
-  nextToken?: string;
-}
 
 /**
  * @internal
@@ -11588,6 +11339,7 @@ export const DeleteDataSourceOutputFilterSensitiveLog = (obj: DeleteDataSourceOu
     assetFormsOutput: obj.assetFormsOutput.map((item) => FormOutputFilterSensitiveLog(item)),
   }),
   ...(obj.schedule && { schedule: SENSITIVE_STRING }),
+  ...(obj.selfGrantStatus && { selfGrantStatus: obj.selfGrantStatus }),
 });
 
 /**
@@ -11602,6 +11354,7 @@ export const GetDataSourceOutputFilterSensitiveLog = (obj: GetDataSourceOutput):
     assetFormsOutput: obj.assetFormsOutput.map((item) => FormOutputFilterSensitiveLog(item)),
   }),
   ...(obj.schedule && { schedule: SENSITIVE_STRING }),
+  ...(obj.selfGrantStatus && { selfGrantStatus: obj.selfGrantStatus }),
 });
 
 /**
@@ -11653,6 +11406,7 @@ export const UpdateDataSourceOutputFilterSensitiveLog = (obj: UpdateDataSourceOu
     assetFormsOutput: obj.assetFormsOutput.map((item) => FormOutputFilterSensitiveLog(item)),
   }),
   ...(obj.schedule && { schedule: SENSITIVE_STRING }),
+  ...(obj.selfGrantStatus && { selfGrantStatus: obj.selfGrantStatus }),
 });
 
 /**
@@ -11958,71 +11712,4 @@ export const ListNotificationsOutputFilterSensitiveLog = (obj: ListNotifications
   ...(obj.notifications && {
     notifications: obj.notifications.map((item) => NotificationOutputFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListProjectsInputFilterSensitiveLog = (obj: ListProjectsInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListProjectsOutputFilterSensitiveLog = (obj: ListProjectsOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => ProjectSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SubscriptionRequestSummaryFilterSensitiveLog = (obj: SubscriptionRequestSummary): any => ({
-  ...obj,
-  ...(obj.requestReason && { requestReason: SENSITIVE_STRING }),
-  ...(obj.subscribedPrincipals && {
-    subscribedPrincipals: obj.subscribedPrincipals.map((item) => SubscribedPrincipalFilterSensitiveLog(item)),
-  }),
-  ...(obj.subscribedListings && {
-    subscribedListings: obj.subscribedListings.map((item) => SubscribedListingFilterSensitiveLog(item)),
-  }),
-  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListSubscriptionRequestsOutputFilterSensitiveLog = (obj: ListSubscriptionRequestsOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => SubscriptionRequestSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SubscriptionSummaryFilterSensitiveLog = (obj: SubscriptionSummary): any => ({
-  ...obj,
-  ...(obj.subscribedPrincipal && {
-    subscribedPrincipal: SubscribedPrincipalFilterSensitiveLog(obj.subscribedPrincipal),
-  }),
-  ...(obj.subscribedListing && { subscribedListing: SubscribedListingFilterSensitiveLog(obj.subscribedListing) }),
-});
-
-/**
- * @internal
- */
-export const ListSubscriptionsOutputFilterSensitiveLog = (obj: ListSubscriptionsOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => SubscriptionSummaryFilterSensitiveLog(item)) }),
 });

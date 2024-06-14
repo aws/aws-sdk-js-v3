@@ -37,11 +37,11 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *             instance using <a>RunInstances</a>, you can specify a launch template instead
  *             of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
  *                 an instance from a launch template</a> in the
- *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  *          <p>To clone an existing launch template as the basis for a new launch template, use the
  *             Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more
  *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create a launch template from an existing launch template</a> in the
- *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

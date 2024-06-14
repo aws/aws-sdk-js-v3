@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+
+### Bug Fixes
+
+* **lib-storage:** ignore overall data content-length for UploadPart operation ([#6131](https://github.com/aws/aws-sdk-js-v3/issues/6131)) ([fbfce55](https://github.com/aws/aws-sdk-js-v3/commit/fbfce5509341bf10fc04573e0fa453e38c9d528f))
+* **util-dynamodb:** fix signature overload resolution for marshall() fn ([#6195](https://github.com/aws/aws-sdk-js-v3/issues/6195)) ([3682a43](https://github.com/aws/aws-sdk-js-v3/commit/3682a4365c47c43396d103fefba7d28126784674))
+
+
+### Features
+
+* **client-datazone:** This release introduces a new default service blueprint for custom environment creation. ([2d57a05](https://github.com/aws/aws-sdk-js-v3/commit/2d57a05e8caa021235970a737ab566b6fb32f065))
+* **client-macie2:** This release adds support for managing the status of automated sensitive data discovery for individual accounts in an organization, and determining whether individual S3 buckets are included in the scope of the analyses. ([5d00c7e](https://github.com/aws/aws-sdk-js-v3/commit/5d00c7e9bfaf02d39eac9fa9065abc88e23afe7d))
+* **client-mediaconvert:** This release adds the ability to search for historical job records within the management console using a search box and/or via the SDK/CLI with partial string matching search on input file name. ([33a5089](https://github.com/aws/aws-sdk-js-v3/commit/33a5089f4aa00a125e3fb2497e8f527f77ca86bf))
+* **client-route-53-domains:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([f397a80](https://github.com/aws/aws-sdk-js-v3/commit/f397a80ff8db1f2065e884c3e2baf58036516c11))
+
+
+
+
+
 # [3.597.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.596.0...v3.597.0) (2024-06-13)
 
 

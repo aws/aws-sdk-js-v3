@@ -33,7 +33,7 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
- *          <p>Describes one or more of your linked EC2-Classic instances. This request only returns
+ *          <p>Describes your linked EC2-Classic instances. This request only returns
  * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
  * 			use this request to return information about other instances.</p>
  * @example

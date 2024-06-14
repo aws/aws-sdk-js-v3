@@ -33,8 +33,9 @@ export interface CreateCapacityReservationFleetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a Capacity
- * 			Reservation Fleet</a> in the Amazon EC2 User Guide.</p>
+ * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a
+ * 				Capacity Reservation Fleet</a> in the
+ * 			<i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

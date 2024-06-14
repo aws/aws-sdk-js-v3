@@ -22,6 +22,7 @@ export * from "./ListPresetsCommand";
 export * from "./ListQueuesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutPolicyCommand";
+export * from "./SearchJobsCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateJobTemplateCommand";

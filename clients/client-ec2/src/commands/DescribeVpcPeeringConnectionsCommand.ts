@@ -30,7 +30,9 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your VPC peering connections.</p>
+ * <p>Describes your VPC peering connections. The default is to describe all your VPC peering connections.
+ *           Alternatively, you can specify specific VPC peering connection IDs or filter the results to
+ *           include only the VPC peering connections that match specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -50,7 +50,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   environmentProfileId: "STRING_VALUE", // required
+ * //   environmentProfileId: "STRING_VALUE",
  * //   awsAccountId: "STRING_VALUE",
  * //   awsAccountRegion: "STRING_VALUE",
  * //   provider: "STRING_VALUE", // required

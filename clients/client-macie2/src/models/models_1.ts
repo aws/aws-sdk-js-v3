@@ -2,9 +2,12 @@
 import {
   AdminAccount,
   AllowListCriteria,
+  AutoEnableMode,
   AutomatedDiscoveryStatus,
   ClassificationExportConfiguration,
+  ClassificationScopeSummary,
   ClassificationScopeUpdateOperation,
+  CustomDataIdentifierSummary,
   Detection,
   FindingCriteria,
   FindingPublishingFrequency,
@@ -12,6 +15,8 @@ import {
   FindingsFilterListItem,
   Invitation,
   JobStatus,
+  JobSummary,
+  ListJobsFilterTerm,
   MacieStatus,
   ManagedDataIdentifierSummary,
   MatchingResource,
@@ -26,8 +31,221 @@ import {
   SensitivityInspectionTemplateExcludes,
   SensitivityInspectionTemplateIncludes,
   SensitivityInspectionTemplatesEntry,
+  SortCriteria,
   SuppressDataIdentifier,
 } from "./models_0";
+
+/**
+ * <p>Specifies criteria for filtering the results of a request for information about classification jobs.</p>
+ * @public
+ */
+export interface ListJobsFilterCriteria {
+  /**
+   * <p>An array of objects, one for each condition that determines which jobs to exclude from the results.</p>
+   * @public
+   */
+  excludes?: ListJobsFilterTerm[];
+
+  /**
+   * <p>An array of objects, one for each condition that determines which jobs to include in the results.</p>
+   * @public
+   */
+  includes?: ListJobsFilterTerm[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListJobsSortAttributeName = {
+  createdAt: "createdAt",
+  jobStatus: "jobStatus",
+  jobType: "jobType",
+  name: "name",
+} as const;
+
+/**
+ * @public
+ */
+export type ListJobsSortAttributeName = (typeof ListJobsSortAttributeName)[keyof typeof ListJobsSortAttributeName];
+
+/**
+ * <p>Specifies criteria for sorting the results of a request for information about classification jobs.</p>
+ * @public
+ */
+export interface ListJobsSortCriteria {
+  /**
+   * <p>The property to sort the results by.</p>
+   * @public
+   */
+  attributeName?: ListJobsSortAttributeName;
+
+  /**
+   * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
+   * @public
+   */
+  orderBy?: OrderBy;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationJobsRequest {
+  /**
+   * <p>The criteria to use to filter the results.</p>
+   * @public
+   */
+  filterCriteria?: ListJobsFilterCriteria;
+
+  /**
+   * <p>The maximum number of items to include in each page of the response.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The criteria to use to sort the results.</p>
+   * @public
+   */
+  sortCriteria?: ListJobsSortCriteria;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationJobsResponse {
+  /**
+   * <p>An array of objects, one for each job that matches the filter criteria specified in the request.</p>
+   * @public
+   */
+  items?: JobSummary[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationScopesRequest {
+  /**
+   * <p>The name of the classification scope to retrieve the unique identifier for.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListClassificationScopesResponse {
+  /**
+   * <p>An array that specifies the unique identifier and name of the classification scope for the account.</p>
+   * @public
+   */
+  classificationScopes?: ClassificationScopeSummary[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDataIdentifiersRequest {
+  /**
+   * <p>The maximum number of items to include in each page of the response.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDataIdentifiersResponse {
+  /**
+   * <p>An array of objects, one for each custom data identifier.</p>
+   * @public
+   */
+  items?: CustomDataIdentifierSummary[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsRequest {
+  /**
+   * <p>The criteria to use to filter the results.</p>
+   * @public
+   */
+  findingCriteria?: FindingCriteria;
+
+  /**
+   * <p>The maximum number of items to include in each page of the response.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The criteria to use to sort the results.</p>
+   * @public
+   */
+  sortCriteria?: SortCriteria;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsResponse {
+  /**
+   * <p>An array of strings, where each string is the unique identifier for a finding that matches the filter criteria specified in the request.</p>
+   * @public
+   */
+  findingIds?: string[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   * @public
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -625,7 +843,13 @@ export interface UpdateAllowListResponse {
  */
 export interface UpdateAutomatedDiscoveryConfigurationRequest {
   /**
-   * <p>The new status of automated sensitive data discovery for the account. Valid values are: ENABLED, start or resume automated sensitive data discovery activities for the account; and, DISABLED, stop performing automated sensitive data discovery activities for the account.</p> <p>When you enable automated sensitive data discovery for the first time, Amazon Macie uses default configuration settings to determine which data sources to analyze and which managed data identifiers to use. To change these settings, use the UpdateClassificationScope and UpdateSensitivityInspectionTemplate operations, respectively. If you change the settings and subsequently disable the configuration, Amazon Macie retains your changes.</p>
+   * <p>Specifies whether to automatically enable automated sensitive data discovery for accounts in the organization. Valid values are: ALL (default), enable it for all existing accounts and new member accounts; NEW, enable it only for new member accounts; and, NONE, don't enable it for any accounts.</p> <p>If you specify NEW or NONE, automated sensitive data discovery continues to be enabled for any existing accounts that it's currently enabled for. To enable or disable it for individual member accounts, specify NEW or NONE, and then enable or disable it for each account by using the BatchUpdateAutomatedDiscoveryAccounts operation.</p>
+   * @public
+   */
+  autoEnableOrganizationMembers?: AutoEnableMode;
+
+  /**
+   * <p>The new status of automated sensitive data discovery for the organization or account. Valid values are: ENABLED, start or resume all automated sensitive data discovery activities; and, DISABLED, stop performing all automated sensitive data discovery activities.</p> <p>If you specify DISABLED for an administrator account, you also disable automated sensitive data discovery for all member accounts in the organization.</p>
    * @public
    */
   status: AutomatedDiscoveryStatus | undefined;
@@ -823,7 +1047,7 @@ export interface UpdateMemberSessionResponse {}
  */
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>Specifies whether to enable Amazon Macie automatically for an account when the account is added to the organization in Organizations.</p>
+   * <p>Specifies whether to enable Amazon Macie automatically for accounts that are added to the organization in Organizations.</p>
    * @public
    */
   autoEnable: boolean | undefined;
@@ -941,7 +1165,7 @@ export interface UpdateSensitivityInspectionTemplateRequest {
   description?: string;
 
   /**
-   * <p>The managed data identifiers to explicitly exclude (not use) when analyzing data.</p> <p>To exclude an allow list or custom data identifier that's currently included by the template, update the values for the SensitivityInspectionTemplateIncludes.allowListIds and SensitivityInspectionTemplateIncludes.customDataIdentifierIds properties, respectively.</p>
+   * <p>The managed data identifiers to explicitly exclude (not use) when performing automated sensitive data discovery.</p> <p>To exclude an allow list or custom data identifier that's currently included by the template, update the values for the SensitivityInspectionTemplateIncludes.allowListIds and SensitivityInspectionTemplateIncludes.customDataIdentifierIds properties, respectively.</p>
    * @public
    */
   excludes?: SensitivityInspectionTemplateExcludes;
@@ -953,7 +1177,7 @@ export interface UpdateSensitivityInspectionTemplateRequest {
   id: string | undefined;
 
   /**
-   * <p>The allow lists, custom data identifiers, and managed data identifiers to explicitly include (use) when analyzing data.</p>
+   * <p>The allow lists, custom data identifiers, and managed data identifiers to explicitly include (use) when performing automated sensitive data discovery.</p>
    * @public
    */
   includes?: SensitivityInspectionTemplateIncludes;

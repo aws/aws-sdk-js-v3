@@ -29,8 +29,10 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
 
 /**
  * <p>Associates a branch network interface with a trunk network interface.</p>
- *          <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
- *             <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
+ *          <p>Before you create the association, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">CreateNetworkInterface</a> command and set the interface type
+ *             to <code>trunk</code>. You must also create a network interface for
+ *             each branch network interface that you want to associate with the trunk
+ *             network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

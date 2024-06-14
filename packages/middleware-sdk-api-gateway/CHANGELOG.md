@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
 # [3.580.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.579.0...v3.580.0) (2024-05-20)
 
 

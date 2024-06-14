@@ -58,6 +58,10 @@ import {
   BatchGetCustomDataIdentifiersCommandInput,
   BatchGetCustomDataIdentifiersCommandOutput,
 } from "./commands/BatchGetCustomDataIdentifiersCommand";
+import {
+  BatchUpdateAutomatedDiscoveryAccountsCommandInput,
+  BatchUpdateAutomatedDiscoveryAccountsCommandOutput,
+} from "./commands/BatchUpdateAutomatedDiscoveryAccountsCommand";
 import { CreateAllowListCommandInput, CreateAllowListCommandOutput } from "./commands/CreateAllowListCommand";
 import {
   CreateClassificationJobCommandInput,
@@ -180,6 +184,10 @@ import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from 
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "./commands/GetUsageTotalsCommand";
 import { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "./commands/ListAllowListsCommand";
 import {
+  ListAutomatedDiscoveryAccountsCommandInput,
+  ListAutomatedDiscoveryAccountsCommandOutput,
+} from "./commands/ListAutomatedDiscoveryAccountsCommand";
+import {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
 } from "./commands/ListClassificationJobsCommand";
@@ -296,6 +304,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptInvitationCommandInput
   | BatchGetCustomDataIdentifiersCommandInput
+  | BatchUpdateAutomatedDiscoveryAccountsCommandInput
   | CreateAllowListCommandInput
   | CreateClassificationJobCommandInput
   | CreateCustomDataIdentifierCommandInput
@@ -342,6 +351,7 @@ export type ServiceInputTypes =
   | GetUsageStatisticsCommandInput
   | GetUsageTotalsCommandInput
   | ListAllowListsCommandInput
+  | ListAutomatedDiscoveryAccountsCommandInput
   | ListClassificationJobsCommandInput
   | ListClassificationScopesCommandInput
   | ListCustomDataIdentifiersCommandInput
@@ -380,6 +390,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
   | BatchGetCustomDataIdentifiersCommandOutput
+  | BatchUpdateAutomatedDiscoveryAccountsCommandOutput
   | CreateAllowListCommandOutput
   | CreateClassificationJobCommandOutput
   | CreateCustomDataIdentifierCommandOutput
@@ -426,6 +437,7 @@ export type ServiceOutputTypes =
   | GetUsageStatisticsCommandOutput
   | GetUsageTotalsCommandOutput
   | ListAllowListsCommandOutput
+  | ListAutomatedDiscoveryAccountsCommandOutput
   | ListClassificationJobsCommandOutput
   | ListClassificationScopesCommandOutput
   | ListCustomDataIdentifiersCommandOutput

@@ -28,7 +28,9 @@ export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
 export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your subnets.</p>
+ * <p>Describes your subnets. The default is to describe all your subnets.
+ *           Alternatively, you can specify specific subnet IDs or filter the results to
+ *           include only the subnets that match specific criteria.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
  * @example

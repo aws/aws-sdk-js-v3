@@ -36,7 +36,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an account.</p>
+ * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +47,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * const command = new GetAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // GetAutomatedDiscoveryConfigurationResponse
+ * //   autoEnableOrganizationMembers: "ALL" || "NEW" || "NONE",
  * //   classificationScopeId: "STRING_VALUE",
  * //   disabledAt: new Date("TIMESTAMP"),
  * //   firstEnabledAt: new Date("TIMESTAMP"),

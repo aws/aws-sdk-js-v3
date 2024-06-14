@@ -4347,8 +4347,8 @@ export interface ModifyAvailabilityZoneGroupRequest {
   GroupName: string | undefined;
 
   /**
-   * <p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The
-   *       only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">Amazon Web Services Support</a> to opt out of a Local Zone or Wavelength Zone group.</p>
+   * <p>Indicates whether to opt in to the zone group. The only valid value is <code>opted-in</code>.
+   *       You must contact Amazon Web Services Support to opt out of a Local Zone or Wavelength Zone group.</p>
    * @public
    */
   OptInStatus: ModifyAvailabilityZoneOptInStatus | undefined;
@@ -4465,11 +4465,12 @@ export interface ModifyCapacityReservationFleetRequest {
   CapacityReservationFleetId: string | undefined;
 
   /**
-   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value,
-   * 			together with the instance type weights that you assign to each instance type used by the Fleet
-   * 			determine the number of instances for which the Fleet reserves capacity. Both values are based on
-   * 			units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
-   * 			in the Amazon EC2 User Guide.</p>
+   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This
+   * 			value, together with the instance type weights that you assign to each instance type
+   * 			used by the Fleet determine the number of instances for which the Fleet reserves
+   * 			capacity. Both values are based on units that make sense for your workload. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   TotalTargetCapacity?: number;
@@ -4708,7 +4709,7 @@ export interface ModifyDefaultCreditSpecificationResult {
  */
 export interface ModifyEbsDefaultKmsKeyIdRequest {
   /**
-   * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
+   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
    *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
    *       specified, the encrypted state must be <code>true</code>.</p>
    *          <p>You can specify the KMS key using any of the following:</p>
@@ -4957,8 +4958,8 @@ export interface ModifyHostsRequest {
 
   /**
    * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
-   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">Host recovery</a> in
+   *             the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   HostRecovery?: HostRecovery;
@@ -4986,7 +4987,7 @@ export interface ModifyHostsRequest {
 
   /**
    * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">Host
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
@@ -5400,8 +5401,8 @@ export interface ModifyInstanceAttributeRequest {
 
   /**
    * <p>Indicates whether an instance is enabled for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 Protection</a>.</p>
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop
+   *                 protection for your instance</a>.</p>
    *          <p></p>
    * @public
    */
@@ -7768,7 +7769,7 @@ export interface ModifyVerifiedAccessEndpointRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -7817,7 +7818,7 @@ export interface ModifyVerifiedAccessEndpointPolicyRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -7884,7 +7885,7 @@ export interface ModifyVerifiedAccessGroupRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -7933,7 +7934,7 @@ export interface ModifyVerifiedAccessGroupPolicyRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -8002,7 +8003,7 @@ export interface ModifyVerifiedAccessInstanceRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -8149,7 +8150,7 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -8265,7 +8266,7 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -8362,7 +8363,7 @@ export interface ModifyVolumeRequest {
    *             </li>
    *          </ul>
    *          <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on
-   * <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+   * <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
    * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
    *          <p>Default: The existing value is retained if you keep the same volume type. If you change
    *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
@@ -8382,7 +8383,7 @@ export interface ModifyVolumeRequest {
 
   /**
    * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
-   * 		volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
+   * 	  volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
    * 			Nitro-based instances</a> in the same Availability Zone. This parameter is
    * 		supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see
    * 	  <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
@@ -9513,7 +9514,7 @@ export interface MoveByoipCidrToIpamResult {
 
 /**
  * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
- *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface CidrAuthorizationContext {

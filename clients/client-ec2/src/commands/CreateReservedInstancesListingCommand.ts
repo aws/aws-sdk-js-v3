@@ -47,8 +47,8 @@ export interface CreateReservedInstancesListingCommandOutput
  *       to receive for them. Your Standard Reserved Instance listings then become available for purchase. To
  *       view the details of your Standard Reserved Instance listing, you can use the
  *         <a>DescribeReservedInstancesListings</a> operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the
- * 				<i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
+ *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

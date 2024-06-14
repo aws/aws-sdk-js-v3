@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { ListClassificationJobsRequest, ListClassificationJobsResponse } from "../models/models_0";
+import { ListClassificationJobsRequest, ListClassificationJobsResponse } from "../models/models_1";
 import { de_ListClassificationJobsCommand, se_ListClassificationJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
