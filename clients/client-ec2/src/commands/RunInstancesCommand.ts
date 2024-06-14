@@ -50,8 +50,8 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *                     types</a>.</p>
  *             </li>
  *             <li>
- *                <p>If you don't specify a security group ID, we use the default security group.
- *                     For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security
+ *                <p>If you don't specify a security group ID, we use the default security group
+ *                     for the VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security
  *                         groups</a>.</p>
  *             </li>
  *             <li>
@@ -66,6 +66,9 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *          <p>To ensure faster instance launches, break up large requests into smaller batches. For
  *             example, create five separate launch requests for 100 instances each instead of one
  *             launch request for 500 instances.</p>
+ *          <p>
+ *             <code>RunInstances</code> is subject to both request rate limiting and resource rate
+ *             limiting. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-throttling.html">Request throttling</a>.</p>
  *          <p>An instance is ready for you to use when it's in the <code>running</code> state. You
  *             can check the state of your instance using <a>DescribeInstances</a>. You can
  *             tag instances and EBS volumes during launch, after launch, or both. For more

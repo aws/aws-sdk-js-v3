@@ -32,7 +32,7 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * 	       it with a VPC. After you associate a DHCP option set with a VPC, all existing and newly
  * 	       launched instances in the VPC use this set of DHCP options.</p>
  *          <p>The following are the individual DHCP options you can specify. For more information, see
- *            <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a>
+ *            <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a>
  *            in the <i>Amazon VPC User Guide</i>.</p>
  *          <ul>
  *             <li>
@@ -69,7 +69,7 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  *                <p>
  *                   <code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that
  *                    you specify 2. Broadcast and multicast are not supported. For more information about
- *                    NetBIOS node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p>
+ *                    NetBIOS node types, see <a href="https://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p>
  *             </li>
  *             <li>
  *                <p>

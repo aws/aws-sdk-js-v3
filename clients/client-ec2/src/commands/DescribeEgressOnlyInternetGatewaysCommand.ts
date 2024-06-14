@@ -36,7 +36,9 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your egress-only internet gateways.</p>
+ * <p>Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways.
+ *             Alternatively, you can specify specific egress-only internet gateway IDs or filter the results to
+ *             include only the egress-only internet gateways that match specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

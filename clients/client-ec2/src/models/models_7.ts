@@ -198,7 +198,7 @@ export interface ProvisionIpamPoolCidrRequest {
   NetmaskLength?: number;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -453,7 +453,7 @@ export interface PurchaseReservedInstancesOfferingResult {
   /**
    * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
    *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
-   *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         pricing tiers</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ReservedInstancesId?: string;
@@ -1844,8 +1844,8 @@ export interface RequestSpotInstancesRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency in
+   *                 Amazon EC2 API requests</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2764,8 +2764,8 @@ export interface EnclaveOptionsRequest {
 /**
  * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
  *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
- *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2
+ *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface HibernationOptionsRequest {
@@ -3064,8 +3064,8 @@ export interface RunInstancesRequest {
   ImageId?: string;
 
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance
+   *                 types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceType?: _InstanceType;
@@ -3116,25 +3116,22 @@ export interface RunInstancesRequest {
   KeyName?: string;
 
   /**
-   * <p>The maximum number of instances to launch. If you specify more instances than Amazon
-   *             EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible
-   *             number of instances above <code>MinCount</code>.</p>
-   *          <p>Constraints: Between 1 and the maximum number you're allowed for the specified
-   *             instance type. For more information about the default limits, and how to request an
-   *             increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I
-   *                 run in Amazon EC2</a> in the Amazon EC2 FAQ.</p>
+   * <p>The maximum number of instances to launch. If you specify a value that is more
+   *             capacity than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
+   *             launches the largest possible number of instances above the specified minimum
+   *             count.</p>
+   *          <p>Constraints: Between 1 and the quota for the specified instance type for your account for this Region.
+   *             For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-quotas.html">Amazon EC2 instance type quotas</a>.</p>
    * @public
    */
   MaxCount: number | undefined;
 
   /**
-   * <p>The minimum number of instances to launch. If you specify a minimum that is more
-   *             instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
-   *             launches no instances.</p>
-   *          <p>Constraints: Between 1 and the maximum number you're allowed for the specified
-   *             instance type. For more information about the default limits, and how to request an
-   *             increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I
-   *                 run in Amazon EC2</a> in the Amazon EC2 General FAQ.</p>
+   * <p>The minimum number of instances to launch. If you specify a value that is more
+   *             capacity than Amazon EC2 can provide in the target Availability Zone, Amazon EC2 does
+   *             not launch any instances.</p>
+   *          <p>Constraints: Between 1 and the quota for the specified instance type for your account for this Region.
+   *             For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-quotas.html">Amazon EC2 instance type quotas</a>.</p>
    * @public
    */
   MinCount: number | undefined;
@@ -3193,10 +3190,10 @@ export interface RunInstancesRequest {
   /**
    * <p>The user data script to make available to the instance. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run
-   *                 commands on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your
-   *                 Windows instance at launch</a>. If you are using a command line tool,
-   *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
-   *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
+   *                 commands on your Amazon EC2 instance at launch</a> in the <i>Amazon EC2 User
+   *                 Guide</i>. If you are using a command line tool, base64-encoding is performed
+   *             for you, and you can load the text from a file. Otherwise, you must provide
+   *             base64-encoded text. User data is limited to 16 KB.</p>
    * @public
    */
   UserData?: string;
@@ -3374,8 +3371,8 @@ export interface RunInstancesRequest {
   /**
    * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
    *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
-   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2
+   *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same
    *             instance.</p>
    * @public
@@ -4304,7 +4301,7 @@ export interface StartNetworkInsightsAccessScopeAnalysisRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -4359,7 +4356,7 @@ export interface StartNetworkInsightsAnalysisRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;

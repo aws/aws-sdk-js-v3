@@ -28,7 +28,9 @@ export interface DescribeInternetGatewaysCommandInput extends DescribeInternetGa
 export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetGatewaysResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your internet gateways.</p>
+ * <p>Describes your internet gateways. The default is to describe all your internet gateways.
+ *             Alternatively, you can specify specific internet gateway IDs or filter the results to
+ *             include only the internet gateways that match specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

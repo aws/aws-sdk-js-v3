@@ -28,7 +28,9 @@ export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}
 export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your VPCs.</p>
+ * <p>Describes your VPCs. The default is to describe all your VPCs.
+ *           Alternatively, you can specify specific VPC IDs or filter the results to
+ *           include only the VPCs that match specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

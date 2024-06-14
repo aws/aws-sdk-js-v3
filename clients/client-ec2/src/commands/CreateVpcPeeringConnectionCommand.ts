@@ -34,7 +34,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *           The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p>
  *          <note>
  *             <p>Limitations and rules apply to a VPC peering connection. For more information, see
- *           the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p>
+ *           the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">VPC peering limitations</a> in the <i>VPC Peering Guide</i>.</p>
  *          </note>
  *          <p>The owner of the accepter VPC must accept the peering request to activate the peering
  *             connection. The VPC peering connection request expires after 7 days, after which it

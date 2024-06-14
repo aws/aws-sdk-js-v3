@@ -703,7 +703,7 @@ export interface DescribeSubnetsRequest {
  */
 export interface DescribeSubnetsResult {
   /**
-   * <p>Information about one or more subnets.</p>
+   * <p>Information about the subnets.</p>
    * @public
    */
   Subnets?: Subnet[];
@@ -2717,17 +2717,16 @@ export interface DescribeVolumesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of volumes to return for this request.
-   *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
-   *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
-   *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number;
 
   /**
    * <p>The token returned from a previous paginated request.
-   *       Pagination continues from the end of the items returned from the previous request.</p>
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
   NextToken?: string;
@@ -2745,7 +2744,7 @@ export interface DescribeVolumesResult {
 
   /**
    * <p>The token to include in another request to get the next page of items.
-   *       This value is <code>null</code> when there are no more items to return.</p>
+   *   This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
@@ -2825,8 +2824,8 @@ export interface DescribeVolumesModificationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The token returned by a previous paginated request.
-   *       Pagination continues from the end of the items returned by the previous request.</p>
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
   NextToken?: string;
@@ -2971,7 +2970,7 @@ export interface DescribeVolumesModificationsResult {
 
   /**
    * <p>The token to include in another request to get the next page of items.
-   *       This value is <code>null</code> if there are no more items to return.</p>
+   *   This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
@@ -3049,18 +3048,16 @@ export interface DescribeVolumeStatusRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of items to return for this request. To get the next page of items,
-   *       make another request with the token returned in the output. This value can be between 5 and 1,000;
-   *       if the value is larger than 1,000, only 1,000 results are returned. If this parameter is not used,
-   *       then all items are returned. You cannot specify this parameter and the volume IDs parameter in the
-   *       same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number;
 
   /**
    * <p>The token returned from a previous paginated request.
-   *       Pagination continues from the end of the items returned by the previous request.</p>
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
   NextToken?: string;
@@ -3290,7 +3287,7 @@ export interface VolumeStatusItem {
 export interface DescribeVolumeStatusResult {
   /**
    * <p>The token to include in another request to get the next page of items.
-   *       This value is <code>null</code> when there are no more items to return.</p>
+   *   This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
@@ -3834,7 +3831,7 @@ export interface DescribeVpcEndpointsRequest {
  */
 export interface DescribeVpcEndpointsResult {
   /**
-   * <p>Information about the endpoints.</p>
+   * <p>Information about the VPC endpoints.</p>
    * @public
    */
   VpcEndpoints?: VpcEndpoint[];
@@ -4403,7 +4400,6 @@ export interface DescribeVpcsRequest {
 
   /**
    * <p>The IDs of the VPCs.</p>
-   *          <p>Default: Describes all your VPCs.</p>
    * @public
    */
   VpcIds?: string[];
@@ -4436,7 +4432,7 @@ export interface DescribeVpcsRequest {
  */
 export interface DescribeVpcsResult {
   /**
-   * <p>Information about one or more VPCs.</p>
+   * <p>Information about the VPCs.</p>
    * @public
    */
   Vpcs?: Vpc[];
@@ -4758,7 +4754,7 @@ export interface DetachVerifiedAccessTrustProviderRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -6100,8 +6096,8 @@ export interface DisassociateTrunkInterfaceRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -6127,8 +6123,8 @@ export interface DisassociateTrunkInterfaceResult {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;

@@ -1169,7 +1169,7 @@ export interface DeleteVerifiedAccessEndpointRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -1206,7 +1206,7 @@ export interface DeleteVerifiedAccessGroupRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -1251,7 +1251,7 @@ export interface DeleteVerifiedAccessInstanceRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -1288,7 +1288,7 @@ export interface DeleteVerifiedAccessTrustProviderRequest {
 
   /**
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -3082,9 +3082,9 @@ export interface CapacityReservationFleet {
   State?: CapacityReservationFleetState;
 
   /**
-   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves capacity.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
-   * 			in the Amazon EC2 User Guide.</p>
+   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves
+   * 			capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   TotalTargetCapacity?: number;
@@ -3138,9 +3138,8 @@ export interface CapacityReservationFleet {
 
   /**
    * <p>The strategy used by the Capacity Reservation Fleet to determine which of the specified
-   * 			instance types to use. For more information, see For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
-   * 				Allocation strategy</a> in the Amazon EC2 User Guide.</p>
+   * 			instance types to use. For more information, see For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">Allocation
+   * 				strategy</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   AllocationStrategy?: string;
@@ -4909,8 +4908,7 @@ export interface DescribeCustomerGatewaysResult {
  */
 export interface DescribeDhcpOptionsRequest {
   /**
-   * <p>The IDs of one or more DHCP options sets.</p>
-   *          <p>Default: Describes all your DHCP options sets.</p>
+   * <p>The IDs of DHCP option sets.</p>
    * @public
    */
   DhcpOptionsIds?: string[];
@@ -4976,7 +4974,7 @@ export interface DescribeDhcpOptionsRequest {
  */
 export interface DescribeDhcpOptionsResult {
   /**
-   * <p>Information about one or more DHCP options sets.</p>
+   * <p>Information about the DHCP options sets.</p>
    * @public
    */
   DhcpOptions?: DhcpOptions[];
@@ -5067,8 +5065,8 @@ export interface DescribeElasticGpusRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
   DryRun?: boolean;
@@ -5137,9 +5135,8 @@ export type ElasticGpuStatus = (typeof ElasticGpuStatus)[keyof typeof ElasticGpu
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
- *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
- *                 G4dn, or G5 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
+ *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
  *          </note>
  *          <p>Describes the status of an Elastic Graphics accelerator.</p>
  * @public
@@ -5167,9 +5164,8 @@ export type ElasticGpuState = (typeof ElasticGpuState)[keyof typeof ElasticGpuSt
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
- *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
- *                 G4dn, or G5 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
+ *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
  *          </note>
  *          <p>Describes an Elastic Graphics accelerator.</p>
  * @public
@@ -6386,9 +6382,10 @@ export interface OnDemandOptions {
   SingleAvailabilityZone?: boolean;
 
   /**
-   * <p>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is
-   *          not reached, the fleet launches no instances.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * <p>The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
    *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
    *          <code>SingleInstanceType</code>
    *          </p>
@@ -6399,12 +6396,12 @@ export interface OnDemandOptions {
   /**
    * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
    *          <note>
-   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
-   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
-   *             for surplus credits. The <code>maxTotalPrice</code> does not account for surplus
-   *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
-   *                   Guide</i>.</p>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
+   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
+   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
+   *             and, if you use surplus credits, your final cost might be higher than what you specified
+   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -6498,15 +6495,20 @@ export interface SpotOptions {
    *                <p>EC2 Fleet requests instances from all of the Spot Instance pools that you
    *                   specify.</p>
    *             </dd>
-   *             <dt>lowest-price</dt>
+   *             <dt>lowest-price (not recommended)</dt>
    *             <dd>
-   *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that
-   *                   has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
-   *                   come from the next lowest priced pool that has available capacity. If a pool runs out of
-   *                   capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your
-   *                   request by drawing from the next lowest priced pool. To ensure that your desired capacity is
-   *                   met, you might receive Spot Instances from several pools. Because this strategy only considers instance
-   *                   price and not capacity availability, it might lead to high interruption rates.</p>
+   *                <important>
+   *                   <p>We don't recommend the <code>lowest-price</code> allocation strategy because
+   *                      it has the highest risk of interruption for your Spot Instances.</p>
+   *                </important>
+   *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that has available
+   *                   capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
+   *                   come from the next lowest priced pool that has available capacity. If a pool runs
+   *                   out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to
+   *                   fulfill your request by drawing from the next lowest priced pool. To ensure that
+   *                   your desired capacity is met, you might receive Spot Instances from several pools. Because
+   *                   this strategy only considers instance price and not capacity availability, it
+   *                   might lead to high interruption rates.</p>
    *             </dd>
    *          </dl>
    *          <p>Default: <code>lowest-price</code>
@@ -6562,9 +6564,10 @@ export interface SpotOptions {
   SingleAvailabilityZone?: boolean;
 
   /**
-   * <p>The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is
-   *          not reached, the fleet launches no instances.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * <p>The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
    *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
    *             <code>SingleInstanceType</code>
    *          </p>
@@ -6580,12 +6583,12 @@ export interface SpotOptions {
    *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
    *          </important>
    *          <note>
-   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
-   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
-   *             for surplus credits. The <code>maxTotalPrice</code> does not account for surplus
-   *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
-   *                   Guide</i>.</p>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
+   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
+   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
+   *             and, if you use surplus credits, your final cost might be higher than what you specified
+   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -7017,7 +7020,7 @@ export interface FlowLog {
 
   /**
    * <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p>
-   *          <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+   *          <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Nitro-based
    *                 instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
    *             regardless of the specified value.</p>
    *          <p>Valid Values: <code>60</code> | <code>600</code>

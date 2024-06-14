@@ -28,10 +28,7 @@ export interface ModifyAvailabilityZoneGroupCommandInput extends ModifyAvailabil
 export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabilityZoneGroupResult, __MetadataBearer {}
 
 /**
- * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
- *       account.</p>
- *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
- *   		DescribeAvailabilityZones</a> to view the value for <code>GroupName</code>.</p>
+ * <p>Changes the opt-in status of the specified zone group for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

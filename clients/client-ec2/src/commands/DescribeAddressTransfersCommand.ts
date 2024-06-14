@@ -28,7 +28,7 @@ export interface DescribeAddressTransfersCommandInput extends DescribeAddressTra
 export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTransfersResult, __MetadataBearer {}
 
 /**
- * <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
  *          <p>When you transfer an Elastic IP address, there is a two-step handshake
  *       between the source and transfer Amazon Web Services accounts. When the source account starts the transfer,
  *       the transfer account has seven days to accept the Elastic IP address

@@ -33,11 +33,11 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  *          pool and can be allocated to a different Amazon Web Services account.</p>
  *          <p>You can allocate an Elastic IP address from an address pool owned by Amazon Web Services or from an address pool created
  *        from a public IPv4 address range that you have brought to Amazon Web Services for use with your Amazon Web Services resources using bring your own
- *          IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>If you release an Elastic IP address, you might be able to recover it. You cannot recover
  *       an Elastic IP address that you released after it is allocated to another Amazon Web Services account. To attempt to recover an Elastic IP address that you released, specify
  *       it in this operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier,
  *        to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance).</p>
  * @example

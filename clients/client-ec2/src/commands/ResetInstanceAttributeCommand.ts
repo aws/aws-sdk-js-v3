@@ -35,7 +35,7 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  *          <p>The <code>sourceDestCheck</code> attribute controls whether source/destination
  *             checking is enabled. The default value is <code>true</code>, which means checking is
  *             enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For
- *             more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
+ *             more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT instances</a> in the
  *                 <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

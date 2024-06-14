@@ -28,7 +28,9 @@ export interface DescribeNatGatewaysCommandInput extends DescribeNatGatewaysRequ
 export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your NAT gateways.</p>
+ * <p>Describes your NAT gateways. The default is to describe all your NAT gateways.
+ *           Alternatively, you can specify specific NAT gateway IDs or filter the results to
+ *           include only the NAT gateways that match specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

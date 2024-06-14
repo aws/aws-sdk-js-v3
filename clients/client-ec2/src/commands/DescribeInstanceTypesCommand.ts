@@ -28,8 +28,8 @@ export interface DescribeInstanceTypesCommandInput extends DescribeInstanceTypes
 export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceTypesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified instance types. By default, all instance types for the current Region are described.
- *     Alternatively, you can filter the results.</p>
+ * <p>Describes the specified instance types. By default, all instance types for the current
+ *    Region are described. Alternatively, you can filter the results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1400,8 +1400,11 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>private-ip-address</code> - The private IPv4 address of the
-   *                     instance.</p>
+   *                   <code>private-ip-address</code> - The private IPv4 address of the instance.
+   *                     This can only be used to filter by the primary IP address of the network
+   *                     interface attached to the instance. To filter by additional IP addresses
+   *                     assigned to the network interface, use the filter
+   *                         <code>network-interface.addresses.private-ip-address</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1634,9 +1637,8 @@ export type InstanceBootModeValues = (typeof InstanceBootModeValues)[keyof typeo
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
- *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
- *                 G4dn, or G5 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
+ *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
  *          </note>
  *          <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
  * @public
@@ -1711,8 +1713,8 @@ export interface ElasticInferenceAcceleratorAssociation {
 /**
  * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
  *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
- *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2
+ *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface HibernationOptions {
@@ -2078,7 +2080,7 @@ export interface InstanceNetworkInterfaceAttachment {
 }
 
 /**
- * <p>A security group connection tracking specification response that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>A security group connection tracking specification response that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingSpecificationResponse {
@@ -2279,7 +2281,7 @@ export interface InstanceNetworkInterface {
   Ipv6Prefixes?: InstanceIpv6Prefix[];
 
   /**
-   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingConfiguration?: ConnectionTrackingSpecificationResponse;
@@ -3350,22 +3352,23 @@ export interface DescribeInstanceTypeOfferingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone. When you specify a location filter, it must be
-   *      an Availability Zone for the current Region.</p>
+   *                   <code>availability-zone</code> - The Availability Zone. When you specify a location
+   *      filter, it must be an Availability Zone for the current Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must be
-   *     an AZ ID for the current Region.</p>
+   *                   <code>availability-zone-id</code> - The AZ ID. When you specify a location filter, it must
+   *      be an AZ ID for the current Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an Outpost ARN
-   *     for the current Region.</p>
+   *                   <code>outpost</code> - The Outpost ARN. When you specify a location filter, it must be an
+   *      Outpost ARN for the current Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>region</code> - The current Region. If you specify a location filter, it must match the current Region.</p>
+   *                   <code>region</code> - The current Region. If you specify a location filter, it must match
+   *      the current Region.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3377,8 +3380,7 @@ export interface DescribeInstanceTypeOfferingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>instance-type</code> - The instance type. For a list of possible values, see
-   *      <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p>
+   *                   <code>instance-type</code> - The instance type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3410,7 +3412,8 @@ export interface DescribeInstanceTypeOfferingsRequest {
  */
 export interface InstanceTypeOffering {
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2
+   *     User Guide</i>.</p>
    * @public
    */
   InstanceType?: _InstanceType;
@@ -3422,8 +3425,9 @@ export interface InstanceTypeOffering {
   LocationType?: LocationType;
 
   /**
-   * <p>The identifier for the location. This depends on the location type. For example, if the location type is
-   *     <code>region</code>, the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   * <p>The identifier for the location. This depends on the location type. For example, if the
+   *    location type is <code>region</code>, the location is the Region code (for example,
+   *     <code>us-east-2</code>.)</p>
    * @public
    */
   Location?: string;
@@ -3470,11 +3474,13 @@ export interface DescribeInstanceTypesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action based recovery is supported  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action
+   *      based recovery is supported  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type
+   *       (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3489,7 +3495,7 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
-   *                     bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   *      bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3504,12 +3510,12 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth
-   *                     performance for an EBS-optimized instance type, in Mbps.</p>
+   *      performance for an EBS-optimized instance type, in Mbps.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
-   *                     operations per second for an EBS-optimized instance type.</p>
+   *      operations per second for an EBS-optimized instance type.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3530,7 +3536,8 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
-   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
+   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3539,7 +3546,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported
+   *       (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3551,8 +3559,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
-   *      GB.</p>
+   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance
+   *      storage disk, in GB.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3561,19 +3569,20 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest
-   *      (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
-   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> |
+   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is
+   *      encrypted at rest (<code>required</code> | <code>supported</code> |
    *      <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
-   *      instance storage, in GB.</p>
+   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
+   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>
+   *      | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage
+   *      available from all local instance storage, in GB.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3607,22 +3616,23 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance type
-   *      automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>network-info.encryption-in-transit-supported</code> - Indicates whether the instance
+   *      type automatically encrypts in-transit traffic between instances  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
-   *      network interface.</p>
+   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private
+   *      IPv4 addresses per network interface.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
-   *      network interface.</p>
+   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private
+   *      IPv6 addresses per network interface.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports
+   *      IPv6  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3631,7 +3641,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p>
+   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network
+   *      interfaces per instance.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3640,17 +3651,18 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>nitro-enclaves-support</code> - Indicates whether Nitro Enclaves is supported (<code>supported</code> |
-   *      <code>unsupported</code>).</p>
+   *                   <code>nitro-enclaves-support</code> - Indicates whether Nitro Enclaves is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>nitro-tpm-support</code> - Indicates whether NitroTPM is supported (<code>supported</code> |
-   *      <code>unsupported</code>).</p>
+   *                   <code>nitro-tpm-support</code> - Indicates whether NitroTPM is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>nitro-tpm-info.supported-versions</code> - The supported NitroTPM version (<code>2.0</code>).</p>
+   *                   <code>nitro-tpm-info.supported-versions</code> - The supported NitroTPM version
+   *       (<code>2.0</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3659,11 +3671,13 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
+   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in
+   *      GHz.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>processor-info.supported-features</code> - The supported CPU features (<code>amd-sev-snp</code>).</p>
+   *                   <code>processor-info.supported-features</code> - The supported CPU features
+   *       (<code>amd-sev-snp</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3687,25 +3701,28 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
+   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance
    *      type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
+   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core
+   *      for the instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p>
+   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance
+   *      type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type.
-   *         For example, "1" or "1,2".</p>
+   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the
+   *      instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be
+   *      configured for the instance type. For example, "1" or "1,2".</p>
    *             </li>
    *          </ul>
    * @public
@@ -3745,7 +3762,8 @@ export interface EbsOptimizedInfo {
   BaselineThroughputInMBps?: number;
 
   /**
-   * <p>The baseline input/output storage operations per seconds for an EBS-optimized instance type.</p>
+   * <p>The baseline input/output storage operations per seconds for an EBS-optimized instance
+   *    type.</p>
    * @public
    */
   BaselineIops?: number;
@@ -3763,7 +3781,8 @@ export interface EbsOptimizedInfo {
   MaximumThroughputInMBps?: number;
 
   /**
-   * <p>The maximum input/output storage operations per second for an EBS-optimized instance type.</p>
+   * <p>The maximum input/output storage operations per second for an EBS-optimized instance
+   *    type.</p>
    * @public
    */
   MaximumIops?: number;
@@ -3820,7 +3839,7 @@ export type EbsNvmeSupport = (typeof EbsNvmeSupport)[keyof typeof EbsNvmeSupport
 export interface EbsInfo {
   /**
    * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
-   *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
+   *    instances</a> in <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   EbsOptimizedSupport?: EbsOptimizedSupport;
@@ -4032,7 +4051,8 @@ export interface InferenceAcceleratorInfo {
   Accelerators?: InferenceDeviceInfo[];
 
   /**
-   * <p>The total size of the memory for the inference accelerators for the instance type, in MiB.</p>
+   * <p>The total size of the memory for the inference accelerators for the instance type, in
+   *    MiB.</p>
    * @public
    */
   TotalInferenceMemoryInMiB?: number;
@@ -4190,7 +4210,8 @@ export interface MediaAcceleratorInfo {
   Accelerators?: MediaDeviceInfo[];
 
   /**
-   * <p>The total size of the memory for the media accelerators for the instance type, in MiB.</p>
+   * <p>The total size of the memory for the media accelerators for the instance type, in
+   *    MiB.</p>
    * @public
    */
   TotalMediaMemoryInMiB?: number;
@@ -4343,15 +4364,15 @@ export interface NetworkInfo {
   EfaInfo?: EfaInfo;
 
   /**
-   * <p>Indicates whether the instance type automatically encrypts in-transit traffic between instances.</p>
+   * <p>Indicates whether the instance type automatically encrypts in-transit traffic between
+   *    instances.</p>
    * @public
    */
   EncryptionInTransitSupported?: boolean;
 
   /**
-   * <p>Indicates whether the instance type supports ENA Express. ENA Express uses Amazon Web Services Scalable
-   *     Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and
-   *     minimize tail latency of network traffic between EC2 instances.</p>
+   * <p>Indicates whether the instance type supports ENA Express. ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream
+   *    and minimize tail latency of network traffic between EC2 instances.</p>
    * @public
    */
   EnaSrdSupported?: boolean;
@@ -4429,7 +4450,8 @@ export interface NeuronInfo {
   NeuronDevices?: NeuronDeviceInfo[];
 
   /**
-   * <p>The total size of the memory for the neuron accelerators for the instance type, in MiB.</p>
+   * <p>The total size of the memory for the neuron accelerators for the instance type, in
+   *    MiB.</p>
    * @public
    */
   TotalNeuronDeviceMemoryInMiB?: number;
@@ -4566,9 +4588,9 @@ export interface ProcessorInfo {
 
   /**
    * <p>Indicates whether the instance type supports AMD SEV-SNP. If the request returns
-   *    <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported.
-   *    For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">
-   *     AMD SEV-SNP</a>.</p>
+   *     <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported. For more
+   *    information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html"> AMD
+   *     SEV-SNP</a>.</p>
    * @public
    */
   SupportedFeatures?: SupportedAdditionalProcessorFeature[];
@@ -4665,7 +4687,8 @@ export interface VCpuInfo {
  */
 export interface InstanceTypeInfo {
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2
+   *     User Guide</i>.</p>
    * @public
    */
   InstanceType?: _InstanceType;
@@ -4785,9 +4808,9 @@ export interface InstanceTypeInfo {
   HibernationSupported?: boolean;
 
   /**
-   * <p>Indicates whether the instance type is a burstable performance T instance
-   *    type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *     performance instances</a>.</p>
+   * <p>Indicates whether the instance type is a burstable performance T instance type. For more
+   *    information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance
+   *     instances</a>.</p>
    * @public
    */
   BurstablePerformanceSupported?: boolean;
@@ -4805,8 +4828,8 @@ export interface InstanceTypeInfo {
   AutoRecoverySupported?: boolean;
 
   /**
-   * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *    <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the <i>Amazon EC2 User
+   *     Guide</i>.</p>
    * @public
    */
   SupportedBootModes?: BootModeType[];
@@ -4940,7 +4963,7 @@ export interface DescribeInternetGatewaysRequest {
  */
 export interface DescribeInternetGatewaysResult {
   /**
-   * <p>Information about one or more internet gateways.</p>
+   * <p>Information about the internet gateways.</p>
    * @public
    */
   InternetGateways?: InternetGateway[];
@@ -5756,7 +5779,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *          <p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
    *             the parameter is displayed in the response for <code>imageId</code>.</p>
    *          <p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems
-   *             Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: <code>false</code>
    *          </p>
    * @public
@@ -7015,7 +7038,6 @@ export interface DescribeNetworkAclsRequest {
 
   /**
    * <p>The IDs of the network ACLs.</p>
-   *          <p>Default: Describes all your network ACLs.</p>
    * @public
    */
   NetworkAclIds?: string[];
@@ -7040,7 +7062,7 @@ export interface DescribeNetworkAclsRequest {
  */
 export interface DescribeNetworkAclsResult {
   /**
-   * <p>Information about one or more network ACLs.</p>
+   * <p>Information about the network ACLs.</p>
    * @public
    */
   NetworkAcls?: NetworkAcl[];
@@ -9176,9 +9198,9 @@ export interface DescribeReservedInstancesOfferingsRequest {
   IncludeMarketplace?: boolean;
 
   /**
-   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>). For more information, see
-   *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>).
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance types</a> in the
+   *         <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceType?: _InstanceType;
@@ -9532,7 +9554,6 @@ export interface DescribeRouteTablesRequest {
 
   /**
    * <p>The IDs of the route tables.</p>
-   *          <p>Default: Describes all your route tables.</p>
    * @public
    */
   RouteTableIds?: string[];
@@ -9558,7 +9579,7 @@ export interface DescribeRouteTablesRequest {
  */
 export interface DescribeRouteTablesResult {
   /**
-   * <p>Information about one or more route tables.</p>
+   * <p>Information about the route tables.</p>
    * @public
    */
   RouteTables?: RouteTable[];
@@ -10571,18 +10592,16 @@ export interface DescribeSnapshotsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of snapshots to return for this request.
-   *       This value can be between 5 and 1,000; if this value is larger than 1,000, only 1,000 results are returned.
-   *       If this parameter is not used, then the request returns all snapshots.
-   *       You cannot specify this parameter and the snapshot IDs parameter in the same request. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    * @public
    */
   MaxResults?: number;
 
   /**
    * <p>The token returned from a previous paginated request.
-   *       Pagination continues from the end of the items returned by the previous request.</p>
+   *   Pagination continues from the end of the items returned by the previous request.</p>
    * @public
    */
   NextToken?: string;
@@ -10627,8 +10646,8 @@ export interface DescribeSnapshotsResult {
   Snapshots?: Snapshot[];
 
   /**
-   * <p>The token to include in another request to return the next page of snapshots.
-   *       This value is <code>null</code> when there are no more snapshots to return.</p>
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string;
@@ -11278,7 +11297,7 @@ export interface InstanceNetworkInterfaceSpecification {
   EnaSrdSpecification?: EnaSrdSpecificationRequest;
 
   /**
-   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
@@ -11682,7 +11701,8 @@ export type ReplacementStrategy = (typeof ReplacementStrategy)[keyof typeof Repl
 /**
  * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
  *             Spot Instance is at an elevated risk of being interrupted. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity
+ *                 rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface SpotCapacityRebalance {
@@ -11724,7 +11744,8 @@ export interface SpotMaintenanceStrategies {
   /**
    * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
    *             Spot Instance is at an elevated risk of being interrupted. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity
+   *                 rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   CapacityRebalance?: SpotCapacityRebalance;
@@ -11768,15 +11789,20 @@ export interface SpotFleetRequestConfigData {
    *                <p>Spot Fleet requests instances from all of the Spot Instance pools that you
    *           specify.</p>
    *             </dd>
-   *             <dt>lowestPrice</dt>
+   *             <dt>lowestPrice (not recommended)</dt>
    *             <dd>
-   *                <p>Spot Fleet requests instances from the lowest priced Spot Instance pool that
-   *           has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
-   *           come from the next lowest priced pool that has available capacity. If a pool runs out of
-   *           capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your
-   *           request by drawing from the next lowest priced pool. To ensure that your desired capacity is
-   *           met, you might receive Spot Instances from several pools. Because this strategy only considers instance
-   *           price and not capacity availability, it might lead to high interruption rates.</p>
+   *                <important>
+   *                   <p>We don't recommend the <code>lowestPrice</code> allocation strategy because
+   *                      it has the highest risk of interruption for your Spot Instances.</p>
+   *                </important>
+   *                <p>Spot Fleet requests instances from the lowest priced Spot Instance pool that has available
+   *                   capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
+   *                   come from the next lowest priced pool that has available capacity. If a pool runs
+   *                   out of capacity before fulfilling your desired capacity, Spot Fleet will continue to
+   *                   fulfill your request by drawing from the next lowest priced pool. To ensure that
+   *                   your desired capacity is met, you might receive Spot Instances from several pools. Because
+   *                   this strategy only considers instance price and not capacity availability, it
+   *                   might lead to high interruption rates.</p>
    *             </dd>
    *          </dl>
    *          <p>Default: <code>lowestPrice</code>
@@ -11832,13 +11858,12 @@ export interface SpotFleetRequestConfigData {
   OnDemandFulfilledCapacity?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
-   *             grants the Spot Fleet the permission to request, launch, terminate, and tag instances on
-   *             your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
-   *                 Fleet prerequisites</a> in the <i>Amazon EC2 User Guide</i>. Spot Fleet
-   *             can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set
-   *                 <code>TerminateInstancesWithExpiration</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role
+   *          that grants the Spot Fleet the permission to request, launch, terminate, and tag instances
+   *          on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
+   *             Fleet prerequisites</a> in the <i>Amazon EC2 User Guide</i>. Spot Fleet can
+   *          terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set
+   *             <code>TerminateInstancesWithExpiration</code>.</p>
    * @public
    */
   IamFleetRole: string | undefined;
@@ -11908,8 +11933,8 @@ export interface SpotFleetRequestConfigData {
    *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
    *             for surplus credits. The <code>onDemandMaxTotalPrice</code> does not account for surplus
    *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>onDemandMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
-   *             Guide</i>.</p>
+   *             specified for <code>onDemandMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -11928,8 +11953,8 @@ export interface SpotFleetRequestConfigData {
    *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
    *             for surplus credits. The <code>spotMaxTotalPrice</code> does not account for surplus
    *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>spotMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
-   *             Guide</i>.</p>
+   *             specified for <code>spotMaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -12275,7 +12300,7 @@ export interface DescribeSpotInstanceRequestsRequest {
    *                     | <code>active</code> | <code>closed</code> | <code>cancelled</code> |
    *                         <code>failed</code>). Spot request status information can help you track
    *                     your Amazon EC2 Spot Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot
-   *                         request status</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                         request status</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -12480,7 +12505,7 @@ export type SpotInstanceState = (typeof SpotInstanceState)[keyof typeof SpotInst
  */
 export interface SpotInstanceStatus {
   /**
-   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand">Spot request status codes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand">Spot request status codes</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Code?: string;
@@ -12583,7 +12608,7 @@ export interface SpotInstanceRequest {
   /**
    * <p>The state of the Spot Instance request. Spot request status information helps track your Spot
    *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot request status</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   State?: SpotInstanceState;

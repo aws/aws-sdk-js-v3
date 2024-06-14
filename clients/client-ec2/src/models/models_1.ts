@@ -56,7 +56,7 @@ export interface CreateCarrierGatewayRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
    *                 idempotency</a>.</p>
    * @public
    */
@@ -404,7 +404,8 @@ export interface CreateClientVpnEndpointRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -585,7 +586,8 @@ export interface CreateClientVpnRouteRequest {
   Description?: string;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -1440,7 +1442,7 @@ export interface CreateDhcpOptionsResult {
 export interface CreateEgressOnlyInternetGatewayRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -2535,9 +2537,10 @@ export interface OnDemandOptionsRequest {
   SingleAvailabilityZone?: boolean;
 
   /**
-   * <p>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is
-   *          not reached, the fleet launches no instances.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * <p>The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
    *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
    *          <code>SingleInstanceType</code>
    *          </p>
@@ -2552,8 +2555,7 @@ export interface OnDemandOptionsRequest {
    *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
    *             for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
    *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
-   *                   Guide</i>.</p>
+   *             specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -2694,8 +2696,12 @@ export interface SpotOptionsRequest {
    *                <p>EC2 Fleet requests instances from all of the Spot Instance pools that you
    *                   specify.</p>
    *             </dd>
-   *             <dt>lowest-price</dt>
+   *             <dt>lowest-price (not recommended)</dt>
    *             <dd>
+   *                <important>
+   *                   <p>We don't recommend the <code>lowest-price</code> allocation strategy because
+   *                      it has the highest risk of interruption for your Spot Instances.</p>
+   *                </important>
    *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that
    *                   has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
    *                   come from the next lowest priced pool that has available capacity. If a pool runs out of
@@ -2758,9 +2764,10 @@ export interface SpotOptionsRequest {
   SingleAvailabilityZone?: boolean;
 
   /**
-   * <p>The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is
-   *          not reached, the fleet launches no instances.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * <p>The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
    *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
    *          <code>SingleInstanceType</code>
    *          </p>
@@ -2776,12 +2783,12 @@ export interface SpotOptionsRequest {
    *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
    *          </important>
    *          <note>
-   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
-   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
-   *             for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
-   *             credits, and, if you use surplus credits, your final cost might be higher than what you
-   *             specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
-   *                   Guide</i>.</p>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
+   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
+   *             surplus credits. The <code>MaxTotalPrice</code> does not account for surplus credits,
+   *             and, if you use surplus credits, your final cost might be higher than what you specified
+   *             for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -3976,7 +3983,7 @@ export interface CreateFlowLogsRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure
    *                 idempotency</a>.</p>
    * @public
    */
@@ -4081,7 +4088,7 @@ export interface CreateFlowLogsRequest {
    * <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
    *             The possible values are 60 seconds (1 minute) or 600 seconds (10 minutes).
    *             This parameter must be 60 seconds for transit gateway resource types.</p>
-   *          <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+   *          <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Nitro-based
    *                 instance</a>, the aggregation interval is always 60 seconds or less, regardless
    *             of the value that you specify.</p>
    *          <p>Default: 600</p>
@@ -4176,7 +4183,7 @@ export interface CreateFpgaImageRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *       	For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring Idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5186,7 +5193,7 @@ export interface CreateIpamRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5536,7 +5543,7 @@ export interface CreateIpamPoolRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -5797,7 +5804,7 @@ export interface IpamPool {
 
   /**
    * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>BYOIP</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
-   *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    * @public
    */
   PublicIpSource?: IpamPoolPublicIpSource;
@@ -6034,7 +6041,7 @@ export interface CreateIpamScopeRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -6531,18 +6538,15 @@ export interface CreditSpecificationRequest {
 
 /**
  * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
- *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
- *                 G4dn, or G5 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration,
+ *             we recommend that you use Amazon EC2 G4, G5, or G6 instances.</p>
  *          </note>
  *          <p>A specification for an Elastic Graphics accelerator.</p>
  * @public
  */
 export interface ElasticGpuSpecification {
   /**
-   * <p>The type of Elastic Graphics accelerator. For more information about the values to specify for
-   *             <code>Type</code>, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics">Elastic Graphics Basics</a>, specifically the Elastic Graphics accelerator column, in the
-   *             <i>Amazon Elastic Compute Cloud User Guide for Windows Instances</i>.</p>
+   * <p>The type of Elastic Graphics accelerator.</p>
    * @public
    */
   Type: string | undefined;
@@ -6853,7 +6857,7 @@ export type LaunchTemplateInstanceMetadataTagsState =
 
 /**
  * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
- *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface LaunchTemplateInstanceMetadataOptionsRequest {
@@ -6937,7 +6941,7 @@ export interface LaunchTemplatesMonitoringRequest {
 }
 
 /**
- * <p>A security group connection tracking specification request that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>A security group connection tracking specification request that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingSpecificationRequest {
@@ -7009,8 +7013,8 @@ export interface EnaSrdSpecificationRequest {
 export interface Ipv4PrefixSpecificationRequest {
   /**
    * <p>The IPv4 prefix. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
-   *             Assigning prefixes to Amazon EC2 network interfaces</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             Assigning prefixes to network interfaces</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Ipv4Prefix?: string;
@@ -7113,7 +7117,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
    *                 <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <p>If you are not creating an EFA, specify <code>interface</code> or omit this
    *             parameter.</p>
    *          <p>Valid values: <code>interface</code> | <code>efa</code>
@@ -7217,7 +7221,10 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   EnaSrdSpecification?: EnaSrdSpecificationRequest;
 
   /**
-   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>A security group connection tracking specification that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
@@ -7356,7 +7363,7 @@ export interface RequestLaunchTemplateData {
    *          <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided
-   *                     kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                     kernels</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          </important>
    * @public
    */
@@ -7425,14 +7432,14 @@ export interface RequestLaunchTemplateData {
    *             <p>Currently, EC2 Fleet and Spot Fleet do not support specifying a Systems Manager parameter.
    *                 If the launch template will be used by an EC2 Fleet or Spot Fleet, you must specify the AMI ID.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ImageId?: string;
 
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon EC2 instance types</a> in
+   *             the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>If you specify <code>InstanceType</code>, you can't specify
    *                 <code>InstanceRequirements</code>.</p>
    * @public
@@ -7467,7 +7474,7 @@ export interface RequestLaunchTemplateData {
    *          <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided
-   *                     kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                     kernels</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          </important>
    * @public
    */
@@ -7494,11 +7501,10 @@ export interface RequestLaunchTemplateData {
 
   /**
    * <p>The user data to make available to the instance. You must provide base64-encoded text.
-   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance at
-   *                 launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html">Work with instance
-   *                 user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Amazon EC2 instance at
+   *                 launch</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>If you are creating the launch template for use with Batch, the user
-   *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive"> MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
+   *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive">MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
    * @public
    */
   UserData?: string;
@@ -7569,8 +7575,7 @@ export interface RequestLaunchTemplateData {
   CreditSpecification?: CreditSpecificationRequest;
 
   /**
-   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU Options</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   CpuOptions?: LaunchTemplateCpuOptionsRequest;
@@ -7593,22 +7598,22 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
    *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
-   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2 instance</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   HibernationOptions?: LaunchTemplateHibernationOptionsRequest;
 
   /**
    * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   MetadataOptions?: LaunchTemplateInstanceMetadataOptionsRequest;
 
   /**
    * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more
-   *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro Enclaves?</a>
+   *             information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a>
    *             in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
    *          <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
    * @public
@@ -7667,8 +7672,8 @@ export interface RequestLaunchTemplateData {
 
   /**
    * <p>Indicates whether to enable the instance for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop protection for your instance</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   DisableApiStop?: boolean;
@@ -7893,7 +7898,7 @@ export interface CreateLaunchTemplateVersionRequest {
   /**
    * <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
    *             the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems
-   *                 Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: <code>false</code>
    *          </p>
    * @public
@@ -8267,7 +8272,7 @@ export type LaunchTemplateInstanceMetadataOptionsState =
 
 /**
  * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
- *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface LaunchTemplateInstanceMetadataOptions {
@@ -8360,7 +8365,7 @@ export interface LaunchTemplatesMonitoring {
 }
 
 /**
- * <p>A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingSpecification {
@@ -8620,7 +8625,10 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   EnaSrdSpecification?: LaunchTemplateEnaSrdSpecification;
 
   /**
-   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>A security group connection tracking specification that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecification;
@@ -8787,7 +8795,7 @@ export interface ResponseLaunchTemplateData {
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems
-   *             Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ImageId?: string;
@@ -8903,8 +8911,7 @@ export interface ResponseLaunchTemplateData {
   CreditSpecification?: CreditSpecification;
 
   /**
-   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU options</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   CpuOptions?: LaunchTemplateCpuOptions;
@@ -8924,14 +8931,14 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>Indicates whether an instance is configured for hibernation. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   HibernationOptions?: LaunchTemplateHibernationOptions;
 
   /**
    * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   MetadataOptions?: LaunchTemplateInstanceMetadataOptions;
@@ -8965,8 +8972,8 @@ export interface ResponseLaunchTemplateData {
 
   /**
    * <p>Indicates whether the instance is enabled for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop protection for your instance</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   DisableApiStop?: boolean;
@@ -9660,8 +9667,8 @@ export interface CreateManagedPrefixListRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
    *          <p>Constraints: Up to 255 UTF-8 characters in length.</p>
    * @public
    */
@@ -9797,7 +9804,7 @@ export interface CreateNatGatewayRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    *          <p>Constraint: Maximum 64 ASCII characters.</p>
    * @public
    */
@@ -9844,7 +9851,8 @@ export interface CreateNatGatewayRequest {
   SecondaryAllocationIds?: string[];
 
   /**
-   * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see
+   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
    * @public
    */
   SecondaryPrivateIpAddresses?: string[];
@@ -9859,36 +9867,37 @@ export interface CreateNatGatewayRequest {
 }
 
 /**
- * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-gateways">documented limits</a>,
+ *           contact Amazon Web Services Support.</p>
  * @public
  */
 export interface ProvisionedBandwidth {
   /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+   * <p>Reserved.</p>
    * @public
    */
   ProvisionTime?: Date;
 
   /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+   * <p>Reserved.</p>
    * @public
    */
   Provisioned?: string;
 
   /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+   * <p>Reserved.</p>
    * @public
    */
   RequestTime?: Date;
 
   /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+   * <p>Reserved.</p>
    * @public
    */
   Requested?: string;
 
   /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+   * <p>Reserved.</p>
    * @public
    */
   Status?: string;
@@ -9976,8 +9985,8 @@ export interface NatGateway {
   NatGatewayId?: string;
 
   /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through
-   *           the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-gateways">documented limits</a>,
+   *           contact Amazon Web Services Support.</p>
    * @public
    */
   ProvisionedBandwidth?: ProvisionedBandwidth;
@@ -10083,7 +10092,7 @@ export interface CreateNetworkAclRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -10205,7 +10214,7 @@ export interface NetworkAclEntry {
  */
 export interface NetworkAcl {
   /**
-   * <p>Any associations between the network ACL and one or more subnets</p>
+   * <p>Any associations between the network ACL and your subnets</p>
    * @public
    */
   Associations?: NetworkAclAssociation[];
@@ -10359,7 +10368,7 @@ export interface CreateNetworkInsightsAccessScopeRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -10561,7 +10570,7 @@ export interface CreateNetworkInsightsPathRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -10872,7 +10881,7 @@ export interface CreateNetworkInterfaceRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   ClientToken?: string;
@@ -11056,7 +11065,7 @@ export interface NetworkInterfaceAttachment {
 }
 
 /**
- * <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ConnectionTrackingConfiguration {
