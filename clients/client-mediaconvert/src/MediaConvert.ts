@@ -69,6 +69,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -112,6 +113,7 @@ const commands = {
   ListQueuesCommand,
   ListTagsForResourceCommand,
   PutPolicyCommand,
+  SearchJobsCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateJobTemplateCommand,
@@ -423,6 +425,18 @@ export interface MediaConvert {
     args: PutPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchJobsCommand}
+   */
+  searchJobs(): Promise<SearchJobsCommandOutput>;
+  searchJobs(args: SearchJobsCommandInput, options?: __HttpHandlerOptions): Promise<SearchJobsCommandOutput>;
+  searchJobs(args: SearchJobsCommandInput, cb: (err: any, data?: SearchJobsCommandOutput) => void): void;
+  searchJobs(
+    args: SearchJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchJobsCommandOutput) => void
   ): void;
 
   /**

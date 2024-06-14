@@ -949,6 +949,64 @@ export interface PutPolicyResponse {
 /**
  * @public
  */
+export interface SearchJobsRequest {
+  /**
+   * Optional. Provide your input file URL or your partial input file name. The maximum length for an input file is 300 characters.
+   * @public
+   */
+  InputFile?: string;
+
+  /**
+   * Optional. Number of jobs, up to twenty, that will be returned at one time.
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+   * @public
+   */
+  Order?: Order;
+
+  /**
+   * Optional. Provide a queue name, or a queue ARN, to return only jobs from that queue.
+   * @public
+   */
+  Queue?: string;
+
+  /**
+   * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+   * @public
+   */
+  Status?: JobStatus;
+}
+
+/**
+ * @public
+ */
+export interface SearchJobsResponse {
+  /**
+   * List of jobs.
+   * @public
+   */
+  Jobs?: Job[];
+
+  /**
+   * Use this string to request the next batch of jobs.
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.

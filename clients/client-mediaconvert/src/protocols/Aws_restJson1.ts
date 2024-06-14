@@ -59,6 +59,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "../commands/PutPolicyCommand";
+import { SearchJobsCommandInput, SearchJobsCommandOutput } from "../commands/SearchJobsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateJobTemplateCommandInput, UpdateJobTemplateCommandOutput } from "../commands/UpdateJobTemplateCommand";
@@ -724,6 +725,29 @@ export const se_PutPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchJobsCommand
+ */
+export const se_SearchJobsCommand = async (
+  input: SearchJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2017-08-29/search");
+  const query: any = map({
+    [_iF]: [, input[_IF]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
+    [_q]: [, input[_Q]!],
+    [_s]: [, input[_S]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -1304,6 +1328,28 @@ export const de_PutPolicyCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Policy: [, (_) => de_Policy(_, context), `policy`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchJobsCommand
+ */
+export const de_SearchJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Jobs: [, (_) => de___listOfJob(_, context), `jobs`],
+    NextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -7597,6 +7643,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _C = "Category";
+const _IF = "InputFile";
 const _LB = "ListBy";
 const _MR = "MaxResults";
 const _NT = "NextToken";
@@ -7604,6 +7651,7 @@ const _O = "Order";
 const _Q = "Queue";
 const _S = "Status";
 const _c = "category";
+const _iF = "inputFile";
 const _lB = "listBy";
 const _mR = "maxResults";
 const _nT = "nextToken";
