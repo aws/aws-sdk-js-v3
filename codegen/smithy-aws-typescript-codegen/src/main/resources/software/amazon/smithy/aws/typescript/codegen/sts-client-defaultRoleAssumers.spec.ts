@@ -95,7 +95,7 @@ describe("getDefaultRoleAssumer", () => {
     };
     const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
     const assumedRole = await roleAssumer(sourceCred, params);
-    expect(assumedRole.accountId).toEqual("123456789012");
+    expect(assumedRole.accountId).toEqual("123");
   });
 
   it("should use the STS client config", async () => {
@@ -178,6 +178,10 @@ describe("getDefaultRoleAssumer", () => {
 describe("getDefaultRoleAssumerWithWebIdentity", () => {
   const assumeRoleResponse = `<Response xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
   <AssumeRoleWithWebIdentityResult>
+  <AssumedRoleUser>
+      <AssumedRoleId>AROAZOX2IL27GNRBJHWC2:session</AssumedRoleId>
+      <Arn>arn:aws:sts::123456789012:assumed-role/assume-role-test/session</Arn>
+    </AssumedRoleUser>
     <Credentials>
       <AccessKeyId>key</AccessKeyId>
       <SecretAccessKey>secrete</SecretAccessKey>
