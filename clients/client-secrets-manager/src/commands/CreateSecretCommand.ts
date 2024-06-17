@@ -59,7 +59,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:CreateSecret</code>. If you
- *       include tags in the secret, you also need <code>secretsmanager:TagResource</code>.
+ *       include tags in the secret, you also need <code>secretsmanager:TagResource</code>. To add replica Regions, you must also have <code>secretsmanager:ReplicateSecretToRegions</code>.
  *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
