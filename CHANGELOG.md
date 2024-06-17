@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.599.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.598.0...v3.599.0) (2024-06-17)
+
+
+### Features
+
+* **client-batch:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([1ae8691](https://github.com/aws/aws-sdk-js-v3/commit/1ae8691aefea2957cb1c03c70a31478c874b591d))
+* **client-codebuild:** AWS CodeBuild now supports global and organization GitHub webhooks ([a7798f3](https://github.com/aws/aws-sdk-js-v3/commit/a7798f3b311435199e321afc5d4577ab40ca13e9))
+* **client-cognito-identity-provider:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([23b3124](https://github.com/aws/aws-sdk-js-v3/commit/23b312413efe0f870ac7a1e7a6ad65ddce2fa4ee))
+* **client-directory-service:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([98f1ae3](https://github.com/aws/aws-sdk-js-v3/commit/98f1ae3f5ed63cd9b23f04299f518f790d0f5e1f))
+* **client-efs:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([58a3ed7](https://github.com/aws/aws-sdk-js-v3/commit/58a3ed7ee09973859483fd87ea43278eb961e5c7))
+* **client-glue:** This release introduces a new feature, Usage profiles. Usage profiles allow the AWS Glue admin to create different profiles for various classes of users within the account, enforcing limits and defaults for jobs and sessions. ([cc41c7c](https://github.com/aws/aws-sdk-js-v3/commit/cc41c7c68c0ad2f1ecfdb390db80c5af62ca5fc5))
+* **client-mediaconvert:** This release includes support for creating I-frame only video segments for DASH trick play. ([d73f7a6](https://github.com/aws/aws-sdk-js-v3/commit/d73f7a6068ff7d4b5bb93d9b108c67e63fc5205e))
+* **client-waf:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([bd4887c](https://github.com/aws/aws-sdk-js-v3/commit/bd4887cef1f870a3dcb8b61e67cbce574325b80f))
+
+
+
+
+
 # [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
 
 

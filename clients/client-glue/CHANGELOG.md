@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.599.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.598.0...v3.599.0) (2024-06-17)
+
+
+### Features
+
+* **client-glue:** This release introduces a new feature, Usage profiles. Usage profiles allow the AWS Glue admin to create different profiles for various classes of users within the account, enforcing limits and defaults for jobs and sessions. ([cc41c7c](https://github.com/aws/aws-sdk-js-v3/commit/cc41c7c68c0ad2f1ecfdb390db80c5af62ca5fc5))
+
+
+
+
+
 # [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
 
 **Note:** Version bump only for package @aws-sdk/client-glue
