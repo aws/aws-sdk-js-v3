@@ -375,6 +375,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //               BaseUrl: "STRING_VALUE",
  * //               ClientCache: "DISABLED" || "ENABLED",
  * //               CodecSpecification: "RFC_6381" || "RFC_4281",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: { // DestinationSettings
@@ -451,6 +452,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //               ],
  * //               AudioChannelConfigSchemeIdUri: "MPEG_CHANNEL_CONFIGURATION" || "DOLBY_CHANNEL_CONFIGURATION",
  * //               BaseUrl: "STRING_VALUE",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: {

@@ -366,6 +366,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *             BaseUrl: "STRING_VALUE",
  *             ClientCache: "DISABLED" || "ENABLED",
  *             CodecSpecification: "RFC_6381" || "RFC_4281",
+ *             DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  *             DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  *             Destination: "STRING_VALUE",
  *             DestinationSettings: { // DestinationSettings
@@ -442,6 +443,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *             ],
  *             AudioChannelConfigSchemeIdUri: "MPEG_CHANNEL_CONFIGURATION" || "DOLBY_CHANNEL_CONFIGURATION",
  *             BaseUrl: "STRING_VALUE",
+ *             DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  *             DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  *             Destination: "STRING_VALUE",
  *             DestinationSettings: {
@@ -1820,6 +1822,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //               BaseUrl: "STRING_VALUE",
  * //               ClientCache: "DISABLED" || "ENABLED",
  * //               CodecSpecification: "RFC_6381" || "RFC_4281",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: { // DestinationSettings
@@ -1896,6 +1899,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //               ],
  * //               AudioChannelConfigSchemeIdUri: "MPEG_CHANNEL_CONFIGURATION" || "DOLBY_CHANNEL_CONFIGURATION",
  * //               BaseUrl: "STRING_VALUE",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: {

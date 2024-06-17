@@ -4118,10 +4118,36 @@ export type InputTimecodeSource = (typeof InputTimecodeSource)[keyof typeof Inpu
  */
 export interface InputVideoGenerator {
   /**
-   * Specify an integer value for Black video duration from 50 to 86400000 to generate a black video input for that many milliseconds. Required when you include Video generator.
+   * Specify the number of audio channels to include in your video generator input. MediaConvert creates these audio channels as silent audio within a single audio track. Enter an integer from 1 to 32.
+   * @public
+   */
+  Channels?: number;
+
+  /**
+   * Specify the duration, in milliseconds, for your video generator input.
+   * Enter an integer from 50 to 86400000.
    * @public
    */
   Duration?: number;
+
+  /**
+   * Specify the denominator of the fraction that represents the frame rate for your video generator input. When you do, you must also specify a value for Frame rate numerator. MediaConvert uses a default frame rate of 29.97 when you leave Frame rate numerator and Frame rate denominator blank.
+   * @public
+   */
+  FramerateDenominator?: number;
+
+  /**
+   * Specify the numerator of the fraction that represents the frame rate for your video generator input. When you do, you must also specify a value for Frame rate denominator. MediaConvert uses a default frame rate of 29.97 when you leave Frame rate numerator and Frame rate denominator blank.
+   * @public
+   */
+  FramerateNumerator?: number;
+
+  /**
+   * Specify the audio sample rate, in Hz, for the silent audio in your video generator input.
+   * Enter an integer from 32000 to 48000.
+   * @public
+   */
+  SampleRate?: number;
 }
 
 /**
@@ -5973,6 +5999,12 @@ export interface CmafGroupSettings {
   CodecSpecification?: CmafCodecSpecification;
 
   /**
+   * Specify whether MediaConvert generates I-frame only video segments for DASH trick play, also known as trick mode. When specified, the I-frame only video segments are included within an additional AdaptationSet in your DASH output manifest. To generate I-frame only video segments: Enter a name as a text string, up to 256 character long. This name is appended to the end of this output group's base filename, that you specify as part of your destination URI, and used for the I-frame only video segment files. You may also include format identifiers. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html#using-settings-variables-with-streaming-outputs To not generate I-frame only video segments: Leave blank.
+   * @public
+   */
+  DashIFrameTrickPlayNameModifier?: string;
+
+  /**
    * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.
    * @public
    */
@@ -6401,6 +6433,12 @@ export interface DashIsoGroupSettings {
    * @public
    */
   BaseUrl?: string;
+
+  /**
+   * Specify whether MediaConvert generates I-frame only video segments for DASH trick play, also known as trick mode. When specified, the I-frame only video segments are included within an additional AdaptationSet in your DASH output manifest. To generate I-frame only video segments: Enter a name as a text string, up to 256 character long. This name is appended to the end of this output group's base filename, that you specify as part of your destination URI, and used for the I-frame only video segment files. You may also include format identifiers. For more information, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html#using-settings-variables-with-streaming-outputs To not generate I-frame only video segments: Leave blank.
+   * @public
+   */
+  DashIFrameTrickPlayNameModifier?: string;
 
   /**
    * Specify how MediaConvert writes SegmentTimeline in your output DASH manifest. To write a SegmentTimeline in each video Representation: Keep the default value, Basic. To write a common SegmentTimeline in the video AdaptationSet: Choose Compact. Note that MediaConvert will still write a SegmentTimeline in any Representation that does not share a common timeline. To write a video AdaptationSet for each different output framerate, and a common SegmentTimeline in each AdaptationSet: Choose Distinct.

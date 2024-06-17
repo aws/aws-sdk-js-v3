@@ -2385,6 +2385,7 @@ const se_CmafGroupSettings = (input: CmafGroupSettings, context: __SerdeContext)
     baseUrl: [, , `BaseUrl`],
     clientCache: [, , `ClientCache`],
     codecSpecification: [, , `CodecSpecification`],
+    dashIFrameTrickPlayNameModifier: [, , `DashIFrameTrickPlayNameModifier`],
     dashManifestStyle: [, , `DashManifestStyle`],
     destination: [, , `Destination`],
     destinationSettings: [, (_) => se_DestinationSettings(_, context), `DestinationSettings`],
@@ -2528,6 +2529,7 @@ const se_DashIsoGroupSettings = (input: DashIsoGroupSettings, context: __SerdeCo
     additionalManifests: [, (_) => se___listOfDashAdditionalManifest(_, context), `AdditionalManifests`],
     audioChannelConfigSchemeIdUri: [, , `AudioChannelConfigSchemeIdUri`],
     baseUrl: [, , `BaseUrl`],
+    dashIFrameTrickPlayNameModifier: [, , `DashIFrameTrickPlayNameModifier`],
     dashManifestStyle: [, , `DashManifestStyle`],
     destination: [, , `Destination`],
     destinationSettings: [, (_) => se_DestinationSettings(_, context), `DestinationSettings`],
@@ -3289,7 +3291,11 @@ const se_InputTemplate = (input: InputTemplate, context: __SerdeContext): any =>
  */
 const se_InputVideoGenerator = (input: InputVideoGenerator, context: __SerdeContext): any => {
   return take(input, {
+    channels: [, , `Channels`],
     duration: [, , `Duration`],
+    framerateDenominator: [, , `FramerateDenominator`],
+    framerateNumerator: [, , `FramerateNumerator`],
+    sampleRate: [, , `SampleRate`],
   });
 };
 
@@ -5367,6 +5373,7 @@ const de_CmafGroupSettings = (output: any, context: __SerdeContext): CmafGroupSe
     BaseUrl: [, __expectString, `baseUrl`],
     ClientCache: [, __expectString, `clientCache`],
     CodecSpecification: [, __expectString, `codecSpecification`],
+    DashIFrameTrickPlayNameModifier: [, __expectString, `dashIFrameTrickPlayNameModifier`],
     DashManifestStyle: [, __expectString, `dashManifestStyle`],
     Destination: [, __expectString, `destination`],
     DestinationSettings: [, (_: any) => de_DestinationSettings(_, context), `destinationSettings`],
@@ -5510,6 +5517,7 @@ const de_DashIsoGroupSettings = (output: any, context: __SerdeContext): DashIsoG
     AdditionalManifests: [, (_: any) => de___listOfDashAdditionalManifest(_, context), `additionalManifests`],
     AudioChannelConfigSchemeIdUri: [, __expectString, `audioChannelConfigSchemeIdUri`],
     BaseUrl: [, __expectString, `baseUrl`],
+    DashIFrameTrickPlayNameModifier: [, __expectString, `dashIFrameTrickPlayNameModifier`],
     DashManifestStyle: [, __expectString, `dashManifestStyle`],
     Destination: [, __expectString, `destination`],
     DestinationSettings: [, (_: any) => de_DestinationSettings(_, context), `destinationSettings`],
@@ -6295,7 +6303,11 @@ const de_InputTemplate = (output: any, context: __SerdeContext): InputTemplate =
  */
 const de_InputVideoGenerator = (output: any, context: __SerdeContext): InputVideoGenerator => {
   return take(output, {
+    Channels: [, __expectInt32, `channels`],
     Duration: [, __expectInt32, `duration`],
+    FramerateDenominator: [, __expectInt32, `framerateDenominator`],
+    FramerateNumerator: [, __expectInt32, `framerateNumerator`],
+    SampleRate: [, __expectInt32, `sampleRate`],
   }) as any;
 };
 
