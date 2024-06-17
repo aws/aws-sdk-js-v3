@@ -91,4 +91,53 @@ to `presigned` is not sufficient to make a request. You need to send the
 server-side encryption headers along with the url. These headers remain in the
 `presigned.headers`
 
+### Get Presigned URL with headers that cannot be signed
+
+By using the `getSignedUrl` with a `S3Client` you are able to sign your
+headers, improving the security of presigned url. Importantly, if you want to
+sign any `x-amz-*` headers (like the ChecksumSHA256 header in this example),
+you need to provide those headers to the set of `unhoistableHeaders` in the
+`getSignedUrl` params which will force those headers to be present in the
+upload request.
+
+```javascript
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+
+const s3Client = new S3Client({ region: "us-east-1" });
+const command = new PutObjectCommand({
+  Bucket: bucket,
+  Key: key,
+  ChecksumSHA256: sha,
+});
+
+const presigned = getSignedUrl(s3Client, command, {
+  expiresIn: expiration,
+  // Set of all x-amz-* headers you wish to have signed
+  unhoistableHeaders: new Set(["x-amz-checksum-sha256"]),
+});
+```
+
+### Get Presigned URL with headers that should be signed
+
+For headers that are not `x-amz-*` you are able to add them to the set of
+`signableHeaders` to be enforced in the presigned urls request.
+
+```javascript
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+
+const s3Client = new S3Client({ region: "us-east-1" });
+const command = new PutObjectCommand({
+  Bucket: bucket,
+  Key: key,
+  ContentType: contentType,
+});
+
+const presigned = getSignedUrl(s3Client, command, {
+  signableHeaders: new Set(["content-type"]),
+  expiresIn: expiration,
+});
+```
+
 For more information, please go to [S3 SSE reference](https://docs.aws.amazon.com/AmazonS3/latest/dev/KMSUsingRESTAPI.html)
