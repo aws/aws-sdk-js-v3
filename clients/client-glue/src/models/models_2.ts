@@ -126,6 +126,7 @@ import {
   JobBookmarkEntry,
   Permission,
   PrincipalType,
+  ProfileConfiguration,
   RegistryId,
   RegistryStatus,
   ResourceShareType,
@@ -142,6 +143,165 @@ import {
   UserDefinedFunctionInput,
   ViewDialect,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetRegistryInput {
+  /**
+   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  RegistryId: RegistryId | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRegistryResponse {
+  /**
+   * <p>The name of the registry.</p>
+   * @public
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   * @public
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>A description of the registry.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the registry.</p>
+   * @public
+   */
+  Status?: RegistryStatus;
+
+  /**
+   * <p>The date and time the registry was created.</p>
+   * @public
+   */
+  CreatedTime?: string;
+
+  /**
+   * <p>The date and time the registry was updated.</p>
+   * @public
+   */
+  UpdatedTime?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePoliciesRequest {
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>A structure for returning a resource policy.</p>
+ * @public
+ */
+export interface GluePolicy {
+  /**
+   * <p>Contains the requested policy document, in JSON format.</p>
+   * @public
+   */
+  PolicyInJson?: string;
+
+  /**
+   * <p>Contains the hash value associated with this policy.</p>
+   * @public
+   */
+  PolicyHash?: string;
+
+  /**
+   * <p>The date and time at which the policy was created.</p>
+   * @public
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The date and time at which the policy was last updated.</p>
+   * @public
+   */
+  UpdateTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePoliciesResponse {
+  /**
+   * <p>A list of the individual resource policies and the account-level resource policy.</p>
+   * @public
+   */
+  GetResourcePoliciesResponseList?: GluePolicy[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the last resource policy available.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The ARN of the Glue resource for which to retrieve the resource policy. If not
+   *       supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code>
+   *       to view all existing resource policies. For more information see <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">Specifying Glue Resource ARNs</a>.
+   *     </p>
+   * @public
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>Contains the requested policy document, in JSON format.</p>
+   * @public
+   */
+  PolicyInJson?: string;
+
+  /**
+   * <p>Contains the hash value associated with this policy.</p>
+   * @public
+   */
+  PolicyHash?: string;
+
+  /**
+   * <p>The date and time at which the policy was created.</p>
+   * @public
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The date and time at which the policy was last updated.</p>
+   * @public
+   */
+  UpdateTime?: Date;
+}
 
 /**
  * @public
@@ -1943,6 +2103,52 @@ export interface GetUnfilteredTableMetadataResponse {
 /**
  * @public
  */
+export interface GetUsageProfileRequest {
+  /**
+   * <p>The name of the usage profile to retrieve.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUsageProfileResponse {
+  /**
+   * <p>The name of the usage profile.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the usage profile.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
+   * @public
+   */
+  Configuration?: ProfileConfiguration;
+
+  /**
+   * <p>The date and time when the usage profile was created.</p>
+   * @public
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>The date and time when the usage profile was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date;
+}
+
+/**
+ * @public
+ */
 export interface GetUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog where the function to be retrieved is located. If none is
@@ -3662,6 +3868,70 @@ export interface ListTriggersResponse {
   /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListUsageProfilesRequest {
+  /**
+   * <p>A continuation token, included if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of usage profiles to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Describes an Glue usage profile.</p>
+ * @public
+ */
+export interface UsageProfileDefinition {
+  /**
+   * <p>The name of the usage profile.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the usage profile.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time when the usage profile was created.</p>
+   * @public
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>The date and time when the usage profile was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListUsageProfilesResponse {
+  /**
+   * <p>A list of usage profile (<code>UsageProfileDefinition</code>) objects.</p>
+   * @public
+   */
+  Profiles?: UsageProfileDefinition[];
+
+  /**
+   * <p>A continuation token, present if the current list segment is not the last.</p>
    * @public
    */
   NextToken?: string;
@@ -6742,6 +7012,40 @@ export interface UpdateTriggerResponse {
 /**
  * @public
  */
+export interface UpdateUsageProfileRequest {
+  /**
+   * <p>The name of the usage profile.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the usage profile.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
+   * @public
+   */
+  Configuration: ProfileConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUsageProfileResponse {
+  /**
+   * <p>The name of the usage profile that was updated.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ */
 export interface UpdateUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog where the function to be updated is located. If none is
@@ -7836,6 +8140,12 @@ export interface Job {
    * @public
    */
   MaintenanceWindow?: string;
+
+  /**
+   * <p>The name of an Glue usage profile associated with the job.</p>
+   * @public
+   */
+  ProfileName?: string;
 }
 
 /**

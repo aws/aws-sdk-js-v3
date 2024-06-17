@@ -95,6 +95,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //     ExecutionTime: Number("double"),
  * //     DPUSeconds: Number("double"),
  * //     IdleTimeout: Number("int"),
+ * //     ProfileName: "STRING_VALUE",
  * //   },
  * // };
  *

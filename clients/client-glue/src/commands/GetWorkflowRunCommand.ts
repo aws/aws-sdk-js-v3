@@ -28,7 +28,7 @@ export interface GetWorkflowRunCommandInput extends GetWorkflowRunRequest {}
 export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the metadata for a given workflow run. </p>
+ * <p>Retrieves the metadata for a given workflow run. Job run history is accessible for 90 days for your workflow and job run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,6 +149,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * //                 DPUSeconds: Number("double"),
  * //                 ExecutionClass: "FLEX" || "STANDARD",
  * //                 MaintenanceWindow: "STRING_VALUE",
+ * //                 ProfileName: "STRING_VALUE",
  * //               },
  * //             ],
  * //           },

@@ -80,6 +80,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * //       DPUSeconds: Number("double"),
  * //       ExecutionClass: "FLEX" || "STANDARD",
  * //       MaintenanceWindow: "STRING_VALUE",
+ * //       ProfileName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

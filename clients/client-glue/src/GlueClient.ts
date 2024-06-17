@@ -146,6 +146,7 @@ import {
   CreateTableOptimizerCommandOutput,
 } from "./commands/CreateTableOptimizerCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
+import { CreateUsageProfileCommandInput, CreateUsageProfileCommandOutput } from "./commands/CreateUsageProfileCommand";
 import {
   CreateUserDefinedFunctionCommandInput,
   CreateUserDefinedFunctionCommandOutput,
@@ -202,6 +203,7 @@ import {
 } from "./commands/DeleteTableOptimizerCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "./commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
+import { DeleteUsageProfileCommandInput, DeleteUsageProfileCommandOutput } from "./commands/DeleteUsageProfileCommand";
 import {
   DeleteUserDefinedFunctionCommandInput,
   DeleteUserDefinedFunctionCommandOutput,
@@ -329,6 +331,7 @@ import {
   GetUnfilteredTableMetadataCommandInput,
   GetUnfilteredTableMetadataCommandOutput,
 } from "./commands/GetUnfilteredTableMetadataCommand";
+import { GetUsageProfileCommandInput, GetUsageProfileCommandOutput } from "./commands/GetUsageProfileCommand";
 import {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
@@ -388,6 +391,7 @@ import {
   ListTableOptimizerRunsCommandOutput,
 } from "./commands/ListTableOptimizerRunsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
+import { ListUsageProfilesCommandInput, ListUsageProfilesCommandOutput } from "./commands/ListUsageProfilesCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
   PutDataCatalogEncryptionSettingsCommandInput,
@@ -510,6 +514,7 @@ import {
   UpdateTableOptimizerCommandOutput,
 } from "./commands/UpdateTableOptimizerCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
+import { UpdateUsageProfileCommandInput, UpdateUsageProfileCommandOutput } from "./commands/UpdateUsageProfileCommand";
 import {
   UpdateUserDefinedFunctionCommandInput,
   UpdateUserDefinedFunctionCommandOutput,
@@ -572,6 +577,7 @@ export type ServiceInputTypes =
   | CreateTableCommandInput
   | CreateTableOptimizerCommandInput
   | CreateTriggerCommandInput
+  | CreateUsageProfileCommandInput
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
   | DeleteBlueprintCommandInput
@@ -598,6 +604,7 @@ export type ServiceInputTypes =
   | DeleteTableOptimizerCommandInput
   | DeleteTableVersionCommandInput
   | DeleteTriggerCommandInput
+  | DeleteUsageProfileCommandInput
   | DeleteUserDefinedFunctionCommandInput
   | DeleteWorkflowCommandInput
   | GetBlueprintCommandInput
@@ -662,6 +669,7 @@ export type ServiceInputTypes =
   | GetUnfilteredPartitionMetadataCommandInput
   | GetUnfilteredPartitionsMetadataCommandInput
   | GetUnfilteredTableMetadataCommandInput
+  | GetUsageProfileCommandInput
   | GetUserDefinedFunctionCommandInput
   | GetUserDefinedFunctionsCommandInput
   | GetWorkflowCommandInput
@@ -688,6 +696,7 @@ export type ServiceInputTypes =
   | ListStatementsCommandInput
   | ListTableOptimizerRunsCommandInput
   | ListTriggersCommandInput
+  | ListUsageProfilesCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
   | PutResourcePolicyCommandInput
@@ -741,6 +750,7 @@ export type ServiceInputTypes =
   | UpdateTableCommandInput
   | UpdateTableOptimizerCommandInput
   | UpdateTriggerCommandInput
+  | UpdateUsageProfileCommandInput
   | UpdateUserDefinedFunctionCommandInput
   | UpdateWorkflowCommandInput;
 
@@ -790,6 +800,7 @@ export type ServiceOutputTypes =
   | CreateTableCommandOutput
   | CreateTableOptimizerCommandOutput
   | CreateTriggerCommandOutput
+  | CreateUsageProfileCommandOutput
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteBlueprintCommandOutput
@@ -816,6 +827,7 @@ export type ServiceOutputTypes =
   | DeleteTableOptimizerCommandOutput
   | DeleteTableVersionCommandOutput
   | DeleteTriggerCommandOutput
+  | DeleteUsageProfileCommandOutput
   | DeleteUserDefinedFunctionCommandOutput
   | DeleteWorkflowCommandOutput
   | GetBlueprintCommandOutput
@@ -880,6 +892,7 @@ export type ServiceOutputTypes =
   | GetUnfilteredPartitionMetadataCommandOutput
   | GetUnfilteredPartitionsMetadataCommandOutput
   | GetUnfilteredTableMetadataCommandOutput
+  | GetUsageProfileCommandOutput
   | GetUserDefinedFunctionCommandOutput
   | GetUserDefinedFunctionsCommandOutput
   | GetWorkflowCommandOutput
@@ -906,6 +919,7 @@ export type ServiceOutputTypes =
   | ListStatementsCommandOutput
   | ListTableOptimizerRunsCommandOutput
   | ListTriggersCommandOutput
+  | ListUsageProfilesCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
   | PutResourcePolicyCommandOutput
@@ -959,6 +973,7 @@ export type ServiceOutputTypes =
   | UpdateTableCommandOutput
   | UpdateTableOptimizerCommandOutput
   | UpdateTriggerCommandOutput
+  | UpdateUsageProfileCommandOutput
   | UpdateUserDefinedFunctionCommandOutput
   | UpdateWorkflowCommandOutput;
 

@@ -71,6 +71,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //     ExecutionTime: Number("double"),
  * //     DPUSeconds: Number("double"),
  * //     IdleTimeout: Number("int"),
+ * //     ProfileName: "STRING_VALUE",
  * //   },
  * // };
  *
