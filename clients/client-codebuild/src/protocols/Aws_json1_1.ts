@@ -216,6 +216,7 @@ import {
   S3ReportExportConfig,
   ScalingConfigurationInput,
   ScalingConfigurationOutput,
+  ScopeConfiguration,
   SourceAuth,
   StartBuildBatchInput,
   StartBuildBatchOutput,
@@ -2199,6 +2200,8 @@ const se_ScalingConfigurationInput = (input: ScalingConfigurationInput, context:
   });
 };
 
+// se_ScopeConfiguration omitted.
+
 // se_SecurityGroupIds omitted.
 
 // se_SourceAuth omitted.
@@ -3001,6 +3004,8 @@ const de_ScalingConfigurationOutput = (output: any, context: __SerdeContext): Sc
   }) as any;
 };
 
+// de_ScopeConfiguration omitted.
+
 // de_SecurityGroupIds omitted.
 
 // de_SourceAuth omitted.
@@ -3160,6 +3165,7 @@ const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
     lastModifiedSecret: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     manualCreation: __expectBoolean,
     payloadUrl: __expectString,
+    scopeConfiguration: _json,
     secret: __expectString,
     url: __expectString,
   }) as any;

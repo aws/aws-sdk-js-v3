@@ -3617,6 +3617,18 @@ export interface WebhookFilter {
    *                </ul>
    *             </li>
    *             <li>
+   *                <p>REPOSITORY_NAME</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>A webhook triggers a build when the repository name matches the
+   *                                 regular expression pattern.</p>
+   *                      <note>
+   *                         <p> Works with GitHub global or organization webhooks only. </p>
+   *                      </note>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
    *                <p>WORKFLOW_NAME</p>
    *                <ul>
    *                   <li>
@@ -3655,6 +3667,44 @@ export interface WebhookFilter {
    * @public
    */
   excludeMatchedPattern?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WebhookScopeType = {
+  GITHUB_GLOBAL: "GITHUB_GLOBAL",
+  GITHUB_ORGANIZATION: "GITHUB_ORGANIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type WebhookScopeType = (typeof WebhookScopeType)[keyof typeof WebhookScopeType];
+
+/**
+ * <p>Contains configuration information about the scope for a webhook. </p>
+ * @public
+ */
+export interface ScopeConfiguration {
+  /**
+   * <p>The name of either the enterprise or organization that will send webhook events to CodeBuild, depending on if the webhook is a global or organization webhook respectively.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The domain of the GitHub Enterprise organization. Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE</p>
+   * @public
+   */
+  domain?: string;
+
+  /**
+   * <p>The type of scope for a GitHub webhook.</p>
+   * @public
+   */
+  scope: WebhookScopeType | undefined;
 }
 
 /**
@@ -3730,6 +3780,15 @@ export interface Webhook {
    * @public
    */
   lastModifiedSecret?: Date;
+
+  /**
+   * <p>The scope configuration for global or organization webhooks.</p>
+   *          <note>
+   *             <p>Global or organization webhooks are only available for GitHub and Github Enterprise webhooks.</p>
+   *          </note>
+   * @public
+   */
+  scopeConfiguration?: ScopeConfiguration;
 }
 
 /**
@@ -5016,6 +5075,15 @@ export interface CreateWebhookInput {
    * @public
    */
   manualCreation?: boolean;
+
+  /**
+   * <p>The scope configuration for global or organization webhooks.</p>
+   *          <note>
+   *             <p>Global or organization webhooks are only available for GitHub and Github Enterprise webhooks.</p>
+   *          </note>
+   * @public
+   */
+  scopeConfiguration?: ScopeConfiguration;
 }
 
 /**

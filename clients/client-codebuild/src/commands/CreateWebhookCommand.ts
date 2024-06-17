@@ -59,6 +59,11 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *   ],
  *   buildType: "BUILD" || "BUILD_BATCH",
  *   manualCreation: true || false,
+ *   scopeConfiguration: { // ScopeConfiguration
+ *     name: "STRING_VALUE", // required
+ *     domain: "STRING_VALUE",
+ *     scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ *   },
  * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
@@ -80,6 +85,11 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * //     buildType: "BUILD" || "BUILD_BATCH",
  * //     manualCreation: true || false,
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
+ * //     scopeConfiguration: { // ScopeConfiguration
+ * //       name: "STRING_VALUE", // required
+ * //       domain: "STRING_VALUE",
+ * //       scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ * //     },
  * //   },
  * // };
  *
