@@ -25,7 +25,8 @@
  import software.amazon.smithy.utils.SmithyInternalApi;
 
  /**
-  * Generates accountIdEndpointMode configuration field for service clients that have the eponymous built-in param in the ruleset.
+  * Generates accountIdEndpointMode configuration field for service clients
+  * that have the AccountIdEndpointMode built-in param in the ruleset.
   */
  @SmithyInternalApi
  public final class AddAccountIdEndpointModeRuntimeConfig implements TypeScriptIntegration {
@@ -48,11 +49,13 @@
                      writer.addDependency(AwsDependency.AWS_SDK_CORE);
                      writer.addImport("AccountIdEndpointMode", "AccountIdEndpointMode", AwsDependency.AWS_SDK_CORE);
                      writer.writeDocs("Defines if the AWS AccountId will be used for endpoint routing.");
-                     writer.write("accountIdEndpointMode?: AccountIdEndpointMode | __Provider<AccountIdEndpointMode>;\n");
+                     writer.write("accountIdEndpointMode?: AccountIdEndpointMode | "
+                     + "__Provider<AccountIdEndpointMode>;\n");
                  }
              }
          }
      }
+
      @Override
      public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
          TypeScriptSettings settings,
@@ -71,7 +74,8 @@
                          case BROWSER:
                              runtimeConfigs.put("accountIdEndpointMode", writer -> {
                                  writer.addDependency(AwsDependency.AWS_SDK_CORE);
-                                 writer.addImport("DEFAULT_ACCOUNT_ID_ENDPOINT_MODE", "DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
+                                 writer.addImport("DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
+                                 "DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
                                      AwsDependency.AWS_SDK_CORE);
                                  writer.write("(() => Promise.resolve(DEFAULT_ACCOUNT_ID_ENDPOINT_MODE))");
                              });
