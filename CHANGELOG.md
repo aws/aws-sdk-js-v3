@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release adds support for using Guardrails with the Converse and ConverseStream APIs. ([2bdad15](https://github.com/aws/aws-sdk-js-v3/commit/2bdad15f1bb161aef177fe4b8eaafd8c7929b3df))
+* **client-cloudtrail:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([96b429f](https://github.com/aws/aws-sdk-js-v3/commit/96b429f192304bd0e3e48f40901329652daf2efd))
+* **client-config-service:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([472d873](https://github.com/aws/aws-sdk-js-v3/commit/472d873af157e6790f0ffbe2de1d444d2771d4b8))
+* **client-eks:** This release adds support to surface async fargate customer errors from async path to customer through describe-fargate-profile API response. ([34e2d61](https://github.com/aws/aws-sdk-js-v3/commit/34e2d616261849ca046a0680873066671bce033c))
+* **client-lightsail:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([9a35ffe](https://github.com/aws/aws-sdk-js-v3/commit/9a35ffe65610e30aaf37449892a151eea3a7ee87))
+* **client-polly:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([141cb0b](https://github.com/aws/aws-sdk-js-v3/commit/141cb0b30cc9baa095b9860d3ef28bf4945a1fa1))
+* **client-rekognition:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([fd9be05](https://github.com/aws/aws-sdk-js-v3/commit/fd9be0591197a91f71abe1454ea477539c97a7ac))
+* **client-sagemaker:** Launched a new feature in SageMaker to provide managed MLflow Tracking Servers for customers to track ML experiments. This release also adds a new capability of attaching additional storage to SageMaker HyperPod cluster instances. ([92df932](https://github.com/aws/aws-sdk-js-v3/commit/92df9320a71707bf958e8800a9c863a0489cda60))
+* **client-shield:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([db1da4c](https://github.com/aws/aws-sdk-js-v3/commit/db1da4cf35690ed0997c52e954732a8f3637d43f))
+* **client-snowball:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([aaf2ab7](https://github.com/aws/aws-sdk-js-v3/commit/aaf2ab7630bb28b4e99e5916295428bbd6dfb55c))
+* **clients:** update command documentation examples as of 2024-06-18 ([861d056](https://github.com/aws/aws-sdk-js-v3/commit/861d05668806eb333684a320592047706893d5c1))
+
+
+
+
+
 # [3.599.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.598.0...v3.599.0) (2024-06-17)
 
 

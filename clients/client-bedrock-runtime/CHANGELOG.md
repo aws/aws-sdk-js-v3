@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release adds support for using Guardrails with the Converse and ConverseStream APIs. ([2bdad15](https://github.com/aws/aws-sdk-js-v3/commit/2bdad15f1bb161aef177fe4b8eaafd8c7929b3df))
+
+
+
+
+
 # [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime
