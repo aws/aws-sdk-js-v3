@@ -3312,6 +3312,7 @@ const de_FargateProfile = (output: any, context: __SerdeContext): FargateProfile
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     fargateProfileArn: __expectString,
     fargateProfileName: __expectString,
+    health: _json,
     podExecutionRoleArn: __expectString,
     selectors: _json,
     status: __expectString,
@@ -3319,6 +3320,12 @@ const de_FargateProfile = (output: any, context: __SerdeContext): FargateProfile
     tags: _json,
   }) as any;
 };
+
+// de_FargateProfileHealth omitted.
+
+// de_FargateProfileIssue omitted.
+
+// de_FargateProfileIssueList omitted.
 
 // de_FargateProfileLabel omitted.
 

@@ -2870,6 +2870,59 @@ export interface CreateFargateProfileRequest {
  * @public
  * @enum
  */
+export const FargateProfileIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  INTERNAL_FAILURE: "InternalFailure",
+  POD_EXECUTION_ROLE_ALREADY_IN_USE: "PodExecutionRoleAlreadyInUse",
+} as const;
+
+/**
+ * @public
+ */
+export type FargateProfileIssueCode = (typeof FargateProfileIssueCode)[keyof typeof FargateProfileIssueCode];
+
+/**
+ * <p>An issue that is associated with the Fargate profile.</p>
+ * @public
+ */
+export interface FargateProfileIssue {
+  /**
+   * <p>A brief description of the error.</p>
+   * @public
+   */
+  code?: FargateProfileIssueCode;
+
+  /**
+   * <p>The error message associated with the issue.</p>
+   * @public
+   */
+  message?: string;
+
+  /**
+   * <p>The Amazon Web Services resources that are affected by this issue.</p>
+   * @public
+   */
+  resourceIds?: string[];
+}
+
+/**
+ * <p>The health status of the Fargate  profile. If there are issues with
+ *             your Fargate profile's health, they are listed here.</p>
+ * @public
+ */
+export interface FargateProfileHealth {
+  /**
+   * <p>Any issues that are associated with the Fargate profile.</p>
+   * @public
+   */
+  issues?: FargateProfileIssue[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const FargateProfileStatus = {
   ACTIVE: "ACTIVE",
   CREATE_FAILED: "CREATE_FAILED",
@@ -2947,6 +3000,13 @@ export interface FargateProfile {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The health status of the Fargate  profile. If there are issues with
+   *             your Fargate profile's health, they are listed here.</p>
+   * @public
+   */
+  health?: FargateProfileHealth;
 }
 
 /**

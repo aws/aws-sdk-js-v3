@@ -63,6 +63,17 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     health: { // FargateProfileHealth
+ * //       issues: [ // FargateProfileIssueList
+ * //         { // FargateProfileIssue
+ * //           code: "PodExecutionRoleAlreadyInUse" || "AccessDenied" || "ClusterUnreachable" || "InternalFailure",
+ * //           message: "STRING_VALUE",
+ * //           resourceIds: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
