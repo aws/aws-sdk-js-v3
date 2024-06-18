@@ -38,7 +38,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  *                 the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a>
  *             operation to delete all work teams before you delete the workforce.
  *             If you try to delete a workforce that contains one or more work teams,
- *             you will recieve a <code>ResourceInUse</code> error.</p>
+ *             you will receive a <code>ResourceInUse</code> error.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

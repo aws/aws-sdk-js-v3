@@ -68,9 +68,11 @@ import {
   MonitoringScheduleConfig,
   MonitoringType,
   NetworkConfig,
+  NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OwnershipSettings,
+  ParallelismConfiguration,
   ProcessingInput,
   ProcessingOutputConfig,
   ProcessingResources,
@@ -79,8 +81,6 @@ import {
   ResourceLimits,
   RetryStrategy,
   ServiceCatalogProvisioningDetails,
-  SpaceSettings,
-  SpaceSharingSettings,
   UserSettings,
 } from "./models_1";
 
@@ -96,7 +96,6 @@ import {
   EdgePackagingJobStatus,
   EndpointOutputConfiguration,
   EndpointStatus,
-  ExecutionStatus,
   ExperimentSource,
   FeatureGroupStatus,
   FeatureParameter,
@@ -114,6 +113,7 @@ import {
   InferenceExperimentStatus,
   InferenceMetrics,
   InfraCheckConfig,
+  IsTrackingServerActive,
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
@@ -138,8 +138,11 @@ import {
   RuleEvaluationStatus,
   ScheduleStatus,
   SourceIpConfig,
+  SpaceSettings,
+  SpaceSharingSettings,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
+  TrackingServerStatus,
   TrainingJobStatus,
   TrainingJobStatusCounters,
   TrialComponentArtifact,
@@ -147,6 +150,366 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeNotebookInstanceLifecycleConfigInput {
+  /**
+   * <p>The name of the lifecycle configuration to describe.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNotebookInstanceLifecycleConfigOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigArn?: string;
+
+  /**
+   * <p>The name of the lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigName?: string;
+
+  /**
+   * <p>The shell script that runs only once, when you create a notebook instance.</p>
+   * @public
+   */
+  OnCreate?: NotebookInstanceLifecycleHook[];
+
+  /**
+   * <p>The shell script that runs every time you start a notebook instance, including when
+   *          you create the notebook instance.</p>
+   * @public
+   */
+  OnStart?: NotebookInstanceLifecycleHook[];
+
+  /**
+   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the pipeline to describe.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PipelineStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
+
+/**
+ * @public
+ */
+export interface DescribePipelineResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  PipelineName?: string;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   * @public
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * <p>The JSON pipeline definition.</p>
+   * @public
+   */
+  PipelineDefinition?: string;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   * @public
+   */
+  PipelineDescription?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The status of the pipeline execution.</p>
+   * @public
+   */
+  PipelineStatus?: PipelineStatus;
+
+  /**
+   * <p>The time when the pipeline was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time when the pipeline was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The time when the pipeline was last run.</p>
+   * @public
+   */
+  LastRunTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>Lists the parallelism configuration applied to the pipeline.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineDefinitionForExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineDefinitionForExecutionResponse {
+  /**
+   * <p>The JSON pipeline definition.</p>
+   * @public
+   */
+  PipelineDefinition?: string;
+
+  /**
+   * <p>The time when the pipeline was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PipelineExecutionStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typeof PipelineExecutionStatus];
+
+/**
+ * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
+ * @public
+ */
+export interface PipelineExperimentConfig {
+  /**
+   * <p>The name of the experiment.</p>
+   * @public
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>The name of the trial.</p>
+   * @public
+   */
+  TrialName?: string;
+}
+
+/**
+ * <p>A step selected to run in selective execution mode.</p>
+ * @public
+ */
+export interface SelectedStep {
+  /**
+   * <p>The name of the pipeline step.</p>
+   * @public
+   */
+  StepName: string | undefined;
+}
+
+/**
+ * <p>The selective execution configuration applied to the pipeline run.</p>
+ * @public
+ */
+export interface SelectiveExecutionConfig {
+  /**
+   * <p>The ARN from a reference execution of the current pipeline.
+   *         Used to copy input collaterals needed for the selected steps to run.
+   *         The execution status of the pipeline can be either <code>Failed</code>
+   *         or <code>Success</code>.</p>
+   *          <p>This field is required if the steps you specify for
+   *           <code>SelectedSteps</code> depend on output collaterals from any non-specified pipeline
+   *           steps. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-selective-ex.html">Selective
+   *           Execution for Pipeline Steps</a>.</p>
+   * @public
+   */
+  SourcePipelineExecutionArn?: string;
+
+  /**
+   * <p>A list of pipeline steps to run. All step(s) in all path(s) between
+   *         two selected steps should be included.</p>
+   * @public
+   */
+  SelectedSteps: SelectedStep[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDisplayName?: string;
+
+  /**
+   * <p>The status of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionStatus?: PipelineExecutionStatus;
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDescription?: string;
+
+  /**
+   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
+   * @public
+   */
+  PipelineExperimentConfig?: PipelineExperimentConfig;
+
+  /**
+   * <p>If the execution failed, a message describing why.</p>
+   * @public
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The time when the pipeline execution was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time when the pipeline execution was modified last.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>The parallelism configuration applied to the pipeline.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration;
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   * @public
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig;
+}
 
 /**
  * @public
@@ -661,7 +1024,7 @@ export interface DescribeSubscribedWorkteamRequest {
 }
 
 /**
- * <p>Describes a work team of a vendor that does the a labelling job.</p>
+ * <p>Describes a work team of a vendor that does the labelling job.</p>
  * @public
  */
 export interface SubscribedWorkteam {
@@ -6620,14 +6983,15 @@ export interface ListCandidatesForAutoMLJobResponse {
  */
 export interface ListClusterNodesRequest {
   /**
-   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which you want to retrieve the list of nodes.</p>
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which you want to retrieve the
+   *          list of nodes.</p>
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created after the specified time. Timestamps are
-   *          formatted according to the ISO 8601 standard. </p>
+   * <p>A filter that returns nodes in a SageMaker HyperPod cluster created after the specified time.
+   *          Timestamps are formatted according to the ISO 8601 standard. </p>
    *          <p>Acceptable formats include:</p>
    *          <ul>
    *             <li>
@@ -6648,9 +7012,9 @@ export interface ListClusterNodesRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred to as Unix
-   *                Epoch time and represents the number of seconds since midnight, January 1, 1970
-   *                UTC.</p>
+   *                <p>Unix time in seconds, for example, <code>1412195400</code>. This is also referred
+   *                to as Unix Epoch time and represents the number of seconds since midnight, January 1,
+   *                1970 UTC.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User
@@ -6759,9 +7123,9 @@ export interface ListClustersRequest {
 
   /**
    * <p>Set an end time for the time range during which you want to list SageMaker HyperPod clusters. A
-   *          filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The acceptable
-   *          formats are the same as the timestamp formats for <code>CreationTimeAfter</code>. For more
-   *          information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User
+   *          filter that returns nodes in a SageMaker HyperPod cluster created before the specified time. The
+   *          acceptable formats are the same as the timestamp formats for
+   *          <code>CreationTimeAfter</code>. For more information about the timestamp format, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a> in the <i>Amazon Web Services Command Line Interface User
    *             Guide</i>.</p>
    * @public
    */
@@ -9216,6 +9580,146 @@ export interface ListLineageGroupsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const SortTrackingServerBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type SortTrackingServerBy = (typeof SortTrackingServerBy)[keyof typeof SortTrackingServerBy];
+
+/**
+ * @public
+ */
+export interface ListMlflowTrackingServersRequest {
+  /**
+   * <p>Use the <code>CreatedAfter</code> filter to only list tracking servers created after a
+   *       specific date and time. Listed tracking servers are shown with a date and time such as
+   *         <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedAfter</code> parameter takes in a
+   *       Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>Use the <code>CreatedBefore</code> filter to only list tracking servers created before a
+   *       specific date and time. Listed tracking servers are shown with a date and time such as
+   *         <code>"2024-03-16T01:46:56+00:00"</code>. The <code>CreatedBefore</code> parameter takes in
+   *       a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
+   * @public
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>Filter for tracking servers with a specified creation status.</p>
+   * @public
+   */
+  TrackingServerStatus?: TrackingServerStatus;
+
+  /**
+   * <p>Filter for tracking servers using the specified MLflow version.</p>
+   * @public
+   */
+  MlflowVersion?: string;
+
+  /**
+   * <p>Filter for trackings servers sorting by name, creation time, or creation status.</p>
+   * @public
+   */
+  SortBy?: SortTrackingServerBy;
+
+  /**
+   * <p>Change the order of the listed tracking servers. By default, tracking servers are listed in <code>Descending</code> order by creation time.
+   *       To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of tracking servers to list.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>The summary of the tracking server to list.</p>
+ * @public
+ */
+export interface TrackingServerSummary {
+  /**
+   * <p>The ARN of a listed tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
+
+  /**
+   * <p>The name of a listed tracking server.</p>
+   * @public
+   */
+  TrackingServerName?: string;
+
+  /**
+   * <p>The creation time of a listed tracking server.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last modified time of a listed tracking server.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The creation status of a listed tracking server.</p>
+   * @public
+   */
+  TrackingServerStatus?: TrackingServerStatus;
+
+  /**
+   * <p>The activity status of a listed tracking server.</p>
+   * @public
+   */
+  IsActive?: IsTrackingServerActive;
+
+  /**
+   * <p>The MLflow version used for a listed tracking server.</p>
+   * @public
+   */
+  MlflowVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMlflowTrackingServersResponse {
+  /**
+   * <p>A list of tracking servers according to chosen filters.</p>
+   * @public
+   */
+  TrackingServerSummaries?: TrackingServerSummary[];
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  */
 export interface ListModelBiasJobDefinitionsRequest {
   /**
@@ -10648,568 +11152,3 @@ export interface ListMonitoringAlertsRequest {
    */
   MaxResults?: number;
 }
-
-/**
- * <p>An alert action taken to light up an icon on the Amazon SageMaker Model Dashboard when an alert goes into
- *             <code>InAlert</code> status.</p>
- * @public
- */
-export interface ModelDashboardIndicatorAction {
-  /**
-   * <p>Indicates whether the alert action is turned on.</p>
-   * @public
-   */
-  Enabled?: boolean;
-}
-
-/**
- * <p>A list of alert actions taken in response to an alert going into
- *             <code>InAlert</code> status.</p>
- * @public
- */
-export interface MonitoringAlertActions {
-  /**
-   * <p>An alert action taken to light up an icon on the Model Dashboard when an alert goes into
-   *          <code>InAlert</code> status.</p>
-   * @public
-   */
-  ModelDashboardIndicator?: ModelDashboardIndicatorAction;
-}
-
-/**
- * <p>Provides summary information about a monitor alert.</p>
- * @public
- */
-export interface MonitoringAlertSummary {
-  /**
-   * <p>The name of a monitoring alert.</p>
-   * @public
-   */
-  MonitoringAlertName: string | undefined;
-
-  /**
-   * <p>A timestamp that indicates when a monitor alert was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that indicates when a monitor alert was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The current status of an alert.</p>
-   * @public
-   */
-  AlertStatus: MonitoringAlertStatus | undefined;
-
-  /**
-   * <p>Within <code>EvaluationPeriod</code>, how many execution failures will raise an
-   *          alert.</p>
-   * @public
-   */
-  DatapointsToAlert: number | undefined;
-
-  /**
-   * <p>The number of most recent monitoring executions to consider when evaluating alert
-   *          status.</p>
-   * @public
-   */
-  EvaluationPeriod: number | undefined;
-
-  /**
-   * <p>A list of alert actions taken in response to an alert going into
-   *             <code>InAlert</code> status.</p>
-   * @public
-   */
-  Actions: MonitoringAlertActions | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMonitoringAlertsResponse {
-  /**
-   * <p>A JSON array where each element is a summary for a monitoring alert.</p>
-   * @public
-   */
-  MonitoringAlertSummaries?: MonitoringAlertSummary[];
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *          alerts, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const MonitoringExecutionSortKey = {
-  CREATION_TIME: "CreationTime",
-  SCHEDULED_TIME: "ScheduledTime",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type MonitoringExecutionSortKey = (typeof MonitoringExecutionSortKey)[keyof typeof MonitoringExecutionSortKey];
-
-/**
- * @public
- */
-export interface ListMonitoringExecutionsRequest {
-  /**
-   * <p>Name of a specific schedule to fetch jobs for.</p>
-   * @public
-   */
-  MonitoringScheduleName?: string;
-
-  /**
-   * <p>Name of a specific endpoint to fetch jobs for.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
-   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringExecutionSortKey;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for jobs scheduled before a specified time.</p>
-   * @public
-   */
-  ScheduledTimeBefore?: Date;
-
-  /**
-   * <p>Filter for jobs scheduled after a specified time.</p>
-   * @public
-   */
-  ScheduledTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only jobs created before a specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only jobs created after a specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only jobs modified after a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only jobs modified before a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that retrieves only jobs with a specific status.</p>
-   * @public
-   */
-  StatusEquals?: ExecutionStatus;
-
-  /**
-   * <p>Gets a list of the monitoring job runs of the specified monitoring job
-   *          definitions.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>A filter that returns only the monitoring job runs of the specified monitoring
-   *          type.</p>
-   * @public
-   */
-  MonitoringTypeEquals?: MonitoringType;
-}
-
-/**
- * @public
- */
-export interface ListMonitoringExecutionsResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
-   * @public
-   */
-  MonitoringExecutionSummaries: MonitoringExecutionSummary[] | undefined;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const MonitoringScheduleSortKey = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type MonitoringScheduleSortKey = (typeof MonitoringScheduleSortKey)[keyof typeof MonitoringScheduleSortKey];
-
-/**
- * @public
- */
-export interface ListMonitoringSchedulesRequest {
-  /**
-   * <p>Name of a specific endpoint to fetch schedules for.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
-   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringScheduleSortKey;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filter for monitoring schedules whose name contains a specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only monitoring schedules created before a specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules created after a specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules modified after a specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
-   * @public
-   */
-  StatusEquals?: ScheduleStatus;
-
-  /**
-   * <p>Gets a list of the monitoring schedules for the specified monitoring job
-   *          definition.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>A filter that returns only the monitoring schedules for the specified monitoring
-   *          type.</p>
-   * @public
-   */
-  MonitoringTypeEquals?: MonitoringType;
-}
-
-/**
- * <p>Summarizes the monitoring schedule.</p>
- * @public
- */
-export interface MonitoringScheduleSummary {
-  /**
-   * <p>The name of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleArn: string | undefined;
-
-  /**
-   * <p>The creation time of the monitoring schedule.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The last time the monitoring schedule was modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The status of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleStatus: ScheduleStatus | undefined;
-
-  /**
-   * <p>The name of the endpoint using the monitoring schedule.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>The name of the monitoring job definition that the schedule is for.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>The type of the monitoring job definition that the schedule is for.</p>
-   * @public
-   */
-  MonitoringType?: MonitoringType;
-}
-
-/**
- * @public
- */
-export interface ListMonitoringSchedulesResponse {
-  /**
-   * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleSummaries: MonitoringScheduleSummary[] | undefined;
-
-  /**
-   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
-   *    it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const NotebookInstanceLifecycleConfigSortKey = {
-  CREATION_TIME: "CreationTime",
-  LAST_MODIFIED_TIME: "LastModifiedTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type NotebookInstanceLifecycleConfigSortKey =
-  (typeof NotebookInstanceLifecycleConfigSortKey)[keyof typeof NotebookInstanceLifecycleConfigSortKey];
-
-/**
- * @public
- * @enum
- */
-export const NotebookInstanceLifecycleConfigSortOrder = {
-  ASCENDING: "Ascending",
-  DESCENDING: "Descending",
-} as const;
-
-/**
- * @public
- */
-export type NotebookInstanceLifecycleConfigSortOrder =
-  (typeof NotebookInstanceLifecycleConfigSortOrder)[keyof typeof NotebookInstanceLifecycleConfigSortOrder];
-
-/**
- * @public
- */
-export interface ListNotebookInstanceLifecycleConfigsInput {
-  /**
-   * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To get the next set of
-   *          lifecycle configurations, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of lifecycle configurations to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: NotebookInstanceLifecycleConfigSortKey;
-
-  /**
-   * <p>The sort order for results.</p>
-   * @public
-   */
-  SortOrder?: NotebookInstanceLifecycleConfigSortOrder;
-
-  /**
-   * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
-   *          configurations whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were created before the
-   *          specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were created after the
-   *          specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were modified before the
-   *          specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only lifecycle configurations that were modified after the
-   *          specified time (timestamp).</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date;
-}
-
-/**
- * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
- * @public
- */
-export interface NotebookInstanceLifecycleConfigSummary {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigArn: string | undefined;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-}
-
-/**
- * @public
- */
-export interface ListNotebookInstanceLifecycleConfigsOutput {
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To get the next set of
-   *          lifecycle configurations, use it in the next request. </p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
-   *          a lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
-}
-
-/**
- * @public
- * @enum
- */
-export const NotebookInstanceSortKey = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-  STATUS: "Status",
-} as const;
-
-/**
- * @public
- */
-export type NotebookInstanceSortKey = (typeof NotebookInstanceSortKey)[keyof typeof NotebookInstanceSortKey];

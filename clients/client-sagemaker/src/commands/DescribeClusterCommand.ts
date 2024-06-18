@@ -58,6 +58,13 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       },
  * //       ExecutionRole: "STRING_VALUE",
  * //       ThreadsPerCore: Number("int"),
+ * //       InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
+ * //         { // ClusterInstanceStorageConfig Union: only one key present
+ * //           EbsVolumeConfig: { // ClusterEbsVolumeConfig
+ * //             VolumeSizeInGB: Number("int"), // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   VpcConfig: { // VpcConfig

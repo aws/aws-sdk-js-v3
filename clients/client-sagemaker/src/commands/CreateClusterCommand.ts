@@ -30,7 +30,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
 /**
  * <p>Creates a SageMaker HyperPod cluster. SageMaker HyperPod is a capability of SageMaker for creating and managing
  *          persistent clusters for developing large machine learning models, such as large language
- *          models (LLMs) and diffusion models. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html">Amazon SageMaker HyperPod</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+ *          models (LLMs) and diffusion models. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html">Amazon SageMaker HyperPod</a> in the
+ *             <i>Amazon SageMaker Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +51,13 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       },
  *       ExecutionRole: "STRING_VALUE", // required
  *       ThreadsPerCore: Number("int"),
+ *       InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
+ *         { // ClusterInstanceStorageConfig Union: only one key present
+ *           EbsVolumeConfig: { // ClusterEbsVolumeConfig
+ *             VolumeSizeInGB: Number("int"), // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
  *   VpcConfig: { // VpcConfig

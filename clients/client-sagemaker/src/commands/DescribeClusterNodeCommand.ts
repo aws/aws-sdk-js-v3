@@ -57,6 +57,13 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //       OnCreate: "STRING_VALUE", // required
  * //     },
  * //     ThreadsPerCore: Number("int"),
+ * //     InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
+ * //       { // ClusterInstanceStorageConfig Union: only one key present
+ * //         EbsVolumeConfig: { // ClusterEbsVolumeConfig
+ * //           VolumeSizeInGB: Number("int"), // required
+ * //         },
+ * //       },
+ * //     ],
  * //     PrivatePrimaryIp: "STRING_VALUE",
  * //     PrivateDnsHostname: "STRING_VALUE",
  * //     Placement: { // ClusterInstancePlacement

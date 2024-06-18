@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribePipelineDefinitionForExecutionRequest,
   DescribePipelineDefinitionForExecutionResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DescribePipelineDefinitionForExecutionCommand,
   se_DescribePipelineDefinitionForExecutionCommand,

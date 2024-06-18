@@ -34,6 +34,7 @@ export * from "./ListInferenceRecommendationsJobsPaginator";
 export * from "./ListLabelingJobsForWorkteamPaginator";
 export * from "./ListLabelingJobsPaginator";
 export * from "./ListLineageGroupsPaginator";
+export * from "./ListMlflowTrackingServersPaginator";
 export * from "./ListModelBiasJobDefinitionsPaginator";
 export * from "./ListModelCardExportJobsPaginator";
 export * from "./ListModelCardVersionsPaginator";

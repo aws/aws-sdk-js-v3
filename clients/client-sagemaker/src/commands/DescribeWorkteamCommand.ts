@@ -29,7 +29,7 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
 
 /**
  * <p>Gets information about a specific work team. You can see information such as the
- *             create date, the last updated date, membership information, and the work team's Amazon
+ *             creation date, the last updated date, membership information, and the work team's Amazon
  *             Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -81,12 +81,10 @@ import {
   RootAccess,
   ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
-  SharingType,
   SkipModelValidation,
   SourceAlgorithmSpecification,
-  SpaceSettings,
-  SpaceStorageSettings,
   ThroughputMode,
+  TrackingServerSize,
   TtlDuration,
   UiTemplate,
   UserSettings,
@@ -101,6 +99,7 @@ import {
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   EndpointStatus,
+  ExecutionStatus,
   FeatureParameter,
   HyperParameterTrainingJobSummary,
   MemberDefinition,
@@ -113,14 +112,13 @@ import {
   NotificationConfiguration,
   OidcConfig,
   OidcConfigFilterSensitiveLog,
-  PipelineExecutionStatus,
-  PipelineExperimentConfig,
-  PipelineStatus,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   ScheduleStatus,
-  SelectiveExecutionConfig,
+  SharingType,
   SourceIpConfig,
+  SpaceSettings,
+  SpaceStorageSettings,
   StudioLifecycleConfigAppType,
   TensorBoardOutputConfig,
   TrainingJobStatus,
@@ -151,13 +149,16 @@ import {
   LambdaStepMetadata,
   LineageType,
   MetricData,
-  MonitoringAlertSummary,
-  NotebookInstanceSortKey,
+  MonitoringAlertStatus,
+  PipelineExecutionStatus,
+  PipelineExperimentConfig,
+  PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
   ResourceType,
   SecondaryStatus,
   SecondaryStatusTransition,
+  SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SortBy,
   SortOrder,
@@ -173,6 +174,571 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>An alert action taken to light up an icon on the Amazon SageMaker Model Dashboard when an alert goes into
+ *             <code>InAlert</code> status.</p>
+ * @public
+ */
+export interface ModelDashboardIndicatorAction {
+  /**
+   * <p>Indicates whether the alert action is turned on.</p>
+   * @public
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * <p>A list of alert actions taken in response to an alert going into
+ *             <code>InAlert</code> status.</p>
+ * @public
+ */
+export interface MonitoringAlertActions {
+  /**
+   * <p>An alert action taken to light up an icon on the Model Dashboard when an alert goes into
+   *          <code>InAlert</code> status.</p>
+   * @public
+   */
+  ModelDashboardIndicator?: ModelDashboardIndicatorAction;
+}
+
+/**
+ * <p>Provides summary information about a monitor alert.</p>
+ * @public
+ */
+export interface MonitoringAlertSummary {
+  /**
+   * <p>The name of a monitoring alert.</p>
+   * @public
+   */
+  MonitoringAlertName: string | undefined;
+
+  /**
+   * <p>A timestamp that indicates when a monitor alert was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when a monitor alert was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The current status of an alert.</p>
+   * @public
+   */
+  AlertStatus: MonitoringAlertStatus | undefined;
+
+  /**
+   * <p>Within <code>EvaluationPeriod</code>, how many execution failures will raise an
+   *          alert.</p>
+   * @public
+   */
+  DatapointsToAlert: number | undefined;
+
+  /**
+   * <p>The number of most recent monitoring executions to consider when evaluating alert
+   *          status.</p>
+   * @public
+   */
+  EvaluationPeriod: number | undefined;
+
+  /**
+   * <p>A list of alert actions taken in response to an alert going into
+   *             <code>InAlert</code> status.</p>
+   * @public
+   */
+  Actions: MonitoringAlertActions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMonitoringAlertsResponse {
+  /**
+   * <p>A JSON array where each element is a summary for a monitoring alert.</p>
+   * @public
+   */
+  MonitoringAlertSummaries?: MonitoringAlertSummary[];
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *          alerts, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringExecutionSortKey = {
+  CREATION_TIME: "CreationTime",
+  SCHEDULED_TIME: "ScheduledTime",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringExecutionSortKey = (typeof MonitoringExecutionSortKey)[keyof typeof MonitoringExecutionSortKey];
+
+/**
+ * @public
+ */
+export interface ListMonitoringExecutionsRequest {
+  /**
+   * <p>Name of a specific schedule to fetch jobs for.</p>
+   * @public
+   */
+  MonitoringScheduleName?: string;
+
+  /**
+   * <p>Name of a specific endpoint to fetch jobs for.</p>
+   * @public
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
+   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: MonitoringExecutionSortKey;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *    The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for jobs scheduled before a specified time.</p>
+   * @public
+   */
+  ScheduledTimeBefore?: Date;
+
+  /**
+   * <p>Filter for jobs scheduled after a specified time.</p>
+   * @public
+   */
+  ScheduledTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs created before a specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only jobs created after a specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only jobs modified after a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only jobs modified before a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that retrieves only jobs with a specific status.</p>
+   * @public
+   */
+  StatusEquals?: ExecutionStatus;
+
+  /**
+   * <p>Gets a list of the monitoring job runs of the specified monitoring job
+   *          definitions.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring job runs of the specified monitoring
+   *          type.</p>
+   * @public
+   */
+  MonitoringTypeEquals?: MonitoringType;
+}
+
+/**
+ * @public
+ */
+export interface ListMonitoringExecutionsResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
+   * @public
+   */
+  MonitoringExecutionSummaries: MonitoringExecutionSummary[] | undefined;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringScheduleSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringScheduleSortKey = (typeof MonitoringScheduleSortKey)[keyof typeof MonitoringScheduleSortKey];
+
+/**
+ * @public
+ */
+export interface ListMonitoringSchedulesRequest {
+  /**
+   * <p>Name of a specific endpoint to fetch schedules for.</p>
+   * @public
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
+   *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: MonitoringScheduleSortKey;
+
+  /**
+   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
+   *    The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter for monitoring schedules whose name contains a specified string.</p>
+   * @public
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only monitoring schedules created before a specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules created after a specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified after a specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
+   * @public
+   */
+  StatusEquals?: ScheduleStatus;
+
+  /**
+   * <p>Gets a list of the monitoring schedules for the specified monitoring job
+   *          definition.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>A filter that returns only the monitoring schedules for the specified monitoring
+   *          type.</p>
+   * @public
+   */
+  MonitoringTypeEquals?: MonitoringType;
+}
+
+/**
+ * <p>Summarizes the monitoring schedule.</p>
+ * @public
+ */
+export interface MonitoringScheduleSummary {
+  /**
+   * <p>The name of the monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleArn: string | undefined;
+
+  /**
+   * <p>The creation time of the monitoring schedule.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The last time the monitoring schedule was modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The status of the monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleStatus: ScheduleStatus | undefined;
+
+  /**
+   * <p>The name of the endpoint using the monitoring schedule.</p>
+   * @public
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>The name of the monitoring job definition that the schedule is for.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>The type of the monitoring job definition that the schedule is for.</p>
+   * @public
+   */
+  MonitoringType?: MonitoringType;
+}
+
+/**
+ * @public
+ */
+export interface ListMonitoringSchedulesResponse {
+  /**
+   * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleSummaries: MonitoringScheduleSummary[] | undefined;
+
+  /**
+   * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
+   *    it in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceLifecycleConfigSortKey = {
+  CREATION_TIME: "CreationTime",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceLifecycleConfigSortKey =
+  (typeof NotebookInstanceLifecycleConfigSortKey)[keyof typeof NotebookInstanceLifecycleConfigSortKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceLifecycleConfigSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceLifecycleConfigSortOrder =
+  (typeof NotebookInstanceLifecycleConfigSortOrder)[keyof typeof NotebookInstanceLifecycleConfigSortOrder];
+
+/**
+ * @public
+ */
+export interface ListNotebookInstanceLifecycleConfigsInput {
+  /**
+   * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To get the next set of
+   *          lifecycle configurations, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of lifecycle configurations to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: NotebookInstanceLifecycleConfigSortKey;
+
+  /**
+   * <p>The sort order for results.</p>
+   * @public
+   */
+  SortOrder?: NotebookInstanceLifecycleConfigSortOrder;
+
+  /**
+   * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
+   *          configurations whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were created before the
+   *          specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were created after the
+   *          specified time (timestamp).</p>
+   * @public
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were modified before the
+   *          specified time (timestamp).</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only lifecycle configurations that were modified after the
+   *          specified time (timestamp).</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date;
+}
+
+/**
+ * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
+ * @public
+ */
+export interface NotebookInstanceLifecycleConfigSummary {
+  /**
+   * <p>The name of the lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigArn: string | undefined;
+
+  /**
+   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListNotebookInstanceLifecycleConfigsOutput {
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To get the next set of
+   *          lifecycle configurations, use it in the next request. </p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
+   *          a lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NotebookInstanceSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type NotebookInstanceSortKey = (typeof NotebookInstanceSortKey)[keyof typeof NotebookInstanceSortKey];
 
 /**
  * @public
@@ -5804,6 +6370,28 @@ export interface StartInferenceExperimentResponse {
 /**
  * @public
  */
+export interface StartMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the tracking server to start.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the started tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartMonitoringScheduleRequest {
   /**
    * <p>The name of the schedule to start.</p>
@@ -6042,6 +6630,28 @@ export interface StopLabelingJobRequest {
    * @public
    */
   LabelingJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the tracking server to stop.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the stopped tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
 }
 
 /**
@@ -7150,6 +7760,58 @@ export interface UpdateInferenceExperimentResponse {
    * @public
    */
   InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the MLflow Tracking Server to update.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+
+  /**
+   * <p>The new S3 URI for the general purpose bucket to use as the artifact store for the MLflow
+   *       Tracking Server.</p>
+   * @public
+   */
+  ArtifactStoreUri?: string;
+
+  /**
+   * <p>The new size for the MLflow Tracking Server.</p>
+   * @public
+   */
+  TrackingServerSize?: TrackingServerSize;
+
+  /**
+   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
+   *       To enable automatic model registration, set this value to <code>True</code>.
+   *       To disable automatic model registration, set this value to <code>False</code>.
+   *       If not specified, <code>AutomaticModelRegistration</code> defaults to <code>False</code>
+   *          </p>
+   * @public
+   */
+  AutomaticModelRegistration?: boolean;
+
+  /**
+   * <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be
+   *       in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the updated MLflow Tracking Server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
 }
 
 /**

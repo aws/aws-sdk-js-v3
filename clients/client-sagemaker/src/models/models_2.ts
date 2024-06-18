@@ -42,6 +42,7 @@ import {
   ClusterNodeDetails,
   ClusterStatus,
   CodeEditorAppImageConfig,
+  CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
@@ -51,7 +52,6 @@ import {
   GitConfig,
   HyperParameterTuningJobObjectiveType,
   InferenceSpecification,
-  InputConfig,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
@@ -90,6 +90,7 @@ import {
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
+  EFSFileSystem,
   EndpointInfo,
   ExperimentConfig,
   ExplainerConfig,
@@ -110,8 +111,11 @@ import {
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
+  InputConfig,
   InstanceMetadataServiceConfiguration,
   JobType,
+  JupyterServerAppSettings,
+  KernelGatewayAppSettings,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
@@ -142,12 +146,10 @@ import {
   MonitoringType,
   NeoVpcConfig,
   NotebookInstanceAcceleratorType,
-  NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
   OwnershipSettings,
-  ParallelismConfiguration,
   ProcessingInstanceType,
   Processor,
   ProductionVariant,
@@ -163,12 +165,170 @@ import {
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
-  SpaceSettings,
-  SpaceSharingSettings,
+  SpaceCodeEditorAppSettings,
   ThroughputMode,
+  TrackingServerSize,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * <p>A file system, created by you, that you assign to a user profile or space for an
+ *                 Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
+ * @public
+ */
+export type CustomFileSystem = CustomFileSystem.EFSFileSystemMember | CustomFileSystem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomFileSystem {
+  /**
+   * <p>A custom file system in Amazon EFS.</p>
+   * @public
+   */
+  export interface EFSFileSystemMember {
+    EFSFileSystem: EFSFileSystem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    EFSFileSystem?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    EFSFileSystem: (value: EFSFileSystem) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CustomFileSystem, visitor: Visitor<T>): T => {
+    if (value.EFSFileSystem !== undefined) return visitor.EFSFileSystem(value.EFSFileSystem);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The settings for the JupyterLab application within a space.</p>
+ * @public
+ */
+export interface SpaceJupyterLabAppSettings {
+  /**
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *          the version runs on.</p>
+   * @public
+   */
+  DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.</p>
+   * @public
+   */
+  CodeRepositories?: CodeRepository[];
+}
+
+/**
+ * <p>A collection of EBS storage settings that apply to both private and shared spaces.</p>
+ * @public
+ */
+export interface EbsStorageSettings {
+  /**
+   * <p>The size of an EBS storage volume for a space.</p>
+   * @public
+   */
+  EbsVolumeSizeInGb: number | undefined;
+}
+
+/**
+ * <p>The storage settings for a space.</p>
+ * @public
+ */
+export interface SpaceStorageSettings {
+  /**
+   * <p>A collection of EBS storage settings for a space.</p>
+   * @public
+   */
+  EbsStorageSettings?: EbsStorageSettings;
+}
+
+/**
+ * <p>A collection of space settings.</p>
+ * @public
+ */
+export interface SpaceSettings {
+  /**
+   * <p>The JupyterServer app settings.</p>
+   * @public
+   */
+  JupyterServerAppSettings?: JupyterServerAppSettings;
+
+  /**
+   * <p>The KernelGateway app settings.</p>
+   * @public
+   */
+  KernelGatewayAppSettings?: KernelGatewayAppSettings;
+
+  /**
+   * <p>The Code Editor application settings.</p>
+   * @public
+   */
+  CodeEditorAppSettings?: SpaceCodeEditorAppSettings;
+
+  /**
+   * <p>The settings for the JupyterLab application.</p>
+   * @public
+   */
+  JupyterLabAppSettings?: SpaceJupyterLabAppSettings;
+
+  /**
+   * <p>The type of app created within the space.</p>
+   * @public
+   */
+  AppType?: AppType;
+
+  /**
+   * <p>The storage settings for a space.</p>
+   * @public
+   */
+  SpaceStorageSettings?: SpaceStorageSettings;
+
+  /**
+   * <p>A file system, created by you, that you assign to a space for an Amazon SageMaker
+   *             Domain. Permitted users can access this file system in Amazon SageMaker
+   *             Studio.</p>
+   * @public
+   */
+  CustomFileSystems?: CustomFileSystem[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SharingType = {
+  Private: "Private",
+  Shared: "Shared",
+} as const;
+
+/**
+ * @public
+ */
+export type SharingType = (typeof SharingType)[keyof typeof SharingType];
+
+/**
+ * <p>A collection of space sharing settings.</p>
+ * @public
+ */
+export interface SpaceSharingSettings {
+  /**
+   * <p>Specifies the sharing type of the space.</p>
+   * @public
+   */
+  SharingType: SharingType | undefined;
+}
 
 /**
  * @public
@@ -1444,7 +1604,7 @@ export interface OidcConfig {
 
 /**
  * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
- *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
+ *             list of IP addresses for a private workforce. Workers will only be able to log in to their worker portal from an
  *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
  * @public
  */
@@ -1473,7 +1633,7 @@ export interface WorkforceVpcConfigRequest {
   VpcId?: string;
 
   /**
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.</p>
+   * <p>The VPC security group IDs, in the form <code>sg-xxxxxxxx</code>. The security groups must be for the same VPC as specified in the subnet.</p>
    * @public
    */
   SecurityGroupIds?: string[];
@@ -1510,7 +1670,7 @@ export interface CreateWorkforceRequest {
 
   /**
    * <p>A list of IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Used to create an allow
-   *             list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an
+   *             list of IP addresses for a private workforce. Workers will only be able to log in to their worker portal from an
    *             IP address within this range. By default, a workforce isn't restricted to specific IP addresses.</p>
    * @public
    */
@@ -2414,6 +2574,29 @@ export interface DeleteInferenceExperimentResponse {
    * @public
    */
   InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the the tracking server to delete.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMlflowTrackingServerResponse {
+  /**
+   * <p>A <code>TrackingServerArn</code> object, the ARN of the tracking server that is deleted if
+   *       successfully found.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
 }
 
 /**
@@ -8207,6 +8390,159 @@ export interface DescribeLineageGroupResponse {
 /**
  * @public
  */
+export interface DescribeMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the MLflow Tracking Server to describe.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IsTrackingServerActive = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+
+/**
+ * @public
+ */
+export type IsTrackingServerActive = (typeof IsTrackingServerActive)[keyof typeof IsTrackingServerActive];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrackingServerStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  MAINTENANCE_COMPLETE: "MaintenanceComplete",
+  MAINTENANCE_FAILED: "MaintenanceFailed",
+  MAINTENANCE_IN_PROGRESS: "MaintenanceInProgress",
+  STARTED: "Started",
+  STARTING: "Starting",
+  START_FAILED: "StartFailed",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  STOP_FAILED: "StopFailed",
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type TrackingServerStatus = (typeof TrackingServerStatus)[keyof typeof TrackingServerStatus];
+
+/**
+ * @public
+ */
+export interface DescribeMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the described tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
+
+  /**
+   * <p>The name of the described tracking server.</p>
+   * @public
+   */
+  TrackingServerName?: string;
+
+  /**
+   * <p>The S3 URI of the general purpose bucket used as the MLflow Tracking Server
+   *       artifact store.</p>
+   * @public
+   */
+  ArtifactStoreUri?: string;
+
+  /**
+   * <p>The size of the described tracking server.</p>
+   * @public
+   */
+  TrackingServerSize?: TrackingServerSize;
+
+  /**
+   * <p>The MLflow version used for the described tracking server.</p>
+   * @public
+   */
+  MlflowVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for an IAM role in your account that the described MLflow Tracking Server
+   *       uses to access the artifact store in Amazon S3.</p>
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The current creation status of the described MLflow Tracking Server.</p>
+   * @public
+   */
+  TrackingServerStatus?: TrackingServerStatus;
+
+  /**
+   * <p>Whether the described MLflow Tracking Server is currently active.</p>
+   * @public
+   */
+  IsActive?: IsTrackingServerActive;
+
+  /**
+   * <p>The URL to connect to the MLflow user interface for the described tracking server.</p>
+   * @public
+   */
+  TrackingServerUrl?: string;
+
+  /**
+   * <p>The day and time of the week when weekly maintenance occurs on the described tracking server.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string;
+
+  /**
+   * <p>Whether automatic registration of new MLflow models to the SageMaker Model Registry is enabled.</p>
+   * @public
+   */
+  AutomaticModelRegistration?: boolean;
+
+  /**
+   * <p>The timestamp of when the described MLflow Tracking Server was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>The timestamp of when the described MLflow Tracking Server was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+}
+
+/**
+ * @public
+ */
 export interface DescribeModelInput {
   /**
    * <p>The name of the model.</p>
@@ -9550,366 +9886,6 @@ export interface DescribeNotebookInstanceOutput {
    * @public
    */
   InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
-}
-
-/**
- * @public
- */
-export interface DescribeNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration to describe.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNotebookInstanceLifecycleConfigOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigArn?: string;
-
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigName?: string;
-
-  /**
-   * <p>The shell script that runs only once, when you create a notebook instance.</p>
-   * @public
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>The shell script that runs every time you start a notebook instance, including when
-   *          you create the notebook instance.</p>
-   * @public
-   */
-  OnStart?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>A timestamp that tells when the lifecycle configuration was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the pipeline to describe.</p>
-   * @public
-   */
-  PipelineName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PipelineStatus = {
-  ACTIVE: "Active",
-  DELETING: "Deleting",
-} as const;
-
-/**
- * @public
- */
-export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
-
-/**
- * @public
- */
-export interface DescribePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   * @public
-   */
-  PipelineArn?: string;
-
-  /**
-   * <p>The name of the pipeline.</p>
-   * @public
-   */
-  PipelineName?: string;
-
-  /**
-   * <p>The display name of the pipeline.</p>
-   * @public
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * <p>The JSON pipeline definition.</p>
-   * @public
-   */
-  PipelineDefinition?: string;
-
-  /**
-   * <p>The description of the pipeline.</p>
-   * @public
-   */
-  PipelineDescription?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The status of the pipeline execution.</p>
-   * @public
-   */
-  PipelineStatus?: PipelineStatus;
-
-  /**
-   * <p>The time when the pipeline was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The time when the pipeline was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The time when the pipeline was last run.</p>
-   * @public
-   */
-  LastRunTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>Lists the parallelism configuration applied to the pipeline.</p>
-   * @public
-   */
-  ParallelismConfiguration?: ParallelismConfiguration;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineDefinitionForExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineDefinitionForExecutionResponse {
-  /**
-   * <p>The JSON pipeline definition.</p>
-   * @public
-   */
-  PipelineDefinition?: string;
-
-  /**
-   * <p>The time when the pipeline was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PipelineExecutionStatus = {
-  EXECUTING: "Executing",
-  FAILED: "Failed",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-  SUCCEEDED: "Succeeded",
-} as const;
-
-/**
- * @public
- */
-export type PipelineExecutionStatus = (typeof PipelineExecutionStatus)[keyof typeof PipelineExecutionStatus];
-
-/**
- * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
- * @public
- */
-export interface PipelineExperimentConfig {
-  /**
-   * <p>The name of the experiment.</p>
-   * @public
-   */
-  ExperimentName?: string;
-
-  /**
-   * <p>The name of the trial.</p>
-   * @public
-   */
-  TrialName?: string;
-}
-
-/**
- * <p>A step selected to run in selective execution mode.</p>
- * @public
- */
-export interface SelectedStep {
-  /**
-   * <p>The name of the pipeline step.</p>
-   * @public
-   */
-  StepName: string | undefined;
-}
-
-/**
- * <p>The selective execution configuration applied to the pipeline run.</p>
- * @public
- */
-export interface SelectiveExecutionConfig {
-  /**
-   * <p>The ARN from a reference execution of the current pipeline.
-   *         Used to copy input collaterals needed for the selected steps to run.
-   *         The execution status of the pipeline can be either <code>Failed</code>
-   *         or <code>Success</code>.</p>
-   *          <p>This field is required if the steps you specify for
-   *           <code>SelectedSteps</code> depend on output collaterals from any non-specified pipeline
-   *           steps. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-selective-ex.html">Selective
-   *           Execution for Pipeline Steps</a>.</p>
-   * @public
-   */
-  SourcePipelineExecutionArn?: string;
-
-  /**
-   * <p>A list of pipeline steps to run. All step(s) in all path(s) between
-   *         two selected steps should be included.</p>
-   * @public
-   */
-  SelectedSteps: SelectedStep[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribePipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   * @public
-   */
-  PipelineArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn?: string;
-
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionDisplayName?: string;
-
-  /**
-   * <p>The status of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionStatus?: PipelineExecutionStatus;
-
-  /**
-   * <p>The description of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionDescription?: string;
-
-  /**
-   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
-   * @public
-   */
-  PipelineExperimentConfig?: PipelineExperimentConfig;
-
-  /**
-   * <p>If the execution failed, a message describing why.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The time when the pipeline execution was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The time when the pipeline execution was modified last.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>The parallelism configuration applied to the pipeline.</p>
-   * @public
-   */
-  ParallelismConfiguration?: ParallelismConfiguration;
-
-  /**
-   * <p>The selective execution configuration applied to the pipeline run.</p>
-   * @public
-   */
-  SelectiveExecutionConfig?: SelectiveExecutionConfig;
 }
 
 /**

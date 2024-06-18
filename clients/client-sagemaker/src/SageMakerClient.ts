@@ -134,6 +134,10 @@ import {
 } from "./commands/CreateInferenceRecommendationsJobCommand";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "./commands/CreateLabelingJobCommand";
 import {
+  CreateMlflowTrackingServerCommandInput,
+  CreateMlflowTrackingServerCommandOutput,
+} from "./commands/CreateMlflowTrackingServerCommand";
+import {
   CreateModelBiasJobDefinitionCommandInput,
   CreateModelBiasJobDefinitionCommandOutput,
 } from "./commands/CreateModelBiasJobDefinitionCommand";
@@ -173,6 +177,10 @@ import {
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
 } from "./commands/CreatePresignedDomainUrlCommand";
+import {
+  CreatePresignedMlflowTrackingServerUrlCommandInput,
+  CreatePresignedMlflowTrackingServerUrlCommandOutput,
+} from "./commands/CreatePresignedMlflowTrackingServerUrlCommand";
 import {
   CreatePresignedNotebookInstanceUrlCommandInput,
   CreatePresignedNotebookInstanceUrlCommandOutput,
@@ -258,6 +266,10 @@ import {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
 } from "./commands/DeleteInferenceExperimentCommand";
+import {
+  DeleteMlflowTrackingServerCommandInput,
+  DeleteMlflowTrackingServerCommandOutput,
+} from "./commands/DeleteMlflowTrackingServerCommand";
 import {
   DeleteModelBiasJobDefinitionCommandInput,
   DeleteModelBiasJobDefinitionCommandOutput,
@@ -408,6 +420,10 @@ import {
   DescribeLineageGroupCommandInput,
   DescribeLineageGroupCommandOutput,
 } from "./commands/DescribeLineageGroupCommand";
+import {
+  DescribeMlflowTrackingServerCommandInput,
+  DescribeMlflowTrackingServerCommandOutput,
+} from "./commands/DescribeMlflowTrackingServerCommand";
 import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
@@ -613,6 +629,10 @@ import {
 } from "./commands/ListLabelingJobsForWorkteamCommand";
 import { ListLineageGroupsCommandInput, ListLineageGroupsCommandOutput } from "./commands/ListLineageGroupsCommand";
 import {
+  ListMlflowTrackingServersCommandInput,
+  ListMlflowTrackingServersCommandOutput,
+} from "./commands/ListMlflowTrackingServersCommand";
+import {
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
 } from "./commands/ListModelBiasJobDefinitionsCommand";
@@ -737,6 +757,10 @@ import {
   StartInferenceExperimentCommandOutput,
 } from "./commands/StartInferenceExperimentCommand";
 import {
+  StartMlflowTrackingServerCommandInput,
+  StartMlflowTrackingServerCommandOutput,
+} from "./commands/StartMlflowTrackingServerCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "./commands/StartMonitoringScheduleCommand";
@@ -771,6 +795,10 @@ import {
   StopInferenceRecommendationsJobCommandOutput,
 } from "./commands/StopInferenceRecommendationsJobCommand";
 import { StopLabelingJobCommandInput, StopLabelingJobCommandOutput } from "./commands/StopLabelingJobCommand";
+import {
+  StopMlflowTrackingServerCommandInput,
+  StopMlflowTrackingServerCommandOutput,
+} from "./commands/StopMlflowTrackingServerCommand";
 import {
   StopMonitoringScheduleCommandInput,
   StopMonitoringScheduleCommandOutput,
@@ -831,6 +859,10 @@ import {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
 } from "./commands/UpdateInferenceExperimentCommand";
+import {
+  UpdateMlflowTrackingServerCommandInput,
+  UpdateMlflowTrackingServerCommandOutput,
+} from "./commands/UpdateMlflowTrackingServerCommand";
 import { UpdateModelCardCommandInput, UpdateModelCardCommandOutput } from "./commands/UpdateModelCardCommand";
 import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "./commands/UpdateModelPackageCommand";
 import {
@@ -915,6 +947,7 @@ export type ServiceInputTypes =
   | CreateInferenceExperimentCommandInput
   | CreateInferenceRecommendationsJobCommandInput
   | CreateLabelingJobCommandInput
+  | CreateMlflowTrackingServerCommandInput
   | CreateModelBiasJobDefinitionCommandInput
   | CreateModelCardCommandInput
   | CreateModelCardExportJobCommandInput
@@ -928,6 +961,7 @@ export type ServiceInputTypes =
   | CreateNotebookInstanceLifecycleConfigCommandInput
   | CreatePipelineCommandInput
   | CreatePresignedDomainUrlCommandInput
+  | CreatePresignedMlflowTrackingServerUrlCommandInput
   | CreatePresignedNotebookInstanceUrlCommandInput
   | CreateProcessingJobCommandInput
   | CreateProjectCommandInput
@@ -968,6 +1002,7 @@ export type ServiceInputTypes =
   | DeleteImageVersionCommandInput
   | DeleteInferenceComponentCommandInput
   | DeleteInferenceExperimentCommandInput
+  | DeleteMlflowTrackingServerCommandInput
   | DeleteModelBiasJobDefinitionCommandInput
   | DeleteModelCardCommandInput
   | DeleteModelCommandInput
@@ -1025,6 +1060,7 @@ export type ServiceInputTypes =
   | DescribeInferenceRecommendationsJobCommandInput
   | DescribeLabelingJobCommandInput
   | DescribeLineageGroupCommandInput
+  | DescribeMlflowTrackingServerCommandInput
   | DescribeModelBiasJobDefinitionCommandInput
   | DescribeModelCardCommandInput
   | DescribeModelCardExportJobCommandInput
@@ -1100,6 +1136,7 @@ export type ServiceInputTypes =
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
   | ListLineageGroupsCommandInput
+  | ListMlflowTrackingServersCommandInput
   | ListModelBiasJobDefinitionsCommandInput
   | ListModelCardExportJobsCommandInput
   | ListModelCardVersionsCommandInput
@@ -1146,6 +1183,7 @@ export type ServiceInputTypes =
   | SendPipelineExecutionStepSuccessCommandInput
   | StartEdgeDeploymentStageCommandInput
   | StartInferenceExperimentCommandInput
+  | StartMlflowTrackingServerCommandInput
   | StartMonitoringScheduleCommandInput
   | StartNotebookInstanceCommandInput
   | StartPipelineExecutionCommandInput
@@ -1157,6 +1195,7 @@ export type ServiceInputTypes =
   | StopInferenceExperimentCommandInput
   | StopInferenceRecommendationsJobCommandInput
   | StopLabelingJobCommandInput
+  | StopMlflowTrackingServerCommandInput
   | StopMonitoringScheduleCommandInput
   | StopNotebookInstanceCommandInput
   | StopPipelineExecutionCommandInput
@@ -1184,6 +1223,7 @@ export type ServiceInputTypes =
   | UpdateInferenceComponentCommandInput
   | UpdateInferenceComponentRuntimeConfigCommandInput
   | UpdateInferenceExperimentCommandInput
+  | UpdateMlflowTrackingServerCommandInput
   | UpdateModelCardCommandInput
   | UpdateModelPackageCommandInput
   | UpdateMonitoringAlertCommandInput
@@ -1240,6 +1280,7 @@ export type ServiceOutputTypes =
   | CreateInferenceExperimentCommandOutput
   | CreateInferenceRecommendationsJobCommandOutput
   | CreateLabelingJobCommandOutput
+  | CreateMlflowTrackingServerCommandOutput
   | CreateModelBiasJobDefinitionCommandOutput
   | CreateModelCardCommandOutput
   | CreateModelCardExportJobCommandOutput
@@ -1253,6 +1294,7 @@ export type ServiceOutputTypes =
   | CreateNotebookInstanceLifecycleConfigCommandOutput
   | CreatePipelineCommandOutput
   | CreatePresignedDomainUrlCommandOutput
+  | CreatePresignedMlflowTrackingServerUrlCommandOutput
   | CreatePresignedNotebookInstanceUrlCommandOutput
   | CreateProcessingJobCommandOutput
   | CreateProjectCommandOutput
@@ -1293,6 +1335,7 @@ export type ServiceOutputTypes =
   | DeleteImageVersionCommandOutput
   | DeleteInferenceComponentCommandOutput
   | DeleteInferenceExperimentCommandOutput
+  | DeleteMlflowTrackingServerCommandOutput
   | DeleteModelBiasJobDefinitionCommandOutput
   | DeleteModelCardCommandOutput
   | DeleteModelCommandOutput
@@ -1350,6 +1393,7 @@ export type ServiceOutputTypes =
   | DescribeInferenceRecommendationsJobCommandOutput
   | DescribeLabelingJobCommandOutput
   | DescribeLineageGroupCommandOutput
+  | DescribeMlflowTrackingServerCommandOutput
   | DescribeModelBiasJobDefinitionCommandOutput
   | DescribeModelCardCommandOutput
   | DescribeModelCardExportJobCommandOutput
@@ -1425,6 +1469,7 @@ export type ServiceOutputTypes =
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput
   | ListLineageGroupsCommandOutput
+  | ListMlflowTrackingServersCommandOutput
   | ListModelBiasJobDefinitionsCommandOutput
   | ListModelCardExportJobsCommandOutput
   | ListModelCardVersionsCommandOutput
@@ -1471,6 +1516,7 @@ export type ServiceOutputTypes =
   | SendPipelineExecutionStepSuccessCommandOutput
   | StartEdgeDeploymentStageCommandOutput
   | StartInferenceExperimentCommandOutput
+  | StartMlflowTrackingServerCommandOutput
   | StartMonitoringScheduleCommandOutput
   | StartNotebookInstanceCommandOutput
   | StartPipelineExecutionCommandOutput
@@ -1482,6 +1528,7 @@ export type ServiceOutputTypes =
   | StopInferenceExperimentCommandOutput
   | StopInferenceRecommendationsJobCommandOutput
   | StopLabelingJobCommandOutput
+  | StopMlflowTrackingServerCommandOutput
   | StopMonitoringScheduleCommandOutput
   | StopNotebookInstanceCommandOutput
   | StopPipelineExecutionCommandOutput
@@ -1509,6 +1556,7 @@ export type ServiceOutputTypes =
   | UpdateInferenceComponentCommandOutput
   | UpdateInferenceComponentRuntimeConfigCommandOutput
   | UpdateInferenceExperimentCommandOutput
+  | UpdateMlflowTrackingServerCommandOutput
   | UpdateModelCardCommandOutput
   | UpdateModelPackageCommandOutput
   | UpdateMonitoringAlertCommandOutput

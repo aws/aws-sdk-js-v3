@@ -7,7 +7,6 @@ import {
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppSpecification,
-  AppType,
   AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AuthMode,
@@ -42,7 +41,6 @@ import {
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
-  InputConfig,
   MetadataProperties,
   MetricDefinition,
   MetricsSource,
@@ -65,6 +63,406 @@ import {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const Framework = {
+  DARKNET: "DARKNET",
+  KERAS: "KERAS",
+  MXNET: "MXNET",
+  ONNX: "ONNX",
+  PYTORCH: "PYTORCH",
+  SKLEARN: "SKLEARN",
+  TENSORFLOW: "TENSORFLOW",
+  TFLITE: "TFLITE",
+  XGBOOST: "XGBOOST",
+} as const;
+
+/**
+ * @public
+ */
+export type Framework = (typeof Framework)[keyof typeof Framework];
+
+/**
+ * <p>Contains information about the location of input model artifacts, the name and
+ *             shape
+ *             of the expected data inputs, and the framework in which the model was trained.</p>
+ * @public
+ */
+export interface InputConfig {
+  /**
+   * <p>The S3 path where the model artifacts, which result from model training, are stored.
+   *             This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>Specifies the name and shape of the expected data inputs for your trained model with a
+   *             JSON dictionary form. The data inputs are <code>Framework</code> specific. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TensorFlow</code>: You must specify the name and shape (NHWC format) of
+   *                     the expected data inputs using a dictionary format for your trained model. The
+   *                     dictionary formats required for the console and CLI are different.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Examples for one input:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console,
+   *                                     <code>\{"input":[1,1024,1024,3]\}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI,
+   *                                     <code>\{\"input\":[1,1024,1024,3]\}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>Examples for two inputs:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console, <code>\{"data1": [1,28,28,1],
+   *                                         "data2":[1,28,28,1]\}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI, <code>\{\"data1\": [1,28,28,1],
+   *                                         \"data2\":[1,28,28,1]\}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KERAS</code>: You must specify the name and shape (NCHW format) of
+   *                     expected data inputs using a dictionary format for your trained model. Note that
+   *                     while Keras model artifacts should be uploaded in NHWC (channel-last) format,
+   *                         <code>DataInputConfig</code> should be specified in NCHW (channel-first)
+   *                     format. The dictionary formats required for the console and CLI are
+   *                     different.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Examples for one input:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console,
+   *                                     <code>\{"input_1":[1,3,224,224]\}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI,
+   *                                     <code>\{\"input_1\":[1,3,224,224]\}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>Examples for two inputs:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console, <code>\{"input_1": [1,3,224,224],
+   *                                         "input_2":[1,3,224,224]\} </code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI, <code>\{\"input_1\": [1,3,224,224],
+   *                                         \"input_2\":[1,3,224,224]\}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MXNET/ONNX/DARKNET</code>: You must specify the name and shape (NCHW
+   *                     format) of the expected data inputs in order using a dictionary format for your
+   *                     trained model. The dictionary formats required for the console and CLI are
+   *                     different.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Examples for one input:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console,
+   *                                     <code>\{"data":[1,3,1024,1024]\}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI,
+   *                                     <code>\{\"data\":[1,3,1024,1024]\}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>Examples for two inputs:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console, <code>\{"var1": [1,1,28,28],
+   *                                         "var2":[1,1,28,28]\} </code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI, <code>\{\"var1\": [1,1,28,28],
+   *                                         \"var2\":[1,1,28,28]\}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PyTorch</code>: You can either specify the name and shape (NCHW format)
+   *                     of expected data inputs in order using a dictionary format for your trained
+   *                     model or you can specify the shape only using a list format. The dictionary
+   *                     formats required for the console and CLI are different. The list formats for the
+   *                     console and CLI are the same.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Examples for one input in dictionary format:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console,
+   *                                     <code>\{"input0":[1,3,224,224]\}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI,
+   *                                     <code>\{\"input0\":[1,3,224,224]\}</code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>Example for one input in list format:
+   *                             <code>[[1,3,224,224]]</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Examples for two inputs in dictionary format:</p>
+   *                      <ul>
+   *                         <li>
+   *                            <p>If using the console, <code>\{"input0":[1,3,224,224],
+   *                                         "input1":[1,3,224,224]\}</code>
+   *                            </p>
+   *                         </li>
+   *                         <li>
+   *                            <p>If using the CLI, <code>\{\"input0\":[1,3,224,224],
+   *                                         \"input1\":[1,3,224,224]\} </code>
+   *                            </p>
+   *                         </li>
+   *                      </ul>
+   *                   </li>
+   *                   <li>
+   *                      <p>Example for two inputs in list format: <code>[[1,3,224,224],
+   *                                 [1,3,224,224]]</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XGBOOST</code>: input data name and shape are not needed.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>DataInputConfig</code> supports the following parameters for <code>CoreML</code>
+   *             <code>TargetDevice</code> (ML Model format):</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>shape</code>: Input shape, for example <code>\{"input_1": \{"shape":
+   *                         [1,224,224,3]\}\}</code>. In addition to static input shapes, CoreML converter
+   *                     supports Flexible input shapes:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Range Dimension. You can use the Range Dimension feature if you know
+   *                             the input shape will be within some specific interval in that dimension,
+   *                             for example: <code>\{"input_1": \{"shape": ["1..10", 224, 224,
+   *                             3]\}\}</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Enumerated shapes. Sometimes, the models are trained to work only on a
+   *                             select set of inputs. You can enumerate all supported input shapes, for
+   *                             example: <code>\{"input_1": \{"shape": [[1, 224, 224, 3], [1, 160, 160,
+   *                                 3]]\}\}</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default_shape</code>: Default input shape. You can set a default shape
+   *                     during conversion for both Range Dimension and Enumerated Shapes. For example
+   *                         <code>\{"input_1": \{"shape": ["1..10", 224, 224, 3], "default_shape": [1,
+   *                         224, 224, 3]\}\}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code>: Input type. Allowed values: <code>Image</code> and
+   *                         <code>Tensor</code>. By default, the converter generates an ML Model with
+   *                     inputs of type Tensor (MultiArray). User can set input type to be Image. Image
+   *                     input type requires additional input parameters such as <code>bias</code> and
+   *                         <code>scale</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bias</code>: If the input type is an Image, you need to provide the bias
+   *                     vector.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scale</code>: If the input type is an Image, you need to provide a scale
+   *                     factor.</p>
+   *             </li>
+   *          </ul>
+   *          <p>CoreML <code>ClassifierConfig</code> parameters can be specified using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a>
+   *             <code>CompilerOptions</code>. CoreML converter supports Tensorflow and PyTorch models.
+   *             CoreML conversion examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Tensor type input:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3],
+   *                                 [1,160,160,3]], "default_shape": [1,224,224,3]\}\}</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Tensor type input without input name (PyTorch):</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]],
+   *                                 "default_shape": [1,3,224,224]\}]</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Image type input:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3],
+   *                                 [1,160,160,3]], "default_shape": [1,224,224,3], "type": "Image",
+   *                                 "bias": [-1,-1,-1], "scale": 0.007843137255\}\}</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"CompilerOptions": \{"class_labels":
+   *                                 "imagenet_labels_1000.txt"\}</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Image type input without input name (PyTorch):</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]],
+   *                                 "default_shape": [1,3,224,224], "type": "Image", "bias": [-1,-1,-1],
+   *                                 "scale": 0.007843137255\}]</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"CompilerOptions": \{"class_labels":
+   *                                 "imagenet_labels_1000.txt"\}</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>Depending on the model format, <code>DataInputConfig</code> requires the following
+   *             parameters for <code>ml_eia2</code>
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For TensorFlow models saved in the SavedModel format, specify the input names
+   *                     from <code>signature_def_key</code> and the input model shapes for
+   *                         <code>DataInputConfig</code>. Specify the <code>signature_def_key</code> in
+   *                         <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+   *                      <code>OutputConfig:CompilerOptions</code>
+   *                   </a> if the model does not
+   *                     use TensorFlow's default signature def key. For example:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"DataInputConfig": \{"inputs": [1, 224, 224, 3]\}</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"CompilerOptions": \{"signature_def_key":
+   *                                 "serving_custom"\}</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For TensorFlow models saved as a frozen graph, specify the input tensor names
+   *                     and shapes in <code>DataInputConfig</code> and the output tensor names for
+   *                         <code>output_names</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
+   *                      <code>OutputConfig:CompilerOptions</code>
+   *                   </a>. For
+   *                     example:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"DataInputConfig": \{"input_tensor:0": [1, 224, 224,
+   *                             3]\}</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>"CompilerOptions": \{"output_names":
+   *                             ["output_tensor:0"]\}</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DataInputConfig?: string;
+
+  /**
+   * <p>Identifies the framework in which the model was trained. For example:
+   *             TENSORFLOW.</p>
+   * @public
+   */
+  Framework: Framework | undefined;
+
+  /**
+   * <p>Specifies the framework version to use. This API field is only supported for the
+   *             MXNet, PyTorch, TensorFlow and TensorFlow Lite frameworks.</p>
+   *          <p>For information about framework versions supported for cloud targets and edge devices,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud
+   *                 Supported Instance Types and Frameworks</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported
+   *                 Frameworks</a>.</p>
+   * @public
+   */
+  FrameworkVersion?: string;
+}
 
 /**
  * <p>Contains information about a target platform that you want your model to run on, such
@@ -9174,6 +9572,98 @@ export interface CreateLabelingJobResponse {
  * @public
  * @enum
  */
+export const TrackingServerSize = {
+  L: "Large",
+  M: "Medium",
+  S: "Small",
+} as const;
+
+/**
+ * @public
+ */
+export type TrackingServerSize = (typeof TrackingServerSize)[keyof typeof TrackingServerSize];
+
+/**
+ * @public
+ */
+export interface CreateMlflowTrackingServerRequest {
+  /**
+   * <p>A unique string identifying the tracking server name. This string is part of the tracking server
+   *       ARN.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+
+  /**
+   * <p>The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact
+   *       store.</p>
+   * @public
+   */
+  ArtifactStoreUri: string | undefined;
+
+  /**
+   * <p>The size of the tracking server you want to create. You can choose between
+   *         <code>"Small"</code>, <code>"Medium"</code>, and <code>"Large"</code>. The default MLflow
+   *       Tracking Server configuration size is <code>"Small"</code>. You can choose a size depending on
+   *       the projected use of the tracking server such as the volume of data logged, number of users,
+   *       and frequency of use. </p>
+   *          <p>We recommend using a small tracking server for teams of up to 25 users, a medium tracking
+   *       server for teams of up to 50 users, and a large tracking server for teams of up to 100 users. </p>
+   * @public
+   */
+  TrackingServerSize?: TrackingServerSize;
+
+  /**
+   * <p>The version of MLflow that the tracking server uses. To see which MLflow versions are
+   *       available to use, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works">How it works</a>.</p>
+   * @public
+   */
+  MlflowVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to
+   *       access the artifact store in Amazon S3. The role should have <code>AmazonS3FullAccess</code>
+   *       permissions. For more information on IAM permissions for tracking server creation, see
+   *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html">Set up IAM permissions for MLflow</a>.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>True</code>.
+   *     To disable automatic model registration, set this value to <code>False</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>False</code>.</p>
+   * @public
+   */
+  AutomaticModelRegistration?: boolean;
+
+  /**
+   * <p>The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string;
+
+  /**
+   * <p>Tags consisting of key-value pairs used to manage metadata for the tracking server.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InferenceExecutionMode = {
   DIRECT: "Direct",
   SERIAL: "Serial",
@@ -11388,6 +11878,41 @@ export interface CreatePresignedDomainUrlResponse {
 /**
  * @public
  */
+export interface CreatePresignedMlflowTrackingServerUrlRequest {
+  /**
+   * <p>The name of the tracking server to connect to your MLflow UI.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+
+  /**
+   * <p>The duration in seconds that your presigned URL is valid. The presigned URL can be used
+   *       only once.</p>
+   * @public
+   */
+  ExpiresInSeconds?: number;
+
+  /**
+   * <p>The duration in seconds that your MLflow UI session is valid.</p>
+   * @public
+   */
+  SessionExpirationDurationInSeconds?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresignedMlflowTrackingServerUrlResponse {
+  /**
+   * <p>A presigned URL with an authorization token.</p>
+   * @public
+   */
+  AuthorizedUrl?: string;
+}
+
+/**
+ * @public
+ */
 export interface CreatePresignedNotebookInstanceUrlInput {
   /**
    * <p>The name of the notebook instance.</p>
@@ -12172,164 +12697,6 @@ export interface EFSFileSystem {
    * @public
    */
   FileSystemId: string | undefined;
-}
-
-/**
- * <p>A file system, created by you, that you assign to a user profile or space for an
- *                 Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.</p>
- * @public
- */
-export type CustomFileSystem = CustomFileSystem.EFSFileSystemMember | CustomFileSystem.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomFileSystem {
-  /**
-   * <p>A custom file system in Amazon EFS.</p>
-   * @public
-   */
-  export interface EFSFileSystemMember {
-    EFSFileSystem: EFSFileSystem;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    EFSFileSystem?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    EFSFileSystem: (value: EFSFileSystem) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: CustomFileSystem, visitor: Visitor<T>): T => {
-    if (value.EFSFileSystem !== undefined) return visitor.EFSFileSystem(value.EFSFileSystem);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>The settings for the JupyterLab application within a space.</p>
- * @public
- */
-export interface SpaceJupyterLabAppSettings {
-  /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *          the version runs on.</p>
-   * @public
-   */
-  DefaultResourceSpec?: ResourceSpec;
-
-  /**
-   * <p>A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application.</p>
-   * @public
-   */
-  CodeRepositories?: CodeRepository[];
-}
-
-/**
- * <p>A collection of EBS storage settings that apply to both private and shared spaces.</p>
- * @public
- */
-export interface EbsStorageSettings {
-  /**
-   * <p>The size of an EBS storage volume for a space.</p>
-   * @public
-   */
-  EbsVolumeSizeInGb: number | undefined;
-}
-
-/**
- * <p>The storage settings for a space.</p>
- * @public
- */
-export interface SpaceStorageSettings {
-  /**
-   * <p>A collection of EBS storage settings for a space.</p>
-   * @public
-   */
-  EbsStorageSettings?: EbsStorageSettings;
-}
-
-/**
- * <p>A collection of space settings.</p>
- * @public
- */
-export interface SpaceSettings {
-  /**
-   * <p>The JupyterServer app settings.</p>
-   * @public
-   */
-  JupyterServerAppSettings?: JupyterServerAppSettings;
-
-  /**
-   * <p>The KernelGateway app settings.</p>
-   * @public
-   */
-  KernelGatewayAppSettings?: KernelGatewayAppSettings;
-
-  /**
-   * <p>The Code Editor application settings.</p>
-   * @public
-   */
-  CodeEditorAppSettings?: SpaceCodeEditorAppSettings;
-
-  /**
-   * <p>The settings for the JupyterLab application.</p>
-   * @public
-   */
-  JupyterLabAppSettings?: SpaceJupyterLabAppSettings;
-
-  /**
-   * <p>The type of app created within the space.</p>
-   * @public
-   */
-  AppType?: AppType;
-
-  /**
-   * <p>The storage settings for a space.</p>
-   * @public
-   */
-  SpaceStorageSettings?: SpaceStorageSettings;
-
-  /**
-   * <p>A file system, created by you, that you assign to a space for an Amazon SageMaker
-   *             Domain. Permitted users can access this file system in Amazon SageMaker
-   *             Studio.</p>
-   * @public
-   */
-  CustomFileSystems?: CustomFileSystem[];
-}
-
-/**
- * @public
- * @enum
- */
-export const SharingType = {
-  Private: "Private",
-  Shared: "Shared",
-} as const;
-
-/**
- * @public
- */
-export type SharingType = (typeof SharingType)[keyof typeof SharingType];
-
-/**
- * <p>A collection of space sharing settings.</p>
- * @public
- */
-export interface SpaceSharingSettings {
-  /**
-   * <p>Specifies the sharing type of the space.</p>
-   * @public
-   */
-  SharingType: SharingType | undefined;
 }
 
 /**

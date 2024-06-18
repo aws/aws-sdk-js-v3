@@ -113,6 +113,10 @@ import {
 } from "../commands/CreateInferenceRecommendationsJobCommand";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "../commands/CreateLabelingJobCommand";
 import {
+  CreateMlflowTrackingServerCommandInput,
+  CreateMlflowTrackingServerCommandOutput,
+} from "../commands/CreateMlflowTrackingServerCommand";
+import {
   CreateModelBiasJobDefinitionCommandInput,
   CreateModelBiasJobDefinitionCommandOutput,
 } from "../commands/CreateModelBiasJobDefinitionCommand";
@@ -152,6 +156,10 @@ import {
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
 } from "../commands/CreatePresignedDomainUrlCommand";
+import {
+  CreatePresignedMlflowTrackingServerUrlCommandInput,
+  CreatePresignedMlflowTrackingServerUrlCommandOutput,
+} from "../commands/CreatePresignedMlflowTrackingServerUrlCommand";
 import {
   CreatePresignedNotebookInstanceUrlCommandInput,
   CreatePresignedNotebookInstanceUrlCommandOutput,
@@ -237,6 +245,10 @@ import {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
 } from "../commands/DeleteInferenceExperimentCommand";
+import {
+  DeleteMlflowTrackingServerCommandInput,
+  DeleteMlflowTrackingServerCommandOutput,
+} from "../commands/DeleteMlflowTrackingServerCommand";
 import {
   DeleteModelBiasJobDefinitionCommandInput,
   DeleteModelBiasJobDefinitionCommandOutput,
@@ -387,6 +399,10 @@ import {
   DescribeLineageGroupCommandInput,
   DescribeLineageGroupCommandOutput,
 } from "../commands/DescribeLineageGroupCommand";
+import {
+  DescribeMlflowTrackingServerCommandInput,
+  DescribeMlflowTrackingServerCommandOutput,
+} from "../commands/DescribeMlflowTrackingServerCommand";
 import {
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
@@ -592,6 +608,10 @@ import {
 } from "../commands/ListLabelingJobsForWorkteamCommand";
 import { ListLineageGroupsCommandInput, ListLineageGroupsCommandOutput } from "../commands/ListLineageGroupsCommand";
 import {
+  ListMlflowTrackingServersCommandInput,
+  ListMlflowTrackingServersCommandOutput,
+} from "../commands/ListMlflowTrackingServersCommand";
+import {
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
 } from "../commands/ListModelBiasJobDefinitionsCommand";
@@ -716,6 +736,10 @@ import {
   StartInferenceExperimentCommandOutput,
 } from "../commands/StartInferenceExperimentCommand";
 import {
+  StartMlflowTrackingServerCommandInput,
+  StartMlflowTrackingServerCommandOutput,
+} from "../commands/StartMlflowTrackingServerCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "../commands/StartMonitoringScheduleCommand";
@@ -750,6 +774,10 @@ import {
   StopInferenceRecommendationsJobCommandOutput,
 } from "../commands/StopInferenceRecommendationsJobCommand";
 import { StopLabelingJobCommandInput, StopLabelingJobCommandOutput } from "../commands/StopLabelingJobCommand";
+import {
+  StopMlflowTrackingServerCommandInput,
+  StopMlflowTrackingServerCommandOutput,
+} from "../commands/StopMlflowTrackingServerCommand";
 import {
   StopMonitoringScheduleCommandInput,
   StopMonitoringScheduleCommandOutput,
@@ -810,6 +838,10 @@ import {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
 } from "../commands/UpdateInferenceExperimentCommand";
+import {
+  UpdateMlflowTrackingServerCommandInput,
+  UpdateMlflowTrackingServerCommandOutput,
+} from "../commands/UpdateMlflowTrackingServerCommand";
 import { UpdateModelCardCommandInput, UpdateModelCardCommandOutput } from "../commands/UpdateModelCardCommand";
 import { UpdateModelPackageCommandInput, UpdateModelPackageCommandOutput } from "../commands/UpdateModelPackageCommand";
 import {
@@ -936,10 +968,12 @@ import {
   ClarifyShapBaselineConfig,
   ClarifyShapConfig,
   ClarifyTextConfig,
+  ClusterEbsVolumeConfig,
   ClusterInstanceGroupDetails,
   ClusterInstanceGroupSpecification,
   ClusterInstancePlacement,
   ClusterInstanceStatusDetails,
+  ClusterInstanceStorageConfig,
   ClusterLifeCycleConfig,
   ClusterNodeDetails,
   ClusterNodeSummary,
@@ -999,7 +1033,6 @@ import {
   ImageClassificationJobConfig,
   ImageConfig,
   InferenceSpecification,
-  InputConfig,
   InstanceGroup,
   IntegerParameterRangeSpecification,
   JupyterLabAppImageConfig,
@@ -1106,6 +1139,8 @@ import {
   CreateInferenceRecommendationsJobResponse,
   CreateLabelingJobRequest,
   CreateLabelingJobResponse,
+  CreateMlflowTrackingServerRequest,
+  CreateMlflowTrackingServerResponse,
   CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
   CreateModelCardExportJobRequest,
@@ -1132,13 +1167,14 @@ import {
   CreatePipelineResponse,
   CreatePresignedDomainUrlRequest,
   CreatePresignedDomainUrlResponse,
+  CreatePresignedMlflowTrackingServerUrlRequest,
+  CreatePresignedMlflowTrackingServerUrlResponse,
   CreatePresignedNotebookInstanceUrlInput,
   CreatePresignedNotebookInstanceUrlOutput,
   CreateProcessingJobRequest,
   CreateProcessingJobResponse,
   CreateProjectInput,
   CreateProjectOutput,
-  CustomFileSystem,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1160,7 +1196,6 @@ import {
   DriftCheckExplainability,
   DriftCheckModelDataQuality,
   DriftCheckModelQuality,
-  EbsStorageSettings,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
@@ -1198,6 +1233,7 @@ import {
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
+  InputConfig,
   InstanceMetadataServiceConfiguration,
   IntegerParameterRange,
   JupyterLabAppSettings,
@@ -1303,10 +1339,6 @@ import {
   SourceAlgorithm,
   SourceAlgorithmSpecification,
   SpaceCodeEditorAppSettings,
-  SpaceJupyterLabAppSettings,
-  SpaceSettings,
-  SpaceSharingSettings,
-  SpaceStorageSettings,
   Stairs,
   TargetPlatform,
   TensorBoardAppSettings,
@@ -1338,6 +1370,7 @@ import {
   CreateWorkforceResponse,
   CreateWorkteamRequest,
   CreateWorkteamResponse,
+  CustomFileSystem,
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
@@ -1383,6 +1416,8 @@ import {
   DeleteInferenceComponentInput,
   DeleteInferenceExperimentRequest,
   DeleteInferenceExperimentResponse,
+  DeleteMlflowTrackingServerRequest,
+  DeleteMlflowTrackingServerResponse,
   DeleteModelBiasJobDefinitionRequest,
   DeleteModelCardRequest,
   DeleteModelExplainabilityJobDefinitionRequest,
@@ -1485,6 +1520,8 @@ import {
   DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
   DescribeLineageGroupResponse,
+  DescribeMlflowTrackingServerRequest,
+  DescribeMlflowTrackingServerResponse,
   DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
   DescribeModelCardExportJobRequest,
@@ -1504,15 +1541,8 @@ import {
   DescribeMonitoringScheduleRequest,
   DescribeMonitoringScheduleResponse,
   DescribeNotebookInstanceInput,
-  DescribeNotebookInstanceLifecycleConfigInput,
-  DescribeNotebookInstanceLifecycleConfigOutput,
   DescribeNotebookInstanceOutput,
-  DescribePipelineDefinitionForExecutionRequest,
-  DescribePipelineDefinitionForExecutionResponse,
-  DescribePipelineExecutionRequest,
-  DescribePipelineExecutionResponse,
-  DescribePipelineRequest,
-  DescribePipelineResponse,
+  EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1555,7 +1585,6 @@ import {
   OidcMemberDefinition,
   PendingDeploymentSummary,
   PendingProductionVariantSummary,
-  PipelineExperimentConfig,
   ProductionVariantStatus,
   ProductionVariantSummary,
   ProfilerConfig,
@@ -1566,10 +1595,12 @@ import {
   ResolvedAttributes,
   RetentionPolicy,
   S3Presign,
-  SelectedStep,
-  SelectiveExecutionConfig,
   SessionChainingConfig,
   SourceIpConfig,
+  SpaceJupyterLabAppSettings,
+  SpaceSettings,
+  SpaceSharingSettings,
+  SpaceStorageSettings,
   TensorBoardOutputConfig,
   ThroughputConfigDescription,
   TrainingJobStatusCounters,
@@ -1581,6 +1612,14 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeNotebookInstanceLifecycleConfigInput,
+  DescribeNotebookInstanceLifecycleConfigOutput,
+  DescribePipelineDefinitionForExecutionRequest,
+  DescribePipelineDefinitionForExecutionResponse,
+  DescribePipelineExecutionRequest,
+  DescribePipelineExecutionResponse,
+  DescribePipelineRequest,
+  DescribePipelineResponse,
   DescribeProcessingJobRequest,
   DescribeProcessingJobResponse,
   DescribeProjectInput,
@@ -1747,6 +1786,8 @@ import {
   ListLabelingJobsResponse,
   ListLineageGroupsRequest,
   ListLineageGroupsResponse,
+  ListMlflowTrackingServersRequest,
+  ListMlflowTrackingServersResponse,
   ListModelBiasJobDefinitionsRequest,
   ListModelBiasJobDefinitionsResponse,
   ListModelCardExportJobsRequest,
@@ -1770,33 +1811,22 @@ import {
   ListMonitoringAlertHistoryRequest,
   ListMonitoringAlertHistoryResponse,
   ListMonitoringAlertsRequest,
-  ListMonitoringAlertsResponse,
-  ListMonitoringExecutionsRequest,
-  ListMonitoringExecutionsResponse,
-  ListMonitoringSchedulesRequest,
-  ListMonitoringSchedulesResponse,
-  ListNotebookInstanceLifecycleConfigsInput,
-  ListNotebookInstanceLifecycleConfigsOutput,
   MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
-  ModelDashboardIndicatorAction,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
   ModelMetadataSummary,
   ModelPackageGroupSummary,
   ModelPackageSummary,
   ModelSummary,
-  MonitoringAlertActions,
   MonitoringAlertHistorySummary,
-  MonitoringAlertSummary,
   MonitoringJobDefinitionSummary,
   MonitoringSchedule,
-  MonitoringScheduleSummary,
-  NotebookInstanceLifecycleConfigSummary,
   OidcConfigForResponse,
+  PipelineExperimentConfig,
   PredefinedMetricSpecification,
   ProductionVariantServerlessUpdateConfig,
   ProfilerRuleEvaluationStatus,
@@ -1808,10 +1838,13 @@ import {
   ScalingPolicyMetric,
   ScalingPolicyObjective,
   SecondaryStatusTransition,
+  SelectedStep,
+  SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SubscribedWorkteam,
   SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
+  TrackingServerSummary,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
@@ -1821,6 +1854,13 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListMonitoringAlertsResponse,
+  ListMonitoringExecutionsRequest,
+  ListMonitoringExecutionsResponse,
+  ListMonitoringSchedulesRequest,
+  ListMonitoringSchedulesResponse,
+  ListNotebookInstanceLifecycleConfigsInput,
+  ListNotebookInstanceLifecycleConfigsOutput,
   ListNotebookInstancesInput,
   ListNotebookInstancesOutput,
   ListPipelineExecutionsRequest,
@@ -1866,6 +1906,7 @@ import {
   Model,
   ModelCard,
   ModelDashboardEndpoint,
+  ModelDashboardIndicatorAction,
   ModelDashboardModel,
   ModelDashboardModelCard,
   ModelDashboardMonitoringSchedule,
@@ -1873,7 +1914,11 @@ import {
   ModelPackageGroup,
   ModelStepMetadata,
   ModelVariantAction,
+  MonitoringAlertActions,
+  MonitoringAlertSummary,
+  MonitoringScheduleSummary,
   NestedFilters,
+  NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
   OnlineStoreConfigUpdate,
   OwnershipSettingsSummary,
@@ -1924,6 +1969,8 @@ import {
   StartEdgeDeploymentStageRequest,
   StartInferenceExperimentRequest,
   StartInferenceExperimentResponse,
+  StartMlflowTrackingServerRequest,
+  StartMlflowTrackingServerResponse,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
@@ -1937,6 +1984,8 @@ import {
   StopInferenceExperimentResponse,
   StopInferenceRecommendationsJobRequest,
   StopLabelingJobRequest,
+  StopMlflowTrackingServerRequest,
+  StopMlflowTrackingServerResponse,
   StopMonitoringScheduleRequest,
   StopNotebookInstanceInput,
   StopPipelineExecutionRequest,
@@ -1998,6 +2047,8 @@ import {
   UpdateInferenceComponentRuntimeConfigOutput,
   UpdateInferenceExperimentRequest,
   UpdateInferenceExperimentResponse,
+  UpdateMlflowTrackingServerRequest,
+  UpdateMlflowTrackingServerResponse,
   UpdateModelCardRequest,
   UpdateModelCardResponse,
   UpdateModelPackageInput,
@@ -2493,6 +2544,19 @@ export const se_CreateLabelingJobCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateMlflowTrackingServerCommand
+ */
+export const se_CreateMlflowTrackingServerCommand = async (
+  input: CreateMlflowTrackingServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateMlflowTrackingServer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateModelCommand
  */
 export const se_CreateModelCommand = async (
@@ -2656,6 +2720,19 @@ export const se_CreatePresignedDomainUrlCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePresignedDomainUrl");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreatePresignedMlflowTrackingServerUrlCommand
+ */
+export const se_CreatePresignedMlflowTrackingServerUrlCommand = async (
+  input: CreatePresignedMlflowTrackingServerUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreatePresignedMlflowTrackingServerUrl");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3176,6 +3253,19 @@ export const se_DeleteInferenceExperimentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteInferenceExperiment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteMlflowTrackingServerCommand
+ */
+export const se_DeleteMlflowTrackingServerCommand = async (
+  input: DeleteMlflowTrackingServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteMlflowTrackingServer");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3917,6 +4007,19 @@ export const se_DescribeLineageGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeLineageGroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMlflowTrackingServerCommand
+ */
+export const se_DescribeMlflowTrackingServerCommand = async (
+  input: DescribeMlflowTrackingServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMlflowTrackingServer");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4898,6 +5001,19 @@ export const se_ListLineageGroupsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListMlflowTrackingServersCommand
+ */
+export const se_ListMlflowTrackingServersCommand = async (
+  input: ListMlflowTrackingServersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMlflowTrackingServers");
+  let body: any;
+  body = JSON.stringify(se_ListMlflowTrackingServersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListModelBiasJobDefinitionsCommand
  */
 export const se_ListModelBiasJobDefinitionsCommand = async (
@@ -5493,6 +5609,19 @@ export const se_StartInferenceExperimentCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartMlflowTrackingServerCommand
+ */
+export const se_StartMlflowTrackingServerCommand = async (
+  input: StartMlflowTrackingServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMlflowTrackingServer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartMonitoringScheduleCommand
  */
 export const se_StartMonitoringScheduleCommand = async (
@@ -5630,6 +5759,19 @@ export const se_StopLabelingJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StopLabelingJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopMlflowTrackingServerCommand
+ */
+export const se_StopMlflowTrackingServerCommand = async (
+  input: StopMlflowTrackingServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopMlflowTrackingServer");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5983,6 +6125,19 @@ export const se_UpdateInferenceExperimentCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateInferenceExperiment");
   let body: any;
   body = JSON.stringify(se_UpdateInferenceExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateMlflowTrackingServerCommand
+ */
+export const se_UpdateMlflowTrackingServerCommand = async (
+  input: UpdateMlflowTrackingServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateMlflowTrackingServer");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6886,6 +7041,26 @@ export const de_CreateLabelingJobCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateMlflowTrackingServerCommand
+ */
+export const de_CreateMlflowTrackingServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMlflowTrackingServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateMlflowTrackingServerResponse(data, context);
+  const response: CreateMlflowTrackingServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateModelCommand
  */
 export const de_CreateModelCommand = async (
@@ -7139,6 +7314,26 @@ export const de_CreatePresignedDomainUrlCommand = async (
   let contents: any = {};
   contents = de_CreatePresignedDomainUrlResponse(data, context);
   const response: CreatePresignedDomainUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreatePresignedMlflowTrackingServerUrlCommand
+ */
+export const de_CreatePresignedMlflowTrackingServerUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedMlflowTrackingServerUrlCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreatePresignedMlflowTrackingServerUrlResponse(data, context);
+  const response: CreatePresignedMlflowTrackingServerUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -7888,6 +8083,26 @@ export const de_DeleteInferenceExperimentCommand = async (
   let contents: any = {};
   contents = de_DeleteInferenceExperimentResponse(data, context);
   const response: DeleteInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMlflowTrackingServerCommand
+ */
+export const de_DeleteMlflowTrackingServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMlflowTrackingServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteMlflowTrackingServerResponse(data, context);
+  const response: DeleteMlflowTrackingServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -8980,6 +9195,26 @@ export const de_DescribeLineageGroupCommand = async (
   let contents: any = {};
   contents = de_DescribeLineageGroupResponse(data, context);
   const response: DescribeLineageGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMlflowTrackingServerCommand
+ */
+export const de_DescribeMlflowTrackingServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMlflowTrackingServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMlflowTrackingServerResponse(data, context);
+  const response: DescribeMlflowTrackingServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -10487,6 +10722,26 @@ export const de_ListLineageGroupsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListMlflowTrackingServersCommand
+ */
+export const de_ListMlflowTrackingServersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMlflowTrackingServersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMlflowTrackingServersResponse(data, context);
+  const response: ListMlflowTrackingServersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListModelBiasJobDefinitionsCommand
  */
 export const de_ListModelBiasJobDefinitionsCommand = async (
@@ -11401,6 +11656,26 @@ export const de_StartInferenceExperimentCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartMlflowTrackingServerCommand
+ */
+export const de_StartMlflowTrackingServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMlflowTrackingServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartMlflowTrackingServerResponse(data, context);
+  const response: StartMlflowTrackingServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartMonitoringScheduleCommand
  */
 export const de_StartMonitoringScheduleCommand = async (
@@ -11589,6 +11864,26 @@ export const de_StopLabelingJobCommand = async (
   await collectBody(output.body, context);
   const response: StopLabelingJobCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopMlflowTrackingServerCommand
+ */
+export const de_StopMlflowTrackingServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopMlflowTrackingServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopMlflowTrackingServerResponse(data, context);
+  const response: StopMlflowTrackingServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -12103,6 +12398,26 @@ export const de_UpdateInferenceExperimentCommand = async (
   let contents: any = {};
   contents = de_UpdateInferenceExperimentResponse(data, context);
   const response: UpdateInferenceExperimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMlflowTrackingServerCommand
+ */
+export const de_UpdateMlflowTrackingServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMlflowTrackingServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateMlflowTrackingServerResponse(data, context);
+  const response: UpdateMlflowTrackingServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -12714,9 +13029,15 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClarifyTextConfig omitted.
 
+// se_ClusterEbsVolumeConfig omitted.
+
 // se_ClusterInstanceGroupSpecification omitted.
 
 // se_ClusterInstanceGroupSpecifications omitted.
+
+// se_ClusterInstanceStorageConfig omitted.
+
+// se_ClusterInstanceStorageConfigs omitted.
 
 // se_ClusterLifeCycleConfig omitted.
 
@@ -12971,6 +13292,8 @@ const se_CreateInferenceExperimentRequest = (input: CreateInferenceExperimentReq
 
 // se_CreateLabelingJobRequest omitted.
 
+// se_CreateMlflowTrackingServerRequest omitted.
+
 /**
  * serializeAws_json1_1CreateModelBiasJobDefinitionRequest
  */
@@ -13105,6 +13428,8 @@ const se_CreatePipelineRequest = (input: CreatePipelineRequest, context: __Serde
 };
 
 // se_CreatePresignedDomainUrlRequest omitted.
+
+// se_CreatePresignedMlflowTrackingServerUrlRequest omitted.
 
 // se_CreatePresignedNotebookInstanceUrlInput omitted.
 
@@ -13264,6 +13589,8 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
 
 // se_DeleteInferenceExperimentRequest omitted.
 
+// se_DeleteMlflowTrackingServerRequest omitted.
+
 // se_DeleteModelBiasJobDefinitionRequest omitted.
 
 // se_DeleteModelCardRequest omitted.
@@ -13391,6 +13718,8 @@ const se_DeletePipelineRequest = (input: DeletePipelineRequest, context: __Serde
 // se_DescribeLabelingJobRequest omitted.
 
 // se_DescribeLineageGroupRequest omitted.
+
+// se_DescribeMlflowTrackingServerRequest omitted.
 
 // se_DescribeModelBiasJobDefinitionRequest omitted.
 
@@ -14406,6 +14735,22 @@ const se_ListLineageGroupsRequest = (input: ListLineageGroupsRequest, context: _
     NextToken: [],
     SortBy: [],
     SortOrder: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1ListMlflowTrackingServersRequest
+ */
+const se_ListMlflowTrackingServersRequest = (input: ListMlflowTrackingServersRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreatedAfter: (_) => _.getTime() / 1_000,
+    CreatedBefore: (_) => _.getTime() / 1_000,
+    MaxResults: [],
+    MlflowVersion: [],
+    NextToken: [],
+    SortBy: [],
+    SortOrder: [],
+    TrackingServerStatus: [],
   });
 };
 
@@ -15467,6 +15812,8 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 
 // se_StartInferenceExperimentRequest omitted.
 
+// se_StartMlflowTrackingServerRequest omitted.
+
 // se_StartMonitoringScheduleRequest omitted.
 
 // se_StartNotebookInstanceInput omitted.
@@ -15501,6 +15848,8 @@ const se_StartPipelineExecutionRequest = (input: StartPipelineExecutionRequest, 
 // se_StopInferenceRecommendationsJobRequest omitted.
 
 // se_StopLabelingJobRequest omitted.
+
+// se_StopMlflowTrackingServerRequest omitted.
 
 // se_StopMonitoringScheduleRequest omitted.
 
@@ -15721,6 +16070,8 @@ const se_UpdateInferenceExperimentRequest = (input: UpdateInferenceExperimentReq
     ShadowModeConfig: _json,
   });
 };
+
+// se_UpdateMlflowTrackingServerRequest omitted.
 
 // se_UpdateModelCardRequest omitted.
 
@@ -17285,6 +17636,15 @@ const de_ClarifyTextConfig = (output: any, context: __SerdeContext): ClarifyText
 };
 
 /**
+ * deserializeAws_json1_1ClusterEbsVolumeConfig
+ */
+const de_ClusterEbsVolumeConfig = (output: any, context: __SerdeContext): ClusterEbsVolumeConfig => {
+  return take(output, {
+    VolumeSizeInGB: __expectInt32,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ClusterInstanceGroupDetails
  */
 const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): ClusterInstanceGroupDetails => {
@@ -17292,6 +17652,7 @@ const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): C
     CurrentCount: __expectInt32,
     ExecutionRole: __expectString,
     InstanceGroupName: __expectString,
+    InstanceStorageConfigs: (_: any) => de_ClusterInstanceStorageConfigs(_, context),
     InstanceType: __expectString,
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
     TargetCount: __expectInt32,
@@ -17332,6 +17693,30 @@ const de_ClusterInstanceStatusDetails = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_json1_1ClusterInstanceStorageConfig
+ */
+const de_ClusterInstanceStorageConfig = (output: any, context: __SerdeContext): ClusterInstanceStorageConfig => {
+  if (output.EbsVolumeConfig != null) {
+    return {
+      EbsVolumeConfig: de_ClusterEbsVolumeConfig(output.EbsVolumeConfig, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_1ClusterInstanceStorageConfigs
+ */
+const de_ClusterInstanceStorageConfigs = (output: any, context: __SerdeContext): ClusterInstanceStorageConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterInstanceStorageConfig(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1ClusterLifeCycleConfig
  */
 const de_ClusterLifeCycleConfig = (output: any, context: __SerdeContext): ClusterLifeCycleConfig => {
@@ -17349,6 +17734,7 @@ const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNod
     InstanceGroupName: __expectString,
     InstanceId: __expectString,
     InstanceStatus: (_: any) => de_ClusterInstanceStatusDetails(_, context),
+    InstanceStorageConfigs: (_: any) => de_ClusterInstanceStorageConfigs(_, context),
     InstanceType: __expectString,
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
@@ -18045,6 +18431,18 @@ const de_CreateLabelingJobResponse = (output: any, context: __SerdeContext): Cre
 };
 
 /**
+ * deserializeAws_json1_1CreateMlflowTrackingServerResponse
+ */
+const de_CreateMlflowTrackingServerResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateMlflowTrackingServerResponse => {
+  return take(output, {
+    TrackingServerArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateModelBiasJobDefinitionResponse
  */
 const de_CreateModelBiasJobDefinitionResponse = (
@@ -18177,6 +18575,18 @@ const de_CreatePresignedDomainUrlResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePresignedDomainUrlResponse => {
+  return take(output, {
+    AuthorizedUrl: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreatePresignedMlflowTrackingServerUrlResponse
+ */
+const de_CreatePresignedMlflowTrackingServerUrlResponse = (
+  output: any,
+  context: __SerdeContext
+): CreatePresignedMlflowTrackingServerUrlResponse => {
   return take(output, {
     AuthorizedUrl: __expectString,
   }) as any;
@@ -18749,6 +19159,18 @@ const de_DeleteInferenceExperimentResponse = (
 ): DeleteInferenceExperimentResponse => {
   return take(output, {
     InferenceExperimentArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMlflowTrackingServerResponse
+ */
+const de_DeleteMlflowTrackingServerResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteMlflowTrackingServerResponse => {
+  return take(output, {
+    TrackingServerArn: __expectString,
   }) as any;
 };
 
@@ -19606,6 +20028,32 @@ const de_DescribeLineageGroupResponse = (output: any, context: __SerdeContext): 
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LineageGroupArn: __expectString,
     LineageGroupName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMlflowTrackingServerResponse
+ */
+const de_DescribeMlflowTrackingServerResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeMlflowTrackingServerResponse => {
+  return take(output, {
+    ArtifactStoreUri: __expectString,
+    AutomaticModelRegistration: __expectBoolean,
+    CreatedBy: (_: any) => de_UserContext(_, context),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsActive: __expectString,
+    LastModifiedBy: (_: any) => de_UserContext(_, context),
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MlflowVersion: __expectString,
+    RoleArn: __expectString,
+    TrackingServerArn: __expectString,
+    TrackingServerName: __expectString,
+    TrackingServerSize: __expectString,
+    TrackingServerStatus: __expectString,
+    TrackingServerUrl: __expectString,
+    WeeklyMaintenanceWindowStart: __expectString,
   }) as any;
 };
 
@@ -23313,6 +23761,19 @@ const de_ListLineageGroupsResponse = (output: any, context: __SerdeContext): Lis
   return take(output, {
     LineageGroupSummaries: (_: any) => de_LineageGroupSummaries(_, context),
     NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListMlflowTrackingServersResponse
+ */
+const de_ListMlflowTrackingServersResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMlflowTrackingServersResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    TrackingServerSummaries: (_: any) => de_TrackingServerSummaryList(_, context),
   }) as any;
 };
 
@@ -27300,6 +27761,18 @@ const de_StartInferenceExperimentResponse = (
 };
 
 /**
+ * deserializeAws_json1_1StartMlflowTrackingServerResponse
+ */
+const de_StartMlflowTrackingServerResponse = (
+  output: any,
+  context: __SerdeContext
+): StartMlflowTrackingServerResponse => {
+  return take(output, {
+    TrackingServerArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1StartPipelineExecutionResponse
  */
 const de_StartPipelineExecutionResponse = (output: any, context: __SerdeContext): StartPipelineExecutionResponse => {
@@ -27314,6 +27787,18 @@ const de_StartPipelineExecutionResponse = (output: any, context: __SerdeContext)
 const de_StopInferenceExperimentResponse = (output: any, context: __SerdeContext): StopInferenceExperimentResponse => {
   return take(output, {
     InferenceExperimentArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StopMlflowTrackingServerResponse
+ */
+const de_StopMlflowTrackingServerResponse = (
+  output: any,
+  context: __SerdeContext
+): StopMlflowTrackingServerResponse => {
+  return take(output, {
+    TrackingServerArn: __expectString,
   }) as any;
 };
 
@@ -27607,6 +28092,33 @@ const de_TimeSeriesTransformations = (output: any, context: __SerdeContext): Tim
     Aggregation: (_: any) => de_AggregationTransformations(_, context),
     Filling: (_: any) => de_FillingTransformations(_, context),
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TrackingServerSummary
+ */
+const de_TrackingServerSummary = (output: any, context: __SerdeContext): TrackingServerSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsActive: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MlflowVersion: __expectString,
+    TrackingServerArn: __expectString,
+    TrackingServerName: __expectString,
+    TrackingServerStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TrackingServerSummaryList
+ */
+const de_TrackingServerSummaryList = (output: any, context: __SerdeContext): TrackingServerSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TrackingServerSummary(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -28473,6 +28985,18 @@ const de_UpdateInferenceExperimentResponse = (
 ): UpdateInferenceExperimentResponse => {
   return take(output, {
     InferenceExperimentArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMlflowTrackingServerResponse
+ */
+const de_UpdateMlflowTrackingServerResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateMlflowTrackingServerResponse => {
+  return take(output, {
+    TrackingServerArn: __expectString,
   }) as any;
 };
 

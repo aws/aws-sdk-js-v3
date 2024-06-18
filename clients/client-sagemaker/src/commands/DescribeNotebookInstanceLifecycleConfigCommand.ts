@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeNotebookInstanceLifecycleConfigInput,
   DescribeNotebookInstanceLifecycleConfigOutput,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DescribeNotebookInstanceLifecycleConfigCommand,
   se_DescribeNotebookInstanceLifecycleConfigCommand,

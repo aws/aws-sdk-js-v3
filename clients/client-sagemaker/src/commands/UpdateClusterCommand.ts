@@ -48,6 +48,13 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       },
  *       ExecutionRole: "STRING_VALUE", // required
  *       ThreadsPerCore: Number("int"),
+ *       InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
+ *         { // ClusterInstanceStorageConfig Union: only one key present
+ *           EbsVolumeConfig: { // ClusterEbsVolumeConfig
+ *             VolumeSizeInGB: Number("int"), // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
  * };

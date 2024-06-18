@@ -162,6 +162,11 @@ import {
   CreateLabelingJobCommandOutput,
 } from "./commands/CreateLabelingJobCommand";
 import {
+  CreateMlflowTrackingServerCommand,
+  CreateMlflowTrackingServerCommandInput,
+  CreateMlflowTrackingServerCommandOutput,
+} from "./commands/CreateMlflowTrackingServerCommand";
+import {
   CreateModelBiasJobDefinitionCommand,
   CreateModelBiasJobDefinitionCommandInput,
   CreateModelBiasJobDefinitionCommandOutput,
@@ -222,6 +227,11 @@ import {
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
 } from "./commands/CreatePresignedDomainUrlCommand";
+import {
+  CreatePresignedMlflowTrackingServerUrlCommand,
+  CreatePresignedMlflowTrackingServerUrlCommandInput,
+  CreatePresignedMlflowTrackingServerUrlCommandOutput,
+} from "./commands/CreatePresignedMlflowTrackingServerUrlCommand";
 import {
   CreatePresignedNotebookInstanceUrlCommand,
   CreatePresignedNotebookInstanceUrlCommandInput,
@@ -402,6 +412,11 @@ import {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
 } from "./commands/DeleteInferenceExperimentCommand";
+import {
+  DeleteMlflowTrackingServerCommand,
+  DeleteMlflowTrackingServerCommandInput,
+  DeleteMlflowTrackingServerCommandOutput,
+} from "./commands/DeleteMlflowTrackingServerCommand";
 import {
   DeleteModelBiasJobDefinitionCommand,
   DeleteModelBiasJobDefinitionCommandInput,
@@ -663,6 +678,11 @@ import {
   DescribeLineageGroupCommandInput,
   DescribeLineageGroupCommandOutput,
 } from "./commands/DescribeLineageGroupCommand";
+import {
+  DescribeMlflowTrackingServerCommand,
+  DescribeMlflowTrackingServerCommandInput,
+  DescribeMlflowTrackingServerCommandOutput,
+} from "./commands/DescribeMlflowTrackingServerCommand";
 import {
   DescribeModelBiasJobDefinitionCommand,
   DescribeModelBiasJobDefinitionCommandInput,
@@ -1011,6 +1031,11 @@ import {
   ListLineageGroupsCommandOutput,
 } from "./commands/ListLineageGroupsCommand";
 import {
+  ListMlflowTrackingServersCommand,
+  ListMlflowTrackingServersCommandInput,
+  ListMlflowTrackingServersCommandOutput,
+} from "./commands/ListMlflowTrackingServersCommand";
+import {
   ListModelBiasJobDefinitionsCommand,
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
@@ -1221,6 +1246,11 @@ import {
   StartInferenceExperimentCommandOutput,
 } from "./commands/StartInferenceExperimentCommand";
 import {
+  StartMlflowTrackingServerCommand,
+  StartMlflowTrackingServerCommandInput,
+  StartMlflowTrackingServerCommandOutput,
+} from "./commands/StartMlflowTrackingServerCommand";
+import {
   StartMonitoringScheduleCommand,
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
@@ -1275,6 +1305,11 @@ import {
   StopLabelingJobCommandInput,
   StopLabelingJobCommandOutput,
 } from "./commands/StopLabelingJobCommand";
+import {
+  StopMlflowTrackingServerCommand,
+  StopMlflowTrackingServerCommandInput,
+  StopMlflowTrackingServerCommandOutput,
+} from "./commands/StopMlflowTrackingServerCommand";
 import {
   StopMonitoringScheduleCommand,
   StopMonitoringScheduleCommandInput,
@@ -1403,6 +1438,11 @@ import {
   UpdateInferenceExperimentCommandOutput,
 } from "./commands/UpdateInferenceExperimentCommand";
 import {
+  UpdateMlflowTrackingServerCommand,
+  UpdateMlflowTrackingServerCommandInput,
+  UpdateMlflowTrackingServerCommandOutput,
+} from "./commands/UpdateMlflowTrackingServerCommand";
+import {
   UpdateModelCardCommand,
   UpdateModelCardCommandInput,
   UpdateModelCardCommandOutput,
@@ -1512,6 +1552,7 @@ const commands = {
   CreateInferenceExperimentCommand,
   CreateInferenceRecommendationsJobCommand,
   CreateLabelingJobCommand,
+  CreateMlflowTrackingServerCommand,
   CreateModelCommand,
   CreateModelBiasJobDefinitionCommand,
   CreateModelCardCommand,
@@ -1525,6 +1566,7 @@ const commands = {
   CreateNotebookInstanceLifecycleConfigCommand,
   CreatePipelineCommand,
   CreatePresignedDomainUrlCommand,
+  CreatePresignedMlflowTrackingServerUrlCommand,
   CreatePresignedNotebookInstanceUrlCommand,
   CreateProcessingJobCommand,
   CreateProjectCommand,
@@ -1565,6 +1607,7 @@ const commands = {
   DeleteImageVersionCommand,
   DeleteInferenceComponentCommand,
   DeleteInferenceExperimentCommand,
+  DeleteMlflowTrackingServerCommand,
   DeleteModelCommand,
   DeleteModelBiasJobDefinitionCommand,
   DeleteModelCardCommand,
@@ -1622,6 +1665,7 @@ const commands = {
   DescribeInferenceRecommendationsJobCommand,
   DescribeLabelingJobCommand,
   DescribeLineageGroupCommand,
+  DescribeMlflowTrackingServerCommand,
   DescribeModelCommand,
   DescribeModelBiasJobDefinitionCommand,
   DescribeModelCardCommand,
@@ -1697,6 +1741,7 @@ const commands = {
   ListLabelingJobsCommand,
   ListLabelingJobsForWorkteamCommand,
   ListLineageGroupsCommand,
+  ListMlflowTrackingServersCommand,
   ListModelBiasJobDefinitionsCommand,
   ListModelCardExportJobsCommand,
   ListModelCardsCommand,
@@ -1743,6 +1788,7 @@ const commands = {
   SendPipelineExecutionStepSuccessCommand,
   StartEdgeDeploymentStageCommand,
   StartInferenceExperimentCommand,
+  StartMlflowTrackingServerCommand,
   StartMonitoringScheduleCommand,
   StartNotebookInstanceCommand,
   StartPipelineExecutionCommand,
@@ -1754,6 +1800,7 @@ const commands = {
   StopInferenceExperimentCommand,
   StopInferenceRecommendationsJobCommand,
   StopLabelingJobCommand,
+  StopMlflowTrackingServerCommand,
   StopMonitoringScheduleCommand,
   StopNotebookInstanceCommand,
   StopPipelineExecutionCommand,
@@ -1781,6 +1828,7 @@ const commands = {
   UpdateInferenceComponentCommand,
   UpdateInferenceComponentRuntimeConfigCommand,
   UpdateInferenceExperimentCommand,
+  UpdateMlflowTrackingServerCommand,
   UpdateModelCardCommand,
   UpdateModelPackageCommand,
   UpdateMonitoringAlertCommand,
@@ -2333,6 +2381,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreateMlflowTrackingServerCommand}
+   */
+  createMlflowTrackingServer(
+    args: CreateMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMlflowTrackingServerCommandOutput>;
+  createMlflowTrackingServer(
+    args: CreateMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: CreateMlflowTrackingServerCommandOutput) => void
+  ): void;
+  createMlflowTrackingServer(
+    args: CreateMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMlflowTrackingServerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateModelCommand}
    */
   createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
@@ -2540,6 +2605,23 @@ export interface SageMaker {
     args: CreatePresignedDomainUrlCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePresignedDomainUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePresignedMlflowTrackingServerUrlCommand}
+   */
+  createPresignedMlflowTrackingServerUrl(
+    args: CreatePresignedMlflowTrackingServerUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresignedMlflowTrackingServerUrlCommandOutput>;
+  createPresignedMlflowTrackingServerUrl(
+    args: CreatePresignedMlflowTrackingServerUrlCommandInput,
+    cb: (err: any, data?: CreatePresignedMlflowTrackingServerUrlCommandOutput) => void
+  ): void;
+  createPresignedMlflowTrackingServerUrl(
+    args: CreatePresignedMlflowTrackingServerUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresignedMlflowTrackingServerUrlCommandOutput) => void
   ): void;
 
   /**
@@ -3146,6 +3228,23 @@ export interface SageMaker {
     args: DeleteInferenceExperimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMlflowTrackingServerCommand}
+   */
+  deleteMlflowTrackingServer(
+    args: DeleteMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMlflowTrackingServerCommandOutput>;
+  deleteMlflowTrackingServer(
+    args: DeleteMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: DeleteMlflowTrackingServerCommandOutput) => void
+  ): void;
+  deleteMlflowTrackingServer(
+    args: DeleteMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**
@@ -4040,6 +4139,23 @@ export interface SageMaker {
     args: DescribeLineageGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeLineageGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMlflowTrackingServerCommand}
+   */
+  describeMlflowTrackingServer(
+    args: DescribeMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMlflowTrackingServerCommandOutput>;
+  describeMlflowTrackingServer(
+    args: DescribeMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: DescribeMlflowTrackingServerCommandOutput) => void
+  ): void;
+  describeMlflowTrackingServer(
+    args: DescribeMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**
@@ -5253,6 +5369,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListMlflowTrackingServersCommand}
+   */
+  listMlflowTrackingServers(): Promise<ListMlflowTrackingServersCommandOutput>;
+  listMlflowTrackingServers(
+    args: ListMlflowTrackingServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMlflowTrackingServersCommandOutput>;
+  listMlflowTrackingServers(
+    args: ListMlflowTrackingServersCommandInput,
+    cb: (err: any, data?: ListMlflowTrackingServersCommandOutput) => void
+  ): void;
+  listMlflowTrackingServers(
+    args: ListMlflowTrackingServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMlflowTrackingServersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListModelBiasJobDefinitionsCommand}
    */
   listModelBiasJobDefinitions(): Promise<ListModelBiasJobDefinitionsCommandOutput>;
@@ -6001,6 +6135,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link StartMlflowTrackingServerCommand}
+   */
+  startMlflowTrackingServer(
+    args: StartMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMlflowTrackingServerCommandOutput>;
+  startMlflowTrackingServer(
+    args: StartMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: StartMlflowTrackingServerCommandOutput) => void
+  ): void;
+  startMlflowTrackingServer(
+    args: StartMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMlflowTrackingServerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartMonitoringScheduleCommand}
    */
   startMonitoringSchedule(
@@ -6176,6 +6327,23 @@ export interface SageMaker {
     args: StopLabelingJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopLabelingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopMlflowTrackingServerCommand}
+   */
+  stopMlflowTrackingServer(
+    args: StopMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopMlflowTrackingServerCommandOutput>;
+  stopMlflowTrackingServer(
+    args: StopMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: StopMlflowTrackingServerCommandOutput) => void
+  ): void;
+  stopMlflowTrackingServer(
+    args: StopMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**
@@ -6584,6 +6752,23 @@ export interface SageMaker {
     args: UpdateInferenceExperimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMlflowTrackingServerCommand}
+   */
+  updateMlflowTrackingServer(
+    args: UpdateMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMlflowTrackingServerCommandOutput>;
+  updateMlflowTrackingServer(
+    args: UpdateMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: UpdateMlflowTrackingServerCommandOutput) => void
+  ): void;
+  updateMlflowTrackingServer(
+    args: UpdateMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**

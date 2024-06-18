@@ -8919,6 +8919,66 @@ export interface ClarifyExplainerConfig {
 }
 
 /**
+ * <p>Defines the configuration for attaching an additional Amazon Elastic Block Store (EBS)
+ *          volume to each instance of the SageMaker HyperPod cluster instance group.</p>
+ * @public
+ */
+export interface ClusterEbsVolumeConfig {
+  /**
+   * <p>The size in gigabytes (GB) of the additional EBS volume to be attached to the instances
+   *          in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each
+   *          instance within the SageMaker HyperPod cluster instance group and mounted to
+   *             <code>/opt/sagemaker</code>.</p>
+   * @public
+   */
+  VolumeSizeInGB: number | undefined;
+}
+
+/**
+ * <p>Defines the configuration for attaching additional storage to the instances in the
+ *          SageMaker HyperPod cluster instance group.</p>
+ * @public
+ */
+export type ClusterInstanceStorageConfig =
+  | ClusterInstanceStorageConfig.EbsVolumeConfigMember
+  | ClusterInstanceStorageConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ClusterInstanceStorageConfig {
+  /**
+   * <p>Defines the configuration for attaching additional Amazon Elastic Block Store (EBS)
+   *          volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is
+   *          attached to each instance within the SageMaker HyperPod cluster instance group and mounted to
+   *             <code>/opt/sagemaker</code>.</p>
+   * @public
+   */
+  export interface EbsVolumeConfigMember {
+    EbsVolumeConfig: ClusterEbsVolumeConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    EbsVolumeConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    EbsVolumeConfig: (value: ClusterEbsVolumeConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ClusterInstanceStorageConfig, visitor: Visitor<T>): T => {
+    if (value.EbsVolumeConfig !== undefined) return visitor.EbsVolumeConfig(value.EbsVolumeConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * @public
  * @enum
  */
@@ -9000,14 +9060,15 @@ export interface ClusterLifeCycleConfig {
  */
 export interface ClusterInstanceGroupDetails {
   /**
-   * <p>The number of instances that are currently in the instance group of a
-   *          SageMaker HyperPod cluster.</p>
+   * <p>The number of instances that are currently in the instance group of a SageMaker HyperPod
+   *          cluster.</p>
    * @public
    */
   CurrentCount?: number;
 
   /**
-   * <p>The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.</p>
+   * <p>The number of instances you specified to add to the instance group of a SageMaker HyperPod
+   *          cluster.</p>
    * @public
    */
   TargetCount?: number;
@@ -9040,11 +9101,19 @@ export interface ClusterInstanceGroupDetails {
    * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for
    *          enabling or disabling multithreading. For instance types that support multithreading, you
    *          can specify 1 for disabling multithreading and 2 for enabling multithreading. For more
-   *          information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud
-   *             User Guide</i>.</p>
+   *          information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and
+   *             threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User
+   *             Guide</i>.</p>
    * @public
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>The additional storage configurations for the instances in the SageMaker HyperPod cluster instance
+   *          group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
 }
 
 /**
@@ -9053,7 +9122,8 @@ export interface ClusterInstanceGroupDetails {
  */
 export interface ClusterInstanceGroupSpecification {
   /**
-   * <p>Specifies the number of instances to add to the instance group of a SageMaker HyperPod cluster.</p>
+   * <p>Specifies the number of instances to add to the instance group of a SageMaker HyperPod
+   *          cluster.</p>
    * @public
    */
   InstanceCount: number | undefined;
@@ -9083,15 +9153,23 @@ export interface ClusterInstanceGroupSpecification {
   ExecutionRole: string | undefined;
 
   /**
-   * <p>Specifies the value for <b>Threads per core</b>. For instance types that
-   *          support multithreading, you can specify <code>1</code> for disabling multithreading and
-   *             <code>2</code> for enabling multithreading. For instance types that doesn't support
-   *          multithreading, specify <code>1</code>. For more information, see the reference table of
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud
-   *             User Guide</i>.</p>
+   * <p>Specifies the value for <b>Threads per core</b>. For instance
+   *          types that support multithreading, you can specify <code>1</code> for disabling
+   *          multithreading and <code>2</code> for enabling multithreading. For instance types that
+   *          doesn't support multithreading, specify <code>1</code>. For more information, see the
+   *          reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and
+   *             threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User
+   *             Guide</i>.</p>
    * @public
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Specifies the additional storage configurations for the instances in the SageMaker HyperPod cluster
+   *          instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
 }
 
 /**
@@ -9197,6 +9275,13 @@ export interface ClusterNodeDetails {
    * @public
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>The configurations of additional storage specified to the instance group where the
+   *          instance (node) is launched.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
 
   /**
    * <p>The private primary IP address of the SageMaker HyperPod cluster node.</p>
@@ -11198,7 +11283,8 @@ export interface CreateClusterRequest {
    * <p>Custom tags for managing the SageMaker HyperPod cluster as an Amazon Web Services resource. You can
    *          add tags to your cluster in the same way you add them in other Amazon Web Services services
    *          that support tagging. To learn more about tagging Amazon Web Services resources in general,
-   *          see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging Amazon Web Services Resources User Guide</a>.</p>
+   *          see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
+   *                Amazon Web Services Resources User Guide</a>.</p>
    * @public
    */
   Tags?: Tag[];
@@ -11251,404 +11337,4 @@ export interface CreateCodeRepositoryOutput {
    * @public
    */
   CodeRepositoryArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Framework = {
-  DARKNET: "DARKNET",
-  KERAS: "KERAS",
-  MXNET: "MXNET",
-  ONNX: "ONNX",
-  PYTORCH: "PYTORCH",
-  SKLEARN: "SKLEARN",
-  TENSORFLOW: "TENSORFLOW",
-  TFLITE: "TFLITE",
-  XGBOOST: "XGBOOST",
-} as const;
-
-/**
- * @public
- */
-export type Framework = (typeof Framework)[keyof typeof Framework];
-
-/**
- * <p>Contains information about the location of input model artifacts, the name and
- *             shape
- *             of the expected data inputs, and the framework in which the model was trained.</p>
- * @public
- */
-export interface InputConfig {
-  /**
-   * <p>The S3 path where the model artifacts, which result from model training, are stored.
-   *             This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>
-   * @public
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * <p>Specifies the name and shape of the expected data inputs for your trained model with a
-   *             JSON dictionary form. The data inputs are <code>Framework</code> specific. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TensorFlow</code>: You must specify the name and shape (NHWC format) of
-   *                     the expected data inputs using a dictionary format for your trained model. The
-   *                     dictionary formats required for the console and CLI are different.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Examples for one input:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console,
-   *                                     <code>\{"input":[1,1024,1024,3]\}</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI,
-   *                                     <code>\{\"input\":[1,1024,1024,3]\}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>Examples for two inputs:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console, <code>\{"data1": [1,28,28,1],
-   *                                         "data2":[1,28,28,1]\}</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI, <code>\{\"data1\": [1,28,28,1],
-   *                                         \"data2\":[1,28,28,1]\}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KERAS</code>: You must specify the name and shape (NCHW format) of
-   *                     expected data inputs using a dictionary format for your trained model. Note that
-   *                     while Keras model artifacts should be uploaded in NHWC (channel-last) format,
-   *                         <code>DataInputConfig</code> should be specified in NCHW (channel-first)
-   *                     format. The dictionary formats required for the console and CLI are
-   *                     different.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Examples for one input:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console,
-   *                                     <code>\{"input_1":[1,3,224,224]\}</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI,
-   *                                     <code>\{\"input_1\":[1,3,224,224]\}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>Examples for two inputs:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console, <code>\{"input_1": [1,3,224,224],
-   *                                         "input_2":[1,3,224,224]\} </code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI, <code>\{\"input_1\": [1,3,224,224],
-   *                                         \"input_2\":[1,3,224,224]\}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MXNET/ONNX/DARKNET</code>: You must specify the name and shape (NCHW
-   *                     format) of the expected data inputs in order using a dictionary format for your
-   *                     trained model. The dictionary formats required for the console and CLI are
-   *                     different.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Examples for one input:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console,
-   *                                     <code>\{"data":[1,3,1024,1024]\}</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI,
-   *                                     <code>\{\"data\":[1,3,1024,1024]\}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>Examples for two inputs:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console, <code>\{"var1": [1,1,28,28],
-   *                                         "var2":[1,1,28,28]\} </code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI, <code>\{\"var1\": [1,1,28,28],
-   *                                         \"var2\":[1,1,28,28]\}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PyTorch</code>: You can either specify the name and shape (NCHW format)
-   *                     of expected data inputs in order using a dictionary format for your trained
-   *                     model or you can specify the shape only using a list format. The dictionary
-   *                     formats required for the console and CLI are different. The list formats for the
-   *                     console and CLI are the same.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Examples for one input in dictionary format:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console,
-   *                                     <code>\{"input0":[1,3,224,224]\}</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI,
-   *                                     <code>\{\"input0\":[1,3,224,224]\}</code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>Example for one input in list format:
-   *                             <code>[[1,3,224,224]]</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Examples for two inputs in dictionary format:</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>If using the console, <code>\{"input0":[1,3,224,224],
-   *                                         "input1":[1,3,224,224]\}</code>
-   *                            </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>If using the CLI, <code>\{\"input0\":[1,3,224,224],
-   *                                         \"input1\":[1,3,224,224]\} </code>
-   *                            </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>Example for two inputs in list format: <code>[[1,3,224,224],
-   *                                 [1,3,224,224]]</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>XGBOOST</code>: input data name and shape are not needed.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>DataInputConfig</code> supports the following parameters for <code>CoreML</code>
-   *             <code>TargetDevice</code> (ML Model format):</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>shape</code>: Input shape, for example <code>\{"input_1": \{"shape":
-   *                         [1,224,224,3]\}\}</code>. In addition to static input shapes, CoreML converter
-   *                     supports Flexible input shapes:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Range Dimension. You can use the Range Dimension feature if you know
-   *                             the input shape will be within some specific interval in that dimension,
-   *                             for example: <code>\{"input_1": \{"shape": ["1..10", 224, 224,
-   *                             3]\}\}</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Enumerated shapes. Sometimes, the models are trained to work only on a
-   *                             select set of inputs. You can enumerate all supported input shapes, for
-   *                             example: <code>\{"input_1": \{"shape": [[1, 224, 224, 3], [1, 160, 160,
-   *                                 3]]\}\}</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>default_shape</code>: Default input shape. You can set a default shape
-   *                     during conversion for both Range Dimension and Enumerated Shapes. For example
-   *                         <code>\{"input_1": \{"shape": ["1..10", 224, 224, 3], "default_shape": [1,
-   *                         224, 224, 3]\}\}</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code>: Input type. Allowed values: <code>Image</code> and
-   *                         <code>Tensor</code>. By default, the converter generates an ML Model with
-   *                     inputs of type Tensor (MultiArray). User can set input type to be Image. Image
-   *                     input type requires additional input parameters such as <code>bias</code> and
-   *                         <code>scale</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bias</code>: If the input type is an Image, you need to provide the bias
-   *                     vector.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>scale</code>: If the input type is an Image, you need to provide a scale
-   *                     factor.</p>
-   *             </li>
-   *          </ul>
-   *          <p>CoreML <code>ClassifierConfig</code> parameters can be specified using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a>
-   *             <code>CompilerOptions</code>. CoreML converter supports Tensorflow and PyTorch models.
-   *             CoreML conversion examples:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Tensor type input:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3],
-   *                                 [1,160,160,3]], "default_shape": [1,224,224,3]\}\}</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Tensor type input without input name (PyTorch):</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]],
-   *                                 "default_shape": [1,3,224,224]\}]</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Image type input:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>"DataInputConfig": \{"input_1": \{"shape": [[1,224,224,3],
-   *                                 [1,160,160,3]], "default_shape": [1,224,224,3], "type": "Image",
-   *                                 "bias": [-1,-1,-1], "scale": 0.007843137255\}\}</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>"CompilerOptions": \{"class_labels":
-   *                                 "imagenet_labels_1000.txt"\}</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Image type input without input name (PyTorch):</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>"DataInputConfig": [\{"shape": [[1,3,224,224], [1,3,160,160]],
-   *                                 "default_shape": [1,3,224,224], "type": "Image", "bias": [-1,-1,-1],
-   *                                 "scale": 0.007843137255\}]</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>"CompilerOptions": \{"class_labels":
-   *                                 "imagenet_labels_1000.txt"\}</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>Depending on the model format, <code>DataInputConfig</code> requires the following
-   *             parameters for <code>ml_eia2</code>
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For TensorFlow models saved in the SavedModel format, specify the input names
-   *                     from <code>signature_def_key</code> and the input model shapes for
-   *                         <code>DataInputConfig</code>. Specify the <code>signature_def_key</code> in
-   *                         <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
-   *                      <code>OutputConfig:CompilerOptions</code>
-   *                   </a> if the model does not
-   *                     use TensorFlow's default signature def key. For example:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>"DataInputConfig": \{"inputs": [1, 224, 224, 3]\}</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>"CompilerOptions": \{"signature_def_key":
-   *                                 "serving_custom"\}</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For TensorFlow models saved as a frozen graph, specify the input tensor names
-   *                     and shapes in <code>DataInputConfig</code> and the output tensor names for
-   *                         <code>output_names</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-CompilerOptions">
-   *                      <code>OutputConfig:CompilerOptions</code>
-   *                   </a>. For
-   *                     example:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>"DataInputConfig": \{"input_tensor:0": [1, 224, 224,
-   *                             3]\}</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>"CompilerOptions": \{"output_names":
-   *                             ["output_tensor:0"]\}</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DataInputConfig?: string;
-
-  /**
-   * <p>Identifies the framework in which the model was trained. For example:
-   *             TENSORFLOW.</p>
-   * @public
-   */
-  Framework: Framework | undefined;
-
-  /**
-   * <p>Specifies the framework version to use. This API field is only supported for the
-   *             MXNet, PyTorch, TensorFlow and TensorFlow Lite frameworks.</p>
-   *          <p>For information about framework versions supported for cloud targets and edge devices,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud
-   *                 Supported Instance Types and Frameworks</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported
-   *                 Frameworks</a>.</p>
-   * @public
-   */
-  FrameworkVersion?: string;
 }
