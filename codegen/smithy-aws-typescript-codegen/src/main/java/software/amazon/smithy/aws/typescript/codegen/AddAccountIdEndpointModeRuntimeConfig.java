@@ -76,7 +76,7 @@
                                  writer.addDependency(AwsDependency.AWS_SDK_CORE);
                                  writer.addImport("DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
                                  "DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
-                                     AwsDependency.AWS_SDK_CORE);
+                                 AwsDependency.AWS_SDK_CORE);
                                  writer.write("(() => Promise.resolve(DEFAULT_ACCOUNT_ID_ENDPOINT_MODE))");
                              });
                              break;
