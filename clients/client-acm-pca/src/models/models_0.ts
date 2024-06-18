@@ -531,7 +531,7 @@ export type S3ObjectAcl = (typeof S3ObjectAcl)[keyof typeof S3ObjectAcl];
  * 				parameter. Your S3
  * 			bucket policy must give write permission to Amazon Web Services Private CA. </p>
  *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
- *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
+ *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#crl-encryption">Encrypting Your
  * 			CRLs</a>.</p>
  *          <p>Your private CA uses the value in the <b>ExpirationInDays</b> parameter to calculate the <b>nextUpdate</b> field in the CRL. The CRL is refreshed prior to a
  * 			certificate's expiration date or when a certificate is revoked. When a certificate is

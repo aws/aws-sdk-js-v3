@@ -74,6 +74,11 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * //     buildType: "BUILD" || "BUILD_BATCH",
  * //     manualCreation: true || false,
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
+ * //     scopeConfiguration: { // ScopeConfiguration
+ * //       name: "STRING_VALUE", // required
+ * //       domain: "STRING_VALUE",
+ * //       scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ * //     },
  * //   },
  * // };
  *

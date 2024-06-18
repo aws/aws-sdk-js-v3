@@ -181,6 +181,11 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         buildType: "BUILD" || "BUILD_BATCH",
  * //         manualCreation: true || false,
  * //         lastModifiedSecret: new Date("TIMESTAMP"),
+ * //         scopeConfiguration: { // ScopeConfiguration
+ * //           name: "STRING_VALUE", // required
+ * //           domain: "STRING_VALUE",
+ * //           scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL", // required
+ * //         },
  * //       },
  * //       vpcConfig: { // VpcConfig
  * //         vpcId: "STRING_VALUE",

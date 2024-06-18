@@ -119,6 +119,7 @@ import {
   CreateTableOptimizerCommandOutput,
 } from "../commands/CreateTableOptimizerCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "../commands/CreateTriggerCommand";
+import { CreateUsageProfileCommandInput, CreateUsageProfileCommandOutput } from "../commands/CreateUsageProfileCommand";
 import {
   CreateUserDefinedFunctionCommandInput,
   CreateUserDefinedFunctionCommandOutput,
@@ -175,6 +176,7 @@ import {
 } from "../commands/DeleteTableOptimizerCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "../commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "../commands/DeleteTriggerCommand";
+import { DeleteUsageProfileCommandInput, DeleteUsageProfileCommandOutput } from "../commands/DeleteUsageProfileCommand";
 import {
   DeleteUserDefinedFunctionCommandInput,
   DeleteUserDefinedFunctionCommandOutput,
@@ -302,6 +304,7 @@ import {
   GetUnfilteredTableMetadataCommandInput,
   GetUnfilteredTableMetadataCommandOutput,
 } from "../commands/GetUnfilteredTableMetadataCommand";
+import { GetUsageProfileCommandInput, GetUsageProfileCommandOutput } from "../commands/GetUsageProfileCommand";
 import {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
@@ -361,6 +364,7 @@ import {
   ListTableOptimizerRunsCommandOutput,
 } from "../commands/ListTableOptimizerRunsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "../commands/ListTriggersCommand";
+import { ListUsageProfilesCommandInput, ListUsageProfilesCommandOutput } from "../commands/ListUsageProfilesCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
   PutDataCatalogEncryptionSettingsCommandInput,
@@ -483,6 +487,7 @@ import {
   UpdateTableOptimizerCommandOutput,
 } from "../commands/UpdateTableOptimizerCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "../commands/UpdateTriggerCommand";
+import { UpdateUsageProfileCommandInput, UpdateUsageProfileCommandOutput } from "../commands/UpdateUsageProfileCommand";
 import {
   UpdateUserDefinedFunctionCommandInput,
   UpdateUserDefinedFunctionCommandOutput,
@@ -721,6 +726,7 @@ import {
   ColumnStatisticsTaskRun,
   ConcurrentModificationException,
   ConditionCheckFailureException,
+  ConfigurationObject,
   ConflictException,
   Connection,
   ConnectionInput,
@@ -748,6 +754,7 @@ import {
   CreateTableOptimizerRequest,
   CreateTableRequest,
   CreateTriggerRequest,
+  CreateUsageProfileRequest,
   CreateUserDefinedFunctionRequest,
   CreateWorkflowRequest,
   CsvClassifier,
@@ -785,6 +792,7 @@ import {
   DeleteTableRequest,
   DeleteTableVersionRequest,
   DeleteTriggerRequest,
+  DeleteUsageProfileRequest,
   DeleteUserDefinedFunctionRequest,
   DeleteWorkflowRequest,
   DoubleColumnStatisticsData,
@@ -867,12 +875,6 @@ import {
   GetPartitionsRequest,
   GetPartitionsResponse,
   GetPlanRequest,
-  GetRegistryInput,
-  GetResourcePoliciesRequest,
-  GetResourcePoliciesResponse,
-  GetResourcePolicyRequest,
-  GetResourcePolicyResponse,
-  GluePolicy,
   GrokClassifier,
   IcebergInput,
   IdempotentParameterMismatchException,
@@ -884,10 +886,12 @@ import {
   MLTransform,
   MLUserDataEncryption,
   OpenTableFormatInput,
+  OperationNotSupportedException,
   PartitionIndex,
   Permission,
   PhysicalConnectionRequirements,
   PrincipalPermissions,
+  ProfileConfiguration,
   RegistryId,
   ResourceUri,
   S3Encryption,
@@ -937,6 +941,11 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetRegistryInput,
+  GetResourcePoliciesRequest,
+  GetResourcePoliciesResponse,
+  GetResourcePolicyRequest,
+  GetResourcePolicyResponse,
   GetSchemaByDefinitionInput,
   GetSchemaInput,
   GetSchemaVersionInput,
@@ -968,6 +977,8 @@ import {
   GetUnfilteredPartitionsMetadataResponse,
   GetUnfilteredTableMetadataRequest,
   GetUnfilteredTableMetadataResponse,
+  GetUsageProfileRequest,
+  GetUsageProfileResponse,
   GetUserDefinedFunctionRequest,
   GetUserDefinedFunctionResponse,
   GetUserDefinedFunctionsRequest,
@@ -979,6 +990,7 @@ import {
   GetWorkflowRunResponse,
   GetWorkflowRunsRequest,
   GetWorkflowRunsResponse,
+  GluePolicy,
   IllegalBlueprintStateException,
   IllegalWorkflowStateException,
   ImportCatalogToGlueRequest,
@@ -1011,6 +1023,8 @@ import {
   ListTableOptimizerRunsRequest,
   ListTableOptimizerRunsResponse,
   ListTriggersRequest,
+  ListUsageProfilesRequest,
+  ListUsageProfilesResponse,
   ListWorkflowsRequest,
   Mapping,
   MetadataKeyValuePair,
@@ -1089,9 +1103,11 @@ import {
   UpdateTableOptimizerRequest,
   UpdateTableRequest,
   UpdateTriggerRequest,
+  UpdateUsageProfileRequest,
   UpdateUserDefinedFunctionRequest,
   UpdateWorkflowRequest,
   UpdateXMLClassifierRequest,
+  UsageProfileDefinition,
   UserDefinedFunction,
   VersionMismatchException,
 } from "../models/models_2";
@@ -1643,6 +1659,19 @@ export const se_CreateTriggerCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateUsageProfileCommand
+ */
+export const se_CreateUsageProfileCommand = async (
+  input: CreateUsageProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateUsageProfile");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateUserDefinedFunctionCommand
  */
 export const se_CreateUserDefinedFunctionCommand = async (
@@ -1975,6 +2004,19 @@ export const se_DeleteTriggerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTrigger");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteUsageProfileCommand
+ */
+export const se_DeleteUsageProfileCommand = async (
+  input: DeleteUsageProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteUsageProfile");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2810,6 +2852,19 @@ export const se_GetUnfilteredTableMetadataCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetUsageProfileCommand
+ */
+export const se_GetUsageProfileCommand = async (
+  input: GetUsageProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetUsageProfile");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetUserDefinedFunctionCommand
  */
 export const se_GetUserDefinedFunctionCommand = async (
@@ -3142,6 +3197,19 @@ export const se_ListTriggersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTriggers");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListUsageProfilesCommand
+ */
+export const se_ListUsageProfilesCommand = async (
+  input: ListUsageProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListUsageProfiles");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3831,6 +3899,19 @@ export const se_UpdateTriggerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTrigger");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateUsageProfileCommand
+ */
+export const se_UpdateUsageProfileCommand = async (
+  input: UpdateUsageProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateUsageProfile");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4703,6 +4784,26 @@ export const de_CreateTriggerCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateUsageProfileCommand
+ */
+export const de_CreateUsageProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUsageProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateUsageProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateUserDefinedFunctionCommand
  */
 export const de_CreateUserDefinedFunctionCommand = async (
@@ -5216,6 +5317,26 @@ export const de_DeleteTriggerCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteTriggerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteUsageProfileCommand
+ */
+export const de_DeleteUsageProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUsageProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteUsageProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -6503,6 +6624,26 @@ export const de_GetUnfilteredTableMetadataCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetUsageProfileCommand
+ */
+export const de_GetUsageProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUsageProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetUsageProfileResponse(data, context);
+  const response: GetUsageProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetUserDefinedFunctionCommand
  */
 export const de_GetUserDefinedFunctionCommand = async (
@@ -7016,6 +7157,26 @@ export const de_ListTriggersCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListTriggersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListUsageProfilesCommand
+ */
+export const de_ListUsageProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUsageProfilesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListUsageProfilesResponse(data, context);
+  const response: ListUsageProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -8083,6 +8244,26 @@ export const de_UpdateTriggerCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateUsageProfileCommand
+ */
+export const de_UpdateUsageProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUsageProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateUsageProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateUserDefinedFunctionCommand
  */
 export const de_UpdateUserDefinedFunctionCommand = async (
@@ -8183,6 +8364,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.glue#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.glue#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "CrawlerRunningException":
     case "com.amazonaws.glue#CrawlerRunningException":
       throw await de_CrawlerRunningExceptionRes(parsedOutput, context);
@@ -8658,6 +8842,22 @@ const de_NoScheduleExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_json1_1OperationNotSupportedExceptionRes
+ */
+const de_OperationNotSupportedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OperationNotSupportedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new OperationNotSupportedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1OperationTimeoutExceptionRes
  */
 const de_OperationTimeoutExceptionRes = async (
@@ -8813,6 +9013,8 @@ const de_VersionMismatchExceptionRes = async (
 // se_AggregateOperation omitted.
 
 // se_AggregateOperations omitted.
+
+// se_AllowedValuesStringList omitted.
 
 // se_AmazonRedshiftAdvancedOption omitted.
 
@@ -9161,6 +9363,10 @@ const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeCo
 
 // se_ConditionList omitted.
 
+// se_ConfigurationMap omitted.
+
+// se_ConfigurationObject omitted.
+
 // se_ConnectionInput omitted.
 
 // se_ConnectionPasswordEncryption omitted.
@@ -9358,6 +9564,8 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
 
 // se_CreateTriggerRequest omitted.
 
+// se_CreateUsageProfileRequest omitted.
+
 // se_CreateUserDefinedFunctionRequest omitted.
 
 // se_CreateWorkflowRequest omitted.
@@ -9535,6 +9743,8 @@ const se_DecimalNumber = (input: DecimalNumber, context: __SerdeContext): any =>
 // se_DeleteTableVersionRequest omitted.
 
 // se_DeleteTriggerRequest omitted.
+
+// se_DeleteUsageProfileRequest omitted.
 
 // se_DeleteUserDefinedFunctionRequest omitted.
 
@@ -9922,6 +10132,8 @@ const se_GetUnfilteredTableMetadataRequest = (
   });
 };
 
+// se_GetUsageProfileRequest omitted.
+
 // se_GetUserDefinedFunctionRequest omitted.
 
 // se_GetUserDefinedFunctionsRequest omitted.
@@ -10178,6 +10390,8 @@ const se_ListMLTransformsRequest = (input: ListMLTransformsRequest, context: __S
 
 // se_ListTriggersRequest omitted.
 
+// se_ListUsageProfilesRequest omitted.
+
 // se_ListWorkflowsRequest omitted.
 
 // se_Location omitted.
@@ -10344,6 +10558,8 @@ const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
 // se_PrincipalPermissions omitted.
 
 // se_PrincipalPermissionsList omitted.
+
+// se_ProfileConfiguration omitted.
 
 // se_PropertyPredicate omitted.
 
@@ -10851,6 +11067,8 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
 
 // se_UpdateTriggerRequest omitted.
 
+// se_UpdateUsageProfileRequest omitted.
+
 // se_UpdateUserDefinedFunctionRequest omitted.
 
 // se_UpdateWorkflowRequest omitted.
@@ -10888,6 +11106,8 @@ const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContex
 // de_AggregateOperation omitted.
 
 // de_AggregateOperations omitted.
+
+// de_AllowedValuesStringList omitted.
 
 // de_AlreadyExistsException omitted.
 
@@ -11498,6 +11718,10 @@ const de_ColumnStatisticsTaskRunsList = (output: any, context: __SerdeContext): 
 
 // de_ConditionList omitted.
 
+// de_ConfigurationMap omitted.
+
+// de_ConfigurationObject omitted.
+
 // de_ConflictException omitted.
 
 // de_ConfusionMatrix omitted.
@@ -11788,6 +12012,8 @@ const de_CreateSessionResponse = (output: any, context: __SerdeContext): CreateS
 // de_CreateTableResponse omitted.
 
 // de_CreateTriggerResponse omitted.
+
+// de_CreateUsageProfileResponse omitted.
 
 // de_CreateUserDefinedFunctionResponse omitted.
 
@@ -12188,6 +12414,8 @@ const de_DecimalNumber = (output: any, context: __SerdeContext): DecimalNumber =
 // de_DeleteTableVersionResponse omitted.
 
 // de_DeleteTriggerResponse omitted.
+
+// de_DeleteUsageProfileResponse omitted.
 
 // de_DeleteUserDefinedFunctionResponse omitted.
 
@@ -13055,6 +13283,19 @@ const de_GetUnfilteredTableMetadataResponse = (
 };
 
 /**
+ * deserializeAws_json1_1GetUsageProfileResponse
+ */
+const de_GetUsageProfileResponse = (output: any, context: __SerdeContext): GetUsageProfileResponse => {
+  return take(output, {
+    Configuration: _json,
+    CreatedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LastModifiedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetUserDefinedFunctionResponse
  */
 const de_GetUserDefinedFunctionResponse = (output: any, context: __SerdeContext): GetUserDefinedFunctionResponse => {
@@ -13215,6 +13456,7 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
     NonOverridableArguments: _json,
     NotificationProperty: _json,
     NumberOfWorkers: __expectInt32,
+    ProfileName: __expectString,
     Role: __expectString,
     SecurityConfiguration: __expectString,
     SourceControlDetails: _json,
@@ -13278,6 +13520,7 @@ const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
     NumberOfWorkers: __expectInt32,
     PredecessorRuns: _json,
     PreviousRunId: __expectString,
+    ProfileName: __expectString,
     SecurityConfiguration: __expectString,
     StartedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Timeout: __expectInt32,
@@ -13526,6 +13769,16 @@ const de_ListTableOptimizerRunsResponse = (output: any, context: __SerdeContext)
 
 // de_ListTriggersResponse omitted.
 
+/**
+ * deserializeAws_json1_1ListUsageProfilesResponse
+ */
+const de_ListUsageProfilesResponse = (output: any, context: __SerdeContext): ListUsageProfilesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Profiles: (_: any) => de_UsageProfileDefinitionList(_, context),
+  }) as any;
+};
+
 // de_ListWorkflowsResponse omitted.
 
 // de_LocationMap omitted.
@@ -13678,6 +13931,8 @@ const de_NodeList = (output: any, context: __SerdeContext): Node[] => {
 
 // de_OneInput omitted.
 
+// de_OperationNotSupportedException omitted.
+
 // de_OperationTimeoutException omitted.
 
 // de_Option omitted.
@@ -13778,6 +14033,8 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 // de_PrincipalPermissions omitted.
 
 // de_PrincipalPermissionsList omitted.
+
+// de_ProfileConfiguration omitted.
 
 // de_PublicKeysList omitted.
 
@@ -13961,6 +14218,7 @@ const de_Session = (output: any, context: __SerdeContext): Session => {
     IdleTimeout: __expectInt32,
     MaxCapacity: __limitedParseDouble,
     NumberOfWorkers: __expectInt32,
+    ProfileName: __expectString,
     Progress: __limitedParseDouble,
     Role: __expectString,
     SecurityConfiguration: __expectString,
@@ -14377,11 +14635,37 @@ const de_UpdateColumnStatisticsForTableResponse = (
 
 // de_UpdateTriggerResponse omitted.
 
+// de_UpdateUsageProfileResponse omitted.
+
 // de_UpdateUserDefinedFunctionResponse omitted.
 
 // de_UpdateWorkflowResponse omitted.
 
 // de_UpsertRedshiftTargetOptions omitted.
+
+/**
+ * deserializeAws_json1_1UsageProfileDefinition
+ */
+const de_UsageProfileDefinition = (output: any, context: __SerdeContext): UsageProfileDefinition => {
+  return take(output, {
+    CreatedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LastModifiedOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UsageProfileDefinitionList
+ */
+const de_UsageProfileDefinitionList = (output: any, context: __SerdeContext): UsageProfileDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UsageProfileDefinition(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1UserDefinedFunction

@@ -151,6 +151,7 @@ export interface GetWorkflowRunsCommandOutput extends GetWorkflowRunsResponse, _
  * //                   DPUSeconds: Number("double"),
  * //                   ExecutionClass: "FLEX" || "STANDARD",
  * //                   MaintenanceWindow: "STRING_VALUE",
+ * //                   ProfileName: "STRING_VALUE",
  * //                 },
  * //               ],
  * //             },

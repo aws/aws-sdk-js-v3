@@ -47,7 +47,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * 						policies for CRLs in Amazon S3</a>.</p>
  *          </note>
  *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
- *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
+ *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#crl-encryption">Encrypting Your
  * 			CRLs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

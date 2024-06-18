@@ -2369,6 +2369,12 @@ export interface Session {
    * @public
    */
   IdleTimeout?: number;
+
+  /**
+   * <p>The name of an Glue usage profile associated with the session.</p>
+   * @public
+   */
+  ProfileName?: string;
 }
 
 /**
@@ -2822,6 +2828,120 @@ export interface CreateTriggerResponse {
    * @public
    */
   Name?: string;
+}
+
+/**
+ * <p>Specifies the values that an admin sets for each job or session parameter configured in a Glue usage profile.</p>
+ * @public
+ */
+export interface ConfigurationObject {
+  /**
+   * <p>A default value for the parameter.</p>
+   * @public
+   */
+  DefaultValue?: string;
+
+  /**
+   * <p>A list of allowed values for the parameter.</p>
+   * @public
+   */
+  AllowedValues?: string[];
+
+  /**
+   * <p>A minimum allowed value for the parameter.</p>
+   * @public
+   */
+  MinValue?: string;
+
+  /**
+   * <p>A maximum allowed value for the parameter.</p>
+   * @public
+   */
+  MaxValue?: string;
+}
+
+/**
+ * <p>Specifies the job and session values that an admin configures in an Glue usage profile.</p>
+ * @public
+ */
+export interface ProfileConfiguration {
+  /**
+   * <p>A key-value map of configuration parameters for Glue sessions. </p>
+   * @public
+   */
+  SessionConfiguration?: Record<string, ConfigurationObject>;
+
+  /**
+   * <p>A key-value map of configuration parameters for Glue jobs. </p>
+   * @public
+   */
+  JobConfiguration?: Record<string, ConfigurationObject>;
+}
+
+/**
+ * @public
+ */
+export interface CreateUsageProfileRequest {
+  /**
+   * <p>The name of the usage profile.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the usage profile.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
+   * @public
+   */
+  Configuration: ProfileConfiguration | undefined;
+
+  /**
+   * <p>A list of tags applied to the usage profile.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateUsageProfileResponse {
+  /**
+   * <p>The name of the usage profile that was created.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
+ * <p>The operation is not available in the region.</p>
+ * @public
+ */
+export class OperationNotSupportedException extends __BaseException {
+  readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotSupportedException, __BaseException>) {
+    super({
+      name: "OperationNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3782,6 +3902,22 @@ export interface DeleteTriggerResponse {
    */
   Name?: string;
 }
+
+/**
+ * @public
+ */
+export interface DeleteUsageProfileRequest {
+  /**
+   * <p>The name of the usage profile to delete.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUsageProfileResponse {}
 
 /**
  * @public
@@ -8191,163 +8327,4 @@ export interface GetPlanResponse {
    * @public
    */
   ScalaCode?: string;
-}
-
-/**
- * @public
- */
-export interface GetRegistryInput {
-  /**
-   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  RegistryId: RegistryId | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRegistryResponse {
-  /**
-   * <p>The name of the registry.</p>
-   * @public
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry.</p>
-   * @public
-   */
-  RegistryArn?: string;
-
-  /**
-   * <p>A description of the registry.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The status of the registry.</p>
-   * @public
-   */
-  Status?: RegistryStatus;
-
-  /**
-   * <p>The date and time the registry was created.</p>
-   * @public
-   */
-  CreatedTime?: string;
-
-  /**
-   * <p>The date and time the registry was updated.</p>
-   * @public
-   */
-  UpdatedTime?: string;
-}
-
-/**
- * @public
- */
-export interface GetResourcePoliciesRequest {
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum size of a list to return.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>A structure for returning a resource policy.</p>
- * @public
- */
-export interface GluePolicy {
-  /**
-   * <p>Contains the requested policy document, in JSON format.</p>
-   * @public
-   */
-  PolicyInJson?: string;
-
-  /**
-   * <p>Contains the hash value associated with this policy.</p>
-   * @public
-   */
-  PolicyHash?: string;
-
-  /**
-   * <p>The date and time at which the policy was created.</p>
-   * @public
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>The date and time at which the policy was last updated.</p>
-   * @public
-   */
-  UpdateTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetResourcePoliciesResponse {
-  /**
-   * <p>A list of the individual resource policies and the account-level resource policy.</p>
-   * @public
-   */
-  GetResourcePoliciesResponseList?: GluePolicy[];
-
-  /**
-   * <p>A continuation token, if the returned list does not contain the last resource policy available.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetResourcePolicyRequest {
-  /**
-   * <p>The ARN of the Glue resource for which to retrieve the resource policy. If not
-   *       supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code>
-   *       to view all existing resource policies. For more information see <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">Specifying Glue Resource ARNs</a>.
-   *     </p>
-   * @public
-   */
-  ResourceArn?: string;
-}
-
-/**
- * @public
- */
-export interface GetResourcePolicyResponse {
-  /**
-   * <p>Contains the requested policy document, in JSON format.</p>
-   * @public
-   */
-  PolicyInJson?: string;
-
-  /**
-   * <p>Contains the hash value associated with this policy.</p>
-   * @public
-   */
-  PolicyHash?: string;
-
-  /**
-   * <p>The date and time at which the policy was created.</p>
-   * @public
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>The date and time at which the policy was last updated.</p>
-   * @public
-   */
-  UpdateTime?: Date;
 }

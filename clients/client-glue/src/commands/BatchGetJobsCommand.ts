@@ -1121,6 +1121,7 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * //         AuthToken: "STRING_VALUE",
  * //       },
  * //       MaintenanceWindow: "STRING_VALUE",
+ * //       ProfileName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   JobsNotFound: [ // JobNameList

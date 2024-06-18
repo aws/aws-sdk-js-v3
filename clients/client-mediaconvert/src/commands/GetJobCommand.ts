@@ -280,7 +280,11 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  * //           TimecodeStart: "STRING_VALUE",
  * //           VideoGenerator: { // InputVideoGenerator
+ * //             Channels: Number("int"),
  * //             Duration: Number("int"),
+ * //             FramerateDenominator: Number("int"),
+ * //             FramerateNumerator: Number("int"),
+ * //             SampleRate: Number("int"),
  * //           },
  * //           VideoOverlays: [ // __listOfVideoOverlay
  * //             { // VideoOverlay
@@ -423,6 +427,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               BaseUrl: "STRING_VALUE",
  * //               ClientCache: "DISABLED" || "ENABLED",
  * //               CodecSpecification: "RFC_6381" || "RFC_4281",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: { // DestinationSettings
@@ -499,6 +504,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               ],
  * //               AudioChannelConfigSchemeIdUri: "MPEG_CHANNEL_CONFIGURATION" || "DOLBY_CHANNEL_CONFIGURATION",
  * //               BaseUrl: "STRING_VALUE",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: {

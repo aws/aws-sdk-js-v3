@@ -8205,6 +8205,12 @@ export interface JobRun {
    * @public
    */
   MaintenanceWindow?: string;
+
+  /**
+   * <p>The name of an Glue usage profile associated with the job run.</p>
+   * @public
+   */
+  ProfileName?: string;
 }
 
 /**

@@ -205,6 +205,11 @@ import {
   CreateTriggerCommandOutput,
 } from "./commands/CreateTriggerCommand";
 import {
+  CreateUsageProfileCommand,
+  CreateUsageProfileCommandInput,
+  CreateUsageProfileCommandOutput,
+} from "./commands/CreateUsageProfileCommand";
+import {
   CreateUserDefinedFunctionCommand,
   CreateUserDefinedFunctionCommandInput,
   CreateUserDefinedFunctionCommandOutput,
@@ -326,6 +331,11 @@ import {
   DeleteTriggerCommandInput,
   DeleteTriggerCommandOutput,
 } from "./commands/DeleteTriggerCommand";
+import {
+  DeleteUsageProfileCommand,
+  DeleteUsageProfileCommandInput,
+  DeleteUsageProfileCommandOutput,
+} from "./commands/DeleteUsageProfileCommand";
 import {
   DeleteUserDefinedFunctionCommand,
   DeleteUserDefinedFunctionCommandInput,
@@ -579,6 +589,11 @@ import {
   GetUnfilteredTableMetadataCommandOutput,
 } from "./commands/GetUnfilteredTableMetadataCommand";
 import {
+  GetUsageProfileCommand,
+  GetUsageProfileCommandInput,
+  GetUsageProfileCommandOutput,
+} from "./commands/GetUsageProfileCommand";
+import {
   GetUserDefinedFunctionCommand,
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
@@ -692,6 +707,11 @@ import {
   ListTriggersCommandInput,
   ListTriggersCommandOutput,
 } from "./commands/ListTriggersCommand";
+import {
+  ListUsageProfilesCommand,
+  ListUsageProfilesCommandInput,
+  ListUsageProfilesCommandOutput,
+} from "./commands/ListUsageProfilesCommand";
 import {
   ListWorkflowsCommand,
   ListWorkflowsCommandInput,
@@ -930,6 +950,11 @@ import {
   UpdateTriggerCommandOutput,
 } from "./commands/UpdateTriggerCommand";
 import {
+  UpdateUsageProfileCommand,
+  UpdateUsageProfileCommandInput,
+  UpdateUsageProfileCommandOutput,
+} from "./commands/UpdateUsageProfileCommand";
+import {
   UpdateUserDefinedFunctionCommand,
   UpdateUserDefinedFunctionCommandInput,
   UpdateUserDefinedFunctionCommandOutput,
@@ -984,6 +1009,7 @@ const commands = {
   CreateTableCommand,
   CreateTableOptimizerCommand,
   CreateTriggerCommand,
+  CreateUsageProfileCommand,
   CreateUserDefinedFunctionCommand,
   CreateWorkflowCommand,
   DeleteBlueprintCommand,
@@ -1010,6 +1036,7 @@ const commands = {
   DeleteTableOptimizerCommand,
   DeleteTableVersionCommand,
   DeleteTriggerCommand,
+  DeleteUsageProfileCommand,
   DeleteUserDefinedFunctionCommand,
   DeleteWorkflowCommand,
   GetBlueprintCommand,
@@ -1074,6 +1101,7 @@ const commands = {
   GetUnfilteredPartitionMetadataCommand,
   GetUnfilteredPartitionsMetadataCommand,
   GetUnfilteredTableMetadataCommand,
+  GetUsageProfileCommand,
   GetUserDefinedFunctionCommand,
   GetUserDefinedFunctionsCommand,
   GetWorkflowCommand,
@@ -1100,6 +1128,7 @@ const commands = {
   ListStatementsCommand,
   ListTableOptimizerRunsCommand,
   ListTriggersCommand,
+  ListUsageProfilesCommand,
   ListWorkflowsCommand,
   PutDataCatalogEncryptionSettingsCommand,
   PutResourcePolicyCommand,
@@ -1153,6 +1182,7 @@ const commands = {
   UpdateTableCommand,
   UpdateTableOptimizerCommand,
   UpdateTriggerCommand,
+  UpdateUsageProfileCommand,
   UpdateUserDefinedFunctionCommand,
   UpdateWorkflowCommand,
 };
@@ -1806,6 +1836,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link CreateUsageProfileCommand}
+   */
+  createUsageProfile(
+    args: CreateUsageProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUsageProfileCommandOutput>;
+  createUsageProfile(
+    args: CreateUsageProfileCommandInput,
+    cb: (err: any, data?: CreateUsageProfileCommandOutput) => void
+  ): void;
+  createUsageProfile(
+    args: CreateUsageProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUsageProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateUserDefinedFunctionCommand}
    */
   createUserDefinedFunction(
@@ -2195,6 +2242,23 @@ export interface Glue {
     args: DeleteTriggerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTriggerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteUsageProfileCommand}
+   */
+  deleteUsageProfile(
+    args: DeleteUsageProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUsageProfileCommandOutput>;
+  deleteUsageProfile(
+    args: DeleteUsageProfileCommandInput,
+    cb: (err: any, data?: DeleteUsageProfileCommandOutput) => void
+  ): void;
+  deleteUsageProfile(
+    args: DeleteUsageProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUsageProfileCommandOutput) => void
   ): void;
 
   /**
@@ -3116,6 +3180,20 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetUsageProfileCommand}
+   */
+  getUsageProfile(
+    args: GetUsageProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUsageProfileCommandOutput>;
+  getUsageProfile(args: GetUsageProfileCommandInput, cb: (err: any, data?: GetUsageProfileCommandOutput) => void): void;
+  getUsageProfile(
+    args: GetUsageProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUsageProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUserDefinedFunctionCommand}
    */
   getUserDefinedFunction(
@@ -3514,6 +3592,24 @@ export interface Glue {
     args: ListTriggersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTriggersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUsageProfilesCommand}
+   */
+  listUsageProfiles(): Promise<ListUsageProfilesCommandOutput>;
+  listUsageProfiles(
+    args: ListUsageProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsageProfilesCommandOutput>;
+  listUsageProfiles(
+    args: ListUsageProfilesCommandInput,
+    cb: (err: any, data?: ListUsageProfilesCommandOutput) => void
+  ): void;
+  listUsageProfiles(
+    args: ListUsageProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsageProfilesCommandOutput) => void
   ): void;
 
   /**
@@ -4310,6 +4406,23 @@ export interface Glue {
     args: UpdateTriggerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTriggerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUsageProfileCommand}
+   */
+  updateUsageProfile(
+    args: UpdateUsageProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUsageProfileCommandOutput>;
+  updateUsageProfile(
+    args: UpdateUsageProfileCommandInput,
+    cb: (err: any, data?: UpdateUsageProfileCommandOutput) => void
+  ): void;
+  updateUsageProfile(
+    args: UpdateUsageProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUsageProfileCommandOutput) => void
   ): void;
 
   /**

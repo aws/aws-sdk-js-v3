@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_1";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_2";
 import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
