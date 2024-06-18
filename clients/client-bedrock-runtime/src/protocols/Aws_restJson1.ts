@@ -48,6 +48,10 @@ import {
   ConverseOutput,
   ConverseStreamMetadataEvent,
   ConverseStreamOutput,
+  GuardrailConfiguration,
+  GuardrailConverseContentBlock,
+  GuardrailConverseTextBlock,
+  GuardrailStreamConfiguration,
   ImageBlock,
   ImageSource,
   InferenceConfiguration,
@@ -95,6 +99,7 @@ export const se_ConverseCommand = async (
     take(input, {
       additionalModelRequestFields: (_) => se_Document(_, context),
       additionalModelResponseFieldPaths: (_) => _json(_),
+      guardrailConfig: (_) => _json(_),
       inferenceConfig: (_) => se_InferenceConfiguration(_, context),
       messages: (_) => se_Messages(_, context),
       system: (_) => _json(_),
@@ -123,6 +128,7 @@ export const se_ConverseStreamCommand = async (
     take(input, {
       additionalModelRequestFields: (_) => se_Document(_, context),
       additionalModelResponseFieldPaths: (_) => _json(_),
+      guardrailConfig: (_) => _json(_),
       inferenceConfig: (_) => se_InferenceConfiguration(_, context),
       messages: (_) => se_Messages(_, context),
       system: (_) => _json(_),
@@ -202,6 +208,7 @@ export const de_ConverseCommand = async (
     metrics: _json,
     output: (_) => de_ConverseOutput(__expectUnion(_), context),
     stopReason: __expectString,
+    trace: _json,
     usage: _json,
   });
   Object.assign(contents, doc);
@@ -721,6 +728,7 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
  */
 const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
   return ContentBlock.visit(input, {
+    guardContent: (value) => ({ guardContent: _json(value) }),
     image: (value) => ({ image: se_ImageBlock(value, context) }),
     text: (value) => ({ text: value }),
     toolResult: (value) => ({ toolResult: se_ToolResultBlock(value, context) }),
@@ -739,6 +747,14 @@ const se_ContentBlocks = (input: ContentBlock[], context: __SerdeContext): any =
       return se_ContentBlock(entry, context);
     });
 };
+
+// se_GuardrailConfiguration omitted.
+
+// se_GuardrailConverseContentBlock omitted.
+
+// se_GuardrailConverseTextBlock omitted.
+
+// se_GuardrailStreamConfiguration omitted.
 
 /**
  * serializeAws_restJson1ImageBlock
@@ -911,6 +927,11 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
  * deserializeAws_restJson1ContentBlock
  */
 const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => {
+  if (output.guardContent != null) {
+    return {
+      guardContent: _json(__expectUnion(output.guardContent)),
+    };
+  }
   if (output.image != null) {
     return {
       image: de_ImageBlock(output.image, context),
@@ -972,6 +993,56 @@ const de_ConverseOutput = (output: any, context: __SerdeContext): ConverseOutput
 
 // de_ConverseStreamMetrics omitted.
 
+// de_ConverseStreamTrace omitted.
+
+// de_ConverseTrace omitted.
+
+// de_GuardrailAssessment omitted.
+
+// de_GuardrailAssessmentList omitted.
+
+// de_GuardrailAssessmentListMap omitted.
+
+// de_GuardrailAssessmentMap omitted.
+
+// de_GuardrailContentFilter omitted.
+
+// de_GuardrailContentFilterList omitted.
+
+// de_GuardrailContentPolicyAssessment omitted.
+
+// de_GuardrailConverseContentBlock omitted.
+
+// de_GuardrailConverseTextBlock omitted.
+
+// de_GuardrailCustomWord omitted.
+
+// de_GuardrailCustomWordList omitted.
+
+// de_GuardrailManagedWord omitted.
+
+// de_GuardrailManagedWordList omitted.
+
+// de_GuardrailPiiEntityFilter omitted.
+
+// de_GuardrailPiiEntityFilterList omitted.
+
+// de_GuardrailRegexFilter omitted.
+
+// de_GuardrailRegexFilterList omitted.
+
+// de_GuardrailSensitiveInformationPolicyAssessment omitted.
+
+// de_GuardrailTopic omitted.
+
+// de_GuardrailTopicList omitted.
+
+// de_GuardrailTopicPolicyAssessment omitted.
+
+// de_GuardrailTraceAssessment omitted.
+
+// de_GuardrailWordPolicyAssessment omitted.
+
 /**
  * deserializeAws_restJson1ImageBlock
  */
@@ -1015,6 +1086,8 @@ const de_MessageStopEvent = (output: any, context: __SerdeContext): MessageStopE
     stopReason: __expectString,
   }) as any;
 };
+
+// de_ModelOutputs omitted.
 
 /**
  * deserializeAws_restJson1PayloadPart

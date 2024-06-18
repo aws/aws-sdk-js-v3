@@ -26,6 +26,44 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const GuardrailTrace = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTrace = (typeof GuardrailTrace)[keyof typeof GuardrailTrace];
+
+/**
+ * <p>Configuration information for a guardrail that you use with the <a>Converse</a> action.</p>
+ * @public
+ */
+export interface GuardrailConfiguration {
+  /**
+   * <p>The identifier for the guardrail.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  guardrailVersion: string | undefined;
+
+  /**
+   * <p>The trace behavior for the guardrail.</p>
+   * @public
+   */
+  trace?: GuardrailTrace;
+}
+
+/**
  * <p>Base inference parameters to pass to a model in a call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>. For more information,
  *          see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  *          <p>If you need to pass additional parameters that the model
@@ -38,96 +76,7 @@ export interface InferenceConfiguration {
   /**
    * <p>The maximum number of tokens to allow in the generated response. The default value is
    *          the maximum allowed value for the model that you are using. For more information, see
-   *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundatio\{
-   *                 "messages": [
-   *                 \{
-   *                 "role": "user",
-   *                 "content": [
-   *                 \{
-   *                 "text": "what's the weather in Queens, NY and Austin, TX?"
-   *                 \}
-   *                 ]
-   *                 \},
-   *                 \{
-   *                 "role": "assistant",
-   *                 "content": [
-   *                 \{
-   *                 "toolUse": \{
-   *                 "toolUseId": "1",
-   *                 "name": "get_weather",
-   *                 "input": \{
-   *                 "city": "Queens",
-   *                 "state": "NY"
-   *                 \}
-   *                 \}
-   *                 \},
-   *                 \{
-   *                 "toolUse": \{
-   *                 "toolUseId": "2",
-   *                 "name": "get_weather",
-   *                 "input": \{
-   *                 "city": "Austin",
-   *                 "state": "TX"
-   *                 \}
-   *                 \}
-   *                 \}
-   *                 ]
-   *                 \},
-   *                 \{
-   *                 "role": "user",
-   *                 "content": [
-   *                 \{
-   *                 "toolResult": \{
-   *                 "toolUseId": "2",
-   *                 "content": [
-   *                 \{
-   *                 "json": \{
-   *                 "weather": "40"
-   *                 \}
-   *                 \}
-   *                 ]
-   *                 \}
-   *                 \},
-   *                 \{
-   *                 "text": "..."
-   *                 \},
-   *                 \{
-   *                 "toolResult": \{
-   *                 "toolUseId": "1",
-   *                 "content": [
-   *                 \{
-   *                 "text": "result text"
-   *                 \}
-   *                 ]
-   *                 \}
-   *                 \}
-   *                 ]
-   *                 \}
-   *                 ],
-   *                 "toolConfig": \{
-   *                 "tools": [
-   *                 \{
-   *                 "name": "get_weather",
-   *                 "description": "Get weather",
-   *                 "inputSchema": \{
-   *                 "type": "object",
-   *                 "properties": \{
-   *                 "city": \{
-   *                 "type": "string",
-   *                 "description": "City of location"
-   *                 \},
-   *                 "state": \{
-   *                 "type": "string",
-   *                 "description": "State of location"
-   *                 \}
-   *                 \},
-   *                 "required": ["city", "state"]
-   *                 \}
-   *                 \}
-   *                 ]
-   *                 \}
-   *                 \}
-   *                 n models</a>. </p>
+   *             <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>. </p>
    * @public
    */
   maxTokens?: number;
@@ -160,6 +109,60 @@ export interface InferenceConfiguration {
    * @public
    */
   stopSequences?: string[];
+}
+
+/**
+ * <p>A text block that contains text that you want to assess with a guardrail. For more information, see <a>GuardrailConverseContentBlock</a>.</p>
+ * @public
+ */
+export interface GuardrailConverseTextBlock {
+  /**
+   * <p>The text that you want to guard.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p/>
+ *          <p>A content block for selective guarding with the Converse API (<a>Converse</a> and <a>ConverseStream</a>).
+ *       </p>
+ * @public
+ */
+export type GuardrailConverseContentBlock =
+  | GuardrailConverseContentBlock.TextMember
+  | GuardrailConverseContentBlock.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace GuardrailConverseContentBlock {
+  /**
+   * <p>The text to guard.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: GuardrailConverseTextBlock;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: GuardrailConverseTextBlock) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: GuardrailConverseContentBlock, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -377,10 +380,11 @@ export interface ToolUseBlock {
 }
 
 /**
- * <p>A block of content for a message.</p>
+ * <p>A block of content for a message that you pass to, or receive from, a model with the Converse API (<a>Converse</a> and <a>ConverseStream</a>).</p>
  * @public
  */
 export type ContentBlock =
+  | ContentBlock.GuardContentMember
   | ContentBlock.ImageMember
   | ContentBlock.TextMember
   | ContentBlock.ToolResultMember
@@ -400,6 +404,7 @@ export namespace ContentBlock {
     image?: never;
     toolUse?: never;
     toolResult?: never;
+    guardContent?: never;
     $unknown?: never;
   }
 
@@ -415,6 +420,7 @@ export namespace ContentBlock {
     image: ImageBlock;
     toolUse?: never;
     toolResult?: never;
+    guardContent?: never;
     $unknown?: never;
   }
 
@@ -427,6 +433,7 @@ export namespace ContentBlock {
     image?: never;
     toolUse: ToolUseBlock;
     toolResult?: never;
+    guardContent?: never;
     $unknown?: never;
   }
 
@@ -439,6 +446,25 @@ export namespace ContentBlock {
     image?: never;
     toolUse?: never;
     toolResult: ToolResultBlock;
+    guardContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains the content to assess with the guardrail. If you don't specify
+   *             <code>guardContent</code> in a call to the Converse API, the guardrail (if passed in the
+   *          Converse API) assesses the entire message.</p>
+   *          <p>For more information, see  <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
+   *
+   *       </p>
+   * @public
+   */
+  export interface GuardContentMember {
+    text?: never;
+    image?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent: GuardrailConverseContentBlock;
     $unknown?: never;
   }
 
@@ -450,6 +476,7 @@ export namespace ContentBlock {
     image?: never;
     toolUse?: never;
     toolResult?: never;
+    guardContent?: never;
     $unknown: [string, any];
   }
 
@@ -458,6 +485,7 @@ export namespace ContentBlock {
     image: (value: ImageBlock) => T;
     toolUse: (value: ToolUseBlock) => T;
     toolResult: (value: ToolResultBlock) => T;
+    guardContent: (value: GuardrailConverseContentBlock) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -466,6 +494,7 @@ export namespace ContentBlock {
     if (value.image !== undefined) return visitor.image(value.image);
     if (value.toolUse !== undefined) return visitor.toolUse(value.toolUse);
     if (value.toolResult !== undefined) return visitor.toolResult(value.toolResult);
+    if (value.guardContent !== undefined) return visitor.guardContent(value.guardContent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -485,8 +514,7 @@ export const ConversationRole = {
 export type ConversationRole = (typeof ConversationRole)[keyof typeof ConversationRole];
 
 /**
- * <p>A message in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html">Message</a> field. Use to send a message in a call to
- *          <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a>. </p>
+ * <p>A message input, or returned from, a call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>.</p>
  * @public
  */
 export interface Message {
@@ -504,10 +532,13 @@ export interface Message {
 }
 
 /**
- * <p>A system content block</p>
+ * <p>A system content block.</p>
  * @public
  */
-export type SystemContentBlock = SystemContentBlock.TextMember | SystemContentBlock.$UnknownMember;
+export type SystemContentBlock =
+  | SystemContentBlock.GuardContentMember
+  | SystemContentBlock.TextMember
+  | SystemContentBlock.$UnknownMember;
 
 /**
  * @public
@@ -519,6 +550,19 @@ export namespace SystemContentBlock {
    */
   export interface TextMember {
     text: string;
+    guardContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A content block to assess with the guardrail. Use with the Converse API (<a>Converse</a> and <a>ConverseStream</a>). </p>
+   *          <p>For more information, see <i>Use a guardrail with the Converse
+   *             API</i> in the <i>Amazon Bedrock User Guide</i>.</p>
+   * @public
+   */
+  export interface GuardContentMember {
+    text?: never;
+    guardContent: GuardrailConverseContentBlock;
     $unknown?: never;
   }
 
@@ -527,34 +571,38 @@ export namespace SystemContentBlock {
    */
   export interface $UnknownMember {
     text?: never;
+    guardContent?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     text: (value: string) => T;
+    guardContent: (value: GuardrailConverseContentBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SystemContentBlock, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
+    if (value.guardContent !== undefined) return visitor.guardContent(value.guardContent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
 
 /**
- * <p>The model must request at least one tool (no text is generated).</p>
+ * <p>The model must request at least one tool (no text is generated). For example, <code>\{"any" : \{\}\}</code>.</p>
  * @public
  */
 export interface AnyToolChoice {}
 
 /**
- * <p>The Model automatically decides if a tool should be called or to whether to generate text instead.</p>
+ * <p>The Model automatically decides if a tool should be called or whether to generate text instead.
+ *          For example, <code>\{"auto" : \{\}\}</code>.</p>
  * @public
  */
 export interface AutoToolChoice {}
 
 /**
- * <p>The model must request a specific tool.</p>
+ * <p>The model must request a specific tool.  For example, <code>\{"tool" : \{"name" : "Your tool name"\}\}</code>.</p>
  *          <note>
  *             <p>This field is only supported by Anthropic Claude 3 models.</p>
  *          </note>
@@ -569,7 +617,9 @@ export interface SpecificToolChoice {
 }
 
 /**
- * <p>Forces a model to use a tool.</p>
+ * <p>Determines which tools the model should request in a call to <code>Converse</code> or <code>ConverseStream</code>.
+ *          <code>ToolChoice</code> is only supported by
+ *       Anthropic Claude 3 models and by Mistral AI Mistral Large.</p>
  * @public
  */
 export type ToolChoice =
@@ -583,7 +633,7 @@ export type ToolChoice =
  */
 export namespace ToolChoice {
   /**
-   * <p>The Model automatically decides if a tool should be called or to whether to generate text instead.</p>
+   * <p>(Default). The Model automatically decides if a tool should be called or whether to generate text instead. </p>
    * @public
    */
   export interface AutoMember {
@@ -605,7 +655,7 @@ export namespace ToolChoice {
   }
 
   /**
-   * <p>The Model must request the specified tool.</p>
+   * <p>The Model must request the specified tool.  Only supported by Anthropic Claude 3 models. </p>
    * @public
    */
   export interface ToolMember {
@@ -813,6 +863,12 @@ export interface ConverseRequest {
   toolConfig?: ToolConfiguration;
 
   /**
+   * <p>Configuration information for a guardrail that you want to use in the request. </p>
+   * @public
+   */
+  guardrailConfig?: GuardrailConfiguration;
+
+  /**
    * <p>Additional inference parameters that the model supports, beyond the
    *          base set of inference parameters that <code>Converse</code> supports in the <code>inferenceConfig</code>
    *          field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -823,7 +879,7 @@ export interface ConverseRequest {
   /**
    * <p>Additional model parameters field paths to return in the
    *          response. <code>Converse</code> returns the requested fields as a JSON Pointer object in the
-   *          <code>additionalModelResultFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
+   *          <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
    *          <p>
    *             <code>[
    *          "/stop_sequence"
@@ -898,6 +954,7 @@ export namespace ConverseOutput {
 export const StopReason = {
   CONTENT_FILTERED: "content_filtered",
   END_TURN: "end_turn",
+  GUARDRAIL_INTERVENED: "guardrail_intervened",
   MAX_TOKENS: "max_tokens",
   STOP_SEQUENCE: "stop_sequence",
   TOOL_USE: "tool_use",
@@ -907,6 +964,435 @@ export const StopReason = {
  * @public
  */
 export type StopReason = (typeof StopReason)[keyof typeof StopReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentPolicyAction =
+  (typeof GuardrailContentPolicyAction)[keyof typeof GuardrailContentPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterConfidence =
+  (typeof GuardrailContentFilterConfidence)[keyof typeof GuardrailContentFilterConfidence];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContentFilterType = {
+  HATE: "HATE",
+  INSULTS: "INSULTS",
+  MISCONDUCT: "MISCONDUCT",
+  PROMPT_ATTACK: "PROMPT_ATTACK",
+  SEXUAL: "SEXUAL",
+  VIOLENCE: "VIOLENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
+
+/**
+ * <p>The content filter for a guardrail.</p>
+ * @public
+ */
+export interface GuardrailContentFilter {
+  /**
+   * <p>The guardrail type.</p>
+   * @public
+   */
+  type: GuardrailContentFilterType | undefined;
+
+  /**
+   * <p>The guardrail confidence.</p>
+   * @public
+   */
+  confidence: GuardrailContentFilterConfidence | undefined;
+
+  /**
+   * <p>The guardrail action.</p>
+   * @public
+   */
+  action: GuardrailContentPolicyAction | undefined;
+}
+
+/**
+ * <p>An assessment of a content policy for a guardrail.</p>
+ * @public
+ */
+export interface GuardrailContentPolicyAssessment {
+  /**
+   * <p>The content policy filters.</p>
+   * @public
+   */
+  filters: GuardrailContentFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailSensitiveInformationPolicyAction = {
+  ANONYMIZED: "ANONYMIZED",
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailSensitiveInformationPolicyAction =
+  (typeof GuardrailSensitiveInformationPolicyAction)[keyof typeof GuardrailSensitiveInformationPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailPiiEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+  CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+  CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+  US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+  US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
+
+/**
+ * <p>A Personally Identifiable Information (PII) entity configured in a guardrail.</p>
+ * @public
+ */
+export interface GuardrailPiiEntityFilter {
+  /**
+   * <p>The PII entity filter match.</p>
+   * @public
+   */
+  match: string | undefined;
+
+  /**
+   * <p>The PII entity filter type.</p>
+   * @public
+   */
+  type: GuardrailPiiEntityType | undefined;
+
+  /**
+   * <p>The PII entity filter action.</p>
+   * @public
+   */
+  action: GuardrailSensitiveInformationPolicyAction | undefined;
+}
+
+/**
+ * <p>A Regex filter configured in a guardrail.</p>
+ * @public
+ */
+export interface GuardrailRegexFilter {
+  /**
+   * <p>The regex filter name.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The regesx filter match.</p>
+   * @public
+   */
+  match?: string;
+
+  /**
+   * <p>The regex query.</p>
+   * @public
+   */
+  regex?: string;
+
+  /**
+   * <p>The region filter action.</p>
+   * @public
+   */
+  action: GuardrailSensitiveInformationPolicyAction | undefined;
+}
+
+/**
+ * <p>The assessment for aPersonally Identifiable Information (PII) policy. </p>
+ * @public
+ */
+export interface GuardrailSensitiveInformationPolicyAssessment {
+  /**
+   * <p>The PII entities in the assessment.</p>
+   * @public
+   */
+  piiEntities: GuardrailPiiEntityFilter[] | undefined;
+
+  /**
+   * <p>The regex queries in the assessment.</p>
+   * @public
+   */
+  regexes: GuardrailRegexFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicPolicyAction = (typeof GuardrailTopicPolicyAction)[keyof typeof GuardrailTopicPolicyAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailTopicType = {
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
+/**
+ * <p>Information about a topic guardrail.</p>
+ * @public
+ */
+export interface GuardrailTopic {
+  /**
+   * <p>The name for the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type behavior that the guardrail should perform when the model detects the topic.</p>
+   * @public
+   */
+  type: GuardrailTopicType | undefined;
+
+  /**
+   * <p>The action the guardrail should take when it intervenes on a topic.</p>
+   * @public
+   */
+  action: GuardrailTopicPolicyAction | undefined;
+}
+
+/**
+ * <p>A behavior assessment of a topic policy.</p>
+ * @public
+ */
+export interface GuardrailTopicPolicyAssessment {
+  /**
+   * <p>The topics in the assessment.</p>
+   * @public
+   */
+  topics: GuardrailTopic[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailWordPolicyAction = {
+  BLOCKED: "BLOCKED",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailWordPolicyAction = (typeof GuardrailWordPolicyAction)[keyof typeof GuardrailWordPolicyAction];
+
+/**
+ * <p>A custom word configured in a guardrail.</p>
+ * @public
+ */
+export interface GuardrailCustomWord {
+  /**
+   * <p>The match for the custom word.</p>
+   * @public
+   */
+  match: string | undefined;
+
+  /**
+   * <p>The action for the custom word.</p>
+   * @public
+   */
+  action: GuardrailWordPolicyAction | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailManagedWordType = {
+  PROFANITY: "PROFANITY",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailManagedWordType = (typeof GuardrailManagedWordType)[keyof typeof GuardrailManagedWordType];
+
+/**
+ * <p>A managed word configured in a guardrail.</p>
+ * @public
+ */
+export interface GuardrailManagedWord {
+  /**
+   * <p>The match for the managed word.</p>
+   * @public
+   */
+  match: string | undefined;
+
+  /**
+   * <p>The type for the managed word.</p>
+   * @public
+   */
+  type: GuardrailManagedWordType | undefined;
+
+  /**
+   * <p>The action for the managed word.</p>
+   * @public
+   */
+  action: GuardrailWordPolicyAction | undefined;
+}
+
+/**
+ * <p>The word policy assessment.</p>
+ * @public
+ */
+export interface GuardrailWordPolicyAssessment {
+  /**
+   * <p>Custom words in the assessment.</p>
+   * @public
+   */
+  customWords: GuardrailCustomWord[] | undefined;
+
+  /**
+   * <p>Managed word lists in the assessment.</p>
+   * @public
+   */
+  managedWordLists: GuardrailManagedWord[] | undefined;
+}
+
+/**
+ * <p>A behavior assessment of the guardrail policies used in a call to the Converse API. </p>
+ * @public
+ */
+export interface GuardrailAssessment {
+  /**
+   * <p>The topic policy.</p>
+   * @public
+   */
+  topicPolicy?: GuardrailTopicPolicyAssessment;
+
+  /**
+   * <p>The content policy.</p>
+   * @public
+   */
+  contentPolicy?: GuardrailContentPolicyAssessment;
+
+  /**
+   * <p>The word policy.</p>
+   * @public
+   */
+  wordPolicy?: GuardrailWordPolicyAssessment;
+
+  /**
+   * <p>The sensitive information policy.</p>
+   * @public
+   */
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment;
+}
+
+/**
+ * <p>A Top level guardrail trace object. For more information, see <a>ConverseTrace</a>.</p>
+ * @public
+ */
+export interface GuardrailTraceAssessment {
+  /**
+   * <p>The output from the model.</p>
+   * @public
+   */
+  modelOutput?: string[];
+
+  /**
+   * <p>The input assessment.</p>
+   * @public
+   */
+  inputAssessment?: Record<string, GuardrailAssessment>;
+
+  /**
+   * <p>the output assessments.</p>
+   * @public
+   */
+  outputAssessments?: Record<string, GuardrailAssessment[]>;
+}
+
+/**
+ * <p>The trace object in a response from <a>Converse</a>. Currently, you can only trace guardrails.</p>
+ * @public
+ */
+export interface ConverseTrace {
+  /**
+   * <p>The guardrail trace object. </p>
+   * @public
+   */
+  guardrail?: GuardrailTraceAssessment;
+}
 
 /**
  * <p>The tokens used in a message API inference call. </p>
@@ -966,6 +1452,12 @@ export interface ConverseResponse {
    * @public
    */
   additionalModelResponseFields?: __DocumentType;
+
+  /**
+   * <p>A trace object that contains information about the Guardrail behavior.</p>
+   * @public
+   */
+  trace?: ConverseTrace;
 }
 
 /**
@@ -1124,6 +1616,54 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const GuardrailStreamProcessingMode = {
+  ASYNC: "async",
+  SYNC: "sync",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailStreamProcessingMode =
+  (typeof GuardrailStreamProcessingMode)[keyof typeof GuardrailStreamProcessingMode];
+
+/**
+ * <p>Configuration information for a guardrail that you use with the <a>ConverseStream</a> action.
+ *             </p>
+ * @public
+ */
+export interface GuardrailStreamConfiguration {
+  /**
+   * <p>The identifier for the guardrail.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  guardrailVersion: string | undefined;
+
+  /**
+   * <p>The trace behavior for the guardrail.</p>
+   * @public
+   */
+  trace?: GuardrailTrace;
+
+  /**
+   * <p>The processing mode. </p>
+   *          <p>The processing mode. For more information, see <i>Configure streaming response behavior</i> in the <i>Amazon Bedrock User Guide</i>.
+   *       </p>
+   * @public
+   */
+  streamProcessingMode?: GuardrailStreamProcessingMode;
+}
+
+/**
+ * @public
  */
 export interface ConverseStreamRequest {
   /**
@@ -1174,6 +1714,12 @@ export interface ConverseStreamRequest {
   toolConfig?: ToolConfiguration;
 
   /**
+   * <p>Configuration information for a guardrail that you want to use in the request. </p>
+   * @public
+   */
+  guardrailConfig?: GuardrailStreamConfiguration;
+
+  /**
    * <p>Additional inference parameters that the model supports, beyond the
    *          base set of inference parameters that <code>ConverseStream</code> supports in the <code>inferenceConfig</code>
    *          field.</p>
@@ -1184,7 +1730,7 @@ export interface ConverseStreamRequest {
   /**
    * <p>Additional model parameters field paths to return in the
    *          response. <code>ConverseStream</code> returns the requested fields as a JSON Pointer object in the
-   *          <code>additionalModelResultFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
+   *          <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
    *          <p>
    *             <code>[
    *          "/stop_sequence"
@@ -1415,6 +1961,18 @@ export interface ConverseStreamMetrics {
 }
 
 /**
+ * <p>The trace object in a response from <a>ConverseStream</a>. Currently, you can only trace guardrails.</p>
+ * @public
+ */
+export interface ConverseStreamTrace {
+  /**
+   * <p>The guardrail trace object. </p>
+   * @public
+   */
+  guardrail?: GuardrailTraceAssessment;
+}
+
+/**
  * <p>A conversation stream metadata event.</p>
  * @public
  */
@@ -1430,6 +1988,12 @@ export interface ConverseStreamMetadataEvent {
    * @public
    */
   metrics: ConverseStreamMetrics | undefined;
+
+  /**
+   * <p>The trace object in the response from <a>ConverseStream</a> that contains information about the guardrail behavior.</p>
+   * @public
+   */
+  trace?: ConverseStreamTrace;
 }
 
 /**
@@ -1745,13 +2309,13 @@ export type Trace = (typeof Trace)[keyof typeof Trace];
  */
 export interface InvokeModelRequest {
   /**
-   * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
+   * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
   body: Uint8Array | undefined;
 
   /**
-   * <p>The MIME type of the input data in the request. The default value is
+   * <p>The MIME type of the input data in the request. You must specify
    *             <code>application/json</code>.</p>
    * @public
    */
@@ -1855,13 +2419,13 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface InvokeModelWithResponseStreamRequest {
   /**
-   * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
+   * <p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
    * @public
    */
   body: Uint8Array | undefined;
 
   /**
-   * <p>The MIME type of the input data in the request. The default value is
+   * <p>The MIME type of the input data in the request. You must specify
    *             <code>application/json</code>.</p>
    * @public
    */

@@ -32,7 +32,13 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *          a consistent interface that works with all models that
  *          support messages. This allows you to write code once and use it with different models.
  *          Should a model have unique inference parameters, you can also pass those unique parameters
- *          to the model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
+ *          to the model.</p>
+ *          <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
+ *             To use a guardrail, see  <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
+ *             To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i>
+ *          </p>
+ *          <p>For example code, see <i>Converse API examples</i> in the <i>Amazon Bedrock User Guide</i>.
+ *       </p>
  *          <p>This operation requires permission for the <code>bedrock:InvokeModel</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +81,11 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *             ],
  *             status: "success" || "error",
  *           },
+ *           guardContent: { // GuardrailConverseContentBlock Union: only one key present
+ *             text: { // GuardrailConverseTextBlock
+ *               text: "STRING_VALUE", // required
+ *             },
+ *           },
  *         },
  *       ],
  *     },
@@ -82,6 +93,11 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *   system: [ // SystemContentBlocks
  *     { // SystemContentBlock Union: only one key present
  *       text: "STRING_VALUE",
+ *       guardContent: {//  Union: only one key present
+ *         text: {
+ *           text: "STRING_VALUE", // required
+ *         },
+ *       },
  *     },
  *   ],
  *   inferenceConfig: { // InferenceConfiguration
@@ -111,6 +127,11 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *         name: "STRING_VALUE", // required
  *       },
  *     },
+ *   },
+ *   guardrailConfig: { // GuardrailConfiguration
+ *     guardrailIdentifier: "STRING_VALUE", // required
+ *     guardrailVersion: "STRING_VALUE", // required
+ *     trace: "enabled" || "disabled",
  *   },
  *   additionalModelRequestFields: "DOCUMENT_VALUE",
  *   additionalModelResponseFieldPaths: [ // AdditionalModelResponseFieldPaths
@@ -153,11 +174,16 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //             ],
  * //             status: "success" || "error",
  * //           },
+ * //           guardContent: { // GuardrailConverseContentBlock Union: only one key present
+ * //             text: { // GuardrailConverseTextBlock
+ * //               text: "STRING_VALUE", // required
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //     },
  * //   },
- * //   stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "content_filtered", // required
+ * //   stopReason: "end_turn" || "tool_use" || "max_tokens" || "stop_sequence" || "guardrail_intervened" || "content_filtered", // required
  * //   usage: { // TokenUsage
  * //     inputTokens: Number("int"), // required
  * //     outputTokens: Number("int"), // required
@@ -167,6 +193,123 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //     latencyMs: Number("long"), // required
  * //   },
  * //   additionalModelResponseFields: "DOCUMENT_VALUE",
+ * //   trace: { // ConverseTrace
+ * //     guardrail: { // GuardrailTraceAssessment
+ * //       modelOutput: [ // ModelOutputs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       inputAssessment: { // GuardrailAssessmentMap
+ * //         "<keys>": { // GuardrailAssessment
+ * //           topicPolicy: { // GuardrailTopicPolicyAssessment
+ * //             topics: [ // GuardrailTopicList // required
+ * //               { // GuardrailTopic
+ * //                 name: "STRING_VALUE", // required
+ * //                 type: "DENY", // required
+ * //                 action: "BLOCKED", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           contentPolicy: { // GuardrailContentPolicyAssessment
+ * //             filters: [ // GuardrailContentFilterList // required
+ * //               { // GuardrailContentFilter
+ * //                 type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
+ * //                 confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //                 action: "BLOCKED", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           wordPolicy: { // GuardrailWordPolicyAssessment
+ * //             customWords: [ // GuardrailCustomWordList // required
+ * //               { // GuardrailCustomWord
+ * //                 match: "STRING_VALUE", // required
+ * //                 action: "BLOCKED", // required
+ * //               },
+ * //             ],
+ * //             managedWordLists: [ // GuardrailManagedWordList // required
+ * //               { // GuardrailManagedWord
+ * //                 match: "STRING_VALUE", // required
+ * //                 type: "PROFANITY", // required
+ * //                 action: "BLOCKED", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           sensitiveInformationPolicy: { // GuardrailSensitiveInformationPolicyAssessment
+ * //             piiEntities: [ // GuardrailPiiEntityFilterList // required
+ * //               { // GuardrailPiiEntityFilter
+ * //                 match: "STRING_VALUE", // required
+ * //                 type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER", // required
+ * //                 action: "ANONYMIZED" || "BLOCKED", // required
+ * //               },
+ * //             ],
+ * //             regexes: [ // GuardrailRegexFilterList // required
+ * //               { // GuardrailRegexFilter
+ * //                 name: "STRING_VALUE",
+ * //                 match: "STRING_VALUE",
+ * //                 regex: "STRING_VALUE",
+ * //                 action: "ANONYMIZED" || "BLOCKED", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //       outputAssessments: { // GuardrailAssessmentListMap
+ * //         "<keys>": [ // GuardrailAssessmentList
+ * //           {
+ * //             topicPolicy: {
+ * //               topics: [ // required
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   type: "DENY", // required
+ * //                   action: "BLOCKED", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             contentPolicy: {
+ * //               filters: [ // required
+ * //                 {
+ * //                   type: "INSULTS" || "HATE" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT" || "PROMPT_ATTACK", // required
+ * //                   confidence: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //                   action: "BLOCKED", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             wordPolicy: {
+ * //               customWords: [ // required
+ * //                 {
+ * //                   match: "STRING_VALUE", // required
+ * //                   action: "BLOCKED", // required
+ * //                 },
+ * //               ],
+ * //               managedWordLists: [ // required
+ * //                 {
+ * //                   match: "STRING_VALUE", // required
+ * //                   type: "PROFANITY", // required
+ * //                   action: "BLOCKED", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             sensitiveInformationPolicy: {
+ * //               piiEntities: [ // required
+ * //                 {
+ * //                   match: "STRING_VALUE", // required
+ * //                   type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER", // required
+ * //                   action: "ANONYMIZED" || "BLOCKED", // required
+ * //                 },
+ * //               ],
+ * //               regexes: [ // required
+ * //                 {
+ * //                   name: "STRING_VALUE",
+ * //                   match: "STRING_VALUE",
+ * //                   regex: "STRING_VALUE",
+ * //                   action: "ANONYMIZED" || "BLOCKED", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```
