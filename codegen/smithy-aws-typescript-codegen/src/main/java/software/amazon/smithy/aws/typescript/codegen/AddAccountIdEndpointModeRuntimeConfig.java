@@ -85,7 +85,7 @@
                                  writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                                  writer.addImport("loadConfig", "loadNodeConfig",
                                      TypeScriptDependency.NODE_CONFIG_PROVIDER);
-                                 writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                                 writer.addDependency(AwsDependency.AWS_SDK_CORE);
                                  writer.addImport("NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
                                      "NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS", AwsDependency.AWS_SDK_CORE);
                                  writer.write(
