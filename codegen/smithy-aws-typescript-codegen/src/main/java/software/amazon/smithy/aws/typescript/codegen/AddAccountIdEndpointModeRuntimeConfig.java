@@ -6,6 +6,7 @@
  package software.amazon.smithy.aws.typescript.codegen;
 
  import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
  import java.util.HashMap;
  import java.util.Map;
  import java.util.Optional;
@@ -22,6 +23,7 @@
  import software.amazon.smithy.typescript.codegen.endpointsV2.RuleSetParameterFinder;
  import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
  import software.amazon.smithy.utils.SmithyInternalApi;
+
  /**
   * Generates accountIdEndpointMode configuration field for service clients that have the eponymous built-in param in the ruleset.
   */
