@@ -523,6 +523,7 @@ const de_ReportsList = (output: any, context: __SerdeContext): ReportSummary[] =
  */
 const de_ReportSummary = (output: any, context: __SerdeContext): ReportSummary => {
   return take(output, {
+    acceptanceType: __expectString,
     arn: __expectString,
     category: __expectString,
     companyName: __expectString,

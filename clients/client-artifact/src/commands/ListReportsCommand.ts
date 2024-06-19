@@ -58,6 +58,7 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * //       companyName: "STRING_VALUE",
  * //       productName: "STRING_VALUE",
  * //       statusMessage: "STRING_VALUE",
+ * //       acceptanceType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
