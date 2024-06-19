@@ -2512,7 +2512,33 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Displays the specified connection or all connections in this Region.</p>"
+        "smithy.api#documentation": "<p>Displays the specified connection or all connections in this Region.</p>",
+        "smithy.test#smokeTests": [
+          {
+            "id": "DescribeConnectionsSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          },
+          {
+            "id": "DescribeConnectionsFailure",
+            "params": {
+              "connectionId": "fake-connection"
+            },
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "failure": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.directconnect#DescribeConnectionsOnInterconnect": {
