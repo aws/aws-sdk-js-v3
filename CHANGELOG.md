@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.601.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.600.0...v3.601.0) (2024-06-19)
+
+
+### Features
+
+* **client-artifact:** This release adds an acceptanceType field to the ReportSummary structure (used in the ListReports API response). ([1d233bf](https://github.com/aws/aws-sdk-js-v3/commit/1d233bf74e90717f6e9c6e3d72f1d98b31676ed1))
+* **client-athena:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([7b7b5ec](https://github.com/aws/aws-sdk-js-v3/commit/7b7b5eca925e68fa2d03729f590f8039dd6a6963))
+* **client-cost-and-usage-report-service:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([8f6aed8](https://github.com/aws/aws-sdk-js-v3/commit/8f6aed8866c88296069a1484549cc6116163c7ef))
+* **client-direct-connect:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([00b2422](https://github.com/aws/aws-sdk-js-v3/commit/00b2422360fb91fdfd4ac6f1b8d7fbecd6a3bc7d))
+* **client-elastic-transcoder:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([78789c4](https://github.com/aws/aws-sdk-js-v3/commit/78789c4888be50e2d5527c5d17544a7a8dd3c9ec))
+* **client-opensearch:** This release enables customers to use JSON Web Tokens (JWT) for authentication on their Amazon OpenSearch Service domains. ([145a976](https://github.com/aws/aws-sdk-js-v3/commit/145a9764c9d8e49efe3ee776461310dab273471c))
+* **clients:** update client endpoints as of 2024-06-19 ([a8b4514](https://github.com/aws/aws-sdk-js-v3/commit/a8b4514f91c802024da33597b1537c0ab77dd095))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 

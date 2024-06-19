@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.601.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.600.0...v3.601.0) (2024-06-19)
+
+
+### Features
+
+* **client-artifact:** This release adds an acceptanceType field to the ReportSummary structure (used in the ListReports API response). ([1d233bf](https://github.com/aws/aws-sdk-js-v3/commit/1d233bf74e90717f6e9c6e3d72f1d98b31676ed1))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-artifact
