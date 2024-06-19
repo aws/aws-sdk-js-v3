@@ -129,6 +129,12 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *       RolesKey: "STRING_VALUE",
  *       SessionTimeoutMinutes: Number("int"),
  *     },
+ *     JWTOptions: { // JWTOptionsInput
+ *       Enabled: true || false,
+ *       SubjectKey: "STRING_VALUE",
+ *       RolesKey: "STRING_VALUE",
+ *       PublicKey: "STRING_VALUE",
+ *     },
  *     AnonymousAuthEnabled: true || false,
  *   },
  *   AutoTuneOptions: { // AutoTuneOptions
@@ -319,6 +325,12 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //           SubjectKey: "STRING_VALUE",
  * //           RolesKey: "STRING_VALUE",
  * //           SessionTimeoutMinutes: Number("int"),
+ * //         },
+ * //         JWTOptions: { // JWTOptionsOutput
+ * //           Enabled: true || false,
+ * //           SubjectKey: "STRING_VALUE",
+ * //           RolesKey: "STRING_VALUE",
+ * //           PublicKey: "STRING_VALUE",
  * //         },
  * //         AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //         AnonymousAuthEnabled: true || false,

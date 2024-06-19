@@ -151,6 +151,12 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         RolesKey: "STRING_VALUE",
  * //         SessionTimeoutMinutes: Number("int"),
  * //       },
+ * //       JWTOptions: { // JWTOptionsOutput
+ * //         Enabled: true || false,
+ * //         SubjectKey: "STRING_VALUE",
+ * //         RolesKey: "STRING_VALUE",
+ * //         PublicKey: "STRING_VALUE",
+ * //       },
  * //       AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //       AnonymousAuthEnabled: true || false,
  * //     },
