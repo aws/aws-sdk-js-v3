@@ -38,6 +38,12 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * const input = { // UpdateStageRequest
  *   arn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
+ *   autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
+ *     storageConfigurationArn: "STRING_VALUE", // required
+ *     mediaTypes: [ // ParticipantRecordingMediaTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
@@ -48,6 +54,12 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //     activeSessionId: "STRING_VALUE",
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
+ * //       storageConfigurationArn: "STRING_VALUE", // required
+ * //       mediaTypes: [ // ParticipantRecordingMediaTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * // };

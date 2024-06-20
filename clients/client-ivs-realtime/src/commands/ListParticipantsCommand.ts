@@ -43,6 +43,7 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  *   filterByState: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   filterByRecordingState: "STRING_VALUE",
  * };
  * const command = new ListParticipantsCommand(input);
  * const response = await client.send(command);
@@ -54,6 +55,7 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  * //       state: "STRING_VALUE",
  * //       firstJoinTime: new Date("TIMESTAMP"),
  * //       published: true || false,
+ * //       recordingState: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
