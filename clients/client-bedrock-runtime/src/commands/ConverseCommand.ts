@@ -60,6 +60,13 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *             },
  *           },
+ *           document: { // DocumentBlock
+ *             format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md", // required
+ *             name: "STRING_VALUE", // required
+ *             source: { // DocumentSource Union: only one key present
+ *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *             },
+ *           },
  *           toolUse: { // ToolUseBlock
  *             toolUseId: "STRING_VALUE", // required
  *             name: "STRING_VALUE", // required
@@ -73,6 +80,13 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *                 text: "STRING_VALUE",
  *                 image: {
  *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: {//  Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *                 document: {
+ *                   format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md", // required
+ *                   name: "STRING_VALUE", // required
  *                   source: {//  Union: only one key present
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *                   },
@@ -153,6 +167,13 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               bytes: new Uint8Array(),
  * //             },
  * //           },
+ * //           document: { // DocumentBlock
+ * //             format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md", // required
+ * //             name: "STRING_VALUE", // required
+ * //             source: { // DocumentSource Union: only one key present
+ * //               bytes: new Uint8Array(),
+ * //             },
+ * //           },
  * //           toolUse: { // ToolUseBlock
  * //             toolUseId: "STRING_VALUE", // required
  * //             name: "STRING_VALUE", // required
@@ -166,6 +187,13 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 text: "STRING_VALUE",
  * //                 image: {
  * //                   format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                   source: {//  Union: only one key present
+ * //                     bytes: new Uint8Array(),
+ * //                   },
+ * //                 },
+ * //                 document: {
+ * //                   format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md", // required
+ * //                   name: "STRING_VALUE", // required
  * //                   source: {//  Union: only one key present
  * //                     bytes: new Uint8Array(),
  * //                   },
