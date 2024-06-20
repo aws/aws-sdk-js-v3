@@ -280,6 +280,14 @@ ExportLicenseRecommendations
 </details>
 <details>
 <summary>
+ExportRDSDatabaseRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportRDSDatabaseRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportRDSDatabaseRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportRDSDatabaseRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAutoScalingGroupRecommendations
 </summary>
 
@@ -364,6 +372,22 @@ GetLicenseRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetLicenseRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetLicenseRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetLicenseRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRDSDatabaseRecommendationProjectedMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetRDSDatabaseRecommendationProjectedMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRDSDatabaseRecommendationProjectedMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRDSDatabaseRecommendationProjectedMetricsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRDSDatabaseRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetRDSDatabaseRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRDSDatabaseRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRDSDatabaseRecommendationsCommandOutput/)
 
 </details>
 <details>

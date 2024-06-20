@@ -56,6 +56,10 @@ import {
   ExportLicenseRecommendationsCommandOutput,
 } from "../commands/ExportLicenseRecommendationsCommand";
 import {
+  ExportRDSDatabaseRecommendationsCommandInput,
+  ExportRDSDatabaseRecommendationsCommandOutput,
+} from "../commands/ExportRDSDatabaseRecommendationsCommand";
+import {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
 } from "../commands/GetAutoScalingGroupRecommendationsCommand";
@@ -99,6 +103,14 @@ import {
   GetLicenseRecommendationsCommandInput,
   GetLicenseRecommendationsCommandOutput,
 } from "../commands/GetLicenseRecommendationsCommand";
+import {
+  GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+  GetRDSDatabaseRecommendationProjectedMetricsCommandOutput,
+} from "../commands/GetRDSDatabaseRecommendationProjectedMetricsCommand";
+import {
+  GetRDSDatabaseRecommendationsCommandInput,
+  GetRDSDatabaseRecommendationsCommandOutput,
+} from "../commands/GetRDSDatabaseRecommendationsCommand";
 import {
   GetRecommendationPreferencesCommandInput,
   GetRecommendationPreferencesCommandOutput,
@@ -148,6 +160,7 @@ import {
   ExportableInstanceField,
   ExportableLambdaFunctionField,
   ExportableLicenseField,
+  ExportableRDSDBField,
   ExportableVolumeField,
   ExportAutoScalingGroupRecommendationsRequest,
   ExportEBSVolumeRecommendationsRequest,
@@ -155,6 +168,7 @@ import {
   ExportECSServiceRecommendationsRequest,
   ExportLambdaFunctionRecommendationsRequest,
   ExportLicenseRecommendationsRequest,
+  ExportRDSDatabaseRecommendationsRequest,
   ExternalMetricsPreference,
   Filter,
   GetAutoScalingGroupRecommendationsRequest,
@@ -178,6 +192,10 @@ import {
   GetLambdaFunctionRecommendationsResponse,
   GetLicenseRecommendationsRequest,
   GetLicenseRecommendationsResponse,
+  GetRDSDatabaseRecommendationProjectedMetricsRequest,
+  GetRDSDatabaseRecommendationProjectedMetricsResponse,
+  GetRDSDatabaseRecommendationsRequest,
+  GetRDSDatabaseRecommendationsResponse,
   GetRecommendationPreferencesRequest,
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
@@ -205,6 +223,17 @@ import {
   PreferredResource,
   ProjectedMetric,
   PutRecommendationPreferencesRequest,
+  RDSDatabaseProjectedMetric,
+  RDSDatabaseRecommendedOptionProjectedMetric,
+  RDSDBInstanceRecommendationOption,
+  RDSDBRecommendation,
+  RDSDBRecommendationFilter,
+  RDSDBStorageRecommendationOption,
+  RDSDBUtilizationMetric,
+  RDSInstanceEstimatedMonthlySavings,
+  RDSInstanceSavingsOpportunityAfterDiscounts,
+  RDSStorageEstimatedMonthlySavings,
+  RDSStorageSavingsOpportunityAfterDiscounts,
   ReasonCodeSummary,
   RecommendationExportJob,
   RecommendationPreferenceName,
@@ -324,6 +353,19 @@ export const se_ExportLicenseRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ExportLicenseRecommendations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ExportRDSDatabaseRecommendationsCommand
+ */
+export const se_ExportRDSDatabaseRecommendationsCommand = async (
+  input: ExportRDSDatabaseRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ExportRDSDatabaseRecommendations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -467,6 +509,32 @@ export const se_GetLicenseRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetLicenseRecommendations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetRDSDatabaseRecommendationProjectedMetricsCommand
+ */
+export const se_GetRDSDatabaseRecommendationProjectedMetricsCommand = async (
+  input: GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetRDSDatabaseRecommendationProjectedMetrics");
+  let body: any;
+  body = JSON.stringify(se_GetRDSDatabaseRecommendationProjectedMetricsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetRDSDatabaseRecommendationsCommand
+ */
+export const se_GetRDSDatabaseRecommendationsCommand = async (
+  input: GetRDSDatabaseRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetRDSDatabaseRecommendations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -678,6 +746,26 @@ export const de_ExportLicenseRecommendationsCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ExportLicenseRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ExportRDSDatabaseRecommendationsCommand
+ */
+export const de_ExportRDSDatabaseRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportRDSDatabaseRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ExportRDSDatabaseRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -898,6 +986,46 @@ export const de_GetLicenseRecommendationsCommand = async (
   let contents: any = {};
   contents = de_GetLicenseRecommendationsResponse(data, context);
   const response: GetLicenseRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetRDSDatabaseRecommendationProjectedMetricsCommand
+ */
+export const de_GetRDSDatabaseRecommendationProjectedMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRDSDatabaseRecommendationProjectedMetricsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRDSDatabaseRecommendationProjectedMetricsResponse(data, context);
+  const response: GetRDSDatabaseRecommendationProjectedMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetRDSDatabaseRecommendationsCommand
+ */
+export const de_GetRDSDatabaseRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRDSDatabaseRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRDSDatabaseRecommendationsResponse(data, context);
+  const response: GetRDSDatabaseRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1206,6 +1334,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ExportableLicenseFields omitted.
 
+// se_ExportableRDSDBFields omitted.
+
 // se_ExportableVolumeFields omitted.
 
 // se_ExportAutoScalingGroupRecommendationsRequest omitted.
@@ -1219,6 +1349,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ExportLambdaFunctionRecommendationsRequest omitted.
 
 // se_ExportLicenseRecommendationsRequest omitted.
+
+// se_ExportRDSDatabaseRecommendationsRequest omitted.
 
 // se_ExternalMetricsPreference omitted.
 
@@ -1281,6 +1413,25 @@ const se_GetECSServiceRecommendationProjectedMetricsRequest = (
 
 // se_GetLicenseRecommendationsRequest omitted.
 
+/**
+ * serializeAws_json1_0GetRDSDatabaseRecommendationProjectedMetricsRequest
+ */
+const se_GetRDSDatabaseRecommendationProjectedMetricsRequest = (
+  input: GetRDSDatabaseRecommendationProjectedMetricsRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    endTime: (_) => _.getTime() / 1_000,
+    period: [],
+    recommendationPreferences: _json,
+    resourceArn: [],
+    startTime: (_) => _.getTime() / 1_000,
+    stat: [],
+  });
+};
+
+// se_GetRDSDatabaseRecommendationsRequest omitted.
+
 // se_GetRecommendationPreferencesRequest omitted.
 
 // se_GetRecommendationSummariesRequest omitted.
@@ -1308,6 +1459,10 @@ const se_GetECSServiceRecommendationProjectedMetricsRequest = (
 // se_PreferredResourceValues omitted.
 
 // se_PutRecommendationPreferencesRequest omitted.
+
+// se_RDSDBRecommendationFilter omitted.
+
+// se_RDSDBRecommendationFilters omitted.
 
 // se_RecommendationPreferenceNames omitted.
 
@@ -1463,6 +1618,8 @@ const de_AutoScalingGroupSavingsOpportunityAfterDiscounts = (
 // de_CurrentPerformanceRiskRatings omitted.
 
 // de_CustomizableMetricParameters omitted.
+
+// de_DBStorageConfiguration omitted.
 
 // de_DeleteRecommendationPreferencesResponse omitted.
 
@@ -1753,6 +1910,8 @@ const de_EstimatedMonthlySavings = (output: any, context: __SerdeContext): Estim
 
 // de_ExportLicenseRecommendationsResponse omitted.
 
+// de_ExportRDSDatabaseRecommendationsResponse omitted.
+
 // de_ExternalMetricsPreference omitted.
 
 // de_ExternalMetricStatus omitted.
@@ -1889,6 +2048,32 @@ const de_GetLicenseRecommendationsResponse = (
     errors: _json,
     licenseRecommendations: (_: any) => de_LicenseRecommendations(_, context),
     nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0GetRDSDatabaseRecommendationProjectedMetricsResponse
+ */
+const de_GetRDSDatabaseRecommendationProjectedMetricsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetRDSDatabaseRecommendationProjectedMetricsResponse => {
+  return take(output, {
+    recommendedOptionProjectedMetrics: (_: any) => de_RDSDatabaseRecommendedOptionProjectedMetrics(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0GetRDSDatabaseRecommendationsResponse
+ */
+const de_GetRDSDatabaseRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetRDSDatabaseRecommendationsResponse => {
+  return take(output, {
+    errors: _json,
+    nextToken: __expectString,
+    rdsDBRecommendations: (_: any) => de_RDSDBRecommendations(_, context),
   }) as any;
 };
 
@@ -2299,6 +2484,253 @@ const de_ProjectedUtilizationMetrics = (output: any, context: __SerdeContext): U
 };
 
 // de_PutRecommendationPreferencesResponse omitted.
+
+/**
+ * deserializeAws_json1_0RDSDatabaseProjectedMetric
+ */
+const de_RDSDatabaseProjectedMetric = (output: any, context: __SerdeContext): RDSDatabaseProjectedMetric => {
+  return take(output, {
+    name: __expectString,
+    timestamps: (_: any) => de_Timestamps(_, context),
+    values: (_: any) => de_MetricValues(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RDSDatabaseProjectedMetrics
+ */
+const de_RDSDatabaseProjectedMetrics = (output: any, context: __SerdeContext): RDSDatabaseProjectedMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RDSDatabaseProjectedMetric(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RDSDatabaseRecommendedOptionProjectedMetric
+ */
+const de_RDSDatabaseRecommendedOptionProjectedMetric = (
+  output: any,
+  context: __SerdeContext
+): RDSDatabaseRecommendedOptionProjectedMetric => {
+  return take(output, {
+    projectedMetrics: (_: any) => de_RDSDatabaseProjectedMetrics(_, context),
+    rank: __expectInt32,
+    recommendedDBInstanceClass: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RDSDatabaseRecommendedOptionProjectedMetrics
+ */
+const de_RDSDatabaseRecommendedOptionProjectedMetrics = (
+  output: any,
+  context: __SerdeContext
+): RDSDatabaseRecommendedOptionProjectedMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RDSDatabaseRecommendedOptionProjectedMetric(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBInstanceRecommendationOption
+ */
+const de_RDSDBInstanceRecommendationOption = (
+  output: any,
+  context: __SerdeContext
+): RDSDBInstanceRecommendationOption => {
+  return take(output, {
+    dbInstanceClass: __expectString,
+    performanceRisk: __limitedParseDouble,
+    projectedUtilizationMetrics: (_: any) => de_RDSDBProjectedUtilizationMetrics(_, context),
+    rank: __expectInt32,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+    savingsOpportunityAfterDiscounts: (_: any) => de_RDSInstanceSavingsOpportunityAfterDiscounts(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBInstanceRecommendationOptions
+ */
+const de_RDSDBInstanceRecommendationOptions = (
+  output: any,
+  context: __SerdeContext
+): RDSDBInstanceRecommendationOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RDSDBInstanceRecommendationOption(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBProjectedUtilizationMetrics
+ */
+const de_RDSDBProjectedUtilizationMetrics = (output: any, context: __SerdeContext): RDSDBUtilizationMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RDSDBUtilizationMetric(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBRecommendation
+ */
+const de_RDSDBRecommendation = (output: any, context: __SerdeContext): RDSDBRecommendation => {
+  return take(output, {
+    accountId: __expectString,
+    currentDBInstanceClass: __expectString,
+    currentStorageConfiguration: _json,
+    effectiveRecommendationPreferences: _json,
+    engine: __expectString,
+    engineVersion: __expectString,
+    idle: __expectString,
+    instanceFinding: __expectString,
+    instanceFindingReasonCodes: _json,
+    instanceRecommendationOptions: (_: any) => de_RDSDBInstanceRecommendationOptions(_, context),
+    lastRefreshTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lookbackPeriodInDays: __limitedParseDouble,
+    resourceArn: __expectString,
+    storageFinding: __expectString,
+    storageFindingReasonCodes: _json,
+    storageRecommendationOptions: (_: any) => de_RDSDBStorageRecommendationOptions(_, context),
+    tags: _json,
+    utilizationMetrics: (_: any) => de_RDSDBUtilizationMetrics(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBRecommendations
+ */
+const de_RDSDBRecommendations = (output: any, context: __SerdeContext): RDSDBRecommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RDSDBRecommendation(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBStorageRecommendationOption
+ */
+const de_RDSDBStorageRecommendationOption = (
+  output: any,
+  context: __SerdeContext
+): RDSDBStorageRecommendationOption => {
+  return take(output, {
+    rank: __expectInt32,
+    savingsOpportunity: (_: any) => de_SavingsOpportunity(_, context),
+    savingsOpportunityAfterDiscounts: (_: any) => de_RDSStorageSavingsOpportunityAfterDiscounts(_, context),
+    storageConfiguration: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBStorageRecommendationOptions
+ */
+const de_RDSDBStorageRecommendationOptions = (
+  output: any,
+  context: __SerdeContext
+): RDSDBStorageRecommendationOption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RDSDBStorageRecommendationOption(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBUtilizationMetric
+ */
+const de_RDSDBUtilizationMetric = (output: any, context: __SerdeContext): RDSDBUtilizationMetric => {
+  return take(output, {
+    name: __expectString,
+    statistic: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RDSDBUtilizationMetrics
+ */
+const de_RDSDBUtilizationMetrics = (output: any, context: __SerdeContext): RDSDBUtilizationMetric[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RDSDBUtilizationMetric(entry, context);
+    });
+  return retVal;
+};
+
+// de_RDSEffectiveRecommendationPreferences omitted.
+
+/**
+ * deserializeAws_json1_0RDSInstanceEstimatedMonthlySavings
+ */
+const de_RDSInstanceEstimatedMonthlySavings = (
+  output: any,
+  context: __SerdeContext
+): RDSInstanceEstimatedMonthlySavings => {
+  return take(output, {
+    currency: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+// de_RDSInstanceFindingReasonCodes omitted.
+
+/**
+ * deserializeAws_json1_0RDSInstanceSavingsOpportunityAfterDiscounts
+ */
+const de_RDSInstanceSavingsOpportunityAfterDiscounts = (
+  output: any,
+  context: __SerdeContext
+): RDSInstanceSavingsOpportunityAfterDiscounts => {
+  return take(output, {
+    estimatedMonthlySavings: (_: any) => de_RDSInstanceEstimatedMonthlySavings(_, context),
+    savingsOpportunityPercentage: __limitedParseDouble,
+  }) as any;
+};
+
+// de_RDSSavingsEstimationMode omitted.
+
+/**
+ * deserializeAws_json1_0RDSStorageEstimatedMonthlySavings
+ */
+const de_RDSStorageEstimatedMonthlySavings = (
+  output: any,
+  context: __SerdeContext
+): RDSStorageEstimatedMonthlySavings => {
+  return take(output, {
+    currency: __expectString,
+    value: __limitedParseDouble,
+  }) as any;
+};
+
+// de_RDSStorageFindingReasonCodes omitted.
+
+/**
+ * deserializeAws_json1_0RDSStorageSavingsOpportunityAfterDiscounts
+ */
+const de_RDSStorageSavingsOpportunityAfterDiscounts = (
+  output: any,
+  context: __SerdeContext
+): RDSStorageSavingsOpportunityAfterDiscounts => {
+  return take(output, {
+    estimatedMonthlySavings: (_: any) => de_RDSStorageEstimatedMonthlySavings(_, context),
+    savingsOpportunityPercentage: __limitedParseDouble,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0ReasonCodeSummaries
