@@ -80,6 +80,9 @@ import {
   ListRecommendationSummariesResponse,
   OpenSearchReservedInstances,
   OrderBy,
+  RdsDbInstance,
+  RdsDbInstanceStorage,
+  RdsDbInstanceStorageConfiguration,
   RdsReservedInstances,
   Recommendation,
   RecommendationSummary,
@@ -544,6 +547,8 @@ const de_ComputeSavingsPlans = (output: any, context: __SerdeContext): ComputeSa
 
 // de_ComputeSavingsPlansConfiguration omitted.
 
+// de_DbInstanceConfiguration omitted.
+
 /**
  * deserializeAws_json1_0EbsVolume
  */
@@ -761,6 +766,43 @@ const de_OpenSearchReservedInstances = (output: any, context: __SerdeContext): O
 // de_OpenSearchReservedInstancesConfiguration omitted.
 
 /**
+ * deserializeAws_json1_0RdsDbInstance
+ */
+const de_RdsDbInstance = (output: any, context: __SerdeContext): RdsDbInstance => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ResourceCostCalculation(_, context),
+  }) as any;
+};
+
+// de_RdsDbInstanceConfiguration omitted.
+
+/**
+ * deserializeAws_json1_0RdsDbInstanceStorage
+ */
+const de_RdsDbInstanceStorage = (output: any, context: __SerdeContext): RdsDbInstanceStorage => {
+  return take(output, {
+    configuration: (_: any) => de_RdsDbInstanceStorageConfiguration(_, context),
+    costCalculation: (_: any) => de_ResourceCostCalculation(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RdsDbInstanceStorageConfiguration
+ */
+const de_RdsDbInstanceStorageConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RdsDbInstanceStorageConfiguration => {
+  return take(output, {
+    allocatedStorageInGb: __limitedParseDouble,
+    iops: __limitedParseDouble,
+    storageThroughput: __limitedParseDouble,
+    storageType: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0RdsReservedInstances
  */
 const de_RdsReservedInstances = (output: any, context: __SerdeContext): RdsReservedInstances => {
@@ -934,6 +976,16 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
   if (output.openSearchReservedInstances != null) {
     return {
       openSearchReservedInstances: de_OpenSearchReservedInstances(output.openSearchReservedInstances, context),
+    };
+  }
+  if (output.rdsDbInstance != null) {
+    return {
+      rdsDbInstance: de_RdsDbInstance(output.rdsDbInstance, context),
+    };
+  }
+  if (output.rdsDbInstanceStorage != null) {
+    return {
+      rdsDbInstanceStorage: de_RdsDbInstanceStorage(output.rdsDbInstanceStorage, context),
     };
   }
   if (output.rdsReservedInstances != null) {
