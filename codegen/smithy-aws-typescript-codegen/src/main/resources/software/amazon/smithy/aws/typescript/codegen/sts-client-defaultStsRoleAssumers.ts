@@ -97,8 +97,8 @@ export const getDefaultRoleAssumer = (
       sessionToken: Credentials.SessionToken,
       expiration: Credentials.Expiration,
       // TODO(credentialScope): access normally when shape is updated.
-      credentialScope: (Credentials as any).CredentialScope,
-      accountId,
+      ...((Credentials as any).CredentialScope && { credentialScope: (Credentials as any).CredentialScope }),
+      ...(accountId && { accountId }),
     };
   };
 };
@@ -154,8 +154,8 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       sessionToken: Credentials.SessionToken,
       expiration: Credentials.Expiration,
       // TODO(credentialScope): access normally when shape is updated.
-      credentialScope: (Credentials as any).CredentialScope,
-      accountId,
+      ...((Credentials as any).CredentialScope && { credentialScope: (Credentials as any).CredentialScope }),
+      ...(accountId && { accountId }),
     };
   };
 };

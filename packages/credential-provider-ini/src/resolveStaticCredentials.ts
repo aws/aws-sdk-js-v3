@@ -36,7 +36,7 @@ export const resolveStaticCredentials = (
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,
     sessionToken: profile.aws_session_token,
-    credentialScope: profile.aws_credential_scope,
-    accountId: profile.aws_account_id,
+    ...(profile.aws_credential_scope && { credentialScope: profile.aws_credential_scope }),
+    ...(profile.aws_account_id && { accountId: profile.aws_account_id }),
   });
 };
