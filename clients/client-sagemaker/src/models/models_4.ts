@@ -108,13 +108,11 @@ import {
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
-  NotebookInstanceStatus,
   NotificationConfiguration,
   OidcConfig,
   OidcConfigFilterSensitiveLog,
   ProfilerConfig,
   ProfilerRuleConfiguration,
-  ScheduleStatus,
   SharingType,
   SourceIpConfig,
   SpaceSettings,
@@ -149,13 +147,15 @@ import {
   LambdaStepMetadata,
   LineageType,
   MetricData,
-  MonitoringAlertStatus,
+  MonitoringAlertHistorySortKey,
+  NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
   ProjectStatus,
   ResourceType,
+  ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
@@ -174,6 +174,157 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringAlertStatus = {
+  IN_ALERT: "InAlert",
+  OK: "OK",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringAlertStatus = (typeof MonitoringAlertStatus)[keyof typeof MonitoringAlertStatus];
+
+/**
+ * @public
+ */
+export interface ListMonitoringAlertHistoryRequest {
+  /**
+   * <p>The name of a monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleName?: string;
+
+  /**
+   * <p>The name of a monitoring alert.</p>
+   * @public
+   */
+  MonitoringAlertName?: string;
+
+  /**
+   * <p>The field used to sort results. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: MonitoringAlertHistorySortKey;
+
+  /**
+   * <p>The sort order, whether <code>Ascending</code> or <code>Descending</code>, of the alert
+   *          history. The default is <code>Descending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * <p>If the result of the previous <code>ListMonitoringAlertHistory</code> request was
+   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
+   *          alerts in the history, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to display. The default is 100.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns only alerts created on or before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only alerts created on or after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that retrieves only alerts with a specific status.</p>
+   * @public
+   */
+  StatusEquals?: MonitoringAlertStatus;
+}
+
+/**
+ * <p>Provides summary information of an alert's history.</p>
+ * @public
+ */
+export interface MonitoringAlertHistorySummary {
+  /**
+   * <p>The name of a monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The name of a monitoring alert.</p>
+   * @public
+   */
+  MonitoringAlertName: string | undefined;
+
+  /**
+   * <p>A timestamp that indicates when the first alert transition occurred in an alert history.
+   *       An alert transition can be from status <code>InAlert</code> to <code>OK</code>,
+   *       or from <code>OK</code> to <code>InAlert</code>.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The current alert status of an alert.</p>
+   * @public
+   */
+  AlertStatus: MonitoringAlertStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMonitoringAlertHistoryResponse {
+  /**
+   * <p>An alert history for a model monitoring schedule.</p>
+   * @public
+   */
+  MonitoringAlertHistory?: MonitoringAlertHistorySummary[];
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *          alerts, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMonitoringAlertsRequest {
+  /**
+   * <p>The name of a monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListMonitoringAlerts</code> request was truncated,
+   *          the response includes a <code>NextToken</code>. To retrieve the next set of alerts in the
+   *          history, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to display. The default is 100.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
 
 /**
  * <p>An alert action taken to light up an icon on the Amazon SageMaker Model Dashboard when an alert goes into

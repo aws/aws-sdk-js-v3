@@ -290,6 +290,18 @@ export const ModelCompressionType = {
 export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof ModelCompressionType];
 
 /**
+ * <p>Configuration information specifying which hub contents have accessible deployment options.</p>
+ * @public
+ */
+export interface InferenceHubAccessConfig {
+  /**
+   * <p>The ARN of the hub content for which deployment access is allowed.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
  * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
  *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.</p>
  *          <ul>
@@ -434,6 +446,12 @@ export interface S3ModelDataSource {
    * @public
    */
   ModelAccessConfig?: ModelAccessConfig;
+
+  /**
+   * <p>Configuration information for hub access.</p>
+   * @public
+   */
+  HubAccessConfig?: InferenceHubAccessConfig;
 }
 
 /**
@@ -11326,15 +11344,4 @@ export interface CreateCodeRepositoryInput {
    * @public
    */
   Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateCodeRepositoryOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the new repository.</p>
-   * @public
-   */
-  CodeRepositoryArn: string | undefined;
 }

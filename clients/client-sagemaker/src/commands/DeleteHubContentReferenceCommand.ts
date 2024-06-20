@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteHubContentRequest } from "../models/models_2";
-import { de_DeleteHubContentCommand, se_DeleteHubContentCommand } from "../protocols/Aws_json1_1";
+import { DeleteHubContentReferenceRequest } from "../models/models_2";
+import { de_DeleteHubContentReferenceCommand, se_DeleteHubContentReferenceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -17,44 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteHubContentCommand}.
+ * The input for {@link DeleteHubContentReferenceCommand}.
  */
-export interface DeleteHubContentCommandInput extends DeleteHubContentRequest {}
+export interface DeleteHubContentReferenceCommandInput extends DeleteHubContentReferenceRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteHubContentCommand}.
+ * The output of {@link DeleteHubContentReferenceCommand}.
  */
-export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
+export interface DeleteHubContentReferenceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete the contents of a hub.</p>
+ * <p>Delete a hub content reference in order to remove a model from a private hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteHubContentReferenceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteHubContentReferenceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = { // DeleteHubContentRequest
+ * const input = { // DeleteHubContentReferenceRequest
  *   HubName: "STRING_VALUE", // required
  *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  *   HubContentName: "STRING_VALUE", // required
- *   HubContentVersion: "STRING_VALUE", // required
  * };
- * const command = new DeleteHubContentCommand(input);
+ * const command = new DeleteHubContentReferenceCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteHubContentCommandInput - {@link DeleteHubContentCommandInput}
- * @returns {@link DeleteHubContentCommandOutput}
- * @see {@link DeleteHubContentCommandInput} for command's `input` shape.
- * @see {@link DeleteHubContentCommandOutput} for command's `response` shape.
+ * @param DeleteHubContentReferenceCommandInput - {@link DeleteHubContentReferenceCommandInput}
+ * @returns {@link DeleteHubContentReferenceCommandOutput}
+ * @see {@link DeleteHubContentReferenceCommandInput} for command's `input` shape.
+ * @see {@link DeleteHubContentReferenceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
- *
- * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
@@ -64,10 +60,10 @@ export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteHubContentCommand extends $Command
+export class DeleteHubContentReferenceCommand extends $Command
   .classBuilder<
-    DeleteHubContentCommandInput,
-    DeleteHubContentCommandOutput,
+    DeleteHubContentReferenceCommandInput,
+    DeleteHubContentReferenceCommandOutput,
     SageMakerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -81,9 +77,9 @@ export class DeleteHubContentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("SageMaker", "DeleteHubContent", {})
-  .n("SageMakerClient", "DeleteHubContentCommand")
+  .s("SageMaker", "DeleteHubContentReference", {})
+  .n("SageMakerClient", "DeleteHubContentReferenceCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteHubContentCommand)
-  .de(de_DeleteHubContentCommand)
+  .ser(se_DeleteHubContentReferenceCommand)
+  .de(de_DeleteHubContentReferenceCommand)
   .build() {}

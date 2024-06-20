@@ -29,9 +29,6 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
 
 /**
  * <p>Describe the content of a hub.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,7 +37,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * const client = new SageMakerClient(config);
  * const input = { // DescribeHubContentRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  *   HubContentName: "STRING_VALUE", // required
  *   HubContentVersion: "STRING_VALUE",
  * };
@@ -50,7 +47,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentName: "STRING_VALUE", // required
  * //   HubContentArn: "STRING_VALUE", // required
  * //   HubContentVersion: "STRING_VALUE", // required
- * //   HubContentType: "Model" || "Notebook", // required
+ * //   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  * //   DocumentSchemaVersion: "STRING_VALUE", // required
  * //   HubName: "STRING_VALUE", // required
  * //   HubArn: "STRING_VALUE", // required
@@ -58,6 +55,9 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentDescription: "STRING_VALUE",
  * //   HubContentMarkdown: "STRING_VALUE",
  * //   HubContentDocument: "STRING_VALUE", // required
+ * //   SageMakerPublicHubContentArn: "STRING_VALUE",
+ * //   ReferenceMinVersion: "STRING_VALUE",
+ * //   SupportStatus: "Supported" || "Deprecated",
  * //   HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //     "STRING_VALUE",
  * //   ],

@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ImportHubContentRequest, ImportHubContentResponse } from "../models/models_3";
-import { de_ImportHubContentCommand, se_ImportHubContentCommand } from "../protocols/Aws_json1_1";
+import { CreateHubContentReferenceRequest, CreateHubContentReferenceResponse } from "../models/models_1";
+import { de_CreateHubContentReferenceCommand, se_CreateHubContentReferenceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -17,37 +17,29 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ImportHubContentCommand}.
+ * The input for {@link CreateHubContentReferenceCommand}.
  */
-export interface ImportHubContentCommandInput extends ImportHubContentRequest {}
+export interface CreateHubContentReferenceCommandInput extends CreateHubContentReferenceRequest {}
 /**
  * @public
  *
- * The output of {@link ImportHubContentCommand}.
+ * The output of {@link CreateHubContentReferenceCommand}.
  */
-export interface ImportHubContentCommandOutput extends ImportHubContentResponse, __MetadataBearer {}
+export interface CreateHubContentReferenceCommandOutput extends CreateHubContentReferenceResponse, __MetadataBearer {}
 
 /**
- * <p>Import hub content.</p>
+ * <p>Create a hub content reference in order to add a model in the JumpStart public hub to a private hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, ImportHubContentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, ImportHubContentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, CreateHubContentReferenceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateHubContentReferenceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = { // ImportHubContentRequest
- *   HubContentName: "STRING_VALUE", // required
- *   HubContentVersion: "STRING_VALUE",
- *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
- *   DocumentSchemaVersion: "STRING_VALUE", // required
+ * const input = { // CreateHubContentReferenceRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentDisplayName: "STRING_VALUE",
- *   HubContentDescription: "STRING_VALUE",
- *   HubContentMarkdown: "STRING_VALUE",
- *   HubContentDocument: "STRING_VALUE", // required
- *   HubContentSearchKeywords: [ // HubContentSearchKeywordList
- *     "STRING_VALUE",
- *   ],
+ *   SageMakerPublicHubContentArn: "STRING_VALUE", // required
+ *   HubContentName: "STRING_VALUE",
+ *   MinVersion: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -55,19 +47,19 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  *     },
  *   ],
  * };
- * const command = new ImportHubContentCommand(input);
+ * const command = new CreateHubContentReferenceCommand(input);
  * const response = await client.send(command);
- * // { // ImportHubContentResponse
+ * // { // CreateHubContentReferenceResponse
  * //   HubArn: "STRING_VALUE", // required
  * //   HubContentArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param ImportHubContentCommandInput - {@link ImportHubContentCommandInput}
- * @returns {@link ImportHubContentCommandOutput}
- * @see {@link ImportHubContentCommandInput} for command's `input` shape.
- * @see {@link ImportHubContentCommandOutput} for command's `response` shape.
+ * @param CreateHubContentReferenceCommandInput - {@link CreateHubContentReferenceCommandInput}
+ * @returns {@link CreateHubContentReferenceCommandOutput}
+ * @see {@link CreateHubContentReferenceCommandInput} for command's `input` shape.
+ * @see {@link CreateHubContentReferenceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
@@ -85,10 +77,10 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  *
  * @public
  */
-export class ImportHubContentCommand extends $Command
+export class CreateHubContentReferenceCommand extends $Command
   .classBuilder<
-    ImportHubContentCommandInput,
-    ImportHubContentCommandOutput,
+    CreateHubContentReferenceCommandInput,
+    CreateHubContentReferenceCommandOutput,
     SageMakerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,9 +94,9 @@ export class ImportHubContentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("SageMaker", "ImportHubContent", {})
-  .n("SageMakerClient", "ImportHubContentCommand")
+  .s("SageMaker", "CreateHubContentReference", {})
+  .n("SageMakerClient", "CreateHubContentReferenceCommand")
   .f(void 0, void 0)
-  .ser(se_ImportHubContentCommand)
-  .de(de_ImportHubContentCommand)
+  .ser(se_CreateHubContentReferenceCommand)
+  .de(de_CreateHubContentReferenceCommand)
   .build() {}

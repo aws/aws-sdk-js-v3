@@ -154,10 +154,10 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * //     { // InferenceRecommendation
  * //       RecommendationId: "STRING_VALUE",
  * //       Metrics: { // RecommendationMetrics
- * //         CostPerHour: Number("float"), // required
- * //         CostPerInference: Number("float"), // required
- * //         MaxInvocations: Number("int"), // required
- * //         ModelLatency: Number("int"), // required
+ * //         CostPerHour: Number("float"),
+ * //         CostPerInference: Number("float"),
+ * //         MaxInvocations: Number("int"),
+ * //         ModelLatency: Number("int"),
  * //         CpuUtilization: Number("float"),
  * //         MemoryUtilization: Number("float"),
  * //         ModelSetupTime: Number("int"),

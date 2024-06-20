@@ -72,6 +72,9 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *         ModelAccessConfig: { // ModelAccessConfig
  *           AcceptEula: true || false, // required
  *         },
+ *         HubAccessConfig: { // InferenceHubAccessConfig
+ *           HubContentArn: "STRING_VALUE", // required
+ *         },
  *       },
  *     },
  *     Environment: { // EnvironmentMap
@@ -102,6 +105,9 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *           CompressionType: "None" || "Gzip", // required
  *           ModelAccessConfig: {
  *             AcceptEula: true || false, // required
+ *           },
+ *           HubAccessConfig: {
+ *             HubContentArn: "STRING_VALUE", // required
  *           },
  *         },
  *       },
