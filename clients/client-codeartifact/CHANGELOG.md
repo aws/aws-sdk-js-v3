@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
+
+
+### Features
+
+* **client-codeartifact:** Add support for the Cargo package format. ([6d048ab](https://github.com/aws/aws-sdk-js-v3/commit/6d048ab50a46c56b06cb88685336d30d0f2081ef))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-codeartifact

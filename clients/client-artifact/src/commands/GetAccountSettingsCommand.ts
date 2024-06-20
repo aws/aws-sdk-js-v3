@@ -77,6 +77,22 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
  * @public
+ * @example Invoke GetAccountSettings operation
+ * ```javascript
+ * // Get the current account settings.
+ * const input = {};
+ * const command = new GetAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "accountSettings": {
+ *     "notificationSubscriptionStatus": "SUBSCRIBED"
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetAccountSettingsCommand extends $Command
   .classBuilder<

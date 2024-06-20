@@ -94,6 +94,36 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
  * @public
+ * @example Invoke ListReports operation
+ * ```javascript
+ * // The ListReports operation returns a collection of report resources.
+ * const input = {};
+ * const command = new ListReportsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "nextToken": "gPFEGk7CF4wS901w7ppYclt7gPFEGk7CF4wS901w7ppYclt7gPFEGk7CF4wS901w7ppYclt7",
+ *   "reports": [
+ *     {
+ *       "version": 1,
+ *       "name": "Name of report",
+ *       "arn": "arn:aws:artifact:us-east-1::report/report-bqhUJF3FrQZsMJpb",
+ *       "category": "Artifact Category",
+ *       "companyName": "AWS",
+ *       "description": "Description of report",
+ *       "id": "report-bqhUJF3FrQZsMJpb",
+ *       "periodEnd": "2022-04-01T20:32:04Z",
+ *       "periodStart": "2022-04-01T20:32:04Z",
+ *       "productName": "Product of report",
+ *       "series": "Artifact Series",
+ *       "state": "PUBLISHED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListReportsCommand extends $Command
   .classBuilder<

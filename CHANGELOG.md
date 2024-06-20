@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release adds document support to Converse and ConverseStream APIs ([7f5bfb9](https://github.com/aws/aws-sdk-js-v3/commit/7f5bfb9e206cd3c529b3a18ac1a51dff54526172))
+* **client-codeartifact:** Add support for the Cargo package format. ([6d048ab](https://github.com/aws/aws-sdk-js-v3/commit/6d048ab50a46c56b06cb88685336d30d0f2081ef))
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze and generate optimization recommendations for Amazon RDS MySQL and RDS PostgreSQL. ([1cf227f](https://github.com/aws/aws-sdk-js-v3/commit/1cf227f89097b9e4b40be9370e9a9d0588f5e4ac))
+* **client-cost-optimization-hub:** This release enables AWS Cost Optimization Hub to show cost optimization recommendations for Amazon RDS MySQL and RDS PostgreSQL. ([52a0e8f](https://github.com/aws/aws-sdk-js-v3/commit/52a0e8f8054525f71fb40da9d0b74137202c9514))
+* **client-glue:** Fix Glue paginators for Jobs, JobRuns, Triggers, Blueprints and Workflows. ([8741cd4](https://github.com/aws/aws-sdk-js-v3/commit/8741cd4af5ae92ff4566cbea275a6647559d37c0))
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to record individual stage participants to S3. ([b3374d1](https://github.com/aws/aws-sdk-js-v3/commit/b3374d147c877fa5011951f89a314d999b8ab0fc))
+* **client-sagemaker:** Adds support for model references in Hub service, and adds support for cross-account access of Hubs ([1048205](https://github.com/aws/aws-sdk-js-v3/commit/10482051cc1f13c67f077e7258571fbd0ae8f230))
+* **clients:** update client endpoints as of 2024-06-20 ([f9179c6](https://github.com/aws/aws-sdk-js-v3/commit/f9179c6fbbf8babbea3d1fe6218440a39b250c9b))
+
+
+
+
+
 # [3.601.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.600.0...v3.601.0) (2024-06-19)
 
 

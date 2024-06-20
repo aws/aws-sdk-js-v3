@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
+
+
+### Features
+
+* **client-bedrock-runtime:** This release adds document support to Converse and ConverseStream APIs ([7f5bfb9](https://github.com/aws/aws-sdk-js-v3/commit/7f5bfb9e206cd3c529b3a18ac1a51dff54526172))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 

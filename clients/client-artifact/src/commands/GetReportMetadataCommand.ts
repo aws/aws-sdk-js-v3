@@ -96,6 +96,38 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
  * @public
+ * @example Invoke GetReportMetadata operation on the latest version of a specific report
+ * ```javascript
+ * // The GetReportMetadata operation is invoked on a reportId and on a optional version.
+ * //                         If callers do not provide a version, it will default to the report's latest version.
+ * const input = {
+ *   "reportId": "report-bqhUJF3FrQZsMJpb"
+ * };
+ * const command = new GetReportMetadataCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "reportDetails": {
+ *     "version": 1,
+ *     "name": "Name of report",
+ *     "arn": "arn:aws:artifact:us-east-1::report/report-bqhUJF3FrQZsMJpb:1",
+ *     "category": "Artifact Category",
+ *     "companyName": "AWS",
+ *     "createdAt": "2022-05-27T23:17:00.343940Z",
+ *     "description": "Description of report",
+ *     "id": "report-bqhUJF3FrQZsMJpb",
+ *     "periodEnd": "2022-04-01T20:32:04Z",
+ *     "periodStart": "2022-04-01T20:32:04Z",
+ *     "productName": "Product of report",
+ *     "series": "Artifact Series",
+ *     "state": "PUBLISHED",
+ *     "termArn": "arn:aws:artifact:us-east-1::term/term-gLJGG12NyPtYcmtu:1"
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetReportMetadataCommand extends $Command
   .classBuilder<

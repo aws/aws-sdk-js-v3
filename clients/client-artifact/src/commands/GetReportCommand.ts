@@ -79,6 +79,26 @@ export interface GetReportCommandOutput extends GetReportResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
  * @public
+ * @example Invoke GetReport operation on the latest version of a specific report
+ * ```javascript
+ * // The GetReport operation is invoked on a reportId and on a optional version.
+ * //                         Callers must provide a termToken, which is provided by the GetTermForReport
+ * //                         operation. If callers do not provide a version, it will default to the
+ * //                         report's latest version
+ * const input = {
+ *   "reportId": "report-1hVFddebtfDNJAUf",
+ *   "termToken": "term-token-gPFEGk7CF4wS901w7ppYclt7"
+ * };
+ * const command = new GetReportCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "documentPresignedUrl": "<Presigned S3 URL>"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetReportCommand extends $Command
   .classBuilder<

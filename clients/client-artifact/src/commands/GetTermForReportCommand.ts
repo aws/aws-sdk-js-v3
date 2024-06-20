@@ -79,6 +79,24 @@ export interface GetTermForReportCommandOutput extends GetTermForReportResponse,
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
  * @public
+ * @example Invoke GetTermForReport operation on the latest version of a specific report
+ * ```javascript
+ * // The GetTermForReport operation is invoked on a reportId and on a optional version.
+ * //                         If callers do not provide a version, it will default to the report's latest version.
+ * const input = {
+ *   "reportId": "report-bqhUJF3FrQZsMJpb"
+ * };
+ * const command = new GetTermForReportCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "documentPresignedUrl": "<Presigned S3 URL>",
+ *   "termToken": "term-token-gPFEGk7CF4wS901w7ppYclt7"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class GetTermForReportCommand extends $Command
   .classBuilder<
