@@ -26,6 +26,31 @@ export type RoleAssumer = (
 
 const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 
+interface AssumedRoleUser {
+  /**
+   * The ARN of the temporary security credentials that are returned from the AssumeRole action.
+   */
+  Arn?: string;
+
+  /**
+   * A unique identifier that contains the role ID and the role session name of the role that is being assumed.
+   */
+  AssumedRoleId?: string;
+}
+
+/**
+ * @internal
+ */
+const getAccountIdFromAssumedRoleUser = (assumedRoleUser?: AssumedRoleUser) => {
+  if (typeof assumedRoleUser?.Arn === "string") {
+    const arnComponents = assumedRoleUser.Arn.split(":");
+    if (arnComponents.length > 4 && arnComponents[4] !== "") {
+      return arnComponents[4];
+    }
+  }
+  return undefined;
+};
+
 /**
  * @internal
  *
@@ -85,12 +110,9 @@ export const getDefaultRoleAssumer = (
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new Error(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
     }
-    let accountId;
-    try {
-      accountId = AssumedRoleUser!.Arn!.split(":")[4];
-    } catch (error) {
-      accountId = undefined;
-    }
+
+    const accountId = getAccountIdFromAssumedRoleUser(AssumedRoleUser);
+
     return {
       accessKeyId: Credentials.AccessKeyId,
       secretAccessKey: Credentials.SecretAccessKey,
@@ -142,12 +164,9 @@ export const getDefaultRoleAssumerWithWebIdentity = (
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new Error(`Invalid response from STS.assumeRoleWithWebIdentity call with role ${params.RoleArn}`);
     }
-    let accountId;
-    try {
-      accountId = AssumedRoleUser!.Arn!.split(":")[4];
-    } catch (error) {
-      accountId = undefined;
-    }
+
+    const accountId = getAccountIdFromAssumedRoleUser(AssumedRoleUser);
+
     return {
       accessKeyId: Credentials.AccessKeyId,
       secretAccessKey: Credentials.SecretAccessKey,
