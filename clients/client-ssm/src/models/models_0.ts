@@ -9650,6 +9650,24 @@ export const DescribeAssociationResultFilterSensitiveLog = (obj: DescribeAssocia
 /**
  * @internal
  */
+export const InstanceInformationFilterSensitiveLog = (obj: InstanceInformation): any => ({
+  ...obj,
+  ...(obj.IPAddress && { IPAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceInformationResultFilterSensitiveLog = (obj: DescribeInstanceInformationResult): any => ({
+  ...obj,
+  ...(obj.InstanceInformationList && {
+    InstanceInformationList: obj.InstanceInformationList.map((item) => InstanceInformationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const InstancePatchStateFilterSensitiveLog = (obj: InstancePatchState): any => ({
   ...obj,
   ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
@@ -9674,6 +9692,24 @@ export const DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog = 
   ...obj,
   ...(obj.InstancePatchStates && {
     InstancePatchStates: obj.InstancePatchStates.map((item) => InstancePatchStateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InstancePropertyFilterSensitiveLog = (obj: InstanceProperty): any => ({
+  ...obj,
+  ...(obj.IPAddress && { IPAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstancePropertiesResultFilterSensitiveLog = (obj: DescribeInstancePropertiesResult): any => ({
+  ...obj,
+  ...(obj.InstanceProperties && {
+    InstanceProperties: obj.InstanceProperties.map((item) => InstancePropertyFilterSensitiveLog(item)),
   }),
 });
 
