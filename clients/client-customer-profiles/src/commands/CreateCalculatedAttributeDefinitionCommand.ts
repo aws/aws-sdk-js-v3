@@ -40,10 +40,10 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
 /**
  * <p>Creates a new calculated attribute definition. After creation, new object data ingested
  *          into Customer Profiles will be included in the calculated attribute, which can be retrieved
- *          for a profile using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html">GetCalculatedAttributeForProfile</a> API.
- *          Defining a calculated attribute makes it available for all profiles within a domain. Each
- *          calculated attribute can only reference one <code>ObjectType</code> and at most, two fields
- *          from that <code>ObjectType</code>.</p>
+ *          for a profile using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html">GetCalculatedAttributeForProfile</a> API. Defining a calculated attribute makes it
+ *          available for all profiles within a domain. Each calculated attribute can only reference
+ *          one <code>ObjectType</code> and at most, two fields from that
+ *          <code>ObjectType</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,8 @@ export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
 export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified workflow and all its corresponding resources. This is an async process.</p>
+ * <p>Deletes the specified workflow and all its corresponding resources. This is an async
+ *          process.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

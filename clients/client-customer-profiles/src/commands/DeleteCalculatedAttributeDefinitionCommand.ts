@@ -36,9 +36,10 @@ export interface DeleteCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes an existing calculated attribute definition. Note that deleting a default calculated attribute
- *          is possible, however once deleted, you will be unable to undo that action and will need to recreate it on
- *          your own using the CreateCalculatedAttributeDefinition API if you want it back.</p>
+ * <p>Deletes an existing calculated attribute definition. Note that deleting a default
+ *          calculated attribute is possible, however once deleted, you will be unable to undo that
+ *          action and will need to recreate it on your own using the
+ *          CreateCalculatedAttributeDefinition API if you want it back.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

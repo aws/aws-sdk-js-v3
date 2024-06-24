@@ -28,10 +28,10 @@ export interface CreateEventStreamCommandInput extends CreateEventStreamRequest 
 export interface CreateEventStreamCommandOutput extends CreateEventStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an event stream, which is a subscription to real-time events, such as when profiles are created and
- *          updated through Amazon Connect Customer Profiles.</p>
- *          <p>Each event stream can be associated with only one Kinesis Data Stream destination in the same region and
- *          Amazon Web Services account as the customer profiles domain</p>
+ * <p>Creates an event stream, which is a subscription to real-time events, such as when
+ *          profiles are created and updated through Amazon Connect Customer Profiles.</p>
+ *          <p>Each event stream can be associated with only one Kinesis Data Stream destination in the
+ *          same region and Amazon Web Services account as the customer profiles domain</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
