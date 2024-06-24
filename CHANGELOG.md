@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.603.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.602.0...v3.603.0) (2024-06-24)
+
+
+### Features
+
+* **client-bedrock-runtime:** Increases Converse API's document name length ([08e7ceb](https://github.com/aws/aws-sdk-js-v3/commit/08e7ceb2f6555e621c456bd3d1cfdfeacf90111b))
+* **client-customer-profiles:** This release includes changes to ProfileObjectType APIs, adds functionality top set and get capacity for profile object types. ([a72bef5](https://github.com/aws/aws-sdk-js-v3/commit/a72bef5b5b7ca2850c2d7812a782e7b41fb60438))
+* **client-ec2:** Fix EC2 multi-protocol info in models. ([3b5fb45](https://github.com/aws/aws-sdk-js-v3/commit/3b5fb45fd2b230364e75ffb6fa472331b08341ce))
+* **client-qbusiness:** Allow enable/disable Q Apps when creating/updating a Q application; Return the Q Apps enablement information when getting a Q application. ([55c8f49](https://github.com/aws/aws-sdk-js-v3/commit/55c8f49bad3f4ef3c315996864220ffa50334d25))
+* **client-ssm:** Add sensitive trait to SSM IPAddress property for CloudTrail redaction ([b4bc88d](https://github.com/aws/aws-sdk-js-v3/commit/b4bc88d2286ea25e20b18707bab78fa68dba6b2d))
+* **client-workspaces-web:** Added ability to enable DeepLinking functionality on a Portal via UserSettings as well as added support for IdentityProvider resource tagging. ([7035c56](https://github.com/aws/aws-sdk-js-v3/commit/7035c56a6fa710399a805454ec925d1507e11e95))
+* **clients:** update client endpoints as of 2024-06-24 ([8442ae6](https://github.com/aws/aws-sdk-js-v3/commit/8442ae6c1cbefbce783ea18a73e619c0bd45bdfb))
+
+
+
+
+
 # [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
 
 
