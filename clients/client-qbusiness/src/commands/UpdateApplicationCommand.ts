@@ -44,6 +44,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   attachmentsConfiguration: { // AttachmentsConfiguration
  *     attachmentsControlMode: "ENABLED" || "DISABLED", // required
  *   },
+ *   qAppsConfiguration: { // QAppsConfiguration
+ *     qAppsControlMode: "ENABLED" || "DISABLED", // required
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

@@ -201,6 +201,7 @@ import {
   Principal,
   PrincipalGroup,
   PrincipalUser,
+  QAppsConfiguration,
   ResourceNotFoundException,
   RetrieverConfiguration,
   Rule,
@@ -360,6 +361,7 @@ export const se_CreateApplicationCommand = async (
       displayName: [],
       encryptionConfiguration: (_) => _json(_),
       identityCenterInstanceArn: [],
+      qAppsConfiguration: (_) => _json(_),
       roleArn: [],
       tags: (_) => _json(_),
     })
@@ -1284,6 +1286,7 @@ export const se_UpdateApplicationCommand = async (
       description: [],
       displayName: [],
       identityCenterInstanceArn: [],
+      qAppsConfiguration: (_) => _json(_),
       roleArn: [],
     })
   );
@@ -1917,6 +1920,7 @@ export const de_GetApplicationCommand = async (
     encryptionConfiguration: _json,
     error: _json,
     identityCenterApplicationArn: __expectString,
+    qAppsConfiguration: _json,
     roleArn: __expectString,
     status: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3408,6 +3412,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_PrincipalUser omitted.
 
+// se_QAppsConfiguration omitted.
+
 // se_RetrieverConfiguration omitted.
 
 // se_Rule omitted.
@@ -4006,6 +4012,8 @@ const de_Plugins = (output: any, context: __SerdeContext): Plugin[] => {
     });
   return retVal;
 };
+
+// de_QAppsConfiguration omitted.
 
 // de_Retriever omitted.
 
