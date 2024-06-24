@@ -47,6 +47,12 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  *     "<keys>": "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateIdentityProviderCommand(input);
  * const response = await client.send(command);

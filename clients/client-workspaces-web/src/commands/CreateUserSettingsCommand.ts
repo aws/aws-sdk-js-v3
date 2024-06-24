@@ -76,6 +76,7 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *   additionalEncryptionContext: { // EncryptionContextMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   deepLinkAllowed: "STRING_VALUE",
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
