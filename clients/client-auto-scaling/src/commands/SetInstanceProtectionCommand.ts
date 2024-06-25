@@ -30,8 +30,7 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
 /**
  * <p>Updates the instance protection settings of the specified instances. This operation
  *             cannot be called on instances in a warm pool.</p>
- *          <p>For more information about preventing instances that are part of an Auto Scaling group from
- *             terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use
  *                 instance scale-in protection</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call

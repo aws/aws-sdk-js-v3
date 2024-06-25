@@ -32,8 +32,8 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  *          <p>If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
  *             that is lower than the current size of the group, the Auto Scaling group uses its termination
  *             policy to determine which instances to terminate. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html">Manual scaling</a> in the
- *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual
+ *                 scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

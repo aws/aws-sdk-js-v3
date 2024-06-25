@@ -773,7 +773,7 @@ export interface InstanceMaintenancePolicy {
 
 /**
  * <p>Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling
- *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch
+ *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch
  *                 templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @public
  */
@@ -873,7 +873,8 @@ export interface LifecycleHookSpecification {
 
   /**
    * <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
-   *             notification target. For information about creating this role, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target">Configure a notification target for a lifecycle hook</a> in the
+   *             notification target. For information about creating this role, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html">Prepare to
+   *                 add a lifecycle hook to your Auto Scaling group</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.</p>
    * @public
@@ -1266,10 +1267,10 @@ export interface VCpuCountRequest {
  *                 attributes are optional. Any unspecified optional attribute is set to its
  *                 default.</p>
  *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
- *                 an Auto Scaling group using attribute-based instance type selection</a> in the
- *                 <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining which instance types match
- *             your attributes before you apply them to your Auto Scaling group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html">Create a mixed instances group using attribute-based instance type
+ *                 selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining
+ *             which instance types match your attributes before you apply them to your Auto Scaling group, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the
  *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @public
  */
@@ -1651,8 +1652,7 @@ export interface LaunchTemplateOverrides {
   /**
    * <p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type
    *             that is supported in your requested Region and Availability Zones. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <p>You can specify up to 40 instance types per Auto Scaling group.</p>
    * @public
    */
@@ -1667,7 +1667,7 @@ export interface LaunchTemplateOverrides {
    *             in an overage. For example, if there are two units remaining to fulfill capacity, and
    *             Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units,
    *             the instance is launched, and the desired capacity is exceeded by three units. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the
+   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configure an Auto Scaling group to use instance weights</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p>
    *          <p>If you specify a value for <code>WeightedCapacity</code> for one instance type, you
    *             must specify a value for <code>WeightedCapacity</code> for all of them.</p>
@@ -1827,7 +1827,7 @@ export interface CreateAutoScalingGroupType {
    *                 (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>
    *          <note>
    *             <p>The launch template that is specified must be configured for use with an Auto Scaling
-   *                 group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Creating a launch
+   *                 group. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Create a launch
    *                     template for an Auto Scaling group</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          </note>
@@ -1846,7 +1846,7 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>The ID of the instance used to base the launch configuration on. If specified, Amazon
    *             EC2 Auto Scaling uses the configuration values from the specified instance to create a
-   *             new launch configuration. To get the instance ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> API operation. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Creating an Auto Scaling group using an EC2 instance</a> in the
+   *             new launch configuration. To get the instance ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> API operation. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create an Auto Scaling group using parameters from an existing instance</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
@@ -1886,8 +1886,8 @@ export interface CreateAutoScalingGroupType {
    *             <i>Only needed if you use simple scaling policies.</i>
    *          </p>
    *          <p>The amount of time, in seconds, between one scaling activity ending and another one
-   *             starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns
-   *                 for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html">Scaling
+   *                 cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Default: <code>300</code> seconds</p>
    * @public
    */
@@ -1924,8 +1924,9 @@ export interface CreateAutoScalingGroupType {
    * <p>A comma-separated value string of one or more health check types.</p>
    *          <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>.
    *                 <code>EC2</code> is the default health check and cannot be disabled. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
-   *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks
+   *                 for instances in an Auto Scaling group</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Only specify <code>EC2</code> if you must clear a value that was previously
    *             set.</p>
    * @public
@@ -1970,8 +1971,8 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>A policy or a list of policies that are used to select the instance to terminate.
    *             These policies are executed in the order that you list them. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with
-   *                 Amazon EC2 Auto Scaling termination policies</a> in the
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Configure
+   *                 termination policies for Amazon EC2 Auto Scaling</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> |
    *                 <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> |
@@ -1986,7 +1987,7 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
    *             when scaling in. For more information about preventing instances from terminating on
-   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use
    *                 instance scale-in protection</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
@@ -2036,7 +2037,7 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>The maximum amount of time, in seconds, that an instance can be in service. The
    *             default is null. If specified, the value must be either 0 or a number equal to or
-   *             greater than 86,400 seconds (1 day). For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing Auto Scaling instances based on maximum instance lifetime</a> in the
+   *             greater than 86,400 seconds (1 day). For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replace Auto Scaling instances based on maximum instance lifetime</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
@@ -2051,9 +2052,8 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling
    *             supports <code>DesiredCapacityType</code> for attribute-based instance type selection
-   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
-   *                 an Auto Scaling group using attribute-based instance type selection</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html">Create a mixed instances group using attribute-based instance type
+   *                 selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of
    *             instances.</p>
    *          <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code>
@@ -2144,10 +2144,10 @@ export interface Ebs {
   VolumeSize?: number;
 
   /**
-   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the
+   *                 <i>Amazon EBS User Guide</i>.</p>
    *          <p>Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code> |
-   *             <code>st1</code> | <code>sc1</code> | <code>gp3</code>
+   *                 <code>st1</code> | <code>sc1</code> | <code>gp3</code>
    *          </p>
    * @public
    */
@@ -2177,12 +2177,11 @@ export interface Ebs {
    *                   <code>io1</code>: 100-64,000 IOPS</p>
    *             </li>
    *          </ul>
-   *          <p>For <code>io1</code> volumes, we guarantee 64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances
-   *             built on the Nitro System</a>. Other instance families guarantee performance up
-   *             to 32,000 IOPS. </p>
+   *          <p>For <code>io1</code> volumes, we guarantee 64,000 IOPS only for <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Instances built on the Amazon Web Services Nitro System</a>. Other instance families
+   *             guarantee performance up to 32,000 IOPS. </p>
    *          <p>
    *             <code>Iops</code> is supported when the volume type is <code>gp3</code> or
-   *             <code>io1</code> and required only when the volume type is <code>io1</code>. (Not
+   *                 <code>io1</code> and required only when the volume type is <code>io1</code>. (Not
    *             used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code>
    *             volumes.) </p>
    * @public
@@ -2191,8 +2190,8 @@ export interface Ebs {
 
   /**
    * <p>Specifies whether the volume should be encrypted. Encrypted EBS volumes can only be
-   *             attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>. If your AMI uses encrypted volumes, you can also
-   *             only launch it on supported instance types.</p>
+   *             attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html">Requirements for Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>. If your AMI uses encrypted volumes, you
+   *             can also only launch it on supported instance types.</p>
    *          <note>
    *             <p>If you are creating a volume from a snapshot, you cannot create an unencrypted
    *                 volume from an encrypted snapshot. Also, you cannot specify a KMS key ID when using
@@ -2201,7 +2200,7 @@ export interface Ebs {
    *                 encrypted, either using the Amazon Web Services managed KMS key or a customer-managed KMS key,
    *                 regardless of whether the snapshot was encrypted. </p>
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption">Use Amazon Web Services KMS keys to encrypt Amazon EBS volumes</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *                     <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -2222,20 +2221,20 @@ export interface BlockDeviceMapping {
   /**
    * <p>The name of the instance store volume (virtual device) to attach to an instance at
    *             launch. The name must be in the form ephemeral<i>X</i> where
-   *             <i>X</i> is a number starting from zero (0), for example,
-   *             <code>ephemeral0</code>.</p>
+   *                 <i>X</i> is a number starting from zero (0), for example,
+   *                 <code>ephemeral0</code>.</p>
    * @public
    */
   VirtualName?: string;
 
   /**
    * <p>The device name assigned to the volume (for example, <code>/dev/sdh</code> or
-   *             <code>xvdh</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device naming on Linux
+   *                 <code>xvdh</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device naming on Linux
    *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <note>
    *             <p>To define a block device mapping, set the device name and exactly one of the
    *                 following properties: <code>Ebs</code>, <code>NoDevice</code>, or
-   *                 <code>VirtualName</code>.</p>
+   *                     <code>VirtualName</code>.</p>
    *          </note>
    * @public
    */
@@ -2302,7 +2301,7 @@ export type InstanceMetadataHttpTokensState =
   (typeof InstanceMetadataHttpTokensState)[keyof typeof InstanceMetadataHttpTokensState];
 
 /**
- * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the
+ * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configure the instance metadata options</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @public
  */
@@ -2356,8 +2355,8 @@ export interface CreateLaunchConfigurationType {
 
   /**
    * <p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux AMI</a> in the
-   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find a Linux AMI</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not
    *             required.</p>
    * @public
@@ -2365,17 +2364,17 @@ export interface CreateLaunchConfigurationType {
   ImageId?: string;
 
   /**
-   * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Linux
-   *             instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Amazon EC2
+   *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    * @public
    */
   KeyName?: string;
 
   /**
    * <p>A list that contains the security group IDs to assign to the instances in the Auto Scaling
-   *             group. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Control traffic to
+   *             group. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html">Control traffic to your Amazon Web Services
    *                 resources using security groups</a> in the <i>Amazon Virtual Private
-   *                     Cloud User Guide</i>.</p>
+   *                 Cloud User Guide</i>.</p>
    * @public
    */
   SecurityGroups?: string[];
@@ -2395,7 +2394,7 @@ export interface CreateLaunchConfigurationType {
   /**
    * <p>The user data to make available to the launched EC2 instances. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html">Instance metadata and
-   *                     user data</a> (Windows). If you are using a command line tool, base64-encoding
+   *                 user data</a> (Windows). If you are using a command line tool, base64-encoding
    *             is performed for you, and you can load the text from a file. Otherwise, you must provide
    *             base64-encoded text. User data is limited to 16 KB.</p>
    * @public
@@ -2408,9 +2407,8 @@ export interface CreateLaunchConfigurationType {
    *             mapping.</p>
    *          <p>To create a launch configuration with a block device mapping or override any other
    *             instance attributes, specify them as part of the same request.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Creating a launch
-   *             configuration using an EC2 instance</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html">Create a launch
+   *                 configuration</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   InstanceId?: string;
@@ -2430,8 +2428,7 @@ export interface CreateLaunchConfigurationType {
    *          <note>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User provided
-   *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux
-   *                         Instances</i>.</p>
+   *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          </note>
    * @public
    */
@@ -2442,8 +2439,7 @@ export interface CreateLaunchConfigurationType {
    *          <note>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User provided
-   *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux
-   *                         Instances</i>.</p>
+   *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          </note>
    * @public
    */
@@ -2466,7 +2462,7 @@ export interface CreateLaunchConfigurationType {
    *             <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and
    *                 your account is charged a fee. When you disable detailed monitoring, CloudWatch generates
    *                 metrics every 5 minutes. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html">Configure
-   *                     Monitoring for Auto Scaling Instances</a> in the
+   *                     monitoring for Auto Scaling instances</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          </important>
    * @public
@@ -2478,7 +2474,7 @@ export interface CreateLaunchConfigurationType {
    *             request. Spot Instances are launched when the price you specify exceeds the current Spot
    *             price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html">Request Spot
    *                 Instances for fault-tolerant and flexible applications</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Valid Range: Minimum value of 0.001</p>
    *          <note>
    *             <p>When you change your maximum price by creating a new launch configuration, running
@@ -2504,8 +2500,8 @@ export interface CreateLaunchConfigurationType {
    *             throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O
    *             performance. This optimization is not available with all instance types. Additional fees
    *             are incurred when you enable EBS optimization for an instance type that is not
-   *             EBS-optimized by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized instances</a> in
-   *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             EBS-optimized by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS-optimized instances</a>
+   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <p>The default value is <code>false</code>.</p>
    * @public
    */
@@ -2519,10 +2515,11 @@ export interface CreateLaunchConfigurationType {
    *             public IPv4 address, unless you enabled the option to assign a public IPv4 address on
    *             the subnet.</p>
    *          <p>If you specify <code>true</code>, each instance in the Auto Scaling group receives a unique
-   *             public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling instances in a
-   *                 VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Provide network connectivity for
+   *                 your Auto Scaling instances using Amazon VPC</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>If you specify this property, you must specify at least one subnet for
-   *             <code>VPCZoneIdentifier</code> when you create your group.</p>
+   *                 <code>VPCZoneIdentifier</code> when you create your group.</p>
    * @public
    */
   AssociatePublicIpAddress?: boolean;
@@ -2532,12 +2529,9 @@ export interface CreateLaunchConfigurationType {
    *             instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware
    *             and can only be launched into a VPC. To launch dedicated instances into a shared tenancy
    *             VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>),
-   *             you must set the value of this property to <code>dedicated</code>. For more information,
-   *             see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
-   *                 instance tenancy with Amazon EC2 Auto Scaling</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             you must set the value of this property to <code>dedicated</code>.</p>
    *          <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for
-   *             <code>VPCZoneIdentifier</code> when you create your group.</p>
+   *                 <code>VPCZoneIdentifier</code> when you create your group.</p>
    *          <p>Valid values: <code>default</code> | <code>dedicated</code>
    *          </p>
    * @public
@@ -2545,8 +2539,8 @@ export interface CreateLaunchConfigurationType {
   PlacementTenancy?: string;
 
   /**
-   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configure the instance metadata options</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   MetadataOptions?: InstanceMetadataOptions;
@@ -3010,7 +3004,8 @@ export interface EnabledMetric {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html">Amazon CloudWatch metrics for
+   *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   Metric?: string;
@@ -3082,7 +3077,7 @@ export interface Instance {
 
   /**
    * <p>A description of the current lifecycle state. The <code>Quarantined</code> state is
-   *             not used. For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance
+   *             not used. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html">Amazon EC2 Auto Scaling instance
    *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
    * @public
    */
@@ -3126,7 +3121,8 @@ export interface Instance {
 
 /**
  * <p>Describes an auto scaling process that has been suspended.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Types
+ *                 of processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @public
  */
 export interface SuspendedProcess {
@@ -3554,7 +3550,7 @@ export interface AutoScalingInstanceDetails {
 
   /**
    * <p>The lifecycle state for the instance. The <code>Quarantined</code> state is not used.
-   *             For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance
+   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html">Amazon EC2 Auto Scaling instance
    *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
    *          <p>Valid values: <code>Pending</code> | <code>Pending:Wait</code> |
    *                 <code>Pending:Proceed</code> | <code>Quarantined</code> | <code>InService</code> |
@@ -3675,7 +3671,7 @@ export interface DescribeAutoScalingNotificationTypesAnswer {
 export interface DesiredConfiguration {
   /**
    * <p>Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling
-   *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch
+   *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch
    *                 templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
@@ -3759,8 +3755,7 @@ export interface RefreshPreferences {
    * <p>(Optional) Threshold values for each checkpoint in ascending order. Each number must
    *             be unique. To replace all instances in the Auto Scaling group, the last number in the array must
    *             be <code>100</code>.</p>
-   *          <p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
-   *                 checkpoints to an instance refresh</a> in the
+   *          <p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Add checkpoints to an instance refresh</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
@@ -4218,7 +4213,7 @@ export interface LaunchConfigurationNamesType {
 
   /**
    * <p>The maximum number of items to return with this call. The default value is
-   *             <code>50</code> and the maximum value is <code>100</code>.</p>
+   *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    * @public
    */
   MaxRecords?: number;
@@ -4244,24 +4239,24 @@ export interface LaunchConfiguration {
   /**
    * <p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find a Linux AMI</a> in the
-   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    * @public
    */
   ImageId: string | undefined;
 
   /**
    * <p>The name of the key pair.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key Pairs</a> in the
-   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Amazon EC2
+   *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    * @public
    */
   KeyName?: string;
 
   /**
    * <p>A list that contains the security groups to assign to the instances in the Auto Scaling group.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your
-   *                 VPC</a> in the <i>Amazon Virtual Private Cloud User
-   *                     Guide</i>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html">Control traffic to your Amazon Web Services
+   *                 resources using security groups</a> in the <i>Amazon Virtual Private
+   *                 Cloud User Guide</i>.</p>
    * @public
    */
   SecurityGroups?: string[];
@@ -4281,7 +4276,7 @@ export interface LaunchConfiguration {
   /**
    * <p>The user data to make available to the launched EC2 instances. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html">Instance metadata and
-   *                     user data</a> (Windows). If you are using a command line tool, base64-encoding
+   *                 user data</a> (Windows). If you are using a command line tool, base64-encoding
    *             is performed for you, and you can load the text from a file. Otherwise, you must provide
    *             base64-encoded text. User data is limited to 16 KB.</p>
    * @public
@@ -4311,8 +4306,8 @@ export interface LaunchConfiguration {
   /**
    * <p>The block device mapping entries that define the block devices to attach to the
    *             instances at launch. By default, the block devices specified in the block device mapping
-   *             for the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device
-   *                 Mapping</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             for the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device
+   *                 mappings</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    * @public
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
@@ -4321,7 +4316,7 @@ export interface LaunchConfiguration {
    * <p>Controls whether instances in this group are launched with detailed
    *             (<code>true</code>) or basic (<code>false</code>) monitoring.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html">Configure
-   *             Monitoring for Auto Scaling Instances</a> in the
+   *                 monitoring for Auto Scaling instances</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
@@ -4330,8 +4325,8 @@ export interface LaunchConfiguration {
   /**
    * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
    *             request. Spot Instances are launched when the price you specify exceeds the current Spot
-   *             price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Requesting Spot
-   *                 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html">Requesting Spot
+   *                 Instances for fault-tolerant and flexible applications</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   SpotPrice?: string;
@@ -4353,8 +4348,8 @@ export interface LaunchConfiguration {
 
   /**
    * <p>Specifies whether the launch configuration is optimized for EBS I/O
-   *             (<code>true</code>) or not (<code>false</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
-   *                 EBS-Optimized Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             (<code>true</code>) or not (<code>false</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS-optimized instances</a> in the
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    * @public
    */
   EbsOptimized?: boolean;
@@ -4365,8 +4360,9 @@ export interface LaunchConfiguration {
    *             address, unless you disabled the option to assign a public IPv4 address on the subnet.
    *             If the instance is launched into a nondefault subnet, the default is not to assign a
    *             public IPv4 address, unless you enabled the option to assign a public IPv4 address on
-   *             the subnet. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling instances in a
-   *                 VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             the subnet. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Provide network connectivity for
+   *                 your Auto Scaling instances using Amazon VPC</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   AssociatePublicIpAddress?: boolean;
@@ -4375,16 +4371,13 @@ export interface LaunchConfiguration {
    * <p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An
    *             instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware
    *             and can only be launched into a VPC.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
-   *             instance tenancy with Amazon EC2 Auto Scaling</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   PlacementTenancy?: string;
 
   /**
-   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configure the instance metadata options</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   MetadataOptions?: InstanceMetadataOptions;
@@ -4403,7 +4396,7 @@ export interface LaunchConfigurationsType {
   /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
-   *             <code>NextToken</code> value when requesting the next set of items. This value is
+   *                 <code>NextToken</code> value when requesting the next set of items. This value is
    *             null when there are no more items to return.</p>
    * @public
    */
@@ -5517,17 +5510,26 @@ export interface PredictiveScalingConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>HonorMaxCapacity</code> - Amazon EC2 Auto Scaling cannot scale out capacity higher than
-   *                     the maximum capacity. The maximum capacity is enforced as a hard limit. </p>
+   *                   <code>HonorMaxCapacity</code> - Amazon EC2 Auto Scaling can't increase the maximum capacity
+   *                     of the group when the forecast capacity is close to or exceeds the maximum
+   *                     capacity.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IncreaseMaxCapacity</code> - Amazon EC2 Auto Scaling can scale out capacity higher than
-   *                     the maximum capacity when the forecast capacity is close to or exceeds the
-   *                     maximum capacity. The upper limit is determined by the forecasted capacity and
-   *                     the value for <code>MaxCapacityBuffer</code>.</p>
+   *                   <code>IncreaseMaxCapacity</code> - Amazon EC2 Auto Scaling can increase the maximum capacity
+   *                     of the group when the forecast capacity is close to or exceeds the maximum
+   *                     capacity. The upper limit is determined by the forecasted capacity and the value
+   *                     for <code>MaxCapacityBuffer</code>.</p>
    *             </li>
    *          </ul>
+   *          <important>
+   *             <p>Use caution when allowing the maximum capacity to be automatically increased. This
+   *                 can lead to more instances being launched than intended if the increased maximum
+   *                 capacity is not monitored and managed. The increased maximum capacity then becomes
+   *                 the new normal maximum capacity for the Auto Scaling group until you manually update
+   *                 it. The maximum capacity does not automatically decrease back to the original
+   *                 maximum.</p>
+   *          </important>
    * @public
    */
   MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior;
@@ -6116,7 +6118,8 @@ export interface DescribeScalingActivitiesType {
 
 /**
  * <p>Describes a process type.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Types
+ *                 of processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @public
  */
 export interface ProcessType {
@@ -6809,7 +6812,8 @@ export interface DisableMetricsCollectionQuery {
    *             </li>
    *          </ul>
    *          <p>If you omit this property, all metrics are disabled.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html">Amazon CloudWatch metrics for
+   *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   Metrics?: string[];
@@ -6932,7 +6936,8 @@ export interface EnableMetricsCollectionQuery {
    *          </ul>
    *          <p>If you specify <code>Granularity</code> and don't specify any metrics, all metrics are
    *             enabled.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html">Amazon CloudWatch metrics for
+   *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   Metrics?: string[];
@@ -7000,7 +7005,7 @@ export interface ExecutePolicyType {
    * <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before executing
    *             the policy.</p>
    *          <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html">Scaling
    *                 cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
@@ -7386,7 +7391,7 @@ export interface PutScalingPolicyType {
    * <p>A cooldown period, in seconds, that applies to a specific simple scaling policy. When
    *             a cooldown period is specified here, it overrides the default cooldown.</p>
    *          <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html">Scaling
    *                 cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Default: None</p>
    * @public
@@ -7469,7 +7474,7 @@ export interface PutScalingPolicyType {
 
   /**
    * <p>Indicates whether the scaling policy is enabled or disabled. The default is enabled.
-   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html">Disabling a
+   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html">Disable a
    *                 scaling policy for an Auto Scaling group</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
@@ -7834,9 +7839,8 @@ export interface SetInstanceHealthQuery {
    *             specified for the group, by default, this call respects the grace period. Set this to
    *                 <code>False</code>, to have the call not respect the grace period associated with
    *             the group.</p>
-   *          <p>For more information about the health check grace
-   *             period, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a> in the <i>Amazon EC2 Auto Scaling API
-   *             Reference</i>.</p>
+   *          <p>For more information about the health check grace period, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set the health check grace period for an Auto Scaling group</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   ShouldRespectGracePeriod?: boolean;
@@ -8060,8 +8064,8 @@ export interface UpdateAutoScalingGroupType {
    *             <i>Only needed if you use simple scaling policies.</i>
    *          </p>
    *          <p>The amount of time, in seconds, between one scaling activity ending and another one
-   *             starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling cooldowns
-   *                 for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html">Scaling
+   *                 cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
   DefaultCooldown?: number;
@@ -8076,8 +8080,9 @@ export interface UpdateAutoScalingGroupType {
    * <p>A comma-separated value string of one or more health check types.</p>
    *          <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>.
    *                 <code>EC2</code> is the default health check and cannot be disabled. For more
-   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
-   *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health checks
+   *                 for instances in an Auto Scaling group</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Only specify <code>EC2</code> if you must clear a value that was previously
    *             set.</p>
    * @public
@@ -8119,8 +8124,8 @@ export interface UpdateAutoScalingGroupType {
 
   /**
    * <p>A policy or a list of policies that are used to select the instances to terminate. The
-   *             policies are executed in the order that you list them. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with
-   *                 Amazon EC2 Auto Scaling termination policies</a> in the
+   *             policies are executed in the order that you list them. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Configure
+   *                 termination policies for Amazon EC2 Auto Scaling</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> |
    *                 <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> |
@@ -8135,7 +8140,7 @@ export interface UpdateAutoScalingGroupType {
   /**
    * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
    *             when scaling in. For more information about preventing instances from terminating on
-   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+   *             scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use
    *                 instance scale-in protection</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
@@ -8177,9 +8182,8 @@ export interface UpdateAutoScalingGroupType {
   /**
    * <p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling
    *             supports <code>DesiredCapacityType</code> for attribute-based instance type selection
-   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
-   *                 an Auto Scaling group using attribute-based instance type selection</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html">Create a mixed instances group using attribute-based instance type
+   *                 selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of
    *             instances.</p>
    *          <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code>
