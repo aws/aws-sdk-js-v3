@@ -33,7 +33,7 @@ public final class AwsCredentialProviderUtils {
      * The dependencies are skipped in first party credential providers to avoid circular dependency issue.
      */
     public static void addAwsCredentialProviderDependencies(ServiceShape service, TypeScriptWriter writer) {
-        boolean isStsClient = 
+        boolean isStsClient =
                 service.getId().equals(ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"));
         boolean isSsoOidcClient = service.getId().equals(ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"));
         if (!isSsoOidcClient) {
