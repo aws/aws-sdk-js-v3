@@ -26,20 +26,27 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public final class AwsCredentialProviderUtils {
 
-    private AwsCredentialProviderUtils() {}
+    private AwsCredentialProviderUtils() {}   
 
     /**
      * Adds dependencies required by the default credential provider.
      * The dependencies are skipped in first party credential providers to avoid circular dependency issue.
      */
     public static void addAwsCredentialProviderDependencies(ServiceShape service, TypeScriptWriter writer) {
-        if (!service.getId().equals(ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"))) {
+        boolean isSTS = service.getId().equals(ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"));
+        boolean isSSOOIDC = service.getId().equals(ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"));
+        if (!isSSOOIDC) {
             // SSO OIDC client is required in Sso credential provider
             writer.addDependency(AwsDependency.SSO_OIDC_CLIENT);
         }
-        if (!service.getId().equals(ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"))) {
+        if (!isSTS) {
             // STS client is required in Ini and WebIdentity credential providers
-            writer.addDependency(AwsDependency.STS_CLIENT);
+            if (isSSOOIDC) {
+                // For the SSO OIDC client, adding the STS client as a peerDependency avoids circular dependency issues.
+                writer.addDependency(AwsDependency.STS_CLIENT_PEER);
+            } else {
+                writer.addDependency(AwsDependency.STS_CLIENT);
+            }
         }
     }
 }

@@ -67,6 +67,7 @@ public enum AwsDependency implements Dependency {
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming"),
     STS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sts"),
     STS_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sts"),
+    STS_CLIENT_PEER(PEER_DEPENDENCY, "@aws-sdk/client-sts"),
     SSO_OIDC_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sso-oidc"),
     MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger"),
     MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent"),
