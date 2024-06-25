@@ -17,7 +17,6 @@ const makePagedClientRequest = async (
   input: ScanCommandInput,
   ...args: any
 ): Promise<ScanCommandOutput> => {
-  // @ts-ignore
   return await client.send(new ScanCommand(input), ...args);
 };
 /**
@@ -32,8 +31,7 @@ export async function* paginateScan(
   input: ScanCommandInput,
   ...additionalArguments: any
 ): Paginator<ScanCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.ExclusiveStartKey
-  let token: typeof input.ExclusiveStartKey | undefined = config.startingToken || undefined;
+  let token: Record<string, NativeAttributeValue> | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ScanCommandOutput;
   while (hasNext) {
@@ -48,6 +46,5 @@ export async function* paginateScan(
     token = page.LastEvaluatedKey;
     hasNext = !!token;
   }
-  // @ts-ignore
   return undefined;
 }
