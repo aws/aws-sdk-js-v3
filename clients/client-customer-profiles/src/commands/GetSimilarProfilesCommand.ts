@@ -28,9 +28,10 @@ export interface GetSimilarProfilesCommandInput extends GetSimilarProfilesReques
 export interface GetSimilarProfilesCommandOutput extends GetSimilarProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a set of profiles that belong to the same matching group using the <code>matchId</code> or
- *          <code>profileId</code>. You can also specify the type of matching that you want for finding similar profiles using
- *          either <code>RULE_BASED_MATCHING</code> or <code>ML_BASED_MATCHING</code>.</p>
+ * <p>Returns a set of profiles that belong to the same matching group using the
+ *             <code>matchId</code> or <code>profileId</code>. You can also specify the type of
+ *          matching that you want for finding similar profiles using either
+ *             <code>RULE_BASED_MATCHING</code> or <code>ML_BASED_MATCHING</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

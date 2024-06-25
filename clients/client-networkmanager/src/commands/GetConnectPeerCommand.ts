@@ -71,6 +71,14 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * //       },
  * //     ],
  * //     SubnetArn: "STRING_VALUE",
+ * //     LastModificationErrors: [ // ConnectPeerErrorList
+ * //       { // ConnectPeerError
+ * //         Code: "EDGE_LOCATION_NO_FREE_IPS" || "EDGE_LOCATION_PEER_DUPLICATE" || "SUBNET_NOT_FOUND" || "IP_OUTSIDE_SUBNET_CIDR_RANGE" || "INVALID_INSIDE_CIDR_BLOCK" || "NO_ASSOCIATED_CIDR_BLOCK",
+ * //         Message: "STRING_VALUE",
+ * //         ResourceArn: "STRING_VALUE",
+ * //         RequestId: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

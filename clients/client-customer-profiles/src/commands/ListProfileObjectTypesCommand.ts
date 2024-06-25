@@ -53,6 +53,8 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * //       Description: "STRING_VALUE", // required
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       MaxProfileObjectCount: Number("int"),
+ * //       MaxAvailableProfileObjectCount: Number("int"),
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

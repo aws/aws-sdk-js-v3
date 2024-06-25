@@ -67,6 +67,9 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   deviceCreationTags: { // DeviceCreationTagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);

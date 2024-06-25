@@ -475,7 +475,7 @@ export interface CustomizableMetricParameters {
 
 /**
  * <p>
- *             The preference to control the resource’s CPU utilization thresholds - threshold and headroom.
+ *             The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom.
  *         </p>
  *          <note>
  *             <p>This preference is only available for the Amazon EC2 instance resource type.</p>
@@ -512,15 +512,15 @@ export interface EffectiveRecommendationPreferences {
    *          <ul>
    *             <li>
    *                <p>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a> request, Compute Optimizer
-   *                     returns recommendations that consist of Graviton2 instance types only.</p>
+   *                     returns recommendations that consist of Graviton instance types only.</p>
    *             </li>
    *             <li>
-   *                <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton2 instance type
+   *                <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton instance type
    *                     recommendations only.</p>
    *             </li>
    *             <li>
    *                <p>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a> request, Compute Optimizer
-   *                     exports recommendations that consist of Graviton2 instance types only.</p>
+   *                     exports recommendations that consist of Graviton instance types only.</p>
    *             </li>
    *          </ul>
    * @public
@@ -949,6 +949,14 @@ export interface AutoScalingGroupRecommendationOption {
   configuration?: AutoScalingGroupConfiguration;
 
   /**
+   * <p>
+   *             Describes the GPU accelerator settings for the recommended instance type of the Auto Scaling group.
+   *         </p>
+   * @public
+   */
+  instanceGpuInfo?: GpuInfo;
+
+  /**
    * <p>An array of objects that describe the projected utilization metrics of the Auto Scaling group recommendation option.</p>
    *          <note>
    *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
@@ -997,6 +1005,15 @@ export interface AutoScalingGroupRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
 
   /**
+   * <p>
+   *             An object that describes the savings opportunity for the Auto Scaling group recommendation option that includes Savings Plans and Reserved Instances discounts.
+   *             Savings opportunity includes the estimated monthly savings and percentage.
+   *         </p>
+   * @public
+   */
+  savingsOpportunityAfterDiscounts?: AutoScalingGroupSavingsOpportunityAfterDiscounts;
+
+  /**
    * <p>The level of effort required to migrate from the current instance type to the
    *             recommended instance type.</p>
    *          <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the
@@ -1008,23 +1025,6 @@ export interface AutoScalingGroupRecommendationOption {
    * @public
    */
   migrationEffort?: MigrationEffort;
-
-  /**
-   * <p>
-   *             Describes the GPU accelerator settings for the recommended instance type of the Auto Scaling group.
-   *         </p>
-   * @public
-   */
-  instanceGpuInfo?: GpuInfo;
-
-  /**
-   * <p>
-   *             An object that describes the savings opportunity for the Auto Scaling group recommendation option that includes Savings Plans and Reserved Instances discounts.
-   *             Savings opportunity includes the estimated monthly savings and percentage.
-   *         </p>
-   * @public
-   */
-  savingsOpportunityAfterDiscounts?: AutoScalingGroupSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -1095,6 +1095,14 @@ export interface AutoScalingGroupRecommendation {
    * @public
    */
   currentConfiguration?: AutoScalingGroupConfiguration;
+
+  /**
+   * <p>
+   *             Describes the GPU accelerator settings for the current instance type of the Auto Scaling group.
+   *         </p>
+   * @public
+   */
+  currentInstanceGpuInfo?: GpuInfo;
 
   /**
    * <p>An array of objects that describe the recommendation options for the Auto Scaling
@@ -1179,14 +1187,6 @@ export interface AutoScalingGroupRecommendation {
    * @public
    */
   inferredWorkloadTypes?: InferredWorkloadType[];
-
-  /**
-   * <p>
-   *             Describes the GPU accelerator settings for the current instance type of the Auto Scaling group.
-   *         </p>
-   * @public
-   */
-  currentInstanceGpuInfo?: GpuInfo;
 }
 
 /**
@@ -1220,6 +1220,7 @@ export const ResourceType = {
   LAMBDA_FUNCTION: "LambdaFunction",
   LICENSE: "License",
   NOT_APPLICABLE: "NotApplicable",
+  RDS_DB_INSTANCE: "RdsDBInstance",
 } as const;
 
 /**
@@ -1322,10 +1323,6 @@ export interface DeleteRecommendationPreferencesRequest {
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
    *             encompasses only instances that are part of an Auto Scaling group.</p>
-   *          <note>
-   *             <p>The valid values for this parameter are <code>Ec2Instance</code> and
-   *                     <code>AutoScalingGroup</code>.</p>
-   *          </note>
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -2041,7 +2038,7 @@ export interface Filter {
 }
 
 /**
- * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, and <a>GetEC2RecommendationProjectedMetrics</a> request.</p>
+ * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, <a>GetEC2RecommendationProjectedMetrics</a>, <a>GetRDSDatabaseRecommendations</a>, and <a>GetRDSDatabaseRecommendationProjectedMetrics</a> request.</p>
  * @public
  */
 export interface RecommendationPreferences {
@@ -2051,15 +2048,15 @@ export interface RecommendationPreferences {
    *          <ul>
    *             <li>
    *                <p>A <a>GetEC2InstanceRecommendations</a> or <a>GetAutoScalingGroupRecommendations</a> request, Compute Optimizer
-   *                     returns recommendations that consist of Graviton2 instance types only.</p>
+   *                     returns recommendations that consist of Graviton instance types only.</p>
    *             </li>
    *             <li>
-   *                <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton2 instance type
+   *                <p>A <a>GetEC2RecommendationProjectedMetrics</a> request, Compute Optimizer returns projected utilization metrics for Graviton instance type
    *                     recommendations only.</p>
    *             </li>
    *             <li>
    *                <p>A <a>ExportEC2InstanceRecommendations</a> or <a>ExportAutoScalingGroupRecommendations</a> request, Compute Optimizer
-   *                     exports recommendations that consist of Graviton2 instance types only.</p>
+   *                     exports recommendations that consist of Graviton instance types only.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3224,6 +3221,259 @@ export interface ExportLicenseRecommendationsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ExportableRDSDBField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_DB_INSTANCE_CLASS: "CurrentDBInstanceClass",
+  CURRENT_INSTANCE_ON_DEMAND_HOURLY_PRICE: "CurrentInstanceOnDemandHourlyPrice",
+  CURRENT_STORAGE_CONFIGURATION_ALLOCATED_STORAGE: "CurrentStorageConfigurationAllocatedStorage",
+  CURRENT_STORAGE_CONFIGURATION_IOPS: "CurrentStorageConfigurationIOPS",
+  CURRENT_STORAGE_CONFIGURATION_MAX_ALLOCATED_STORAGE: "CurrentStorageConfigurationMaxAllocatedStorage",
+  CURRENT_STORAGE_CONFIGURATION_STORAGE_THROUGHPUT: "CurrentStorageConfigurationStorageThroughput",
+  CURRENT_STORAGE_CONFIGURATION_STORAGE_TYPE: "CurrentStorageConfigurationStorageType",
+  CURRENT_STORAGE_ON_DEMAND_MONTHLY_PRICE: "CurrentStorageOnDemandMonthlyPrice",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS:
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD: "EffectiveRecommendationPreferencesLookBackPeriod",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE:
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
+  ENGINE: "Engine",
+  ENGINE_VERSION: "EngineVersion",
+  IDLE: "Idle",
+  INSTANCE_FINDING: "InstanceFinding",
+  INSTANCE_FINDING_REASON_CODES: "InstanceFindingReasonCodes",
+  INSTANCE_RECOMMENDATION_OPTIONS_DB_INSTANCE_CLASS: "InstanceRecommendationOptionsDBInstanceClass",
+  INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY:
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrency",
+  INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
+  INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE:
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsValue",
+  INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
+    "InstanceRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+  INSTANCE_RECOMMENDATION_OPTIONS_INSTANCE_ON_DEMAND_HOURLY_PRICE:
+    "InstanceRecommendationOptionsInstanceOnDemandHourlyPrice",
+  INSTANCE_RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "InstanceRecommendationOptionsPerformanceRisk",
+  INSTANCE_RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
+    "InstanceRecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  INSTANCE_RECOMMENDATION_OPTIONS_RANK: "InstanceRecommendationOptionsRank",
+  INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE:
+    "InstanceRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
+  INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE:
+    "InstanceRecommendationOptionsSavingsOpportunityPercentage",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  MULTI_AZ_DB_INSTANCE: "MultiAZDBInstance",
+  RESOURCE_ARN: "ResourceArn",
+  STORAGE_FINDING: "StorageFinding",
+  STORAGE_FINDING_REASON_CODES: "StorageFindingReasonCodes",
+  STORAGE_RECOMMENDATION_OPTIONS_ALLOCATED_STORAGE: "StorageRecommendationOptionsAllocatedStorage",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY:
+    "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
+    "StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE:
+    "StorageRecommendationOptionsEstimatedMonthlySavingsValue",
+  STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
+    "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+  STORAGE_RECOMMENDATION_OPTIONS_IOPS: "StorageRecommendationOptionsIOPS",
+  STORAGE_RECOMMENDATION_OPTIONS_MAX_ALLOCATED_STORAGE: "StorageRecommendationOptionsMaxAllocatedStorage",
+  STORAGE_RECOMMENDATION_OPTIONS_ON_DEMAND_MONTHLY_PRICE: "StorageRecommendationOptionsOnDemandMonthlyPrice",
+  STORAGE_RECOMMENDATION_OPTIONS_RANK: "StorageRecommendationOptionsRank",
+  STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE:
+    "StorageRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
+  STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE:
+    "StorageRecommendationOptionsSavingsOpportunityPercentage",
+  STORAGE_RECOMMENDATION_OPTIONS_STORAGE_THROUGHPUT: "StorageRecommendationOptionsStorageThroughput",
+  STORAGE_RECOMMENDATION_OPTIONS_STORAGE_TYPE: "StorageRecommendationOptionsStorageType",
+  TAGS: "Tags",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM: "UtilizationMetricsDatabaseConnectionsMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeReadIOPSMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_READ_THROUGHPUT_MAXIMUM: "UtilizationMetricsEBSVolumeReadThroughputMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_STORAGE_SPACE_UTILIZATION_MAXIMUM:
+    "UtilizationMetricsEBSVolumeStorageSpaceUtilizationMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeWriteIOPSMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_WRITE_THROUGHPUT_MAXIMUM: "UtilizationMetricsEBSVolumeWriteThroughputMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+  UTILIZATION_METRICS_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM: "UtilizationMetricsNetworkReceiveThroughputMaximum",
+  UTILIZATION_METRICS_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM: "UtilizationMetricsNetworkTransmitThroughputMaximum",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportableRDSDBField = (typeof ExportableRDSDBField)[keyof typeof ExportableRDSDBField];
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSDBRecommendationFilterName = {
+  IDLE: "Idle",
+  INSTANCE_FINDING: "InstanceFinding",
+  INSTANCE_FINDING_REASON_CODE: "InstanceFindingReasonCode",
+  STORAGE_FINDING: "StorageFinding",
+  STORAGE_FINDING_REASON_CODE: "StorageFindingReasonCode",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSDBRecommendationFilterName =
+  (typeof RDSDBRecommendationFilterName)[keyof typeof RDSDBRecommendationFilterName];
+
+/**
+ * <p>
+ *             Describes a filter that returns a more specific list of Amazon RDS
+ *             recommendations. Use this filter with the <a>GetECSServiceRecommendations</a> action.
+ *         </p>
+ * @public
+ */
+export interface RDSDBRecommendationFilter {
+  /**
+   * <p>
+   *             The name of the filter.
+   *         </p>
+   *          <p>
+   *             Specify <code>Finding</code> to return recommendations with a specific finding classification.
+   *         </p>
+   *          <p>You can filter your Amazon RDS recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             Amazon RDS recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all Amazon RDS service recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your Amazon RDS recommendations. Use
+   *             this filter to find all of your Amazon RDS recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your Amazon RDS service recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
+   * @public
+   */
+  name?: RDSDBRecommendationFilterName;
+
+  /**
+   * <p>
+   *             The value of the filter.
+   *         </p>
+   * @public
+   */
+  values?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ExportRDSDatabaseRecommendationsRequest {
+  /**
+   * <p>
+   *             The Amazon Web Services account IDs for the export Amazon RDS recommendations.
+   *         </p>
+   *          <p>If your account is the management account or the delegated administrator
+   *             of an organization, use this parameter to specify the member account you want to
+   *             export recommendations to.</p>
+   *          <p>This parameter can't be specified together with the include member accounts
+   *             parameter. The parameters are mutually exclusive.</p>
+   *          <p>If this parameter or the include member accounts parameter is omitted,
+   *             the recommendations for member accounts aren't included in the export.</p>
+   *          <p>You can specify multiple account IDs per request.</p>
+   * @public
+   */
+  accountIds?: string[];
+
+  /**
+   * <p>
+   *             An array of objects to specify a filter that exports a more specific set of
+   *             Amazon RDS recommendations.
+   *         </p>
+   * @public
+   */
+  filters?: RDSDBRecommendationFilter[];
+
+  /**
+   * <p>The recommendations data to include in the export file. For more information about the
+   *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  fieldsToExport?: ExportableRDSDBField[];
+
+  /**
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             key prefix for a recommendations export job.</p>
+   *          <p>You must create the destination Amazon S3 bucket for your recommendations
+   *             export before you create the export job. Compute Optimizer does not create the S3 bucket
+   *             for you. After you create the S3 bucket, ensure that it has the required permission
+   *             policy to allow Compute Optimizer to write the export file to it. If you plan to specify
+   *             an object prefix when you create the export job, you must include the object prefix in
+   *             the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the
+   *                     <i>Compute Optimizer User Guide</i>.</p>
+   * @public
+   */
+  s3DestinationConfig: S3DestinationConfig | undefined;
+
+  /**
+   * <p>
+   *             The format of the export file.
+   *         </p>
+   *          <p>The CSV file is the only export file format currently supported.</p>
+   * @public
+   */
+  fileFormat?: FileFormat;
+
+  /**
+   * <p>If your account is the management account or the delegated administrator of an organization,
+   *             this parameter indicates whether to include recommendations for resources in all member accounts of
+   *             the organization.</p>
+   *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
+   *             Compute Optimizer must be enabled in the organization account. For more information,
+   *             see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the
+   *             <i>Compute Optimizer User Guide</i>.</p>
+   *          <p>If this parameter is omitted, recommendations for member accounts of the
+   *             organization aren't included in the export file.</p>
+   *          <p>If this parameter or the account ID parameter is omitted, recommendations for
+   *             member accounts aren't included in the export.</p>
+   * @public
+   */
+  includeMemberAccounts?: boolean;
+
+  /**
+   * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, <a>GetEC2RecommendationProjectedMetrics</a>, <a>GetRDSDatabaseRecommendations</a>, and <a>GetRDSDatabaseRecommendationProjectedMetrics</a> request.</p>
+   * @public
+   */
+  recommendationPreferences?: RecommendationPreferences;
+}
+
+/**
+ * @public
+ */
+export interface ExportRDSDatabaseRecommendationsResponse {
+  /**
+   * <p>
+   *             The identification number of the export job.
+   *         </p>
+   *          <p>To view the status of an export job, use the
+   *             <a>DescribeRecommendationExportJobs</a> action and specify the job ID.
+   *         </p>
+   * @public
+   */
+  jobId?: string;
+
+  /**
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             object keys of a recommendations export file, and its associated metadata file.</p>
+   * @public
+   */
+  s3Destination?: S3Destination;
+}
+
+/**
+ * @public
  */
 export interface GetAutoScalingGroupRecommendationsRequest {
   /**
@@ -3782,19 +4032,19 @@ export interface VolumeRecommendation {
 
   /**
    * <p>
-   *             A list of tags assigned to your Amazon EBS volume recommendations.
-   *         </p>
-   * @public
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>
    *             Describes the effective recommendation preferences for Amazon EBS volume.
    *         </p>
    * @public
    */
   effectiveRecommendationPreferences?: EBSEffectiveRecommendationPreferences;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Amazon EBS volume recommendations.
+   *         </p>
+   * @public
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -4068,6 +4318,14 @@ export interface InstanceRecommendationOption {
   instanceType?: string;
 
   /**
+   * <p>
+   *             Describes the GPU accelerator settings for the recommended instance type.
+   *         </p>
+   * @public
+   */
+  instanceGpuInfo?: GpuInfo;
+
+  /**
    * <p>An array of objects that describe the projected utilization metrics of the instance
    *             recommendation option.</p>
    *          <note>
@@ -4217,6 +4475,15 @@ export interface InstanceRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
 
   /**
+   * <p>
+   *             An object that describes the savings opportunity for the instance recommendation option that includes Savings Plans and Reserved Instances
+   *             discounts. Savings opportunity includes the estimated monthly savings and percentage.
+   *         </p>
+   * @public
+   */
+  savingsOpportunityAfterDiscounts?: InstanceSavingsOpportunityAfterDiscounts;
+
+  /**
    * <p>The level of effort required to migrate from the current instance type to the
    *             recommended instance type.</p>
    *          <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the
@@ -4228,23 +4495,6 @@ export interface InstanceRecommendationOption {
    * @public
    */
   migrationEffort?: MigrationEffort;
-
-  /**
-   * <p>
-   *             Describes the GPU accelerator settings for the recommended instance type.
-   *         </p>
-   * @public
-   */
-  instanceGpuInfo?: GpuInfo;
-
-  /**
-   * <p>
-   *             An object that describes the savings opportunity for the instance recommendation option that includes Savings Plans and Reserved Instances
-   *             discounts. Savings opportunity includes the estimated monthly savings and percentage.
-   *         </p>
-   * @public
-   */
-  savingsOpportunityAfterDiscounts?: InstanceSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -4258,6 +4508,8 @@ export const RecommendationSourceType = {
   ECS_SERVICE: "EcsService",
   LAMBDA_FUNCTION: "LambdaFunction",
   LICENSE: "License",
+  RDS_DB_INSTANCE: "RdsDBInstance",
+  RDS_DB_INSTANCE_STORAGE: "RdsDBInstanceStorage",
 } as const;
 
 /**
@@ -4349,6 +4601,9 @@ export interface InstanceRecommendation {
    *                     recommend a new generation instance type.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The valid values in your API responses appear as OVER_PROVISIONED, UNDER_PROVISIONED, or OPTIMIZED.</p>
+   *          </note>
    * @public
    */
   finding?: Finding;
@@ -5543,6 +5798,16 @@ export interface ECSServiceRecommendationOption {
 
   /**
    * <p>
+   *             Describes the savings opportunity for Amazon ECS service recommendations or for the recommendation option.
+   *         </p>
+   *          <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
+   *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
+   * @public
+   */
+  savingsOpportunityAfterDiscounts?: ECSSavingsOpportunityAfterDiscounts;
+
+  /**
+   * <p>
    *             An array of objects that describe the projected utilization metrics of the Amazon ECS service recommendation option.
    *         </p>
    * @public
@@ -5556,16 +5821,6 @@ export interface ECSServiceRecommendationOption {
    * @public
    */
   containerRecommendations?: ContainerRecommendation[];
-
-  /**
-   * <p>
-   *             Describes the savings opportunity for Amazon ECS service recommendations or for the recommendation option.
-   *         </p>
-   *          <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
-   *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
-   * @public
-   */
-  savingsOpportunityAfterDiscounts?: ECSSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -5798,19 +6053,19 @@ export interface ECSServiceRecommendation {
 
   /**
    * <p>
-   *             A list of tags assigned to your Amazon ECS service recommendations.
-   *         </p>
-   * @public
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>
    *             Describes the effective recommendation preferences for Amazon ECS services.
    *         </p>
    * @public
    */
   effectiveRecommendationPreferences?: ECSEffectiveRecommendationPreferences;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Amazon ECS service recommendations.
+   *         </p>
+   * @public
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -6592,19 +6847,19 @@ export interface LambdaFunctionRecommendation {
 
   /**
    * <p>
-   *             A list of tags assigned to your Lambda function recommendations.
-   *         </p>
-   * @public
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>
    *             Describes the effective recommendation preferences for Lambda functions.
    *         </p>
    * @public
    */
   effectiveRecommendationPreferences?: LambdaEffectiveRecommendationPreferences;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Lambda function recommendations.
+   *         </p>
+   * @public
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -7083,6 +7338,990 @@ export interface GetLicenseRecommendationsResponse {
 /**
  * @public
  */
+export interface GetRDSDatabaseRecommendationProjectedMetricsRequest {
+  /**
+   * <p>
+   *             The ARN that identifies the Amazon RDS.
+   *         </p>
+   *          <p>
+   *             The following is the format of the ARN:
+   *         </p>
+   *          <p>
+   *             <code>arn:aws:rds:\{region\}:\{accountId\}:db:\{resourceName\}</code>
+   *          </p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>
+   *             The statistic of the projected metrics.
+   *         </p>
+   * @public
+   */
+  stat: MetricStatistic | undefined;
+
+  /**
+   * <p>
+   *             The granularity, in seconds, of the projected metrics data points.
+   *         </p>
+   * @public
+   */
+  period: number | undefined;
+
+  /**
+   * <p>
+   *             The timestamp of the first projected metrics data point to return.
+   *         </p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>
+   *             The timestamp of the last projected metrics data point to return.
+   *         </p>
+   * @public
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, <a>GetEC2RecommendationProjectedMetrics</a>, <a>GetRDSDatabaseRecommendations</a>, and <a>GetRDSDatabaseRecommendationProjectedMetrics</a> request.</p>
+   * @public
+   */
+  recommendationPreferences?: RecommendationPreferences;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSDBMetricName = {
+  CPU: "CPU",
+  DATABASE_CONNECTIONS: "DatabaseConnections",
+  EBS_VOLUME_READ_IOPS: "EBSVolumeReadIOPS",
+  EBS_VOLUME_READ_THROUGHPUT: "EBSVolumeReadThroughput",
+  EBS_VOLUME_STORAGE_SPACE_UTILIZATION: "EBSVolumeStorageSpaceUtilization",
+  EBS_VOLUME_WRITE_IOPS: "EBSVolumeWriteIOPS",
+  EBS_VOLUME_WRITE_THROUGHPUT: "EBSVolumeWriteThroughput",
+  MEMORY: "Memory",
+  NETWORK_RECEIVE_THROUGHPUT: "NetworkReceiveThroughput",
+  NETWORK_TRANSMIT_THROUGHPUT: "NetworkTransmitThroughput",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSDBMetricName = (typeof RDSDBMetricName)[keyof typeof RDSDBMetricName];
+
+/**
+ * <p>
+ *             Describes the projected metrics of an Amazon RDS recommendation option.
+ *         </p>
+ *          <p>
+ *             To determine the performance difference between your current Amazon RDS
+ *             and the recommended option, compare the metric data of your service against
+ *             its projected metric data.
+ *         </p>
+ * @public
+ */
+export interface RDSDatabaseProjectedMetric {
+  /**
+   * <p>
+   *             The name of the projected metric.
+   *         </p>
+   * @public
+   */
+  name?: RDSDBMetricName;
+
+  /**
+   * <p>
+   *             The timestamps of the projected metric.
+   *         </p>
+   * @public
+   */
+  timestamps?: Date[];
+
+  /**
+   * <p>
+   *             The values for the projected metric.
+   *         </p>
+   * @public
+   */
+  values?: number[];
+}
+
+/**
+ * <p>
+ *             Describes the projected metrics of an Amazon RDS recommendation option.
+ *         </p>
+ *          <p>
+ *             To determine the performance difference between your current Amazon RDS and the recommended option, compare
+ *             the metric data of your service against its projected metric data.
+ *         </p>
+ * @public
+ */
+export interface RDSDatabaseRecommendedOptionProjectedMetric {
+  /**
+   * <p>
+   *             The recommended DB instance class for the Amazon RDS.
+   *         </p>
+   * @public
+   */
+  recommendedDBInstanceClass?: string;
+
+  /**
+   * <p>
+   *             The rank identifier of the RDS instance recommendation option.
+   *         </p>
+   * @public
+   */
+  rank?: number;
+
+  /**
+   * <p>
+   *             An array of objects that describe the projected metric.
+   *         </p>
+   * @public
+   */
+  projectedMetrics?: RDSDatabaseProjectedMetric[];
+}
+
+/**
+ * @public
+ */
+export interface GetRDSDatabaseRecommendationProjectedMetricsResponse {
+  /**
+   * <p>
+   *             An array of objects that describes the projected metrics.
+   *         </p>
+   * @public
+   */
+  recommendedOptionProjectedMetrics?: RDSDatabaseRecommendedOptionProjectedMetric[];
+}
+
+/**
+ * @public
+ */
+export interface GetRDSDatabaseRecommendationsRequest {
+  /**
+   * <p>
+   *             The ARN that identifies the Amazon RDS.
+   *         </p>
+   *          <p>
+   *             The following is the format of the ARN:
+   *         </p>
+   *          <p>
+   *             <code>arn:aws:rds:\{region\}:\{accountId\}:db:\{resourceName\}</code>
+   *          </p>
+   *          <p> The following is the format of a DB Cluster ARN: </p>
+   *          <p>
+   *             <code>arn:aws:rds:\{region\}:\{accountId\}:cluster:\{resourceName\}</code>
+   *          </p>
+   * @public
+   */
+  resourceArns?: string[];
+
+  /**
+   * <p>
+   *             The token to advance to the next page of Amazon RDS recommendations.
+   *         </p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of Amazon RDS recommendations to return with a single
+   *             request.</p>
+   *          <p>To retrieve the remaining results, make another request with the returned
+   *             <code>nextToken</code> value.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *             An array of objects to specify a filter that returns a more specific list of Amazon RDS recommendations.
+   *         </p>
+   * @public
+   */
+  filters?: RDSDBRecommendationFilter[];
+
+  /**
+   * <p>
+   *             Return the Amazon RDS recommendations to the specified Amazon Web Services account IDs.
+   *         </p>
+   *          <p>If your account is the management account or the delegated administrator
+   *             of an organization, use this parameter to return the Amazon RDS recommendations to specific
+   *             member accounts.</p>
+   *          <p>You can only specify one account ID per request.</p>
+   * @public
+   */
+  accountIds?: string[];
+
+  /**
+   * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, <a>GetEC2RecommendationProjectedMetrics</a>, <a>GetRDSDatabaseRecommendations</a>, and <a>GetRDSDatabaseRecommendationProjectedMetrics</a> request.</p>
+   * @public
+   */
+  recommendationPreferences?: RecommendationPreferences;
+}
+
+/**
+ * <p>
+ *             The configuration of the recommended RDS storage.
+ *         </p>
+ * @public
+ */
+export interface DBStorageConfiguration {
+  /**
+   * <p>
+   *             The type of RDS storage.
+   *         </p>
+   * @public
+   */
+  storageType?: string;
+
+  /**
+   * <p>
+   *             The size of the RDS storage in gigabytes (GB).
+   *         </p>
+   * @public
+   */
+  allocatedStorage?: number;
+
+  /**
+   * <p>
+   *             The provisioned IOPs of the RDS storage.
+   *         </p>
+   * @public
+   */
+  iops?: number;
+
+  /**
+   * <p>
+   *             The maximum limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the RDS instance.
+   *         </p>
+   * @public
+   */
+  maxAllocatedStorage?: number;
+
+  /**
+   * <p>
+   *             The storage throughput of the RDS storage.
+   *         </p>
+   * @public
+   */
+  storageThroughput?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSSavingsEstimationModeSource = {
+  COST_EXPLORER_RIGHTSIZING: "CostExplorerRightsizing",
+  COST_OPTIMIZATION_HUB: "CostOptimizationHub",
+  PUBLIC_PRICING: "PublicPricing",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSSavingsEstimationModeSource =
+  (typeof RDSSavingsEstimationModeSource)[keyof typeof RDSSavingsEstimationModeSource];
+
+/**
+ * <p>
+ *             Describes the savings estimation mode used for calculating savings opportunity for Amazon RDS.
+ *         </p>
+ * @public
+ */
+export interface RDSSavingsEstimationMode {
+  /**
+   * <p>
+   *             Describes the source for calculating the savings opportunity for Amazon RDS.
+   *         </p>
+   * @public
+   */
+  source?: RDSSavingsEstimationModeSource;
+}
+
+/**
+ * <p>
+ *             Describes the effective recommendation preferences for Amazon RDS.
+ *         </p>
+ * @public
+ */
+export interface RDSEffectiveRecommendationPreferences {
+  /**
+   * <p>
+   *             Describes the CPU vendor and architecture for Amazon RDS recommendations.
+   *         </p>
+   * @public
+   */
+  cpuVendorArchitectures?: CpuVendorArchitecture[];
+
+  /**
+   * <p>Describes the activation status of the enhanced infrastructure metrics
+   *             preference.
+   *         </p>
+   *          <p>A status of <code>Active</code> confirms that the preference is applied in the latest
+   *             recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet
+   *             applied to recommendations.
+   *         </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
+   *             infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.
+   *         </p>
+   * @public
+   */
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
+
+  /**
+   * <p>
+   *             The number of days the utilization metrics of the Amazon RDS are analyzed.
+   *         </p>
+   * @public
+   */
+  lookBackPeriod?: LookBackPeriodPreference;
+
+  /**
+   * <p>
+   *             Describes the savings estimation mode preference applied for calculating savings opportunity for Amazon RDS.
+   *         </p>
+   * @public
+   */
+  savingsEstimationMode?: RDSSavingsEstimationMode;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Idle = {
+  FALSE: "False",
+  TRUE: "True",
+} as const;
+
+/**
+ * @public
+ */
+export type Idle = (typeof Idle)[keyof typeof Idle];
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSInstanceFinding = {
+  OPTIMIZED: "Optimized",
+  OVER_PROVISIONED: "Overprovisioned",
+  UNDER_PROVISIONED: "Underprovisioned",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSInstanceFinding = (typeof RDSInstanceFinding)[keyof typeof RDSInstanceFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSInstanceFindingReasonCode = {
+  CPU_OVER_PROVISIONED: "CPUOverprovisioned",
+  CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
+  EBS_IOPS_OVER_PROVISIONED: "EBSIOPSOverprovisioned",
+  EBS_THROUGHPUT_OVER_PROVISIONED: "EBSThroughputOverprovisioned",
+  EBS_THROUGHPUT_UNDER_PROVISIONED: "EBSThroughputUnderprovisioned",
+  NETWORK_BANDWIDTH_OVER_PROVISIONED: "NetworkBandwidthOverprovisioned",
+  NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NetworkBandwidthUnderprovisioned",
+  NEW_ENGINE_VERSION_AVAILABLE: "NewEngineVersionAvailable",
+  NEW_GENERATION_DB_INSTANCE_CLASS_AVAILABLE: "NewGenerationDBInstanceClassAvailable",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSInstanceFindingReasonCode =
+  (typeof RDSInstanceFindingReasonCode)[keyof typeof RDSInstanceFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSDBMetricStatistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+  MINIMUM: "Minimum",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSDBMetricStatistic = (typeof RDSDBMetricStatistic)[keyof typeof RDSDBMetricStatistic];
+
+/**
+ * <p>
+ *             Describes the utilization metric of an Amazon RDS.
+ *         </p>
+ *          <p>
+ *             To determine the performance difference between your current Amazon RDS and the recommended option,
+ *             compare the utilization metric data of your service against its projected utilization metric data.
+ *         </p>
+ * @public
+ */
+export interface RDSDBUtilizationMetric {
+  /**
+   * <p>
+   *             The name of the utilization metric.
+   *         </p>
+   * @public
+   */
+  name?: RDSDBMetricName;
+
+  /**
+   * <p>
+   *             The statistic of the utilization metric.
+   *         </p>
+   *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
+   *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
+   *             highest value observed during the specified period.</p>
+   *          <p>The Compute Optimizer console displays graphs for some utilization metrics using the
+   *             <code>Average</code> statistic, which is the value of <code>Sum</code> /
+   *             <code>SampleCount</code> during the specified period. For more information, see
+   *             <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/viewing-recommendations.html">Viewing resource
+   *                 recommendations</a> in the <i>Compute Optimizer User
+   *                     Guide</i>. You can also get averaged utilization metric data for your resources
+   *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
+   *                 User Guide</a>.</p>
+   * @public
+   */
+  statistic?: RDSDBMetricStatistic;
+
+  /**
+   * <p>
+   *             The value of the utilization metric.
+   *         </p>
+   * @public
+   */
+  value?: number;
+}
+
+/**
+ * <p>
+ *             Describes the estimated monthly savings possible for Amazon RDS instances by adopting
+ *             Compute Optimizer recommendations. This is based on Amazon RDS pricing after applying
+ *             Savings Plans discounts.
+ *         </p>
+ * @public
+ */
+export interface RDSInstanceEstimatedMonthlySavings {
+  /**
+   * <p>
+   *             The currency of the estimated monthly savings.
+   *         </p>
+   * @public
+   */
+  currency?: Currency;
+
+  /**
+   * <p>
+   *             The value of the estimated monthly savings for Amazon RDS instances.
+   *         </p>
+   * @public
+   */
+  value?: number;
+}
+
+/**
+ * <p>
+ *             Describes the savings opportunity for Amazon RDS instance recommendations after applying Savings Plans discounts.
+ *         </p>
+ *          <p>
+ *             Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
+ *             You can achieve this by implementing a given Compute Optimizer recommendation.
+ *         </p>
+ * @public
+ */
+export interface RDSInstanceSavingsOpportunityAfterDiscounts {
+  /**
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s
+   *             Amazon RDS instance recommendations. This includes any applicable Savings Plans discounts.
+   *         </p>
+   * @public
+   */
+  savingsOpportunityPercentage?: number;
+
+  /**
+   * <p>
+   *             The estimated monthly savings possible by adopting Compute Optimizer’s Amazon RDS instance recommendations.
+   *             This includes any applicable Savings Plans discounts.
+   *         </p>
+   * @public
+   */
+  estimatedMonthlySavings?: RDSInstanceEstimatedMonthlySavings;
+}
+
+/**
+ * <p>
+ *             Describes the recommendation options for an Amazon RDS instance.
+ *         </p>
+ * @public
+ */
+export interface RDSDBInstanceRecommendationOption {
+  /**
+   * <p>
+   *             Describes the DB instance class recommendation option for your Amazon RDS instance.
+   *         </p>
+   * @public
+   */
+  dbInstanceClass?: string;
+
+  /**
+   * <p>
+   *             An array of objects that describe the projected utilization metrics of the RDS instance recommendation option.
+   *         </p>
+   * @public
+   */
+  projectedUtilizationMetrics?: RDSDBUtilizationMetric[];
+
+  /**
+   * <p>
+   *             The performance risk of the RDS instance recommendation option.
+   *         </p>
+   * @public
+   */
+  performanceRisk?: number;
+
+  /**
+   * <p>
+   *             The rank identifier of the RDS instance recommendation option.
+   *         </p>
+   * @public
+   */
+  rank?: number;
+
+  /**
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  savingsOpportunity?: SavingsOpportunity;
+
+  /**
+   * <p>
+   *             Describes the savings opportunity for Amazon RDS recommendations or for the recommendation option.
+   *         </p>
+   *          <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
+   *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
+   * @public
+   */
+  savingsOpportunityAfterDiscounts?: RDSInstanceSavingsOpportunityAfterDiscounts;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSStorageFinding = {
+  OPTIMIZED: "Optimized",
+  OVER_PROVISIONED: "Overprovisioned",
+  UNDER_PROVISIONED: "Underprovisioned",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSStorageFinding = (typeof RDSStorageFinding)[keyof typeof RDSStorageFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSStorageFindingReasonCode = {
+  EBS_VOLUME_ALLOCATED_STORAGE_UNDER_PROVISIONED: "EBSVolumeAllocatedStorageUnderprovisioned",
+  EBS_VOLUME_IOPS_OVER_PROVISIONED: "EBSVolumeIOPSOverprovisioned",
+  EBS_VOLUME_THROUGHPUT_OVER_PROVISIONED: "EBSVolumeThroughputOverprovisioned",
+  EBS_VOLUME_THROUGHPUT_UNDER_PROVISIONED: "EBSVolumeThroughputUnderprovisioned",
+  NEW_GENERATION_STORAGE_TYPE_AVAILABLE: "NewGenerationStorageTypeAvailable",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSStorageFindingReasonCode =
+  (typeof RDSStorageFindingReasonCode)[keyof typeof RDSStorageFindingReasonCode];
+
+/**
+ * <p>
+ *             Describes the estimated monthly savings possible for Amazon RDS storage by adopting Compute Optimizer
+ *             recommendations. This is based on Amazon RDS pricing after applying Savings Plans discounts.
+ *         </p>
+ * @public
+ */
+export interface RDSStorageEstimatedMonthlySavings {
+  /**
+   * <p>
+   *             The currency of the estimated monthly savings.
+   *         </p>
+   * @public
+   */
+  currency?: Currency;
+
+  /**
+   * <p>
+   *             The value of the estimated monthly savings for Amazon RDS storage.
+   *         </p>
+   * @public
+   */
+  value?: number;
+}
+
+/**
+ * <p>
+ *             Describes the savings opportunity for Amazon RDS storage recommendations after applying Savings Plans discounts.
+ *         </p>
+ *          <p>
+ *             Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
+ *             You can achieve this by implementing a given Compute Optimizer recommendation.
+ *         </p>
+ * @public
+ */
+export interface RDSStorageSavingsOpportunityAfterDiscounts {
+  /**
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s
+   *             Amazon RDS storage recommendations. This includes any applicable Savings Plans discounts.
+   *         </p>
+   * @public
+   */
+  savingsOpportunityPercentage?: number;
+
+  /**
+   * <p>
+   *             The estimated monthly savings possible by adopting Compute Optimizer’s Amazon RDS storage recommendations. This includes any applicable Savings Plans discounts.
+   *         </p>
+   * @public
+   */
+  estimatedMonthlySavings?: RDSStorageEstimatedMonthlySavings;
+}
+
+/**
+ * <p>
+ *             Describes the recommendation options for Amazon RDS storage.
+ *         </p>
+ * @public
+ */
+export interface RDSDBStorageRecommendationOption {
+  /**
+   * <p>
+   *             The recommended storage configuration.
+   *         </p>
+   * @public
+   */
+  storageConfiguration?: DBStorageConfiguration;
+
+  /**
+   * <p>
+   *             The rank identifier of the RDS storage recommendation option.
+   *         </p>
+   * @public
+   */
+  rank?: number;
+
+  /**
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  savingsOpportunity?: SavingsOpportunity;
+
+  /**
+   * <p>
+   *             Describes the savings opportunity for Amazon RDS storage recommendations or for the recommendation option.
+   *         </p>
+   *          <p>
+   *             Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts. You can achieve
+   *             this by implementing a given Compute Optimizer recommendation.
+   *         </p>
+   * @public
+   */
+  savingsOpportunityAfterDiscounts?: RDSStorageSavingsOpportunityAfterDiscounts;
+}
+
+/**
+ * <p>
+ *             Describes an Amazon RDS recommendation.
+ *         </p>
+ * @public
+ */
+export interface RDSDBRecommendation {
+  /**
+   * <p>
+   *             The ARN of the current Amazon RDS.
+   *         </p>
+   *          <p>
+   *             The following is the format of the ARN:
+   *         </p>
+   *          <p>
+   *             <code>arn:aws:rds:\{region\}:\{accountId\}:db:\{resourceName\}</code>
+   *          </p>
+   * @public
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>
+   *             The Amazon Web Services account ID of the Amazon RDS.
+   *         </p>
+   * @public
+   */
+  accountId?: string;
+
+  /**
+   * <p>
+   *             The engine of the RDS instance.
+   *         </p>
+   * @public
+   */
+  engine?: string;
+
+  /**
+   * <p>
+   *             The database engine version.
+   *         </p>
+   * @public
+   */
+  engineVersion?: string;
+
+  /**
+   * <p>
+   *             The DB instance class of the current RDS instance.
+   *         </p>
+   * @public
+   */
+  currentDBInstanceClass?: string;
+
+  /**
+   * <p>
+   *             The configuration of the current RDS storage.
+   *         </p>
+   * @public
+   */
+  currentStorageConfiguration?: DBStorageConfiguration;
+
+  /**
+   * <p>
+   *             This indicates if the RDS instance is idle or not.
+   *         </p>
+   * @public
+   */
+  idle?: Idle;
+
+  /**
+   * <p>
+   *             The finding classification of an Amazon RDS instance.
+   *         </p>
+   *          <p>Findings for Amazon RDS instance include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Underprovisioned</code>
+   *                   </b> —
+   *                     When Compute Optimizer detects that there’s not enough resource specifications, an Amazon RDS
+   *                     is considered under-provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Overprovisioned</code>
+   *                   </b> —
+   *                     When Compute Optimizer detects that there’s excessive resource specifications, an Amazon RDS
+   *                     is considered over-provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Optimized</code>
+   *                   </b> —
+   *                     When the specifications of your Amazon RDS instance meet the performance requirements
+   *                     of your workload, the service is considered optimized.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  instanceFinding?: RDSInstanceFinding;
+
+  /**
+   * <p>
+   *             The finding classification of Amazon RDS storage.
+   *         </p>
+   *          <p>Findings for Amazon RDS instance include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Underprovisioned</code>
+   *                   </b> —
+   *                     When Compute Optimizer detects that there’s not enough storage, an Amazon RDS
+   *                     is considered under-provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Overprovisioned</code>
+   *                   </b> —
+   *                     When Compute Optimizer detects that there’s excessive storage, an Amazon RDS
+   *                     is considered over-provisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Optimized</code>
+   *                   </b> —
+   *                     When the storage of your Amazon RDS meet the performance requirements
+   *                     of your workload, the service is considered optimized.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  storageFinding?: RDSStorageFinding;
+
+  /**
+   * <p>
+   *             The reason for the finding classification of an Amazon RDS instance.
+   *         </p>
+   * @public
+   */
+  instanceFindingReasonCodes?: RDSInstanceFindingReasonCode[];
+
+  /**
+   * <p>
+   *             The reason for the finding classification of Amazon RDS storage.
+   *         </p>
+   * @public
+   */
+  storageFindingReasonCodes?: RDSStorageFindingReasonCode[];
+
+  /**
+   * <p>
+   *             An array of objects that describe the recommendation options for the Amazon RDS instance.
+   *         </p>
+   * @public
+   */
+  instanceRecommendationOptions?: RDSDBInstanceRecommendationOption[];
+
+  /**
+   * <p>
+   *             An array of objects that describe the recommendation options for Amazon RDS storage.
+   *         </p>
+   * @public
+   */
+  storageRecommendationOptions?: RDSDBStorageRecommendationOption[];
+
+  /**
+   * <p>
+   *             An array of objects that describe the utilization metrics of the Amazon RDS.
+   *         </p>
+   * @public
+   */
+  utilizationMetrics?: RDSDBUtilizationMetric[];
+
+  /**
+   * <p>
+   *             Describes the effective recommendation preferences for Amazon RDS.
+   *         </p>
+   * @public
+   */
+  effectiveRecommendationPreferences?: RDSEffectiveRecommendationPreferences;
+
+  /**
+   * <p>
+   *             The number of days the Amazon RDS utilization metrics were analyzed.
+   *         </p>
+   * @public
+   */
+  lookbackPeriodInDays?: number;
+
+  /**
+   * <p>
+   *             The timestamp of when the Amazon RDS recommendation was last generated.
+   *         </p>
+   * @public
+   */
+  lastRefreshTimestamp?: Date;
+
+  /**
+   * <p>
+   *             A list of tags assigned to your Amazon RDS recommendations.
+   *         </p>
+   * @public
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface GetRDSDatabaseRecommendationsResponse {
+  /**
+   * <p>
+   *             The token to advance to the next page of Amazon RDS recommendations.
+   *         </p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *             An array of objects that describe the Amazon RDS recommendations.
+   *         </p>
+   * @public
+   */
+  rdsDBRecommendations?: RDSDBRecommendation[];
+
+  /**
+   * <p>
+   *             An array of objects that describe errors of the request.
+   *         </p>
+   * @public
+   */
+  errors?: GetRecommendationError[];
+}
+
+/**
+ * @public
+ */
 export interface GetRecommendationPreferencesRequest {
   /**
    * <p>The target resource type of the recommendation preference for which to return
@@ -7090,10 +8329,6 @@ export interface GetRecommendationPreferencesRequest {
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
    *             encompasses only instances that are part of an Auto Scaling group.</p>
-   *          <note>
-   *             <p>The valid values for this parameter are <code>Ec2Instance</code> and
-   *                     <code>AutoScalingGroup</code>.</p>
-   *          </note>
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -7577,10 +8812,6 @@ export interface PutRecommendationPreferencesRequest {
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
    *             encompasses only instances that are part of an Auto Scaling group.</p>
-   *          <note>
-   *             <p>The valid values for this parameter are <code>Ec2Instance</code> and
-   *                     <code>AutoScalingGroup</code>.</p>
-   *          </note>
    * @public
    */
   resourceType: ResourceType | undefined;

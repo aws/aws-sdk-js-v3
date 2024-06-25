@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
+
+
+### Features
+
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to record individual stage participants to S3. ([b3374d1](https://github.com/aws/aws-sdk-js-v3/commit/b3374d147c877fa5011951f89a314d999b8ab0fc))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

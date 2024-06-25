@@ -92,6 +92,10 @@ import {
   CreateFlowDefinitionCommandOutput,
 } from "../commands/CreateFlowDefinitionCommand";
 import { CreateHubCommandInput, CreateHubCommandOutput } from "../commands/CreateHubCommand";
+import {
+  CreateHubContentReferenceCommandInput,
+  CreateHubContentReferenceCommandOutput,
+} from "../commands/CreateHubContentReferenceCommand";
 import { CreateHumanTaskUiCommandInput, CreateHumanTaskUiCommandOutput } from "../commands/CreateHumanTaskUiCommand";
 import {
   CreateHyperParameterTuningJobCommandInput,
@@ -230,6 +234,10 @@ import {
 } from "../commands/DeleteFlowDefinitionCommand";
 import { DeleteHubCommandInput, DeleteHubCommandOutput } from "../commands/DeleteHubCommand";
 import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "../commands/DeleteHubContentCommand";
+import {
+  DeleteHubContentReferenceCommandInput,
+  DeleteHubContentReferenceCommandOutput,
+} from "../commands/DeleteHubContentReferenceCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "../commands/DeleteHumanTaskUiCommand";
 import {
   DeleteHyperParameterTuningJobCommandInput,
@@ -1015,7 +1023,6 @@ import {
   CreateClusterRequest,
   CreateClusterResponse,
   CreateCodeRepositoryInput,
-  CreateCodeRepositoryOutput,
   CustomImage,
   DataSource,
   DirectDeploySettings,
@@ -1032,6 +1039,7 @@ import {
   IdentityProviderOAuthSetting,
   ImageClassificationJobConfig,
   ImageConfig,
+  InferenceHubAccessConfig,
   InferenceSpecification,
   InstanceGroup,
   IntegerParameterRangeSpecification,
@@ -1098,6 +1106,7 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateCodeRepositoryOutput,
   CreateCompilationJobRequest,
   CreateCompilationJobResponse,
   CreateContextRequest,
@@ -1121,6 +1130,8 @@ import {
   CreateFeatureGroupResponse,
   CreateFlowDefinitionRequest,
   CreateFlowDefinitionResponse,
+  CreateHubContentReferenceRequest,
+  CreateHubContentReferenceResponse,
   CreateHubRequest,
   CreateHubResponse,
   CreateHumanTaskUiRequest,
@@ -1199,7 +1210,6 @@ import {
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
-  EFSFileSystem,
   EFSFileSystemConfig,
   EndpointInfo,
   EndpointInput,
@@ -1292,7 +1302,6 @@ import {
   OnlineStoreConfig,
   OnlineStoreSecurityConfig,
   OutputConfig,
-  OwnershipSettings,
   ParallelismConfiguration,
   ParameterRanges,
   ParentHyperParameterTuningJob,
@@ -1338,7 +1347,6 @@ import {
   SharingSettings,
   SourceAlgorithm,
   SourceAlgorithmSpecification,
-  SpaceCodeEditorAppSettings,
   Stairs,
   TargetPlatform,
   TensorBoardAppSettings,
@@ -1404,6 +1412,7 @@ import {
   DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
   DeleteFlowDefinitionResponse,
+  DeleteHubContentReferenceRequest,
   DeleteHubContentRequest,
   DeleteHubRequest,
   DeleteHumanTaskUiRequest,
@@ -1539,13 +1548,11 @@ import {
   DescribeModelQualityJobDefinitionRequest,
   DescribeModelQualityJobDefinitionResponse,
   DescribeMonitoringScheduleRequest,
-  DescribeMonitoringScheduleResponse,
-  DescribeNotebookInstanceInput,
-  DescribeNotebookInstanceOutput,
   EbsStorageSettings,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
+  EFSFileSystem,
   EndpointMetadata,
   EndpointOutputConfiguration,
   EndpointPerformance,
@@ -1583,6 +1590,7 @@ import {
   OfflineStoreStatus,
   OidcConfig,
   OidcMemberDefinition,
+  OwnershipSettings,
   PendingDeploymentSummary,
   PendingProductionVariantSummary,
   ProductionVariantStatus,
@@ -1597,6 +1605,7 @@ import {
   S3Presign,
   SessionChainingConfig,
   SourceIpConfig,
+  SpaceCodeEditorAppSettings,
   SpaceJupyterLabAppSettings,
   SpaceSettings,
   SpaceSharingSettings,
@@ -1612,8 +1621,11 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeMonitoringScheduleResponse,
+  DescribeNotebookInstanceInput,
   DescribeNotebookInstanceLifecycleConfigInput,
   DescribeNotebookInstanceLifecycleConfigOutput,
+  DescribeNotebookInstanceOutput,
   DescribePipelineDefinitionForExecutionRequest,
   DescribePipelineDefinitionForExecutionResponse,
   DescribePipelineExecutionRequest,
@@ -1808,9 +1820,6 @@ import {
   ListModelQualityJobDefinitionsResponse,
   ListModelsInput,
   ListModelsOutput,
-  ListMonitoringAlertHistoryRequest,
-  ListMonitoringAlertHistoryResponse,
-  ListMonitoringAlertsRequest,
   MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
@@ -1822,7 +1831,6 @@ import {
   ModelPackageGroupSummary,
   ModelPackageSummary,
   ModelSummary,
-  MonitoringAlertHistorySummary,
   MonitoringJobDefinitionSummary,
   MonitoringSchedule,
   OidcConfigForResponse,
@@ -1854,6 +1862,9 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListMonitoringAlertHistoryRequest,
+  ListMonitoringAlertHistoryResponse,
+  ListMonitoringAlertsRequest,
   ListMonitoringAlertsResponse,
   ListMonitoringExecutionsRequest,
   ListMonitoringExecutionsResponse,
@@ -1915,6 +1926,7 @@ import {
   ModelStepMetadata,
   ModelVariantAction,
   MonitoringAlertActions,
+  MonitoringAlertHistorySummary,
   MonitoringAlertSummary,
   MonitoringScheduleSummary,
   NestedFilters,
@@ -2434,6 +2446,19 @@ export const se_CreateHubCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateHub");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateHubContentReferenceCommand
+ */
+export const se_CreateHubContentReferenceCommand = async (
+  input: CreateHubContentReferenceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateHubContentReference");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3175,6 +3200,19 @@ export const se_DeleteHubContentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHubContent");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteHubContentReferenceCommand
+ */
+export const se_DeleteHubContentReferenceCommand = async (
+  input: DeleteHubContentReferenceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteHubContentReference");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6881,6 +6919,26 @@ export const de_CreateHubCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateHubContentReferenceCommand
+ */
+export const de_CreateHubContentReferenceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHubContentReferenceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateHubContentReferenceResponse(data, context);
+  const response: CreateHubContentReferenceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateHumanTaskUiCommand
  */
 export const de_CreateHumanTaskUiCommand = async (
@@ -7970,6 +8028,23 @@ export const de_DeleteHubContentCommand = async (
   }
   await collectBody(output.body, context);
   const response: DeleteHubContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteHubContentReferenceCommand
+ */
+export const de_DeleteHubContentReferenceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHubContentReferenceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHubContentReferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
@@ -13212,6 +13287,8 @@ const se_CreateFlowDefinitionRequest = (input: CreateFlowDefinitionRequest, cont
   });
 };
 
+// se_CreateHubContentReferenceRequest omitted.
+
 // se_CreateHubRequest omitted.
 
 // se_CreateHumanTaskUiRequest omitted.
@@ -13572,6 +13649,8 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
 // se_DeleteFeatureGroupRequest omitted.
 
 // se_DeleteFlowDefinitionRequest omitted.
+
+// se_DeleteHubContentReferenceRequest omitted.
 
 // se_DeleteHubContentRequest omitted.
 
@@ -14080,6 +14159,8 @@ const se_InferenceExperimentSchedule = (input: InferenceExperimentSchedule, cont
     StartTime: (_) => _.getTime() / 1_000,
   });
 };
+
+// se_InferenceHubAccessConfig omitted.
 
 // se_InferenceSpecification omitted.
 
@@ -18341,6 +18422,19 @@ const de_CreateFlowDefinitionResponse = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_json1_1CreateHubContentReferenceResponse
+ */
+const de_CreateHubContentReferenceResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateHubContentReferenceResponse => {
+  return take(output, {
+    HubArn: __expectString,
+    HubContentArn: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateHubResponse
  */
 const de_CreateHubResponse = (output: any, context: __SerdeContext): CreateHubResponse => {
@@ -19811,6 +19905,9 @@ const de_DescribeHubContentResponse = (output: any, context: __SerdeContext): De
     HubContentType: __expectString,
     HubContentVersion: __expectString,
     HubName: __expectString,
+    ReferenceMinVersion: __expectString,
+    SageMakerPublicHubContentArn: __expectString,
+    SupportStatus: __expectString,
   }) as any;
 };
 
@@ -21947,6 +22044,9 @@ const de_HubContentInfo = (output: any, context: __SerdeContext): HubContentInfo
     HubContentStatus: __expectString,
     HubContentType: __expectString,
     HubContentVersion: __expectString,
+    OriginalCreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SageMakerPublicHubContentArn: __expectString,
+    SupportStatus: __expectString,
   }) as any;
 };
 
@@ -22761,6 +22861,15 @@ const de_InferenceExperimentSummary = (output: any, context: __SerdeContext): In
     Status: __expectString,
     StatusReason: __expectString,
     Type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InferenceHubAccessConfig
+ */
+const de_InferenceHubAccessConfig = (output: any, context: __SerdeContext): InferenceHubAccessConfig => {
+  return take(output, {
+    HubContentArn: __expectString,
   }) as any;
 };
 
@@ -27278,6 +27387,7 @@ const de_S3DataSource = (output: any, context: __SerdeContext): S3DataSource => 
 const de_S3ModelDataSource = (output: any, context: __SerdeContext): S3ModelDataSource => {
   return take(output, {
     CompressionType: __expectString,
+    HubAccessConfig: (_: any) => de_InferenceHubAccessConfig(_, context),
     ModelAccessConfig: (_: any) => de_ModelAccessConfig(_, context),
     S3DataType: __expectString,
     S3Uri: __expectString,

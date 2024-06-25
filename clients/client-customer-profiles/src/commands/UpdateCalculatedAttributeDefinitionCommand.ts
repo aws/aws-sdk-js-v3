@@ -38,9 +38,9 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates an existing calculated attribute definition. When updating the Conditions, note that increasing
- *          the date range of a calculated attribute will not trigger inclusion of historical data greater than the
- *          current date range.</p>
+ * <p>Updates an existing calculated attribute definition. When updating the Conditions, note
+ *          that increasing the date range of a calculated attribute will not trigger inclusion of
+ *          historical data greater than the current date range.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

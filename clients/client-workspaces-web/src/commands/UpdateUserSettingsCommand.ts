@@ -66,6 +66,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  *       },
  *     ],
  *   },
+ *   deepLinkAllowed: "STRING_VALUE",
  * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
@@ -102,6 +103,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * //     additionalEncryptionContext: { // EncryptionContextMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     deepLinkAllowed: "STRING_VALUE",
  * //   },
  * // };
  *

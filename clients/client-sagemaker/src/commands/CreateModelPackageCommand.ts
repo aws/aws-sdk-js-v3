@@ -77,6 +77,9 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *             ModelAccessConfig: { // ModelAccessConfig
  *               AcceptEula: true || false, // required
  *             },
+ *             HubAccessConfig: { // InferenceHubAccessConfig
+ *               HubContentArn: "STRING_VALUE", // required
+ *             },
  *           },
  *         },
  *         ProductId: "STRING_VALUE",
@@ -158,6 +161,9 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *             CompressionType: "None" || "Gzip", // required
  *             ModelAccessConfig: {
  *               AcceptEula: true || false, // required
+ *             },
+ *             HubAccessConfig: {
+ *               HubContentArn: "STRING_VALUE", // required
  *             },
  *           },
  *         },
@@ -268,6 +274,9 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *               CompressionType: "None" || "Gzip", // required
  *               ModelAccessConfig: {
  *                 AcceptEula: true || false, // required
+ *               },
+ *               HubAccessConfig: {
+ *                 HubContentArn: "STRING_VALUE", // required
  *               },
  *             },
  *           },

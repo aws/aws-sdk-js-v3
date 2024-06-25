@@ -126,6 +126,9 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * //             ModelAccessConfig: { // ModelAccessConfig
  * //               AcceptEula: true || false, // required
  * //             },
+ * //             HubAccessConfig: { // InferenceHubAccessConfig
+ * //               HubContentArn: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //         },
  * //         ProductId: "STRING_VALUE",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.601.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.600.0...v3.601.0) (2024-06-19)
+
+
+### Features
+
+* **client-opensearch:** This release enables customers to use JSON Web Tokens (JWT) for authentication on their Amazon OpenSearch Service domains. ([145a976](https://github.com/aws/aws-sdk-js-v3/commit/145a9764c9d8e49efe3ee776461310dab273471c))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

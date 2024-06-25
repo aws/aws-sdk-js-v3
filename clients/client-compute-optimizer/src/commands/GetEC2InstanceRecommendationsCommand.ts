@@ -92,6 +92,14 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //       recommendationOptions: [ // RecommendationOptions
  * //         { // InstanceRecommendationOption
  * //           instanceType: "STRING_VALUE",
+ * //           instanceGpuInfo: { // GpuInfo
+ * //             gpus: [ // Gpus
+ * //               { // Gpu
+ * //                 gpuCount: Number("int"),
+ * //                 gpuMemorySizeInMiB: Number("int"),
+ * //               },
+ * //             ],
+ * //           },
  * //           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
  * //             {
  * //               name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND" || "GPU_PERCENTAGE" || "GPU_MEMORY_PERCENTAGE",
@@ -111,15 +119,6 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
- * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
- * //           instanceGpuInfo: { // GpuInfo
- * //             gpus: [ // Gpus
- * //               { // Gpu
- * //                 gpuCount: Number("int"),
- * //                 gpuMemorySizeInMiB: Number("int"),
- * //               },
- * //             ],
- * //           },
  * //           savingsOpportunityAfterDiscounts: { // InstanceSavingsOpportunityAfterDiscounts
  * //             savingsOpportunityPercentage: Number("double"),
  * //             estimatedMonthlySavings: { // InstanceEstimatedMonthlySavings
@@ -127,12 +126,13 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
  * //         },
  * //       ],
  * //       recommendationSources: [ // RecommendationSources
  * //         { // RecommendationSource
  * //           recommendationSourceArn: "STRING_VALUE",
- * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License",
+ * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage",
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),

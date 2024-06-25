@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.604.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.603.0...v3.604.0) (2024-06-25)
+
+
+### Features
+
+* **client-auto-scaling:** Doc only update for Auto Scaling's TargetTrackingMetricDataQuery ([2598eb2](https://github.com/aws/aws-sdk-js-v3/commit/2598eb23220d2f72794bee76668a6ffddbf7d1f0))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-auto-scaling

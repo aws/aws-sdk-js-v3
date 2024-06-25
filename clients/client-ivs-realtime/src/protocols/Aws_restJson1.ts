@@ -93,6 +93,7 @@ import { UpdateStageCommandInput, UpdateStageCommandOutput } from "../commands/U
 import { IVSRealTimeServiceException as __BaseException } from "../models/IVSRealTimeServiceException";
 import {
   AccessDeniedException,
+  AutoParticipantRecordingConfiguration,
   ChannelDestinationConfiguration,
   Composition,
   CompositionSummary,
@@ -106,6 +107,7 @@ import {
   InternalServerException,
   LayoutConfiguration,
   Participant,
+  ParticipantRecordingMediaType,
   ParticipantSummary,
   ParticipantToken,
   ParticipantTokenCapability,
@@ -188,6 +190,7 @@ export const se_CreateStageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      autoParticipantRecordingConfiguration: (_) => _json(_),
       name: [],
       participantTokenConfigurations: (_) => _json(_),
       tags: (_) => _json(_),
@@ -536,6 +539,7 @@ export const se_ListParticipantsCommand = async (
   body = JSON.stringify(
     take(input, {
       filterByPublished: [],
+      filterByRecordingState: [],
       filterByState: [],
       filterByUserId: [],
       maxResults: [],
@@ -743,6 +747,7 @@ export const se_UpdateStageCommand = async (
   body = JSON.stringify(
     take(input, {
       arn: [],
+      autoParticipantRecordingConfiguration: (_) => _json(_),
       name: [],
     })
   );
@@ -1470,6 +1475,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AutoParticipantRecordingConfiguration omitted.
+
 // se_ChannelDestinationConfiguration omitted.
 
 // se_DestinationConfiguration omitted.
@@ -1481,6 +1488,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_GridConfiguration omitted.
 
 // se_LayoutConfiguration omitted.
+
+// se_ParticipantRecordingMediaTypeList omitted.
 
 // se_ParticipantTokenAttributes omitted.
 
@@ -1511,6 +1520,8 @@ const se_Video = (input: Video, context: __SerdeContext): any => {
     width: [],
   });
 };
+
+// de_AutoParticipantRecordingConfiguration omitted.
 
 // de_ChannelDestinationConfiguration omitted.
 
@@ -1672,6 +1683,9 @@ const de_Participant = (output: any, context: __SerdeContext): Participant => {
     osVersion: __expectString,
     participantId: __expectString,
     published: __expectBoolean,
+    recordingS3BucketName: __expectString,
+    recordingS3Prefix: __expectString,
+    recordingState: __expectString,
     sdkVersion: __expectString,
     state: __expectString,
     userId: __expectString,
@@ -1692,6 +1706,8 @@ const de_ParticipantList = (output: any, context: __SerdeContext): ParticipantSu
   return retVal;
 };
 
+// de_ParticipantRecordingMediaTypeList omitted.
+
 /**
  * deserializeAws_restJson1ParticipantSummary
  */
@@ -1700,6 +1716,7 @@ const de_ParticipantSummary = (output: any, context: __SerdeContext): Participan
     firstJoinTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     participantId: __expectString,
     published: __expectBoolean,
+    recordingState: __expectString,
     state: __expectString,
     userId: __expectString,
   }) as any;

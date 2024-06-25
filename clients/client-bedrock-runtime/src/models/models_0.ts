@@ -112,6 +112,89 @@ export interface InferenceConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DocumentFormat = {
+  CSV: "csv",
+  DOC: "doc",
+  DOCX: "docx",
+  HTML: "html",
+  MD: "md",
+  PDF: "pdf",
+  TXT: "txt",
+  XLS: "xls",
+  XLSX: "xlsx",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentFormat = (typeof DocumentFormat)[keyof typeof DocumentFormat];
+
+/**
+ * <p>Contains the content of the document included in a message when sending a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> request or in the response.</p>
+ * @public
+ */
+export type DocumentSource = DocumentSource.BytesMember | DocumentSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DocumentSource {
+  /**
+   * <p>A base64-encoded string of a UTF-8 encoded file, that is the document to include in the message.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DocumentSource, visitor: Visitor<T>): T => {
+    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>A document to include in a message when sending a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> request. You can include up to 5 documents in a request. The maximum document size is 50 MB.</p>
+ * @public
+ */
+export interface DocumentBlock {
+  /**
+   * <p>The format of a document, or its extension.</p>
+   * @public
+   */
+  format: DocumentFormat | undefined;
+
+  /**
+   * <p>A name for the document.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Contains the content of the document.</p>
+   * @public
+   */
+  source: DocumentSource | undefined;
+}
+
+/**
  * <p>A text block that contains text that you want to assess with a guardrail. For more information, see <a>GuardrailConverseContentBlock</a>.</p>
  * @public
  */
@@ -242,6 +325,7 @@ export interface ImageBlock {
  * @public
  */
 export type ToolResultContentBlock =
+  | ToolResultContentBlock.DocumentMember
   | ToolResultContentBlock.ImageMember
   | ToolResultContentBlock.JsonMember
   | ToolResultContentBlock.TextMember
@@ -259,6 +343,7 @@ export namespace ToolResultContentBlock {
     json: __DocumentType;
     text?: never;
     image?: never;
+    document?: never;
     $unknown?: never;
   }
 
@@ -270,6 +355,7 @@ export namespace ToolResultContentBlock {
     json?: never;
     text: string;
     image?: never;
+    document?: never;
     $unknown?: never;
   }
 
@@ -284,6 +370,19 @@ export namespace ToolResultContentBlock {
     json?: never;
     text?: never;
     image: ImageBlock;
+    document?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A tool result that is a document.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    json?: never;
+    text?: never;
+    image?: never;
+    document: DocumentBlock;
     $unknown?: never;
   }
 
@@ -294,6 +393,7 @@ export namespace ToolResultContentBlock {
     json?: never;
     text?: never;
     image?: never;
+    document?: never;
     $unknown: [string, any];
   }
 
@@ -301,6 +401,7 @@ export namespace ToolResultContentBlock {
     json: (value: __DocumentType) => T;
     text: (value: string) => T;
     image: (value: ImageBlock) => T;
+    document: (value: DocumentBlock) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -308,6 +409,7 @@ export namespace ToolResultContentBlock {
     if (value.json !== undefined) return visitor.json(value.json);
     if (value.text !== undefined) return visitor.text(value.text);
     if (value.image !== undefined) return visitor.image(value.image);
+    if (value.document !== undefined) return visitor.document(value.document);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -384,6 +486,7 @@ export interface ToolUseBlock {
  * @public
  */
 export type ContentBlock =
+  | ContentBlock.DocumentMember
   | ContentBlock.GuardContentMember
   | ContentBlock.ImageMember
   | ContentBlock.TextMember
@@ -402,6 +505,7 @@ export namespace ContentBlock {
   export interface TextMember {
     text: string;
     image?: never;
+    document?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -418,6 +522,21 @@ export namespace ContentBlock {
   export interface ImageMember {
     text?: never;
     image: ImageBlock;
+    document?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A document to include in the message.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    text?: never;
+    image?: never;
+    document: DocumentBlock;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -431,6 +550,7 @@ export namespace ContentBlock {
   export interface ToolUseMember {
     text?: never;
     image?: never;
+    document?: never;
     toolUse: ToolUseBlock;
     toolResult?: never;
     guardContent?: never;
@@ -444,6 +564,7 @@ export namespace ContentBlock {
   export interface ToolResultMember {
     text?: never;
     image?: never;
+    document?: never;
     toolUse?: never;
     toolResult: ToolResultBlock;
     guardContent?: never;
@@ -462,6 +583,7 @@ export namespace ContentBlock {
   export interface GuardContentMember {
     text?: never;
     image?: never;
+    document?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent: GuardrailConverseContentBlock;
@@ -474,6 +596,7 @@ export namespace ContentBlock {
   export interface $UnknownMember {
     text?: never;
     image?: never;
+    document?: never;
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
@@ -483,6 +606,7 @@ export namespace ContentBlock {
   export interface Visitor<T> {
     text: (value: string) => T;
     image: (value: ImageBlock) => T;
+    document: (value: DocumentBlock) => T;
     toolUse: (value: ToolUseBlock) => T;
     toolResult: (value: ToolResultBlock) => T;
     guardContent: (value: GuardrailConverseContentBlock) => T;
@@ -492,6 +616,7 @@ export namespace ContentBlock {
   export const visit = <T>(value: ContentBlock, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
     if (value.image !== undefined) return visitor.image(value.image);
+    if (value.document !== undefined) return visitor.document(value.document);
     if (value.toolUse !== undefined) return visitor.toolUse(value.toolUse);
     if (value.toolResult !== undefined) return visitor.toolResult(value.toolResult);
     if (value.guardContent !== undefined) return visitor.guardContent(value.guardContent);

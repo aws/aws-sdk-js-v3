@@ -34,8 +34,8 @@ export interface DescribeTerminationPolicyTypesCommandOutput
 
 /**
  * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with
- *                 Amazon EC2 Auto Scaling termination policies</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Configure
+ *                 termination policies for Amazon EC2 Auto Scaling</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -71,6 +71,17 @@ export interface CreateTransitGatewayPeeringCommandOutput
  * //         },
  * //       ],
  * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastModificationErrors: [ // PeeringErrorList
+ * //         { // PeeringError
+ * //           Code: "TRANSIT_GATEWAY_NOT_FOUND" || "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED" || "MISSING_PERMISSIONS" || "INTERNAL_ERROR" || "EDGE_LOCATION_PEER_DUPLICATE" || "INVALID_TRANSIT_GATEWAY_STATE",
+ * //           Message: "STRING_VALUE",
+ * //           ResourceArn: "STRING_VALUE",
+ * //           RequestId: "STRING_VALUE",
+ * //           MissingPermissionsContext: { // PermissionsErrorContext
+ * //             MissingPermission: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //     TransitGatewayArn: "STRING_VALUE",
  * //     TransitGatewayPeeringAttachmentId: "STRING_VALUE",

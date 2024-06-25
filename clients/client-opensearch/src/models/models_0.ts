@@ -690,6 +690,36 @@ export interface AdvancedOptionsStatus {
 }
 
 /**
+ * <p>Describes the JWT options configured for the domain.</p>
+ * @public
+ */
+export interface JWTOptionsOutput {
+  /**
+   * <p>True if JWT use is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The key used for matching the JWT subject attribute.</p>
+   * @public
+   */
+  SubjectKey?: string;
+
+  /**
+   * <p>The key used for matching the JWT roles attribute.</p>
+   * @public
+   */
+  RolesKey?: string;
+
+  /**
+   * <p>The key used to verify the signature of incoming JWT requests.</p>
+   * @public
+   */
+  PublicKey?: string;
+}
+
+/**
  * <p>The SAML identity povider information.</p>
  * @public
  */
@@ -767,6 +797,12 @@ export interface AdvancedSecurityOptions {
   SAMLOptions?: SAMLOptionsOutput;
 
   /**
+   * <p>Container for information about the JWT configuration of the Amazon OpenSearch Service.</p>
+   * @public
+   */
+  JWTOptions?: JWTOptionsOutput;
+
+  /**
    * <p>Date and time when the migration period will be disabled. Only necessary when <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing">enabling
    *     fine-grained access control on an existing domain</a>.</p>
    * @public
@@ -780,6 +816,36 @@ export interface AdvancedSecurityOptions {
    * @public
    */
   AnonymousAuthEnabled?: boolean;
+}
+
+/**
+ * <p>The JWT authentication and authorization configuration for an Amazon OpenSearch Service domain.</p>
+ * @public
+ */
+export interface JWTOptionsInput {
+  /**
+   * <p>True to enable JWT authentication and authorization for a domain.</p>
+   * @public
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Element of the JWT assertion to use for the user name.</p>
+   * @public
+   */
+  SubjectKey?: string;
+
+  /**
+   * <p>Element of the JWT assertion to use for roles.</p>
+   * @public
+   */
+  RolesKey?: string;
+
+  /**
+   * <p>Element of the JWT assertion used by the cluster to verify JWT signatures.</p>
+   * @public
+   */
+  PublicKey?: string;
 }
 
 /**
@@ -889,6 +955,12 @@ export interface AdvancedSecurityOptionsInput {
    * @public
    */
   SAMLOptions?: SAMLOptionsInput;
+
+  /**
+   * <p>Container for information about the JWT configuration of the Amazon OpenSearch Service. </p>
+   * @public
+   */
+  JWTOptions?: JWTOptionsInput;
 
   /**
    * <p>True to enable a 30-day migration period during which administrators can create role
@@ -5670,7 +5742,7 @@ export interface GetDataSourceResponse {
   Description?: string;
 
   /**
-   * <p>The status of the data source response.</p>
+   * <p>The status of the data source.</p>
    * @public
    */
   Status?: DataSourceStatus;
@@ -7061,7 +7133,7 @@ export interface UpdateDataSourceRequest {
   Description?: string;
 
   /**
-   * <p>The status of the data source update request.</p>
+   * <p>The status of the data source update.</p>
    * @public
    */
   Status?: DataSourceStatus;

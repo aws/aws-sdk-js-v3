@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.603.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.602.0...v3.603.0) (2024-06-24)
+
+
+### Features
+
+* **client-qbusiness:** Allow enable/disable Q Apps when creating/updating a Q application; Return the Q Apps enablement information when getting a Q application. ([55c8f49](https://github.com/aws/aws-sdk-js-v3/commit/55c8f49bad3f4ef3c315996864220ffa50334d25))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-qbusiness

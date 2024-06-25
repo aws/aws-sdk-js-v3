@@ -643,6 +643,7 @@ bindings to be included as a dependency with your application. This functionalit
 
 - [Amazon S3 Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html)
 - [Amazon S3 Object Integrity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
+- [Amazon CloudFront-KeyValueStore](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-kvp.html)
 
 If the required AWS Common Runtime components are not installed, you will receive an error like:
 

@@ -28,10 +28,7 @@ export interface DescribeHubCommandInput extends DescribeHubRequest {}
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**
- * <p>Describe a hub.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
+ * <p>Describes a hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

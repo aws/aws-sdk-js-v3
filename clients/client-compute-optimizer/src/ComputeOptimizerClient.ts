@@ -86,6 +86,10 @@ import {
   ExportLicenseRecommendationsCommandOutput,
 } from "./commands/ExportLicenseRecommendationsCommand";
 import {
+  ExportRDSDatabaseRecommendationsCommandInput,
+  ExportRDSDatabaseRecommendationsCommandOutput,
+} from "./commands/ExportRDSDatabaseRecommendationsCommand";
+import {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/GetAutoScalingGroupRecommendationsCommand";
@@ -130,6 +134,14 @@ import {
   GetLicenseRecommendationsCommandOutput,
 } from "./commands/GetLicenseRecommendationsCommand";
 import {
+  GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+  GetRDSDatabaseRecommendationProjectedMetricsCommandOutput,
+} from "./commands/GetRDSDatabaseRecommendationProjectedMetricsCommand";
+import {
+  GetRDSDatabaseRecommendationsCommandInput,
+  GetRDSDatabaseRecommendationsCommandOutput,
+} from "./commands/GetRDSDatabaseRecommendationsCommand";
+import {
   GetRecommendationPreferencesCommandInput,
   GetRecommendationPreferencesCommandOutput,
 } from "./commands/GetRecommendationPreferencesCommand";
@@ -168,6 +180,7 @@ export type ServiceInputTypes =
   | ExportECSServiceRecommendationsCommandInput
   | ExportLambdaFunctionRecommendationsCommandInput
   | ExportLicenseRecommendationsCommandInput
+  | ExportRDSDatabaseRecommendationsCommandInput
   | GetAutoScalingGroupRecommendationsCommandInput
   | GetEBSVolumeRecommendationsCommandInput
   | GetEC2InstanceRecommendationsCommandInput
@@ -179,6 +192,8 @@ export type ServiceInputTypes =
   | GetEnrollmentStatusesForOrganizationCommandInput
   | GetLambdaFunctionRecommendationsCommandInput
   | GetLicenseRecommendationsCommandInput
+  | GetRDSDatabaseRecommendationProjectedMetricsCommandInput
+  | GetRDSDatabaseRecommendationsCommandInput
   | GetRecommendationPreferencesCommandInput
   | GetRecommendationSummariesCommandInput
   | PutRecommendationPreferencesCommandInput
@@ -196,6 +211,7 @@ export type ServiceOutputTypes =
   | ExportECSServiceRecommendationsCommandOutput
   | ExportLambdaFunctionRecommendationsCommandOutput
   | ExportLicenseRecommendationsCommandOutput
+  | ExportRDSDatabaseRecommendationsCommandOutput
   | GetAutoScalingGroupRecommendationsCommandOutput
   | GetEBSVolumeRecommendationsCommandOutput
   | GetEC2InstanceRecommendationsCommandOutput
@@ -207,6 +223,8 @@ export type ServiceOutputTypes =
   | GetEnrollmentStatusesForOrganizationCommandOutput
   | GetLambdaFunctionRecommendationsCommandOutput
   | GetLicenseRecommendationsCommandOutput
+  | GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
+  | GetRDSDatabaseRecommendationsCommandOutput
   | GetRecommendationPreferencesCommandOutput
   | GetRecommendationSummariesCommandOutput
   | PutRecommendationPreferencesCommandOutput

@@ -123,6 +123,7 @@ export type PackageGroupAssociationType =
  * @enum
  */
 export const PackageFormat = {
+  CARGO: "cargo",
   GENERIC: "generic",
   MAVEN: "maven",
   NPM: "npm",
@@ -169,7 +170,7 @@ export interface AssociatedPackage {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -266,6 +267,14 @@ export interface AssociateExternalConnectionRequest {
    *             <li>
    *                <p>
    *                   <code>public:maven-clojars</code> - for the Clojars repository. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:ruby-gems-org</code> - for RubyGems.org. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:crates-io</code> - for Crates.io. </p>
    *             </li>
    *          </ul>
    * @public
@@ -756,7 +765,7 @@ export interface CopyPackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -1640,7 +1649,7 @@ export interface DeletePackageRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -1723,7 +1732,7 @@ export interface PackageSummary {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -1872,7 +1881,7 @@ export interface DeletePackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -2153,7 +2162,7 @@ export interface DescribePackageRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -2199,7 +2208,7 @@ export interface PackageDescription {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -2341,7 +2350,7 @@ export interface DescribePackageVersionRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -2482,7 +2491,7 @@ export interface PackageVersionDescription {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -2756,7 +2765,7 @@ export interface DisposePackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -2914,7 +2923,7 @@ export interface GetAssociatedPackageGroupRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -3107,7 +3116,7 @@ export interface GetPackageVersionAssetRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -3254,7 +3263,7 @@ export interface GetPackageVersionReadmeRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -3311,7 +3320,7 @@ export interface GetPackageVersionReadmeResult {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -3891,7 +3900,7 @@ export interface ListPackagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -4033,7 +4042,7 @@ export interface ListPackageVersionAssetsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -4106,7 +4115,7 @@ export interface ListPackageVersionAssetsResult {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -4202,12 +4211,6 @@ export interface ListPackageVersionDependenciesRequest {
    *                <li>
    *                   <p>Maven</p>
    *                </li>
-   *                <li>
-   *                   <p>Swift</p>
-   *                </li>
-   *                <li>
-   *                   <p>generic</p>
-   *                </li>
    *             </ul>
    *          </note>
    *          <ul>
@@ -4218,15 +4221,12 @@ export interface ListPackageVersionDependenciesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
-   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
-   *             </li>
-   *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -4286,7 +4286,7 @@ export interface PackageDependency {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -4354,6 +4354,14 @@ export interface ListPackageVersionDependenciesResult {
   /**
    * <p>The namespace of the package version that contains the returned dependencies. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when listing dependencies from package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -4362,15 +4370,12 @@ export interface ListPackageVersionDependenciesResult {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
-   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
-   *             </li>
-   *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -4503,7 +4508,7 @@ export interface ListPackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -4653,7 +4658,7 @@ export interface ListPackageVersionsResult {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -5194,7 +5199,7 @@ export interface PutPackageOriginConfigurationRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -5557,7 +5562,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>

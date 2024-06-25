@@ -1096,6 +1096,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   ModelAccessConfig: { // ModelAccessConfig
  * //                     AcceptEula: true || false, // required
  * //                   },
+ * //                   HubAccessConfig: { // InferenceHubAccessConfig
+ * //                     HubContentArn: "STRING_VALUE", // required
+ * //                   },
  * //                 },
  * //               },
  * //               ProductId: "STRING_VALUE",
@@ -1139,6 +1142,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                   CompressionType: "None" || "Gzip", // required
  * //                   ModelAccessConfig: {
  * //                     AcceptEula: true || false, // required
+ * //                   },
+ * //                   HubAccessConfig: {
+ * //                     HubContentArn: "STRING_VALUE", // required
  * //                   },
  * //                 },
  * //               },
@@ -1271,6 +1277,9 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                     CompressionType: "None" || "Gzip", // required
  * //                     ModelAccessConfig: {
  * //                       AcceptEula: true || false, // required
+ * //                     },
+ * //                     HubAccessConfig: {
+ * //                       HubContentArn: "STRING_VALUE", // required
  * //                     },
  * //                   },
  * //                 },

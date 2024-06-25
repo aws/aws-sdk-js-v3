@@ -48,6 +48,8 @@ import {
   ConverseOutput,
   ConverseStreamMetadataEvent,
   ConverseStreamOutput,
+  DocumentBlock,
+  DocumentSource,
   GuardrailConfiguration,
   GuardrailConverseContentBlock,
   GuardrailConverseTextBlock,
@@ -728,6 +730,7 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
  */
 const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
   return ContentBlock.visit(input, {
+    document: (value) => ({ document: se_DocumentBlock(value, context) }),
     guardContent: (value) => ({ guardContent: _json(value) }),
     image: (value) => ({ image: se_ImageBlock(value, context) }),
     text: (value) => ({ text: value }),
@@ -746,6 +749,27 @@ const se_ContentBlocks = (input: ContentBlock[], context: __SerdeContext): any =
     .map((entry) => {
       return se_ContentBlock(entry, context);
     });
+};
+
+/**
+ * serializeAws_restJson1DocumentBlock
+ */
+const se_DocumentBlock = (input: DocumentBlock, context: __SerdeContext): any => {
+  return take(input, {
+    format: [],
+    name: [],
+    source: (_) => se_DocumentSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1DocumentSource
+ */
+const se_DocumentSource = (input: DocumentSource, context: __SerdeContext): any => {
+  return DocumentSource.visit(input, {
+    bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 // se_GuardrailConfiguration omitted.
@@ -865,6 +889,7 @@ const se_ToolResultBlock = (input: ToolResultBlock, context: __SerdeContext): an
  */
 const se_ToolResultContentBlock = (input: ToolResultContentBlock, context: __SerdeContext): any => {
   return ToolResultContentBlock.visit(input, {
+    document: (value) => ({ document: se_DocumentBlock(value, context) }),
     image: (value) => ({ image: se_ImageBlock(value, context) }),
     json: (value) => ({ json: se_Document(value, context) }),
     text: (value) => ({ text: value }),
@@ -927,6 +952,11 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
  * deserializeAws_restJson1ContentBlock
  */
 const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => {
+  if (output.document != null) {
+    return {
+      document: de_DocumentBlock(output.document, context),
+    };
+  }
   if (output.guardContent != null) {
     return {
       guardContent: _json(__expectUnion(output.guardContent)),
@@ -996,6 +1026,29 @@ const de_ConverseOutput = (output: any, context: __SerdeContext): ConverseOutput
 // de_ConverseStreamTrace omitted.
 
 // de_ConverseTrace omitted.
+
+/**
+ * deserializeAws_restJson1DocumentBlock
+ */
+const de_DocumentBlock = (output: any, context: __SerdeContext): DocumentBlock => {
+  return take(output, {
+    format: __expectString,
+    name: __expectString,
+    source: (_: any) => de_DocumentSource(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DocumentSource
+ */
+const de_DocumentSource = (output: any, context: __SerdeContext): DocumentSource => {
+  if (output.bytes != null) {
+    return {
+      bytes: context.base64Decoder(output.bytes),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_GuardrailAssessment omitted.
 
@@ -1115,6 +1168,11 @@ const de_ToolResultBlock = (output: any, context: __SerdeContext): ToolResultBlo
  * deserializeAws_restJson1ToolResultContentBlock
  */
 const de_ToolResultContentBlock = (output: any, context: __SerdeContext): ToolResultContentBlock => {
+  if (output.document != null) {
+    return {
+      document: de_DocumentBlock(output.document, context),
+    };
+  }
   if (output.image != null) {
     return {
       image: de_ImageBlock(output.image, context),

@@ -62,6 +62,9 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //         ModelAccessConfig: { // ModelAccessConfig
  * //           AcceptEula: true || false, // required
  * //         },
+ * //         HubAccessConfig: { // InferenceHubAccessConfig
+ * //           HubContentArn: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //     Environment: { // EnvironmentMap
@@ -92,6 +95,9 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * //           CompressionType: "None" || "Gzip", // required
  * //           ModelAccessConfig: {
  * //             AcceptEula: true || false, // required
+ * //           },
+ * //           HubAccessConfig: {
+ * //             HubContentArn: "STRING_VALUE", // required
  * //           },
  * //         },
  * //       },

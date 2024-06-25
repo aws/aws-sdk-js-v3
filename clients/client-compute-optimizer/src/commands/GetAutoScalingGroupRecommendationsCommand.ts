@@ -94,6 +94,14 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //         maxSize: Number("int"),
  * //         instanceType: "STRING_VALUE",
  * //       },
+ * //       currentInstanceGpuInfo: { // GpuInfo
+ * //         gpus: [ // Gpus
+ * //           { // Gpu
+ * //             gpuCount: Number("int"),
+ * //             gpuMemorySizeInMiB: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
  * //       recommendationOptions: [ // AutoScalingGroupRecommendationOptions
  * //         { // AutoScalingGroupRecommendationOption
  * //           configuration: {
@@ -101,6 +109,14 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //             minSize: Number("int"),
  * //             maxSize: Number("int"),
  * //             instanceType: "STRING_VALUE",
+ * //           },
+ * //           instanceGpuInfo: {
+ * //             gpus: [
+ * //               {
+ * //                 gpuCount: Number("int"),
+ * //                 gpuMemorySizeInMiB: Number("int"),
+ * //               },
+ * //             ],
  * //           },
  * //           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
  * //             {
@@ -118,15 +134,6 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
- * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
- * //           instanceGpuInfo: { // GpuInfo
- * //             gpus: [ // Gpus
- * //               { // Gpu
- * //                 gpuCount: Number("int"),
- * //                 gpuMemorySizeInMiB: Number("int"),
- * //               },
- * //             ],
- * //           },
  * //           savingsOpportunityAfterDiscounts: { // AutoScalingGroupSavingsOpportunityAfterDiscounts
  * //             savingsOpportunityPercentage: Number("double"),
  * //             estimatedMonthlySavings: { // AutoScalingGroupEstimatedMonthlySavings
@@ -134,6 +141,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -178,14 +186,6 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
  * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
  * //       ],
- * //       currentInstanceGpuInfo: {
- * //         gpus: [
- * //           {
- * //             gpuCount: Number("int"),
- * //             gpuMemorySizeInMiB: Number("int"),
- * //           },
- * //         ],
- * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors

@@ -116,17 +116,17 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       effectiveRecommendationPreferences: { // EBSEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // EBSSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //       tags: [ // Tags
  * //         { // Tag
  * //           key: "STRING_VALUE",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       effectiveRecommendationPreferences: { // EBSEffectiveRecommendationPreferences
- * //         savingsEstimationMode: { // EBSSavingsEstimationMode
- * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
- * //         },
- * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
