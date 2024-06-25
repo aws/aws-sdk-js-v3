@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.604.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.603.0...v3.604.0) (2024-06-25)
+
+
+### Features
+
+* **client-auto-scaling:** Doc only update for Auto Scaling's TargetTrackingMetricDataQuery ([2598eb2](https://github.com/aws/aws-sdk-js-v3/commit/2598eb23220d2f72794bee76668a6ffddbf7d1f0))
+* **client-ec2:** This release is for the launch of the new u7ib-12tb.224xlarge, R8g, c7gn.metal and mac2-m1ultra.metal instance types ([50f2aa7](https://github.com/aws/aws-sdk-js-v3/commit/50f2aa73483c58a071914efc256fefeb81cf3128))
+* **client-networkmanager:** This is model changes & documentation update for the Asynchronous Error Reporting feature for AWS Cloud WAN. This feature allows customers to view errors that occur while their resources are being provisioned, enabling customers to fix their resources without needing external support. ([1f04cf0](https://github.com/aws/aws-sdk-js-v3/commit/1f04cf08466878b3f0116619f112fa234e9b589d))
+* **client-workspaces-thin-client:** This release adds the deviceCreationTags field to CreateEnvironment API input, UpdateEnvironment API input and GetEnvironment API output. ([0148545](https://github.com/aws/aws-sdk-js-v3/commit/01485457d13daf9996d37b92a0b6b037c7afbef2))
+
+
+
+
+
 # [3.603.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.602.0...v3.603.0) (2024-06-24)
 
 

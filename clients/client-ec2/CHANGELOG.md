@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.604.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.603.0...v3.604.0) (2024-06-25)
+
+
+### Features
+
+* **client-ec2:** This release is for the launch of the new u7ib-12tb.224xlarge, R8g, c7gn.metal and mac2-m1ultra.metal instance types ([50f2aa7](https://github.com/aws/aws-sdk-js-v3/commit/50f2aa73483c58a071914efc256fefeb81cf3128))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
