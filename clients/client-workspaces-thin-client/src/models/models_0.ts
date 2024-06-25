@@ -259,6 +259,12 @@ export interface CreateEnvironmentRequest {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>A map of the key-value pairs of the tag or tags to assign to the newly created devices for this environment.</p>
+   * @public
+   */
+  deviceCreationTags?: Record<string, string>;
 }
 
 /**
@@ -1127,6 +1133,12 @@ export interface Environment {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>"The tag keys and optional values for the newly created devices for this environment."</p>
+   * @public
+   */
+  deviceCreationTags?: Record<string, string>;
 }
 
 /**
@@ -1621,6 +1633,12 @@ export interface UpdateEnvironmentRequest {
    * @public
    */
   desiredSoftwareSetId?: string;
+
+  /**
+   * <p>A map of the key-value pairs of the tag or tags to assign to the newly created devices for this environment.</p>
+   * @public
+   */
+  deviceCreationTags?: Record<string, string>;
 }
 
 /**
@@ -1664,6 +1682,7 @@ export const CreateEnvironmentRequestFilterSensitiveLog = (obj: CreateEnvironmen
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.deviceCreationTags && { deviceCreationTags: SENSITIVE_STRING }),
 });
 
 /**
@@ -1708,6 +1727,7 @@ export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.deviceCreationTags && { deviceCreationTags: SENSITIVE_STRING }),
 });
 
 /**
@@ -1805,6 +1825,7 @@ export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmen
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
+  ...(obj.deviceCreationTags && { deviceCreationTags: SENSITIVE_STRING }),
 });
 
 /**

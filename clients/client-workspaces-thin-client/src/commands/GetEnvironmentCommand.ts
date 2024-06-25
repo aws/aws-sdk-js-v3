@@ -81,6 +81,9 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * //     tags: { // TagsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     deviceCreationTags: { // DeviceCreationTagsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
