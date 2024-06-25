@@ -64,6 +64,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   attachmentsConfiguration: { // AppliedAttachmentsConfiguration
  * //     attachmentsControlMode: "ENABLED" || "DISABLED",
  * //   },
+ * //   qAppsConfiguration: { // QAppsConfiguration
+ * //     qAppsControlMode: "ENABLED" || "DISABLED", // required
+ * //   },
  * // };
  *
  * ```

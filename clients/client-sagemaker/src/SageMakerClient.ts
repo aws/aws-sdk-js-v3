@@ -113,6 +113,10 @@ import {
   CreateFlowDefinitionCommandOutput,
 } from "./commands/CreateFlowDefinitionCommand";
 import { CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
+import {
+  CreateHubContentReferenceCommandInput,
+  CreateHubContentReferenceCommandOutput,
+} from "./commands/CreateHubContentReferenceCommand";
 import { CreateHumanTaskUiCommandInput, CreateHumanTaskUiCommandOutput } from "./commands/CreateHumanTaskUiCommand";
 import {
   CreateHyperParameterTuningJobCommandInput,
@@ -251,6 +255,10 @@ import {
 } from "./commands/DeleteFlowDefinitionCommand";
 import { DeleteHubCommandInput, DeleteHubCommandOutput } from "./commands/DeleteHubCommand";
 import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "./commands/DeleteHubContentCommand";
+import {
+  DeleteHubContentReferenceCommandInput,
+  DeleteHubContentReferenceCommandOutput,
+} from "./commands/DeleteHubContentReferenceCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand";
 import {
   DeleteHyperParameterTuningJobCommandInput,
@@ -939,6 +947,7 @@ export type ServiceInputTypes =
   | CreateFeatureGroupCommandInput
   | CreateFlowDefinitionCommandInput
   | CreateHubCommandInput
+  | CreateHubContentReferenceCommandInput
   | CreateHumanTaskUiCommandInput
   | CreateHyperParameterTuningJobCommandInput
   | CreateImageCommandInput
@@ -996,6 +1005,7 @@ export type ServiceInputTypes =
   | DeleteFlowDefinitionCommandInput
   | DeleteHubCommandInput
   | DeleteHubContentCommandInput
+  | DeleteHubContentReferenceCommandInput
   | DeleteHumanTaskUiCommandInput
   | DeleteHyperParameterTuningJobCommandInput
   | DeleteImageCommandInput
@@ -1272,6 +1282,7 @@ export type ServiceOutputTypes =
   | CreateFeatureGroupCommandOutput
   | CreateFlowDefinitionCommandOutput
   | CreateHubCommandOutput
+  | CreateHubContentReferenceCommandOutput
   | CreateHumanTaskUiCommandOutput
   | CreateHyperParameterTuningJobCommandOutput
   | CreateImageCommandOutput
@@ -1329,6 +1340,7 @@ export type ServiceOutputTypes =
   | DeleteFlowDefinitionCommandOutput
   | DeleteHubCommandOutput
   | DeleteHubContentCommandOutput
+  | DeleteHubContentReferenceCommandOutput
   | DeleteHumanTaskUiCommandOutput
   | DeleteHyperParameterTuningJobCommandOutput
   | DeleteImageCommandOutput

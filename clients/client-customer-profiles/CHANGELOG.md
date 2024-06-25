@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.603.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.602.0...v3.603.0) (2024-06-24)
+
+
+### Features
+
+* **client-customer-profiles:** This release includes changes to ProfileObjectType APIs, adds functionality top set and get capacity for profile object types. ([a72bef5](https://github.com/aws/aws-sdk-js-v3/commit/a72bef5b5b7ca2850c2d7812a782e7b41fb60438))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

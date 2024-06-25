@@ -949,6 +949,12 @@ export interface CreateIdentityProviderRequest {
    * @public
    */
   clientToken?: string;
+
+  /**
+   * <p>The tags to add to the identity provider resource. A tag is a key-value pair.</p>
+   * @public
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -1514,7 +1520,7 @@ export interface CreateIpAccessSettingsRequest {
   description?: string;
 
   /**
-   * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
+   * <p>The tags to add to the IP access settings resource. A tag is a key-value pair.</p>
    * @public
    */
   tags?: Tag[];
@@ -3418,6 +3424,12 @@ export interface CreateUserSettingsRequest {
    * @public
    */
   additionalEncryptionContext?: Record<string, string>;
+
+  /**
+   * <p>Specifies whether the user can use deep links that open automatically when connecting to a session.</p>
+   * @public
+   */
+  deepLinkAllowed?: EnabledType;
 }
 
 /**
@@ -3540,6 +3552,12 @@ export interface UserSettings {
    * @public
    */
   additionalEncryptionContext?: Record<string, string>;
+
+  /**
+   * <p>Specifies whether the user can use deep links that open automatically when connecting to a session.</p>
+   * @public
+   */
+  deepLinkAllowed?: EnabledType;
 }
 
 /**
@@ -3632,6 +3650,12 @@ export interface UserSettingsSummary {
    * @public
    */
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
+
+  /**
+   * <p>Specifies whether the user can use deep links that open automatically when connecting to a session.</p>
+   * @public
+   */
+  deepLinkAllowed?: EnabledType;
 }
 
 /**
@@ -3724,6 +3748,12 @@ export interface UpdateUserSettingsRequest {
    * @public
    */
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
+
+  /**
+   * <p>Specifies whether the user can use deep links that open automatically when connecting to a session.</p>
+   * @public
+   */
+  deepLinkAllowed?: EnabledType;
 }
 
 /**
@@ -3794,6 +3824,7 @@ export const CreateIdentityProviderRequestFilterSensitiveLog = (obj: CreateIdent
   ...obj,
   ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
   ...(obj.identityProviderDetails && { identityProviderDetails: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**

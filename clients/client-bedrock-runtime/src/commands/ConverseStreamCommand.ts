@@ -67,6 +67,13 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *             },
  *           },
+ *           document: { // DocumentBlock
+ *             format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md", // required
+ *             name: "STRING_VALUE", // required
+ *             source: { // DocumentSource Union: only one key present
+ *               bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *             },
+ *           },
  *           toolUse: { // ToolUseBlock
  *             toolUseId: "STRING_VALUE", // required
  *             name: "STRING_VALUE", // required
@@ -80,6 +87,13 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *                 text: "STRING_VALUE",
  *                 image: {
  *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: {//  Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *                 document: {
+ *                   format: "pdf" || "csv" || "doc" || "docx" || "xls" || "xlsx" || "html" || "txt" || "md", // required
+ *                   name: "STRING_VALUE", // required
  *                   source: {//  Union: only one key present
  *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *                   },

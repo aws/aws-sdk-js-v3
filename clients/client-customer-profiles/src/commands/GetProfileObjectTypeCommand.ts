@@ -53,6 +53,8 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * //   EncryptionKey: "STRING_VALUE",
  * //   AllowProfileCreation: true || false,
  * //   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ * //   MaxAvailableProfileObjectCount: Number("int"),
+ * //   MaxProfileObjectCount: Number("int"),
  * //   Fields: { // FieldMap
  * //     "<keys>": { // ObjectTypeField
  * //       Source: "STRING_VALUE",

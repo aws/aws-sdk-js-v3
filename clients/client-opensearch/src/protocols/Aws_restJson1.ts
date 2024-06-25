@@ -248,6 +248,7 @@ import {
   InvalidPaginationTokenException,
   InvalidTypeException,
   IPAddressTypeStatus,
+  JWTOptionsInput,
   LimitExceededException,
   LogPublishingOption,
   LogPublishingOptionsStatus,
@@ -3375,6 +3376,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_FilterList omitted.
 
+// se_JWTOptionsInput omitted.
+
 // se_LogPublishingOption omitted.
 
 // se_LogPublishingOptions omitted.
@@ -3450,6 +3453,7 @@ const de_AdvancedSecurityOptions = (output: any, context: __SerdeContext): Advan
     AnonymousAuthEnabled: __expectBoolean,
     Enabled: __expectBoolean,
     InternalUserDatabaseEnabled: __expectBoolean,
+    JWTOptions: _json,
     SAMLOptions: _json,
   }) as any;
 };
@@ -3893,6 +3897,8 @@ const de_IPAddressTypeStatus = (output: any, context: __SerdeContext): IPAddress
 };
 
 // de_Issues omitted.
+
+// de_JWTOptionsOutput omitted.
 
 // de_Limits omitted.
 

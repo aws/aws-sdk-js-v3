@@ -75,7 +75,6 @@ import {
 } from "./models_0";
 
 import {
-  _InstanceType,
   DataCaptureConfig,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
@@ -83,14 +82,12 @@ import {
   DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
-  DirectInternetAccess,
   DomainSettings,
   DriftCheckBaselines,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
-  EFSFileSystem,
   EndpointInfo,
   ExperimentConfig,
   ExplainerConfig,
@@ -112,7 +109,6 @@ import {
   InferenceExperimentSchedule,
   InferenceExperimentType,
   InputConfig,
-  InstanceMetadataServiceConfiguration,
   JobType,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
@@ -141,15 +137,12 @@ import {
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
-  MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   MonitoringType,
   NeoVpcConfig,
-  NotebookInstanceAcceleratorType,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
-  OwnershipSettings,
   ProcessingInstanceType,
   Processor,
   ProductionVariant,
@@ -161,16 +154,53 @@ import {
   RecommendationJobStoppingConditions,
   RecommendationJobType,
   RetryStrategy,
-  RootAccess,
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
-  SpaceCodeEditorAppSettings,
   ThroughputMode,
   TrackingServerSize,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * <p>The collection of ownership settings for a space.</p>
+ * @public
+ */
+export interface OwnershipSettings {
+  /**
+   * <p>The user profile who is the owner of the space.</p>
+   * @public
+   */
+  OwnerUserProfileName: string | undefined;
+}
+
+/**
+ * <p>The application settings for a Code Editor space.</p>
+ * @public
+ */
+export interface SpaceCodeEditorAppSettings {
+  /**
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *          the version runs on.</p>
+   * @public
+   */
+  DefaultResourceSpec?: ResourceSpec;
+}
+
+/**
+ * <p>A file system, created by you in Amazon EFS, that you assign to a user profile
+ *             or space for an Amazon SageMaker Domain. Permitted users can access this file
+ *             system in Amazon SageMaker Studio.</p>
+ * @public
+ */
+export interface EFSFileSystem {
+  /**
+   * <p>The ID of your Amazon EFS file system.</p>
+   * @public
+   */
+  FileSystemId: string | undefined;
+}
 
 /**
  * <p>A file system, created by you, that you assign to a user profile or space for an
@@ -2435,6 +2465,7 @@ export interface DeleteHubRequest {
  */
 export const HubContentType = {
   MODEL: "Model",
+  MODEL_REFERENCE: "ModelReference",
   NOTEBOOK: "Notebook",
 } as const;
 
@@ -2470,6 +2501,29 @@ export interface DeleteHubContentRequest {
    * @public
    */
   HubContentVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHubContentReferenceRequest {
+  /**
+   * <p>The name of the hub to delete the hub content reference from.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of hub content to delete.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The name of the hub content to delete.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
 }
 
 /**
@@ -6341,6 +6395,20 @@ export type HubContentStatus = (typeof HubContentStatus)[keyof typeof HubContent
 
 /**
  * @public
+ * @enum
+ */
+export const HubContentSupportStatus = {
+  DEPRECATED: "Deprecated",
+  SUPPORTED: "Supported",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentSupportStatus = (typeof HubContentSupportStatus)[keyof typeof HubContentSupportStatus];
+
+/**
+ * @public
  */
 export interface DescribeHubContentResponse {
   /**
@@ -6408,6 +6476,24 @@ export interface DescribeHubContentResponse {
    * @public
    */
   HubContentDocument: string | undefined;
+
+  /**
+   * <p>The ARN of the public hub content.</p>
+   * @public
+   */
+  SageMakerPublicHubContentArn?: string;
+
+  /**
+   * <p>The minimum version of the hub content.</p>
+   * @public
+   */
+  ReferenceMinVersion?: string;
+
+  /**
+   * <p>The support status of the hub content.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus;
 
   /**
    * <p>The searchable keywords for the hub content.</p>
@@ -7810,25 +7896,25 @@ export interface RecommendationMetrics {
    * <p>Defines the cost per hour for the instance. </p>
    * @public
    */
-  CostPerHour: number | undefined;
+  CostPerHour?: number;
 
   /**
    * <p>Defines the cost per inference for the instance .</p>
    * @public
    */
-  CostPerInference: number | undefined;
+  CostPerInference?: number;
 
   /**
    * <p>The expected maximum number of requests per minute for the instance.</p>
    * @public
    */
-  MaxInvocations: number | undefined;
+  MaxInvocations?: number;
 
   /**
    * <p>The expected model latency at maximum invocation per minute for the instance.</p>
    * @public
    */
-  ModelLatency: number | undefined;
+  ModelLatency?: number;
 
   /**
    * <p>The expected CPU utilization at maximum invocations per minute for the instance.</p>
@@ -7920,7 +8006,7 @@ export interface InferenceRecommendation {
    * <p>The metrics used to decide what recommendation to make.</p>
    * @public
    */
-  Metrics: RecommendationMetrics | undefined;
+  Metrics?: RecommendationMetrics;
 
   /**
    * <p>Defines the endpoint configuration parameters.</p>
@@ -9583,309 +9669,6 @@ export interface MonitoringExecutionSummary {
    * @public
    */
   MonitoringType?: MonitoringType;
-}
-
-/**
- * @public
- * @enum
- */
-export const ScheduleStatus = {
-  FAILED: "Failed",
-  PENDING: "Pending",
-  SCHEDULED: "Scheduled",
-  STOPPED: "Stopped",
-} as const;
-
-/**
- * @public
- */
-export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
-
-/**
- * @public
- */
-export interface DescribeMonitoringScheduleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleArn: string | undefined;
-
-  /**
-   * <p>Name of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The status of an monitoring job.</p>
-   * @public
-   */
-  MonitoringScheduleStatus: ScheduleStatus | undefined;
-
-  /**
-   * <p>The type of the monitoring job that this schedule runs. This is one of the following
-   *          values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DATA_QUALITY</code> - The schedule is for a data quality monitoring
-   *                job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODEL_QUALITY</code> - The schedule is for a model quality monitoring
-   *                job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODEL_BIAS</code> - The schedule is for a bias monitoring job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODEL_EXPLAINABILITY</code> - The schedule is for an explainability
-   *                monitoring job.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  MonitoringType?: MonitoringType;
-
-  /**
-   * <p>A string, up to one KB in size, that contains the reason a monitoring job failed, if it
-   *          failed.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The time at which the monitoring job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time at which the monitoring job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring
-   *    job.</p>
-   * @public
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
-
-  /**
-   * <p> The name of the endpoint for the monitoring job.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Describes metadata on the last execution to run, if there was one.</p>
-   * @public
-   */
-  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
-}
-
-/**
- * @public
- */
-export interface DescribeNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance that you want information about.</p>
-   * @public
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NotebookInstanceStatus = {
-  Deleting: "Deleting",
-  Failed: "Failed",
-  InService: "InService",
-  Pending: "Pending",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-  Updating: "Updating",
-} as const;
-
-/**
- * @public
- */
-export type NotebookInstanceStatus = (typeof NotebookInstanceStatus)[keyof typeof NotebookInstanceStatus];
-
-/**
- * @public
- */
-export interface DescribeNotebookInstanceOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook instance.</p>
-   * @public
-   */
-  NotebookInstanceArn?: string;
-
-  /**
-   * <p>The name of the SageMaker notebook instance. </p>
-   * @public
-   */
-  NotebookInstanceName?: string;
-
-  /**
-   * <p>The status of the notebook instance.</p>
-   * @public
-   */
-  NotebookInstanceStatus?: NotebookInstanceStatus;
-
-  /**
-   * <p>If status is <code>Failed</code>, the reason it failed.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The URL that you use to connect to the Jupyter notebook that is running in your
-   *             notebook instance. </p>
-   * @public
-   */
-  Url?: string;
-
-  /**
-   * <p>The type of ML compute instance running on the notebook instance.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType;
-
-  /**
-   * <p>The ID of the VPC subnet.</p>
-   * @public
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The IDs of the VPC security groups.</p>
-   * @public
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the instance.
-   *         </p>
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The Amazon Web Services KMS key ID SageMaker uses to encrypt data when storing it on the
-   *             ML storage volume attached to the instance. </p>
-   * @public
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The network interface IDs that SageMaker created at the time of creating the instance.
-   *         </p>
-   * @public
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>A timestamp. Use this parameter to retrieve the time when the notebook instance was
-   *             last modified. </p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>A timestamp. Use this parameter to return the time when the notebook instance was
-   *             created</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Returns the name of a notebook instance lifecycle configuration.</p>
-   *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
-   *                 2.1: (Optional) Customize a Notebook Instance</a>
-   *          </p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigName?: string;
-
-  /**
-   * <p>Describes whether SageMaker provides internet access to the notebook instance. If this
-   *             value is set to <i>Disabled</i>, the notebook instance does not have
-   *             internet access, and cannot connect to SageMaker training and endpoint services.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
-   * @public
-   */
-  DirectInternetAccess?: DirectInternetAccess;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume attached to the notebook instance.</p>
-   * @public
-   */
-  VolumeSizeInGB?: number;
-
-  /**
-   * <p>A list of the Elastic Inference (EI) instance types associated with this notebook
-   *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in
-   *             Amazon SageMaker</a>.</p>
-   * @public
-   */
-  AcceleratorTypes?: NotebookInstanceAcceleratorType[];
-
-  /**
-   * <p>The Git repository associated with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *             or in any other Git repository. When you open a notebook instance, it opens in the
-   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
-   * @public
-   */
-  DefaultCodeRepository?: string;
-
-  /**
-   * <p>An array of up to three Git repositories associated with the notebook instance. These
-   *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *             or in any other Git repository. These repositories are cloned at the same level as the
-   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
-   * @public
-   */
-  AdditionalCodeRepositories?: string[];
-
-  /**
-   * <p>Whether root access is enabled or disabled for users of the notebook instance.</p>
-   *          <note>
-   *             <p>Lifecycle configurations need root access to be able to set up a notebook
-   *                 instance. Because of this, lifecycle configurations associated with a notebook
-   *                 instance always run with root access even if you disable root access for
-   *                 users.</p>
-   *          </note>
-   * @public
-   */
-  RootAccess?: RootAccess;
-
-  /**
-   * <p>The platform identifier of the notebook instance runtime environment.</p>
-   * @public
-   */
-  PlatformIdentifier?: string;
-
-  /**
-   * <p>Information on the IMDS configuration of the notebook instance</p>
-   * @public
-   */
-  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
 }
 
 /**

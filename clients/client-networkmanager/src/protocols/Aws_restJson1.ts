@@ -4173,6 +4173,7 @@ const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    LastModificationErrors: _json,
     NetworkFunctionGroupName: __expectString,
     OwnerAccountId: __expectString,
     ProposedNetworkFunctionGroupChange: _json,
@@ -4184,6 +4185,10 @@ const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_AttachmentError omitted.
+
+// de_AttachmentErrorList omitted.
 
 /**
  * deserializeAws_restJson1AttachmentList
@@ -4267,6 +4272,7 @@ const de_ConnectPeer = (output: any, context: __SerdeContext): ConnectPeer => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    LastModificationErrors: _json,
     State: __expectString,
     SubnetArn: __expectString,
     Tags: _json,
@@ -4282,6 +4288,10 @@ const de_ConnectPeer = (output: any, context: __SerdeContext): ConnectPeer => {
 // de_ConnectPeerBgpConfigurationList omitted.
 
 // de_ConnectPeerConfiguration omitted.
+
+// de_ConnectPeerError omitted.
+
+// de_ConnectPeerErrorList omitted.
 
 /**
  * deserializeAws_restJson1ConnectPeerSummary
@@ -4635,6 +4645,7 @@ const de_Peering = (output: any, context: __SerdeContext): Peering => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    LastModificationErrors: _json,
     OwnerAccountId: __expectString,
     PeeringId: __expectString,
     PeeringType: __expectString,
@@ -4643,6 +4654,10 @@ const de_Peering = (output: any, context: __SerdeContext): Peering => {
     Tags: _json,
   }) as any;
 };
+
+// de_PeeringError omitted.
+
+// de_PeeringErrorList omitted.
 
 /**
  * deserializeAws_restJson1PeeringList
@@ -4655,6 +4670,8 @@ const de_PeeringList = (output: any, context: __SerdeContext): Peering[] => {
     });
   return retVal;
 };
+
+// de_PermissionsErrorContext omitted.
 
 // de_ProposedNetworkFunctionGroupChange omitted.
 

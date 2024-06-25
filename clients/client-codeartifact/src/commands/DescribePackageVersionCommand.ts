@@ -43,7 +43,7 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
@@ -52,7 +52,7 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * const response = await client.send(command);
  * // { // DescribePackageVersionResult
  * //   packageVersion: { // PackageVersionDescription
- * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //     namespace: "STRING_VALUE",
  * //     packageName: "STRING_VALUE",
  * //     displayName: "STRING_VALUE",

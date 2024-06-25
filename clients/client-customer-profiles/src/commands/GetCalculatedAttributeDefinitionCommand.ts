@@ -37,7 +37,8 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides more information on a calculated attribute definition for Customer Profiles.</p>
+ * <p>Provides more information on a calculated attribute definition for Customer
+ *          Profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

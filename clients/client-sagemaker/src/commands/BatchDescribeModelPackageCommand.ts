@@ -65,6 +65,9 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //                 ModelAccessConfig: { // ModelAccessConfig
  * //                   AcceptEula: true || false, // required
  * //                 },
+ * //                 HubAccessConfig: { // InferenceHubAccessConfig
+ * //                   HubContentArn: "STRING_VALUE", // required
+ * //                 },
  * //               },
  * //             },
  * //             ProductId: "STRING_VALUE",

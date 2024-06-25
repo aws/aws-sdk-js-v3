@@ -26,12 +26,9 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that is
- *          used in conjunction with the
- *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-KeyName">KeyName</a>
- *          and
- *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-Values">Values</a>
- *          parameters to search for profiles using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> API.</p>
+ * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list
+ *          that is used in conjunction with the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-KeyName">KeyName</a> and <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-Values">Values</a> parameters to search for profiles using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a>
+ *          API.</p>
  * @public
  */
 export interface AdditionalSearchKey {
@@ -59,12 +56,11 @@ export interface AddProfileKeyRequest {
   ProfileId: string | undefined;
 
   /**
-   * <p>A searchable identifier of a customer profile. The predefined keys you can use
-   *          include: _account, _profileId, _assetId, _caseId, _orderId, _fullName, _phone,
-   *          _email, _ctrContactId, _marketoLeadId, _salesforceAccountId, _salesforceContactId,
-   *          _salesforceAssetId, _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
-   *          _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId, _shopifyCustomerId,
-   *          _shopifyOrderId.</p>
+   * <p>A searchable identifier of a customer profile. The predefined keys you can use include: _account, _profileId, _assetId,
+   *          _caseId, _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+   *          _salesforceAccountId, _salesforceContactId, _salesforceAssetId, _zendeskUserId,
+   *          _zendeskExternalId, _zendeskTicketId, _serviceNowSystemId, _serviceNowIncidentId,
+   *          _segmentUserId, _shopifyCustomerId, _shopifyOrderId.</p>
    * @public
    */
   KeyName: string | undefined;
@@ -255,7 +251,9 @@ export interface Address {
 }
 
 /**
- * <p>Batch defines the boundaries for ingestion for each step in <code>APPFLOW_INTEGRATION</code> workflow. <code>APPFLOW_INTEGRATION</code> workflow splits ingestion based on these boundaries.</p>
+ * <p>Batch defines the boundaries for ingestion for each step in
+ *             <code>APPFLOW_INTEGRATION</code> workflow. <code>APPFLOW_INTEGRATION</code> workflow
+ *          splits ingestion based on these boundaries.</p>
  * @public
  */
 export interface Batch {
@@ -912,12 +910,14 @@ export interface AppflowIntegration {
 }
 
 /**
- * <p>Structure holding all <code>APPFLOW_INTEGRATION</code> specific workflow attributes.</p>
+ * <p>Structure holding all <code>APPFLOW_INTEGRATION</code> specific workflow
+ *          attributes.</p>
  * @public
  */
 export interface AppflowIntegrationWorkflowAttributes {
   /**
-   * <p>Specifies the source connector type, such as Salesforce, ServiceNow, and Marketo. Indicates source of ingestion.</p>
+   * <p>Specifies the source connector type, such as Salesforce, ServiceNow, and Marketo.
+   *          Indicates source of ingestion.</p>
    * @public
    */
   SourceConnectorType: SourceConnectorType | undefined;
@@ -936,7 +936,8 @@ export interface AppflowIntegrationWorkflowAttributes {
 }
 
 /**
- * <p>Workflow specific execution metrics for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+ * <p>Workflow specific execution metrics for <code>APPFLOW_INTEGRATION</code>
+ *          workflow.</p>
  * @public
  */
 export interface AppflowIntegrationWorkflowMetrics {
@@ -984,7 +985,9 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface AppflowIntegrationWorkflowStep {
   /**
-   * <p>Name of the flow created during execution of workflow step. <code>APPFLOW_INTEGRATION</code> workflow type creates an appflow flow during workflow step execution on the customers behalf.</p>
+   * <p>Name of the flow created during execution of workflow step.
+   *             <code>APPFLOW_INTEGRATION</code> workflow type creates an appflow flow during workflow
+   *          step execution on the customers behalf.</p>
    * @public
    */
   FlowName: string | undefined;
@@ -996,37 +999,43 @@ export interface AppflowIntegrationWorkflowStep {
   Status: Status | undefined;
 
   /**
-   * <p>Message indicating execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   * <p>Message indicating execution of workflow step for <code>APPFLOW_INTEGRATION</code>
+   *          workflow.</p>
    * @public
    */
   ExecutionMessage: string | undefined;
 
   /**
-   * <p>Total number of records processed during execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   * <p>Total number of records processed during execution of workflow step for
+   *             <code>APPFLOW_INTEGRATION</code> workflow.</p>
    * @public
    */
   RecordsProcessed: number | undefined;
 
   /**
-   * <p>Start datetime of records pulled in batch during execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   * <p>Start datetime of records pulled in batch during execution of workflow step for
+   *             <code>APPFLOW_INTEGRATION</code> workflow.</p>
    * @public
    */
   BatchRecordsStartTime: string | undefined;
 
   /**
-   * <p>End datetime of records pulled in batch during execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   * <p>End datetime of records pulled in batch during execution of workflow step for
+   *             <code>APPFLOW_INTEGRATION</code> workflow.</p>
    * @public
    */
   BatchRecordsEndTime: string | undefined;
 
   /**
-   * <p>Creation timestamp of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   * <p>Creation timestamp of workflow step for <code>APPFLOW_INTEGRATION</code>
+   *          workflow.</p>
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>Last updated timestamp for workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   * <p>Last updated timestamp for workflow step for <code>APPFLOW_INTEGRATION</code>
+   *          workflow.</p>
    * @public
    */
   LastUpdatedAt: Date | undefined;
@@ -1045,7 +1054,8 @@ export interface AttributeItem {
 }
 
 /**
- * <p>Mathematical expression and a list of attribute items specified in that expression.</p>
+ * <p>Mathematical expression and a list of attribute items specified in that
+ *          expression.</p>
  * @public
  */
 export interface AttributeDetails {
@@ -1056,7 +1066,9 @@ export interface AttributeDetails {
   Attributes: AttributeItem[] | undefined;
 
   /**
-   * <p>Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"\{ObjectTypeName.AttributeName\}\".</p>
+   * <p>Mathematical expression that is performed on attribute items provided in the attribute
+   *          list. Each element in the expression should follow the structure of
+   *          \"\{ObjectTypeName.AttributeName\}\".</p>
    * @public
    */
   Expression: string | undefined;
@@ -1126,8 +1138,8 @@ export type AttributeMatchingModel = (typeof AttributeMatchingModel)[keyof typeo
  */
 export interface AttributeTypesSelector {
   /**
-   * <p>Configures the <code>AttributeMatchingModel</code>, you can either choose <code>ONE_TO_ONE</code> or
-   *          <code>MANY_TO_MANY</code>.</p>
+   * <p>Configures the <code>AttributeMatchingModel</code>, you can either choose
+   *             <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code>.</p>
    * @public
    */
   AttributeMatchingModel: AttributeMatchingModel | undefined;
@@ -1258,8 +1270,8 @@ export interface AutoMerging {
 
   /**
    * <p>A number between 0 and 1 that represents the minimum confidence score required for
-   *          profiles within a matching group to be merged during the auto-merge process. A higher
-   *          score means higher similarity required to merge profiles. </p>
+   *          profiles within a matching group to be merged during the auto-merge process. A higher score
+   *          means higher similarity required to merge profiles. </p>
    * @public
    */
   MinAllowedConfidenceScoreForMerging?: number;
@@ -1295,7 +1307,8 @@ export interface ListCalculatedAttributeDefinitionItem {
   CreatedAt?: Date;
 
   /**
-   * <p>The timestamp of when the calculated attribute definition was most recently edited.</p>
+   * <p>The timestamp of when the calculated attribute definition was most recently
+   *          edited.</p>
    * @public
    */
   LastUpdatedAt?: Date;
@@ -1325,7 +1338,8 @@ export interface ListCalculatedAttributeForProfileItem {
   DisplayName?: string;
 
   /**
-   * <p>Indicates whether the calculated attribute’s value is based on partial data. If data is partial, it is set to true.</p>
+   * <p>Indicates whether the calculated attribute’s value is based on partial data. If data is
+   *          partial, it is set to true.</p>
    * @public
    */
   IsDataPartial?: string;
@@ -1403,7 +1417,8 @@ export interface Threshold {
 }
 
 /**
- * <p>The conditions including range, object count, and threshold for the calculated attribute.</p>
+ * <p>The conditions including range, object count, and threshold for the calculated
+ *          attribute.</p>
  * @public
  */
 export interface Conditions {
@@ -1475,13 +1490,15 @@ export interface CreateCalculatedAttributeDefinitionRequest {
   Description?: string;
 
   /**
-   * <p>Mathematical expression and a list of attribute items specified in that expression.</p>
+   * <p>Mathematical expression and a list of attribute items specified in that
+   *          expression.</p>
    * @public
    */
   AttributeDetails: AttributeDetails | undefined;
 
   /**
-   * <p>The conditions including range, object count, and threshold for the calculated attribute.</p>
+   * <p>The conditions including range, object count, and threshold for the calculated
+   *          attribute.</p>
    * @public
    */
   Conditions?: Conditions;
@@ -1522,13 +1539,15 @@ export interface CreateCalculatedAttributeDefinitionResponse {
   Description?: string;
 
   /**
-   * <p>Mathematical expression and a list of attribute items specified in that expression.</p>
+   * <p>Mathematical expression and a list of attribute items specified in that
+   *          expression.</p>
    * @public
    */
   AttributeDetails?: AttributeDetails;
 
   /**
-   * <p>The conditions including range, object count, and threshold for the calculated attribute.</p>
+   * <p>The conditions including range, object count, and threshold for the calculated
+   *          attribute.</p>
    * @public
    */
   Conditions?: Conditions;
@@ -1546,7 +1565,8 @@ export interface CreateCalculatedAttributeDefinitionResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The timestamp of when the calculated attribute definition was most recently edited.</p>
+   * <p>The timestamp of when the calculated attribute definition was most recently
+   *          edited.</p>
    * @public
    */
   LastUpdatedAt?: Date;
@@ -1714,7 +1734,8 @@ export interface MatchingRequest {
  *                <p>PhoneNumber</p>
  *             </li>
  *             <li>
- *                <p>Any customized profile attributes that start with the <code>Attributes</code>
+ *                <p>Any customized profile attributes that start with the
+ *                <code>Attributes</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -1741,8 +1762,8 @@ export interface RuleBasedMatchingRequest {
   Enabled: boolean | undefined;
 
   /**
-   * <p>Configures how the rule-based matching process should match profiles. You can have up to 15
-   *          <code>MatchingRule</code> in the <code>MatchingRules</code>.</p>
+   * <p>Configures how the rule-based matching process should match profiles. You can have up to
+   *          15 <code>MatchingRule</code> in the <code>MatchingRules</code>.</p>
    * @public
    */
   MatchingRules?: MatchingRule[];
@@ -1832,11 +1853,13 @@ export interface CreateDomainRequest {
   Matching?: MatchingRequest;
 
   /**
-   * <p>The process of matching duplicate profiles using the Rule-Based matching. If <code>RuleBasedMatching</code> = true,
-   *          Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration
-   *          in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and
-   *          review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can
-   *          download the results from S3.</p>
+   * <p>The process of matching duplicate profiles using the Rule-Based matching. If
+   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *          to match and merge your profiles according to your configuration in the
+   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
+   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
+   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
+   *          can download the results from S3.</p>
    * @public
    */
   RuleBasedMatching?: RuleBasedMatchingRequest;
@@ -1906,8 +1929,8 @@ export interface RuleBasedMatchingResponse {
   Enabled?: boolean;
 
   /**
-   * <p>Configures how the rule-based matching process should match profiles. You can have up to 15
-   *          <code>MatchingRule</code> in the <code>MatchingRules</code>.</p>
+   * <p>Configures how the rule-based matching process should match profiles. You can have up to
+   *          15 <code>MatchingRule</code> in the <code>MatchingRules</code>.</p>
    * @public
    */
   MatchingRules?: MatchingRule[];
@@ -2024,11 +2047,13 @@ export interface CreateDomainResponse {
   Matching?: MatchingResponse;
 
   /**
-   * <p>The process of matching duplicate profiles using the Rule-Based matching. If <code>RuleBasedMatching</code> = true,
-   *          Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration
-   *          in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and
-   *          review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can
-   *          download the results from S3.</p>
+   * <p>The process of matching duplicate profiles using the Rule-Based matching. If
+   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *          to match and merge your profiles according to your configuration in the
+   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
+   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
+   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
+   *          can download the results from S3.</p>
    * @public
    */
   RuleBasedMatching?: RuleBasedMatchingResponse;
@@ -2223,7 +2248,7 @@ export interface CreateProfileRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>A unique account number that you have given to the customer.</p>
+   * <p>An account number that you have given to the customer.</p>
    * @public
    */
   AccountNumber?: string;
@@ -2719,13 +2744,14 @@ export type StandardIdentifier = (typeof StandardIdentifier)[keyof typeof Standa
 export interface ObjectTypeKey {
   /**
    * <p>The types of keys that a ProfileObject can have. Each ProfileObject can have only 1
-   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE, or ORDER  means that this key can be
-   *          used to tie an object to a PROFILE, ASSET, CASE, or ORDER respectively. UNIQUE means that it can be
-   *          used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to
-   *          search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is
-   *          only used to match a profile but is not persisted to be used for searching of the profile.
-   *          A NEW_ONLY key is only used if the profile does not already exist before the object is
-   *          ingested, otherwise it is only used for matching objects to profiles.</p>
+   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE, or ORDER means that this key
+   *          can be used to tie an object to a PROFILE, ASSET, CASE, or ORDER respectively. UNIQUE means
+   *          that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it
+   *          will be used to search for profiles after all other PROFILE keys have been searched. A
+   *          LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for
+   *          searching of the profile. A NEW_ONLY key is only used if the profile does not already exist
+   *          before the object is ingested, otherwise it is only used for matching objects to
+   *          profiles.</p>
    * @public
    */
   StandardIdentifiers?: StandardIdentifier[];
@@ -2743,7 +2769,8 @@ export interface ObjectTypeKey {
  */
 export interface DetectedProfileObjectType {
   /**
-   * <p>The format of <code>sourceLastUpdatedTimestamp</code> that was detected in fields.</p>
+   * <p>The format of <code>sourceLastUpdatedTimestamp</code> that was detected in
+   *          fields.</p>
    * @public
    */
   SourceLastUpdatedTimestampFormat?: string;
@@ -2766,7 +2793,8 @@ export interface DetectedProfileObjectType {
  */
 export interface DetectProfileObjectTypeResponse {
   /**
-   * <p>Detected <code>ProfileObjectType</code> mappings from given objects. A maximum of one mapping is supported.</p>
+   * <p>Detected <code>ProfileObjectType</code> mappings from given objects. A maximum of one
+   *          mapping is supported.</p>
    * @public
    */
   DetectedProfileObjectTypes?: DetectedProfileObjectType[];
@@ -2795,7 +2823,8 @@ export interface GetAutoMergingPreviewRequest {
   ConflictResolution: ConflictResolution | undefined;
 
   /**
-   * <p>Minimum confidence score required for profiles within a matching group to be merged during the auto-merge process.</p>
+   * <p>Minimum confidence score required for profiles within a matching group to be merged
+   *          during the auto-merge process.</p>
    * @public
    */
   MinAllowedConfidenceScoreForMerging?: number;
@@ -2877,7 +2906,8 @@ export interface GetCalculatedAttributeDefinitionResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The timestamp of when the calculated attribute definition was most recently edited.</p>
+   * <p>The timestamp of when the calculated attribute definition was most recently
+   *          edited.</p>
    * @public
    */
   LastUpdatedAt?: Date;
@@ -2889,13 +2919,15 @@ export interface GetCalculatedAttributeDefinitionResponse {
   Statistic?: Statistic;
 
   /**
-   * <p>The conditions including range, object count, and threshold for the calculated attribute.</p>
+   * <p>The conditions including range, object count, and threshold for the calculated
+   *          attribute.</p>
    * @public
    */
   Conditions?: Conditions;
 
   /**
-   * <p>Mathematical expression and a list of attribute items specified in that expression.</p>
+   * <p>Mathematical expression and a list of attribute items specified in that
+   *          expression.</p>
    * @public
    */
   AttributeDetails?: AttributeDetails;
@@ -2947,7 +2979,8 @@ export interface GetCalculatedAttributeForProfileResponse {
   DisplayName?: string;
 
   /**
-   * <p>Indicates whether the calculated attribute’s value is based on partial data. If data is partial, it is set to true.</p>
+   * <p>Indicates whether the calculated attribute’s value is based on partial data. If data is
+   *          partial, it is set to true.</p>
    * @public
    */
   IsDataPartial?: string;
@@ -3052,11 +3085,13 @@ export interface GetDomainResponse {
   Matching?: MatchingResponse;
 
   /**
-   * <p>The process of matching duplicate profiles using the Rule-Based matching. If <code>RuleBasedMatching</code> = true,
-   *          Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration
-   *          in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and
-   *          review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can
-   *          download the results from S3.</p>
+   * <p>The process of matching duplicate profiles using the Rule-Based matching. If
+   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *          to match and merge your profiles according to your configuration in the
+   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
+   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
+   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
+   *          can download the results from S3.</p>
    * @public
    */
   RuleBasedMatching?: RuleBasedMatchingResponse;
@@ -3137,7 +3172,8 @@ export interface EventStreamDestinationDetails {
   UnhealthySince?: Date;
 
   /**
-   * <p>The human-readable string that corresponds to the error or success while enabling the streaming destination.</p>
+   * <p>The human-readable string that corresponds to the error or success while enabling the
+   *          streaming destination.</p>
    * @public
    */
   Message?: string;
@@ -3473,8 +3509,9 @@ export interface GetIntegrationResponse {
   WorkflowId?: string;
 
   /**
-   * <p>Boolean that shows if the Flow that's associated with the Integration is created in Amazon
-   *          Appflow, or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition.</p>
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in
+   *          Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in
+   *          flowDefinition.</p>
    * @public
    */
   IsUnstructured?: boolean;
@@ -3522,13 +3559,13 @@ export interface MatchItem {
   ProfileIds?: string[];
 
   /**
-   * <p>A number between 0 and 1, where a higher score means higher similarity.
-   *          Examining match confidence scores lets you distinguish between groups of similar records in which
-   *          the system is highly confident (which you may decide to merge), groups of similar records about
-   *          which the system is uncertain (which you may decide to have reviewed by a human),
-   *          and groups of similar records that the system deems to be unlikely (which you may decide to reject).
-   *          Given confidence scores vary as per the data input, it should not be used an absolute
-   *          measure of matching quality.</p>
+   * <p>A number between 0 and 1, where a higher score means higher similarity. Examining match
+   *          confidence scores lets you distinguish between groups of similar records in which the
+   *          system is highly confident (which you may decide to merge), groups of similar records about
+   *          which the system is uncertain (which you may decide to have reviewed by a human), and
+   *          groups of similar records that the system deems to be unlikely (which you may decide to
+   *          reject). Given confidence scores vary as per the data input, it should not be used an
+   *          absolute measure of matching quality.</p>
    * @public
    */
   ConfidenceScore?: number;
@@ -3631,6 +3668,18 @@ export interface GetProfileObjectTypeResponse {
    * @public
    */
   SourceLastUpdatedTimestampFormat?: string;
+
+  /**
+   * <p>The amount of provisioned profile object max count available.</p>
+   * @public
+   */
+  MaxAvailableProfileObjectCount?: number;
+
+  /**
+   * <p>The amount of profile object max count assigned to the object type.</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -4079,8 +4128,9 @@ export interface ListIntegrationItem {
   WorkflowId?: string;
 
   /**
-   * <p>Boolean that shows if the Flow that's associated with the Integration is created in Amazon
-   *          Appflow, or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition.</p>
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in
+   *          Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in
+   *          flowDefinition.</p>
    * @public
    */
   IsUnstructured?: boolean;
@@ -4114,7 +4164,8 @@ export interface ListCalculatedAttributeDefinitionsRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The pagination token from the previous call to ListCalculatedAttributeDefinitions.</p>
+   * <p>The pagination token from the previous call to
+   *          ListCalculatedAttributeDefinitions.</p>
    * @public
    */
   NextToken?: string;
@@ -4137,7 +4188,8 @@ export interface ListCalculatedAttributeDefinitionsResponse {
   Items?: ListCalculatedAttributeDefinitionItem[];
 
   /**
-   * <p>The pagination token from the previous call to ListCalculatedAttributeDefinitions.</p>
+   * <p>The pagination token from the previous call to
+   *          ListCalculatedAttributeDefinitions.</p>
    * @public
    */
   NextToken?: string;
@@ -4148,7 +4200,8 @@ export interface ListCalculatedAttributeDefinitionsResponse {
  */
 export interface ListCalculatedAttributesForProfileRequest {
   /**
-   * <p>The pagination token from the previous call to ListCalculatedAttributesForProfile.</p>
+   * <p>The pagination token from the previous call to
+   *          ListCalculatedAttributesForProfile.</p>
    * @public
    */
   NextToken?: string;
@@ -4183,7 +4236,8 @@ export interface ListCalculatedAttributesForProfileResponse {
   Items?: ListCalculatedAttributeForProfileItem[];
 
   /**
-   * <p>The pagination token from the previous call to ListCalculatedAttributesForProfile.</p>
+   * <p>The pagination token from the previous call to
+   *          ListCalculatedAttributesForProfile.</p>
    * @public
    */
   NextToken?: string;
@@ -4543,17 +4597,17 @@ export interface ListIntegrationsResponse {
 }
 
 /**
- * <p>The filter applied to <code>ListProfileObjects</code> response to include profile objects with the
- *          specified index values.</p>
+ * <p>The filter applied to <code>ListProfileObjects</code> response to include profile
+ *          objects with the specified index values.</p>
  * @public
  */
 export interface ObjectFilter {
   /**
-   * <p>A searchable identifier of a profile object. The predefined keys you can use to
-   *          search for <code>_asset</code> include: <code>_assetId</code>, <code>_assetName</code>,
-   *          and <code>_serialNumber</code>. The predefined keys you can use to search for <code>_case</code>
-   *          include: <code>_caseId</code>. The predefined keys you can use to search for
-   *          <code>_order</code> include: <code>_orderId</code>.</p>
+   * <p>A searchable identifier of a profile object. The predefined keys you can use to search
+   *          for <code>_asset</code> include: <code>_assetId</code>, <code>_assetName</code>, and
+   *             <code>_serialNumber</code>. The predefined keys you can use to search for
+   *             <code>_case</code> include: <code>_caseId</code>. The predefined keys you can use to
+   *          search for <code>_order</code> include: <code>_orderId</code>.</p>
    * @public
    */
   KeyName: string | undefined;
@@ -4700,6 +4754,18 @@ export interface ListProfileObjectTypeItem {
    * @public
    */
   LastUpdatedAt?: Date;
+
+  /**
+   * <p>The amount of profile object max count assigned to the object type.</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number;
+
+  /**
+   * <p>The amount of provisioned profile object max count available.</p>
+   * @public
+   */
+  MaxAvailableProfileObjectCount?: number;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -5227,8 +5293,9 @@ export interface PutIntegrationResponse {
   WorkflowId?: string;
 
   /**
-   * <p>Boolean that shows if the Flow that's associated with the Integration is created in Amazon
-   *          Appflow, or with ObjectTypeName equals _unstructured via API/CLI in flowDefinition.</p>
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in
+   *          Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in
+   *          flowDefinition.</p>
    * @public
    */
   IsUnstructured?: boolean;
@@ -5293,10 +5360,11 @@ export interface PutProfileObjectTypeRequest {
   /**
    * <p>A unique identifier for the object template. For some attributes in the request, the
    *          service will use the default value from the object template when TemplateId is present. If
-   *          these attributes are present in the request, the service may return a <code>BadRequestException</code>.
-   *          These attributes include: AllowProfileCreation, SourceLastUpdatedTimestampFormat,
-   *          Fields, and Keys. For example, if AllowProfileCreation is set to true when TemplateId is set, the service
-   *          may return a <code>BadRequestException</code>.</p>
+   *          these attributes are present in the request, the service may return a
+   *             <code>BadRequestException</code>. These attributes include: AllowProfileCreation,
+   *          SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if AllowProfileCreation is
+   *          set to true when TemplateId is set, the service may return a
+   *             <code>BadRequestException</code>.</p>
    * @public
    */
   TemplateId?: string;
@@ -5330,6 +5398,12 @@ export interface PutProfileObjectTypeRequest {
    * @public
    */
   SourceLastUpdatedTimestampFormat?: string;
+
+  /**
+   * <p>The amount of profile object max count assigned to the object type</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -5404,6 +5478,18 @@ export interface PutProfileObjectTypeResponse {
   SourceLastUpdatedTimestampFormat?: string;
 
   /**
+   * <p>The amount of profile object max count assigned to the object type.</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number;
+
+  /**
+   * <p>The amount of provisioned profile object max count available.</p>
+   * @public
+   */
+  MaxAvailableProfileObjectCount?: number;
+
+  /**
    * <p>A map of the name and ObjectType field.</p>
    * @public
    */
@@ -5472,12 +5558,11 @@ export interface SearchProfilesRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>A searchable identifier of a customer profile. The predefined keys you can use
-   *          to search include: _account, _profileId, _assetId, _caseId, _orderId, _fullName, _phone,
-   *          _email, _ctrContactId, _marketoLeadId, _salesforceAccountId, _salesforceContactId,
-   *          _salesforceAssetId, _zendeskUserId, _zendeskExternalId, _zendeskTicketId,
-   *          _serviceNowSystemId, _serviceNowIncidentId, _segmentUserId, _shopifyCustomerId,
-   *          _shopifyOrderId.</p>
+   * <p>A searchable identifier of a customer profile. The predefined keys you can use to search include: _account, _profileId,
+   *          _assetId, _caseId, _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+   *          _salesforceAccountId, _salesforceContactId, _salesforceAssetId, _zendeskUserId,
+   *          _zendeskExternalId, _zendeskTicketId, _serviceNowSystemId, _serviceNowIncidentId,
+   *          _segmentUserId, _shopifyCustomerId, _shopifyOrderId.</p>
    * @public
    */
   KeyName: string | undefined;
@@ -5489,40 +5574,46 @@ export interface SearchProfilesRequest {
   Values: string[] | undefined;
 
   /**
-   * <p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers of a
-   *          profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code> and a
-   *          list of <code>Values</code> associated with that specific key (i.e., a key-value(s) pair).
-   *          These additional search keys will be used in conjunction with the <code>LogicalOperator</code> and the
-   *          required <code>KeyName</code> and <code>Values</code> parameters to search for profiles
-   *          that satisfy the search criteria. </p>
+   * <p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers
+   *          of a profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code>
+   *          and a list of <code>Values</code> associated with that specific key (i.e., a key-value(s)
+   *          pair). These additional search keys will be used in conjunction with the
+   *             <code>LogicalOperator</code> and the required <code>KeyName</code> and
+   *             <code>Values</code> parameters to search for profiles that satisfy the search criteria.
+   *       </p>
    * @public
    */
   AdditionalSearchKeys?: AdditionalSearchKey[];
 
   /**
-   * <p>Relationship between all specified search keys that will be used to search for
-   *          profiles. This includes the required <code>KeyName</code> and <code>Values</code> parameters
-   *          as well as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p>
-   *          <p>This parameter influences which profiles will be returned in the response in the following manner:</p>
+   * <p>Relationship between all specified search keys that will be used to search for profiles.
+   *          This includes the required <code>KeyName</code> and <code>Values</code> parameters as well
+   *          as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p>
+   *          <p>This parameter influences which profiles will be returned in the response in the
+   *          following manner:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AND</code> - The response only includes profiles that match all of the search keys.</p>
+   *                   <code>AND</code> - The response only includes profiles that match all of the
+   *                search keys.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>OR</code> - The response includes profiles that match at least one of the search keys.</p>
+   *                   <code>OR</code> - The response includes profiles that match at least one of the
+   *                search keys.</p>
    *             </li>
    *          </ul>
-   *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not included in the request.</p>
+   *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not
+   *          included in the request.</p>
    * @public
    */
   LogicalOperator?: LogicalOperator;
 }
 
 /**
- * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that were used
- *          to find a profile returned in response to a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request. </p>
+ * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list
+ *          that were used to find a profile returned in response to a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.
+ *       </p>
  * @public
  */
 export interface FoundByKeyValue {
@@ -5551,7 +5642,7 @@ export interface Profile {
   ProfileId?: string;
 
   /**
-   * <p>A unique account number that you have given to the customer.</p>
+   * <p>An account number that you have given to the customer.</p>
    * @public
    */
   AccountNumber?: string;
@@ -5687,24 +5778,26 @@ export interface Profile {
    * <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response.
    *          An item is a key-value(s) pair that matches an attribute in the profile.</p>
    *          <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the
-   *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be
-   *          interpreted based on the <code>LogicalOperator</code> used in the request:</p>
+   *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted
+   *          based on the <code>LogicalOperator</code> used in the request:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AND</code> - The profile included in the response matched all of the search keys
-   *             specified in the request. The <code>FoundByItems</code> will include all of the key-value(s)
-   *             pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p>
+   *                   <code>AND</code> - The profile included in the response matched all of the search
+   *                keys specified in the request. The <code>FoundByItems</code> will include all of the
+   *                key-value(s) pairs that were specified in the request (as this is a requirement of
+   *                   <code>AND</code> search logic).</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>OR</code> - The profile included in the response matched at least one of the
-   *             search keys specified in the request. The <code>FoundByItems</code> will
-   *             include each of the key-value(s) pairs that the profile was found by.</p>
+   *                search keys specified in the request. The <code>FoundByItems</code> will include each
+   *                of the key-value(s) pairs that the profile was found by.</p>
    *             </li>
    *          </ul>
-   *          <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is
-   *          not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
+   *          <p>The <code>OR</code> relationship is the default behavior if the
+   *             <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a>
+   *          request.</p>
    * @public
    */
   FoundByItems?: FoundByKeyValue[];
@@ -5812,7 +5905,8 @@ export interface UpdateCalculatedAttributeDefinitionRequest {
   Description?: string;
 
   /**
-   * <p>The conditions including range, object count, and threshold for the calculated attribute.</p>
+   * <p>The conditions including range, object count, and threshold for the calculated
+   *          attribute.</p>
    * @public
    */
   Conditions?: Conditions;
@@ -5847,7 +5941,8 @@ export interface UpdateCalculatedAttributeDefinitionResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The timestamp of when the calculated attribute definition was most recently edited.</p>
+   * <p>The timestamp of when the calculated attribute definition was most recently
+   *          edited.</p>
    * @public
    */
   LastUpdatedAt?: Date;
@@ -5859,13 +5954,15 @@ export interface UpdateCalculatedAttributeDefinitionResponse {
   Statistic?: Statistic;
 
   /**
-   * <p>The conditions including range, object count, and threshold for the calculated attribute.</p>
+   * <p>The conditions including range, object count, and threshold for the calculated
+   *          attribute.</p>
    * @public
    */
   Conditions?: Conditions;
 
   /**
-   * <p>The mathematical expression and a list of attribute items specified in that expression.</p>
+   * <p>The mathematical expression and a list of attribute items specified in that
+   *          expression.</p>
    * @public
    */
   AttributeDetails?: AttributeDetails;
@@ -6106,7 +6203,7 @@ export interface UpdateProfileRequest {
   AdditionalInformation?: string;
 
   /**
-   * <p>A unique account number that you have given to the customer.</p>
+   * <p>An account number that you have given to the customer.</p>
    * @public
    */
   AccountNumber?: string;

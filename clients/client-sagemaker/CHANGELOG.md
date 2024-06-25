@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for model references in Hub service, and adds support for cross-account access of Hubs ([1048205](https://github.com/aws/aws-sdk-js-v3/commit/10482051cc1f13c67f077e7258571fbd0ae8f230))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 

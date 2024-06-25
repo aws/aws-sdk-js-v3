@@ -77,6 +77,7 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * //     additionalEncryptionContext: { // EncryptionContextMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     deepLinkAllowed: "STRING_VALUE",
  * //   },
  * // };
  *

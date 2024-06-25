@@ -82,6 +82,14 @@ export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVp
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       LastModificationErrors: [ // AttachmentErrorList
+ * //         { // AttachmentError
+ * //           Code: "VPC_NOT_FOUND" || "SUBNET_NOT_FOUND" || "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE" || "SUBNET_NO_FREE_ADDRESSES" || "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE" || "SUBNET_NO_IPV6_CIDRS" || "VPN_CONNECTION_NOT_FOUND" || "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
+ * //           Message: "STRING_VALUE",
+ * //           ResourceArn: "STRING_VALUE",
+ * //           RequestId: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     VpnConnectionArn: "STRING_VALUE",
  * //   },

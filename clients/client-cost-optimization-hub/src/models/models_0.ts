@@ -1137,6 +1137,97 @@ export interface OpenSearchReservedInstances {
 }
 
 /**
+ * <p>The DB instance configuration used for recommendations.</p>
+ * @public
+ */
+export interface DbInstanceConfiguration {
+  /**
+   * <p>The DB instance class of the DB instance.</p>
+   * @public
+   */
+  dbInstanceClass?: string;
+}
+
+/**
+ * <p>The Amazon RDS DB instance configuration used for recommendations.</p>
+ * @public
+ */
+export interface RdsDbInstanceConfiguration {
+  /**
+   * <p>Details about the instance configuration.</p>
+   * @public
+   */
+  instance?: DbInstanceConfiguration;
+}
+
+/**
+ * <p>Contains the details of an Amazon RDS DB instance.</p>
+ * @public
+ */
+export interface RdsDbInstance {
+  /**
+   * <p>The Amazon RDS DB instance configuration used for recommendations.</p>
+   * @public
+   */
+  configuration?: RdsDbInstanceConfiguration;
+
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation;
+}
+
+/**
+ * <p>The Amazon RDS DB instance storage configuration used for recommendations.</p>
+ * @public
+ */
+export interface RdsDbInstanceStorageConfiguration {
+  /**
+   * <p>The storage type to associate with the DB instance.</p>
+   * @public
+   */
+  storageType?: string;
+
+  /**
+   * <p>The new amount of storage in GB to allocate for the DB instance.</p>
+   * @public
+   */
+  allocatedStorageInGb?: number;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially
+   *       allocated for the DB instance.</p>
+   * @public
+   */
+  iops?: number;
+
+  /**
+   * <p>The storage throughput for the DB instance.</p>
+   * @public
+   */
+  storageThroughput?: number;
+}
+
+/**
+ * <p>Contains the details of an Amazon RDS DB instance storage.</p>
+ * @public
+ */
+export interface RdsDbInstanceStorage {
+  /**
+   * <p>The Amazon RDS DB instance storage configuration used for recommendations.</p>
+   * @public
+   */
+  configuration?: RdsDbInstanceStorageConfiguration;
+
+  /**
+   * <p>Cost impact of the resource recommendation.</p>
+   * @public
+   */
+  costCalculation?: ResourceCostCalculation;
+}
+
+/**
  * <p>The RDS reserved instances configuration used for recommendations.</p>
  * @public
  */
@@ -1430,6 +1521,8 @@ export type ResourceDetails =
   | ResourceDetails.ElastiCacheReservedInstancesMember
   | ResourceDetails.LambdaFunctionMember
   | ResourceDetails.OpenSearchReservedInstancesMember
+  | ResourceDetails.RdsDbInstanceMember
+  | ResourceDetails.RdsDbInstanceStorageMember
   | ResourceDetails.RdsReservedInstancesMember
   | ResourceDetails.RedshiftReservedInstancesMember
   | ResourceDetails.SageMakerSavingsPlansMember
@@ -1457,6 +1550,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1478,6 +1573,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1499,6 +1596,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1520,6 +1619,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1541,6 +1642,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1562,6 +1665,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1583,6 +1688,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1604,6 +1711,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1625,6 +1734,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1646,6 +1757,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1667,6 +1780,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans: Ec2InstanceSavingsPlans;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1688,6 +1803,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans: ComputeSavingsPlans;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown?: never;
   }
 
@@ -1709,6 +1826,54 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans: SageMakerSavingsPlans;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The DB instance recommendation details.</p>
+   * @public
+   */
+  export interface RdsDbInstanceMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance: RdsDbInstance;
+    rdsDbInstanceStorage?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The DB instance storage recommendation details.</p>
+   * @public
+   */
+  export interface RdsDbInstanceStorageMember {
+    lambdaFunction?: never;
+    ecsService?: never;
+    ec2Instance?: never;
+    ebsVolume?: never;
+    ec2AutoScalingGroup?: never;
+    ec2ReservedInstances?: never;
+    rdsReservedInstances?: never;
+    elastiCacheReservedInstances?: never;
+    openSearchReservedInstances?: never;
+    redshiftReservedInstances?: never;
+    ec2InstanceSavingsPlans?: never;
+    computeSavingsPlans?: never;
+    sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage: RdsDbInstanceStorage;
     $unknown?: never;
   }
 
@@ -1729,6 +1894,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans?: never;
     computeSavingsPlans?: never;
     sageMakerSavingsPlans?: never;
+    rdsDbInstance?: never;
+    rdsDbInstanceStorage?: never;
     $unknown: [string, any];
   }
 
@@ -1746,6 +1913,8 @@ export namespace ResourceDetails {
     ec2InstanceSavingsPlans: (value: Ec2InstanceSavingsPlans) => T;
     computeSavingsPlans: (value: ComputeSavingsPlans) => T;
     sageMakerSavingsPlans: (value: SageMakerSavingsPlans) => T;
+    rdsDbInstance: (value: RdsDbInstance) => T;
+    rdsDbInstanceStorage: (value: RdsDbInstanceStorage) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1767,6 +1936,8 @@ export namespace ResourceDetails {
       return visitor.ec2InstanceSavingsPlans(value.ec2InstanceSavingsPlans);
     if (value.computeSavingsPlans !== undefined) return visitor.computeSavingsPlans(value.computeSavingsPlans);
     if (value.sageMakerSavingsPlans !== undefined) return visitor.sageMakerSavingsPlans(value.sageMakerSavingsPlans);
+    if (value.rdsDbInstance !== undefined) return visitor.rdsDbInstance(value.rdsDbInstance);
+    if (value.rdsDbInstanceStorage !== undefined) return visitor.rdsDbInstanceStorage(value.rdsDbInstanceStorage);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1786,6 +1957,8 @@ export const ResourceType = {
   ELASTI_CACHE_RESERVED_INSTANCES: "ElastiCacheReservedInstances",
   LAMBDA_FUNCTION: "LambdaFunction",
   OPEN_SEARCH_RESERVED_INSTANCES: "OpenSearchReservedInstances",
+  RDS_DB_INSTANCE: "RdsDbInstance",
+  RDS_DB_INSTANCE_STORAGE: "RdsDbInstanceStorage",
   RDS_RESERVED_INSTANCES: "RdsReservedInstances",
   REDSHIFT_RESERVED_INSTANCES: "RedshiftReservedInstances",
   SAGE_MAKER_SAVINGS_PLANS: "SageMakerSavingsPlans",
@@ -1943,7 +2116,7 @@ export interface GetRecommendationResponse {
   estimatedMonthlySavings?: number;
 
   /**
-   * <p>The estimated monthly cost of the recommendation.</p>
+   * <p>The estimated monthly cost of the current resource. For Reserved Instances and Savings Plans, it refers to the cost for eligible usage.</p>
    * @public
    */
   estimatedMonthlyCost?: number;
@@ -2274,7 +2447,7 @@ export interface Recommendation {
   estimatedSavingsPercentage?: number;
 
   /**
-   * <p>The estimated monthly cost for the recommendation.</p>
+   * <p>The estimated monthly cost of the current resource. For Reserved Instances and Savings Plans, it refers to the cost for eligible usage.</p>
    * @public
    */
   estimatedMonthlyCost?: number;

@@ -66,6 +66,17 @@ import {
 
 /**
  * @public
+ */
+export interface CreateCodeRepositoryOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the new repository.</p>
+   * @public
+   */
+  CodeRepositoryArn: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const Framework = {
@@ -4820,6 +4831,58 @@ export interface CreateHubResponse {
    * @public
    */
   HubArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHubContentReferenceRequest {
+  /**
+   * <p>The name of the hub to add the hub content reference to.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The ARN of the public hub content to reference.</p>
+   * @public
+   */
+  SageMakerPublicHubContentArn: string | undefined;
+
+  /**
+   * <p>The name of the hub content to reference.</p>
+   * @public
+   */
+  HubContentName?: string;
+
+  /**
+   * <p>The minimum version of the hub content to reference.</p>
+   * @public
+   */
+  MinVersion?: string;
+
+  /**
+   * <p>Any tags associated with the hub content to reference.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateHubContentReferenceResponse {
+  /**
+   * <p>The ARN of the hub that the hub content reference was added to.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
 }
 
 /**
@@ -12658,45 +12721,6 @@ export interface CreateProjectOutput {
    * @public
    */
   ProjectId: string | undefined;
-}
-
-/**
- * <p>The collection of ownership settings for a space.</p>
- * @public
- */
-export interface OwnershipSettings {
-  /**
-   * <p>The user profile who is the owner of the space.</p>
-   * @public
-   */
-  OwnerUserProfileName: string | undefined;
-}
-
-/**
- * <p>The application settings for a Code Editor space.</p>
- * @public
- */
-export interface SpaceCodeEditorAppSettings {
-  /**
-   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *          the version runs on.</p>
-   * @public
-   */
-  DefaultResourceSpec?: ResourceSpec;
-}
-
-/**
- * <p>A file system, created by you in Amazon EFS, that you assign to a user profile
- *             or space for an Amazon SageMaker Domain. Permitted users can access this file
- *             system in Amazon SageMaker Studio.</p>
- * @public
- */
-export interface EFSFileSystem {
-  /**
-   * <p>The ID of your Amazon EFS file system.</p>
-   * @public
-   */
-  FileSystemId: string | undefined;
 }
 
 /**

@@ -383,6 +383,7 @@ export const se_CreateIdentityProviderCommand = async (
       identityProviderName: [],
       identityProviderType: [],
       portalArn: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -540,6 +541,7 @@ export const se_CreateUserSettingsCommand = async (
       cookieSynchronizationConfiguration: (_) => _json(_),
       copyAllowed: [],
       customerManagedKey: [],
+      deepLinkAllowed: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],
       idleDisconnectTimeoutInMinutes: [],
@@ -1386,6 +1388,7 @@ export const se_UpdateUserSettingsCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       cookieSynchronizationConfiguration: (_) => _json(_),
       copyAllowed: [],
+      deepLinkAllowed: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],
       idleDisconnectTimeoutInMinutes: [],

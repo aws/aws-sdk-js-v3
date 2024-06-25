@@ -696,6 +696,32 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const QAppsControlMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type QAppsControlMode = (typeof QAppsControlMode)[keyof typeof QAppsControlMode];
+
+/**
+ * <p>Configuration information about Amazon Q Apps. (preview feature)</p>
+ * @public
+ */
+export interface QAppsConfiguration {
+  /**
+   * <p>Status information about whether end users can create and use Amazon Q Apps in the web experience.</p>
+   * @public
+   */
+  qAppsControlMode: QAppsControlMode | undefined;
+}
+
+/**
  * <p>A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and
  *             values can consist of Unicode letters, digits, white space, and any of the following
  *             symbols: _ . : / = + - @.</p>
@@ -775,6 +801,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   attachmentsConfiguration?: AttachmentsConfiguration;
+
+  /**
+   * <p>An option to allow end users to create and use Amazon Q Apps in the web experience.</p>
+   * @public
+   */
+  qAppsConfiguration?: QAppsConfiguration;
 }
 
 /**
@@ -1130,6 +1162,12 @@ export interface GetApplicationResponse {
    * @public
    */
   attachmentsConfiguration?: AppliedAttachmentsConfiguration;
+
+  /**
+   * <p>Settings for whether end users can create and use Amazon Q Apps in the web experience.</p>
+   * @public
+   */
+  qAppsConfiguration?: QAppsConfiguration;
 }
 
 /**
@@ -1176,7 +1214,7 @@ export interface CreateIndexRequest {
 
   /**
    * <p>The index type that's suitable for your needs. For more information on what's included
-   *             in each type of index or index tier, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers">Amazon Q Business
+   *             in each type of index, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers">Amazon Q Business
    *             tiers</a>.</p>
    * @public
    */
@@ -3736,6 +3774,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   attachmentsConfiguration?: AttachmentsConfiguration;
+
+  /**
+   * <p>An option to allow end users to create and use Amazon Q Apps in the web experience.</p>
+   * @public
+   */
+  qAppsConfiguration?: QAppsConfiguration;
 }
 
 /**
@@ -6843,9 +6887,8 @@ export interface AttributeFilter {
 
   /**
    * <p>Returns <code>true</code> when a document contains any of the specified document
-   *             attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>: <code>dateValue</code>,
-   *                 <code>longValue</code>, <code>stringListValue</code> and
-   *             <code>stringValue</code>.</p>
+   *             attributes or metadata fields. Supported for the following <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html">document attribute value types</a>:
+   *                 <code>stringListValue</code>.</p>
    * @public
    */
   containsAny?: DocumentAttribute;
@@ -6939,7 +6982,7 @@ export interface ChatSyncInput {
   conversationId?: string;
 
   /**
-   * <p>The identifier of the previous end user text input message in a conversation.</p>
+   * <p>The identifier of the previous system message in a conversation.</p>
    * @public
    */
   parentMessageId?: string;

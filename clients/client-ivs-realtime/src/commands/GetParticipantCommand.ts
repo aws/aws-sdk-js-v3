@@ -58,6 +58,9 @@ export interface GetParticipantCommandOutput extends GetParticipantResponse, __M
  * //     browserName: "STRING_VALUE",
  * //     browserVersion: "STRING_VALUE",
  * //     sdkVersion: "STRING_VALUE",
+ * //     recordingS3BucketName: "STRING_VALUE",
+ * //     recordingS3Prefix: "STRING_VALUE",
+ * //     recordingState: "STRING_VALUE",
  * //   },
  * // };
  *

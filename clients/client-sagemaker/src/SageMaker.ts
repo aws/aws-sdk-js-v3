@@ -126,6 +126,11 @@ import {
 } from "./commands/CreateFlowDefinitionCommand";
 import { CreateHubCommand, CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
 import {
+  CreateHubContentReferenceCommand,
+  CreateHubContentReferenceCommandInput,
+  CreateHubContentReferenceCommandOutput,
+} from "./commands/CreateHubContentReferenceCommand";
+import {
   CreateHumanTaskUiCommand,
   CreateHumanTaskUiCommandInput,
   CreateHumanTaskUiCommandOutput,
@@ -386,6 +391,11 @@ import {
   DeleteHubContentCommandInput,
   DeleteHubContentCommandOutput,
 } from "./commands/DeleteHubContentCommand";
+import {
+  DeleteHubContentReferenceCommand,
+  DeleteHubContentReferenceCommandInput,
+  DeleteHubContentReferenceCommandOutput,
+} from "./commands/DeleteHubContentReferenceCommand";
 import {
   DeleteHumanTaskUiCommand,
   DeleteHumanTaskUiCommandInput,
@@ -1544,6 +1554,7 @@ const commands = {
   CreateFeatureGroupCommand,
   CreateFlowDefinitionCommand,
   CreateHubCommand,
+  CreateHubContentReferenceCommand,
   CreateHumanTaskUiCommand,
   CreateHyperParameterTuningJobCommand,
   CreateImageCommand,
@@ -1601,6 +1612,7 @@ const commands = {
   DeleteFlowDefinitionCommand,
   DeleteHubCommand,
   DeleteHubContentCommand,
+  DeleteHubContentReferenceCommand,
   DeleteHumanTaskUiCommand,
   DeleteHyperParameterTuningJobCommand,
   DeleteImageCommand,
@@ -2248,6 +2260,23 @@ export interface SageMaker {
     args: CreateHubCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateHubCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateHubContentReferenceCommand}
+   */
+  createHubContentReference(
+    args: CreateHubContentReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHubContentReferenceCommandOutput>;
+  createHubContentReference(
+    args: CreateHubContentReferenceCommandInput,
+    cb: (err: any, data?: CreateHubContentReferenceCommandOutput) => void
+  ): void;
+  createHubContentReference(
+    args: CreateHubContentReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHubContentReferenceCommandOutput) => void
   ): void;
 
   /**
@@ -3132,6 +3161,23 @@ export interface SageMaker {
     args: DeleteHubContentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteHubContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteHubContentReferenceCommand}
+   */
+  deleteHubContentReference(
+    args: DeleteHubContentReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHubContentReferenceCommandOutput>;
+  deleteHubContentReference(
+    args: DeleteHubContentReferenceCommandInput,
+    cb: (err: any, data?: DeleteHubContentReferenceCommandOutput) => void
+  ): void;
+  deleteHubContentReference(
+    args: DeleteHubContentReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHubContentReferenceCommandOutput) => void
   ): void;
 
   /**

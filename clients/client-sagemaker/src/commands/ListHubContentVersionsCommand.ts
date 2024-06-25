@@ -29,9 +29,6 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
 
 /**
  * <p>List hub content versions.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,7 +37,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * const client = new SageMakerClient(config);
  * const input = { // ListHubContentVersionsRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  *   HubContentName: "STRING_VALUE", // required
  *   MinVersion: "STRING_VALUE",
  *   MaxSchemaVersion: "STRING_VALUE",
@@ -58,16 +55,19 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * //     { // HubContentInfo
  * //       HubContentName: "STRING_VALUE", // required
  * //       HubContentArn: "STRING_VALUE", // required
+ * //       SageMakerPublicHubContentArn: "STRING_VALUE",
  * //       HubContentVersion: "STRING_VALUE", // required
- * //       HubContentType: "Model" || "Notebook", // required
+ * //       HubContentType: "Model" || "Notebook" || "ModelReference", // required
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
+ * //       SupportStatus: "Supported" || "Deprecated",
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],
  * //       HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       OriginalCreationTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -114,17 +114,17 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       effectiveRecommendationPreferences: { // LambdaEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // LambdaSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //       tags: [ // Tags
  * //         { // Tag
  * //           key: "STRING_VALUE",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       effectiveRecommendationPreferences: { // LambdaEffectiveRecommendationPreferences
- * //         savingsEstimationMode: { // LambdaSavingsEstimationMode
- * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
- * //         },
- * //       },
  * //     },
  * //   ],
  * // };

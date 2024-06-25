@@ -50,7 +50,7 @@ export interface ListAssociatedPackagesCommandOutput extends ListAssociatedPacka
  * // { // ListAssociatedPackagesResult
  * //   packages: [ // AssociatedPackageList
  * //     { // AssociatedPackage
- * //       format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //       format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //       namespace: "STRING_VALUE",
  * //       package: "STRING_VALUE",
  * //       associationType: "STRONG" || "WEAK",

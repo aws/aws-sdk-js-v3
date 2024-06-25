@@ -66,7 +66,7 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  * //     externalConnections: [ // RepositoryExternalConnectionInfoList
  * //       { // RepositoryExternalConnectionInfo
  * //         externalConnectionName: "STRING_VALUE",
- * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //         status: "Available",
  * //       },
  * //     ],

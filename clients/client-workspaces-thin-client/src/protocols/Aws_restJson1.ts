@@ -87,6 +87,7 @@ export const se_CreateEnvironmentCommand = async (
       desiredSoftwareSetId: [],
       desktopArn: [],
       desktopEndpoint: [],
+      deviceCreationTags: (_) => _json(_),
       kmsKeyArn: [],
       maintenanceWindow: (_) => _json(_),
       name: [],
@@ -483,6 +484,7 @@ export const se_UpdateEnvironmentCommand = async (
       desiredSoftwareSetId: [],
       desktopArn: [],
       desktopEndpoint: [],
+      deviceCreationTags: (_) => _json(_),
       maintenanceWindow: (_) => _json(_),
       name: [],
       softwareSetUpdateMode: [],
@@ -1038,6 +1040,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DayOfWeekList omitted.
 
+// se_DeviceCreationTagsMap omitted.
+
 // se_MaintenanceWindow omitted.
 
 // se_TagsMap omitted.
@@ -1072,6 +1076,8 @@ const de_Device = (output: any, context: __SerdeContext): Device => {
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_DeviceCreationTagsMap omitted.
 
 /**
  * deserializeAws_restJson1DeviceList
@@ -1120,6 +1126,7 @@ const de_Environment = (output: any, context: __SerdeContext): Environment => {
     desktopArn: __expectString,
     desktopEndpoint: __expectString,
     desktopType: __expectString,
+    deviceCreationTags: _json,
     id: __expectString,
     kmsKeyArn: __expectString,
     maintenanceWindow: _json,

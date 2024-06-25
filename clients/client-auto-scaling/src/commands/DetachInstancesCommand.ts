@@ -36,8 +36,8 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  *          <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are
  *             deregistered from the load balancer. If there are target groups attached to the Auto Scaling
  *             group, the instances are deregistered from the target groups.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 instances from
- *                 your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach
+ *                 or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

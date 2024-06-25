@@ -421,6 +421,39 @@ export interface CreateParticipantTokenResponse {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ParticipantRecordingMediaType = {
+  AUDIO_ONLY: "AUDIO_ONLY",
+  AUDIO_VIDEO: "AUDIO_VIDEO",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantRecordingMediaType =
+  (typeof ParticipantRecordingMediaType)[keyof typeof ParticipantRecordingMediaType];
+
+/**
+ * <p>Object specifying an auto-participant-recording configuration.</p>
+ * @public
+ */
+export interface AutoParticipantRecordingConfiguration {
+  /**
+   * <p>ARN of the <a>StorageConfiguration</a> resource to use for auto participant recording. Default: "" (empty string, no storage configuration is specified).  Individual participant recording cannot be started unless a storage configuration is specified, when a  <a>Stage</a> is created or updated.</p>
+   * @public
+   */
+  storageConfigurationArn: string | undefined;
+
+  /**
+   * <p>Types of media to be recorded. Default: <code>AUDIO_VIDEO</code>.</p>
+   * @public
+   */
+  mediaTypes?: ParticipantRecordingMediaType[];
+}
+
+/**
  * <p>Object specifying a participant token configuration in a stage.</p>
  * @public
  */
@@ -485,6 +518,12 @@ export interface CreateStageRequest {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Auto participant recording configuration object attached to the stage.</p>
+   * @public
+   */
+  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
 }
 
 /**
@@ -519,6 +558,12 @@ export interface Stage {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Auto-participant-recording configuration object attached to the stage.</p>
+   * @public
+   */
+  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
 }
 
 /**
@@ -1234,6 +1279,24 @@ export interface GetParticipantRequest {
  * @public
  * @enum
  */
+export const ParticipantRecordingState = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  FAILED: "FAILED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantRecordingState = (typeof ParticipantRecordingState)[keyof typeof ParticipantRecordingState];
+
+/**
+ * @public
+ * @enum
+ */
 export const ParticipantState = {
   CONNECTED: "CONNECTED",
   DISCONNECTED: "DISCONNECTED",
@@ -1327,6 +1390,24 @@ export interface Participant {
    * @public
    */
   sdkVersion?: string;
+
+  /**
+   * <p>Name of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or "" (empty string), if recording is not enabled.</p>
+   * @public
+   */
+  recordingS3BucketName?: string;
+
+  /**
+   * <p>S3 prefix of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or "" (empty string), if recording is not enabled.</p>
+   * @public
+   */
+  recordingS3Prefix?: string;
+
+  /**
+   * <p>Participant’s recording state.</p>
+   * @public
+   */
+  recordingState?: ParticipantRecordingState;
 }
 
 /**
@@ -1777,6 +1858,24 @@ export interface ListParticipantEventsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ParticipantRecordingFilterByRecordingState = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantRecordingFilterByRecordingState =
+  (typeof ParticipantRecordingFilterByRecordingState)[keyof typeof ParticipantRecordingFilterByRecordingState];
+
+/**
+ * @public
  */
 export interface ListParticipantsRequest {
   /**
@@ -1792,27 +1891,28 @@ export interface ListParticipantsRequest {
   sessionId: string | undefined;
 
   /**
-   * <p>Filters the response list to match the specified user ID. Only one of
-   *             <code>filterByUserId</code>, <code>filterByPublished</code>, or
-   *             <code>filterByState</code> can be provided per request. A <code>userId</code> is a
-   *          customer-assigned name to help identify the token; this can be used to link a participant
-   *          to a user in the customer’s own systems.</p>
+   * <p>Filters the response list to match the specified user ID.
+   *             Only one of <code>filterByUserId</code>, <code>filterByPublished</code>,
+   *             <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.
+   * 	    A <code>userId</code> is a
+   *             customer-assigned name to help identify the token; this can be used to link a participant
+   *             to a user in the customer’s own systems.</p>
    * @public
    */
   filterByUserId?: string;
 
   /**
-   * <p>Filters the response list to only show participants who published during the stage
-   *          session. Only one of <code>filterByUserId</code>, <code>filterByPublished</code>, or
-   *             <code>filterByState</code> can be provided per request.</p>
+   * <p>Filters the response list to only show participants who published during the stage session.
+   *             Only one of <code>filterByUserId</code>, <code>filterByPublished</code>,
+   *             <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
    * @public
    */
   filterByPublished?: boolean;
 
   /**
-   * <p>Filters the response list to only show participants in the specified state. Only one of
-   *             <code>filterByUserId</code>, <code>filterByPublished</code>, or
-   *             <code>filterByState</code> can be provided per request.</p>
+   * <p>Filters the response list to only show participants in the specified state.
+   *             Only one of <code>filterByUserId</code>, <code>filterByPublished</code>,
+   *             <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
    * @public
    */
   filterByState?: ParticipantState;
@@ -1829,6 +1929,14 @@ export interface ListParticipantsRequest {
    * @public
    */
   maxResults?: number;
+
+  /**
+   * <p>Filters the response list to only show participants with the specified recording state.
+   *             Only one of <code>filterByUserId</code>, <code>filterByPublished</code>,
+   *             <code>filterByState</code>, or <code>filterByRecordingState</code> can be provided per request.</p>
+   * @public
+   */
+  filterByRecordingState?: ParticipantRecordingFilterByRecordingState;
 }
 
 /**
@@ -1869,6 +1977,12 @@ export interface ParticipantSummary {
    * @public
    */
   published?: boolean;
+
+  /**
+   * <p>Participant’s recording state.</p>
+   * @public
+   */
+  recordingState?: ParticipantRecordingState;
 }
 
 /**
@@ -2253,6 +2367,13 @@ export interface UpdateStageRequest {
    * @public
    */
   name?: string;
+
+  /**
+   * <p>Auto-participant-recording configuration object to attach to the stage.
+   *       Auto-participant-recording configuration cannot be updated while recording is active.</p>
+   * @public
+   */
+  autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
 }
 
 /**

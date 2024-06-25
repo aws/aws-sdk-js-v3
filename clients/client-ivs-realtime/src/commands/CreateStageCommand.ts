@@ -52,6 +52,12 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
+ *     storageConfigurationArn: "STRING_VALUE", // required
+ *     mediaTypes: [ // ParticipantRecordingMediaTypeList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
@@ -62,6 +68,12 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * //     activeSessionId: "STRING_VALUE",
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
+ * //       storageConfigurationArn: "STRING_VALUE", // required
+ * //       mediaTypes: [ // ParticipantRecordingMediaTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * //   participantTokens: [ // ParticipantTokenList

@@ -125,6 +125,12 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       RolesKey: "STRING_VALUE",
  *       SessionTimeoutMinutes: Number("int"),
  *     },
+ *     JWTOptions: { // JWTOptionsInput
+ *       Enabled: true || false,
+ *       SubjectKey: "STRING_VALUE",
+ *       RolesKey: "STRING_VALUE",
+ *       PublicKey: "STRING_VALUE",
+ *     },
  *     AnonymousAuthEnabled: true || false,
  *   },
  *   TagList: [ // TagList
@@ -271,6 +277,12 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //         SubjectKey: "STRING_VALUE",
  * //         RolesKey: "STRING_VALUE",
  * //         SessionTimeoutMinutes: Number("int"),
+ * //       },
+ * //       JWTOptions: { // JWTOptionsOutput
+ * //         Enabled: true || false,
+ * //         SubjectKey: "STRING_VALUE",
+ * //         RolesKey: "STRING_VALUE",
+ * //         PublicKey: "STRING_VALUE",
  * //       },
  * //       AnonymousAuthDisableDate: new Date("TIMESTAMP"),
  * //       AnonymousAuthEnabled: true || false,

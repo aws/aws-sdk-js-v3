@@ -63,6 +63,9 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  *   },
  *   softwareSetUpdateMode: "USE_LATEST" || "USE_DESIRED",
  *   desiredSoftwareSetId: "STRING_VALUE",
+ *   deviceCreationTags: { // DeviceCreationTagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);

@@ -737,6 +737,12 @@ export interface ReportSummary {
    * @public
    */
   statusMessage?: string;
+
+  /**
+   * <p>Acceptance type for report.</p>
+   * @public
+   */
+  acceptanceType?: AcceptanceType;
 }
 
 /**

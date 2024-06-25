@@ -116,6 +116,13 @@ export interface GetECSServiceRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           savingsOpportunityAfterDiscounts: { // ECSSavingsOpportunityAfterDiscounts
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // ECSEstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
  * //           projectedUtilizationMetrics: [ // ECSServiceProjectedUtilizationMetrics
  * //             { // ECSServiceProjectedUtilizationMetric
  * //               name: "Cpu" || "Memory",
@@ -134,27 +141,20 @@ export interface GetECSServiceRecommendationsCommandOutput
  * //               cpu: Number("int"),
  * //             },
  * //           ],
- * //           savingsOpportunityAfterDiscounts: { // ECSSavingsOpportunityAfterDiscounts
- * //             savingsOpportunityPercentage: Number("double"),
- * //             estimatedMonthlySavings: { // ECSEstimatedMonthlySavings
- * //               currency: "USD" || "CNY",
- * //               value: Number("double"),
- * //             },
- * //           },
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       effectiveRecommendationPreferences: { // ECSEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // ECSSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //       tags: [ // Tags
  * //         { // Tag
  * //           key: "STRING_VALUE",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       effectiveRecommendationPreferences: { // ECSEffectiveRecommendationPreferences
- * //         savingsEstimationMode: { // ECSSavingsEstimationMode
- * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
- * //         },
- * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
