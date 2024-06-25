@@ -35,6 +35,56 @@ export const AttachmentType = {
 export type AttachmentType = (typeof AttachmentType)[keyof typeof AttachmentType];
 
 /**
+ * @public
+ * @enum
+ */
+export const AttachmentErrorCode = {
+  MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED: "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
+  SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE: "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  SUBNET_NO_FREE_ADDRESSES: "SUBNET_NO_FREE_ADDRESSES",
+  SUBNET_NO_IPV6_CIDRS: "SUBNET_NO_IPV6_CIDRS",
+  SUBNET_UNSUPPORTED_AVAILABILITY_ZONE: "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE",
+  VPC_NOT_FOUND: "VPC_NOT_FOUND",
+  VPN_CONNECTION_NOT_FOUND: "VPN_CONNECTION_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentErrorCode = (typeof AttachmentErrorCode)[keyof typeof AttachmentErrorCode];
+
+/**
+ * <p>Describes the error associated with an attachment request.</p>
+ * @public
+ */
+export interface AttachmentError {
+  /**
+   * <p>The error code for the attachment request. </p>
+   * @public
+   */
+  Code?: AttachmentErrorCode;
+
+  /**
+   * <p>The message associated with the error <code>code</code>.</p>
+   * @public
+   */
+  Message?: string;
+
+  /**
+   * <p>The ARN of the requested attachment resource.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The ID of the attachment request.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
  * <p>Describes a tag.</p>
  * @public
  */
@@ -223,6 +273,12 @@ export interface Attachment {
    * @public
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>Describes the error associated with the attachment request.</p>
+   * @public
+   */
+  LastModificationErrors?: AttachmentError[];
 }
 
 /**
@@ -1272,6 +1328,54 @@ export interface ConnectPeerConfiguration {
  * @public
  * @enum
  */
+export const ConnectPeerErrorCode = {
+  EDGE_LOCATION_NO_FREE_IPS: "EDGE_LOCATION_NO_FREE_IPS",
+  EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
+  INVALID_INSIDE_CIDR_BLOCK: "INVALID_INSIDE_CIDR_BLOCK",
+  IP_OUTSIDE_SUBNET_CIDR_RANGE: "IP_OUTSIDE_SUBNET_CIDR_RANGE",
+  NO_ASSOCIATED_CIDR_BLOCK: "NO_ASSOCIATED_CIDR_BLOCK",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectPeerErrorCode = (typeof ConnectPeerErrorCode)[keyof typeof ConnectPeerErrorCode];
+
+/**
+ * <p>Describes an error associated with a Connect peer request</p>
+ * @public
+ */
+export interface ConnectPeerError {
+  /**
+   * <p>The error code for the Connect peer request.</p>
+   * @public
+   */
+  Code?: ConnectPeerErrorCode;
+
+  /**
+   * <p>The message associated with the error <code>code</code>.</p>
+   * @public
+   */
+  Message?: string;
+
+  /**
+   * <p>The ARN of the requested Connect peer resource.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The ID of the Connect peer request.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ConnectPeerState = {
   AVAILABLE: "AVAILABLE",
   CREATING: "CREATING",
@@ -1342,6 +1446,12 @@ export interface ConnectPeer {
    * @public
    */
   SubnetArn?: string;
+
+  /**
+   * <p>Describes the error associated with the attachment request.</p>
+   * @public
+   */
+  LastModificationErrors?: ConnectPeerError[];
 }
 
 /**
@@ -3018,6 +3128,73 @@ export interface CreateTransitGatewayPeeringRequest {
  * @public
  * @enum
  */
+export const PeeringErrorCode = {
+  EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_TRANSIT_GATEWAY_STATE: "INVALID_TRANSIT_GATEWAY_STATE",
+  MISSING_REQUIRED_PERMISSIONS: "MISSING_PERMISSIONS",
+  TRANSIT_GATEWAY_NOT_FOUND: "TRANSIT_GATEWAY_NOT_FOUND",
+  TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED: "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type PeeringErrorCode = (typeof PeeringErrorCode)[keyof typeof PeeringErrorCode];
+
+/**
+ * <p>Describes additional information about missing permissions. </p>
+ * @public
+ */
+export interface PermissionsErrorContext {
+  /**
+   * <p>The missing permissions.</p>
+   * @public
+   */
+  MissingPermission?: string;
+}
+
+/**
+ * <p>Describes an error associated with a peering request.</p>
+ * @public
+ */
+export interface PeeringError {
+  /**
+   * <p>The error code for the peering request.</p>
+   * @public
+   */
+  Code?: PeeringErrorCode;
+
+  /**
+   * <p>The message associated with the error <code>code</code>.</p>
+   * @public
+   */
+  Message?: string;
+
+  /**
+   * <p>The ARN of the requested peering resource.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The ID of the Peering request.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>Provides additional information about missing permissions for the peering
+   *             error.</p>
+   * @public
+   */
+  MissingPermissionsContext?: PermissionsErrorContext;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const PeeringType = {
   TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
 } as const;
@@ -3107,6 +3284,12 @@ export interface Peering {
    * @public
    */
   CreatedAt?: Date;
+
+  /**
+   * <p>Describes the error associated with the Connect peer request.</p>
+   * @public
+   */
+  LastModificationErrors?: PeeringError[];
 }
 
 /**
