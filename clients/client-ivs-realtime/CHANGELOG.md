@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.605.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.604.0...v3.605.0) (2024-06-26)
+
+
+### Features
+
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to upload public keys for customer vended participant tokens. ([3520f1a](https://github.com/aws/aws-sdk-js-v3/commit/3520f1a323d95b322af24dec977eb22860ee056d))
+
+
+
+
+
 # [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
 
 

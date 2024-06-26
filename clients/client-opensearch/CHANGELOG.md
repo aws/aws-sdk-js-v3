@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.605.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.604.0...v3.605.0) (2024-06-26)
+
+
+### Features
+
+* **client-opensearch:** This release adds support for enabling or disabling Natural Language Query Processing feature for Amazon OpenSearch Service domains, and provides visibility into the current state of the setup or tear-down. ([63bea3b](https://github.com/aws/aws-sdk-js-v3/commit/63bea3bc534a93633ffc17a0ab6d4ab5d2217c7d))
+
+
+
+
+
 # [3.601.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.600.0...v3.601.0) (2024-06-19)
 
 

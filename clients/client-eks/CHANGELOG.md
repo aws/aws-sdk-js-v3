@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.605.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.604.0...v3.605.0) (2024-06-26)
+
+
+### Features
+
+* **client-eks:** Added support for disabling unmanaged addons during cluster creation. ([cdf4fe6](https://github.com/aws/aws-sdk-js-v3/commit/cdf4fe62048ff8cf926def590432f61bcea565c5))
+
+
+
+
+
 # [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
 
 

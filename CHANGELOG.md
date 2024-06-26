@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.605.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.604.0...v3.605.0) (2024-06-26)
+
+
+### Bug Fixes
+
+* **eventstream-handler-node:** add system clock offset to event signing streams ([#6227](https://github.com/aws/aws-sdk-js-v3/issues/6227)) ([4687f53](https://github.com/aws/aws-sdk-js-v3/commit/4687f53df8cfb397f04fa10865918b36cb4f0f33))
+
+
+### Features
+
+* **client-controltower:** Added ListLandingZoneOperations API. ([d6c9ad9](https://github.com/aws/aws-sdk-js-v3/commit/d6c9ad909bd6c92cb7b411fc66c675ca9a0ad5b6))
+* **client-eks:** Added support for disabling unmanaged addons during cluster creation. ([cdf4fe6](https://github.com/aws/aws-sdk-js-v3/commit/cdf4fe62048ff8cf926def590432f61bcea565c5))
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to upload public keys for customer vended participant tokens. ([3520f1a](https://github.com/aws/aws-sdk-js-v3/commit/3520f1a323d95b322af24dec977eb22860ee056d))
+* **client-kinesis-analytics-v2:** This release adds support for new ListApplicationOperations and DescribeApplicationOperation APIs. It adds a new configuration to enable system rollbacks, adds field ApplicationVersionCreateTimestamp for clarity and improves support for pagination for APIs. ([07be7ea](https://github.com/aws/aws-sdk-js-v3/commit/07be7ea46fe1ea3a1eb04023b7a0bfae8598f0bc))
+* **client-opensearch:** This release adds support for enabling or disabling Natural Language Query Processing feature for Amazon OpenSearch Service domains, and provides visibility into the current state of the setup or tear-down. ([63bea3b](https://github.com/aws/aws-sdk-js-v3/commit/63bea3bc534a93633ffc17a0ab6d4ab5d2217c7d))
+
+
+
+
+
 # [3.604.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.603.0...v3.604.0) (2024-06-25)
 
 
