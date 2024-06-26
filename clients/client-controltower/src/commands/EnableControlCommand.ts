@@ -30,8 +30,8 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
 /**
  * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services
  *          resources on the specified organizational unit and the accounts it contains. The resources
- *          created will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
+ *          created will vary according to the control that you specify. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
+ *                <i>Controls Reference Guide</i>
  *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

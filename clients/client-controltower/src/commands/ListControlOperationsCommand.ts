@@ -28,7 +28,7 @@ export interface ListControlOperationsCommandInput extends ListControlOperations
 export interface ListControlOperationsCommandOutput extends ListControlOperationsOutput, __MetadataBearer {}
 
 /**
- * <p>Provides a list of operations in progress or queued.</p>
+ * <p>Provides a list of operations in progress or queued. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html#list-control-operations-api-examples">ListControlOperation examples</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

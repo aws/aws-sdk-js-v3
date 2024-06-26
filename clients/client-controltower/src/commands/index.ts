@@ -16,6 +16,7 @@ export * from "./ListBaselinesCommand";
 export * from "./ListControlOperationsCommand";
 export * from "./ListEnabledBaselinesCommand";
 export * from "./ListEnabledControlsCommand";
+export * from "./ListLandingZoneOperationsCommand";
 export * from "./ListLandingZonesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ResetEnabledBaselineCommand";

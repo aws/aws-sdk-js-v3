@@ -59,6 +59,10 @@ import {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
 } from "../commands/ListEnabledControlsCommand";
+import {
+  ListLandingZoneOperationsCommandInput,
+  ListLandingZoneOperationsCommandOutput,
+} from "../commands/ListLandingZoneOperationsCommand";
 import { ListLandingZonesCommandInput, ListLandingZonesCommandOutput } from "../commands/ListLandingZonesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -103,6 +107,9 @@ import {
   InternalServerException,
   LandingZoneDetail,
   LandingZoneOperationDetail,
+  LandingZoneOperationFilter,
+  LandingZoneOperationStatus,
+  LandingZoneOperationType,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -495,6 +502,30 @@ export const se_ListEnabledControlsCommand = async (
       maxResults: [],
       nextToken: [],
       targetIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLandingZoneOperationsCommand
+ */
+export const se_ListLandingZoneOperationsCommand = async (
+  input: ListLandingZoneOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-landingzone-operations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1067,6 +1098,28 @@ export const de_ListEnabledControlsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLandingZoneOperationsCommand
+ */
+export const de_ListLandingZoneOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLandingZoneOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    landingZoneOperations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListLandingZonesCommand
  */
 export const de_ListLandingZonesCommand = async (
@@ -1496,6 +1549,12 @@ const se_EnabledControlParameters = (input: EnabledControlParameter[], context: 
 
 // se_EnablementStatuses omitted.
 
+// se_LandingZoneOperationFilter omitted.
+
+// se_LandingZoneOperationStatuses omitted.
+
+// se_LandingZoneOperationTypes omitted.
+
 /**
  * serializeAws_restJson1Manifest
  */
@@ -1698,12 +1757,17 @@ const de_LandingZoneDetail = (output: any, context: __SerdeContext): LandingZone
 const de_LandingZoneOperationDetail = (output: any, context: __SerdeContext): LandingZoneOperationDetail => {
   return take(output, {
     endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    operationIdentifier: __expectString,
     operationType: __expectString,
     startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     status: __expectString,
     statusMessage: __expectString,
   }) as any;
 };
+
+// de_LandingZoneOperations omitted.
+
+// de_LandingZoneOperationSummary omitted.
 
 // de_LandingZoneSummaries omitted.
 

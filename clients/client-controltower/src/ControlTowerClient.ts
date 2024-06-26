@@ -88,6 +88,10 @@ import {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
 } from "./commands/ListEnabledControlsCommand";
+import {
+  ListLandingZoneOperationsCommandInput,
+  ListLandingZoneOperationsCommandOutput,
+} from "./commands/ListLandingZoneOperationsCommand";
 import { ListLandingZonesCommandInput, ListLandingZonesCommandOutput } from "./commands/ListLandingZonesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -141,6 +145,7 @@ export type ServiceInputTypes =
   | ListControlOperationsCommandInput
   | ListEnabledBaselinesCommandInput
   | ListEnabledControlsCommandInput
+  | ListLandingZoneOperationsCommandInput
   | ListLandingZonesCommandInput
   | ListTagsForResourceCommandInput
   | ResetEnabledBaselineCommandInput
@@ -172,6 +177,7 @@ export type ServiceOutputTypes =
   | ListControlOperationsCommandOutput
   | ListEnabledBaselinesCommandOutput
   | ListEnabledControlsCommandOutput
+  | ListLandingZoneOperationsCommandOutput
   | ListLandingZonesCommandOutput
   | ListTagsForResourceCommandOutput
   | ResetEnabledBaselineCommandOutput
@@ -359,23 +365,161 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/controls.html">
- *                      <i>controls</i>
+ *                      <i>Controls</i>
  *                   </a>
  *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableControl.html">DisableControl</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_EnableControl.html">EnableControl</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetEnabledControl.html">GetEnabledControl</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListControlOperations.html">ListControlOperations</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledControls.html">ListEnabledControls</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledControl.html">UpdateEnabledControl</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch.html">
- *                      <i>landing zones</i>
+ *                      <i>Landing zones</i>
  *                   </a>
  *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_CreateLandingZone.html">CreateLandingZone</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_DeleteLandingZone.html">DeleteLandingZone</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZone.html">GetLandingZone</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZoneOperation.html">GetLandingZoneOperation</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListLandingZones.html">ListLandingZones</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetLandingZone.html">ResetLandingZone</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateLandingZone.html">UpdateLandingZone</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html">
- *                      <i>baselines</i>
+ *                      <i>Baselines</i>
  *                   </a>
  *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableBaseline.html">DisableBaseline</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_EnableBaseline.html">EnableBaseline</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaseline.html">GetBaseline</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaselineOperation.html">GetBaselineOperation</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetEnabledBaseline.html">GetEnabledBaseline</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListBaselines.html">ListBaselines</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledBaselines.html">ListEnabledBaselines</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetEnabledBaseline.html">ResetEnabledBaseline</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledBaseline.html">UpdateEnabledBaseline</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/tagging.html">Tagging</a>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_TagResource.html">TagResource</a>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/API_UntagResource.html">UntagResource</a>
+ *                      </p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *          </ul>
  *          <p>For more information about these types of resources, see the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html">
@@ -405,13 +549,12 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *          <p>The <code>controlIdentifier</code> is an ARN that is specified for each
  *          control. You can view the <code>controlIdentifier</code> in the console on the <b>Control details</b> page, as well as in the documentation.</p>
  *          <p>The <code>controlIdentifier</code> is unique in each Amazon Web Services Region for each control. You can
- *          find the <code>controlIdentifier</code> for each Region and control in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html">Tables of control metadata</a> or the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html">Control availability by Region tables</a> in the <i>Amazon Web Services Control Tower User Guide.</i>
- *          </p>
+ *          find the <code>controlIdentifier</code> for each Region and control in the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-metadata-tables.html">Tables of control metadata</a> or the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-region-tables.html">Control availability by Region tables</a> in the <i>Amazon Web Services Control Tower Controls Reference Guide</i>.</p>
  *          <p>A quick-reference list of control identifers for the Amazon Web Services Control Tower legacy <i>Strongly recommended</i> and
- *          <i>Elective</i> controls is given in <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html">Resource identifiers for
- *             APIs and controls</a> in the <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html">Controls reference guide section</a>
- *          of the <i>Amazon Web Services Control Tower User Guide</i>. Remember that <i>Mandatory</i> controls
- *          cannot be added or removed.</p>
+ *          <i>Elective</i> controls is given in <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html.html">Resource identifiers for
+ *             APIs and controls</a> in the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html">
+ *                <i>Amazon Web Services Control Tower Controls Reference Guide</i>
+ *             </a>. Remember that <i>Mandatory</i> controls cannot be added or removed.</p>
  *          <note>
  *             <p>
  *                <b>ARN format:</b>
@@ -454,7 +597,7 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">Control API input and output examples with CLI</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">Control API input and output examples with CLI</a>
  *                </p>
  *             </li>
  *             <li>
@@ -464,7 +607,7 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/enable-controls.html">Enable controls with CloudFormation</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/enable-controls.html">Enable controls with CloudFormation</a>
  *                </p>
  *             </li>
  *             <li>
@@ -474,27 +617,27 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html">Control metadata tables (large page)</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-metadata-tables.html">Control metadata tables (large page)</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html">Control availability by Region tables (large page)</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-region-tables.html">Control availability by Region tables (large page)</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html">List of identifiers for legacy controls</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html">List of identifiers for legacy controls</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/controls.html">Controls reference guide</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/controls.html">Controls reference guide</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/controltower/latest/userguide/controls-reference.html">Controls library groupings</a>
+ *                   <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/controls-reference.html">Controls library groupings</a>
  *                </p>
  *             </li>
  *             <li>

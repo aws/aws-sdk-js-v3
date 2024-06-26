@@ -28,35 +28,96 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export interface GetBaselineInput {
+export interface GetBaselineOperationInput {
   /**
-   * <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
+   * <p>The operation ID returned from mutating asynchronous APIs (Enable, Disable, Update, Reset).</p>
    * @public
    */
-  baselineIdentifier: string | undefined;
+  operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BaselineOperationType = {
+  DISABLE_BASELINE: "DISABLE_BASELINE",
+  ENABLE_BASELINE: "ENABLE_BASELINE",
+  RESET_ENABLED_BASELINE: "RESET_ENABLED_BASELINE",
+  UPDATE_ENABLED_BASELINE: "UPDATE_ENABLED_BASELINE",
+} as const;
+
+/**
+ * @public
+ */
+export type BaselineOperationType = (typeof BaselineOperationType)[keyof typeof BaselineOperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BaselineOperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BaselineOperationStatus = (typeof BaselineOperationStatus)[keyof typeof BaselineOperationStatus];
+
+/**
+ * <p>An object of shape <code>BaselineOperation</code>, returning details about the specified <code>Baseline</code> operation ID.</p>
+ * @public
+ */
+export interface BaselineOperation {
+  /**
+   * <p>The identifier of the specified operation.</p>
+   * @public
+   */
+  operationIdentifier?: string;
+
+  /**
+   * <p>An enumerated type (<code>enum</code>) with possible values of <code>ENABLE_BASELINE</code>, <code>DISABLE_BASELINE</code>, <code>UPDATE_ENABLED_BASELINE</code>, or <code>RESET_ENABLED_BASELINE</code>.</p>
+   * @public
+   */
+  operationType?: BaselineOperationType;
+
+  /**
+   * <p>An enumerated type (<code>enum</code>) with possible values of <code>SUCCEEDED</code>, <code>FAILED</code>, or <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  status?: BaselineOperationStatus;
+
+  /**
+   * <p>The start time of the operation, in ISO 8601 format.</p>
+   * @public
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The end time of the operation (if applicable), in ISO 8601 format.</p>
+   * @public
+   */
+  endTime?: Date;
+
+  /**
+   * <p>A status message that gives more information about the operation's status, if applicable.</p>
+   * @public
+   */
+  statusMessage?: string;
 }
 
 /**
  * @public
  */
-export interface GetBaselineOutput {
+export interface GetBaselineOperationOutput {
   /**
-   * <p>The baseline ARN.</p>
+   * <p>A <code>baselineOperation</code> object that shows information about the specified operation ID.</p>
    * @public
    */
-  arn: string | undefined;
-
-  /**
-   * <p>A user-friendly name for the baseline.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the baseline.</p>
-   * @public
-   */
-  description?: string;
+  baselineOperation: BaselineOperation | undefined;
 }
 
 /**
@@ -162,6 +223,40 @@ export class ValidationException extends __BaseException {
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface GetBaselineInput {
+  /**
+   * <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
+   * @public
+   */
+  baselineIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBaselineOutput {
+  /**
+   * <p>The baseline ARN.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A user-friendly name for the baseline.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the baseline.</p>
+   * @public
+   */
+  description?: string;
 }
 
 /**
@@ -337,7 +432,7 @@ export interface GetControlOperationOutput {
 }
 
 /**
- * <p>A filter object that lets you call <code>ListCOntrolOperations</code> with a specific filter.</p>
+ * <p>A filter object that lets you call <code>ListControlOperations</code> with a specific filter.</p>
  * @public
  */
 export interface ControlOperationFilter {
@@ -460,7 +555,7 @@ export interface ControlOperationSummary {
  */
 export interface ListControlOperationsOutput {
   /**
-   * <p>Returns a list of output from control operations. PLACEHOLDER </p>
+   * <p>Returns a list of output from control operations. </p>
    * @public
    */
   controlOperations: ControlOperationSummary[] | undefined;
@@ -638,101 +733,6 @@ export interface EnableBaselineOutput {
 /**
  * @public
  */
-export interface GetBaselineOperationInput {
-  /**
-   * <p>The operation ID returned from mutating asynchronous APIs (Enable, Disable, Update, Reset).</p>
-   * @public
-   */
-  operationIdentifier: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const BaselineOperationType = {
-  DISABLE_BASELINE: "DISABLE_BASELINE",
-  ENABLE_BASELINE: "ENABLE_BASELINE",
-  RESET_ENABLED_BASELINE: "RESET_ENABLED_BASELINE",
-  UPDATE_ENABLED_BASELINE: "UPDATE_ENABLED_BASELINE",
-} as const;
-
-/**
- * @public
- */
-export type BaselineOperationType = (typeof BaselineOperationType)[keyof typeof BaselineOperationType];
-
-/**
- * @public
- * @enum
- */
-export const BaselineOperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type BaselineOperationStatus = (typeof BaselineOperationStatus)[keyof typeof BaselineOperationStatus];
-
-/**
- * <p>An object of shape <code>BaselineOperation</code>, returning details about the specified <code>Baseline</code> operation ID.</p>
- * @public
- */
-export interface BaselineOperation {
-  /**
-   * <p>The identifier of the specified operation.</p>
-   * @public
-   */
-  operationIdentifier?: string;
-
-  /**
-   * <p>An enumerated type (<code>enum</code>) with possible values of <code>ENABLE_BASELINE</code>, <code>DISABLE_BASELINE</code>, <code>UPDATE_ENABLED_BASELINE</code>, or <code>RESET_ENABLED_BASELINE</code>.</p>
-   * @public
-   */
-  operationType?: BaselineOperationType;
-
-  /**
-   * <p>An enumerated type (<code>enum</code>) with possible values of <code>SUCCEEDED</code>, <code>FAILED</code>, or <code>IN_PROGRESS</code>.</p>
-   * @public
-   */
-  status?: BaselineOperationStatus;
-
-  /**
-   * <p>The start time of the operation, in ISO 8601 format.</p>
-   * @public
-   */
-  startTime?: Date;
-
-  /**
-   * <p>The end time of the operation (if applicable), in ISO 8601 format.</p>
-   * @public
-   */
-  endTime?: Date;
-
-  /**
-   * <p>A status message that gives more information about the operation's status, if applicable.</p>
-   * @public
-   */
-  statusMessage?: string;
-}
-
-/**
- * @public
- */
-export interface GetBaselineOperationOutput {
-  /**
-   * <p>A <code>baselineOperation</code> object that shows information about the specified operation ID.</p>
-   * @public
-   */
-  baselineOperation: BaselineOperation | undefined;
-}
-
-/**
- * @public
- */
 export interface GetEnabledBaselineInput {
   /**
    * <p>Identifier of the <code>EnabledBaseline</code> resource to be retrieved, in ARN format.</p>
@@ -775,25 +775,25 @@ export const EnablementStatus = {
 export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
 
 /**
- * <p>The deployment summary of the enabled control.</p>
+ * <p>The deployment summary of an <code>EnabledControl</code> or <code>EnabledBaseline</code> resource.</p>
  * @public
  */
 export interface EnablementStatusSummary {
   /**
-   * <p> The deployment status of the enabled control.</p>
+   * <p> The deployment status of the enabled resource.</p>
    *          <p>Valid values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SUCCEEDED</code>: The <code>enabledControl</code> configuration was deployed successfully.</p>
+   *                   <code>SUCCEEDED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration was deployed successfully.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UNDER_CHANGE</code>: The <code>enabledControl</code> configuration is changing. </p>
+   *                   <code>UNDER_CHANGE</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration is changing. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>: The <code>enabledControl</code> configuration failed to deploy.</p>
+   *                   <code>FAILED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration failed to deploy.</p>
    *             </li>
    *          </ul>
    * @public
@@ -801,7 +801,7 @@ export interface EnablementStatusSummary {
   status?: EnablementStatus;
 
   /**
-   * <p>The last operation identifier for the enabled control.</p>
+   * <p>The last operation identifier for the enabled resource.</p>
    * @public
    */
   lastOperationIdentifier?: string;
@@ -837,7 +837,7 @@ export interface EnabledBaselineDetails {
   targetIdentifier: string | undefined;
 
   /**
-   * <p>The deployment summary of the enabled control.</p>
+   * <p>The deployment summary of an <code>EnabledControl</code> or <code>EnabledBaseline</code> resource.</p>
    * @public
    */
   statusSummary: EnablementStatusSummary | undefined;
@@ -931,7 +931,7 @@ export interface EnabledBaselineSummary {
   targetIdentifier: string | undefined;
 
   /**
-   * <p>The deployment summary of the enabled control.</p>
+   * <p>The deployment summary of an <code>EnabledControl</code> or <code>EnabledBaseline</code> resource.</p>
    * @public
    */
   statusSummary: EnablementStatusSummary | undefined;
@@ -1281,7 +1281,7 @@ export interface ListEnabledControlsInput {
   maxResults?: number;
 
   /**
-   * <p>An input filter for the <code>ListCEnabledControls</code> API that lets you select the types of control operations to view.</p>
+   * <p>An input filter for the <code>ListEnabledControls</code> API that lets you select the types of control operations to view.</p>
    * @public
    */
   filter?: EnabledControlFilter;
@@ -1372,6 +1372,216 @@ export interface UpdateEnabledControlOutput {
    * @public
    */
   operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLandingZoneOperationInput {
+  /**
+   * <p>A unique identifier assigned to a landing zone operation.</p>
+   * @public
+   */
+  operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LandingZoneOperationType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  RESET: "RESET",
+  UPDATE: "UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type LandingZoneOperationType = (typeof LandingZoneOperationType)[keyof typeof LandingZoneOperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LandingZoneOperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LandingZoneOperationStatus = (typeof LandingZoneOperationStatus)[keyof typeof LandingZoneOperationStatus];
+
+/**
+ * <p>Information about a landing zone operation.</p>
+ * @public
+ */
+export interface LandingZoneOperationDetail {
+  /**
+   * <p>The landing zone operation type. </p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code>: The <code>DeleteLandingZone</code> operation.  </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE</code>: The <code>CreateLandingZone</code> operation. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE</code>: The <code>UpdateLandingZone</code> operation. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESET</code>: The <code>ResetLandingZone</code> operation. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  operationType?: LandingZoneOperationType;
+
+  /**
+   * <p>The <code>operationIdentifier</code> of the landing zone operation.</p>
+   * @public
+   */
+  operationIdentifier?: string;
+
+  /**
+   * <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The landing zone operation succeeded.  </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code>: The landing zone operation is in progress. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The landing zone operation failed. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: LandingZoneOperationStatus;
+
+  /**
+   * <p>The landing zone operation start time.</p>
+   * @public
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The landing zone operation end time.</p>
+   * @public
+   */
+  endTime?: Date;
+
+  /**
+   * <p>If the operation result is FAILED, this string contains a message explaining why the operation failed.</p>
+   * @public
+   */
+  statusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetLandingZoneOperationOutput {
+  /**
+   * <p>Details about a landing zone operation.</p>
+   * @public
+   */
+  operationDetails: LandingZoneOperationDetail | undefined;
+}
+
+/**
+ * <p>A filter object that lets you call <code>ListLandingZoneOperations</code> with a specific filter.</p>
+ * @public
+ */
+export interface LandingZoneOperationFilter {
+  /**
+   * <p>The set of landing zone operation types selected by the filter.</p>
+   * @public
+   */
+  types?: LandingZoneOperationType[];
+
+  /**
+   * <p>The statuses of the set of landing zone operations selected by the filter.</p>
+   * @public
+   */
+  statuses?: LandingZoneOperationStatus[];
+}
+
+/**
+ * @public
+ */
+export interface ListLandingZoneOperationsInput {
+  /**
+   * <p>An input filter for the <code>ListLandingZoneOperations</code> API that lets you select the types of landing zone operations to view.</p>
+   * @public
+   */
+  filter?: LandingZoneOperationFilter;
+
+  /**
+   * <p>The token to continue the list from a previous API call with the same parameters.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>How many results to return per API call.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>Returns a summary of information about a landing zone operation.</p>
+ * @public
+ */
+export interface LandingZoneOperationSummary {
+  /**
+   * <p>The type of the landing zone operation.</p>
+   * @public
+   */
+  operationType?: LandingZoneOperationType;
+
+  /**
+   * <p>The <code>operationIdentifier</code> of the landing zone operation.</p>
+   * @public
+   */
+  operationIdentifier?: string;
+
+  /**
+   * <p>The status of the landing zone operation.</p>
+   * @public
+   */
+  status?: LandingZoneOperationStatus;
+}
+
+/**
+ * @public
+ */
+export interface ListLandingZoneOperationsOutput {
+  /**
+   * <p>Lists landing zone operations.</p>
+   * @public
+   */
+  landingZoneOperations: LandingZoneOperationSummary[] | undefined;
+
+  /**
+   * <p>Retrieves the next page of results. If the string is empty, the response is the end of the results.</p>
+   * @public
+   */
+  nextToken?: string;
 }
 
 /**
@@ -1562,128 +1772,6 @@ export interface GetLandingZoneOutput {
 /**
  * @public
  */
-export interface GetLandingZoneOperationInput {
-  /**
-   * <p>A unique identifier assigned to a landing zone operation.</p>
-   * @public
-   */
-  operationIdentifier: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const LandingZoneOperationType = {
-  CREATE: "CREATE",
-  DELETE: "DELETE",
-  RESET: "RESET",
-  UPDATE: "UPDATE",
-} as const;
-
-/**
- * @public
- */
-export type LandingZoneOperationType = (typeof LandingZoneOperationType)[keyof typeof LandingZoneOperationType];
-
-/**
- * @public
- * @enum
- */
-export const LandingZoneOperationStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type LandingZoneOperationStatus = (typeof LandingZoneOperationStatus)[keyof typeof LandingZoneOperationStatus];
-
-/**
- * <p>Information about a landing zone operation.</p>
- * @public
- */
-export interface LandingZoneOperationDetail {
-  /**
-   * <p>The landing zone operation type. </p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE</code>: The <code>DeleteLandingZone</code> operation.  </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE</code>: The <code>CreateLandingZone</code> operation. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE</code>: The <code>UpdateLandingZone</code> operation. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESET</code>: The <code>ResetLandingZone</code> operation. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  operationType?: LandingZoneOperationType;
-
-  /**
-   * <p>The landing zone operation start time.</p>
-   * @public
-   */
-  startTime?: Date;
-
-  /**
-   * <p>The landing zone operation end time.</p>
-   * @public
-   */
-  endTime?: Date;
-
-  /**
-   * <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The landing zone operation succeeded.  </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code>: The landing zone operation is in progress. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The landing zone operation failed. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  status?: LandingZoneOperationStatus;
-
-  /**
-   * <p>If the operation result is FAILED, this string contains a message explaining why the operation failed.</p>
-   * @public
-   */
-  statusMessage?: string;
-}
-
-/**
- * @public
- */
-export interface GetLandingZoneOperationOutput {
-  /**
-   * <p>Details about a landing zone operation.</p>
-   * @public
-   */
-  operationDetails: LandingZoneOperationDetail | undefined;
-}
-
-/**
- * @public
- */
 export interface ListLandingZonesInput {
   /**
    * <p>The token to continue the list from a previous API call with the same parameters.</p>
@@ -1761,8 +1849,8 @@ export interface UpdateLandingZoneInput {
   version: string | undefined;
 
   /**
-   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. </p>
+   * <p>The manifest file (JSON) is a text file that describes your Amazon Web Services resources. For an example, review
+   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. The example manifest file contains each of the available parameters. The schema for the landing zone's JSON manifest file is not published, by design.</p>
    * @public
    */
   manifest: __DocumentType | undefined;

@@ -44,9 +44,10 @@ export interface GetLandingZoneOperationCommandOutput extends GetLandingZoneOper
  * // { // GetLandingZoneOperationOutput
  * //   operationDetails: { // LandingZoneOperationDetail
  * //     operationType: "DELETE" || "CREATE" || "UPDATE" || "RESET",
+ * //     operationIdentifier: "STRING_VALUE",
+ * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
- * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
  * //     statusMessage: "STRING_VALUE",
  * //   },
  * // };

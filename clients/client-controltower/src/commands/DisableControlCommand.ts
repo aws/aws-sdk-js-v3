@@ -28,10 +28,10 @@ export interface DisableControlCommandInput extends DisableControlInput {}
 export interface DisableControlCommandOutput extends DisableControlOutput, __MetadataBearer {}
 
 /**
- * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS
+ * <p>This API call turns off a control. It starts an asynchronous operation that deletes Amazon Web Services
  *          resources on the specified organizational unit and the accounts it contains. The resources
- *          will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
+ *          will vary according to the control that you specify. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html">
+ *                <i>Controls Reference Guide</i>
  *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
