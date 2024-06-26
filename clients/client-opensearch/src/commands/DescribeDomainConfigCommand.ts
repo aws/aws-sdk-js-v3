@@ -267,6 +267,15 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     AIMLOptions: { // AIMLOptionsStatus
+ * //       Options: { // AIMLOptionsOutput
+ * //         NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsOutput
+ * //           DesiredState: "ENABLED" || "DISABLED",
+ * //           CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
+ * //         },
+ * //       },
+ * //       Status: "<OptionStatus>",
+ * //     },
  * //   },
  * // };
  *

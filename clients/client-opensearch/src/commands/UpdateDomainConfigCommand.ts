@@ -166,6 +166,11 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   SoftwareUpdateOptions: { // SoftwareUpdateOptions
  *     AutoSoftwareUpdateEnabled: true || false,
  *   },
+ *   AIMLOptions: { // AIMLOptionsInput
+ *     NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsInput
+ *       DesiredState: "ENABLED" || "DISABLED",
+ *     },
+ *   },
  * };
  * const command = new UpdateDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -396,6 +401,15 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     AIMLOptions: { // AIMLOptionsStatus
+ * //       Options: { // AIMLOptionsOutput
+ * //         NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsOutput
+ * //           DesiredState: "ENABLED" || "DISABLED",
+ * //           CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
+ * //         },
+ * //       },
+ * //       Status: "<OptionStatus>",
+ * //     },
  * //   },
  * //   DryRunResults: { // DryRunResults
  * //     DeploymentType: "STRING_VALUE",
