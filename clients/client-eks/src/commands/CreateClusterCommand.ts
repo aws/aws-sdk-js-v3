@@ -130,6 +130,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     bootstrapClusterCreatorAdminPermissions: true || false,
  *     authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  *   },
+ *   bootstrapSelfManagedAddons: true || false,
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);

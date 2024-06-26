@@ -380,6 +380,7 @@ export const se_CreateClusterCommand = async (
   body = JSON.stringify(
     take(input, {
       accessConfig: (_) => _json(_),
+      bootstrapSelfManagedAddons: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       encryptionConfig: (_) => _json(_),
       kubernetesNetworkConfig: (_) => _json(_),

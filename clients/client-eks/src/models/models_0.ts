@@ -2041,6 +2041,14 @@ export interface CreateClusterRequest {
    * @public
    */
   accessConfig?: CreateAccessConfigRequest;
+
+  /**
+   * <p>If you set this value to <code>False</code> when creating a cluster, the default networking add-ons will not be installed.</p>
+   *          <p>The default networking addons include vpc-cni, coredns, and kube-proxy.</p>
+   *          <p>Use this option when you plan to install third-party alternative add-ons or self-manage the default networking add-ons.</p>
+   * @public
+   */
+  bootstrapSelfManagedAddons?: boolean;
 }
 
 /**
