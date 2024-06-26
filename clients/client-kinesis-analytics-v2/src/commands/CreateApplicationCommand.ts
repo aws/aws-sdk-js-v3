@@ -182,6 +182,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     ApplicationSnapshotConfiguration: { // ApplicationSnapshotConfiguration
  *       SnapshotsEnabled: true || false, // required
  *     },
+ *     ApplicationSystemRollbackConfiguration: { // ApplicationSystemRollbackConfiguration
+ *       RollbackEnabled: true || false, // required
+ *     },
  *     VpcConfigurations: [ // VpcConfigurations
  *       { // VpcConfiguration
  *         SubnetIds: [ // SubnetIds // required
@@ -414,6 +417,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
  * //       },
+ * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
+ * //         RollbackEnabled: true || false, // required
+ * //       },
  * //       VpcConfigurationDescriptions: [ // VpcConfigurationDescriptions
  * //         { // VpcConfigurationDescription
  * //           VpcConfigurationId: "STRING_VALUE", // required
@@ -471,6 +477,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     },
  * //     ApplicationVersionUpdatedFrom: Number("long"),
  * //     ApplicationVersionRolledBackFrom: Number("long"),
+ * //     ApplicationVersionCreateTimestamp: new Date("TIMESTAMP"),
  * //     ConditionalToken: "STRING_VALUE",
  * //     ApplicationVersionRolledBackTo: Number("long"),
  * //     ApplicationMode: "STREAMING" || "INTERACTIVE",

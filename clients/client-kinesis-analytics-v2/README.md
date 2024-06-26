@@ -346,6 +346,14 @@ DescribeApplication
 </details>
 <details>
 <summary>
+DescribeApplicationOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics-v2/command/DescribeApplicationOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics-v2/Interface/DescribeApplicationOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics-v2/Interface/DescribeApplicationOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeApplicationSnapshot
 </summary>
 
@@ -366,6 +374,14 @@ DiscoverInputSchema
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics-v2/command/DiscoverInputSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics-v2/Interface/DiscoverInputSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics-v2/Interface/DiscoverInputSchemaCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListApplicationOperations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-analytics-v2/command/ListApplicationOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics-v2/Interface/ListApplicationOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-analytics-v2/Interface/ListApplicationOperationsCommandOutput/)
 
 </details>
 <details>

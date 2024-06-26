@@ -105,6 +105,12 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
    * @public
    */
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+
+  /**
+   * Operation ID for tracking AddApplicationCloudWatchLoggingOption request
+   * @public
+   */
+  OperationId?: string;
 }
 
 /**
@@ -320,7 +326,6 @@ export interface RecordColumn {
  *       format uses delimiters, such as CSV. For example, the following sample records use CSV format,
  *       where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as
  *       the column delimiter: </p>
- *
  *          <p>
  *             <code>"name1", "address1"</code>
  *          </p>
@@ -618,8 +623,6 @@ export interface InputStartingPositionConfiguration {
    *                <p>
    *                   <code>NOW</code> - Start reading just after the most recent record in the stream, and
    *           start at the request timestamp that the customer issued.</p>
-   *
-   *
    *             </li>
    *             <li>
    *                <p>
@@ -926,7 +929,6 @@ export interface LambdaOutput {
  *       in which you identify an in-application stream and a destination where you want the
  *       in-application stream data to be written. The destination can be a Kinesis data stream or a
  *       Kinesis Data Firehose delivery stream. </p>
- *
  *          <p></p>
  * @public
  */
@@ -1147,7 +1149,6 @@ export interface AddApplicationOutputResponse {
 /**
  * <p>For a SQL-based Kinesis Data Analytics application, identifies the Amazon S3
  *       bucket and object that contains the reference data.</p>
- *
  *          <p>A SQL-based Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a>
  *         operation to trigger reloading of data into your application. </p>
  * @public
@@ -1429,6 +1430,12 @@ export interface AddApplicationVpcConfigurationResponse {
    * @public
    */
   VpcConfigurationDescription?: VpcConfigurationDescription;
+
+  /**
+   * Operation ID for tracking AddApplicationVpcConfiguration request
+   * @public
+   */
+  OperationId?: string;
 }
 
 /**
@@ -1664,6 +1671,18 @@ export interface ApplicationSnapshotConfiguration {
    * @public
    */
   SnapshotsEnabled: boolean | undefined;
+}
+
+/**
+ * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * @public
+ */
+export interface ApplicationSystemRollbackConfiguration {
+  /**
+   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * @public
+   */
+  RollbackEnabled: boolean | undefined;
 }
 
 /**
@@ -2141,6 +2160,12 @@ export interface ApplicationConfiguration {
   ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration;
 
   /**
+   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * @public
+   */
+  ApplicationSystemRollbackConfiguration?: ApplicationSystemRollbackConfiguration;
+
+  /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    * @public
    */
@@ -2163,6 +2188,18 @@ export interface ApplicationSnapshotConfigurationDescription {
    * @public
    */
   SnapshotsEnabled: boolean | undefined;
+}
+
+/**
+ * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * @public
+ */
+export interface ApplicationSystemRollbackConfigurationDescription {
+  /**
+   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * @public
+   */
+  RollbackEnabled: boolean | undefined;
 }
 
 /**
@@ -2615,6 +2652,12 @@ export interface ApplicationConfigurationDescription {
   ApplicationSnapshotConfigurationDescription?: ApplicationSnapshotConfigurationDescription;
 
   /**
+   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * @public
+   */
+  ApplicationSystemRollbackConfigurationDescription?: ApplicationSystemRollbackConfigurationDescription;
+
+  /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    * @public
    */
@@ -2637,6 +2680,18 @@ export interface ApplicationSnapshotConfigurationUpdate {
    * @public
    */
   SnapshotsEnabledUpdate: boolean | undefined;
+}
+
+/**
+ * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * @public
+ */
+export interface ApplicationSystemRollbackConfigurationUpdate {
+  /**
+   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * @public
+   */
+  RollbackEnabledUpdate: boolean | undefined;
 }
 
 /**
@@ -3297,6 +3352,12 @@ export interface ApplicationConfigurationUpdate {
   ApplicationSnapshotConfigurationUpdate?: ApplicationSnapshotConfigurationUpdate;
 
   /**
+   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * @public
+   */
+  ApplicationSystemRollbackConfigurationUpdate?: ApplicationSystemRollbackConfigurationUpdate;
+
+  /**
    * <p>Updates to the array of descriptions of VPC configurations available to the application.</p>
    * @public
    */
@@ -3480,6 +3541,12 @@ export interface ApplicationDetail {
   ApplicationVersionRolledBackFrom?: number;
 
   /**
+   * The current timestamp when the application version was created.
+   * @public
+   */
+  ApplicationVersionCreateTimestamp?: Date;
+
+  /**
    * <p>A value you use to implement strong concurrency for application updates.</p>
    * @public
    */
@@ -3508,6 +3575,148 @@ export interface ApplicationMaintenanceConfigurationUpdate {
    * @public
    */
   ApplicationMaintenanceWindowStartTimeUpdate: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * Provides a description of the operation, such as the type and status of operation
+ * @public
+ */
+export interface ApplicationOperationInfo {
+  /**
+   * Type of operation performed on an application
+   * @public
+   */
+  Operation?: string;
+
+  /**
+   * Identifier of the Operation
+   * @public
+   */
+  OperationId?: string;
+
+  /**
+   * The timestamp at which the operation was created
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * The timestamp at which the operation finished for the application
+   * @public
+   */
+  EndTime?: Date;
+
+  /**
+   * Status of the operation performed on an application
+   * @public
+   */
+  OperationStatus?: OperationStatus;
+}
+
+/**
+ * Contains information about the application version changes due to an operation
+ * @public
+ */
+export interface ApplicationVersionChangeDetails {
+  /**
+   * The operation was performed on this version of the application
+   * @public
+   */
+  ApplicationVersionUpdatedFrom: number | undefined;
+
+  /**
+   * The operation execution resulted in the transition to the following version of the application
+   * @public
+   */
+  ApplicationVersionUpdatedTo: number | undefined;
+}
+
+/**
+ * Provides a description of the operation failure error
+ * @public
+ */
+export interface ErrorInfo {
+  /**
+   * Error message resulting in failure of the operation
+   * @public
+   */
+  ErrorString?: string;
+}
+
+/**
+ * Provides a description of the operation failure
+ * @public
+ */
+export interface OperationFailureDetails {
+  /**
+   * Provides the operation ID of a system-rollback operation executed due to failure in the current operation
+   * @public
+   */
+  RollbackOperationId?: string;
+
+  /**
+   * Provides a description of the operation failure error
+   * @public
+   */
+  ErrorInfo?: ErrorInfo;
+}
+
+/**
+ * Provides a description of the operation, such as the operation-type and status
+ * @public
+ */
+export interface ApplicationOperationInfoDetails {
+  /**
+   * Type of operation performed on an application
+   * @public
+   */
+  Operation: string | undefined;
+
+  /**
+   * The timestamp at which the operation was created
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * The timestamp at which the operation finished for the application
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * Status of the operation performed on an application
+   * @public
+   */
+  OperationStatus: OperationStatus | undefined;
+
+  /**
+   * Contains information about the application version changes due to an operation
+   * @public
+   */
+  ApplicationVersionChangeDetails?: ApplicationVersionChangeDetails;
+
+  /**
+   * Provides a description of the operation failure
+   * @public
+   */
+  OperationFailureDetails?: OperationFailureDetails;
 }
 
 /**
@@ -3905,6 +4114,12 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
    * @public
    */
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+
+  /**
+   * Operation ID for tracking DeleteApplicationCloudWatchLoggingOption request
+   * @public
+   */
+  OperationId?: string;
 }
 
 /**
@@ -4127,6 +4342,12 @@ export interface DeleteApplicationVpcConfigurationResponse {
    * @public
    */
   ApplicationVersionId?: number;
+
+  /**
+   * Operation ID for tracking DeleteApplicationVpcConfiguration request
+   * @public
+   */
+  OperationId?: string;
 }
 
 /**
@@ -4156,6 +4377,36 @@ export interface DescribeApplicationResponse {
    * @public
    */
   ApplicationDetail: ApplicationDetail | undefined;
+}
+
+/**
+ * Request for information about a specific operation performed on a Managed Service for Apache Flink application
+ * @public
+ */
+export interface DescribeApplicationOperationRequest {
+  /**
+   * The name of the application
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * Identifier of the Operation
+   * @public
+   */
+  OperationId: string | undefined;
+}
+
+/**
+ * Provides details of the operation corresponding to the operation-ID on a Managed Service for Apache Flink application
+ * @public
+ */
+export interface DescribeApplicationOperationResponse {
+  /**
+   * Provides a description of the operation, such as the operation-type and status
+   * @public
+   */
+  ApplicationOperationInfoDetails?: ApplicationOperationInfoDetails;
 }
 
 /**
@@ -4441,6 +4692,60 @@ export class UnableToDetectSchemaException extends __BaseException {
 }
 
 /**
+ * Request to list operations performed on an application
+ * @public
+ */
+export interface ListApplicationOperationsRequest {
+  /**
+   * The name of the application
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * Limit on the number of records returned in the response
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * If a previous command returned a pagination token, pass it into this value to retrieve the next set of results
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * Type of operation performed on an application
+   * @public
+   */
+  Operation?: string;
+
+  /**
+   * Status of the operation performed on an application
+   * @public
+   */
+  OperationStatus?: OperationStatus;
+}
+
+/**
+ * Response with the list of operations for an application
+ * @public
+ */
+export interface ListApplicationOperationsResponse {
+  /**
+   * List of ApplicationOperationInfo for an application
+   * @public
+   */
+  ApplicationOperationInfoList?: ApplicationOperationInfo[];
+
+  /**
+   * If a previous command returned a pagination token, pass it into this value to retrieve the next set of results
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
  * @public
  */
 export interface ListApplicationsRequest {
@@ -4616,6 +4921,12 @@ export interface RollbackApplicationResponse {
    * @public
    */
   ApplicationDetail: ApplicationDetail | undefined;
+
+  /**
+   * Operation ID for tracking RollbackApplication request
+   * @public
+   */
+  OperationId?: string;
 }
 
 /**
@@ -4682,7 +4993,13 @@ export interface StartApplicationRequest {
 /**
  * @public
  */
-export interface StartApplicationResponse {}
+export interface StartApplicationResponse {
+  /**
+   * Operation ID for tracking StartApplication request
+   * @public
+   */
+  OperationId?: string;
+}
 
 /**
  * @public
@@ -4698,7 +5015,7 @@ export interface StopApplicationRequest {
    * <p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code>
    *           to <code>true</code>, Managed Service for Apache Flink stops the application without taking a snapshot.
    *       </p>
-   *           <note>
+   *          <note>
    *             <p>Force-stopping your application may lead to data loss or duplication.
    *               To prevent data loss or duplicate processing of data during application restarts,
    *               we recommend you to take frequent snapshots of your application.</p>
@@ -4715,7 +5032,13 @@ export interface StopApplicationRequest {
 /**
  * @public
  */
-export interface StopApplicationResponse {}
+export interface StopApplicationResponse {
+  /**
+   * Operation ID for tracking StopApplication request
+   * @public
+   */
+  OperationId?: string;
+}
 
 /**
  * @public
@@ -4837,7 +5160,7 @@ export interface UpdateApplicationRequest {
 
   /**
    * <p>Updates the Managed Service for Apache Flink runtime environment used to run your code. To avoid issues you must:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Ensure your new jar and dependencies are compatible with the new runtime selected.</p>
    *             </li>
@@ -4859,6 +5182,12 @@ export interface UpdateApplicationResponse {
    * @public
    */
   ApplicationDetail: ApplicationDetail | undefined;
+
+  /**
+   * Operation ID for tracking UpdateApplication request
+   * @public
+   */
+  OperationId?: string;
 }
 
 /**

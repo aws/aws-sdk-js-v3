@@ -66,6 +66,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * //       RoleARN: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```

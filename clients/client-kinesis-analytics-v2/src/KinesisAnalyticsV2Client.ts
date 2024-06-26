@@ -116,6 +116,10 @@ import {
   DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
 import {
+  DescribeApplicationOperationCommandInput,
+  DescribeApplicationOperationCommandOutput,
+} from "./commands/DescribeApplicationOperationCommand";
+import {
   DescribeApplicationSnapshotCommandInput,
   DescribeApplicationSnapshotCommandOutput,
 } from "./commands/DescribeApplicationSnapshotCommand";
@@ -127,6 +131,10 @@ import {
   DiscoverInputSchemaCommandInput,
   DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
+import {
+  ListApplicationOperationsCommandInput,
+  ListApplicationOperationsCommandOutput,
+} from "./commands/ListApplicationOperationsCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListApplicationSnapshotsCommandInput,
@@ -185,9 +193,11 @@ export type ServiceInputTypes =
   | DeleteApplicationSnapshotCommandInput
   | DeleteApplicationVpcConfigurationCommandInput
   | DescribeApplicationCommandInput
+  | DescribeApplicationOperationCommandInput
   | DescribeApplicationSnapshotCommandInput
   | DescribeApplicationVersionCommandInput
   | DiscoverInputSchemaCommandInput
+  | ListApplicationOperationsCommandInput
   | ListApplicationSnapshotsCommandInput
   | ListApplicationVersionsCommandInput
   | ListApplicationsCommandInput
@@ -221,9 +231,11 @@ export type ServiceOutputTypes =
   | DeleteApplicationSnapshotCommandOutput
   | DeleteApplicationVpcConfigurationCommandOutput
   | DescribeApplicationCommandOutput
+  | DescribeApplicationOperationCommandOutput
   | DescribeApplicationSnapshotCommandOutput
   | DescribeApplicationVersionCommandOutput
   | DiscoverInputSchemaCommandOutput
+  | ListApplicationOperationsCommandOutput
   | ListApplicationSnapshotsCommandOutput
   | ListApplicationVersionsCommandOutput
   | ListApplicationsCommandOutput

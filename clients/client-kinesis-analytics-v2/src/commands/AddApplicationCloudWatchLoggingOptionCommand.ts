@@ -68,6 +68,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * //       RoleARN: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```

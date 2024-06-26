@@ -62,7 +62,9 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartApplicationResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

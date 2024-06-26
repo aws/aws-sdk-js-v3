@@ -34,7 +34,6 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
 /**
  * <p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration
  *       associated with each version.</p>
- *
  *          <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p>
  *          <note>
  *             <p>This operation is supported only for Managed Service for Apache Flink.</p>

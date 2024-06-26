@@ -223,6 +223,9 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
  * //       },
+ * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
+ * //         RollbackEnabled: true || false, // required
+ * //       },
  * //       VpcConfigurationDescriptions: [ // VpcConfigurationDescriptions
  * //         { // VpcConfigurationDescription
  * //           VpcConfigurationId: "STRING_VALUE", // required
@@ -280,6 +283,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * //     },
  * //     ApplicationVersionUpdatedFrom: Number("long"),
  * //     ApplicationVersionRolledBackFrom: Number("long"),
+ * //     ApplicationVersionCreateTimestamp: new Date("TIMESTAMP"),
  * //     ConditionalToken: "STRING_VALUE",
  * //     ApplicationVersionRolledBackTo: Number("long"),
  * //     ApplicationMode: "STREAMING" || "INTERACTIVE",

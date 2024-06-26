@@ -83,6 +83,7 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```

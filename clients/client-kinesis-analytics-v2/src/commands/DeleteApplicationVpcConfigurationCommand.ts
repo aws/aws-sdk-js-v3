@@ -58,6 +58,7 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * // { // DeleteApplicationVpcConfigurationResponse
  * //   ApplicationARN: "STRING_VALUE",
  * //   ApplicationVersionId: Number("long"),
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```
