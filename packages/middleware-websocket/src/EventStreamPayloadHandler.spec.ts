@@ -91,7 +91,12 @@ describe(EventStreamPayloadHandler.name, () => {
     });
 
     expect(getEventSigningTransformStream).toHaveBeenCalledTimes(1);
-    expect(getEventSigningTransformStream).toHaveBeenCalledWith(priorSignature, expect.anything(), expect.anything());
+    expect(getEventSigningTransformStream).toHaveBeenCalledWith(
+      priorSignature,
+      expect.anything(),
+      expect.anything(),
+      expect.anything()
+    );
   });
 
   it("should call event signer with request signature from query string if no signature headers are found", async () => {
@@ -118,7 +123,12 @@ describe(EventStreamPayloadHandler.name, () => {
     });
 
     expect(getEventSigningTransformStream).toHaveBeenCalledTimes(1);
-    expect(getEventSigningTransformStream).toHaveBeenCalledWith(priorSignature, expect.anything(), expect.anything());
+    expect(getEventSigningTransformStream).toHaveBeenCalledWith(
+      priorSignature,
+      expect.anything(),
+      expect.anything(),
+      expect.anything()
+    );
   });
 
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {

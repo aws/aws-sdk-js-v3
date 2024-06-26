@@ -90,6 +90,7 @@ describe(EventStreamPayloadHandler.name, () => {
       priorSignature,
       eventStreamCodec: expect.anything(),
       messageSigner: expect.anything(),
+      systemClockOffsetProvider: expect.any(Function),
     });
   });
 
@@ -121,6 +122,7 @@ describe(EventStreamPayloadHandler.name, () => {
       priorSignature,
       eventStreamCodec: expect.anything(),
       messageSigner: expect.anything(),
+      systemClockOffsetProvider: expect.any(Function),
     });
   });
 

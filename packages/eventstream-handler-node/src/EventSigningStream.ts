@@ -1,5 +1,5 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { MessageHeaders, MessageSigner } from "@smithy/types";
+import { MessageHeaders, MessageSigner, Provider } from "@smithy/types";
 import { Transform, TransformCallback, TransformOptions } from "stream";
 
 /**
@@ -9,6 +9,7 @@ export interface EventSigningStreamOptions extends TransformOptions {
   priorSignature: string;
   messageSigner: MessageSigner;
   eventStreamCodec: EventStreamCodec;
+  systemClockOffsetProvider: Provider<number>;
 }
 
 /**
@@ -20,6 +21,7 @@ export class EventSigningStream extends Transform {
   private priorSignature: string;
   private messageSigner: MessageSigner;
   private eventStreamCodec: EventStreamCodec;
+  private readonly systemClockOffsetProvider: Provider<number>;
 
   constructor(options: EventSigningStreamOptions) {
     super({
@@ -32,11 +34,12 @@ export class EventSigningStream extends Transform {
     this.priorSignature = options.priorSignature;
     this.eventStreamCodec = options.eventStreamCodec;
     this.messageSigner = options.messageSigner;
+    this.systemClockOffsetProvider = options.systemClockOffsetProvider;
   }
 
   async _transform(chunk: Uint8Array, encoding: string, callback: TransformCallback): Promise<void> {
     try {
-      const now = new Date();
+      const now = new Date(Date.now() + (await this.systemClockOffsetProvider()));
       const dateHeader: MessageHeaders = {
         ":date": { type: "timestamp", value: now },
       };

@@ -23,6 +23,7 @@ export interface EventStreamPayloadHandlerOptions {
   messageSigner: Provider<MessageSigner>;
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
+  systemClockOffset?: number;
 }
 
 /**
@@ -37,10 +38,12 @@ export interface EventStreamPayloadHandlerOptions {
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly messageSigner: Provider<MessageSigner>;
   private readonly eventStreamCodec: EventStreamCodec;
+  private readonly systemClockOffsetProvider: Provider<number>;
 
   constructor(options: EventStreamPayloadHandlerOptions) {
     this.messageSigner = options.messageSigner;
     this.eventStreamCodec = new EventStreamCodec(options.utf8Encoder, options.utf8Decoder);
+    this.systemClockOffsetProvider = async () => options.systemClockOffset ?? 0;
   }
 
   async handle<T extends MetadataBearer>(
@@ -79,6 +82,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       priorSignature,
       eventStreamCodec: this.eventStreamCodec,
       messageSigner: await this.messageSigner(),
+      systemClockOffsetProvider: this.systemClockOffsetProvider,
     });
 
     pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
