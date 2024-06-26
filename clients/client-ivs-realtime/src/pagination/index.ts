@@ -4,6 +4,7 @@ export * from "./ListCompositionsPaginator";
 export * from "./ListEncoderConfigurationsPaginator";
 export * from "./ListParticipantEventsPaginator";
 export * from "./ListParticipantsPaginator";
+export * from "./ListPublicKeysPaginator";
 export * from "./ListStageSessionsPaginator";
 export * from "./ListStagesPaginator";
 export * from "./ListStorageConfigurationsPaginator";

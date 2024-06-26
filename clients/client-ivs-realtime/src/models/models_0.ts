@@ -436,12 +436,12 @@ export type ParticipantRecordingMediaType =
   (typeof ParticipantRecordingMediaType)[keyof typeof ParticipantRecordingMediaType];
 
 /**
- * <p>Object specifying an auto-participant-recording configuration.</p>
+ * <p>Object specifying a configuration for individual participant recording.</p>
  * @public
  */
 export interface AutoParticipantRecordingConfiguration {
   /**
-   * <p>ARN of the <a>StorageConfiguration</a> resource to use for auto participant recording. Default: "" (empty string, no storage configuration is specified).  Individual participant recording cannot be started unless a storage configuration is specified, when a  <a>Stage</a> is created or updated.</p>
+   * <p>ARN of the <a>StorageConfiguration</a> resource to use for individual participant recording. Default: <code>""</code> (empty string, no storage configuration is specified). Individual participant recording cannot be started unless a storage configuration is specified, when a  <a>Stage</a> is created or updated.</p>
    * @public
    */
   storageConfigurationArn: string | undefined;
@@ -520,10 +520,28 @@ export interface CreateStageRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>Auto participant recording configuration object attached to the stage.</p>
+   * <p>Configuration object for individual participant recording, to attach to the new stage.</p>
    * @public
    */
   autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
+}
+
+/**
+ * <p>Summary information about various endpoints for a stage.</p>
+ * @public
+ */
+export interface StageEndpoints {
+  /**
+   * <p>Events endpoint.</p>
+   * @public
+   */
+  events?: string;
+
+  /**
+   * <p>WHIP endpoint.</p>
+   * @public
+   */
+  whip?: string;
 }
 
 /**
@@ -560,10 +578,16 @@ export interface Stage {
   tags?: Record<string, string>;
 
   /**
-   * <p>Auto-participant-recording configuration object attached to the stage.</p>
+   * <p>Configuration object for individual participant recording, attached to the stage.</p>
    * @public
    */
   autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
+
+  /**
+   * <p>Summary information about various endpoints for a stage.</p>
+   * @public
+   */
+  endpoints?: StageEndpoints;
 }
 
 /**
@@ -684,6 +708,22 @@ export interface DeleteEncoderConfigurationRequest {
  * @public
  */
 export interface DeleteEncoderConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface DeletePublicKeyRequest {
+  /**
+   * <p>ARN of the public key to be deleted.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePublicKeyResponse {}
 
 /**
  * @public
@@ -983,7 +1023,7 @@ export interface GridConfiguration {
   /**
    * <p>This attribute name identifies the featured slot. A participant with this attribute set
    *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured
-   *          slot.</p>
+   *          slot. Default: <code>""</code> (no featured participant).</p>
    * @public
    */
   featuredParticipantAttribute?: string;
@@ -995,15 +1035,16 @@ export interface GridConfiguration {
   omitStoppedVideo?: boolean;
 
   /**
-   * <p>Sets the non-featured participant display mode. Default: <code>VIDEO</code>.</p>
+   * <p>Sets the non-featured participant display mode, to control the aspect ratio of video tiles. <code>VIDEO</code> is 16:9, <code>SQUARE</code> is 1:1, and <code>PORTRAIT</code> is 3:4. Default: <code>VIDEO</code>.</p>
    * @public
    */
   videoAspectRatio?: VideoAspectRatio;
 
   /**
-   * <p>Defines how video fits within the participant tile. When not set,
-   * 	  <code>videoFillMode</code> defaults to <code>COVER</code> fill mode for participants in the grid
-   * 	  and to <code>CONTAIN</code> fill mode for featured participants.</p>
+   * <p>Defines how video content fits within the participant tile: <code>FILL</code> (stretched), <code>COVER</code> (cropped),
+   *       or <code>CONTAIN</code> (letterboxed). When not set,
+   *       <code>videoFillMode</code> defaults to <code>COVER</code> fill mode for participants in the grid
+   *       and to <code>CONTAIN</code> fill mode for featured participants.</p>
    * @public
    */
   videoFillMode?: VideoFillMode;
@@ -1055,7 +1096,7 @@ export interface PipConfiguration {
   /**
    * <p>This attribute name identifies the featured slot. A participant with this attribute set
    *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured
-   *          slot.</p>
+   *          slot. Default: <code>""</code> (no featured participant).</p>
    * @public
    */
   featuredParticipantAttribute?: string;
@@ -1067,8 +1108,8 @@ export interface PipConfiguration {
   omitStoppedVideo?: boolean;
 
   /**
-   * <p>Defines how video fits within the participant tile. Default: <code>COVER</code>.
-   * </p>
+   * <p>Defines how video content fits within the participant tile: <code>FILL</code> (stretched),
+   * 	  <code>COVER</code> (cropped), or <code>CONTAIN</code> (letterboxed). Default: <code>COVER</code>.</p>
    * @public
    */
   videoFillMode?: VideoFillMode;
@@ -1080,15 +1121,15 @@ export interface PipConfiguration {
   gridGap?: number;
 
   /**
-   * <p>Identifies the PiP slot. A participant with this attribute set
+   * <p>Specifies the participant for the PiP window. A participant with this attribute set
    *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a>
-   * 		 is placed in the PiP slot.</p>
+   * 	 is placed in the PiP slot. Default: <code>""</code> (no PiP participant).</p>
    * @public
    */
   pipParticipantAttribute?: string;
 
   /**
-   * <p>Defines PiP behavior when all participants have left. Default: <code>STATIC</code>.</p>
+   * <p>Defines PiP behavior when all participants have left: <code>STATIC</code> (maintains original position/size) or <code>DYNAMIC</code> (expands to full composition). Default: <code>STATIC</code>.</p>
    * @public
    */
   pipBehavior?: PipBehavior;
@@ -1392,19 +1433,19 @@ export interface Participant {
   sdkVersion?: string;
 
   /**
-   * <p>Name of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or "" (empty string), if recording is not enabled.</p>
+   * <p>Name of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or <code>""</code> (empty string), if recording is not enabled.</p>
    * @public
    */
   recordingS3BucketName?: string;
 
   /**
-   * <p>S3 prefix of the S3 bucket to where the participant is being recorded, if individual participant recording is enabled, or "" (empty string), if recording is not enabled.</p>
+   * <p>S3 prefix of the S3 bucket where the participant is being recorded, if individual participant recording is enabled, or <code>""</code> (empty string), if recording is not enabled.</p>
    * @public
    */
   recordingS3Prefix?: string;
 
   /**
-   * <p>Participant’s recording state.</p>
+   * <p>The participant’s recording state.</p>
    * @public
    */
   recordingState?: ParticipantRecordingState;
@@ -1419,6 +1460,68 @@ export interface GetParticipantResponse {
    * @public
    */
   participant?: Participant;
+}
+
+/**
+ * @public
+ */
+export interface GetPublicKeyRequest {
+  /**
+   * <p>ARN of the public key for which the information is to be retrieved.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * <p>Object specifying a public key used to sign stage participant tokens.</p>
+ * @public
+ */
+export interface PublicKey {
+  /**
+   * <p>Public key ARN.</p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>Public key name.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>Public key material.</p>
+   * @public
+   */
+  publicKeyMaterial?: string;
+
+  /**
+   * <p>The public key fingerprint, a short string used to identify or verify the full public key.</p>
+   * @public
+   */
+  fingerprint?: string;
+
+  /**
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   *          there.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetPublicKeyResponse {
+  /**
+   * <p>The public key that is returned.</p>
+   * @public
+   */
+  publicKey?: PublicKey;
 }
 
 /**
@@ -1519,6 +1622,44 @@ export interface GetStorageConfigurationResponse {
    * @public
    */
   storageConfiguration?: StorageConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface ImportPublicKeyRequest {
+  /**
+   * <p>The content of the public key to be imported.</p>
+   * @public
+   */
+  publicKeyMaterial: string | undefined;
+
+  /**
+   * <p>Name of the public key to be imported.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   *          there.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ImportPublicKeyResponse {
+  /**
+   * <p>The public key that was imported.</p>
+   * @public
+   */
+  publicKey?: PublicKey;
 }
 
 /**
@@ -1979,7 +2120,7 @@ export interface ParticipantSummary {
   published?: boolean;
 
   /**
-   * <p>Participant’s recording state.</p>
+   * <p>The participant’s recording state.</p>
    * @public
    */
   recordingState?: ParticipantRecordingState;
@@ -1998,6 +2139,68 @@ export interface ListParticipantsResponse {
   /**
    * <p>If there are more participants than <code>maxResults</code>, use <code>nextToken</code>
    *          in the request to get the next set.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPublicKeysRequest {
+  /**
+   * <p>The first public key to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return. Default: 50.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>Summary information about a public key.</p>
+ * @public
+ */
+export interface PublicKeySummary {
+  /**
+   * <p>Public key ARN.</p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>Public key name.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS has no constraints on tags beyond what is documented
+   *          there.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListPublicKeysResponse {
+  /**
+   * <p>List of the matching public keys (summary information only).</p>
+   * @public
+   */
+  publicKeys: PublicKeySummary[] | undefined;
+
+  /**
+   * <p>If there are more public keys than <code>maxResults</code>, use <code>nextToken</code> in the request to get the next set.</p>
    * @public
    */
   nextToken?: string;
@@ -2369,8 +2572,7 @@ export interface UpdateStageRequest {
   name?: string;
 
   /**
-   * <p>Auto-participant-recording configuration object to attach to the stage.
-   *       Auto-participant-recording configuration cannot be updated while recording is active.</p>
+   * <p>Configuration object for individual participant recording, to attach to the stage. Note that this cannot be updated while recording is active.</p>
    * @public
    */
   autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;

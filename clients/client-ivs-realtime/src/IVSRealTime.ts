@@ -23,6 +23,11 @@ import {
   DeleteEncoderConfigurationCommandInput,
   DeleteEncoderConfigurationCommandOutput,
 } from "./commands/DeleteEncoderConfigurationCommand";
+import {
+  DeletePublicKeyCommand,
+  DeletePublicKeyCommandInput,
+  DeletePublicKeyCommandOutput,
+} from "./commands/DeletePublicKeyCommand";
 import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import {
   DeleteStorageConfigurationCommand,
@@ -49,6 +54,11 @@ import {
   GetParticipantCommandInput,
   GetParticipantCommandOutput,
 } from "./commands/GetParticipantCommand";
+import {
+  GetPublicKeyCommand,
+  GetPublicKeyCommandInput,
+  GetPublicKeyCommandOutput,
+} from "./commands/GetPublicKeyCommand";
 import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
 import {
   GetStageSessionCommand,
@@ -60,6 +70,11 @@ import {
   GetStorageConfigurationCommandInput,
   GetStorageConfigurationCommandOutput,
 } from "./commands/GetStorageConfigurationCommand";
+import {
+  ImportPublicKeyCommand,
+  ImportPublicKeyCommandInput,
+  ImportPublicKeyCommandOutput,
+} from "./commands/ImportPublicKeyCommand";
 import {
   ListCompositionsCommand,
   ListCompositionsCommandInput,
@@ -80,6 +95,11 @@ import {
   ListParticipantsCommandInput,
   ListParticipantsCommandOutput,
 } from "./commands/ListParticipantsCommand";
+import {
+  ListPublicKeysCommand,
+  ListPublicKeysCommandInput,
+  ListPublicKeysCommandOutput,
+} from "./commands/ListPublicKeysCommand";
 import { ListStagesCommand, ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
 import {
   ListStageSessionsCommand,
@@ -121,19 +141,23 @@ const commands = {
   CreateStageCommand,
   CreateStorageConfigurationCommand,
   DeleteEncoderConfigurationCommand,
+  DeletePublicKeyCommand,
   DeleteStageCommand,
   DeleteStorageConfigurationCommand,
   DisconnectParticipantCommand,
   GetCompositionCommand,
   GetEncoderConfigurationCommand,
   GetParticipantCommand,
+  GetPublicKeyCommand,
   GetStageCommand,
   GetStageSessionCommand,
   GetStorageConfigurationCommand,
+  ImportPublicKeyCommand,
   ListCompositionsCommand,
   ListEncoderConfigurationsCommand,
   ListParticipantEventsCommand,
   ListParticipantsCommand,
+  ListPublicKeysCommand,
   ListStagesCommand,
   ListStageSessionsCommand,
   ListStorageConfigurationsCommand,
@@ -228,6 +252,20 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link DeletePublicKeyCommand}
+   */
+  deletePublicKey(
+    args: DeletePublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePublicKeyCommandOutput>;
+  deletePublicKey(args: DeletePublicKeyCommandInput, cb: (err: any, data?: DeletePublicKeyCommandOutput) => void): void;
+  deletePublicKey(
+    args: DeletePublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePublicKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteStageCommand}
    */
   deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
@@ -318,6 +356,17 @@ export interface IVSRealTime {
   ): void;
 
   /**
+   * @see {@link GetPublicKeyCommand}
+   */
+  getPublicKey(args: GetPublicKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetPublicKeyCommandOutput>;
+  getPublicKey(args: GetPublicKeyCommandInput, cb: (err: any, data?: GetPublicKeyCommandOutput) => void): void;
+  getPublicKey(
+    args: GetPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetStageCommand}
    */
   getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
@@ -357,6 +406,20 @@ export interface IVSRealTime {
     args: GetStorageConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetStorageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportPublicKeyCommand}
+   */
+  importPublicKey(
+    args: ImportPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportPublicKeyCommandOutput>;
+  importPublicKey(args: ImportPublicKeyCommandInput, cb: (err: any, data?: ImportPublicKeyCommandOutput) => void): void;
+  importPublicKey(
+    args: ImportPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportPublicKeyCommandOutput) => void
   ): void;
 
   /**
@@ -427,6 +490,21 @@ export interface IVSRealTime {
     args: ListParticipantsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListParticipantsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPublicKeysCommand}
+   */
+  listPublicKeys(): Promise<ListPublicKeysCommandOutput>;
+  listPublicKeys(
+    args: ListPublicKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPublicKeysCommandOutput>;
+  listPublicKeys(args: ListPublicKeysCommandInput, cb: (err: any, data?: ListPublicKeysCommandOutput) => void): void;
+  listPublicKeys(
+    args: ListPublicKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): void;
 
   /**
@@ -559,48 +637,46 @@ export interface IVSRealTime {
 }
 
 /**
- * <p>
- *             <b>Introduction</b>
- *          </p>
- *          <p>The Amazon Interactive Video Service (IVS) real-time API is REST compatible, using a standard HTTP
+ * <p>The Amazon Interactive Video Service (IVS) real-time API is REST compatible, using a standard HTTP
  * 	  API and an AWS EventBridge event stream for responses. JSON is used for both requests and responses,
  * 	  including errors.
  *     </p>
- *          <p>Terminology:</p>
- *          <ul>
- *             <li>
- *                <p>A <i>stage</i>  is a virtual space where participants can exchange video in real time.</p>
- *             </li>
- *             <li>
- *                <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
- *             </li>
- *             <li>
- *                <p>A <i>participant object</i> represents participants (people) in the stage and
- *           contains information about them. When a token is created, it includes a participant ID;
- *           when a participant uses that token to join a stage, the participant is associated with
- *           that participant ID. There is a 1:1 mapping between participant tokens and
- *           participants.</p>
- *             </li>
- *             <li>
- *                <p>Server-side composition: The <i>composition</i> process composites participants
- *           of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
- *           Composition endpoints support this process.</p>
- *             </li>
- *             <li>
- *                <p>Server-side composition: A <i>composition</i> controls the look of the outputs,
- *           including how participants are positioned in the video.</p>
- *             </li>
- *          </ul>
  *          <p>
- *             <b>Resources</b>
+ *             <b>Key Concepts</b>
  *          </p>
- *          <p>The following resources contain information about your IVS live stream (see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>):</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Stage</b> — A stage is a virtual space where participants can exchange video in real time.</p>
+ *                   <b>Stage</b> — A virtual space where participants can exchange video in real time.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Participant token</b> — A token that authenticates a participant when they join a stage.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Participant object</b> — Represents participants (people) in the stage and
+ *             contains information about them. When a token is created, it includes a participant ID;
+ *             when a participant uses that token to join a stage, the participant is associated with
+ *             that participant ID. There is a 1:1 mapping between participant tokens and
+ *             participants.</p>
  *             </li>
  *          </ul>
+ *          <p>For server-side composition:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Composition process</b> — Composites participants
+ *             of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+ *             Composition endpoints support this process.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Composition</b> — Controls the look of the outputs,
+ *             including how participants are positioned in the video.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about your IVS live stream, also see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>.</p>
  *          <p>
  *             <b>Tagging</b>
  *          </p>
@@ -616,157 +692,6 @@ export interface IVSRealTime {
  *          <p>The Amazon IVS real-time API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
  *       <a>ListTagsForResource</a>. The following resource supports tagging: Stage.</p>
  *          <p>At most 50 tags can be applied to a resource.</p>
- *          <p>
- *             <b>Stages Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateParticipantToken</a> — Creates an additional token for a specified stage. This can be done after stage creation or when tokens expire.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStage</a> — Creates a new stage (and optionally participant tokens).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStage</a> — Shuts down and deletes the specified stage (disconnecting all participants).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DisconnectParticipant</a> — Disconnects a specified participant and revokes the participant permanently from a specified stage.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetParticipant</a> — Gets information about the specified
- *           participant token.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetStage</a> — Gets information for the specified stage.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetStageSession</a> — Gets information for the specified stage
- *           session.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListParticipantEvents</a> — Lists events for a specified
- *           participant that occurred during a specified stage session.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListParticipants</a> — Lists all participants in a specified stage
- *           session.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStages</a> — Gets summary information about all stages in your account, in the AWS region where the API request is processed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStageSessions</a> — Gets all sessions for a specified stage.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateStage</a> — Updates a stage’s configuration.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Composition Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetComposition</a> — Gets information about the specified
- *           Composition resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListCompositions</a> — Gets summary information about all
- *           Compositions in your account, in the AWS region where the API request is processed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartComposition</a> — Starts a Composition from a stage based on
- *           the configuration provided in the request.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StopComposition</a> — Stops and deletes a Composition resource.
- *           Any broadcast from the Composition resource is stopped.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>EncoderConfiguration Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
- *           resource. Ensures that no Compositions are using this template; otherwise, returns an
- *           error.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetEncoderConfiguration</a> — Gets information about the specified
- *           EncoderConfiguration resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListEncoderConfigurations</a> — Gets summary information about all
- *           EncoderConfigurations in your account, in the AWS region where the API request is
- *           processed.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>StorageConfiguration Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
- * 		recording to Amazon S3.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
- * 		account, in the AWS region where the API request is processed.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Tags Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListTagsForResource</a> — Gets information about AWS tags for the
- *           specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>TagResource</a> — Adds or updates tags for the AWS resource with
- *           the specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UntagResource</a> — Removes tags from the resource with the
- *           specified ARN.</p>
- *             </li>
- *          </ul>
  * @public
  */
 export class IVSRealTime extends IVSRealTimeClient implements IVSRealTime {}

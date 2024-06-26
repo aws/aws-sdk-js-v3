@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
-import { GetStageRequest, GetStageResponse } from "../models/models_0";
-import { de_GetStageCommand, se_GetStageCommand } from "../protocols/Aws_restJson1";
+import { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/models_0";
+import { de_GetPublicKeyCommand, se_GetPublicKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,56 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetStageCommand}.
+ * The input for {@link GetPublicKeyCommand}.
  */
-export interface GetStageCommandInput extends GetStageRequest {}
+export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
 /**
  * @public
  *
- * The output of {@link GetStageCommand}.
+ * The output of {@link GetPublicKeyCommand}.
  */
-export interface GetStageCommandOutput extends GetStageResponse, __MetadataBearer {}
+export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information for the specified stage.</p>
+ * <p>Gets information for the specified public key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IVSRealTimeClient, GetStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
- * // const { IVSRealTimeClient, GetStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
+ * import { IVSRealTimeClient, GetPublicKeyCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
+ * // const { IVSRealTimeClient, GetPublicKeyCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
- * const input = { // GetStageRequest
+ * const input = { // GetPublicKeyRequest
  *   arn: "STRING_VALUE", // required
  * };
- * const command = new GetStageCommand(input);
+ * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
- * // { // GetStageResponse
- * //   stage: { // Stage
- * //     arn: "STRING_VALUE", // required
+ * // { // GetPublicKeyResponse
+ * //   publicKey: { // PublicKey
+ * //     arn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
- * //     activeSessionId: "STRING_VALUE",
+ * //     publicKeyMaterial: "STRING_VALUE",
+ * //     fingerprint: "STRING_VALUE",
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
- * //       storageConfigurationArn: "STRING_VALUE", // required
- * //       mediaTypes: [ // ParticipantRecordingMediaTypeList
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //     endpoints: { // StageEndpoints
- * //       events: "STRING_VALUE",
- * //       whip: "STRING_VALUE",
  * //     },
  * //   },
  * // };
  *
  * ```
  *
- * @param GetStageCommandInput - {@link GetStageCommandInput}
- * @returns {@link GetStageCommandOutput}
- * @see {@link GetStageCommandInput} for command's `input` shape.
- * @see {@link GetStageCommandOutput} for command's `response` shape.
+ * @param GetPublicKeyCommandInput - {@link GetPublicKeyCommandInput}
+ * @returns {@link GetPublicKeyCommandOutput}
+ * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
+ * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -83,10 +74,10 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  *
  * @public
  */
-export class GetStageCommand extends $Command
+export class GetPublicKeyCommand extends $Command
   .classBuilder<
-    GetStageCommandInput,
-    GetStageCommandOutput,
+    GetPublicKeyCommandInput,
+    GetPublicKeyCommandOutput,
     IVSRealTimeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,9 +91,9 @@ export class GetStageCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonInteractiveVideoServiceRealTime", "GetStage", {})
-  .n("IVSRealTimeClient", "GetStageCommand")
+  .s("AmazonInteractiveVideoServiceRealTime", "GetPublicKey", {})
+  .n("IVSRealTimeClient", "GetPublicKeyCommand")
   .f(void 0, void 0)
-  .ser(se_GetStageCommand)
-  .de(de_GetStageCommand)
+  .ser(se_GetPublicKeyCommand)
+  .de(de_GetPublicKeyCommand)
   .build() {}
