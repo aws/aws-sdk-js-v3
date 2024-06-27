@@ -129,7 +129,6 @@ import {
   ModelClientConfig,
   ModelConfiguration,
   ModelPackageGroupStatus,
-  MonitoringExecutionSummary,
   NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
@@ -155,6 +154,91 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  COMPLETED: "Completed",
+  COMPLETED_WITH_VIOLATIONS: "CompletedWithViolations",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * <p>Summary of information about the last monitoring job to run.</p>
+ * @public
+ */
+export interface MonitoringExecutionSummary {
+  /**
+   * <p>The name of the monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The time the monitoring job was scheduled.</p>
+   * @public
+   */
+  ScheduledTime: Date | undefined;
+
+  /**
+   * <p>The time at which the monitoring job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates the last time the monitoring job was modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The status of the monitoring job.</p>
+   * @public
+   */
+  MonitoringExecutionStatus: ExecutionStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
+   * @public
+   */
+  ProcessingJobArn?: string;
+
+  /**
+   * <p>The name of the endpoint used to run the monitoring job.</p>
+   * @public
+   */
+  EndpointName?: string;
+
+  /**
+   * <p>Contains the reason a monitoring job failed, if it failed.</p>
+   * @public
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The name of the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName?: string;
+
+  /**
+   * <p>The type of the monitoring job.</p>
+   * @public
+   */
+  MonitoringType?: MonitoringType;
+}
 
 /**
  * @public
@@ -11293,37 +11377,3 @@ export interface ModelSummary {
    */
   CreationTime: Date | undefined;
 }
-
-/**
- * @public
- */
-export interface ListModelsOutput {
-  /**
-   * <p>An array of <code>ModelSummary</code> objects, each of which lists a
-   *             model.</p>
-   * @public
-   */
-  Models: ModelSummary[] | undefined;
-
-  /**
-   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             models, use it in the subsequent request. </p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const MonitoringAlertHistorySortKey = {
-  CreationTime: "CreationTime",
-  Status: "Status",
-} as const;
-
-/**
- * @public
- */
-export type MonitoringAlertHistorySortKey =
-  (typeof MonitoringAlertHistorySortKey)[keyof typeof MonitoringAlertHistorySortKey];

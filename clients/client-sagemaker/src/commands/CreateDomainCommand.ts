@@ -243,6 +243,14 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         },
  *       },
  *     ],
+ *     StudioWebPortalSettings: { // StudioWebPortalSettings
+ *       HiddenMlTools: [ // HiddenMlToolsList
+ *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects",
+ *       ],
+ *       HiddenAppTypes: [ // HiddenAppTypesList
+ *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
+ *       ],
+ *     },
  *   },
  *   DomainSettings: { // DomainSettings
  *     SecurityGroupIds: [ // DomainSecurityGroupIds

@@ -138,7 +138,6 @@ import {
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
-  MonitoringType,
   NeoVpcConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
@@ -154,6 +153,7 @@ import {
   RecommendationJobStoppingConditions,
   RecommendationJobType,
   RetryStrategy,
+  ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
@@ -162,6 +162,56 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateProjectInput {
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>A description for the project.</p>
+   * @public
+   */
+  ProjectDescription?: string;
+
+  /**
+   * <p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning
+   *             artifact ID will default to the latest provisioning artifact ID of the product, if you don't
+   *             provide the provisioning artifact ID. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   *                 Catalog</a>.</p>
+   * @public
+   */
+  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
+
+  /**
+   * <p>An array of key-value pairs that you want to use to organize and track your Amazon Web Services
+   *             resource costs. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateProjectOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The ID of the new project.</p>
+   * @public
+   */
+  ProjectId: string | undefined;
+}
 
 /**
  * <p>The collection of ownership settings for a space.</p>
@@ -2514,7 +2564,7 @@ export interface DeleteHubContentReferenceRequest {
   HubName: string | undefined;
 
   /**
-   * <p>The type of hub content to delete.</p>
+   * <p>The type of hub content reference to delete. The only supported type of hub content reference to delete is <code>ModelReference</code>.</p>
    * @public
    */
   HubContentType: HubContentType | undefined;
@@ -9584,91 +9634,6 @@ export interface DescribeMonitoringScheduleRequest {
    * @public
    */
   MonitoringScheduleName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  COMPLETED: "Completed",
-  COMPLETED_WITH_VIOLATIONS: "CompletedWithViolations",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-  STOPPED: "Stopped",
-  STOPPING: "Stopping",
-} as const;
-
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
-
-/**
- * <p>Summary of information about the last monitoring job to run.</p>
- * @public
- */
-export interface MonitoringExecutionSummary {
-  /**
-   * <p>The name of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The time the monitoring job was scheduled.</p>
-   * @public
-   */
-  ScheduledTime: Date | undefined;
-
-  /**
-   * <p>The time at which the monitoring job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>A timestamp that indicates the last time the monitoring job was modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The status of the monitoring job.</p>
-   * @public
-   */
-  MonitoringExecutionStatus: ExecutionStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
-   * @public
-   */
-  ProcessingJobArn?: string;
-
-  /**
-   * <p>The name of the endpoint used to run the monitoring job.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>Contains the reason a monitoring job failed, if it failed.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The name of the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName?: string;
-
-  /**
-   * <p>The type of the monitoring job.</p>
-   * @public
-   */
-  MonitoringType?: MonitoringType;
 }
 
 /**

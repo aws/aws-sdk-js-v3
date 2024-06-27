@@ -8938,7 +8938,7 @@ export interface ClarifyExplainerConfig {
 
 /**
  * <p>Defines the configuration for attaching an additional Amazon Elastic Block Store (EBS)
- *          volume to each instance of the SageMaker HyperPod cluster instance group.</p>
+ *          volume to each instance of the SageMaker HyperPod cluster instance group. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-notes.html#sagemaker-hyperpod-release-notes-20240620">SageMaker HyperPod release notes: June 20, 2024</a>.</p>
  * @public
  */
 export interface ClusterEbsVolumeConfig {
@@ -8954,7 +8954,7 @@ export interface ClusterEbsVolumeConfig {
 
 /**
  * <p>Defines the configuration for attaching additional storage to the instances in the
- *          SageMaker HyperPod cluster instance group.</p>
+ *          SageMaker HyperPod cluster instance group. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-notes.html#sagemaker-hyperpod-release-notes-20240620">SageMaker HyperPod release notes: June 20, 2024</a>.</p>
  * @public
  */
 export type ClusterInstanceStorageConfig =

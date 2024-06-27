@@ -7,6 +7,7 @@ import {
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AppSpecification,
+  AppType,
   AsyncInferenceConfig,
   AthenaDatasetDefinition,
   AuthMode,
@@ -2026,6 +2027,49 @@ export const StudioWebPortal = {
 export type StudioWebPortal = (typeof StudioWebPortal)[keyof typeof StudioWebPortal];
 
 /**
+ * @public
+ * @enum
+ */
+export const MlTools = {
+  AUTO_ML: "AutoMl",
+  DATA_WRANGLER: "DataWrangler",
+  EMR_CLUSTERS: "EmrClusters",
+  ENDPOINTS: "Endpoints",
+  EXPERIMENTS: "Experiments",
+  FEATURE_STORE: "FeatureStore",
+  INFERENCE_RECOMMENDER: "InferenceRecommender",
+  JUMP_START: "JumpStart",
+  MODELS: "Models",
+  MODEL_EVALUATION: "ModelEvaluation",
+  PIPELINES: "Pipelines",
+  PROJECTS: "Projects",
+  TRAINING: "Training",
+} as const;
+
+/**
+ * @public
+ */
+export type MlTools = (typeof MlTools)[keyof typeof MlTools];
+
+/**
+ * <p>Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.</p>
+ * @public
+ */
+export interface StudioWebPortalSettings {
+  /**
+   * <p>The machine learning tools that are hidden from the Studio left navigation pane.</p>
+   * @public
+   */
+  HiddenMlTools?: MlTools[];
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated-apps.html">Applications supported in Studio</a> that are hidden from the Studio left navigation pane.</p>
+   * @public
+   */
+  HiddenAppTypes?: AppType[];
+}
+
+/**
  * <p>The TensorBoard app settings.</p>
  * @public
  */
@@ -2161,6 +2205,12 @@ export interface UserSettings {
    * @public
    */
   CustomFileSystemConfigs?: CustomFileSystemConfig[];
+
+  /**
+   * <p>Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.</p>
+   * @public
+   */
+  StudioWebPortalSettings?: StudioWebPortalSettings;
 }
 
 /**
@@ -12671,56 +12721,6 @@ export interface ServiceCatalogProvisioningDetails {
    * @public
    */
   ProvisioningParameters?: ProvisioningParameter[];
-}
-
-/**
- * @public
- */
-export interface CreateProjectInput {
-  /**
-   * <p>The name of the project.</p>
-   * @public
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * <p>A description for the project.</p>
-   * @public
-   */
-  ProjectDescription?: string;
-
-  /**
-   * <p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning
-   *             artifact ID will default to the latest provisioning artifact ID of the product, if you don't
-   *             provide the provisioning artifact ID. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
-   *                 Catalog</a>.</p>
-   * @public
-   */
-  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
-
-  /**
-   * <p>An array of key-value pairs that you want to use to organize and track your Amazon Web Services
-   *             resource costs. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateProjectOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   * @public
-   */
-  ProjectArn: string | undefined;
-
-  /**
-   * <p>The ID of the new project.</p>
-   * @public
-   */
-  ProjectId: string | undefined;
 }
 
 /**

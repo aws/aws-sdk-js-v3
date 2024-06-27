@@ -99,7 +99,6 @@ import {
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   EndpointStatus,
-  ExecutionStatus,
   FeatureParameter,
   HyperParameterTrainingJobSummary,
   MemberDefinition,
@@ -107,7 +106,6 @@ import {
   ModelClientConfig,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
-  MonitoringExecutionSummary,
   NotificationConfiguration,
   OidcConfig,
   OidcConfigFilterSensitiveLog,
@@ -136,6 +134,7 @@ import {
   Edge,
   EMRStepMetadata,
   Endpoint,
+  ExecutionStatus,
   Experiment,
   FailStepMetadata,
   FeatureGroup,
@@ -147,7 +146,8 @@ import {
   LambdaStepMetadata,
   LineageType,
   MetricData,
-  MonitoringAlertHistorySortKey,
+  ModelSummary,
+  MonitoringExecutionSummary,
   NotebookInstanceStatus,
   PipelineExecutionStatus,
   PipelineExperimentConfig,
@@ -174,6 +174,40 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListModelsOutput {
+  /**
+   * <p>An array of <code>ModelSummary</code> objects, each of which lists a
+   *             model.</p>
+   * @public
+   */
+  Models: ModelSummary[] | undefined;
+
+  /**
+   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *             models, use it in the subsequent request. </p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringAlertHistorySortKey = {
+  CreationTime: "CreationTime",
+  Status: "Status",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringAlertHistorySortKey =
+  (typeof MonitoringAlertHistorySortKey)[keyof typeof MonitoringAlertHistorySortKey];
 
 /**
  * @public

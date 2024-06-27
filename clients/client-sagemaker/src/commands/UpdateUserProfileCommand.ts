@@ -200,6 +200,14 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *         },
  *       },
  *     ],
+ *     StudioWebPortalSettings: { // StudioWebPortalSettings
+ *       HiddenMlTools: [ // HiddenMlToolsList
+ *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects",
+ *       ],
+ *       HiddenAppTypes: [ // HiddenAppTypesList
+ *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateUserProfileCommand(input);

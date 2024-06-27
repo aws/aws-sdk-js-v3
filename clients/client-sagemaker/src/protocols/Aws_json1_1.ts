@@ -906,6 +906,7 @@ import {
   AppDetails,
   AppImageConfigDetails,
   AppSpecification,
+  AppType,
   ArtifactSource,
   ArtifactSourceType,
   ArtifactSummary,
@@ -1184,8 +1185,6 @@ import {
   CreatePresignedNotebookInstanceUrlOutput,
   CreateProcessingJobRequest,
   CreateProcessingJobResponse,
-  CreateProjectInput,
-  CreateProjectOutput,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1258,6 +1257,7 @@ import {
   LabelingJobS3DataSource,
   LabelingJobSnsDataSource,
   LabelingJobStoppingConditions,
+  MlTools,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
@@ -1348,6 +1348,7 @@ import {
   SourceAlgorithm,
   SourceAlgorithmSpecification,
   Stairs,
+  StudioWebPortalSettings,
   TargetPlatform,
   TensorBoardAppSettings,
   ThroughputConfig,
@@ -1360,6 +1361,8 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateProjectInput,
+  CreateProjectOutput,
   CreateSpaceRequest,
   CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
@@ -1584,7 +1587,6 @@ import {
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   ModelVariantConfigSummary,
-  MonitoringExecutionSummary,
   NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
@@ -1819,7 +1821,6 @@ import {
   ListModelQualityJobDefinitionsRequest,
   ListModelQualityJobDefinitionsResponse,
   ListModelsInput,
-  ListModelsOutput,
   MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
@@ -1831,6 +1832,7 @@ import {
   ModelPackageGroupSummary,
   ModelPackageSummary,
   ModelSummary,
+  MonitoringExecutionSummary,
   MonitoringJobDefinitionSummary,
   MonitoringSchedule,
   OidcConfigForResponse,
@@ -1862,6 +1864,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListModelsOutput,
   ListMonitoringAlertHistoryRequest,
   ListMonitoringAlertHistoryResponse,
   ListMonitoringAlertsRequest,
@@ -14014,6 +14017,10 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 
 // se_Groups omitted.
 
+// se_HiddenAppTypesList omitted.
+
+// se_HiddenMlToolsList omitted.
+
 // se_HolidayConfig omitted.
 
 // se_HolidayConfigAttributes omitted.
@@ -15953,6 +15960,8 @@ const se_StopPipelineExecutionRequest = (input: StopPipelineExecutionRequest, co
 // se_StopTrainingJobRequest omitted.
 
 // se_StopTransformJobRequest omitted.
+
+// se_StudioWebPortalSettings omitted.
 
 // se_Subnets omitted.
 
@@ -21974,6 +21983,30 @@ const de_Groups = (output: any, context: __SerdeContext): string[] => {
 };
 
 /**
+ * deserializeAws_json1_1HiddenAppTypesList
+ */
+const de_HiddenAppTypesList = (output: any, context: __SerdeContext): AppType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1HiddenMlToolsList
+ */
+const de_HiddenMlToolsList = (output: any, context: __SerdeContext): MlTools[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1HolidayConfig
  */
 const de_HolidayConfig = (output: any, context: __SerdeContext): HolidayConfigAttributes[] => {
@@ -27958,6 +27991,16 @@ const de_StudioLifecycleConfigsList = (output: any, context: __SerdeContext): St
 };
 
 /**
+ * deserializeAws_json1_1StudioWebPortalSettings
+ */
+const de_StudioWebPortalSettings = (output: any, context: __SerdeContext): StudioWebPortalSettings => {
+  return take(output, {
+    HiddenAppTypes: (_: any) => de_HiddenAppTypesList(_, context),
+    HiddenMlTools: (_: any) => de_HiddenMlToolsList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1Subnets
  */
 const de_Subnets = (output: any, context: __SerdeContext): string[] => {
@@ -29325,6 +29368,7 @@ const de_UserSettings = (output: any, context: __SerdeContext): UserSettings => 
     SharingSettings: (_: any) => de_SharingSettings(_, context),
     SpaceStorageSettings: (_: any) => de_DefaultSpaceStorageSettings(_, context),
     StudioWebPortal: __expectString,
+    StudioWebPortalSettings: (_: any) => de_StudioWebPortalSettings(_, context),
     TensorBoardAppSettings: (_: any) => de_TensorBoardAppSettings(_, context),
   }) as any;
 };

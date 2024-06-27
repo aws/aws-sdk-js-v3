@@ -199,6 +199,14 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         },
  *       },
  *     ],
+ *     StudioWebPortalSettings: { // StudioWebPortalSettings
+ *       HiddenMlTools: [ // HiddenMlToolsList
+ *         "DataWrangler" || "FeatureStore" || "EmrClusters" || "AutoMl" || "Experiments" || "Training" || "ModelEvaluation" || "Pipelines" || "Models" || "JumpStart" || "InferenceRecommender" || "Endpoints" || "Projects",
+ *       ],
+ *       HiddenAppTypes: [ // HiddenAppTypesList
+ *         "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
+ *       ],
+ *     },
  *   },
  *   DomainSettingsForUpdate: { // DomainSettingsForUpdate
  *     RStudioServerProDomainSettingsForUpdate: { // RStudioServerProDomainSettingsForUpdate
