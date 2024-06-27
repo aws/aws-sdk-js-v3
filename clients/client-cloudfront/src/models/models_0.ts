@@ -294,7 +294,7 @@ export interface CachedMethods {
 
   /**
    * <p>A complex type that contains the HTTP methods that you want CloudFront to cache responses
-   * 			to.</p>
+   * 			to. Valid values for <code>CachedMethods</code> include <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code>, depending on which caching option you choose. For more information, see the preceding section.</p>
    * @public
    */
   Items: Method[] | undefined;
@@ -944,8 +944,9 @@ export type ViewerProtocolPolicy = (typeof ViewerProtocolPolicy)[keyof typeof Vi
  * 			you can add to a distribution, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  *          <p>If you don't want to specify any cache behaviors, include only an empty
- * 			<code>CacheBehaviors</code> element. For more information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html">CacheBehaviors</a>. Don't include an empty
- * 				<code>CacheBehavior</code> element because this is invalid.</p>
+ * 				<code>CacheBehaviors</code> element. Don't specify an empty individual
+ * 				<code>CacheBehavior</code> element, because this is invalid. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html">CacheBehaviors</a>. </p>
  *          <p>To delete all cache behaviors in an existing distribution, update the distribution
  * 			configuration and include only an empty <code>CacheBehaviors</code> element.</p>
  *          <p>To add, change, or remove one or more cache behaviors, update the distribution
