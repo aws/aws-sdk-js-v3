@@ -48,7 +48,9 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
           body: "",
         }),
       });
-      const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
+      const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {
+        commandName: "CompleteMultipartUploadCommand",
+      } as any);
       try {
         await handler({
           input: {},
@@ -90,6 +92,39 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
       expect(HttpResponse.isInstance(response)).toBe(true);
       // @ts-ignore
       expect(response.statusCode).toBeGreaterThanOrEqual(400);
+    });
+
+    it("should not throw if the Error tag is not the top XML element", async () => {
+      const errorBody = `<?xml version="1.0" encoding="UTF-8"?>
+<DeleteResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+ <Deleted>
+   <Key>sample1.txt</Key>
+ </Deleted>
+ <Error>
+  <Key>sample2.txt</Key>
+  <Code>AccessDenied</Code>
+  <Message>Access Denied</Message>
+ </Error>
+</DeleteResult>`;
+      mockStreamCollector.mockResolvedValue(Buffer.from(errorBody));
+      mockUtf8Encoder.mockReturnValue(errorBody);
+      mockNextHandler.mockReturnValue({
+        response: new HttpResponse({
+          statusCode: 200,
+          headers: {},
+          body: "",
+        }),
+      });
+      const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
+      const { response } = await handler({
+        input: {},
+        request: new HttpRequest({
+          hostname: "s3.us-east-1.amazonaws.com",
+        }),
+      });
+      expect(HttpResponse.isInstance(response)).toBe(true);
+      // @ts-ignore
+      expect(response.statusCode).toEqual(200);
     });
   });
 });
