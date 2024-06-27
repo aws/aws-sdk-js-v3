@@ -38,7 +38,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * const input = { // CreateConfigurationRequest
  *   AuthenticationStrategy: "SIMPLE" || "LDAP",
  *   EngineType: "ACTIVEMQ" || "RABBITMQ", // required
- *   EngineVersion: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   Tags: { // __mapOf__string
  *     "<keys>": "STRING_VALUE",
