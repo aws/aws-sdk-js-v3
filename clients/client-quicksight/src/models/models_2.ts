@@ -8,17 +8,26 @@ import {
   AmazonOpenSearchParameters,
   AnalysisDefaults,
   AssetOptions,
+  AxisDisplayOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ChartAxisLabelOptions,
   ColumnConfiguration,
   ColumnConfigurationFilterSensitiveLog,
   DashboardBehavior,
+  DataLabelOptions,
+  DataLabelOptionsFilterSensitiveLog,
   DataSetIdentifierDeclaration,
+  DimensionField,
   Edition,
+  FieldSortOptions,
   FilterControl,
   FilterGroup,
+  ItemsLimitConfiguration,
   Layout,
+  LegendOptions,
+  MeasureField,
+  MeasureFieldFilterSensitiveLog,
   ParameterControl,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
@@ -60,16 +69,226 @@ import {
   ScatterPlotVisualFilterSensitiveLog,
   TableVisual,
   TreeMapVisual,
+  VisualPalette,
+  VisualPaletteFilterSensitiveLog,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
-  WaterfallVisual,
-  WordCloudCloudLayout,
-  WordCloudFieldWells,
-  WordCloudSortConfiguration,
-  WordCloudWordCasing,
+  WaterfallChartColorConfiguration,
+  WaterfallChartFieldWells,
+  WaterfallChartSortConfiguration,
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The options that determine the presentation of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartOptions {
+  /**
+   * <p>This option determines the total bar label of a waterfall visual.</p>
+   * @public
+   */
+  TotalBarLabel?: string;
+}
+
+/**
+ * <p>The configuration for a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartConfiguration {
+  /**
+   * <p>The field well configuration of a waterfall visual.</p>
+   * @public
+   */
+  FieldWells?: WaterfallChartFieldWells;
+
+  /**
+   * <p>The sort configuration of a waterfall visual.</p>
+   * @public
+   */
+  SortConfiguration?: WaterfallChartSortConfiguration;
+
+  /**
+   * <p>The options that determine the presentation of a waterfall visual.</p>
+   * @public
+   */
+  WaterfallChartOptions?: WaterfallChartOptions;
+
+  /**
+   * <p>The options that determine the presentation of the category axis label.</p>
+   * @public
+   */
+  CategoryAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The options that determine the presentation of the category axis.</p>
+   * @public
+   */
+  CategoryAxisDisplayOptions?: AxisDisplayOptions;
+
+  /**
+   * <p>The options that determine the presentation of the y-axis label.</p>
+   * @public
+   */
+  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The options that determine the presentation of the y-axis.</p>
+   * @public
+   */
+  PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
+
+  /**
+   * <p>The legend configuration of a waterfall visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions;
+
+  /**
+   * <p>The data label configuration of a waterfall visual.</p>
+   * @public
+   */
+  DataLabels?: DataLabelOptions;
+
+  /**
+   * <p>The visual palette configuration of a waterfall visual.</p>
+   * @public
+   */
+  VisualPalette?: VisualPalette;
+
+  /**
+   * <p>The color configuration of a waterfall visual.</p>
+   * @public
+   */
+  ColorConfiguration?: WaterfallChartColorConfiguration;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions;
+}
+
+/**
+ * <p>A waterfall chart.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/waterfall-chart.html">Using waterfall charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ * @public
+ */
+export interface WaterfallVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions;
+
+  /**
+   * <p>The configuration for a waterfall visual.</p>
+   * @public
+   */
+  ChartConfiguration?: WaterfallChartConfiguration;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[];
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   * @public
+   */
+  ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
+ * <p>The aggregated field wells of a word cloud.</p>
+ * @public
+ */
+export interface WordCloudAggregatedFieldWells {
+  /**
+   * <p>The group by field well of a word cloud. Values are grouped by group by fields.</p>
+   * @public
+   */
+  GroupBy?: DimensionField[];
+
+  /**
+   * <p>The size field well of a word cloud. Values are aggregated based on group by fields.</p>
+   * @public
+   */
+  Size?: MeasureField[];
+}
+
+/**
+ * <p>The field wells of a word cloud visual.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface WordCloudFieldWells {
+  /**
+   * <p>The aggregated field wells of a word cloud.</p>
+   * @public
+   */
+  WordCloudAggregatedFieldWells?: WordCloudAggregatedFieldWells;
+}
+
+/**
+ * <p>The sort configuration of a word cloud visual.</p>
+ * @public
+ */
+export interface WordCloudSortConfiguration {
+  /**
+   * <p>The limit on the number of groups that are displayed in a word cloud.</p>
+   * @public
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration;
+
+  /**
+   * <p>The sort configuration of group by fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudCloudLayout = {
+  FLUID: "FLUID",
+  NORMAL: "NORMAL",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudCloudLayout = (typeof WordCloudCloudLayout)[keyof typeof WordCloudCloudLayout];
+
+/**
+ * @public
+ * @enum
+ */
+export const WordCloudWordCasing = {
+  EXISTING_CASE: "EXISTING_CASE",
+  LOWER_CASE: "LOWER_CASE",
+} as const;
+
+/**
+ * @public
+ */
+export type WordCloudWordCasing = (typeof WordCloudWordCasing)[keyof typeof WordCloudWordCasing];
 
 /**
  * @public
@@ -8772,128 +8991,35 @@ export interface CreateTemplateAliasResponse {
 }
 
 /**
- * <p>The theme colors that are used for data colors in charts. The colors description is a
- *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
- *                 <code>#</code>, for example #37BFF5. </p>
- * @public
+ * @internal
  */
-export interface DataColorPalette {
-  /**
-   * <p>The hexadecimal codes for the colors.</p>
-   * @public
-   */
-  Colors?: string[];
-
-  /**
-   * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
-   * @public
-   */
-  MinMaxGradient?: string[];
-
-  /**
-   * <p>The hexadecimal code of a color that applies to charts where a lack of data is
-   *             highlighted.</p>
-   * @public
-   */
-  EmptyFillColor?: string;
-}
+export const WaterfallChartConfigurationFilterSensitiveLog = (obj: WaterfallChartConfiguration): any => ({
+  ...obj,
+  ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
+  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
+});
 
 /**
- * <p>Display options related to tiles on a sheet.</p>
- * @public
+ * @internal
  */
-export interface TileStyle {
-  /**
-   * <p>The border around a tile.</p>
-   * @public
-   */
-  Border?: BorderStyle;
-}
+export const WaterfallVisualFilterSensitiveLog = (obj: WaterfallVisual): any => ({
+  ...obj,
+});
 
 /**
- * <p>The display options for gutter spacing between tiles on a sheet.</p>
- * @public
+ * @internal
  */
-export interface GutterStyle {
-  /**
-   * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
-   *         </p>
-   * @public
-   */
-  Show?: boolean;
-}
+export const WordCloudAggregatedFieldWellsFilterSensitiveLog = (obj: WordCloudAggregatedFieldWells): any => ({
+  ...obj,
+  ...(obj.Size && { Size: obj.Size.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+});
 
 /**
- * <p>The display options for margins around the outside edge of sheets.</p>
- * @public
+ * @internal
  */
-export interface MarginStyle {
-  /**
-   * <p>This Boolean value controls whether to display sheet margins.</p>
-   * @public
-   */
-  Show?: boolean;
-}
-
-/**
- * <p>The display options for the layout of tiles on a sheet.</p>
- * @public
- */
-export interface TileLayoutStyle {
-  /**
-   * <p>The gutter settings that apply between tiles. </p>
-   * @public
-   */
-  Gutter?: GutterStyle;
-
-  /**
-   * <p>The margin settings that apply around the outside edge of sheets.</p>
-   * @public
-   */
-  Margin?: MarginStyle;
-}
-
-/**
- * <p>The theme display options for sheets. </p>
- * @public
- */
-export interface SheetStyle {
-  /**
-   * <p>The display options for tiles.</p>
-   * @public
-   */
-  Tile?: TileStyle;
-
-  /**
-   * <p>The layout options for tiles.</p>
-   * @public
-   */
-  TileLayout?: TileLayoutStyle;
-}
-
-/**
- * <p>Determines the font settings.</p>
- * @public
- */
-export interface Font {
-  /**
-   * <p>Determines the font family settings.</p>
-   * @public
-   */
-  FontFamily?: string;
-}
-
-/**
- * <p>Determines the typography options.</p>
- * @public
- */
-export interface Typography {
-  /**
-   * <p>Determines the list of font families.</p>
-   * @public
-   */
-  FontFamilies?: Font[];
-}
+export const WordCloudFieldWellsFilterSensitiveLog = (obj: WordCloudFieldWells): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -2487,6 +2487,73 @@ export interface CategoryFilter {
 }
 
 /**
+ * <p>A <code>CategoryInnerFilter</code> filters text values for the <code>NestedFilter</code>.</p>
+ * @public
+ */
+export interface CategoryInnerFilter {
+  /**
+   * <p>A column of a data set.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The configuration for a <code>CategoryFilter</code>.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  Configuration: CategoryFilterConfiguration | undefined;
+
+  /**
+   * <p>The default configuration for all dependent controls of the filter.</p>
+   * @public
+   */
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
+}
+
+/**
+ * <p>The <code>InnerFilter</code> defines the subset of data to be used with the <code>NestedFilter</code>.</p>
+ * @public
+ */
+export interface InnerFilter {
+  /**
+   * <p>A <code>CategoryInnerFilter</code> filters text values for the <code>NestedFilter</code>.</p>
+   * @public
+   */
+  CategoryInnerFilter?: CategoryInnerFilter;
+}
+
+/**
+ * <p>A <code>NestedFilter</code> filters data with a subset of data that is defined by the nested inner filter.</p>
+ * @public
+ */
+export interface NestedFilter {
+  /**
+   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * @public
+   */
+  FilterId: string | undefined;
+
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.</p>
+   * @public
+   */
+  IncludeInnerSet: boolean | undefined;
+
+  /**
+   * <p>The <code>InnerFilter</code> defines the subset of data to be used with the <code>NestedFilter</code>.</p>
+   * @public
+   */
+  InnerFilter: InnerFilter | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3211,6 +3278,12 @@ export interface Filter {
    * @public
    */
   TopBottomFilter?: TopBottomFilter;
+
+  /**
+   * <p>A <code>NestedFilter</code> filters data with a subset of data that is defined by the nested inner filter.</p>
+   * @public
+   */
+  NestedFilter?: NestedFilter;
 }
 
 /**
@@ -4588,6 +4661,132 @@ export interface SectionPageBreakConfiguration {
 }
 
 /**
+ * <p>The sort configuration for a column that is not used in a field well.</p>
+ * @public
+ */
+export interface ColumnSort {
+  /**
+   * <p>A column of a data set.</p>
+   * @public
+   */
+  SortBy: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The sort direction.</p>
+   * @public
+   */
+  Direction: SortDirection | undefined;
+
+  /**
+   * <p>The aggregation function that is defined in the column sort.</p>
+   * @public
+   */
+  AggregationFunction?: AggregationFunction;
+}
+
+/**
+ * <p>Describes the <b>Category</b> dataset column and constraints for the dynamic values used to repeat the contents of a section.</p>
+ * @public
+ */
+export interface BodySectionDynamicCategoryDimensionConfiguration {
+  /**
+   * <p>A column of a data set.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>Number of values to use from the column for repetition.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>Sort criteria on the column values that you use for repetition. </p>
+   * @public
+   */
+  SortByMetrics?: ColumnSort[];
+}
+
+/**
+ * <p>Describes the <b>Numeric</b> dataset column and constraints for the dynamic values used to repeat the  contents of a section.</p>
+ * @public
+ */
+export interface BodySectionDynamicNumericDimensionConfiguration {
+  /**
+   * <p>A column of a data set.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>Number of values to use from the column for repetition.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>Sort criteria on the column values that you use for repetition. </p>
+   * @public
+   */
+  SortByMetrics?: ColumnSort[];
+}
+
+/**
+ * <p>Describes the dataset column and constraints for the dynamic values used to repeat the contents of a section. The dataset column is either <b>Category</b> or <b>Numeric</b> column configuration</p>
+ * @public
+ */
+export interface BodySectionRepeatDimensionConfiguration {
+  /**
+   * <p>Describes the <b>Category</b> dataset column and constraints around the dynamic values that will be used in repeating the section contents.</p>
+   * @public
+   */
+  DynamicCategoryDimensionConfiguration?: BodySectionDynamicCategoryDimensionConfiguration;
+
+  /**
+   * <p>Describes the <b>Numeric</b> dataset column and constraints around the dynamic values used to repeat the  contents of a section.</p>
+   * @public
+   */
+  DynamicNumericDimensionConfiguration?: BodySectionDynamicNumericDimensionConfiguration;
+}
+
+/**
+ * <p>The page break configuration to apply for each repeating instance.</p>
+ * @public
+ */
+export interface BodySectionRepeatPageBreakConfiguration {
+  /**
+   * <p>The configuration of a page break after a section.</p>
+   * @public
+   */
+  After?: SectionAfterPageBreak;
+}
+
+/**
+ * <p>Describes the configurations that are required to declare a section as repeating.</p>
+ * @public
+ */
+export interface BodySectionRepeatConfiguration {
+  /**
+   * <p>List of <code>BodySectionRepeatDimensionConfiguration</code> values that describe the dataset column and constraints for the column used to repeat the contents of a section.</p>
+   * @public
+   */
+  DimensionConfigurations?: BodySectionRepeatDimensionConfiguration[];
+
+  /**
+   * <p>Page break configuration to apply for each repeating instance.</p>
+   * @public
+   */
+  PageBreakConfiguration?: BodySectionRepeatPageBreakConfiguration;
+
+  /**
+   * <p>List of visuals to exclude from repetition in repeating sections. The visuals will render identically, and ignore the repeating configurations in all repeating instances.</p>
+   * @public
+   */
+  NonRepeatingVisuals?: string[];
+}
+
+/**
  * <p>The options that style a section.</p>
  * @public
  */
@@ -4635,6 +4834,12 @@ export interface BodySectionConfiguration {
    * @public
    */
   PageBreakConfiguration?: SectionPageBreakConfiguration;
+
+  /**
+   * <p>Describes the configurations that are required to declare a section as repeating.</p>
+   * @public
+   */
+  RepeatConfiguration?: BodySectionRepeatConfiguration;
 }
 
 /**
@@ -7178,30 +7383,6 @@ export interface ItemsLimitConfiguration {
 }
 
 /**
- * <p>The sort configuration for a column that is not used in a field well.</p>
- * @public
- */
-export interface ColumnSort {
-  /**
-   * <p>A column of a data set.</p>
-   * @public
-   */
-  SortBy: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The sort direction.</p>
-   * @public
-   */
-  Direction: SortDirection | undefined;
-
-  /**
-   * <p>The aggregation function that is defined in the column sort.</p>
-   * @public
-   */
-  AggregationFunction?: AggregationFunction;
-}
-
-/**
  * <p>The sort configuration for a field in a
  *             field well.</p>
  * @public
@@ -7340,198 +7521,6 @@ export interface ColumnTooltipItem {
    * @public
    */
   TooltipTarget?: TooltipTarget;
-}
-
-/**
- * <p>The tooltip item for the fields.</p>
- * @public
- */
-export interface FieldTooltipItem {
-  /**
-   * <p>The unique ID of the field that is targeted by the tooltip.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The label of the tooltip item.</p>
-   * @public
-   */
-  Label?: string;
-
-  /**
-   * <p>The visibility of the tooltip item.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-
-  /**
-   * <p>Determines the target of the field tooltip item in a combo chart visual.</p>
-   * @public
-   */
-  TooltipTarget?: TooltipTarget;
-}
-
-/**
- * <p>The tooltip.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface TooltipItem {
-  /**
-   * <p>The tooltip item for the fields.</p>
-   * @public
-   */
-  FieldTooltipItem?: FieldTooltipItem;
-
-  /**
-   * <p>The tooltip item for the columns that are not part of a field well.</p>
-   * @public
-   */
-  ColumnTooltipItem?: ColumnTooltipItem;
-}
-
-/**
- * @public
- * @enum
- */
-export const TooltipTitleType = {
-  NONE: "NONE",
-  PRIMARY_VALUE: "PRIMARY_VALUE",
-} as const;
-
-/**
- * @public
- */
-export type TooltipTitleType = (typeof TooltipTitleType)[keyof typeof TooltipTitleType];
-
-/**
- * <p>The setup for the detailed tooltip.</p>
- * @public
- */
-export interface FieldBasedTooltip {
-  /**
-   * <p>The visibility of <code>Show aggregations</code>.</p>
-   * @public
-   */
-  AggregationVisibility?: Visibility;
-
-  /**
-   * <p>The type for the >tooltip title. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NONE</code>: Doesn't use the primary value as the title.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PRIMARY_VALUE</code>: Uses primary value as the title.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TooltipTitleType?: TooltipTitleType;
-
-  /**
-   * <p>The fields configuration in the
-   *             tooltip.</p>
-   * @public
-   */
-  TooltipFields?: TooltipItem[];
-}
-
-/**
- * @public
- * @enum
- */
-export const SelectedTooltipType = {
-  BASIC: "BASIC",
-  DETAILED: "DETAILED",
-} as const;
-
-/**
- * @public
- */
-export type SelectedTooltipType = (typeof SelectedTooltipType)[keyof typeof SelectedTooltipType];
-
-/**
- * <p>The display options for the visual tooltip.</p>
- * @public
- */
-export interface TooltipOptions {
-  /**
-   * <p>Determines whether or not the tooltip is visible.</p>
-   * @public
-   */
-  TooltipVisibility?: Visibility;
-
-  /**
-   * <p>The selected type for the tooltip. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BASIC</code>: A basic tooltip.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DETAILED</code>: A detailed tooltip.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SelectedTooltipType?: SelectedTooltipType;
-
-  /**
-   * <p>The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.</p>
-   * @public
-   */
-  FieldBasedTooltip?: FieldBasedTooltip;
-}
-
-/**
- * @public
- * @enum
- */
-export const PivotTableDataPathType = {
-  COUNT_METRIC_COLUMN: "COUNT_METRIC_COLUMN",
-  EMPTY_COLUMN_HEADER: "EMPTY_COLUMN_HEADER",
-  HIERARCHY_ROWS_LAYOUT_COLUMN: "HIERARCHY_ROWS_LAYOUT_COLUMN",
-  MULTIPLE_ROW_METRICS_COLUMN: "MULTIPLE_ROW_METRICS_COLUMN",
-} as const;
-
-/**
- * @public
- */
-export type PivotTableDataPathType = (typeof PivotTableDataPathType)[keyof typeof PivotTableDataPathType];
-
-/**
- * <p>The type of the data path value.</p>
- * @public
- */
-export interface DataPathType {
-  /**
-   * <p>The type of data path value utilized in a pivot table. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HIERARCHY_ROWS_LAYOUT_COLUMN</code> - The type of data path for the rows layout column, when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTIPLE_ROW_METRICS_COLUMN</code> - The type of data path for the metric column when the row is set to Metric Placement.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EMPTY_COLUMN_HEADER</code> - The type of data path for the column with empty column header, when there is no field in <code>ColumnsFieldWell</code> and the row is set to Metric Placement.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT_METRIC_COLUMN</code> - The type of data path for the column with <code>COUNT</code> as the metric, when there is no field in the <code>ValuesFieldWell</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PivotTableDataPathType?: PivotTableDataPathType;
 }
 
 /**

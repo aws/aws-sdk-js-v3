@@ -528,6 +528,11 @@ import {
   BarChartSortConfiguration,
   BodySectionConfiguration,
   BodySectionContent,
+  BodySectionDynamicCategoryDimensionConfiguration,
+  BodySectionDynamicNumericDimensionConfiguration,
+  BodySectionRepeatConfiguration,
+  BodySectionRepeatDimensionConfiguration,
+  BodySectionRepeatPageBreakConfiguration,
   CalculatedField,
   CalculatedMeasureField,
   CascadingControlConfiguration,
@@ -536,6 +541,7 @@ import {
   CategoricalMeasureField,
   CategoryFilter,
   CategoryFilterConfiguration,
+  CategoryInnerFilter,
   ChartAxisLabelOptions,
   ColorsConfiguration,
   ColumnConfiguration,
@@ -557,7 +563,6 @@ import {
   DataLabelOptions,
   DataLabelType,
   DataPathLabelType,
-  DataPathType,
   DataSetIdentifierDeclaration,
   DateAxisOptions,
   DateDimensionField,
@@ -591,11 +596,9 @@ import {
   DropDownControlDisplayOptions,
   DynamicDefaultValue,
   ExcludePeriodConfiguration,
-  FieldBasedTooltip,
   FieldLabelType,
   FieldSort,
   FieldSortOptions,
-  FieldTooltipItem,
   Filter,
   FilterControl,
   FilterCrossSheetControl,
@@ -628,6 +631,7 @@ import {
   GridLayoutElement,
   GridLayoutScreenCanvasSizeOptions,
   HeaderFooterSectionConfiguration,
+  InnerFilter,
   IntegerDefaultValues,
   IntegerParameterDeclaration,
   IntegerValueWhenUnsetConfiguration,
@@ -646,6 +650,7 @@ import {
   MeasureField,
   MinimumLabelType,
   NegativeValueConfiguration,
+  NestedFilter,
   NullValueFormatConfiguration,
   NumberDisplayFormatConfiguration,
   NumberFormatConfiguration,
@@ -717,8 +722,6 @@ import {
   TimeEqualityFilter,
   TimeRangeFilter,
   TimeRangeFilterValue,
-  TooltipItem,
-  TooltipOptions,
   TopBottomFilter,
   VisibleRangeOptions,
   VisualCustomAction,
@@ -771,6 +774,7 @@ import {
   DataFieldSeriesItem,
   DataPathColor,
   DataPathSort,
+  DataPathType,
   DataPathValue,
   DateTimeHierarchy,
   DonutCenterOptions,
@@ -778,7 +782,9 @@ import {
   DrillDownFilter,
   EmptyVisual,
   ExplicitHierarchy,
+  FieldBasedTooltip,
   FieldSeriesItem,
+  FieldTooltipItem,
   FilledMapAggregatedFieldWells,
   FilledMapConditionalFormatting,
   FilledMapConditionalFormattingOption,
@@ -949,6 +955,8 @@ import {
   TextConditionalFormat,
   TimeBasedForecastProperties,
   TimeRangeDrillDownFilter,
+  TooltipItem,
+  TooltipOptions,
   TopBottomMoversComputation,
   TopBottomRankedComputation,
   TotalAggregationComputation,
@@ -968,17 +976,11 @@ import {
   VisualTitleLabelOptions,
   WaterfallChartAggregatedFieldWells,
   WaterfallChartColorConfiguration,
-  WaterfallChartConfiguration,
   WaterfallChartFieldWells,
   WaterfallChartGroupColorConfiguration,
-  WaterfallChartOptions,
   WaterfallChartSortConfiguration,
-  WaterfallVisual,
   WhatIfPointScenario,
   WhatIfRangeScenario,
-  WordCloudAggregatedFieldWells,
-  WordCloudFieldWells,
-  WordCloudSortConfiguration,
   YAxisOptions,
 } from "../models/models_1";
 import {
@@ -1073,7 +1075,6 @@ import {
   DashboardVisualId,
   DashboardVisualPublishOptions,
   DatabricksParameters,
-  DataColorPalette,
   DataPointDrillUpDownOption,
   DataPointMenuLabelOption,
   DataPointTooltipOption,
@@ -1096,9 +1097,7 @@ import {
   ExportWithHiddenFieldsOption,
   FieldFolder,
   FilterOperation,
-  Font,
   GeoSpatialColumnGroup,
-  GutterStyle,
   IdentityCenterConfiguration,
   InputColumn,
   IntegerDatasetParameter,
@@ -1114,7 +1113,6 @@ import {
   LogicalTable,
   LogicalTableSource,
   ManifestFileLocation,
-  MarginStyle,
   MariaDbParameters,
   MySqlParameters,
   NewDefaultValues,
@@ -1147,7 +1145,6 @@ import {
   SheetControlsOption,
   SheetDefinition,
   SheetLayoutElementMaximizationOption,
-  SheetStyle,
   SnapshotFile,
   SnapshotFileSheetSelection,
   SnapshotS3DestinationConfiguration,
@@ -1167,12 +1164,9 @@ import {
   TemplateVersionDefinition,
   TeradataParameters,
   ThrottlingException,
-  TileLayoutStyle,
-  TileStyle,
   TransformOperation,
   TrinoParameters,
   TwitterParameters,
-  Typography,
   UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
@@ -1180,8 +1174,14 @@ import {
   Visual,
   VisualAxisSortOption,
   VpcConnectionProperties,
+  WaterfallChartConfiguration,
+  WaterfallChartOptions,
+  WaterfallVisual,
+  WordCloudAggregatedFieldWells,
   WordCloudChartConfiguration,
+  WordCloudFieldWells,
   WordCloudOptions,
+  WordCloudSortConfiguration,
   WordCloudVisual,
 } from "../models/models_2";
 import {
@@ -1191,6 +1191,7 @@ import {
   DashboardVersion,
   DashboardVersionSummary,
   DataAggregation,
+  DataColorPalette,
   DataSet,
   DatasetMetadata,
   DataSetRefreshProperties,
@@ -1205,13 +1206,16 @@ import {
   Folder,
   FolderSearchFilter,
   FolderSummary,
+  Font,
   GroupSearchFilter,
+  GutterStyle,
   IdentityTypeNotSupportedException,
   IncrementalRefresh,
   Ingestion,
   InvalidNextTokenException,
   InvalidRequestException,
   LookbackWindow,
+  MarginStyle,
   NamedEntityDefinition,
   NamedEntityDefinitionMetric,
   NegativeFormat,
@@ -1231,6 +1235,7 @@ import {
   SemanticType,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
+  SheetStyle,
   SnapshotConfiguration,
   SnapshotDestinationConfiguration,
   SnapshotFileGroup,
@@ -1240,6 +1245,8 @@ import {
   Theme,
   ThemeConfiguration,
   ThemeVersion,
+  TileLayoutStyle,
+  TileStyle,
   TopicCalculatedField,
   TopicCategoryFilter,
   TopicCategoryFilterConstant,
@@ -1254,6 +1261,7 @@ import {
   TopicRefreshSchedule,
   TopicRelativeDateFilter,
   TopicSingularFilterConstant,
+  Typography,
   UIColorPalette,
   UnsupportedPricingPlanException,
   VPCConnection,
@@ -10613,11 +10621,110 @@ const se_BinWidthOptions = (input: BinWidthOptions, context: __SerdeContext): an
   });
 };
 
-// se_BodySectionConfiguration omitted.
+/**
+ * serializeAws_restJson1BodySectionConfiguration
+ */
+const se_BodySectionConfiguration = (input: BodySectionConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    Content: _json,
+    PageBreakConfiguration: _json,
+    RepeatConfiguration: (_) => se_BodySectionRepeatConfiguration(_, context),
+    SectionId: [],
+    Style: _json,
+  });
+};
 
-// se_BodySectionConfigurationList omitted.
+/**
+ * serializeAws_restJson1BodySectionConfigurationList
+ */
+const se_BodySectionConfigurationList = (input: BodySectionConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_BodySectionConfiguration(entry, context);
+    });
+};
 
 // se_BodySectionContent omitted.
+
+/**
+ * serializeAws_restJson1BodySectionDynamicCategoryDimensionConfiguration
+ */
+const se_BodySectionDynamicCategoryDimensionConfiguration = (
+  input: BodySectionDynamicCategoryDimensionConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Column: _json,
+    Limit: [],
+    SortByMetrics: (_) => se_BodySectionDynamicDimensionSortConfigurationList(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1BodySectionDynamicDimensionSortConfigurationList
+ */
+const se_BodySectionDynamicDimensionSortConfigurationList = (input: ColumnSort[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ColumnSort(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1BodySectionDynamicNumericDimensionConfiguration
+ */
+const se_BodySectionDynamicNumericDimensionConfiguration = (
+  input: BodySectionDynamicNumericDimensionConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Column: _json,
+    Limit: [],
+    SortByMetrics: (_) => se_BodySectionDynamicDimensionSortConfigurationList(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1BodySectionRepeatConfiguration
+ */
+const se_BodySectionRepeatConfiguration = (input: BodySectionRepeatConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    DimensionConfigurations: (_) => se_BodySectionRepeatDimensionConfigurationList(_, context),
+    NonRepeatingVisuals: _json,
+    PageBreakConfiguration: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1BodySectionRepeatDimensionConfiguration
+ */
+const se_BodySectionRepeatDimensionConfiguration = (
+  input: BodySectionRepeatDimensionConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    DynamicCategoryDimensionConfiguration: (_) => se_BodySectionDynamicCategoryDimensionConfiguration(_, context),
+    DynamicNumericDimensionConfiguration: (_) => se_BodySectionDynamicNumericDimensionConfiguration(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1BodySectionRepeatDimensionConfigurationList
+ */
+const se_BodySectionRepeatDimensionConfigurationList = (
+  input: BodySectionRepeatDimensionConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_BodySectionRepeatDimensionConfiguration(entry, context);
+    });
+};
+
+// se_BodySectionRepeatPageBreakConfiguration omitted.
 
 // se_BookmarksConfigurations omitted.
 
@@ -10740,6 +10847,17 @@ const se_CategoryFilter = (input: CategoryFilter, context: __SerdeContext): any 
 };
 
 // se_CategoryFilterConfiguration omitted.
+
+/**
+ * serializeAws_restJson1CategoryInnerFilter
+ */
+const se_CategoryInnerFilter = (input: CategoryInnerFilter, context: __SerdeContext): any => {
+  return take(input, {
+    Column: _json,
+    Configuration: _json,
+    DefaultFilterControlConfiguration: (_) => se_DefaultFilterControlConfiguration(_, context),
+  });
+};
 
 // se_CategoryValueList omitted.
 
@@ -11785,6 +11903,7 @@ const se_FilledMapVisual = (input: FilledMapVisual, context: __SerdeContext): an
 const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return take(input, {
     CategoryFilter: (_) => se_CategoryFilter(_, context),
+    NestedFilter: (_) => se_NestedFilter(_, context),
     NumericEqualityFilter: (_) => se_NumericEqualityFilter(_, context),
     NumericRangeFilter: (_) => se_NumericRangeFilter(_, context),
     RelativeDatesFilter: (_) => se_RelativeDatesFilter(_, context),
@@ -12487,6 +12606,15 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
 
 // se_IncrementalRefresh omitted.
 
+/**
+ * serializeAws_restJson1InnerFilter
+ */
+const se_InnerFilter = (input: InnerFilter, context: __SerdeContext): any => {
+  return take(input, {
+    CategoryInnerFilter: (_) => se_CategoryInnerFilter(_, context),
+  });
+};
+
 // se_InputColumn omitted.
 
 // se_InputColumnList omitted.
@@ -12941,6 +13069,18 @@ const se_MetricComparisonComputation = (input: MetricComparisonComputation, cont
 // se_NegativeValueConfiguration omitted.
 
 /**
+ * serializeAws_restJson1NestedFilter
+ */
+const se_NestedFilter = (input: NestedFilter, context: __SerdeContext): any => {
+  return take(input, {
+    Column: _json,
+    FilterId: [],
+    IncludeInnerSet: [],
+    InnerFilter: (_) => se_InnerFilter(_, context),
+  });
+};
+
+/**
  * serializeAws_restJson1NewDefaultValues
  */
 const se_NewDefaultValues = (input: NewDefaultValues, context: __SerdeContext): any => {
@@ -12951,6 +13091,8 @@ const se_NewDefaultValues = (input: NewDefaultValues, context: __SerdeContext): 
     StringStaticValues: _json,
   });
 };
+
+// se_NonRepeatingVisualsList omitted.
 
 // se_NullValueFormatConfiguration omitted.
 
@@ -13918,7 +14060,7 @@ const se_ScrollBarOptions = (input: ScrollBarOptions, context: __SerdeContext): 
  */
 const se_SectionBasedLayoutConfiguration = (input: SectionBasedLayoutConfiguration, context: __SerdeContext): any => {
   return take(input, {
-    BodySections: _json,
+    BodySections: (_) => se_BodySectionConfigurationList(_, context),
     CanvasSizeOptions: _json,
     FooterSections: _json,
     HeaderSections: _json,
@@ -15624,11 +15766,113 @@ const de_BinWidthOptions = (output: any, context: __SerdeContext): BinWidthOptio
   }) as any;
 };
 
-// de_BodySectionConfiguration omitted.
+/**
+ * deserializeAws_restJson1BodySectionConfiguration
+ */
+const de_BodySectionConfiguration = (output: any, context: __SerdeContext): BodySectionConfiguration => {
+  return take(output, {
+    Content: _json,
+    PageBreakConfiguration: _json,
+    RepeatConfiguration: (_: any) => de_BodySectionRepeatConfiguration(_, context),
+    SectionId: __expectString,
+    Style: _json,
+  }) as any;
+};
 
-// de_BodySectionConfigurationList omitted.
+/**
+ * deserializeAws_restJson1BodySectionConfigurationList
+ */
+const de_BodySectionConfigurationList = (output: any, context: __SerdeContext): BodySectionConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BodySectionConfiguration(entry, context);
+    });
+  return retVal;
+};
 
 // de_BodySectionContent omitted.
+
+/**
+ * deserializeAws_restJson1BodySectionDynamicCategoryDimensionConfiguration
+ */
+const de_BodySectionDynamicCategoryDimensionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BodySectionDynamicCategoryDimensionConfiguration => {
+  return take(output, {
+    Column: _json,
+    Limit: __expectInt32,
+    SortByMetrics: (_: any) => de_BodySectionDynamicDimensionSortConfigurationList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BodySectionDynamicDimensionSortConfigurationList
+ */
+const de_BodySectionDynamicDimensionSortConfigurationList = (output: any, context: __SerdeContext): ColumnSort[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ColumnSort(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1BodySectionDynamicNumericDimensionConfiguration
+ */
+const de_BodySectionDynamicNumericDimensionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BodySectionDynamicNumericDimensionConfiguration => {
+  return take(output, {
+    Column: _json,
+    Limit: __expectInt32,
+    SortByMetrics: (_: any) => de_BodySectionDynamicDimensionSortConfigurationList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BodySectionRepeatConfiguration
+ */
+const de_BodySectionRepeatConfiguration = (output: any, context: __SerdeContext): BodySectionRepeatConfiguration => {
+  return take(output, {
+    DimensionConfigurations: (_: any) => de_BodySectionRepeatDimensionConfigurationList(_, context),
+    NonRepeatingVisuals: _json,
+    PageBreakConfiguration: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BodySectionRepeatDimensionConfiguration
+ */
+const de_BodySectionRepeatDimensionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BodySectionRepeatDimensionConfiguration => {
+  return take(output, {
+    DynamicCategoryDimensionConfiguration: (_: any) => de_BodySectionDynamicCategoryDimensionConfiguration(_, context),
+    DynamicNumericDimensionConfiguration: (_: any) => de_BodySectionDynamicNumericDimensionConfiguration(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BodySectionRepeatDimensionConfigurationList
+ */
+const de_BodySectionRepeatDimensionConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): BodySectionRepeatDimensionConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BodySectionRepeatDimensionConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+// de_BodySectionRepeatPageBreakConfiguration omitted.
 
 // de_BorderStyle omitted.
 
@@ -15750,6 +15994,17 @@ const de_CategoryFilter = (output: any, context: __SerdeContext): CategoryFilter
 };
 
 // de_CategoryFilterConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1CategoryInnerFilter
+ */
+const de_CategoryInnerFilter = (output: any, context: __SerdeContext): CategoryInnerFilter => {
+  return take(output, {
+    Column: _json,
+    Configuration: _json,
+    DefaultFilterControlConfiguration: (_: any) => de_DefaultFilterControlConfiguration(_, context),
+  }) as any;
+};
 
 // de_CategoryValueList omitted.
 
@@ -17001,6 +17256,7 @@ const de_FilledMapVisual = (output: any, context: __SerdeContext): FilledMapVisu
 const de_Filter = (output: any, context: __SerdeContext): Filter => {
   return take(output, {
     CategoryFilter: (_: any) => de_CategoryFilter(_, context),
+    NestedFilter: (_: any) => de_NestedFilter(_, context),
     NumericEqualityFilter: (_: any) => de_NumericEqualityFilter(_, context),
     NumericRangeFilter: (_: any) => de_NumericRangeFilter(_, context),
     RelativeDatesFilter: (_: any) => de_RelativeDatesFilter(_, context),
@@ -17794,6 +18050,15 @@ const de_Ingestions = (output: any, context: __SerdeContext): Ingestion[] => {
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1InnerFilter
+ */
+const de_InnerFilter = (output: any, context: __SerdeContext): InnerFilter => {
+  return take(output, {
+    CategoryInnerFilter: (_: any) => de_CategoryInnerFilter(_, context),
+  }) as any;
+};
+
 // de_InputColumn omitted.
 
 // de_InputColumnList omitted.
@@ -18258,6 +18523,18 @@ const de_MetricComparisonComputation = (output: any, context: __SerdeContext): M
 
 // de_NegativeValueConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1NestedFilter
+ */
+const de_NestedFilter = (output: any, context: __SerdeContext): NestedFilter => {
+  return take(output, {
+    Column: _json,
+    FilterId: __expectString,
+    IncludeInnerSet: __expectBoolean,
+    InnerFilter: (_: any) => de_InnerFilter(_, context),
+  }) as any;
+};
+
 // de_NetworkInterface omitted.
 
 // de_NetworkInterfaceList omitted.
@@ -18273,6 +18550,8 @@ const de_NewDefaultValues = (output: any, context: __SerdeContext): NewDefaultVa
     StringStaticValues: _json,
   }) as any;
 };
+
+// de_NonRepeatingVisualsList omitted.
 
 // de_NullValueFormatConfiguration omitted.
 
@@ -19255,7 +19534,7 @@ const de_ScrollBarOptions = (output: any, context: __SerdeContext): ScrollBarOpt
  */
 const de_SectionBasedLayoutConfiguration = (output: any, context: __SerdeContext): SectionBasedLayoutConfiguration => {
   return take(output, {
-    BodySections: _json,
+    BodySections: (_: any) => de_BodySectionConfigurationList(_, context),
     CanvasSizeOptions: _json,
     FooterSections: _json,
     HeaderSections: _json,

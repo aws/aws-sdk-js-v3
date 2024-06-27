@@ -34,13 +34,13 @@ import {
   AssetBundleImportJobOverrideTags,
   AssetBundleImportJobOverrideValidationStrategy,
   AssetBundleImportJobStatus,
-  AssetBundleImportJobSummary,
   AssetBundleImportJobWarning,
   AssetBundleImportSourceDescription,
   AssetBundleImportSourceDescriptionFilterSensitiveLog,
   AssignmentStatus,
   AuthorSpecifiedAggregation,
   BookmarksConfigurations,
+  BorderStyle,
   CategoryFilterFunction,
   CategoryFilterType,
   CellValueSynonym,
@@ -55,7 +55,6 @@ import {
   DashboardPublishOptions,
   DashboardVersionDefinition,
   DashboardVisualId,
-  DataColorPalette,
   DataSetConfiguration,
   DataSetImportMode,
   DatasetParameter,
@@ -83,18 +82,140 @@ import {
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
   ServiceType,
   SharingModel,
-  SheetStyle,
   SnapshotFile,
   SnapshotS3DestinationConfiguration,
   SslProperties,
   Tag,
   TemplateAlias,
   TemplateVersionDefinition,
-  Typography,
   VpcConnectionProperties,
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The theme colors that are used for data colors in charts. The colors description is a
+ *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+ *                 <code>#</code>, for example #37BFF5. </p>
+ * @public
+ */
+export interface DataColorPalette {
+  /**
+   * <p>The hexadecimal codes for the colors.</p>
+   * @public
+   */
+  Colors?: string[];
+
+  /**
+   * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
+   * @public
+   */
+  MinMaxGradient?: string[];
+
+  /**
+   * <p>The hexadecimal code of a color that applies to charts where a lack of data is
+   *             highlighted.</p>
+   * @public
+   */
+  EmptyFillColor?: string;
+}
+
+/**
+ * <p>Display options related to tiles on a sheet.</p>
+ * @public
+ */
+export interface TileStyle {
+  /**
+   * <p>The border around a tile.</p>
+   * @public
+   */
+  Border?: BorderStyle;
+}
+
+/**
+ * <p>The display options for gutter spacing between tiles on a sheet.</p>
+ * @public
+ */
+export interface GutterStyle {
+  /**
+   * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+   *         </p>
+   * @public
+   */
+  Show?: boolean;
+}
+
+/**
+ * <p>The display options for margins around the outside edge of sheets.</p>
+ * @public
+ */
+export interface MarginStyle {
+  /**
+   * <p>This Boolean value controls whether to display sheet margins.</p>
+   * @public
+   */
+  Show?: boolean;
+}
+
+/**
+ * <p>The display options for the layout of tiles on a sheet.</p>
+ * @public
+ */
+export interface TileLayoutStyle {
+  /**
+   * <p>The gutter settings that apply between tiles. </p>
+   * @public
+   */
+  Gutter?: GutterStyle;
+
+  /**
+   * <p>The margin settings that apply around the outside edge of sheets.</p>
+   * @public
+   */
+  Margin?: MarginStyle;
+}
+
+/**
+ * <p>The theme display options for sheets. </p>
+ * @public
+ */
+export interface SheetStyle {
+  /**
+   * <p>The display options for tiles.</p>
+   * @public
+   */
+  Tile?: TileStyle;
+
+  /**
+   * <p>The layout options for tiles.</p>
+   * @public
+   */
+  TileLayout?: TileLayoutStyle;
+}
+
+/**
+ * <p>Determines the font settings.</p>
+ * @public
+ */
+export interface Font {
+  /**
+   * <p>Determines the font family settings.</p>
+   * @public
+   */
+  FontFamily?: string;
+}
+
+/**
+ * <p>Determines the typography options.</p>
+ * @public
+ */
+export interface Typography {
+  /**
+   * <p>Determines the list of font families.</p>
+   * @public
+   */
+  FontFamilies?: Font[];
+}
 
 /**
  * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
@@ -9181,223 +9302,6 @@ export interface ListAssetBundleExportJobsResponse {
 export interface ListAssetBundleImportJobsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that the import jobs were executed in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleImportJobsResponse {
-  /**
-   * <p>A list of import job summaries.</p>
-   * @public
-   */
-  AssetBundleImportJobSummaryList?: AssetBundleImportJobSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
-   *             listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsResponse {
-  /**
-   * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
-   *             provides basic information about the dashboards.</p>
-   * @public
-   */
-  DashboardSummaryList?: DashboardSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface ListDashboardVersionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
-   *             for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListDashboardVersionsResponse {
-  /**
-   * <p>A structure that contains information about each version of the dashboard.</p>
-   * @public
-   */
-  DashboardVersionSummaryList?: DashboardVersionSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface ListDataSetsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListDataSetsResponse {
-  /**
-   * <p>The list of dataset summaries.</p>
-   * @public
-   */
-  DataSetSummaries?: DataSetSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface ListDataSourcesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
    * @public
    */
   AwsAccountId: string | undefined;

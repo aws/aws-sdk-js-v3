@@ -18,6 +18,7 @@ import {
   AssetBundleImportJobOverridePermissions,
   AssetBundleImportJobOverrideTags,
   AssetBundleImportJobOverrideValidationStrategy,
+  AssetBundleImportJobSummary,
   AssetBundleImportSource,
   AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
@@ -58,6 +59,7 @@ import {
 import {
   DashboardSearchFilter,
   DashboardSummary,
+  DashboardVersionSummary,
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
@@ -89,6 +91,223 @@ import {
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListAssetBundleImportJobsResponse {
+  /**
+   * <p>A list of import job summaries.</p>
+   * @public
+   */
+  AssetBundleImportJobSummaryList?: AssetBundleImportJobSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the response.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
+   *             listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsResponse {
+  /**
+   * <p>A structure that contains all of the dashboards in your Amazon Web Services account. This structure
+   *             provides basic information about the dashboards.</p>
+   * @public
+   */
+  DashboardSummaryList?: DashboardSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardVersionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
+   *             for.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardVersionsResponse {
+  /**
+   * <p>A structure that contains information about each version of the dashboard.</p>
+   * @public
+   */
+  DashboardVersionSummaryList?: DashboardVersionSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSetsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSetsResponse {
+  /**
+   * <p>The list of dataset summaries.</p>
+   * @public
+   */
+  DataSetSummaries?: DataSetSummary[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListDataSourcesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
 
 /**
  * @public
