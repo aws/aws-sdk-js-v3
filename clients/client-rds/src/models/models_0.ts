@@ -2462,8 +2462,8 @@ export interface CopyDBSnapshotMessage {
  *                <p>The current number CPU cores and threads is set to a non-default value.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">Configuring the
- *                 Processor of the DB Instance Class</a> in the <i>Amazon RDS User Guide.
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor">
+ *             Configuring the processor for a DB instance class in RDS for Oracle</a> in the <i>Amazon RDS User Guide.
  *             </i>
  *          </p>
  * @public
@@ -2476,7 +2476,7 @@ export interface ProcessorFeature {
   Name?: string;
 
   /**
-   * <p>The value of a processor feature name.</p>
+   * <p>The value of a processor feature.</p>
    * @public
    */
   Value?: string;
@@ -4454,9 +4454,6 @@ export interface CreateDBClusterMessage {
    *             <li>
    *                <p>Must match the name of an existing DB subnet group.</p>
    *             </li>
-   *             <li>
-   *                <p>Must not be <code>default</code>.</p>
-   *             </li>
    *          </ul>
    *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
@@ -5281,7 +5278,7 @@ export interface DBClusterRole {
 }
 
 /**
- * <p>Returns the details of the DB instance’s server certificate.</p>
+ * <p>The details of the DB instance’s server certificate.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
  *             instance</a> in the <i>Amazon RDS User Guide</i> and
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
@@ -5615,7 +5612,7 @@ export interface ClusterPendingModifiedValues {
   StorageType?: string;
 
   /**
-   * <p>Returns the details of the DB instance’s server certificate.</p>
+   * <p>The details of the DB instance’s server certificate.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
    *             instance</a> in the <i>Amazon RDS User Guide</i> and
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
@@ -6325,7 +6322,7 @@ export interface DBCluster {
   StorageThroughput?: number;
 
   /**
-   * <p>Returns the details of the DB instance’s server certificate.</p>
+   * <p>The details of the DB instance’s server certificate.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
    *             instance</a> in the <i>Amazon RDS User Guide</i> and
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">

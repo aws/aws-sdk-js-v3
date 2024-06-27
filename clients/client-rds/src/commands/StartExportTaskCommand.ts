@@ -32,7 +32,6 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3.
  *             The provided IAM role must have access to the S3 bucket.</p>
  *          <p>You can't export snapshot data from Db2 or RDS Custom DB instances.</p>
- *          <p>You can't export cluster data from Multi-AZ DB clusters.</p>
  *          <p>For more information on exporting DB snapshot data, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting DB snapshot
  *             data to Amazon S3</a> in the <i>Amazon RDS User Guide</i>
