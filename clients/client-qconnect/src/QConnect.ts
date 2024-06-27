@@ -13,6 +13,11 @@ import {
   CreateAssistantCommandOutput,
 } from "./commands/CreateAssistantCommand";
 import {
+  CreateContentAssociationCommand,
+  CreateContentAssociationCommandInput,
+  CreateContentAssociationCommandOutput,
+} from "./commands/CreateContentAssociationCommand";
+import {
   CreateContentCommand,
   CreateContentCommandInput,
   CreateContentCommandOutput,
@@ -43,6 +48,11 @@ import {
   DeleteAssistantCommandOutput,
 } from "./commands/DeleteAssistantCommand";
 import {
+  DeleteContentAssociationCommand,
+  DeleteContentAssociationCommandInput,
+  DeleteContentAssociationCommandOutput,
+} from "./commands/DeleteContentAssociationCommand";
+import {
   DeleteContentCommand,
   DeleteContentCommandInput,
   DeleteContentCommandOutput,
@@ -72,6 +82,11 @@ import {
   GetAssistantCommandInput,
   GetAssistantCommandOutput,
 } from "./commands/GetAssistantCommand";
+import {
+  GetContentAssociationCommand,
+  GetContentAssociationCommandInput,
+  GetContentAssociationCommandOutput,
+} from "./commands/GetContentAssociationCommand";
 import { GetContentCommand, GetContentCommandInput, GetContentCommandOutput } from "./commands/GetContentCommand";
 import {
   GetContentSummaryCommand,
@@ -109,6 +124,11 @@ import {
   ListAssistantsCommandInput,
   ListAssistantsCommandOutput,
 } from "./commands/ListAssistantsCommand";
+import {
+  ListContentAssociationsCommand,
+  ListContentAssociationsCommandInput,
+  ListContentAssociationsCommandOutput,
+} from "./commands/ListContentAssociationsCommand";
 import {
   ListContentsCommand,
   ListContentsCommandInput,
@@ -207,18 +227,21 @@ const commands = {
   CreateAssistantCommand,
   CreateAssistantAssociationCommand,
   CreateContentCommand,
+  CreateContentAssociationCommand,
   CreateKnowledgeBaseCommand,
   CreateQuickResponseCommand,
   CreateSessionCommand,
   DeleteAssistantCommand,
   DeleteAssistantAssociationCommand,
   DeleteContentCommand,
+  DeleteContentAssociationCommand,
   DeleteImportJobCommand,
   DeleteKnowledgeBaseCommand,
   DeleteQuickResponseCommand,
   GetAssistantCommand,
   GetAssistantAssociationCommand,
   GetContentCommand,
+  GetContentAssociationCommand,
   GetContentSummaryCommand,
   GetImportJobCommand,
   GetKnowledgeBaseCommand,
@@ -227,6 +250,7 @@ const commands = {
   GetSessionCommand,
   ListAssistantAssociationsCommand,
   ListAssistantsCommand,
+  ListContentAssociationsCommand,
   ListContentsCommand,
   ListImportJobsCommand,
   ListKnowledgeBasesCommand,
@@ -290,6 +314,23 @@ export interface QConnect {
     args: CreateContentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateContentAssociationCommand}
+   */
+  createContentAssociation(
+    args: CreateContentAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContentAssociationCommandOutput>;
+  createContentAssociation(
+    args: CreateContentAssociationCommandInput,
+    cb: (err: any, data?: CreateContentAssociationCommandOutput) => void
+  ): void;
+  createContentAssociation(
+    args: CreateContentAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContentAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -380,6 +421,23 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link DeleteContentAssociationCommand}
+   */
+  deleteContentAssociation(
+    args: DeleteContentAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContentAssociationCommandOutput>;
+  deleteContentAssociation(
+    args: DeleteContentAssociationCommandInput,
+    cb: (err: any, data?: DeleteContentAssociationCommandOutput) => void
+  ): void;
+  deleteContentAssociation(
+    args: DeleteContentAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContentAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteImportJobCommand}
    */
   deleteImportJob(
@@ -464,6 +522,23 @@ export interface QConnect {
     args: GetContentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetContentAssociationCommand}
+   */
+  getContentAssociation(
+    args: GetContentAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContentAssociationCommandOutput>;
+  getContentAssociation(
+    args: GetContentAssociationCommandInput,
+    cb: (err: any, data?: GetContentAssociationCommandOutput) => void
+  ): void;
+  getContentAssociation(
+    args: GetContentAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContentAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -586,6 +661,23 @@ export interface QConnect {
     args: ListAssistantsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssistantsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContentAssociationsCommand}
+   */
+  listContentAssociations(
+    args: ListContentAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContentAssociationsCommandOutput>;
+  listContentAssociations(
+    args: ListContentAssociationsCommandInput,
+    cb: (err: any, data?: ListContentAssociationsCommandOutput) => void
+  ): void;
+  listContentAssociations(
+    args: ListContentAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContentAssociationsCommandOutput) => void
   ): void;
 
   /**

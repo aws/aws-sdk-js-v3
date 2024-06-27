@@ -58,6 +58,10 @@ import {
   CreateAssistantAssociationCommandOutput,
 } from "./commands/CreateAssistantAssociationCommand";
 import { CreateAssistantCommandInput, CreateAssistantCommandOutput } from "./commands/CreateAssistantCommand";
+import {
+  CreateContentAssociationCommandInput,
+  CreateContentAssociationCommandOutput,
+} from "./commands/CreateContentAssociationCommand";
 import { CreateContentCommandInput, CreateContentCommandOutput } from "./commands/CreateContentCommand";
 import {
   CreateKnowledgeBaseCommandInput,
@@ -73,6 +77,10 @@ import {
   DeleteAssistantAssociationCommandOutput,
 } from "./commands/DeleteAssistantAssociationCommand";
 import { DeleteAssistantCommandInput, DeleteAssistantCommandOutput } from "./commands/DeleteAssistantCommand";
+import {
+  DeleteContentAssociationCommandInput,
+  DeleteContentAssociationCommandOutput,
+} from "./commands/DeleteContentAssociationCommand";
 import { DeleteContentCommandInput, DeleteContentCommandOutput } from "./commands/DeleteContentCommand";
 import { DeleteImportJobCommandInput, DeleteImportJobCommandOutput } from "./commands/DeleteImportJobCommand";
 import {
@@ -88,6 +96,10 @@ import {
   GetAssistantAssociationCommandOutput,
 } from "./commands/GetAssistantAssociationCommand";
 import { GetAssistantCommandInput, GetAssistantCommandOutput } from "./commands/GetAssistantCommand";
+import {
+  GetContentAssociationCommandInput,
+  GetContentAssociationCommandOutput,
+} from "./commands/GetContentAssociationCommand";
 import { GetContentCommandInput, GetContentCommandOutput } from "./commands/GetContentCommand";
 import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from "./commands/GetContentSummaryCommand";
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
@@ -100,6 +112,10 @@ import {
   ListAssistantAssociationsCommandOutput,
 } from "./commands/ListAssistantAssociationsCommand";
 import { ListAssistantsCommandInput, ListAssistantsCommandOutput } from "./commands/ListAssistantsCommand";
+import {
+  ListContentAssociationsCommandInput,
+  ListContentAssociationsCommandOutput,
+} from "./commands/ListContentAssociationsCommand";
 import { ListContentsCommandInput, ListContentsCommandOutput } from "./commands/ListContentsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "./commands/ListKnowledgeBasesCommand";
@@ -155,18 +171,21 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateAssistantAssociationCommandInput
   | CreateAssistantCommandInput
+  | CreateContentAssociationCommandInput
   | CreateContentCommandInput
   | CreateKnowledgeBaseCommandInput
   | CreateQuickResponseCommandInput
   | CreateSessionCommandInput
   | DeleteAssistantAssociationCommandInput
   | DeleteAssistantCommandInput
+  | DeleteContentAssociationCommandInput
   | DeleteContentCommandInput
   | DeleteImportJobCommandInput
   | DeleteKnowledgeBaseCommandInput
   | DeleteQuickResponseCommandInput
   | GetAssistantAssociationCommandInput
   | GetAssistantCommandInput
+  | GetContentAssociationCommandInput
   | GetContentCommandInput
   | GetContentSummaryCommandInput
   | GetImportJobCommandInput
@@ -176,6 +195,7 @@ export type ServiceInputTypes =
   | GetSessionCommandInput
   | ListAssistantAssociationsCommandInput
   | ListAssistantsCommandInput
+  | ListContentAssociationsCommandInput
   | ListContentsCommandInput
   | ListImportJobsCommandInput
   | ListKnowledgeBasesCommandInput
@@ -203,18 +223,21 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateAssistantAssociationCommandOutput
   | CreateAssistantCommandOutput
+  | CreateContentAssociationCommandOutput
   | CreateContentCommandOutput
   | CreateKnowledgeBaseCommandOutput
   | CreateQuickResponseCommandOutput
   | CreateSessionCommandOutput
   | DeleteAssistantAssociationCommandOutput
   | DeleteAssistantCommandOutput
+  | DeleteContentAssociationCommandOutput
   | DeleteContentCommandOutput
   | DeleteImportJobCommandOutput
   | DeleteKnowledgeBaseCommandOutput
   | DeleteQuickResponseCommandOutput
   | GetAssistantAssociationCommandOutput
   | GetAssistantCommandOutput
+  | GetContentAssociationCommandOutput
   | GetContentCommandOutput
   | GetContentSummaryCommandOutput
   | GetImportJobCommandOutput
@@ -224,6 +247,7 @@ export type ServiceOutputTypes =
   | GetSessionCommandOutput
   | ListAssistantAssociationsCommandOutput
   | ListAssistantsCommandOutput
+  | ListContentAssociationsCommandOutput
   | ListContentsCommandOutput
   | ListImportJobsCommandOutput
   | ListKnowledgeBasesCommandOutput

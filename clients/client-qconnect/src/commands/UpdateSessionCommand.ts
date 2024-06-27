@@ -28,9 +28,9 @@ export interface UpdateSessionCommandInput extends UpdateSessionRequest {}
 export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a session. A session is a contextual container used for generating recommendations.
- *         Amazon Connect updates the existing Amazon Q in Connect session for each contact on which Amazon Q in Connect
- *       is enabled.</p>
+ * <p>Updates a session. A session is a contextual container used for generating
+ *       recommendations. Amazon Connect updates the existing Amazon Q in Connect session for each contact on
+ *       which Amazon Q in Connect is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,6 +36,10 @@ import {
   CreateAssistantAssociationCommandOutput,
 } from "../commands/CreateAssistantAssociationCommand";
 import { CreateAssistantCommandInput, CreateAssistantCommandOutput } from "../commands/CreateAssistantCommand";
+import {
+  CreateContentAssociationCommandInput,
+  CreateContentAssociationCommandOutput,
+} from "../commands/CreateContentAssociationCommand";
 import { CreateContentCommandInput, CreateContentCommandOutput } from "../commands/CreateContentCommand";
 import {
   CreateKnowledgeBaseCommandInput,
@@ -51,6 +55,10 @@ import {
   DeleteAssistantAssociationCommandOutput,
 } from "../commands/DeleteAssistantAssociationCommand";
 import { DeleteAssistantCommandInput, DeleteAssistantCommandOutput } from "../commands/DeleteAssistantCommand";
+import {
+  DeleteContentAssociationCommandInput,
+  DeleteContentAssociationCommandOutput,
+} from "../commands/DeleteContentAssociationCommand";
 import { DeleteContentCommandInput, DeleteContentCommandOutput } from "../commands/DeleteContentCommand";
 import { DeleteImportJobCommandInput, DeleteImportJobCommandOutput } from "../commands/DeleteImportJobCommand";
 import {
@@ -66,6 +74,10 @@ import {
   GetAssistantAssociationCommandOutput,
 } from "../commands/GetAssistantAssociationCommand";
 import { GetAssistantCommandInput, GetAssistantCommandOutput } from "../commands/GetAssistantCommand";
+import {
+  GetContentAssociationCommandInput,
+  GetContentAssociationCommandOutput,
+} from "../commands/GetContentAssociationCommand";
 import { GetContentCommandInput, GetContentCommandOutput } from "../commands/GetContentCommand";
 import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from "../commands/GetContentSummaryCommand";
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
@@ -78,6 +90,10 @@ import {
   ListAssistantAssociationsCommandOutput,
 } from "../commands/ListAssistantAssociationsCommand";
 import { ListAssistantsCommandInput, ListAssistantsCommandOutput } from "../commands/ListAssistantsCommand";
+import {
+  ListContentAssociationsCommandInput,
+  ListContentAssociationsCommandOutput,
+} from "../commands/ListContentAssociationsCommand";
 import { ListContentsCommandInput, ListContentsCommandOutput } from "../commands/ListContentsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "../commands/ListKnowledgeBasesCommand";
@@ -118,11 +134,13 @@ import {
 import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "../commands/UpdateSessionCommand";
 import {
   AccessDeniedException,
+  AmazonConnectGuideAssociationData,
   AppIntegrationsConfiguration,
   AssistantAssociationInputData,
   Configuration,
   ConflictException,
   ConnectConfiguration,
+  ContentAssociationContents,
   ContentData,
   ContentDataDetails,
   ContentFeedbackData,
@@ -161,6 +179,7 @@ import {
   SourceContentDataDetails,
   TagCondition,
   TagFilter,
+  ThrottlingException,
   TooManyTagsException,
   ValidationException,
 } from "../models/models_0";
@@ -242,6 +261,33 @@ export const se_CreateContentCommand = async (
       tags: (_) => _json(_),
       title: [],
       uploadId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateContentAssociationCommand
+ */
+export const se_CreateContentAssociationCommand = async (
+  input: CreateContentAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      association: (_) => _json(_),
+      associationType: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -388,6 +434,24 @@ export const se_DeleteContentCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteContentAssociationCommand
+ */
+export const se_DeleteContentAssociationCommand = async (
+  input: DeleteContentAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations/{contentAssociationId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
+  b.p("contentAssociationId", () => input.contentAssociationId!, "{contentAssociationId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteImportJobCommand
  */
 export const se_DeleteImportJobCommand = async (
@@ -482,6 +546,24 @@ export const se_GetContentCommand = async (
   b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}");
   b.p("contentId", () => input.contentId!, "{contentId}", false);
   b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetContentAssociationCommand
+ */
+export const se_GetContentAssociationCommand = async (
+  input: GetContentAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations/{contentAssociationId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
+  b.p("contentAssociationId", () => input.contentAssociationId!, "{contentAssociationId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -622,6 +704,27 @@ export const se_ListAssistantsCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/assistants");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListContentAssociationsCommand
+ */
+export const se_ListContentAssociationsCommand = async (
+  input: ListContentAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/associations");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -1172,6 +1275,27 @@ export const de_CreateContentCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateContentAssociationCommand
+ */
+export const de_CreateContentAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContentAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    contentAssociation: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateKnowledgeBaseCommand
  */
 export const de_CreateKnowledgeBaseCommand = async (
@@ -1275,6 +1399,23 @@ export const de_DeleteContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContentCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteContentAssociationCommand
+ */
+export const de_DeleteContentAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContentAssociationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1394,6 +1535,27 @@ export const de_GetContentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     content: (_) => de_ContentData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetContentAssociationCommand
+ */
+export const de_GetContentAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContentAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    contentAssociation: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1564,6 +1726,28 @@ export const de_ListAssistantsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     assistantSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListContentAssociationsCommand
+ */
+export const de_ListContentAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContentAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    contentAssociationSummaries: _json,
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2019,6 +2203,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.qconnect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.qconnect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.qconnect#RequestTimeoutException":
       throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
@@ -2158,6 +2345,23 @@ const de_ServiceQuotaExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1TooManyTagsExceptionRes
  */
 const de_TooManyTagsExceptionRes = async (
@@ -2195,6 +2399,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AmazonConnectGuideAssociationData omitted.
+
 // se_AndConditions omitted.
 
 // se_AppIntegrationsConfiguration omitted.
@@ -2208,6 +2414,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ConnectConfiguration omitted.
 
 // se_ContactAttributes omitted.
+
+// se_ContentAssociationContents omitted.
 
 // se_ContentFeedbackData omitted.
 
@@ -2271,6 +2479,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Tags omitted.
 
+// de_AmazonConnectGuideAssociationData omitted.
+
 // de_AndConditions omitted.
 
 // de_AppIntegrationsConfiguration omitted.
@@ -2300,6 +2510,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ConnectConfiguration omitted.
 
 // de_ContactAttributeKeys omitted.
+
+// de_ContentAssociationContents omitted.
+
+// de_ContentAssociationData omitted.
+
+// de_ContentAssociationSummary omitted.
+
+// de_ContentAssociationSummaryList omitted.
 
 /**
  * deserializeAws_restJson1ContentData

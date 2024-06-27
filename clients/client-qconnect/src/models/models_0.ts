@@ -24,8 +24,20 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A leaf node condition which can be used to specify a tag condition.
- *   </p>
+ * <p>Content association data for a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html">step-by-step
+ *         guide</a>.</p>
+ * @public
+ */
+export interface AmazonConnectGuideAssociationData {
+  /**
+   * <p> The Amazon Resource Name (ARN) of an Amazon Connect flow. Step-by-step guides are a type of flow.</p>
+   * @public
+   */
+  flowId?: string;
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a tag condition. </p>
  * @public
  */
 export interface TagCondition {
@@ -1891,7 +1903,8 @@ export interface SearchSessionsResponse {
 }
 
 /**
- * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+ * <p>A list of conditions which would be applied together with an <code>OR</code>
+ *       condition.</p>
  * @public
  */
 export type OrCondition = OrCondition.AndConditionsMember | OrCondition.TagConditionMember | OrCondition.$UnknownMember;
@@ -1901,7 +1914,8 @@ export type OrCondition = OrCondition.AndConditionsMember | OrCondition.TagCondi
  */
 export namespace OrCondition {
   /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *       condition.</p>
    * @public
    */
   export interface AndConditionsMember {
@@ -1968,7 +1982,8 @@ export namespace TagFilter {
   }
 
   /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *       condition.</p>
    * @public
    */
   export interface AndConditionsMember {
@@ -1979,7 +1994,8 @@ export namespace TagFilter {
   }
 
   /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *       condition.</p>
    * @public
    */
   export interface OrConditionsMember {
@@ -2245,6 +2261,365 @@ export namespace Configuration {
     if (value.connectConfiguration !== undefined) return visitor.connectConfiguration(value.connectConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * <p>The contents of a content association.</p>
+ * @public
+ */
+export type ContentAssociationContents =
+  | ContentAssociationContents.AmazonConnectGuideAssociationMember
+  | ContentAssociationContents.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContentAssociationContents {
+  /**
+   * <p>The data of the step-by-step guide association.</p>
+   * @public
+   */
+  export interface AmazonConnectGuideAssociationMember {
+    amazonConnectGuideAssociation: AmazonConnectGuideAssociationData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    amazonConnectGuideAssociation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    amazonConnectGuideAssociation: (value: AmazonConnectGuideAssociationData) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ContentAssociationContents, visitor: Visitor<T>): T => {
+    if (value.amazonConnectGuideAssociation !== undefined)
+      return visitor.amazonConnectGuideAssociation(value.amazonConnectGuideAssociation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentAssociationType = {
+  AMAZON_CONNECT_GUIDE: "AMAZON_CONNECT_GUIDE",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentAssociationType = (typeof ContentAssociationType)[keyof typeof ContentAssociationType];
+
+/**
+ * @public
+ */
+export interface CreateContentAssociationRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the content.</p>
+   * @public
+   */
+  contentId: string | undefined;
+
+  /**
+   * <p>The type of association.</p>
+   * @public
+   */
+  associationType: ContentAssociationType | undefined;
+
+  /**
+   * <p>The identifier of the associated resource.</p>
+   * @public
+   */
+  association: ContentAssociationContents | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * <p>Information about the content association.</p>
+ * @public
+ */
+export interface ContentAssociationData {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the content.</p>
+   * @public
+   */
+  contentId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * @public
+   */
+  contentArn: string | undefined;
+
+  /**
+   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  contentAssociationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the content association.</p>
+   * @public
+   */
+  contentAssociationArn: string | undefined;
+
+  /**
+   * <p>The type of association.</p>
+   * @public
+   */
+  associationType: ContentAssociationType | undefined;
+
+  /**
+   * <p>The content association.</p>
+   * @public
+   */
+  associationData: ContentAssociationContents | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateContentAssociationResponse {
+  /**
+   * <p>The association between Amazon Q in Connect content and another resource.</p>
+   * @public
+   */
+  contentAssociation?: ContentAssociationData;
+}
+
+/**
+ * <p>The throttling limit has been exceeded.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteContentAssociationRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the content.</p>
+   * @public
+   */
+  contentId: string | undefined;
+
+  /**
+   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  contentAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContentAssociationResponse {}
+
+/**
+ * @public
+ */
+export interface GetContentAssociationRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the content.</p>
+   * @public
+   */
+  contentId: string | undefined;
+
+  /**
+   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  contentAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContentAssociationResponse {
+  /**
+   * <p>The association between Amazon Q in Connect content and another resource.</p>
+   * @public
+   */
+  contentAssociation?: ContentAssociationData;
+}
+
+/**
+ * @public
+ */
+export interface ListContentAssociationsRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the content.</p>
+   * @public
+   */
+  contentId: string | undefined;
+}
+
+/**
+ * <p>Summary information about a content association.</p>
+ * @public
+ */
+export interface ContentAssociationSummary {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the content.</p>
+   * @public
+   */
+  contentId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * @public
+   */
+  contentArn: string | undefined;
+
+  /**
+   * <p>The identifier of the content association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  contentAssociationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the content association.</p>
+   * @public
+   */
+  contentAssociationArn: string | undefined;
+
+  /**
+   * <p>The type of association.</p>
+   * @public
+   */
+  associationType: ContentAssociationType | undefined;
+
+  /**
+   * <p>The content association.</p>
+   * @public
+   */
+  associationData: ContentAssociationContents | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListContentAssociationsResponse {
+  /**
+   * <p>Summary information about content associations.</p>
+   * @public
+   */
+  contentAssociationSummaries: ContentAssociationSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
 }
 
 /**
@@ -3544,7 +3919,7 @@ export interface ImportJobData {
   url: string | undefined;
 
   /**
-   * <p>The link to donwload the information of resource data that failed to be imported.</p>
+   * <p>The link to download the information of resource data that failed to be imported.</p>
    * @public
    */
   failedRecordReport?: string;

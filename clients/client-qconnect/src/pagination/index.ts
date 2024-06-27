@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListAssistantAssociationsPaginator";
 export * from "./ListAssistantsPaginator";
+export * from "./ListContentAssociationsPaginator";
 export * from "./ListContentsPaginator";
 export * from "./ListImportJobsPaginator";
 export * from "./ListKnowledgeBasesPaginator";

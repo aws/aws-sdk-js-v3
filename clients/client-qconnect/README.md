@@ -248,6 +248,14 @@ CreateContent
 </details>
 <details>
 <summary>
+CreateContentAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/CreateContentAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateContentAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateContentAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateKnowledgeBase
 </summary>
 
@@ -296,6 +304,14 @@ DeleteContent
 </details>
 <details>
 <summary>
+DeleteContentAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/DeleteContentAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeleteContentAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeleteContentAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteImportJob
 </summary>
 
@@ -340,6 +356,14 @@ GetContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/GetContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetContentCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetContentAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/GetContentAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetContentAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetContentAssociationCommandOutput/)
 
 </details>
 <details>
@@ -404,6 +428,14 @@ ListAssistants
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/ListAssistantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListAssistantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListAssistantsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListContentAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/ListContentAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListContentAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListContentAssociationsCommandOutput/)
 
 </details>
 <details>
