@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListNotificationsInput,
-  ListNotificationsOutput,
-  ListNotificationsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListNotificationsInput } from "../models/models_0";
+import { ListNotificationsOutput, ListNotificationsOutputFilterSensitiveLog } from "../models/models_1";
 import { de_ListNotificationsCommand, se_ListNotificationsCommand } from "../protocols/Aws_restJson1";
 
 /**

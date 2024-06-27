@@ -167,6 +167,7 @@ import {
   GetIamPortalLoginUrlCommandInput,
   GetIamPortalLoginUrlCommandOutput,
 } from "../commands/GetIamPortalLoginUrlCommand";
+import { GetLineageNodeCommandInput, GetLineageNodeCommandOutput } from "../commands/GetLineageNodeCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "../commands/GetListingCommand";
 import {
   GetMetadataGenerationRunCommandInput,
@@ -217,6 +218,10 @@ import {
 } from "../commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
 import {
+  ListLineageNodeHistoryCommandInput,
+  ListLineageNodeHistoryCommandOutput,
+} from "../commands/ListLineageNodeHistoryCommand";
+import {
   ListMetadataGenerationRunsCommandInput,
   ListMetadataGenerationRunsCommandOutput,
 } from "../commands/ListMetadataGenerationRunsCommand";
@@ -247,6 +252,7 @@ import {
   ListTimeSeriesDataPointsCommandInput,
   ListTimeSeriesDataPointsCommandOutput,
 } from "../commands/ListTimeSeriesDataPointsCommand";
+import { PostLineageEventCommandInput, PostLineageEventCommandOutput } from "../commands/PostLineageEventCommand";
 import {
   PostTimeSeriesDataPointsCommandInput,
   PostTimeSeriesDataPointsCommandOutput,
@@ -339,11 +345,12 @@ import {
   GlueRunConfigurationInput,
   GrantedEntityInput,
   InternalServerException,
+  LineageNodeReference,
+  LineageNodeSummary,
   ListingItem,
   ListingRevisionInput,
   Member,
   Model,
-  NotificationOutput,
   PredictionConfiguration,
   RecommendationConfiguration,
   RedshiftClusterStorage,
@@ -374,8 +381,10 @@ import {
   FormTypeData,
   GlossaryItem,
   GlossaryTermItem,
+  LineageNodeTypeItem,
   MetadataGenerationRunItem,
   MetadataGenerationRunTarget,
+  NotificationOutput,
   ProjectSummary,
   RejectChoice,
   RejectRule,
@@ -1648,6 +1657,26 @@ export const se_GetIamPortalLoginUrlCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetLineageNodeCommand
+ */
+export const se_GetLineageNodeCommand = async (
+  input: GetLineageNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/lineage/nodes/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_t]: [() => input.eventTimestamp !== void 0, () => __serializeDateTime(input[_eT]!).toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetListingCommand
  */
 export const se_GetListingCommand = async (
@@ -1805,7 +1834,7 @@ export const se_GetUserProfileCommand = async (
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("userIdentifier", () => input.userIdentifier!, "{userIdentifier}", false);
   const query: any = map({
-    [_t]: [, input[_t]!],
+    [_ty]: [, input[_ty]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1891,7 +1920,7 @@ export const se_ListDataSourcesCommand = async (
   const query: any = map({
     [_pI]: [, __expectNonNull(input[_pI]!, `projectIdentifier`)],
     [_eI]: [, input[_eI]!],
-    [_t]: [, input[_t]!],
+    [_ty]: [, input[_ty]!],
     [_s]: [, input[_s]!],
     [_n]: [, input[_n]!],
     [_nT]: [, input[_nT]!],
@@ -2039,6 +2068,31 @@ export const se_ListEnvironmentsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListLineageNodeHistoryCommand
+ */
+export const se_ListLineageNodeHistoryCommand = async (
+  input: ListLineageNodeHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/lineage/nodes/{identifier}/history");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_d]: [, input[_d]!],
+    [_tGTE]: [() => input.eventTimestampGTE !== void 0, () => __serializeDateTime(input[_eTGTE]!).toString()],
+    [_tLTE]: [() => input.eventTimestampLTE !== void 0, () => __serializeDateTime(input[_eTLTE]!).toString()],
+    [_sO]: [, input[_sO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListMetadataGenerationRunsCommand
  */
 export const se_ListMetadataGenerationRunsCommand = async (
@@ -2051,7 +2105,7 @@ export const se_ListMetadataGenerationRunsCommand = async (
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   const query: any = map({
     [_s]: [, input[_s]!],
-    [_t]: [, input[_t]!],
+    [_ty]: [, input[_ty]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
@@ -2072,7 +2126,7 @@ export const se_ListNotificationsCommand = async (
   b.bp("/v2/domains/{domainIdentifier}/notifications");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   const query: any = map({
-    [_t]: [, __expectNonNull(input[_t]!, `type`)],
+    [_ty]: [, __expectNonNull(input[_ty]!, `type`)],
     [_aT]: [() => input.afterTimestamp !== void 0, () => __serializeDateTime(input[_aT]!).toString()],
     [_bT]: [() => input.beforeTimestamp !== void 0, () => __serializeDateTime(input[_bT]!).toString()],
     [_su]: [() => input.subjects !== void 0, () => (input[_su]! || []).map((_entry) => _entry as any)],
@@ -2271,6 +2325,30 @@ export const se_ListTimeSeriesDataPointsCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PostLineageEventCommand
+ */
+export const se_PostLineageEventCommand = async (
+  input: PostLineageEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/octet-stream",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/lineage/events");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  if (input.event !== undefined) {
+    body = input.event;
+  }
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4534,6 +4612,41 @@ export const de_GetIamPortalLoginUrlCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetLineageNodeCommand
+ */
+export const de_GetLineageNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLineageNodeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    downstreamNodes: (_) => de_LineageNodeReferenceList(_, context),
+    eventTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    formsOutput: _json,
+    id: __expectString,
+    name: __expectString,
+    sourceIdentifier: __expectString,
+    typeName: __expectString,
+    typeRevision: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    updatedBy: __expectString,
+    upstreamNodes: (_) => de_LineageNodeReferenceList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetListingCommand
  */
 export const de_GetListingCommand = async (
@@ -5022,6 +5135,28 @@ export const de_ListEnvironmentsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLineageNodeHistoryCommand
+ */
+export const de_ListLineageNodeHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLineageNodeHistoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    nodes: (_) => de_LineageNodeSummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListMetadataGenerationRunsCommand
  */
 export const de_ListMetadataGenerationRunsCommand = async (
@@ -5237,6 +5372,23 @@ export const de_ListTimeSeriesDataPointsCommand = async (
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PostLineageEventCommand
+ */
+export const de_PostLineageEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PostLineageEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -6900,6 +7052,77 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_ImportList omitted.
 
+/**
+ * deserializeAws_restJson1LineageNodeReference
+ */
+const de_LineageNodeReference = (output: any, context: __SerdeContext): LineageNodeReference => {
+  return take(output, {
+    eventTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LineageNodeReferenceList
+ */
+const de_LineageNodeReferenceList = (output: any, context: __SerdeContext): LineageNodeReference[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LineageNodeReference(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1LineageNodeSummaries
+ */
+const de_LineageNodeSummaries = (output: any, context: __SerdeContext): LineageNodeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LineageNodeSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1LineageNodeSummary
+ */
+const de_LineageNodeSummary = (output: any, context: __SerdeContext): LineageNodeSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    eventTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    name: __expectString,
+    sourceIdentifier: __expectString,
+    typeName: __expectString,
+    typeRevision: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    updatedBy: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LineageNodeTypeItem
+ */
+const de_LineageNodeTypeItem = (output: any, context: __SerdeContext): LineageNodeTypeItem => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    formsOutput: _json,
+    name: __expectString,
+    revision: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    updatedBy: __expectString,
+  }) as any;
+};
+
 // de_ListEnvironmentActionSummaries omitted.
 
 /**
@@ -7129,6 +7352,11 @@ const de_SearchTypesResultItem = (output: any, context: __SerdeContext): SearchT
   if (output.formTypeItem != null) {
     return {
       formTypeItem: de_FormTypeData(output.formTypeItem, context),
+    };
+  }
+  if (output.lineageNodeTypeItem != null) {
+    return {
+      lineageNodeTypeItem: de_LineageNodeTypeItem(output.lineageNodeTypeItem, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -7430,11 +7658,15 @@ const _aPI = "approverProjectId";
 const _aT = "afterTimestamp";
 const _bT = "beforeTimestamp";
 const _cT = "clientToken";
+const _d = "direction";
 const _eA = "endedAt";
 const _eBI = "environmentBlueprintIdentifier";
 const _eI = "environmentIdentifier";
 const _eIn = "environmentId";
 const _ePI = "environmentProfileIdentifier";
+const _eT = "eventTimestamp";
+const _eTGTE = "eventTimestampGTE";
+const _eTLTE = "eventTimestampLTE";
 const _fN = "formName";
 const _gI = "groupIdentifier";
 const _lR = "listingRevision";
@@ -7457,7 +7689,10 @@ const _sO = "sortOrder";
 const _sRI = "subscriptionRequestIdentifier";
 const _sTI = "subscriptionTargetId";
 const _su = "subjects";
-const _t = "type";
+const _t = "timestamp";
+const _tGTE = "timestampGTE";
 const _tK = "tagKeys";
+const _tLTE = "timestampLTE";
 const _tS = "taskStatus";
+const _ty = "type";
 const _uI = "userIdentifier";

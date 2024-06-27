@@ -19,6 +19,8 @@ import {
   EnvironmentParameter,
   EnvironmentStatus,
   FailureCause,
+  FormEntryOutput,
+  FormEntryOutputFilterSensitiveLog,
   FormTypeStatus,
   GlossaryStatus,
   GlossaryTermStatus,
@@ -27,11 +29,11 @@ import {
   Import,
   ImportFilterSensitiveLog,
   Model,
+  NotificationType,
   ProjectDeletionError,
   ProjectStatus,
   ProvisioningProperties,
   Resource,
-  SortFieldProject,
   SortOrder,
   SubscribedAsset,
   SubscribedListing,
@@ -43,6 +45,7 @@ import {
   SubscriptionRequestStatus,
   SubscriptionStatus,
   SubscriptionTargetForm,
+  TaskStatus,
   TermRelations,
   TimeSeriesDataPointFormOutput,
   TimeSeriesDataPointSummaryFormOutput,
@@ -53,6 +56,191 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationResourceType = {
+  PROJECT: "PROJECT",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationResourceType = (typeof NotificationResourceType)[keyof typeof NotificationResourceType];
+
+/**
+ * <p>The details of the resource mentioned in a notification.</p>
+ * @public
+ */
+export interface NotificationResource {
+  /**
+   * <p>The type of the resource mentioned in a notification.</p>
+   * @public
+   */
+  type: NotificationResourceType | undefined;
+
+  /**
+   * <p>The ID of the resource mentioned in a notification.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the resource mentioned in a notification.</p>
+   * @public
+   */
+  name?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationRole = {
+  DOMAIN_OWNER: "DOMAIN_OWNER",
+  PROJECT_CONTRIBUTOR: "PROJECT_CONTRIBUTOR",
+  PROJECT_OWNER: "PROJECT_OWNER",
+  PROJECT_SUBSCRIBER: "PROJECT_SUBSCRIBER",
+  PROJECT_VIEWER: "PROJECT_VIEWER",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationRole = (typeof NotificationRole)[keyof typeof NotificationRole];
+
+/**
+ * <p>The topic of the notification.</p>
+ * @public
+ */
+export interface Topic {
+  /**
+   * <p>The subject of the resource mentioned in a notification.</p>
+   * @public
+   */
+  subject: string | undefined;
+
+  /**
+   * <p>The details of the resource mentioned in a notification.</p>
+   * @public
+   */
+  resource: NotificationResource | undefined;
+
+  /**
+   * <p>The role of the resource mentioned in a notification.</p>
+   * @public
+   */
+  role: NotificationRole | undefined;
+}
+
+/**
+ * <p>The details of a notification generated in Amazon DataZone.</p>
+ * @public
+ */
+export interface NotificationOutput {
+  /**
+   * <p>The identifier of the notification.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The identifier of a Amazon DataZone domain in which the notification exists.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the notification.</p>
+   * @public
+   */
+  type: NotificationType | undefined;
+
+  /**
+   * <p>The topic of the notification.</p>
+   * @public
+   */
+  topic: Topic | undefined;
+
+  /**
+   * <p>The title of the notification.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The message included in the notification.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>The status included in the notification.</p>
+   * @public
+   */
+  status?: TaskStatus;
+
+  /**
+   * <p>The action link included in the notification.</p>
+   * @public
+   */
+  actionLink: string | undefined;
+
+  /**
+   * <p>The timestamp of when a notification was created.</p>
+   * @public
+   */
+  creationTimestamp: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the notification was last updated.</p>
+   * @public
+   */
+  lastUpdatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The metadata included in the notification.</p>
+   * @public
+   */
+  metadata?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListNotificationsOutput {
+  /**
+   * <p>The results of the <code>ListNotifications</code> action.</p>
+   * @public
+   */
+  notifications?: NotificationOutput[];
+
+  /**
+   * <p>When the number of notifications is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of notifications, the response
+   *          includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to
+   *          list the next set of notifications.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortFieldProject = {
+  NAME: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type SortFieldProject = (typeof SortFieldProject)[keyof typeof SortFieldProject];
 
 /**
  * @public
@@ -1498,6 +1686,36 @@ export interface StartMetadataGenerationRunOutput {
 }
 
 /**
+ * @public
+ */
+export interface PostLineageEventInput {
+  /**
+   * <p>The ID of the domain where you want to post a data lineage event.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The data lineage event that you want to post. Only open-lineage run event are supported
+   *          as events. </p>
+   * @public
+   */
+  event: Uint8Array | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PostLineageEventOutput {}
+
+/**
  * <p>The time series data points form.</p>
  * @public
  */
@@ -2439,6 +2657,7 @@ export interface SearchListingsOutput {
 export const TypesSearchScope = {
   ASSET_TYPE: "ASSET_TYPE",
   FORM_TYPE: "FORM_TYPE",
+  LINEAGE_NODE_TYPE: "LINEAGE_NODE_TYPE",
 } as const;
 
 /**
@@ -2526,12 +2745,73 @@ export interface FormTypeData {
 }
 
 /**
+ * <p>The details of a data lineage node type.</p>
+ * @public
+ */
+export interface LineageNodeTypeItem {
+  /**
+   * <p>The ID of the domain where the data lineage node type lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The name of the data lineage node type.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The description of the data lineage node type.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The timestamp at which the data lineage node type was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the data lineage node type.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The timestamp at which the data lineage node type was updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The user who updated the data lineage node type.</p>
+   * @public
+   */
+  updatedBy?: string;
+
+  /**
+   * <p>The revision of the data lineage node type.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The forms output of the data lineage node type.</p>
+   * @public
+   */
+  formsOutput: Record<string, FormEntryOutput> | undefined;
+}
+
+/**
  * <p>The details of the results of the <code>SearchTypes</code> action.</p>
  * @public
  */
 export type SearchTypesResultItem =
   | SearchTypesResultItem.AssetTypeItemMember
   | SearchTypesResultItem.FormTypeItemMember
+  | SearchTypesResultItem.LineageNodeTypeItemMember
   | SearchTypesResultItem.$UnknownMember;
 
 /**
@@ -2545,6 +2825,7 @@ export namespace SearchTypesResultItem {
   export interface AssetTypeItemMember {
     assetTypeItem: AssetTypeItem;
     formTypeItem?: never;
+    lineageNodeTypeItem?: never;
     $unknown?: never;
   }
 
@@ -2555,6 +2836,18 @@ export namespace SearchTypesResultItem {
   export interface FormTypeItemMember {
     assetTypeItem?: never;
     formTypeItem: FormTypeData;
+    lineageNodeTypeItem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of a data lineage node type.</p>
+   * @public
+   */
+  export interface LineageNodeTypeItemMember {
+    assetTypeItem?: never;
+    formTypeItem?: never;
+    lineageNodeTypeItem: LineageNodeTypeItem;
     $unknown?: never;
   }
 
@@ -2564,18 +2857,21 @@ export namespace SearchTypesResultItem {
   export interface $UnknownMember {
     assetTypeItem?: never;
     formTypeItem?: never;
+    lineageNodeTypeItem?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     assetTypeItem: (value: AssetTypeItem) => T;
     formTypeItem: (value: FormTypeData) => T;
+    lineageNodeTypeItem: (value: LineageNodeTypeItem) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SearchTypesResultItem, visitor: Visitor<T>): T => {
     if (value.assetTypeItem !== undefined) return visitor.assetTypeItem(value.assetTypeItem);
     if (value.formTypeItem !== undefined) return visitor.formTypeItem(value.formTypeItem);
+    if (value.lineageNodeTypeItem !== undefined) return visitor.lineageNodeTypeItem(value.lineageNodeTypeItem);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4055,6 +4351,26 @@ export interface SearchTypesInput {
 /**
  * @internal
  */
+export const NotificationOutputFilterSensitiveLog = (obj: NotificationOutput): any => ({
+  ...obj,
+  ...(obj.title && { title: SENSITIVE_STRING }),
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.actionLink && { actionLink: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationsOutputFilterSensitiveLog = (obj: ListNotificationsOutput): any => ({
+  ...obj,
+  ...(obj.notifications && {
+    notifications: obj.notifications.map((item) => NotificationOutputFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const ListProjectsInputFilterSensitiveLog = (obj: ListProjectsInput): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
@@ -4133,6 +4449,14 @@ export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTar
 export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PostLineageEventInputFilterSensitiveLog = (obj: PostLineageEventInput): any => ({
+  ...obj,
+  ...(obj.event && { event: SENSITIVE_STRING }),
 });
 
 /**
@@ -4263,9 +4587,26 @@ export const FormTypeDataFilterSensitiveLog = (obj: FormTypeData): any => ({
 /**
  * @internal
  */
+export const LineageNodeTypeItemFilterSensitiveLog = (obj: LineageNodeTypeItem): any => ({
+  ...obj,
+  ...(obj.formsOutput && {
+    formsOutput: Object.entries(obj.formsOutput).reduce(
+      (acc: any, [key, value]: [string, FormEntryOutput]) => (
+        (acc[key] = FormEntryOutputFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const SearchTypesResultItemFilterSensitiveLog = (obj: SearchTypesResultItem): any => {
   if (obj.assetTypeItem !== undefined) return { assetTypeItem: AssetTypeItemFilterSensitiveLog(obj.assetTypeItem) };
   if (obj.formTypeItem !== undefined) return { formTypeItem: FormTypeDataFilterSensitiveLog(obj.formTypeItem) };
+  if (obj.lineageNodeTypeItem !== undefined)
+    return { lineageNodeTypeItem: LineageNodeTypeItemFilterSensitiveLog(obj.lineageNodeTypeItem) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

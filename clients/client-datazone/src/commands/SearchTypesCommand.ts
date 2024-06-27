@@ -39,7 +39,7 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  *   domainIdentifier: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   searchScope: "ASSET_TYPE" || "FORM_TYPE", // required
+ *   searchScope: "ASSET_TYPE" || "FORM_TYPE" || "LINEAGE_NODE_TYPE", // required
  *   searchText: "STRING_VALUE",
  *   searchIn: [ // SearchInList
  *     { // SearchInItem
@@ -120,6 +120,23 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  * //             revision: "STRING_VALUE", // required
  * //           },
  * //         ],
+ * //       },
+ * //       lineageNodeTypeItem: { // LineageNodeTypeItem
+ * //         domainId: "STRING_VALUE", // required
+ * //         name: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         createdAt: new Date("TIMESTAMP"),
+ * //         createdBy: "STRING_VALUE",
+ * //         updatedAt: new Date("TIMESTAMP"),
+ * //         updatedBy: "STRING_VALUE",
+ * //         revision: "STRING_VALUE", // required
+ * //         formsOutput: { // required
+ * //           "<keys>": {
+ * //             typeName: "STRING_VALUE", // required
+ * //             typeRevision: "STRING_VALUE", // required
+ * //             required: true || false,
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //   ],

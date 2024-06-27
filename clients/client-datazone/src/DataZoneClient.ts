@@ -186,6 +186,7 @@ import {
   GetIamPortalLoginUrlCommandInput,
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
+import { GetLineageNodeCommandInput, GetLineageNodeCommandOutput } from "./commands/GetLineageNodeCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
 import {
   GetMetadataGenerationRunCommandInput,
@@ -236,6 +237,10 @@ import {
 } from "./commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
 import {
+  ListLineageNodeHistoryCommandInput,
+  ListLineageNodeHistoryCommandOutput,
+} from "./commands/ListLineageNodeHistoryCommand";
+import {
   ListMetadataGenerationRunsCommandInput,
   ListMetadataGenerationRunsCommandOutput,
 } from "./commands/ListMetadataGenerationRunsCommand";
@@ -266,6 +271,7 @@ import {
   ListTimeSeriesDataPointsCommandInput,
   ListTimeSeriesDataPointsCommandOutput,
 } from "./commands/ListTimeSeriesDataPointsCommand";
+import { PostLineageEventCommandInput, PostLineageEventCommandOutput } from "./commands/PostLineageEventCommand";
 import {
   PostTimeSeriesDataPointsCommandInput,
   PostTimeSeriesDataPointsCommandOutput,
@@ -396,6 +402,7 @@ export type ServiceInputTypes =
   | GetGlossaryTermCommandInput
   | GetGroupProfileCommandInput
   | GetIamPortalLoginUrlCommandInput
+  | GetLineageNodeCommandInput
   | GetListingCommandInput
   | GetMetadataGenerationRunCommandInput
   | GetProjectCommandInput
@@ -415,6 +422,7 @@ export type ServiceInputTypes =
   | ListEnvironmentBlueprintsCommandInput
   | ListEnvironmentProfilesCommandInput
   | ListEnvironmentsCommandInput
+  | ListLineageNodeHistoryCommandInput
   | ListMetadataGenerationRunsCommandInput
   | ListNotificationsCommandInput
   | ListProjectMembershipsCommandInput
@@ -425,6 +433,7 @@ export type ServiceInputTypes =
   | ListSubscriptionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTimeSeriesDataPointsCommandInput
+  | PostLineageEventCommandInput
   | PostTimeSeriesDataPointsCommandInput
   | PutEnvironmentBlueprintConfigurationCommandInput
   | RejectPredictionsCommandInput
@@ -515,6 +524,7 @@ export type ServiceOutputTypes =
   | GetGlossaryTermCommandOutput
   | GetGroupProfileCommandOutput
   | GetIamPortalLoginUrlCommandOutput
+  | GetLineageNodeCommandOutput
   | GetListingCommandOutput
   | GetMetadataGenerationRunCommandOutput
   | GetProjectCommandOutput
@@ -534,6 +544,7 @@ export type ServiceOutputTypes =
   | ListEnvironmentBlueprintsCommandOutput
   | ListEnvironmentProfilesCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListLineageNodeHistoryCommandOutput
   | ListMetadataGenerationRunsCommandOutput
   | ListNotificationsCommandOutput
   | ListProjectMembershipsCommandOutput
@@ -544,6 +555,7 @@ export type ServiceOutputTypes =
   | ListSubscriptionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTimeSeriesDataPointsCommandOutput
+  | PostLineageEventCommandOutput
   | PostTimeSeriesDataPointsCommandOutput
   | PutEnvironmentBlueprintConfigurationCommandOutput
   | RejectPredictionsCommandOutput

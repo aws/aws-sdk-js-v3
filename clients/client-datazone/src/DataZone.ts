@@ -268,6 +268,11 @@ import {
   GetIamPortalLoginUrlCommandInput,
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
+import {
+  GetLineageNodeCommand,
+  GetLineageNodeCommandInput,
+  GetLineageNodeCommandOutput,
+} from "./commands/GetLineageNodeCommand";
 import { GetListingCommand, GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
 import {
   GetMetadataGenerationRunCommand,
@@ -352,6 +357,11 @@ import {
   ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
 import {
+  ListLineageNodeHistoryCommand,
+  ListLineageNodeHistoryCommandInput,
+  ListLineageNodeHistoryCommandOutput,
+} from "./commands/ListLineageNodeHistoryCommand";
+import {
   ListMetadataGenerationRunsCommand,
   ListMetadataGenerationRunsCommandInput,
   ListMetadataGenerationRunsCommandOutput,
@@ -401,6 +411,11 @@ import {
   ListTimeSeriesDataPointsCommandInput,
   ListTimeSeriesDataPointsCommandOutput,
 } from "./commands/ListTimeSeriesDataPointsCommand";
+import {
+  PostLineageEventCommand,
+  PostLineageEventCommandInput,
+  PostLineageEventCommandOutput,
+} from "./commands/PostLineageEventCommand";
 import {
   PostTimeSeriesDataPointsCommand,
   PostTimeSeriesDataPointsCommandInput,
@@ -585,6 +600,7 @@ const commands = {
   GetGlossaryTermCommand,
   GetGroupProfileCommand,
   GetIamPortalLoginUrlCommand,
+  GetLineageNodeCommand,
   GetListingCommand,
   GetMetadataGenerationRunCommand,
   GetProjectCommand,
@@ -604,6 +620,7 @@ const commands = {
   ListEnvironmentBlueprintsCommand,
   ListEnvironmentProfilesCommand,
   ListEnvironmentsCommand,
+  ListLineageNodeHistoryCommand,
   ListMetadataGenerationRunsCommand,
   ListNotificationsCommand,
   ListProjectMembershipsCommand,
@@ -614,6 +631,7 @@ const commands = {
   ListSubscriptionTargetsCommand,
   ListTagsForResourceCommand,
   ListTimeSeriesDataPointsCommand,
+  PostLineageEventCommand,
   PostTimeSeriesDataPointsCommand,
   PutEnvironmentBlueprintConfigurationCommand,
   RejectPredictionsCommand,
@@ -1526,6 +1544,20 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link GetLineageNodeCommand}
+   */
+  getLineageNode(
+    args: GetLineageNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLineageNodeCommandOutput>;
+  getLineageNode(args: GetLineageNodeCommandInput, cb: (err: any, data?: GetLineageNodeCommandOutput) => void): void;
+  getLineageNode(
+    args: GetLineageNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLineageNodeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetListingCommand}
    */
   getListing(args: GetListingCommandInput, options?: __HttpHandlerOptions): Promise<GetListingCommandOutput>;
@@ -1823,6 +1855,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link ListLineageNodeHistoryCommand}
+   */
+  listLineageNodeHistory(
+    args: ListLineageNodeHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLineageNodeHistoryCommandOutput>;
+  listLineageNodeHistory(
+    args: ListLineageNodeHistoryCommandInput,
+    cb: (err: any, data?: ListLineageNodeHistoryCommandOutput) => void
+  ): void;
+  listLineageNodeHistory(
+    args: ListLineageNodeHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLineageNodeHistoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMetadataGenerationRunsCommand}
    */
   listMetadataGenerationRuns(
@@ -1984,6 +2033,23 @@ export interface DataZone {
     args: ListTimeSeriesDataPointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PostLineageEventCommand}
+   */
+  postLineageEvent(
+    args: PostLineageEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostLineageEventCommandOutput>;
+  postLineageEvent(
+    args: PostLineageEventCommandInput,
+    cb: (err: any, data?: PostLineageEventCommandOutput) => void
+  ): void;
+  postLineageEvent(
+    args: PostLineageEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PostLineageEventCommandOutput) => void
   ): void;
 
   /**

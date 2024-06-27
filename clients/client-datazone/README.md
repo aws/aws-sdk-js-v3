@@ -673,6 +673,14 @@ GetIamPortalLoginUrl
 </details>
 <details>
 <summary>
+GetLineageNode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/GetLineageNodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/GetLineageNodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/GetLineageNodeCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetListing
 </summary>
 
@@ -825,6 +833,14 @@ ListEnvironments
 </details>
 <details>
 <summary>
+ListLineageNodeHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/ListLineageNodeHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/ListLineageNodeHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/ListLineageNodeHistoryCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListMetadataGenerationRuns
 </summary>
 
@@ -901,6 +917,14 @@ ListTimeSeriesDataPoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/ListTimeSeriesDataPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/ListTimeSeriesDataPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/ListTimeSeriesDataPointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PostLineageEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/PostLineageEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/PostLineageEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/PostLineageEventCommandOutput/)
 
 </details>
 <details>
