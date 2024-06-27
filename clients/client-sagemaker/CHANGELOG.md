@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
+
+
+### Features
+
+* **client-sagemaker:** Add capability for Admins to customize Studio experience for the user by showing or hiding Apps and MLTools. ([c8b653f](https://github.com/aws/aws-sdk-js-v3/commit/c8b653f9aa6937aea45353337aa15d4f1eaff06c))
+
+
+
+
+
 # [3.602.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.601.0...v3.602.0) (2024-06-20)
 
 

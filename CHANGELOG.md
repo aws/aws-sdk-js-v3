@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
+
+
+### Features
+
+* **client-application-auto-scaling:** Amazon WorkSpaces customers can now use Application Auto Scaling to automatically scale the number of virtual desktops in a WorkSpaces pool. ([2bd900f](https://github.com/aws/aws-sdk-js-v3/commit/2bd900fc1aec4bcc47933a7ab4918fa8a2cf701e))
+* **client-chime-sdk-media-pipelines:** Added Amazon Transcribe multi language identification to Chime SDK call analytics. Enabling customers sending single stream audio to generate call recordings using Chime SDK call analytics ([2028122](https://github.com/aws/aws-sdk-js-v3/commit/2028122ca47c77cc14164a0c194b4ddd1eb8db47))
+* **client-datazone:** This release supports the data lineage feature of business data catalog in Amazon DataZone. ([dc63d2c](https://github.com/aws/aws-sdk-js-v3/commit/dc63d2cbc17dd6cd977ac1d1ba0189ef3913db35))
+* **client-elasticache:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([d3a5651](https://github.com/aws/aws-sdk-js-v3/commit/d3a5651d855d8ba20eb638333075d9de4f698898))
+* **client-mq:** This release makes the EngineVersion field optional for both broker and configuration and uses the latest available version by default. The AutoMinorVersionUpgrade field is also now optional for broker creation and defaults to 'true'. ([8c6b66a](https://github.com/aws/aws-sdk-js-v3/commit/8c6b66ae1f5e215458040514e7aad76425eb91b1))
+* **client-qconnect:** Adds CreateContentAssociation, ListContentAssociations, GetContentAssociation, and DeleteContentAssociation APIs. ([c6917b4](https://github.com/aws/aws-sdk-js-v3/commit/c6917b443550d1fe140021103d6807aaac11d00a))
+* **client-quicksight:** Adding support for Repeating Sections, Nested Filters ([be6cd94](https://github.com/aws/aws-sdk-js-v3/commit/be6cd9480c975ef09f5236966a48ccc5fdfe0a3e))
+* **client-sagemaker:** Add capability for Admins to customize Studio experience for the user by showing or hiding Apps and MLTools. ([c8b653f](https://github.com/aws/aws-sdk-js-v3/commit/c8b653f9aa6937aea45353337aa15d4f1eaff06c))
+* **client-workspaces:** Added support for WorkSpaces Pools. ([729c208](https://github.com/aws/aws-sdk-js-v3/commit/729c20871c51068658bd58f66cdca0bd8e9bfb60))
+* **clients:** update client endpoints as of 2024-06-27 ([9cc63d2](https://github.com/aws/aws-sdk-js-v3/commit/9cc63d2cad8554debee0bcf538ee0ae28fa0ee44))
+
+
+
+
+
 # [3.605.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.604.0...v3.605.0) (2024-06-26)
 
 
