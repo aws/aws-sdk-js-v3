@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateIpGroupsRequest, DisassociateIpGroupsResult } from "../models/models_0";
-import { de_DisassociateIpGroupsCommand, se_DisassociateIpGroupsCommand } from "../protocols/Aws_json1_1";
+import { TerminateWorkspacesPoolRequest, TerminateWorkspacesPoolResult } from "../models/models_1";
+import { de_TerminateWorkspacesPoolCommand, se_TerminateWorkspacesPoolCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -17,40 +17,37 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DisassociateIpGroupsCommand}.
+ * The input for {@link TerminateWorkspacesPoolCommand}.
  */
-export interface DisassociateIpGroupsCommandInput extends DisassociateIpGroupsRequest {}
+export interface TerminateWorkspacesPoolCommandInput extends TerminateWorkspacesPoolRequest {}
 /**
  * @public
  *
- * The output of {@link DisassociateIpGroupsCommand}.
+ * The output of {@link TerminateWorkspacesPoolCommand}.
  */
-export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsResult, __MetadataBearer {}
+export interface TerminateWorkspacesPoolCommandOutput extends TerminateWorkspacesPoolResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates the specified IP access control group from the specified directory.</p>
+ * <p>Terminates the specified WorkSpaces pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WorkSpacesClient, DisassociateIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
- * // const { WorkSpacesClient, DisassociateIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * import { WorkSpacesClient, TerminateWorkspacesPoolCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, TerminateWorkspacesPoolCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
- * const input = { // DisassociateIpGroupsRequest
- *   DirectoryId: "STRING_VALUE", // required
- *   GroupIds: [ // IpGroupIdList // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // TerminateWorkspacesPoolRequest
+ *   PoolId: "STRING_VALUE", // required
  * };
- * const command = new DisassociateIpGroupsCommand(input);
+ * const command = new TerminateWorkspacesPoolCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DisassociateIpGroupsCommandInput - {@link DisassociateIpGroupsCommandInput}
- * @returns {@link DisassociateIpGroupsCommandOutput}
- * @see {@link DisassociateIpGroupsCommandInput} for command's `input` shape.
- * @see {@link DisassociateIpGroupsCommandOutput} for command's `response` shape.
+ * @param TerminateWorkspacesPoolCommandInput - {@link TerminateWorkspacesPoolCommandInput}
+ * @returns {@link TerminateWorkspacesPoolCommandOutput}
+ * @see {@link TerminateWorkspacesPoolCommandInput} for command's `input` shape.
+ * @see {@link TerminateWorkspacesPoolCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -62,8 +59,8 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * @throws {@link InvalidResourceStateException} (client fault)
  *  <p>The state of the resource is not valid for this operation.</p>
  *
- * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
@@ -73,10 +70,10 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  *
  * @public
  */
-export class DisassociateIpGroupsCommand extends $Command
+export class TerminateWorkspacesPoolCommand extends $Command
   .classBuilder<
-    DisassociateIpGroupsCommandInput,
-    DisassociateIpGroupsCommandOutput,
+    TerminateWorkspacesPoolCommandInput,
+    TerminateWorkspacesPoolCommandOutput,
     WorkSpacesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -90,9 +87,9 @@ export class DisassociateIpGroupsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("WorkspacesService", "DisassociateIpGroups", {})
-  .n("WorkSpacesClient", "DisassociateIpGroupsCommand")
+  .s("WorkspacesService", "TerminateWorkspacesPool", {})
+  .n("WorkSpacesClient", "TerminateWorkspacesPoolCommand")
   .f(void 0, void 0)
-  .ser(se_DisassociateIpGroupsCommand)
-  .de(de_DisassociateIpGroupsCommand)
+  .ser(se_TerminateWorkspacesPoolCommand)
+  .de(de_TerminateWorkspacesPoolCommand)
   .build() {}

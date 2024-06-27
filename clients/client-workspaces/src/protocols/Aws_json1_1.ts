@@ -67,6 +67,10 @@ import {
 } from "../commands/CreateWorkspaceImageCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "../commands/CreateWorkspacesCommand";
 import {
+  CreateWorkspacesPoolCommandInput,
+  CreateWorkspacesPoolCommandOutput,
+} from "../commands/CreateWorkspacesPoolCommand";
+import {
   DeleteAccountLinkInvitationCommandInput,
   DeleteAccountLinkInvitationCommandOutput,
 } from "../commands/DeleteAccountLinkInvitationCommand";
@@ -173,6 +177,14 @@ import {
   DescribeWorkspaceSnapshotsCommandOutput,
 } from "../commands/DescribeWorkspaceSnapshotsCommand";
 import {
+  DescribeWorkspacesPoolsCommandInput,
+  DescribeWorkspacesPoolsCommandOutput,
+} from "../commands/DescribeWorkspacesPoolsCommand";
+import {
+  DescribeWorkspacesPoolSessionsCommandInput,
+  DescribeWorkspacesPoolSessionsCommandOutput,
+} from "../commands/DescribeWorkspacesPoolSessionsCommand";
+import {
   DisassociateConnectionAliasCommandInput,
   DisassociateConnectionAliasCommandOutput,
 } from "../commands/DisassociateConnectionAliasCommand";
@@ -217,6 +229,10 @@ import {
   ModifySelfservicePermissionsCommandOutput,
 } from "../commands/ModifySelfservicePermissionsCommand";
 import {
+  ModifyStreamingPropertiesCommandInput,
+  ModifyStreamingPropertiesCommandOutput,
+} from "../commands/ModifyStreamingPropertiesCommand";
+import {
   ModifyWorkspaceAccessPropertiesCommandInput,
   ModifyWorkspaceAccessPropertiesCommandOutput,
 } from "../commands/ModifyWorkspaceAccessPropertiesCommand";
@@ -245,11 +261,24 @@ import {
 import { RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput } from "../commands/RestoreWorkspaceCommand";
 import { RevokeIpRulesCommandInput, RevokeIpRulesCommandOutput } from "../commands/RevokeIpRulesCommand";
 import { StartWorkspacesCommandInput, StartWorkspacesCommandOutput } from "../commands/StartWorkspacesCommand";
+import {
+  StartWorkspacesPoolCommandInput,
+  StartWorkspacesPoolCommandOutput,
+} from "../commands/StartWorkspacesPoolCommand";
 import { StopWorkspacesCommandInput, StopWorkspacesCommandOutput } from "../commands/StopWorkspacesCommand";
+import { StopWorkspacesPoolCommandInput, StopWorkspacesPoolCommandOutput } from "../commands/StopWorkspacesPoolCommand";
 import {
   TerminateWorkspacesCommandInput,
   TerminateWorkspacesCommandOutput,
 } from "../commands/TerminateWorkspacesCommand";
+import {
+  TerminateWorkspacesPoolCommandInput,
+  TerminateWorkspacesPoolCommandOutput,
+} from "../commands/TerminateWorkspacesPoolCommand";
+import {
+  TerminateWorkspacesPoolSessionCommandInput,
+  TerminateWorkspacesPoolSessionCommandOutput,
+} from "../commands/TerminateWorkspacesPoolSessionCommand";
 import {
   UpdateConnectClientAddInCommandInput,
   UpdateConnectClientAddInCommandOutput,
@@ -271,14 +300,20 @@ import {
   UpdateWorkspaceImagePermissionCommandOutput,
 } from "../commands/UpdateWorkspaceImagePermissionCommand";
 import {
+  UpdateWorkspacesPoolCommandInput,
+  UpdateWorkspacesPoolCommandOutput,
+} from "../commands/UpdateWorkspacesPoolCommand";
+import {
   AcceptAccountLinkInvitationRequest,
   AccessDeniedException,
   AccountLinkStatusEnum,
   AccountModification,
+  ActiveDirectoryConfig,
   Application,
   ApplicationAssociatedResourceType,
   ApplicationNotSupportedException,
   ApplicationResourceAssociation,
+  ApplicationSettingsRequest,
   AssociateConnectionAliasRequest,
   AssociateIpGroupsRequest,
   AssociateWorkspaceApplicationRequest,
@@ -286,6 +321,7 @@ import {
   AuthorizeIpRulesRequest,
   BundleAssociatedResourceType,
   BundleResourceAssociation,
+  Capacity,
   CertificateBasedAuthProperties,
   ClientDeviceType,
   ClientProperties,
@@ -306,6 +342,8 @@ import {
   CreateWorkspaceBundleResult,
   CreateWorkspaceImageRequest,
   CreateWorkspaceImageResult,
+  CreateWorkspacesPoolRequest,
+  CreateWorkspacesPoolResult,
   CreateWorkspacesRequest,
   CreateWorkspacesResult,
   DataReplicationSettings,
@@ -353,6 +391,11 @@ import {
   DescribeWorkspacesConnectionStatusResult,
   DescribeWorkspaceSnapshotsRequest,
   DescribeWorkspaceSnapshotsResult,
+  DescribeWorkspacesPoolSessionsRequest,
+  DescribeWorkspacesPoolSessionsResult,
+  DescribeWorkspacesPoolsFilter,
+  DescribeWorkspacesPoolsRequest,
+  DescribeWorkspacesPoolsResult,
   DescribeWorkspacesRequest,
   DescribeWorkspacesResult,
   DisassociateConnectionAliasRequest,
@@ -378,6 +421,7 @@ import {
   ModifyClientPropertiesRequest,
   ModifySamlPropertiesRequest,
   ModifySelfservicePermissionsRequest,
+  ModifyStreamingPropertiesRequest,
   ModifyWorkspaceAccessPropertiesRequest,
   ModifyWorkspaceCreationPropertiesRequest,
   ModifyWorkspacePropertiesRequest,
@@ -408,20 +452,13 @@ import {
   Snapshot,
   StandbyWorkspace,
   StandbyWorkspacesProperties,
-  StartRequest,
-  StartWorkspacesRequest,
-  StopRequest,
-  StopWorkspacesRequest,
+  StorageConnector,
+  StreamingProperties,
   Tag,
-  TerminateRequest,
-  TerminateWorkspacesRequest,
+  TimeoutSettings,
   UnsupportedNetworkConfigurationException,
   UnsupportedWorkspaceConfigurationException,
-  UpdateConnectClientAddInRequest,
-  UpdateConnectionAliasPermissionRequest,
-  UpdateRulesOfIpGroupRequest,
-  UpdateWorkspaceBundleRequest,
-  UpdateWorkspaceImagePermissionRequest,
+  UserSetting,
   UserStorage,
   ValidationException,
   Workspace,
@@ -437,7 +474,28 @@ import {
   WorkspaceRequest,
   WorkspaceResourceAssociation,
   WorkspacesDefaultRoleNotFoundException,
+  WorkspacesPool,
+  WorkspacesPoolSession,
 } from "../models/models_0";
+import {
+  StartRequest,
+  StartWorkspacesPoolRequest,
+  StartWorkspacesRequest,
+  StopRequest,
+  StopWorkspacesPoolRequest,
+  StopWorkspacesRequest,
+  TerminateRequest,
+  TerminateWorkspacesPoolRequest,
+  TerminateWorkspacesPoolSessionRequest,
+  TerminateWorkspacesRequest,
+  UpdateConnectClientAddInRequest,
+  UpdateConnectionAliasPermissionRequest,
+  UpdateRulesOfIpGroupRequest,
+  UpdateWorkspaceBundleRequest,
+  UpdateWorkspaceImagePermissionRequest,
+  UpdateWorkspacesPoolRequest,
+  UpdateWorkspacesPoolResult,
+} from "../models/models_1";
 import { WorkSpacesServiceException as __BaseException } from "../models/WorkSpacesServiceException";
 
 /**
@@ -643,6 +701,19 @@ export const se_CreateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateWorkspaces");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateWorkspacesPoolCommand
+ */
+export const se_CreateWorkspacesPoolCommand = async (
+  input: CreateWorkspacesPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateWorkspacesPool");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1052,6 +1123,32 @@ export const se_DescribeWorkspaceSnapshotsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeWorkspacesPoolsCommand
+ */
+export const se_DescribeWorkspacesPoolsCommand = async (
+  input: DescribeWorkspacesPoolsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspacesPools");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeWorkspacesPoolSessionsCommand
+ */
+export const se_DescribeWorkspacesPoolSessionsCommand = async (
+  input: DescribeWorkspacesPoolSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkspacesPoolSessions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DisassociateConnectionAliasCommand
  */
 export const se_DisassociateConnectionAliasCommand = async (
@@ -1234,6 +1331,19 @@ export const se_ModifySelfservicePermissionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ModifyStreamingPropertiesCommand
+ */
+export const se_ModifyStreamingPropertiesCommand = async (
+  input: ModifyStreamingPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyStreamingProperties");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand
  */
 export const se_ModifyWorkspaceAccessPropertiesCommand = async (
@@ -1377,6 +1487,19 @@ export const se_StartWorkspacesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartWorkspacesPoolCommand
+ */
+export const se_StartWorkspacesPoolCommand = async (
+  input: StartWorkspacesPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartWorkspacesPool");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StopWorkspacesCommand
  */
 export const se_StopWorkspacesCommand = async (
@@ -1390,6 +1513,19 @@ export const se_StopWorkspacesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StopWorkspacesPoolCommand
+ */
+export const se_StopWorkspacesPoolCommand = async (
+  input: StopWorkspacesPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopWorkspacesPool");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1TerminateWorkspacesCommand
  */
 export const se_TerminateWorkspacesCommand = async (
@@ -1397,6 +1533,32 @@ export const se_TerminateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TerminateWorkspaces");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TerminateWorkspacesPoolCommand
+ */
+export const se_TerminateWorkspacesPoolCommand = async (
+  input: TerminateWorkspacesPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TerminateWorkspacesPool");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TerminateWorkspacesPoolSessionCommand
+ */
+export const se_TerminateWorkspacesPoolSessionCommand = async (
+  input: TerminateWorkspacesPoolSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TerminateWorkspacesPoolSession");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1462,6 +1624,19 @@ export const se_UpdateWorkspaceImagePermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateWorkspaceImagePermission");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateWorkspacesPoolCommand
+ */
+export const se_UpdateWorkspacesPoolCommand = async (
+  input: UpdateWorkspacesPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkspacesPool");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1781,6 +1956,26 @@ export const de_CreateWorkspacesCommand = async (
   let contents: any = {};
   contents = de_CreateWorkspacesResult(data, context);
   const response: CreateWorkspacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateWorkspacesPoolCommand
+ */
+export const de_CreateWorkspacesPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkspacesPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateWorkspacesPoolResult(data, context);
+  const response: CreateWorkspacesPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2408,6 +2603,46 @@ export const de_DescribeWorkspaceSnapshotsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeWorkspacesPoolsCommand
+ */
+export const de_DescribeWorkspacesPoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspacesPoolsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWorkspacesPoolsResult(data, context);
+  const response: DescribeWorkspacesPoolsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWorkspacesPoolSessionsCommand
+ */
+export const de_DescribeWorkspacesPoolSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspacesPoolSessionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWorkspacesPoolSessionsResult(data, context);
+  const response: DescribeWorkspacesPoolSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DisassociateConnectionAliasCommand
  */
 export const de_DisassociateConnectionAliasCommand = async (
@@ -2688,6 +2923,26 @@ export const de_ModifySelfservicePermissionsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ModifyStreamingPropertiesCommand
+ */
+export const de_ModifyStreamingPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyStreamingPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ModifyStreamingPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand
  */
 export const de_ModifyWorkspaceAccessPropertiesCommand = async (
@@ -2908,6 +3163,26 @@ export const de_StartWorkspacesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartWorkspacesPoolCommand
+ */
+export const de_StartWorkspacesPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWorkspacesPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartWorkspacesPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StopWorkspacesCommand
  */
 export const de_StopWorkspacesCommand = async (
@@ -2928,6 +3203,26 @@ export const de_StopWorkspacesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StopWorkspacesPoolCommand
+ */
+export const de_StopWorkspacesPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopWorkspacesPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopWorkspacesPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1TerminateWorkspacesCommand
  */
 export const de_TerminateWorkspacesCommand = async (
@@ -2941,6 +3236,46 @@ export const de_TerminateWorkspacesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: TerminateWorkspacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TerminateWorkspacesPoolCommand
+ */
+export const de_TerminateWorkspacesPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TerminateWorkspacesPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TerminateWorkspacesPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TerminateWorkspacesPoolSessionCommand
+ */
+export const de_TerminateWorkspacesPoolSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TerminateWorkspacesPoolSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TerminateWorkspacesPoolSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3041,6 +3376,26 @@ export const de_UpdateWorkspaceImagePermissionCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: UpdateWorkspaceImagePermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkspacesPoolCommand
+ */
+export const de_UpdateWorkspacesPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspacesPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateWorkspacesPoolResult(data, context);
+  const response: UpdateWorkspacesPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3481,9 +3836,13 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
 
 // se_AcceptAccountLinkInvitationRequest omitted.
 
+// se_ActiveDirectoryConfig omitted.
+
 // se_ApplicationAssociatedResourceTypeList omitted.
 
 // se_ApplicationList omitted.
+
+// se_ApplicationSettingsRequest omitted.
 
 // se_AssociateConnectionAliasRequest omitted.
 
@@ -3496,6 +3855,8 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
 // se_BundleAssociatedResourceTypeList omitted.
 
 // se_BundleIdList omitted.
+
+// se_Capacity omitted.
 
 // se_CertificateBasedAuthProperties omitted.
 
@@ -3530,6 +3891,8 @@ const de_WorkspacesDefaultRoleNotFoundExceptionRes = async (
 // se_CreateWorkspaceBundleRequest omitted.
 
 // se_CreateWorkspaceImageRequest omitted.
+
+// se_CreateWorkspacesPoolRequest omitted.
 
 // se_CreateWorkspacesRequest omitted.
 
@@ -3613,6 +3976,16 @@ const se_DefaultImportClientBrandingAttributes = (
 
 // se_DescribeWorkspaceSnapshotsRequest omitted.
 
+// se_DescribeWorkspacesPoolSessionsRequest omitted.
+
+// se_DescribeWorkspacesPoolsFilter omitted.
+
+// se_DescribeWorkspacesPoolsFilters omitted.
+
+// se_DescribeWorkspacesPoolsFilterValues omitted.
+
+// se_DescribeWorkspacesPoolsRequest omitted.
+
 // se_DescribeWorkspacesRequest omitted.
 
 // se_DirectoryIdList omitted.
@@ -3690,6 +4063,8 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_ModifySelfservicePermissionsRequest omitted.
 
+// se_ModifyStreamingPropertiesRequest omitted.
+
 // se_ModifyWorkspaceAccessPropertiesRequest omitted.
 
 // se_ModifyWorkspaceCreationPropertiesRequest omitted.
@@ -3738,13 +4113,23 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_StartWorkspaceRequests omitted.
 
+// se_StartWorkspacesPoolRequest omitted.
+
 // se_StartWorkspacesRequest omitted.
 
 // se_StopRequest omitted.
 
 // se_StopWorkspaceRequests omitted.
 
+// se_StopWorkspacesPoolRequest omitted.
+
 // se_StopWorkspacesRequest omitted.
+
+// se_StorageConnector omitted.
+
+// se_StorageConnectors omitted.
+
+// se_StreamingProperties omitted.
 
 // se_SubnetIds omitted.
 
@@ -3758,7 +4143,13 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_TerminateWorkspaceRequests omitted.
 
+// se_TerminateWorkspacesPoolRequest omitted.
+
+// se_TerminateWorkspacesPoolSessionRequest omitted.
+
 // se_TerminateWorkspacesRequest omitted.
+
+// se_TimeoutSettings omitted.
 
 // se_UpdateConnectClientAddInRequest omitted.
 
@@ -3770,6 +4161,12 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_UpdateWorkspaceImagePermissionRequest omitted.
 
+// se_UpdateWorkspacesPoolRequest omitted.
+
+// se_UserSetting omitted.
+
+// se_UserSettings omitted.
+
 // se_UserStorage omitted.
 
 // se_WorkspaceAccessProperties omitted.
@@ -3780,6 +4177,8 @@ const se_IosImportClientBrandingAttributes = (
 
 // se_WorkspaceCreationProperties omitted.
 
+// se_WorkspaceDirectoryNameList omitted.
+
 // se_WorkspaceIdList omitted.
 
 // se_WorkspaceImageIdList omitted.
@@ -3789,6 +4188,8 @@ const se_IosImportClientBrandingAttributes = (
 // se_WorkspaceRequest omitted.
 
 // se_WorkspaceRequestList omitted.
+
+// se_WorkspacesPoolIds omitted.
 
 // de_AcceptAccountLinkInvitationResult omitted.
 
@@ -3824,6 +4225,8 @@ const de_AccountModificationList = (output: any, context: __SerdeContext): Accou
   return retVal;
 };
 
+// de_ActiveDirectoryConfig omitted.
+
 // de_ApplicationNotSupportedException omitted.
 
 /**
@@ -3855,6 +4258,8 @@ const de_ApplicationResourceAssociationList = (
     });
   return retVal;
 };
+
+// de_ApplicationSettingsResponse omitted.
 
 // de_AssociateConnectionAliasResult omitted.
 
@@ -3914,6 +4319,8 @@ const de_BundleResourceAssociationList = (output: any, context: __SerdeContext):
     });
   return retVal;
 };
+
+// de_CapacityStatus omitted.
 
 // de_CertificateBasedAuthProperties omitted.
 
@@ -3985,6 +4392,15 @@ const de_CreateWorkspaceImageResult = (output: any, context: __SerdeContext): Cr
     OwnerAccountId: __expectString,
     RequiredTenancy: __expectString,
     State: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateWorkspacesPoolResult
+ */
+const de_CreateWorkspacesPoolResult = (output: any, context: __SerdeContext): CreateWorkspacesPoolResult => {
+  return take(output, {
+    WorkspacesPool: (_: any) => de_WorkspacesPool(_, context),
   }) as any;
 };
 
@@ -4180,6 +4596,29 @@ const de_DescribeWorkspaceSnapshotsResult = (
 };
 
 /**
+ * deserializeAws_json1_1DescribeWorkspacesPoolSessionsResult
+ */
+const de_DescribeWorkspacesPoolSessionsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeWorkspacesPoolSessionsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Sessions: (_: any) => de_WorkspacesPoolSessions(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWorkspacesPoolsResult
+ */
+const de_DescribeWorkspacesPoolsResult = (output: any, context: __SerdeContext): DescribeWorkspacesPoolsResult => {
+  return take(output, {
+    NextToken: __expectString,
+    WorkspacesPools: (_: any) => de_WorkspacesPools(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeWorkspacesResult
  */
 const de_DescribeWorkspacesResult = (output: any, context: __SerdeContext): DescribeWorkspacesResult => {
@@ -4308,6 +4747,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 
 // de_ModifySelfservicePermissionsResult omitted.
 
+// de_ModifyStreamingPropertiesResult omitted.
+
 // de_ModifyWorkspaceAccessPropertiesResult omitted.
 
 // de_ModifyWorkspaceCreationPropertiesResult omitted.
@@ -4315,6 +4756,8 @@ const de_ImageResourceAssociationList = (output: any, context: __SerdeContext): 
 // de_ModifyWorkspacePropertiesResult omitted.
 
 // de_ModifyWorkspaceStateResult omitted.
+
+// de_NetworkAccessConfiguration omitted.
 
 // de_OperatingSystem omitted.
 
@@ -4414,9 +4857,19 @@ const de_StandbyWorkspacesPropertiesList = (output: any, context: __SerdeContext
   return retVal;
 };
 
+// de_StartWorkspacesPoolResult omitted.
+
 // de_StartWorkspacesResult omitted.
 
+// de_StopWorkspacesPoolResult omitted.
+
 // de_StopWorkspacesResult omitted.
+
+// de_StorageConnector omitted.
+
+// de_StorageConnectors omitted.
+
+// de_StreamingProperties omitted.
 
 // de_SubnetIds omitted.
 
@@ -4424,7 +4877,13 @@ const de_StandbyWorkspacesPropertiesList = (output: any, context: __SerdeContext
 
 // de_TagList omitted.
 
+// de_TerminateWorkspacesPoolResult omitted.
+
+// de_TerminateWorkspacesPoolSessionResult omitted.
+
 // de_TerminateWorkspacesResult omitted.
+
+// de_TimeoutSettings omitted.
 
 // de_UnsupportedNetworkConfigurationException omitted.
 
@@ -4441,6 +4900,19 @@ const de_StandbyWorkspacesPropertiesList = (output: any, context: __SerdeContext
 // de_UpdateWorkspaceBundleResult omitted.
 
 // de_UpdateWorkspaceImagePermissionResult omitted.
+
+/**
+ * deserializeAws_json1_1UpdateWorkspacesPoolResult
+ */
+const de_UpdateWorkspacesPoolResult = (output: any, context: __SerdeContext): UpdateWorkspacesPoolResult => {
+  return take(output, {
+    WorkspacesPool: (_: any) => de_WorkspacesPool(_, context),
+  }) as any;
+};
+
+// de_UserSetting omitted.
+
+// de_UserSettings omitted.
 
 // de_UserStorage omitted.
 
@@ -4639,6 +5111,71 @@ const de_WorkspaceResourceAssociationList = (output: any, context: __SerdeContex
 // de_WorkspacesIpGroup omitted.
 
 // de_WorkspacesIpGroupsList omitted.
+
+/**
+ * deserializeAws_json1_1WorkspacesPool
+ */
+const de_WorkspacesPool = (output: any, context: __SerdeContext): WorkspacesPool => {
+  return take(output, {
+    ApplicationSettings: _json,
+    BundleId: __expectString,
+    CapacityStatus: _json,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    DirectoryId: __expectString,
+    Errors: _json,
+    PoolArn: __expectString,
+    PoolId: __expectString,
+    PoolName: __expectString,
+    State: __expectString,
+    TimeoutSettings: _json,
+  }) as any;
+};
+
+// de_WorkspacesPoolError omitted.
+
+// de_WorkspacesPoolErrors omitted.
+
+/**
+ * deserializeAws_json1_1WorkspacesPools
+ */
+const de_WorkspacesPools = (output: any, context: __SerdeContext): WorkspacesPool[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WorkspacesPool(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1WorkspacesPoolSession
+ */
+const de_WorkspacesPoolSession = (output: any, context: __SerdeContext): WorkspacesPoolSession => {
+  return take(output, {
+    AuthenticationType: __expectString,
+    ConnectionState: __expectString,
+    ExpirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InstanceId: __expectString,
+    NetworkAccessConfiguration: _json,
+    PoolId: __expectString,
+    SessionId: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    UserId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WorkspacesPoolSessions
+ */
+const de_WorkspacesPoolSessions = (output: any, context: __SerdeContext): WorkspacesPoolSession[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WorkspacesPoolSession(entry, context);
+    });
+  return retVal;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/models_0";
+import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/models_1";
 import { de_StopWorkspacesCommand, se_StopWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 

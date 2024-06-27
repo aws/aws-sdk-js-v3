@@ -277,6 +277,24 @@ export interface AccountModification {
 }
 
 /**
+ * <p>Information about the Active Directory config.</p>
+ * @public
+ */
+export interface ActiveDirectoryConfig {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Indicates the secret ARN on the service account.</p>
+   * @public
+   */
+  ServiceAccountSecretArn: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -428,6 +446,67 @@ export interface ApplicationResourceAssociation {
    * @public
    */
   StateReason?: AssociationStateReason;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationSettingsStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationSettingsStatusEnum =
+  (typeof ApplicationSettingsStatusEnum)[keyof typeof ApplicationSettingsStatusEnum];
+
+/**
+ * <p>The persistent application settings for users of a WorkSpaces pool.</p>
+ * @public
+ */
+export interface ApplicationSettingsRequest {
+  /**
+   * <p>Enables or disables persistent application settings for users during their pool sessions.</p>
+   * @public
+   */
+  Status: ApplicationSettingsStatusEnum | undefined;
+
+  /**
+   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.
+   *          You can allow the same persistent application settings to be used across multiple pools by specifying
+   *          the same settings group for each pool.</p>
+   * @public
+   */
+  SettingsGroup?: string;
+}
+
+/**
+ * <p>Describes the persistent application settings for users of a WorkSpaces pool.</p>
+ * @public
+ */
+export interface ApplicationSettingsResponse {
+  /**
+   * <p>Specifies whether persistent application settings are enabled for users during their pool sessions.</p>
+   * @public
+   */
+  Status: ApplicationSettingsStatusEnum | undefined;
+
+  /**
+   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
+   * @public
+   */
+  SettingsGroup?: string;
+
+  /**
+   * <p>The S3 bucket where users’ persistent application settings are stored. When persistent
+   *          application settings are enabled for the first time for an account in an Amazon Web Services Region,
+   *          an S3 bucket is created. The bucket is unique to the Amazon Web Services account and the Region.</p>
+   * @public
+   */
+  S3BucketName?: string;
 }
 
 /**
@@ -803,6 +882,19 @@ export const AssociationStatus = {
 export type AssociationStatus = (typeof AssociationStatus)[keyof typeof AssociationStatus];
 
 /**
+ * @public
+ * @enum
+ */
+export const AuthenticationType = {
+  SAML: "SAML",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+/**
  * <p>Describes a rule for an IP access control group.</p>
  * @public
  */
@@ -1068,6 +1160,51 @@ export interface BundleResourceAssociation {
    * @public
    */
   StateReason?: AssociationStateReason;
+}
+
+/**
+ * <p>Describes the user capacity for a WorkSpaces pool.</p>
+ * @public
+ */
+export interface Capacity {
+  /**
+   * <p>The desired number of user sessions for a multi-session pool.
+   *          This is not allowed for single-session pools.</p>
+   * @public
+   */
+  DesiredUserSessions: number | undefined;
+}
+
+/**
+ * <p>Describes the capacity status for a WorkSpaces pool</p>
+ * @public
+ */
+export interface CapacityStatus {
+  /**
+   * <p>The number of user sessions currently being used for pool sessions. This only applies to multi-session pools.</p>
+   * @public
+   */
+  AvailableUserSessions: number | undefined;
+
+  /**
+   * <p>The total number of sessions slots that are either running or pending. This
+   *          represents the total number of concurrent streaming sessions your pool can support
+   *          in a steady state.</p>
+   * @public
+   */
+  DesiredUserSessions: number | undefined;
+
+  /**
+   * <p>The total number of session slots that are available for WorkSpaces pools.</p>
+   * @public
+   */
+  ActualUserSessions: number | undefined;
+
+  /**
+   * <p>The number of user sessions currently being used for pool sessions. This only applies to multi-session pools.</p>
+   * @public
+   */
+  ActiveUserSessions: number | undefined;
 }
 
 /**
@@ -2627,6 +2764,270 @@ export interface CreateWorkspacesResult {
 }
 
 /**
+ * <p>Describes the timeout settings for a WorkSpaces pool.</p>
+ * @public
+ */
+export interface TimeoutSettings {
+  /**
+   * <p>Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect.
+   *          If users try to reconnect to the streaming session after a disconnection or network interruption
+   *          within the time set, they are connected to their previous session. Otherwise, they are connected
+   *          to a new session with a new streaming instance.</p>
+   * @public
+   */
+  DisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>The amount of time in seconds a connection will stay active while idle.</p>
+   * @public
+   */
+  IdleDisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>Specifies the maximum amount of time, in seconds, that a streaming session can remain active.
+   *          If users are still connected to a streaming instance five minutes before this limit is reached,
+   *          they are prompted to save any open documents before being disconnected. After this time elapses,
+   *          the instance is terminated and replaced by a new instance.</p>
+   * @public
+   */
+  MaxUserDurationInSeconds?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspacesPoolRequest {
+  /**
+   * <p>The name of the WorkSpaces pool.</p>
+   * @public
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The WorkSpaces pool description.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The identifier of the bundle for the WorkSpaces pool.</p>
+   * @public
+   */
+  BundleId: string | undefined;
+
+  /**
+   * <p>The identifier of the directory for the WorkSpaces pool.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The user capacity of the WorkSpaces pool.</p>
+   * @public
+   */
+  Capacity: Capacity | undefined;
+
+  /**
+   * <p>The tags for the WorkSpaces pool.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Indicates the application settings of the WorkSpaces pool.</p>
+   * @public
+   */
+  ApplicationSettings?: ApplicationSettingsRequest;
+
+  /**
+   * <p>Indicates the timeout settings of the WorkSpaces pool.</p>
+   * @public
+   */
+  TimeoutSettings?: TimeoutSettings;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkspacesPoolErrorCode = {
+  BUNDLE_NOT_FOUND: "BUNDLE_NOT_FOUND",
+  DEFAULT_OU_IS_MISSING: "DEFAULT_OU_IS_MISSING",
+  DIRECTORY_NOT_FOUND: "DIRECTORY_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_ACCESS_DENIED: "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED: "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND: "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_INVALID_PARAMETER: "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+  DOMAIN_JOIN_ERROR_LOGON_FAILURE: "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+  DOMAIN_JOIN_ERROR_MORE_DATA: "DOMAIN_JOIN_ERROR_MORE_DATA",
+  DOMAIN_JOIN_ERROR_NOT_SUPPORTED: "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN: "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+  DOMAIN_JOIN_ERROR_SECRET_ACTION_PERMISSION_IS_MISSING: "DOMAIN_JOIN_ERROR_SECRET_ACTION_PERMISSION_IS_MISSING",
+  DOMAIN_JOIN_ERROR_SECRET_DECRYPTION_FAILURE: "DOMAIN_JOIN_ERROR_SECRET_DECRYPTION_FAILURE",
+  DOMAIN_JOIN_ERROR_SECRET_INVALID: "DOMAIN_JOIN_ERROR_SECRET_INVALID",
+  DOMAIN_JOIN_ERROR_SECRET_NOT_FOUND: "DOMAIN_JOIN_ERROR_SECRET_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_SECRET_STATE_INVALID: "DOMAIN_JOIN_ERROR_SECRET_STATE_INVALID",
+  DOMAIN_JOIN_ERROR_SECRET_VALUE_KEY_NOT_FOUND: "DOMAIN_JOIN_ERROR_SECRET_VALUE_KEY_NOT_FOUND",
+  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR: "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
+  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME: "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED: "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED: "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+  IAM_SERVICE_ROLE_IS_MISSING: "IAM_SERVICE_ROLE_IS_MISSING",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+  IGW_NOT_ATTACHED: "IGW_NOT_ATTACHED",
+  IMAGE_NOT_FOUND: "IMAGE_NOT_FOUND",
+  INSUFFICIENT_PERMISSIONS_ERROR: "INSUFFICIENT_PERMISSIONS_ERROR",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_SUBNET_CONFIGURATION: "INVALID_SUBNET_CONFIGURATION",
+  MACHINE_ROLE_IS_MISSING: "MACHINE_ROLE_IS_MISSING",
+  NETWORK_INTERFACE_LIMIT_EXCEEDED: "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+  SECURITY_GROUPS_NOT_FOUND: "SECURITY_GROUPS_NOT_FOUND",
+  STS_DISABLED_IN_REGION: "STS_DISABLED_IN_REGION",
+  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES: "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  WORKSPACES_POOL_INSTANCE_PROVISIONING_FAILURE: "WORKSPACES_POOL_INSTANCE_PROVISIONING_FAILURE",
+  WORKSPACES_POOL_STOPPED: "WORKSPACES_POOL_STOPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspacesPoolErrorCode = (typeof WorkspacesPoolErrorCode)[keyof typeof WorkspacesPoolErrorCode];
+
+/**
+ * <p>Describes a WorkSpaces pool error.</p>
+ * @public
+ */
+export interface WorkspacesPoolError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  ErrorCode?: WorkspacesPoolErrorCode;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkspacesPoolState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspacesPoolState = (typeof WorkspacesPoolState)[keyof typeof WorkspacesPoolState];
+
+/**
+ * <p>Describes a WorkSpaces pool.</p>
+ * @public
+ */
+export interface WorkspacesPool {
+  /**
+   * <p>The identifier of a WorkSpaces pool.</p>
+   * @public
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the WorkSpaces pool.</p>
+   * @public
+   */
+  PoolArn: string | undefined;
+
+  /**
+   * <p>The capacity status for the pool</p>
+   * @public
+   */
+  CapacityStatus: CapacityStatus | undefined;
+
+  /**
+   * <p>The name of the pool,</p>
+   * @public
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The description of the pool.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The current state of the pool.</p>
+   * @public
+   */
+  State: WorkspacesPoolState | undefined;
+
+  /**
+   * <p>The time the pool was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The identifier of the bundle used by the pool.</p>
+   * @public
+   */
+  BundleId: string | undefined;
+
+  /**
+   * <p>The identifier of the directory used by the pool.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The pool errors.</p>
+   * @public
+   */
+  Errors?: WorkspacesPoolError[];
+
+  /**
+   * <p>The persistent application settings for users of the pool.</p>
+   * @public
+   */
+  ApplicationSettings?: ApplicationSettingsResponse;
+
+  /**
+   * <p>The amount of time that a pool session remains active after users disconnect.
+   *          If they try to reconnect to the pool session after a disconnection or network interruption
+   *          within this time interval, they are connected to their previous session.
+   *          Otherwise, they are connected to a new session with a new pool instance.</p>
+   * @public
+   */
+  TimeoutSettings?: TimeoutSettings;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspacesPoolResult {
+  /**
+   * <p>Indicates the WorkSpaces pool to create.</p>
+   * @public
+   */
+  WorkspacesPool?: WorkspacesPool;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2849,6 +3250,12 @@ export interface DefaultWorkspaceCreationProperties {
    * @public
    */
   EnableMaintenanceMode?: boolean;
+
+  /**
+   * <p>Indicates the IAM role ARN of the instance.</p>
+   * @public
+   */
+  InstanceIamRoleArn?: string;
 }
 
 /**
@@ -3971,6 +4378,12 @@ export interface DescribeWorkspaceDirectoriesRequest {
   DirectoryIds?: string[];
 
   /**
+   * <p>The names of the WorkSpace directories.</p>
+   * @public
+   */
+  WorkspaceDirectoryNames?: string[];
+
+  /**
    * <p>The maximum number of directories to return.</p>
    * @public
    */
@@ -3990,6 +4403,7 @@ export interface DescribeWorkspaceDirectoriesRequest {
  */
 export const WorkspaceDirectoryType = {
   AD_CONNECTOR: "AD_CONNECTOR",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
   SIMPLE_AD: "SIMPLE_AD",
 } as const;
 
@@ -4118,6 +4532,144 @@ export type WorkspaceDirectoryState = (typeof WorkspaceDirectoryState)[keyof typ
  * @public
  * @enum
  */
+export const StorageConnectorTypeEnum = {
+  HOME_FOLDER: "HOME_FOLDER",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageConnectorTypeEnum = (typeof StorageConnectorTypeEnum)[keyof typeof StorageConnectorTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageConnectorStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageConnectorStatusEnum = (typeof StorageConnectorStatusEnum)[keyof typeof StorageConnectorStatusEnum];
+
+/**
+ * <p>Describes the storage connector.</p>
+ * @public
+ */
+export interface StorageConnector {
+  /**
+   * <p>The type of connector used to save user files.</p>
+   * @public
+   */
+  ConnectorType: StorageConnectorTypeEnum | undefined;
+
+  /**
+   * <p>Indicates if the storage connetor is enabled or disabled.</p>
+   * @public
+   */
+  Status: StorageConnectorStatusEnum | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamingExperiencePreferredProtocolEnum = {
+  TCP: "TCP",
+  UDP: "UDP",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingExperiencePreferredProtocolEnum =
+  (typeof StreamingExperiencePreferredProtocolEnum)[keyof typeof StreamingExperiencePreferredProtocolEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserSettingActionEnum = {
+  CLIPBOARD_COPY_FROM_LOCAL_DEVICE: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+  CLIPBOARD_COPY_TO_LOCAL_DEVICE: "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+  PRINTING_TO_LOCAL_DEVICE: "PRINTING_TO_LOCAL_DEVICE",
+  SMART_CARD: "SMART_CARD",
+} as const;
+
+/**
+ * @public
+ */
+export type UserSettingActionEnum = (typeof UserSettingActionEnum)[keyof typeof UserSettingActionEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserSettingPermissionEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type UserSettingPermissionEnum = (typeof UserSettingPermissionEnum)[keyof typeof UserSettingPermissionEnum];
+
+/**
+ * <p>Information about the user's permission settings.</p>
+ * @public
+ */
+export interface UserSetting {
+  /**
+   * <p>Indicates the type of action.</p>
+   * @public
+   */
+  Action: UserSettingActionEnum | undefined;
+
+  /**
+   * <p>Indicates if the setting is enabled or disabled.</p>
+   * @public
+   */
+  Permission: UserSettingPermissionEnum | undefined;
+
+  /**
+   * <p>Indicates the maximum character length for the specified user setting.</p>
+   * @public
+   */
+  MaximumLength?: number;
+}
+
+/**
+ * <p>Describes the streaming properties.</p>
+ * @public
+ */
+export interface StreamingProperties {
+  /**
+   * <p>Indicates the type of preferred protocol for the streaming experience.</p>
+   * @public
+   */
+  StreamingExperiencePreferredProtocol?: StreamingExperiencePreferredProtocolEnum;
+
+  /**
+   * <p>Indicates the permission settings asscoiated with the user.</p>
+   * @public
+   */
+  UserSettings?: UserSetting[];
+
+  /**
+   * <p>Indicates the storage connector used </p>
+   * @public
+   */
+  StorageConnectors?: StorageConnector[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Tenancy = {
   DEDICATED: "DEDICATED",
   SHARED: "SHARED",
@@ -4127,6 +4679,20 @@ export const Tenancy = {
  * @public
  */
 export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
+
+/**
+ * @public
+ * @enum
+ */
+export const UserIdentityType = {
+  AWS_DIRECTORY_SERVICE: "AWS_DIRECTORY_SERVICE",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
 
 /**
  * <p>The device types and operating systems that can be used to access a WorkSpace. For more
@@ -4184,6 +4750,20 @@ export interface WorkspaceAccessProperties {
    */
   DeviceTypeLinux?: AccessPropertyValue;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceType = {
+  PERSONAL: "PERSONAL",
+  POOLS: "POOLS",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceType = (typeof WorkspaceType)[keyof typeof WorkspaceType];
 
 /**
  * <p>Describes a directory that is used with Amazon WorkSpaces.</p>
@@ -4308,6 +4888,48 @@ export interface WorkspaceDirectory {
    * @public
    */
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
+
+  /**
+   * <p>The name fo the WorkSpace directory.</p>
+   * @public
+   */
+  WorkspaceDirectoryName?: string;
+
+  /**
+   * <p>The description of the WorkSpace directory</p>
+   * @public
+   */
+  WorkspaceDirectoryDescription?: string;
+
+  /**
+   * <p>Indicates the identity type of the specifired user.</p>
+   * @public
+   */
+  UserIdentityType?: UserIdentityType;
+
+  /**
+   * <p>Indicates whether the directory's WorkSpace type is personal or pools.</p>
+   * @public
+   */
+  WorkspaceType?: WorkspaceType;
+
+  /**
+   * <p>Information about the Active Directory config.</p>
+   * @public
+   */
+  ActiveDirectoryConfig?: ActiveDirectoryConfig;
+
+  /**
+   * <p>The streaming properties to configure.</p>
+   * @public
+   */
+  StreamingProperties?: StreamingProperties;
+
+  /**
+   * <p>The error message returned.</p>
+   * @public
+   */
+  ErrorMessage?: string;
 }
 
 /**
@@ -4801,6 +5423,251 @@ export interface DescribeWorkspaceSnapshotsResult {
    * @public
    */
   RestoreSnapshots?: Snapshot[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DescribeWorkspacesPoolsFilterName = {
+  POOLNAME: "PoolName",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeWorkspacesPoolsFilterName =
+  (typeof DescribeWorkspacesPoolsFilterName)[keyof typeof DescribeWorkspacesPoolsFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const DescribeWorkspacesPoolsFilterOperator = {
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  NOTCONTAINS: "NOTCONTAINS",
+  NOTEQUALS: "NOTEQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeWorkspacesPoolsFilterOperator =
+  (typeof DescribeWorkspacesPoolsFilterOperator)[keyof typeof DescribeWorkspacesPoolsFilterOperator];
+
+/**
+ * <p>Describes the filter conditions for the WorkSpaces pool to return.</p>
+ * @public
+ */
+export interface DescribeWorkspacesPoolsFilter {
+  /**
+   * <p>The name of the pool to filter.</p>
+   * @public
+   */
+  Name: DescribeWorkspacesPoolsFilterName | undefined;
+
+  /**
+   * <p>The values for filtering WorkSpaces pools.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>The operator values for filtering WorkSpaces pools.</p>
+   * @public
+   */
+  Operator: DescribeWorkspacesPoolsFilterOperator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspacesPoolsRequest {
+  /**
+   * <p>The identifier of the WorkSpaces pool.</p>
+   * @public
+   */
+  PoolIds?: string[];
+
+  /**
+   * <p>The filter conditions for the WorkSpaces pool to return.</p>
+   * @public
+   */
+  Filters?: DescribeWorkspacesPoolsFilter[];
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspacesPoolsResult {
+  /**
+   * <p>Information about the WorkSpaces pools.</p>
+   * @public
+   */
+  WorkspacesPools?: WorkspacesPool[];
+
+  /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspacesPoolSessionsRequest {
+  /**
+   * <p>The identifier of the WorkSpaces pool.</p>
+   * @public
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The identifier of the user.</p>
+   * @public
+   */
+  UserId?: string;
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SessionConnectionState = {
+  CONNECTED: "CONNECTED",
+  NOT_CONNECTED: "NOT_CONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type SessionConnectionState = (typeof SessionConnectionState)[keyof typeof SessionConnectionState];
+
+/**
+ * <p>Describes the network details of a WorkSpaces pool.</p>
+ * @public
+ */
+export interface NetworkAccessConfiguration {
+  /**
+   * <p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>
+   * @public
+   */
+  EniPrivateIpAddress?: string;
+
+  /**
+   * <p>The resource identifier of the elastic network interface that is attached to instances in your
+   *          VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
+   * @public
+   */
+  EniId?: string;
+}
+
+/**
+ * <p>Describes a WorkSpaces pool session.</p>
+ * @public
+ */
+export interface WorkspacesPoolSession {
+  /**
+   * <p>The authentication method. The user is authenticated using a WorkSpaces
+   *          pool URL (API) or SAML 2.0 federation (SAML).</p>
+   * @public
+   */
+  AuthenticationType?: AuthenticationType;
+
+  /**
+   * <p>Specifies whether a user is connected to the pool session.</p>
+   * @public
+   */
+  ConnectionState?: SessionConnectionState;
+
+  /**
+   * <p>The identifier of the session.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The identifier for the instance hosting the session.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The identifier of the pool.</p>
+   * @public
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The time that the pool session ended.</p>
+   * @public
+   */
+  ExpirationTime?: Date;
+
+  /**
+   * <p>Describes the network details of the pool.</p>
+   * @public
+   */
+  NetworkAccessConfiguration?: NetworkAccessConfiguration;
+
+  /**
+   * <p>The time that the pool sission started.</p>
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The identifier of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspacesPoolSessionsResult {
+  /**
+   * <p>Describes the WorkSpaces pool sessions.</p>
+   * @public
+   */
+  Sessions?: WorkspacesPoolSession[];
+
+  /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
 }
 
 /**
@@ -5485,6 +6352,28 @@ export interface ModifySelfservicePermissionsResult {}
 /**
  * @public
  */
+export interface ModifyStreamingPropertiesRequest {
+  /**
+   * <p>The identifier of the resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The streaming properties to configure.</p>
+   * @public
+   */
+  StreamingProperties?: StreamingProperties;
+}
+
+/**
+ * @public
+ */
+export interface ModifyStreamingPropertiesResult {}
+
+/**
+ * @public
+ */
 export interface ModifyWorkspaceAccessPropertiesRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -5577,6 +6466,12 @@ export interface WorkspaceCreationProperties {
    * @public
    */
   EnableMaintenanceMode?: boolean;
+
+  /**
+   * <p>Indicates the IAM role ARN of the instance.</p>
+   * @public
+   */
+  InstanceIamRoleArn?: string;
 }
 
 /**
@@ -5768,7 +6663,7 @@ export interface RegisterWorkspaceDirectoryRequest {
    *          WorkSpaces, and try again.</p>
    * @public
    */
-  DirectoryId: string | undefined;
+  DirectoryId?: string;
 
   /**
    * <p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the
@@ -5786,7 +6681,7 @@ export interface RegisterWorkspaceDirectoryRequest {
    *          again.</p>
    * @public
    */
-  EnableWorkDocs: boolean | undefined;
+  EnableWorkDocs?: boolean;
 
   /**
    * <p>Indicates whether self-service capabilities are enabled or disabled.</p>
@@ -5809,12 +6704,54 @@ export interface RegisterWorkspaceDirectoryRequest {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The name of the directory to register.</p>
+   * @public
+   */
+  WorkspaceDirectoryName?: string;
+
+  /**
+   * <p>Description of the directory to register.</p>
+   * @public
+   */
+  WorkspaceDirectoryDescription?: string;
+
+  /**
+   * <p>The type of identity management the user is using.</p>
+   * @public
+   */
+  UserIdentityType?: UserIdentityType;
+
+  /**
+   * <p>Indicates whether the directory's WorkSpace type is personal or pools.</p>
+   * @public
+   */
+  WorkspaceType?: WorkspaceType;
+
+  /**
+   * <p>The active directory config of the directory.</p>
+   * @public
+   */
+  ActiveDirectoryConfig?: ActiveDirectoryConfig;
 }
 
 /**
  * @public
  */
-export interface RegisterWorkspaceDirectoryResult {}
+export interface RegisterWorkspaceDirectoryResult {
+  /**
+   * <p>The identifier of the directory.</p>
+   * @public
+   */
+  DirectoryId?: string;
+
+  /**
+   * <p>The registration status of the WorkSpace directory.</p>
+   * @public
+   */
+  State?: WorkspaceDirectoryState;
+}
 
 /**
  * <p>The configuration of this network is not supported for this operation, or your network configuration
@@ -5925,238 +6862,3 @@ export interface RevokeIpRulesRequest {
  * @public
  */
 export interface RevokeIpRulesResult {}
-
-/**
- * <p>Information used to start a WorkSpace.</p>
- * @public
- */
-export interface StartRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId?: string;
-}
-
-/**
- * @public
- */
-export interface StartWorkspacesRequest {
-  /**
-   * <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
-   * @public
-   */
-  StartWorkspaceRequests: StartRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StartWorkspacesResult {
-  /**
-   * <p>Information about the WorkSpaces that could not be started.</p>
-   * @public
-   */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-/**
- * <p>Describes the information used to stop a WorkSpace.</p>
- * @public
- */
-export interface StopRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId?: string;
-}
-
-/**
- * @public
- */
-export interface StopWorkspacesRequest {
-  /**
-   * <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
-   * @public
-   */
-  StopWorkspaceRequests: StopRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StopWorkspacesResult {
-  /**
-   * <p>Information about the WorkSpaces that could not be stopped.</p>
-   * @public
-   */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-/**
- * <p>Describes the information used to terminate a WorkSpace.</p>
- * @public
- */
-export interface TerminateRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TerminateWorkspacesRequest {
-  /**
-   * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
-   * @public
-   */
-  TerminateWorkspaceRequests: TerminateRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TerminateWorkspacesResult {
-  /**
-   * <p>Information about the WorkSpaces that could not be terminated.</p>
-   * @public
-   */
-  FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-/**
- * @public
- */
-export interface UpdateConnectClientAddInRequest {
-  /**
-   * <p>The identifier of the client add-in to update.</p>
-   * @public
-   */
-  AddInId: string | undefined;
-
-  /**
-   * <p>The directory identifier for which the client add-in is configured.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The name of the client add-in.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The endpoint URL of the Amazon Connect client add-in.</p>
-   * @public
-   */
-  URL?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateConnectClientAddInResult {}
-
-/**
- * @public
- */
-export interface UpdateConnectionAliasPermissionRequest {
-  /**
-   * <p>The identifier of the connection alias that you want to update permissions for.</p>
-   * @public
-   */
-  AliasId: string | undefined;
-
-  /**
-   * <p>Indicates whether to share or unshare the connection alias with the specified Amazon Web Services account.</p>
-   * @public
-   */
-  ConnectionAliasPermission: ConnectionAliasPermission | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateConnectionAliasPermissionResult {}
-
-/**
- * @public
- */
-export interface UpdateRulesOfIpGroupRequest {
-  /**
-   * <p>The identifier of the group.</p>
-   * @public
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>One or more rules.</p>
-   * @public
-   */
-  UserRules: IpRuleItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRulesOfIpGroupResult {}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceBundleRequest {
-  /**
-   * <p>The identifier of the bundle.</p>
-   * @public
-   */
-  BundleId?: string;
-
-  /**
-   * <p>The identifier of the image.</p>
-   * @public
-   */
-  ImageId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceBundleResult {}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceImagePermissionRequest {
-  /**
-   * <p>The identifier of the image.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The permission to copy the image. This permission can be revoked only after an image has
-   *          been shared.</p>
-   * @public
-   */
-  AllowCopyImage: boolean | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Web Services account to share or unshare the image
-   *          with.</p>
-   *          <important>
-   *             <p>Before sharing the image, confirm that you are sharing to the correct Amazon Web Services account ID.</p>
-   *          </important>
-   * @public
-   */
-  SharedAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceImagePermissionResult {}

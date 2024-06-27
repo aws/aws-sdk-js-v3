@@ -49,6 +49,7 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  *     CustomSecurityGroupId: "STRING_VALUE",
  *     UserEnabledAsLocalAdministrator: true || false,
  *     EnableMaintenanceMode: true || false,
+ *     InstanceIamRoleArn: "STRING_VALUE",
  *   },
  * };
  * const command = new ModifyWorkspaceCreationPropertiesCommand(input);

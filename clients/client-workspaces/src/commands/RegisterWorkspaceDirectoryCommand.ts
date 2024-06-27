@@ -40,11 +40,11 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // RegisterWorkspaceDirectoryRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: "STRING_VALUE",
  *   SubnetIds: [ // SubnetIds
  *     "STRING_VALUE",
  *   ],
- *   EnableWorkDocs: true || false, // required
+ *   EnableWorkDocs: true || false,
  *   EnableSelfService: true || false,
  *   Tenancy: "DEDICATED" || "SHARED",
  *   Tags: [ // TagList
@@ -53,10 +53,21 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   WorkspaceDirectoryName: "STRING_VALUE",
+ *   WorkspaceDirectoryDescription: "STRING_VALUE",
+ *   UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE",
+ *   WorkspaceType: "PERSONAL" || "POOLS",
+ *   ActiveDirectoryConfig: { // ActiveDirectoryConfig
+ *     DomainName: "STRING_VALUE", // required
+ *     ServiceAccountSecretArn: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new RegisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // RegisterWorkspaceDirectoryResult
+ * //   DirectoryId: "STRING_VALUE",
+ * //   State: "REGISTERING" || "REGISTERED" || "DEREGISTERING" || "DEREGISTERED" || "ERROR",
+ * // };
  *
  * ```
  *
@@ -77,6 +88,9 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
  *  <p>Your resource limits have been exceeded.</p>

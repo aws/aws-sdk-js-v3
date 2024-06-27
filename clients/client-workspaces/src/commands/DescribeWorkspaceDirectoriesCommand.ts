@@ -44,6 +44,9 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  *   DirectoryIds: [ // DirectoryIdList
  *     "STRING_VALUE",
  *   ],
+ *   WorkspaceDirectoryNames: [ // WorkspaceDirectoryNameList
+ *     "STRING_VALUE",
+ *   ],
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -64,7 +67,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //       ],
  * //       CustomerUserName: "STRING_VALUE",
  * //       IamRoleId: "STRING_VALUE",
- * //       DirectoryType: "SIMPLE_AD" || "AD_CONNECTOR",
+ * //       DirectoryType: "SIMPLE_AD" || "AD_CONNECTOR" || "CUSTOMER_MANAGED",
  * //       WorkspaceSecurityGroupId: "STRING_VALUE",
  * //       State: "REGISTERING" || "REGISTERED" || "DEREGISTERING" || "DEREGISTERED" || "ERROR",
  * //       WorkspaceCreationProperties: { // DefaultWorkspaceCreationProperties
@@ -74,6 +77,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         CustomSecurityGroupId: "STRING_VALUE",
  * //         UserEnabledAsLocalAdministrator: true || false,
  * //         EnableMaintenanceMode: true || false,
+ * //         InstanceIamRoleArn: "STRING_VALUE",
  * //       },
  * //       ipGroupIds: [ // IpGroupIdList
  * //         "STRING_VALUE",
@@ -105,6 +109,31 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         Status: "DISABLED" || "ENABLED",
  * //         CertificateAuthorityArn: "STRING_VALUE",
  * //       },
+ * //       WorkspaceDirectoryName: "STRING_VALUE",
+ * //       WorkspaceDirectoryDescription: "STRING_VALUE",
+ * //       UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE",
+ * //       WorkspaceType: "PERSONAL" || "POOLS",
+ * //       ActiveDirectoryConfig: { // ActiveDirectoryConfig
+ * //         DomainName: "STRING_VALUE", // required
+ * //         ServiceAccountSecretArn: "STRING_VALUE", // required
+ * //       },
+ * //       StreamingProperties: { // StreamingProperties
+ * //         StreamingExperiencePreferredProtocol: "TCP" || "UDP",
+ * //         UserSettings: [ // UserSettings
+ * //           { // UserSetting
+ * //             Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "PRINTING_TO_LOCAL_DEVICE" || "SMART_CARD", // required
+ * //             Permission: "ENABLED" || "DISABLED", // required
+ * //             MaximumLength: Number("int"),
+ * //           },
+ * //         ],
+ * //         StorageConnectors: [ // StorageConnectors
+ * //           { // StorageConnector
+ * //             ConnectorType: "HOME_FOLDER", // required
+ * //             Status: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
