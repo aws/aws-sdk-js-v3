@@ -41,13 +41,16 @@
  *                <p>Amazon SageMaker endpoint variants</p>
  *             </li>
  *             <li>
- *                <p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
- *             </li>
- *             <li>
  *                <p>Amazon SageMaker inference components</p>
  *             </li>
  *             <li>
+ *                <p>Amazon SageMaker serverless endpoint provisioned concurrency</p>
+ *             </li>
+ *             <li>
  *                <p>Spot Fleets (Amazon EC2)</p>
+ *             </li>
+ *             <li>
+ *                <p>WorkSpaces pools</p>
  *             </li>
  *             <li>
  *                <p>Custom resources provided by your own applications or services</p>

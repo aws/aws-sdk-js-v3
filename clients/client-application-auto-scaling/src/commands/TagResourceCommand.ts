@@ -40,7 +40,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          scaling policy or scheduled action.</p>
  *          <p>You can also add tags to an Application Auto Scaling scalable target while creating it
  *             (<code>RegisterScalableTarget</code>).</p>
- *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+ *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging your Amazon Web Services
  *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
  *          <p>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging support
  *             for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
