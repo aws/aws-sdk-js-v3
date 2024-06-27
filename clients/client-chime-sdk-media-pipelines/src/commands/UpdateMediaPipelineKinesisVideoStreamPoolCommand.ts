@@ -42,7 +42,7 @@ export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates an Kinesis video stream pool in a media pipeline.</p>
+ * <p>Updates an Amazon Kinesis Video Stream pool in a media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

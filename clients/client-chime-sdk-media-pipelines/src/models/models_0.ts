@@ -268,6 +268,10 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
 
 /**
  * <p>A structure that contains the configuration settings for an Amazon Transcribe processor.</p>
+ *          <note>
+ *             <p>Calls to this API must include a <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> parameter.
+ *          If you include more than one of those parameters, your transcription job fails.</p>
+ *          </note>
  * @public
  */
 export interface AmazonTranscribeProcessorConfiguration {
@@ -385,6 +389,12 @@ export interface AmazonTranscribeProcessorConfiguration {
    * @public
    */
   IdentifyLanguage?: boolean;
+
+  /**
+   * <p>Turns language identification on or off for multiple languages.</p>
+   * @public
+   */
+  IdentifyMultipleLanguages?: boolean;
 
   /**
    * <p>The language options for the transcription, such as automatic language detection.</p>
@@ -2849,6 +2859,20 @@ export class ConflictException extends __BaseException {
 
 /**
  * <p>The configuration of an Kinesis video stream.</p>
+ *          <note>
+ *             <p>If a meeting uses an opt-in Region as its
+ *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion">MediaRegion</a>,
+ *          the KVS stream must be in that same Region. For example, if a meeting uses the <code>af-south-1</code> Region, the KVS stream must also be in <code>af-south-1</code>. However, if the meeting uses a
+ *          Region that AWS turns on by default, the KVS stream can be in any available Region, including an opt-in Region. For example, if the meeting uses <code>ca-central-1</code>, the KVS stream can be in
+ *          <code>eu-west-2</code>, <code>us-east-1</code>, <code>af-south-1</code>, or any other Region that the Amazon Chime SDK supports.</p>
+ *             <p>To learn  which AWS Region a meeting uses, call the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html">GetMeeting</a> API and
+ *             use the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion">MediaRegion</a>
+ *             parameter from the response.</p>
+ *             <p>For more information about opt-in Regions, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html">Available Regions</a> in the
+ *             <i>Amazon Chime SDK Developer Guide</i>, and
+ *             <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable.html">Specify which AWS Regions your account can use</a>,
+ *             in the <i>AWS Account Management Reference Guide</i>.</p>
+ *          </note>
  * @public
  */
 export interface KinesisVideoStreamConfiguration {
@@ -2870,13 +2894,13 @@ export interface KinesisVideoStreamConfiguration {
  */
 export interface CreateMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The configuration settings for the video stream.</p>
+   * <p>The configuration settings for the stream.</p>
    * @public
    */
   StreamConfiguration: KinesisVideoStreamConfiguration | undefined;
 
   /**
-   * <p>The name of the video stream pool.</p>
+   * <p>The name of the pool.</p>
    * @public
    */
   PoolName: string | undefined;
@@ -2888,7 +2912,7 @@ export interface CreateMediaPipelineKinesisVideoStreamPoolRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The tags assigned to the video stream pool.</p>
+   * <p>The tags assigned to the stream pool.</p>
    * @public
    */
   Tags?: Tag[];
@@ -2971,7 +2995,10 @@ export interface KinesisVideoStreamPoolConfiguration {
  */
 export interface CreateMediaPipelineKinesisVideoStreamPoolResponse {
   /**
-   * <p>The configuration for the Kinesis video stream pool.</p>
+   * <p>The configuration for applying the streams to the pool.</p>
+   *          <note>
+   *             <p></p>
+   *          </note>
    * @public
    */
   KinesisVideoStreamPoolConfiguration?: KinesisVideoStreamPoolConfiguration;
@@ -3011,7 +3038,7 @@ export type MediaStreamPipelineSinkType =
  */
 export interface MediaStreamSink {
   /**
-   * <p>The ARN of the media stream sink.</p>
+   * <p>The ARN of the Kinesis Video Stream pool returned by the <a>CreateMediaPipelineKinesisVideoStreamPool</a> API.</p>
    * @public
    */
   SinkArn: string | undefined;
@@ -3047,7 +3074,7 @@ export interface MediaStreamSource {
   SourceType: MediaPipelineSourceType | undefined;
 
   /**
-   * <p>The ARN of the media stream source. </p>
+   * <p>The ARN of the meeting.</p>
    * @public
    */
   SourceArn: string | undefined;
@@ -3179,7 +3206,7 @@ export interface DeleteMediaPipelineRequest {
  */
 export interface DeleteMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The ID of the pool being deleted.</p>
+   * <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -3292,7 +3319,7 @@ export interface GetMediaPipelineResponse {
  */
 export interface GetMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The ID of the video stream pool.</p>
+   * <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -3971,7 +3998,7 @@ export interface KinesisVideoStreamConfigurationUpdate {
  */
 export interface UpdateMediaPipelineKinesisVideoStreamPoolRequest {
   /**
-   * <p>The ID of the video stream pool.</p>
+   * <p>The unique identifier of the requested resource. Valid values include the name and ARN of the media pipeline Kinesis Video Stream pool.</p>
    * @public
    */
   Identifier: string | undefined;

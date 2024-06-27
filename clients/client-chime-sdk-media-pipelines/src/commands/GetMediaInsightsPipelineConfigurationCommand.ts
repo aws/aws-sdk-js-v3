@@ -121,6 +121,7 @@ export interface GetMediaInsightsPipelineConfigurationCommandOutput
  * //           LanguageModelName: "STRING_VALUE",
  * //           FilterPartialResults: true || false,
  * //           IdentifyLanguage: true || false,
+ * //           IdentifyMultipleLanguages: true || false,
  * //           LanguageOptions: "STRING_VALUE",
  * //           PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  * //           VocabularyNames: "STRING_VALUE",

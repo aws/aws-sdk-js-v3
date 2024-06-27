@@ -36,7 +36,7 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandInput
 export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Kinesis video stream pool.</p>
+ * <p>Deletes an Amazon Kinesis Video Stream pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
