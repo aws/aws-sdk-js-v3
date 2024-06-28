@@ -47,8 +47,20 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your
  *    account may not support the ability to configure custom chat durations. For more information,
  *    contact Amazon Web Services Support. </p>
- *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect
- *     Administrator Guide</i>.</p>
+ *          <p>For more information about chat, see the following topics in the <i>Amazon Connect
+ *    Administrator Guide</i>: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html">Concepts: Web and mobile messaging capabilities in Amazon Connect</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

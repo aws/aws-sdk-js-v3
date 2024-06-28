@@ -22,7 +22,6 @@ import {
   Customer,
   CustomerVoiceActivity,
   DisconnectDetails,
-  Evaluation,
   EvaluationAnswerData,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
@@ -72,6 +71,7 @@ import {
   ContactFlowModule,
   ContactFlowModuleState,
   ContactFlowState,
+  Evaluation,
   EvaluationFormVersionStatus,
   HoursOfOperation,
   InstanceAttributeType,
@@ -86,7 +86,56 @@ import {
   SignInConfig,
   SortOrder,
   TelephonyConfig,
+  UserSummary,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListUsersResponse {
+  /**
+   * <p>Information about the users.</p>
+   * @public
+   */
+  UserSummaryList?: UserSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListViewsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of the view.</p>
+   * @public
+   */
+  Type?: ViewType;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
 
 /**
  * <p>A summary of a view's metadata.</p>
@@ -952,7 +1001,7 @@ export interface SearchCriteria {
 
   /**
    * <p>The search criteria based on user-defined contact attributes that have been configured for
-   *    contact search. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by customer contact
+   *    contact search. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by custom contact
    *     attributes</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    *          <important>
    *             <p>To use <code>SearchableContactAttributes</code> in a search request, the
@@ -983,7 +1032,7 @@ export const SortableFieldName = {
 export type SortableFieldName = (typeof SortableFieldName)[keyof typeof SortableFieldName];
 
 /**
- * <p>A structure that defineds the field name to sort by and a sort order.</p>
+ * <p>A structure that defines the field name to sort by and a sort order.</p>
  * @public
  */
 export interface Sort {
@@ -6094,7 +6143,8 @@ export interface RoutingProfileSearchCriteria {
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are
-   *      <code>associatedQueueIds</code>, <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p>
+   *      <code>associatedQueueIds</code>, <code>name</code>, <code>description</code>, and
+   *      <code>resourceID</code>.</p>
    *          </note>
    * @public
    */
@@ -6688,13 +6738,19 @@ export interface Step {
  */
 export interface RoutingCriteria {
   /**
-   * <p>List of routing steps. When Amazon Connect does not find an available agent meeting the requirements in a step for a given step duration, the routing criteria will move on to the next step sequentially until a join is completed with an agent. When all steps are exhausted, the contact will be offered to any agent in the queue.</p>
+   * <p>List of routing steps. When Amazon Connect does not find an available agent meeting the
+   *    requirements in a step for a given step duration, the routing criteria will move on to the next
+   *    step sequentially until a join is completed with an agent. When all steps are exhausted, the
+   *    contact will be offered to any agent in the queue.</p>
    * @public
    */
   Steps?: Step[];
 
   /**
-   * <p>The timestamp indicating when the routing criteria is set to active. A routing criteria is activated when contact is transferred to a queue. ActivationTimestamp will be set on routing criteria for contacts in agent queue even though Routing criteria is never activated for contacts in agent queue.</p>
+   * <p>The timestamp indicating when the routing criteria is set to active. A routing criteria is
+   *    activated when contact is transferred to a queue. ActivationTimestamp will be set on routing
+   *    criteria for contacts in agent queue even though Routing criteria is never activated for contacts
+   *    in agent queue.</p>
    * @public
    */
   ActivationTimestamp?: Date;
@@ -6888,7 +6944,8 @@ export interface Contact {
   Campaign?: Campaign;
 
   /**
-   * <p>Indicates how an <a href="https://docs.aws.amazon.com/connect/latest/adminguide/how-to-create-campaigns.html">outbound campaign</a> call is actually disposed if the contact is connected to Amazon Connect.</p>
+   * <p>Indicates how an <a href="https://docs.aws.amazon.com/connect/latest/adminguide/how-to-create-campaigns.html">outbound campaign</a> call is
+   *    actually disposed if the contact is connected to Amazon Connect.</p>
    * @public
    */
   AnsweringMachineDetectionStatus?: AnsweringMachineDetectionStatus;
@@ -6912,7 +6969,11 @@ export interface Contact {
   DisconnectDetails?: DisconnectDetails;
 
   /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments using an attribute map. The attributes are standard Amazon Connect attributes and can be accessed in flows. Attribute keys can include only alphanumeric, -, and _ characters. This field can be used to show channel subtype. For example, <code>connect:Guide</code> or <code>connect:SMS</code>.</p>
+   * <p>A set of system defined key-value pairs stored on individual contact segments using an
+   *    attribute map. The attributes are standard Amazon Connect attributes and can be accessed in
+   *    flows. Attribute keys can include only alphanumeric, -, and _ characters. This field can be used
+   *    to show channel subtype. For example, <code>connect:Guide</code> or
+   *    <code>connect:SMS</code>.</p>
    * @public
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue>;

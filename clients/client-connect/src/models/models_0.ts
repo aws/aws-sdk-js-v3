@@ -501,7 +501,8 @@ export interface DeviceInfo {
 }
 
 /**
- * <p>Information about the agent hierarchy. Hierarchies can be configured with up to five levels.</p>
+ * <p>Information about the agent hierarchy. Hierarchies can be configured with up to five
+ *    levels.</p>
  * @public
  */
 export interface HierarchyGroups {
@@ -591,8 +592,10 @@ export interface AudioQualityMetricsInfo {
   QualityScore?: number;
 
   /**
-   * <p>List of potential issues causing degradation of quality on a media connection. If the service did not detect any potential quality issues the list is empty.</p>
-   *          <p>Valid values: <code>HighPacketLoss</code> | <code>HighRoundTripTime</code> | <code>HighJitterBuffer</code>
+   * <p>List of potential issues causing degradation of quality on a media connection. If the
+   *    service did not detect any potential quality issues the list is empty.</p>
+   *          <p>Valid values: <code>HighPacketLoss</code> | <code>HighRoundTripTime</code> |
+   *     <code>HighJitterBuffer</code>
    *          </p>
    * @public
    */
@@ -609,6 +612,20 @@ export interface AgentQualityMetrics {
    * @public
    */
   Audio?: AudioQualityMetricsInfo;
+}
+
+/**
+ * <p>Can be used to define a list of preferred agents to target the contact within the queue.
+ *    Note that agents must have the queue in their routing profile in order to be offered the
+ *    contact.</p>
+ * @public
+ */
+export interface AgentsCriteria {
+  /**
+   * <p>An object to specify a list of agents, by Agent ID.</p>
+   * @public
+   */
+  AgentIds?: string[];
 }
 
 /**
@@ -4360,7 +4377,7 @@ export interface FieldValueUnion {
   BooleanValue?: boolean;
 
   /**
-   * <p>a Double number value type.</p>
+   * <p>A Double number value type.</p>
    * @public
    */
   DoubleValue?: number;
@@ -6689,7 +6706,8 @@ export interface Customer {
  */
 export interface CustomerVoiceActivity {
   /**
-   * <p>Timestamp that measures the beginning of the customer greeting from an outbound voice call.</p>
+   * <p>Timestamp that measures the beginning of the customer greeting from an outbound voice
+   *    call.</p>
    * @public
    */
   GreetingStartTimestamp?: Date;
@@ -6707,7 +6725,8 @@ export interface CustomerVoiceActivity {
  */
 export interface DisconnectDetails {
   /**
-   * <p>Indicates the potential disconnection issues for a call. This field is not populated if the service does not detect potential issues.</p>
+   * <p>Indicates the potential disconnection issues for a call. This field is not populated if the
+   *    service does not detect potential issues.</p>
    * @public
    */
   PotentialDisconnectIssue?: string;
@@ -6780,6 +6799,18 @@ export interface Expiry {
 }
 
 /**
+ * <p>An object to define <code>AgentsCriteria</code>.</p>
+ * @public
+ */
+export interface MatchCriteria {
+  /**
+   * <p>An object to define <code>AgentIds</code>.</p>
+   * @public
+   */
+  AgentsCriteria?: AgentsCriteria;
+}
+
+/**
  * <p>An object to specify the predefined attribute condition.</p>
  * @public
  */
@@ -6801,6 +6832,12 @@ export interface AttributeCondition {
    * @public
    */
   ProficiencyLevel?: number;
+
+  /**
+   * <p>An object to define <code>AgentsCriteria</code>.</p>
+   * @public
+   */
+  MatchCriteria?: MatchCriteria;
 
   /**
    * <p>The operator of the condition.</p>
@@ -7029,86 +7066,6 @@ export interface EvaluationNote {
    * @public
    */
   Value?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const EvaluationStatus = {
-  DRAFT: "DRAFT",
-  SUBMITTED: "SUBMITTED",
-} as const;
-
-/**
- * @public
- */
-export type EvaluationStatus = (typeof EvaluationStatus)[keyof typeof EvaluationStatus];
-
-/**
- * <p>Information about a contact evaluation.</p>
- * @public
- */
-export interface Evaluation {
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   * @public
-   */
-  EvaluationArn: string | undefined;
-
-  /**
-   * <p>Metadata about the contact evaluation.</p>
-   * @public
-   */
-  Metadata: EvaluationMetadata | undefined;
-
-  /**
-   * <p>A map of question identifiers to answer value.</p>
-   * @public
-   */
-  Answers: Record<string, EvaluationAnswerOutput> | undefined;
-
-  /**
-   * <p>A map of question identifiers to note value.</p>
-   * @public
-   */
-  Notes: Record<string, EvaluationNote> | undefined;
-
-  /**
-   * <p>The status of the contact evaluation.</p>
-   * @public
-   */
-  Status: EvaluationStatus | undefined;
-
-  /**
-   * <p>A map of item (section or question) identifiers to score value.</p>
-   * @public
-   */
-  Scores?: Record<string, EvaluationScore>;
-
-  /**
-   * <p>The timestamp for when the evaluation was created.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string>;
 }
 
 /**

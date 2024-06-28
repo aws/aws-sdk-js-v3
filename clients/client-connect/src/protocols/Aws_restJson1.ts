@@ -762,7 +762,6 @@ import {
   EncryptionConfig,
   EndAssociatedTasksActionDefinition,
   Endpoint,
-  Evaluation,
   EvaluationAnswerData,
   EvaluationAnswerOutput,
   EvaluationFormNumericQuestionAutomation,
@@ -853,6 +852,7 @@ import {
   CurrentMetricData,
   CurrentMetricResult,
   CurrentMetricSortCriteria,
+  Evaluation,
   EvaluationFormSummary,
   EvaluationFormVersionSummary,
   EvaluationSummary,
@@ -13217,6 +13217,8 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
 
 // de_AgentHierarchyGroup omitted.
 
+// de_AgentIds omitted.
+
 /**
  * deserializeAws_restJson1AgentInfo
  */
@@ -13239,6 +13241,8 @@ const de_AgentQualityMetrics = (output: any, context: __SerdeContext): AgentQual
     Audio: (_: any) => de_AudioQualityMetricsInfo(_, context),
   }) as any;
 };
+
+// de_AgentsCriteria omitted.
 
 /**
  * deserializeAws_restJson1AgentStatus
@@ -13331,6 +13335,7 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 const de_AttributeCondition = (output: any, context: __SerdeContext): AttributeCondition => {
   return take(output, {
     ComparisonOperator: __expectString,
+    MatchCriteria: _json,
     Name: __expectString,
     ProficiencyLevel: __limitedParseFloat32,
     Value: __expectString,
@@ -14278,6 +14283,8 @@ const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceS
 // de_ListPhoneNumbersSummary omitted.
 
 // de_ListPhoneNumbersSummaryList omitted.
+
+// de_MatchCriteria omitted.
 
 // de_MediaConcurrencies omitted.
 

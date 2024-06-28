@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListViewsRequest } from "../models/models_1";
-import { ListViewsResponse, ListViewsResponseFilterSensitiveLog } from "../models/models_2";
+import { ListViewsRequest, ListViewsResponse, ListViewsResponseFilterSensitiveLog } from "../models/models_2";
 import { de_ListViewsCommand, se_ListViewsCommand } from "../protocols/Aws_restJson1";
 
 /**

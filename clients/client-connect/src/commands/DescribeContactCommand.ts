@@ -123,6 +123,13 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //               Name: "STRING_VALUE",
  * //               Value: "STRING_VALUE",
  * //               ProficiencyLevel: Number("float"),
+ * //               MatchCriteria: { // MatchCriteria
+ * //                 AgentsCriteria: { // AgentsCriteria
+ * //                   AgentIds: [ // AgentIds
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
  * //               ComparisonOperator: "STRING_VALUE",
  * //             },
  * //             AndExpression: [ // Expressions
@@ -131,6 +138,13 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                   Name: "STRING_VALUE",
  * //                   Value: "STRING_VALUE",
  * //                   ProficiencyLevel: Number("float"),
+ * //                   MatchCriteria: {
+ * //                     AgentsCriteria: {
+ * //                       AgentIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
  * //                   ComparisonOperator: "STRING_VALUE",
  * //                 },
  * //                 AndExpression: [
