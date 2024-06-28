@@ -103,6 +103,7 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * //           ],
  * //           EbsOptimized: true || false,
  * //           CustomAmiId: "STRING_VALUE",
+ * //           Priority: Number("double"),
  * //         },
  * //       ],
  * //       LaunchSpecifications: { // InstanceFleetProvisioningSpecifications
@@ -110,10 +111,10 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * //           TimeoutDurationMinutes: Number("int"), // required
  * //           TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
  * //           BlockDurationMinutes: Number("int"),
- * //           AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified",
+ * //           AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified" || "capacity-optimized-prioritized",
  * //         },
  * //         OnDemandSpecification: { // OnDemandProvisioningSpecification
- * //           AllocationStrategy: "lowest-price", // required
+ * //           AllocationStrategy: "lowest-price" || "prioritized", // required
  * //           CapacityReservationOptions: { // OnDemandCapacityReservationOptions
  * //             UsageStrategy: "use-capacity-reservations-first",
  * //             CapacityReservationPreference: "open" || "none",

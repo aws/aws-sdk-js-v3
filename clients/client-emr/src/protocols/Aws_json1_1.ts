@@ -2505,6 +2505,7 @@ const se_InstanceTypeConfig = (input: InstanceTypeConfig, context: __SerdeContex
     CustomAmiId: [],
     EbsConfiguration: _json,
     InstanceType: [],
+    Priority: __serializeFloat,
     WeightedCapacity: [],
   });
 };
@@ -3393,6 +3394,7 @@ const de_InstanceTypeSpecification = (output: any, context: __SerdeContext): Ins
     EbsBlockDevices: _json,
     EbsOptimized: __expectBoolean,
     InstanceType: __expectString,
+    Priority: __limitedParseDouble,
     WeightedCapacity: __expectInt32,
   }) as any;
 };

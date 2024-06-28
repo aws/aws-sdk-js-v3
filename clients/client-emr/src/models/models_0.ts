@@ -116,6 +116,7 @@ export interface EbsConfiguration {
  */
 export const OnDemandProvisioningAllocationStrategy = {
   LOWEST_PRICE: "lowest-price",
+  PRIORITIZED: "prioritized",
 } as const;
 
 /**
@@ -213,9 +214,11 @@ export interface OnDemandCapacityReservationOptions {
  */
 export interface OnDemandProvisioningSpecification {
   /**
-   * <p>Specifies the strategy to use in launching On-Demand instance fleets. Currently, the
-   *          only option is <code>lowest-price</code> (the default), which launches the lowest price
-   *          first.</p>
+   * <p>Specifies the strategy to use in launching On-Demand instance fleets. Available
+   *          options are <code>lowest-price</code> and <code>prioritized</code>. <code>lowest-price</code>
+   *       specifies to launch the instances with the lowest price first, and <code>prioritized</code> specifies
+   *       that Amazon EMR should launch the instances with the highest priority first. The default is
+   *       <code>lowest-price</code>.</p>
    * @public
    */
   AllocationStrategy: OnDemandProvisioningAllocationStrategy | undefined;
@@ -234,6 +237,7 @@ export interface OnDemandProvisioningSpecification {
  */
 export const SpotProvisioningAllocationStrategy = {
   CAPACITY_OPTIMIZED: "capacity-optimized",
+  CAPACITY_OPTIMIZED_PRIORITIZED: "capacity-optimized-prioritized",
   DIVERSIFIED: "diversified",
   LOWEST_PRICE: "lowest-price",
   PRICE_CAPACITY_OPTIMIZED: "price-capacity-optimized",
@@ -316,7 +320,9 @@ export interface SpotProvisioningSpecification {
   BlockDurationMinutes?: number;
 
   /**
-   * <p>Specifies one of the following strategies to launch Spot Instance fleets: <code>price-capacity-optimized</code>, <code>capacity-optimized</code>, <code>lowest-price</code>, or  <code>diversified</code>. For more information on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>Specifies one of the following strategies to launch Spot Instance fleets:
+   *          <code>capacity-optimized</code>, <code>price-capacity-optimized</code>, <code>lowest-price</code>, or
+   *          <code>diversified</code>, and <code>capacity-optimized-prioritized</code>. For more information on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <note>
    *             <p>When you launch a Spot Instance fleet with the old console, it automatically launches with the <code>capacity-optimized</code> strategy. You can't change the allocation strategy from the old console.</p>
    *          </note>
@@ -6595,6 +6601,13 @@ export interface InstanceTypeConfig {
    * @public
    */
   CustomAmiId?: string;
+
+  /**
+   * <p>The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+   *          Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.</p>
+   * @public
+   */
+  Priority?: number;
 }
 
 /**
@@ -6662,6 +6675,13 @@ export interface InstanceTypeSpecification {
    * @public
    */
   CustomAmiId?: string;
+
+  /**
+   * <p>The priority at which Amazon EMR launches the Amazon EC2 instances with this instance type.
+   *          Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.</p>
+   * @public
+   */
+  Priority?: number;
 }
 
 /**
