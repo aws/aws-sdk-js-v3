@@ -57,8 +57,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * const client = new ACMPCAClient(config);
  * const input = { // CreateCertificateAuthorityRequest
  *   CertificateAuthorityConfiguration: { // CertificateAuthorityConfiguration
- *     KeyAlgorithm: "RSA_2048" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1", // required
- *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
+ *     KeyAlgorithm: "RSA_2048" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "SM2", // required
+ *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SM3WITHSM2", // required
  *     Subject: { // ASN1Subject
  *       Country: "STRING_VALUE",
  *       Organization: "STRING_VALUE",
@@ -158,7 +158,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *   },
  *   CertificateAuthorityType: "ROOT" || "SUBORDINATE", // required
  *   IdempotencyToken: "STRING_VALUE",
- *   KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER",
+ *   KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER" || "CCPC_LEVEL_1_OR_HIGHER",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

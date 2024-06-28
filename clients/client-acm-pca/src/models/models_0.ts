@@ -393,6 +393,7 @@ export const KeyAlgorithm = {
   EC_secp384r1: "EC_secp384r1",
   RSA_2048: "RSA_2048",
   RSA_4096: "RSA_4096",
+  SM2: "SM2",
 } as const;
 
 /**
@@ -411,6 +412,7 @@ export const SigningAlgorithm = {
   SHA384WITHRSA: "SHA384WITHRSA",
   SHA512WITHECDSA: "SHA512WITHECDSA",
   SHA512WITHRSA: "SHA512WITHRSA",
+  SM3WITHSM2: "SM3WITHSM2",
 } as const;
 
 /**
@@ -477,6 +479,7 @@ export type CertificateAuthorityType = (typeof CertificateAuthorityType)[keyof t
  * @enum
  */
 export const KeyStorageSecurityStandard = {
+  CCPC_LEVEL_1_OR_HIGHER: "CCPC_LEVEL_1_OR_HIGHER",
   FIPS_140_2_LEVEL_2_OR_HIGHER: "FIPS_140_2_LEVEL_2_OR_HIGHER",
   FIPS_140_2_LEVEL_3_OR_HIGHER: "FIPS_140_2_LEVEL_3_OR_HIGHER",
 } as const;
