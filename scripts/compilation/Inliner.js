@@ -20,7 +20,9 @@ module.exports = class Inliner {
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
     this.isClient = !this.isPackage && !this.isLib;
     this.isCore = pkg === "core";
+    this.reExportStubs = false;
     this.subfolder = this.isPackage ? "packages" : this.isLib ? "lib" : "clients";
+    this.verbose = process.env.DEBUG || process.argv.includes("--debug");
 
     this.packageDirectory = path.join(root, this.subfolder, pkg);
 
@@ -38,7 +40,9 @@ module.exports = class Inliner {
    */
   async clean() {
     await spawnProcess("yarn", ["rimraf", "./dist-cjs", "tsconfig.cjs.tsbuildinfo"], { cwd: this.packageDirectory });
-    console.log("Deleted ./dist-cjs in " + this.package);
+    if (this.verbose) {
+      console.log("Deleted ./dist-cjs in " + this.package);
+    }
     return this;
   }
 
@@ -48,7 +52,9 @@ module.exports = class Inliner {
    */
   async tsc() {
     await spawnProcess("yarn", ["tsc", "-p", "tsconfig.cjs.json"], { cwd: this.packageDirectory });
-    console.log("Finished recompiling ./dist-cjs in " + this.package);
+    if (this.verbose) {
+      console.log("Finished recompiling ./dist-cjs in " + this.package);
+    }
     this.canonicalExports = Object.keys(require(this.outfile));
     return this;
   }
@@ -97,7 +103,9 @@ module.exports = class Inliner {
             const key = path
               .normalize(path.join(path.dirname(keyFile), requireStatement[1]))
               .replace(/(.*?)dist-cjs\//, "./dist-cjs/");
-            console.log("Transitive variant file:", key);
+            if (this.verbose) {
+              console.log("Transitive variant file:", key);
+            }
 
             const transitiveVariant = key.replace(/(.*?)dist-cjs\//, "").replace(/(\.js)?$/, "");
 
@@ -178,6 +186,11 @@ module.exports = class Inliner {
           recursive: true,
           force: true,
         });
+        if (
+          !fs.lstatSync(path.join(root, this.subfolder, this.package, "src", "submodules", submodule)).isDirectory()
+        ) {
+          continue;
+        }
         await esbuild.build({
           ...buildOptions,
           entryPoints: [path.join(root, this.subfolder, this.package, "src", "submodules", submodule, "index.ts")],
@@ -201,18 +214,28 @@ module.exports = class Inliner {
     for await (const file of walk(path.join(this.packageDirectory, "dist-cjs"))) {
       const relativePath = file.replace(path.join(this.packageDirectory, "dist-cjs"), "").slice(1);
 
+      if (relativePath.includes("submodules")) {
+        continue;
+      }
+
       if (!file.endsWith(".js")) {
-        console.log("Skipping", path.basename(file), "file extension is not .js.");
+        if (this.verbose) {
+          console.log("Skipping", path.basename(file), "file extension is not .js.");
+        }
         continue;
       }
 
       if (relativePath === "index.js") {
-        console.log("Skipping index.js");
+        if (this.verbose) {
+          console.log("Skipping index.js");
+        }
         continue;
       }
 
       if (this.variantExternals.find((external) => relativePath.endsWith(external))) {
-        console.log("Not rewriting.", relativePath, "is variant.");
+        if (this.verbose) {
+          console.log("Not rewriting.", relativePath, "is variant.");
+        }
         continue;
       }
 
@@ -224,7 +247,7 @@ module.exports = class Inliner {
               .map(() => "..")
               .join("/")) + "/index.js";
 
-      if (this.isClient) {
+      if (!this.reExportStubs) {
         fs.rmSync(file);
         const files = fs.readdirSync(path.dirname(file));
         if (files.length === 0) {
@@ -257,7 +280,9 @@ module.exports = class Inliner {
 
       this.indexContents = this.indexContents.replace(find, replace);
 
-      console.log("Replacing", find, "with", replace);
+      if (this.verbose) {
+        console.log("Replacing", find, "with", replace);
+      }
     }
 
     fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
@@ -356,9 +381,10 @@ module.exports = class Inliner {
         const checkOrder = [...externalsToCheck].sort().reverse();
         for (const external of checkOrder) {
           if (line.includes(external)) {
-            console.log("Inline index confirmed require() for variant external:", external);
+            if (this.verbose) {
+              console.log("Inline index confirmed require() for variant external:", external);
+            }
             externalsToCheck.delete(external);
-            continue;
           }
         }
       }
@@ -379,7 +405,9 @@ module.exports = class Inliner {
       .join("\n");
     fs.writeFileSync(path.join(__dirname, "tmp", this.package + ".mjs"), tmpFileContents, "utf-8");
     await spawnProcess("node", [path.join(__dirname, "tmp", this.package + ".mjs")]);
-    console.log("ESM compatibility verified.");
+    if (this.verbose) {
+      console.log("ESM compatibility verified.");
+    }
     fs.rmSync(path.join(__dirname, "tmp", this.package + ".mjs"));
 
     return this;
