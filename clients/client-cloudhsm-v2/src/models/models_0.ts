@@ -52,7 +52,7 @@ export interface Tag {
 }
 
 /**
- * <p>Contains information about a backup of an AWS CloudHSM cluster. All backup objects
+ * <p>Contains information about a backup of an CloudHSM cluster. All backup objects
  *       contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and
  *         <code>CreateTimestamp</code> parameters. Backups that were copied into a destination region
  *       additionally contain the <code>CopyTimestamp</code>, <code>SourceBackup</code>,
@@ -66,6 +66,12 @@ export interface Backup {
    * @public
    */
   BackupId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup.</p>
+   * @public
+   */
+  BackupArn?: string;
 
   /**
    * <p>The state of the backup.</p>
@@ -132,7 +138,7 @@ export interface Backup {
   TagList?: Tag[];
 
   /**
-   * <p>The HSM type of the cluster that was backed up.</p>
+   * <p>The HSM type used to create the backup.</p>
    * @public
    */
   HsmType?: string;
@@ -213,7 +219,7 @@ export class CloudHsmAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ * <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  * @public
  */
@@ -411,8 +417,9 @@ export interface CreateClusterRequest {
   HsmType: string | undefined;
 
   /**
-   * <p>The identifier (ID) of the cluster backup to restore. Use this value to restore the
-   *       cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>.</p>
+   * <p>The identifier (ID) or the Amazon Resource Name (ARN) of the cluster backup to restore. Use this value to restore the
+   *       cluster from a backup instead of creating a new cluster. To find the backup ID or ARN, use <a>DescribeBackups</a>. <i>If using a backup in another account, the full ARN must be supplied.</i>
+   *          </p>
    * @public
    */
   SourceBackupId?: string;
@@ -466,7 +473,7 @@ export interface Certificates {
   HsmCertificate?: string;
 
   /**
-   * <p>The HSM hardware certificate issued (signed) by AWS CloudHSM.</p>
+   * <p>The HSM hardware certificate issued (signed) by CloudHSM.</p>
    * @public
    */
   AwsHardwareCertificate?: string;
@@ -503,7 +510,7 @@ export const HsmState = {
 export type HsmState = (typeof HsmState)[keyof typeof HsmState];
 
 /**
- * <p>Contains information about a hardware security module (HSM) in an AWS CloudHSM
+ * <p>Contains information about a hardware security module (HSM) in an CloudHSM
  *       cluster.</p>
  * @public
  */
@@ -579,7 +586,7 @@ export const ClusterState = {
 export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
- * <p>Contains information about an AWS CloudHSM cluster.</p>
+ * <p>Contains information about an CloudHSM cluster.</p>
  * @public
  */
 export interface Cluster {
@@ -821,6 +828,34 @@ export interface DeleteHsmResponse {
 /**
  * @public
  */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource from which the policy will be removed. </p>
+   * @public
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource from which the policy was deleted. </p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The policy previously attached to the resource.</p>
+   * @public
+   */
+  Policy?: string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeBackupsRequest {
   /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this
@@ -853,6 +888,19 @@ export interface DescribeBackupsRequest {
    * @public
    */
   Filters?: Record<string, string[]>;
+
+  /**
+   * <p>Describe backups that are shared with you.</p>
+   *          <note>
+   *             <p>By default when using this option, the command returns backups that have been shared using a standard Resource Access Manager
+   *     resource share. In order for a backup that was shared using the PutResourcePolicy command to be returned, the share must be promoted to a
+   *     standard resource share using the RAM <a href="https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html">PromoteResourceShareCreatedFromPolicy</a> API operation.
+   *
+   *     For more information about sharing backups, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html"> Working with shared backups</a> in the CloudHSM User Guide.</p>
+   *          </note>
+   * @public
+   */
+  Shared?: boolean;
 
   /**
    * <p>Designates whether or not to sort the return backups by ascending chronological order
@@ -929,6 +977,28 @@ export interface DescribeClustersResponse {
    * @public
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource to which a policy is attached.</p>
+   * @public
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The policy attached to a resource.</p>
+   * @public
+   */
+  Policy?: string;
 }
 
 /**
@@ -1043,7 +1113,7 @@ export interface ModifyBackupAttributesRequest {
  */
 export interface ModifyBackupAttributesResponse {
   /**
-   * <p>Contains information about a backup of an AWS CloudHSM cluster. All backup objects
+   * <p>Contains information about a backup of an CloudHSM cluster. All backup objects
    *       contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and
    *         <code>CreateTimestamp</code> parameters. Backups that were copied into a destination region
    *       additionally contain the <code>CopyTimestamp</code>, <code>SourceBackup</code>,
@@ -1077,10 +1147,45 @@ export interface ModifyClusterRequest {
  */
 export interface ModifyClusterResponse {
   /**
-   * <p>Contains information about an AWS CloudHSM cluster.</p>
+   * <p>Contains information about an CloudHSM cluster.</p>
    * @public
    */
   Cluster?: Cluster;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource to which you want to attach a policy. </p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The policy you want to associate with a resource. </p>
+   *          <p>For an example policy, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html"> Working with shared backups</a> in the CloudHSM User Guide</p>
+   * @public
+   */
+  Policy?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource to which a policy is attached.</p>
+   * @public
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The policy attached to a resource.</p>
+   * @public
+   */
+  Policy?: string;
 }
 
 /**

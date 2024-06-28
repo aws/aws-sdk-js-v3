@@ -26,6 +26,11 @@ import {
 } from "./commands/DeleteClusterCommand";
 import { DeleteHsmCommand, DeleteHsmCommandInput, DeleteHsmCommandOutput } from "./commands/DeleteHsmCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DescribeBackupsCommand,
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput,
@@ -35,6 +40,11 @@ import {
   DescribeClustersCommandInput,
   DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import {
   InitializeClusterCommand,
   InitializeClusterCommandInput,
@@ -51,6 +61,11 @@ import {
   ModifyClusterCommandInput,
   ModifyClusterCommandOutput,
 } from "./commands/ModifyClusterCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   RestoreBackupCommand,
   RestoreBackupCommandInput,
@@ -70,12 +85,15 @@ const commands = {
   DeleteBackupCommand,
   DeleteClusterCommand,
   DeleteHsmCommand,
+  DeleteResourcePolicyCommand,
   DescribeBackupsCommand,
   DescribeClustersCommand,
+  GetResourcePolicyCommand,
   InitializeClusterCommand,
   ListTagsCommand,
   ModifyBackupAttributesCommand,
   ModifyClusterCommand,
+  PutResourcePolicyCommand,
   RestoreBackupCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -155,6 +173,24 @@ export interface CloudHSMV2 {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeBackupsCommand}
    */
   describeBackups(): Promise<DescribeBackupsCommandOutput>;
@@ -185,6 +221,24 @@ export interface CloudHSMV2 {
     args: DescribeClustersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeClustersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -244,6 +298,24 @@ export interface CloudHSMV2 {
   ): void;
 
   /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RestoreBackupCommand}
    */
   restoreBackup(args: RestoreBackupCommandInput, options?: __HttpHandlerOptions): Promise<RestoreBackupCommandOutput>;
@@ -278,7 +350,7 @@ export interface CloudHSMV2 {
 }
 
 /**
- * <p>For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+ * <p>For more information about CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">
  *       CloudHSM User Guide</a>.</p>
  * @public
  */

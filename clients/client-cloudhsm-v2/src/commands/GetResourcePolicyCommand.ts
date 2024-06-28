@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
+import { de_GetResourcePolicyCommand, se_GetResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,45 +17,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link GetResourcePolicyCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link GetResourcePolicyCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
+export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified CloudHSM cluster.</p>
+ * <p> Retrieves the resource policy document attached to a given resource. </p>
  *          <p>
  *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, TagResourceCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, TagResourceCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, GetResourcePolicyCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
+ * // const { CloudHSMV2Client, GetResourcePolicyCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
- * const input = { // TagResourceRequest
- *   ResourceId: "STRING_VALUE", // required
- *   TagList: [ // TagList // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
+ * const input = { // GetResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE",
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetResourcePolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param GetResourcePolicyCommandInput - {@link GetResourcePolicyCommandInput}
+ * @returns {@link GetResourcePolicyCommandOutput}
+ * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  * @throws {@link CloudHsmAccessDeniedException} (client fault)
@@ -76,18 +72,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
- * @throws {@link CloudHsmTagException} (client fault)
- *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
- *
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class GetResourcePolicyCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    GetResourcePolicyCommandInput,
+    GetResourcePolicyCommandOutput,
     CloudHSMV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,9 +94,9 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("BaldrApiService", "TagResource", {})
-  .n("CloudHSMV2Client", "TagResourceCommand")
+  .s("BaldrApiService", "GetResourcePolicy", {})
+  .n("CloudHSMV2Client", "GetResourcePolicyCommand")
   .f(void 0, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .ser(se_GetResourcePolicyCommand)
+  .de(de_GetResourcePolicyCommand)
   .build() {}

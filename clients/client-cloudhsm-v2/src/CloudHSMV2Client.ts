@@ -59,8 +59,13 @@ import { CreateHsmCommandInput, CreateHsmCommandOutput } from "./commands/Create
 import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import { DeleteHsmCommandInput, DeleteHsmCommandOutput } from "./commands/DeleteHsmCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./commands/DescribeBackupsCommand";
 import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { InitializeClusterCommandInput, InitializeClusterCommandOutput } from "./commands/InitializeClusterCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
@@ -68,6 +73,7 @@ import {
   ModifyBackupAttributesCommandOutput,
 } from "./commands/ModifyBackupAttributesCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { RestoreBackupCommandInput, RestoreBackupCommandOutput } from "./commands/RestoreBackupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -92,12 +98,15 @@ export type ServiceInputTypes =
   | DeleteBackupCommandInput
   | DeleteClusterCommandInput
   | DeleteHsmCommandInput
+  | DeleteResourcePolicyCommandInput
   | DescribeBackupsCommandInput
   | DescribeClustersCommandInput
+  | GetResourcePolicyCommandInput
   | InitializeClusterCommandInput
   | ListTagsCommandInput
   | ModifyBackupAttributesCommandInput
   | ModifyClusterCommandInput
+  | PutResourcePolicyCommandInput
   | RestoreBackupCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
@@ -112,12 +121,15 @@ export type ServiceOutputTypes =
   | DeleteBackupCommandOutput
   | DeleteClusterCommandOutput
   | DeleteHsmCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DescribeBackupsCommandOutput
   | DescribeClustersCommandOutput
+  | GetResourcePolicyCommandOutput
   | InitializeClusterCommandOutput
   | ListTagsCommandOutput
   | ModifyBackupAttributesCommandOutput
   | ModifyClusterCommandOutput
+  | PutResourcePolicyCommandOutput
   | RestoreBackupCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
@@ -294,7 +306,7 @@ export type CloudHSMV2ClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface CloudHSMV2ClientResolvedConfig extends CloudHSMV2ClientResolvedConfigType {}
 
 /**
- * <p>For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+ * <p>For more information about CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">
  *       CloudHSM User Guide</a>.</p>
  * @public
  */

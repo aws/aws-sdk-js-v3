@@ -31,6 +31,8 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * <p>Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP
  *       address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to
  *       specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM hsm in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +64,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)

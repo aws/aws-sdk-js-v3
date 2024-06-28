@@ -28,7 +28,9 @@ export interface CopyBackupToRegionCommandInput extends CopyBackupToRegionReques
 export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionResponse, __MetadataBearer {}
 
 /**
- * <p>Copy an AWS CloudHSM cluster backup to a different region.</p>
+ * <p>Copy an CloudHSM cluster backup to a different region.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +71,7 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)

@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,45 +17,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link DeleteResourcePolicyCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link DeleteResourcePolicyCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
+export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified CloudHSM cluster.</p>
+ * <p> Deletes an CloudHSM resource policy. Deleting a resource policy will result in the resource being unshared and removed from
+ *       any RAM resource shares. Deleting the resource policy attached to a backup will not impact any clusters created from that
+ *       backup.</p>
  *          <p>
  *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudHSMV2Client, TagResourceCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
- * // const { CloudHSMV2Client, TagResourceCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * import { CloudHSMV2Client, DeleteResourcePolicyCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
+ * // const { CloudHSMV2Client, DeleteResourcePolicyCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
- * const input = { // TagResourceRequest
- *   ResourceId: "STRING_VALUE", // required
- *   TagList: [ // TagList // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
+ * const input = { // DeleteResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE",
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteResourcePolicyResponse
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  * @throws {@link CloudHsmAccessDeniedException} (client fault)
@@ -76,18 +75,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CloudHsmServiceException} (client fault)
  *  <p>The request was rejected because an error occurred.</p>
  *
- * @throws {@link CloudHsmTagException} (client fault)
- *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
- *
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    DeleteResourcePolicyCommandInput,
+    DeleteResourcePolicyCommandOutput,
     CloudHSMV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,9 +97,9 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("BaldrApiService", "TagResource", {})
-  .n("CloudHSMV2Client", "TagResourceCommand")
+  .s("BaldrApiService", "DeleteResourcePolicy", {})
+  .n("CloudHSMV2Client", "DeleteResourcePolicyCommand")
   .f(void 0, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .ser(se_DeleteResourcePolicyCommand)
+  .de(de_DeleteResourcePolicyCommand)
   .build() {}

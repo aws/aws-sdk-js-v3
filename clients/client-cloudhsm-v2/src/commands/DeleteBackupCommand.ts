@@ -28,9 +28,11 @@ export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days
+ * <p>Deletes a specified CloudHSM backup. A backup can be restored up to 7 days
  *             after the DeleteBackup request is made. For more information on restoring a backup, see
  *                 <a>RestoreBackup</a>.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +47,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * // { // DeleteBackupResponse
  * //   Backup: { // Backup
  * //     BackupId: "STRING_VALUE", // required
+ * //     BackupArn: "STRING_VALUE",
  * //     BackupState: "CREATE_IN_PROGRESS" || "READY" || "DELETED" || "PENDING_DELETION",
  * //     ClusterId: "STRING_VALUE",
  * //     CreateTimestamp: new Date("TIMESTAMP"),
@@ -78,7 +81,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)

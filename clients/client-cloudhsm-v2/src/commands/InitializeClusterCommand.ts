@@ -28,10 +28,12 @@ export interface InitializeClusterCommandInput extends InitializeClusterRequest 
 export interface InitializeClusterCommandOutput extends InitializeClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your
+ * <p>Claims an CloudHSM cluster by submitting the cluster certificate issued by your
  *       issuing certificate authority (CA) and the CA's root certificate. Before you can claim a
  *       cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.
  *       To get the cluster's CSR, use <a>DescribeClusters</a>.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +65,7 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)

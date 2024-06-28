@@ -28,8 +28,10 @@ export interface CreateHsmCommandInput extends CreateHsmRequest {}
 export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM
+ * <p>Creates a new hardware security module (HSM) in the specified CloudHSM
  *       cluster.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Service account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +71,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
