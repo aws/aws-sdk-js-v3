@@ -48,7 +48,7 @@ export interface StartWorkspacesResult {
  */
 export interface StartWorkspacesPoolRequest {
   /**
-   * <p>The identifier of the WorkSpaces pool.</p>
+   * <p>The identifier of the pool.</p>
    * @public
    */
   PoolId: string | undefined;
@@ -98,7 +98,7 @@ export interface StopWorkspacesResult {
  */
 export interface StopWorkspacesPoolRequest {
   /**
-   * <p>The identifier of the WorkSpaces pool.</p>
+   * <p>The identifier of the pool.</p>
    * @public
    */
   PoolId: string | undefined;
@@ -148,7 +148,7 @@ export interface TerminateWorkspacesResult {
  */
 export interface TerminateWorkspacesPoolRequest {
   /**
-   * <p>The identifier of the WorkSpaces pool.</p>
+   * <p>The identifier of the pool.</p>
    * @public
    */
   PoolId: string | undefined;
@@ -164,7 +164,7 @@ export interface TerminateWorkspacesPoolResult {}
  */
 export interface TerminateWorkspacesPoolSessionRequest {
   /**
-   * <p>The identifier of the WorkSpaces pool session.</p>
+   * <p>The identifier of the pool session.</p>
    * @public
    */
   SessionId: string | undefined;
@@ -313,13 +313,13 @@ export interface UpdateWorkspaceImagePermissionResult {}
  */
 export interface UpdateWorkspacesPoolRequest {
   /**
-   * <p>The identifier of the specified WorkSpaces pool to update.</p>
+   * <p>The identifier of the specified pool to update.</p>
    * @public
    */
   PoolId: string | undefined;
 
   /**
-   * <p>Describes the specified WorkSpaces pool to update.</p>
+   * <p>Describes the specified pool to update.</p>
    * @public
    */
   Description?: string;
@@ -337,7 +337,7 @@ export interface UpdateWorkspacesPoolRequest {
   DirectoryId?: string;
 
   /**
-   * <p>The desired capacity for the WorkSpaces pool.</p>
+   * <p>The desired capacity for the pool.</p>
    * @public
    */
   Capacity?: Capacity;
@@ -349,7 +349,7 @@ export interface UpdateWorkspacesPoolRequest {
   ApplicationSettings?: ApplicationSettingsRequest;
 
   /**
-   * <p>Indicates the timeout settings of the specified WorkSpaces pool.</p>
+   * <p>Indicates the timeout settings of the specified pool.</p>
    * @public
    */
   TimeoutSettings?: TimeoutSettings;
@@ -360,7 +360,7 @@ export interface UpdateWorkspacesPoolRequest {
  */
 export interface UpdateWorkspacesPoolResult {
   /**
-   * <p>Describes the specified WorkSpaces pool.</p>
+   * <p>Describes the specified pool.</p>
    * @public
    */
   WorkspacesPool?: WorkspacesPool;

@@ -33,7 +33,7 @@ export interface TerminateWorkspacesPoolSessionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Terminates the WorkSpaces pool session.</p>
+ * <p>Terminates the pool session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

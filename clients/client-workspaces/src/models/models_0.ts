@@ -464,7 +464,7 @@ export type ApplicationSettingsStatusEnum =
   (typeof ApplicationSettingsStatusEnum)[keyof typeof ApplicationSettingsStatusEnum];
 
 /**
- * <p>The persistent application settings for users of a WorkSpaces pool.</p>
+ * <p>The persistent application settings for WorkSpaces Pools users.</p>
  * @public
  */
 export interface ApplicationSettingsRequest {
@@ -484,7 +484,7 @@ export interface ApplicationSettingsRequest {
 }
 
 /**
- * <p>Describes the persistent application settings for users of a WorkSpaces pool.</p>
+ * <p>Describes the persistent application settings for WorkSpaces Pools users.</p>
  * @public
  */
 export interface ApplicationSettingsResponse {
@@ -1163,7 +1163,7 @@ export interface BundleResourceAssociation {
 }
 
 /**
- * <p>Describes the user capacity for a WorkSpaces pool.</p>
+ * <p>Describes the user capacity for a pool of WorkSpaces.</p>
  * @public
  */
 export interface Capacity {
@@ -1176,7 +1176,7 @@ export interface Capacity {
 }
 
 /**
- * <p>Describes the capacity status for a WorkSpaces pool</p>
+ * <p>Describes the capacity status for a pool of WorkSpaces.</p>
  * @public
  */
 export interface CapacityStatus {
@@ -1195,7 +1195,7 @@ export interface CapacityStatus {
   DesiredUserSessions: number | undefined;
 
   /**
-   * <p>The total number of session slots that are available for WorkSpaces pools.</p>
+   * <p>The total number of session slots that are available for a pool of WorkSpaces.</p>
    * @public
    */
   ActualUserSessions: number | undefined;
@@ -2184,6 +2184,7 @@ export interface CreateWorkspaceImageResult {
  */
 export const OperatingSystemName = {
   AMAZON_LINUX_2: "AMAZON_LINUX_2",
+  RHEL_8: "RHEL_8",
   UBUNTU_18_04: "UBUNTU_18_04",
   UBUNTU_20_04: "UBUNTU_20_04",
   UBUNTU_22_04: "UBUNTU_22_04",
@@ -2764,7 +2765,7 @@ export interface CreateWorkspacesResult {
 }
 
 /**
- * <p>Describes the timeout settings for a WorkSpaces pool.</p>
+ * <p>Describes the timeout settings for a pool of WorkSpaces.</p>
  * @public
  */
 export interface TimeoutSettings {
@@ -2798,49 +2799,49 @@ export interface TimeoutSettings {
  */
 export interface CreateWorkspacesPoolRequest {
   /**
-   * <p>The name of the WorkSpaces pool.</p>
+   * <p>The name of the pool.</p>
    * @public
    */
   PoolName: string | undefined;
 
   /**
-   * <p>The WorkSpaces pool description.</p>
+   * <p>The pool description.</p>
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The identifier of the bundle for the WorkSpaces pool.</p>
+   * <p>The identifier of the bundle for the pool.</p>
    * @public
    */
   BundleId: string | undefined;
 
   /**
-   * <p>The identifier of the directory for the WorkSpaces pool.</p>
+   * <p>The identifier of the directory for the pool.</p>
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The user capacity of the WorkSpaces pool.</p>
+   * <p>The user capacity of the pool.</p>
    * @public
    */
   Capacity: Capacity | undefined;
 
   /**
-   * <p>The tags for the WorkSpaces pool.</p>
+   * <p>The tags for the pool.</p>
    * @public
    */
   Tags?: Tag[];
 
   /**
-   * <p>Indicates the application settings of the WorkSpaces pool.</p>
+   * <p>Indicates the application settings of the pool.</p>
    * @public
    */
   ApplicationSettings?: ApplicationSettingsRequest;
 
   /**
-   * <p>Indicates the timeout settings of the WorkSpaces pool.</p>
+   * <p>Indicates the timeout settings of the pool.</p>
    * @public
    */
   TimeoutSettings?: TimeoutSettings;
@@ -2899,7 +2900,7 @@ export const WorkspacesPoolErrorCode = {
 export type WorkspacesPoolErrorCode = (typeof WorkspacesPoolErrorCode)[keyof typeof WorkspacesPoolErrorCode];
 
 /**
- * <p>Describes a WorkSpaces pool error.</p>
+ * <p>Describes a pool error.</p>
  * @public
  */
 export interface WorkspacesPoolError {
@@ -2936,18 +2937,18 @@ export const WorkspacesPoolState = {
 export type WorkspacesPoolState = (typeof WorkspacesPoolState)[keyof typeof WorkspacesPoolState];
 
 /**
- * <p>Describes a WorkSpaces pool.</p>
+ * <p>Describes a pool of WorkSpaces.</p>
  * @public
  */
 export interface WorkspacesPool {
   /**
-   * <p>The identifier of a WorkSpaces pool.</p>
+   * <p>The identifier of a pool.</p>
    * @public
    */
   PoolId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the WorkSpaces pool.</p>
+   * <p>The Amazon Resource Name (ARN) for the pool.</p>
    * @public
    */
   PoolArn: string | undefined;
@@ -3021,7 +3022,7 @@ export interface WorkspacesPool {
  */
 export interface CreateWorkspacesPoolResult {
   /**
-   * <p>Indicates the WorkSpaces pool to create.</p>
+   * <p>Indicates the pool to create.</p>
    * @public
    */
   WorkspacesPool?: WorkspacesPool;
@@ -5457,7 +5458,7 @@ export type DescribeWorkspacesPoolsFilterOperator =
   (typeof DescribeWorkspacesPoolsFilterOperator)[keyof typeof DescribeWorkspacesPoolsFilterOperator];
 
 /**
- * <p>Describes the filter conditions for the WorkSpaces pool to return.</p>
+ * <p>Describes the filter conditions for WorkSpaces Pools to return.</p>
  * @public
  */
 export interface DescribeWorkspacesPoolsFilter {
@@ -5468,13 +5469,13 @@ export interface DescribeWorkspacesPoolsFilter {
   Name: DescribeWorkspacesPoolsFilterName | undefined;
 
   /**
-   * <p>The values for filtering WorkSpaces pools.</p>
+   * <p>The values for filtering WorkSpaces Pools.</p>
    * @public
    */
   Values: string[] | undefined;
 
   /**
-   * <p>The operator values for filtering WorkSpaces pools.</p>
+   * <p>The operator values for filtering WorkSpaces Pools.</p>
    * @public
    */
   Operator: DescribeWorkspacesPoolsFilterOperator | undefined;
@@ -5485,13 +5486,13 @@ export interface DescribeWorkspacesPoolsFilter {
  */
 export interface DescribeWorkspacesPoolsRequest {
   /**
-   * <p>The identifier of the WorkSpaces pool.</p>
+   * <p>The identifier of the WorkSpaces Pools.</p>
    * @public
    */
   PoolIds?: string[];
 
   /**
-   * <p>The filter conditions for the WorkSpaces pool to return.</p>
+   * <p>The filter conditions for the WorkSpaces Pool to return.</p>
    * @public
    */
   Filters?: DescribeWorkspacesPoolsFilter[];
@@ -5515,7 +5516,7 @@ export interface DescribeWorkspacesPoolsRequest {
  */
 export interface DescribeWorkspacesPoolsResult {
   /**
-   * <p>Information about the WorkSpaces pools.</p>
+   * <p>Information about the WorkSpaces Pools.</p>
    * @public
    */
   WorkspacesPools?: WorkspacesPool[];
@@ -5533,7 +5534,7 @@ export interface DescribeWorkspacesPoolsResult {
  */
 export interface DescribeWorkspacesPoolSessionsRequest {
   /**
-   * <p>The identifier of the WorkSpaces pool.</p>
+   * <p>The identifier of the pool.</p>
    * @public
    */
   PoolId: string | undefined;
@@ -5573,7 +5574,7 @@ export const SessionConnectionState = {
 export type SessionConnectionState = (typeof SessionConnectionState)[keyof typeof SessionConnectionState];
 
 /**
- * <p>Describes the network details of a WorkSpaces pool.</p>
+ * <p>Describes the network details of a WorkSpaces Pool.</p>
  * @public
  */
 export interface NetworkAccessConfiguration {
@@ -5592,13 +5593,13 @@ export interface NetworkAccessConfiguration {
 }
 
 /**
- * <p>Describes a WorkSpaces pool session.</p>
+ * <p>Describes a pool session.</p>
  * @public
  */
 export interface WorkspacesPoolSession {
   /**
-   * <p>The authentication method. The user is authenticated using a WorkSpaces
-   *          pool URL (API) or SAML 2.0 federation (SAML).</p>
+   * <p>The authentication method. The user is authenticated using a
+   *          WorkSpaces Pools URL (API) or SAML 2.0 federation (SAML).</p>
    * @public
    */
   AuthenticationType?: AuthenticationType;
@@ -5657,7 +5658,7 @@ export interface WorkspacesPoolSession {
  */
 export interface DescribeWorkspacesPoolSessionsResult {
   /**
-   * <p>Describes the WorkSpaces pool sessions.</p>
+   * <p>Describes the pool sessions.</p>
    * @public
    */
   Sessions?: WorkspacesPoolSession[];

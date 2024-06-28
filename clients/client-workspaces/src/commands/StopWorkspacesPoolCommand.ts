@@ -28,7 +28,7 @@ export interface StopWorkspacesPoolCommandInput extends StopWorkspacesPoolReques
 export interface StopWorkspacesPoolCommandOutput extends StopWorkspacesPoolResult, __MetadataBearer {}
 
 /**
- * <p>Stops the specifiedWorkSpaces pool.</p>
+ * <p>Stops the specified pool.</p>
  *          <p>You cannot stop a WorkSpace pool unless it has a running mode of <code>AutoStop</code>
  *          and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
  * @example

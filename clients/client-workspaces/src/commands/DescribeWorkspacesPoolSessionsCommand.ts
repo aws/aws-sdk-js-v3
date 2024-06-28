@@ -33,7 +33,7 @@ export interface DescribeWorkspacesPoolSessionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes the streaming sessions for a specified WorkSpaces pool.</p>
+ * <p>Retrieves a list that describes the streaming sessions for a specified pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface DescribeWorkspacesPoolsCommandInput extends DescribeWorkspacesP
 export interface DescribeWorkspacesPoolsCommandOutput extends DescribeWorkspacesPoolsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified WorkSpaces pool.</p>
+ * <p>Describes the specified WorkSpaces Pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

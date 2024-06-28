@@ -28,7 +28,7 @@ export interface TerminateWorkspacesPoolCommandInput extends TerminateWorkspaces
 export interface TerminateWorkspacesPoolCommandOutput extends TerminateWorkspacesPoolResult, __MetadataBearer {}
 
 /**
- * <p>Terminates the specified WorkSpaces pool.</p>
+ * <p>Terminates the specified pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

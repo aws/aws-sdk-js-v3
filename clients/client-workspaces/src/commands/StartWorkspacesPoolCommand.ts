@@ -28,8 +28,8 @@ export interface StartWorkspacesPoolCommandInput extends StartWorkspacesPoolRequ
 export interface StartWorkspacesPoolCommandOutput extends StartWorkspacesPoolResult, __MetadataBearer {}
 
 /**
- * <p>Starts the specified WorkSpaces pool.</p>
- *          <p>You cannot start a WorkSpace pool unless it has a running mode of
+ * <p>Starts the specified pool.</p>
+ *          <p>You cannot start a pool unless it has a running mode of
  *          <code>AutoStop</code> and a state of <code>STOPPED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -28,7 +28,7 @@ export interface UpdateWorkspacesPoolCommandInput extends UpdateWorkspacesPoolRe
 export interface UpdateWorkspacesPoolCommandOutput extends UpdateWorkspacesPoolResult, __MetadataBearer {}
 
 /**
- * <p>Updates the specified WorkSpaces pool.</p>
+ * <p>Updates the specified pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
