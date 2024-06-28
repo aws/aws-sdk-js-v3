@@ -808,6 +808,9 @@ export interface DescribeDimensionKeysRequest {
    *                <p>A single filter for any other dimension in this dimension group.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The <code>db.sql.db_id</code> filter isn't available for RDS for SQL Server DB instances.</p>
+   *          </note>
    * @public
    */
   Filter?: Record<string, string>;
@@ -1318,6 +1321,9 @@ export interface MetricQuery {
    *                <p>A single filter for any other dimension in this dimension group.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The <code>db.sql.db_id</code> filter isn't available for RDS for SQL Server DB instances.</p>
+   *          </note>
    * @public
    */
   Filter?: Record<string, string>;
