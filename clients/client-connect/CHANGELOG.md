@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.607.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.606.0...v3.607.0) (2024-06-28)
+
+
+### Features
+
+* **client-connect:** This release supports showing PreferredAgentRouting step via DescribeContact API. ([f234cff](https://github.com/aws/aws-sdk-js-v3/commit/f234cffaa0acd47dfd74abb5724aec3f2c646ff1))
+
+
+
+
+
 # [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

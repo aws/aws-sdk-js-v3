@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.607.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.606.0...v3.607.0) (2024-06-28)
+
+
+### Features
+
+* **client-acm-pca:** Added CCPC_LEVEL_1_OR_HIGHER KeyStorageSecurityStandard and SM2 KeyAlgorithm and SM3WITHSM2 SigningAlgorithm for China regions. ([b75a706](https://github.com/aws/aws-sdk-js-v3/commit/b75a70623e67254addf27fc65a56e4ca1cdf9b72))
+* **client-cloudhsm-v2:** Added 3 new APIs to support backup sharing: GetResourcePolicy, PutResourcePolicy, and DeleteResourcePolicy. Added BackupArn to the output of the DescribeBackups API. Added support for BackupArn in the CreateCluster API. ([0c6a58c](https://github.com/aws/aws-sdk-js-v3/commit/0c6a58c2d1138fe7f157df7f6cd3217126ef3ef2))
+* **client-connect:** This release supports showing PreferredAgentRouting step via DescribeContact API. ([f234cff](https://github.com/aws/aws-sdk-js-v3/commit/f234cffaa0acd47dfd74abb5724aec3f2c646ff1))
+* **client-emr:** This release provides the support for new allocation strategies i.e. CAPACITY_OPTIMIZED_PRIORITIZED for Spot and PRIORITIZED for On-Demand by taking input of priority value for each instance type for instance fleet clusters. ([988b75a](https://github.com/aws/aws-sdk-js-v3/commit/988b75aebbe84458a1c716ce31893ea8b873cda2))
+* **client-glue:** Added AttributesToGet parameter to Glue GetDatabases, allowing caller to limit output to include only the database name. ([89e628f](https://github.com/aws/aws-sdk-js-v3/commit/89e628f9946c977fa36a250a972099547798448b))
+* **client-kinesis-analytics-v2:** Support for Flink 1.19 in Managed Service for Apache Flink ([2a5d41e](https://github.com/aws/aws-sdk-js-v3/commit/2a5d41e6f8392d9e28e6ad51db590f2f73dd7ef0))
+* **client-opensearch:** This release removes support for enabling or disabling Natural Language Query Processing feature for Amazon OpenSearch Service domains. ([19d56e7](https://github.com/aws/aws-sdk-js-v3/commit/19d56e7d30ddc57f2d66adac21a6b2ea7629b4a8))
+* **client-workspaces:** Added support for Red Hat Enterprise Linux 8 on Amazon WorkSpaces Personal. ([6cf9d76](https://github.com/aws/aws-sdk-js-v3/commit/6cf9d76d77b46b590d1c8d845ac5a81fe3f9efe8))
+* **clients:** update client endpoints as of 2024-06-28 ([3c1217d](https://github.com/aws/aws-sdk-js-v3/commit/3c1217d3227cff476758cbc46d85b7064f584bcb))
+
+
+
+
+
 # [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
 
 

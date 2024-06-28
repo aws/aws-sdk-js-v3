@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.607.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.606.0...v3.607.0) (2024-06-28)
+
+
+### Features
+
+* **client-kinesis-analytics-v2:** Support for Flink 1.19 in Managed Service for Apache Flink ([2a5d41e](https://github.com/aws/aws-sdk-js-v3/commit/2a5d41e6f8392d9e28e6ad51db590f2f73dd7ef0))
+
+
+
+
+
 # [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-analytics-v2
