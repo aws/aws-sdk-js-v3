@@ -207,8 +207,6 @@ import {
   AdvancedSecurityOptions,
   AdvancedSecurityOptionsInput,
   AdvancedSecurityOptionsStatus,
-  AIMLOptionsInput,
-  AIMLOptionsStatus,
   AutoTune,
   AutoTuneDetails,
   AutoTuneMaintenanceSchedule,
@@ -256,7 +254,6 @@ import {
   LogPublishingOptionsStatus,
   LogType,
   MasterUserOptions,
-  NaturalLanguageQueryGenerationOptionsInput,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
   OffPeakWindow,
@@ -457,7 +454,6 @@ export const se_CreateDomainCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      AIMLOptions: (_) => _json(_),
       AccessPolicies: [],
       AdvancedOptions: (_) => _json(_),
       AdvancedSecurityOptions: (_) => _json(_),
@@ -1493,7 +1489,6 @@ export const se_UpdateDomainConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      AIMLOptions: (_) => _json(_),
       AccessPolicies: [],
       AdvancedOptions: (_) => _json(_),
       AdvancedSecurityOptions: (_) => _json(_),
@@ -3300,8 +3295,6 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AdvancedSecurityOptionsInput omitted.
 
-// se_AIMLOptionsInput omitted.
-
 /**
  * serializeAws_restJson1AutoTuneMaintenanceSchedule
  */
@@ -3391,8 +3384,6 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_MasterUserOptions omitted.
 
-// se_NaturalLanguageQueryGenerationOptionsInput omitted.
-
 // se_NodeToNodeEncryptionOptions omitted.
 
 // se_OffPeakWindow omitted.
@@ -3473,18 +3464,6 @@ const de_AdvancedSecurityOptions = (output: any, context: __SerdeContext): Advan
 const de_AdvancedSecurityOptionsStatus = (output: any, context: __SerdeContext): AdvancedSecurityOptionsStatus => {
   return take(output, {
     Options: (_: any) => de_AdvancedSecurityOptions(_, context),
-    Status: (_: any) => de_OptionStatus(_, context),
-  }) as any;
-};
-
-// de_AIMLOptionsOutput omitted.
-
-/**
- * deserializeAws_restJson1AIMLOptionsStatus
- */
-const de_AIMLOptionsStatus = (output: any, context: __SerdeContext): AIMLOptionsStatus => {
-  return take(output, {
-    Options: _json,
     Status: (_: any) => de_OptionStatus(_, context),
   }) as any;
 };
@@ -3698,7 +3677,6 @@ const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoO
  */
 const de_DomainConfig = (output: any, context: __SerdeContext): DomainConfig => {
   return take(output, {
-    AIMLOptions: (_: any) => de_AIMLOptionsStatus(_, context),
     AccessPolicies: (_: any) => de_AccessPoliciesStatus(_, context),
     AdvancedOptions: (_: any) => de_AdvancedOptionsStatus(_, context),
     AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptionsStatus(_, context),
@@ -3805,7 +3783,6 @@ const de_DomainPackageDetailsList = (output: any, context: __SerdeContext): Doma
  */
 const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
   return take(output, {
-    AIMLOptions: _json,
     ARN: __expectString,
     AccessPolicies: __expectString,
     AdvancedOptions: _json,
@@ -3946,8 +3923,6 @@ const de_LogPublishingOptionsStatus = (output: any, context: __SerdeContext): Lo
 // de_ModifyingProperties omitted.
 
 // de_ModifyingPropertiesList omitted.
-
-// de_NaturalLanguageQueryGenerationOptionsOutput omitted.
 
 // de_NodeToNodeEncryptionOptions omitted.
 

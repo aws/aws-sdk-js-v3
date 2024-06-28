@@ -990,113 +990,6 @@ export interface AdvancedSecurityOptionsStatus {
 }
 
 /**
- * @public
- * @enum
- */
-export const NaturalLanguageQueryGenerationDesiredState = {
-  Disabled: "DISABLED",
-  Enabled: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type NaturalLanguageQueryGenerationDesiredState =
-  (typeof NaturalLanguageQueryGenerationDesiredState)[keyof typeof NaturalLanguageQueryGenerationDesiredState];
-
-/**
- * <p>Container for parameters required to enable the natural language query generation feature.</p>
- * @public
- */
-export interface NaturalLanguageQueryGenerationOptionsInput {
-  /**
-   * <p>The desired state of the natural language query generation feature. Valid values are ENABLED and DISABLED.</p>
-   * @public
-   */
-  DesiredState?: NaturalLanguageQueryGenerationDesiredState;
-}
-
-/**
- * <p>Container for parameters required to enable all machine learning features.</p>
- * @public
- */
-export interface AIMLOptionsInput {
-  /**
-   * <p>Container for parameters required for natural language query generation on the specified domain.</p>
-   * @public
-   */
-  NaturalLanguageQueryGenerationOptions?: NaturalLanguageQueryGenerationOptionsInput;
-}
-
-/**
- * @public
- * @enum
- */
-export const NaturalLanguageQueryGenerationCurrentState = {
-  DisableComplete: "DISABLE_COMPLETE",
-  DisableFailed: "DISABLE_FAILED",
-  DisableInProgress: "DISABLE_IN_PROGRESS",
-  EnableComplete: "ENABLE_COMPLETE",
-  EnableFailed: "ENABLE_FAILED",
-  EnableInProgress: "ENABLE_IN_PROGRESS",
-  NotEnabled: "NOT_ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type NaturalLanguageQueryGenerationCurrentState =
-  (typeof NaturalLanguageQueryGenerationCurrentState)[keyof typeof NaturalLanguageQueryGenerationCurrentState];
-
-/**
- * <p>Container for parameters representing the state of the natural language query generation feature on the specified domain.</p>
- * @public
- */
-export interface NaturalLanguageQueryGenerationOptionsOutput {
-  /**
-   * <p>The desired state of the natural language query generation feature. Valid values are ENABLED and DISABLED.</p>
-   * @public
-   */
-  DesiredState?: NaturalLanguageQueryGenerationDesiredState;
-
-  /**
-   * <p>The current state of the natural language query generation feature, indicating completion, in progress, or failure.</p>
-   * @public
-   */
-  CurrentState?: NaturalLanguageQueryGenerationCurrentState;
-}
-
-/**
- * <p>Container for parameters representing the state of machine learning features on the specified domain.</p>
- * @public
- */
-export interface AIMLOptionsOutput {
-  /**
-   * <p>Container for parameters required for natural language query generation on the specified domain.</p>
-   * @public
-   */
-  NaturalLanguageQueryGenerationOptions?: NaturalLanguageQueryGenerationOptionsOutput;
-}
-
-/**
- * <p>The status of machine learning options on the specified domain.</p>
- * @public
- */
-export interface AIMLOptionsStatus {
-  /**
-   * <p>Machine learning options on the specified domain.</p>
-   * @public
-   */
-  Options?: AIMLOptionsOutput;
-
-  /**
-   * <p>Provides the current status of an entity.</p>
-   * @public
-   */
-  Status?: OptionStatus;
-}
-
-/**
  * <p>Container for the request parameters to the <code>AssociatePackage</code> operation.</p>
  * @public
  */
@@ -2359,12 +2252,6 @@ export interface CreateDomainRequest {
    * @public
    */
   SoftwareUpdateOptions?: SoftwareUpdateOptions;
-
-  /**
-   * <p>Options for all machine learning features for the specified domain.</p>
-   * @public
-   */
-  AIMLOptions?: AIMLOptionsInput;
 }
 
 /**
@@ -2822,12 +2709,6 @@ export interface DomainStatus {
    * @public
    */
   ModifyingProperties?: ModifyingProperties[];
-
-  /**
-   * <p>Container for parameters required to enable all machine learning features.</p>
-   * @public
-   */
-  AIMLOptions?: AIMLOptionsOutput;
 }
 
 /**
@@ -4433,12 +4314,6 @@ export interface DomainConfig {
    * @public
    */
   ModifyingProperties?: ModifyingProperties[];
-
-  /**
-   * <p>Container for parameters required to enable all machine learning features.</p>
-   * @public
-   */
-  AIMLOptions?: AIMLOptionsStatus;
 }
 
 /**
@@ -7455,12 +7330,6 @@ export interface UpdateDomainConfigRequest {
    * @public
    */
   SoftwareUpdateOptions?: SoftwareUpdateOptions;
-
-  /**
-   * <p>Options for all machine learning features for the specified domain.</p>
-   * @public
-   */
-  AIMLOptions?: AIMLOptionsInput;
 }
 
 /**
