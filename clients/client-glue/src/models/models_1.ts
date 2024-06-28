@@ -5833,6 +5833,19 @@ export interface GetDatabaseResponse {
  * @public
  * @enum
  */
+export const DatabaseAttributes = {
+  NAME: "NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type DatabaseAttributes = (typeof DatabaseAttributes)[keyof typeof DatabaseAttributes];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceShareType = {
   ALL: "ALL",
   FEDERATED: "FEDERATED",
@@ -5883,6 +5896,12 @@ export interface GetDatabasesRequest {
    * @public
    */
   ResourceShareType?: ResourceShareType;
+
+  /**
+   * <p>Specifies the database fields returned by the <code>GetDatabases</code> call. This parameter doesn’t accept an empty list. The request must include the <code>NAME</code>.</p>
+   * @public
+   */
+  AttributesToGet?: DatabaseAttributes[];
 }
 
 /**
@@ -8310,21 +8329,4 @@ export interface GetPlanRequest {
    * @public
    */
   AdditionalPlanOptionsMap?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface GetPlanResponse {
-  /**
-   * <p>A Python script to perform the mapping.</p>
-   * @public
-   */
-  PythonScript?: string;
-
-  /**
-   * <p>The Scala code to perform the mapping.</p>
-   * @public
-   */
-  ScalaCode?: string;
 }

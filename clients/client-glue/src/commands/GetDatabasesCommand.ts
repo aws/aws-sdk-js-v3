@@ -40,6 +40,9 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   ResourceShareType: "FOREIGN" || "ALL" || "FEDERATED",
+ *   AttributesToGet: [ // DatabaseAttributesList
+ *     "NAME",
+ *   ],
  * };
  * const command = new GetDatabasesCommand(input);
  * const response = await client.send(command);

@@ -759,6 +759,7 @@ import {
   CreateWorkflowRequest,
   CsvClassifier,
   Database,
+  DatabaseAttributes,
   DatabaseIdentifier,
   DatabaseInput,
   DataCatalogEncryptionSettings,
@@ -9583,6 +9584,8 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
 // se_DagEdges omitted.
 
 // se_DagNodes omitted.
+
+// se_DatabaseAttributesList omitted.
 
 // se_DatabaseIdentifier omitted.
 

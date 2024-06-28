@@ -147,6 +147,23 @@ import {
 /**
  * @public
  */
+export interface GetPlanResponse {
+  /**
+   * <p>A Python script to perform the mapping.</p>
+   * @public
+   */
+  PythonScript?: string;
+
+  /**
+   * <p>The Scala code to perform the mapping.</p>
+   * @public
+   */
+  ScalaCode?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetRegistryInput {
   /**
    * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
