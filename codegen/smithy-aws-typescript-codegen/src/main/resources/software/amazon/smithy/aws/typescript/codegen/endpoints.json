@@ -23409,6 +23409,14 @@
             "cn-northwest-1": {}
           }
         },
+        "acm-pca": {
+          "defaults": {
+            "protocols": ["https"]
+          },
+          "endpoints": {
+            "cn-north-1": {}
+          }
+        },
         "airflow": {
           "endpoints": {
             "cn-north-1": {},
