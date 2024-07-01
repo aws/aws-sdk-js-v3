@@ -3033,6 +3033,7 @@ export interface CreateFargateProfileResponse {
  * @enum
  */
 export const CapacityTypes = {
+  CAPACITY_BLOCK: "CAPACITY_BLOCK",
   ON_DEMAND: "ON_DEMAND",
   SPOT: "SPOT",
 } as const;

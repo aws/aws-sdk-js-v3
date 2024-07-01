@@ -93,7 +93,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *     maxUnavailable: Number("int"),
  *     maxUnavailablePercentage: Number("int"),
  *   },
- *   capacityType: "ON_DEMAND" || "SPOT",
+ *   capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  *   version: "STRING_VALUE",
  *   releaseVersion: "STRING_VALUE",
  * };
@@ -109,7 +109,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
  * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "DEGRADED",
- * //     capacityType: "ON_DEMAND" || "SPOT",
+ * //     capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  * //     scalingConfig: { // NodegroupScalingConfig
  * //       minSize: Number("int"),
  * //       maxSize: Number("int"),

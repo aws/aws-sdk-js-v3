@@ -51,7 +51,7 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
  * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "DEGRADED",
- * //     capacityType: "ON_DEMAND" || "SPOT",
+ * //     capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  * //     scalingConfig: { // NodegroupScalingConfig
  * //       minSize: Number("int"),
  * //       maxSize: Number("int"),
