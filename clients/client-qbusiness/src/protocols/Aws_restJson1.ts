@@ -285,7 +285,9 @@ export const se_ChatCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   b.bp("/applications/{applicationId}/conversations");
   b.p("applicationId", () => input.applicationId!, "{applicationId}", false);
   const query: any = map({

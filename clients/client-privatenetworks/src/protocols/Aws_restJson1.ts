@@ -548,12 +548,9 @@ export const se_ListTagsForResourceCommand = async (
  */
 export const se_PingCommand = async (input: PingCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/ping");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };

@@ -2678,12 +2678,9 @@ export const se_GetGlobalSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/settings");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2728,12 +2725,9 @@ export const se_GetMessagingSessionEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/endpoints/messaging-session");
   let body: any;
-  body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "messaging-" + resolvedHostname;
@@ -2786,12 +2780,9 @@ export const se_GetPhoneNumberSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/settings/phone-number");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };

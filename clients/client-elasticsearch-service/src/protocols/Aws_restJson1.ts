@@ -519,12 +519,9 @@ export const se_DeleteElasticsearchServiceRoleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/2015-01-01/es/role");
   let body: any;
-  body = "";
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };

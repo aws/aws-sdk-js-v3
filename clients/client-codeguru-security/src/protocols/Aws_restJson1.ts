@@ -154,12 +154,9 @@ export const se_GetAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/accountConfiguration/get");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };

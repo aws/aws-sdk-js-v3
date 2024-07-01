@@ -1047,12 +1047,9 @@ export const se_GetCheckerIpRangesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/2013-04-01/checkeripranges");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1117,12 +1114,9 @@ export const se_GetHealthCheckCountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/2013-04-01/healthcheckcount");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1183,12 +1177,9 @@ export const se_GetHostedZoneCountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/2013-04-01/hostedzonecount");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1300,12 +1291,9 @@ export const se_GetTrafficPolicyInstanceCountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/2013-04-01/trafficpolicyinstancecount");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };

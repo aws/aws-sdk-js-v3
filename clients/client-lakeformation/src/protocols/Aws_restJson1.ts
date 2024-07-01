@@ -721,12 +721,9 @@ export const se_GetDataLakePrincipalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/GetDataLakePrincipal");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };

@@ -374,12 +374,9 @@ export const se_DeletePropertygraphStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/propertygraph/statistics");
   let body: any;
-  body = "";
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -392,12 +389,9 @@ export const se_DeleteSparqlStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/sparql/statistics");
   let body: any;
-  body = "";
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -551,12 +545,9 @@ export const se_GetEngineStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/status");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -699,12 +690,9 @@ export const se_GetPropertygraphStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/propertygraph/statistics");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -776,12 +764,9 @@ export const se_GetSparqlStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/sparql/statistics");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };

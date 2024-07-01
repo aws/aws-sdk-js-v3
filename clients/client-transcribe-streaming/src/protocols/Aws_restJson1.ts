@@ -80,6 +80,7 @@ export const se_StartCallAnalyticsStreamTranscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     [_xatlc]: input[_LC]!,
     [_xatsr]: [() => isSerializableHeaderValue(input[_MSRH]), () => input[_MSRH]!.toString()],
     [_xatme]: input[_ME]!,
@@ -112,6 +113,7 @@ export const se_StartMedicalStreamTranscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     [_xatlc]: input[_LC]!,
     [_xatsr]: [() => isSerializableHeaderValue(input[_MSRH]), () => input[_MSRH]!.toString()],
     [_xatme]: input[_ME]!,
@@ -142,6 +144,7 @@ export const se_StartStreamTranscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     [_xatlc]: input[_LC]!,
     [_xatsr]: [() => isSerializableHeaderValue(input[_MSRH]), () => input[_MSRH]!.toString()],
     [_xatme]: input[_ME]!,

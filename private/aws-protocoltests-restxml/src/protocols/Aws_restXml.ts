@@ -351,12 +351,9 @@ export const se_DatetimeOffsetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/DatetimeOffsets");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -369,12 +366,9 @@ export const se_EmptyInputAndEmptyOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/EmptyInputAndEmptyOutput");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -387,12 +381,9 @@ export const se_EndpointOperationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/EndpointOperation");
   let body: any;
-  body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo." + resolvedHostname;
@@ -519,12 +510,9 @@ export const se_FlattenedXmlMapWithXmlNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/FlattenedXmlMapWithXmlNamespace");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -537,12 +525,9 @@ export const se_FractionalSecondsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/FractionalSeconds");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -555,12 +540,9 @@ export const se_GreetingWithErrorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/GreetingWithErrors");
   let body: any;
-  body = "";
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -895,12 +877,9 @@ export const se_HttpResponseCodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/HttpResponseCode");
   let body: any;
-  body = "";
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -935,12 +914,9 @@ export const se_IgnoreQueryParamsInResponseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/IgnoreQueryParamsInResponse");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1031,12 +1007,9 @@ export const se_NoInputAndNoOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/NoInputAndNoOutput");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1049,12 +1022,9 @@ export const se_NoInputAndOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/NoInputAndOutputOutput");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
