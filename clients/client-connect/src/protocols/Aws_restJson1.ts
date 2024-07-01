@@ -224,6 +224,10 @@ import {
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
 } from "../commands/DescribeAgentStatusCommand";
+import {
+  DescribeAuthenticationProfileCommandInput,
+  DescribeAuthenticationProfileCommandOutput,
+} from "../commands/DescribeAuthenticationProfileCommand";
 import { DescribeContactCommandInput, DescribeContactCommandOutput } from "../commands/DescribeContactCommand";
 import {
   DescribeContactEvaluationCommandInput,
@@ -366,6 +370,10 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "../commands/ListApprovedOriginsCommand";
+import {
+  ListAuthenticationProfilesCommandInput,
+  ListAuthenticationProfilesCommandOutput,
+} from "../commands/ListAuthenticationProfilesCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
 import {
   ListContactEvaluationsCommandInput,
@@ -578,6 +586,10 @@ import { UntagContactCommandInput, UntagContactCommandOutput } from "../commands
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "../commands/UpdateAgentStatusCommand";
 import {
+  UpdateAuthenticationProfileCommandInput,
+  UpdateAuthenticationProfileCommandOutput,
+} from "../commands/UpdateAuthenticationProfileCommand";
+import {
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput,
 } from "../commands/UpdateContactAttributesCommand";
@@ -746,6 +758,7 @@ import {
   AssignContactCategoryActionDefinition,
   AttributeCondition,
   AudioQualityMetricsInfo,
+  AuthenticationProfile,
   Campaign,
   Channel,
   ContactDataRequest,
@@ -774,9 +787,6 @@ import {
   EvaluationFormSingleSelectQuestionAutomationOption,
   EvaluationFormSingleSelectQuestionOption,
   EvaluationFormSingleSelectQuestionProperties,
-  EvaluationMetadata,
-  EvaluationNote,
-  EvaluationScore,
   EventBridgeActionDefinition,
   Expiry,
   FieldValue,
@@ -845,6 +855,7 @@ import {
   ViewInputContent,
 } from "../models/models_0";
 import {
+  AuthenticationProfileSummary,
   ContactFilter,
   ContactFlowNotPublishedException,
   Credentials,
@@ -855,6 +866,9 @@ import {
   Evaluation,
   EvaluationFormSummary,
   EvaluationFormVersionSummary,
+  EvaluationMetadata,
+  EvaluationNote,
+  EvaluationScore,
   EvaluationSummary,
   Filters,
   FilterV2,
@@ -912,7 +926,6 @@ import {
   UserDataFilters,
   UserNotFoundException,
   UserProficiencyDisassociate,
-  UserSummary,
   Vocabulary,
 } from "../models/models_1";
 import {
@@ -982,6 +995,7 @@ import {
   UpdateParticipantRoleConfigChannelInfo,
   UserSearchCriteria,
   UserSearchFilter,
+  UserSummary,
   VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_2";
@@ -2604,6 +2618,23 @@ export const se_DescribeAgentStatusCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeAuthenticationProfileCommand
+ */
+export const se_DescribeAuthenticationProfileCommand = async (
+  input: DescribeAuthenticationProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/authentication-profiles/{InstanceId}/{AuthenticationProfileId}");
+  b.p("AuthenticationProfileId", () => input.AuthenticationProfileId!, "{AuthenticationProfileId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeContactCommand
  */
 export const se_DescribeContactCommand = async (
@@ -3611,6 +3642,26 @@ export const se_ListApprovedOriginsCommand = async (
   const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAuthenticationProfilesCommand
+ */
+export const se_ListAuthenticationProfilesCommand = async (
+  input: ListAuthenticationProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/authentication-profiles-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -5541,6 +5592,34 @@ export const se_UpdateAgentStatusCommand = async (
       Name: [],
       ResetOrderNumber: [],
       State: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAuthenticationProfileCommand
+ */
+export const se_UpdateAuthenticationProfileCommand = async (
+  input: UpdateAuthenticationProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/authentication-profiles/{InstanceId}/{AuthenticationProfileId}");
+  b.p("AuthenticationProfileId", () => input.AuthenticationProfileId!, "{AuthenticationProfileId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AllowedIps: (_) => _json(_),
+      BlockedIps: (_) => _json(_),
+      Description: [],
+      Name: [],
+      PeriodicSessionDuration: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -8058,6 +8137,27 @@ export const de_DescribeAgentStatusCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeAuthenticationProfileCommand
+ */
+export const de_DescribeAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAuthenticationProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AuthenticationProfile: (_) => de_AuthenticationProfile(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeContactCommand
  */
 export const de_DescribeContactCommand = async (
@@ -9133,6 +9233,28 @@ export const de_ListApprovedOriginsCommand = async (
   const doc = take(data, {
     NextToken: __expectString,
     Origins: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAuthenticationProfilesCommand
+ */
+export const de_ListAuthenticationProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAuthenticationProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AuthenticationProfileSummaryList: (_) => de_AuthenticationProfileSummaryList(_, context),
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -10884,6 +11006,23 @@ export const de_UpdateAgentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAgentStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAuthenticationProfileCommand
+ */
+export const de_UpdateAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAuthenticationProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -12684,6 +12823,8 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 
 // se_InvisibleTaskTemplateFields omitted.
 
+// se_IpCidrList omitted.
+
 // se_KinesisFirehoseConfig omitted.
 
 // se_KinesisStreamConfig omitted.
@@ -13356,6 +13497,52 @@ const de_AudioQualityMetricsInfo = (output: any, context: __SerdeContext): Audio
     PotentialQualityIssues: _json,
     QualityScore: __limitedParseFloat32,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AuthenticationProfile
+ */
+const de_AuthenticationProfile = (output: any, context: __SerdeContext): AuthenticationProfile => {
+  return take(output, {
+    AllowedIps: _json,
+    Arn: __expectString,
+    BlockedIps: _json,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Id: __expectString,
+    IsDefault: __expectBoolean,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaxSessionDuration: __expectInt32,
+    Name: __expectString,
+    PeriodicSessionDuration: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AuthenticationProfileSummary
+ */
+const de_AuthenticationProfileSummary = (output: any, context: __SerdeContext): AuthenticationProfileSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    IsDefault: __expectBoolean,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AuthenticationProfileSummaryList
+ */
+const de_AuthenticationProfileSummaryList = (output: any, context: __SerdeContext): AuthenticationProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AuthenticationProfileSummary(entry, context);
+    });
+  return retVal;
 };
 
 // de_AvailableNumbersList omitted.
@@ -14263,6 +14450,8 @@ const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceS
 // de_InvisibleFieldInfo omitted.
 
 // de_InvisibleTaskTemplateFields omitted.
+
+// de_IpCidrList omitted.
 
 // de_KinesisFirehoseConfig omitted.
 

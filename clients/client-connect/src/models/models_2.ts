@@ -25,7 +25,6 @@ import {
   EvaluationAnswerData,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
-  EvaluationNote,
   Expiry,
   FileStatusType,
   FileUseCaseType,
@@ -73,6 +72,8 @@ import {
   ContactFlowState,
   Evaluation,
   EvaluationFormVersionStatus,
+  EvaluationNote,
+  HierarchyGroupSummary,
   HoursOfOperation,
   InstanceAttributeType,
   PhoneNumberCountryCode,
@@ -86,8 +87,168 @@ import {
   SignInConfig,
   SortOrder,
   TelephonyConfig,
-  UserSummary,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListUserHierarchyGroupsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListUserHierarchyGroupsResponse {
+  /**
+   * <p>Information about the hierarchy groups.</p>
+   * @public
+   */
+  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListUserProficienciesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListUserProficienciesResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the user proficiencies.</p>
+   * @public
+   */
+  UserProficiencyList?: UserProficiency[];
+
+  /**
+   * <p>The last time that the user's proficiencies are were modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The region in which a user's proficiencies were last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListUsersRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains summary information about a user.</p>
+ * @public
+ */
+export interface UserSummary {
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user account.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The Amazon Connect user name of the user account.</p>
+   * @public
+   */
+  Username?: string;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string;
+}
 
 /**
  * @public
@@ -827,7 +988,7 @@ export interface ContactFlowSearchFilter {
  */
 export interface SearchContactFlowsResponse {
   /**
-   * <p>Information about the contact flows.</p>
+   * <p>Information about the flows.</p>
    * @public
    */
   ContactFlows?: ContactFlow[];
@@ -2343,7 +2504,7 @@ export interface StartAttachedFileUploadRequest {
   ClientToken?: string;
 
   /**
-   * <p>The unique identifier of the Connect instance.</p>
+   * <p>The unique identifier of the Amazon Connect instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3192,8 +3353,7 @@ export interface StartWebRTCContactRequest {
 
   /**
    * <p>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect admin website, on the
-   *    navigation menu go to <b>Routing</b>, <b>Contact
-   *     Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose
+   *    navigation menu go to <b>Routing</b>, <b>Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose
    *     <b>Show additional flow information</b>. The ContactFlowId is the last
    *    part of the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
@@ -3832,6 +3992,62 @@ export interface UpdateAgentStatusRequest {
    * @public
    */
   ResetOrderNumber?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAuthenticationProfileRequest {
+  /**
+   * <p>A unique identifier for the authentication profile. </p>
+   * @public
+   */
+  AuthenticationProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name for the authentication profile.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The description for the authentication profile.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of IP address range strings that are allowed to access the instance. For more
+   *    information on how to configure IP addresses, see<a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure session timeouts</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  AllowedIps?: string[];
+
+  /**
+   * <p>A list of IP address range strings that are blocked from accessing the instance. For more
+   *    information on how to configure IP addresses, For more information on how to configure IP
+   *    addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure
+   *     IP-based access control</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>. </p>
+   * @public
+   */
+  BlockedIps?: string[];
+
+  /**
+   * <p>The short lived session duration configuration for users logged in to Amazon Connect, in
+   *    minutes. This value determines the maximum possible time before an agent is authenticated. For
+   *    more information, For more information on how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure session timeouts</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>. </p>
+   * @public
+   */
+  PeriodicSessionDuration?: number;
 }
 
 /**

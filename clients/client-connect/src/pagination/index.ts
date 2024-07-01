@@ -9,6 +9,7 @@ export * from "./GetMetricDataV2Paginator";
 export * from "./Interfaces";
 export * from "./ListAgentStatusesPaginator";
 export * from "./ListApprovedOriginsPaginator";
+export * from "./ListAuthenticationProfilesPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListContactEvaluationsPaginator";
 export * from "./ListContactFlowModulesPaginator";

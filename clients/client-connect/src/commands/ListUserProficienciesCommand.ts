@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUserProficienciesRequest, ListUserProficienciesResponse } from "../models/models_1";
+import { ListUserProficienciesRequest, ListUserProficienciesResponse } from "../models/models_2";
 import { de_ListUserProficienciesCommand, se_ListUserProficienciesCommand } from "../protocols/Aws_restJson1";
 
 /**

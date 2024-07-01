@@ -21,9 +21,6 @@ import {
   DirectoryType,
   Distribution,
   EvaluationAnswerOutput,
-  EvaluationMetadata,
-  EvaluationNote,
-  EvaluationScore,
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
@@ -57,12 +54,84 @@ import {
   UserIdentityInfo,
   UserIdentityInfoFilterSensitiveLog,
   UserPhoneConfig,
-  UserProficiency,
   View,
   ViewFilterSensitiveLog,
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>Information about scores of a contact evaluation item (section or question).</p>
+ * @public
+ */
+export interface EvaluationScore {
+  /**
+   * <p>The score percentage for an item in a contact evaluation.</p>
+   * @public
+   */
+  Percentage?: number;
+
+  /**
+   * <p>The flag to mark the item as not applicable for scoring.</p>
+   * @public
+   */
+  NotApplicable?: boolean;
+
+  /**
+   * <p>The flag that marks the item as automatic fail. If the item or a child item gets an
+   *    automatic fail answer, this flag will be true.</p>
+   * @public
+   */
+  AutomaticFail?: boolean;
+}
+
+/**
+ * <p>Metadata information about a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationMetadata {
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
+   * @public
+   */
+  EvaluatorArn: string | undefined;
+
+  /**
+   * <p>The identifier of the agent who performed the contact.</p>
+   * @public
+   */
+  ContactAgentId?: string;
+
+  /**
+   * <p>The overall score of the contact evaluation.</p>
+   * @public
+   */
+  Score?: EvaluationScore;
+}
+
+/**
+ * <p>Information about notes for a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationNote {
+  /**
+   * <p>The note for an item (section or question) in a contact evaluation.</p>
+   *          <note>
+   *             <p>Even though a note in an evaluation can have up to 3072 chars, there is also a limit on the
+   *     total number of chars for all the notes in the evaluation combined. Assuming there are N
+   *     questions in the evaluation being submitted, then the max char limit for all notes combined is N
+   *     x 1024.</p>
+   *          </note>
+   * @public
+   */
+  Value?: string;
+}
 
 /**
  * @public
@@ -5911,6 +5980,94 @@ export interface ListApprovedOriginsResponse {
 
 /**
  * @public
+ */
+export interface ListAuthenticationProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * request access to this API, contact Amazon Web Services Support.</p>
+ *          <p>A summary of a given authentication profile.</p>
+ * @public
+ */
+export interface AuthenticationProfileSummary {
+  /**
+   * <p>The unique identifier of the authentication profile.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the authentication profile summary.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the authentication profile summary.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>Shows whether the authentication profile is the default authentication profile for the
+   *     Amazon Connect instance. The default authentication profile applies to all agents in an
+   *     Amazon Connect instance, unless overridden by another authentication profile.</p>
+   * @public
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The timestamp when the authentication profile summary was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The Amazon Web Services Region when the authentication profile summary was last
+   *    modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAuthenticationProfilesResponse {
+  /**
+   * <p>A summary of a given authentication profile.</p>
+   * @public
+   */
+  AuthenticationProfileSummaryList?: AuthenticationProfileSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const LexVersion = {
@@ -9629,167 +9786,6 @@ export interface ListUseCasesResponse {
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListUserHierarchyGroupsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListUserHierarchyGroupsResponse {
-  /**
-   * <p>Information about the hierarchy groups.</p>
-   * @public
-   */
-  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListUserProficienciesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
-   *    Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListUserProficienciesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the user proficiencies.</p>
-   * @public
-   */
-  UserProficiencyList?: UserProficiency[];
-
-  /**
-   * <p>The last time that the user's proficiencies are were modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The region in which a user's proficiencies were last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string;
-}
-
-/**
- * @public
- */
-export interface ListUsersRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Contains summary information about a user.</p>
- * @public
- */
-export interface UserSummary {
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user account.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Connect user name of the user account.</p>
-   * @public
-   */
-  Username?: string;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string;
 }
 
 /**

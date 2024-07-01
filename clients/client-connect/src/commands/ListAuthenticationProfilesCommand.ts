@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUserHierarchyGroupsRequest, ListUserHierarchyGroupsResponse } from "../models/models_2";
-import { de_ListUserHierarchyGroupsCommand, se_ListUserHierarchyGroupsCommand } from "../protocols/Aws_restJson1";
+import { ListAuthenticationProfilesRequest, ListAuthenticationProfilesResponse } from "../models/models_1";
+import { de_ListAuthenticationProfilesCommand, se_ListAuthenticationProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,40 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListUserHierarchyGroupsCommand}.
+ * The input for {@link ListAuthenticationProfilesCommand}.
  */
-export interface ListUserHierarchyGroupsCommandInput extends ListUserHierarchyGroupsRequest {}
+export interface ListAuthenticationProfilesCommandInput extends ListAuthenticationProfilesRequest {}
 /**
  * @public
  *
- * The output of {@link ListUserHierarchyGroupsCommand}.
+ * The output of {@link ListAuthenticationProfilesCommand}.
  */
-export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyGroupsResponse, __MetadataBearer {}
+export interface ListAuthenticationProfilesCommandOutput extends ListAuthenticationProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
- *    instance.</p>
- *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
- *      <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * request access to this API, contact Amazon Web Services Support.</p>
+ *          <p>Provides summary information about the authentication profiles in a specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListUserHierarchyGroupsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListUserHierarchyGroupsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListAuthenticationProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListAuthenticationProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // ListUserHierarchyGroupsRequest
+ * const input = { // ListAuthenticationProfilesRequest
  *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListUserHierarchyGroupsCommand(input);
+ * const command = new ListAuthenticationProfilesCommand(input);
  * const response = await client.send(command);
- * // { // ListUserHierarchyGroupsResponse
- * //   UserHierarchyGroupSummaryList: [ // HierarchyGroupSummaryList
- * //     { // HierarchyGroupSummary
+ * // { // ListAuthenticationProfilesResponse
+ * //   AuthenticationProfileSummaryList: [ // AuthenticationProfileSummaryList
+ * //     { // AuthenticationProfileSummary
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       IsDefault: true || false,
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
@@ -60,10 +60,10 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  *
  * ```
  *
- * @param ListUserHierarchyGroupsCommandInput - {@link ListUserHierarchyGroupsCommandInput}
- * @returns {@link ListUserHierarchyGroupsCommandOutput}
- * @see {@link ListUserHierarchyGroupsCommandInput} for command's `input` shape.
- * @see {@link ListUserHierarchyGroupsCommandOutput} for command's `response` shape.
+ * @param ListAuthenticationProfilesCommandInput - {@link ListAuthenticationProfilesCommandInput}
+ * @returns {@link ListAuthenticationProfilesCommandOutput}
+ * @see {@link ListAuthenticationProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListAuthenticationProfilesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -86,10 +86,10 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  *
  * @public
  */
-export class ListUserHierarchyGroupsCommand extends $Command
+export class ListAuthenticationProfilesCommand extends $Command
   .classBuilder<
-    ListUserHierarchyGroupsCommandInput,
-    ListUserHierarchyGroupsCommandOutput,
+    ListAuthenticationProfilesCommandInput,
+    ListAuthenticationProfilesCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,9 +103,9 @@ export class ListUserHierarchyGroupsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "ListUserHierarchyGroups", {})
-  .n("ConnectClient", "ListUserHierarchyGroupsCommand")
+  .s("AmazonConnectService", "ListAuthenticationProfiles", {})
+  .n("ConnectClient", "ListAuthenticationProfilesCommand")
   .f(void 0, void 0)
-  .ser(se_ListUserHierarchyGroupsCommand)
-  .de(de_ListUserHierarchyGroupsCommand)
+  .ser(se_ListAuthenticationProfilesCommand)
+  .de(de_ListAuthenticationProfilesCommand)
   .build() {}

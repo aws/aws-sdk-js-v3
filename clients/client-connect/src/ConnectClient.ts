@@ -241,6 +241,10 @@ import {
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
 } from "./commands/DescribeAgentStatusCommand";
+import {
+  DescribeAuthenticationProfileCommandInput,
+  DescribeAuthenticationProfileCommandOutput,
+} from "./commands/DescribeAuthenticationProfileCommand";
 import { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
 import {
   DescribeContactEvaluationCommandInput,
@@ -383,6 +387,10 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
+import {
+  ListAuthenticationProfilesCommandInput,
+  ListAuthenticationProfilesCommandOutput,
+} from "./commands/ListAuthenticationProfilesCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
   ListContactEvaluationsCommandInput,
@@ -594,6 +602,10 @@ import { TransferContactCommandInput, TransferContactCommandOutput } from "./com
 import { UntagContactCommandInput, UntagContactCommandOutput } from "./commands/UntagContactCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "./commands/UpdateAgentStatusCommand";
+import {
+  UpdateAuthenticationProfileCommandInput,
+  UpdateAuthenticationProfileCommandOutput,
+} from "./commands/UpdateAuthenticationProfileCommand";
 import {
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput,
@@ -833,6 +845,7 @@ export type ServiceInputTypes =
   | DeleteViewVersionCommandInput
   | DeleteVocabularyCommandInput
   | DescribeAgentStatusCommandInput
+  | DescribeAuthenticationProfileCommandInput
   | DescribeContactCommandInput
   | DescribeContactEvaluationCommandInput
   | DescribeContactFlowCommandInput
@@ -885,6 +898,7 @@ export type ServiceInputTypes =
   | ListAgentStatusesCommandInput
   | ListAnalyticsDataAssociationsCommandInput
   | ListApprovedOriginsCommandInput
+  | ListAuthenticationProfilesCommandInput
   | ListBotsCommandInput
   | ListContactEvaluationsCommandInput
   | ListContactFlowModulesCommandInput
@@ -967,6 +981,7 @@ export type ServiceInputTypes =
   | UntagContactCommandInput
   | UntagResourceCommandInput
   | UpdateAgentStatusCommandInput
+  | UpdateAuthenticationProfileCommandInput
   | UpdateContactAttributesCommandInput
   | UpdateContactCommandInput
   | UpdateContactEvaluationCommandInput
@@ -1088,6 +1103,7 @@ export type ServiceOutputTypes =
   | DeleteViewVersionCommandOutput
   | DeleteVocabularyCommandOutput
   | DescribeAgentStatusCommandOutput
+  | DescribeAuthenticationProfileCommandOutput
   | DescribeContactCommandOutput
   | DescribeContactEvaluationCommandOutput
   | DescribeContactFlowCommandOutput
@@ -1140,6 +1156,7 @@ export type ServiceOutputTypes =
   | ListAgentStatusesCommandOutput
   | ListAnalyticsDataAssociationsCommandOutput
   | ListApprovedOriginsCommandOutput
+  | ListAuthenticationProfilesCommandOutput
   | ListBotsCommandOutput
   | ListContactEvaluationsCommandOutput
   | ListContactFlowModulesCommandOutput
@@ -1222,6 +1239,7 @@ export type ServiceOutputTypes =
   | UntagContactCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentStatusCommandOutput
+  | UpdateAuthenticationProfileCommandOutput
   | UpdateContactAttributesCommandOutput
   | UpdateContactCommandOutput
   | UpdateContactEvaluationCommandOutput
@@ -1440,7 +1458,21 @@ export type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfigType {}
 
 /**
- * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html">Amazon Connect
+ *        actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect
+ *        data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
  *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
  *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
  *    contact routing. You can also resolve customer issues more efficiently by getting customers in

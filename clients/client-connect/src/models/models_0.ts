@@ -414,7 +414,7 @@ export interface AgentHierarchyGroup {
 /**
  * <p>A structure that defines search criteria for contacts using agent hierarchy group levels.
  *    For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
- *     <i>Amazon Connect Administrator Guide</i>.</p>
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  * @public
  */
 export interface AgentHierarchyGroups {
@@ -616,8 +616,8 @@ export interface AgentQualityMetrics {
 
 /**
  * <p>Can be used to define a list of preferred agents to target the contact within the queue.
- *    Note that agents must have the queue in their routing profile in order to be offered the
- *    contact.</p>
+ *     Note that agents must have the queue in their routing profile in order to be offered the
+ *     contact.</p>
  * @public
  */
 export interface AgentsCriteria {
@@ -2432,7 +2432,7 @@ export interface ClaimPhoneNumberResponse {
  */
 export interface CompleteAttachedFileUploadRequest {
   /**
-   * <p>The unique identifier of the Connect instance.</p>
+   * <p>The unique identifier of the Amazon Connect instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -6640,6 +6640,131 @@ export interface DescribeAgentStatusResponse {
 /**
  * @public
  */
+export interface DescribeAuthenticationProfileRequest {
+  /**
+   * <p>A unique identifier for the authentication profile. </p>
+   * @public
+   */
+  AuthenticationProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * request access to this API, contact Amazon Web Services Support.</p>
+ *          <p>Information about an authentication profile. An authentication profile is a resource that
+ *    stores the authentication settings for users in your contact center. You use authentication
+ *    profiles to set up IP address range restrictions and session timeouts. For more information, see
+ *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html">Set IP address restrictions or session timeouts</a>.
+ *   </p>
+ * @public
+ */
+export interface AuthenticationProfile {
+  /**
+   * <p>A unique identifier for the authentication profile. </p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the authentication profile.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name for the authentication profile.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The description for the authentication profile.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of IP address range strings that are allowed to access the Amazon Connect
+   *    instance. For more information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure
+   *     IP address based access control</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  AllowedIps?: string[];
+
+  /**
+   * <p>A list of IP address range strings that are blocked from accessing the Amazon Connect
+   *    instance. For more information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure
+   *     IP address based access control</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  BlockedIps?: string[];
+
+  /**
+   * <p>Shows whether the authentication profile is the default authentication profile for the
+   *     Amazon Connect instance. The default authentication profile applies to all agents in an
+   *     Amazon Connect instance, unless overridden by another authentication profile.</p>
+   * @public
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The timestamp when the authentication profile was created.</p>
+   * @public
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The timestamp when the authentication profile was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The Amazon Web Services Region where the authentication profile was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string;
+
+  /**
+   * <p>The short lived session duration configuration for users logged in to Amazon Connect, in
+   *    minutes. This value determines the maximum possible time before an agent is authenticated. For
+   *    more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  PeriodicSessionDuration?: number;
+
+  /**
+   * <p>The long lived session duration for users logged in to Amazon Connect, in minutes. After
+   *    this time period, users must log in again. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  MaxSessionDuration?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAuthenticationProfileResponse {
+  /**
+   * <p>The authentication profile object being described.</p>
+   * @public
+   */
+  AuthenticationProfile?: AuthenticationProfile;
+}
+
+/**
+ * @public
+ */
 export interface DescribeContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6993,79 +7118,6 @@ export interface EvaluationAnswerOutput {
    * @public
    */
   SystemSuggestedValue?: EvaluationAnswerData;
-}
-
-/**
- * <p>Information about scores of a contact evaluation item (section or question).</p>
- * @public
- */
-export interface EvaluationScore {
-  /**
-   * <p>The score percentage for an item in a contact evaluation.</p>
-   * @public
-   */
-  Percentage?: number;
-
-  /**
-   * <p>The flag to mark the item as not applicable for scoring.</p>
-   * @public
-   */
-  NotApplicable?: boolean;
-
-  /**
-   * <p>The flag that marks the item as automatic fail. If the item or a child item gets an
-   *    automatic fail answer, this flag will be true.</p>
-   * @public
-   */
-  AutomaticFail?: boolean;
-}
-
-/**
- * <p>Metadata information about a contact evaluation.</p>
- * @public
- */
-export interface EvaluationMetadata {
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
-   * @public
-   */
-  EvaluatorArn: string | undefined;
-
-  /**
-   * <p>The identifier of the agent who performed the contact.</p>
-   * @public
-   */
-  ContactAgentId?: string;
-
-  /**
-   * <p>The overall score of the contact evaluation.</p>
-   * @public
-   */
-  Score?: EvaluationScore;
-}
-
-/**
- * <p>Information about notes for a contact evaluation.</p>
- * @public
- */
-export interface EvaluationNote {
-  /**
-   * <p>The note for an item (section or question) in a contact evaluation.</p>
-   *          <note>
-   *             <p>Even though a note in an evaluation can have up to 3072 chars, there is also a limit on the
-   *     total number of chars for all the notes in the evaluation combined. Assuming there are N
-   *     questions in the evaluation being submitted, then the max char limit for all notes combined is N
-   *     x 1024.</p>
-   *          </note>
-   * @public
-   */
-  Value?: string;
 }
 
 /**

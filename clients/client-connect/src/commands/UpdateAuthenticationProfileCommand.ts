@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUsersRequest, ListUsersResponse } from "../models/models_2";
-import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_restJson1";
+import { UpdateAuthenticationProfileRequest } from "../models/models_2";
+import {
+  de_UpdateAuthenticationProfileCommand,
+  se_UpdateAuthenticationProfileCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,51 +20,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListUsersCommand}.
+ * The input for {@link UpdateAuthenticationProfileCommand}.
  */
-export interface ListUsersCommandInput extends ListUsersRequest {}
+export interface UpdateAuthenticationProfileCommandInput extends UpdateAuthenticationProfileRequest {}
 /**
  * @public
  *
- * The output of {@link ListUsersCommand}.
+ * The output of {@link UpdateAuthenticationProfileCommand}.
  */
-export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
+export interface UpdateAuthenticationProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the users for the specified Amazon Connect
- *    instance.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change. To
+ * request access to this API, contact Amazon Web Services Support.</p>
+ *          <p>Updates the selected authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListUsersCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListUsersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateAuthenticationProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateAuthenticationProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // ListUsersRequest
+ * const input = { // UpdateAuthenticationProfileRequest
+ *   AuthenticationProfileId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   AllowedIps: [ // IpCidrList
+ *     "STRING_VALUE",
+ *   ],
+ *   BlockedIps: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PeriodicSessionDuration: Number("int"),
  * };
- * const command = new ListUsersCommand(input);
+ * const command = new UpdateAuthenticationProfileCommand(input);
  * const response = await client.send(command);
- * // { // ListUsersResponse
- * //   UserSummaryList: [ // UserSummaryList
- * //     { // UserSummary
- * //       Id: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       Username: "STRING_VALUE",
- * //       LastModifiedTime: new Date("TIMESTAMP"),
- * //       LastModifiedRegion: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListUsersCommandInput - {@link ListUsersCommandInput}
- * @returns {@link ListUsersCommandOutput}
- * @see {@link ListUsersCommandInput} for command's `input` shape.
- * @see {@link ListUsersCommandOutput} for command's `response` shape.
+ * @param UpdateAuthenticationProfileCommandInput - {@link UpdateAuthenticationProfileCommandInput}
+ * @returns {@link UpdateAuthenticationProfileCommandOutput}
+ * @see {@link UpdateAuthenticationProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -84,10 +85,10 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *
  * @public
  */
-export class ListUsersCommand extends $Command
+export class UpdateAuthenticationProfileCommand extends $Command
   .classBuilder<
-    ListUsersCommandInput,
-    ListUsersCommandOutput,
+    UpdateAuthenticationProfileCommandInput,
+    UpdateAuthenticationProfileCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,9 +102,9 @@ export class ListUsersCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "ListUsers", {})
-  .n("ConnectClient", "ListUsersCommand")
+  .s("AmazonConnectService", "UpdateAuthenticationProfile", {})
+  .n("ConnectClient", "UpdateAuthenticationProfileCommand")
   .f(void 0, void 0)
-  .ser(se_ListUsersCommand)
-  .de(de_ListUsersCommand)
+  .ser(se_UpdateAuthenticationProfileCommand)
+  .de(de_UpdateAuthenticationProfileCommand)
   .build() {}
