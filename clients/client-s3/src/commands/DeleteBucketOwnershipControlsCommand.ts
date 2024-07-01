@@ -78,6 +78,7 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class DeleteBucketOwnershipControlsCommand extends $Command
