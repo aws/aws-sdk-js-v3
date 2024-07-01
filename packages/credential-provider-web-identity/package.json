@@ -33,8 +33,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.1",
-    "@smithy/types": "^3.1.0",
+    "@smithy/property-provider": "^3.1.3",
+    "@smithy/types": "^3.3.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
