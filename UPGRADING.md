@@ -8,7 +8,7 @@ these changes in our [blog posts](https://aws.amazon.com/blogs/developer/categor
 The following blog posts will get you up to speed:
 
 - [Modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
-- [Introducing Middleware Stack in Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/first-class-typescript-support-in-modular-aws-sdk-for-javascript/)
+- [Introducing Middleware Stack in Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/)
 
 The summary of interface changes from AWS SDK for JavaScript v2 to v3 is given below.
 The goal is to help you easily find the v3 equivalents of the v2 APIs you are already familiar with.
