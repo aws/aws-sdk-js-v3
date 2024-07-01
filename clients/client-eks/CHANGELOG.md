@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
+
+
+### Features
+
+* **client-eks:** Updates EKS managed node groups to support EC2 Capacity Blocks for ML ([3293ed2](https://github.com/aws/aws-sdk-js-v3/commit/3293ed22437af3fdb96fef7e9c333c58ea256071))
+
+
+
+
+
 # [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

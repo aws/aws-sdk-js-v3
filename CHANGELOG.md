@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
+
+
+### Features
+
+* **client-api-gateway:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([af0513b](https://github.com/aws/aws-sdk-js-v3/commit/af0513b2a94b03433b4a84cd888e27bda9b29043))
+* **client-cognito-identity:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([3927da6](https://github.com/aws/aws-sdk-js-v3/commit/3927da647673176447b61ca402012540caa25df9))
+* **client-connect:** Authentication profiles are Amazon Connect resources (in gated preview) that allow you to configure authentication settings for users in your contact center. This release adds support for new ListAuthenticationProfiles, DescribeAuthenticationProfile and UpdateAuthenticationProfile APIs. ([67d4def](https://github.com/aws/aws-sdk-js-v3/commit/67d4def4aa42eb682b98b53cfb0f11620c056aae))
+* **client-docdb:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([62d34b8](https://github.com/aws/aws-sdk-js-v3/commit/62d34b873051b1d97b81f396afd84ebca2dd6a48))
+* **client-eks:** Updates EKS managed node groups to support EC2 Capacity Blocks for ML ([3293ed2](https://github.com/aws/aws-sdk-js-v3/commit/3293ed22437af3fdb96fef7e9c333c58ea256071))
+* **client-payment-cryptography-data:** Adding support for dynamic keys for encrypt, decrypt, re-encrypt and translate pin functions.  With this change, customers can use one-time TR-31 keys directly in dataplane operations without the need to first import them into the service. ([da1e387](https://github.com/aws/aws-sdk-js-v3/commit/da1e387e15dfb5ab9ca59522fab5f4379c52646e))
+* **client-payment-cryptography:** Added further restrictions on logging of potentially sensitive inputs and outputs. ([66a9332](https://github.com/aws/aws-sdk-js-v3/commit/66a9332c3416bc508db36e2cc54fdf2cae02b504))
+* **client-sfn:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([fe5f536](https://github.com/aws/aws-sdk-js-v3/commit/fe5f536113a95bc5a9a8b69e7de83ff17fc4a152))
+* **client-swf:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([03d945e](https://github.com/aws/aws-sdk-js-v3/commit/03d945e87c33eecdc40b3455eff3b7ad25f5fecd))
+* **clients:** update client endpoints as of 2024-07-01 ([4cc8858](https://github.com/aws/aws-sdk-js-v3/commit/4cc885859fe767ca94b9d3e7d085920358e8df71))
+
+
+
+
+
 # [3.607.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.606.0...v3.607.0) (2024-06-28)
 
 

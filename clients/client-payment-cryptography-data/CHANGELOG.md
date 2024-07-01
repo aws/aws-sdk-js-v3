@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
+
+
+### Features
+
+* **client-payment-cryptography-data:** Adding support for dynamic keys for encrypt, decrypt, re-encrypt and translate pin functions.  With this change, customers can use one-time TR-31 keys directly in dataplane operations without the need to first import them into the service. ([da1e387](https://github.com/aws/aws-sdk-js-v3/commit/da1e387e15dfb5ab9ca59522fab5f4379c52646e))
+
+
+
+
+
 # [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography-data

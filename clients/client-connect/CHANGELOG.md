@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
+
+
+### Features
+
+* **client-connect:** Authentication profiles are Amazon Connect resources (in gated preview) that allow you to configure authentication settings for users in your contact center. This release adds support for new ListAuthenticationProfiles, DescribeAuthenticationProfile and UpdateAuthenticationProfile APIs. ([67d4def](https://github.com/aws/aws-sdk-js-v3/commit/67d4def4aa42eb682b98b53cfb0f11620c056aae))
+
+
+
+
+
 # [3.607.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.606.0...v3.607.0) (2024-06-28)
 
 
