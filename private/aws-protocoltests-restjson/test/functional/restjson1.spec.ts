@@ -7410,7 +7410,7 @@ it("PostUnionWithJsonNameResponse3:Response", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_restJson1:Request", async () => {
+it("SDKAppliedContentEncoding_restJson1:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -7443,7 +7443,7 @@ it.skip("SDKAppliedContentEncoding_restJson1:Request", async () => {
  * request compression encoding from the HTTP binding.
  *
  */
-it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:Request", async () => {
+it("SDKAppendedGzipAfterProvidedEncoding_restJson1:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),

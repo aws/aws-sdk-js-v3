@@ -28364,7 +28364,7 @@ it("PostUnionWithJsonNameResponse3:ServerResponse", async () => {
 /**
  * Compression algorithm encoding is appended to the Content-Encoding header.
  */
-it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
+it("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -28410,7 +28410,7 @@ it.skip("SDKAppliedContentEncoding_restJson1:ServerRequest", async () => {
  * request compression encoding from the HTTP binding.
  *
  */
-it.skip("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async () => {
+it("SDKAppendedGzipAfterProvidedEncoding_restJson1:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
