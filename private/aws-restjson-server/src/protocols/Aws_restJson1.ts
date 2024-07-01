@@ -56,8 +56,12 @@ import {
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 
 import {
+  ClientOptionalDefaults,
   ComplexError,
   ComplexNestedErrorData,
+  Defaults,
+  Dialog,
+  Farewell,
   FooEnum,
   FooError,
   GreetingStruct,
@@ -73,6 +77,7 @@ import {
   SimpleUnion,
   StructureListMember,
   TestConfig,
+  TopLevel,
   UnionPayload,
   UnionWithJsonName,
   Unit,
@@ -89,6 +94,10 @@ import {
   ConstantQueryStringServerInput,
   ConstantQueryStringServerOutput,
 } from "../server/operations/ConstantQueryString";
+import {
+  ContentTypeParametersServerInput,
+  ContentTypeParametersServerOutput,
+} from "../server/operations/ContentTypeParameters";
 import { DatetimeOffsetsServerInput, DatetimeOffsetsServerOutput } from "../server/operations/DatetimeOffsets";
 import { DocumentTypeServerInput, DocumentTypeServerOutput } from "../server/operations/DocumentType";
 import {
@@ -285,6 +294,14 @@ import {
   OmitsSerializingEmptyListsServerInput,
   OmitsSerializingEmptyListsServerOutput,
 } from "../server/operations/OmitsSerializingEmptyLists";
+import {
+  OperationWithDefaultsServerInput,
+  OperationWithDefaultsServerOutput,
+} from "../server/operations/OperationWithDefaults";
+import {
+  OperationWithNestedStructureServerInput,
+  OperationWithNestedStructureServerOutput,
+} from "../server/operations/OperationWithNestedStructure";
 import { PostPlayerActionServerInput, PostPlayerActionServerOutput } from "../server/operations/PostPlayerAction";
 import {
   PostUnionWithJsonNameServerInput,
@@ -320,6 +337,10 @@ import {
   StreamingTraitsWithMediaTypeServerOutput,
 } from "../server/operations/StreamingTraitsWithMediaType";
 import { TestBodyStructureServerInput, TestBodyStructureServerOutput } from "../server/operations/TestBodyStructure";
+import {
+  TestNoInputNoPayloadServerInput,
+  TestNoInputNoPayloadServerOutput,
+} from "../server/operations/TestNoInputNoPayload";
 import { TestNoPayloadServerInput, TestNoPayloadServerOutput } from "../server/operations/TestNoPayload";
 import { TestPayloadBlobServerInput, TestPayloadBlobServerOutput } from "../server/operations/TestPayloadBlob";
 import {
@@ -645,6 +666,35 @@ export const deserializeConstantQueryStringRequest = async (
     contents.hello = decodeURIComponent(parsedPath.groups.hello);
   }
   await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeContentTypeParametersRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ContentTypeParametersServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    value: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3054,6 +3104,67 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
   return contents;
 };
 
+export const deserializeOperationWithDefaultsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<OperationWithDefaultsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientOptionalDefaults: (_) => de_ClientOptionalDefaults(_, context),
+    defaults: (_) => de_Defaults(_, context),
+    otherTopLevelDefault: __expectInt32,
+    topLevelDefault: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+export const deserializeOperationWithNestedStructureRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<OperationWithNestedStructureServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    topLevel: (_) => de_TopLevel(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
 export const deserializePostPlayerActionRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -3508,6 +3619,31 @@ export const deserializeTestBodyStructureRequest = async (
   return contents;
 };
 
+export const deserializeTestNoInputNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestNoInputNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializeTestNoPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -3729,6 +3865,43 @@ export const serializeConstantQueryStringResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {});
   let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeContentTypeParametersResponse = async (
+  input: ContentTypeParametersServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
   if (
     body &&
     Object.keys(headers)
@@ -6522,6 +6695,117 @@ export const serializeOmitsSerializingEmptyListsResponse = async (
   });
 };
 
+export const serializeOperationWithDefaultsResponse = async (
+  input: OperationWithDefaultsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      defaultBlob: (_) => context.base64Encoder(_),
+      defaultBoolean: [],
+      defaultByte: [],
+      defaultDocumentBoolean: (_) => se_Document(_, context),
+      defaultDocumentList: (_) => se_Document(_, context),
+      defaultDocumentMap: (_) => se_Document(_, context),
+      defaultDocumentString: (_) => se_Document(_, context),
+      defaultDouble: (_) => __serializeFloat(_),
+      defaultEnum: [],
+      defaultFloat: (_) => __serializeFloat(_),
+      defaultIntEnum: [],
+      defaultInteger: [],
+      defaultList: (_) => se_TestStringList(_, context),
+      defaultLong: [],
+      defaultMap: (_) => se_TestStringMap(_, context),
+      defaultNullDocument: (_) => se_Document(_, context),
+      defaultShort: [],
+      defaultString: [],
+      defaultTimestamp: (_) => _.getTime() / 1_000,
+      emptyBlob: (_) => context.base64Encoder(_),
+      emptyString: [],
+      falseBoolean: [],
+      zeroByte: [],
+      zeroDouble: (_) => __serializeFloat(_),
+      zeroFloat: (_) => __serializeFloat(_),
+      zeroInteger: [],
+      zeroLong: [],
+      zeroShort: [],
+    })
+  );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeOperationWithNestedStructureResponse = async (
+  input: OperationWithNestedStructureServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      dialog: (_) => se_Dialog(_, context),
+      dialogList: (_) => se_DialogList(_, context),
+      dialogMap: (_) => se_DialogMap(_, context),
+    })
+  );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializePostPlayerActionResponse = async (
   input: PostPlayerActionServerOutput,
   ctx: ServerSerdeContext
@@ -7073,6 +7357,44 @@ export const serializeTestBodyStructureResponse = async (
   });
 };
 
+export const serializeTestNoInputNoPayloadResponse = async (
+  input: TestNoInputNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeTestNoPayloadResponse = async (
   input: TestNoPayloadServerOutput,
   ctx: ServerSerdeContext
@@ -7522,6 +7844,41 @@ const se_DenseStructMap = (input: Record<string, GreetingStruct>, context: __Ser
 };
 
 /**
+ * serializeAws_restJson1Dialog
+ */
+const se_Dialog = (input: Dialog, context: __SerdeContext): any => {
+  return take(input, {
+    farewell: (_) => se_Farewell(_, context),
+    greeting: [],
+    language: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1DialogList
+ */
+const se_DialogList = (input: Dialog[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Dialog(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1DialogMap
+ */
+const se_DialogMap = (input: Record<string, Dialog>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_Dialog(value, context);
+    return acc;
+  }, {});
+};
+
+/**
  * serializeAws_restJson1Document
  */
 const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
@@ -7539,6 +7896,15 @@ const se_DocumentValuedMap = (input: Record<string, __DocumentType>, context: __
     acc[key] = se_Document(value, context);
     return acc;
   }, {});
+};
+
+/**
+ * serializeAws_restJson1Farewell
+ */
+const se_Farewell = (input: Farewell, context: __SerdeContext): any => {
+  return take(input, {
+    phrase: [],
+  });
 };
 
 /**
@@ -7699,6 +8065,26 @@ const se_TestConfig = (input: TestConfig, context: __SerdeContext): any => {
   return take(input, {
     timeout: [],
   });
+};
+
+/**
+ * serializeAws_restJson1TestStringList
+ */
+const se_TestStringList = (input: string[], context: __SerdeContext): any => {
+  return input.filter((e: any) => e != null);
+};
+
+/**
+ * serializeAws_restJson1TestStringMap
+ */
+const se_TestStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
 };
 
 /**
@@ -7887,6 +8273,51 @@ const se_Unit = (input: Unit, context: __SerdeContext): any => {
 };
 
 /**
+ * deserializeAws_restJson1ClientOptionalDefaults
+ */
+const de_ClientOptionalDefaults = (output: any, context: __SerdeContext): ClientOptionalDefaults => {
+  return take(output, {
+    member: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Defaults
+ */
+const de_Defaults = (output: any, context: __SerdeContext): Defaults => {
+  return take(output, {
+    defaultBlob: context.base64Decoder,
+    defaultBoolean: __expectBoolean,
+    defaultByte: __expectByte,
+    defaultDocumentBoolean: (_: any) => de_Document(_, context),
+    defaultDocumentList: (_: any) => de_Document(_, context),
+    defaultDocumentMap: (_: any) => de_Document(_, context),
+    defaultDocumentString: (_: any) => de_Document(_, context),
+    defaultDouble: __limitedParseDouble,
+    defaultEnum: __expectString,
+    defaultFloat: __limitedParseFloat32,
+    defaultIntEnum: __expectInt32,
+    defaultInteger: __expectInt32,
+    defaultList: (_: any) => de_TestStringList(_, context),
+    defaultLong: __expectLong,
+    defaultMap: (_: any) => de_TestStringMap(_, context),
+    defaultNullDocument: (_: any) => de_Document(_, context),
+    defaultShort: __expectShort,
+    defaultString: __expectString,
+    defaultTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    emptyBlob: context.base64Decoder,
+    emptyString: __expectString,
+    falseBoolean: __expectBoolean,
+    zeroByte: __expectByte,
+    zeroDouble: __limitedParseDouble,
+    zeroFloat: __limitedParseFloat32,
+    zeroInteger: __expectInt32,
+    zeroLong: __expectLong,
+    zeroShort: __expectShort,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1DenseBooleanMap
  */
 const de_DenseBooleanMap = (output: any, context: __SerdeContext): Record<string, boolean> => {
@@ -7952,6 +8383,45 @@ const de_DenseStructMap = (output: any, context: __SerdeContext): Record<string,
 };
 
 /**
+ * deserializeAws_restJson1Dialog
+ */
+const de_Dialog = (output: any, context: __SerdeContext): Dialog => {
+  return take(output, {
+    farewell: (_: any) => de_Farewell(_, context),
+    greeting: __expectString,
+    language: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DialogList
+ */
+const de_DialogList = (output: any, context: __SerdeContext): Dialog[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      throw new TypeError(
+        'All elements of the non-sparse list "aws.protocoltests.restjson#DialogList" must be non-null.'
+      );
+    }
+    return de_Dialog(entry, context);
+  });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DialogMap
+ */
+const de_DialogMap = (output: any, context: __SerdeContext): Record<string, Dialog> => {
+  return Object.entries(output).reduce((acc: Record<string, Dialog>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_Dialog(value, context);
+    return acc;
+  }, {} as Record<string, Dialog>);
+};
+
+/**
  * deserializeAws_restJson1Document
  */
 const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
@@ -7969,6 +8439,15 @@ const de_DocumentValuedMap = (output: any, context: __SerdeContext): Record<stri
     acc[key as string] = de_Document(value, context);
     return acc;
   }, {} as Record<string, __DocumentType>);
+};
+
+/**
+ * deserializeAws_restJson1Farewell
+ */
+const de_Farewell = (output: any, context: __SerdeContext): Farewell => {
+  return take(output, {
+    phrase: __expectString,
+  }) as any;
 };
 
 /**
@@ -8205,6 +8684,45 @@ const de_StructureListMember = (output: any, context: __SerdeContext): Structure
 const de_TestConfig = (output: any, context: __SerdeContext): TestConfig => {
   return take(output, {
     timeout: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TestStringList
+ */
+const de_TestStringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      throw new TypeError(
+        'All elements of the non-sparse list "aws.protocoltests.restjson#TestStringList" must be non-null.'
+      );
+    }
+    return __expectString(entry) as any;
+  });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1TestStringMap
+ */
+const de_TestStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = __expectString(value) as any;
+    return acc;
+  }, {} as Record<string, string>);
+};
+
+/**
+ * deserializeAws_restJson1TopLevel
+ */
+const de_TopLevel = (output: any, context: __SerdeContext): TopLevel => {
+  return take(output, {
+    dialog: (_: any) => de_Dialog(_, context),
+    dialogList: (_: any) => de_DialogList(_, context),
+    dialogMap: (_: any) => de_DialogMap(_, context),
   }) as any;
 };
 

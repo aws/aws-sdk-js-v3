@@ -61,6 +61,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
+import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
@@ -106,6 +110,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ContentTypeParametersCommandInput
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
@@ -124,6 +129,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | ContentTypeParametersCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput

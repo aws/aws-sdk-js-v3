@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./ContentTypeParametersCommand";
 export * from "./EmptyInputAndEmptyOutputCommand";
 export * from "./EndpointOperationCommand";
 export * from "./EndpointWithHostLabelOperationCommand";

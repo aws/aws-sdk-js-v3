@@ -73,6 +73,18 @@ export class ComplexError extends __BaseException {
 
 /**
  * @public
+ */
+export interface ContentTypeParametersInput {
+  value?: number;
+}
+
+/**
+ * @public
+ */
+export interface ContentTypeParametersOutput {}
+
+/**
+ * @public
  * @enum
  */
 export const TestEnum = {

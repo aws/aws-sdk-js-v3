@@ -60,6 +60,10 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "./commands/EmptyOperationCommand";
 import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
@@ -109,6 +113,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ContentTypeParametersCommandInput
   | DatetimeOffsetsCommandInput
   | EmptyOperationCommandInput
   | EndpointOperationCommandInput
@@ -130,6 +135,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | ContentTypeParametersCommandOutput
   | DatetimeOffsetsCommandOutput
   | EmptyOperationCommandOutput
   | EndpointOperationCommandOutput
