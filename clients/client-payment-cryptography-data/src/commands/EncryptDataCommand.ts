@@ -104,6 +104,12 @@ export interface EncryptDataCommandOutput extends EncryptDataOutput, __MetadataB
  *       InitializationVector: "STRING_VALUE",
  *     },
  *   },
+ *   WrappedKey: { // WrappedKey
+ *     WrappedKeyMaterial: { // WrappedKeyMaterial Union: only one key present
+ *       Tr31KeyBlock: "STRING_VALUE",
+ *     },
+ *     KeyCheckValueAlgorithm: "STRING_VALUE",
+ *   },
  * };
  * const command = new EncryptDataCommand(input);
  * const response = await client.send(command);

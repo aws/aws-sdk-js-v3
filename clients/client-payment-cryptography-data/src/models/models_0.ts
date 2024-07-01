@@ -955,10 +955,82 @@ export namespace EncryptionDecryptionAttributes {
 
 /**
  * @public
+ * @enum
+ */
+export const KeyCheckValueAlgorithm = {
+  ANSI_X9_24: "ANSI_X9_24",
+  CMAC: "CMAC",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeof KeyCheckValueAlgorithm];
+
+/**
+ * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
+ * @public
+ */
+export type WrappedKeyMaterial = WrappedKeyMaterial.Tr31KeyBlockMember | WrappedKeyMaterial.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WrappedKeyMaterial {
+  /**
+   * <p>The TR-31 wrapped key block.</p>
+   * @public
+   */
+  export interface Tr31KeyBlockMember {
+    Tr31KeyBlock: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Tr31KeyBlock?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Tr31KeyBlock: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: WrappedKeyMaterial, visitor: Visitor<T>): T => {
+    if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
+ * @public
+ */
+export interface WrappedKey {
+  /**
+   * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
+   * @public
+   */
+  WrappedKeyMaterial: WrappedKeyMaterial | undefined;
+
+  /**
+   * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.</p>
+   *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
+   * @public
+   */
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+}
+
+/**
+ * @public
  */
 export interface DecryptDataInput {
   /**
    * <p>The <code>keyARN</code> of the encryption key that Amazon Web Services Payment Cryptography uses for ciphertext decryption.</p>
+   *          <p>When a WrappedKeyBlock is provided, this value will be the identifier to the key wrapping key. Otherwise, it is the key identifier used to perform the operation.</p>
    * @public
    */
   KeyIdentifier: string | undefined;
@@ -974,6 +1046,12 @@ export interface DecryptDataInput {
    * @public
    */
   DecryptionAttributes: EncryptionDecryptionAttributes | undefined;
+
+  /**
+   * <p>The WrappedKeyBlock containing the encryption key for ciphertext decryption.</p>
+   * @public
+   */
+  WrappedKey?: WrappedKey;
 }
 
 /**
@@ -1164,6 +1242,7 @@ export interface DukptDerivationAttributes {
 export interface EncryptDataInput {
   /**
    * <p>The <code>keyARN</code> of the encryption key that Amazon Web Services Payment Cryptography uses for plaintext encryption.</p>
+   *          <p>When a WrappedKeyBlock is provided, this value will be the identifier to the key wrapping key. Otherwise, it is the key identifier used to perform the operation.</p>
    * @public
    */
   KeyIdentifier: string | undefined;
@@ -1182,6 +1261,12 @@ export interface EncryptDataInput {
    * @public
    */
   EncryptionAttributes: EncryptionDecryptionAttributes | undefined;
+
+  /**
+   * <p>The WrappedKeyBlock containing the encryption key for plaintext encryption.</p>
+   * @public
+   */
+  WrappedKey?: WrappedKey;
 }
 
 /**
@@ -2109,6 +2194,7 @@ export namespace ReEncryptionAttributes {
 export interface ReEncryptDataInput {
   /**
    * <p>The <code>keyARN</code> of the encryption key of incoming ciphertext data.</p>
+   *          <p>When a WrappedKeyBlock is provided, this value will be the identifier to the key wrapping key. Otherwise, it is the key identifier used to perform the operation.</p>
    * @public
    */
   IncomingKeyIdentifier: string | undefined;
@@ -2136,6 +2222,18 @@ export interface ReEncryptDataInput {
    * @public
    */
   OutgoingEncryptionAttributes: ReEncryptionAttributes | undefined;
+
+  /**
+   * <p>The WrappedKeyBlock containing the encryption key of incoming ciphertext data.</p>
+   * @public
+   */
+  IncomingWrappedKey?: WrappedKey;
+
+  /**
+   * <p>The WrappedKeyBlock containing the encryption key of outgoing ciphertext data after encryption by Amazon Web Services Payment Cryptography.</p>
+   * @public
+   */
+  OutgoingWrappedKey?: WrappedKey;
 }
 
 /**
@@ -2277,6 +2375,7 @@ export namespace TranslationIsoFormats {
 export interface TranslatePinDataInput {
   /**
    * <p>The <code>keyARN</code> of the encryption key under which incoming PIN block data is encrypted. This key type can be PEK or BDK.</p>
+   *          <p>When a WrappedKeyBlock is provided, this value will be the identifier to the key wrapping key for PIN block. Otherwise, it is the key identifier used to perform the operation.</p>
    * @public
    */
   IncomingKeyIdentifier: string | undefined;
@@ -2316,6 +2415,18 @@ export interface TranslatePinDataInput {
    * @public
    */
   OutgoingDukptAttributes?: DukptDerivationAttributes;
+
+  /**
+   * <p>The WrappedKeyBlock containing the encryption key under which incoming PIN block data is encrypted.</p>
+   * @public
+   */
+  IncomingWrappedKey?: WrappedKey;
+
+  /**
+   * <p>The WrappedKeyBlock containing the encryption key for encrypting outgoing PIN block data.</p>
+   * @public
+   */
+  OutgoingWrappedKey?: WrappedKey;
 }
 
 /**
@@ -2976,12 +3087,29 @@ export const EncryptionDecryptionAttributesFilterSensitiveLog = (obj: Encryption
 /**
  * @internal
  */
+export const WrappedKeyMaterialFilterSensitiveLog = (obj: WrappedKeyMaterial): any => {
+  if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const WrappedKeyFilterSensitiveLog = (obj: WrappedKey): any => ({
+  ...obj,
+  ...(obj.WrappedKeyMaterial && { WrappedKeyMaterial: WrappedKeyMaterialFilterSensitiveLog(obj.WrappedKeyMaterial) }),
+});
+
+/**
+ * @internal
+ */
 export const DecryptDataInputFilterSensitiveLog = (obj: DecryptDataInput): any => ({
   ...obj,
   ...(obj.CipherText && { CipherText: SENSITIVE_STRING }),
   ...(obj.DecryptionAttributes && {
     DecryptionAttributes: EncryptionDecryptionAttributesFilterSensitiveLog(obj.DecryptionAttributes),
   }),
+  ...(obj.WrappedKey && { WrappedKey: WrappedKeyFilterSensitiveLog(obj.WrappedKey) }),
 });
 
 /**
@@ -3001,6 +3129,7 @@ export const EncryptDataInputFilterSensitiveLog = (obj: EncryptDataInput): any =
   ...(obj.EncryptionAttributes && {
     EncryptionAttributes: EncryptionDecryptionAttributesFilterSensitiveLog(obj.EncryptionAttributes),
   }),
+  ...(obj.WrappedKey && { WrappedKey: WrappedKeyFilterSensitiveLog(obj.WrappedKey) }),
 });
 
 /**
@@ -3080,6 +3209,8 @@ export const ReEncryptDataInputFilterSensitiveLog = (obj: ReEncryptDataInput): a
   ...(obj.OutgoingEncryptionAttributes && {
     OutgoingEncryptionAttributes: ReEncryptionAttributesFilterSensitiveLog(obj.OutgoingEncryptionAttributes),
   }),
+  ...(obj.IncomingWrappedKey && { IncomingWrappedKey: WrappedKeyFilterSensitiveLog(obj.IncomingWrappedKey) }),
+  ...(obj.OutgoingWrappedKey && { OutgoingWrappedKey: WrappedKeyFilterSensitiveLog(obj.OutgoingWrappedKey) }),
 });
 
 /**
@@ -3124,6 +3255,8 @@ export const TranslatePinDataInputFilterSensitiveLog = (obj: TranslatePinDataInp
     OutgoingTranslationAttributes: TranslationIsoFormatsFilterSensitiveLog(obj.OutgoingTranslationAttributes),
   }),
   ...(obj.EncryptedPinBlock && { EncryptedPinBlock: SENSITIVE_STRING }),
+  ...(obj.IncomingWrappedKey && { IncomingWrappedKey: WrappedKeyFilterSensitiveLog(obj.IncomingWrappedKey) }),
+  ...(obj.OutgoingWrappedKey && { OutgoingWrappedKey: WrappedKeyFilterSensitiveLog(obj.OutgoingWrappedKey) }),
 });
 
 /**

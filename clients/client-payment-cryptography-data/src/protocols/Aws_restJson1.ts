@@ -96,6 +96,8 @@ import {
   VisaPin,
   VisaPinVerification,
   VisaPinVerificationValue,
+  WrappedKey,
+  WrappedKeyMaterial,
 } from "../models/models_0";
 import { PaymentCryptographyDataServiceException as __BaseException } from "../models/PaymentCryptographyDataServiceException";
 
@@ -117,6 +119,7 @@ export const se_DecryptDataCommand = async (
     take(input, {
       CipherText: [],
       DecryptionAttributes: (_) => _json(_),
+      WrappedKey: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -141,6 +144,7 @@ export const se_EncryptDataCommand = async (
     take(input, {
       EncryptionAttributes: (_) => _json(_),
       PlainText: [],
+      WrappedKey: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -242,8 +246,10 @@ export const se_ReEncryptDataCommand = async (
     take(input, {
       CipherText: [],
       IncomingEncryptionAttributes: (_) => _json(_),
+      IncomingWrappedKey: (_) => _json(_),
       OutgoingEncryptionAttributes: (_) => _json(_),
       OutgoingKeyIdentifier: [],
+      OutgoingWrappedKey: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -269,9 +275,11 @@ export const se_TranslatePinDataCommand = async (
       IncomingDukptAttributes: (_) => _json(_),
       IncomingKeyIdentifier: [],
       IncomingTranslationAttributes: (_) => _json(_),
+      IncomingWrappedKey: (_) => _json(_),
       OutgoingDukptAttributes: (_) => _json(_),
       OutgoingKeyIdentifier: [],
       OutgoingTranslationAttributes: (_) => _json(_),
+      OutgoingWrappedKey: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -882,6 +890,10 @@ const de_VerificationFailedExceptionRes = async (
 // se_VisaPinVerification omitted.
 
 // se_VisaPinVerificationValue omitted.
+
+// se_WrappedKey omitted.
+
+// se_WrappedKeyMaterial omitted.
 
 // de_PinData omitted.
 

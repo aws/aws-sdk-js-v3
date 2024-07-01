@@ -102,6 +102,18 @@ export interface TranslatePinDataCommandOutput extends TranslatePinDataOutput, _
  *     DukptKeyDerivationType: "STRING_VALUE",
  *     DukptKeyVariant: "STRING_VALUE",
  *   },
+ *   IncomingWrappedKey: { // WrappedKey
+ *     WrappedKeyMaterial: { // WrappedKeyMaterial Union: only one key present
+ *       Tr31KeyBlock: "STRING_VALUE",
+ *     },
+ *     KeyCheckValueAlgorithm: "STRING_VALUE",
+ *   },
+ *   OutgoingWrappedKey: {
+ *     WrappedKeyMaterial: {//  Union: only one key present
+ *       Tr31KeyBlock: "STRING_VALUE",
+ *     },
+ *     KeyCheckValueAlgorithm: "STRING_VALUE",
+ *   },
  * };
  * const command = new TranslatePinDataCommand(input);
  * const response = await client.send(command);
