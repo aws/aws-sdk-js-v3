@@ -4046,7 +4046,7 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerRequest", async () => {
 /**
  * Tests requests with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -4551,7 +4551,7 @@ it("RestJsonInputAndOutputWithStringHeaders:ServerResponse", async () => {
 /**
  * Tests responses with string list header bindings that require quoting
  */
-it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:ServerResponse", async () => {
+it("RestJsonInputAndOutputWithQuotedStringHeaders:ServerResponse", async () => {
   class TestService implements Partial<RestJsonService<{}>> {
     InputAndOutputWithHeaders(input: any, ctx: {}): Promise<InputAndOutputWithHeadersServerOutput> {
       const response = {
