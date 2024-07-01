@@ -199,12 +199,9 @@ export const se_GetLatestAssessmentIdCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/get-latest-assessment-id");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -217,12 +214,9 @@ export const se_GetPortfolioPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/get-portfolio-preferences");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -235,12 +229,9 @@ export const se_GetPortfolioSummaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/get-portfolio-summary");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };

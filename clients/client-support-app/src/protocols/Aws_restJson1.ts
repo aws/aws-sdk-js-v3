@@ -98,12 +98,9 @@ export const se_DeleteAccountAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/control/delete-account-alias");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -161,12 +158,9 @@ export const se_GetAccountAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/control/get-account-alias");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };

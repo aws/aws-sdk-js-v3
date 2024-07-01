@@ -71,6 +71,7 @@ export const se_StartFaceLivenessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     [_xarslsi]: input[_SI]!,
     [_xarslvw]: input[_VW]!,
     [_xarslvh]: input[_VH]!,

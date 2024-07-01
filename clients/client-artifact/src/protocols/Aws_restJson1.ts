@@ -50,12 +50,9 @@ export const se_GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/v1/account-settings/get");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };

@@ -1864,15 +1864,12 @@ export const se_ListBucketsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/xml",
-  };
+  const headers: any = {};
   b.bp("/");
   const query: any = map({
     [_xi]: [, "ListBuckets"],
   });
   let body: any;
-  body = "";
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
