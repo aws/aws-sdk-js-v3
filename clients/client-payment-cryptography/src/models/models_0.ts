@@ -1896,6 +1896,14 @@ export const RootCertificatePublicKeyFilterSensitiveLog = (obj: RootCertificateP
 /**
  * @internal
  */
+export const ImportTr31KeyBlockFilterSensitiveLog = (obj: ImportTr31KeyBlock): any => ({
+  ...obj,
+  ...(obj.WrappedKeyBlock && { WrappedKeyBlock: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ImportTr34KeyBlockFilterSensitiveLog = (obj: ImportTr34KeyBlock): any => ({
   ...obj,
   ...(obj.SigningKeyCertificate && { SigningKeyCertificate: SENSITIVE_STRING }),
@@ -1919,7 +1927,7 @@ export const ImportKeyMaterialFilterSensitiveLog = (obj: ImportKeyMaterial): any
     return {
       TrustedCertificatePublicKey: TrustedCertificatePublicKeyFilterSensitiveLog(obj.TrustedCertificatePublicKey),
     };
-  if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: obj.Tr31KeyBlock };
+  if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: ImportTr31KeyBlockFilterSensitiveLog(obj.Tr31KeyBlock) };
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ImportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
   if (obj.KeyCryptogram !== undefined) return { KeyCryptogram: obj.KeyCryptogram };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };

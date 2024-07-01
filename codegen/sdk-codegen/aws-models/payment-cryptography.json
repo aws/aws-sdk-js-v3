@@ -432,6 +432,16 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.paymentcryptography#EvenHexLengthBetween16And32": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 16,
+          "max": 32
+        },
+        "smithy.api#pattern": "^(?:[0-9a-fA-F][0-9a-fA-F])+$"
+      }
+    },
     "com.amazonaws.paymentcryptography#ExportAttributes": {
       "type": "structure",
       "members": {
@@ -658,7 +668,7 @@
           }
         },
         "RandomNonce": {
-          "target": "com.amazonaws.paymentcryptography#HexLength16",
+          "target": "com.amazonaws.paymentcryptography#EvenHexLengthBetween16And32",
           "traits": {
             "smithy.api#documentation": "<p>A random number value that is unique to the TR-34 key block generated using 2 pass. The operation will fail, if a random nonce value is not provided for a TR-34 key block generated using 2 pass.</p>"
           }
@@ -1085,16 +1095,6 @@
         "smithy.api#output": {}
       }
     },
-    "com.amazonaws.paymentcryptography#HexLength16": {
-      "type": "string",
-      "traits": {
-        "smithy.api#length": {
-          "min": 16,
-          "max": 16
-        },
-        "smithy.api#pattern": "^[0-9A-F]+$"
-      }
-    },
     "com.amazonaws.paymentcryptography#HexLength20Or24": {
       "type": "string",
       "traits": {
@@ -1338,7 +1338,7 @@
           }
         },
         "RandomNonce": {
-          "target": "com.amazonaws.paymentcryptography#HexLength16",
+          "target": "com.amazonaws.paymentcryptography#EvenHexLengthBetween16And32",
           "traits": {
             "smithy.api#documentation": "<p>A random number value that is unique to the TR-34 key block generated using 2 pass. The operation will fail, if a random nonce value is not provided for a TR-34 key block generated using 2 pass.</p>"
           }
@@ -3492,7 +3492,8 @@
           "min": 56,
           "max": 9984
         },
-        "smithy.api#pattern": "^[0-9A-Z]+$"
+        "smithy.api#pattern": "^[0-9A-Z]+$",
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.paymentcryptography#Tr34KeyBlockFormat": {
