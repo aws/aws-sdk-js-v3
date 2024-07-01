@@ -41,8 +41,8 @@ export const throw200ExceptionsMiddleware =
       return result;
     }
 
-    const bodyBytes = await collectBody(body, config);
-    const bodyString = await collectBodyString(bodyBytes, config);
+    const bodyBytes: Uint8Array = await collectBody(body, config);
+    const bodyStringTail = config.utf8Encoder(bodyBytes.subarray(bodyBytes.length - 16));
 
     // Throw on 200 response with empty body, legacy behavior allowlist.
     if (bodyBytes.length === 0 && THROW_IF_EMPTY_BODY[context.commandName!]) {
@@ -51,7 +51,7 @@ export const throw200ExceptionsMiddleware =
       throw err;
     }
     // Generalized throw-on-200 for top level Error element and non-streaming response.
-    if (bodyString && bodyString.endsWith("</Error>")) {
+    if (bodyStringTail && bodyStringTail.endsWith("</Error>")) {
       // Set the error code to 4XX so that error deserializer can parse them
       response.statusCode = 400;
     }
@@ -69,10 +69,6 @@ const collectBody = (streamBody: any = new Uint8Array(), context: PreviouslyReso
   }
   return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
-
-// Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: PreviouslyResolved): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 /**
  * @internal
