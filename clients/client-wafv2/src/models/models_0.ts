@@ -555,11 +555,12 @@ export type JsonMatchScope = (typeof JsonMatchScope)[keyof typeof JsonMatchScope
  *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
  *          <p>Use the specifications in this object to indicate which parts of the JSON body to
  *          inspect using the rule's inspection criteria. WAF inspects only the parts of the JSON
- *          that result from the matches that you indicate.
- *       </p>
+ *          that result from the matches that you indicate. </p>
  *          <p>Example JSON: <code>"JsonBody": \{ "MatchPattern": \{ "All": \{\} \}, "MatchScope": "ALL"
  *             \}</code>
  *          </p>
+ *          <p>For additional information about this request component option, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body">JSON body</a>
+ *               in the <i>WAF Developer Guide</i>.</p>
  * @public
  */
 export interface JsonBody {
@@ -605,24 +606,12 @@ export interface JsonBody {
    *          </ul>
    *          <p>If you don't provide this setting, WAF parses and evaluates the content only up to the
    *          first parsing failure that it encounters. </p>
-   *          <p>WAF does its best to parse the entire JSON body, but might be forced to stop for
-   *          reasons such as invalid characters, duplicate keys, truncation, and any content whose root
-   *          node isn't an object or an array. </p>
-   *          <p>WAF parses the JSON in the following examples as two valid key, value pairs: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Missing comma: <code>\{"key1":"value1""key2":"value2"\}</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Missing colon: <code>\{"key1":"value1","key2""value2"\}</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Extra colons: <code>\{"key1"::"value1","key2""value2"\}</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <note>
+   *             <p>WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When
+   *      parsing succeeds, WAF doesn't apply the fallback behavior. For more information,
+   *           see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body">JSON body</a>
+   *               in the <i>WAF Developer Guide</i>.</p>
+   *          </note>
    * @public
    */
   InvalidFallbackBehavior?: BodyParsingFallbackBehavior;
