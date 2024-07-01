@@ -18,6 +18,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.List;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.typescript.codegen.protocols.cbor.SmithyRpcV2Cbor;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -29,7 +30,14 @@ public class AddProtocols implements TypeScriptIntegration {
 
     @Override
     public List<ProtocolGenerator> getProtocolGenerators() {
-        return ListUtils.of(new AwsRestJson1(), new AwsJsonRpc1_0(), new AwsJsonRpc1_1(),
-                new AwsRestXml(), new AwsQuery(), new AwsEc2());
+        return ListUtils.of(
+            new SmithyRpcV2Cbor(),
+            new AwsJsonRpc1_0(),
+            new AwsJsonRpc1_1(),
+            new AwsRestJson1(),
+            new AwsRestXml(),
+            new AwsQuery(),
+            new AwsEc2()
+        );
     }
 }
