@@ -150,9 +150,9 @@ final class DocumentClientPaginationGenerator implements Runnable {
                 "export async function* paginate$L(config: $L, input: $L, ...additionalArguments: any): Paginator<$L>{",
                 "}",  operationName, paginationType, inputTypeName, outputTypeName, () -> {
             String destructuredInputTokenName = destructurePath(inputTokenName);
-            writer.write("// ToDo: replace with actual type instead of typeof input$L", destructuredInputTokenName);
-            writer.write("let token: typeof input$L | undefined = config.startingToken || undefined;",
-                    destructuredInputTokenName);
+            writer.write(
+                "let token: Record<string, NativeAttributeValue> | undefined = config.startingToken || undefined;"
+            );
 
             writer.write("let hasNext = true;");
             writer.write("let page: $L;", outputTypeName);
@@ -180,8 +180,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
 
                 writer.write("hasNext = !!(token);");
             });
-
-            writer.write("// @ts-ignore");
             writer.write("return undefined;");
         });
     }
@@ -197,7 +195,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
                 "const makePagedClientRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
                 "}", DocumentClientUtils.CLIENT_NAME, inputTypeName,
                 outputTypeName, () -> {
-            writer.write("// @ts-ignore");
             writer.write("return await client.send(new $L(input), ...args);", operationTypeName);
         });
     }
