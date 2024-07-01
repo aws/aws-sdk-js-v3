@@ -44,6 +44,8 @@ import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.traits.DeprecatedTrait;
 import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
+import software.amazon.smithy.model.traits.HttpPayloadTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -70,12 +72,6 @@ public final class AddS3Config implements TypeScriptIntegration {
         "CreateBucket",
         "DeleteBucket",
         "ListBuckets"
-    );
-
-    private static final Set<String> EXCEPTIONS_OF_200_OPERATIONS = SetUtils.of(
-        "CopyObject",
-        "UploadPartCopy",
-        "CompleteMultipartUpload"
     );
 
     private static final String CRT_NOTIFICATION = "<p>Note: To supply the Multi-region Access Point (MRAP) to Bucket,"
@@ -288,9 +284,33 @@ public final class AddS3Config implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "throw200Exceptions",
                     HAS_MIDDLEWARE)
-                .operationPredicate(
-                    (m, s, o) -> EXCEPTIONS_OF_200_OPERATIONS.contains(o.getId().getName(s))
-                        && isS3(s))
+                .operationPredicate((m, s, o) -> {
+                    if (!isS3(s)) {
+                        return false;
+                    }
+                    Optional<ShapeId> output = o.getOutput();
+                    if (output.isPresent()) {
+                        Shape outputShape = m.expectShape(output.get());
+                        boolean hasStreamingBlobOutputPayload = outputShape.getAllMembers().values().stream().anyMatch(
+                            memberShape -> {
+                                boolean isPayload = memberShape.hasTrait(HttpPayloadTrait.class);
+                                if (!isPayload) {
+                                    return false;
+                                }
+                                Shape shape = m.expectShape(memberShape.getTarget());
+                                boolean isBlob = shape.isBlobShape();
+                                if (!isBlob) {
+                                    return false;
+                                }
+                                return shape.hasTrait(StreamingTrait.class);
+                            }
+                        );
+                        if (hasStreamingBlobOutputPayload) {
+                            return false;
+                        }
+                    }
+                    return output.isPresent();
+                })
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",

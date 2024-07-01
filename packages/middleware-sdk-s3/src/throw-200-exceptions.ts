@@ -1,9 +1,25 @@
 import { HttpResponse } from "@smithy/protocol-http";
-import { DeserializeMiddleware, Encoder, Pluggable, RelativeMiddlewareOptions, StreamCollector } from "@smithy/types";
+import {
+  DeserializeMiddleware,
+  Encoder,
+  HandlerExecutionContext,
+  Pluggable,
+  RelativeMiddlewareOptions,
+  StreamCollector,
+} from "@smithy/types";
 
 type PreviouslyResolved = {
   streamCollector: StreamCollector;
   utf8Encoder: Encoder;
+};
+
+/**
+ * @internal
+ */
+const THROW_IF_EMPTY_BODY: Record<string, boolean> = {
+  CopyObjectCommand: true,
+  UploadPartCopyCommand: true,
+  CompleteMultipartUploadCommand: true,
 };
 
 /**
@@ -13,23 +29,29 @@ type PreviouslyResolved = {
  */
 export const throw200ExceptionsMiddleware =
   (config: PreviouslyResolved): DeserializeMiddleware<any, any> =>
-  (next) =>
+  (next, context: HandlerExecutionContext) =>
   async (args) => {
     const result = await next(args);
     const { response } = result;
-    if (!HttpResponse.isInstance(response)) return result;
+    if (!HttpResponse.isInstance(response)) {
+      return result;
+    }
     const { statusCode, body } = response;
-    if (statusCode < 200 || statusCode >= 300) return result;
+    if (statusCode < 200 || statusCode >= 300) {
+      return result;
+    }
 
-    // Throw 2XX response that's either an error or has empty body.
-    const bodyBytes = await collectBody(body, config);
-    const bodyString = await collectBodyString(bodyBytes, config);
-    if (bodyBytes.length === 0) {
+    const bodyBytes: Uint8Array = await collectBody(body, config);
+    const bodyStringTail = config.utf8Encoder(bodyBytes.subarray(bodyBytes.length - 16));
+
+    // Throw on 200 response with empty body, legacy behavior allowlist.
+    if (bodyBytes.length === 0 && THROW_IF_EMPTY_BODY[context.commandName!]) {
       const err = new Error("S3 aborted request");
       err.name = "InternalError";
       throw err;
     }
-    if (bodyString && bodyString.match("<Error>")) {
+    // Generalized throw-on-200 for top level Error element and non-streaming response.
+    if (bodyStringTail && bodyStringTail.endsWith("</Error>")) {
       // Set the error code to 4XX so that error deserializer can parse them
       response.statusCode = 400;
     }
@@ -47,10 +69,6 @@ const collectBody = (streamBody: any = new Uint8Array(), context: PreviouslyReso
   }
   return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
-
-// Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: PreviouslyResolved): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 /**
  * @internal
