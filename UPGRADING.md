@@ -88,7 +88,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   ```
 
   If the client is running in browsers, a different set of options is available. You can find more in [v3
-  reference for FetchHttpHandler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_fetch_http_handler.fetchhttphandler-1.html).
+  reference for FetchHttpHandler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-fetch-http-handler/).
 
   ```javascript
   const { FetchHttpHandler } = require("@smithy/fetch-http-handler");
