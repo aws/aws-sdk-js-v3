@@ -99,7 +99,11 @@ describe(resolveProcessCredentials.name, () => {
       expect(error).toEqual(expectedError);
     }
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
-    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(mockProfileName, JSON.parse(mockExecPromiseOutput));
+    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(
+      mockProfileName,
+      JSON.parse(mockExecPromiseOutput),
+      getMockProfiles()
+    );
   });
 
   it("returns data from getValidatedProcessCredentials", async () => {
@@ -111,6 +115,10 @@ describe(resolveProcessCredentials.name, () => {
     const receivedCreds = await resolveProcessCredentials(mockProfileName, getMockProfiles());
     expect(receivedCreds).toStrictEqual(expectedCreds);
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
-    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(mockProfileName, JSON.parse(mockExecPromiseOutput));
+    expect(getValidatedProcessCredentials).toHaveBeenCalledWith(
+      mockProfileName,
+      JSON.parse(mockExecPromiseOutput),
+      getMockProfiles()
+    );
   });
 });
