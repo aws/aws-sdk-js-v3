@@ -29,6 +29,7 @@ public class AddAwsAuthPluginTest {
                         .withMember("service", Node.from("smithy.example#OriginalName"))
                         .withMember("package", Node.from("example"))
                         .withMember("packageVersion", Node.from("1.0.0"))
+                        .withMember("useLegacyAuth", Node.from(true))
                         .build())
                 .build();
         new TypeScriptCodegenPlugin().execute(context);
@@ -66,6 +67,7 @@ public class AddAwsAuthPluginTest {
                         .withMember("service", Node.from("smithy.example#SsdkExampleSigV4"))
                         .withMember("package", Node.from("example"))
                         .withMember("packageVersion", Node.from("1.0.0"))
+                        .withMember("useLegacyAuth", Node.from(true))
                         .build())
                 .build();
         new TypeScriptCodegenPlugin().execute(context);
@@ -103,6 +105,7 @@ public class AddAwsAuthPluginTest {
                         .withMember("service", Node.from("smithy.example#SsdkExample"))
                         .withMember("package", Node.from("example"))
                         .withMember("packageVersion", Node.from("1.0.0"))
+                        .withMember("useLegacyAuth", Node.from(true))
                         .build())
                 .build();
         new TypeScriptCodegenPlugin().execute(context);
