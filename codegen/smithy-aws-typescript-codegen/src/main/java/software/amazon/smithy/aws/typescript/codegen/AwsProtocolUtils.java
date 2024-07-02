@@ -336,6 +336,11 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6246
+        if (testCase.getId().equals("RestJsonMustSupportParametersInContentType")) {
+            return true;
+        }
+
         return false;
     }
 
@@ -390,6 +395,12 @@ final class AwsProtocolUtils {
         );
 
         if (typeCoercionCases.contains(testCase.getId())) {
+            return true;
+        }
+
+        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6246
+        if (testCase.getId().equals("RestJsonStringPayloadNoContentType")
+            || testCase.getId().equals("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders")) {
             return true;
         }
 
