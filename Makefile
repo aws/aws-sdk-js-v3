@@ -12,6 +12,13 @@ login:
 sync:
 	make -f Makefile.private.mk sync
 
+# removes nested node_modules folders
+clean-nested:
+	rm -rf ./lib/*/node_modules
+	rm -rf ./packages/*/node_modules
+	rm -rf ./clients/*/node_modules
+	rm -rf ./private/*/node_modules
+
 link-smithy:
 	rm -rf ./node_modules/\@smithy
 	ln -s ../../smithy-typescript/packages/ ./node_modules/\@smithy
