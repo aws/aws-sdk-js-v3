@@ -64,7 +64,7 @@ const processObj = (obj: any, processFunc: Function, keyNodes?: KeyNodes): any =
 const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodeChildren) => {
   let accumulator: any;
   if (Array.isArray(obj)) {
-    accumulator = [...obj].filter((item) => typeof item !== "function");
+    accumulator = obj.filter((item) => typeof item !== "function");
   } else {
     accumulator = {};
     for (const [k, v] of Object.entries(obj)) {
