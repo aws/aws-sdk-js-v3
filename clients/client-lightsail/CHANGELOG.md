@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-lightsail
+
+
+
+
+
 # [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

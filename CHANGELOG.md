@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+
+### Features
+
+* **client-ec2:** Documentation updates for Elastic Compute Cloud (EC2). ([c155b9e](https://github.com/aws/aws-sdk-js-v3/commit/c155b9e2ca52f81da287efb0c184de8f5388884d))
+* **client-fms:** Increases Customer API's ManagedServiceData length ([b5ca023](https://github.com/aws/aws-sdk-js-v3/commit/b5ca0231f0b23e84d289966a58c6cae1348b1d84))
+* **client-s3:** Added response overrides to Head Object requests. ([ac9f3d2](https://github.com/aws/aws-sdk-js-v3/commit/ac9f3d205f6c848d17b9e7680ccd3f0336e7a378))
+
+
+
+
+
 # [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
 
 
