@@ -70,6 +70,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteConnectionCommand extends $Command
   .classBuilder<
     DeleteConnectionCommandInput,
@@ -87,7 +88,12 @@ export class DeleteConnectionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DeleteConnection", {})
+  .s("AWSEvents", "DeleteConnection", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteConnectionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DeleteConnectionCommand")
   .f(void 0, void 0)
   .ser(se_DeleteConnectionCommand)

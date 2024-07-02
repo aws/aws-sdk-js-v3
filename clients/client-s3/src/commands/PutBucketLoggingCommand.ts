@@ -169,33 +169,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example Set logging configuration for a bucket
- * ```javascript
- * // The following example sets logging policy on a bucket. For the Log Delivery group to deliver logs to the destination bucket, it needs permission for the READ_ACP action which the policy grants.
- * const input = {
- *   "Bucket": "sourcebucket",
- *   "BucketLoggingStatus": {
- *     "LoggingEnabled": {
- *       "TargetBucket": "targetbucket",
- *       "TargetGrants": [
- *         {
- *           "Grantee": {
- *             "Type": "Group",
- *             "URI": "http://acs.amazonaws.com/groups/global/AllUsers"
- *           },
- *           "Permission": "READ"
- *         }
- *       ],
- *       "TargetPrefix": "MyBucketLogs/"
- *     }
- *   }
- * };
- * const command = new PutBucketLoggingCommand(input);
- * await client.send(command);
- * // example id: set-logging-configuration-for-a-bucket-1482269119909
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketLoggingCommand extends $Command
   .classBuilder<
     PutBucketLoggingCommandInput,
@@ -220,7 +195,12 @@ export class PutBucketLoggingCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutBucketLogging", {})
+  .s("AmazonS3", "PutBucketLogging", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketLoggingCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketLoggingCommand")
   .f(void 0, void 0)
   .ser(se_PutBucketLoggingCommand)

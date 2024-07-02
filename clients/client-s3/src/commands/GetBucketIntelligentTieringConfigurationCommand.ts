@@ -116,6 +116,7 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketIntelligentTieringConfigurationCommand extends $Command
   .classBuilder<
     GetBucketIntelligentTieringConfigurationCommandInput,
@@ -135,7 +136,13 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketIntelligentTieringConfiguration", {})
+  .s("AmazonS3", "GetBucketIntelligentTieringConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions:
+        GetBucketIntelligentTieringConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketIntelligentTieringConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketIntelligentTieringConfigurationCommand)

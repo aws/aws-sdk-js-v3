@@ -110,6 +110,7 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class CreateArchiveCommand extends $Command
   .classBuilder<
     CreateArchiveCommandInput,
@@ -127,7 +128,12 @@ export class CreateArchiveCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "CreateArchive", {})
+  .s("AWSEvents", "CreateArchive", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CreateArchiveCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "CreateArchiveCommand")
   .f(void 0, void 0)
   .ser(se_CreateArchiveCommand)

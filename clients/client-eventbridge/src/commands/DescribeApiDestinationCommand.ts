@@ -72,6 +72,7 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DescribeApiDestinationCommand extends $Command
   .classBuilder<
     DescribeApiDestinationCommandInput,
@@ -89,7 +90,12 @@ export class DescribeApiDestinationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DescribeApiDestination", {})
+  .s("AWSEvents", "DescribeApiDestination", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DescribeApiDestinationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DescribeApiDestinationCommand")
   .f(void 0, void 0)
   .ser(se_DescribeApiDestinationCommand)

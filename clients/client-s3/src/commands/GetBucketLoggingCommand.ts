@@ -96,6 +96,7 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketLoggingCommand extends $Command
   .classBuilder<
     GetBucketLoggingCommandInput,
@@ -115,7 +116,12 @@ export class GetBucketLoggingCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketLogging", {})
+  .s("AmazonS3", "GetBucketLogging", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketLoggingCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketLoggingCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketLoggingCommand)

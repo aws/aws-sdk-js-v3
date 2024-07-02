@@ -83,24 +83,8 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To get bucket versioning configuration
- * ```javascript
- * // The following example retrieves bucket versioning configuration.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new GetBucketVersioningCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "MFADelete": "Disabled",
- *   "Status": "Enabled"
- * }
- * *\/
- * // example id: to-get-bucket-versioning-configuration-1483037183929
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketVersioningCommand extends $Command
   .classBuilder<
     GetBucketVersioningCommandInput,
@@ -120,7 +104,12 @@ export class GetBucketVersioningCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketVersioning", {})
+  .s("AmazonS3", "GetBucketVersioning", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketVersioningCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketVersioningCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketVersioningCommand)

@@ -73,6 +73,7 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutObjectLegalHoldCommand extends $Command
   .classBuilder<
     PutObjectLegalHoldCommandInput,
@@ -96,7 +97,12 @@ export class PutObjectLegalHoldCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutObjectLegalHold", {})
+  .s("AmazonS3", "PutObjectLegalHold", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutObjectLegalHoldCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutObjectLegalHoldCommand")
   .f(void 0, void 0)
   .ser(se_PutObjectLegalHoldCommand)

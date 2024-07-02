@@ -98,6 +98,7 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class CreateEventBusCommand extends $Command
   .classBuilder<
     CreateEventBusCommandInput,
@@ -115,7 +116,12 @@ export class CreateEventBusCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "CreateEventBus", {})
+  .s("AWSEvents", "CreateEventBus", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CreateEventBusCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "CreateEventBusCommand")
   .f(void 0, void 0)
   .ser(se_CreateEventBusCommand)

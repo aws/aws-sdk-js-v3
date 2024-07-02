@@ -85,19 +85,8 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To retrieve torrent files for an object
- * ```javascript
- * // The following example retrieves torrent files of an object.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectTorrentCommand(input);
- * await client.send(command);
- * // example id: to-retrieve-torrent-files-for-an-object-1481834115959
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetObjectTorrentCommand extends $Command
   .classBuilder<
     GetObjectTorrentCommandInput,
@@ -116,7 +105,12 @@ export class GetObjectTorrentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetObjectTorrent", {})
+  .s("AmazonS3", "GetObjectTorrent", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetObjectTorrentCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetObjectTorrentCommand")
   .f(void 0, GetObjectTorrentOutputFilterSensitiveLog)
   .ser(se_GetObjectTorrentCommand)

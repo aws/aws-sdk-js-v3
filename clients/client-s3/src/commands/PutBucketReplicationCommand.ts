@@ -196,31 +196,8 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example Set replication configuration on a bucket
- * ```javascript
- * // The following example sets replication configuration on a bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "ReplicationConfiguration": {
- *     "Role": "arn:aws:iam::123456789012:role/examplerole",
- *     "Rules": [
- *       {
- *         "Destination": {
- *           "Bucket": "arn:aws:s3:::destinationbucket",
- *           "StorageClass": "STANDARD"
- *         },
- *         "Prefix": "",
- *         "Status": "Enabled"
- *       }
- *     ]
- *   }
- * };
- * const command = new PutBucketReplicationCommand(input);
- * await client.send(command);
- * // example id: id-1
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketReplicationCommand extends $Command
   .classBuilder<
     PutBucketReplicationCommandInput,
@@ -245,7 +222,12 @@ export class PutBucketReplicationCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutBucketReplication", {})
+  .s("AmazonS3", "PutBucketReplication", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketReplicationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketReplicationCommand")
   .f(void 0, void 0)
   .ser(se_PutBucketReplicationCommand)

@@ -80,6 +80,7 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteBucketOwnershipControlsCommand extends $Command
   .classBuilder<
     DeleteBucketOwnershipControlsCommandInput,
@@ -99,7 +100,12 @@ export class DeleteBucketOwnershipControlsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteBucketOwnershipControls", {})
+  .s("AmazonS3", "DeleteBucketOwnershipControls", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteBucketOwnershipControlsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteBucketOwnershipControlsCommand")
   .f(void 0, void 0)
   .ser(se_DeleteBucketOwnershipControlsCommand)

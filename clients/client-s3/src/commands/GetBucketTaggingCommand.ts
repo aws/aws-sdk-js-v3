@@ -94,32 +94,8 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To get tag set associated with a bucket
- * ```javascript
- * // The following example returns tag set associated with a bucket
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new GetBucketTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagSet": [
- *     {
- *       "Key": "key1",
- *       "Value": "value1"
- *     },
- *     {
- *       "Key": "key2",
- *       "Value": "value2"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-tag-set-associated-with-a-bucket-1481593232107
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketTaggingCommand extends $Command
   .classBuilder<
     GetBucketTaggingCommandInput,
@@ -139,7 +115,12 @@ export class GetBucketTaggingCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketTagging", {})
+  .s("AmazonS3", "GetBucketTagging", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketTaggingCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketTaggingCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketTaggingCommand)

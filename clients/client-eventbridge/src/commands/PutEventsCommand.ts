@@ -93,6 +93,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutEventsCommand extends $Command
   .classBuilder<
     PutEventsCommandInput,
@@ -111,7 +112,12 @@ export class PutEventsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "PutEvents", {})
+  .s("AWSEvents", "PutEvents", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutEventsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "PutEventsCommand")
   .f(void 0, void 0)
   .ser(se_PutEventsCommand)

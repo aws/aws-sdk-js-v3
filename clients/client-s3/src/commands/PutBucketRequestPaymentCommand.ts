@@ -81,21 +81,8 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example Set request payment configuration on a bucket.
- * ```javascript
- * // The following example sets request payment configuration on a bucket so that person requesting the download is charged.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "RequestPaymentConfiguration": {
- *     "Payer": "Requester"
- *   }
- * };
- * const command = new PutBucketRequestPaymentCommand(input);
- * await client.send(command);
- * // example id: set-request-payment-configuration-on-a-bucket-1482343596680
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketRequestPaymentCommand extends $Command
   .classBuilder<
     PutBucketRequestPaymentCommandInput,
@@ -120,7 +107,12 @@ export class PutBucketRequestPaymentCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutBucketRequestPayment", {})
+  .s("AmazonS3", "PutBucketRequestPayment", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketRequestPaymentCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketRequestPaymentCommand")
   .f(void 0, void 0)
   .ser(se_PutBucketRequestPaymentCommand)

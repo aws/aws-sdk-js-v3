@@ -6,6 +6,7 @@ import {
 import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
+import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
 import { S3ExtensionConfiguration } from "./extensionConfiguration";
 
 /**
@@ -32,6 +33,7 @@ export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: Runtime
     ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
     ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
     ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpAuthExtensionConfiguration(runtimeConfig)),
   };
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
@@ -41,5 +43,6 @@ export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: Runtime
     ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
     ...resolveDefaultRuntimeConfig(extensionConfiguration),
     ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
+    ...resolveHttpAuthRuntimeConfig(extensionConfiguration),
   };
 };

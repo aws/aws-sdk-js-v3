@@ -69,6 +69,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<
     ListTagsForResourceCommandInput,
@@ -86,7 +87,12 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "ListTagsForResource", {})
+  .s("AWSEvents", "ListTagsForResource", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListTagsForResourceCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "ListTagsForResourceCommand")
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)

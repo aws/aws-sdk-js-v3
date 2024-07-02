@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 import { SameAsServiceOutput } from "../models/models_0";
-import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -61,7 +60,7 @@ export class SameAsServiceCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize), getSigV4AuthPlugin(config)];
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("Weather", "SameAsService", {})
   .n("WeatherClient", "SameAsServiceCommand")

@@ -1,4 +1,10 @@
 // smithy-typescript generated code
+import {
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  defaultEchoServiceHttpAuthSchemeParametersProvider,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import { EchoCommandInput, EchoCommandOutput } from "./commands/EchoCommand";
 import { LengthCommandInput, LengthCommandOutput } from "./commands/LengthCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -22,6 +28,7 @@ import {
   CustomEndpointsResolvedConfig,
   resolveCustomEndpointsConfig,
 } from "@smithy/config-resolver";
+import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
@@ -168,10 +175,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
+  UserAgentInputConfig &
   CustomEndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  UserAgentInputConfig;
+  HttpAuthSchemeInputConfig;
 /**
  * @public
  *
@@ -185,10 +193,11 @@ export interface EchoServiceClientConfig extends EchoServiceClientConfigType {}
 export type EchoServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
+  UserAgentResolvedConfig &
   CustomEndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  UserAgentResolvedConfig;
+  HttpAuthSchemeResolvedConfig;
 /**
  * @public
  *
@@ -212,19 +221,27 @@ export class EchoServiceClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<EchoServiceClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
-    let _config_1 = resolveCustomEndpointsConfig(_config_0);
-    let _config_2 = resolveRetryConfig(_config_1);
-    let _config_3 = resolveHostHeaderConfig(_config_2);
-    let _config_4 = resolveUserAgentConfig(_config_3);
-    let _config_5 = resolveRuntimeExtensions(_config_4, configuration?.extensions || []);
-    super(_config_5);
-    this.config = _config_5;
+    let _config_1 = resolveUserAgentConfig(_config_0);
+    let _config_2 = resolveCustomEndpointsConfig(_config_1);
+    let _config_3 = resolveRetryConfig(_config_2);
+    let _config_4 = resolveHostHeaderConfig(_config_3);
+    let _config_5 = resolveHttpAuthSchemeConfig(_config_4);
+    let _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
+    super(_config_6);
+    this.config = _config_6;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemePlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -234,5 +251,11 @@ export class EchoServiceClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultEchoServiceHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: EchoServiceClientResolvedConfig) => new DefaultIdentityProviderConfig({});
   }
 }

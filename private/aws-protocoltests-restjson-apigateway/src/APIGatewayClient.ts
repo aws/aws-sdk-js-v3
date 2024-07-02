@@ -215,11 +215,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type APIGatewayClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointsInputConfig &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointsInputConfig &
   HttpAuthSchemeInputConfig;
 /**
  * @public
@@ -234,11 +234,11 @@ export interface APIGatewayClientConfig extends APIGatewayClientConfigType {}
 export type APIGatewayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointsResolvedConfig &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointsResolvedConfig &
   HttpAuthSchemeResolvedConfig;
 /**
  * @public
@@ -263,22 +263,22 @@ export class APIGatewayClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<APIGatewayClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_1 = resolveUserAgentConfig(_config_0);
+    const _config_2 = resolveRetryConfig(_config_1);
+    const _config_3 = resolveRegionConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveUserAgentConfig(_config_4);
+    const _config_5 = resolveEndpointsConfig(_config_4);
     const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
     const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
     super(_config_7);
     this.config = _config_7;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    this.middlewareStack.use(getAcceptHeaderPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getAcceptHeaderPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemePlugin(this.config, {
         httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),

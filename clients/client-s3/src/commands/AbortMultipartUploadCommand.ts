@@ -133,20 +133,8 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To abort a multipart upload
- * ```javascript
- * // The following example aborts a multipart upload.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "bigobject",
- *   "UploadId": "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
- * };
- * const command = new AbortMultipartUploadCommand(input);
- * await client.send(command);
- * // example id: to-abort-a-multipart-upload-1481853354987
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class AbortMultipartUploadCommand extends $Command
   .classBuilder<
     AbortMultipartUploadCommandInput,
@@ -166,7 +154,12 @@ export class AbortMultipartUploadCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "AbortMultipartUpload", {})
+  .s("AmazonS3", "AbortMultipartUpload", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: AbortMultipartUploadCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "AbortMultipartUploadCommand")
   .f(void 0, void 0)
   .ser(se_AbortMultipartUploadCommand)

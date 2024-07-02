@@ -86,6 +86,7 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeletePublicAccessBlockCommand extends $Command
   .classBuilder<
     DeletePublicAccessBlockCommandInput,
@@ -105,7 +106,12 @@ export class DeletePublicAccessBlockCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeletePublicAccessBlock", {})
+  .s("AmazonS3", "DeletePublicAccessBlock", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeletePublicAccessBlockCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeletePublicAccessBlockCommand")
   .f(void 0, void 0)
   .ser(se_DeletePublicAccessBlockCommand)

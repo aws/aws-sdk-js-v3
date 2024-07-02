@@ -82,6 +82,7 @@ export interface ListDirectoryBucketsCommandOutput extends ListDirectoryBucketsO
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListDirectoryBucketsCommand extends $Command
   .classBuilder<
     ListDirectoryBucketsCommandInput,
@@ -100,7 +101,12 @@ export class ListDirectoryBucketsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "ListDirectoryBuckets", {})
+  .s("AmazonS3", "ListDirectoryBuckets", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListDirectoryBucketsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "ListDirectoryBucketsCommand")
   .f(void 0, void 0)
   .ser(se_ListDirectoryBucketsCommand)

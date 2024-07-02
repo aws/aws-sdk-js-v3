@@ -101,6 +101,7 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketAclCommand extends $Command
   .classBuilder<
     GetBucketAclCommandInput,
@@ -120,7 +121,12 @@ export class GetBucketAclCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketAcl", {})
+  .s("AmazonS3", "GetBucketAcl", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketAclCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketAclCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketAclCommand)

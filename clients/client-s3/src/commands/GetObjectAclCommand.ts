@@ -120,61 +120,8 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To retrieve object ACL
- * ```javascript
- * // The following example retrieves access control list (ACL) of an object.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectAclCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Grants": [
- *     {
- *       "Grantee": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
- *         "Type": "CanonicalUser"
- *       },
- *       "Permission": "WRITE"
- *     },
- *     {
- *       "Grantee": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
- *         "Type": "CanonicalUser"
- *       },
- *       "Permission": "WRITE_ACP"
- *     },
- *     {
- *       "Grantee": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
- *         "Type": "CanonicalUser"
- *       },
- *       "Permission": "READ"
- *     },
- *     {
- *       "Grantee": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "852b113eexamplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
- *         "Type": "CanonicalUser"
- *       },
- *       "Permission": "READ_ACP"
- *     }
- *   ],
- *   "Owner": {
- *     "DisplayName": "owner-display-name",
- *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *   }
- * }
- * *\/
- * // example id: to-retrieve-object-acl-1481833557740
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetObjectAclCommand extends $Command
   .classBuilder<
     GetObjectAclCommandInput,
@@ -194,7 +141,12 @@ export class GetObjectAclCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetObjectAcl", {})
+  .s("AmazonS3", "GetObjectAcl", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetObjectAclCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetObjectAclCommand")
   .f(void 0, void 0)
   .ser(se_GetObjectAclCommand)

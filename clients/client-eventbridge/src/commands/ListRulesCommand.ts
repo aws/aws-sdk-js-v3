@@ -83,6 +83,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListRulesCommand extends $Command
   .classBuilder<
     ListRulesCommandInput,
@@ -100,7 +101,12 @@ export class ListRulesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "ListRules", {})
+  .s("AWSEvents", "ListRules", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListRulesCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "ListRulesCommand")
   .f(void 0, void 0)
   .ser(se_ListRulesCommand)

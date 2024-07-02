@@ -72,6 +72,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class RemovePermissionCommand extends $Command
   .classBuilder<
     RemovePermissionCommandInput,
@@ -89,7 +90,12 @@ export class RemovePermissionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "RemovePermission", {})
+  .s("AWSEvents", "RemovePermission", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: RemovePermissionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "RemovePermissionCommand")
   .f(void 0, void 0)
   .ser(se_RemovePermissionCommand)

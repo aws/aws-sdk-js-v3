@@ -86,6 +86,7 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketOwnershipControlsCommand extends $Command
   .classBuilder<
     PutBucketOwnershipControlsCommandInput,
@@ -106,7 +107,12 @@ export class PutBucketOwnershipControlsCommand extends $Command
       getFlexibleChecksumsPlugin(config, { input: this.input, requestChecksumRequired: true }),
     ];
   })
-  .s("AmazonS3", "PutBucketOwnershipControls", {})
+  .s("AmazonS3", "PutBucketOwnershipControls", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketOwnershipControlsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketOwnershipControlsCommand")
   .f(void 0, void 0)
   .ser(se_PutBucketOwnershipControlsCommand)

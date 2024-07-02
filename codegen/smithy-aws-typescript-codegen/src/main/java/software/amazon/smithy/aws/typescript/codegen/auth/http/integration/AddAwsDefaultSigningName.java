@@ -21,19 +21,17 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Configure clients with Default AWS Signing Name.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public final class AddAwsDefaultSigningName implements TypeScriptIntegration {
     private static final Logger LOGGER = Logger.getLogger(AddAwsDefaultSigningName.class.getName());
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth();
+        return !settings.useLegacyAuth();
     }
 
     @Override

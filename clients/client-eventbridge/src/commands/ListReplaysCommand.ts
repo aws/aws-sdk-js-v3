@@ -78,6 +78,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListReplaysCommand extends $Command
   .classBuilder<
     ListReplaysCommandInput,
@@ -95,7 +96,12 @@ export class ListReplaysCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "ListReplays", {})
+  .s("AWSEvents", "ListReplays", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListReplaysCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "ListReplaysCommand")
   .f(void 0, void 0)
   .ser(se_ListReplaysCommand)

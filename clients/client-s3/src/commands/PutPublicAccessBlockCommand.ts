@@ -104,6 +104,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutPublicAccessBlockCommand extends $Command
   .classBuilder<
     PutPublicAccessBlockCommandInput,
@@ -128,7 +129,12 @@ export class PutPublicAccessBlockCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutPublicAccessBlock", {})
+  .s("AmazonS3", "PutPublicAccessBlock", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutPublicAccessBlockCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutPublicAccessBlockCommand")
   .f(void 0, void 0)
   .ser(se_PutPublicAccessBlockCommand)

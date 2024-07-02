@@ -84,6 +84,7 @@ export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extend
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
   .classBuilder<
     DeleteBucketIntelligentTieringConfigurationCommandInput,
@@ -103,7 +104,13 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteBucketIntelligentTieringConfiguration", {})
+  .s("AmazonS3", "DeleteBucketIntelligentTieringConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions:
+        DeleteBucketIntelligentTieringConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteBucketIntelligentTieringConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_DeleteBucketIntelligentTieringConfigurationCommand)

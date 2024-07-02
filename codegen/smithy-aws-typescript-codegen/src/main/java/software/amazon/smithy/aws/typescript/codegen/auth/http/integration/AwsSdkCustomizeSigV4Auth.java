@@ -36,18 +36,16 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Customize @aws.auth#sigv4 for AWS SDKs.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth();
+        return !settings.useLegacyAuth();
     }
 
     @Override

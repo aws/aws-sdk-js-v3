@@ -68,6 +68,7 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class TestEventPatternCommand extends $Command
   .classBuilder<
     TestEventPatternCommandInput,
@@ -85,7 +86,12 @@ export class TestEventPatternCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "TestEventPattern", {})
+  .s("AWSEvents", "TestEventPattern", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: TestEventPatternCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "TestEventPatternCommand")
   .f(void 0, void 0)
   .ser(se_TestEventPatternCommand)

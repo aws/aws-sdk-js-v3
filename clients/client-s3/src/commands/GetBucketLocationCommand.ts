@@ -85,23 +85,8 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To get bucket location
- * ```javascript
- * // The following example returns bucket location.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new GetBucketLocationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "LocationConstraint": "us-west-2"
- * }
- * *\/
- * // example id: to-get-bucket-location-1481594573609
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketLocationCommand extends $Command
   .classBuilder<
     GetBucketLocationCommandInput,
@@ -121,7 +106,12 @@ export class GetBucketLocationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketLocation", {})
+  .s("AmazonS3", "GetBucketLocation", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketLocationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketLocationCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketLocationCommand)

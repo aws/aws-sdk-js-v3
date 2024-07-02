@@ -79,6 +79,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class UpdateArchiveCommand extends $Command
   .classBuilder<
     UpdateArchiveCommandInput,
@@ -96,7 +97,12 @@ export class UpdateArchiveCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "UpdateArchive", {})
+  .s("AWSEvents", "UpdateArchive", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: UpdateArchiveCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "UpdateArchiveCommand")
   .f(void 0, void 0)
   .ser(se_UpdateArchiveCommand)

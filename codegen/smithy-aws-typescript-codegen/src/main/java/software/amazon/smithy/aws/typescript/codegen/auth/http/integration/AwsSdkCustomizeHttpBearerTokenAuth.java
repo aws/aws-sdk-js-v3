@@ -23,18 +23,16 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Customize @httpBearerAuth for AWS SDKs.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public final class AwsSdkCustomizeHttpBearerTokenAuth implements HttpAuthTypeScriptIntegration {
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth();
+        return !settings.useLegacyAuth();
     }
 
     @Override

@@ -94,6 +94,7 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class StartReplayCommand extends $Command
   .classBuilder<
     StartReplayCommandInput,
@@ -111,7 +112,12 @@ export class StartReplayCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "StartReplay", {})
+  .s("AWSEvents", "StartReplay", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: StartReplayCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "StartReplayCommand")
   .f(void 0, void 0)
   .ser(se_StartReplayCommand)

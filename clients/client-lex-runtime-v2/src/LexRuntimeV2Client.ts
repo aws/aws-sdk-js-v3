@@ -13,22 +13,18 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import {
-  Credentials as __Credentials,
-  EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider,
-} from "@aws-sdk/types";
+import { EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import {
   EventStreamSerdeInputConfig,
   EventStreamSerdeResolvedConfig,
@@ -45,6 +41,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   ChecksumConstructor as __ChecksumConstructor,
@@ -63,6 +60,12 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  defaultLexRuntimeV2HttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import { PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
@@ -194,22 +197,17 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * The function that provides necessary utilities for handling request event stream.
-   * @internal
-   */
-  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
-
-  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @deprecated
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -244,6 +242,12 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
   /**
+   * The function that provides necessary utilities for handling request event stream.
+   * @internal
+   */
+  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
+  /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal
    */
@@ -255,14 +259,14 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type LexRuntimeV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
-  AwsAuthInputConfig &
-  EventStreamInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   EventStreamSerdeInputConfig &
+  HttpAuthSchemeInputConfig &
+  EventStreamInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -277,14 +281,14 @@ export interface LexRuntimeV2ClientConfig extends LexRuntimeV2ClientConfigType {
 export type LexRuntimeV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
-  EventStreamResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   EventStreamSerdeResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
+  EventStreamResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -311,24 +315,30 @@ export class LexRuntimeV2Client extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<LexRuntimeV2ClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveAwsAuthConfig(_config_5);
-    const _config_7 = resolveEventStreamConfig(_config_6);
-    const _config_8 = resolveUserAgentConfig(_config_7);
-    const _config_9 = resolveEventStreamSerdeConfig(_config_8);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveEventStreamConfig(_config_8);
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
     super(_config_10);
     this.config = _config_10;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -338,5 +348,14 @@ export class LexRuntimeV2Client extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultLexRuntimeV2HttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: LexRuntimeV2ClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

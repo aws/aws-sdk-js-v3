@@ -78,18 +78,8 @@ export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To delete cors configuration on a bucket.
- * ```javascript
- * // The following example deletes CORS configuration on a bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new DeleteBucketCorsCommand(input);
- * await client.send(command);
- * // example id: to-delete-cors-configuration-on-a-bucket-1483042856112
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class DeleteBucketCorsCommand extends $Command
   .classBuilder<
     DeleteBucketCorsCommandInput,
@@ -109,7 +99,12 @@ export class DeleteBucketCorsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteBucketCors", {})
+  .s("AmazonS3", "DeleteBucketCors", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteBucketCorsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteBucketCorsCommand")
   .f(void 0, void 0)
   .ser(se_DeleteBucketCorsCommand)

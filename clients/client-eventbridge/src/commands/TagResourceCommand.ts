@@ -88,6 +88,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class TagResourceCommand extends $Command
   .classBuilder<
     TagResourceCommandInput,
@@ -105,7 +106,12 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "TagResource", {})
+  .s("AWSEvents", "TagResource", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: TagResourceCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "TagResourceCommand")
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)

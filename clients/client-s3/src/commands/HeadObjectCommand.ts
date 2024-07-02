@@ -250,30 +250,8 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To retrieve metadata of an object without returning the object itself
- * ```javascript
- * // The following example retrieves an object metadata.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new HeadObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AcceptRanges": "bytes",
- *   "ContentLength": "3191",
- *   "ContentType": "image/jpeg",
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
- *   "Metadata": {},
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-retrieve-metadata-of-an-object-without-returning-the-object-itself-1481834820480
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class HeadObjectCommand extends $Command
   .classBuilder<
     HeadObjectCommandInput,
@@ -295,7 +273,12 @@ export class HeadObjectCommand extends $Command
       getS3ExpiresMiddlewarePlugin(config),
     ];
   })
-  .s("AmazonS3", "HeadObject", {})
+  .s("AmazonS3", "HeadObject", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: HeadObjectCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "HeadObjectCommand")
   .f(HeadObjectRequestFilterSensitiveLog, HeadObjectOutputFilterSensitiveLog)
   .ser(se_HeadObjectCommand)

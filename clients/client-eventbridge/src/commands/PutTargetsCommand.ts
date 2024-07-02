@@ -326,6 +326,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutTargetsCommand extends $Command
   .classBuilder<
     PutTargetsCommandInput,
@@ -343,7 +344,12 @@ export class PutTargetsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "PutTargets", {})
+  .s("AWSEvents", "PutTargets", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutTargetsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "PutTargetsCommand")
   .f(PutTargetsRequestFilterSensitiveLog, void 0)
   .ser(se_PutTargetsCommand)

@@ -103,6 +103,7 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketEncryptionCommand extends $Command
   .classBuilder<
     PutBucketEncryptionCommandInput,
@@ -127,7 +128,12 @@ export class PutBucketEncryptionCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutBucketEncryption", {})
+  .s("AmazonS3", "PutBucketEncryption", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketEncryptionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketEncryptionCommand")
   .f(PutBucketEncryptionRequestFilterSensitiveLog, void 0)
   .ser(se_PutBucketEncryptionCommand)

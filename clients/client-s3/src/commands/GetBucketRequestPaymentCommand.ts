@@ -70,23 +70,8 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To get bucket versioning configuration
- * ```javascript
- * // The following example retrieves bucket versioning configuration.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new GetBucketRequestPaymentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Payer": "BucketOwner"
- * }
- * *\/
- * // example id: to-get-bucket-versioning-configuration-1483037183929
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketRequestPaymentCommand extends $Command
   .classBuilder<
     GetBucketRequestPaymentCommandInput,
@@ -106,7 +91,12 @@ export class GetBucketRequestPaymentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketRequestPayment", {})
+  .s("AmazonS3", "GetBucketRequestPayment", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketRequestPaymentCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketRequestPaymentCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketRequestPaymentCommand)

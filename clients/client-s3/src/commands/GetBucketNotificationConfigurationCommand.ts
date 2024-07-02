@@ -143,6 +143,7 @@ export interface GetBucketNotificationConfigurationCommandOutput extends Notific
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketNotificationConfigurationCommand extends $Command
   .classBuilder<
     GetBucketNotificationConfigurationCommandInput,
@@ -162,7 +163,12 @@ export class GetBucketNotificationConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketNotificationConfiguration", {})
+  .s("AmazonS3", "GetBucketNotificationConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketNotificationConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketNotificationConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketNotificationConfigurationCommand)

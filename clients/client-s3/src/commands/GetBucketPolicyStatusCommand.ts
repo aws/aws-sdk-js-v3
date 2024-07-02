@@ -91,6 +91,7 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketPolicyStatusCommand extends $Command
   .classBuilder<
     GetBucketPolicyStatusCommandInput,
@@ -110,7 +111,12 @@ export class GetBucketPolicyStatusCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketPolicyStatus", {})
+  .s("AmazonS3", "GetBucketPolicyStatus", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketPolicyStatusCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketPolicyStatusCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketPolicyStatusCommand)

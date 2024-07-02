@@ -84,6 +84,7 @@ export interface PutKeyCommandOutput extends PutKeyResponse, __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutKeyCommand extends $Command
   .classBuilder<
     PutKeyCommandInput,
@@ -102,7 +103,12 @@ export class PutKeyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CloudFrontKeyValueStore", "PutKey", {})
+  .s("CloudFrontKeyValueStore", "PutKey", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutKeyCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("CloudFrontKeyValueStoreClient", "PutKeyCommand")
   .f(PutKeyRequestFilterSensitiveLog, void 0)
   .ser(se_PutKeyCommand)

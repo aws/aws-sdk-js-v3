@@ -80,6 +80,7 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DescribeKeyValueStoreCommand extends $Command
   .classBuilder<
     DescribeKeyValueStoreCommandInput,
@@ -98,7 +99,12 @@ export class DescribeKeyValueStoreCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CloudFrontKeyValueStore", "DescribeKeyValueStore", {})
+  .s("CloudFrontKeyValueStore", "DescribeKeyValueStore", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DescribeKeyValueStoreCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("CloudFrontKeyValueStoreClient", "DescribeKeyValueStoreCommand")
   .f(void 0, void 0)
   .ser(se_DescribeKeyValueStoreCommand)

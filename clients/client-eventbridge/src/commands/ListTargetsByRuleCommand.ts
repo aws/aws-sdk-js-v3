@@ -199,6 +199,7 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListTargetsByRuleCommand extends $Command
   .classBuilder<
     ListTargetsByRuleCommandInput,
@@ -216,7 +217,12 @@ export class ListTargetsByRuleCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "ListTargetsByRule", {})
+  .s("AWSEvents", "ListTargetsByRule", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListTargetsByRuleCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "ListTargetsByRuleCommand")
   .f(void 0, ListTargetsByRuleResponseFilterSensitiveLog)
   .ser(se_ListTargetsByRuleCommand)

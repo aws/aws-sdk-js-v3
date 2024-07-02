@@ -7,6 +7,4 @@ export type { WeatherExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-export * from "./middleware/HttpApiKeyAuth";
-
 export { WeatherServiceException } from "./models/WeatherServiceException";

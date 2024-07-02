@@ -76,6 +76,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DescribeArchiveCommand extends $Command
   .classBuilder<
     DescribeArchiveCommandInput,
@@ -93,7 +94,12 @@ export class DescribeArchiveCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DescribeArchive", {})
+  .s("AWSEvents", "DescribeArchive", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DescribeArchiveCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DescribeArchiveCommand")
   .f(void 0, void 0)
   .ser(se_DescribeArchiveCommand)

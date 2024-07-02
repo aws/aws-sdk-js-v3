@@ -36,6 +36,7 @@ import software.amazon.smithy.typescript.codegen.auth.http.sections.DefaultHttpA
 import software.amazon.smithy.typescript.codegen.auth.http.sections.HttpAuthSchemeParametersInterfaceCodeSection;
 import software.amazon.smithy.typescript.codegen.auth.http.sections.HttpAuthSchemeProviderInterfaceCodeSection;
 import software.amazon.smithy.typescript.codegen.endpointsV2.EndpointsV2Generator;
+import software.amazon.smithy.typescript.codegen.sections.PreCommandClassCodeSection;
 import software.amazon.smithy.typescript.codegen.sections.SmithyContextCodeSection;
 import software.amazon.smithy.utils.CodeInterceptor;
 import software.amazon.smithy.utils.CodeSection;
@@ -46,22 +47,21 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * This code generates `HttpAuthSchemeProvider` interfaces based on {@code @smithy.rules#endpointRuleSet} for
  * identity and auth purposes only.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implements HttpAuthTypeScriptIntegration {
     private static final Set<ShapeId> ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES = Set.of(
         ShapeId.from("com.amazonaws.s3#AmazonS3"),
-        ShapeId.from("com.amazonaws.eventbridge#AWSEvents"));
+        ShapeId.from("com.amazonaws.eventbridge#AWSEvents"),
+        ShapeId.from("com.amazonaws.cloudfrontkeyvaluestore#CloudFrontKeyValueStore"));
     private static final ShapeId SIGV4A_ID = ShapeId.from("aws.auth#sigv4a");
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth()
+        return !settings.useLegacyAuth()
             && ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES.contains(settings.getService());
     }
 
@@ -99,9 +99,13 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
             TypeScriptCodegenContext codegenContext
     ) {
         return List.of(
+            CodeInterceptor.appender(PreCommandClassCodeSection.class, (w, s) -> {
+                w.write("// @ts-expect-error: Command class references itself");
+            }),
             CodeInterceptor.appender(SmithyContextCodeSection.class, (w, s) -> {
                 if (s.getService().hasTrait(EndpointRuleSetTrait.ID)) {
                     w.openBlock("endpointRuleSet: {", "},", () -> {
+                        w.write("// @ts-expect-error: built class has getEndpointParameterInstructions()");
                         w.write("getEndpointParameterInstructions: $T.getEndpointParameterInstructions,",
                             codegenContext.symbolProvider().toSymbol(s.getOperation()));
                     });

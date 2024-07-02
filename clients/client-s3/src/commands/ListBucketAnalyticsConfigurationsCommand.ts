@@ -138,6 +138,7 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListBucketAnalyticsConfigurationsCommand extends $Command
   .classBuilder<
     ListBucketAnalyticsConfigurationsCommandInput,
@@ -157,7 +158,12 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "ListBucketAnalyticsConfigurations", {})
+  .s("AmazonS3", "ListBucketAnalyticsConfigurations", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListBucketAnalyticsConfigurationsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "ListBucketAnalyticsConfigurationsCommand")
   .f(void 0, void 0)
   .ser(se_ListBucketAnalyticsConfigurationsCommand)

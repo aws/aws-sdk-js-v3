@@ -76,6 +76,7 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetObjectLegalHoldCommand extends $Command
   .classBuilder<
     GetObjectLegalHoldCommandInput,
@@ -94,7 +95,12 @@ export class GetObjectLegalHoldCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetObjectLegalHold", {})
+  .s("AmazonS3", "GetObjectLegalHold", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetObjectLegalHoldCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetObjectLegalHoldCommand")
   .f(void 0, void 0)
   .ser(se_GetObjectLegalHoldCommand)

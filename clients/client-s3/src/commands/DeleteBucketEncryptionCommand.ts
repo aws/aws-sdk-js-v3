@@ -81,6 +81,7 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteBucketEncryptionCommand extends $Command
   .classBuilder<
     DeleteBucketEncryptionCommandInput,
@@ -100,7 +101,12 @@ export class DeleteBucketEncryptionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteBucketEncryption", {})
+  .s("AmazonS3", "DeleteBucketEncryption", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteBucketEncryptionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteBucketEncryptionCommand")
   .f(void 0, void 0)
   .ser(se_DeleteBucketEncryptionCommand)

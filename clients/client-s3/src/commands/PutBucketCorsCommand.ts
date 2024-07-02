@@ -134,52 +134,8 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To set cors configuration on a bucket.
- * ```javascript
- * // The following example enables PUT, POST, and DELETE requests from www.example.com, and enables GET requests from any domain.
- * const input = {
- *   "Bucket": "",
- *   "CORSConfiguration": {
- *     "CORSRules": [
- *       {
- *         "AllowedHeaders": [
- *           "*"
- *         ],
- *         "AllowedMethods": [
- *           "PUT",
- *           "POST",
- *           "DELETE"
- *         ],
- *         "AllowedOrigins": [
- *           "http://www.example.com"
- *         ],
- *         "ExposeHeaders": [
- *           "x-amz-server-side-encryption"
- *         ],
- *         "MaxAgeSeconds": 3000
- *       },
- *       {
- *         "AllowedHeaders": [
- *           "Authorization"
- *         ],
- *         "AllowedMethods": [
- *           "GET"
- *         ],
- *         "AllowedOrigins": [
- *           "*"
- *         ],
- *         "MaxAgeSeconds": 3000
- *       }
- *     ]
- *   },
- *   "ContentMD5": ""
- * };
- * const command = new PutBucketCorsCommand(input);
- * await client.send(command);
- * // example id: to-set-cors-configuration-on-a-bucket-1483037818805
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketCorsCommand extends $Command
   .classBuilder<
     PutBucketCorsCommandInput,
@@ -204,7 +160,12 @@ export class PutBucketCorsCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutBucketCors", {})
+  .s("AmazonS3", "PutBucketCors", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketCorsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketCorsCommand")
   .f(void 0, void 0)
   .ser(se_PutBucketCorsCommand)

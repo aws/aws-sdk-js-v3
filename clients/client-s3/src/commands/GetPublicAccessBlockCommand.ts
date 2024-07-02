@@ -102,6 +102,7 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetPublicAccessBlockCommand extends $Command
   .classBuilder<
     GetPublicAccessBlockCommandInput,
@@ -121,7 +122,12 @@ export class GetPublicAccessBlockCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetPublicAccessBlock", {})
+  .s("AmazonS3", "GetPublicAccessBlock", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetPublicAccessBlockCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetPublicAccessBlockCommand")
   .f(void 0, void 0)
   .ser(se_GetPublicAccessBlockCommand)

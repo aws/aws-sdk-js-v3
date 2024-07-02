@@ -83,6 +83,7 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteKeyCommand extends $Command
   .classBuilder<
     DeleteKeyCommandInput,
@@ -101,7 +102,12 @@ export class DeleteKeyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CloudFrontKeyValueStore", "DeleteKey", {})
+  .s("CloudFrontKeyValueStore", "DeleteKey", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteKeyCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("CloudFrontKeyValueStoreClient", "DeleteKeyCommand")
   .f(void 0, void 0)
   .ser(se_DeleteKeyCommand)

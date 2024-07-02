@@ -72,6 +72,7 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class CancelReplayCommand extends $Command
   .classBuilder<
     CancelReplayCommandInput,
@@ -89,7 +90,12 @@ export class CancelReplayCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "CancelReplay", {})
+  .s("AWSEvents", "CancelReplay", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CancelReplayCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "CancelReplayCommand")
   .f(void 0, void 0)
   .ser(se_CancelReplayCommand)

@@ -77,6 +77,7 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetObjectRetentionCommand extends $Command
   .classBuilder<
     GetObjectRetentionCommandInput,
@@ -95,7 +96,12 @@ export class GetObjectRetentionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetObjectRetention", {})
+  .s("AmazonS3", "GetObjectRetention", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetObjectRetentionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetObjectRetentionCommand")
   .f(void 0, void 0)
   .ser(se_GetObjectRetentionCommand)
