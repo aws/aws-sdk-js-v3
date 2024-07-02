@@ -89,7 +89,7 @@ export const se_UploadDocumentsCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   b.bp("/2013-01-01/documents/batch");
   const query: any = map({

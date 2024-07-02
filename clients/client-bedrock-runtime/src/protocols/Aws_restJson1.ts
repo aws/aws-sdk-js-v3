@@ -150,7 +150,7 @@ export const se_InvokeModelCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
     [_a]: input[_a]!,
     [_xabt]: input[_t]!,
     [_xabg]: input[_gI]!,
@@ -175,7 +175,7 @@ export const se_InvokeModelWithResponseStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
     [_xaba]: input[_a]!,
     [_xabt]: input[_t]!,
     [_xabg]: input[_gI]!,

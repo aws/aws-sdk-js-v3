@@ -7448,7 +7448,7 @@ export const serializeTestPayloadBlobResponse = async (
   };
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   let body: any;
   if (input.data !== undefined) {

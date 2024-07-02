@@ -108,7 +108,7 @@ export const se_CreateDatasetCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/datasets");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -133,7 +133,7 @@ export const se_CreateModelCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -160,7 +160,7 @@ export const se_CreateProjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects");
   let body: any;
@@ -182,7 +182,7 @@ export const se_DeleteDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -201,7 +201,7 @@ export const se_DeleteModelCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -220,7 +220,7 @@ export const se_DeleteProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -305,7 +305,7 @@ export const se_DetectAnomaliesCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CTo]! || "application/octet-stream",
+    [_ct]: input[_CTo] || "application/octet-stream",
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/detect");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -429,7 +429,7 @@ export const se_StartModelCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/start");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -455,7 +455,7 @@ export const se_StartModelPackagingJobCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/modelpackagingjobs");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -481,7 +481,7 @@ export const se_StopModelCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/stop");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -546,7 +546,7 @@ export const se_UpdateDatasetEntriesCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}/entries");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);

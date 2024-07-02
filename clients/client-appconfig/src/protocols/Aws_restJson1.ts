@@ -326,7 +326,7 @@ export const se_CreateHostedConfigurationVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CT]! || "application/octet-stream",
+    [_ct]: input[_CT] || "application/octet-stream",
     [_d]: input[_D]!,
     [_lvn]: [() => isSerializableHeaderValue(input[_LVN]), () => input[_LVN]!.toString()],
     [_v]: input[_VL]!,

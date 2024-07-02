@@ -121,7 +121,7 @@ export const se_CreateChannelCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/channelGroup/{ChannelGroupName}/channel");
   b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
@@ -148,7 +148,7 @@ export const se_CreateChannelGroupCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/channelGroup");
   let body: any;
@@ -173,7 +173,7 @@ export const se_CreateOriginEndpointCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint");
   b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
