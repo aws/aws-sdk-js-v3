@@ -302,9 +302,6 @@ it("S3PreservesLeadingDotSegmentInUriLabel:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/../key.txt");
 
-    const queryString = buildQueryString(r.query);
-    expect(queryString).toContain("tagging");
-
     expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("mybucket.s3.us-west-2.amazonaws.com");
 
@@ -339,10 +336,7 @@ it("S3PreservesEmbeddedDotSegmentInUriLabel:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe("foo/../key.txt");
-
-    const queryString = buildQueryString(r.query);
-    expect(queryString).toContain("tagging");
+    expect(r.path).toBe("/foo/../key.txt");
 
     expect(r.headers["host"]).toBeDefined();
     expect(r.headers["host"]).toBe("mybucket.s3.us-west-2.amazonaws.com");
