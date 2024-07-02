@@ -10,17 +10,16 @@ let warningEmitted = false;
  * @param version - The Node.js version string.
  */
 export const emitWarningIfUnsupportedVersion = (version: string) => {
-  if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 16) {
+  if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 18) {
     warningEmitted = true;
-    // ToDo: Turn back warning for future Node.js version deprecation
-    //     process.emitWarning(
-    //       `NodeDeprecationWarning: The AWS SDK for JavaScript (v3) will
-    // no longer support Node.js 14.x on May 1, 2024.
+    process.emitWarning(
+      `NodeDeprecationWarning: The AWS SDK for JavaScript (v3) will
+no longer support Node.js 16.x on January 6, 2025.
 
-    // To continue receiving updates to AWS services, bug fixes, and security
-    // updates please upgrade to an active Node.js LTS version.
+To continue receiving updates to AWS services, bug fixes, and security
+updates please upgrade to a supported Node.js LTS version.
 
-    // More information can be found at: https://a.co/dzr2AJd`
-    //     );
+More information can be found at: https://a.co/74kJMmI`
+    );
   }
 };
