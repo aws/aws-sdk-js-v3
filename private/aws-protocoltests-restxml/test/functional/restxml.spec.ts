@@ -1440,6 +1440,9 @@ it("RestXmlEnumPayloadRequest:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EnumPayload");
 
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("text/plain");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `enumvalue`;
@@ -1451,7 +1454,14 @@ it("RestXmlEnumPayloadRequest:Request", async () => {
 it("RestXmlEnumPayloadResponse:Response", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `enumvalue`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/plain",
+      },
+      `enumvalue`
+    ),
   });
 
   const params: any = {};
@@ -2738,6 +2748,9 @@ it("RestXmlStringPayloadRequest:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StringPayload");
 
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("text/plain");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `rawstring`;
@@ -2749,7 +2762,14 @@ it("RestXmlStringPayloadRequest:Request", async () => {
 it("RestXmlStringPayloadResponse:Response", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `rawstring`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/plain",
+      },
+      `rawstring`
+    ),
   });
 
   const params: any = {};

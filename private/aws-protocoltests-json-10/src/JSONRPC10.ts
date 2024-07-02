@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  ContentTypeParametersCommand,
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
+import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
@@ -66,6 +71,7 @@ import {
 import { JSONRPC10Client, JSONRPC10ClientConfig } from "./JSONRPC10Client";
 
 const commands = {
+  ContentTypeParametersCommand,
   EmptyInputAndEmptyOutputCommand,
   EndpointOperationCommand,
   EndpointWithHostLabelOperationCommand,
@@ -82,6 +88,24 @@ const commands = {
 };
 
 export interface JSONRPC10 {
+  /**
+   * @see {@link ContentTypeParametersCommand}
+   */
+  contentTypeParameters(): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
+  ): void;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link EmptyInputAndEmptyOutputCommand}
    */

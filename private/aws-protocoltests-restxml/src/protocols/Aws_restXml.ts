@@ -54,6 +54,10 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "../commands/ConstantQueryStringCommand";
+import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "../commands/ContentTypeParametersCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
@@ -340,6 +344,29 @@ export const se_ConstantQueryStringCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlContentTypeParametersCommand
+ */
+export const se_ContentTypeParametersCommand = async (
+  input: ContentTypeParametersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/ContentTypeParameters");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_CTPI);
+  if (input[_v] != null) {
+    bn.c(__XmlNode.of(_I, String(input[_v])).n(_v));
+  }
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -1765,6 +1792,23 @@ export const de_ConstantQueryStringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlContentTypeParametersCommand
+ */
+export const de_ContentTypeParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContentTypeParametersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4344,6 +4388,7 @@ const _B = "Byte";
 const _BL = "BooleanList";
 const _Bl = "Blob";
 const _Bo = "Boolean";
+const _CTPI = "ContentTypeParametersInput";
 const _D = "Double";
 const _DD = "DoubleDribble";
 const _DL = "DoubleList";

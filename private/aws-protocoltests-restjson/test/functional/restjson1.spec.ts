@@ -48,6 +48,8 @@ import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputComm
 import { NullAndEmptyHeadersClientCommand } from "../../src/commands/NullAndEmptyHeadersClientCommand";
 import { OmitsNullSerializesEmptyStringCommand } from "../../src/commands/OmitsNullSerializesEmptyStringCommand";
 import { OmitsSerializingEmptyListsCommand } from "../../src/commands/OmitsSerializingEmptyListsCommand";
+import { OperationWithDefaultsCommand } from "../../src/commands/OperationWithDefaultsCommand";
+import { OperationWithNestedStructureCommand } from "../../src/commands/OperationWithNestedStructureCommand";
 import { PostPlayerActionCommand } from "../../src/commands/PostPlayerActionCommand";
 import { PostUnionWithJsonNameCommand } from "../../src/commands/PostUnionWithJsonNameCommand";
 import { PutWithContentEncodingCommand } from "../../src/commands/PutWithContentEncodingCommand";
@@ -62,6 +64,7 @@ import { StreamingTraitsCommand } from "../../src/commands/StreamingTraitsComman
 import { StreamingTraitsRequireLengthCommand } from "../../src/commands/StreamingTraitsRequireLengthCommand";
 import { StreamingTraitsWithMediaTypeCommand } from "../../src/commands/StreamingTraitsWithMediaTypeCommand";
 import { TestBodyStructureCommand } from "../../src/commands/TestBodyStructureCommand";
+import { TestNoInputNoPayloadCommand } from "../../src/commands/TestNoInputNoPayloadCommand";
 import { TestNoPayloadCommand } from "../../src/commands/TestNoPayloadCommand";
 import { TestPayloadBlobCommand } from "../../src/commands/TestPayloadBlobCommand";
 import { TestPayloadStructureCommand } from "../../src/commands/TestPayloadStructureCommand";
@@ -2335,6 +2338,9 @@ it("RestJsonEnumPayloadRequest:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/EnumPayload");
 
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("text/plain");
+
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `enumvalue`;
@@ -2346,7 +2352,14 @@ it("RestJsonEnumPayloadRequest:Request", async () => {
 it("RestJsonEnumPayloadResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `enumvalue`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/plain",
+      },
+      `enumvalue`
+    ),
   });
 
   const params: any = {};
@@ -3367,11 +3380,15 @@ it("RestJsonStringPayloadRequest:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StringPayload");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("text/plain");
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `rawstring`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    const unequalParts: any = compareEquivalentTextBodies(bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3379,7 +3396,14 @@ it("RestJsonStringPayloadRequest:Request", async () => {
 it("RestJsonStringPayloadResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `rawstring`),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/plain",
+      },
+      `rawstring`
+    ),
   });
 
   const params: any = {};
@@ -7064,6 +7088,769 @@ it("RestJsonOmitsEmptyListQueryValues:Request", async () => {
 });
 
 /**
+ * Client populates default values in input.
+ */
+it.skip("RestJsonClientPopulatesDefaultValuesInInput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    defaults: {} as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/OperationWithDefaults");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"defaults\": {
+            \"defaultString\": \"hi\",
+            \"defaultBoolean\": true,
+            \"defaultList\": [],
+            \"defaultDocumentMap\": {},
+            \"defaultDocumentString\": \"hi\",
+            \"defaultDocumentBoolean\": true,
+            \"defaultDocumentList\": [],
+            \"defaultTimestamp\": 0,
+            \"defaultBlob\": \"YWJj\",
+            \"defaultByte\": 1,
+            \"defaultShort\": 1,
+            \"defaultInteger\": 10,
+            \"defaultLong\": 100,
+            \"defaultFloat\": 1.0,
+            \"defaultDouble\": 1.0,
+            \"defaultMap\": {},
+            \"defaultEnum\": \"FOO\",
+            \"defaultIntEnum\": 1,
+            \"emptyString\": \"\",
+            \"falseBoolean\": false,
+            \"emptyBlob\": \"\",
+            \"zeroByte\": 0,
+            \"zeroShort\": 0,
+            \"zeroInteger\": 0,
+            \"zeroLong\": 0,
+            \"zeroFloat\": 0.0,
+            \"zeroDouble\": 0.0
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client skips top level default values in input.
+ */
+it.skip("RestJsonClientSkipsTopLevelDefaultValuesInInput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/OperationWithDefaults");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client uses explicitly provided member values over defaults
+ */
+it.skip("RestJsonClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    defaults: {
+      defaultString: "bye",
+
+      defaultBoolean: true,
+
+      defaultList: ["a"],
+
+      defaultDocumentMap: {
+        name: "Jack",
+      },
+
+      defaultDocumentString: "bye",
+
+      defaultDocumentBoolean: true,
+
+      defaultDocumentList: ["b"],
+
+      defaultNullDocument: "notNull",
+
+      defaultTimestamp: new Date(1000),
+
+      defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      defaultByte: 2,
+
+      defaultShort: 2,
+
+      defaultInteger: 20,
+
+      defaultLong: 200,
+
+      defaultFloat: 2.0,
+
+      defaultDouble: 2.0,
+
+      defaultMap: {
+        name: "Jack",
+      } as any,
+
+      defaultEnum: "BAR",
+
+      defaultIntEnum: 2,
+
+      emptyString: "foo",
+
+      falseBoolean: true,
+
+      emptyBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      zeroByte: 1,
+
+      zeroShort: 1,
+
+      zeroInteger: 1,
+
+      zeroLong: 1,
+
+      zeroFloat: 1.0,
+
+      zeroDouble: 1.0,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/OperationWithDefaults");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"defaults\": {
+            \"defaultString\": \"bye\",
+            \"defaultBoolean\": true,
+            \"defaultList\": [\"a\"],
+            \"defaultDocumentMap\": {\"name\": \"Jack\"},
+            \"defaultDocumentString\": \"bye\",
+            \"defaultDocumentBoolean\": true,
+            \"defaultDocumentList\": [\"b\"],
+            \"defaultNullDocument\": \"notNull\",
+            \"defaultTimestamp\": 1,
+            \"defaultBlob\": \"aGk=\",
+            \"defaultByte\": 2,
+            \"defaultShort\": 2,
+            \"defaultInteger\": 20,
+            \"defaultLong\": 200,
+            \"defaultFloat\": 2.0,
+            \"defaultDouble\": 2.0,
+            \"defaultMap\": {\"name\": \"Jack\"},
+            \"defaultEnum\": \"BAR\",
+            \"defaultIntEnum\": 2,
+            \"emptyString\": \"foo\",
+            \"falseBoolean\": true,
+            \"emptyBlob\": \"aGk=\",
+            \"zeroByte\": 1,
+            \"zeroShort\": 1,
+            \"zeroInteger\": 1,
+            \"zeroLong\": 1,
+            \"zeroFloat\": 1.0,
+            \"zeroDouble\": 1.0
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Any time a value is provided for a member in the top level of input, it is used, regardless of if its the default.
+ */
+it.skip("RestJsonClientUsesExplicitlyProvidedValuesInTopLevel:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    topLevelDefault: "hi",
+
+    otherTopLevelDefault: 0,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/OperationWithDefaults");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"topLevelDefault\": \"hi\",
+        \"otherTopLevelDefault\": 0
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Typically, non top-level members would have defaults filled in, but if they have the clientOptional trait, the defaults should be ignored.
+ */
+it.skip("RestJsonClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    clientOptionalDefaults: {} as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/OperationWithDefaults");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"clientOptionalDefaults\": {}
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client populates default values when missing in response.
+ */
+it.skip("RestJsonClientPopulatesDefaultsValuesWhenMissingInResponse:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{}`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithDefaultsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      defaultString: "hi",
+
+      defaultBoolean: true,
+
+      defaultList: [],
+
+      defaultDocumentMap: {},
+
+      defaultDocumentString: "hi",
+
+      defaultDocumentBoolean: true,
+
+      defaultDocumentList: [],
+
+      defaultTimestamp: new Date(0 * 1000),
+
+      defaultBlob: Uint8Array.from("abc", (c) => c.charCodeAt(0)),
+
+      defaultByte: 1,
+
+      defaultShort: 1,
+
+      defaultInteger: 10,
+
+      defaultLong: 100,
+
+      defaultFloat: 1.0,
+
+      defaultDouble: 1.0,
+
+      defaultMap: {},
+
+      defaultEnum: "FOO",
+
+      defaultIntEnum: 1,
+
+      emptyString: "",
+
+      falseBoolean: false,
+
+      emptyBlob: Uint8Array.from("", (c) => c.charCodeAt(0)),
+
+      zeroByte: 0,
+
+      zeroShort: 0,
+
+      zeroInteger: 0,
+
+      zeroLong: 0,
+
+      zeroFloat: 0.0,
+
+      zeroDouble: 0.0,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Client ignores default values if member values are present in the response.
+ */
+it.skip("RestJsonClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "defaultString": "bye",
+          "defaultBoolean": false,
+          "defaultList": ["a"],
+          "defaultDocumentMap": {"name": "Jack"},
+          "defaultDocumentString": "bye",
+          "defaultDocumentBoolean": false,
+          "defaultDocumentList": ["b"],
+          "defaultNullDocument": "notNull",
+          "defaultTimestamp": 2,
+          "defaultBlob": "aGk=",
+          "defaultByte": 2,
+          "defaultShort": 2,
+          "defaultInteger": 20,
+          "defaultLong": 200,
+          "defaultFloat": 2.0,
+          "defaultDouble": 2.0,
+          "defaultMap": {"name": "Jack"},
+          "defaultEnum": "BAR",
+          "defaultIntEnum": 2,
+          "emptyString": "foo",
+          "falseBoolean": true,
+          "emptyBlob": "aGk=",
+          "zeroByte": 1,
+          "zeroShort": 1,
+          "zeroInteger": 1,
+          "zeroLong": 1,
+          "zeroFloat": 1.0,
+          "zeroDouble": 1.0
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithDefaultsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      defaultString: "bye",
+
+      defaultBoolean: false,
+
+      defaultList: ["a"],
+
+      defaultDocumentMap: {
+        name: "Jack",
+      },
+
+      defaultDocumentString: "bye",
+
+      defaultDocumentBoolean: false,
+
+      defaultDocumentList: ["b"],
+
+      defaultNullDocument: "notNull",
+
+      defaultTimestamp: new Date(1 * 1000),
+
+      defaultBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      defaultByte: 2,
+
+      defaultShort: 2,
+
+      defaultInteger: 20,
+
+      defaultLong: 200,
+
+      defaultFloat: 2.0,
+
+      defaultDouble: 2.0,
+
+      defaultMap: {
+        name: "Jack",
+      },
+
+      defaultEnum: "BAR",
+
+      defaultIntEnum: 2,
+
+      emptyString: "foo",
+
+      falseBoolean: true,
+
+      emptyBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      zeroByte: 1,
+
+      zeroShort: 1,
+
+      zeroInteger: 1,
+
+      zeroLong: 1,
+
+      zeroFloat: 1.0,
+
+      zeroDouble: 1.0,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Client populates nested default values when missing.
+ */
+it.skip("RestJsonClientPopulatesNestedDefaultValuesWhenMissing:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithNestedStructureCommand({
+    topLevel: {
+      dialog: {
+        language: "en",
+      } as any,
+
+      dialogList: [
+        {} as any,
+
+        {
+          farewell: {} as any,
+        } as any,
+
+        {
+          language: "it",
+
+          greeting: "ciao",
+
+          farewell: {
+            phrase: "arrivederci",
+          } as any,
+        } as any,
+      ],
+
+      dialogMap: {
+        emptyDialog: {} as any,
+
+        partialEmptyDialog: {
+          language: "en",
+
+          farewell: {} as any,
+        } as any,
+
+        nonEmptyDialog: {
+          greeting: "konnichiwa",
+
+          farewell: {
+            phrase: "sayonara",
+          } as any,
+        } as any,
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/OperationWithNestedStructure");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"topLevel\": {
+            \"dialog\": {
+                \"language\": \"en\",
+                \"greeting\": \"hi\"
+            },
+            \"dialogList\": [
+                {
+                    \"greeting\": \"hi\"
+                },
+                {
+                    \"greeting\": \"hi\",
+                    \"farewell\": {
+                        \"phrase\": \"bye\"
+                    }
+                },
+                {
+                    \"language\": \"it\",
+                    \"greeting\": \"ciao\",
+                    \"farewell\": {
+                        \"phrase\": \"arrivederci\"
+                    }
+                }
+            ],
+            \"dialogMap\": {
+                \"emptyDialog\": {
+                    \"greeting\": \"hi\"
+                },
+                \"partialEmptyDialog\": {
+                    \"language\": \"en\",
+                    \"greeting\": \"hi\",
+                    \"farewell\": {
+                        \"phrase\": \"bye\"
+                    }
+                },
+                \"nonEmptyDialog\": {
+                    \"greeting\": \"konnichiwa\",
+                    \"farewell\": {
+                        \"phrase\": \"sayonara\"
+                    }
+                }
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Client populates nested default values when missing in response body.
+ */
+it.skip("RestJsonClientPopulatesNestedDefaultsWhenMissingInResponseBody:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "dialog": {
+              "language": "en"
+          },
+          "dialogList": [
+              {
+              },
+              {
+                  "farewell": {}
+              },
+              {
+                  "language": "it",
+                  "greeting": "ciao",
+                  "farewell": {
+                      "phrase": "arrivederci"
+                  }
+              }
+          ],
+          "dialogMap": {
+              "emptyDialog": {
+              },
+              "partialEmptyDialog": {
+                  "language": "en",
+                  "farewell": {}
+              },
+              "nonEmptyDialog": {
+                  "greeting": "konnichiwa",
+                  "farewell": {
+                      "phrase": "sayonara"
+                  }
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new OperationWithNestedStructureCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      dialog: {
+        language: "en",
+
+        greeting: "hi",
+      },
+
+      dialogList: [
+        {
+          greeting: "hi",
+        },
+
+        {
+          greeting: "hi",
+
+          farewell: {
+            phrase: "bye",
+          },
+        },
+
+        {
+          language: "it",
+
+          greeting: "ciao",
+
+          farewell: {
+            phrase: "arrivederci",
+          },
+        },
+      ],
+
+      dialogMap: {
+        emptyDialog: {
+          greeting: "hi",
+        },
+
+        partialEmptyDialog: {
+          language: "en",
+
+          greeting: "hi",
+
+          farewell: {
+            phrase: "bye",
+          },
+        },
+
+        nonEmptyDialog: {
+          greeting: "konnichiwa",
+
+          farewell: {
+            phrase: "sayonara",
+          },
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Unit types in unions are serialized like normal structures in requests.
  */
 it("RestJsonInputUnionWithUnitMember:Request", async () => {
@@ -9200,6 +9987,36 @@ it("RestJsonHttpWithEmptyBody:Request", async () => {
 });
 
 /**
+ * Serializes a GET request for an operation with no input, and therefore no modeled body
+ */
+it("RestJsonHttpWithNoInput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestNoInputNoPayloadCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/no_input_no_payload");
+
+    expect(r.headers["content-length"]).toBeUndefined();
+    expect(r.headers["content-type"]).toBeUndefined();
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
  * Serializes a GET request with no modeled body
  */
 it("RestJsonHttpWithNoModeledBody:Request", async () => {
@@ -9629,6 +10446,17 @@ const compareEquivalentOctetStreamBodies = (
 ): Object => {
   const expectedParts = { Value: expectedBody };
   const generatedParts = { Value: utf8Encoder(generatedBody) };
+
+  return compareParts(expectedParts, generatedParts);
+};
+
+/**
+ * Returns a map of key names that were un-equal to value objects showing the
+ * discrepancies between the components.
+ */
+const compareEquivalentTextBodies = (expectedBody: string, generatedBody: string): Object => {
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = { Value: generatedBody };
 
   return compareParts(expectedParts, generatedParts);
 };

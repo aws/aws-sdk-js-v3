@@ -69,6 +69,10 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "../commands/ConstantQueryStringCommand";
+import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "../commands/ContentTypeParametersCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
   DocumentTypeAsMapValueCommandInput,
@@ -265,6 +269,14 @@ import {
   OmitsSerializingEmptyListsCommandInput,
   OmitsSerializingEmptyListsCommandOutput,
 } from "../commands/OmitsSerializingEmptyListsCommand";
+import {
+  OperationWithDefaultsCommandInput,
+  OperationWithDefaultsCommandOutput,
+} from "../commands/OperationWithDefaultsCommand";
+import {
+  OperationWithNestedStructureCommandInput,
+  OperationWithNestedStructureCommandOutput,
+} from "../commands/OperationWithNestedStructureCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "../commands/PostPlayerActionCommand";
 import {
   PostUnionWithJsonNameCommandInput,
@@ -300,6 +312,10 @@ import {
   StreamingTraitsWithMediaTypeCommandOutput,
 } from "../commands/StreamingTraitsWithMediaTypeCommand";
 import { TestBodyStructureCommandInput, TestBodyStructureCommandOutput } from "../commands/TestBodyStructureCommand";
+import {
+  TestNoInputNoPayloadCommandInput,
+  TestNoInputNoPayloadCommandOutput,
+} from "../commands/TestNoInputNoPayloadCommand";
 import { TestNoPayloadCommandInput, TestNoPayloadCommandOutput } from "../commands/TestNoPayloadCommand";
 import { TestPayloadBlobCommandInput, TestPayloadBlobCommandOutput } from "../commands/TestPayloadBlobCommand";
 import {
@@ -312,8 +328,12 @@ import {
 } from "../commands/TimestampFormatHeadersCommand";
 import { UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput } from "../commands/UnitInputAndOutputCommand";
 import {
+  ClientOptionalDefaults,
   ComplexError,
   ComplexNestedErrorData,
+  Defaults,
+  Dialog,
+  Farewell,
   FooEnum,
   FooError,
   GreetingStruct,
@@ -329,6 +349,7 @@ import {
   SimpleUnion,
   StructureListMember,
   TestConfig,
+  TopLevel,
   UnionPayload,
   UnionWithJsonName,
   Unit,
@@ -434,6 +455,28 @@ export const se_ConstantQueryStringCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ContentTypeParametersCommand
+ */
+export const se_ContentTypeParametersCommand = async (
+  input: ContentTypeParametersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ContentTypeParameters");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      value: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2044,6 +2087,53 @@ export const se_OmitsSerializingEmptyListsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1OperationWithDefaultsCommand
+ */
+export const se_OperationWithDefaultsCommand = async (
+  input: OperationWithDefaultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/OperationWithDefaults");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientOptionalDefaults: (_) => _json(_),
+      defaults: (_) => se_Defaults(_, context),
+      otherTopLevelDefault: [],
+      topLevelDefault: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1OperationWithNestedStructureCommand
+ */
+export const se_OperationWithNestedStructureCommand = async (
+  input: OperationWithNestedStructureCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/OperationWithNestedStructure");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      topLevel: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PostPlayerActionCommand
  */
 export const se_PostPlayerActionCommand = async (
@@ -2354,6 +2444,21 @@ export const se_TestBodyStructureCommand = async (
 };
 
 /**
+ * serializeAws_restJson1TestNoInputNoPayloadCommand
+ */
+export const se_TestNoInputNoPayloadCommand = async (
+  input: TestNoInputNoPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/no_input_no_payload");
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TestNoPayloadCommand
  */
 export const se_TestNoPayloadCommand = async (
@@ -2494,6 +2599,23 @@ export const de_ConstantQueryStringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ContentTypeParametersCommand
+ */
+export const de_ContentTypeParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContentTypeParametersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3924,6 +4046,77 @@ export const de_OmitsSerializingEmptyListsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1OperationWithDefaultsCommand
+ */
+export const de_OperationWithDefaultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithDefaultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    defaultBlob: context.base64Decoder,
+    defaultBoolean: __expectBoolean,
+    defaultByte: __expectByte,
+    defaultDocumentBoolean: (_) => de_Document(_, context),
+    defaultDocumentList: (_) => de_Document(_, context),
+    defaultDocumentMap: (_) => de_Document(_, context),
+    defaultDocumentString: (_) => de_Document(_, context),
+    defaultDouble: __limitedParseDouble,
+    defaultEnum: __expectString,
+    defaultFloat: __limitedParseFloat32,
+    defaultIntEnum: __expectInt32,
+    defaultInteger: __expectInt32,
+    defaultList: _json,
+    defaultLong: __expectLong,
+    defaultMap: _json,
+    defaultNullDocument: (_) => de_Document(_, context),
+    defaultShort: __expectShort,
+    defaultString: __expectString,
+    defaultTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    emptyBlob: context.base64Decoder,
+    emptyString: __expectString,
+    falseBoolean: __expectBoolean,
+    zeroByte: __expectByte,
+    zeroDouble: __limitedParseDouble,
+    zeroFloat: __limitedParseFloat32,
+    zeroInteger: __expectInt32,
+    zeroLong: __expectLong,
+    zeroShort: __expectShort,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1OperationWithNestedStructureCommand
+ */
+export const de_OperationWithNestedStructureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithNestedStructureCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dialog: _json,
+    dialogList: _json,
+    dialogMap: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PostPlayerActionCommand
  */
 export const de_PostPlayerActionCommand = async (
@@ -4210,6 +4403,24 @@ export const de_TestBodyStructureCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1TestNoInputNoPayloadCommand
+ */
+export const de_TestNoInputNoPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestNoInputNoPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_tI]: [, output.headers[_xati]],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TestNoPayloadCommand
  */
 export const de_TestNoPayloadCommand = async (
@@ -4400,6 +4611,44 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_ClientOptionalDefaults omitted.
+
+/**
+ * serializeAws_restJson1Defaults
+ */
+const se_Defaults = (input: Defaults, context: __SerdeContext): any => {
+  return take(input, {
+    defaultBlob: context.base64Encoder,
+    defaultBoolean: [],
+    defaultByte: [],
+    defaultDocumentBoolean: (_) => se_Document(_, context),
+    defaultDocumentList: (_) => se_Document(_, context),
+    defaultDocumentMap: (_) => se_Document(_, context),
+    defaultDocumentString: (_) => se_Document(_, context),
+    defaultDouble: __serializeFloat,
+    defaultEnum: [],
+    defaultFloat: __serializeFloat,
+    defaultIntEnum: [],
+    defaultInteger: [],
+    defaultList: _json,
+    defaultLong: [],
+    defaultMap: _json,
+    defaultNullDocument: (_) => se_Document(_, context),
+    defaultShort: [],
+    defaultString: [],
+    defaultTimestamp: (_) => _.getTime() / 1_000,
+    emptyBlob: context.base64Encoder,
+    emptyString: [],
+    falseBoolean: [],
+    zeroByte: [],
+    zeroDouble: __serializeFloat,
+    zeroFloat: __serializeFloat,
+    zeroInteger: [],
+    zeroLong: [],
+    zeroShort: [],
+  });
+};
+
 // se_DenseBooleanMap omitted.
 
 // se_DenseNumberMap omitted.
@@ -4409,6 +4658,12 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
 // se_DenseStringMap omitted.
 
 // se_DenseStructMap omitted.
+
+// se_Dialog omitted.
+
+// se_DialogList omitted.
+
+// se_DialogMap omitted.
 
 /**
  * serializeAws_restJson1Document
@@ -4429,6 +4684,8 @@ const se_DocumentValuedMap = (input: Record<string, __DocumentType>, context: __
     return acc;
   }, {});
 };
+
+// se_Farewell omitted.
 
 /**
  * serializeAws_restJson1MyUnion
@@ -4566,6 +4823,12 @@ const se_StructureListMember = (input: StructureListMember, context: __SerdeCont
 
 // se_TestConfig omitted.
 
+// se_TestStringList omitted.
+
+// se_TestStringMap omitted.
+
+// se_TopLevel omitted.
+
 // se_UnionPayload omitted.
 
 /**
@@ -4661,6 +4924,12 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
 
 // de_DenseStructMap omitted.
 
+// de_Dialog omitted.
+
+// de_DialogList omitted.
+
+// de_DialogMap omitted.
+
 /**
  * deserializeAws_restJson1Document
  */
@@ -4680,6 +4949,8 @@ const de_DocumentValuedMap = (output: any, context: __SerdeContext): Record<stri
     return acc;
   }, {} as Record<string, __DocumentType>);
 };
+
+// de_Farewell omitted.
 
 /**
  * deserializeAws_restJson1MyUnion
@@ -4841,6 +5112,10 @@ const de_StructureListMember = (output: any, context: __SerdeContext): Structure
 };
 
 // de_TestConfig omitted.
+
+// de_TestStringList omitted.
+
+// de_TestStringMap omitted.
 
 // de_UnionPayload omitted.
 

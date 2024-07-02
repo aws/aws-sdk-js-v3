@@ -18,6 +18,11 @@ import {
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
+  ContentTypeParametersCommand,
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
+import {
   DatetimeOffsetsCommand,
   DatetimeOffsetsCommandInput,
   DatetimeOffsetsCommandOutput,
@@ -363,6 +368,16 @@ import {
   OmitsSerializingEmptyListsCommandOutput,
 } from "./commands/OmitsSerializingEmptyListsCommand";
 import {
+  OperationWithDefaultsCommand,
+  OperationWithDefaultsCommandInput,
+  OperationWithDefaultsCommandOutput,
+} from "./commands/OperationWithDefaultsCommand";
+import {
+  OperationWithNestedStructureCommand,
+  OperationWithNestedStructureCommandInput,
+  OperationWithNestedStructureCommandOutput,
+} from "./commands/OperationWithNestedStructureCommand";
+import {
   PostPlayerActionCommand,
   PostPlayerActionCommandInput,
   PostPlayerActionCommandOutput,
@@ -433,6 +448,11 @@ import {
   TestBodyStructureCommandOutput,
 } from "./commands/TestBodyStructureCommand";
 import {
+  TestNoInputNoPayloadCommand,
+  TestNoInputNoPayloadCommandInput,
+  TestNoInputNoPayloadCommandOutput,
+} from "./commands/TestNoInputNoPayloadCommand";
+import {
   TestNoPayloadCommand,
   TestNoPayloadCommandInput,
   TestNoPayloadCommandOutput,
@@ -463,6 +483,7 @@ const commands = {
   AllQueryStringTypesCommand,
   ConstantAndVariableQueryStringCommand,
   ConstantQueryStringCommand,
+  ContentTypeParametersCommand,
   DatetimeOffsetsCommand,
   DocumentTypeCommand,
   DocumentTypeAsMapValueCommand,
@@ -536,6 +557,8 @@ const commands = {
   NullAndEmptyHeadersServerCommand,
   OmitsNullSerializesEmptyStringCommand,
   OmitsSerializingEmptyListsCommand,
+  OperationWithDefaultsCommand,
+  OperationWithNestedStructureCommand,
   PostPlayerActionCommand,
   PostUnionWithJsonNameCommand,
   PutWithContentEncodingCommand,
@@ -550,6 +573,7 @@ const commands = {
   StreamingTraitsRequireLengthCommand,
   StreamingTraitsWithMediaTypeCommand,
   TestBodyStructureCommand,
+  TestNoInputNoPayloadCommand,
   TestNoPayloadCommand,
   TestPayloadBlobCommand,
   TestPayloadStructureCommand,
@@ -609,6 +633,24 @@ export interface RestJsonProtocol {
     args: ConstantQueryStringCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ConstantQueryStringCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ContentTypeParametersCommand}
+   */
+  contentTypeParameters(): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
+  ): void;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
   ): void;
 
   /**
@@ -1802,6 +1844,41 @@ export interface RestJsonProtocol {
   ): void;
 
   /**
+   * @see {@link OperationWithDefaultsCommand}
+   */
+  operationWithDefaults(): Promise<OperationWithDefaultsCommandOutput>;
+  operationWithDefaults(
+    args: OperationWithDefaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OperationWithDefaultsCommandOutput>;
+  operationWithDefaults(
+    args: OperationWithDefaultsCommandInput,
+    cb: (err: any, data?: OperationWithDefaultsCommandOutput) => void
+  ): void;
+  operationWithDefaults(
+    args: OperationWithDefaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OperationWithDefaultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OperationWithNestedStructureCommand}
+   */
+  operationWithNestedStructure(
+    args: OperationWithNestedStructureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OperationWithNestedStructureCommandOutput>;
+  operationWithNestedStructure(
+    args: OperationWithNestedStructureCommandInput,
+    cb: (err: any, data?: OperationWithNestedStructureCommandOutput) => void
+  ): void;
+  operationWithNestedStructure(
+    args: OperationWithNestedStructureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OperationWithNestedStructureCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PostPlayerActionCommand}
    */
   postPlayerAction(): Promise<PostPlayerActionCommandOutput>;
@@ -2036,6 +2113,24 @@ export interface RestJsonProtocol {
     args: TestBodyStructureCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TestBodyStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestNoInputNoPayloadCommand}
+   */
+  testNoInputNoPayload(): Promise<TestNoInputNoPayloadCommandOutput>;
+  testNoInputNoPayload(
+    args: TestNoInputNoPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestNoInputNoPayloadCommandOutput>;
+  testNoInputNoPayload(
+    args: TestNoInputNoPayloadCommandInput,
+    cb: (err: any, data?: TestNoInputNoPayloadCommandOutput) => void
+  ): void;
+  testNoInputNoPayload(
+    args: TestNoInputNoPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestNoInputNoPayloadCommandOutput) => void
   ): void;
 
   /**

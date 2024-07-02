@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  ContentTypeParametersCommand,
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
+import {
   DatetimeOffsetsCommand,
   DatetimeOffsetsCommandInput,
   DatetimeOffsetsCommandOutput,
@@ -77,6 +82,7 @@ import {
 import { JsonProtocolClient, JsonProtocolClientConfig } from "./JsonProtocolClient";
 
 const commands = {
+  ContentTypeParametersCommand,
   DatetimeOffsetsCommand,
   EmptyOperationCommand,
   EndpointOperationCommand,
@@ -96,6 +102,24 @@ const commands = {
 };
 
 export interface JsonProtocol {
+  /**
+   * @see {@link ContentTypeParametersCommand}
+   */
+  contentTypeParameters(): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
+  ): void;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DatetimeOffsetsCommand}
    */

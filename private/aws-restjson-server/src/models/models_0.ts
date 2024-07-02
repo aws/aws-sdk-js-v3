@@ -291,6 +291,38 @@ export namespace AllQueryStringTypesInput {
 /**
  * @public
  */
+export interface ClientOptionalDefaults {
+  member?: number;
+}
+
+export namespace ClientOptionalDefaults {
+  const memberValidators: {
+    member?: __MultiConstraintValidator<number>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: ClientOptionalDefaults, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "member": {
+            memberValidators["member"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("member").validate(obj.member, `${path}/member`)];
+  };
+}
+
+/**
+ * @public
+ */
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
@@ -419,6 +451,62 @@ export namespace ConstantQueryStringInput {
 /**
  * @public
  */
+export interface ContentTypeParametersInput {
+  value?: number;
+}
+
+export namespace ContentTypeParametersInput {
+  const memberValidators: {
+    value?: __MultiConstraintValidator<number>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: ContentTypeParametersInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "value": {
+            memberValidators["value"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("value").validate(obj.value, `${path}/value`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface ContentTypeParametersOutput {}
+
+export namespace ContentTypeParametersOutput {
+  const memberValidators: {} = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: ContentTypeParametersOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [];
+  };
+}
+
+/**
+ * @public
+ */
 export interface DatetimeOffsetsOutput {
   datetime?: Date;
 }
@@ -445,6 +533,346 @@ export namespace DatetimeOffsetsOutput {
       return memberValidators[member]!;
     }
     return [...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`)];
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestEnum = {
+  BAR: "BAR",
+  BAZ: "BAZ",
+  FOO: "FOO",
+} as const;
+/**
+ * @public
+ */
+export type TestEnum = (typeof TestEnum)[keyof typeof TestEnum];
+
+export enum TestIntEnum {
+  ONE = 1,
+  TWO = 2,
+}
+
+/**
+ * @public
+ */
+export interface Defaults {
+  defaultString?: string;
+  defaultBoolean?: boolean;
+  defaultList?: string[];
+  defaultDocumentMap?: __DocumentType;
+  defaultDocumentString?: __DocumentType;
+  defaultDocumentBoolean?: __DocumentType;
+  defaultDocumentList?: __DocumentType;
+  defaultNullDocument?: __DocumentType;
+  defaultTimestamp?: Date;
+  defaultBlob?: Uint8Array;
+  defaultByte?: number;
+  defaultShort?: number;
+  defaultInteger?: number;
+  defaultLong?: number;
+  defaultFloat?: number;
+  defaultDouble?: number;
+  defaultMap?: Record<string, string>;
+  defaultEnum?: TestEnum;
+  defaultIntEnum?: TestIntEnum;
+  emptyString?: string;
+  falseBoolean?: boolean;
+  emptyBlob?: Uint8Array;
+  zeroByte?: number;
+  zeroShort?: number;
+  zeroInteger?: number;
+  zeroLong?: number;
+  zeroFloat?: number;
+  zeroDouble?: number;
+}
+
+export namespace Defaults {
+  const memberValidators: {
+    defaultString?: __MultiConstraintValidator<string>;
+    defaultBoolean?: __MultiConstraintValidator<boolean>;
+    defaultList?: __MultiConstraintValidator<Iterable<string>>;
+    defaultDocumentMap?: __MultiConstraintValidator<__DocumentType>;
+    defaultDocumentString?: __MultiConstraintValidator<__DocumentType>;
+    defaultDocumentBoolean?: __MultiConstraintValidator<__DocumentType>;
+    defaultDocumentList?: __MultiConstraintValidator<__DocumentType>;
+    defaultNullDocument?: __MultiConstraintValidator<__DocumentType>;
+    defaultTimestamp?: __MultiConstraintValidator<Date>;
+    defaultBlob?: __MultiConstraintValidator<Uint8Array>;
+    defaultByte?: __MultiConstraintValidator<number>;
+    defaultShort?: __MultiConstraintValidator<number>;
+    defaultInteger?: __MultiConstraintValidator<number>;
+    defaultLong?: __MultiConstraintValidator<number>;
+    defaultFloat?: __MultiConstraintValidator<number>;
+    defaultDouble?: __MultiConstraintValidator<number>;
+    defaultMap?: __MultiConstraintValidator<Record<string, string>>;
+    defaultEnum?: __MultiConstraintValidator<string>;
+    defaultIntEnum?: __MultiConstraintValidator<number>;
+    emptyString?: __MultiConstraintValidator<string>;
+    falseBoolean?: __MultiConstraintValidator<boolean>;
+    emptyBlob?: __MultiConstraintValidator<Uint8Array>;
+    zeroByte?: __MultiConstraintValidator<number>;
+    zeroShort?: __MultiConstraintValidator<number>;
+    zeroInteger?: __MultiConstraintValidator<number>;
+    zeroLong?: __MultiConstraintValidator<number>;
+    zeroFloat?: __MultiConstraintValidator<number>;
+    zeroDouble?: __MultiConstraintValidator<number>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: Defaults, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "defaultString": {
+            memberValidators["defaultString"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultBoolean": {
+            memberValidators["defaultBoolean"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultList": {
+            memberValidators["defaultList"] = new __CompositeCollectionValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "defaultDocumentMap": {
+            memberValidators["defaultDocumentMap"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDocumentString": {
+            memberValidators["defaultDocumentString"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDocumentBoolean": {
+            memberValidators["defaultDocumentBoolean"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDocumentList": {
+            memberValidators["defaultDocumentList"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultNullDocument": {
+            memberValidators["defaultNullDocument"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultTimestamp": {
+            memberValidators["defaultTimestamp"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultBlob": {
+            memberValidators["defaultBlob"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultByte": {
+            memberValidators["defaultByte"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultShort": {
+            memberValidators["defaultShort"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultInteger": {
+            memberValidators["defaultInteger"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultLong": {
+            memberValidators["defaultLong"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultFloat": {
+            memberValidators["defaultFloat"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDouble": {
+            memberValidators["defaultDouble"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultMap": {
+            memberValidators["defaultMap"] = new __CompositeMapValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "defaultEnum": {
+            memberValidators["defaultEnum"] = new __CompositeValidator<string>([
+              new __EnumValidator(["FOO", "BAR", "BAZ"], ["FOO", "BAR", "BAZ"]),
+            ]);
+            break;
+          }
+          case "defaultIntEnum": {
+            memberValidators["defaultIntEnum"] = new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2])]);
+            break;
+          }
+          case "emptyString": {
+            memberValidators["emptyString"] = new __NoOpValidator();
+            break;
+          }
+          case "falseBoolean": {
+            memberValidators["falseBoolean"] = new __NoOpValidator();
+            break;
+          }
+          case "emptyBlob": {
+            memberValidators["emptyBlob"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroByte": {
+            memberValidators["zeroByte"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroShort": {
+            memberValidators["zeroShort"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroInteger": {
+            memberValidators["zeroInteger"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroLong": {
+            memberValidators["zeroLong"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroFloat": {
+            memberValidators["zeroFloat"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroDouble": {
+            memberValidators["zeroDouble"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("defaultString").validate(obj.defaultString, `${path}/defaultString`),
+      ...getMemberValidator("defaultBoolean").validate(obj.defaultBoolean, `${path}/defaultBoolean`),
+      ...getMemberValidator("defaultList").validate(obj.defaultList, `${path}/defaultList`),
+      ...getMemberValidator("defaultDocumentMap").validate(obj.defaultDocumentMap, `${path}/defaultDocumentMap`),
+      ...getMemberValidator("defaultDocumentString").validate(
+        obj.defaultDocumentString,
+        `${path}/defaultDocumentString`
+      ),
+      ...getMemberValidator("defaultDocumentBoolean").validate(
+        obj.defaultDocumentBoolean,
+        `${path}/defaultDocumentBoolean`
+      ),
+      ...getMemberValidator("defaultDocumentList").validate(obj.defaultDocumentList, `${path}/defaultDocumentList`),
+      ...getMemberValidator("defaultNullDocument").validate(obj.defaultNullDocument, `${path}/defaultNullDocument`),
+      ...getMemberValidator("defaultTimestamp").validate(obj.defaultTimestamp, `${path}/defaultTimestamp`),
+      ...getMemberValidator("defaultBlob").validate(obj.defaultBlob, `${path}/defaultBlob`),
+      ...getMemberValidator("defaultByte").validate(obj.defaultByte, `${path}/defaultByte`),
+      ...getMemberValidator("defaultShort").validate(obj.defaultShort, `${path}/defaultShort`),
+      ...getMemberValidator("defaultInteger").validate(obj.defaultInteger, `${path}/defaultInteger`),
+      ...getMemberValidator("defaultLong").validate(obj.defaultLong, `${path}/defaultLong`),
+      ...getMemberValidator("defaultFloat").validate(obj.defaultFloat, `${path}/defaultFloat`),
+      ...getMemberValidator("defaultDouble").validate(obj.defaultDouble, `${path}/defaultDouble`),
+      ...getMemberValidator("defaultMap").validate(obj.defaultMap, `${path}/defaultMap`),
+      ...getMemberValidator("defaultEnum").validate(obj.defaultEnum, `${path}/defaultEnum`),
+      ...getMemberValidator("defaultIntEnum").validate(obj.defaultIntEnum, `${path}/defaultIntEnum`),
+      ...getMemberValidator("emptyString").validate(obj.emptyString, `${path}/emptyString`),
+      ...getMemberValidator("falseBoolean").validate(obj.falseBoolean, `${path}/falseBoolean`),
+      ...getMemberValidator("emptyBlob").validate(obj.emptyBlob, `${path}/emptyBlob`),
+      ...getMemberValidator("zeroByte").validate(obj.zeroByte, `${path}/zeroByte`),
+      ...getMemberValidator("zeroShort").validate(obj.zeroShort, `${path}/zeroShort`),
+      ...getMemberValidator("zeroInteger").validate(obj.zeroInteger, `${path}/zeroInteger`),
+      ...getMemberValidator("zeroLong").validate(obj.zeroLong, `${path}/zeroLong`),
+      ...getMemberValidator("zeroFloat").validate(obj.zeroFloat, `${path}/zeroFloat`),
+      ...getMemberValidator("zeroDouble").validate(obj.zeroDouble, `${path}/zeroDouble`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface Farewell {
+  phrase?: string;
+}
+
+export namespace Farewell {
+  const memberValidators: {
+    phrase?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: Farewell, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "phrase": {
+            memberValidators["phrase"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("phrase").validate(obj.phrase, `${path}/phrase`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface Dialog {
+  language?: string;
+  greeting?: string;
+  farewell?: Farewell;
+}
+
+export namespace Dialog {
+  const memberValidators: {
+    language?: __MultiConstraintValidator<string>;
+    greeting?: __MultiConstraintValidator<string>;
+    farewell?: __MultiConstraintValidator<Farewell>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: Dialog, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "language": {
+            memberValidators["language"] = new __NoOpValidator();
+            break;
+          }
+          case "greeting": {
+            memberValidators["greeting"] = new __NoOpValidator();
+            break;
+          }
+          case "farewell": {
+            memberValidators["farewell"] = new __CompositeStructureValidator<Farewell>(
+              new __NoOpValidator(),
+              Farewell.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("language").validate(obj.language, `${path}/language`),
+      ...getMemberValidator("greeting").validate(obj.greeting, `${path}/greeting`),
+      ...getMemberValidator("farewell").validate(obj.farewell, `${path}/farewell`),
+    ];
   };
 }
 
@@ -4146,6 +4574,459 @@ export namespace OmitsSerializingEmptyListsInput {
       ...getMemberValidator("queryTimestampList").validate(obj.queryTimestampList, `${path}/queryTimestampList`),
       ...getMemberValidator("queryEnumList").validate(obj.queryEnumList, `${path}/queryEnumList`),
       ...getMemberValidator("queryIntegerEnumList").validate(obj.queryIntegerEnumList, `${path}/queryIntegerEnumList`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface OperationWithDefaultsInput {
+  defaults?: Defaults;
+  clientOptionalDefaults?: ClientOptionalDefaults;
+  topLevelDefault?: string;
+  otherTopLevelDefault?: number;
+}
+
+export namespace OperationWithDefaultsInput {
+  const memberValidators: {
+    defaults?: __MultiConstraintValidator<Defaults>;
+    clientOptionalDefaults?: __MultiConstraintValidator<ClientOptionalDefaults>;
+    topLevelDefault?: __MultiConstraintValidator<string>;
+    otherTopLevelDefault?: __MultiConstraintValidator<number>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: OperationWithDefaultsInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "defaults": {
+            memberValidators["defaults"] = new __CompositeStructureValidator<Defaults>(
+              new __NoOpValidator(),
+              Defaults.validate
+            );
+            break;
+          }
+          case "clientOptionalDefaults": {
+            memberValidators["clientOptionalDefaults"] = new __CompositeStructureValidator<ClientOptionalDefaults>(
+              new __NoOpValidator(),
+              ClientOptionalDefaults.validate
+            );
+            break;
+          }
+          case "topLevelDefault": {
+            memberValidators["topLevelDefault"] = new __NoOpValidator();
+            break;
+          }
+          case "otherTopLevelDefault": {
+            memberValidators["otherTopLevelDefault"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("defaults").validate(obj.defaults, `${path}/defaults`),
+      ...getMemberValidator("clientOptionalDefaults").validate(
+        obj.clientOptionalDefaults,
+        `${path}/clientOptionalDefaults`
+      ),
+      ...getMemberValidator("topLevelDefault").validate(obj.topLevelDefault, `${path}/topLevelDefault`),
+      ...getMemberValidator("otherTopLevelDefault").validate(obj.otherTopLevelDefault, `${path}/otherTopLevelDefault`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface OperationWithDefaultsOutput {
+  defaultString?: string;
+  defaultBoolean?: boolean;
+  defaultList?: string[];
+  defaultDocumentMap?: __DocumentType;
+  defaultDocumentString?: __DocumentType;
+  defaultDocumentBoolean?: __DocumentType;
+  defaultDocumentList?: __DocumentType;
+  defaultNullDocument?: __DocumentType;
+  defaultTimestamp?: Date;
+  defaultBlob?: Uint8Array;
+  defaultByte?: number;
+  defaultShort?: number;
+  defaultInteger?: number;
+  defaultLong?: number;
+  defaultFloat?: number;
+  defaultDouble?: number;
+  defaultMap?: Record<string, string>;
+  defaultEnum?: TestEnum;
+  defaultIntEnum?: TestIntEnum;
+  emptyString?: string;
+  falseBoolean?: boolean;
+  emptyBlob?: Uint8Array;
+  zeroByte?: number;
+  zeroShort?: number;
+  zeroInteger?: number;
+  zeroLong?: number;
+  zeroFloat?: number;
+  zeroDouble?: number;
+}
+
+export namespace OperationWithDefaultsOutput {
+  const memberValidators: {
+    defaultString?: __MultiConstraintValidator<string>;
+    defaultBoolean?: __MultiConstraintValidator<boolean>;
+    defaultList?: __MultiConstraintValidator<Iterable<string>>;
+    defaultDocumentMap?: __MultiConstraintValidator<__DocumentType>;
+    defaultDocumentString?: __MultiConstraintValidator<__DocumentType>;
+    defaultDocumentBoolean?: __MultiConstraintValidator<__DocumentType>;
+    defaultDocumentList?: __MultiConstraintValidator<__DocumentType>;
+    defaultNullDocument?: __MultiConstraintValidator<__DocumentType>;
+    defaultTimestamp?: __MultiConstraintValidator<Date>;
+    defaultBlob?: __MultiConstraintValidator<Uint8Array>;
+    defaultByte?: __MultiConstraintValidator<number>;
+    defaultShort?: __MultiConstraintValidator<number>;
+    defaultInteger?: __MultiConstraintValidator<number>;
+    defaultLong?: __MultiConstraintValidator<number>;
+    defaultFloat?: __MultiConstraintValidator<number>;
+    defaultDouble?: __MultiConstraintValidator<number>;
+    defaultMap?: __MultiConstraintValidator<Record<string, string>>;
+    defaultEnum?: __MultiConstraintValidator<string>;
+    defaultIntEnum?: __MultiConstraintValidator<number>;
+    emptyString?: __MultiConstraintValidator<string>;
+    falseBoolean?: __MultiConstraintValidator<boolean>;
+    emptyBlob?: __MultiConstraintValidator<Uint8Array>;
+    zeroByte?: __MultiConstraintValidator<number>;
+    zeroShort?: __MultiConstraintValidator<number>;
+    zeroInteger?: __MultiConstraintValidator<number>;
+    zeroLong?: __MultiConstraintValidator<number>;
+    zeroFloat?: __MultiConstraintValidator<number>;
+    zeroDouble?: __MultiConstraintValidator<number>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: OperationWithDefaultsOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "defaultString": {
+            memberValidators["defaultString"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultBoolean": {
+            memberValidators["defaultBoolean"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultList": {
+            memberValidators["defaultList"] = new __CompositeCollectionValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "defaultDocumentMap": {
+            memberValidators["defaultDocumentMap"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDocumentString": {
+            memberValidators["defaultDocumentString"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDocumentBoolean": {
+            memberValidators["defaultDocumentBoolean"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDocumentList": {
+            memberValidators["defaultDocumentList"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultNullDocument": {
+            memberValidators["defaultNullDocument"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultTimestamp": {
+            memberValidators["defaultTimestamp"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultBlob": {
+            memberValidators["defaultBlob"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultByte": {
+            memberValidators["defaultByte"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultShort": {
+            memberValidators["defaultShort"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultInteger": {
+            memberValidators["defaultInteger"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultLong": {
+            memberValidators["defaultLong"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultFloat": {
+            memberValidators["defaultFloat"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultDouble": {
+            memberValidators["defaultDouble"] = new __NoOpValidator();
+            break;
+          }
+          case "defaultMap": {
+            memberValidators["defaultMap"] = new __CompositeMapValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "defaultEnum": {
+            memberValidators["defaultEnum"] = new __CompositeValidator<string>([
+              new __EnumValidator(["FOO", "BAR", "BAZ"], ["FOO", "BAR", "BAZ"]),
+            ]);
+            break;
+          }
+          case "defaultIntEnum": {
+            memberValidators["defaultIntEnum"] = new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2])]);
+            break;
+          }
+          case "emptyString": {
+            memberValidators["emptyString"] = new __NoOpValidator();
+            break;
+          }
+          case "falseBoolean": {
+            memberValidators["falseBoolean"] = new __NoOpValidator();
+            break;
+          }
+          case "emptyBlob": {
+            memberValidators["emptyBlob"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroByte": {
+            memberValidators["zeroByte"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroShort": {
+            memberValidators["zeroShort"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroInteger": {
+            memberValidators["zeroInteger"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroLong": {
+            memberValidators["zeroLong"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroFloat": {
+            memberValidators["zeroFloat"] = new __NoOpValidator();
+            break;
+          }
+          case "zeroDouble": {
+            memberValidators["zeroDouble"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("defaultString").validate(obj.defaultString, `${path}/defaultString`),
+      ...getMemberValidator("defaultBoolean").validate(obj.defaultBoolean, `${path}/defaultBoolean`),
+      ...getMemberValidator("defaultList").validate(obj.defaultList, `${path}/defaultList`),
+      ...getMemberValidator("defaultDocumentMap").validate(obj.defaultDocumentMap, `${path}/defaultDocumentMap`),
+      ...getMemberValidator("defaultDocumentString").validate(
+        obj.defaultDocumentString,
+        `${path}/defaultDocumentString`
+      ),
+      ...getMemberValidator("defaultDocumentBoolean").validate(
+        obj.defaultDocumentBoolean,
+        `${path}/defaultDocumentBoolean`
+      ),
+      ...getMemberValidator("defaultDocumentList").validate(obj.defaultDocumentList, `${path}/defaultDocumentList`),
+      ...getMemberValidator("defaultNullDocument").validate(obj.defaultNullDocument, `${path}/defaultNullDocument`),
+      ...getMemberValidator("defaultTimestamp").validate(obj.defaultTimestamp, `${path}/defaultTimestamp`),
+      ...getMemberValidator("defaultBlob").validate(obj.defaultBlob, `${path}/defaultBlob`),
+      ...getMemberValidator("defaultByte").validate(obj.defaultByte, `${path}/defaultByte`),
+      ...getMemberValidator("defaultShort").validate(obj.defaultShort, `${path}/defaultShort`),
+      ...getMemberValidator("defaultInteger").validate(obj.defaultInteger, `${path}/defaultInteger`),
+      ...getMemberValidator("defaultLong").validate(obj.defaultLong, `${path}/defaultLong`),
+      ...getMemberValidator("defaultFloat").validate(obj.defaultFloat, `${path}/defaultFloat`),
+      ...getMemberValidator("defaultDouble").validate(obj.defaultDouble, `${path}/defaultDouble`),
+      ...getMemberValidator("defaultMap").validate(obj.defaultMap, `${path}/defaultMap`),
+      ...getMemberValidator("defaultEnum").validate(obj.defaultEnum, `${path}/defaultEnum`),
+      ...getMemberValidator("defaultIntEnum").validate(obj.defaultIntEnum, `${path}/defaultIntEnum`),
+      ...getMemberValidator("emptyString").validate(obj.emptyString, `${path}/emptyString`),
+      ...getMemberValidator("falseBoolean").validate(obj.falseBoolean, `${path}/falseBoolean`),
+      ...getMemberValidator("emptyBlob").validate(obj.emptyBlob, `${path}/emptyBlob`),
+      ...getMemberValidator("zeroByte").validate(obj.zeroByte, `${path}/zeroByte`),
+      ...getMemberValidator("zeroShort").validate(obj.zeroShort, `${path}/zeroShort`),
+      ...getMemberValidator("zeroInteger").validate(obj.zeroInteger, `${path}/zeroInteger`),
+      ...getMemberValidator("zeroLong").validate(obj.zeroLong, `${path}/zeroLong`),
+      ...getMemberValidator("zeroFloat").validate(obj.zeroFloat, `${path}/zeroFloat`),
+      ...getMemberValidator("zeroDouble").validate(obj.zeroDouble, `${path}/zeroDouble`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface TopLevel {
+  dialog: Dialog | undefined;
+  dialogList?: Dialog[];
+  dialogMap?: Record<string, Dialog>;
+}
+
+export namespace TopLevel {
+  const memberValidators: {
+    dialog?: __MultiConstraintValidator<Dialog>;
+    dialogList?: __MultiConstraintValidator<Iterable<Dialog>>;
+    dialogMap?: __MultiConstraintValidator<Record<string, Dialog>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: TopLevel, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "dialog": {
+            memberValidators["dialog"] = new __CompositeStructureValidator<Dialog>(
+              new __CompositeValidator<Dialog>([new __RequiredValidator()]),
+              Dialog.validate
+            );
+            break;
+          }
+          case "dialogList": {
+            memberValidators["dialogList"] = new __CompositeCollectionValidator<Dialog>(
+              new __NoOpValidator(),
+              new __CompositeStructureValidator<Dialog>(new __NoOpValidator(), Dialog.validate)
+            );
+            break;
+          }
+          case "dialogMap": {
+            memberValidators["dialogMap"] = new __CompositeMapValidator<Dialog>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __CompositeStructureValidator<Dialog>(new __NoOpValidator(), Dialog.validate)
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("dialog").validate(obj.dialog, `${path}/dialog`),
+      ...getMemberValidator("dialogList").validate(obj.dialogList, `${path}/dialogList`),
+      ...getMemberValidator("dialogMap").validate(obj.dialogMap, `${path}/dialogMap`),
+    ];
+  };
+}
+
+/**
+ * @public
+ */
+export interface OperationWithNestedStructureInput {
+  topLevel: TopLevel | undefined;
+}
+
+export namespace OperationWithNestedStructureInput {
+  const memberValidators: {
+    topLevel?: __MultiConstraintValidator<TopLevel>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: OperationWithNestedStructureInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "topLevel": {
+            memberValidators["topLevel"] = new __CompositeStructureValidator<TopLevel>(
+              new __CompositeValidator<TopLevel>([new __RequiredValidator()]),
+              TopLevel.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("topLevel").validate(obj.topLevel, `${path}/topLevel`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface OperationWithNestedStructureOutput {
+  dialog: Dialog | undefined;
+  dialogList?: Dialog[];
+  dialogMap?: Record<string, Dialog>;
+}
+
+export namespace OperationWithNestedStructureOutput {
+  const memberValidators: {
+    dialog?: __MultiConstraintValidator<Dialog>;
+    dialogList?: __MultiConstraintValidator<Iterable<Dialog>>;
+    dialogMap?: __MultiConstraintValidator<Record<string, Dialog>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: OperationWithNestedStructureOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "dialog": {
+            memberValidators["dialog"] = new __CompositeStructureValidator<Dialog>(
+              new __CompositeValidator<Dialog>([new __RequiredValidator()]),
+              Dialog.validate
+            );
+            break;
+          }
+          case "dialogList": {
+            memberValidators["dialogList"] = new __CompositeCollectionValidator<Dialog>(
+              new __NoOpValidator(),
+              new __CompositeStructureValidator<Dialog>(new __NoOpValidator(), Dialog.validate)
+            );
+            break;
+          }
+          case "dialogMap": {
+            memberValidators["dialogMap"] = new __CompositeMapValidator<Dialog>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __CompositeStructureValidator<Dialog>(new __NoOpValidator(), Dialog.validate)
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("dialog").validate(obj.dialog, `${path}/dialog`),
+      ...getMemberValidator("dialogList").validate(obj.dialogList, `${path}/dialogList`),
+      ...getMemberValidator("dialogMap").validate(obj.dialogMap, `${path}/dialogMap`),
     ];
   };
 }

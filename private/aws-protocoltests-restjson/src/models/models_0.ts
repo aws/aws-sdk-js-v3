@@ -66,6 +66,13 @@ export interface AllQueryStringTypesInput {
 /**
  * @public
  */
+export interface ClientOptionalDefaults {
+  member?: number;
+}
+
+/**
+ * @public
+ */
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
@@ -114,8 +121,89 @@ export interface ConstantQueryStringInput {
 /**
  * @public
  */
+export interface ContentTypeParametersInput {
+  value?: number;
+}
+
+/**
+ * @public
+ */
+export interface ContentTypeParametersOutput {}
+
+/**
+ * @public
+ */
 export interface DatetimeOffsetsOutput {
   datetime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestEnum = {
+  BAR: "BAR",
+  BAZ: "BAZ",
+  FOO: "FOO",
+} as const;
+/**
+ * @public
+ */
+export type TestEnum = (typeof TestEnum)[keyof typeof TestEnum];
+
+export enum TestIntEnum {
+  ONE = 1,
+  TWO = 2,
+}
+
+/**
+ * @public
+ */
+export interface Defaults {
+  defaultString?: string;
+  defaultBoolean?: boolean;
+  defaultList?: string[];
+  defaultDocumentMap?: __DocumentType;
+  defaultDocumentString?: __DocumentType;
+  defaultDocumentBoolean?: __DocumentType;
+  defaultDocumentList?: __DocumentType;
+  defaultNullDocument?: __DocumentType;
+  defaultTimestamp?: Date;
+  defaultBlob?: Uint8Array;
+  defaultByte?: number;
+  defaultShort?: number;
+  defaultInteger?: number;
+  defaultLong?: number;
+  defaultFloat?: number;
+  defaultDouble?: number;
+  defaultMap?: Record<string, string>;
+  defaultEnum?: TestEnum;
+  defaultIntEnum?: TestIntEnum;
+  emptyString?: string;
+  falseBoolean?: boolean;
+  emptyBlob?: Uint8Array;
+  zeroByte?: number;
+  zeroShort?: number;
+  zeroInteger?: number;
+  zeroLong?: number;
+  zeroFloat?: number;
+  zeroDouble?: number;
+}
+
+/**
+ * @public
+ */
+export interface Farewell {
+  phrase?: string;
+}
+
+/**
+ * @public
+ */
+export interface Dialog {
+  language?: string;
+  greeting?: string;
+  farewell?: Farewell;
 }
 
 /**
@@ -1067,6 +1155,75 @@ export interface OmitsSerializingEmptyListsInput {
   queryTimestampList?: Date[];
   queryEnumList?: FooEnum[];
   queryIntegerEnumList?: IntegerEnum[];
+}
+
+/**
+ * @public
+ */
+export interface OperationWithDefaultsInput {
+  defaults?: Defaults;
+  clientOptionalDefaults?: ClientOptionalDefaults;
+  topLevelDefault?: string;
+  otherTopLevelDefault?: number;
+}
+
+/**
+ * @public
+ */
+export interface OperationWithDefaultsOutput {
+  defaultString?: string;
+  defaultBoolean?: boolean;
+  defaultList?: string[];
+  defaultDocumentMap?: __DocumentType;
+  defaultDocumentString?: __DocumentType;
+  defaultDocumentBoolean?: __DocumentType;
+  defaultDocumentList?: __DocumentType;
+  defaultNullDocument?: __DocumentType;
+  defaultTimestamp?: Date;
+  defaultBlob?: Uint8Array;
+  defaultByte?: number;
+  defaultShort?: number;
+  defaultInteger?: number;
+  defaultLong?: number;
+  defaultFloat?: number;
+  defaultDouble?: number;
+  defaultMap?: Record<string, string>;
+  defaultEnum?: TestEnum;
+  defaultIntEnum?: TestIntEnum;
+  emptyString?: string;
+  falseBoolean?: boolean;
+  emptyBlob?: Uint8Array;
+  zeroByte?: number;
+  zeroShort?: number;
+  zeroInteger?: number;
+  zeroLong?: number;
+  zeroFloat?: number;
+  zeroDouble?: number;
+}
+
+/**
+ * @public
+ */
+export interface TopLevel {
+  dialog: Dialog | undefined;
+  dialogList?: Dialog[];
+  dialogMap?: Record<string, Dialog>;
+}
+
+/**
+ * @public
+ */
+export interface OperationWithNestedStructureInput {
+  topLevel: TopLevel | undefined;
+}
+
+/**
+ * @public
+ */
+export interface OperationWithNestedStructureOutput {
+  dialog: Dialog | undefined;
+  dialogList?: Dialog[];
+  dialogMap?: Record<string, Dialog>;
 }
 
 /**

@@ -38,6 +38,11 @@ import {
   ConstantQueryStringSerializer,
   ConstantQueryStringServerInput,
 } from "./operations/ConstantQueryString";
+import {
+  ContentTypeParameters,
+  ContentTypeParametersSerializer,
+  ContentTypeParametersServerInput,
+} from "./operations/ContentTypeParameters";
 import { DatetimeOffsets, DatetimeOffsetsSerializer, DatetimeOffsetsServerInput } from "./operations/DatetimeOffsets";
 import { DocumentType, DocumentTypeSerializer, DocumentTypeServerInput } from "./operations/DocumentType";
 import {
@@ -320,6 +325,16 @@ import {
   OmitsSerializingEmptyListsServerInput,
 } from "./operations/OmitsSerializingEmptyLists";
 import {
+  OperationWithDefaults,
+  OperationWithDefaultsSerializer,
+  OperationWithDefaultsServerInput,
+} from "./operations/OperationWithDefaults";
+import {
+  OperationWithNestedStructure,
+  OperationWithNestedStructureSerializer,
+  OperationWithNestedStructureServerInput,
+} from "./operations/OperationWithNestedStructure";
+import {
   PostPlayerAction,
   PostPlayerActionSerializer,
   PostPlayerActionServerInput,
@@ -369,6 +384,11 @@ import {
   TestBodyStructureSerializer,
   TestBodyStructureServerInput,
 } from "./operations/TestBodyStructure";
+import {
+  TestNoInputNoPayload,
+  TestNoInputNoPayloadSerializer,
+  TestNoInputNoPayloadServerInput,
+} from "./operations/TestNoInputNoPayload";
 import { TestNoPayload, TestNoPayloadSerializer, TestNoPayloadServerInput } from "./operations/TestNoPayload";
 import { TestPayloadBlob, TestPayloadBlobSerializer, TestPayloadBlobServerInput } from "./operations/TestPayloadBlob";
 import {
@@ -391,6 +411,7 @@ export type RestJsonServiceOperations =
   | "AllQueryStringTypes"
   | "ConstantAndVariableQueryString"
   | "ConstantQueryString"
+  | "ContentTypeParameters"
   | "DatetimeOffsets"
   | "DocumentType"
   | "DocumentTypeAsMapValue"
@@ -464,6 +485,8 @@ export type RestJsonServiceOperations =
   | "NullAndEmptyHeadersServer"
   | "OmitsNullSerializesEmptyString"
   | "OmitsSerializingEmptyLists"
+  | "OperationWithDefaults"
+  | "OperationWithNestedStructure"
   | "PostPlayerAction"
   | "PostUnionWithJsonName"
   | "PutWithContentEncoding"
@@ -478,6 +501,7 @@ export type RestJsonServiceOperations =
   | "StreamingTraitsRequireLength"
   | "StreamingTraitsWithMediaType"
   | "TestBodyStructure"
+  | "TestNoInputNoPayload"
   | "TestNoPayload"
   | "TestPayloadBlob"
   | "TestPayloadStructure"
@@ -487,6 +511,7 @@ export interface RestJsonService<Context> {
   AllQueryStringTypes: AllQueryStringTypes<Context>;
   ConstantAndVariableQueryString: ConstantAndVariableQueryString<Context>;
   ConstantQueryString: ConstantQueryString<Context>;
+  ContentTypeParameters: ContentTypeParameters<Context>;
   DatetimeOffsets: DatetimeOffsets<Context>;
   DocumentType: DocumentType<Context>;
   DocumentTypeAsMapValue: DocumentTypeAsMapValue<Context>;
@@ -560,6 +585,8 @@ export interface RestJsonService<Context> {
   NullAndEmptyHeadersServer: NullAndEmptyHeadersServer<Context>;
   OmitsNullSerializesEmptyString: OmitsNullSerializesEmptyString<Context>;
   OmitsSerializingEmptyLists: OmitsSerializingEmptyLists<Context>;
+  OperationWithDefaults: OperationWithDefaults<Context>;
+  OperationWithNestedStructure: OperationWithNestedStructure<Context>;
   PostPlayerAction: PostPlayerAction<Context>;
   PostUnionWithJsonName: PostUnionWithJsonName<Context>;
   PutWithContentEncoding: PutWithContentEncoding<Context>;
@@ -574,6 +601,7 @@ export interface RestJsonService<Context> {
   StreamingTraitsRequireLength: StreamingTraitsRequireLength<Context>;
   StreamingTraitsWithMediaType: StreamingTraitsWithMediaType<Context>;
   TestBodyStructure: TestBodyStructure<Context>;
+  TestNoInputNoPayload: TestNoInputNoPayload<Context>;
   TestNoPayload: TestNoPayload<Context>;
   TestPayloadBlob: TestPayloadBlob<Context>;
   TestPayloadStructure: TestPayloadStructure<Context>;
@@ -703,6 +731,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.ConstantQueryString,
           this.serializeFrameworkException,
           ConstantQueryStringServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "ContentTypeParameters": {
+        return handle(
+          request,
+          context,
+          "ContentTypeParameters",
+          this.serializerFactory("ContentTypeParameters"),
+          this.service.ContentTypeParameters,
+          this.serializeFrameworkException,
+          ContentTypeParametersServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1582,6 +1622,30 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "OperationWithDefaults": {
+        return handle(
+          request,
+          context,
+          "OperationWithDefaults",
+          this.serializerFactory("OperationWithDefaults"),
+          this.service.OperationWithDefaults,
+          this.serializeFrameworkException,
+          OperationWithDefaultsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "OperationWithNestedStructure": {
+        return handle(
+          request,
+          context,
+          "OperationWithNestedStructure",
+          this.serializerFactory("OperationWithNestedStructure"),
+          this.service.OperationWithNestedStructure,
+          this.serializeFrameworkException,
+          OperationWithNestedStructureServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "PostPlayerAction": {
         return handle(
           request,
@@ -1750,6 +1814,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "TestNoInputNoPayload": {
+        return handle(
+          request,
+          context,
+          "TestNoInputNoPayload",
+          this.serializerFactory("TestNoInputNoPayload"),
+          this.service.TestNoInputNoPayload,
+          this.serializeFrameworkException,
+          TestNoInputNoPayloadServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "TestNoPayload": {
         return handle(
           request,
@@ -1839,6 +1915,12 @@ export const getRestJsonServiceHandler = <Context>(
         { type: "query_literal", key: "hello", value: "" },
       ],
       { service: "RestJson", operation: "ConstantQueryString" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "ContentTypeParameters">(
+      "POST",
+      [{ type: "path_literal", value: "ContentTypeParameters" }],
+      [],
+      { service: "RestJson", operation: "ContentTypeParameters" }
     ),
     new httpbinding.UriSpec<"RestJson", "DatetimeOffsets">(
       "POST",
@@ -2287,6 +2369,18 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "OmitsSerializingEmptyLists" }
     ),
+    new httpbinding.UriSpec<"RestJson", "OperationWithDefaults">(
+      "POST",
+      [{ type: "path_literal", value: "OperationWithDefaults" }],
+      [],
+      { service: "RestJson", operation: "OperationWithDefaults" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "OperationWithNestedStructure">(
+      "POST",
+      [{ type: "path_literal", value: "OperationWithNestedStructure" }],
+      [],
+      { service: "RestJson", operation: "OperationWithNestedStructure" }
+    ),
     new httpbinding.UriSpec<"RestJson", "PostPlayerAction">(
       "POST",
       [{ type: "path_literal", value: "PostPlayerAction" }],
@@ -2372,6 +2466,12 @@ export const getRestJsonServiceHandler = <Context>(
       service: "RestJson",
       operation: "TestBodyStructure",
     }),
+    new httpbinding.UriSpec<"RestJson", "TestNoInputNoPayload">(
+      "GET",
+      [{ type: "path_literal", value: "no_input_no_payload" }],
+      [],
+      { service: "RestJson", operation: "TestNoInputNoPayload" }
+    ),
     new httpbinding.UriSpec<"RestJson", "TestNoPayload">("GET", [{ type: "path_literal", value: "no_payload" }], [], {
       service: "RestJson",
       operation: "TestNoPayload",
@@ -2411,6 +2511,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new ConstantAndVariableQueryStringSerializer();
       case "ConstantQueryString":
         return new ConstantQueryStringSerializer();
+      case "ContentTypeParameters":
+        return new ContentTypeParametersSerializer();
       case "DatetimeOffsets":
         return new DatetimeOffsetsSerializer();
       case "DocumentType":
@@ -2557,6 +2659,10 @@ export const getRestJsonServiceHandler = <Context>(
         return new OmitsNullSerializesEmptyStringSerializer();
       case "OmitsSerializingEmptyLists":
         return new OmitsSerializingEmptyListsSerializer();
+      case "OperationWithDefaults":
+        return new OperationWithDefaultsSerializer();
+      case "OperationWithNestedStructure":
+        return new OperationWithNestedStructureSerializer();
       case "PostPlayerAction":
         return new PostPlayerActionSerializer();
       case "PostUnionWithJsonName":
@@ -2585,6 +2691,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new StreamingTraitsWithMediaTypeSerializer();
       case "TestBodyStructure":
         return new TestBodyStructureSerializer();
+      case "TestNoInputNoPayload":
+        return new TestNoInputNoPayloadSerializer();
       case "TestNoPayload":
         return new TestNoPayloadSerializer();
       case "TestPayloadBlob":

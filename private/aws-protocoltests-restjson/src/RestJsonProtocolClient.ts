@@ -76,6 +76,10 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
+import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   DocumentTypeAsMapValueCommandInput,
@@ -272,6 +276,14 @@ import {
   OmitsSerializingEmptyListsCommandInput,
   OmitsSerializingEmptyListsCommandOutput,
 } from "./commands/OmitsSerializingEmptyListsCommand";
+import {
+  OperationWithDefaultsCommandInput,
+  OperationWithDefaultsCommandOutput,
+} from "./commands/OperationWithDefaultsCommand";
+import {
+  OperationWithNestedStructureCommandInput,
+  OperationWithNestedStructureCommandOutput,
+} from "./commands/OperationWithNestedStructureCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "./commands/PostPlayerActionCommand";
 import {
   PostUnionWithJsonNameCommandInput,
@@ -307,6 +319,10 @@ import {
   StreamingTraitsWithMediaTypeCommandOutput,
 } from "./commands/StreamingTraitsWithMediaTypeCommand";
 import { TestBodyStructureCommandInput, TestBodyStructureCommandOutput } from "./commands/TestBodyStructureCommand";
+import {
+  TestNoInputNoPayloadCommandInput,
+  TestNoInputNoPayloadCommandOutput,
+} from "./commands/TestNoInputNoPayloadCommand";
 import { TestNoPayloadCommandInput, TestNoPayloadCommandOutput } from "./commands/TestNoPayloadCommand";
 import { TestPayloadBlobCommandInput, TestPayloadBlobCommandOutput } from "./commands/TestPayloadBlobCommand";
 import {
@@ -330,6 +346,7 @@ export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
+  | ContentTypeParametersCommandInput
   | DatetimeOffsetsCommandInput
   | DocumentTypeAsMapValueCommandInput
   | DocumentTypeAsPayloadCommandInput
@@ -403,6 +420,8 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
   | OmitsSerializingEmptyListsCommandInput
+  | OperationWithDefaultsCommandInput
+  | OperationWithNestedStructureCommandInput
   | PostPlayerActionCommandInput
   | PostUnionWithJsonNameCommandInput
   | PutWithContentEncodingCommandInput
@@ -417,6 +436,7 @@ export type ServiceInputTypes =
   | StreamingTraitsRequireLengthCommandInput
   | StreamingTraitsWithMediaTypeCommandInput
   | TestBodyStructureCommandInput
+  | TestNoInputNoPayloadCommandInput
   | TestNoPayloadCommandInput
   | TestPayloadBlobCommandInput
   | TestPayloadStructureCommandInput
@@ -430,6 +450,7 @@ export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
+  | ContentTypeParametersCommandOutput
   | DatetimeOffsetsCommandOutput
   | DocumentTypeAsMapValueCommandOutput
   | DocumentTypeAsPayloadCommandOutput
@@ -503,6 +524,8 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
   | OmitsSerializingEmptyListsCommandOutput
+  | OperationWithDefaultsCommandOutput
+  | OperationWithNestedStructureCommandOutput
   | PostPlayerActionCommandOutput
   | PostUnionWithJsonNameCommandOutput
   | PutWithContentEncodingCommandOutput
@@ -517,6 +540,7 @@ export type ServiceOutputTypes =
   | StreamingTraitsRequireLengthCommandOutput
   | StreamingTraitsWithMediaTypeCommandOutput
   | TestBodyStructureCommandOutput
+  | TestNoInputNoPayloadCommandOutput
   | TestNoPayloadCommandOutput
   | TestPayloadBlobCommandOutput
   | TestPayloadStructureCommandOutput

@@ -41,6 +41,10 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "../commands/ContentTypeParametersCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "../commands/EmptyOperationCommand";
 import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
@@ -85,6 +89,7 @@ import { JsonProtocolServiceException as __BaseException } from "../models/JsonP
 import {
   ComplexError,
   ComplexNestedErrorData,
+  ContentTypeParametersInput,
   DatetimeOffsetsOutput,
   EmptyStruct,
   ErrorWithMembers,
@@ -108,6 +113,19 @@ import {
   StructWithJsonName,
   UnionInputOutput,
 } from "../models/models_0";
+
+/**
+ * serializeAws_json1_1ContentTypeParametersCommand
+ */
+export const se_ContentTypeParametersCommand = async (
+  input: ContentTypeParametersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ContentTypeParameters");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_1DatetimeOffsetsCommand
@@ -327,6 +345,26 @@ export const se_SparseNullsOperationCommand = async (
   let body: any;
   body = JSON.stringify(se_SparseNullsOperationInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1ContentTypeParametersCommand
+ */
+export const de_ContentTypeParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContentTypeParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ContentTypeParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -734,6 +772,8 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
   return __decorateServiceException(exception, body);
 };
 
+// se_ContentTypeParametersInput omitted.
+
 /**
  * serializeAws_json1_1Document
  */
@@ -951,6 +991,8 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
     Foo: [, __expectString, `Foo`],
   }) as any;
 };
+
+// de_ContentTypeParametersOutput omitted.
 
 /**
  * deserializeAws_json1_1DatetimeOffsetsOutput

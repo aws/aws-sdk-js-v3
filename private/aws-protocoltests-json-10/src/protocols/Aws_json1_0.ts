@@ -39,6 +39,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "../commands/ContentTypeParametersCommand";
+import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
@@ -80,6 +84,7 @@ import {
   ClientOptionalDefaults,
   ComplexError,
   ComplexNestedErrorData,
+  ContentTypeParametersInput,
   Defaults,
   Dialog,
   EmptyInputAndEmptyOutputInput,
@@ -101,6 +106,19 @@ import {
   SimpleScalarPropertiesOutput,
   TopLevel,
 } from "../models/models_0";
+
+/**
+ * serializeAws_json1_0ContentTypeParametersCommand
+ */
+export const se_ContentTypeParametersCommand = async (
+  input: ContentTypeParametersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ContentTypeParameters");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0EmptyInputAndEmptyOutputCommand
@@ -282,6 +300,26 @@ export const se_SimpleScalarPropertiesCommand = async (
   let body: any;
   body = JSON.stringify(se_SimpleScalarPropertiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0ContentTypeParametersCommand
+ */
+export const de_ContentTypeParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContentTypeParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ContentTypeParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -599,6 +637,8 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
 
 // se_ClientOptionalDefaults omitted.
 
+// se_ContentTypeParametersInput omitted.
+
 /**
  * serializeAws_json1_0Defaults
  */
@@ -740,6 +780,8 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
     Foo: [, __expectString, `Foo`],
   }) as any;
 };
+
+// de_ContentTypeParametersOutput omitted.
 
 // de_Dialog omitted.
 

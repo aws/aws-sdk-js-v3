@@ -64,6 +64,18 @@ export class ComplexError extends __BaseException {
 /**
  * @public
  */
+export interface ContentTypeParametersInput {
+  value?: number;
+}
+
+/**
+ * @public
+ */
+export interface ContentTypeParametersOutput {}
+
+/**
+ * @public
+ */
 export interface DatetimeOffsetsOutput {
   datetime?: Date;
 }

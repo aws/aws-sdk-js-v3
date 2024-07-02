@@ -19,6 +19,7 @@ import { getRestJsonServiceHandler } from "../../src/server";
 import { AllQueryStringTypes } from "../../src/server/operations/AllQueryStringTypes";
 import { ConstantAndVariableQueryString } from "../../src/server/operations/ConstantAndVariableQueryString";
 import { ConstantQueryString } from "../../src/server/operations/ConstantQueryString";
+import { ContentTypeParameters } from "../../src/server/operations/ContentTypeParameters";
 import {
   DocumentType,
   DocumentTypeSerializer,
@@ -167,6 +168,16 @@ import {
 } from "../../src/server/operations/NullAndEmptyHeadersServer";
 import { OmitsNullSerializesEmptyString } from "../../src/server/operations/OmitsNullSerializesEmptyString";
 import {
+  OperationWithDefaults,
+  OperationWithDefaultsSerializer,
+  OperationWithDefaultsServerOutput,
+} from "../../src/server/operations/OperationWithDefaults";
+import {
+  OperationWithNestedStructure,
+  OperationWithNestedStructureSerializer,
+  OperationWithNestedStructureServerOutput,
+} from "../../src/server/operations/OperationWithNestedStructure";
+import {
   PostPlayerAction,
   PostPlayerActionSerializer,
   PostPlayerActionServerOutput,
@@ -211,6 +222,7 @@ import {
   StreamingTraitsWithMediaTypeServerOutput,
 } from "../../src/server/operations/StreamingTraitsWithMediaType";
 import { TestBodyStructure } from "../../src/server/operations/TestBodyStructure";
+import { TestNoInputNoPayload } from "../../src/server/operations/TestNoInputNoPayload";
 import { TestNoPayload } from "../../src/server/operations/TestNoPayload";
 import { TestPayloadBlob } from "../../src/server/operations/TestPayloadBlob";
 import { TestPayloadStructure } from "../../src/server/operations/TestPayloadStructure";
@@ -975,6 +987,50 @@ it("RestJsonConstantQueryString:ServerRequest", async () => {
   const paramsToValidate: any = [
     {
       hello: "hi",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * A server should ignore parameters added to the content type
+ */
+it.skip("RestJsonMustSupportParametersInContentType:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    ContentTypeParameters: testFunction as ContentTypeParameters<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/ContentTypeParameters",
+    query: {},
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+    },
+    body: Readable.from(['{"value":5}']),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      value: 5,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2406,7 +2462,9 @@ it("RestJsonEnumPayloadRequest:ServerRequest", async () => {
     hostname: "foo.example.com",
     path: "/EnumPayload",
     query: {},
-    headers: {},
+    headers: {
+      "content-type": "text/plain",
+    },
     body: Readable.from(["enumvalue"]),
   });
   await handler.handle(request, {});
@@ -2467,6 +2525,9 @@ it("RestJsonEnumPayloadResponse:ServerResponse", async () => {
   const r = await handler.handle(request, {});
 
   expect(r.statusCode).toBe(200);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("text/plain");
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
@@ -2593,6 +2654,53 @@ it("RestJsonHttpPayloadTraitsWithBlobAcceptsAllContentTypes:ServerRequest", asyn
     headers: {
       "x-foo": "Foo",
       "content-type": "image/jpeg",
+    },
+    body: Readable.from(["This is definitely a jpeg"]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      foo: "Foo",
+
+      blob: Uint8Array.from("This is definitely a jpeg", (c) => c.charCodeAt(0)),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Servers must accept no content type for blob inputs
+ * without the media type trait.
+ */
+it("RestJsonHttpPayloadTraitsWithBlobAcceptsNoContentType:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    HttpPayloadTraits: testFunction as HttpPayloadTraits<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/HttpPayloadTraits",
+    query: {},
+    headers: {
+      "x-foo": "Foo",
     },
     body: Readable.from(["This is definitely a jpeg"]),
   });
@@ -3867,7 +3975,9 @@ it("RestJsonStringPayloadRequest:ServerRequest", async () => {
     hostname: "foo.example.com",
     path: "/StringPayload",
     query: {},
-    headers: {},
+    headers: {
+      "content-type": "text/plain",
+    },
     body: Readable.from(["rawstring"]),
   });
   await handler.handle(request, {});
@@ -3929,11 +4039,127 @@ it("RestJsonStringPayloadResponse:ServerResponse", async () => {
 
   expect(r.statusCode).toBe(200);
 
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("text/plain");
+
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `rawstring`;
-  const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+  const unequalParts: any = compareEquivalentTextBodies(bodyString, r.body);
   expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * Serializes a string in the HTTP payload without a content-type header
+ */
+it.skip("RestJsonStringPayloadNoContentType:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    HttpStringPayload: testFunction as HttpStringPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/StringPayload",
+    query: {},
+    headers: {},
+    body: Readable.from(["rawstring"]),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(415);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
+});
+
+/**
+ * Serializes a string in the HTTP payload without the expected content-type header
+ */
+it("RestJsonStringPayloadWrongContentType:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    HttpStringPayload: testFunction as HttpStringPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/StringPayload",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(["rawstring"]),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(415);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
+});
+
+/**
+ * Serializes a string in the HTTP payload with an unstatisfiable accept header
+ */
+it("RestJsonStringPayloadUnsatisfiableAccept:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    HttpStringPayload: testFunction as HttpStringPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/StringPayload",
+    query: {},
+    headers: {
+      "content-type": "text/plain",
+      accept: "application/json",
+    },
+    body: Readable.from(["rawstring"]),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(406);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("NotAcceptableException");
 });
 
 /**
@@ -14454,7 +14680,7 @@ it("RestJsonHeaderByteMalformedValueRejected_case6:MalformedRequest", async () =
 });
 
 /**
- * When there is modeled input, they content type must be application/json
+ * When there is modeled input, the content type must be application/json
  */
 it("RestJsonWithBodyExpectsApplicationJsonContentType:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -14481,6 +14707,42 @@ it("RestJsonWithBodyExpectsApplicationJsonContentType:MalformedRequest", async (
     headers: {
       "content-type": "application/hal+json",
     },
+    body: Readable.from(["{}"]),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(415);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("UnsupportedMediaTypeException");
+});
+
+/**
+ * When there is modeled input, the content type must be application/json
+ */
+it.skip("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    MalformedContentTypeWithBody: testFunction as MalformedContentTypeWithBody<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedContentTypeWithBody",
+    query: {},
+    headers: {},
     body: Readable.from(["{}"]),
   });
   const r = await handler.handle(request, {});
@@ -27374,6 +27636,45 @@ it("RestJsonMalformedUnionNoFieldsSet:MalformedRequest", async () => {
 });
 
 /**
+ * When the union is an empty object, it has no fields set, so the
+ * response should be a 400 SerializationException.
+ */
+it("RestJsonMalformedUnionEmptyObjectNoFieldsSet:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    MalformedUnion: testFunction as MalformedUnion<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUnion",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "union" : {  } }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
+});
+
+/**
  * When the union value is actually an array, the response should be a 400
  * SerializationException.
  */
@@ -27930,6 +28231,425 @@ it("RestJsonServersAcceptStaticQueryParamAsEmptyString:ServerRequest", async () 
 });
 
 /**
+ * Server populates default values when missing in request body.
+ */
+it.skip("RestJsonServerPopulatesDefaultsWhenMissingInRequestBody:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    OperationWithDefaults: testFunction as OperationWithDefaults<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/OperationWithDefaults",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{\n"defaults": {}\n}']),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      defaults: {
+        defaultString: "hi",
+
+        defaultBoolean: true,
+
+        defaultList: [],
+
+        defaultDocumentMap: {},
+
+        defaultDocumentString: "hi",
+
+        defaultDocumentBoolean: true,
+
+        defaultDocumentList: [],
+
+        defaultTimestamp: new Date(0 * 1000),
+
+        defaultBlob: Uint8Array.from("abc", (c) => c.charCodeAt(0)),
+
+        defaultByte: 1,
+
+        defaultShort: 1,
+
+        defaultInteger: 10,
+
+        defaultLong: 100,
+
+        defaultFloat: 1.0,
+
+        defaultDouble: 1.0,
+
+        defaultMap: {},
+
+        defaultEnum: "FOO",
+
+        defaultIntEnum: 1,
+
+        emptyString: "",
+
+        falseBoolean: false,
+
+        emptyBlob: Uint8Array.from("", (c) => c.charCodeAt(0)),
+
+        zeroByte: 0,
+
+        zeroShort: 0,
+
+        zeroInteger: 0,
+
+        zeroLong: 0,
+
+        zeroFloat: 0.0,
+
+        zeroDouble: 0.0,
+      },
+
+      topLevelDefault: "hi",
+
+      otherTopLevelDefault: 0,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Server populates default values in response when missing in params.
+ */
+it.skip("RestJsonServerPopulatesDefaultsInResponseWhenMissingInParams:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    OperationWithDefaults(input: any, ctx: {}): Promise<OperationWithDefaultsServerOutput> {
+      const response = {} as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "OperationWithDefaults">("POST", [], [], {
+      service: "RestJson",
+      operation: "OperationWithDefaults",
+    }),
+  ]);
+  class TestSerializer extends OperationWithDefaultsSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{
+                                                                                                                                        \"defaultString\": \"hi\",
+                                                                                                                                        \"defaultBoolean\": true,
+                                                                                                                                        \"defaultList\": [],
+                                                                                                                                        \"defaultDocumentMap\": {},
+                                                                                                                                        \"defaultDocumentString\": \"hi\",
+                                                                                                                                        \"defaultDocumentBoolean\": true,
+                                                                                                                                        \"defaultDocumentList\": [],
+                                                                                                                                        \"defaultTimestamp\": 0,
+                                                                                                                                        \"defaultBlob\": \"YWJj\",
+                                                                                                                                        \"defaultByte\": 1,
+                                                                                                                                        \"defaultShort\": 1,
+                                                                                                                                        \"defaultInteger\": 10,
+                                                                                                                                        \"defaultLong\": 100,
+                                                                                                                                        \"defaultFloat\": 1.0,
+                                                                                                                                        \"defaultDouble\": 1.0,
+                                                                                                                                        \"defaultMap\": {},
+                                                                                                                                        \"defaultEnum\": \"FOO\",
+                                                                                                                                        \"defaultIntEnum\": 1,
+                                                                                                                                        \"emptyString\": \"\",
+                                                                                                                                        \"falseBoolean\": false,
+                                                                                                                                        \"emptyBlob\": \"\",
+                                                                                                                                        \"zeroByte\": 0,
+                                                                                                                                        \"zeroShort\": 0,
+                                                                                                                                        \"zeroInteger\": 0,
+                                                                                                                                        \"zeroLong\": 0,
+                                                                                                                                        \"zeroFloat\": 0.0,
+                                                                                                                                        \"zeroDouble\": 0.0
+                                                                                                                                    }`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * Server populates nested default values when missing in request body.
+ */
+it.skip("RestJsonServerPopulatesNestedDefaultsWhenMissingInRequestBody:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    OperationWithNestedStructure: testFunction as OperationWithNestedStructure<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/OperationWithNestedStructure",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from([
+      '{\n    "topLevel": {\n        "dialog": {\n            "language": "en"\n        },\n        "dialogList": [\n            {\n            },\n            {\n                "farewell": {}\n            },\n            {\n                "language": "it",\n                "greeting": "ciao",\n                "farewell": {\n                    "phrase": "arrivederci"\n                }\n            }\n        ],\n        "dialogMap": {\n            "emptyDialog": {\n            },\n            "partialEmptyDialog": {\n                "language": "en",\n                "farewell": {}\n            },\n            "nonEmptyDialog": {\n                "greeting": "konnichiwa",\n                "farewell": {\n                    "phrase": "sayonara"\n                }\n            }\n        }\n    }\n}',
+    ]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+
+  const paramsToValidate: any = [
+    {
+      topLevel: {
+        dialog: {
+          language: "en",
+
+          greeting: "hi",
+        },
+
+        dialogList: [
+          {
+            greeting: "hi",
+          },
+
+          {
+            greeting: "hi",
+
+            farewell: {
+              phrase: "bye",
+            },
+          },
+
+          {
+            language: "it",
+
+            greeting: "ciao",
+
+            farewell: {
+              phrase: "arrivederci",
+            },
+          },
+        ],
+
+        dialogMap: {
+          emptyDialog: {
+            greeting: "hi",
+          },
+
+          partialEmptyDialog: {
+            language: "en",
+
+            greeting: "hi",
+
+            farewell: {
+              phrase: "bye",
+            },
+          },
+
+          nonEmptyDialog: {
+            greeting: "konnichiwa",
+
+            farewell: {
+              phrase: "sayonara",
+            },
+          },
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Server populates nested default values when missing in response params.
+ */
+it.skip("RestJsonServerPopulatesNestedDefaultValuesWhenMissingInInResponseParams:ServerResponse", async () => {
+  class TestService implements Partial<RestJsonService<{}>> {
+    OperationWithNestedStructure(input: any, ctx: {}): Promise<OperationWithNestedStructureServerOutput> {
+      const response = {
+        dialog: {
+          language: "en",
+        } as any,
+
+        dialogList: [
+          {} as any,
+
+          {
+            farewell: {} as any,
+          } as any,
+
+          {
+            language: "it",
+
+            greeting: "ciao",
+
+            farewell: {
+              phrase: "arrivederci",
+            } as any,
+          } as any,
+        ],
+
+        dialogMap: {
+          emptyDialog: {} as any,
+
+          partialEmptyDialog: {
+            language: "en",
+
+            farewell: {} as any,
+          } as any,
+
+          nonEmptyDialog: {
+            greeting: "konnichiwa",
+
+            farewell: {
+              phrase: "sayonara",
+            } as any,
+          } as any,
+        } as any,
+      } as any;
+      return Promise.resolve({ ...response, $metadata: {} });
+    }
+  }
+  const service: any = new TestService();
+  const testMux = new httpbinding.HttpBindingMux<"RestJson", keyof RestJsonService<{}>>([
+    new httpbinding.UriSpec<"RestJson", "OperationWithNestedStructure">("POST", [], [], {
+      service: "RestJson",
+      operation: "OperationWithNestedStructure",
+    }),
+  ]);
+  class TestSerializer extends OperationWithNestedStructureSerializer {
+    deserialize = (output: any, context: any): Promise<any> => {
+      return Promise.resolve({});
+    };
+  }
+  const request = new HttpRequest({ method: "POST", hostname: "example.com" });
+  const serFn: (
+    op: RestJsonServiceOperations
+  ) => __OperationSerializer<RestJsonService<{}>, RestJsonServiceOperations, __ServiceException> = (op) => {
+    return new TestSerializer();
+  };
+  const handler = new RestJsonServiceHandler(
+    service,
+    testMux,
+    serFn,
+    serializeFrameworkException,
+    (ctx: {}, f: __ValidationFailure[]) => {
+      if (f) {
+        throw f;
+      }
+      return undefined;
+    }
+  );
+  const r = await handler.handle(request, {});
+
+  expect(r.statusCode).toBe(200);
+
+  expect(r.headers["content-type"]).toBeDefined();
+  expect(r.headers["content-type"]).toBe("application/json");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{
+                                                                                                                                          \"dialog\": {
+                                                                                                                                              \"language\": \"en\",
+                                                                                                                                              \"greeting\": \"hi\"
+                                                                                                                                          },
+                                                                                                                                          \"dialogList\": [
+                                                                                                                                              {
+                                                                                                                                                  \"greeting\": \"hi\"
+                                                                                                                                              },
+                                                                                                                                              {
+                                                                                                                                                  \"greeting\": \"hi\",
+                                                                                                                                                  \"farewell\": {
+                                                                                                                                                      \"phrase\": \"bye\"
+                                                                                                                                                  }
+                                                                                                                                              },
+                                                                                                                                              {
+                                                                                                                                                  \"language\": \"it\",
+                                                                                                                                                  \"greeting\": \"ciao\",
+                                                                                                                                                  \"farewell\": {
+                                                                                                                                                      \"phrase\": \"arrivederci\"
+                                                                                                                                                  }
+                                                                                                                                              }
+                                                                                                                                          ],
+                                                                                                                                          \"dialogMap\": {
+                                                                                                                                              \"emptyDialog\": {
+                                                                                                                                                  \"greeting\": \"hi\"
+                                                                                                                                              },
+                                                                                                                                              \"partialEmptyDialog\": {
+                                                                                                                                                  \"language\": \"en\",
+                                                                                                                                                  \"greeting\": \"hi\",
+                                                                                                                                                  \"farewell\": {
+                                                                                                                                                      \"phrase\": \"bye\"
+                                                                                                                                                  }
+                                                                                                                                              },
+                                                                                                                                              \"nonEmptyDialog\": {
+                                                                                                                                                  \"greeting\": \"konnichiwa\",
+                                                                                                                                                  \"farewell\": {
+                                                                                                                                                      \"phrase\": \"sayonara\"
+                                                                                                                                                  }
+                                                                                                                                              }
+                                                                                                                                          }
+                                                                                                                                      }`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
  * Unit types in unions are serialized like normal structures in requests.
  */
 it("RestJsonInputUnionWithUnitMember:ServerRequest", async () => {
@@ -28029,10 +28749,10 @@ it("RestJsonOutputUnionWithUnitMember:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                        \"action\": {
-                                                                                                                                            \"quit\": {}
-                                                                                                                                        }
-                                                                                                                                    }`;
+                                                                                                                                            \"action\": {
+                                                                                                                                                \"quit\": {}
+                                                                                                                                            }
+                                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28229,10 +28949,10 @@ it("PostUnionWithJsonNameResponse1:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                          \"value\": {
-                                                                                                                                              \"FOO\": \"hi\"
-                                                                                                                                          }
-                                                                                                                                      }`;
+                                                                                                                                              \"value\": {
+                                                                                                                                                  \"FOO\": \"hi\"
+                                                                                                                                              }
+                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28291,10 +29011,10 @@ it("PostUnionWithJsonNameResponse2:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                            \"value\": {
-                                                                                                                                                \"_baz\": \"hi\"
-                                                                                                                                            }
-                                                                                                                                        }`;
+                                                                                                                                                \"value\": {
+                                                                                                                                                    \"_baz\": \"hi\"
+                                                                                                                                                }
+                                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28353,10 +29073,10 @@ it("PostUnionWithJsonNameResponse3:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                              \"value\": {
-                                                                                                                                                  \"bar\": \"hi\"
-                                                                                                                                              }
-                                                                                                                                          }`;
+                                                                                                                                                  \"value\": {
+                                                                                                                                                      \"bar\": \"hi\"
+                                                                                                                                                  }
+                                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -28680,19 +29400,19 @@ it("RestJsonRecursiveShapes:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                \"nested\": {
-                                                                                                                                                    \"foo\": \"Foo1\",
                                                                                                                                                     \"nested\": {
-                                                                                                                                                        \"bar\": \"Bar1\",
-                                                                                                                                                        \"recursiveMember\": {
-                                                                                                                                                            \"foo\": \"Foo2\",
-                                                                                                                                                            \"nested\": {
-                                                                                                                                                                \"bar\": \"Bar2\"
+                                                                                                                                                        \"foo\": \"Foo1\",
+                                                                                                                                                        \"nested\": {
+                                                                                                                                                            \"bar\": \"Bar1\",
+                                                                                                                                                            \"recursiveMember\": {
+                                                                                                                                                                \"foo\": \"Foo2\",
+                                                                                                                                                                \"nested\": {
+                                                                                                                                                                    \"bar\": \"Bar2\"
+                                                                                                                                                                }
                                                                                                                                                             }
                                                                                                                                                         }
                                                                                                                                                     }
-                                                                                                                                                }
-                                                                                                                                            }`;
+                                                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29006,16 +29726,16 @@ it("RestJsonSimpleScalarProperties:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                  \"stringValue\": \"string\",
-                                                                                                                                                  \"trueBooleanValue\": true,
-                                                                                                                                                  \"falseBooleanValue\": false,
-                                                                                                                                                  \"byteValue\": 1,
-                                                                                                                                                  \"shortValue\": 2,
-                                                                                                                                                  \"integerValue\": 3,
-                                                                                                                                                  \"longValue\": 4,
-                                                                                                                                                  \"floatValue\": 5.5,
-                                                                                                                                                  \"DoubleDribble\": 6.5
-                                                                                                                                              }`;
+                                                                                                                                                      \"stringValue\": \"string\",
+                                                                                                                                                      \"trueBooleanValue\": true,
+                                                                                                                                                      \"falseBooleanValue\": false,
+                                                                                                                                                      \"byteValue\": 1,
+                                                                                                                                                      \"shortValue\": 2,
+                                                                                                                                                      \"integerValue\": 3,
+                                                                                                                                                      \"longValue\": 4,
+                                                                                                                                                      \"floatValue\": 5.5,
+                                                                                                                                                      \"DoubleDribble\": 6.5
+                                                                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29130,9 +29850,9 @@ it("RestJsonSupportsNaNFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                      \"floatValue\": \"NaN\",
-                                                                                                                                                      \"DoubleDribble\": \"NaN\"
-                                                                                                                                                  }`;
+                                                                                                                                                          \"floatValue\": \"NaN\",
+                                                                                                                                                          \"DoubleDribble\": \"NaN\"
+                                                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29191,9 +29911,9 @@ it("RestJsonSupportsInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                        \"floatValue\": \"Infinity\",
-                                                                                                                                                        \"DoubleDribble\": \"Infinity\"
-                                                                                                                                                    }`;
+                                                                                                                                                            \"floatValue\": \"Infinity\",
+                                                                                                                                                            \"DoubleDribble\": \"Infinity\"
+                                                                                                                                                        }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29252,9 +29972,9 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                          \"floatValue\": \"-Infinity\",
-                                                                                                                                                          \"DoubleDribble\": \"-Infinity\"
-                                                                                                                                                      }`;
+                                                                                                                                                              \"floatValue\": \"-Infinity\",
+                                                                                                                                                              \"DoubleDribble\": \"-Infinity\"
+                                                                                                                                                          }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29355,11 +30075,11 @@ it("RestJsonSparseListsSerializeNull:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                            \"sparseStringList\": [
-                                                                                                                                                                null,
-                                                                                                                                                                \"hi\"
-                                                                                                                                                            ]
-                                                                                                                                                        }`;
+                                                                                                                                                                \"sparseStringList\": [
+                                                                                                                                                                    null,
+                                                                                                                                                                    \"hi\"
+                                                                                                                                                                ]
+                                                                                                                                                            }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29690,15 +30410,15 @@ it("RestJsonSparseJsonMaps:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                              \"sparseStructMap\": {
-                                                                                                                                                                  \"foo\": {
-                                                                                                                                                                      \"hi\": \"there\"
-                                                                                                                                                                  },
-                                                                                                                                                                  \"baz\": {
-                                                                                                                                                                      \"hi\": \"bye\"
-                                                                                                                                                                  }
-                                                                                                                                                             }
-                                                                                                                                                          }`;
+                                                                                                                                                                  \"sparseStructMap\": {
+                                                                                                                                                                      \"foo\": {
+                                                                                                                                                                          \"hi\": \"there\"
+                                                                                                                                                                      },
+                                                                                                                                                                      \"baz\": {
+                                                                                                                                                                          \"hi\": \"bye\"
+                                                                                                                                                                      }
+                                                                                                                                                                 }
+                                                                                                                                                              }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29769,19 +30489,19 @@ it("RestJsonDeserializesSparseNullMapValues:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                \"sparseBooleanMap\": {
-                                                                                                                                                                    \"x\": null
-                                                                                                                                                                },
-                                                                                                                                                                \"sparseNumberMap\": {
-                                                                                                                                                                    \"x\": null
-                                                                                                                                                                },
-                                                                                                                                                                \"sparseStringMap\": {
-                                                                                                                                                                    \"x\": null
-                                                                                                                                                                },
-                                                                                                                                                                \"sparseStructMap\": {
-                                                                                                                                                                    \"x\": null
-                                                                                                                                                                }
-                                                                                                                                                            }`;
+                                                                                                                                                                    \"sparseBooleanMap\": {
+                                                                                                                                                                        \"x\": null
+                                                                                                                                                                    },
+                                                                                                                                                                    \"sparseNumberMap\": {
+                                                                                                                                                                        \"x\": null
+                                                                                                                                                                    },
+                                                                                                                                                                    \"sparseStringMap\": {
+                                                                                                                                                                        \"x\": null
+                                                                                                                                                                    },
+                                                                                                                                                                    \"sparseStructMap\": {
+                                                                                                                                                                        \"x\": null
+                                                                                                                                                                    }
+                                                                                                                                                                }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29844,13 +30564,13 @@ it("RestJsonDeserializesZeroValuesInSparseMaps:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                  \"sparseNumberMap\": {
-                                                                                                                                                                      \"x\": 0
-                                                                                                                                                                  },
-                                                                                                                                                                  \"sparseBooleanMap\": {
-                                                                                                                                                                      \"x\": false
-                                                                                                                                                                  }
-                                                                                                                                                              }`;
+                                                                                                                                                                      \"sparseNumberMap\": {
+                                                                                                                                                                          \"x\": 0
+                                                                                                                                                                      },
+                                                                                                                                                                      \"sparseBooleanMap\": {
+                                                                                                                                                                          \"x\": false
+                                                                                                                                                                      }
+                                                                                                                                                                  }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29911,11 +30631,11 @@ it("RestJsonDeserializesSparseSetMap:ServerResponse", async () => {
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                    \"sparseSetMap\": {
-                                                                                                                                                                        \"x\": [],
-                                                                                                                                                                        \"y\": [\"a\", \"b\"]
-                                                                                                                                                                    }
-                                                                                                                                                                }`;
+                                                                                                                                                                        \"sparseSetMap\": {
+                                                                                                                                                                            \"x\": [],
+                                                                                                                                                                            \"y\": [\"a\", \"b\"]
+                                                                                                                                                                        }
+                                                                                                                                                                    }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -29978,12 +30698,12 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:ServerResponse", async () => 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
   const bodyString = `{
-                                                                                                                                                                      \"sparseSetMap\": {
-                                                                                                                                                                          \"x\": [],
-                                                                                                                                                                          \"y\": [\"a\", \"b\"],
-                                                                                                                                                                          \"z\": null
-                                                                                                                                                                      }
-                                                                                                                                                                  }`;
+                                                                                                                                                                          \"sparseSetMap\": {
+                                                                                                                                                                              \"x\": [],
+                                                                                                                                                                              \"y\": [\"a\", \"b\"],
+                                                                                                                                                                              \"z\": null
+                                                                                                                                                                          }
+                                                                                                                                                                      }`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -30487,6 +31207,38 @@ it("RestJsonHttpWithEmptyBody:ServerRequest", async () => {
       "content-type": "application/json",
     },
     body: Readable.from(["{}"]),
+  });
+  await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(1);
+  const r: any = testFunction.mock.calls[0][0];
+});
+
+/**
+ * Serializes a GET request for an operation with no input, and therefore no modeled body
+ */
+it("RestJsonHttpWithNoInput:ServerRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockReturnValue(Promise.resolve({}));
+  const testService: Partial<RestJsonService<{}>> = {
+    TestNoInputNoPayload: testFunction as TestNoInputNoPayload<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "GET",
+    hostname: "foo.example.com",
+    path: "/no_input_no_payload",
+    query: {},
+    headers: {},
+    body: Readable.from([""]),
   });
   await handler.handle(request, {});
 
@@ -31050,6 +31802,17 @@ const compareEquivalentOctetStreamBodies = (
 ): Object => {
   const expectedParts = { Value: expectedBody };
   const generatedParts = { Value: utf8Encoder(generatedBody) };
+
+  return compareParts(expectedParts, generatedParts);
+};
+
+/**
+ * Returns a map of key names that were un-equal to value objects showing the
+ * discrepancies between the components.
+ */
+const compareEquivalentTextBodies = (expectedBody: string, generatedBody: string): Object => {
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = { Value: generatedBody };
 
   return compareParts(expectedParts, generatedParts);
 };

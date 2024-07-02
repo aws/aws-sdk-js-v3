@@ -23,6 +23,11 @@ import {
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import {
+  ContentTypeParametersCommand,
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
+import {
   DatetimeOffsetsCommand,
   DatetimeOffsetsCommandInput,
   DatetimeOffsetsCommandOutput,
@@ -290,6 +295,7 @@ const commands = {
   BodyWithXmlNameCommand,
   ConstantAndVariableQueryStringCommand,
   ConstantQueryStringCommand,
+  ContentTypeParametersCommand,
   DatetimeOffsetsCommand,
   EmptyInputAndEmptyOutputCommand,
   EndpointOperationCommand,
@@ -416,6 +422,24 @@ export interface RestXmlProtocol {
     args: ConstantQueryStringCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ConstantQueryStringCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ContentTypeParametersCommand}
+   */
+  contentTypeParameters(): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ContentTypeParametersCommandOutput>;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
+  ): void;
+  contentTypeParameters(
+    args: ContentTypeParametersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
   ): void;
 
   /**
