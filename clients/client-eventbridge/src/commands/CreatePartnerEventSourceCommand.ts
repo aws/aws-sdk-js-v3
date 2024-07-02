@@ -113,6 +113,7 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class CreatePartnerEventSourceCommand extends $Command
   .classBuilder<
     CreatePartnerEventSourceCommandInput,
@@ -130,7 +131,12 @@ export class CreatePartnerEventSourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "CreatePartnerEventSource", {})
+  .s("AWSEvents", "CreatePartnerEventSource", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CreatePartnerEventSourceCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "CreatePartnerEventSourceCommand")
   .f(void 0, void 0)
   .ser(se_CreatePartnerEventSourceCommand)

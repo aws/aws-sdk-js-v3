@@ -82,6 +82,7 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutPartnerEventsCommand extends $Command
   .classBuilder<
     PutPartnerEventsCommandInput,
@@ -99,7 +100,12 @@ export class PutPartnerEventsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "PutPartnerEvents", {})
+  .s("AWSEvents", "PutPartnerEvents", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutPartnerEventsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "PutPartnerEventsCommand")
   .f(void 0, void 0)
   .ser(se_PutPartnerEventsCommand)

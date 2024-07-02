@@ -116,18 +116,8 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To delete bucket policy
- * ```javascript
- * // The following example deletes bucket policy on the specified bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new DeleteBucketPolicyCommand(input);
- * await client.send(command);
- * // example id: to-delete-bucket-policy-1483043406577
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class DeleteBucketPolicyCommand extends $Command
   .classBuilder<
     DeleteBucketPolicyCommandInput,
@@ -147,7 +137,12 @@ export class DeleteBucketPolicyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteBucketPolicy", {})
+  .s("AmazonS3", "DeleteBucketPolicy", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteBucketPolicyCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteBucketPolicyCommand")
   .f(void 0, void 0)
   .ser(se_DeleteBucketPolicyCommand)

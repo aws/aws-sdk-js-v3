@@ -76,6 +76,7 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DisableRuleCommand extends $Command
   .classBuilder<
     DisableRuleCommandInput,
@@ -93,7 +94,12 @@ export class DisableRuleCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DisableRule", {})
+  .s("AWSEvents", "DisableRule", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DisableRuleCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DisableRuleCommand")
   .f(void 0, void 0)
   .ser(se_DisableRuleCommand)

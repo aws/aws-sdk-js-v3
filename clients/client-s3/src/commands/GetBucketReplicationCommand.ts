@@ -152,35 +152,8 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To get replication configuration set on a bucket
- * ```javascript
- * // The following example returns replication configuration set on a bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new GetBucketReplicationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ReplicationConfiguration": {
- *     "Role": "arn:aws:iam::acct-id:role/example-role",
- *     "Rules": [
- *       {
- *         "Destination": {
- *           "Bucket": "arn:aws:s3:::destination-bucket"
- *         },
- *         "ID": "MWIwNTkwZmItMTE3MS00ZTc3LWJkZDEtNzRmODQwYzc1OTQy",
- *         "Prefix": "Tax",
- *         "Status": "Enabled"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-get-replication-configuration-set-on-a-bucket-1481593597175
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketReplicationCommand extends $Command
   .classBuilder<
     GetBucketReplicationCommandInput,
@@ -200,7 +173,12 @@ export class GetBucketReplicationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketReplication", {})
+  .s("AmazonS3", "GetBucketReplication", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketReplicationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketReplicationCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketReplicationCommand)

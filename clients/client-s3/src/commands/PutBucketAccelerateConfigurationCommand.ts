@@ -105,6 +105,7 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketAccelerateConfigurationCommand extends $Command
   .classBuilder<
     PutBucketAccelerateConfigurationCommandInput,
@@ -129,7 +130,12 @@ export class PutBucketAccelerateConfigurationCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutBucketAccelerateConfiguration", {})
+  .s("AmazonS3", "PutBucketAccelerateConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketAccelerateConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketAccelerateConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_PutBucketAccelerateConfigurationCommand)

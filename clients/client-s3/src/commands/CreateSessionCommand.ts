@@ -129,6 +129,7 @@ export interface CreateSessionCommandOutput extends CreateSessionOutput, __Metad
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class CreateSessionCommand extends $Command
   .classBuilder<
     CreateSessionCommandInput,
@@ -148,7 +149,12 @@ export class CreateSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "CreateSession", {})
+  .s("AmazonS3", "CreateSession", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CreateSessionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "CreateSessionCommand")
   .f(void 0, CreateSessionOutputFilterSensitiveLog)
   .ser(se_CreateSessionCommand)

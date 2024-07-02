@@ -78,6 +78,7 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class UpdateApiDestinationCommand extends $Command
   .classBuilder<
     UpdateApiDestinationCommandInput,
@@ -95,7 +96,12 @@ export class UpdateApiDestinationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "UpdateApiDestination", {})
+  .s("AWSEvents", "UpdateApiDestination", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: UpdateApiDestinationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "UpdateApiDestinationCommand")
   .f(void 0, void 0)
   .ser(se_UpdateApiDestinationCommand)

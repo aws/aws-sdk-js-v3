@@ -141,6 +141,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class CreateConnectionCommand extends $Command
   .classBuilder<
     CreateConnectionCommandInput,
@@ -158,7 +159,12 @@ export class CreateConnectionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "CreateConnection", {})
+  .s("AWSEvents", "CreateConnection", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CreateConnectionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "CreateConnectionCommand")
   .f(CreateConnectionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateConnectionCommand)

@@ -77,6 +77,7 @@ export interface GetKeyCommandOutput extends GetKeyResponse, __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetKeyCommand extends $Command
   .classBuilder<
     GetKeyCommandInput,
@@ -95,7 +96,12 @@ export class GetKeyCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CloudFrontKeyValueStore", "GetKey", {})
+  .s("CloudFrontKeyValueStore", "GetKey", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetKeyCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("CloudFrontKeyValueStoreClient", "GetKeyCommand")
   .f(void 0, GetKeyResponseFilterSensitiveLog)
   .ser(se_GetKeyCommand)

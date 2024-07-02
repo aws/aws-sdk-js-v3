@@ -119,6 +119,7 @@ export interface GetBucketMetricsConfigurationCommandOutput
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketMetricsConfigurationCommand extends $Command
   .classBuilder<
     GetBucketMetricsConfigurationCommandInput,
@@ -138,7 +139,12 @@ export class GetBucketMetricsConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketMetricsConfiguration", {})
+  .s("AmazonS3", "GetBucketMetricsConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketMetricsConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketMetricsConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketMetricsConfigurationCommand)

@@ -135,6 +135,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class WriteGetObjectResponseCommand extends $Command
   .classBuilder<
     WriteGetObjectResponseCommandInput,
@@ -153,7 +154,12 @@ export class WriteGetObjectResponseCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "WriteGetObjectResponse", {})
+  .s("AmazonS3", "WriteGetObjectResponse", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: WriteGetObjectResponseCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "WriteGetObjectResponseCommand")
   .f(WriteGetObjectResponseRequestFilterSensitiveLog, void 0)
   .ser(se_WriteGetObjectResponseCommand)

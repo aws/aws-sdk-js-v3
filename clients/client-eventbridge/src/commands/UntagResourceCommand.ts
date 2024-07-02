@@ -76,6 +76,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class UntagResourceCommand extends $Command
   .classBuilder<
     UntagResourceCommandInput,
@@ -93,7 +94,12 @@ export class UntagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "UntagResource", {})
+  .s("AWSEvents", "UntagResource", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: UntagResourceCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "UntagResourceCommand")
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)

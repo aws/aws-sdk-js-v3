@@ -85,6 +85,7 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketOwnershipControlsCommand extends $Command
   .classBuilder<
     GetBucketOwnershipControlsCommandInput,
@@ -104,7 +105,12 @@ export class GetBucketOwnershipControlsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketOwnershipControls", {})
+  .s("AmazonS3", "GetBucketOwnershipControls", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketOwnershipControlsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketOwnershipControlsCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketOwnershipControlsCommand)

@@ -84,6 +84,7 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListKeysCommand extends $Command
   .classBuilder<
     ListKeysCommandInput,
@@ -102,7 +103,12 @@ export class ListKeysCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CloudFrontKeyValueStore", "ListKeys", {})
+  .s("CloudFrontKeyValueStore", "ListKeys", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListKeysCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("CloudFrontKeyValueStoreClient", "ListKeysCommand")
   .f(void 0, ListKeysResponseFilterSensitiveLog)
   .ser(se_ListKeysCommand)

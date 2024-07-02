@@ -253,40 +253,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To complete multipart upload
- * ```javascript
- * // The following example completes a multipart upload.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "bigobject",
- *   "MultipartUpload": {
- *     "Parts": [
- *       {
- *         "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *         "PartNumber": "1"
- *       },
- *       {
- *         "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *         "PartNumber": "2"
- *       }
- *     ]
- *   },
- *   "UploadId": "7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
- * };
- * const command = new CompleteMultipartUploadCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Bucket": "acexamplebucket",
- *   "ETag": "\"4d9031c7644d8081c2829f4ea23c55f7-2\"",
- *   "Key": "bigobject",
- *   "Location": "https://examplebucket.s3.<Region>.amazonaws.com/bigobject"
- * }
- * *\/
- * // example id: to-complete-multipart-upload-1481851590483
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class CompleteMultipartUploadCommand extends $Command
   .classBuilder<
     CompleteMultipartUploadCommandInput,
@@ -308,7 +276,12 @@ export class CompleteMultipartUploadCommand extends $Command
       getSsecPlugin(config),
     ];
   })
-  .s("AmazonS3", "CompleteMultipartUpload", {})
+  .s("AmazonS3", "CompleteMultipartUpload", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CompleteMultipartUploadCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "CompleteMultipartUploadCommand")
   .f(CompleteMultipartUploadRequestFilterSensitiveLog, CompleteMultipartUploadOutputFilterSensitiveLog)
   .ser(se_CompleteMultipartUploadCommand)

@@ -95,6 +95,7 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutPermissionCommand extends $Command
   .classBuilder<
     PutPermissionCommandInput,
@@ -112,7 +113,12 @@ export class PutPermissionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "PutPermission", {})
+  .s("AWSEvents", "PutPermission", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutPermissionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "PutPermissionCommand")
   .f(void 0, void 0)
   .ser(se_PutPermissionCommand)

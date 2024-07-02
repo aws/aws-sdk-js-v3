@@ -96,6 +96,7 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutObjectLockConfigurationCommand extends $Command
   .classBuilder<
     PutObjectLockConfigurationCommandInput,
@@ -119,7 +120,12 @@ export class PutObjectLockConfigurationCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutObjectLockConfiguration", {})
+  .s("AmazonS3", "PutObjectLockConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutObjectLockConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutObjectLockConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_PutObjectLockConfigurationCommand)

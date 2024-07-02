@@ -64,6 +64,7 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteApiDestinationCommand extends $Command
   .classBuilder<
     DeleteApiDestinationCommandInput,
@@ -81,7 +82,12 @@ export class DeleteApiDestinationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DeleteApiDestination", {})
+  .s("AWSEvents", "DeleteApiDestination", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteApiDestinationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DeleteApiDestinationCommand")
   .f(void 0, void 0)
   .ser(se_DeleteApiDestinationCommand)

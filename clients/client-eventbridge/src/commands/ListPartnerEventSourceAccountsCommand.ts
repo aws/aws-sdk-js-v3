@@ -82,6 +82,7 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListPartnerEventSourceAccountsCommand extends $Command
   .classBuilder<
     ListPartnerEventSourceAccountsCommandInput,
@@ -99,7 +100,12 @@ export class ListPartnerEventSourceAccountsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "ListPartnerEventSourceAccounts", {})
+  .s("AWSEvents", "ListPartnerEventSourceAccounts", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListPartnerEventSourceAccountsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "ListPartnerEventSourceAccountsCommand")
   .f(void 0, void 0)
   .ser(se_ListPartnerEventSourceAccountsCommand)

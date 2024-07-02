@@ -292,6 +292,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetObjectAttributesCommand extends $Command
   .classBuilder<
     GetObjectAttributesCommandInput,
@@ -311,7 +312,12 @@ export class GetObjectAttributesCommand extends $Command
       getSsecPlugin(config),
     ];
   })
-  .s("AmazonS3", "GetObjectAttributes", {})
+  .s("AmazonS3", "GetObjectAttributes", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetObjectAttributesCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetObjectAttributesCommand")
   .f(GetObjectAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_GetObjectAttributesCommand)

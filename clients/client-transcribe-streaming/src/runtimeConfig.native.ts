@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
+import { invalidFunction } from "@smithy/invalid-dependency";
 
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
@@ -14,7 +14,9 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
     ...browserDefaults,
     ...config,
     runtime: "react-native",
-    eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? (() => eventStreamPayloadHandler),
+    eventStreamPayloadHandlerProvider:
+      config?.eventStreamPayloadHandlerProvider ??
+      (() => ({ handle: invalidFunction("event stream request is not supported in ReactNative.") })),
     sha256: config?.sha256 ?? Sha256,
   };
 };

@@ -62,6 +62,7 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteEventBusCommand extends $Command
   .classBuilder<
     DeleteEventBusCommandInput,
@@ -79,7 +80,12 @@ export class DeleteEventBusCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DeleteEventBus", {})
+  .s("AWSEvents", "DeleteEventBus", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteEventBusCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DeleteEventBusCommand")
   .f(void 0, void 0)
   .ser(se_DeleteEventBusCommand)

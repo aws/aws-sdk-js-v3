@@ -96,6 +96,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteBucketMetricsConfigurationCommand extends $Command
   .classBuilder<
     DeleteBucketMetricsConfigurationCommandInput,
@@ -115,7 +116,12 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteBucketMetricsConfiguration", {})
+  .s("AmazonS3", "DeleteBucketMetricsConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteBucketMetricsConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteBucketMetricsConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_DeleteBucketMetricsConfigurationCommand)

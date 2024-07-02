@@ -81,18 +81,8 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To delete bucket website configuration
- * ```javascript
- * // The following example deletes bucket website configuration.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new DeleteBucketWebsiteCommand(input);
- * await client.send(command);
- * // example id: to-delete-bucket-website-configuration-1483043937825
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class DeleteBucketWebsiteCommand extends $Command
   .classBuilder<
     DeleteBucketWebsiteCommandInput,
@@ -112,7 +102,12 @@ export class DeleteBucketWebsiteCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteBucketWebsite", {})
+  .s("AmazonS3", "DeleteBucketWebsite", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteBucketWebsiteCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteBucketWebsiteCommand")
   .f(void 0, void 0)
   .ser(se_DeleteBucketWebsiteCommand)

@@ -73,6 +73,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListEventBusesCommand extends $Command
   .classBuilder<
     ListEventBusesCommandInput,
@@ -90,7 +91,12 @@ export class ListEventBusesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "ListEventBuses", {})
+  .s("AWSEvents", "ListEventBuses", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListEventBusesCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "ListEventBusesCommand")
   .f(void 0, void 0)
   .ser(se_ListEventBusesCommand)

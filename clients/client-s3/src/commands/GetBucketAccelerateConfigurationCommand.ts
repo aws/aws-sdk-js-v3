@@ -93,6 +93,7 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketAccelerateConfigurationCommand extends $Command
   .classBuilder<
     GetBucketAccelerateConfigurationCommandInput,
@@ -112,7 +113,12 @@ export class GetBucketAccelerateConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketAccelerateConfiguration", {})
+  .s("AmazonS3", "GetBucketAccelerateConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketAccelerateConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketAccelerateConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketAccelerateConfigurationCommand)

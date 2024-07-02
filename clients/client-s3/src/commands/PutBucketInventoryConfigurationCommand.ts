@@ -177,6 +177,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketInventoryConfigurationCommand extends $Command
   .classBuilder<
     PutBucketInventoryConfigurationCommandInput,
@@ -196,7 +197,12 @@ export class PutBucketInventoryConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "PutBucketInventoryConfiguration", {})
+  .s("AmazonS3", "PutBucketInventoryConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketInventoryConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketInventoryConfigurationCommand")
   .f(PutBucketInventoryConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_PutBucketInventoryConfigurationCommand)

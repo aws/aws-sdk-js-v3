@@ -96,6 +96,7 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketEncryptionCommand extends $Command
   .classBuilder<
     GetBucketEncryptionCommandInput,
@@ -115,7 +116,12 @@ export class GetBucketEncryptionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketEncryption", {})
+  .s("AmazonS3", "GetBucketEncryption", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketEncryptionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketEncryptionCommand")
   .f(void 0, GetBucketEncryptionOutputFilterSensitiveLog)
   .ser(se_GetBucketEncryptionCommand)

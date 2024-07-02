@@ -72,6 +72,7 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DescribeEventSourceCommand extends $Command
   .classBuilder<
     DescribeEventSourceCommandInput,
@@ -89,7 +90,12 @@ export class DescribeEventSourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DescribeEventSource", {})
+  .s("AWSEvents", "DescribeEventSource", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DescribeEventSourceCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DescribeEventSourceCommand")
   .f(void 0, void 0)
   .ser(se_DescribeEventSourceCommand)

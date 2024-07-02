@@ -93,6 +93,7 @@ export interface UpdateKeysCommandOutput extends UpdateKeysResponse, __MetadataB
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class UpdateKeysCommand extends $Command
   .classBuilder<
     UpdateKeysCommandInput,
@@ -111,7 +112,12 @@ export class UpdateKeysCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CloudFrontKeyValueStore", "UpdateKeys", {})
+  .s("CloudFrontKeyValueStore", "UpdateKeys", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: UpdateKeysCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("CloudFrontKeyValueStoreClient", "UpdateKeysCommand")
   .f(UpdateKeysRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateKeysCommand)

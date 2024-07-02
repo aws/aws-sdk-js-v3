@@ -113,6 +113,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class UpdateEndpointCommand extends $Command
   .classBuilder<
     UpdateEndpointCommandInput,
@@ -130,7 +131,12 @@ export class UpdateEndpointCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "UpdateEndpoint", {})
+  .s("AWSEvents", "UpdateEndpoint", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: UpdateEndpointCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "UpdateEndpointCommand")
   .f(void 0, void 0)
   .ser(se_UpdateEndpointCommand)

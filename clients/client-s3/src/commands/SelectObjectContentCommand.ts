@@ -246,6 +246,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class SelectObjectContentCommand extends $Command
   .classBuilder<
     SelectObjectContentCommandInput,
@@ -266,6 +267,10 @@ export class SelectObjectContentCommand extends $Command
     ];
   })
   .s("AmazonS3", "SelectObjectContent", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: SelectObjectContentCommand.getEndpointParameterInstructions,
+    },
     /**
      * @internal
      */

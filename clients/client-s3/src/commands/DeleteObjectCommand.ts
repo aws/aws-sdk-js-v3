@@ -162,31 +162,8 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To delete an object (from a non-versioned bucket)
- * ```javascript
- * // The following example deletes an object from a non-versioned bucket.
- * const input = {
- *   "Bucket": "ExampleBucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
- * ```
- *
- * @example To delete an object
- * ```javascript
- * // The following example deletes an object from an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "objectkey.jpg"
- * };
- * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-1472850136595
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class DeleteObjectCommand extends $Command
   .classBuilder<
     DeleteObjectCommandInput,
@@ -206,7 +183,12 @@ export class DeleteObjectCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteObject", {})
+  .s("AmazonS3", "DeleteObject", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteObjectCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteObjectCommand")
   .f(void 0, void 0)
   .ser(se_DeleteObjectCommand)

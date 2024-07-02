@@ -97,6 +97,7 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class RemoveTargetsCommand extends $Command
   .classBuilder<
     RemoveTargetsCommandInput,
@@ -114,7 +115,12 @@ export class RemoveTargetsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "RemoveTargets", {})
+  .s("AWSEvents", "RemoveTargets", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: RemoveTargetsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "RemoveTargetsCommand")
   .f(void 0, void 0)
   .ser(se_RemoveTargetsCommand)

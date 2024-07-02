@@ -87,6 +87,7 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DescribeReplayCommand extends $Command
   .classBuilder<
     DescribeReplayCommandInput,
@@ -104,7 +105,12 @@ export class DescribeReplayCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DescribeReplay", {})
+  .s("AWSEvents", "DescribeReplay", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DescribeReplayCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DescribeReplayCommand")
   .f(void 0, void 0)
   .ser(se_DescribeReplayCommand)

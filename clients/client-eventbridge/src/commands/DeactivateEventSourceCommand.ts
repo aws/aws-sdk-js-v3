@@ -74,6 +74,7 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeactivateEventSourceCommand extends $Command
   .classBuilder<
     DeactivateEventSourceCommandInput,
@@ -91,7 +92,12 @@ export class DeactivateEventSourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DeactivateEventSource", {})
+  .s("AWSEvents", "DeactivateEventSource", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeactivateEventSourceCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DeactivateEventSourceCommand")
   .f(void 0, void 0)
   .ser(se_DeactivateEventSourceCommand)

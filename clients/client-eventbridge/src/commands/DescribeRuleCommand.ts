@@ -75,6 +75,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DescribeRuleCommand extends $Command
   .classBuilder<
     DescribeRuleCommandInput,
@@ -92,7 +93,12 @@ export class DescribeRuleCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DescribeRule", {})
+  .s("AWSEvents", "DescribeRule", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DescribeRuleCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DescribeRuleCommand")
   .f(void 0, void 0)
   .ser(se_DescribeRuleCommand)

@@ -75,6 +75,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class ListConnectionsCommand extends $Command
   .classBuilder<
     ListConnectionsCommandInput,
@@ -92,7 +93,12 @@ export class ListConnectionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "ListConnections", {})
+  .s("AWSEvents", "ListConnections", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: ListConnectionsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "ListConnectionsCommand")
   .f(void 0, void 0)
   .ser(se_ListConnectionsCommand)

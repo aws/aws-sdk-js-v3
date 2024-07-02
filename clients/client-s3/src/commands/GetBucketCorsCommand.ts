@@ -101,36 +101,8 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To get cors configuration set on a bucket
- * ```javascript
- * // The following example returns cross-origin resource sharing (CORS) configuration set on a bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new GetBucketCorsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CORSRules": [
- *     {
- *       "AllowedHeaders": [
- *         "Authorization"
- *       ],
- *       "AllowedMethods": [
- *         "GET"
- *       ],
- *       "AllowedOrigins": [
- *         "*"
- *       ],
- *       "MaxAgeSeconds": 3000
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-cors-configuration-set-on-a-bucket-1481596855475
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketCorsCommand extends $Command
   .classBuilder<
     GetBucketCorsCommandInput,
@@ -150,7 +122,12 @@ export class GetBucketCorsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketCors", {})
+  .s("AmazonS3", "GetBucketCors", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketCorsCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketCorsCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketCorsCommand)

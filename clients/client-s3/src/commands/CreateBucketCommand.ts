@@ -218,42 +218,8 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To create a bucket
- * ```javascript
- * // The following example creates a bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new CreateBucketCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Location": "/examplebucket"
- * }
- * *\/
- * // example id: to-create-a-bucket--1472851826060
- * ```
- *
- * @example To create a bucket in a specific region
- * ```javascript
- * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "CreateBucketConfiguration": {
- *     "LocationConstraint": "eu-west-1"
- *   }
- * };
- * const command = new CreateBucketCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Location": "http://examplebucket.<Region>.s3.amazonaws.com/"
- * }
- * *\/
- * // example id: to-create-a-bucket-in-a-specific-region-1483399072992
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class CreateBucketCommand extends $Command
   .classBuilder<
     CreateBucketCommandInput,
@@ -275,7 +241,12 @@ export class CreateBucketCommand extends $Command
       getLocationConstraintPlugin(config),
     ];
   })
-  .s("AmazonS3", "CreateBucket", {})
+  .s("AmazonS3", "CreateBucket", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: CreateBucketCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "CreateBucketCommand")
   .f(void 0, void 0)
   .ser(se_CreateBucketCommand)

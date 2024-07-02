@@ -126,30 +126,8 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example Set tags on a bucket
- * ```javascript
- * // The following example sets tags on a bucket. Any existing tags are replaced.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Tagging": {
- *     "TagSet": [
- *       {
- *         "Key": "Key1",
- *         "Value": "Value1"
- *       },
- *       {
- *         "Key": "Key2",
- *         "Value": "Value2"
- *       }
- *     ]
- *   }
- * };
- * const command = new PutBucketTaggingCommand(input);
- * await client.send(command);
- * // example id: set-tags-on-a-bucket-1482346269066
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class PutBucketTaggingCommand extends $Command
   .classBuilder<
     PutBucketTaggingCommandInput,
@@ -174,7 +152,12 @@ export class PutBucketTaggingCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutBucketTagging", {})
+  .s("AmazonS3", "PutBucketTagging", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutBucketTaggingCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutBucketTaggingCommand")
   .f(void 0, void 0)
   .ser(se_PutBucketTaggingCommand)

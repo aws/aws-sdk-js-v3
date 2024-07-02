@@ -81,42 +81,8 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To remove tag set from an object version
- * ```javascript
- * // The following example removes tag set associated with the specified object version. The request specifies both the object key and object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg",
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * };
- * const command = new DeleteObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
- * }
- * *\/
- * // example id: to-remove-tag-set-from-an-object-version-1483145285913
- * ```
- *
- * @example To remove tag set from an object
- * ```javascript
- * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new DeleteObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-remove-tag-set-from-an-object-1483145342862
- * ```
- *
  */
+// @ts-expect-error: Command class references itself
 export class DeleteObjectTaggingCommand extends $Command
   .classBuilder<
     DeleteObjectTaggingCommandInput,
@@ -135,7 +101,12 @@ export class DeleteObjectTaggingCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "DeleteObjectTagging", {})
+  .s("AmazonS3", "DeleteObjectTagging", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteObjectTaggingCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "DeleteObjectTaggingCommand")
   .f(void 0, void 0)
   .ser(se_DeleteObjectTaggingCommand)

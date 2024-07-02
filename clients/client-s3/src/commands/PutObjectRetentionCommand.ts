@@ -76,6 +76,7 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class PutObjectRetentionCommand extends $Command
   .classBuilder<
     PutObjectRetentionCommandInput,
@@ -99,7 +100,12 @@ export class PutObjectRetentionCommand extends $Command
       }),
     ];
   })
-  .s("AmazonS3", "PutObjectRetention", {})
+  .s("AmazonS3", "PutObjectRetention", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: PutObjectRetentionCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "PutObjectRetentionCommand")
   .f(void 0, void 0)
   .ser(se_PutObjectRetentionCommand)

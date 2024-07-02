@@ -85,6 +85,7 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteRuleCommand extends $Command
   .classBuilder<
     DeleteRuleCommandInput,
@@ -102,7 +103,12 @@ export class DeleteRuleCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DeleteRule", {})
+  .s("AWSEvents", "DeleteRule", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteRuleCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DeleteRuleCommand")
   .f(void 0, void 0)
   .ser(se_DeleteRuleCommand)

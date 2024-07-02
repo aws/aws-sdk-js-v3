@@ -126,6 +126,7 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class GetBucketAnalyticsConfigurationCommand extends $Command
   .classBuilder<
     GetBucketAnalyticsConfigurationCommandInput,
@@ -145,7 +146,12 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonS3", "GetBucketAnalyticsConfiguration", {})
+  .s("AmazonS3", "GetBucketAnalyticsConfiguration", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: GetBucketAnalyticsConfigurationCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("S3Client", "GetBucketAnalyticsConfigurationCommand")
   .f(void 0, void 0)
   .ser(se_GetBucketAnalyticsConfigurationCommand)

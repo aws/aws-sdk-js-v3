@@ -64,6 +64,7 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeleteArchiveCommand extends $Command
   .classBuilder<
     DeleteArchiveCommandInput,
@@ -81,7 +82,12 @@ export class DeleteArchiveCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DeleteArchive", {})
+  .s("AWSEvents", "DeleteArchive", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeleteArchiveCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DeleteArchiveCommand")
   .f(void 0, void 0)
   .ser(se_DeleteArchiveCommand)

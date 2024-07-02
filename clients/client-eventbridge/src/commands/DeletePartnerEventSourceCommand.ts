@@ -69,6 +69,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  *
  * @public
  */
+// @ts-expect-error: Command class references itself
 export class DeletePartnerEventSourceCommand extends $Command
   .classBuilder<
     DeletePartnerEventSourceCommandInput,
@@ -86,7 +87,12 @@ export class DeletePartnerEventSourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSEvents", "DeletePartnerEventSource", {})
+  .s("AWSEvents", "DeletePartnerEventSource", {
+    endpointRuleSet: {
+      // @ts-expect-error: built class has getEndpointParameterInstructions()
+      getEndpointParameterInstructions: DeletePartnerEventSourceCommand.getEndpointParameterInstructions,
+    },
+  })
   .n("EventBridgeClient", "DeletePartnerEventSourceCommand")
   .f(void 0, void 0)
   .ser(se_DeletePartnerEventSourceCommand)
