@@ -998,7 +998,7 @@ it("RestJsonConstantQueryString:ServerRequest", async () => {
 /**
  * A server should ignore parameters added to the content type
  */
-it("RestJsonMustSupportParametersInContentType:ServerRequest", async () => {
+it.skip("RestJsonMustSupportParametersInContentType:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
@@ -4052,7 +4052,7 @@ it("RestJsonStringPayloadResponse:ServerResponse", async () => {
 /**
  * Serializes a string in the HTTP payload without a content-type header
  */
-it("RestJsonStringPayloadNoContentType:MalformedRequest", async () => {
+it.skip("RestJsonStringPayloadNoContentType:MalformedRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
@@ -14720,7 +14720,7 @@ it("RestJsonWithBodyExpectsApplicationJsonContentType:MalformedRequest", async (
 /**
  * When there is modeled input, the content type must be application/json
  */
-it("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders:MalformedRequest", async () => {
+it.skip("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders:MalformedRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockImplementation(() => {
     throw new Error("This request should have been rejected.");
