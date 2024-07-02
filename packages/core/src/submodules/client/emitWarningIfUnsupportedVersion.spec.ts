@@ -1,7 +1,7 @@
 describe("emitWarningIfUnsupportedVersion", () => {
   let emitWarningIfUnsupportedVersion: any;
   const emitWarning = process.emitWarning;
-  const supportedVersion = "16.0.0";
+  const supportedVersion = "18.0.0";
 
   beforeEach(() => {
     const module = require("./emitWarningIfUnsupportedVersion");
@@ -14,7 +14,7 @@ describe("emitWarningIfUnsupportedVersion", () => {
     process.emitWarning = emitWarning;
   });
 
-  describe.skip(`emits warning for Node.js <${supportedVersion}`, () => {
+  describe(`emits warning for Node.js <${supportedVersion}`, () => {
     const getPreviousMajorVersion = (major: number) => (major === 0 ? 0 : major - 1);
 
     const getPreviousMinorVersion = ([major, minor]: [number, number]) =>
@@ -38,12 +38,12 @@ describe("emitWarningIfUnsupportedVersion", () => {
       expect(process.emitWarning).toHaveBeenCalledTimes(1);
       expect(process.emitWarning).toHaveBeenCalledWith(
         `NodeDeprecationWarning: The AWS SDK for JavaScript (v3) will
-no longer support Node.js 14.x on May 1, 2024.
+no longer support Node.js 16.x on January 6, 2025.
 
 To continue receiving updates to AWS services, bug fixes, and security
-updates please upgrade to an active Node.js LTS version.
+updates please upgrade to a supported Node.js LTS version.
 
-More information can be found at: https://a.co/dzr2AJd`
+More information can be found at: https://a.co/74kJMmI`
       );
 
       // Verify that the warning emits only once.
