@@ -2703,7 +2703,7 @@ export interface DescribeVolumesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The volume IDs.</p>
+   * <p>The volume IDs. If not specified, then all volumes are included in the response.</p>
    * @public
    */
   VolumeIds?: string[];

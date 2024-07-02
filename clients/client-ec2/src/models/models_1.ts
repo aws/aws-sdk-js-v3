@@ -2224,7 +2224,7 @@ export interface InstanceRequirementsRequest {
    *          selects instance types with your attributes, it will exclude instance types whose price
    *          exceeds your specified threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or
+   *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
    *          <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per
    *          memory price instead of the per instance price.</p>
    *          <note>
@@ -3615,7 +3615,7 @@ export interface InstanceRequirements {
    *          selects instance types with your attributes, it will exclude instance types whose price
    *          exceeds your specified threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or
+   *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
    *             <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per
    *          memory price instead of the per instance price.</p>
    *          <note>
@@ -4566,16 +4566,18 @@ export interface CreateInstanceConnectEndpointRequest {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>Indicates whether your client's IP address is preserved as the source. The value is <code>true</code> or <code>false</code>.</p>
+   * <p>Indicates whether the client IP address is preserved as the source. The following are the possible values.</p>
    *          <ul>
    *             <li>
-   *                <p>If <code>true</code>, your client's IP address is used when you connect to a resource.</p>
+   *                <p>
+   *                   <code>true</code> - Use the client IP address as the source.</p>
    *             </li>
    *             <li>
-   *                <p>If <code>false</code>, the elastic network interface IP address is used when you connect to a resource.</p>
+   *                <p>
+   *                   <code>false</code> - Use the network interface IP address as the source.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>true</code>
+   *          <p>Default: <code>false</code>
    *          </p>
    * @public
    */

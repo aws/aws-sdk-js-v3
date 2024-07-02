@@ -65,7 +65,7 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  *   GroupName: "STRING_VALUE",
  *   HostId: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE", // required
- *   Tenancy: "dedicated" || "host",
+ *   Tenancy: "default" || "dedicated" || "host",
  *   PartitionNumber: Number("int"),
  *   HostResourceGroupArn: "STRING_VALUE",
  *   GroupId: "STRING_VALUE",

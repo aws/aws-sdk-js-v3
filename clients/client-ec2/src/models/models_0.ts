@@ -3101,7 +3101,41 @@ export interface ByoipCidr {
   StatusMessage?: string;
 
   /**
-   * <p>The state of the address pool.</p>
+   * <p>The state of the address range.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>advertised</code>: The address range is being advertised to the internet by Amazon Web Services.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deprovisioned</code>: The address range is deprovisioned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-deprovision</code>: The request to deprovision the address range was unsuccessful. Ensure that all EIPs from the range have been deallocated and try again.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-provision</code>: The request to provision the address range was unsuccessful.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending-deprovision</code>: You’ve submitted a request to deprovision an address range and it's pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending-provision</code>: You’ve submitted a request to provision an address range and it's pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provisioned</code>: The address range is provisioned and can be advertised. The range is not currently advertised.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>provisioned-not-publicly-advertisable</code>: The address range is provisioned and cannot be advertised.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   State?: ByoipCidrState;
