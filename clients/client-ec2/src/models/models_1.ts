@@ -11122,6 +11122,7 @@ export const NetworkInterfaceType = {
   aws_codestar_connections_managed: "aws_codestar_connections_managed",
   branch: "branch",
   efa: "efa",
+  efs: "efs",
   gateway_load_balancer: "gateway_load_balancer",
   gateway_load_balancer_endpoint: "gateway_load_balancer_endpoint",
   global_accelerator_managed: "global_accelerator_managed",
