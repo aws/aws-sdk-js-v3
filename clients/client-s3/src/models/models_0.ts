@@ -2874,7 +2874,7 @@ export interface SessionCredentials {
  */
 export interface CreateSessionOutput {
   /**
-   * <p>The established temporary security credentials  for the created session..</p>
+   * <p>The established temporary security credentials for the created session.</p>
    * @public
    */
   Credentials: SessionCredentials | undefined;
@@ -6796,9 +6796,9 @@ export interface NoncurrentVersionExpiration {
   NoncurrentDays?: number;
 
   /**
-   * <p>Specifies how many newer noncurrent versions must exist before Amazon S3 can perform the
-   *          associated action on a given version. If there are this many more recent noncurrent
-   *          versions, Amazon S3 will take the associated action. For more information about noncurrent
+   * <p>Specifies how many noncurrent versions Amazon S3 will retain. You can specify up to 100
+   *          noncurrent versions to retain. Amazon S3 will permanently delete any additional noncurrent
+   *          versions beyond the specified number to retain. For more information about noncurrent
    *          versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
    *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -6852,10 +6852,10 @@ export interface NoncurrentVersionTransition {
   StorageClass?: TransitionStorageClass;
 
   /**
-   * <p>Specifies how many newer noncurrent versions must exist before Amazon S3 can perform the
-   *          associated action on a given version. If there are this many more recent noncurrent
-   *          versions, Amazon S3 will take the associated action. For more information about noncurrent
-   *          versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
+   * <p>Specifies how many noncurrent versions Amazon S3 will retain in the same storage class before
+   *          transitioning objects. You can specify up to 100 noncurrent versions to retain. Amazon S3 will
+   *          transition any additional noncurrent versions beyond the specified number to retain. For
+   *          more information about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
    *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
@@ -8633,10 +8633,11 @@ export interface ErrorDocument {
  */
 export interface IndexDocument {
   /**
-   * <p>A suffix that is appended to a request that is for a directory on the website endpoint
-   *          (for example,if the suffix is index.html and you make a request to samplebucket/images/ the
-   *          data that is returned will be for the object with the key name images/index.html) The
-   *          suffix must not be empty and must not include a slash character.</p>
+   * <p>A suffix that is appended to a request that is for a directory on the website endpoint.
+   *          (For example, if the suffix is <code>index.html</code> and you make a request to
+   *             <code>samplebucket/images/</code>, the data that is returned will be for the object with
+   *          the key name <code>images/index.html</code>.) The suffix must not be empty and must not
+   *          include a slash character.</p>
    *          <important>
    *             <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using
    *          XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
@@ -11106,6 +11107,42 @@ export interface HeadObjectRequest {
   Range?: string;
 
   /**
+   * <p>Sets the <code>Cache-Control</code> header of the response.</p>
+   * @public
+   */
+  ResponseCacheControl?: string;
+
+  /**
+   * <p>Sets the <code>Content-Disposition</code> header of the response.</p>
+   * @public
+   */
+  ResponseContentDisposition?: string;
+
+  /**
+   * <p>Sets the <code>Content-Encoding</code> header of the response.</p>
+   * @public
+   */
+  ResponseContentEncoding?: string;
+
+  /**
+   * <p>Sets the <code>Content-Language</code> header of the response.</p>
+   * @public
+   */
+  ResponseContentLanguage?: string;
+
+  /**
+   * <p>Sets the <code>Content-Type</code> header of the response.</p>
+   * @public
+   */
+  ResponseContentType?: string;
+
+  /**
+   * <p>Sets the <code>Expires</code> header of the response.</p>
+   * @public
+   */
+  ResponseExpires?: Date;
+
+  /**
    * <p>Version ID used to reference a specific version of the object.</p>
    *          <note>
    *             <p>For directory buckets in this API operation, only the <code>null</code> value of the version ID is supported.</p>
@@ -12125,7 +12162,8 @@ export interface ListObjectsOutput {
   /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response. If using
    *             <code>url</code>, non-ASCII characters used in an object's key name will be URL encoded.
-   *          For example, the object test_file(3).png will appear as test_file%283%29.png.</p>
+   *          For example, the object <code>test_file(3).png</code> will appear as
+   *             <code>test_file%283%29.png</code>.</p>
    * @public
    */
   EncodingType?: EncodingType;
@@ -12435,8 +12473,9 @@ export interface ListObjectsV2Request {
 
   /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response. If using
-   *          <code>url</code>, non-ASCII characters used in an object's key name will be URL encoded.
-   *          For example, the object test_file(3).png will appear as test_file%283%29.png.</p>
+   *             <code>url</code>, non-ASCII characters used in an object's key name will be URL encoded.
+   *          For example, the object <code>test_file(3).png</code> will appear as
+   *             <code>test_file%283%29.png</code>.</p>
    * @public
    */
   EncodingType?: EncodingType;

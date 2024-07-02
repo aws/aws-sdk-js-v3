@@ -1758,6 +1758,12 @@ export const se_HeadObjectCommand = async (
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
+    [_rcc]: [, input[_RCC]!],
+    [_rcd]: [, input[_RCD]!],
+    [_rce]: [, input[_RCE]!],
+    [_rcl]: [, input[_RCL]!],
+    [_rct]: [, input[_RCT]!],
+    [_re]: [() => input.ResponseExpires !== void 0, () => __dateToUtcString(input[_RE]!).toString()],
     [_vI]: [, input[_VI]!],
     [_pN]: [() => input.PartNumber !== void 0, () => input[_PN]!.toString()],
   });

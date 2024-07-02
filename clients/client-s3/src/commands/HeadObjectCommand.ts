@@ -184,6 +184,12 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *   IfUnmodifiedSince: new Date("TIMESTAMP"),
  *   Key: "STRING_VALUE", // required
  *   Range: "STRING_VALUE",
+ *   ResponseCacheControl: "STRING_VALUE",
+ *   ResponseContentDisposition: "STRING_VALUE",
+ *   ResponseContentEncoding: "STRING_VALUE",
+ *   ResponseContentLanguage: "STRING_VALUE",
+ *   ResponseContentType: "STRING_VALUE",
+ *   ResponseExpires: new Date("TIMESTAMP"),
  *   VersionId: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSECustomerKey: "STRING_VALUE",

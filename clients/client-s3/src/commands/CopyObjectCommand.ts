@@ -129,10 +129,10 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             </dd>
  *             <dt>Response and special errors</dt>
  *             <dd>
- *                <p>When the request is an HTTP 1.1 request, the response is chunk encoded.
- *                   When the request is not an HTTP 1.1 request, the response would not contain the <code>Content-Length</code>.
- *                   You always need to read the entire response body to check if the copy succeeds.
- *                   to keep the connection alive while we copy the data. </p>
+ *                <p>When the request is an HTTP 1.1 request, the response is chunk encoded. When
+ *                   the request is not an HTTP 1.1 request, the response would not contain the
+ *                      <code>Content-Length</code>. You always need to read the entire response body
+ *                   to check if the copy succeeds. </p>
  *                <ul>
  *                   <li>
  *                      <p>If the copy is successful, you receive a response with information about the copied

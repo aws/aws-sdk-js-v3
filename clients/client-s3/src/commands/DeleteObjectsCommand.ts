@@ -88,7 +88,7 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *                            <p>
  *                               <b>
  *                                  <code>s3:DeleteObjectVersion</code>
- *                               </b> - To delete a specific version of an object from a versiong-enabled bucket, you must specify the <code>s3:DeleteObjectVersion</code> permission.</p>
+ *                               </b> - To delete a specific version of an object from a versioning-enabled bucket, you must specify the <code>s3:DeleteObjectVersion</code> permission.</p>
  *                         </li>
  *                      </ul>
  *                   </li>
