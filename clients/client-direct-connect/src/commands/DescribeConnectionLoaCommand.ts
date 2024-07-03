@@ -28,7 +28,9 @@ export interface DescribeConnectionLoaCommandInput extends DescribeConnectionLoa
 export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLoaResponse, __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
+ * <note>
+ *             <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
+ *          </note>
  *          <p>Gets the LOA-CFA for a connection.</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or
  *       service provider uses when establishing your cross connect to Amazon Web Services at the colocation facility. For more information,

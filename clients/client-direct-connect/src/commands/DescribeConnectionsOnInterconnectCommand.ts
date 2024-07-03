@@ -31,7 +31,9 @@ export interface DescribeConnectionsOnInterconnectCommandInput extends DescribeC
 export interface DescribeConnectionsOnInterconnectCommandOutput extends Connections, __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
+ * <note>
+ *             <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
+ *          </note>
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>

@@ -204,7 +204,7 @@ export interface DirectConnectGatewayAssociation {
  */
 export interface AcceptDirectConnectGatewayAssociationProposalResult {
   /**
-   * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
+   * <p>Information about an association between a Direct Connect gateway and a virtual gateway or transit gateway.</p>
    * @public
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
@@ -622,7 +622,10 @@ export interface AllocateHostedConnectionRequest {
   ownerAccount: string | undefined;
 
   /**
-   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
+   * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
+   *       300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Note that only those
+   *       Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps,
+   *       10Gbps, or 25Gbps hosted connection. </p>
    * @public
    */
   bandwidth: string | undefined;
@@ -711,7 +714,7 @@ export interface NewPrivateVirtualInterfaceAllocation {
   asn: number | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
    * @public
    */
   mtu?: number;
@@ -957,7 +960,7 @@ export interface VirtualInterface {
   connectionId?: string;
 
   /**
-   * <p>The type of virtual interface. The possible values are <code>private</code> and <code>public</code>.</p>
+   * <p>The type of virtual interface. The possible values are <code>private</code>, <code>public</code> and <code>transit</code>.</p>
    * @public
    */
   virtualInterfaceType?: string;
@@ -1302,7 +1305,7 @@ export interface AllocateTransitVirtualInterfaceRequest {
  */
 export interface AllocateTransitVirtualInterfaceResult {
   /**
-   * <p>Information about a virtual interface.</p>
+   * <p>Information about the transit virtual interface.</p>
    * @public
    */
   virtualInterface?: VirtualInterface;
@@ -2106,7 +2109,7 @@ export interface CreateInterconnectRequest {
   interconnectName: string | undefined;
 
   /**
-   * <p>The port bandwidth, in Gbps. The possible values are 1 and 10.</p>
+   * <p>The port bandwidth, in Gbps. The possible values are 1, 10, and 100.</p>
    * @public
    */
   bandwidth: string | undefined;
@@ -2290,8 +2293,9 @@ export interface Interconnect {
  */
 export interface CreateLagRequest {
   /**
-   * <p>The number of physical dedicated connections initially provisioned and bundled by the
-   *       LAG.  You can have a maximum of four connections when the port speed is 1G or 10G, or two when the port speed is 100G. </p>
+   * <p>The number of physical dedicated connections initially provisioned and bundled by the LAG.
+   *       You can have a maximum of four connections when the port speed is 1Gbps or 10Gbps, or two when
+   *       the port speed is 100Gbps or 400Gbps.</p>
    * @public
    */
   numberOfConnections: number | undefined;
@@ -2304,7 +2308,7 @@ export interface CreateLagRequest {
 
   /**
    * <p>The bandwidth of the individual physical dedicated connections bundled by the LAG. The
-   *       possible values are 1Gbps and 10Gbps. </p>
+   *       possible values are  1Gbps,10Gbps, 100Gbps, and 400Gbps. </p>
    * @public
    */
   connectionsBandwidth: string | undefined;
@@ -2375,13 +2379,15 @@ export type LagState = (typeof LagState)[keyof typeof LagState];
 export interface Lag {
   /**
    * <p>The individual bandwidth of the physical connections bundled by the LAG. The possible
-   *       values are 1Gbps and 10Gbps. </p>
+   *       values are 1Gbps, 10Gbps, 100Gbps, or 400 Gbps.. </p>
    * @public
    */
   connectionsBandwidth?: string;
 
   /**
-   * <p>The number of physical dedicated connections bundled by the LAG, up to a maximum of 10.</p>
+   * <p>The number of physical dedicated connections initially provisioned and bundled by the LAG.
+   *       You can have a maximum of four connections when the port speed is 1 Gbps or 10 Gbps, or two
+   *       when the port speed is 100 Gbps or 400 Gbps.</p>
    * @public
    */
   numberOfConnections?: number;
@@ -2561,7 +2567,7 @@ export interface NewPrivateVirtualInterface {
   asn: number | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
    * @public
    */
   mtu?: number;
@@ -4188,7 +4194,7 @@ export interface UpdateDirectConnectGatewayRequest {
  */
 export interface UpdateDirectConnectGatewayResponse {
   /**
-   * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
+   * <p>Informaiton about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateways or transit gateways.</p>
    * @public
    */
   directConnectGateway?: DirectConnectGateway;
@@ -4269,7 +4275,7 @@ export interface UpdateVirtualInterfaceAttributesRequest {
   virtualInterfaceId: string | undefined;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
    * @public
    */
   mtu?: number;

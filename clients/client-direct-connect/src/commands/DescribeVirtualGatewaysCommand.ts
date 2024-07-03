@@ -28,7 +28,10 @@ export interface DescribeVirtualGatewaysCommandInput {}
 export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, __MetadataBearer {}
 
 /**
- * <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p>
+ * <note>
+ *             <p>Deprecated. Use <code>DescribeVpnGateways</code> instead. See <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html">DescribeVPNGateways</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
+ *          </note>
+ *          <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p>
  *          <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
