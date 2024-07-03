@@ -71,8 +71,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                <li>
  *                   <p>When you create an account in an organization using the Organizations console,
  *                         API, or CLI commands, the information required for the account to operate
- *                         as a standalone account, such as a payment method and signing the end user
- *                         license agreement (EULA) is <i>not</i> automatically
+ *                         as a standalone account, such as a payment method is <i>not</i> automatically
  *                         collected. If you must remove an account from your organization later, you
  *                         can do so only after you provide the missing information. For more
  *                         information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a>
@@ -269,15 +268,13 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *             <li>
  *                <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in
  *                     this organization, you first must migrate the organization's management account
- *                     to the marketplace that corresponds to the management account's address. For
- *                     example, accounts with India addresses must be associated with the AISPL
- *                     marketplace. All accounts in an organization must be associated with the same
- *                     marketplace.</p>
+ *                     to the marketplace that corresponds to the management account's address. All
+ *                     accounts in an organization must be associated with the same marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
- *                     in China. To create an organization, the master must have a valid business
- *                     license. For more information, contact customer support.</p>
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions in
+ *                     China. To create an organization, the master must have a valid business license.
+ *                     For more information, contact customer support.</p>
  *             </li>
  *             <li>
  *                <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must

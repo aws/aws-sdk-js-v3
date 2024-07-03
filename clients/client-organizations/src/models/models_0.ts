@@ -887,6 +887,8 @@ export const ConstraintViolationExceptionReason = {
   ACCOUNT_NUMBER_LIMIT_EXCEEDED: "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
   CANNOT_CLOSE_MANAGEMENT_ACCOUNT: "CANNOT_CLOSE_MANAGEMENT_ACCOUNT",
   CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: "CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR",
+  CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR:
+    "CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR",
   CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG: "CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG",
   CLOSE_ACCOUNT_QUOTA_EXCEEDED: "CLOSE_ACCOUNT_QUOTA_EXCEEDED",
   CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED: "CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED",
@@ -1028,15 +1030,13 @@ export type ConstraintViolationExceptionReason =
  *             <li>
  *                <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in
  *                     this organization, you first must migrate the organization's management account
- *                     to the marketplace that corresponds to the management account's address. For
- *                     example, accounts with India addresses must be associated with the AISPL
- *                     marketplace. All accounts in an organization must be associated with the same
- *                     marketplace.</p>
+ *                     to the marketplace that corresponds to the management account's address. All
+ *                     accounts in an organization must be associated with the same marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
- *                     in China. To create an organization, the master must have a valid business
- *                     license. For more information, contact customer support.</p>
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions in
+ *                     China. To create an organization, the master must have a valid business license.
+ *                     For more information, contact customer support.</p>
  *             </li>
  *             <li>
  *                <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must
