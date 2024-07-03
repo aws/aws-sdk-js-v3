@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.610.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.609.0...v3.610.0) (2024-07-03)
+
+**Note:** Version bump only for package @aws-sdk/client-application-auto-scaling
+
+
+
+
+
 # [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
 
 **Note:** Version bump only for package @aws-sdk/client-application-auto-scaling

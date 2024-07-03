@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.610.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.609.0...v3.610.0) (2024-07-03)
+
+
+### Features
+
+* **client-organizations:** Added a new reason under ConstraintViolationException in RegisterDelegatedAdministrator API to prevent registering suspended accounts as delegated administrator of a service. ([0bdc2da](https://github.com/aws/aws-sdk-js-v3/commit/0bdc2dae23169ad5ffe19c8ff516b564f83da909))
+* **client-rekognition:** This release adds support for tagging projects and datasets with the CreateProject and CreateDataset APIs. ([f795a25](https://github.com/aws/aws-sdk-js-v3/commit/f795a2534662e0970a17bc6e0165816bd0d19a96))
+* **client-workspaces:** Fix create workspace bundle RootStorage/UserStorage to accept non null values ([8698ba5](https://github.com/aws/aws-sdk-js-v3/commit/8698ba5ac8358313d1e06cfef2a41aa157cd579b))
+* **clients:** update client endpoints as of 2024-07-03 ([2a6a4c8](https://github.com/aws/aws-sdk-js-v3/commit/2a6a4c8ba52f45d8702c8d2e9dc3b3bc68a695b1))
+
+
+
+
+
 # [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
 
 
