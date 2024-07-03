@@ -213,7 +213,7 @@ export interface DeleteScalingPolicyRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -314,7 +314,7 @@ export interface DeleteScalingPolicyRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -490,7 +490,7 @@ export interface DeleteScheduledActionRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -591,7 +591,7 @@ export interface DeleteScheduledActionRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -690,7 +690,7 @@ export interface DeregisterScalableTargetRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -792,7 +792,7 @@ export interface DeregisterScalableTargetRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -891,7 +891,7 @@ export interface DescribeScalableTargetsRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -993,7 +993,7 @@ export interface DescribeScalableTargetsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1137,7 +1137,7 @@ export interface ScalableTarget {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -1239,7 +1239,7 @@ export interface ScalableTarget {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1411,7 +1411,7 @@ export interface DescribeScalingActivitiesRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -1513,7 +1513,7 @@ export interface DescribeScalingActivitiesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1710,7 +1710,7 @@ export interface ScalingActivity {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -1811,7 +1811,7 @@ export interface ScalingActivity {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1978,7 +1978,7 @@ export interface DescribeScalingPoliciesRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -2080,7 +2080,7 @@ export interface DescribeScalingPoliciesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2751,7 +2751,7 @@ export interface ScalingPolicy {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -2852,7 +2852,7 @@ export interface ScalingPolicy {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3031,7 +3031,7 @@ export interface DescribeScheduledActionsRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -3133,7 +3133,7 @@ export interface DescribeScheduledActionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3319,7 +3319,7 @@ export interface ScheduledAction {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -3420,7 +3420,7 @@ export interface ScheduledAction {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3643,7 +3643,7 @@ export interface PutScalingPolicyRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -3744,7 +3744,7 @@ export interface PutScalingPolicyRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3930,7 +3930,7 @@ export interface PutScheduledActionRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -4031,7 +4031,7 @@ export interface PutScheduledActionRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4151,7 +4151,7 @@ export interface RegisterScalableTargetRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Amazon WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
+   *                <p>Pool of WorkSpaces - The resource type is <code>workspacespool</code> and the unique identifier is the pool ID.
    *                Example: <code>workspacespool/wspool-123456</code>.</p>
    *             </li>
    *          </ul>
@@ -4253,7 +4253,7 @@ export interface RegisterScalableTargetRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The capacity of a WorkSpaces pool.</p>
+   *                   <code>workspaces:workspacespool:DesiredUserSessions</code> - The number of user sessions for the WorkSpaces in the pool.</p>
    *             </li>
    *          </ul>
    * @public

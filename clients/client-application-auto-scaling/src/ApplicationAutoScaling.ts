@@ -342,7 +342,7 @@ export interface ApplicationAutoScaling {
  *                <p>Spot Fleets (Amazon EC2)</p>
  *             </li>
  *             <li>
- *                <p>WorkSpaces pools</p>
+ *                <p>Pool of WorkSpaces</p>
  *             </li>
  *             <li>
  *                <p>Custom resources provided by your own applications or services</p>
