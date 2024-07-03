@@ -1004,7 +1004,7 @@ export interface RootStorage {
    * <p>The size of the root volume.</p>
    * @public
    */
-  Capacity?: string;
+  Capacity: string | undefined;
 }
 
 /**
@@ -1031,7 +1031,7 @@ export interface UserStorage {
    * <p>The size of the user volume.</p>
    * @public
    */
-  Capacity?: string;
+  Capacity: string | undefined;
 }
 
 /**

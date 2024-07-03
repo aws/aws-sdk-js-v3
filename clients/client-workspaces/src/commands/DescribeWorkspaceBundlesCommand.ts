@@ -54,10 +54,10 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * //       Description: "STRING_VALUE",
  * //       ImageId: "STRING_VALUE",
  * //       RootStorage: { // RootStorage
- * //         Capacity: "STRING_VALUE",
+ * //         Capacity: "STRING_VALUE", // required
  * //       },
  * //       UserStorage: { // UserStorage
- * //         Capacity: "STRING_VALUE",
+ * //         Capacity: "STRING_VALUE", // required
  * //       },
  * //       ComputeType: { // ComputeType
  * //         Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
