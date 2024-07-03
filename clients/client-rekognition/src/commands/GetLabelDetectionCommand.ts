@@ -94,6 +94,8 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  *       next set of results. To get the next page of results, call <code>GetlabelDetection</code> and
  *       populate the <code>NextToken</code> request parameter with the token value returned from the
  *       previous call to <code>GetLabelDetection</code>.</p>
+ *          <p>If you are retrieving results while using the Amazon Simple Notification Service, note that you will receive an
+ *       "ERROR" notification if the job encounters an issue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

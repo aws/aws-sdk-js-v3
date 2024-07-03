@@ -69,6 +69,9 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *   },
  *   DatasetType: "TRAIN" || "TEST", // required
  *   ProjectArn: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);

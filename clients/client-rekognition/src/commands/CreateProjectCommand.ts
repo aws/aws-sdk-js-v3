@@ -44,6 +44,9 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *   ProjectName: "STRING_VALUE", // required
  *   Feature: "CONTENT_MODERATION" || "CUSTOM_LABELS",
  *   AutoUpdate: "ENABLED" || "DISABLED",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);

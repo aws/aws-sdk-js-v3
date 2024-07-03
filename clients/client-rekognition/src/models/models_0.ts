@@ -2370,6 +2370,12 @@ export interface CreateDatasetRequest {
    * @public
    */
   ProjectArn: string | undefined;
+
+  /**
+   * <p>A set of tags (key-value pairs) that you want to attach to the dataset.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -2526,6 +2532,12 @@ export interface CreateProjectRequest {
    * @public
    */
   AutoUpdate?: ProjectAutoUpdate;
+
+  /**
+   * <p>A set of tags (key-value pairs) that you want to attach to the project.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -5015,8 +5027,8 @@ export interface HumanLoopActivationOutput {
  */
 export interface DetectModerationLabelsResponse {
   /**
-   * <p>Array of detected Moderation labels and the time, in milliseconds from the start of the
-   *       video, they were detected.</p>
+   * <p>Array of detected Moderation labels. For video operations, this includes the time,
+   *       in milliseconds from the start of the video, they were detected.</p>
    * @public
    */
   ModerationLabels?: ModerationLabel[];
