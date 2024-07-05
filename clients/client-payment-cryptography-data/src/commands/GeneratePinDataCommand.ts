@@ -9,6 +9,7 @@ import {
   GeneratePinDataInput,
   GeneratePinDataInputFilterSensitiveLog,
   GeneratePinDataOutput,
+  GeneratePinDataOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
@@ -166,7 +167,7 @@ export class GeneratePinDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "GeneratePinData", {})
   .n("PaymentCryptographyDataClient", "GeneratePinDataCommand")
-  .f(GeneratePinDataInputFilterSensitiveLog, void 0)
+  .f(GeneratePinDataInputFilterSensitiveLog, GeneratePinDataOutputFilterSensitiveLog)
   .ser(se_GeneratePinDataCommand)
   .de(de_GeneratePinDataCommand)
   .build() {}

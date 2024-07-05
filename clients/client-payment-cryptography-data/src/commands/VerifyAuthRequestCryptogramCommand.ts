@@ -9,6 +9,7 @@ import {
   VerifyAuthRequestCryptogramInput,
   VerifyAuthRequestCryptogramInputFilterSensitiveLog,
   VerifyAuthRequestCryptogramOutput,
+  VerifyAuthRequestCryptogramOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
@@ -164,7 +165,7 @@ export class VerifyAuthRequestCryptogramCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "VerifyAuthRequestCryptogram", {})
   .n("PaymentCryptographyDataClient", "VerifyAuthRequestCryptogramCommand")
-  .f(VerifyAuthRequestCryptogramInputFilterSensitiveLog, void 0)
+  .f(VerifyAuthRequestCryptogramInputFilterSensitiveLog, VerifyAuthRequestCryptogramOutputFilterSensitiveLog)
   .ser(se_VerifyAuthRequestCryptogramCommand)
   .de(de_VerifyAuthRequestCryptogramCommand)
   .build() {}

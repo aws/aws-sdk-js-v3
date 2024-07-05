@@ -5,7 +5,12 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GenerateMacInput, GenerateMacInputFilterSensitiveLog, GenerateMacOutput } from "../models/models_0";
+import {
+  GenerateMacInput,
+  GenerateMacInputFilterSensitiveLog,
+  GenerateMacOutput,
+  GenerateMacOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
   ServiceInputTypes,
@@ -142,7 +147,7 @@ export class GenerateMacCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "GenerateMac", {})
   .n("PaymentCryptographyDataClient", "GenerateMacCommand")
-  .f(GenerateMacInputFilterSensitiveLog, void 0)
+  .f(GenerateMacInputFilterSensitiveLog, GenerateMacOutputFilterSensitiveLog)
   .ser(se_GenerateMacCommand)
   .de(de_GenerateMacCommand)
   .build() {}

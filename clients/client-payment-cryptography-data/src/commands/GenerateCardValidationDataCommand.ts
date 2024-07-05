@@ -9,6 +9,7 @@ import {
   GenerateCardValidationDataInput,
   GenerateCardValidationDataInputFilterSensitiveLog,
   GenerateCardValidationDataOutput,
+  GenerateCardValidationDataOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
@@ -155,7 +156,7 @@ export class GenerateCardValidationDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "GenerateCardValidationData", {})
   .n("PaymentCryptographyDataClient", "GenerateCardValidationDataCommand")
-  .f(GenerateCardValidationDataInputFilterSensitiveLog, void 0)
+  .f(GenerateCardValidationDataInputFilterSensitiveLog, GenerateCardValidationDataOutputFilterSensitiveLog)
   .ser(se_GenerateCardValidationDataCommand)
   .de(de_GenerateCardValidationDataCommand)
   .build() {}

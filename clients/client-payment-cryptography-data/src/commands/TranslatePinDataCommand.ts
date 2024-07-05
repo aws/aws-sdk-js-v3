@@ -9,6 +9,7 @@ import {
   TranslatePinDataInput,
   TranslatePinDataInputFilterSensitiveLog,
   TranslatePinDataOutput,
+  TranslatePinDataOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
@@ -170,7 +171,7 @@ export class TranslatePinDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "TranslatePinData", {})
   .n("PaymentCryptographyDataClient", "TranslatePinDataCommand")
-  .f(TranslatePinDataInputFilterSensitiveLog, void 0)
+  .f(TranslatePinDataInputFilterSensitiveLog, TranslatePinDataOutputFilterSensitiveLog)
   .ser(se_TranslatePinDataCommand)
   .de(de_TranslatePinDataCommand)
   .build() {}
