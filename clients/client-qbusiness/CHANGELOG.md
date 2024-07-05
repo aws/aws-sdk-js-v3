@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.611.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.610.0...v3.611.0) (2024-07-05)
+
+
+### Features
+
+* **client-qbusiness:** Add personalization to Q Applications. Customers can enable or disable personalization when creating or updating a Q application with the personalization configuration. ([3022150](https://github.com/aws/aws-sdk-js-v3/commit/30221506431d0ed05a26a463276de2e6d09a2754))
+
+
+
+
+
 # [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
 
 **Note:** Version bump only for package @aws-sdk/client-qbusiness

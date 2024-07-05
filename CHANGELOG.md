@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.611.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.610.0...v3.611.0) (2024-07-05)
+
+
+### Features
+
+* **client-ecr:** This release for Amazon ECR makes change to bring the SDK into sync with the API. ([d8d34b6](https://github.com/aws/aws-sdk-js-v3/commit/d8d34b662785894b43eb19da29d6d30032ad460f))
+* **client-payment-cryptography-data:** Added further restrictions on logging of potentially sensitive inputs and outputs. ([af2d6d5](https://github.com/aws/aws-sdk-js-v3/commit/af2d6d5e70cfbf50834a6d9411a4df89a2bc3bf9))
+* **client-qbusiness:** Add personalization to Q Applications. Customers can enable or disable personalization when creating or updating a Q application with the personalization configuration. ([3022150](https://github.com/aws/aws-sdk-js-v3/commit/30221506431d0ed05a26a463276de2e6d09a2754))
+* **clients:** update client endpoints as of 2024-07-05 ([5d81e9a](https://github.com/aws/aws-sdk-js-v3/commit/5d81e9a9af964b690c516e8484ba3c49d1593f70))
+
+
+
+
+
 # [3.610.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.609.0...v3.610.0) (2024-07-03)
 
 
