@@ -67,6 +67,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   qAppsConfiguration: { // QAppsConfiguration
  * //     qAppsControlMode: "ENABLED" || "DISABLED", // required
  * //   },
+ * //   personalizationConfiguration: { // PersonalizationConfiguration
+ * //     personalizationControlMode: "ENABLED" || "DISABLED", // required
+ * //   },
  * // };
  *
  * ```

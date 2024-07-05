@@ -47,6 +47,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   qAppsConfiguration: { // QAppsConfiguration
  *     qAppsControlMode: "ENABLED" || "DISABLED", // required
  *   },
+ *   personalizationConfiguration: { // PersonalizationConfiguration
+ *     personalizationControlMode: "ENABLED" || "DISABLED", // required
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

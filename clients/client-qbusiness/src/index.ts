@@ -14,46 +14,6 @@
  *          <p>For information about the IAM access control permissions you need to
  *             use this API, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html">IAM roles for Amazon Q Business</a> in the
  *                 <i>Amazon Q Business User Guide</i>.</p>
- *          <p>You can use the following AWS SDKs to access Amazon Q Business APIs:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-cpp">AWS SDK for C++</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-go">AWS SDK for Go</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-java">AWS SDK for Java</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-javascript">AWS SDK for
- *                         JavaScript</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-net">AWS SDK for .NET</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/pythonsdk">AWS SDK for Python
- *                     (Boto3)</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-ruby">AWS SDK for Ruby</a>
- *                </p>
- *             </li>
- *          </ul>
  *          <p>The following resources provide additional information about using the Amazon Q Business
  *             API:</p>
  *          <ul>

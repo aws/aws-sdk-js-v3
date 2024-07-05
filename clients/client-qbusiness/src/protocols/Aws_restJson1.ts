@@ -195,6 +195,7 @@ import {
   NoAuthConfiguration,
   NumberAttributeBoostingConfiguration,
   OAuth2ClientCredentialConfiguration,
+  PersonalizationConfiguration,
   Plugin,
   PluginAuthConfiguration,
   PluginConfiguration,
@@ -363,6 +364,7 @@ export const se_CreateApplicationCommand = async (
       displayName: [],
       encryptionConfiguration: (_) => _json(_),
       identityCenterInstanceArn: [],
+      personalizationConfiguration: (_) => _json(_),
       qAppsConfiguration: (_) => _json(_),
       roleArn: [],
       tags: (_) => _json(_),
@@ -1288,6 +1290,7 @@ export const se_UpdateApplicationCommand = async (
       description: [],
       displayName: [],
       identityCenterInstanceArn: [],
+      personalizationConfiguration: (_) => _json(_),
       qAppsConfiguration: (_) => _json(_),
       roleArn: [],
     })
@@ -1922,6 +1925,7 @@ export const de_GetApplicationCommand = async (
     encryptionConfiguration: _json,
     error: _json,
     identityCenterApplicationArn: __expectString,
+    personalizationConfiguration: _json,
     qAppsConfiguration: _json,
     roleArn: __expectString,
     status: __expectString,
@@ -3402,6 +3406,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_OAuth2ClientCredentialConfiguration omitted.
 
+// se_PersonalizationConfiguration omitted.
+
 // se_PluginAuthConfiguration omitted.
 
 // se_PluginConfiguration omitted.
@@ -3984,6 +3990,8 @@ const de_MetadataEvent = (output: any, context: __SerdeContext): MetadataEvent =
 // de_NumberAttributeBoostingConfiguration omitted.
 
 // de_OAuth2ClientCredentialConfiguration omitted.
+
+// de_PersonalizationConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Plugin

@@ -36,9 +36,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *          <note>
  *             <p>There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro are
  *                 also available in Amazon Q Business Lite. For information on what's included in
- *                 Amazon Q Business Lite and what's included in
- *                 Amazon Q Business Pro, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers">Amazon Q Business tiers</a>.
- *                 You must use the Amazon Q Business console to assign subscription tiers to users.</p>
+ *                 Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers">Amazon Q Business tiers</a>. You must use the Amazon Q Business console to assign
+ *                 subscription tiers to users.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   },
  *   qAppsConfiguration: { // QAppsConfiguration
  *     qAppsControlMode: "ENABLED" || "DISABLED", // required
+ *   },
+ *   personalizationConfiguration: { // PersonalizationConfiguration
+ *     personalizationControlMode: "ENABLED" || "DISABLED", // required
  *   },
  * };
  * const command = new CreateApplicationCommand(input);

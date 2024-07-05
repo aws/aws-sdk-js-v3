@@ -699,6 +699,35 @@ export interface EncryptionConfiguration {
  * @public
  * @enum
  */
+export const PersonalizationControlMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PersonalizationControlMode = (typeof PersonalizationControlMode)[keyof typeof PersonalizationControlMode];
+
+/**
+ * <p>Configuration information about chat response personalization. For more information,
+ *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
+ * @public
+ */
+export interface PersonalizationConfiguration {
+  /**
+   * <p>An option to allow Amazon Q Business to customize chat responses using user
+   *             specific metadata—specifically, location and job information—in your
+   *                 IAM Identity Center instance.</p>
+   * @public
+   */
+  personalizationControlMode: PersonalizationControlMode | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const QAppsControlMode = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -803,10 +832,19 @@ export interface CreateApplicationRequest {
   attachmentsConfiguration?: AttachmentsConfiguration;
 
   /**
-   * <p>An option to allow end users to create and use Amazon Q Apps in the web experience.</p>
+   * <p>An option to allow end users to create and use Amazon Q Apps in the web
+   *             experience.</p>
    * @public
    */
   qAppsConfiguration?: QAppsConfiguration;
+
+  /**
+   * <p>Configuration information about chat response personalization. For more information,
+   *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>
+   *          </p>
+   * @public
+   */
+  personalizationConfiguration?: PersonalizationConfiguration;
 }
 
 /**
@@ -1164,10 +1202,18 @@ export interface GetApplicationResponse {
   attachmentsConfiguration?: AppliedAttachmentsConfiguration;
 
   /**
-   * <p>Settings for whether end users can create and use Amazon Q Apps in the web experience.</p>
+   * <p>Settings for whether end users can create and use Amazon Q Apps in the web
+   *             experience.</p>
    * @public
    */
   qAppsConfiguration?: QAppsConfiguration;
+
+  /**
+   * <p>Configuration information about chat response personalization. For more information,
+   *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
+   * @public
+   */
+  personalizationConfiguration?: PersonalizationConfiguration;
 }
 
 /**
@@ -3776,10 +3822,18 @@ export interface UpdateApplicationRequest {
   attachmentsConfiguration?: AttachmentsConfiguration;
 
   /**
-   * <p>An option to allow end users to create and use Amazon Q Apps in the web experience.</p>
+   * <p>An option to allow end users to create and use Amazon Q Apps in the web
+   *             experience.</p>
    * @public
    */
   qAppsConfiguration?: QAppsConfiguration;
+
+  /**
+   * <p>Configuration information about chat response personalization. For more information,
+   *             see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html">Personalizing chat responses</a>.</p>
+   * @public
+   */
+  personalizationConfiguration?: PersonalizationConfiguration;
 }
 
 /**
