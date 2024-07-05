@@ -55,14 +55,6 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *                <p>The private key must be no larger than 5 KB (5,120 bytes).</p>
  *             </li>
  *             <li>
- *                <p>If the certificate you are importing is not self-signed, you must enter its
- *           certificate chain.</p>
- *             </li>
- *             <li>
- *                <p>If a certificate chain is included, the issuer must be the subject of one of the
- *           certificates in the chain.</p>
- *             </li>
- *             <li>
  *                <p>The certificate, private key, and certificate chain must be PEM-encoded.</p>
  *             </li>
  *             <li>

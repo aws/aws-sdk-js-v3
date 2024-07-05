@@ -309,11 +309,13 @@ export interface DomainValidation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code></code>SUCCESS</p>
+   *                   <code>SUCCESS</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code></code>FAILED</p>
+   *                   <code>FAILED</code>
+   *                </p>
    *             </li>
    *          </ul>
    * @public
@@ -1318,19 +1320,19 @@ export interface CertificateSummary {
    *       list contains the domain names that are bound to the public key that is contained in the
    *       certificate. The subject alternative names include the canonical domain name (CN) of the
    *       certificate and additional domain names that can be used to connect to the website. </p>
-   *          <p>When called by <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_ListCertificates.html">ListCertificates</a>, this parameter will only return the first 100 subject alternative
+   *          <p>When called by <a>ListCertificates</a>, this parameter will only return the first 100 subject alternative
    *       names included in the certificate. To display the full list of subject alternative names, use
-   *         <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
+   *       <a>DescribeCertificate</a>.</p>
    * @public
    */
   SubjectAlternativeNameSummaries?: string[];
 
   /**
-   * <p>When called by <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_ListCertificates.html">ListCertificates</a>, indicates whether the full list of subject alternative names has
+   * <p>When called by <a>ListCertificates</a>, indicates whether the full list of subject alternative names has
    *       been included in the response. If false, the response includes all of the subject alternative
    *       names included in the certificate. If true, the response only includes the first 100 subject
    *       alternative names included in the certificate. To display the full list of subject alternative
-   *       names, use <a href="https://docs.aws.amazon.com/acm/latestAPIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
+   *       names, use <a>DescribeCertificate</a>.</p>
    * @public
    */
   HasAdditionalSubjectAlternativeNames?: boolean;
@@ -1733,9 +1735,37 @@ export interface RequestCertificateRequest {
    *       encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital
    *       Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but
    *       with greater computing efficiency. However, ECDSA is not supported by all network clients.
-   *       Some AWS services may require RSA keys, or only support ECDSA keys of a particular size, while
-   *       others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken.
-   *       Check the requirements for the AWS service where you plan to deploy your certificate.</p>
+   *       Some Amazon Web Services services may require RSA keys, or only support ECDSA keys of a particular size,
+   *       while others allow the use of either RSA and ECDSA keys to ensure that compatibility is not
+   *       broken. Check the requirements for the Amazon Web Services service where you plan to deploy your
+   *       certificate. For more information about selecting an algorithm, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms">Key
+   *         algorithms</a>.</p>
+   *          <note>
+   *             <p>Algorithms supported for an ACM certificate request include: </p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>RSA_2048</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>EC_prime256v1</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>EC_secp384r1</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *             <p>Other listed algorithms are for imported certificates only. </p>
+   *          </note>
+   *          <note>
+   *             <p>When you request a private PKI certificate signed by a CA from Amazon Web Services Private CA, the
+   *       specified signing algorithm family (RSA or ECDSA) must match the algorithm family of
+   *       the CA's secret key.</p>
+   *          </note>
    *          <p>Default: RSA_2048</p>
    * @public
    */

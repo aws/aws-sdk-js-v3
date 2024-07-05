@@ -28,9 +28,11 @@ export interface GetCertificateCommandInput extends GetCertificateRequest {}
 export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of
- *       the certificate of the issuing CA and the intermediate certificates of any other subordinate
- *       CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
+ * <p>Retrieves a certificate and its certificate chain. The certificate may be either a public
+ *       or private certificate issued using the ACM <code>RequestCertificate</code> action, or a
+ *       certificate imported into ACM using the <code>ImportCertificate</code> action. The chain
+ *       consists of the certificate of the issuing CA and the intermediate certificates of any other
+ *       subordinate CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
  *       the certificates and inspect individual fields.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
