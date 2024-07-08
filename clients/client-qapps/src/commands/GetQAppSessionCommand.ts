@@ -1,0 +1,114 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import { GetQAppSessionInput, GetQAppSessionOutput } from "../models/models_0";
+import { de_GetQAppSessionCommand, se_GetQAppSessionCommand } from "../protocols/Aws_restJson1";
+import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+export { $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetQAppSessionCommand}.
+ */
+export interface GetQAppSessionCommandInput extends GetQAppSessionInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetQAppSessionCommand}.
+ */
+export interface GetQAppSessionCommandOutput extends GetQAppSessionOutput, __MetadataBearer {}
+
+/**
+ * <p>Retrieves the current state and results for an active session of an Amazon Q App.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QAppsClient, GetQAppSessionCommand } from "@aws-sdk/client-qapps"; // ES Modules import
+ * // const { QAppsClient, GetQAppSessionCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * const client = new QAppsClient(config);
+ * const input = { // GetQAppSessionInput
+ *   instanceId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ * };
+ * const command = new GetQAppSessionCommand(input);
+ * const response = await client.send(command);
+ * // { // GetQAppSessionOutput
+ * //   sessionId: "STRING_VALUE", // required
+ * //   sessionArn: "STRING_VALUE", // required
+ * //   status: "IN_PROGRESS" || "WAITING" || "COMPLETED", // required
+ * //   cardStatus: { // CardStatusMap // required
+ * //     "<keys>": { // CardStatus
+ * //       currentState: "IN_PROGRESS" || "WAITING" || "COMPLETED", // required
+ * //       currentValue: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param GetQAppSessionCommandInput - {@link GetQAppSessionCommandInput}
+ * @returns {@link GetQAppSessionCommandOutput}
+ * @see {@link GetQAppSessionCommandInput} for command's `input` shape.
+ * @see {@link GetQAppSessionCommandOutput} for command's `response` shape.
+ * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal service error occurred while processing the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The requested operation could not be completed because
+ *       it would exceed the service's quota or limit.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The requested operation could not be completed because too many
+ *       requests were sent at once. Wait a bit and try again later.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by the service.</p>
+ *
+ * @throws {@link QAppsServiceException}
+ * <p>Base exception class for all service exceptions from QApps service.</p>
+ *
+ * @public
+ */
+export class GetQAppSessionCommand extends $Command
+  .classBuilder<
+    GetQAppSessionCommandInput,
+    GetQAppSessionCommandOutput,
+    QAppsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QAppsService", "GetQAppSession", {})
+  .n("QAppsClient", "GetQAppSessionCommand")
+  .f(void 0, void 0)
+  .ser(se_GetQAppSessionCommand)
+  .de(de_GetQAppSessionCommand)
+  .build() {}
