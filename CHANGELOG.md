@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.612.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.611.0...v3.612.0) (2024-07-08)
+
+
+### Features
+
+* **client-codedeploy:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([cba04d5](https://github.com/aws/aws-sdk-js-v3/commit/cba04d506a6e218f959579a2a9310dd3acd750d4))
+* **client-database-migration-service:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([340d910](https://github.com/aws/aws-sdk-js-v3/commit/340d9101879e7ab58f7b46aef209eb982b3e5a3d))
+* **client-device-farm:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([42d8e0a](https://github.com/aws/aws-sdk-js-v3/commit/42d8e0aca39aeff021ed9a816b6c97f608028430))
+* **client-elastic-beanstalk:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([bad32d4](https://github.com/aws/aws-sdk-js-v3/commit/bad32d4b08f170527aa29eb20a89072e54b7befd))
+* **client-elasticsearch-service:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([65d7c5a](https://github.com/aws/aws-sdk-js-v3/commit/65d7c5a3c4f3d295529213d5d9a8e6a2d862fef4))
+* **client-firehose:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([9f19dd0](https://github.com/aws/aws-sdk-js-v3/commit/9f19dd0fdb2c695f7f1d8ebbfa105752de6ccea9))
+* **client-gamelift:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([8a47bee](https://github.com/aws/aws-sdk-js-v3/commit/8a47beea70d191d63fd37ba956422b560be62620))
+* **client-qapps:** This is a general availability (GA) release of Amazon Q Apps, a capability of Amazon Q Business. Q Apps leverages data sources your company has provided to enable users to build, share, and customize apps within your organization. ([070a654](https://github.com/aws/aws-sdk-js-v3/commit/070a65403954bfda6def22e918240dbfce78f007))
+* **client-route53resolver:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([b90b0f1](https://github.com/aws/aws-sdk-js-v3/commit/b90b0f17ea3d1e79326465bbdf9eb70bad86a6e2))
+* **client-ses:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([86a0c81](https://github.com/aws/aws-sdk-js-v3/commit/86a0c817f0c85642ac09e8118d3eb541747dbdff))
+* **clients:** update client endpoints as of 2024-07-08 ([ef60f2a](https://github.com/aws/aws-sdk-js-v3/commit/ef60f2a26c908bbf28d1838359855753b4132915))
+
+
+
+
+
 # [3.611.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.610.0...v3.611.0) (2024-07-05)
 
 
