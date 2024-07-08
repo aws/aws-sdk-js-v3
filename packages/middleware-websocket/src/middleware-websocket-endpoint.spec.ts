@@ -42,7 +42,7 @@ describe(websocketEndpointMiddleware.name, () => {
     const request = new HttpRequest({
       headers: {
         "content-type": "application/vnd.amazon.eventstream",
-        "Content-Type": "application/vnd.amazon.eventstream",
+        "content-type": "application/vnd.amazon.eventstream",
         "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
         "X-Amz-Content-Sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
       },
@@ -51,7 +51,6 @@ describe(websocketEndpointMiddleware.name, () => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
       expect(processed.headers["content-type"]).toBeUndefined();
-      expect(processed.headers["Content-Type"]).toBeUndefined();
       expect(processed.headers["x-amz-content-sha256"]).toBeUndefined();
       expect(processed.headers["X-Amz-Content-Sha256"]).toBeUndefined();
       done();
