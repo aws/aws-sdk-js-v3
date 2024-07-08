@@ -5464,7 +5464,20 @@
           "inputToken": "nextToken",
           "outputToken": "nextToken",
           "items": "devices"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListDevicesSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.devicefarm#ListDevicesRequest": {
