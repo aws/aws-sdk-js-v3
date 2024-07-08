@@ -3809,7 +3809,20 @@
           "outputToken": "NextToken",
           "items": "Identities",
           "pageSize": "MaxItems"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListIdentitiesSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.ses#ListIdentitiesRequest": {
