@@ -66,6 +66,7 @@ describe(websocketEndpointMiddleware.name, () => {
       const processed = args.request as HttpRequest;
       const headerKeys = Object.keys(processed.headers).map((key) => key.toLowerCase());
       expect(headerKeys).toEqual(["host"]);
+      expect(processed.headers["host"]).toBeDefined();
       done();
     };
     const mw = websocketEndpointMiddleware(config, handlerOption);
