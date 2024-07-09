@@ -1,5 +1,3 @@
-import type { Exact } from "@smithy/types";
-
 /**
  * A interface recognizable as a numeric value that stores the underlying number
  * as a string.
@@ -44,19 +42,17 @@ declare global {
   interface File {}
 }
 
-type Unavailable = never;
-type BlobDefined = Exact<Blob, {}> extends true ? false : true;
-type BlobOptionalType = BlobDefined extends true ? Blob : Unavailable;
+type IfDefined<T> = {} extends T ? never : T;
 
 /**
  * @public
  */
 export type NativeAttributeBinary =
   | ArrayBuffer
-  | BlobOptionalType
-  | Buffer
+  | IfDefined<Blob>
+  | IfDefined<Buffer>
   | DataView
-  | File
+  | IfDefined<File>
   | Int8Array
   | Uint8Array
   | Uint8ClampedArray
