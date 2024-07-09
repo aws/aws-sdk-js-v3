@@ -5635,6 +5635,8 @@ export type DataAssetActivityStatus = (typeof DataAssetActivityStatus)[keyof typ
 
 /**
  * <p/>
+ *
+ * @deprecated This structure is deprecated.
  * @public
  */
 export interface DataProductItem {
@@ -5653,6 +5655,8 @@ export interface DataProductItem {
 
 /**
  * <p/>
+ *
+ * @deprecated This structure is deprecated.
  * @public
  */
 export interface DataProductSummary {
@@ -5693,6 +5697,8 @@ export interface DataProductSummary {
   glossaryTerms?: string[];
 
   /**
+   * @deprecated
+   *
    * <p/>
    * @public
    */

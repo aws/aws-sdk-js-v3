@@ -2406,6 +2406,8 @@ export namespace SearchInventoryResultItem {
   }
 
   /**
+   * @deprecated
+   *
    * <p>The data product item included in the search results.</p>
    * @public
    */
