@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
+
+
+### Features
+
+* **client-datazone:** This release deprecates dataProductItem field from SearchInventoryResultItem, along with some unused DataProduct shapes ([5d3596b](https://github.com/aws/aws-sdk-js-v3/commit/5d3596b712542465b79e11d6bcdb6ab240c81f6a))
+
+
+
+
+
 # [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

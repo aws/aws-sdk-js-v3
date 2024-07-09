@@ -96,6 +96,31 @@ export interface StartQAppSessionCommandOutput extends StartQAppSessionOutput, _
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
  * @public
+ * @example Start a session for an Amazon Q App using version 1, passing in initial values for one card
+ * ```javascript
+ * //
+ * const input = {
+ *   "appId": "65e7dce7-226a-47f9-b689-22850becef89",
+ *   "appVersion": 1,
+ *   "initialValues": [
+ *     {
+ *       "value": "What is the circumference of Earth?",
+ *       "cardId": "6fb5b404-3b7b-48a4-8a8b-56406922a606"
+ *     }
+ *   ],
+ *   "instanceId": "4cc5e4c2-d2a2-4188-a114-9ca125b4aedc"
+ * };
+ * const command = new StartQAppSessionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "sessionArn": "arn:aws:qapps:us-west-2:0123456789012:application/a929ecd6-5765-4ec7-bd3e-2ca90098b18e/qapp/65e7dce7-226a-47f9-b689-22850becef89/session/1fca878e-64c5-4dc4-b1d9-c93effed4e82",
+ *   "sessionId": "1fca878e-64c5-4dc4-b1d9-c93effed4e82"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class StartQAppSessionCommand extends $Command
   .classBuilder<

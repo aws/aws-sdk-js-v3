@@ -79,6 +79,18 @@ export interface DeleteLibraryItemCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
  * @public
+ * @example Delete a library item
+ * ```javascript
+ * //
+ * const input = {
+ *   "instanceId": "3642ba81-344c-42fd-a480-9119a5a5f26b",
+ *   "libraryItemId": "72088fd4-78b6-43da-bfb8-8621323c3cfb"
+ * };
+ * const command = new DeleteLibraryItemCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteLibraryItemCommand extends $Command
   .classBuilder<

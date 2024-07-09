@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
+
+
+### Bug Fixes
+
+* **middleware-eventstream:** lowercase headers more consistently ([#6259](https://github.com/aws/aws-sdk-js-v3/issues/6259)) ([1965eb0](https://github.com/aws/aws-sdk-js-v3/commit/1965eb04406c5811173745f7493d1f653e8e3488))
+
+
+### Features
+
+* **client-datazone:** This release deprecates dataProductItem field from SearchInventoryResultItem, along with some unused DataProduct shapes ([5d3596b](https://github.com/aws/aws-sdk-js-v3/commit/5d3596b712542465b79e11d6bcdb6ab240c81f6a))
+* **client-fsx:** Adds support for FSx for NetApp ONTAP 2nd Generation file systems, and FSx for OpenZFS Single AZ HA file systems. ([cd5cd96](https://github.com/aws/aws-sdk-js-v3/commit/cd5cd9667c97dc6d215e9ca6213ec4565b73db55))
+* **client-opensearch:** This release adds support for enabling or disabling Natural Language Query Processing feature for Amazon OpenSearch Service domains, and provides visibility into the current state of the setup or tear-down. ([069e247](https://github.com/aws/aws-sdk-js-v3/commit/069e2475cc064134a1dc00bcfd4100799881186d))
+* **client-sagemaker:** This release 1/ enables optimization jobs that allows customers to perform Ahead-of-time compilation and quantization. 2/ allows customers to control access to Amazon Q integration in SageMaker Studio. 3/ enables AdditionalModelDataSources for CreateModel action. ([ec13654](https://github.com/aws/aws-sdk-js-v3/commit/ec13654a44164c68d565efd45cb232b73e09884e))
+* **clients:** update client endpoints as of 2024-07-09 ([d5e32c2](https://github.com/aws/aws-sdk-js-v3/commit/d5e32c24042f97296ec398a650f60d9fdd3d52a4))
+
+
+
+
+
 # [3.612.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.611.0...v3.612.0) (2024-07-08)
 
 
