@@ -606,7 +606,7 @@ export const se_PutSolFunctionPackageContentCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content");
   b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
@@ -627,7 +627,7 @@ export const se_PutSolNetworkPackageContentCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content");
   b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
@@ -787,7 +787,7 @@ export const se_ValidateSolFunctionPackageContentCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content/validate");
   b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
@@ -808,7 +808,7 @@ export const se_ValidateSolNetworkPackageContentCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content/validate");
   b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);

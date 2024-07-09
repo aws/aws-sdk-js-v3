@@ -99,7 +99,7 @@ export const se_PostContentCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
     [_xalsa]: [
       () => isSerializableHeaderValue(input[_sA]),
       () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_sA]!))),

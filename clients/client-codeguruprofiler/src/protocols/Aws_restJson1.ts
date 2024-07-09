@@ -437,7 +437,7 @@ export const se_PostAgentProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cTo]! || "application/octet-stream",
+    [_ct]: input[_cTo] || "application/octet-stream",
   });
   b.bp("/profilingGroups/{profilingGroupName}/agentProfile");
   b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);

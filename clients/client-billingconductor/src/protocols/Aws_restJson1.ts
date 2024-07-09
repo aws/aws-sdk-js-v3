@@ -258,7 +258,7 @@ export const se_CreateBillingGroupCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/create-billing-group");
   let body: any;
@@ -286,7 +286,7 @@ export const se_CreateCustomLineItemCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/create-custom-line-item");
   let body: any;
@@ -315,7 +315,7 @@ export const se_CreatePricingPlanCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/create-pricing-plan");
   let body: any;
@@ -341,7 +341,7 @@ export const se_CreatePricingRuleCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/create-pricing-rule");
   let body: any;

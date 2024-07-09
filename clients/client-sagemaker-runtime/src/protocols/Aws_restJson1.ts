@@ -54,7 +54,7 @@ export const se_InvokeEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CT]! || "application/octet-stream",
+    [_ct]: input[_CT] || "application/octet-stream",
     [_a]: input[_A]!,
     [_xasca]: input[_CA]!,
     [_xastm]: input[_TM]!,
@@ -107,7 +107,7 @@ export const se_InvokeEndpointWithResponseStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CT]! || "application/octet-stream",
+    [_ct]: input[_CT] || "application/octet-stream",
     [_xasa]: input[_A]!,
     [_xasca]: input[_CA]!,
     [_xastv]: input[_TV]!,

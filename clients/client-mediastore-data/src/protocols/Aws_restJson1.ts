@@ -121,7 +121,7 @@ export const se_PutObjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    [_ct]: input[_CT]! || "application/octet-stream",
+    [_ct]: input[_CT] || "application/octet-stream",
     [_cc]: input[_CC]!,
     [_xasc]: input[_SC]!,
     [_xaua]: input[_UA]!,

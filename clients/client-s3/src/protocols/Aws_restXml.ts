@@ -2618,7 +2618,7 @@ export const se_PutObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CT]! || "application/octet-stream",
+    [_ct]: input[_CT] || "application/octet-stream",
     [_xaa]: input[_ACL]!,
     [_cc]: input[_CC]!,
     [_cd]: input[_CD]!,
