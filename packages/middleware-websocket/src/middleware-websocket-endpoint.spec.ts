@@ -42,7 +42,7 @@ describe(websocketEndpointMiddleware.name, () => {
     const request = new HttpRequest({
       headers: {
         "content-type": "application/vnd.amazon.eventstream",
-        "content-type": "application/vnd.amazon.eventstream",
+        "Content-Type": "application/vnd.amazon.eventstream",
         "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
         "X-Amz-Content-Sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
       },
