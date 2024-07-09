@@ -165,6 +165,11 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *   SoftwareUpdateOptions: { // SoftwareUpdateOptions
  *     AutoSoftwareUpdateEnabled: true || false,
  *   },
+ *   AIMLOptions: { // AIMLOptionsInput
+ *     NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsInput
+ *       DesiredState: "ENABLED" || "DISABLED",
+ *     },
+ *   },
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
@@ -321,6 +326,12 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     AIMLOptions: { // AIMLOptionsOutput
+ * //       NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsOutput
+ * //         DesiredState: "ENABLED" || "DISABLED",
+ * //         CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

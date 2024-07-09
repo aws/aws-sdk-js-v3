@@ -194,6 +194,12 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     AIMLOptions: { // AIMLOptionsOutput
+ * //       NaturalLanguageQueryGenerationOptions: { // NaturalLanguageQueryGenerationOptionsOutput
+ * //         DesiredState: "ENABLED" || "DISABLED",
+ * //         CurrentState: "NOT_ENABLED" || "ENABLE_COMPLETE" || "ENABLE_IN_PROGRESS" || "ENABLE_FAILED" || "DISABLE_COMPLETE" || "DISABLE_IN_PROGRESS" || "DISABLE_FAILED",
+ * //       },
+ * //     },
  * //   },
  * // };
  *
