@@ -2484,7 +2484,7 @@ export const se_TestPayloadBlobCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   b.bp("/blob_payload");
   let body: any;

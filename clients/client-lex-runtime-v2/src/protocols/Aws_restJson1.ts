@@ -180,7 +180,7 @@ export const se_RecognizeUtteranceCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    [_ct]: input[_rCTe]! || "application/octet-stream",
+    [_ct]: input[_rCTe] || "application/octet-stream",
     [_xalss]: input[_sS]!,
     [_xalra]: input[_rA]!,
     [_rct]: input[_rCT]!,

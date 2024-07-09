@@ -214,7 +214,7 @@ export const se_AcceptEulasCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/eula-acceptances");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -238,7 +238,7 @@ export const se_CreateLaunchProfileCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/launch-profiles");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -268,7 +268,7 @@ export const se_CreateStreamingImageCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-images");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -295,7 +295,7 @@ export const se_CreateStreamingSessionCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-sessions");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -323,7 +323,7 @@ export const se_CreateStreamingSessionStreamCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams");
   b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
@@ -348,7 +348,7 @@ export const se_CreateStudioCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios");
   let body: any;
@@ -376,7 +376,7 @@ export const se_CreateStudioComponentCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/studio-components");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -409,7 +409,7 @@ export const se_DeleteLaunchProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}");
   b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
@@ -428,7 +428,7 @@ export const se_DeleteLaunchProfileMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}");
   b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
@@ -448,7 +448,7 @@ export const se_DeleteStreamingImageCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}");
   b.p("streamingImageId", () => input.streamingImageId!, "{streamingImageId}", false);
@@ -467,7 +467,7 @@ export const se_DeleteStreamingSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}");
   b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
@@ -486,7 +486,7 @@ export const se_DeleteStudioCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -504,7 +504,7 @@ export const se_DeleteStudioComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}");
   b.p("studioComponentId", () => input.studioComponentId!, "{studioComponentId}", false);
@@ -523,7 +523,7 @@ export const se_DeleteStudioMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/membership/{principalId}");
   b.p("principalId", () => input.principalId!, "{principalId}", false);
@@ -975,7 +975,7 @@ export const se_PutLaunchProfileMembersCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership");
   b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
@@ -1001,7 +1001,7 @@ export const se_PutStudioMembersCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/membership");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -1026,7 +1026,7 @@ export const se_StartStreamingSessionCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/start");
   b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
@@ -1050,7 +1050,7 @@ export const se_StartStudioSSOConfigurationRepairCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/sso-configuration");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -1069,7 +1069,7 @@ export const se_StopStreamingSessionCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/stop");
   b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
@@ -1139,7 +1139,7 @@ export const se_UpdateLaunchProfileCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}");
   b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
@@ -1168,7 +1168,7 @@ export const se_UpdateLaunchProfileMemberCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}");
   b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
@@ -1194,7 +1194,7 @@ export const se_UpdateStreamingImageCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}");
   b.p("streamingImageId", () => input.streamingImageId!, "{streamingImageId}", false);
@@ -1220,7 +1220,7 @@ export const se_UpdateStudioCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}");
   b.p("studioId", () => input.studioId!, "{studioId}", false);
@@ -1246,7 +1246,7 @@ export const se_UpdateStudioComponentCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}");
   b.p("studioComponentId", () => input.studioComponentId!, "{studioComponentId}", false);

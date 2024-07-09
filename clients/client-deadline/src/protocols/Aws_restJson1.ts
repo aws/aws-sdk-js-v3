@@ -703,7 +703,7 @@ export const se_CreateBudgetCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/budgets");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -740,7 +740,7 @@ export const se_CreateFarmCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms");
   let body: any;
@@ -774,7 +774,7 @@ export const se_CreateFleetCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/fleets");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -812,7 +812,7 @@ export const se_CreateJobCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/jobs");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -853,7 +853,7 @@ export const se_CreateLicenseEndpointCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/license-endpoints");
   let body: any;
@@ -887,7 +887,7 @@ export const se_CreateMonitorCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/monitors");
   let body: any;
@@ -921,7 +921,7 @@ export const se_CreateQueueCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -961,7 +961,7 @@ export const se_CreateQueueEnvironmentCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/environments");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -1028,7 +1028,7 @@ export const se_CreateStorageProfileCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/storage-profiles");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -1062,7 +1062,7 @@ export const se_CreateWorkerCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -1143,7 +1143,7 @@ export const se_DeleteFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/fleets/{fleetId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -2935,7 +2935,7 @@ export const se_UpdateBudgetCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/budgets/{budgetId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3006,7 +3006,7 @@ export const se_UpdateFleetCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/fleets/{fleetId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3044,7 +3044,7 @@ export const se_UpdateJobCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3115,7 +3115,7 @@ export const se_UpdateQueueCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3157,7 +3157,7 @@ export const se_UpdateQueueEnvironmentCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/environments/{queueEnvironmentId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3226,7 +3226,7 @@ export const se_UpdateSessionCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/sessions/{sessionId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3261,7 +3261,7 @@ export const se_UpdateStepCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3296,7 +3296,7 @@ export const se_UpdateStorageProfileCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
@@ -3332,7 +3332,7 @@ export const se_UpdateTaskCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_cT]!,
+    [_xact]: input[_cT] ?? generateIdempotencyToken(),
   });
   b.bp("/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks/{taskId}");
   b.p("farmId", () => input.farmId!, "{farmId}", false);
