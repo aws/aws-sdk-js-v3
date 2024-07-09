@@ -12,7 +12,7 @@ describe("middleware-sdk-transcribe-streaming", () => {
 
       requireRequestsFrom(client).toMatch({
         headers: {
-          "Content-Type": /undefined/,
+          "content-type": /undefined/,
           host: "transcribestreaming.us-west-2.amazonaws.com:8443",
         },
         query: {

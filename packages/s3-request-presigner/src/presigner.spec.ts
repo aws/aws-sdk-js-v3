@@ -71,7 +71,7 @@ describe("s3 presigner", () => {
       ...minimalRequest,
       headers: {
         ...minimalRequest.headers,
-        "Content-Type": "application/octet-stream",
+        "content-type": "application/octet-stream",
       },
     };
     const signed = await signer.presign(requestWithContentTypeHeader, presigningOptions);

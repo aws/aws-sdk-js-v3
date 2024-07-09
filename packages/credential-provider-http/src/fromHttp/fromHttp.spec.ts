@@ -25,7 +25,7 @@ const mockHandle = jest.fn().mockResolvedValue({
   response: new HttpResponse({
     statusCode: 200,
     headers: {
-      "Content-Type": "application/json",
+      "content-type": "application/json",
     },
     body: Readable.from([""]),
   }),

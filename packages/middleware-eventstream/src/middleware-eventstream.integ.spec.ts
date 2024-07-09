@@ -20,7 +20,7 @@ describe("middleware-eventstream", () => {
 
       requireRequestsFrom(client).toMatch({
         headers: {
-          "Content-Type": "application/vnd.amazon.eventstream",
+          "content-type": "application/vnd.amazon.eventstream",
           "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
         },
       });
@@ -51,7 +51,7 @@ describe("middleware-eventstream", () => {
 
       requireRequestsFrom(client).toMatch({
         headers: {
-          "Content-Type": "application/vnd.amazon.eventstream",
+          "content-type": "application/vnd.amazon.eventstream",
           "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
         },
       });
@@ -83,7 +83,7 @@ describe("middleware-eventstream", () => {
 
       requireRequestsFrom(client).toMatch({
         headers: {
-          "Content-Type": "application/vnd.amazon.eventstream",
+          "content-type": "application/vnd.amazon.eventstream",
           "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
         },
       });

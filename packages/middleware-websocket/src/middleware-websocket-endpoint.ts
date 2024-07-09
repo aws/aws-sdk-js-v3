@@ -37,7 +37,7 @@ export const websocketEndpointMiddleware =
       // 'Content-Type' and 'x-amz-content-sha256' headers are normally set for
       // event stream, but WebSocket doesn't require it.
       // See: 'eventStreamHeaderMiddleware' in @aws-sdk/middleware-eventstream
-      delete headers["Content-Type"];
+      delete headers["content-type"];
       delete headers["x-amz-content-sha256"];
 
       for (const name of Object.keys(headers)) {

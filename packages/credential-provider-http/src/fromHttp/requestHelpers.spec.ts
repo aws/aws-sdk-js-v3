@@ -17,7 +17,7 @@ describe(getCredentials.name, () => {
     const response = new HttpResponse({
       statusCode: 200,
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
       body: Readable.from(JSON.stringify(data)),
     });
@@ -34,7 +34,7 @@ describe(getCredentials.name, () => {
     const response = new HttpResponse({
       statusCode: 400,
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
       body: Readable.from(
         JSON.stringify({
@@ -57,7 +57,7 @@ describe(getCredentials.name, () => {
     const response = new HttpResponse({
       statusCode: 500,
       headers: {
-        "Content-Type": "json",
+        "content-type": "json",
       },
       body: Readable.from(JSON.stringify({})),
     });

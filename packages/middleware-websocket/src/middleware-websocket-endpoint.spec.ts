@@ -38,7 +38,7 @@ describe(websocketEndpointMiddleware.name, () => {
     mw(next as any, {} as any)({ request, input: {} });
   });
 
-  it("should remove content-type and sha256 hash header", (done) => {
+  it("should remove content-type and sha256 hash header without transferring them to query parameters", (done) => {
     const request = new HttpRequest({
       headers: {
         "content-type": "application/vnd.amazon.eventstream",
@@ -50,21 +50,22 @@ describe(websocketEndpointMiddleware.name, () => {
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
-      expect(processed.headers["content-type"]).toBeUndefined();
-      expect(processed.headers["Content-Type"]).toBeUndefined();
-      expect(processed.headers["x-amz-content-sha256"]).toBeUndefined();
-      expect(processed.headers["X-Amz-Content-Sha256"]).toBeUndefined();
+      const queryKeys = Object.keys(processed.query).map((key) => key.toLowerCase());
+      expect(queryKeys).not.toContain("content-type");
+      expect(queryKeys).not.toContain("x-amz-content-sha256");
       done();
     };
     const mw = websocketEndpointMiddleware(config, handlerOption);
     mw(next as any, {} as any)({ request, input: {} });
   });
 
-  it("should contains host header after adjustment", (done) => {
+  it("should contain only a host header after adjustment", (done) => {
     const request = new HttpRequest({});
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
+      const headerKeys = Object.keys(processed.headers).map((key) => key.toLowerCase());
+      expect(headerKeys).toEqual(["host"]);
       expect(processed.headers["host"]).toBeDefined();
       done();
     };
