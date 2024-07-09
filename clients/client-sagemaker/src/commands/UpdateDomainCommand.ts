@@ -225,6 +225,10 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     AmazonQSettings: { // AmazonQSettings
+ *       Status: "ENABLED" || "DISABLED",
+ *       QProfileArn: "STRING_VALUE",
+ *     },
  *   },
  *   AppSecurityGroupManagement: "Service" || "Customer",
  *   DefaultSpaceSettings: { // DefaultSpaceSettings

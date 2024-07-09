@@ -932,6 +932,24 @@ export interface AdditionalInferenceSpecificationDefinition {
 }
 
 /**
+ * <p>Data sources that are available to your model in addition to the one that you specify for <code>ModelDataSource</code> when you use the <code>CreateModel</code> action.</p>
+ * @public
+ */
+export interface AdditionalModelDataSource {
+  /**
+   * <p>A custom name for this <code>AdditionalModelDataSource</code> object.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>Specifies the S3 location of ML model data to deploy.</p>
+   * @public
+   */
+  S3DataSource: S3ModelDataSource | undefined;
+}
+
+/**
  * <p>A tag object that consists of a key and an optional value, used to manage metadata
  *             for SageMaker Amazon Web Services resources.</p>
  *          <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
@@ -2043,10 +2061,8 @@ export interface ResourceConfig {
 }
 
 /**
- * <p>Specifies a limit to how long a model training job or model compilation job can run.
- *             It also specifies how long a managed spot training job has to complete. When the job
- *             reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap
- *             model training costs.</p>
+ * <p>Specifies a limit to how long a job can run. When the job reaches the time limit, SageMaker
+ *             ends the job. Use this API to cap costs.</p>
  *          <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
  *             which delays job termination for 120 seconds. Algorithms can use this 120-second window
  *             to save the model artifacts, so the results of training are not lost. </p>
@@ -2639,6 +2655,38 @@ export interface AlgorithmValidationSpecification {
    * @public
    */
   ValidationProfiles: AlgorithmValidationProfile[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureStatus = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * <p>A collection of settings that configure the Amazon Q experience within the domain.</p>
+ * @public
+ */
+export interface AmazonQSettings {
+  /**
+   * <p>Whether Amazon Q has been enabled within the domain.</p>
+   * @public
+   */
+  Status?: FeatureStatus;
+
+  /**
+   * <p>The ARN of the Amazon Q profile used within the domain.</p>
+   * @public
+   */
+  QProfileArn?: string;
 }
 
 /**
@@ -4348,7 +4396,8 @@ export interface ResourceSpec {
   InstanceType?: AppInstanceType;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>
+   * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the
+   *       Resource.</p>
    * @public
    */
   LifecycleConfigArn?: string;
@@ -8086,20 +8135,6 @@ export const CandidateSortBy = {
 export type CandidateSortBy = (typeof CandidateSortBy)[keyof typeof CandidateSortBy];
 
 /**
- * @public
- * @enum
- */
-export const FeatureStatus = {
-  Disabled: "DISABLED",
-  Enabled: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
-
-/**
  * <p>The model deployment settings for the SageMaker Canvas application.</p>
  *          <note>
  *             <p>In order to enable model deployment for Canvas, the SageMaker Domain's or user profile's Amazon Web Services IAM
@@ -9474,7 +9509,8 @@ export interface CodeEditorAppSettings {
 }
 
 /**
- * <p>A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
+ * <p>A Git repository that SageMaker automatically displays to users for cloning in the
+ *       JupyterServer application.</p>
  * @public
  */
 export interface CodeRepository {
@@ -10192,6 +10228,12 @@ export interface ContainerDefinition {
   ModelDataSource?: ModelDataSource;
 
   /**
+   * <p>Data sources that are available to your model in addition to the one that you specify for <code>ModelDataSource</code> when you use the <code>CreateModel</code> action.</p>
+   * @public
+   */
+  AdditionalModelDataSources?: AdditionalModelDataSource[];
+
+  /**
    * <p>The environment variables to set in the Docker container.</p>
    *          <p>The maximum length of each key and value in the <code>Environment</code> map is
    *             1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If
@@ -10841,14 +10883,15 @@ export interface CreateAppRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be
+   *       set.</p>
    * @public
    */
   UserProfileName?: string;
 
   /**
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *       must be set.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be
+   *       set.</p>
    * @public
    */
   SpaceName?: string;
@@ -10866,18 +10909,22 @@ export interface CreateAppRequest {
   AppName: string | undefined;
 
   /**
-   * <p>Each tag consists of a key and an optional value.
-   *          Tag keys must be unique per resource.</p>
+   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per
+   *       resource.</p>
    * @public
    */
   Tags?: Tag[];
 
   /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
+   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image
+   *       created on the instance.</p>
    *          <note>
-   *             <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code> in the <code>CreateApp</code> call overrides the value passed as part of the <code>ResourceSpec</code> configured for
-   *           the user profile or the domain. If <code>InstanceType</code> is not specified in any of those three <code>ResourceSpec</code> values for a
-   *           <code>KernelGateway</code> app, the <code>CreateApp</code> call fails with a request validation error.</p>
+   *             <p>The value of <code>InstanceType</code> passed as part of the <code>ResourceSpec</code>
+   *         in the <code>CreateApp</code> call overrides the value passed as part of the
+   *           <code>ResourceSpec</code> configured for the user profile or the domain. If
+   *           <code>InstanceType</code> is not specified in any of those three <code>ResourceSpec</code>
+   *         values for a <code>KernelGateway</code> app, the <code>CreateApp</code> call fails with a
+   *         request validation error.</p>
    *          </note>
    * @public
    */
@@ -11303,44 +11350,6 @@ export interface CreateClusterRequest {
    *          that support tagging. To learn more about tagging Amazon Web Services resources in general,
    *          see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
    *                Amazon Web Services Resources User Guide</a>.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateClusterResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid
-   *          characters are a-z, A-Z, 0-9, and - (hyphen).</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>Specifies details about the repository, including the URL where the repository is
-   *          located, the default branch, and credentials to use to access the repository.</p>
-   * @public
-   */
-  GitConfig: GitConfig | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *          resources in different ways, for example, by purpose, owner, or environment. For more
-   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    * @public
    */
   Tags?: Tag[];

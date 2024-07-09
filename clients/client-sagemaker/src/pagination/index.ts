@@ -51,6 +51,7 @@ export * from "./ListMonitoringExecutionsPaginator";
 export * from "./ListMonitoringSchedulesPaginator";
 export * from "./ListNotebookInstanceLifecycleConfigsPaginator";
 export * from "./ListNotebookInstancesPaginator";
+export * from "./ListOptimizationJobsPaginator";
 export * from "./ListPipelineExecutionStepsPaginator";
 export * from "./ListPipelineExecutionsPaginator";
 export * from "./ListPipelineParametersForExecutionPaginator";

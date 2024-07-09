@@ -1,10 +1,12 @@
 // smithy-typescript generated code
 import {
   ActionSummary,
+  AdditionalInferenceSpecificationDefinition,
   AgentVersion,
   AlgorithmSortBy,
   AlgorithmSpecification,
   AlgorithmSummary,
+  AmazonQSettings,
   AppDetails,
   AppImageConfigDetails,
   AppImageConfigSortKey,
@@ -34,6 +36,7 @@ import {
   CompilationJobStatus,
   CompilationJobSummary,
   ContextSummary,
+  InferenceSpecification,
   MetadataProperties,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -54,6 +57,7 @@ import {
   _InstanceType,
   DirectInternetAccess,
   DockerSettings,
+  DriftCheckBaselines,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
   ExperimentConfig,
@@ -67,29 +71,46 @@ import {
   InferenceExperimentType,
   InstanceMetadataServiceConfiguration,
   LabelingJobInputConfig,
+  ModelCardExportOutputConfig,
   ModelCardStatus,
+  ModelExplainabilityAppSpecification,
+  ModelExplainabilityBaselineConfig,
+  ModelExplainabilityJobInput,
+  ModelMetrics,
+  ModelPackageModelCard,
+  ModelPackageModelCardFilterSensitiveLog,
+  ModelPackageSecurityConfig,
+  ModelPackageValidationSpecification,
+  ModelQualityAppSpecification,
+  ModelQualityBaselineConfig,
+  ModelQualityJobInput,
+  MonitoringNetworkConfig,
+  MonitoringOutputConfig,
+  MonitoringResources,
   MonitoringScheduleConfig,
+  MonitoringStoppingCondition,
   MonitoringType,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  OptimizationConfig,
+  OptimizationJobDeploymentInstanceType,
+  OptimizationJobModelSource,
+  OptimizationJobOutputConfig,
+  OptimizationVpcConfig,
   ParallelismConfiguration,
-  ProcessingInput,
-  ProcessingOutputConfig,
-  ProcessingResources,
-  ProcessingStoppingCondition,
   RecommendationJobType,
   ResourceLimits,
   RetryStrategy,
   RootAccess,
-  ServiceCatalogProvisioningDetails,
+  SkipModelValidation,
+  SourceAlgorithmSpecification,
   UserSettings,
 } from "./models_1";
 
 import {
-  CrossAccountFilterOption,
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
@@ -125,15 +146,19 @@ import {
   LastUpdateStatus,
   MemberDefinition,
   ModelArtifacts,
+  ModelCardExportArtifacts,
   ModelCardExportJobStatus,
   ModelClientConfig,
   ModelConfiguration,
-  ModelPackageGroupStatus,
   NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
   OwnershipSettings,
+  ProcessingInput,
+  ProcessingOutputConfig,
+  ProcessingResources,
+  ProcessingStoppingCondition,
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -141,6 +166,7 @@ import {
   RecommendationMetrics,
   RemoteDebugConfig,
   RuleEvaluationStatus,
+  ServiceCatalogProvisioningDetails,
   SourceIpConfig,
   SpaceSettings,
   SpaceSharingSettings,
@@ -154,6 +180,608 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeModelCardExportJobResponse {
+  /**
+   * <p>The name of the model card export job to describe.</p>
+   * @public
+   */
+  ModelCardExportJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model card export job.</p>
+   * @public
+   */
+  ModelCardExportJobArn: string | undefined;
+
+  /**
+   * <p>The completion status of the model card export job.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InProgress</code>: The model card export job is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Completed</code>: The model card export job is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code>: The model card export job failed. To see the reason for the failure, see
+   *                the <code>FailureReason</code> field in the response to a
+   *                   <code>DescribeModelCardExportJob</code> call.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: ModelCardExportJobStatus | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the model card that the model export job exports.</p>
+   * @public
+   */
+  ModelCardName: string | undefined;
+
+  /**
+   * <p>The version of the model card that the model export job exports.</p>
+   * @public
+   */
+  ModelCardVersion: number | undefined;
+
+  /**
+   * <p>The export output details for the model card.</p>
+   * @public
+   */
+  OutputConfig: ModelCardExportOutputConfig | undefined;
+
+  /**
+   * <p>The date and time that the model export job was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the model export job was last modified.</p>
+   * @public
+   */
+  LastModifiedAt: Date | undefined;
+
+  /**
+   * <p>The failure reason if the model export job fails.</p>
+   * @public
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The exported model card artifacts.</p>
+   * @public
+   */
+  ExportArtifacts?: ModelCardExportArtifacts;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelExplainabilityJobDefinitionRequest {
+  /**
+   * <p>The name of the model explainability job definition. The name must be unique within an
+   *             Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelExplainabilityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The name of the explainability job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The time at which the model explainability job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The baseline configuration for a model explainability job.</p>
+   * @public
+   */
+  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig;
+
+  /**
+   * <p>Configures the model explainability job to run a specified Docker container image.</p>
+   * @public
+   */
+  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model explainability job.</p>
+   * @public
+   */
+  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model explainability job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
+   *    input data location and write permission to the output data location in Amazon S3.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelPackageInput {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
+   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid
+   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+   * @public
+   */
+  ModelPackageName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DetailedModelPackageStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_STARTED: "NotStarted",
+} as const;
+
+/**
+ * @public
+ */
+export type DetailedModelPackageStatus = (typeof DetailedModelPackageStatus)[keyof typeof DetailedModelPackageStatus];
+
+/**
+ * <p>Represents the overall status of a model package.</p>
+ * @public
+ */
+export interface ModelPackageStatusItem {
+  /**
+   * <p>The name of the model package for which the overall status is being reported.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current status.</p>
+   * @public
+   */
+  Status: DetailedModelPackageStatus | undefined;
+
+  /**
+   * <p>if the overall status is <code>Failed</code>, the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string;
+}
+
+/**
+ * <p>Specifies the validation and image scan statuses of the model package.</p>
+ * @public
+ */
+export interface ModelPackageStatusDetails {
+  /**
+   * <p>The validation status of the model package.</p>
+   * @public
+   */
+  ValidationStatuses: ModelPackageStatusItem[] | undefined;
+
+  /**
+   * <p>The status of the scan of the Docker image container for the model package.</p>
+   * @public
+   */
+  ImageScanStatuses?: ModelPackageStatusItem[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelPackageOutput {
+  /**
+   * <p>The name of the model package being described.</p>
+   * @public
+   */
+  ModelPackageName: string | undefined;
+
+  /**
+   * <p>If the model is a versioned model, the name of the model group that the versioned
+   *             model belongs to.</p>
+   * @public
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * <p>The version of the model package.</p>
+   * @public
+   */
+  ModelPackageVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
+   * @public
+   */
+  ModelPackageArn: string | undefined;
+
+  /**
+   * <p>A brief summary of the model package.</p>
+   * @public
+   */
+  ModelPackageDescription?: string;
+
+  /**
+   * <p>A timestamp specifying when the model package was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Details about inference jobs that you can run with models based on this model
+   *             package.</p>
+   * @public
+   */
+  InferenceSpecification?: InferenceSpecification;
+
+  /**
+   * <p>Details about the algorithm that was used to create the model package.</p>
+   * @public
+   */
+  SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
+
+  /**
+   * <p>Configurations for one or more transform jobs that SageMaker runs to test the model
+   *             package.</p>
+   * @public
+   */
+  ValidationSpecification?: ModelPackageValidationSpecification;
+
+  /**
+   * <p>The current status of the model package.</p>
+   * @public
+   */
+  ModelPackageStatus: ModelPackageStatus | undefined;
+
+  /**
+   * <p>Details about the current status of the model package.</p>
+   * @public
+   */
+  ModelPackageStatusDetails: ModelPackageStatusDetails | undefined;
+
+  /**
+   * <p>Whether the model package is certified for listing on Amazon Web Services Marketplace.</p>
+   * @public
+   */
+  CertifyForMarketplace?: boolean;
+
+  /**
+   * <p>The approval status of the model package.</p>
+   * @public
+   */
+  ModelApprovalStatus?: ModelApprovalStatus;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties;
+
+  /**
+   * <p>Metrics for the model.</p>
+   * @public
+   */
+  ModelMetrics?: ModelMetrics;
+
+  /**
+   * <p>The last time that the model package was modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext;
+
+  /**
+   * <p>A description provided for the model approval.</p>
+   * @public
+   */
+  ApprovalDescription?: string;
+
+  /**
+   * <p>The machine learning domain of the model package you specified. Common machine
+   *             learning domains include computer vision and natural language processing.</p>
+   * @public
+   */
+  Domain?: string;
+
+  /**
+   * <p>The machine learning task you specified that your model package accomplishes.
+   *             Common machine learning tasks include object detection and image classification.</p>
+   * @public
+   */
+  Task?: string;
+
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored. This path points to a single
+   *             gzip compressed tar archive (.tar.gz suffix).</p>
+   * @public
+   */
+  SamplePayloadUrl?: string;
+
+  /**
+   * <p>The metadata properties associated with the model package versions.</p>
+   * @public
+   */
+  CustomerMetadataProperties?: Record<string, string>;
+
+  /**
+   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
+   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
+   *         </p>
+   * @public
+   */
+  DriftCheckBaselines?: DriftCheckBaselines;
+
+  /**
+   * <p>An array of additional Inference Specification objects. Each additional
+   *             Inference Specification specifies artifacts based on this model package that can
+   *             be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.</p>
+   * @public
+   */
+  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
+
+  /**
+   * <p>Indicates if you want to skip model validation.</p>
+   * @public
+   */
+  SkipModelValidation?: SkipModelValidation;
+
+  /**
+   * <p>The URI of the source for the model package.</p>
+   * @public
+   */
+  SourceUri?: string;
+
+  /**
+   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
+   * @public
+   */
+  SecurityConfig?: ModelPackageSecurityConfig;
+
+  /**
+   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
+   *             tied to a model package, it is a specific usage of a model card and its schema is
+   *             simplified compared to the schema of <code>ModelCard</code>. The
+   *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
+   *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
+   *             <code>model_artifact</code> properties. For more information about the model package model
+   *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+   *                 package model card schema</a>. For more information about
+   *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
+   *                 the Details of a Model Version</a>.</p>
+   * @public
+   */
+  ModelCard?: ModelPackageModelCard;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelPackageGroupInput {
+  /**
+   * <p>The name of the model group to describe.</p>
+   * @public
+   */
+  ModelPackageGroupName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelPackageGroupStatus = {
+  COMPLETED: "Completed",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelPackageGroupStatus = (typeof ModelPackageGroupStatus)[keyof typeof ModelPackageGroupStatus];
+
+/**
+ * @public
+ */
+export interface DescribeModelPackageGroupOutput {
+  /**
+   * <p>The name of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupArn: string | undefined;
+
+  /**
+   * <p>A description of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupDescription?: string;
+
+  /**
+   * <p>The time that the model group was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   * @public
+   */
+  CreatedBy: UserContext | undefined;
+
+  /**
+   * <p>The status of the model group.</p>
+   * @public
+   */
+  ModelPackageGroupStatus: ModelPackageGroupStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelQualityJobDefinitionRequest {
+  /**
+   * <p>The name of the model quality job. The name must be unique within an Amazon Web Services
+   *          Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelQualityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model quality job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+
+  /**
+   * <p>The name of the quality job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The time at which the model quality job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The baseline configuration for a model quality job.</p>
+   * @public
+   */
+  ModelQualityBaselineConfig?: ModelQualityBaselineConfig;
+
+  /**
+   * <p>Configures the model quality job to run a specified Docker container image.</p>
+   * @public
+   */
+  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model quality job.</p>
+   * @public
+   */
+  ModelQualityJobInput: ModelQualityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model quality job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+   *    assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition;
+}
+
+/**
+ * @public
+ */
+export interface DescribeMonitoringScheduleRequest {
+  /**
+   * <p>Name of a previously created monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+}
 
 /**
  * @public
@@ -594,6 +1222,171 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput {
    * @public
    */
   CreationTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOptimizationJobRequest {
+  /**
+   * <p>The name that you assigned to the optimization job.</p>
+   * @public
+   */
+  OptimizationJobName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OptimizationJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INPROGRESS: "INPROGRESS",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type OptimizationJobStatus = (typeof OptimizationJobStatus)[keyof typeof OptimizationJobStatus];
+
+/**
+ * <p>Output values produced by an optimization job.</p>
+ * @public
+ */
+export interface OptimizationOutput {
+  /**
+   * <p>The image that SageMaker recommends that you use to host the optimized model that you created
+   *          with an optimization job.</p>
+   * @public
+   */
+  RecommendedInferenceImage?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeOptimizationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the optimization job.</p>
+   * @public
+   */
+  OptimizationJobArn: string | undefined;
+
+  /**
+   * <p>The current status of the optimization job.</p>
+   * @public
+   */
+  OptimizationJobStatus: OptimizationJobStatus | undefined;
+
+  /**
+   * <p>The time when the optimization job started.</p>
+   * @public
+   */
+  OptimizationStartTime?: Date;
+
+  /**
+   * <p>The time when the optimization job finished processing.</p>
+   * @public
+   */
+  OptimizationEndTime?: Date;
+
+  /**
+   * <p>The time when you created the optimization job.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time when the optimization job was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If the optimization job status is <code>FAILED</code>, the reason for the
+   *          failure.</p>
+   * @public
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The name that you assigned to the optimization job.</p>
+   * @public
+   */
+  OptimizationJobName: string | undefined;
+
+  /**
+   * <p>The location of the source model to optimize with an optimization job.</p>
+   * @public
+   */
+  ModelSource: OptimizationJobModelSource | undefined;
+
+  /**
+   * <p>The environment variables to set in the model container.</p>
+   * @public
+   */
+  OptimizationEnvironment?: Record<string, string>;
+
+  /**
+   * <p>The type of instance that hosts the optimized model that you create with the optimization job.</p>
+   * @public
+   */
+  DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
+
+  /**
+   * <p>Settings for each of the optimization techniques that the job applies.</p>
+   * @public
+   */
+  OptimizationConfigs: OptimizationConfig[] | undefined;
+
+  /**
+   * <p>Details for where to store the optimized model that you create with the optimization job.</p>
+   * @public
+   */
+  OutputConfig: OptimizationJobOutputConfig | undefined;
+
+  /**
+   * <p>Output values produced by an optimization job.</p>
+   * @public
+   */
+  OptimizationOutput?: OptimizationOutput;
+
+  /**
+   * <p>The ARN of the IAM role that you assigned to the optimization job.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a job can run. When the job reaches the time limit, SageMaker
+   *             ends the job. Use this API to cap costs.</p>
+   *          <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
+   *             which delays job termination for 120 seconds. Algorithms can use this 120-second window
+   *             to save the model artifacts, so the results of training are not lost. </p>
+   *          <p>The training algorithms provided by SageMaker automatically save the intermediate results
+   *             of a model training job when possible. This attempt to save artifacts is only a best
+   *             effort case as model might not be in a state from which it can be saved. For example, if
+   *             training has just started, the model might not be ready to save. When saved, this
+   *             intermediate data is a valid model artifact. You can use it to create a model with
+   *                 <code>CreateModel</code>.</p>
+   *          <note>
+   *             <p>The Neural Topic Model (NTM) currently does not support saving intermediate model
+   *                 artifacts. When training NTMs, make sure that the maximum runtime is sufficient for
+   *                 the training job to complete.</p>
+   *          </note>
+   * @public
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>A VPC in Amazon VPC that your optimized model has access to.</p>
+   * @public
+   */
+  VpcConfig?: OptimizationVpcConfig;
 }
 
 /**
@@ -1331,7 +2124,10 @@ export interface DescribeSpaceResponse {
   SpaceDisplayName?: string;
 
   /**
-   * <p>Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.</p>
+   * <p>Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity
+   *       Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to
+   *       the URL after appending the respective redirect parameter for the application type to be
+   *       federated through Amazon Web Services IAM Identity Center.</p>
    *          <p>The following application types are supported:</p>
    *          <ul>
    *             <li>
@@ -1343,7 +2139,8 @@ export interface DescribeSpaceResponse {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Code Editor, based on Code-OSS, Visual Studio Code - Open Source: <code>&redirect=CodeEditor</code>
+   *                <p>Code Editor, based on Code-OSS, Visual Studio Code - Open Source:
+   *             <code>&redirect=CodeEditor</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1374,7 +2171,8 @@ export interface DescribeStudioLifecycleConfigResponse {
   StudioLifecycleConfigArn?: string;
 
   /**
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration that is described.</p>
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration that is
+   *       described.</p>
    * @public
    */
   StudioLifecycleConfigName?: string;
@@ -1386,7 +2184,8 @@ export interface DescribeStudioLifecycleConfigResponse {
   CreationTime?: Date;
 
   /**
-   * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle Configurations are immutable.</p>
+   * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle
+   *       Configurations are immutable.</p>
    * @public
    */
   LastModifiedTime?: Date;
@@ -3652,7 +4451,7 @@ export interface DomainDetails {
 
 /**
  * <p>A collection of settings that update the current configuration for the
- *       <code>RStudioServerPro</code> Domain-level app.</p>
+ *         <code>RStudioServerPro</code> Domain-level app.</p>
  * @public
  */
 export interface RStudioServerProDomainSettingsForUpdate {
@@ -3695,15 +4494,16 @@ export interface DomainSettingsForUpdate {
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
 
   /**
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there are no
+   * <p>The configuration for attaching a SageMaker user profile name to the execution
+   *       role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there are no
    *       apps in the <code>InService</code> or <code>Pending</code> state.</p>
    * @public
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
 
   /**
-   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for communication
-   *       between Domain-level apps and user apps.</p>
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
+   *       communication between Domain-level apps and user apps.</p>
    * @public
    */
   SecurityGroupIds?: string[];
@@ -3713,6 +4513,12 @@ export interface DomainSettingsForUpdate {
    * @public
    */
   DockerSettings?: DockerSettings;
+
+  /**
+   * <p>A collection of settings that configure the Amazon Q experience within the domain.</p>
+   * @public
+   */
+  AmazonQSettings?: AmazonQSettings;
 }
 
 /**
@@ -6983,16 +7789,19 @@ export interface ListAppImageConfigsResponse {
  */
 export interface ListAppsRequest {
   /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next
+   *       request to receive the next set of results.</p>
    * @public
    */
   NextToken?: string;
 
   /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
-   *           more results available than the value specified, a <code>NextToken</code>
-   *         is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+   * <p>This parameter defines the maximum number of results that can be return in a single
+   *       response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
+   *       more results available than the value specified, a <code>NextToken</code> is provided in the
+   *       response. The <code>NextToken</code> indicates that the user should get the next set of
+   *       results by providing this token as a part of a subsequent call. The default value for
+   *         <code>MaxResults</code> is 10.</p>
    * @public
    */
   MaxResults?: number;
@@ -7016,14 +7825,15 @@ export interface ListAppsRequest {
   DomainIdEquals?: string;
 
   /**
-   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
+   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then
+   *       this value cannot be set.</p>
    * @public
    */
   UserProfileNameEquals?: string;
 
   /**
-   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set,
-   *       then this value cannot be set.</p>
+   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then
+   *       this value cannot be set.</p>
    * @public
    */
   SpaceNameEquals?: string;
@@ -7040,8 +7850,8 @@ export interface ListAppsResponse {
   Apps?: AppDetails[];
 
   /**
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next
+   *       request to receive the next set of results.</p>
    * @public
    */
   NextToken?: string;
@@ -8169,9 +8979,12 @@ export interface ListDomainsRequest {
   NextToken?: string;
 
   /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
-   *       more results available than the value specified, a <code>NextToken</code>
-   *       is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+   * <p>This parameter defines the maximum number of results that can be return in a single
+   *       response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are
+   *       more results available than the value specified, a <code>NextToken</code> is provided in the
+   *       response. The <code>NextToken</code> indicates that the user should get the next set of
+   *       results by providing this token as a part of a subsequent call. The default value for
+   *         <code>MaxResults</code> is 10.</p>
    * @public
    */
   MaxResults?: number;
@@ -10781,599 +11594,9 @@ export interface ModelMetadataFilter {
 }
 
 /**
- * <p>One or more filters that searches for the specified resource or resources in
- *           a search. All resource objects that satisfy the expression's condition are
- *           included in the search results</p>
- * @public
+ * @internal
  */
-export interface ModelMetadataSearchExpression {
-  /**
-   * <p>A list of filter objects.</p>
-   * @public
-   */
-  Filters?: ModelMetadataFilter[];
-}
-
-/**
- * @public
- */
-export interface ListModelMetadataRequest {
-  /**
-   * <p>One or more filters that searches for the specified resource or resources
-   *           in a search. All resource objects that satisfy the expression's condition are
-   *           included in the search results. Specify the  Framework, FrameworkVersion, Domain
-   *           or Task to filter supported. Filter names and values are case-sensitive.</p>
-   * @public
-   */
-  SearchExpression?: ModelMetadataSearchExpression;
-
-  /**
-   * <p>If the response to a previous <code>ListModelMetadataResponse</code> request was truncated,
-   *            the response includes a NextToken. To retrieve the next set of model metadata,
-   *            use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of models to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>A summary of the model metadata.</p>
- * @public
- */
-export interface ModelMetadataSummary {
-  /**
-   * <p>The machine learning domain of the model.</p>
-   * @public
-   */
-  Domain: string | undefined;
-
-  /**
-   * <p>The machine learning framework of the model.</p>
-   * @public
-   */
-  Framework: string | undefined;
-
-  /**
-   * <p>The machine learning task of the model.</p>
-   * @public
-   */
-  Task: string | undefined;
-
-  /**
-   * <p>The name of the model.</p>
-   * @public
-   */
-  Model: string | undefined;
-
-  /**
-   * <p>The framework version of the model.</p>
-   * @public
-   */
-  FrameworkVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelMetadataResponse {
-  /**
-   * <p>A structure that holds model metadata.</p>
-   * @public
-   */
-  ModelMetadataSummaries: ModelMetadataSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of recommendations, if there are any.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelPackageGroupSortBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type ModelPackageGroupSortBy = (typeof ModelPackageGroupSortBy)[keyof typeof ModelPackageGroupSortBy];
-
-/**
- * @public
- */
-export interface ListModelPackageGroupsInput {
-  /**
-   * <p>A filter that returns only model groups created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only model groups created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model group name. This filter returns only model groups whose name
-   *             contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the result of the previous <code>ListModelPackageGroups</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *             model groups, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ModelPackageGroupSortBy;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>A filter that returns either model groups shared with you or model groups in
-   * 	  your own account. When the value is <code>CrossAccount</code>, the results show
-   * 	  the resources made discoverable to you from other accounts. When the value is
-   *           <code>SameAccount</code> or <code>null</code>, the results show resources from your
-   *  	  account. The default is <code>SameAccount</code>.</p>
-   * @public
-   */
-  CrossAccountFilterOption?: CrossAccountFilterOption;
-}
-
-/**
- * <p>Summary information about a model group.</p>
- * @public
- */
-export interface ModelPackageGroupSummary {
-  /**
-   * <p>The name of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupArn: string | undefined;
-
-  /**
-   * <p>A description of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupDescription?: string;
-
-  /**
-   * <p>The time that the model group was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The status of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListModelPackageGroupsOutput {
-  /**
-   * <p>A list of summaries of the model groups in your Amazon Web Services account.</p>
-   * @public
-   */
-  ModelPackageGroupSummaryList: ModelPackageGroupSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set
-   *             of model groups, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelPackageType = {
-  BOTH: "Both",
-  UNVERSIONED: "Unversioned",
-  VERSIONED: "Versioned",
-} as const;
-
-/**
- * @public
- */
-export type ModelPackageType = (typeof ModelPackageType)[keyof typeof ModelPackageType];
-
-/**
- * @public
- * @enum
- */
-export const ModelPackageSortBy = {
-  CREATION_TIME: "CreationTime",
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type ModelPackageSortBy = (typeof ModelPackageSortBy)[keyof typeof ModelPackageSortBy];
-
-/**
- * @public
- */
-export interface ListModelPackagesInput {
-  /**
-   * <p>A filter that returns only model packages created after the specified time
-   *             (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only model packages created before the specified time
-   *             (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of model packages to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model package name. This filter returns only model packages whose name
-   *             contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only the model packages with the specified approval
-   *             status.</p>
-   * @public
-   */
-  ModelApprovalStatus?: ModelApprovalStatus;
-
-  /**
-   * <p>A filter that returns only model versions that belong to the specified model group.</p>
-   * @public
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>A filter that returns only the model packages of the specified type. This can be one
-   *             of the following values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>UNVERSIONED</code> - List only unversioined models.
-   *                     This is the default value if no <code>ModelPackageType</code> is specified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VERSIONED</code> - List only versioned models.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BOTH</code> - List both versioned and unversioned models.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ModelPackageType?: ModelPackageType;
-
-  /**
-   * <p>If the response to a previous <code>ListModelPackages</code> request was truncated,
-   *             the response includes a <code>NextToken</code>. To retrieve the next set of model
-   *             packages, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *             <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ModelPackageSortBy;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-}
-
-/**
- * <p>Provides summary information about a model package.</p>
- * @public
- */
-export interface ModelPackageSummary {
-  /**
-   * <p>The name of the model package.</p>
-   * @public
-   */
-  ModelPackageName?: string;
-
-  /**
-   * <p>If the model package is a versioned model, the model group that the versioned model
-   *             belongs to.</p>
-   * @public
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>If the model package is a versioned model, the version of the model.</p>
-   * @public
-   */
-  ModelPackageVersion?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   * @public
-   */
-  ModelPackageArn: string | undefined;
-
-  /**
-   * <p>A brief description of the model package.</p>
-   * @public
-   */
-  ModelPackageDescription?: string;
-
-  /**
-   * <p>A timestamp that shows when the model package was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The overall status of the model package.</p>
-   * @public
-   */
-  ModelPackageStatus: ModelPackageStatus | undefined;
-
-  /**
-   * <p>The approval status of the model. This can be one of the following values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code> - The model is approved</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REJECTED</code> - The model is rejected.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
-   *                     approval.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ModelApprovalStatus?: ModelApprovalStatus;
-}
-
-/**
- * @public
- */
-export interface ListModelPackagesOutput {
-  /**
-   * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
-   *             package.</p>
-   * @public
-   */
-  ModelPackageSummaryList: ModelPackageSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *             model packages, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListModelQualityJobDefinitionsRequest {
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions that are associated
-   *          with the specified endpoint.</p>
-   * @public
-   */
-  EndpointName?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: MonitoringJobDefinitionSortKey;
-
-  /**
-   * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
-   *    The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder;
-
-  /**
-   * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
-   *          truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
-   *          model quality monitoring job definitions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a call to
-   *             <code>ListModelQualityJobDefinitions</code>.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the transform job name. This filter returns only model quality monitoring
-   *          job definitions whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions created before the
-   *          specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only model quality monitoring job definitions created after the
-   *          specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-}
-
-/**
- * @public
- */
-export interface ListModelQualityJobDefinitionsResponse {
-  /**
-   * <p>A list of summaries of model quality monitoring job definitions.</p>
-   * @public
-   */
-  JobDefinitionSummaries: MonitoringJobDefinitionSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the
-   *          next set of model quality monitoring job definitions, use it in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelSortKey = {
-  CreationTime: "CreationTime",
-  Name: "Name",
-} as const;
-
-/**
- * @public
- */
-export type ModelSortKey = (typeof ModelSortKey)[keyof typeof ModelSortKey];
-
-/**
- * @public
- */
-export interface ListModelsInput {
-  /**
-   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ModelSortKey;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: OrderKey;
-
-  /**
-   * <p>If the response to a previous <code>ListModels</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To retrieve the next set of models, use the
-   *             token in the next request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of models to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the model name. This filter returns only models whose name contains the
-   *             specified string.</p>
-   * @public
-   */
-  NameContains?: string;
-
-  /**
-   * <p>A filter that returns only models created before the specified time
-   *             (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only models with a creation time greater than or equal to the
-   *             specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date;
-}
-
-/**
- * <p>Provides summary information about a model.</p>
- * @public
- */
-export interface ModelSummary {
-  /**
-   * <p>The name of the model that you want a summary for.</p>
-   * @public
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   * @public
-   */
-  ModelArn: string | undefined;
-
-  /**
-   * <p>A timestamp that indicates when the model was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-}
+export const DescribeModelPackageOutputFilterSensitiveLog = (obj: DescribeModelPackageOutput): any => ({
+  ...obj,
+  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
+});

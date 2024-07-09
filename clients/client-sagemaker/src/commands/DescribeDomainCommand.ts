@@ -241,6 +241,10 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     AmazonQSettings: { // AmazonQSettings
+ * //       Status: "ENABLED" || "DISABLED",
+ * //       QProfileArn: "STRING_VALUE",
+ * //     },
  * //   },
  * //   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",
  * //   HomeEfsFileSystemKmsKeyId: "STRING_VALUE",

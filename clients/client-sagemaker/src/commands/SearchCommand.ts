@@ -1831,6 +1831,22 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Mode: "SingleModel" || "MultiModel",
  * //             ModelDataUrl: "STRING_VALUE",
  * //             ModelDataSource: "<ModelDataSource>",
+ * //             AdditionalModelDataSources: [ // AdditionalModelDataSources
+ * //               { // AdditionalModelDataSource
+ * //                 ChannelName: "STRING_VALUE", // required
+ * //                 S3DataSource: {
+ * //                   S3Uri: "STRING_VALUE", // required
+ * //                   S3DataType: "S3Prefix" || "S3Object", // required
+ * //                   CompressionType: "None" || "Gzip", // required
+ * //                   ModelAccessConfig: {
+ * //                     AcceptEula: true || false, // required
+ * //                   },
+ * //                   HubAccessConfig: {
+ * //                     HubContentArn: "STRING_VALUE", // required
+ * //                   },
+ * //                 },
+ * //               },
+ * //             ],
  * //             Environment: "<EnvironmentMap>",
  * //             ModelPackageName: "STRING_VALUE",
  * //             InferenceSpecificationName: "STRING_VALUE",
@@ -1851,6 +1867,22 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               Mode: "SingleModel" || "MultiModel",
  * //               ModelDataUrl: "STRING_VALUE",
  * //               ModelDataSource: "<ModelDataSource>",
+ * //               AdditionalModelDataSources: [
+ * //                 {
+ * //                   ChannelName: "STRING_VALUE", // required
+ * //                   S3DataSource: {
+ * //                     S3Uri: "STRING_VALUE", // required
+ * //                     S3DataType: "S3Prefix" || "S3Object", // required
+ * //                     CompressionType: "None" || "Gzip", // required
+ * //                     ModelAccessConfig: {
+ * //                       AcceptEula: true || false, // required
+ * //                     },
+ * //                     HubAccessConfig: {
+ * //                       HubContentArn: "STRING_VALUE", // required
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               ],
  * //               Environment: "<EnvironmentMap>",
  * //               ModelPackageName: "STRING_VALUE",
  * //               InferenceSpecificationName: "STRING_VALUE",

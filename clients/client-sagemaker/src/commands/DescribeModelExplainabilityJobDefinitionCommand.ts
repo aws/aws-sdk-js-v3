@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DescribeModelExplainabilityJobDefinitionCommand,
   se_DescribeModelExplainabilityJobDefinitionCommand,

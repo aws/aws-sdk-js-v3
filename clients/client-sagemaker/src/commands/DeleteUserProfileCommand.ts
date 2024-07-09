@@ -29,7 +29,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS
- *      volume, including data, notebooks, and other artifacts.</p>
+ *       volume, including data, notebooks, and other artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

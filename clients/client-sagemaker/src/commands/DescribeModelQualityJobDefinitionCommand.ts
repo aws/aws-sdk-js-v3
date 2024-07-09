@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeModelQualityJobDefinitionRequest,
   DescribeModelQualityJobDefinitionResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DescribeModelQualityJobDefinitionCommand,
   se_DescribeModelQualityJobDefinitionCommand,

@@ -4,13 +4,13 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   ActionSource,
   ActionStatus,
-  AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AlgorithmStatus,
   AlgorithmStatusDetails,
   AlgorithmValidationSpecification,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
+  AppSpecification,
   AppStatus,
   AppType,
   ArtifactSource,
@@ -55,12 +55,12 @@ import {
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetadataProperties,
-  ModelApprovalStatus,
   ModelDeployConfig,
-  ModelPackageStatus,
   ObjectiveStatus,
   OutputDataConfig,
   ProblemType,
+  ProcessingS3DataDistributionType,
+  ProcessingS3InputMode,
   ProductionVariantInstanceType,
   ResourceConfig,
   ResourceSpec,
@@ -79,11 +79,11 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
+  DatasetDefinition,
   DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
   DomainSettings,
-  DriftCheckBaselines,
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
@@ -119,30 +119,22 @@ import {
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
-  ModelCardExportOutputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
-  ModelExplainabilityAppSpecification,
-  ModelExplainabilityBaselineConfig,
-  ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
-  ModelMetrics,
-  ModelPackageModelCard,
-  ModelPackageModelCardFilterSensitiveLog,
-  ModelPackageSecurityConfig,
-  ModelPackageValidationSpecification,
-  ModelQualityAppSpecification,
-  ModelQualityBaselineConfig,
-  ModelQualityJobInput,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
   NeoVpcConfig,
+  NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputConfig,
   ProcessingInstanceType,
+  ProcessingS3CompressionType,
+  ProcessingS3DataType,
+  ProcessingS3UploadMode,
   Processor,
   ProductionVariant,
   ProductionVariantAcceleratorType,
@@ -153,15 +145,439 @@ import {
   RecommendationJobStoppingConditions,
   RecommendationJobType,
   RetryStrategy,
-  ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
-  SkipModelValidation,
-  SourceAlgorithmSpecification,
   ThroughputMode,
   TrackingServerSize,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * <p>Configuration for downloading input data from Amazon S3 into the processing container.</p>
+ * @public
+ */
+export interface ProcessingS3Input {
+  /**
+   * <p>The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The local path in your container where you want Amazon SageMaker to write input data to.
+   *             <code>LocalPath</code> is an absolute path to the input data and must begin with
+   *             <code>/opt/ml/processing/</code>. <code>LocalPath</code> is a required
+   *             parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
+   * @public
+   */
+  LocalPath?: string;
+
+  /**
+   * <p>Whether you use an <code>S3Prefix</code> or a <code>ManifestFile</code> for
+   *             the data type. If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key
+   *             name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing
+   *             job. If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
+   *             that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for
+   *             the processing job.</p>
+   * @public
+   */
+  S3DataType: ProcessingS3DataType | undefined;
+
+  /**
+   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In File mode, Amazon SageMaker copies the data
+   *             from the input source onto the local ML storage volume before starting your processing
+   *             container. This is the most commonly used input mode. In <code>Pipe</code> mode, Amazon SageMaker
+   *             streams input data from the source directly to your processing container into named
+   *             pipes without using the ML storage volume.</p>
+   * @public
+   */
+  S3InputMode?: ProcessingS3InputMode;
+
+  /**
+   * <p>Whether to distribute the data from Amazon S3 to all processing instances with
+   *             <code>FullyReplicated</code>, or whether the data from Amazon S3 is shared by Amazon S3 key,
+   *             downloading one shard of data to each processing instance.</p>
+   * @public
+   */
+  S3DataDistributionType?: ProcessingS3DataDistributionType;
+
+  /**
+   * <p>Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing
+   *             container. <code>Gzip</code> can only be used when <code>Pipe</code> mode is
+   *             specified as the <code>S3InputMode</code>. In <code>Pipe</code> mode, Amazon SageMaker streams input
+   *             data from the source directly to your container without using the EBS volume.</p>
+   * @public
+   */
+  S3CompressionType?: ProcessingS3CompressionType;
+}
+
+/**
+ * <p>The inputs for a processing job. The processing input must specify exactly one of either
+ *             <code>S3Input</code> or <code>DatasetDefinition</code> types.</p>
+ * @public
+ */
+export interface ProcessingInput {
+  /**
+   * <p>The name for the processing job input.</p>
+   * @public
+   */
+  InputName: string | undefined;
+
+  /**
+   * <p>When <code>True</code>, input operations such as data download are managed natively by the
+   *             processing job application. When <code>False</code> (default), input operations are managed by Amazon SageMaker.</p>
+   * @public
+   */
+  AppManaged?: boolean;
+
+  /**
+   * <p>Configuration for downloading input data from Amazon S3 into the processing container.</p>
+   * @public
+   */
+  S3Input?: ProcessingS3Input;
+
+  /**
+   * <p>Configuration for a Dataset Definition input. </p>
+   * @public
+   */
+  DatasetDefinition?: DatasetDefinition;
+}
+
+/**
+ * <p>Configuration for processing job outputs in Amazon SageMaker Feature Store.</p>
+ * @public
+ */
+export interface ProcessingFeatureStoreOutput {
+  /**
+   * <p>The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your
+   *             processing script is responsible for putting records into your Feature Store.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+}
+
+/**
+ * <p>Configuration for uploading output data to Amazon S3 from the processing container.</p>
+ * @public
+ */
+export interface ProcessingS3Output {
+  /**
+   * <p>A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of
+   *             a processing job.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * <p>The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3.
+   *             <code>LocalPath</code> is an absolute path to a directory containing output files.
+   *             This directory will be created by the platform and exist when your container's
+   *             entrypoint is invoked.</p>
+   * @public
+   */
+  LocalPath: string | undefined;
+
+  /**
+   * <p>Whether to upload the results of the processing job continuously or after the job
+   *             completes.</p>
+   * @public
+   */
+  S3UploadMode: ProcessingS3UploadMode | undefined;
+}
+
+/**
+ * <p>Describes the results of a processing job. The processing output must specify exactly one of
+ *             either <code>S3Output</code> or <code>FeatureStoreOutput</code> types.</p>
+ * @public
+ */
+export interface ProcessingOutput {
+  /**
+   * <p>The name for the processing job output.</p>
+   * @public
+   */
+  OutputName: string | undefined;
+
+  /**
+   * <p>Configuration for processing job outputs in Amazon S3.</p>
+   * @public
+   */
+  S3Output?: ProcessingS3Output;
+
+  /**
+   * <p>Configuration for processing job outputs in Amazon SageMaker Feature Store. This processing output
+   *             type is only supported when <code>AppManaged</code> is specified. </p>
+   * @public
+   */
+  FeatureStoreOutput?: ProcessingFeatureStoreOutput;
+
+  /**
+   * <p>When <code>True</code>, output operations such as data upload are managed natively by the
+   *             processing job application. When <code>False</code> (default), output operations are managed by
+   *             Amazon SageMaker.</p>
+   * @public
+   */
+  AppManaged?: boolean;
+}
+
+/**
+ * <p>Configuration for uploading output from the processing container.</p>
+ * @public
+ */
+export interface ProcessingOutputConfig {
+  /**
+   * <p>An array of outputs configuring the data to upload from the processing container.</p>
+   * @public
+   */
+  Outputs: ProcessingOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the processing
+   *             job output. <code>KmsKeyId</code> can be an ID of a KMS key, ARN of a KMS key, alias of
+   *             a KMS key, or alias of a KMS key. The <code>KmsKeyId</code> is applied to all
+   *             outputs.</p>
+   * @public
+   */
+  KmsKeyId?: string;
+}
+
+/**
+ * <p>Configuration for the cluster used to run a processing job.</p>
+ * @public
+ */
+export interface ProcessingClusterConfig {
+  /**
+   * <p>The number of ML compute instances to use in the processing job. For distributed
+   *             processing jobs, specify a value greater than 1. The default value is 1.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The ML compute instance type for the processing job.</p>
+   * @public
+   */
+  InstanceType: ProcessingInstanceType | undefined;
+
+  /**
+   * <p>The size of the ML storage volume in gigabytes that you want to provision. You must
+   *             specify sufficient ML storage for your scenario.</p>
+   *          <note>
+   *             <p>Certain Nitro-based instances include local storage with a fixed total size,
+   *                 dependent on the instance type. When using these instances for processing, Amazon SageMaker mounts
+   *                 the local instance storage instead of Amazon EBS gp2 storage. You can't request a
+   *                 <code>VolumeSizeInGB</code> greater than the total size of the local instance
+   *                 storage.</p>
+   *             <p>For a list of instance types that support local instance storage, including the
+   *                 total size per instance type, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
+   *          </note>
+   * @public
+   */
+  VolumeSizeInGB: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the
+   *             storage volume attached to the ML compute instance(s) that run the processing job.
+   *         </p>
+   *          <note>
+   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
+   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
+   *                 You can't request a <code>VolumeKmsKeyId</code> when using an instance type with
+   *                 local storage.</p>
+   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
+   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
+   *                 Instance Store Volumes</a>.</p>
+   *          </note>
+   * @public
+   */
+  VolumeKmsKeyId?: string;
+}
+
+/**
+ * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
+ *             processing job. In distributed training, you specify more than one instance.</p>
+ * @public
+ */
+export interface ProcessingResources {
+  /**
+   * <p>The configuration for the resources in a cluster used to run the processing
+   *             job.</p>
+   * @public
+   */
+  ClusterConfig: ProcessingClusterConfig | undefined;
+}
+
+/**
+ * <p>Configures conditions under which the processing job should be stopped, such as how long
+ *             the processing job has been running. After the condition is met, the processing job is stopped.</p>
+ * @public
+ */
+export interface ProcessingStoppingCondition {
+  /**
+   * <p>Specifies the maximum runtime in seconds.</p>
+   * @public
+   */
+  MaxRuntimeInSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateProcessingJobRequest {
+  /**
+   * <p>An array of inputs configuring the data to download into the
+   *             processing container.</p>
+   * @public
+   */
+  ProcessingInputs?: ProcessingInput[];
+
+  /**
+   * <p>Output configuration for the processing job.</p>
+   * @public
+   */
+  ProcessingOutputConfig?: ProcessingOutputConfig;
+
+  /**
+   * <p> The name of the processing job. The name must be unique within an Amazon Web Services Region in the
+   *             Amazon Web Services account.</p>
+   * @public
+   */
+  ProcessingJobName: string | undefined;
+
+  /**
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
+   *             processing job. In distributed training, you specify more than one instance.</p>
+   * @public
+   */
+  ProcessingResources: ProcessingResources | undefined;
+
+  /**
+   * <p>The time limit for how long the processing job is allowed to run.</p>
+   * @public
+   */
+  StoppingCondition?: ProcessingStoppingCondition;
+
+  /**
+   * <p>Configures the processing job to run a specified Docker container image.</p>
+   * @public
+   */
+  AppSpecification: AppSpecification | undefined;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Up to
+   *             100 key and values entries in the map are supported.</p>
+   * @public
+   */
+  Environment?: Record<string, string>;
+
+  /**
+   * <p>Networking options for a processing job, such as whether to allow inbound and
+   *             outbound network calls to and from processing containers, and the VPC subnets and
+   *             security groups to use for VPC-enabled processing jobs.</p>
+   * @public
+   */
+  NetworkConfig?: NetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
+   *             your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+   *                 User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
+   *       you call the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ExperimentConfig?: ExperimentConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateProcessingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
+   * @public
+   */
+  ProcessingJobArn: string | undefined;
+}
+
+/**
+ * <p>A key value pair used when you provision a project as a service catalog product. For
+ *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+ *                 Catalog</a>.</p>
+ * @public
+ */
+export interface ProvisioningParameter {
+  /**
+   * <p>The key that identifies a provisioning parameter.</p>
+   * @public
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the provisioning parameter.</p>
+   * @public
+   */
+  Value?: string;
+}
+
+/**
+ * <p>Details that you specify to provision a service catalog product. For information about
+ *             service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+ *                 Catalog</a>.</p>
+ * @public
+ */
+export interface ServiceCatalogProvisioningDetails {
+  /**
+   * <p>The ID of the product to provision.</p>
+   * @public
+   */
+  ProductId: string | undefined;
+
+  /**
+   * <p>The ID of the provisioning artifact.</p>
+   * @public
+   */
+  ProvisioningArtifactId?: string;
+
+  /**
+   * <p>The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. </p>
+   * @public
+   */
+  PathId?: string;
+
+  /**
+   * <p>A list of key value pairs that you specify when you provision a product.</p>
+   * @public
+   */
+  ProvisioningParameters?: ProvisioningParameter[];
+}
 
 /**
  * @public
@@ -427,9 +843,9 @@ export interface CreateSpaceRequest {
   SpaceName: string | undefined;
 
   /**
-   * <p>Tags to associated with the space. Each tag consists of a key and an optional value.
-   *       Tag keys must be unique for each resource. Tags are searchable using the
-   *       <code>Search</code> API.</p>
+   * <p>Tags to associated with the space. Each tag consists of a key and an optional value. Tag
+   *       keys must be unique for each resource. Tags are searchable using the <code>Search</code>
+   *       API.</p>
    * @public
    */
   Tags?: Tag[];
@@ -498,7 +914,8 @@ export interface CreateStudioLifecycleConfigRequest {
   StudioLifecycleConfigName: string | undefined;
 
   /**
-   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.</p>
+   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script. This
+   *       content must be base64 encoded.</p>
    * @public
    */
   StudioLifecycleConfigContent: string | undefined;
@@ -510,7 +927,9 @@ export interface CreateStudioLifecycleConfigRequest {
   StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | undefined;
 
   /**
-   * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
+   * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an
+   *       optional value. Tag keys must be unique per resource. Tags are searchable using the Search
+   *       API. </p>
    * @public
    */
   Tags?: Tag[];
@@ -1574,26 +1993,27 @@ export interface CreateUserProfileRequest {
   UserProfileName: string | undefined;
 
   /**
-   * <p>A specifier for the type of value specified in SingleSignOnUserValue.  Currently, the only supported value is "UserName".
-   *           If the Domain's AuthMode is IAM Identity Center, this field is required.  If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified.
-   *        </p>
+   * <p>A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only
+   *       supported value is "UserName". If the Domain's AuthMode is IAM Identity Center, this field is
+   *       required. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified.
+   *     </p>
    * @public
    */
   SingleSignOnUserIdentifier?: string;
 
   /**
-   * <p>The username of the associated Amazon Web Services Single Sign-On User for this UserProfile.  If the Domain's AuthMode is IAM Identity Center, this field is
-   *           required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified.
-   *        </p>
+   * <p>The username of the associated Amazon Web Services Single Sign-On User for this
+   *       UserProfile. If the Domain's AuthMode is IAM Identity Center, this field is required, and must
+   *       match a valid username of a user in your directory. If the Domain's AuthMode is not IAM Identity Center, this field cannot be specified. </p>
    * @public
    */
   SingleSignOnUserValue?: string;
 
   /**
-   * <p>Each tag consists of a key and an optional value.
-   *          Tag keys must be unique per resource.</p>
-   *          <p>Tags that you specify for the User Profile are also added to all Apps that the
-   *           User Profile launches.</p>
+   * <p>Each tag consists of a key and an optional value. Tag keys must be unique per
+   *       resource.</p>
+   *          <p>Tags that you specify for the User Profile are also added to all Apps that the User
+   *       Profile launches.</p>
    * @public
    */
   Tags?: Tag[];
@@ -2166,14 +2586,15 @@ export interface DeleteAppRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be
+   *       set.</p>
    * @public
    */
   UserProfileName?: string;
 
   /**
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *       must be set.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be
+   *       set.</p>
    * @public
    */
   SpaceName?: string;
@@ -2829,6 +3250,17 @@ export interface DeleteNotebookInstanceLifecycleConfigInput {
 /**
  * @public
  */
+export interface DeleteOptimizationJobRequest {
+  /**
+   * <p>The name that you assigned to the optimization job.</p>
+   * @public
+   */
+  OptimizationJobName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeletePipelineRequest {
   /**
    * <p>The name of the pipeline to delete.</p>
@@ -3426,7 +3858,8 @@ export interface DescribeAppRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be
+   *       set.</p>
    * @public
    */
   UserProfileName?: string;
@@ -3485,8 +3918,8 @@ export interface DescribeAppResponse {
   UserProfileName?: string;
 
   /**
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *       must be set.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be
+   *       set.</p>
    * @public
    */
   SpaceName?: string;
@@ -3504,7 +3937,9 @@ export interface DescribeAppResponse {
   LastHealthCheckTimestamp?: Date;
 
   /**
-   * <p>The timestamp of the last user's activity. <code>LastUserActivityTimestamp</code> is also updated when SageMaker performs health checks without user activity. As a result, this value is set to the same value as <code>LastHealthCheckTimestamp</code>.</p>
+   * <p>The timestamp of the last user's activity. <code>LastUserActivityTimestamp</code> is also
+   *       updated when SageMaker performs health checks without user activity. As a result, this
+   *       value is set to the same value as <code>LastHealthCheckTimestamp</code>.</p>
    * @public
    */
   LastUserActivityTimestamp?: Date;
@@ -3512,7 +3947,11 @@ export interface DescribeAppResponse {
   /**
    * <p>The creation time of the application.</p>
    *          <note>
-   *             <p>After an application has been shut down for 24 hours, SageMaker deletes all metadata for the application. To be considered an update and retain application metadata, applications must be restarted within 24 hours after the previous application has been shut down. After this time window, creation of an application is considered a new application rather than an update of the previous application.</p>
+   *             <p>After an application has been shut down for 24 hours, SageMaker deletes all
+   *         metadata for the application. To be considered an update and retain application metadata,
+   *         applications must be restarted within 24 hours after the previous application has been shut
+   *         down. After this time window, creation of an application is considered a new application
+   *         rather than an update of the previous application.</p>
    *          </note>
    * @public
    */
@@ -3525,7 +3964,8 @@ export interface DescribeAppResponse {
   FailureReason?: string;
 
   /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
+   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image
+   *       created on the instance.</p>
    * @public
    */
   ResourceSpec?: ResourceSpec;
@@ -4750,8 +5190,8 @@ export interface DescribeDomainResponse {
   SingleSignOnManagedApplicationInstanceId?: string;
 
   /**
-   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value is
-   *       only returned for domains created after October 1, 2023.</p>
+   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value
+   *       is only returned for domains created after October 1, 2023.</p>
    * @public
    */
   SingleSignOnApplicationArn?: string;
@@ -4812,8 +5252,7 @@ export interface DescribeDomainResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
-   *           Amazon SageMaker, which allows direct internet access</p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9035,608 +9474,6 @@ export const ModelCardExportJobStatus = {
 export type ModelCardExportJobStatus = (typeof ModelCardExportJobStatus)[keyof typeof ModelCardExportJobStatus];
 
 /**
- * @public
- */
-export interface DescribeModelCardExportJobResponse {
-  /**
-   * <p>The name of the model card export job to describe.</p>
-   * @public
-   */
-  ModelCardExportJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model card export job.</p>
-   * @public
-   */
-  ModelCardExportJobArn: string | undefined;
-
-  /**
-   * <p>The completion status of the model card export job.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>InProgress</code>: The model card export job is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Completed</code>: The model card export job is complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Failed</code>: The model card export job failed. To see the reason for the failure, see
-   *                the <code>FailureReason</code> field in the response to a
-   *                   <code>DescribeModelCardExportJob</code> call.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status: ModelCardExportJobStatus | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model card that the model export job exports.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The version of the model card that the model export job exports.</p>
-   * @public
-   */
-  ModelCardVersion: number | undefined;
-
-  /**
-   * <p>The export output details for the model card.</p>
-   * @public
-   */
-  OutputConfig: ModelCardExportOutputConfig | undefined;
-
-  /**
-   * <p>The date and time that the model export job was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The date and time that the model export job was last modified.</p>
-   * @public
-   */
-  LastModifiedAt: Date | undefined;
-
-  /**
-   * <p>The failure reason if the model export job fails.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The exported model card artifacts.</p>
-   * @public
-   */
-  ExportArtifacts?: ModelCardExportArtifacts;
-}
-
-/**
- * @public
- */
-export interface DescribeModelExplainabilityJobDefinitionRequest {
-  /**
-   * <p>The name of the model explainability job definition. The name must be unique within an
-   *             Amazon Web Services Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeModelExplainabilityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the explainability job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time at which the model explainability job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The baseline configuration for a model explainability job.</p>
-   * @public
-   */
-  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig;
-
-  /**
-   * <p>Configures the model explainability job to run a specified Docker container image.</p>
-   * @public
-   */
-  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model explainability job.</p>
-   * @public
-   */
-  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model explainability job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that has read permission to the
-   *    input data location and write permission to the output data location in Amazon S3.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-}
-
-/**
- * @public
- */
-export interface DescribeModelPackageInput {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
-   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid
-   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
-   * @public
-   */
-  ModelPackageName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DetailedModelPackageStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  NOT_STARTED: "NotStarted",
-} as const;
-
-/**
- * @public
- */
-export type DetailedModelPackageStatus = (typeof DetailedModelPackageStatus)[keyof typeof DetailedModelPackageStatus];
-
-/**
- * <p>Represents the overall status of a model package.</p>
- * @public
- */
-export interface ModelPackageStatusItem {
-  /**
-   * <p>The name of the model package for which the overall status is being reported.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The current status.</p>
-   * @public
-   */
-  Status: DetailedModelPackageStatus | undefined;
-
-  /**
-   * <p>if the overall status is <code>Failed</code>, the reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string;
-}
-
-/**
- * <p>Specifies the validation and image scan statuses of the model package.</p>
- * @public
- */
-export interface ModelPackageStatusDetails {
-  /**
-   * <p>The validation status of the model package.</p>
-   * @public
-   */
-  ValidationStatuses: ModelPackageStatusItem[] | undefined;
-
-  /**
-   * <p>The status of the scan of the Docker image container for the model package.</p>
-   * @public
-   */
-  ImageScanStatuses?: ModelPackageStatusItem[];
-}
-
-/**
- * @public
- */
-export interface DescribeModelPackageOutput {
-  /**
-   * <p>The name of the model package being described.</p>
-   * @public
-   */
-  ModelPackageName: string | undefined;
-
-  /**
-   * <p>If the model is a versioned model, the name of the model group that the versioned
-   *             model belongs to.</p>
-   * @public
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * <p>The version of the model package.</p>
-   * @public
-   */
-  ModelPackageVersion?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   * @public
-   */
-  ModelPackageArn: string | undefined;
-
-  /**
-   * <p>A brief summary of the model package.</p>
-   * @public
-   */
-  ModelPackageDescription?: string;
-
-  /**
-   * <p>A timestamp specifying when the model package was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Details about inference jobs that you can run with models based on this model
-   *             package.</p>
-   * @public
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * <p>Details about the algorithm that was used to create the model package.</p>
-   * @public
-   */
-  SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
-
-  /**
-   * <p>Configurations for one or more transform jobs that SageMaker runs to test the model
-   *             package.</p>
-   * @public
-   */
-  ValidationSpecification?: ModelPackageValidationSpecification;
-
-  /**
-   * <p>The current status of the model package.</p>
-   * @public
-   */
-  ModelPackageStatus: ModelPackageStatus | undefined;
-
-  /**
-   * <p>Details about the current status of the model package.</p>
-   * @public
-   */
-  ModelPackageStatusDetails: ModelPackageStatusDetails | undefined;
-
-  /**
-   * <p>Whether the model package is certified for listing on Amazon Web Services Marketplace.</p>
-   * @public
-   */
-  CertifyForMarketplace?: boolean;
-
-  /**
-   * <p>The approval status of the model package.</p>
-   * @public
-   */
-  ModelApprovalStatus?: ModelApprovalStatus;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
-   * @public
-   */
-  MetadataProperties?: MetadataProperties;
-
-  /**
-   * <p>Metrics for the model.</p>
-   * @public
-   */
-  ModelMetrics?: ModelMetrics;
-
-  /**
-   * <p>The last time that the model package was modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext;
-
-  /**
-   * <p>A description provided for the model approval.</p>
-   * @public
-   */
-  ApprovalDescription?: string;
-
-  /**
-   * <p>The machine learning domain of the model package you specified. Common machine
-   *             learning domains include computer vision and natural language processing.</p>
-   * @public
-   */
-  Domain?: string;
-
-  /**
-   * <p>The machine learning task you specified that your model package accomplishes.
-   *             Common machine learning tasks include object detection and image classification.</p>
-   * @public
-   */
-  Task?: string;
-
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload are stored. This path points to a single
-   *             gzip compressed tar archive (.tar.gz suffix).</p>
-   * @public
-   */
-  SamplePayloadUrl?: string;
-
-  /**
-   * <p>The metadata properties associated with the model package versions.</p>
-   * @public
-   */
-  CustomerMetadataProperties?: Record<string, string>;
-
-  /**
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
-   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
-   *         </p>
-   * @public
-   */
-  DriftCheckBaselines?: DriftCheckBaselines;
-
-  /**
-   * <p>An array of additional Inference Specification objects. Each additional
-   *             Inference Specification specifies artifacts based on this model package that can
-   *             be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.</p>
-   * @public
-   */
-  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
-
-  /**
-   * <p>Indicates if you want to skip model validation.</p>
-   * @public
-   */
-  SkipModelValidation?: SkipModelValidation;
-
-  /**
-   * <p>The URI of the source for the model package.</p>
-   * @public
-   */
-  SourceUri?: string;
-
-  /**
-   * <p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>
-   * @public
-   */
-  SecurityConfig?: ModelPackageSecurityConfig;
-
-  /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
-   *             tied to a model package, it is a specific usage of a model card and its schema is
-   *             simplified compared to the schema of <code>ModelCard</code>. The
-   *             <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>,
-   *             and <code>model_overview</code> is composed of the <code>model_creator</code> and
-   *             <code>model_artifact</code> properties. For more information about the model package model
-   *             card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
-   *                 package model card schema</a>. For more information about
-   *             the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View
-   *                 the Details of a Model Version</a>.</p>
-   * @public
-   */
-  ModelCard?: ModelPackageModelCard;
-}
-
-/**
- * @public
- */
-export interface DescribeModelPackageGroupInput {
-  /**
-   * <p>The name of the model group to describe.</p>
-   * @public
-   */
-  ModelPackageGroupName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModelPackageGroupStatus = {
-  COMPLETED: "Completed",
-  DELETE_FAILED: "DeleteFailed",
-  DELETING: "Deleting",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  PENDING: "Pending",
-} as const;
-
-/**
- * @public
- */
-export type ModelPackageGroupStatus = (typeof ModelPackageGroupStatus)[keyof typeof ModelPackageGroupStatus];
-
-/**
- * @public
- */
-export interface DescribeModelPackageGroupOutput {
-  /**
-   * <p>The name of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupArn: string | undefined;
-
-  /**
-   * <p>A description of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupDescription?: string;
-
-  /**
-   * <p>The time that the model group was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   * @public
-   */
-  CreatedBy: UserContext | undefined;
-
-  /**
-   * <p>The status of the model group.</p>
-   * @public
-   */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeModelQualityJobDefinitionRequest {
-  /**
-   * <p>The name of the model quality job. The name must be unique within an Amazon Web Services
-   *          Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeModelQualityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model quality job.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
-
-  /**
-   * <p>The name of the quality job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The time at which the model quality job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The baseline configuration for a model quality job.</p>
-   * @public
-   */
-  ModelQualityBaselineConfig?: ModelQualityBaselineConfig;
-
-  /**
-   * <p>Configures the model quality job to run a specified Docker container image.</p>
-   * @public
-   */
-  ModelQualityAppSpecification: ModelQualityAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model quality job.</p>
-   * @public
-   */
-  ModelQualityJobInput: ModelQualityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  ModelQualityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model quality job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
-   *    assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition;
-}
-
-/**
- * @public
- */
-export interface DescribeMonitoringScheduleRequest {
-  /**
-   * <p>Name of a previously created monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-/**
  * @internal
  */
 export const OidcConfigFilterSensitiveLog = (obj: OidcConfig): any => ({
@@ -9658,12 +9495,4 @@ export const CreateWorkforceRequestFilterSensitiveLog = (obj: CreateWorkforceReq
 export const DescribeModelCardResponseFilterSensitiveLog = (obj: DescribeModelCardResponse): any => ({
   ...obj,
   ...(obj.Content && { Content: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeModelPackageOutputFilterSensitiveLog = (obj: DescribeModelPackageOutput): any => ({
-  ...obj,
-  ...(obj.ModelCard && { ModelCard: ModelPackageModelCardFilterSensitiveLog(obj.ModelCard) }),
 });

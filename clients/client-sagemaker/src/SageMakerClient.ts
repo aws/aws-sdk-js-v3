@@ -176,6 +176,10 @@ import {
   CreateNotebookInstanceLifecycleConfigCommandInput,
   CreateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/CreateNotebookInstanceLifecycleConfigCommand";
+import {
+  CreateOptimizationJobCommandInput,
+  CreateOptimizationJobCommandOutput,
+} from "./commands/CreateOptimizationJobCommand";
 import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
 import {
   CreatePresignedDomainUrlCommandInput,
@@ -313,6 +317,10 @@ import {
   DeleteNotebookInstanceLifecycleConfigCommandInput,
   DeleteNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
+import {
+  DeleteOptimizationJobCommandInput,
+  DeleteOptimizationJobCommandOutput,
+} from "./commands/DeleteOptimizationJobCommand";
 import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "./commands/DeleteSpaceCommand";
@@ -470,6 +478,10 @@ import {
   DescribeNotebookInstanceLifecycleConfigCommandInput,
   DescribeNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DescribeNotebookInstanceLifecycleConfigCommand";
+import {
+  DescribeOptimizationJobCommandInput,
+  DescribeOptimizationJobCommandOutput,
+} from "./commands/DescribeOptimizationJobCommand";
 import { DescribePipelineCommandInput, DescribePipelineCommandOutput } from "./commands/DescribePipelineCommand";
 import {
   DescribePipelineDefinitionForExecutionCommandInput,
@@ -693,6 +705,10 @@ import {
   ListNotebookInstancesCommandOutput,
 } from "./commands/ListNotebookInstancesCommand";
 import {
+  ListOptimizationJobsCommandInput,
+  ListOptimizationJobsCommandOutput,
+} from "./commands/ListOptimizationJobsCommand";
+import {
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
@@ -815,6 +831,10 @@ import {
   StopNotebookInstanceCommandInput,
   StopNotebookInstanceCommandOutput,
 } from "./commands/StopNotebookInstanceCommand";
+import {
+  StopOptimizationJobCommandInput,
+  StopOptimizationJobCommandOutput,
+} from "./commands/StopOptimizationJobCommand";
 import {
   StopPipelineExecutionCommandInput,
   StopPipelineExecutionCommandOutput,
@@ -968,6 +988,7 @@ export type ServiceInputTypes =
   | CreateMonitoringScheduleCommandInput
   | CreateNotebookInstanceCommandInput
   | CreateNotebookInstanceLifecycleConfigCommandInput
+  | CreateOptimizationJobCommandInput
   | CreatePipelineCommandInput
   | CreatePresignedDomainUrlCommandInput
   | CreatePresignedMlflowTrackingServerUrlCommandInput
@@ -1024,6 +1045,7 @@ export type ServiceInputTypes =
   | DeleteMonitoringScheduleCommandInput
   | DeleteNotebookInstanceCommandInput
   | DeleteNotebookInstanceLifecycleConfigCommandInput
+  | DeleteOptimizationJobCommandInput
   | DeletePipelineCommandInput
   | DeleteProjectCommandInput
   | DeleteSpaceCommandInput
@@ -1082,6 +1104,7 @@ export type ServiceInputTypes =
   | DescribeMonitoringScheduleCommandInput
   | DescribeNotebookInstanceCommandInput
   | DescribeNotebookInstanceLifecycleConfigCommandInput
+  | DescribeOptimizationJobCommandInput
   | DescribePipelineCommandInput
   | DescribePipelineDefinitionForExecutionCommandInput
   | DescribePipelineExecutionCommandInput
@@ -1163,6 +1186,7 @@ export type ServiceInputTypes =
   | ListMonitoringSchedulesCommandInput
   | ListNotebookInstanceLifecycleConfigsCommandInput
   | ListNotebookInstancesCommandInput
+  | ListOptimizationJobsCommandInput
   | ListPipelineExecutionStepsCommandInput
   | ListPipelineExecutionsCommandInput
   | ListPipelineParametersForExecutionCommandInput
@@ -1208,6 +1232,7 @@ export type ServiceInputTypes =
   | StopMlflowTrackingServerCommandInput
   | StopMonitoringScheduleCommandInput
   | StopNotebookInstanceCommandInput
+  | StopOptimizationJobCommandInput
   | StopPipelineExecutionCommandInput
   | StopProcessingJobCommandInput
   | StopTrainingJobCommandInput
@@ -1303,6 +1328,7 @@ export type ServiceOutputTypes =
   | CreateMonitoringScheduleCommandOutput
   | CreateNotebookInstanceCommandOutput
   | CreateNotebookInstanceLifecycleConfigCommandOutput
+  | CreateOptimizationJobCommandOutput
   | CreatePipelineCommandOutput
   | CreatePresignedDomainUrlCommandOutput
   | CreatePresignedMlflowTrackingServerUrlCommandOutput
@@ -1359,6 +1385,7 @@ export type ServiceOutputTypes =
   | DeleteMonitoringScheduleCommandOutput
   | DeleteNotebookInstanceCommandOutput
   | DeleteNotebookInstanceLifecycleConfigCommandOutput
+  | DeleteOptimizationJobCommandOutput
   | DeletePipelineCommandOutput
   | DeleteProjectCommandOutput
   | DeleteSpaceCommandOutput
@@ -1417,6 +1444,7 @@ export type ServiceOutputTypes =
   | DescribeMonitoringScheduleCommandOutput
   | DescribeNotebookInstanceCommandOutput
   | DescribeNotebookInstanceLifecycleConfigCommandOutput
+  | DescribeOptimizationJobCommandOutput
   | DescribePipelineCommandOutput
   | DescribePipelineDefinitionForExecutionCommandOutput
   | DescribePipelineExecutionCommandOutput
@@ -1498,6 +1526,7 @@ export type ServiceOutputTypes =
   | ListMonitoringSchedulesCommandOutput
   | ListNotebookInstanceLifecycleConfigsCommandOutput
   | ListNotebookInstancesCommandOutput
+  | ListOptimizationJobsCommandOutput
   | ListPipelineExecutionStepsCommandOutput
   | ListPipelineExecutionsCommandOutput
   | ListPipelineParametersForExecutionCommandOutput
@@ -1543,6 +1572,7 @@ export type ServiceOutputTypes =
   | StopMlflowTrackingServerCommandOutput
   | StopMonitoringScheduleCommandOutput
   | StopNotebookInstanceCommandOutput
+  | StopOptimizationJobCommandOutput
   | StopPipelineExecutionCommandOutput
   | StopProcessingJobCommandOutput
   | StopTrainingJobCommandOutput
