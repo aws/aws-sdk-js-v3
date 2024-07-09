@@ -270,7 +270,7 @@
             "license": "Apache-2.0"
           },
           "private": true,
-          "experimentalIdentityAndAuth": true
+          "experimentalIdentityAndAuth": false
         }
       }
     }
