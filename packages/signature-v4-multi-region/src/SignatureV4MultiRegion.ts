@@ -9,7 +9,16 @@ import {
   RequestSigningArguments,
 } from "@smithy/types";
 
-import { OptionalCrtSignerV4, signatureV4CrtContainer } from "./signature-v4-crt-container";
+/**
+ * @internal
+ */
+export interface SigV4aSigner extends RequestPresigner, RequestSigner {
+  signWithCredentials(
+    requestToSign: HttpRequest,
+    credentials: AwsCredentialIdentity,
+    options: RequestSigningArguments
+  ): Promise<HttpRequest>;
+}
 
 /**
  * @internal
@@ -24,11 +33,10 @@ export type SignatureV4MultiRegionInit = SignatureV4Init &
  * dynamically, the signer wraps native module SigV4a signer and JS SigV4 signer. It signs the request with SigV4a
  * algorithm if the request needs to be signed with `*` region. Otherwise, it signs the request with normal SigV4
  * signer.
- * Note that SigV4a signer is only supported in Node.js now because it depends on a native dependency.
  * @internal
  */
 export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
-  private sigv4aSigner?: InstanceType<OptionalCrtSignerV4>;
+  private sigv4aSigner?: SigV4aSigner;
   private readonly sigv4Signer: SignatureV4S3Express;
   private readonly signerOptions: SignatureV4MultiRegionInit;
 
@@ -39,9 +47,8 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
 
   public async sign(requestToSign: HttpRequest, options: RequestSigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
-      if (this.signerOptions.runtime !== "node")
-        throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
-      return this.getSigv4aSigner().sign(requestToSign, options);
+      const signer = await this.getSigv4aSigner();
+      return signer.sign(requestToSign, options);
     }
     return this.sigv4Signer.sign(requestToSign, options);
   }
@@ -55,18 +62,16 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     options: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
-      if (this.signerOptions.runtime !== "node")
-        throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
-      return this.getSigv4aSigner().signWithCredentials(requestToSign, credentials, options);
+      const signer = await this.getSigv4aSigner();
+      return signer.signWithCredentials(requestToSign, credentials, options);
     }
     return this.sigv4Signer.signWithCredentials(requestToSign, credentials, options);
   }
 
   public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
-      if (this.signerOptions.runtime !== "node")
-        throw new Error("This request requires signing with SigV4Asymmetric algorithm. It's only available in Node.js");
-      return this.getSigv4aSigner().presign(originalRequest, options);
+      const signer = await this.getSigv4aSigner();
+      return signer.presign(originalRequest, options);
     }
     return this.sigv4Signer.presign(originalRequest, options);
   }
@@ -82,28 +87,12 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     return this.sigv4Signer.presignWithCredentials(originalRequest, credentials, options);
   }
 
-  private getSigv4aSigner(): InstanceType<OptionalCrtSignerV4> {
+  private async getSigv4aSigner(): Promise<SigV4aSigner> {
     if (!this.sigv4aSigner) {
-      let CrtSignerV4: OptionalCrtSignerV4 | null = null;
-
-      try {
-        CrtSignerV4 = signatureV4CrtContainer.CrtSignerV4;
-        if (typeof CrtSignerV4 !== "function") throw new Error();
-      } catch (e) {
-        e.message =
-          `${e.message}\n` +
-          `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
-          `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
-          `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
-          "For more information please go to " +
-          "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt";
-        throw e;
-      }
-
-      this.sigv4aSigner = new CrtSignerV4({
+      const { SignatureV4a } = await import("@smithy/signature-v4a");
+      this.sigv4aSigner = new SignatureV4a({
         ...this.signerOptions,
-        signingAlgorithm: 1,
-      });
+      }) as SigV4aSigner;
     }
     return this.sigv4aSigner;
   }
