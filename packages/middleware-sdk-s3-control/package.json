@@ -28,7 +28,7 @@
     "@aws-sdk/util-endpoints": "*",
     "@smithy/protocol-http": "^4.0.3",
     "@smithy/types": "^3.3.0",
-    "@smithy/util-endpoints": "^2.0.4",
+    "@smithy/util-endpoints": "^2.0.5",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
