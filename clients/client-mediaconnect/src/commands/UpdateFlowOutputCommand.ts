@@ -85,6 +85,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *     VpcInterfaceName: "STRING_VALUE",
  *   },
+ *   OutputStatus: "ENABLED" || "DISABLED",
  * };
  * const command = new UpdateFlowOutputCommand(input);
  * const response = await client.send(command);
@@ -155,6 +156,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //     BridgePorts: [ // __listOf__integer
  * //       Number("int"),
  * //     ],
+ * //     OutputStatus: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

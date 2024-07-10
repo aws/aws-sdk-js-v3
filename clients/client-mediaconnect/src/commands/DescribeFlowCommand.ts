@@ -159,6 +159,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //         BridgePorts: [ // __listOf__integer
  * //           Number("int"),
  * //         ],
+ * //         OutputStatus: "ENABLED" || "DISABLED",
  * //       },
  * //     ],
  * //     Source: { // Source

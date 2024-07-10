@@ -86,6 +86,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  *       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *         VpcInterfaceName: "STRING_VALUE",
  *       },
+ *       OutputStatus: "ENABLED" || "DISABLED",
  *     },
  *   ],
  * };
@@ -159,6 +160,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * //       BridgePorts: [ // __listOf__integer
  * //         Number("int"),
  * //       ],
+ * //       OutputStatus: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * // };

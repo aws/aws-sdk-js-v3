@@ -131,6 +131,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *         VpcInterfaceName: "STRING_VALUE",
  *       },
+ *       OutputStatus: "ENABLED" || "DISABLED",
  *     },
  *   ],
  *   Source: { // SetSourceRequest
@@ -378,6 +379,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         BridgePorts: [ // __listOf__integer
  * //           Number("int"),
  * //         ],
+ * //         OutputStatus: "ENABLED" || "DISABLED",
  * //       },
  * //     ],
  * //     Source: { // Source

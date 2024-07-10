@@ -574,6 +574,20 @@ export interface MediaStreamOutputConfigurationRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const OutputStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputStatus = (typeof OutputStatus)[keyof typeof OutputStatus];
+
+/**
  * The output that you want to add to this flow.
  * @public
  */
@@ -667,6 +681,12 @@ export interface AddOutputRequest {
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
+
+  /**
+   * An indication of whether the new output should be enabled or disabled as soon as it is created. If you don't specify the outputStatus field in your request, MediaConnect sets it to ENABLED.
+   * @public
+   */
+  OutputStatus?: OutputStatus;
 }
 
 /**
@@ -1865,6 +1885,12 @@ export interface Output {
    * @public
    */
   BridgePorts?: number[];
+
+  /**
+   * An indication of whether the output is transmitting data or not.
+   * @public
+   */
+  OutputStatus?: OutputStatus;
 }
 
 /**
@@ -5123,6 +5149,12 @@ export interface UpdateFlowOutputRequest {
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
+
+  /**
+   * An indication of whether the output should transmit data or not. If you don't specify the outputStatus field in your request, MediaConnect leaves the value unchanged.
+   * @public
+   */
+  OutputStatus?: OutputStatus;
 }
 
 /**
