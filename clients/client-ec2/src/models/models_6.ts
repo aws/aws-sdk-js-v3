@@ -668,7 +668,7 @@ export interface IpamDiscoveredPublicAddress {
   Tags?: IpamPublicAddressTags;
 
   /**
-   * <p>The network border group that the resource that the IP address is assigned to is in.</p>
+   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   NetworkBorderGroup?: string;
@@ -751,6 +751,21 @@ export interface GetIpamDiscoveredResourceCidrsRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamNetworkInterfaceAttachmentStatus = {
+  available: "available",
+  in_use: "in-use",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamNetworkInterfaceAttachmentStatus =
+  (typeof IpamNetworkInterfaceAttachmentStatus)[keyof typeof IpamNetworkInterfaceAttachmentStatus];
 
 /**
  * @public
@@ -844,10 +859,22 @@ export interface IpamDiscoveredResourceCidr {
   VpcId?: string;
 
   /**
+   * <p>For elastic IP addresses, this is the status of an attached network interface.</p>
+   * @public
+   */
+  NetworkInterfaceAttachmentStatus?: IpamNetworkInterfaceAttachmentStatus;
+
+  /**
    * <p>The last successful resource discovery time.</p>
    * @public
    */
   SampleTime?: Date;
+
+  /**
+   * <p>The Availability Zone ID.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string;
 }
 
 /**
@@ -1171,6 +1198,12 @@ export interface IpamResourceCidr {
    * @public
    */
   VpcId?: string;
+
+  /**
+   * <p>The Availability Zone ID.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string;
 }
 
 /**
@@ -9606,17 +9639,6 @@ export interface ProvisionByoipCidrRequest {
    * @public
    */
   NetworkBorderGroup?: string;
-}
-
-/**
- * @public
- */
-export interface ProvisionByoipCidrResult {
-  /**
-   * <p>Information about the address range.</p>
-   * @public
-   */
-  ByoipCidr?: ByoipCidr;
 }
 
 /**

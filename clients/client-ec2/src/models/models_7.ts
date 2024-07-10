@@ -83,6 +83,17 @@ import { Purchase } from "./models_5";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
 
 /**
+ * @public
+ */
+export interface ProvisionByoipCidrResult {
+  /**
+   * <p>Information about the address range.</p>
+   * @public
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+/**
  * <p>Provides authorization for Amazon to bring an Autonomous System Number (ASN) to a specific Amazon Web Services account using bring your own ASN (BYOASN).
  *             For details on the format of the message and signature, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
  * @public
@@ -244,6 +255,12 @@ export interface ProvisionPublicIpv4PoolCidrRequest {
    * @public
    */
   NetmaskLength: number | undefined;
+
+  /**
+   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string;
 }
 
 /**

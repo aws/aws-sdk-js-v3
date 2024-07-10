@@ -83,6 +83,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * //       ManagementState: "managed" || "unmanaged" || "ignored",
  * //       OverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
  * //       VpcId: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

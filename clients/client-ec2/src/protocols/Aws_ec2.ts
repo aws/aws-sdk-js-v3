@@ -3903,7 +3903,6 @@ import {
   PrefixListAssociation,
   PrefixListEntry,
   ProvisionByoipCidrRequest,
-  ProvisionByoipCidrResult,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3951,6 +3950,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ProvisionByoipCidrResult,
   ProvisionIpamByoasnRequest,
   ProvisionIpamByoasnResult,
   ProvisionIpamPoolCidrRequest,
@@ -30914,6 +30914,9 @@ const se_CreatePublicIpv4PoolRequest = (input: CreatePublicIpv4PoolRequest, cont
       entries[loc] = value;
     });
   }
+  if (input[_NBG] != null) {
+    entries[_NBG] = input[_NBG];
+  }
   return entries;
 };
 
@@ -33371,6 +33374,9 @@ const se_DeletePublicIpv4PoolRequest = (input: DeletePublicIpv4PoolRequest, cont
   }
   if (input[_PIo] != null) {
     entries[_PIo] = input[_PIo];
+  }
+  if (input[_NBG] != null) {
+    entries[_NBG] = input[_NBG];
   }
   return entries;
 };
@@ -48671,6 +48677,9 @@ const se_ProvisionPublicIpv4PoolCidrRequest = (
   }
   if (input[_NL] != null) {
     entries[_NL] = input[_NL];
+  }
+  if (input[_NBG] != null) {
+    entries[_NBG] = input[_NBG];
   }
   return entries;
 };
@@ -68885,8 +68894,14 @@ const de_IpamDiscoveredResourceCidr = (output: any, context: __SerdeContext): Ip
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
   }
+  if (output[_nIASet] != null) {
+    contents[_NIASet] = __expectString(output[_nIASet]);
+  }
   if (output[_sTa] != null) {
     contents[_STa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sTa]));
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   return contents;
 };
@@ -69258,6 +69273,9 @@ const de_IpamResourceCidr = (output: any, context: __SerdeContext): IpamResource
   }
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
+  }
+  if (output[_aZI] != null) {
+    contents[_AZI] = __expectString(output[_aZI]);
   }
   return contents;
 };
@@ -83602,6 +83620,7 @@ const _NIASC = "NetworkInsightsAccessScopeContent";
 const _NIASI = "NetworkInsightsAccessScopeId";
 const _NIASIe = "NetworkInsightsAccessScopeIds";
 const _NIASe = "NetworkInsightsAccessScopes";
+const _NIASet = "NetworkInterfaceAttachmentStatus";
 const _NIAe = "NetworkInsightsAnalysis";
 const _NIC = "NetworkInterfaceCount";
 const _NID = "NetworkInterfaceDescription";
@@ -85432,6 +85451,7 @@ const _nIASC = "networkInsightsAccessScopeContent";
 const _nIASI = "networkInsightsAccessScopeId";
 const _nIASS = "networkInsightsAccessScopeSet";
 const _nIASe = "networkInsightsAnalysisSet";
+const _nIASet = "networkInterfaceAttachmentStatus";
 const _nIC = "networkInterfaceCount";
 const _nID = "networkInterfaceDescription";
 const _nII = "networkInterfaceId";

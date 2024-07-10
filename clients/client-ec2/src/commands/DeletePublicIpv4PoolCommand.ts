@@ -38,6 +38,7 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  * const input = { // DeletePublicIpv4PoolRequest
  *   DryRun: true || false,
  *   PoolId: "STRING_VALUE", // required
+ *   NetworkBorderGroup: "STRING_VALUE",
  * };
  * const command = new DeletePublicIpv4PoolCommand(input);
  * const response = await client.send(command);

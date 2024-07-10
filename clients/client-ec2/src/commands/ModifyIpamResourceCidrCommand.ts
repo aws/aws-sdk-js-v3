@@ -69,6 +69,7 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  * //     ManagementState: "managed" || "unmanaged" || "ignored",
  * //     OverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
  * //     VpcId: "STRING_VALUE",
+ * //     AvailabilityZoneId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -48,6 +48,7 @@ export interface CreatePublicIpv4PoolCommandOutput extends CreatePublicIpv4PoolR
  *       ],
  *     },
  *   ],
+ *   NetworkBorderGroup: "STRING_VALUE",
  * };
  * const command = new CreatePublicIpv4PoolCommand(input);
  * const response = await client.send(command);

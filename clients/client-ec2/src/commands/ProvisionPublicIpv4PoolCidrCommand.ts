@@ -41,6 +41,7 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  *   IpamPoolId: "STRING_VALUE", // required
  *   PoolId: "STRING_VALUE", // required
  *   NetmaskLength: Number("int"), // required
+ *   NetworkBorderGroup: "STRING_VALUE",
  * };
  * const command = new ProvisionPublicIpv4PoolCidrCommand(input);
  * const response = await client.send(command);
