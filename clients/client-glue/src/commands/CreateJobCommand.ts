@@ -1025,6 +1025,23 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           RecipeArn: "STRING_VALUE", // required
  *           RecipeVersion: "STRING_VALUE", // required
  *         },
+ *         RecipeSteps: [ // RecipeSteps
+ *           { // RecipeStep
+ *             Action: { // RecipeAction
+ *               Operation: "STRING_VALUE", // required
+ *               Parameters: { // ParameterMap
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *             ConditionExpressions: [ // ConditionExpressionList
+ *               { // ConditionExpression
+ *                 Condition: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE",
+ *                 TargetColumn: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
  *       },
  *       SnowflakeSource: { // SnowflakeSource
  *         Name: "STRING_VALUE", // required

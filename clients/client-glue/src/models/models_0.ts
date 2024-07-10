@@ -5247,6 +5247,66 @@ export interface RecipeReference {
 }
 
 /**
+ * <p>Actions defined in the Glue Studio data preparation recipe node.</p>
+ * @public
+ */
+export interface RecipeAction {
+  /**
+   * <p>The operation of the recipe action.</p>
+   * @public
+   */
+  Operation: string | undefined;
+
+  /**
+   * <p>The parameters of the recipe action.</p>
+   * @public
+   */
+  Parameters?: Record<string, string>;
+}
+
+/**
+ * <p>Condition expression defined in the Glue Studio data preparation recipe node.</p>
+ * @public
+ */
+export interface ConditionExpression {
+  /**
+   * <p>The condition of the condition expression.</p>
+   * @public
+   */
+  Condition: string | undefined;
+
+  /**
+   * <p>The value of the condition expression.</p>
+   * @public
+   */
+  Value?: string;
+
+  /**
+   * <p>The target column of the condition expressions.</p>
+   * @public
+   */
+  TargetColumn: string | undefined;
+}
+
+/**
+ * <p>A recipe step used in a Glue Studio data preparation recipe node.</p>
+ * @public
+ */
+export interface RecipeStep {
+  /**
+   * <p>The transformation action of the recipe step.</p>
+   * @public
+   */
+  Action: RecipeAction | undefined;
+
+  /**
+   * <p>The condition expressions for the recipe step.</p>
+   * @public
+   */
+  ConditionExpressions?: ConditionExpression[];
+}
+
+/**
  * <p>A Glue Studio node that uses a Glue DataBrew recipe in Glue jobs.</p>
  * @public
  */
@@ -5267,7 +5327,13 @@ export interface Recipe {
    * <p>A reference to the DataBrew recipe used by the node.</p>
    * @public
    */
-  RecipeReference: RecipeReference | undefined;
+  RecipeReference?: RecipeReference;
+
+  /**
+   * <p>Transform steps used in the recipe node.</p>
+   * @public
+   */
+  RecipeSteps?: RecipeStep[];
 }
 
 /**
@@ -9097,69 +9163,3 @@ export interface CreateJsonClassifierRequest {
    */
   JsonPath: string | undefined;
 }
-
-/**
- * <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
- * @public
- */
-export interface CreateXMLClassifierRequest {
-  /**
-   * <p>An identifier of the data format that the classifier matches.</p>
-   * @public
-   */
-  Classification: string | undefined;
-
-  /**
-   * <p>The name of the classifier.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The XML tag designating the element that contains each record in an XML document being
-   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
-   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
-   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
-   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
-   * @public
-   */
-  RowTag?: string;
-}
-
-/**
- * @public
- */
-export interface CreateClassifierRequest {
-  /**
-   * <p>A <code>GrokClassifier</code> object specifying the classifier
-   *       to create.</p>
-   * @public
-   */
-  GrokClassifier?: CreateGrokClassifierRequest;
-
-  /**
-   * <p>An <code>XMLClassifier</code> object specifying the classifier
-   *       to create.</p>
-   * @public
-   */
-  XMLClassifier?: CreateXMLClassifierRequest;
-
-  /**
-   * <p>A <code>JsonClassifier</code> object specifying the classifier
-   *       to create.</p>
-   * @public
-   */
-  JsonClassifier?: CreateJsonClassifierRequest;
-
-  /**
-   * <p>A <code>CsvClassifier</code> object specifying the classifier
-   *       to create.</p>
-   * @public
-   */
-  CsvClassifier?: CreateCsvClassifierRequest;
-}
-
-/**
- * @public
- */
-export interface CreateClassifierResponse {}

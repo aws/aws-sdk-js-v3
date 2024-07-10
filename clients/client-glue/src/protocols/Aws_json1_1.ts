@@ -552,6 +552,7 @@ import {
   CheckSchemaVersionValidityInput,
   Column,
   Condition,
+  ConditionExpression,
   ConnectionsList,
   ConnectorDataSource,
   ConnectorDataTarget,
@@ -560,11 +561,9 @@ import {
   CrawlerNodeDetails,
   CrawlerTargets,
   CreateBlueprintRequest,
-  CreateClassifierRequest,
   CreateCsvClassifierRequest,
   CreateGrokClassifierRequest,
   CreateJsonClassifierRequest,
-  CreateXMLClassifierRequest,
   CustomCode,
   DataQualityAnalyzerResult,
   DataQualityMetricValues,
@@ -654,7 +653,9 @@ import {
   PostgreSQLCatalogTarget,
   Predicate,
   Recipe,
+  RecipeAction,
   RecipeReference,
+  RecipeStep,
   RecrawlPolicy,
   RedshiftSource,
   RedshiftTarget,
@@ -734,6 +735,7 @@ import {
   ConnectionPropertyKey,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateClassifierRequest,
   CreateConnectionRequest,
   CreateCrawlerRequest,
   CreateCustomEntityTypeRequest,
@@ -757,6 +759,7 @@ import {
   CreateUsageProfileRequest,
   CreateUserDefinedFunctionRequest,
   CreateWorkflowRequest,
+  CreateXMLClassifierRequest,
   CsvClassifier,
   Database,
   DatabaseAttributes,
@@ -873,9 +876,6 @@ import {
   GetPartitionIndexesRequest,
   GetPartitionRequest,
   GetPartitionResponse,
-  GetPartitionsRequest,
-  GetPartitionsResponse,
-  GetPlanRequest,
   GrokClassifier,
   IcebergInput,
   IdempotentParameterMismatchException,
@@ -942,6 +942,9 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetPartitionsRequest,
+  GetPartitionsResponse,
+  GetPlanRequest,
   GetRegistryInput,
   GetResourcePoliciesRequest,
   GetResourcePoliciesResponse,
@@ -9362,6 +9365,10 @@ const se_ColumnStatisticsData = (input: ColumnStatisticsData, context: __SerdeCo
 
 // se_Condition omitted.
 
+// se_ConditionExpression omitted.
+
+// se_ConditionExpressionList omitted.
+
 // se_ConditionList omitted.
 
 // se_ConfigurationMap omitted.
@@ -10496,6 +10503,8 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
 
 // se_OrderList omitted.
 
+// se_ParameterMap omitted.
+
 // se_ParametersMap omitted.
 
 // se_PartitionIndex omitted.
@@ -10593,7 +10602,13 @@ const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeCont
 
 // se_Recipe omitted.
 
+// se_RecipeAction omitted.
+
 // se_RecipeReference omitted.
+
+// se_RecipeStep omitted.
+
+// se_RecipeSteps omitted.
 
 // se_RecrawlPolicy omitted.
 
@@ -11718,6 +11733,10 @@ const de_ColumnStatisticsTaskRunsList = (output: any, context: __SerdeContext): 
 // de_Condition omitted.
 
 // de_ConditionCheckFailureException omitted.
+
+// de_ConditionExpression omitted.
+
+// de_ConditionExpressionList omitted.
 
 // de_ConditionList omitted.
 
@@ -13958,6 +13977,8 @@ const de_NodeList = (output: any, context: __SerdeContext): Node[] => {
 
 // de_OtherMetadataValueListItem omitted.
 
+// de_ParameterMap omitted.
+
 // de_ParametersMap omitted.
 
 /**
@@ -14053,7 +14074,13 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 
 // de_Recipe omitted.
 
+// de_RecipeAction omitted.
+
 // de_RecipeReference omitted.
+
+// de_RecipeStep omitted.
+
+// de_RecipeSteps omitted.
 
 // de_RecrawlPolicy omitted.
 

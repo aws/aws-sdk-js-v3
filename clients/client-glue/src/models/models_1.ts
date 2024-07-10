@@ -12,6 +12,9 @@ import {
   ConnectionsList,
   Crawler,
   CrawlerTargets,
+  CreateCsvClassifierRequest,
+  CreateGrokClassifierRequest,
+  CreateJsonClassifierRequest,
   CsvHeaderOption,
   CsvSerdeOption,
   DataFormat,
@@ -40,6 +43,72 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
+ * @public
+ */
+export interface CreateXMLClassifierRequest {
+  /**
+   * <p>An identifier of the data format that the classifier matches.</p>
+   * @public
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The XML tag designating the element that contains each record in an XML document being
+   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
+   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
+   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
+   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
+   * @public
+   */
+  RowTag?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateClassifierRequest {
+  /**
+   * <p>A <code>GrokClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  GrokClassifier?: CreateGrokClassifierRequest;
+
+  /**
+   * <p>An <code>XMLClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  XMLClassifier?: CreateXMLClassifierRequest;
+
+  /**
+   * <p>A <code>JsonClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  JsonClassifier?: CreateJsonClassifierRequest;
+
+  /**
+   * <p>A <code>CsvClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  CsvClassifier?: CreateCsvClassifierRequest;
+}
+
+/**
+ * @public
+ */
+export interface CreateClassifierResponse {}
 
 /**
  * @public
@@ -8089,244 +8158,4 @@ export interface Segment {
    * @public
    */
   TotalSegments: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPartitionsRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partitions in question reside. If none is provided,
-   *       the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the partitions reside.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the partitions' table.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>An expression that filters the partitions to be returned.</p>
-   *          <p>The expression uses SQL syntax similar to the SQL <code>WHERE</code> filter clause. The
-   *       SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a> parses the expression. </p>
-   *          <p>
-   *             <i>Operators</i>: The following are the operators that you can use in the
-   *         <code>Expression</code> API call:</p>
-   *          <dl>
-   *             <dt>=</dt>
-   *             <dd>
-   *                <p>Checks whether the values of the two operands are equal; if yes, then the condition becomes
-   *             true.</p>
-   *                <p>Example: Assume 'variable a' holds 10 and 'variable b' holds 20. </p>
-   *                <p>(a = b) is not true.</p>
-   *             </dd>
-   *             <dt>< ></dt>
-   *             <dd>
-   *                <p>Checks whether the values of two operands are equal; if the values are not equal,
-   *             then the condition becomes true.</p>
-   *                <p>Example: (a < > b) is true.</p>
-   *             </dd>
-   *             <dt>></dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is greater than the value of the right
-   *             operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a > b) is not true.</p>
-   *             </dd>
-   *             <dt><</dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is less than the value of the right
-   *             operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a < b) is true.</p>
-   *             </dd>
-   *             <dt>>=</dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is greater than or equal to the value
-   *             of the right operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a >= b) is not true.</p>
-   *             </dd>
-   *             <dt><=</dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is less than or equal to the value of
-   *             the right operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a <= b) is true.</p>
-   *             </dd>
-   *             <dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt>
-   *             <dd>
-   *                <p>Logical operators.</p>
-   *             </dd>
-   *          </dl>
-   *          <p>
-   *             <i>Supported Partition Key Types</i>: The following are the supported
-   *       partition keys.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>string</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>date</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>timestamp</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>int</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bigint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>long</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tinyint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>smallint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>decimal</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If an type is encountered that is not valid, an exception is thrown. </p>
-   *          <p>The following list shows the valid operators on each type. When you define a crawler, the
-   *         <code>partitionKey</code> type is created as a <code>STRING</code>, to be compatible with the catalog
-   *       partitions. </p>
-   *          <p>
-   *             <i>Sample API Call</i>: </p>
-   * @public
-   */
-  Expression?: string;
-
-  /**
-   * <p>A continuation token, if this is not the first call to retrieve
-   *       these partitions.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The segment of the table's partitions to scan in this request.</p>
-   * @public
-   */
-  Segment?: Segment;
-
-  /**
-   * <p>The maximum number of partitions to return in a single response.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>When true, specifies not returning the partition column schema. Useful when you are interested only in other partition attributes such as partition values or location. This approach avoids the problem of a large response by not returning duplicate data.</p>
-   * @public
-   */
-  ExcludeColumnSchema?: boolean;
-
-  /**
-   * <p>The transaction ID at which to read the partition contents.</p>
-   * @public
-   */
-  TransactionId?: string;
-
-  /**
-   * <p>The time as of when to read the partition contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
-   * @public
-   */
-  QueryAsOfTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetPartitionsResponse {
-  /**
-   * <p>A list of requested partitions.</p>
-   * @public
-   */
-  Partitions?: Partition[];
-
-  /**
-   * <p>A continuation token, if the returned list of partitions does not include the last
-   *       one.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetPlanRequest {
-  /**
-   * <p>The list of mappings from a source table to target tables.</p>
-   * @public
-   */
-  Mapping: MappingEntry[] | undefined;
-
-  /**
-   * <p>The source table.</p>
-   * @public
-   */
-  Source: CatalogEntry | undefined;
-
-  /**
-   * <p>The target tables.</p>
-   * @public
-   */
-  Sinks?: CatalogEntry[];
-
-  /**
-   * <p>The parameters for the mapping.</p>
-   * @public
-   */
-  Location?: Location;
-
-  /**
-   * <p>The programming language of the code to perform the mapping.</p>
-   * @public
-   */
-  Language?: Language;
-
-  /**
-   * <p>A map to hold additional optional key-value parameters.</p>
-   *          <p>Currently, these key-value pairs are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>inferSchema</code>  —  Specifies whether to set <code>inferSchema</code> to true or false for the default script generated by an Glue job. For example, to set <code>inferSchema</code> to true, pass the following key value pair:</p>
-   *                <p>
-   *                   <code>--additional-plan-options-map '\{"inferSchema":"true"\}'</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AdditionalPlanOptionsMap?: Record<string, string>;
 }
