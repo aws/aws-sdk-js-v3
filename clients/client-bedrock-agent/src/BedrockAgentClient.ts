@@ -64,10 +64,18 @@ import {
 import { CreateAgentAliasCommandInput, CreateAgentAliasCommandOutput } from "./commands/CreateAgentAliasCommand";
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import { CreateFlowAliasCommandInput, CreateFlowAliasCommandOutput } from "./commands/CreateFlowAliasCommand";
+import { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
+import { CreateFlowVersionCommandInput, CreateFlowVersionCommandOutput } from "./commands/CreateFlowVersionCommand";
 import {
   CreateKnowledgeBaseCommandInput,
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
+import { CreatePromptCommandInput, CreatePromptCommandOutput } from "./commands/CreatePromptCommand";
+import {
+  CreatePromptVersionCommandInput,
+  CreatePromptVersionCommandOutput,
+} from "./commands/CreatePromptVersionCommand";
 import {
   DeleteAgentActionGroupCommandInput,
   DeleteAgentActionGroupCommandOutput,
@@ -76,10 +84,14 @@ import { DeleteAgentAliasCommandInput, DeleteAgentAliasCommandOutput } from "./c
 import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
 import { DeleteAgentVersionCommandInput, DeleteAgentVersionCommandOutput } from "./commands/DeleteAgentVersionCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import { DeleteFlowAliasCommandInput, DeleteFlowAliasCommandOutput } from "./commands/DeleteFlowAliasCommand";
+import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
+import { DeleteFlowVersionCommandInput, DeleteFlowVersionCommandOutput } from "./commands/DeleteFlowVersionCommand";
 import {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
 import {
   DisassociateAgentKnowledgeBaseCommandInput,
   DisassociateAgentKnowledgeBaseCommandOutput,
@@ -96,8 +108,12 @@ import {
 } from "./commands/GetAgentKnowledgeBaseCommand";
 import { GetAgentVersionCommandInput, GetAgentVersionCommandOutput } from "./commands/GetAgentVersionCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import { GetFlowAliasCommandInput, GetFlowAliasCommandOutput } from "./commands/GetFlowAliasCommand";
+import { GetFlowCommandInput, GetFlowCommandOutput } from "./commands/GetFlowCommand";
+import { GetFlowVersionCommandInput, GetFlowVersionCommandOutput } from "./commands/GetFlowVersionCommand";
 import { GetIngestionJobCommandInput, GetIngestionJobCommandOutput } from "./commands/GetIngestionJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "./commands/GetKnowledgeBaseCommand";
+import { GetPromptCommandInput, GetPromptCommandOutput } from "./commands/GetPromptCommand";
 import {
   ListAgentActionGroupsCommandInput,
   ListAgentActionGroupsCommandOutput,
@@ -110,13 +126,18 @@ import {
 import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
 import { ListAgentVersionsCommandInput, ListAgentVersionsCommandOutput } from "./commands/ListAgentVersionsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import { ListFlowAliasesCommandInput, ListFlowAliasesCommandOutput } from "./commands/ListFlowAliasesCommand";
+import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
+import { ListFlowVersionsCommandInput, ListFlowVersionsCommandOutput } from "./commands/ListFlowVersionsCommand";
 import { ListIngestionJobsCommandInput, ListIngestionJobsCommandOutput } from "./commands/ListIngestionJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "./commands/ListKnowledgeBasesCommand";
+import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PrepareAgentCommandInput, PrepareAgentCommandOutput } from "./commands/PrepareAgentCommand";
+import { PrepareFlowCommandInput, PrepareFlowCommandOutput } from "./commands/PrepareFlowCommand";
 import { StartIngestionJobCommandInput, StartIngestionJobCommandOutput } from "./commands/StartIngestionJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -131,10 +152,13 @@ import {
   UpdateAgentKnowledgeBaseCommandOutput,
 } from "./commands/UpdateAgentKnowledgeBaseCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import { UpdateFlowAliasCommandInput, UpdateFlowAliasCommandOutput } from "./commands/UpdateFlowAliasCommand";
+import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import {
   UpdateKnowledgeBaseCommandInput,
   UpdateKnowledgeBaseCommandOutput,
 } from "./commands/UpdateKnowledgeBaseCommand";
+import { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "./commands/UpdatePromptCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -155,13 +179,22 @@ export type ServiceInputTypes =
   | CreateAgentAliasCommandInput
   | CreateAgentCommandInput
   | CreateDataSourceCommandInput
+  | CreateFlowAliasCommandInput
+  | CreateFlowCommandInput
+  | CreateFlowVersionCommandInput
   | CreateKnowledgeBaseCommandInput
+  | CreatePromptCommandInput
+  | CreatePromptVersionCommandInput
   | DeleteAgentActionGroupCommandInput
   | DeleteAgentAliasCommandInput
   | DeleteAgentCommandInput
   | DeleteAgentVersionCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteFlowAliasCommandInput
+  | DeleteFlowCommandInput
+  | DeleteFlowVersionCommandInput
   | DeleteKnowledgeBaseCommandInput
+  | DeletePromptCommandInput
   | DisassociateAgentKnowledgeBaseCommandInput
   | GetAgentActionGroupCommandInput
   | GetAgentAliasCommandInput
@@ -169,18 +202,27 @@ export type ServiceInputTypes =
   | GetAgentKnowledgeBaseCommandInput
   | GetAgentVersionCommandInput
   | GetDataSourceCommandInput
+  | GetFlowAliasCommandInput
+  | GetFlowCommandInput
+  | GetFlowVersionCommandInput
   | GetIngestionJobCommandInput
   | GetKnowledgeBaseCommandInput
+  | GetPromptCommandInput
   | ListAgentActionGroupsCommandInput
   | ListAgentAliasesCommandInput
   | ListAgentKnowledgeBasesCommandInput
   | ListAgentVersionsCommandInput
   | ListAgentsCommandInput
   | ListDataSourcesCommandInput
+  | ListFlowAliasesCommandInput
+  | ListFlowVersionsCommandInput
+  | ListFlowsCommandInput
   | ListIngestionJobsCommandInput
   | ListKnowledgeBasesCommandInput
+  | ListPromptsCommandInput
   | ListTagsForResourceCommandInput
   | PrepareAgentCommandInput
+  | PrepareFlowCommandInput
   | StartIngestionJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -189,7 +231,10 @@ export type ServiceInputTypes =
   | UpdateAgentCommandInput
   | UpdateAgentKnowledgeBaseCommandInput
   | UpdateDataSourceCommandInput
-  | UpdateKnowledgeBaseCommandInput;
+  | UpdateFlowAliasCommandInput
+  | UpdateFlowCommandInput
+  | UpdateKnowledgeBaseCommandInput
+  | UpdatePromptCommandInput;
 
 /**
  * @public
@@ -200,13 +245,22 @@ export type ServiceOutputTypes =
   | CreateAgentAliasCommandOutput
   | CreateAgentCommandOutput
   | CreateDataSourceCommandOutput
+  | CreateFlowAliasCommandOutput
+  | CreateFlowCommandOutput
+  | CreateFlowVersionCommandOutput
   | CreateKnowledgeBaseCommandOutput
+  | CreatePromptCommandOutput
+  | CreatePromptVersionCommandOutput
   | DeleteAgentActionGroupCommandOutput
   | DeleteAgentAliasCommandOutput
   | DeleteAgentCommandOutput
   | DeleteAgentVersionCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteFlowAliasCommandOutput
+  | DeleteFlowCommandOutput
+  | DeleteFlowVersionCommandOutput
   | DeleteKnowledgeBaseCommandOutput
+  | DeletePromptCommandOutput
   | DisassociateAgentKnowledgeBaseCommandOutput
   | GetAgentActionGroupCommandOutput
   | GetAgentAliasCommandOutput
@@ -214,18 +268,27 @@ export type ServiceOutputTypes =
   | GetAgentKnowledgeBaseCommandOutput
   | GetAgentVersionCommandOutput
   | GetDataSourceCommandOutput
+  | GetFlowAliasCommandOutput
+  | GetFlowCommandOutput
+  | GetFlowVersionCommandOutput
   | GetIngestionJobCommandOutput
   | GetKnowledgeBaseCommandOutput
+  | GetPromptCommandOutput
   | ListAgentActionGroupsCommandOutput
   | ListAgentAliasesCommandOutput
   | ListAgentKnowledgeBasesCommandOutput
   | ListAgentVersionsCommandOutput
   | ListAgentsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListFlowAliasesCommandOutput
+  | ListFlowVersionsCommandOutput
+  | ListFlowsCommandOutput
   | ListIngestionJobsCommandOutput
   | ListKnowledgeBasesCommandOutput
+  | ListPromptsCommandOutput
   | ListTagsForResourceCommandOutput
   | PrepareAgentCommandOutput
+  | PrepareFlowCommandOutput
   | StartIngestionJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -234,7 +297,10 @@ export type ServiceOutputTypes =
   | UpdateAgentCommandOutput
   | UpdateAgentKnowledgeBaseCommandOutput
   | UpdateDataSourceCommandOutput
-  | UpdateKnowledgeBaseCommandOutput;
+  | UpdateFlowAliasCommandOutput
+  | UpdateFlowCommandOutput
+  | UpdateKnowledgeBaseCommandOutput
+  | UpdatePromptCommandOutput;
 
 /**
  * @public

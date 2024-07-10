@@ -88,6 +88,12 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //       guardrailIdentifier: "STRING_VALUE",
  * //       guardrailVersion: "STRING_VALUE",
  * //     },
+ * //     memoryConfiguration: { // MemoryConfiguration
+ * //       enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ * //         "SESSION_SUMMARY",
+ * //       ],
+ * //       storageDays: Number("int"),
+ * //     },
  * //   },
  * // };
  *

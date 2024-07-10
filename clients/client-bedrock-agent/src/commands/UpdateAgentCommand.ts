@@ -74,6 +74,12 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *     guardrailIdentifier: "STRING_VALUE",
  *     guardrailVersion: "STRING_VALUE",
  *   },
+ *   memoryConfiguration: { // MemoryConfiguration
+ *     enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ *       "SESSION_SUMMARY",
+ *     ],
+ *     storageDays: Number("int"),
+ *   },
  * };
  * const command = new UpdateAgentCommand(input);
  * const response = await client.send(command);
@@ -124,6 +130,12 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //     guardrailConfiguration: { // GuardrailConfiguration
  * //       guardrailIdentifier: "STRING_VALUE",
  * //       guardrailVersion: "STRING_VALUE",
+ * //     },
+ * //     memoryConfiguration: { // MemoryConfiguration
+ * //       enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ * //         "SESSION_SUMMARY",
+ * //       ],
+ * //       storageDays: Number("int"),
  * //     },
  * //   },
  * // };

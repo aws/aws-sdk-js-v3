@@ -51,7 +51,12 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *                </ul>
  *             </li>
  *             <li>
- *                <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
+ *                <p>To enable your agent to retain conversational context across multiple sessions, include a <code>memoryConfiguration</code> object.
+ *           For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html">Configure memory</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object.
+ *           For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
  *             </li>
  *             <li>
  *                <p>If you agent fails to be created, the response returns a list of <code>failureReasons</code> alongside a list of <code>recommendedActions</code> for you to troubleshoot.</p>
@@ -99,6 +104,12 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *   guardrailConfiguration: { // GuardrailConfiguration
  *     guardrailIdentifier: "STRING_VALUE",
  *     guardrailVersion: "STRING_VALUE",
+ *   },
+ *   memoryConfiguration: { // MemoryConfiguration
+ *     enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ *       "SESSION_SUMMARY",
+ *     ],
+ *     storageDays: Number("int"),
  *   },
  * };
  * const command = new CreateAgentCommand(input);
@@ -150,6 +161,12 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * //     guardrailConfiguration: { // GuardrailConfiguration
  * //       guardrailIdentifier: "STRING_VALUE",
  * //       guardrailVersion: "STRING_VALUE",
+ * //     },
+ * //     memoryConfiguration: { // MemoryConfiguration
+ * //       enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ * //         "SESSION_SUMMARY",
+ * //       ],
+ * //       storageDays: Number("int"),
  * //     },
  * //   },
  * // };
