@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
+
+
+### Bug Fixes
+
+* **util-dynamodb:** perform global interface check in NativeAttributeBinary union ([#6261](https://github.com/aws/aws-sdk-js-v3/issues/6261)) ([e116b4c](https://github.com/aws/aws-sdk-js-v3/commit/e116b4c2388d60586acf6210bc1c3a10b932d6df))
+
+
+### Features
+
+* **client-batch:** This feature allows AWS Batch Jobs with EKS container orchestration type to be run as Multi-Node Parallel Jobs. ([bda616d](https://github.com/aws/aws-sdk-js-v3/commit/bda616d053ab1f56db61613d620455449fae6069))
+* **client-bedrock-agent-runtime:** Introduces query decomposition, enhanced Agents integration with Knowledge bases, session summary generation, and code interpretation (preview) for Claude V3 Sonnet and Haiku models. Also introduces Prompt Flows (preview) to link prompts, foundational models, and resources for end-to-end solutions. ([f2f40c1](https://github.com/aws/aws-sdk-js-v3/commit/f2f40c1eb43c28f98802f825ea9839de5a79a0ce))
+* **client-bedrock-agent:** Introduces new data sources and chunking strategies for Knowledge bases, advanced parsing logic using FMs, session summary generation, and code interpretation (preview) for Claude V3 Sonnet and Haiku models. Also introduces Prompt Flows (preview) to link prompts, foundational models, and resources. ([6d701b1](https://github.com/aws/aws-sdk-js-v3/commit/6d701b12dde1c6177f755722a5feeedf2fc67fa6))
+* **client-bedrock-runtime:** Add support for contextual grounding check and ApplyGuardrail API for Guardrails for Amazon Bedrock. ([8863b77](https://github.com/aws/aws-sdk-js-v3/commit/8863b77e5bd997ae9daaad9a56c847296d017298))
+* **client-bedrock:** Add support for contextual grounding check for Guardrails for Amazon Bedrock. ([f8cc6bd](https://github.com/aws/aws-sdk-js-v3/commit/f8cc6bdd03acd85e0bcc4477e2ea072d941fd97b))
+* **client-ec2:** Add parameters to enable provisioning IPAM BYOIPv4 space at a Local Zone Network Border Group level ([d835dbb](https://github.com/aws/aws-sdk-js-v3/commit/d835dbb9b6eaa07b851e5eb826bcd947a45ee1ec))
+* **client-glue:** Add recipe step support for recipe node ([c9d85d8](https://github.com/aws/aws-sdk-js-v3/commit/c9d85d8e6d0156e0a3033e7887f099501336e1f6))
+* **client-license-manager-linux-subscriptions:** Add support for third party subscription providers, starting with RHEL subscriptions through Red Hat Subscription Manager (RHSM). Additionally, add support for tagging subscription provider resources, and detect when an instance has more than one Linux subscription and notify the customer. ([e490334](https://github.com/aws/aws-sdk-js-v3/commit/e49033473f8241210132e075a6dee5ee3397217e))
+* **client-mediaconnect:** AWS Elemental MediaConnect introduces the ability to disable outputs. Disabling an output allows you to keep the output attached to the flow, but stop streaming to the output destination. A disabled output does not incur data transfer costs. ([427a732](https://github.com/aws/aws-sdk-js-v3/commit/427a732cecf164ff74c92b3de98b88f7bbac6522))
+* **clients:** update client endpoints as of 2024-07-10 ([3a748e5](https://github.com/aws/aws-sdk-js-v3/commit/3a748e5875ddca23afc5dfd9f6761351695941ae))
+
+
+
+
+
 # [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
+
+
+### Features
+
+* **client-batch:** This feature allows AWS Batch Jobs with EKS container orchestration type to be run as Multi-Node Parallel Jobs. ([bda616d](https://github.com/aws/aws-sdk-js-v3/commit/bda616d053ab1f56db61613d620455449fae6069))
+
+
+
+
+
 # [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
 
 **Note:** Version bump only for package @aws-sdk/client-batch
