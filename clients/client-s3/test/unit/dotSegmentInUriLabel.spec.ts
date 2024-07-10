@@ -11,7 +11,7 @@ const { expect } = chai;
 /**
  * Throws an expected exception that contains the serialized request.
  */
-class EXPECTED_REQUEST_SERIALIZATION_ERROR extends Error {
+class ExpectedRequestSerializationError extends Error {
   constructor(readonly request: HttpRequest) {
     super();
   }
@@ -19,7 +19,7 @@ class EXPECTED_REQUEST_SERIALIZATION_ERROR extends Error {
 
 class RequestSerializationTestHandler implements HttpHandler {
   async handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
-    throw new EXPECTED_REQUEST_SERIALIZATION_ERROR(request);
+    throw new ExpectedRequestSerializationError(request);
   }
   updateHttpClientConfig(key: never, value: never): void {}
   httpHandlerConfigs() {
@@ -40,7 +40,7 @@ describe("Dot Segment in URI Label", () => {
       });
       fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     } catch (err) {
-      if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      if (!(err instanceof ExpectedRequestSerializationError)) {
         fail(err);
       }
       const r = err.request;
@@ -61,7 +61,7 @@ describe("Dot Segment in URI Label", () => {
       });
       fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
     } catch (err) {
-      if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      if (!(err instanceof ExpectedRequestSerializationError)) {
         fail(err);
       }
       const r = err.request;
