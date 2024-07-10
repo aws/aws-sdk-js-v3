@@ -28,11 +28,12 @@ class RequestSerializationTestHandler implements HttpHandler {
 }
 
 describe("Dot Segment in URI Label", () => {
-  it("S3PreservesLeadingDotSegmentInUriLabel", async () => {
-    const client = new S3({
-      requestHandler: new RequestSerializationTestHandler(),
-    });
+  const client = new S3({
+    credentials: { accessKeyId: "mockAccessKeyId", secretAccessKey: "mockSecretAccessKey" },
+    requestHandler: new RequestSerializationTestHandler(),
+  });
 
+  it("S3PreservesLeadingDotSegmentInUriLabel", async () => {
     try {
       await client.getObject({
         Bucket: "mybucket",
@@ -50,10 +51,6 @@ describe("Dot Segment in URI Label", () => {
   });
 
   it("S3PreservesEmbeddedDotSegmentInUriLabel", async () => {
-    const client = new S3({
-      requestHandler: new RequestSerializationTestHandler(),
-    });
-
     try {
       await client.getObject({
         Bucket: "mybucket",
