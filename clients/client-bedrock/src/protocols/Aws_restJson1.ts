@@ -16,11 +16,13 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeDateTime as __serializeDateTime,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -127,6 +129,10 @@ import {
   EvaluationSummary,
   GuardrailContentFilterConfig,
   GuardrailContentPolicyConfig,
+  GuardrailContextualGroundingFilter,
+  GuardrailContextualGroundingFilterConfig,
+  GuardrailContextualGroundingPolicy,
+  GuardrailContextualGroundingPolicyConfig,
   GuardrailManagedWordsConfig,
   GuardrailPiiEntityConfig,
   GuardrailRegexConfig,
@@ -208,6 +214,7 @@ export const se_CreateGuardrailCommand = async (
       blockedOutputsMessaging: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       contentPolicyConfig: (_) => _json(_),
+      contextualGroundingPolicyConfig: (_) => se_GuardrailContextualGroundingPolicyConfig(_, context),
       description: [],
       kmsKeyId: [],
       name: [],
@@ -771,6 +778,7 @@ export const se_UpdateGuardrailCommand = async (
       blockedInputMessaging: [],
       blockedOutputsMessaging: [],
       contentPolicyConfig: (_) => _json(_),
+      contextualGroundingPolicyConfig: (_) => se_GuardrailContextualGroundingPolicyConfig(_, context),
       description: [],
       kmsKeyId: [],
       name: [],
@@ -1090,6 +1098,7 @@ export const de_GetGuardrailCommand = async (
     blockedInputMessaging: __expectString,
     blockedOutputsMessaging: __expectString,
     contentPolicy: _json,
+    contextualGroundingPolicy: (_) => de_GuardrailContextualGroundingPolicy(_, context),
     createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     failureRecommendations: _json,
@@ -1711,6 +1720,45 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_GuardrailContentPolicyConfig omitted.
 
+/**
+ * serializeAws_restJson1GuardrailContextualGroundingFilterConfig
+ */
+const se_GuardrailContextualGroundingFilterConfig = (
+  input: GuardrailContextualGroundingFilterConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    threshold: __serializeFloat,
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1GuardrailContextualGroundingFiltersConfig
+ */
+const se_GuardrailContextualGroundingFiltersConfig = (
+  input: GuardrailContextualGroundingFilterConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_GuardrailContextualGroundingFilterConfig(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1GuardrailContextualGroundingPolicyConfig
+ */
+const se_GuardrailContextualGroundingPolicyConfig = (
+  input: GuardrailContextualGroundingPolicyConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    filtersConfig: (_) => se_GuardrailContextualGroundingFiltersConfig(_, context),
+  });
+};
+
 // se_GuardrailManagedWordListsConfig omitted.
 
 // se_GuardrailManagedWordsConfig omitted.
@@ -1873,6 +1921,46 @@ const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationS
 // de_GuardrailContentFilters omitted.
 
 // de_GuardrailContentPolicy omitted.
+
+/**
+ * deserializeAws_restJson1GuardrailContextualGroundingFilter
+ */
+const de_GuardrailContextualGroundingFilter = (
+  output: any,
+  context: __SerdeContext
+): GuardrailContextualGroundingFilter => {
+  return take(output, {
+    threshold: __limitedParseDouble,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailContextualGroundingFilters
+ */
+const de_GuardrailContextualGroundingFilters = (
+  output: any,
+  context: __SerdeContext
+): GuardrailContextualGroundingFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GuardrailContextualGroundingFilter(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GuardrailContextualGroundingPolicy
+ */
+const de_GuardrailContextualGroundingPolicy = (
+  output: any,
+  context: __SerdeContext
+): GuardrailContextualGroundingPolicy => {
+  return take(output, {
+    filters: (_: any) => de_GuardrailContextualGroundingFilters(_, context),
+  }) as any;
+};
 
 // de_GuardrailFailureRecommendations omitted.
 

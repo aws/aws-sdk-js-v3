@@ -927,19 +927,6 @@ export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[key
  *          multiple categories with varying confidence levels. For example, a single statement
  *          can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html#API_CreateGuardrail_RequestSyntax">CreateGuardrail request body</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdateGuardrail.html#API_UpdateGuardrail_RequestSyntax">UpdateGuardrail request body</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export interface GuardrailContentFilterConfig {
@@ -968,19 +955,6 @@ export interface GuardrailContentFilterConfig {
 
 /**
  * <p>Contains details about how to handle harmful content.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html#API_CreateGuardrail_RequestSyntax">CreateGuardrail request body</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdateGuardrail.html#API_UpdateGuardrail_RequestSyntax">UpdateGuardrail request body</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export interface GuardrailContentPolicyConfig {
@@ -989,6 +963,51 @@ export interface GuardrailContentPolicyConfig {
    * @public
    */
   filtersConfig: GuardrailContentFilterConfig[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailContextualGroundingFilterType = {
+  GROUNDING: "GROUNDING",
+  RELEVANCE: "RELEVANCE",
+} as const;
+
+/**
+ * @public
+ */
+export type GuardrailContextualGroundingFilterType =
+  (typeof GuardrailContextualGroundingFilterType)[keyof typeof GuardrailContextualGroundingFilterType];
+
+/**
+ * <p>The filter configuration details for the guardrails contextual grounding filter.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingFilterConfig {
+  /**
+   * <p>The filter details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  type: GuardrailContextualGroundingFilterType | undefined;
+
+  /**
+   * <p>The threshold details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  threshold: number | undefined;
+}
+
+/**
+ * <p>The policy configuration details for the guardrails contextual grounding policy.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingPolicyConfig {
+  /**
+   * <p>The filter configuration details for the guardrails contextual grounding policy.</p>
+   * @public
+   */
+  filtersConfig: GuardrailContextualGroundingFilterConfig[] | undefined;
 }
 
 /**
@@ -1056,6 +1075,329 @@ export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeo
 export interface GuardrailPiiEntityConfig {
   /**
    * <p>Configure guardrail type when the PII entity is detected.</p>
+   *          <p>The following PIIs are used to block or mask sensitive information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>General</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>ADDRESS</b>
+   *                      </p>
+   *                      <p>A physical address, such as "100 Main Street, Anytown, USA"
+   *                      or "Suite #12, Building 123". An address can include information
+   *                      such as the street, building, location, city, state, country, county,
+   *                      zip code, precinct, and neighborhood. </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>AGE</b>
+   *                      </p>
+   *                      <p>An individual's age, including the quantity and unit of time. For
+   *                      example, in the phrase "I am 40 years old," Guarrails recognizes "40 years"
+   *                      as an age.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>NAME</b>
+   *                      </p>
+   *                      <p>An individual's name. This entity type does not include titles, such as
+   *                      Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that
+   *                      are part of organizations or addresses. For example, guardrails recognizes
+   *                      the "John Doe Organization" as an organization, and it recognizes "Jane Doe
+   *                      Street" as an address.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>EMAIL</b>
+   *                      </p>
+   *                      <p>An email address, such as <i>marymajor@email.com</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>PHONE</b>
+   *                      </p>
+   *                      <p>A phone number. This entity type also includes fax and pager numbers.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>USERNAME</b>
+   *                      </p>
+   *                      <p>A user name that identifies an account, such as a login name, screen name,
+   *                      nick name, or handle.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>PASSWORD</b>
+   *                      </p>
+   *                      <p>An alphanumeric string that is used as a password, such as
+   *                      "*<i>very20special#pass*</i>".
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>DRIVER_ID</b>
+   *                      </p>
+   *                      <p>The number assigned to a driver's license, which is an official
+   *                      document permitting an individual to operate one or more motorized
+   *                      vehicles on a public road. A driver's license number consists of
+   *                      alphanumeric characters.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>LICENSE_PLATE</b>
+   *                      </p>
+   *                      <p>A license plate for a vehicle is issued by the state or country where
+   *                      the vehicle is registered. The format for passenger vehicles is typically
+   *                      five to eight digits, consisting of upper-case letters and numbers. The
+   *                      format varies depending on the location of the issuing state or country.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>VEHICLE_IDENTIFICATION_NUMBER</b>
+   *                      </p>
+   *                      <p>A Vehicle Identification Number (VIN) uniquely identifies a vehicle.
+   *                      VIN content and format are defined in the <i>ISO 3779</i> specification.
+   *                      Each country has specific codes and formats for VINs.
+   *                   </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Finance</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>REDIT_DEBIT_CARD_CVV</b>
+   *                      </p>
+   *                      <p>A three-digit card verification code (CVV) that is present on VISA,
+   *                   MasterCard, and Discover credit and debit cards. For American Express
+   *                   credit or debit cards, the CVV is a four-digit numeric code.
+   *                </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>CREDIT_DEBIT_CARD_EXPIRY</b>
+   *                      </p>
+   *                      <p>The expiration date for a credit or debit card. This number is usually
+   *                      four digits long and is often formatted as <i>month/year</i> or
+   *                      <i>MM/YY</i>. Guardrails recognizes expiration dates such as
+   *                      <i>01/21</i>, <i>01/2021</i>, and <i>Jan 2021</i>.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>CREDIT_DEBIT_CARD_NUMBER</b>
+   *                      </p>
+   *                      <p>The number for a credit or debit card. These numbers can vary from 13 to 16
+   *                      digits in length. However, Amazon Comprehend also recognizes credit or debit
+   *                      card numbers when only the last four digits are present.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>PIN</b>
+   *                      </p>
+   *                      <p>A four-digit personal identification number (PIN) with which you can
+   *                      access your bank account.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>INTERNATIONAL_BANK_ACCOUNT_NUMBER</b>
+   *                      </p>
+   *                      <p>An International Bank Account Number has specific formats in each country.
+   *                      For more information, see <a href="https://www.iban.com/structure">www.iban.com/structure</a>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>SWIFT_CODE</b>
+   *                      </p>
+   *                      <p>A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify
+   *                      a particular bank or branch. Banks use these codes for money transfers such as
+   *                      international wire transfers.</p>
+   *                      <p>SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific
+   *                      branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the
+   *                      head or primary office.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IT</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>IP_ADDRESS</b>
+   *                      </p>
+   *                      <p>An IPv4 address, such as <i>198.51.100.0</i>.
+   *                </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>MAC_ADDRESS</b>
+   *                      </p>
+   *                      <p>A <i>media access control</i> (MAC) address is a unique identifier
+   *                      assigned to a network interface controller (NIC).
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>URL</b>
+   *                      </p>
+   *                      <p>A web address, such as <i>www.example.com</i>.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>AWS_ACCESS_KEY</b>
+   *                      </p>
+   *                      <p>A unique identifier that's associated with a secret access key;
+   *                      you use the access key ID and secret access key to sign programmatic
+   *                      Amazon Web Services requests cryptographically.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>AWS_SECRET_KEY</b>
+   *                      </p>
+   *                      <p>A unique identifier that's associated with an access key. You use the
+   *                      access key ID and secret access key to sign programmatic Amazon Web Services
+   *                      requests cryptographically.
+   *                   </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>USA specific</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_BANK_ACCOUNT_NUMBER</b>
+   *                      </p>
+   *                      <p>A US bank account number, which is typically 10 to 12 digits long.
+   *                </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_BANK_ROUTING_NUMBER</b>
+   *                      </p>
+   *                      <p>A US bank account routing number. These are typically nine digits long,
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER</b>
+   *                      </p>
+   *                      <p>A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number
+   *                      that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN
+   *                      can be formatted with a space or a dash after the third and forth digits.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_PASSPORT_NUMBER</b>
+   *                      </p>
+   *                      <p>A US passport number. Passport numbers range from six to nine alphanumeric
+   *                      characters.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>US_SOCIAL_SECURITY_NUMBER</b>
+   *                      </p>
+   *                      <p>A US Social Security Number (SSN) is a nine-digit number that is issued to
+   *                      US citizens, permanent residents, and temporary working residents.
+   *                   </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Canada specific</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>CA_HEALTH_NUMBER</b>
+   *                      </p>
+   *                      <p>A Canadian Health Service Number is a 10-digit unique identifier,
+   *                   required for individuals to access healthcare benefits.
+   *                </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>CA_SOCIAL_INSURANCE_NUMBER</b>
+   *                      </p>
+   *                      <p>A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier,
+   *                      required for individuals to access government programs and benefits.</p>
+   *                      <p>The SIN is formatted as three groups of three digits, such as
+   *                      <i>123-456-789</i>. A SIN can be validated through a simple
+   *                      check-digit process called the <a href="https://www.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UK Specific</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>UK_NATIONAL_HEALTH_SERVICE_NUMBER</b>
+   *                      </p>
+   *                      <p>A UK National Health Service Number is a 10-17 digit number,
+   *                   such as <i>485 777 3456</i>. The current system formats the 10-digit
+   *                   number with spaces after the third and sixth digits. The final digit is an
+   *                   error-detecting checksum.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>UK_NATIONAL_INSURANCE_NUMBER</b>
+   *                      </p>
+   *                      <p>A UK National Insurance Number (NINO) provides individuals with access to National
+   *                      Insurance (social security) benefits. It is also used for some purposes in the UK
+   *                      tax system.</p>
+   *                      <p>The number is nine digits long and starts with two letters, followed by six
+   *                      numbers and one letter. A NINO can be formatted with a space or a dash after
+   *                      the two letters and after the second, forth, and sixth digits.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER</b>
+   *                      </p>
+   *                      <p>A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
+   *                   </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Custom</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Regex filter</b> - You can use
+   *                   a regular expressions to define patterns for a guardrail to recognize
+   *                   and act upon such as serial number, booking ID etc..</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    * @public
    */
   type: GuardrailPiiEntityType | undefined;
@@ -1130,19 +1472,6 @@ export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof Guardr
 
 /**
  * <p>Details about topics for the guardrail to identify and deny.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html#API_CreateGuardrail_RequestSyntax">CreateGuardrail request body</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdateGuardrail.html#API_UpdateGuardrail_RequestSyntax">UpdateGuardrail request body</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export interface GuardrailTopicConfig {
@@ -1173,19 +1502,6 @@ export interface GuardrailTopicConfig {
 
 /**
  * <p>Contains details about topics that the guardrail should identify and deny.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html#API_CreateGuardrail_RequestSyntax">CreateGuardrail request body</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdateGuardrail.html#API_UpdateGuardrail_RequestSyntax">UpdateGuardrail request body</a>
- *                </p>
- *             </li>
- *          </ul>
  * @public
  */
 export interface GuardrailTopicPolicyConfig {
@@ -1292,6 +1608,12 @@ export interface CreateGuardrailRequest {
   sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig;
 
   /**
+   * <p>The contextual grounding policy configuration used to create a guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig;
+
+  /**
    * <p>The message to return when the guardrail blocks a prompt.</p>
    * @public
    */
@@ -1337,13 +1659,14 @@ export interface CreateGuardrailResponse {
   guardrailId: string | undefined;
 
   /**
-   * <p>The ARN of the guardrail that was created.</p>
+   * <p>The ARN of the guardrail.</p>
    * @public
    */
   guardrailArn: string | undefined;
 
   /**
-   * <p>The version of the guardrail that was created. This value should be 1.</p>
+   * <p>The version of the guardrail that was created.
+   *          This value will always be <code>DRAFT</code>.</p>
    * @public
    */
   version: string | undefined;
@@ -1388,7 +1711,7 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface CreateGuardrailVersionRequest {
   /**
-   * <p>The unique identifier of the guardrail.</p>
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier: string | undefined;
@@ -1432,7 +1755,7 @@ export interface CreateGuardrailVersionResponse {
  */
 export interface DeleteGuardrailRequest {
   /**
-   * <p>The unique identifier of the guardrail.</p>
+   * <p>The unique identifier of the guardrail.  This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier: string | undefined;
@@ -1454,7 +1777,7 @@ export interface DeleteGuardrailResponse {}
  */
 export interface GetGuardrailRequest {
   /**
-   * <p>The unique identifier of the guardrail for which to get details.</p>
+   * <p>The unique identifier of the guardrail for which to get details.  This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier: string | undefined;
@@ -1547,6 +1870,36 @@ export interface GuardrailContentPolicy {
    * @public
    */
   filters?: GuardrailContentFilter[];
+}
+
+/**
+ * <p>The details for the guardrails contextual grounding filter.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingFilter {
+  /**
+   * <p>The filter type details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  type: GuardrailContextualGroundingFilterType | undefined;
+
+  /**
+   * <p>The threshold details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  threshold: number | undefined;
+}
+
+/**
+ * <p>The details for the guardrails contextual grounding policy.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingPolicy {
+  /**
+   * <p>The filter details for the guardrails contextual grounding policy.</p>
+   * @public
+   */
+  filters: GuardrailContextualGroundingFilter[] | undefined;
 }
 
 /**
@@ -1693,7 +2046,7 @@ export interface GuardrailTopicPolicy {
 
 /**
  * <p>The managed word list that was configured for the guardrail.
- *          (This is a list of words that are pre-defined and managed by Guardrails only.)</p>
+ *          (This is a list of words that are pre-defined and managed by guardrails only.)</p>
  * @public
  */
 export interface GuardrailManagedWords {
@@ -1759,7 +2112,7 @@ export interface GetGuardrailResponse {
   guardrailId: string | undefined;
 
   /**
-   * <p>The ARN of the guardrail that was created.</p>
+   * <p>The ARN of the guardrail.</p>
    * @public
    */
   guardrailArn: string | undefined;
@@ -1799,6 +2152,12 @@ export interface GetGuardrailResponse {
    * @public
    */
   sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicy;
+
+  /**
+   * <p>The contextual grounding policy used in the guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicy?: GuardrailContextualGroundingPolicy;
 
   /**
    * <p>The date and time at which the guardrail was created.</p>
@@ -1848,7 +2207,7 @@ export interface GetGuardrailResponse {
  */
 export interface ListGuardrailsRequest {
   /**
-   * <p>The unique identifier of the guardrail.</p>
+   * <p>The unique identifier of the guardrail.  This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier?: string;
@@ -1950,7 +2309,7 @@ export interface ListGuardrailsResponse {
  */
 export interface UpdateGuardrailRequest {
   /**
-   * <p>The unique identifier of the guardrail</p>
+   * <p>The unique identifier of the guardrail.  This can be an ID or the ARN.</p>
    * @public
    */
   guardrailIdentifier: string | undefined;
@@ -1992,6 +2351,12 @@ export interface UpdateGuardrailRequest {
   sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig;
 
   /**
+   * <p>The contextual grounding policy configuration used to update a guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig;
+
+  /**
    * <p>The message to return when the guardrail blocks a prompt.</p>
    * @public
    */
@@ -2021,7 +2386,7 @@ export interface UpdateGuardrailResponse {
   guardrailId: string | undefined;
 
   /**
-   * <p>The ARN of the guardrail that was created.</p>
+   * <p>The ARN of the guardrail.</p>
    * @public
    */
   guardrailArn: string | undefined;

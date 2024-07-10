@@ -97,6 +97,14 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //       },
  * //     ],
  * //   },
+ * //   contextualGroundingPolicy: { // GuardrailContextualGroundingPolicy
+ * //     filters: [ // GuardrailContextualGroundingFilters // required
+ * //       { // GuardrailContextualGroundingFilter
+ * //         type: "GROUNDING" || "RELEVANCE", // required
+ * //         threshold: Number("double"), // required
+ * //       },
+ * //     ],
+ * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   statusReasons: [ // GuardrailStatusReasons
