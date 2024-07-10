@@ -9,16 +9,8 @@ import {
   RequestSigningArguments,
 } from "@smithy/types";
 
-/**
- * @internal
- */
-export interface SigV4aSigner extends RequestPresigner, RequestSigner {
-  signWithCredentials(
-    requestToSign: HttpRequest,
-    credentials: AwsCredentialIdentity,
-    options: RequestSigningArguments
-  ): Promise<HttpRequest>;
-}
+import { OptionalSigV4aSigner, signatureV4aContainer } from "./signature-v4a-container";
+import { OptionalCrtSignerV4, signatureV4CrtContainer } from "./signature-v4-crt-container";
 
 /**
  * @internal
@@ -36,7 +28,7 @@ export type SignatureV4MultiRegionInit = SignatureV4Init &
  * @internal
  */
 export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
-  private sigv4aSigner?: SigV4aSigner;
+  private sigv4aSigner?: InstanceType<OptionalCrtSignerV4> | InstanceType<OptionalSigV4aSigner>;
   private readonly sigv4Signer: SignatureV4S3Express;
   private readonly signerOptions: SignatureV4MultiRegionInit;
 
@@ -87,12 +79,25 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     return this.sigv4Signer.presignWithCredentials(originalRequest, credentials, options);
   }
 
-  private async getSigv4aSigner(): Promise<SigV4aSigner> {
+  private async getSigv4aSigner(): Promise<InstanceType<OptionalCrtSignerV4> | InstanceType<OptionalSigV4aSigner>> {
     if (!this.sigv4aSigner) {
-      const { SignatureV4a } = await import("@smithy/signature-v4a");
-      this.sigv4aSigner = new SignatureV4a({
-        ...this.signerOptions,
-      }) as SigV4aSigner;
+      if (signatureV4CrtContainer.CrtSignerV4) {
+        // CRT implementation
+        this.sigv4aSigner = new signatureV4CrtContainer.CrtSignerV4({
+          ...this.signerOptions,
+          signingAlgorithm: 1,
+        });
+      } else if (signatureV4aContainer.SignatureV4a) {
+        // SigV4a JS implementation
+        this.sigv4aSigner = new signatureV4aContainer.SignatureV4a({
+          ...this.signerOptions,
+        });
+      } else {
+        throw new Error(
+          "Neither CRT nor JS SigV4a implementation is available. " +
+            "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a."
+        );
+      }
     }
     return this.sigv4aSigner;
   }
