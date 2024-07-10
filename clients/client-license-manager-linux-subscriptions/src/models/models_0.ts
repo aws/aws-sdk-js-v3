@@ -1,7 +1,103 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { LicenseManagerLinuxSubscriptionsServiceException as __BaseException } from "./LicenseManagerLinuxSubscriptionsServiceException";
+
+/**
+ * @public
+ */
+export interface DeregisterSubscriptionProviderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the subscription provider resource to deregister.</p>
+   * @public
+   */
+  SubscriptionProviderArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeregisterSubscriptionProviderResponse {}
+
+/**
+ * <p>An exception occurred with the service.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>Unable to find the requested Amazon Web Services resource.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>The provided input is not valid. Try your request again.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
 
 /**
  * @public
@@ -50,6 +146,102 @@ export interface Filter {
    * @public
    */
   Operator?: Operator;
+}
+
+/**
+ * @public
+ */
+export interface GetRegisteredSubscriptionProviderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the BYOL registration resource to get details for.</p>
+   * @public
+   */
+  SubscriptionProviderArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionProviderSource = {
+  /**
+   * RedHat subscription provider namespace
+   */
+  RedHat: "RedHat",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionProviderSource = (typeof SubscriptionProviderSource)[keyof typeof SubscriptionProviderSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionProviderStatus = {
+  /**
+   * ACTIVE status
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * INVALID status
+   */
+  INVALID: "INVALID",
+  /**
+   * PENDING status
+   */
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SubscriptionProviderStatus = (typeof SubscriptionProviderStatus)[keyof typeof SubscriptionProviderStatus];
+
+/**
+ * @public
+ */
+export interface GetRegisteredSubscriptionProviderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the BYOL registration resource specified in the request.</p>
+   * @public
+   */
+  SubscriptionProviderArn?: string;
+
+  /**
+   * <p>The subscription provider for the BYOL registration resource specified
+   * 			in the request.</p>
+   * @public
+   */
+  SubscriptionProviderSource?: SubscriptionProviderSource;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the third-party access secret stored in Secrets Manager for the BYOL
+   * 			registration resource specified in the request.</p>
+   * @public
+   */
+  SecretArn?: string;
+
+  /**
+   * <p>The status of the Linux subscription provider access token from the last
+   * 			successful subscription data request.</p>
+   * @public
+   */
+  SubscriptionProviderStatus?: SubscriptionProviderStatus;
+
+  /**
+   * <p>The detailed message from your subscription provider token status.</p>
+   * @public
+   */
+  SubscriptionProviderStatusMessage?: string;
+
+  /**
+   * <p>The timestamp from the last time License Manager retrieved subscription details
+   * 			from your registered third-party Linux subscription provider.</p>
+   * @public
+   */
+  LastSuccessfulDataRetrievalTime?: string;
 }
 
 /**
@@ -182,66 +374,6 @@ export interface GetServiceSettingsResponse {
 }
 
 /**
- * <p>An exception occurred with the service.</p>
- * @public
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The provided input is not valid. Try your request again.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>Details discovered information about a running instance using Linux subscriptions.</p>
  * @public
  */
@@ -304,10 +436,44 @@ export interface Instance {
   LastUpdatedTime?: string;
 
   /**
-   * <p>The name of the subscription being used by the instance.</p>
+   * <p>The name of the license subscription that the instance uses.</p>
    * @public
    */
   SubscriptionName?: string;
+
+  /**
+   * <p>The operating system software version that runs on your instance.</p>
+   * @public
+   */
+  OsVersion?: string;
+
+  /**
+   * <p>The timestamp when you registered the third-party Linux subscription
+   * 			provider for the subscription that the instance uses.</p>
+   * @public
+   */
+  SubscriptionProviderCreateTime?: string;
+
+  /**
+   * <p>The timestamp from the last time that the instance synced with the registered
+   * 			third-party Linux subscription provider.</p>
+   * @public
+   */
+  SubscriptionProviderUpdateTime?: string;
+
+  /**
+   * <p>Indicates that you have two different license subscriptions for
+   * 			the same software on your instance.</p>
+   * @public
+   */
+  DualSubscription?: string;
+
+  /**
+   * <p>Indicates that your instance uses a BYOL license subscription from
+   * 			a third-party Linux subscription provider that you've registered with License Manager.</p>
+   * @public
+   */
+  RegisteredWithSubscriptionProvider?: string;
 }
 
 /**
@@ -317,15 +483,26 @@ export interface Instance {
  */
 export interface ListLinuxSubscriptionInstancesRequest {
   /**
-   * <p>An array of structures that you can use to filter the results to those that match one or
-   *       more sets of key-value pairs that you specify. For example, you can filter by the name of
-   *         <code>AmiID</code> with an optional operator to see subscriptions that match, partially
-   *       match, or don't match a certain Amazon Machine Image (AMI) ID.</p>
-   *          <p>The valid names for this filter are:</p>
+   * <p>An array of structures that you can use to filter the results by your specified criteria.
+   *     	For example, you can specify <code>Region</code> in the <code>Name</code>, with the
+   *     	<code>contains</code> operator to list all subscriptions that match a partial string in the
+   *     	<code>Value</code>, such as <code>us-west</code>.</p>
+   *          <p>For each filter, you can specify one of the following values for the <code>Name</code> key
+   *     	to streamline results:</p>
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>AccountID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>AmiID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DualSubscription</code>
    *                </p>
    *             </li>
    *             <li>
@@ -335,22 +512,7 @@ export interface ListLinuxSubscriptionInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AccountID</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Status</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Region</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UsageOperation</code>
+   *                   <code>InstanceType</code>
    *                </p>
    *             </li>
    *             <li>
@@ -360,11 +522,22 @@ export interface ListLinuxSubscriptionInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>InstanceType</code>
+   *                   <code>Region</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UsageOperation</code>
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>The valid Operators for this filter are:</p>
+   *          <p>For each filter, you can use one of the following <code>Operator</code> values to
+   *   		define the behavior of the filter:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -387,13 +560,14 @@ export interface ListLinuxSubscriptionInstancesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Maximum number of results to return in a single call.</p>
+   * <p>The maximum items to return in a request.</p>
    * @public
    */
   MaxResults?: number;
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>A token to specify where to start paginating. This
+   * 	is the nextToken from a previously truncated response.</p>
    * @public
    */
   NextToken?: string;
@@ -410,7 +584,10 @@ export interface ListLinuxSubscriptionInstancesResponse {
   Instances?: Instance[];
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>The next token used for paginated responses. When this
+   * 	field isn't empty, there are additional elements that the service hasn't
+   * 	included in this request. Use this token with the next request to retrieve
+   * 	additional objects.</p>
    * @public
    */
   NextToken?: string;
@@ -458,13 +635,14 @@ export interface ListLinuxSubscriptionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Maximum number of results to return in a single call.</p>
+   * <p>The maximum items to return in a request.</p>
    * @public
    */
   MaxResults?: number;
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>A token to specify where to start paginating. This
+   * 	is the nextToken from a previously truncated response.</p>
    * @public
    */
   NextToken?: string;
@@ -507,11 +685,229 @@ export interface ListLinuxSubscriptionsResponse {
   Subscriptions?: Subscription[];
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>The next token used for paginated responses. When this
+   * 	field isn't empty, there are additional elements that the service hasn't
+   * 	included in this request. Use this token with the next request to retrieve
+   * 	additional objects.</p>
    * @public
    */
   NextToken?: string;
 }
+
+/**
+ * @public
+ */
+export interface ListRegisteredSubscriptionProvidersRequest {
+  /**
+   * <p>To filter your results, specify which subscription providers to return
+   * 			in the list.</p>
+   * @public
+   */
+  SubscriptionProviderSources?: SubscriptionProviderSource[];
+
+  /**
+   * <p>The maximum items to return in a request.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token to specify where to start paginating. This
+   * 	is the nextToken from a previously truncated response.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A third-party provider for operating system (OS) platform software and license
+ * 			subscriptions, such as Red Hat. When you register a third-party Linux subscription
+ * 			provider, License Manager can get subscription data from the registered provider.</p>
+ * @public
+ */
+export interface RegisteredSubscriptionProvider {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Linux subscription provider resource that you registered.</p>
+   * @public
+   */
+  SubscriptionProviderArn?: string;
+
+  /**
+   * <p>A supported third-party Linux subscription provider. License Manager currently supports
+   * 			Red Hat subscriptions.</p>
+   * @public
+   */
+  SubscriptionProviderSource?: SubscriptionProviderSource;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that stores your registered Linux subscription provider
+   * 			access token. For RHEL account subscriptions, this is the offline token.</p>
+   * @public
+   */
+  SecretArn?: string;
+
+  /**
+   * <p>Indicates the status of your registered Linux subscription provider access token
+   * 			from the last time License Manager retrieved subscription data. For RHEL account subscriptions,
+   * 			this is the status of the offline token.</p>
+   * @public
+   */
+  SubscriptionProviderStatus?: SubscriptionProviderStatus;
+
+  /**
+   * <p>A detailed message that's associated with your BYOL subscription
+   * 			provider token status.</p>
+   * @public
+   */
+  SubscriptionProviderStatusMessage?: string;
+
+  /**
+   * <p>The timestamp from the last time that License Manager accessed third-party subscription data
+   * 			for your account from your registered Linux subscription provider.</p>
+   * @public
+   */
+  LastSuccessfulDataRetrievalTime?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRegisteredSubscriptionProvidersResponse {
+  /**
+   * <p>The list of BYOL registration resources that fit the criteria
+   * 			you specified in the request.</p>
+   * @public
+   */
+  RegisteredSubscriptionProviders?: RegisteredSubscriptionProvider[];
+
+  /**
+   * <p>The next token used for paginated responses. When this
+   * 	field isn't empty, there are additional elements that the service hasn't
+   * 	included in this request. Use this token with the next request to retrieve
+   * 	additional objects.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which to list metadata tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The metadata tags for the requested resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface RegisterSubscriptionProviderRequest {
+  /**
+   * <p>The supported Linux subscription provider to register.</p>
+   * @public
+   */
+  SubscriptionProviderSource: SubscriptionProviderSource | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret where you've stored your subscription provider's access token. For
+   * 			RHEL subscriptions managed through the Red Hat Subscription Manager (RHSM), the secret contains
+   * 			your Red Hat Offline token.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>The metadata tags to assign to your registered Linux subscription provider
+   * 			resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface RegisterSubscriptionProviderResponse {
+  /**
+   * <p>The Linux subscription provider that you registered.</p>
+   * @public
+   */
+  SubscriptionProviderSource?: SubscriptionProviderSource;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Linux subscription provider resource that you registered.</p>
+   * @public
+   */
+  SubscriptionProviderArn?: string;
+
+  /**
+   * <p>Indicates the status of the registration action for the Linux subscription provider
+   * 			that you requested.</p>
+   * @public
+   */
+  SubscriptionProviderStatus?: SubscriptionProviderStatus;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to which to add the specified
+   * 			metadata tags.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The metadata tags to assign to the Amazon Web Services resource. Tags are
+   * 			formatted as key value pairs.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to remove the metadata tags from.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of metadata tag keys to remove from the requested
+   * 			resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * @public
@@ -574,3 +970,37 @@ export interface UpdateServiceSettingsResponse {
    */
   HomeRegions?: string[];
 }
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterSubscriptionProviderRequestFilterSensitiveLog = (
+  obj: RegisterSubscriptionProviderRequest
+): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
+});

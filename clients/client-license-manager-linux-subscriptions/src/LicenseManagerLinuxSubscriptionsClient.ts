@@ -53,6 +53,14 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  DeregisterSubscriptionProviderCommandInput,
+  DeregisterSubscriptionProviderCommandOutput,
+} from "./commands/DeregisterSubscriptionProviderCommand";
+import {
+  GetRegisteredSubscriptionProviderCommandInput,
+  GetRegisteredSubscriptionProviderCommandOutput,
+} from "./commands/GetRegisteredSubscriptionProviderCommand";
 import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "./commands/GetServiceSettingsCommand";
 import {
   ListLinuxSubscriptionInstancesCommandInput,
@@ -62,6 +70,20 @@ import {
   ListLinuxSubscriptionsCommandInput,
   ListLinuxSubscriptionsCommandOutput,
 } from "./commands/ListLinuxSubscriptionsCommand";
+import {
+  ListRegisteredSubscriptionProvidersCommandInput,
+  ListRegisteredSubscriptionProvidersCommandOutput,
+} from "./commands/ListRegisteredSubscriptionProvidersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
+  RegisterSubscriptionProviderCommandInput,
+  RegisterSubscriptionProviderCommandOutput,
+} from "./commands/RegisterSubscriptionProviderCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
@@ -81,18 +103,32 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | DeregisterSubscriptionProviderCommandInput
+  | GetRegisteredSubscriptionProviderCommandInput
   | GetServiceSettingsCommandInput
   | ListLinuxSubscriptionInstancesCommandInput
   | ListLinuxSubscriptionsCommandInput
+  | ListRegisteredSubscriptionProvidersCommandInput
+  | ListTagsForResourceCommandInput
+  | RegisterSubscriptionProviderCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateServiceSettingsCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | DeregisterSubscriptionProviderCommandOutput
+  | GetRegisteredSubscriptionProviderCommandOutput
   | GetServiceSettingsCommandOutput
   | ListLinuxSubscriptionInstancesCommandOutput
   | ListLinuxSubscriptionsCommandOutput
+  | ListRegisteredSubscriptionProvidersCommandOutput
+  | ListTagsForResourceCommandOutput
+  | RegisterSubscriptionProviderCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateServiceSettingsCommandOutput;
 
 /**

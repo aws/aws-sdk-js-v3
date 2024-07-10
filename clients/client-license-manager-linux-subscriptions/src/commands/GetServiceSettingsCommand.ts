@@ -32,7 +32,7 @@ export interface GetServiceSettingsCommandInput extends GetServiceSettingsReques
 export interface GetServiceSettingsCommandOutput extends GetServiceSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Linux subscriptions service settings.</p>
+ * <p>Lists the Linux subscriptions service settings for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
