@@ -127,6 +127,59 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *           ],
  *         },
  *         instanceTypes: "<StringList>",
+ *         eksPropertiesOverride: { // EksPropertiesOverride
+ *           podProperties: { // EksPodPropertiesOverride
+ *             containers: [ // EksContainerOverrideList
+ *               { // EksContainerOverride
+ *                 name: "STRING_VALUE",
+ *                 image: "STRING_VALUE",
+ *                 command: "<StringList>",
+ *                 args: "<StringList>",
+ *                 env: [ // EksContainerEnvironmentVariables
+ *                   { // EksContainerEnvironmentVariable
+ *                     name: "STRING_VALUE", // required
+ *                     value: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 resources: { // EksContainerResourceRequirements
+ *                   limits: { // EksLimits
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   requests: { // EksRequests
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                 },
+ *               },
+ *             ],
+ *             initContainers: [
+ *               {
+ *                 name: "STRING_VALUE",
+ *                 image: "STRING_VALUE",
+ *                 command: "<StringList>",
+ *                 args: "<StringList>",
+ *                 env: [
+ *                   {
+ *                     name: "STRING_VALUE", // required
+ *                     value: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *                 resources: {
+ *                   limits: {
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   requests: {
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                 },
+ *               },
+ *             ],
+ *             metadata: { // EksMetadata
+ *               labels: { // EksLabelsMap
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *           },
+ *         },
  *       },
  *     ],
  *   },
@@ -148,25 +201,25 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *   tags: { // TagrisTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   eksPropertiesOverride: { // EksPropertiesOverride
- *     podProperties: { // EksPodPropertiesOverride
- *       containers: [ // EksContainerOverrideList
- *         { // EksContainerOverride
+ *   eksPropertiesOverride: {
+ *     podProperties: {
+ *       containers: [
+ *         {
  *           name: "STRING_VALUE",
  *           image: "STRING_VALUE",
  *           command: "<StringList>",
  *           args: "<StringList>",
- *           env: [ // EksContainerEnvironmentVariables
- *             { // EksContainerEnvironmentVariable
+ *           env: [
+ *             {
  *               name: "STRING_VALUE", // required
  *               value: "STRING_VALUE",
  *             },
  *           ],
- *           resources: { // EksContainerResourceRequirements
- *             limits: { // EksLimits
+ *           resources: {
+ *             limits: {
  *               "<keys>": "STRING_VALUE",
  *             },
- *             requests: { // EksRequests
+ *             requests: {
  *               "<keys>": "STRING_VALUE",
  *             },
  *           },
@@ -194,8 +247,8 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *           },
  *         },
  *       ],
- *       metadata: { // EksMetadata
- *         labels: { // EksLabelsMap
+ *       metadata: {
+ *         labels: {
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },

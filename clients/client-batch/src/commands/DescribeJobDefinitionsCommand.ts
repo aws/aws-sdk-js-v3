@@ -340,6 +340,116 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 },
  * //               ],
  * //             },
+ * //             eksProperties: { // EksProperties
+ * //               podProperties: { // EksPodProperties
+ * //                 serviceAccountName: "STRING_VALUE",
+ * //                 hostNetwork: true || false,
+ * //                 dnsPolicy: "STRING_VALUE",
+ * //                 imagePullSecrets: [ // ImagePullSecrets
+ * //                   { // ImagePullSecret
+ * //                     name: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //                 containers: [ // EksContainers
+ * //                   { // EksContainer
+ * //                     name: "STRING_VALUE",
+ * //                     image: "STRING_VALUE", // required
+ * //                     imagePullPolicy: "STRING_VALUE",
+ * //                     command: "<StringList>",
+ * //                     args: "<StringList>",
+ * //                     env: [ // EksContainerEnvironmentVariables
+ * //                       { // EksContainerEnvironmentVariable
+ * //                         name: "STRING_VALUE", // required
+ * //                         value: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     resources: { // EksContainerResourceRequirements
+ * //                       limits: { // EksLimits
+ * //                         "<keys>": "STRING_VALUE",
+ * //                       },
+ * //                       requests: { // EksRequests
+ * //                         "<keys>": "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                     volumeMounts: [ // EksContainerVolumeMounts
+ * //                       { // EksContainerVolumeMount
+ * //                         name: "STRING_VALUE",
+ * //                         mountPath: "STRING_VALUE",
+ * //                         readOnly: true || false,
+ * //                       },
+ * //                     ],
+ * //                     securityContext: { // EksContainerSecurityContext
+ * //                       runAsUser: Number("long"),
+ * //                       runAsGroup: Number("long"),
+ * //                       privileged: true || false,
+ * //                       allowPrivilegeEscalation: true || false,
+ * //                       readOnlyRootFilesystem: true || false,
+ * //                       runAsNonRoot: true || false,
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //                 initContainers: [
+ * //                   {
+ * //                     name: "STRING_VALUE",
+ * //                     image: "STRING_VALUE", // required
+ * //                     imagePullPolicy: "STRING_VALUE",
+ * //                     command: "<StringList>",
+ * //                     args: "<StringList>",
+ * //                     env: [
+ * //                       {
+ * //                         name: "STRING_VALUE", // required
+ * //                         value: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     resources: {
+ * //                       limits: {
+ * //                         "<keys>": "STRING_VALUE",
+ * //                       },
+ * //                       requests: {
+ * //                         "<keys>": "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                     volumeMounts: [
+ * //                       {
+ * //                         name: "STRING_VALUE",
+ * //                         mountPath: "STRING_VALUE",
+ * //                         readOnly: true || false,
+ * //                       },
+ * //                     ],
+ * //                     securityContext: {
+ * //                       runAsUser: Number("long"),
+ * //                       runAsGroup: Number("long"),
+ * //                       privileged: true || false,
+ * //                       allowPrivilegeEscalation: true || false,
+ * //                       readOnlyRootFilesystem: true || false,
+ * //                       runAsNonRoot: true || false,
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //                 volumes: [ // EksVolumes
+ * //                   { // EksVolume
+ * //                     name: "STRING_VALUE", // required
+ * //                     hostPath: { // EksHostPath
+ * //                       path: "STRING_VALUE",
+ * //                     },
+ * //                     emptyDir: { // EksEmptyDir
+ * //                       medium: "STRING_VALUE",
+ * //                       sizeLimit: "STRING_VALUE",
+ * //                     },
+ * //                     secret: { // EksSecret
+ * //                       secretName: "STRING_VALUE", // required
+ * //                       optional: true || false,
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //                 metadata: { // EksMetadata
+ * //                   labels: { // EksLabelsMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 shareProcessNamespace: true || false,
+ * //               },
+ * //             },
  * //           },
  * //         ],
  * //       },
@@ -390,45 +500,45 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //           },
  * //         ],
  * //       },
- * //       eksProperties: { // EksProperties
- * //         podProperties: { // EksPodProperties
+ * //       eksProperties: {
+ * //         podProperties: {
  * //           serviceAccountName: "STRING_VALUE",
  * //           hostNetwork: true || false,
  * //           dnsPolicy: "STRING_VALUE",
- * //           imagePullSecrets: [ // ImagePullSecrets
- * //             { // ImagePullSecret
+ * //           imagePullSecrets: [
+ * //             {
  * //               name: "STRING_VALUE", // required
  * //             },
  * //           ],
- * //           containers: [ // EksContainers
- * //             { // EksContainer
+ * //           containers: [
+ * //             {
  * //               name: "STRING_VALUE",
  * //               image: "STRING_VALUE", // required
  * //               imagePullPolicy: "STRING_VALUE",
  * //               command: "<StringList>",
  * //               args: "<StringList>",
- * //               env: [ // EksContainerEnvironmentVariables
- * //                 { // EksContainerEnvironmentVariable
+ * //               env: [
+ * //                 {
  * //                   name: "STRING_VALUE", // required
  * //                   value: "STRING_VALUE",
  * //                 },
  * //               ],
- * //               resources: { // EksContainerResourceRequirements
- * //                 limits: { // EksLimits
+ * //               resources: {
+ * //                 limits: {
  * //                   "<keys>": "STRING_VALUE",
  * //                 },
- * //                 requests: { // EksRequests
+ * //                 requests: {
  * //                   "<keys>": "STRING_VALUE",
  * //                 },
  * //               },
- * //               volumeMounts: [ // EksContainerVolumeMounts
- * //                 { // EksContainerVolumeMount
+ * //               volumeMounts: [
+ * //                 {
  * //                   name: "STRING_VALUE",
  * //                   mountPath: "STRING_VALUE",
  * //                   readOnly: true || false,
  * //                 },
  * //               ],
- * //               securityContext: { // EksContainerSecurityContext
+ * //               securityContext: {
  * //                 runAsUser: Number("long"),
  * //                 runAsGroup: Number("long"),
  * //                 privileged: true || false,
@@ -476,24 +586,24 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //               },
  * //             },
  * //           ],
- * //           volumes: [ // EksVolumes
- * //             { // EksVolume
+ * //           volumes: [
+ * //             {
  * //               name: "STRING_VALUE", // required
- * //               hostPath: { // EksHostPath
+ * //               hostPath: {
  * //                 path: "STRING_VALUE",
  * //               },
- * //               emptyDir: { // EksEmptyDir
+ * //               emptyDir: {
  * //                 medium: "STRING_VALUE",
  * //                 sizeLimit: "STRING_VALUE",
  * //               },
- * //               secret: { // EksSecret
+ * //               secret: {
  * //                 secretName: "STRING_VALUE", // required
  * //                 optional: true || false,
  * //               },
  * //             },
  * //           ],
- * //           metadata: { // EksMetadata
- * //             labels: { // EksLabelsMap
+ * //           metadata: {
+ * //             labels: {
  * //               "<keys>": "STRING_VALUE",
  * //             },
  * //           },
