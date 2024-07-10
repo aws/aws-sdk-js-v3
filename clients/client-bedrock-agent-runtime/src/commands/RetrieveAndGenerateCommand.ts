@@ -134,6 +134,11 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *           "<keys>": "DOCUMENT_VALUE",
  *         },
  *       },
+ *       orchestrationConfiguration: { // OrchestrationConfiguration
+ *         queryTransformationConfiguration: { // QueryTransformationConfiguration
+ *           type: "QUERY_DECOMPOSITION", // required
+ *         },
+ *       },
  *     },
  *     externalSourcesConfiguration: { // ExternalSourcesRetrieveAndGenerateConfiguration
  *       modelArn: "STRING_VALUE", // required
@@ -202,9 +207,21 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * //             text: "STRING_VALUE", // required
  * //           },
  * //           location: { // RetrievalResultLocation
- * //             type: "S3", // required
+ * //             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT", // required
  * //             s3Location: { // RetrievalResultS3Location
  * //               uri: "STRING_VALUE",
+ * //             },
+ * //             webLocation: { // RetrievalResultWebLocation
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             confluenceLocation: { // RetrievalResultConfluenceLocation
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             salesforceLocation: { // RetrievalResultSalesforceLocation
+ * //               url: "STRING_VALUE",
+ * //             },
+ * //             sharePointLocation: { // RetrievalResultSharePointLocation
+ * //               url: "STRING_VALUE",
  * //             },
  * //           },
  * //           metadata: { // RetrievalResultMetadata

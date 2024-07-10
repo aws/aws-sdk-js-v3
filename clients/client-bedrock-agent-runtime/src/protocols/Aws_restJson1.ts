@@ -15,9 +15,11 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   take,
@@ -31,7 +33,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from "../commands/DeleteAgentMemoryCommand";
+import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "../commands/GetAgentMemoryCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "../commands/InvokeAgentCommand";
+import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "../commands/InvokeFlowCommand";
 import {
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
@@ -44,6 +49,7 @@ import {
   Attribution,
   BadGatewayException,
   ByteContentDoc,
+  ByteContentFile,
   Citation,
   ConflictException,
   ContentBody,
@@ -51,27 +57,42 @@ import {
   ExternalSource,
   ExternalSourcesGenerationConfiguration,
   ExternalSourcesRetrieveAndGenerateConfiguration,
+  FilePart,
+  FileSource,
   FilterAttribute,
+  FlowCompletionEvent,
+  FlowInput,
+  FlowInputContent,
+  FlowOutputContent,
+  FlowOutputEvent,
+  FlowResponseStream,
   FunctionResult,
   GenerationConfiguration,
   GuardrailConfiguration,
   InferenceConfig,
   InferenceConfiguration,
+  InputFile,
   InternalServerException,
   InvocationResultMember,
+  KnowledgeBaseConfiguration,
   KnowledgeBaseLookupOutput,
   KnowledgeBaseQuery,
   KnowledgeBaseRetrievalConfiguration,
   KnowledgeBaseRetrievalResult,
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
+  Memory,
+  MemorySessionSummary,
   ModelInvocationInput,
   Observation,
+  OrchestrationConfiguration,
   OrchestrationTrace,
+  OutputFile,
   PayloadPart,
   PostProcessingTrace,
   PreProcessingTrace,
   PromptTemplate,
+  QueryTransformationConfiguration,
   ResourceNotFoundException,
   ResponseStream,
   RetrievalFilter,
@@ -81,6 +102,7 @@ import {
   RetrievedReference,
   ReturnControlPayload,
   S3ObjectDoc,
+  S3ObjectFile,
   ServiceQuotaExceededException,
   SessionState,
   TextInferenceConfig,
@@ -89,6 +111,49 @@ import {
   TracePart,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1DeleteAgentMemoryCommand
+ */
+export const se_DeleteAgentMemoryCommand = async (
+  input: DeleteAgentMemoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/agents/{agentId}/agentAliases/{agentAliasId}/memories");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
+  const query: any = map({
+    [_mI]: [, input[_mI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAgentMemoryCommand
+ */
+export const se_GetAgentMemoryCommand = async (
+  input: GetAgentMemoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/agents/{agentId}/agentAliases/{agentAliasId}/memories");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mIa]: [() => input.maxItems !== void 0, () => input[_mIa]!.toString()],
+    [_mT]: [, __expectNonNull(input[_mT]!, `memoryType`)],
+    [_mI]: [, __expectNonNull(input[_mI]!, `memoryId`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1InvokeAgentCommand
@@ -111,7 +176,32 @@ export const se_InvokeAgentCommand = async (
       enableTrace: [],
       endSession: [],
       inputText: [],
-      sessionState: (_) => _json(_),
+      memoryId: [],
+      sessionState: (_) => se_SessionState(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1InvokeFlowCommand
+ */
+export const se_InvokeFlowCommand = async (
+  input: InvokeFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/flows/{flowIdentifier}/aliases/{flowAliasIdentifier}");
+  b.p("flowIdentifier", () => input.flowIdentifier!, "{flowIdentifier}", false);
+  b.p("flowAliasIdentifier", () => input.flowAliasIdentifier!, "{flowAliasIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      inputs: (_) => se_FlowInputs(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -169,6 +259,45 @@ export const se_RetrieveAndGenerateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAgentMemoryCommand
+ */
+export const de_DeleteAgentMemoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAgentMemoryCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAgentMemoryCommand
+ */
+export const de_GetAgentMemoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAgentMemoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    memoryContents: (_) => de_Memories(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1InvokeAgentCommand
  */
 export const de_InvokeAgentCommand = async (
@@ -182,9 +311,28 @@ export const de_InvokeAgentCommand = async (
     $metadata: deserializeMetadata(output),
     [_cT]: [, output.headers[_xabact]],
     [_sI]: [, output.headers[_xabasi]],
+    [_mI]: [, output.headers[_xabami]],
   });
   const data: any = output.body;
   contents.completion = de_ResponseStream(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1InvokeFlowCommand
+ */
+export const de_InvokeFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<InvokeFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = output.body;
+  contents.responseStream = de_FlowResponseStream(data, context);
   return contents;
 };
 
@@ -453,6 +601,81 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_restJson1FlowResponseStream
+ */
+const de_FlowResponseStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<FlowResponseStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["flowOutputEvent"] != null) {
+      return {
+        flowOutputEvent: await de_FlowOutputEvent_event(event["flowOutputEvent"], context),
+      };
+    }
+    if (event["flowCompletionEvent"] != null) {
+      return {
+        flowCompletionEvent: await de_FlowCompletionEvent_event(event["flowCompletionEvent"], context),
+      };
+    }
+    if (event["internalServerException"] != null) {
+      return {
+        internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
+      };
+    }
+    if (event["validationException"] != null) {
+      return {
+        validationException: await de_ValidationException_event(event["validationException"], context),
+      };
+    }
+    if (event["resourceNotFoundException"] != null) {
+      return {
+        resourceNotFoundException: await de_ResourceNotFoundException_event(
+          event["resourceNotFoundException"],
+          context
+        ),
+      };
+    }
+    if (event["serviceQuotaExceededException"] != null) {
+      return {
+        serviceQuotaExceededException: await de_ServiceQuotaExceededException_event(
+          event["serviceQuotaExceededException"],
+          context
+        ),
+      };
+    }
+    if (event["throttlingException"] != null) {
+      return {
+        throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
+      };
+    }
+    if (event["accessDeniedException"] != null) {
+      return {
+        accessDeniedException: await de_AccessDeniedException_event(event["accessDeniedException"], context),
+      };
+    }
+    if (event["conflictException"] != null) {
+      return {
+        conflictException: await de_ConflictException_event(event["conflictException"], context),
+      };
+    }
+    if (event["dependencyFailedException"] != null) {
+      return {
+        dependencyFailedException: await de_DependencyFailedException_event(
+          event["dependencyFailedException"],
+          context
+        ),
+      };
+    }
+    if (event["badGatewayException"] != null) {
+      return {
+        badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+/**
  * deserializeAws_restJson1ResponseStream
  */
 const de_ResponseStream = (
@@ -529,6 +752,11 @@ const de_ResponseStream = (
         badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
       };
     }
+    if (event["files"] != null) {
+      return {
+        files: await de_FilePart_event(event["files"], context),
+      };
+    }
     return { $unknown: output };
   });
 };
@@ -562,6 +790,24 @@ const de_DependencyFailedException_event = async (
     body: await parseBody(output.body, context),
   };
   return de_DependencyFailedExceptionRes(parsedOutput, context);
+};
+const de_FilePart_event = async (output: any, context: __SerdeContext): Promise<FilePart> => {
+  const contents: FilePart = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_FilePart(data, context));
+  return contents;
+};
+const de_FlowCompletionEvent_event = async (output: any, context: __SerdeContext): Promise<FlowCompletionEvent> => {
+  const contents: FlowCompletionEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_FlowOutputEvent_event = async (output: any, context: __SerdeContext): Promise<FlowOutputEvent> => {
+  const contents: FlowOutputEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_FlowOutputEvent(data, context));
+  return contents;
 };
 const de_InternalServerException_event = async (
   output: any,
@@ -658,6 +904,16 @@ const se_ByteContentDoc = (input: ByteContentDoc, context: __SerdeContext): any 
   });
 };
 
+/**
+ * serializeAws_restJson1ByteContentFile
+ */
+const se_ByteContentFile = (input: ByteContentFile, context: __SerdeContext): any => {
+  return take(input, {
+    data: context.base64Encoder,
+    mediaType: [],
+  });
+};
+
 // se_ContentBody omitted.
 
 /**
@@ -712,6 +968,17 @@ const se_ExternalSourcesRetrieveAndGenerateConfiguration = (
 };
 
 /**
+ * serializeAws_restJson1FileSource
+ */
+const se_FileSource = (input: FileSource, context: __SerdeContext): any => {
+  return take(input, {
+    byteContent: (_) => se_ByteContentFile(_, context),
+    s3Location: _json,
+    sourceType: [],
+  });
+};
+
+/**
  * serializeAws_restJson1FilterAttribute
  */
 const se_FilterAttribute = (input: FilterAttribute, context: __SerdeContext): any => {
@@ -726,6 +993,38 @@ const se_FilterAttribute = (input: FilterAttribute, context: __SerdeContext): an
  */
 const se_FilterValue = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
+};
+
+/**
+ * serializeAws_restJson1FlowInput
+ */
+const se_FlowInput = (input: FlowInput, context: __SerdeContext): any => {
+  return take(input, {
+    content: (_) => se_FlowInputContent(_, context),
+    nodeName: [],
+    nodeOutputName: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1FlowInputContent
+ */
+const se_FlowInputContent = (input: FlowInputContent, context: __SerdeContext): any => {
+  return FlowInputContent.visit(input, {
+    document: (value) => ({ document: se_Document(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1FlowInputs
+ */
+const se_FlowInputs = (input: FlowInput[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_FlowInput(entry, context);
+    });
 };
 
 // se_FunctionResult omitted.
@@ -753,7 +1052,50 @@ const se_InferenceConfig = (input: InferenceConfig, context: __SerdeContext): an
   });
 };
 
+/**
+ * serializeAws_restJson1InputFile
+ */
+const se_InputFile = (input: InputFile, context: __SerdeContext): any => {
+  return take(input, {
+    name: [],
+    source: (_) => se_FileSource(_, context),
+    useCase: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1InputFiles
+ */
+const se_InputFiles = (input: InputFile[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InputFile(entry, context);
+    });
+};
+
 // se_InvocationResultMember omitted.
+
+/**
+ * serializeAws_restJson1KnowledgeBaseConfiguration
+ */
+const se_KnowledgeBaseConfiguration = (input: KnowledgeBaseConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    knowledgeBaseId: [],
+    retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1KnowledgeBaseConfigurations
+ */
+const se_KnowledgeBaseConfigurations = (input: KnowledgeBaseConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_KnowledgeBaseConfiguration(entry, context);
+    });
+};
 
 // se_KnowledgeBaseQuery omitted.
 
@@ -780,6 +1122,7 @@ const se_KnowledgeBaseRetrieveAndGenerateConfiguration = (
     generationConfiguration: (_) => se_GenerationConfiguration(_, context),
     knowledgeBaseId: [],
     modelArn: [],
+    orchestrationConfiguration: _json,
     retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
   });
 };
@@ -798,9 +1141,13 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
   });
 };
 
+// se_OrchestrationConfiguration omitted.
+
 // se_PromptSessionAttributesMap omitted.
 
 // se_PromptTemplate omitted.
+
+// se_QueryTransformationConfiguration omitted.
 
 // se_RAGStopSequences omitted.
 
@@ -858,9 +1205,23 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 
 // se_S3ObjectDoc omitted.
 
+// se_S3ObjectFile omitted.
+
 // se_SessionAttributesMap omitted.
 
-// se_SessionState omitted.
+/**
+ * serializeAws_restJson1SessionState
+ */
+const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
+  return take(input, {
+    files: (_) => se_InputFiles(_, context),
+    invocationId: [],
+    knowledgeBaseConfigurations: (_) => se_KnowledgeBaseConfigurations(_, context),
+    promptSessionAttributes: _json,
+    returnControlInvocationResults: _json,
+    sessionAttributes: _json,
+  });
+};
 
 /**
  * serializeAws_restJson1TextInferenceConfig
@@ -872,6 +1233,13 @@ const se_TextInferenceConfig = (input: TextInferenceConfig, context: __SerdeCont
     temperature: __serializeFloat,
     topP: __serializeFloat,
   });
+};
+
+/**
+ * serializeAws_restJson1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
 };
 
 // de_ActionGroupInvocationInput omitted.
@@ -919,11 +1287,51 @@ const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
   return retVal;
 };
 
+// de_CodeInterpreterInvocationInput omitted.
+
+// de_CodeInterpreterInvocationOutput omitted.
+
 // de_ContentMap omitted.
 
 // de_FailureTrace omitted.
 
+/**
+ * deserializeAws_restJson1FilePart
+ */
+const de_FilePart = (output: any, context: __SerdeContext): FilePart => {
+  return take(output, {
+    files: (_: any) => de_OutputFiles(_, context),
+  }) as any;
+};
+
+// de_Files omitted.
+
 // de_FinalResponse omitted.
+
+// de_FlowCompletionEvent omitted.
+
+/**
+ * deserializeAws_restJson1FlowOutputContent
+ */
+const de_FlowOutputContent = (output: any, context: __SerdeContext): FlowOutputContent => {
+  if (output.document != null) {
+    return {
+      document: de_Document(output.document, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1FlowOutputEvent
+ */
+const de_FlowOutputEvent = (output: any, context: __SerdeContext): FlowOutputEvent => {
+  return take(output, {
+    content: (_: any) => de_FlowOutputContent(__expectUnion(_), context),
+    nodeName: __expectString,
+    nodeType: __expectString,
+  }) as any;
+};
 
 // de_FunctionInvocationInput omitted.
 
@@ -1026,6 +1434,43 @@ const de_KnowledgeBaseRetrievalResults = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_restJson1Memories
+ */
+const de_Memories = (output: any, context: __SerdeContext): Memory[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Memory(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1Memory
+ */
+const de_Memory = (output: any, context: __SerdeContext): Memory => {
+  if (output.sessionSummary != null) {
+    return {
+      sessionSummary: de_MemorySessionSummary(output.sessionSummary, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1MemorySessionSummary
+ */
+const de_MemorySessionSummary = (output: any, context: __SerdeContext): MemorySessionSummary => {
+  return take(output, {
+    memoryId: __expectString,
+    sessionExpiryTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    sessionId: __expectString,
+    sessionStartTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    summaryText: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ModelInvocationInput
  */
 const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInvocationInput => {
@@ -1046,6 +1491,7 @@ const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInv
 const de_Observation = (output: any, context: __SerdeContext): Observation => {
   return take(output, {
     actionGroupInvocationOutput: _json,
+    codeInterpreterInvocationOutput: _json,
     finalResponse: _json,
     knowledgeBaseLookupOutput: (_: any) => de_KnowledgeBaseLookupOutput(_, context),
     repromptResponse: _json,
@@ -1079,6 +1525,29 @@ const de_OrchestrationTrace = (output: any, context: __SerdeContext): Orchestrat
     };
   }
   return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1OutputFile
+ */
+const de_OutputFile = (output: any, context: __SerdeContext): OutputFile => {
+  return take(output, {
+    bytes: context.base64Decoder,
+    name: __expectString,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1OutputFiles
+ */
+const de_OutputFiles = (output: any, context: __SerdeContext): OutputFile[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_OutputFile(entry, context);
+    });
+  return retVal;
 };
 
 // de_Parameter omitted.
@@ -1147,6 +1616,8 @@ const de_PreProcessingTrace = (output: any, context: __SerdeContext): PreProcess
 
 // de_RequestBody omitted.
 
+// de_RetrievalResultConfluenceLocation omitted.
+
 // de_RetrievalResultContent omitted.
 
 // de_RetrievalResultLocation omitted.
@@ -1172,6 +1643,12 @@ const de_RetrievalResultMetadataValue = (output: any, context: __SerdeContext): 
 };
 
 // de_RetrievalResultS3Location omitted.
+
+// de_RetrievalResultSalesforceLocation omitted.
+
+// de_RetrievalResultSharePointLocation omitted.
+
+// de_RetrievalResultWebLocation omitted.
 
 // de_RetrieveAndGenerateOutput omitted.
 
@@ -1251,6 +1728,13 @@ const de_TracePart = (output: any, context: __SerdeContext): TracePart => {
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -1271,6 +1755,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cT = "contentType";
+const _mI = "memoryId";
+const _mIa = "maxItems";
+const _mT = "memoryType";
+const _nT = "nextToken";
 const _sI = "sessionId";
 const _xabact = "x-amzn-bedrock-agent-content-type";
+const _xabami = "x-amz-bedrock-agent-memory-id";
 const _xabasi = "x-amz-bedrock-agent-session-id";

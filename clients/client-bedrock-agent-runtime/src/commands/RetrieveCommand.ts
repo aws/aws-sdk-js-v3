@@ -118,9 +118,21 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //         text: "STRING_VALUE", // required
  * //       },
  * //       location: { // RetrievalResultLocation
- * //         type: "S3", // required
+ * //         type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT", // required
  * //         s3Location: { // RetrievalResultS3Location
  * //           uri: "STRING_VALUE",
+ * //         },
+ * //         webLocation: { // RetrievalResultWebLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         confluenceLocation: { // RetrievalResultConfluenceLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         salesforceLocation: { // RetrievalResultSalesforceLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         sharePointLocation: { // RetrievalResultSharePointLocation
+ * //           url: "STRING_VALUE",
  * //         },
  * //       },
  * //       score: Number("double"),

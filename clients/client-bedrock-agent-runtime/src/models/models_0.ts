@@ -26,6 +26,20 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ExecutionType = {
+  LAMBDA: "LAMBDA",
+  RETURN_CONTROL: "RETURN_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionType = (typeof ExecutionType)[keyof typeof ExecutionType];
+
+/**
  * <p>A parameter for the API request or function.</p>
  * @public
  */
@@ -101,6 +115,18 @@ export interface ActionGroupInvocationInput {
    * @public
    */
   function?: string;
+
+  /**
+   * <p>How fulfillment of the action is handled. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/action-handle.html">Handling fulfillment of the action</a>.</p>
+   * @public
+   */
+  executionType?: ExecutionType;
+
+  /**
+   * <p>The unique identifier of the invocation. Only returned if the <code>executionType</code> is <code>RETURN_CONTROL</code>.</p>
+   * @public
+   */
+  invocationId?: string;
 }
 
 /**
@@ -208,6 +234,766 @@ export class InternalServerException extends __BaseException {
     Object.setPrototypeOf(this, InternalServerException.prototype);
   }
 }
+
+/**
+ * <p>Contains information about an input into the flow.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_RequestSyntax">InvokeFlow request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type FlowInputContent = FlowInputContent.DocumentMember | FlowInputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowInputContent {
+  /**
+   * <p>The input for the flow input node.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    document: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    document?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    document: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowInputContent, visitor: Visitor<T>): T => {
+    if (value.document !== undefined) return visitor.document(value.document);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains information about an input into the flow and what to do with it.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_RequestSyntax">InvokeFlow request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FlowInput {
+  /**
+   * <p>A name for the input of the flow input node.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>A name for the output of the flow input node.</p>
+   * @public
+   */
+  nodeOutputName: string | undefined;
+
+  /**
+   * <p>Contains information about an input into the flow.</p>
+   * @public
+   */
+  content: FlowInputContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InvokeFlowRequest {
+  /**
+   * <p>The unique identifier of the flow.</p>
+   * @public
+   */
+  flowIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow alias.</p>
+   * @public
+   */
+  flowAliasIdentifier: string | undefined;
+
+  /**
+   * <p>A list of objects, each containing information about an input into the flow.</p>
+   * @public
+   */
+  inputs: FlowInput[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowCompletionReason = {
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowCompletionReason = (typeof FlowCompletionReason)[keyof typeof FlowCompletionReason];
+
+/**
+ * <p>Contains information about why a flow completed.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_ResponseSyntax">InvokeFlow response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FlowCompletionEvent {
+  /**
+   * <p>The reason that the flow completed.</p>
+   * @public
+   */
+  completionReason: FlowCompletionReason | undefined;
+}
+
+/**
+ * <p>Contains information about the output node.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_RequestSyntax">InvokeFlow request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type FlowOutputContent = FlowOutputContent.DocumentMember | FlowOutputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowOutputContent {
+  /**
+   * <p>A name for the output of the flow.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    document: __DocumentType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    document?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    document: (value: __DocumentType) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowOutputContent, visitor: Visitor<T>): T => {
+    if (value.document !== undefined) return visitor.document(value.document);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeType = {
+  CONDITION_NODE: "ConditionNode",
+  FLOW_INPUT_NODE: "FlowInputNode",
+  FLOW_OUTPUT_NODE: "FlowOutputNode",
+  KNOWLEDGE_BASE_NODE: "KnowledgeBaseNode",
+  LAMBDA_FUNCTION_NODE: "LambdaFunctionNode",
+  LEX_NODE: "LexNode",
+  PROMPT_NODE: "PromptNode",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * <p>Contains information about an output from flow invoction.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_ResponseSyntax">InvokeFlow response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FlowOutputEvent {
+  /**
+   * <p>The name of the node to which input was provided.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The type of node to which input was provided.</p>
+   * @public
+   */
+  nodeType: NodeType | undefined;
+
+  /**
+   * <p>The output of the node.</p>
+   * @public
+   */
+  content: FlowOutputContent | undefined;
+}
+
+/**
+ * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * <p>The output of the flow.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html#API_agent_InvokeFlow_ResponseSyntax">InvokeFlow response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type FlowResponseStream =
+  | FlowResponseStream.AccessDeniedExceptionMember
+  | FlowResponseStream.BadGatewayExceptionMember
+  | FlowResponseStream.ConflictExceptionMember
+  | FlowResponseStream.DependencyFailedExceptionMember
+  | FlowResponseStream.FlowCompletionEventMember
+  | FlowResponseStream.FlowOutputEventMember
+  | FlowResponseStream.InternalServerExceptionMember
+  | FlowResponseStream.ResourceNotFoundExceptionMember
+  | FlowResponseStream.ServiceQuotaExceededExceptionMember
+  | FlowResponseStream.ThrottlingExceptionMember
+  | FlowResponseStream.ValidationExceptionMember
+  | FlowResponseStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FlowResponseStream {
+  /**
+   * <p>Contains information about an output from flow invocation.</p>
+   * @public
+   */
+  export interface FlowOutputEventMember {
+    flowOutputEvent: FlowOutputEvent;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about why the flow completed.</p>
+   * @public
+   */
+  export interface FlowCompletionEventMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent: FlowCompletionEvent;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An internal server error occurred. Retry your request.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException: InternalServerException;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input validation failed. Check your request parameters and retry the request.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException: ValidationException;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+   * @public
+   */
+  export interface ResourceNotFoundExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException: ResourceNotFoundException;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+   * @public
+   */
+  export interface ServiceQuotaExceededExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException: ServiceQuotaExceededException;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException: ThrottlingException;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+   * @public
+   */
+  export interface AccessDeniedExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException: AccessDeniedException;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+   * @public
+   */
+  export interface ConflictExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException: ConflictException;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+   * @public
+   */
+  export interface DependencyFailedExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException: DependencyFailedException;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+   * @public
+   */
+  export interface BadGatewayExceptionMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException: BadGatewayException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    flowOutputEvent?: never;
+    flowCompletionEvent?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    flowOutputEvent: (value: FlowOutputEvent) => T;
+    flowCompletionEvent: (value: FlowCompletionEvent) => T;
+    internalServerException: (value: InternalServerException) => T;
+    validationException: (value: ValidationException) => T;
+    resourceNotFoundException: (value: ResourceNotFoundException) => T;
+    serviceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
+    throttlingException: (value: ThrottlingException) => T;
+    accessDeniedException: (value: AccessDeniedException) => T;
+    conflictException: (value: ConflictException) => T;
+    dependencyFailedException: (value: DependencyFailedException) => T;
+    badGatewayException: (value: BadGatewayException) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FlowResponseStream, visitor: Visitor<T>): T => {
+    if (value.flowOutputEvent !== undefined) return visitor.flowOutputEvent(value.flowOutputEvent);
+    if (value.flowCompletionEvent !== undefined) return visitor.flowCompletionEvent(value.flowCompletionEvent);
+    if (value.internalServerException !== undefined)
+      return visitor.internalServerException(value.internalServerException);
+    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
+    if (value.resourceNotFoundException !== undefined)
+      return visitor.resourceNotFoundException(value.resourceNotFoundException);
+    if (value.serviceQuotaExceededException !== undefined)
+      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
+    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
+    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
+    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
+    if (value.dependencyFailedException !== undefined)
+      return visitor.dependencyFailedException(value.dependencyFailedException);
+    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface InvokeFlowResponse {
+  /**
+   * <p>The output of the flow, returned as a stream. If there's an error, the error is returned.</p>
+   * @public
+   */
+  responseStream: AsyncIterable<FlowResponseStream> | undefined;
+}
+
+/**
+ * <p>The property contains the file to chat with, along with its attributes.</p>
+ * @public
+ */
+export interface ByteContentFile {
+  /**
+   * <p>The MIME type of data contained in the file used for chat.</p>
+   * @public
+   */
+  mediaType: string | undefined;
+
+  /**
+   * <p>The byte value of the file to attach, encoded as Base-64 string. The maximum size of all files that is attached is 10MB. You can attach a maximum of 5 files. </p>
+   * @public
+   */
+  data: Uint8Array | undefined;
+}
+
+/**
+ * <p>Contains details of the s3 object where the source file is located.</p>
+ * @public
+ */
+export interface S3ObjectFile {
+  /**
+   * <p>The uri of the s3 object.</p>
+   * @public
+   */
+  uri: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FileSourceType = {
+  BYTE_CONTENT: "BYTE_CONTENT",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type FileSourceType = (typeof FileSourceType)[keyof typeof FileSourceType];
+
+/**
+ * <p>The source file of the content contained in the wrapper object.</p>
+ * @public
+ */
+export interface FileSource {
+  /**
+   * <p>The source type of the files to attach.</p>
+   * @public
+   */
+  sourceType: FileSourceType | undefined;
+
+  /**
+   * <p>The s3 location of the files to attach.</p>
+   * @public
+   */
+  s3Location?: S3ObjectFile;
+
+  /**
+   * <p>The data and the text of the attached files.</p>
+   * @public
+   */
+  byteContent?: ByteContentFile;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FileUseCase = {
+  CHAT: "CHAT",
+  CODE_INTERPRETER: "CODE_INTERPRETER",
+} as const;
+
+/**
+ * @public
+ */
+export type FileUseCase = (typeof FileUseCase)[keyof typeof FileUseCase];
+
+/**
+ * <p>Contains details of the source files.</p>
+ * @public
+ */
+export interface InputFile {
+  /**
+   * <p>The name of the source file.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specifies where the files are located.</p>
+   * @public
+   */
+  source: FileSource | undefined;
+
+  /**
+   * <p>Specifies how the source files will be used by the code interpreter.</p>
+   * @public
+   */
+  useCase: FileUseCase | undefined;
+}
+
+/**
+ * <p>Specifies the name that the metadata attribute must match and the value to which to compare the value of the metadata attribute. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FilterAttribute {
+  /**
+   * <p>The name that the metadata attribute must match.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value to whcih to compare the value of the metadata attribute.</p>
+   * @public
+   */
+  value: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchType = {
+  HYBRID: "HYBRID",
+  SEMANTIC: "SEMANTIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchType = (typeof SearchType)[keyof typeof SearchType];
 
 /**
  * <p>Contains the body of the API response.</p>
@@ -392,92 +1178,6 @@ export namespace InvocationResultMember {
 }
 
 /**
- * <p>Contains parameters that specify various attributes that persist across a session or prompt. You can define session state attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request. Use session state attributes to control and provide conversational context for your agent and to help customize your agent's behavior. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
- * @public
- */
-export interface SessionState {
-  /**
-   * <p>Contains attributes that persist across a session and the values of those attributes.</p>
-   * @public
-   */
-  sessionAttributes?: Record<string, string>;
-
-  /**
-   * <p>Contains attributes that persist across a prompt and the values of those attributes. These attributes replace the $prompt_session_attributes$ placeholder variable in the orchestration prompt template. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
-   * @public
-   */
-  promptSessionAttributes?: Record<string, string>;
-
-  /**
-   * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
-   *          <note>
-   *             <p>If you include this field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
-   * @public
-   */
-  returnControlInvocationResults?: InvocationResultMember[];
-
-  /**
-   * <p>The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeAgent</code> response for the action whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
-   * @public
-   */
-  invocationId?: string;
-}
-
-/**
- * @public
- */
-export interface InvokeAgentRequest {
-  /**
-   * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
-   * @public
-   */
-  sessionState?: SessionState;
-
-  /**
-   * <p>The unique identifier of the agent to use.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The alias of the agent to use.</p>
-   * @public
-   */
-  agentAliasId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the session. Use the same value across requests to continue the same conversation.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>Specifies whether to end the session with the agent or not.</p>
-   * @public
-   */
-  endSession?: boolean;
-
-  /**
-   * <p>Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
-   * @public
-   */
-  enableTrace?: boolean;
-
-  /**
-   * <p>The prompt text to send the agent.</p>
-   *          <note>
-   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
-   * @public
-   */
-  inputText?: string;
-}
-
-/**
  * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -586,7 +1286,19 @@ export interface RetrievalResultContent {
 }
 
 /**
- * <p>Contains the S3 location of the data source.</p>
+ * <p>The Confluence data source location.</p>
+ * @public
+ */
+export interface RetrievalResultConfluenceLocation {
+  /**
+   * <p>The Confluence host URL for the data source location.</p>
+   * @public
+   */
+  url?: string;
+}
+
+/**
+ * <p>The S3 data source location.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -606,10 +1318,34 @@ export interface RetrievalResultContent {
  */
 export interface RetrievalResultS3Location {
   /**
-   * <p>The S3 URI of the data source.</p>
+   * <p>The S3 URI for the data source location.</p>
    * @public
    */
   uri?: string;
+}
+
+/**
+ * <p>The Salesforce data source location.</p>
+ * @public
+ */
+export interface RetrievalResultSalesforceLocation {
+  /**
+   * <p>The Salesforce host URL for the data source location.</p>
+   * @public
+   */
+  url?: string;
+}
+
+/**
+ * <p>The SharePoint data source location.</p>
+ * @public
+ */
+export interface RetrievalResultSharePointLocation {
+  /**
+   * <p>The SharePoint site URL for the data source location.</p>
+   * @public
+   */
+  url?: string;
 }
 
 /**
@@ -617,7 +1353,11 @@ export interface RetrievalResultS3Location {
  * @enum
  */
 export const RetrievalResultLocationType = {
+  CONFLUENCE: "CONFLUENCE",
   S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SHAREPOINT: "SHAREPOINT",
+  WEB: "WEB",
 } as const;
 
 /**
@@ -627,7 +1367,19 @@ export type RetrievalResultLocationType =
   (typeof RetrievalResultLocationType)[keyof typeof RetrievalResultLocationType];
 
 /**
- * <p>Contains information about the location of the data source.</p>
+ * <p>The web URL/URLs data source location.</p>
+ * @public
+ */
+export interface RetrievalResultWebLocation {
+  /**
+   * <p>The web URL/URLs for the data source location.</p>
+   * @public
+   */
+  url?: string;
+}
+
+/**
+ * <p>Contains information about the data source location.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -647,16 +1399,40 @@ export type RetrievalResultLocationType =
  */
 export interface RetrievalResultLocation {
   /**
-   * <p>The type of the location of the data source.</p>
+   * <p>The type of data source location.</p>
    * @public
    */
   type: RetrievalResultLocationType | undefined;
 
   /**
-   * <p>Contains the S3 location of the data source.</p>
+   * <p>The S3 data source location.</p>
    * @public
    */
   s3Location?: RetrievalResultS3Location;
+
+  /**
+   * <p>The web URL/URLs data source location.</p>
+   * @public
+   */
+  webLocation?: RetrievalResultWebLocation;
+
+  /**
+   * <p>The Confluence data source location.</p>
+   * @public
+   */
+  confluenceLocation?: RetrievalResultConfluenceLocation;
+
+  /**
+   * <p>The Salesforce data source location.</p>
+   * @public
+   */
+  salesforceLocation?: RetrievalResultSalesforceLocation;
+
+  /**
+   * <p>The SharePoint data source location.</p>
+   * @public
+   */
+  sharePointLocation?: RetrievalResultSharePointLocation;
 }
 
 /**
@@ -754,23 +1530,39 @@ export interface PayloadPart {
 }
 
 /**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * <p>Contains details of the response from code interpreter.</p>
  * @public
  */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
+export interface OutputFile {
   /**
-   * @internal
+   * <p>The name of the file containing response from code interpreter.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
+  name?: string;
+
+  /**
+   * <p>The type of file that contains response from the code interpreter.</p>
+   * @public
+   */
+  type?: string;
+
+  /**
+   * <p>The byte count of files that contains response from code interpreter.</p>
+   * @public
+   */
+  bytes?: Uint8Array;
+}
+
+/**
+ * <p>Contains intermediate response for code interpreter if any files have been generated.</p>
+ * @public
+ */
+export interface FilePart {
+  /**
+   * <p>Files containing intermediate response for the user.</p>
+   * @public
+   */
+  files?: OutputFile[];
 }
 
 /**
@@ -1029,46 +1821,6 @@ export interface ReturnControlPayload {
    * @public
    */
   invocationId?: string;
-}
-
-/**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
 }
 
 /**
@@ -1527,11 +2279,30 @@ export interface GuardrailTrace {
 }
 
 /**
+ * <p>Contains information about the code interpreter being invoked.</p>
+ * @public
+ */
+export interface CodeInterpreterInvocationInput {
+  /**
+   * <p>The code for the code interpreter to use.</p>
+   * @public
+   */
+  code?: string;
+
+  /**
+   * <p>Files that are uploaded for code interpreter to use.</p>
+   * @public
+   */
+  files?: string[];
+}
+
+/**
  * @public
  * @enum
  */
 export const InvocationType = {
   ACTION_GROUP: "ACTION_GROUP",
+  ACTION_GROUP_CODE_INTERPRETER: "ACTION_GROUP_CODE_INTERPRETER",
   FINISH: "FINISH",
   KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
 } as const;
@@ -1587,6 +2358,12 @@ export interface InvocationInput {
    * @public
    */
   knowledgeBaseLookupInput?: KnowledgeBaseLookupInput;
+
+  /**
+   * <p>Contains information about the code interpreter to be invoked.</p>
+   * @public
+   */
+  codeInterpreterInvocationInput?: CodeInterpreterInvocationInput;
 }
 
 /**
@@ -1712,6 +2489,36 @@ export interface ModelInvocationInput {
    * @public
    */
   parserMode?: CreationMode;
+}
+
+/**
+ * <p>Contains the JSON-formatted string returned by the API invoked by the code interpreter.</p>
+ * @public
+ */
+export interface CodeInterpreterInvocationOutput {
+  /**
+   * <p>Contains the successful output returned from code execution</p>
+   * @public
+   */
+  executionOutput?: string;
+
+  /**
+   * <p>Contains the error returned from code execution.</p>
+   * @public
+   */
+  executionError?: string;
+
+  /**
+   * <p>Contains output files, if generated by code execution.</p>
+   * @public
+   */
+  files?: string[];
+
+  /**
+   * <p>Indicates if the execution of the code timed out.</p>
+   * @public
+   */
+  executionTimeout?: boolean;
 }
 
 /**
@@ -1850,6 +2657,12 @@ export interface Observation {
    * @public
    */
   repromptResponse?: RepromptResponse;
+
+  /**
+   * <p>Contains the JSON-formatted string returned by the API invoked by the code interpreter.</p>
+   * @public
+   */
+  codeInterpreterInvocationOutput?: CodeInterpreterInvocationOutput;
 }
 
 /**
@@ -2319,26 +3132,6 @@ export interface TracePart {
 }
 
 /**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
  * <p>The response from invoking the agent and associated citations and trace information.</p>
  * @public
  */
@@ -2348,6 +3141,7 @@ export type ResponseStream =
   | ResponseStream.ChunkMember
   | ResponseStream.ConflictExceptionMember
   | ResponseStream.DependencyFailedExceptionMember
+  | ResponseStream.FilesMember
   | ResponseStream.InternalServerExceptionMember
   | ResponseStream.ResourceNotFoundExceptionMember
   | ResponseStream.ReturnControlMember
@@ -2378,6 +3172,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2398,6 +3193,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2418,6 +3214,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2438,6 +3235,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2458,6 +3256,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2478,6 +3277,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2498,6 +3298,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2518,6 +3319,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2538,6 +3340,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2558,6 +3361,7 @@ export namespace ResponseStream {
     conflictException: ConflictException;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2578,6 +3382,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException: DependencyFailedException;
     badGatewayException?: never;
+    files?: never;
     $unknown?: never;
   }
 
@@ -2598,6 +3403,28 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException: BadGatewayException;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains intermediate response for code interpreter if any files have been generated.</p>
+   * @public
+   */
+  export interface FilesMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files: FilePart;
     $unknown?: never;
   }
 
@@ -2617,6 +3444,7 @@ export namespace ResponseStream {
     conflictException?: never;
     dependencyFailedException?: never;
     badGatewayException?: never;
+    files?: never;
     $unknown: [string, any];
   }
 
@@ -2633,6 +3461,7 @@ export namespace ResponseStream {
     conflictException: (value: ConflictException) => T;
     dependencyFailedException: (value: DependencyFailedException) => T;
     badGatewayException: (value: BadGatewayException) => T;
+    files: (value: FilePart) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2653,6 +3482,7 @@ export namespace ResponseStream {
     if (value.dependencyFailedException !== undefined)
       return visitor.dependencyFailedException(value.dependencyFailedException);
     if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
+    if (value.files !== undefined) return visitor.files(value.files);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2678,6 +3508,189 @@ export interface InvokeAgentResponse {
    * @public
    */
   sessionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent memory.</p>
+   * @public
+   */
+  memoryId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAgentMemoryRequest {
+  /**
+   * <p>The unique identifier of the agent to which the alias belongs.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The unique identifier of an alias of an agent.</p>
+   * @public
+   */
+  agentAliasId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the memory.</p>
+   * @public
+   */
+  memoryId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAgentMemoryResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const MemoryType = {
+  SESSION_SUMMARY: "SESSION_SUMMARY",
+} as const;
+
+/**
+ * @public
+ */
+export type MemoryType = (typeof MemoryType)[keyof typeof MemoryType];
+
+/**
+ * @public
+ */
+export interface GetAgentMemoryRequest {
+  /**
+   * <p>If the total number of results is greater than the maxItems value provided in the request, enter the token returned
+   *       in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return in the response. If the total number of results is greater
+   *       than this value, use the token returned in the response in the <code>nextToken</code> field when making another
+   *       request to return the next batch of results.</p>
+   * @public
+   */
+  maxItems?: number;
+
+  /**
+   * <p>The unique identifier of the agent to which the alias belongs.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The unique identifier of an alias of an agent.</p>
+   * @public
+   */
+  agentAliasId: string | undefined;
+
+  /**
+   * <p>The type of memory.</p>
+   * @public
+   */
+  memoryType: MemoryType | undefined;
+
+  /**
+   * <p>The unique identifier of the memory. </p>
+   * @public
+   */
+  memoryId: string | undefined;
+}
+
+/**
+ * <p>Contains details of a session summary.</p>
+ * @public
+ */
+export interface MemorySessionSummary {
+  /**
+   * <p>The unique identifier of the memory where the session summary is stored.</p>
+   * @public
+   */
+  memoryId?: string;
+
+  /**
+   * <p>The identifier for this session.</p>
+   * @public
+   */
+  sessionId?: string;
+
+  /**
+   * <p>The start time for this session.</p>
+   * @public
+   */
+  sessionStartTime?: Date;
+
+  /**
+   * <p>The time when the memory duration for the session is set to end.</p>
+   * @public
+   */
+  sessionExpiryTime?: Date;
+
+  /**
+   * <p>The summarized text for this session.</p>
+   * @public
+   */
+  summaryText?: string;
+}
+
+/**
+ * <p>Contains sessions summaries.</p>
+ * @public
+ */
+export type Memory = Memory.SessionSummaryMember | Memory.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Memory {
+  /**
+   * <p>Contains summary of a session.</p>
+   * @public
+   */
+  export interface SessionSummaryMember {
+    sessionSummary: MemorySessionSummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sessionSummary?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    sessionSummary: (value: MemorySessionSummary) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Memory, visitor: Visitor<T>): T => {
+    if (value.sessionSummary !== undefined) return visitor.sessionSummary(value.sessionSummary);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface GetAgentMemoryResponse {
+  /**
+   * <p>If the total number of results is greater than the maxItems value provided in the request, use this token
+   *       when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Contains details of the sessions stored in the memory</p>
+   * @public
+   */
+  memoryContents?: Memory[];
 }
 
 /**
@@ -2971,44 +3984,43 @@ export interface GenerationConfiguration {
 }
 
 /**
- * <p>Specifies the name that the metadata attribute must match and the value to which to compare the value of the metadata attribute. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a>
- *                </p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface FilterAttribute {
-  /**
-   * <p>The name that the metadata attribute must match.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The value to whcih to compare the value of the metadata attribute.</p>
-   * @public
-   */
-  value: __DocumentType | undefined;
-}
-
-/**
  * @public
  * @enum
  */
-export const SearchType = {
-  HYBRID: "HYBRID",
-  SEMANTIC: "SEMANTIC",
+export const QueryTransformationType = {
+  QUERY_DECOMPOSITION: "QUERY_DECOMPOSITION",
 } as const;
 
 /**
  * @public
  */
-export type SearchType = (typeof SearchType)[keyof typeof SearchType];
+export type QueryTransformationType = (typeof QueryTransformationType)[keyof typeof QueryTransformationType];
+
+/**
+ * <p>To split up the prompt and retrieve multiple sources, set the transformation type to
+ *     <code>QUERY_DECOMPOSITION</code>.</p>
+ * @public
+ */
+export interface QueryTransformationConfiguration {
+  /**
+   * <p>The type of transformation to apply to the prompt.</p>
+   * @public
+   */
+  type: QueryTransformationType | undefined;
+}
+
+/**
+ * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
+ * @public
+ */
+export interface OrchestrationConfiguration {
+  /**
+   * <p>To split up the prompt and retrieve multiple sources, set the transformation type to
+   *     <code>QUERY_DECOMPOSITION</code>.</p>
+   * @public
+   */
+  queryTransformationConfiguration: QueryTransformationConfiguration | undefined;
+}
 
 /**
  * @public
@@ -3081,7 +4093,7 @@ export interface RetrieveAndGenerateOutput {
  */
 export interface RetrieveAndGenerateResponse {
   /**
-   * <p>The unique identifier of the session. Reuse the same value to continue the same session with the knowledge base.</p>
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
    * @public
    */
   sessionId: string | undefined;
@@ -3631,7 +4643,7 @@ export interface KnowledgeBaseVectorSearchConfiguration {
 }
 
 /**
- * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+ * <p>Contains configurations for knowledge base query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -3651,6 +4663,24 @@ export interface KnowledgeBaseRetrievalConfiguration {
    * @public
    */
   vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
+}
+
+/**
+ * <p>Configurations to apply to a knowledge base attached to the agent during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html#session-state-kb">Knowledge base retrieval configurations</a>.</p>
+ * @public
+ */
+export interface KnowledgeBaseConfiguration {
+  /**
+   * <p>The unique identifier for a knowledge base attached to the agent.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The configurations to apply to the knowledge base during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  retrievalConfiguration: KnowledgeBaseRetrievalConfiguration | undefined;
 }
 
 /**
@@ -3688,10 +4718,16 @@ export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
   retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
 
   /**
-   * <p>Contains configurations for response generation based on the knowwledge base query results.</p>
+   * <p>Contains configurations for response generation based on the knowledge base query results.</p>
    * @public
    */
   generationConfiguration?: GenerationConfiguration;
+
+  /**
+   * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
+   * @public
+   */
+  orchestrationConfiguration?: OrchestrationConfiguration;
 }
 
 /**
@@ -3759,7 +4795,7 @@ export interface RetrieveAndGenerateConfiguration {
  */
 export interface RetrieveAndGenerateRequest {
   /**
-   * <p>The unique identifier of the session. Reuse the same value to continue the same session with the knowledge base.</p>
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
    * @public
    */
   sessionId?: string;
@@ -3784,6 +4820,110 @@ export interface RetrieveAndGenerateRequest {
 }
 
 /**
+ * <p>Contains parameters that specify various attributes that persist across a session or prompt. You can define session state attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request. Use session state attributes to control and provide conversational context for your agent and to help customize your agent's behavior. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+ * @public
+ */
+export interface SessionState {
+  /**
+   * <p>Contains attributes that persist across a session and the values of those attributes.</p>
+   * @public
+   */
+  sessionAttributes?: Record<string, string>;
+
+  /**
+   * <p>Contains attributes that persist across a prompt and the values of those attributes. These attributes replace the $prompt_session_attributes$ placeholder variable in the orchestration prompt template. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
+   * @public
+   */
+  promptSessionAttributes?: Record<string, string>;
+
+  /**
+   * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   *          <note>
+   *             <p>If you include this field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  returnControlInvocationResults?: InvocationResultMember[];
+
+  /**
+   * <p>The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeAgent</code> response for the action whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   * @public
+   */
+  invocationId?: string;
+
+  /**
+   * <p>Contains information about the files used by code interpreter.</p>
+   * @public
+   */
+  files?: InputFile[];
+
+  /**
+   * <p>An array of configurations, each of which applies to a knowledge base attached to the agent.</p>
+   * @public
+   */
+  knowledgeBaseConfigurations?: KnowledgeBaseConfiguration[];
+}
+
+/**
+ * @public
+ */
+export interface InvokeAgentRequest {
+  /**
+   * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  sessionState?: SessionState;
+
+  /**
+   * <p>The unique identifier of the agent to use.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The alias of the agent to use.</p>
+   * @public
+   */
+  agentAliasId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the session. Use the same value across requests to continue the same conversation.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Specifies whether to end the session with the agent or not.</p>
+   * @public
+   */
+  endSession?: boolean;
+
+  /**
+   * <p>Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
+   * @public
+   */
+  enableTrace?: boolean;
+
+  /**
+   * <p>The prompt text to send the agent.</p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  inputText?: string;
+
+  /**
+   * <p>The unique identifier of the agent memory.</p>
+   * @public
+   */
+  memoryId?: string;
+}
+
+/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -3805,6 +4945,96 @@ export const ActionGroupInvocationOutputFilterSensitiveLog = (obj: ActionGroupIn
 /**
  * @internal
  */
+export const FlowInputContentFilterSensitiveLog = (obj: FlowInputContent): any => {
+  if (obj.document !== undefined) return { document: obj.document };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FlowInputFilterSensitiveLog = (obj: FlowInput): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeFlowRequestFilterSensitiveLog = (obj: InvokeFlowRequest): any => ({
+  ...obj,
+  ...(obj.inputs && { inputs: obj.inputs.map((item) => FlowInputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const FlowCompletionEventFilterSensitiveLog = (obj: FlowCompletionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowOutputEventFilterSensitiveLog = (obj: FlowOutputEvent): any => ({
+  ...obj,
+  ...(obj.content && { content: obj.content }),
+});
+
+/**
+ * @internal
+ */
+export const FlowResponseStreamFilterSensitiveLog = (obj: FlowResponseStream): any => {
+  if (obj.flowOutputEvent !== undefined) return { flowOutputEvent: SENSITIVE_STRING };
+  if (obj.flowCompletionEvent !== undefined) return { flowCompletionEvent: SENSITIVE_STRING };
+  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
+  if (obj.validationException !== undefined) return { validationException: obj.validationException };
+  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
+  if (obj.serviceQuotaExceededException !== undefined)
+    return { serviceQuotaExceededException: obj.serviceQuotaExceededException };
+  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
+  if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
+  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
+  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const InvokeFlowResponseFilterSensitiveLog = (obj: InvokeFlowResponse): any => ({
+  ...obj,
+  ...(obj.responseStream && { responseStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const ByteContentFileFilterSensitiveLog = (obj: ByteContentFile): any => ({
+  ...obj,
+  ...(obj.data && { data: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FileSourceFilterSensitiveLog = (obj: FileSource): any => ({
+  ...obj,
+  ...(obj.byteContent && { byteContent: ByteContentFileFilterSensitiveLog(obj.byteContent) }),
+});
+
+/**
+ * @internal
+ */
+export const InputFileFilterSensitiveLog = (obj: InputFile): any => ({
+  ...obj,
+  ...(obj.source && { source: FileSourceFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
 export const ApiResultFilterSensitiveLog = (obj: ApiResult): any => ({
   ...obj,
   ...(obj.apiPath && { apiPath: SENSITIVE_STRING }),
@@ -3818,27 +5048,6 @@ export const InvocationResultMemberFilterSensitiveLog = (obj: InvocationResultMe
   if (obj.functionResult !== undefined) return { functionResult: obj.functionResult };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const SessionStateFilterSensitiveLog = (obj: SessionState): any => ({
-  ...obj,
-  ...(obj.returnControlInvocationResults && {
-    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
-      InvocationResultMemberFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const InvokeAgentRequestFilterSensitiveLog = (obj: InvokeAgentRequest): any => ({
-  ...obj,
-  ...(obj.sessionState && { sessionState: SessionStateFilterSensitiveLog(obj.sessionState) }),
-  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
-});
 
 /**
  * @internal
@@ -3907,6 +5116,22 @@ export const PayloadPartFilterSensitiveLog = (obj: PayloadPart): any => ({
   ...obj,
   ...(obj.bytes && { bytes: SENSITIVE_STRING }),
   ...(obj.attribution && { attribution: AttributionFilterSensitiveLog(obj.attribution) }),
+});
+
+/**
+ * @internal
+ */
+export const OutputFileFilterSensitiveLog = (obj: OutputFile): any => ({
+  ...obj,
+  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FilePartFilterSensitiveLog = (obj: FilePart): any => ({
+  ...obj,
+  ...(obj.files && { files: SENSITIVE_STRING }),
 });
 
 /**
@@ -4222,6 +5447,7 @@ export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
   if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
   if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
   if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.files !== undefined) return { files: FilePartFilterSensitiveLog(obj.files) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -4382,6 +5608,16 @@ export const KnowledgeBaseRetrievalConfigurationFilterSensitiveLog = (
 /**
  * @internal
  */
+export const KnowledgeBaseConfigurationFilterSensitiveLog = (obj: KnowledgeBaseConfiguration): any => ({
+  ...obj,
+  ...(obj.retrievalConfiguration && {
+    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
   obj: KnowledgeBaseRetrieveAndGenerateConfiguration
 ): any => ({
@@ -4433,4 +5669,31 @@ export const RetrieveAndGenerateRequestFilterSensitiveLog = (obj: RetrieveAndGen
       obj.retrieveAndGenerateConfiguration
     ),
   }),
+});
+
+/**
+ * @internal
+ */
+export const SessionStateFilterSensitiveLog = (obj: SessionState): any => ({
+  ...obj,
+  ...(obj.returnControlInvocationResults && {
+    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
+      InvocationResultMemberFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.files && { files: obj.files.map((item) => InputFileFilterSensitiveLog(item)) }),
+  ...(obj.knowledgeBaseConfigurations && {
+    knowledgeBaseConfigurations: obj.knowledgeBaseConfigurations.map((item) =>
+      KnowledgeBaseConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeAgentRequestFilterSensitiveLog = (obj: InvokeAgentRequest): any => ({
+  ...obj,
+  ...(obj.sessionState && { sessionState: SessionStateFilterSensitiveLog(obj.sessionState) }),
+  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
 });
