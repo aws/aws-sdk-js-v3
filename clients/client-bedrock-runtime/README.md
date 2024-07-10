@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+ApplyGuardrail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ApplyGuardrailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ApplyGuardrailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-runtime/Interface/ApplyGuardrailCommandOutput/)
+
+</details>
+<details>
+<summary>
 Converse
 </summary>
 

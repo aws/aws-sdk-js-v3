@@ -59,6 +59,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { ApplyGuardrailCommandInput, ApplyGuardrailCommandOutput } from "./commands/ApplyGuardrailCommand";
 import { ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
 import { ConverseStreamCommandInput, ConverseStreamCommandOutput } from "./commands/ConverseStreamCommand";
 import { InvokeModelCommandInput, InvokeModelCommandOutput } from "./commands/InvokeModelCommand";
@@ -81,6 +82,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ApplyGuardrailCommandInput
   | ConverseCommandInput
   | ConverseStreamCommandInput
   | InvokeModelCommandInput
@@ -90,6 +92,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | ApplyGuardrailCommandOutput
   | ConverseCommandOutput
   | ConverseStreamCommandOutput
   | InvokeModelCommandOutput

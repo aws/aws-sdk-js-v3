@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BedrockRuntimeClient, BedrockRuntimeClientConfig } from "./BedrockRuntimeClient";
+import {
+  ApplyGuardrailCommand,
+  ApplyGuardrailCommandInput,
+  ApplyGuardrailCommandOutput,
+} from "./commands/ApplyGuardrailCommand";
 import { ConverseCommand, ConverseCommandInput, ConverseCommandOutput } from "./commands/ConverseCommand";
 import {
   ConverseStreamCommand,
@@ -17,6 +22,7 @@ import {
 } from "./commands/InvokeModelWithResponseStreamCommand";
 
 const commands = {
+  ApplyGuardrailCommand,
   ConverseCommand,
   ConverseStreamCommand,
   InvokeModelCommand,
@@ -24,6 +30,20 @@ const commands = {
 };
 
 export interface BedrockRuntime {
+  /**
+   * @see {@link ApplyGuardrailCommand}
+   */
+  applyGuardrail(
+    args: ApplyGuardrailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ApplyGuardrailCommandOutput>;
+  applyGuardrail(args: ApplyGuardrailCommandInput, cb: (err: any, data?: ApplyGuardrailCommandOutput) => void): void;
+  applyGuardrail(
+    args: ApplyGuardrailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ApplyGuardrailCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link ConverseCommand}
    */

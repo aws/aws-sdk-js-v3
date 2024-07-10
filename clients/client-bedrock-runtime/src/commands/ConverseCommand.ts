@@ -98,6 +98,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *           guardContent: { // GuardrailConverseContentBlock Union: only one key present
  *             text: { // GuardrailConverseTextBlock
  *               text: "STRING_VALUE", // required
+ *               qualifiers: [ // GuardrailConverseContentQualifierList
+ *                 "grounding_source" || "query" || "guard_content",
+ *               ],
  *             },
  *           },
  *         },
@@ -110,6 +113,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *       guardContent: {//  Union: only one key present
  *         text: {
  *           text: "STRING_VALUE", // required
+ *           qualifiers: [
+ *             "grounding_source" || "query" || "guard_content",
+ *           ],
  *         },
  *       },
  *     },
@@ -205,6 +211,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //           guardContent: { // GuardrailConverseContentBlock Union: only one key present
  * //             text: { // GuardrailConverseTextBlock
  * //               text: "STRING_VALUE", // required
+ * //               qualifiers: [ // GuardrailConverseContentQualifierList
+ * //                 "grounding_source" || "query" || "guard_content",
+ * //               ],
  * //             },
  * //           },
  * //         },
@@ -278,6 +287,16 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               },
  * //             ],
  * //           },
+ * //           contextualGroundingPolicy: { // GuardrailContextualGroundingPolicyAssessment
+ * //             filters: [ // GuardrailContextualGroundingFilters
+ * //               { // GuardrailContextualGroundingFilter
+ * //                 type: "GROUNDING" || "RELEVANCE", // required
+ * //                 threshold: Number("double"), // required
+ * //                 score: Number("double"), // required
+ * //                 action: "BLOCKED" || "NONE", // required
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //       },
  * //       outputAssessments: { // GuardrailAssessmentListMap
@@ -330,6 +349,16 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                   match: "STRING_VALUE",
  * //                   regex: "STRING_VALUE",
  * //                   action: "ANONYMIZED" || "BLOCKED", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             contextualGroundingPolicy: {
+ * //               filters: [
+ * //                 {
+ * //                   type: "GROUNDING" || "RELEVANCE", // required
+ * //                   threshold: Number("double"), // required
+ * //                   score: Number("double"), // required
+ * //                   action: "BLOCKED" || "NONE", // required
  * //                 },
  * //               ],
  * //             },
