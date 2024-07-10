@@ -9,8 +9,8 @@ import {
   RequestSigningArguments,
 } from "@smithy/types";
 
-import { OptionalSigV4aSigner, signatureV4aContainer } from "./signature-v4a-container";
 import { OptionalCrtSignerV4, signatureV4CrtContainer } from "./signature-v4-crt-container";
+import { OptionalSigV4aSigner, signatureV4aContainer } from "./signature-v4a-container";
 
 /**
  * @internal
@@ -39,8 +39,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
 
   public async sign(requestToSign: HttpRequest, options: RequestSigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
-      const signer = await this.getSigv4aSigner();
-      return signer.sign(requestToSign, options);
+      return this.getSigv4aSigner().sign(requestToSign, options);
     }
     return this.sigv4Signer.sign(requestToSign, options);
   }
@@ -54,16 +53,14 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     options: RequestSigningArguments = {}
   ): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
-      const signer = await this.getSigv4aSigner();
-      return signer.signWithCredentials(requestToSign, credentials, options);
+      return this.getSigv4aSigner().signWithCredentials(requestToSign, credentials, options);
     }
     return this.sigv4Signer.signWithCredentials(requestToSign, credentials, options);
   }
 
   public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
     if (options.signingRegion === "*") {
-      const signer = await this.getSigv4aSigner();
-      return signer.presign(originalRequest, options);
+      return this.getSigv4aSigner().presign(originalRequest, options);
     }
     return this.sigv4Signer.presign(originalRequest, options);
   }
@@ -79,17 +76,44 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
     return this.sigv4Signer.presignWithCredentials(originalRequest, credentials, options);
   }
 
-  private async getSigv4aSigner(): Promise<InstanceType<OptionalCrtSignerV4> | InstanceType<OptionalSigV4aSigner>> {
+  private getSigv4aSigner(): InstanceType<OptionalCrtSignerV4> | InstanceType<OptionalSigV4aSigner> {
     if (!this.sigv4aSigner) {
+      let CrtSignerV4: OptionalCrtSignerV4 | null = null;
+      let JsSigV4a: OptionalSigV4aSigner | null = null;
+
       if (signatureV4CrtContainer.CrtSignerV4) {
-        // CRT implementation
-        this.sigv4aSigner = new signatureV4CrtContainer.CrtSignerV4({
+        try {
+          CrtSignerV4 = signatureV4CrtContainer.CrtSignerV4;
+          if (typeof CrtSignerV4 !== "function") throw new Error();
+        } catch (e) {
+          e.message =
+            `${e.message}\n` +
+            `Please check whether you have installed the "@aws-sdk/signature-v4-crt" package explicitly. \n` +
+            `You must also register the package by calling [require("@aws-sdk/signature-v4-crt");] ` +
+            `or an ESM equivalent such as [import "@aws-sdk/signature-v4-crt";]. \n` +
+            "For more information please go to " +
+            "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt";
+          throw e;
+        }
+
+        this.sigv4aSigner = new CrtSignerV4({
           ...this.signerOptions,
           signingAlgorithm: 1,
         });
       } else if (signatureV4aContainer.SignatureV4a) {
-        // SigV4a JS implementation
-        this.sigv4aSigner = new signatureV4aContainer.SignatureV4a({
+        try {
+          JsSigV4a = signatureV4aContainer.SignatureV4a;
+          if (typeof JsSigV4a !== "function") throw new Error();
+        } catch (e) {
+          e.message =
+            `${e.message}\n` +
+            `Please check whether you have installed the "@smithy/signature-v4a" package explicitly. \n` +
+            `You must also register the package by calling [require("@smithy/signature-v4a");] ` +
+            `or an ESM equivalent such as [import "@smithy/signature-v4a";]. \n`;
+          throw e;
+        }
+
+        this.sigv4aSigner = new JsSigV4a({
           ...this.signerOptions,
         });
       } else {
