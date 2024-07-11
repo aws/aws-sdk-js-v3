@@ -79,7 +79,7 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
   private getSigv4aSigner(): InstanceType<OptionalCrtSignerV4> | InstanceType<OptionalSigV4aSigner> {
     if (!this.sigv4aSigner) {
       let CrtSignerV4: OptionalCrtSignerV4 | null = null;
-      let JsSigV4a: OptionalSigV4aSigner | null = null;
+      let JsSigV4aSigner: OptionalSigV4aSigner | null = null;
 
       if (signatureV4CrtContainer.CrtSignerV4) {
         try {
@@ -102,8 +102,8 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
         });
       } else if (signatureV4aContainer.SignatureV4a) {
         try {
-          JsSigV4a = signatureV4aContainer.SignatureV4a;
-          if (typeof JsSigV4a !== "function") throw new Error();
+          JsSigV4aSigner = signatureV4aContainer.SignatureV4a;
+          if (typeof JsSigV4aSigner !== "function") throw new Error();
         } catch (e) {
           e.message =
             `${e.message}\n` +
@@ -113,13 +113,13 @@ export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
           throw e;
         }
 
-        this.sigv4aSigner = new JsSigV4a({
+        this.sigv4aSigner = new JsSigV4aSigner({
           ...this.signerOptions,
         });
       } else {
         throw new Error(
           "Neither CRT nor JS SigV4a implementation is available. " +
-            "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a."
+          "Please load either @aws-sdk/signature-v4-crt or @smithy/signature-v4a."
         );
       }
     }
