@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.615.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.614.0...v3.615.0) (2024-07-12)
+
+
+### Features
+
+* **client-quicksight:** Vega ally control options and Support for Reviewed Answers in Topics ([5782916](https://github.com/aws/aws-sdk-js-v3/commit/578291696818d6efa03e14d3da9a123056952643))
+
+
+
+
+
 # [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.615.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.614.0...v3.615.0) (2024-07-12)
+
+
+### Features
+
+* **client-acm-pca:** Minor refactoring of C2J model for AWS Private CA ([4b9d14b](https://github.com/aws/aws-sdk-js-v3/commit/4b9d14be32c7b12053aab9a2183f8a732bb862dd))
+* **client-arc-zonal-shift:** Adds the option to subscribe to get notifications when a zonal autoshift occurs in a region. ([354b025](https://github.com/aws/aws-sdk-js-v3/commit/354b025d986413816e39313c9d61b2a14e84c348))
+* **client-auto-scaling:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([ad989c1](https://github.com/aws/aws-sdk-js-v3/commit/ad989c1170a577dd92e3a73607f85627f4bc0a31))
+* **client-codebuild:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([c82749a](https://github.com/aws/aws-sdk-js-v3/commit/c82749a39dbc07bd87d011f761fdc78018a90ba1))
+* **client-dynamodb:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([48630a3](https://github.com/aws/aws-sdk-js-v3/commit/48630a36f1bbefb7917b6ba302f6fb2a68797dd1))
+* **client-global-accelerator:** This feature adds exceptions to the Customer API to avoid throwing Internal Service errors ([a914129](https://github.com/aws/aws-sdk-js-v3/commit/a91412969433ec42a89524628e0c39ac97d11b00))
+* **client-pinpoint:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([656faf7](https://github.com/aws/aws-sdk-js-v3/commit/656faf74036f42bb9f99aeb9e48f910aa5932d77))
+* **client-quicksight:** Vega ally control options and Support for Reviewed Answers in Topics ([5782916](https://github.com/aws/aws-sdk-js-v3/commit/578291696818d6efa03e14d3da9a123056952643))
+* **client-rds:** Update path for CreateDBCluster resource identifier, and Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([54d47c7](https://github.com/aws/aws-sdk-js-v3/commit/54d47c70b4a9de3314dbbd8325436e738e2ee6a3))
+* **client-sns:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([6807d30](https://github.com/aws/aws-sdk-js-v3/commit/6807d30036ce5ef0f874acd2e56d7cbcb2b122ec))
+* **clients:** update client endpoints as of 2024-07-12 ([17324eb](https://github.com/aws/aws-sdk-js-v3/commit/17324eb4bd4f6345808a6f3dc9ea791d91e096f4))
+
+
+
+
+
 # [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
 
 
