@@ -2,23 +2,21 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AggregationFunction,
   AxisBinding,
   AxisDisplayOptions,
   BarChartFieldWells,
   BarChartOrientation,
-  BarChartSortConfiguration,
   BarsArrangement,
   ChartAxisLabelOptions,
   ColumnIdentifier,
   ColumnSort,
-  ColumnTooltipItem,
   ContributionAnalysisDefault,
   DataLabelOptions,
   DataLabelOptionsFilterSensitiveLog,
   DataLabelPosition,
   DimensionField,
   FieldSort,
-  FieldSortOptions,
   FontConfiguration,
   FormatConfiguration,
   FormatConfigurationFilterSensitiveLog,
@@ -36,13 +34,123 @@ import {
   SmallMultiplesOptions,
   SortDirection,
   TimeGranularity,
-  TooltipTarget,
   URLTargetConfiguration,
   Visibility,
   VisualCustomAction,
   VisualInteractionOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * <p>The field sort options in a chart configuration.</p>
+ * @public
+ */
+export interface FieldSortOptions {
+  /**
+   * <p>The sort configuration for a field in a field well.</p>
+   * @public
+   */
+  FieldSort?: FieldSort;
+
+  /**
+   * <p>The sort configuration for a column that is not used in a field well.</p>
+   * @public
+   */
+  ColumnSort?: ColumnSort;
+}
+
+/**
+ * <p>sort-configuration-description</p>
+ * @public
+ */
+export interface BarChartSortConfiguration {
+  /**
+   * <p>The sort configuration of category fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[];
+
+  /**
+   * <p>The limit on the number of categories displayed in a bar chart.</p>
+   * @public
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration;
+
+  /**
+   * <p>The sort configuration of color fields in a bar chart.</p>
+   * @public
+   */
+  ColorSort?: FieldSortOptions[];
+
+  /**
+   * <p>The limit on the number of values displayed in a bar chart.</p>
+   * @public
+   */
+  ColorItemsLimit?: ItemsLimitConfiguration;
+
+  /**
+   * <p>The sort configuration of the small multiples field.</p>
+   * @public
+   */
+  SmallMultiplesSort?: FieldSortOptions[];
+
+  /**
+   * <p>The limit on the number of small multiples panels that are displayed.</p>
+   * @public
+   */
+  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TooltipTarget = {
+  BAR: "BAR",
+  BOTH: "BOTH",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type TooltipTarget = (typeof TooltipTarget)[keyof typeof TooltipTarget];
+
+/**
+ * <p>The tooltip item for the columns that are not part of a field well.</p>
+ * @public
+ */
+export interface ColumnTooltipItem {
+  /**
+   * <p>The target column of the tooltip item.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The label of the tooltip item.</p>
+   * @public
+   */
+  Label?: string;
+
+  /**
+   * <p>The visibility of the tooltip item.</p>
+   * @public
+   */
+  Visibility?: Visibility;
+
+  /**
+   * <p>The aggregation function of the column tooltip item.</p>
+   * @public
+   */
+  Aggregation?: AggregationFunction;
+
+  /**
+   * <p>Determines the target of the column tooltip item in a combo chart visual.</p>
+   * @public
+   */
+  TooltipTarget?: TooltipTarget;
+}
 
 /**
  * <p>The tooltip item for the fields.</p>
@@ -7715,72 +7823,6 @@ export interface WaterfallChartGroupColorConfiguration {
 }
 
 /**
- * <p>The color configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartColorConfiguration {
-  /**
-   * <p>The color configuration for individual groups within a waterfall visual.</p>
-   * @public
-   */
-  GroupColorConfiguration?: WaterfallChartGroupColorConfiguration;
-}
-
-/**
- * <p>The field well configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartAggregatedFieldWells {
-  /**
-   * <p>The category field wells of a waterfall visual.</p>
-   * @public
-   */
-  Categories?: DimensionField[];
-
-  /**
-   * <p>The value field wells of a waterfall visual.</p>
-   * @public
-   */
-  Values?: MeasureField[];
-
-  /**
-   * <p>The breakdown field wells of a waterfall visual.</p>
-   * @public
-   */
-  Breakdowns?: DimensionField[];
-}
-
-/**
- * <p>The field well configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartFieldWells {
-  /**
-   * <p>The field well configuration of a waterfall visual.</p>
-   * @public
-   */
-  WaterfallChartAggregatedFieldWells?: WaterfallChartAggregatedFieldWells;
-}
-
-/**
- * <p>The sort configuration of a waterfall visual.</p>
- * @public
- */
-export interface WaterfallChartSortConfiguration {
-  /**
-   * <p>The sort configuration of the category fields.</p>
-   * @public
-   */
-  CategorySort?: FieldSortOptions[];
-
-  /**
-   * <p>The limit on the number of bar groups that are displayed.</p>
-   * @public
-   */
-  BreakdownItemsLimit?: ItemsLimitConfiguration;
-}
-
-/**
  * @internal
  */
 export const DataPathValueFilterSensitiveLog = (obj: DataPathValue): any => ({
@@ -8950,20 +8992,5 @@ export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration
  * @internal
  */
 export const TreeMapVisualFilterSensitiveLog = (obj: TreeMapVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaterfallChartAggregatedFieldWellsFilterSensitiveLog = (obj: WaterfallChartAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const WaterfallChartFieldWellsFilterSensitiveLog = (obj: WaterfallChartFieldWells): any => ({
   ...obj,
 });

@@ -53,6 +53,14 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  BatchCreateTopicReviewedAnswerCommandInput,
+  BatchCreateTopicReviewedAnswerCommandOutput,
+} from "./commands/BatchCreateTopicReviewedAnswerCommand";
+import {
+  BatchDeleteTopicReviewedAnswerCommandInput,
+  BatchDeleteTopicReviewedAnswerCommandOutput,
+} from "./commands/BatchDeleteTopicReviewedAnswerCommand";
 import { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "./commands/CancelIngestionCommand";
 import {
   CreateAccountCustomizationCommandInput,
@@ -385,6 +393,10 @@ import {
   ListTopicRefreshSchedulesCommandInput,
   ListTopicRefreshSchedulesCommandOutput,
 } from "./commands/ListTopicRefreshSchedulesCommand";
+import {
+  ListTopicReviewedAnswersCommandInput,
+  ListTopicReviewedAnswersCommandOutput,
+} from "./commands/ListTopicReviewedAnswersCommand";
 import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
@@ -533,6 +545,8 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchCreateTopicReviewedAnswerCommandInput
+  | BatchDeleteTopicReviewedAnswerCommandInput
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
   | CreateAccountSubscriptionCommandInput
@@ -655,6 +669,7 @@ export type ServiceInputTypes =
   | ListThemeVersionsCommandInput
   | ListThemesCommandInput
   | ListTopicRefreshSchedulesCommandInput
+  | ListTopicReviewedAnswersCommandInput
   | ListTopicsCommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
@@ -712,6 +727,8 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchCreateTopicReviewedAnswerCommandOutput
+  | BatchDeleteTopicReviewedAnswerCommandOutput
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
   | CreateAccountSubscriptionCommandOutput
@@ -834,6 +851,7 @@ export type ServiceOutputTypes =
   | ListThemeVersionsCommandOutput
   | ListThemesCommandOutput
   | ListTopicRefreshSchedulesCommandOutput
+  | ListTopicReviewedAnswersCommandOutput
   | ListTopicsCommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput

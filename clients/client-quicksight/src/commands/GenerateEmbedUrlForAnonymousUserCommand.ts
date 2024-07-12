@@ -10,7 +10,7 @@ import {
   GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForAnonymousUserResponse,
   GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_GenerateEmbedUrlForAnonymousUserCommand,
   se_GenerateEmbedUrlForAnonymousUserCommand,

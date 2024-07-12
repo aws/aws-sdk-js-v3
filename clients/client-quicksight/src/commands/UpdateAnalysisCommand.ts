@@ -129,6 +129,8 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   InfoIconText: "STRING_VALUE",
  *                 },
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *             },
  *             List: { // ParameterListControl
@@ -317,6 +319,8 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
  *             },
@@ -4523,6 +4527,8 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: { // DefaultFilterListControlOptions
@@ -4616,6 +4622,8 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: {
@@ -4694,6 +4702,8 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: {

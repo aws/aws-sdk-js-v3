@@ -4,6 +4,9 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import {
   AccountCustomization,
   AdHocFilteringOption,
+  AggFunction,
+  AggregationPartitionBy,
+  AggType,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
   AnalysisDefaults,
@@ -20,7 +23,6 @@ import {
   DataSetIdentifierDeclaration,
   DimensionField,
   Edition,
-  FieldSortOptions,
   FilterControl,
   FilterGroup,
   ItemsLimitConfiguration,
@@ -28,6 +30,7 @@ import {
   LegendOptions,
   MeasureField,
   MeasureFieldFilterSensitiveLog,
+  NumberScale,
   ParameterControl,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
@@ -36,6 +39,7 @@ import {
   SheetControlLayout,
   SheetTextBox,
   TimeGranularity,
+  TopicTimeGranularity,
   VisualCustomAction,
   VisualInteractionOptions,
   VisualMenuOption,
@@ -48,6 +52,7 @@ import {
   ComboChartVisual,
   CustomContentVisual,
   EmptyVisual,
+  FieldSortOptions,
   FilledMapVisual,
   FunnelChartVisual,
   GaugeChartVisual,
@@ -73,12 +78,76 @@ import {
   VisualPaletteFilterSensitiveLog,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
-  WaterfallChartColorConfiguration,
-  WaterfallChartFieldWells,
-  WaterfallChartSortConfiguration,
+  WaterfallChartGroupColorConfiguration,
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The color configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartColorConfiguration {
+  /**
+   * <p>The color configuration for individual groups within a waterfall visual.</p>
+   * @public
+   */
+  GroupColorConfiguration?: WaterfallChartGroupColorConfiguration;
+}
+
+/**
+ * <p>The field well configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartAggregatedFieldWells {
+  /**
+   * <p>The category field wells of a waterfall visual.</p>
+   * @public
+   */
+  Categories?: DimensionField[];
+
+  /**
+   * <p>The value field wells of a waterfall visual.</p>
+   * @public
+   */
+  Values?: MeasureField[];
+
+  /**
+   * <p>The breakdown field wells of a waterfall visual.</p>
+   * @public
+   */
+  Breakdowns?: DimensionField[];
+}
+
+/**
+ * <p>The field well configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartFieldWells {
+  /**
+   * <p>The field well configuration of a waterfall visual.</p>
+   * @public
+   */
+  WaterfallChartAggregatedFieldWells?: WaterfallChartAggregatedFieldWells;
+}
+
+/**
+ * <p>The sort configuration of a waterfall visual.</p>
+ * @public
+ */
+export interface WaterfallChartSortConfiguration {
+  /**
+   * <p>The sort configuration of the category fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[];
+
+  /**
+   * <p>The limit on the number of bar groups that are displayed.</p>
+   * @public
+   */
+  BreakdownItemsLimit?: ItemsLimitConfiguration;
+}
 
 /**
  * <p>The options that determine the presentation of a waterfall visual.</p>
@@ -949,6 +1018,43 @@ export interface AnalysisSummary {
    * @public
    */
   LastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnchorType = {
+  TODAY: "TODAY",
+} as const;
+
+/**
+ * @public
+ */
+export type AnchorType = (typeof AnchorType)[keyof typeof AnchorType];
+
+/**
+ * <p>The definition of the Anchor.</p>
+ * @public
+ */
+export interface Anchor {
+  /**
+   * <p>The <code>AnchorType</code> for the Anchor.</p>
+   * @public
+   */
+  AnchorType?: AnchorType;
+
+  /**
+   * <p>The <code>TimeGranularity</code> of the Anchor.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity;
+
+  /**
+   * <p>The offset of the Anchor.</p>
+   * @public
+   */
+  Offset?: number;
 }
 
 /**
@@ -4229,6 +4335,1145 @@ export const AuthorSpecifiedAggregation = {
 export type AuthorSpecifiedAggregation = (typeof AuthorSpecifiedAggregation)[keyof typeof AuthorSpecifiedAggregation];
 
 /**
+ * @public
+ * @enum
+ */
+export const ContributionAnalysisDirection = {
+  DECREASE: "DECREASE",
+  INCREASE: "INCREASE",
+  NEUTRAL: "NEUTRAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ContributionAnalysisDirection =
+  (typeof ContributionAnalysisDirection)[keyof typeof ContributionAnalysisDirection];
+
+/**
+ * <p>The definition for the <code>ContributionAnalysisFactor</code>.</p>
+ * @public
+ */
+export interface ContributionAnalysisFactor {
+  /**
+   * <p>The field name of the <code>ContributionAnalysisFactor</code>.</p>
+   * @public
+   */
+  FieldName?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ContributionAnalysisSortType = {
+  ABSOLUTE_DIFFERENCE: "ABSOLUTE_DIFFERENCE",
+  CONTRIBUTION_PERCENTAGE: "CONTRIBUTION_PERCENTAGE",
+  DEVIATION_FROM_EXPECTED: "DEVIATION_FROM_EXPECTED",
+  PERCENTAGE_DIFFERENCE: "PERCENTAGE_DIFFERENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ContributionAnalysisSortType =
+  (typeof ContributionAnalysisSortType)[keyof typeof ContributionAnalysisSortType];
+
+/**
+ * <p>The definition for the identifier.</p>
+ * @public
+ */
+export interface Identifier {
+  /**
+   * <p>The identity of the identifier.</p>
+   * @public
+   */
+  Identity: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicSortDirection = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicSortDirection = (typeof TopicSortDirection)[keyof typeof TopicSortDirection];
+
+/**
+ * <p>The definition for the <code>FilterAggMetrics</code>.</p>
+ * @public
+ */
+export interface FilterAggMetrics {
+  /**
+   * <p>The metric operand of the <code>FilterAggMetrics</code>.</p>
+   * @public
+   */
+  MetricOperand?: Identifier;
+
+  /**
+   * <p>The function for the <code>FilterAggMetrics</code>.</p>
+   * @public
+   */
+  Function?: AggType;
+
+  /**
+   * <p>The sort direction for <code>FilterAggMetrics</code>.</p>
+   * @public
+   */
+  SortDirection?: TopicSortDirection;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConstantType = {
+  COLLECTIVE: "COLLECTIVE",
+  RANGE: "RANGE",
+  SINGULAR: "SINGULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ConstantType = (typeof ConstantType)[keyof typeof ConstantType];
+
+/**
+ * <p>The definition for a <code>CollectiveConstantEntry</code>.</p>
+ * @public
+ */
+export interface CollectiveConstantEntry {
+  /**
+   * <p>The <code>ConstantType</code> of a <code>CollectiveConstantEntry</code>.</p>
+   * @public
+   */
+  ConstantType?: ConstantType;
+
+  /**
+   * <p>The value of a <code>CollectiveConstantEntry</code>.</p>
+   * @public
+   */
+  Value?: string;
+}
+
+/**
+ * <p>The definition for a <code>TopicConstantValue</code>.</p>
+ * @public
+ */
+export interface TopicConstantValue {
+  /**
+   * <p>The constant type of a <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  ConstantType?: ConstantType;
+
+  /**
+   * <p>The value of the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  Value?: string;
+
+  /**
+   * <p>The minimum for the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  Minimum?: string;
+
+  /**
+   * <p>The maximum for the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  Maximum?: string;
+
+  /**
+   * <p>The value list of the <code>TopicConstantValue</code>.</p>
+   * @public
+   */
+  ValueList?: CollectiveConstantEntry[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterClass = {
+  CONDITIONAL_VALUE_FILTER: "CONDITIONAL_VALUE_FILTER",
+  ENFORCED_VALUE_FILTER: "ENFORCED_VALUE_FILTER",
+  NAMED_VALUE_FILTER: "NAMED_VALUE_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterClass = (typeof FilterClass)[keyof typeof FilterClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicIRFilterType = {
+  ACCEPT_ALL_FILTER: "ACCEPT_ALL_FILTER",
+  CATEGORY_FILTER: "CATEGORY_FILTER",
+  DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
+  EQUALS: "EQUALS",
+  NUMERIC_EQUALITY_FILTER: "NUMERIC_EQUALITY_FILTER",
+  NUMERIC_RANGE_FILTER: "NUMERIC_RANGE_FILTER",
+  RANK_LIMIT_FILTER: "RANK_LIMIT_FILTER",
+  RELATIVE_DATE_FILTER: "RELATIVE_DATE_FILTER",
+  TOP_BOTTOM_FILTER: "TOP_BOTTOM_FILTER",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicIRFilterType = (typeof TopicIRFilterType)[keyof typeof TopicIRFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicIRFilterFunction = {
+  CONTAINS: "CONTAINS",
+  CONTAINS_STRING: "CONTAINS_STRING",
+  ENDS_WITH: "ENDS_WITH",
+  EXACT: "EXACT",
+  LAST: "LAST",
+  NEXT: "NEXT",
+  NOW: "NOW",
+  PREVIOUS: "PREVIOUS",
+  STARTS_WITH: "STARTS_WITH",
+  THIS: "THIS",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicIRFilterFunction = (typeof TopicIRFilterFunction)[keyof typeof TopicIRFilterFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const NullFilterOption = {
+  ALL_VALUES: "ALL_VALUES",
+  NON_NULLS_ONLY: "NON_NULLS_ONLY",
+  NULLS_ONLY: "NULLS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type NullFilterOption = (typeof NullFilterOption)[keyof typeof NullFilterOption];
+
+/**
+ * <p>The definition for a <code>TopicIRFilterOption</code>.</p>
+ * @public
+ */
+export interface TopicIRFilterOption {
+  /**
+   * <p>The filter type for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  FilterType?: TopicIRFilterType;
+
+  /**
+   * <p>The filter class for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  FilterClass?: FilterClass;
+
+  /**
+   * <p>The operand field for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  OperandField?: Identifier;
+
+  /**
+   * <p>The function for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Function?: TopicIRFilterFunction;
+
+  /**
+   * <p>The constant for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Constant?: TopicConstantValue;
+
+  /**
+   * <p>The inverse for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Inverse?: boolean;
+
+  /**
+   * <p>The null filter for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  NullFilter?: NullFilterOption;
+
+  /**
+   * <p>The aggregation for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Aggregation?: AggType;
+
+  /**
+   * <p>The aggregation function parameters for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  AggregationFunctionParameters?: Record<string, string>;
+
+  /**
+   * <p>The <code>AggregationPartitionBy</code> for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  AggregationPartitionBy?: AggregationPartitionBy[];
+
+  /**
+   * <p>The range for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Range?: TopicConstantValue;
+
+  /**
+   * <p>The inclusive for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Inclusive?: boolean;
+
+  /**
+   * <p>The time granularity for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity;
+
+  /**
+   * <p>The last next offset for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  LastNextOffset?: TopicConstantValue;
+
+  /**
+   * <p>The agg metrics for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  AggMetrics?: FilterAggMetrics[];
+
+  /**
+   * <p>The <code>TopBottomLimit</code> for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  TopBottomLimit?: TopicConstantValue;
+
+  /**
+   * <p>The sort direction for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  SortDirection?: TopicSortDirection;
+
+  /**
+   * <p>The anchor for the <code>TopicIRFilterOption</code>.</p>
+   * @public
+   */
+  Anchor?: Anchor;
+}
+
+/**
+ * <p>The definition for the <code>ContributionAnalysisTimeRanges</code>.</p>
+ * @public
+ */
+export interface ContributionAnalysisTimeRanges {
+  /**
+   * <p>The start range for the <code>ContributionAnalysisTimeRanges</code>.</p>
+   * @public
+   */
+  StartRange?: TopicIRFilterOption;
+
+  /**
+   * <p>The end range for the <code>ContributionAnalysisTimeRanges</code>.</p>
+   * @public
+   */
+  EndRange?: TopicIRFilterOption;
+}
+
+/**
+ * <p>The definition for a <code>TopicIRContributionAnalysis</code>.</p>
+ * @public
+ */
+export interface TopicIRContributionAnalysis {
+  /**
+   * <p>The factors for a <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  Factors?: ContributionAnalysisFactor[];
+
+  /**
+   * <p>The time ranges for the <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  TimeRanges?: ContributionAnalysisTimeRanges;
+
+  /**
+   * <p>The direction for the <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  Direction?: ContributionAnalysisDirection;
+
+  /**
+   * <p>The sort type for the <code>TopicIRContributionAnalysis</code>.</p>
+   * @public
+   */
+  SortType?: ContributionAnalysisSortType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DisplayFormat = {
+  AUTO: "AUTO",
+  CURRENCY: "CURRENCY",
+  DATE: "DATE",
+  NUMBER: "NUMBER",
+  PERCENT: "PERCENT",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type DisplayFormat = (typeof DisplayFormat)[keyof typeof DisplayFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicNumericSeparatorSymbol = {
+  COMMA: "COMMA",
+  DOT: "DOT",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicNumericSeparatorSymbol =
+  (typeof TopicNumericSeparatorSymbol)[keyof typeof TopicNumericSeparatorSymbol];
+
+/**
+ * <p>A structure that represents a negative format.</p>
+ * @public
+ */
+export interface NegativeFormat {
+  /**
+   * <p>The prefix for a negative format.</p>
+   * @public
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The suffix for a negative format.</p>
+   * @public
+   */
+  Suffix?: string;
+}
+
+/**
+ * <p>A structure that represents additional options for display formatting.</p>
+ * @public
+ */
+export interface DisplayFormatOptions {
+  /**
+   * <p>A Boolean value that indicates whether to use blank cell format.</p>
+   * @public
+   */
+  UseBlankCellFormat?: boolean;
+
+  /**
+   * <p>Determines the blank cell format.</p>
+   * @public
+   */
+  BlankCellFormat?: string;
+
+  /**
+   * <p>Determines the <code>DateTime</code> format.</p>
+   * @public
+   */
+  DateFormat?: string;
+
+  /**
+   * <p>Determines the decimal separator.</p>
+   * @public
+   */
+  DecimalSeparator?: TopicNumericSeparatorSymbol;
+
+  /**
+   * <p>Determines the grouping separator.</p>
+   * @public
+   */
+  GroupingSeparator?: string;
+
+  /**
+   * <p>A Boolean value that indicates whether to use grouping.</p>
+   * @public
+   */
+  UseGrouping?: boolean;
+
+  /**
+   * <p>Determines the number of fraction digits.</p>
+   * @public
+   */
+  FractionDigits?: number;
+
+  /**
+   * <p>The prefix value for a display format.</p>
+   * @public
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The suffix value for a display format.</p>
+   * @public
+   */
+  Suffix?: string;
+
+  /**
+   * <p>The unit scaler. Valid values for this structure are: <code>NONE</code>,
+   *             <code>AUTO</code>, <code>THOUSANDS</code>, <code>MILLIONS</code>,
+   *          <code>BILLIONS</code>,
+   *          and <code>TRILLIONS</code>.</p>
+   * @public
+   */
+  UnitScaler?: NumberScale;
+
+  /**
+   * <p>The negative format.</p>
+   * @public
+   */
+  NegativeFormat?: NegativeFormat;
+
+  /**
+   * <p>The currency symbol, such as <code>USD</code>.</p>
+   * @public
+   */
+  CurrencySymbol?: string;
+}
+
+/**
+ * <p>The definition for a <code>NamedEntityRef</code>.</p>
+ * @public
+ */
+export interface NamedEntityRef {
+  /**
+   * <p>The <code>NamedEntityName</code> for the <code>NamedEntityRef</code>.</p>
+   * @public
+   */
+  NamedEntityName?: string;
+}
+
+/**
+ * <p>The definition for a <code>TopicSortClause</code>.</p>
+ * @public
+ */
+export interface TopicSortClause {
+  /**
+   * <p>The operand for a <code>TopicSortClause</code>.</p>
+   * @public
+   */
+  Operand?: Identifier;
+
+  /**
+   * <p>The sort direction for the <code>TopicSortClause</code>.</p>
+   * @public
+   */
+  SortDirection?: TopicSortDirection;
+}
+
+/**
+ * <p>The definition for a <code>TopicIRGroupBy</code>.</p>
+ * @public
+ */
+export interface TopicIRGroupBy {
+  /**
+   * <p>The field name for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  FieldName?: Identifier;
+
+  /**
+   * <p>The time granularity for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  TimeGranularity?: TopicTimeGranularity;
+
+  /**
+   * <p>The sort for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  Sort?: TopicSortClause;
+
+  /**
+   * <p>The display format for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  DisplayFormat?: DisplayFormat;
+
+  /**
+   * <p>A structure that represents additional options for display formatting.</p>
+   * @public
+   */
+  DisplayFormatOptions?: DisplayFormatOptions;
+
+  /**
+   * <p>The named entity for the <code>TopicIRGroupBy</code>.</p>
+   * @public
+   */
+  NamedEntity?: NamedEntityRef;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonMethodType = {
+  DIFF: "DIFF",
+  DIFF_AS_PERC: "DIFF_AS_PERC",
+  MOVING_AVERAGE: "MOVING_AVERAGE",
+  PERCENT_OF_TOTAL: "PERCENT_OF_TOTAL",
+  PERC_DIFF: "PERC_DIFF",
+  POP_CURRENT_DIFF: "POP_CURRENT_DIFF",
+  POP_CURRENT_DIFF_AS_PERC: "POP_CURRENT_DIFF_AS_PERC",
+  POP_OVERTIME_DIFF: "POP_OVERTIME_DIFF",
+  POP_OVERTIME_DIFF_AS_PERC: "POP_OVERTIME_DIFF_AS_PERC",
+  RUNNING_SUM: "RUNNING_SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ComparisonMethodType = (typeof ComparisonMethodType)[keyof typeof ComparisonMethodType];
+
+/**
+ * <p>The definition of a <code>TopicIRComparisonMethod</code>.</p>
+ * @public
+ */
+export interface TopicIRComparisonMethod {
+  /**
+   * <p>The type for the <code>TopicIRComparisonMethod</code>.</p>
+   * @public
+   */
+  Type?: ComparisonMethodType;
+
+  /**
+   * <p>The period for the <code>TopicIRComparisonMethod</code>.</p>
+   * @public
+   */
+  Period?: TopicTimeGranularity;
+
+  /**
+   * <p>The window size for the <code>TopicIRComparisonMethod</code>.</p>
+   * @public
+   */
+  WindowSize?: number;
+}
+
+/**
+ * <p>The definition for a <code>TopicIRMetric</code>.</p>
+ * @public
+ */
+export interface TopicIRMetric {
+  /**
+   * <p>The metric ID for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  MetricId?: Identifier;
+
+  /**
+   * <p>The function for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  Function?: AggFunction;
+
+  /**
+   * <p>The operands for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  Operands?: Identifier[];
+
+  /**
+   * <p>The comparison method for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  ComparisonMethod?: TopicIRComparisonMethod;
+
+  /**
+   * <p>The expression for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  Expression?: string;
+
+  /**
+   * <p>The calculated field references for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  CalculatedFieldReferences?: Identifier[];
+
+  /**
+   * <p>The display format for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  DisplayFormat?: DisplayFormat;
+
+  /**
+   * <p>A structure that represents additional options for display formatting.</p>
+   * @public
+   */
+  DisplayFormatOptions?: DisplayFormatOptions;
+
+  /**
+   * <p>The named entity for the <code>TopicIRMetric</code>.</p>
+   * @public
+   */
+  NamedEntity?: NamedEntityRef;
+}
+
+/**
+ * <p>The definition for a <code>VisualOptions</code>.</p>
+ * @public
+ */
+export interface VisualOptions {
+  /**
+   * <p>The type for a <code>VisualOptions</code>.</p>
+   * @public
+   */
+  type?: string;
+}
+
+/**
+ * <p>The definition for a <code>TopicIR</code>.</p>
+ * @public
+ */
+export interface TopicIR {
+  /**
+   * <p>The metrics for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Metrics?: TopicIRMetric[];
+
+  /**
+   * <p>The GroupBy list for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  GroupByList?: TopicIRGroupBy[];
+
+  /**
+   * <p>The filters for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Filters?: TopicIRFilterOption[][];
+
+  /**
+   * <p>The sort for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Sort?: TopicSortClause;
+
+  /**
+   * <p>The contribution analysis for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  ContributionAnalysis?: TopicIRContributionAnalysis;
+
+  /**
+   * <p>The visual for the <code>TopicIR</code>.</p>
+   * @public
+   */
+  Visual?: VisualOptions;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VisualRole = {
+  COMPLIMENTARY: "COMPLIMENTARY",
+  FALLBACK: "FALLBACK",
+  FRAGMENT: "FRAGMENT",
+  MULTI_INTENT: "MULTI_INTENT",
+  PRIMARY: "PRIMARY",
+} as const;
+
+/**
+ * @public
+ */
+export type VisualRole = (typeof VisualRole)[keyof typeof VisualRole];
+
+/**
+ * <p>The definition for the slot.</p>
+ * @public
+ */
+export interface Slot {
+  /**
+   * <p>The slot ID of the slot.</p>
+   * @public
+   */
+  SlotId?: string;
+
+  /**
+   * <p>The visual ID for the slot.</p>
+   * @public
+   */
+  VisualId?: string;
+}
+
+/**
+ * <p>The definition for a <code>TopicTemplate</code>.</p>
+ * @public
+ */
+export interface TopicTemplate {
+  /**
+   * <p>The template type for the <code>TopicTemplate</code>.</p>
+   * @public
+   */
+  TemplateType?: string;
+
+  /**
+   * <p>The slots for the <code>TopicTemplate</code>.</p>
+   * @public
+   */
+  Slots?: Slot[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReviewedAnswerErrorCode = {
+  DATASET_DOES_NOT_EXIST: "DATASET_DOES_NOT_EXIST",
+  DUPLICATED_ANSWER: "DUPLICATED_ANSWER",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_DATA: "INVALID_DATA",
+  INVALID_DATASET_ARN: "INVALID_DATASET_ARN",
+  MISSING_ANSWER: "MISSING_ANSWER",
+  MISSING_REQUIRED_FIELDS: "MISSING_REQUIRED_FIELDS",
+} as const;
+
+/**
+ * @public
+ */
+export type ReviewedAnswerErrorCode = (typeof ReviewedAnswerErrorCode)[keyof typeof ReviewedAnswerErrorCode];
+
+/**
+ * <p>The definition for a <code>InvalidTopicReviewedAnswer</code>.</p>
+ * @public
+ */
+export interface InvalidTopicReviewedAnswer {
+  /**
+   * <p>The answer ID for the <code>InvalidTopicReviewedAnswer</code>.</p>
+   * @public
+   */
+  AnswerId?: string;
+
+  /**
+   * <p>The error that is returned for the <code>InvalidTopicReviewedAnswer</code>.</p>
+   * @public
+   */
+  Error?: ReviewedAnswerErrorCode;
+}
+
+/**
+ * <p>The definition for a <code>SucceededTopicReviewedAnswer</code>.</p>
+ * @public
+ */
+export interface SucceededTopicReviewedAnswer {
+  /**
+   * <p>The answer ID for the <code>SucceededTopicReviewedAnswer</code>.</p>
+   * @public
+   */
+  AnswerId?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateTopicReviewedAnswerResponse {
+  /**
+   * <p>The ID for the topic reviewed answer that you want to create. This ID is unique per Amazon Web Services Region
+   *          for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string;
+
+  /**
+   * <p>The definition of Answers that are successfully created.</p>
+   * @public
+   */
+  SucceededAnswers?: SucceededTopicReviewedAnswer[];
+
+  /**
+   * <p>The definition of Answers that are invalid and not created.</p>
+   * @public
+   */
+  InvalidAnswers?: InvalidTopicReviewedAnswer[];
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+}
+
+/**
+ * <p>An internal failure occurred.</p>
+ * @public
+ */
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>One or more parameters has a value that isn't valid.</p>
+ * @public
+ */
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExceptionResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  DATA_SET: "DATA_SET",
+  DATA_SOURCE: "DATA_SOURCE",
+  GROUP: "GROUP",
+  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
+  INGESTION: "INGESTION",
+  NAMESPACE: "NAMESPACE",
+  USER: "USER",
+  VPC_CONNECTION: "VPC_CONNECTION",
+} as const;
+
+/**
+ * @public
+ */
+export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
+
+/**
+ * <p>One or more resources can't be found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The resource type for this request.</p>
+   * @public
+   */
+  ResourceType?: ExceptionResourceType;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>Access is throttled.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteTopicReviewedAnswerRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to delete a reviewed answers in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The Answer IDs of the Answers to be deleted.</p>
+   * @public
+   */
+  AnswerIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteTopicReviewedAnswerResponse {
+  /**
+   * <p>The ID of the topic reviewed answer that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string;
+
+  /**
+   * <p>The definition of Answers that are successfully deleted.</p>
+   * @public
+   */
+  SucceededAnswers?: SucceededTopicReviewedAnswer[];
+
+  /**
+   * <p>The definition of Answers that are invalid and not deleted.</p>
+   * @public
+   */
+  InvalidAnswers?: InvalidTopicReviewedAnswer[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number;
+}
+
+/**
+ * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
  * <p>The bookmarks configuration of an embedded dashboard.</p>
  * @public
  */
@@ -4332,83 +5577,6 @@ export interface CancelIngestionResponse {
 }
 
 /**
- * <p>An internal failure occurred.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name: "InternalFailureException" = "InternalFailureException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>One or more parameters has a value that isn't valid.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ExceptionResourceType = {
-  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
-  DATA_SET: "DATA_SET",
-  DATA_SOURCE: "DATA_SOURCE",
-  GROUP: "GROUP",
-  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
-  INGESTION: "INGESTION",
-  NAMESPACE: "NAMESPACE",
-  USER: "USER",
-  VPC_CONNECTION: "VPC_CONNECTION",
-} as const;
-
-/**
- * @public
- */
-export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof ExceptionResourceType];
-
-/**
  * <p>The resource specified already exists. </p>
  * @public
  */
@@ -4439,69 +5607,6 @@ export class ResourceExistsException extends __BaseException {
     Object.setPrototypeOf(this, ResourceExistsException.prototype);
     this.Message = opts.Message;
     this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>One or more resources can't be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The resource type for this request.</p>
-   * @public
-   */
-  ResourceType?: ExceptionResourceType;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * <p>Access is throttled.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.Message = opts.Message;
     this.RequestId = opts.RequestId;
   }
 }
@@ -4915,49 +6020,6 @@ export class ConcurrentUpdatingException extends __BaseException {
     this.RequestId = opts.RequestId;
   }
 }
-
-/**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ConstantType = {
-  COLLECTIVE: "COLLECTIVE",
-  RANGE: "RANGE",
-  SINGULAR: "SINGULAR",
-} as const;
-
-/**
- * @public
- */
-export type ConstantType = (typeof ConstantType)[keyof typeof ConstantType];
 
 /**
  * @public
@@ -7758,1237 +8820,19 @@ export interface CreateFolderRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface CreateFolderResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the newly created folder.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The folder ID for the newly created folder.</p>
-   * @public
-   */
-  FolderId?: string;
-
-  /**
-   * <p>The request ID for the newly created folder.</p>
-   * @public
-   */
-  RequestId?: string;
-}
+export const WaterfallChartAggregatedFieldWellsFilterSensitiveLog = (obj: WaterfallChartAggregatedFieldWells): any => ({
+  ...obj,
+  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const MemberType = {
-  ANALYSIS: "ANALYSIS",
-  DASHBOARD: "DASHBOARD",
-  DATASET: "DATASET",
-  DATASOURCE: "DATASOURCE",
-  TOPIC: "TOPIC",
-} as const;
-
-/**
- * @public
- */
-export type MemberType = (typeof MemberType)[keyof typeof MemberType];
-
-/**
- * @public
- */
-export interface CreateFolderMembershipRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The ID of the asset that you want to add to the folder.</p>
-   * @public
-   */
-  MemberId: string | undefined;
-
-  /**
-   * <p>The member type of the asset that you want to add to a folder.</p>
-   * @public
-   */
-  MemberType: MemberType | undefined;
-}
-
-/**
- * <p>An asset in a Amazon QuickSight folder, such as a dashboard, analysis, or dataset.</p>
- * @public
- */
-export interface FolderMember {
-  /**
-   * <p>The ID of an asset in the folder.</p>
-   * @public
-   */
-  MemberId?: string;
-
-  /**
-   * <p>The type of asset that it is.</p>
-   * @public
-   */
-  MemberType?: MemberType;
-}
-
-/**
- * @public
- */
-export interface CreateFolderMembershipResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>Information about the member in the folder.</p>
-   * @public
-   */
-  FolderMember?: FolderMember;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * <p>The request object for this operation. </p>
- * @public
- */
-export interface CreateGroupRequest {
-  /**
-   * <p>A name for the group that you want to create.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>A description for the group that you want to create.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that you want the group to be a part of.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * <p>A <i>group</i> in Amazon QuickSight consists of a set of users. You can
- *             use groups to make it easier to manage access and security. </p>
- * @public
- */
-export interface Group {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the group.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The group description.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The principal ID of the group.</p>
-   * @public
-   */
-  PrincipalId?: string;
-}
-
-/**
- * <p>The response object for this operation.</p>
- * @public
- */
-export interface CreateGroupResponse {
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  Group?: Group;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface CreateGroupMembershipRequest {
-  /**
-   * <p>The name of the user that you want to add to the group membership.</p>
-   * @public
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The name of the group that you want to add the user to.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that you want the user to be a part of.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
- *             can't be members of another group. .</p>
- * @public
- */
-export interface GroupMember {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the group member (user).</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the group member (user).</p>
-   * @public
-   */
-  MemberName?: string;
-}
-
-/**
- * @public
- */
-export interface CreateGroupMembershipResponse {
-  /**
-   * <p>The group member.</p>
-   * @public
-   */
-  GroupMember?: GroupMember;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface CreateIAMPolicyAssignmentRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon QuickSight users or groups.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the assignment, also called a rule.
-   * 			The
-   * 			name
-   * 			must be unique within the
-   * 			Amazon Web Services account.</p>
-   * @public
-   */
-  AssignmentName: string | undefined;
-
-  /**
-   * <p>The status of the assignment. Possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - Anything specified in this assignment is used when
-   * 					creating the data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> - This assignment isn't used when creating the data
-   * 					source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code> - This assignment is an unfinished draft and isn't used
-   * 					when creating the data source.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AssignmentStatus: AssignmentStatus | undefined;
-
-  /**
-   * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and
-   * 			groups specified in this assignment.</p>
-   * @public
-   */
-  PolicyArn?: string;
-
-  /**
-   * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy
-   * 			to.</p>
-   * @public
-   */
-  Identities?: Record<string, string[]>;
-
-  /**
-   * <p>The namespace that contains the assignment.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateIAMPolicyAssignmentResponse {
-  /**
-   * <p>The name of the assignment.
-   * 			The
-   * 			name must be unique within the Amazon Web Services account.</p>
-   * @public
-   */
-  AssignmentName?: string;
-
-  /**
-   * <p>The ID for the assignment.</p>
-   * @public
-   */
-  AssignmentId?: string;
-
-  /**
-   * <p>The status of the assignment. Possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - Anything specified in this assignment is used when
-   * 					creating the data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> - This assignment isn't used when creating the data
-   * 					source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code> - This assignment is an unfinished draft and isn't used
-   * 					when creating the data source.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AssignmentStatus?: AssignmentStatus;
-
-  /**
-   * <p>The ARN for the IAM policy that is applied to the Amazon QuickSight
-   * 			users and groups specified in this assignment.</p>
-   * @public
-   */
-  PolicyArn?: string;
-
-  /**
-   * <p>The Amazon QuickSight users, groups, or both that the IAM policy is
-   * 			assigned to.</p>
-   * @public
-   */
-  Identities?: Record<string, string[]>;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const IngestionType = {
-  FULL_REFRESH: "FULL_REFRESH",
-  INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
-} as const;
-
-/**
- * @public
- */
-export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
-
-/**
- * @public
- */
-export interface CreateIngestionRequest {
-  /**
-   * <p>The ID of the dataset used in the ingestion.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>An ID for the ingestion.</p>
-   * @public
-   */
-  IngestionId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The type of ingestion that you want to create.</p>
-   * @public
-   */
-  IngestionType?: IngestionType;
-}
-
-/**
- * @public
- * @enum
- */
-export const IngestionStatus = {
-  CANCELLED: "CANCELLED",
-  COMPLETED: "COMPLETED",
-  FAILED: "FAILED",
-  INITIALIZED: "INITIALIZED",
-  QUEUED: "QUEUED",
-  RUNNING: "RUNNING",
-} as const;
-
-/**
- * @public
- */
-export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
-
-/**
- * @public
- */
-export interface CreateIngestionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>An ID for the ingestion.</p>
-   * @public
-   */
-  IngestionId?: string;
-
-  /**
-   * <p>The ingestion status.</p>
-   * @public
-   */
-  IngestionStatus?: IngestionStatus;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const IdentityStore = {
-  QUICKSIGHT: "QUICKSIGHT",
-} as const;
-
-/**
- * @public
- */
-export type IdentityStore = (typeof IdentityStore)[keyof typeof IdentityStore];
-
-/**
- * @public
- */
-export interface CreateNamespaceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name that you want to use to describe the new namespace.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>Specifies the type of your user identity directory. Currently, this supports users
-   *             with an identity type of <code>QUICKSIGHT</code>.</p>
-   * @public
-   */
-  IdentityStore: IdentityStore | undefined;
-
-  /**
-   * <p>The tags that you want to associate with the namespace that you're creating.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- * @enum
- */
-export const NamespaceStatus = {
-  CREATED: "CREATED",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  NON_RETRYABLE_FAILURE: "NON_RETRYABLE_FAILURE",
-  RETRYABLE_FAILURE: "RETRYABLE_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
-
-/**
- * @public
- */
-export interface CreateNamespaceResponse {
-  /**
-   * <p>The ARN of the Amazon QuickSight namespace you created. </p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the new namespace that you created.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Web Services Region; that you want to use for the free SPICE capacity for the new namespace.
-   *             This is set to the region that you run CreateNamespace in. </p>
-   * @public
-   */
-  CapacityRegion?: string;
-
-  /**
-   * <p>The status of the creation of the namespace. This is an asynchronous process. A status
-   *             of <code>CREATED</code> means that your namespace is ready to use. If an error occurs,
-   *             it indicates if the process is <code>retryable</code> or <code>non-retryable</code>. In
-   *             the case of a non-retryable error, refer to the error message for follow-up
-   *             tasks.</p>
-   * @public
-   */
-  CreationStatus?: NamespaceStatus;
-
-  /**
-   * <p>Specifies the type of your user identity directory. Currently, this supports users
-   *             with an identity type of <code>QUICKSIGHT</code>.</p>
-   * @public
-   */
-  IdentityStore?: IdentityStore;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const RefreshInterval = {
-  DAILY: "DAILY",
-  HOURLY: "HOURLY",
-  MINUTE15: "MINUTE15",
-  MINUTE30: "MINUTE30",
-  MONTHLY: "MONTHLY",
-  WEEKLY: "WEEKLY",
-} as const;
-
-/**
- * @public
- */
-export type RefreshInterval = (typeof RefreshInterval)[keyof typeof RefreshInterval];
-
-/**
- * @public
- * @enum
- */
-export const DayOfWeek = {
-  FRIDAY: "FRIDAY",
-  MONDAY: "MONDAY",
-  SATURDAY: "SATURDAY",
-  SUNDAY: "SUNDAY",
-  THURSDAY: "THURSDAY",
-  TUESDAY: "TUESDAY",
-  WEDNESDAY: "WEDNESDAY",
-} as const;
-
-/**
- * @public
- */
-export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
-/**
- * <p>The refresh on entity for weekly or monthly schedules.</p>
- * @public
- */
-export interface ScheduleRefreshOnEntity {
-  /**
-   * <p>The day of the week that you want to schedule a refresh on.</p>
-   * @public
-   */
-  DayOfWeek?: DayOfWeek;
-
-  /**
-   * <p>The day of the month that you want to schedule refresh on.</p>
-   * @public
-   */
-  DayOfMonth?: string;
-}
-
-/**
- * <p>Specifies the interval between each scheduled refresh of a dataset.</p>
- * @public
- */
-export interface RefreshFrequency {
-  /**
-   * <p>The interval between scheduled refreshes. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MINUTE15</code>: The dataset refreshes every 15 minutes. This value is only supported for incremental refreshes. This interval can only be used for one schedule per dataset.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MINUTE30</code>:The dataset refreshes every 30 minutes. This value is only supported for incremental refreshes. This interval can only be used for one schedule per dataset.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HOURLY</code>: The dataset refreshes every hour. This interval can only be used for one schedule per dataset.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DAILY</code>: The dataset refreshes every day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WEEKLY</code>: The dataset refreshes every week.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MONTHLY</code>: The dataset refreshes every month.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Interval: RefreshInterval | undefined;
-
-  /**
-   * <p>The day of the week that you want to schedule the refresh on. This value is required for weekly and monthly refresh intervals.</p>
-   * @public
-   */
-  RefreshOnDay?: ScheduleRefreshOnEntity;
-
-  /**
-   * <p>The timezone that you want the refresh schedule to use. The timezone ID must match a corresponding ID found on <code>java.util.time.getAvailableIDs()</code>.</p>
-   * @public
-   */
-  Timezone?: string;
-
-  /**
-   * <p>The time of day that you want the datset to refresh. This value is expressed in HH:MM format. This field is not required for schedules that refresh hourly.</p>
-   * @public
-   */
-  TimeOfTheDay?: string;
-}
-
-/**
- * <p>The refresh schedule of a dataset.</p>
- * @public
- */
-export interface RefreshSchedule {
-  /**
-   * <p>An identifier for the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId: string | undefined;
-
-  /**
-   * <p>The frequency for the refresh schedule.</p>
-   * @public
-   */
-  ScheduleFrequency: RefreshFrequency | undefined;
-
-  /**
-   * <p>Time after which the refresh schedule can be started, expressed in <code>YYYY-MM-DDTHH:MM:SS</code> format.</p>
-   * @public
-   */
-  StartAfterDateTime?: Date;
-
-  /**
-   * <p>The type of refresh that a datset undergoes. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FULL_REFRESH</code>: A complete refresh of a dataset.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INCREMENTAL_REFRESH</code>: A partial refresh of some rows of a dataset, based on the time window specified.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information on full and incremental refreshes, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html">Refreshing SPICE data</a> in the <i>Amazon QuickSight User Guide</i>.</p>
-   * @public
-   */
-  RefreshType: IngestionType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   * @public
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- */
-export interface CreateRefreshScheduleRequest {
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The refresh schedule.</p>
-   * @public
-   */
-  Schedule: RefreshSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRefreshScheduleResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   * @public
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const Role = {
-  ADMIN: "ADMIN",
-  ADMIN_PRO: "ADMIN_PRO",
-  AUTHOR: "AUTHOR",
-  AUTHOR_PRO: "AUTHOR_PRO",
-  READER: "READER",
-  READER_PRO: "READER_PRO",
-} as const;
-
-/**
- * @public
- */
-export type Role = (typeof Role)[keyof typeof Role];
-
-/**
- * @public
- */
-export interface CreateRoleMembershipRequest {
-  /**
-   * <p>The name of the group that you want to add to the role.</p>
-   * @public
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that the role belongs to.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The role that you want to add a group to.</p>
-   * @public
-   */
-  Role: Role | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRoleMembershipResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-}
-
-/**
- * <p>Dataset schema.</p>
- * @public
- */
-export interface DataSetSchema {
-  /**
-   * <p>A structure containing the list of column schemas.</p>
-   * @public
-   */
-  ColumnSchemaList?: ColumnSchema[];
-}
-
-/**
- * <p>Dataset configuration.</p>
- * @public
- */
-export interface DataSetConfiguration {
-  /**
-   * <p>Placeholder.</p>
-   * @public
-   */
-  Placeholder?: string;
-
-  /**
-   * <p>Dataset schema.</p>
-   * @public
-   */
-  DataSetSchema?: DataSetSchema;
-
-  /**
-   * <p>A structure containing the list of column group schemas.</p>
-   * @public
-   */
-  ColumnGroupSchemaList?: ColumnGroupSchema[];
-}
-
-/**
- * <p>The detailed definition of a template.</p>
- * @public
- */
-export interface TemplateVersionDefinition {
-  /**
-   * <p>An array of dataset configurations. These configurations define the required columns for each dataset used within a template.</p>
-   * @public
-   */
-  DataSetConfigurations: DataSetConfiguration[] | undefined;
-
-  /**
-   * <p>An array of sheet definitions for a template.</p>
-   * @public
-   */
-  Sheets?: SheetDefinition[];
-
-  /**
-   * <p>An array of calculated field definitions for the template.</p>
-   * @public
-   */
-  CalculatedFields?: CalculatedField[];
-
-  /**
-   * <p>An array of parameter declarations for a template.</p>
-   *          <p>
-   *             <i>Parameters</i> are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the
-   *             <i>Amazon QuickSight User Guide</i>.
-   *         </p>
-   * @public
-   */
-  ParameterDeclarations?: ParameterDeclaration[];
-
-  /**
-   * <p>Filter definitions for a template.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html">Filtering Data</a> in the <i>Amazon QuickSight User Guide</i>.
-   *         </p>
-   * @public
-   */
-  FilterGroups?: FilterGroup[];
-
-  /**
-   * <p> An array of template-level column
-   *             configurations. Column configurations are used to set default formatting for a column that's used throughout a template. </p>
-   * @public
-   */
-  ColumnConfigurations?: ColumnConfiguration[];
-
-  /**
-   * <p>The configuration for default analysis settings.</p>
-   * @public
-   */
-  AnalysisDefaults?: AnalysisDefaults;
-
-  /**
-   * <p>An array of option definitions for a template.</p>
-   * @public
-   */
-  Options?: AssetOptions;
-}
-
-/**
- * <p>The source analysis of the template.</p>
- * @public
- */
-export interface TemplateSourceAnalysis {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>A structure containing information about the dataset references used as placeholders
-   *             in the template.</p>
-   * @public
-   */
-  DataSetReferences: DataSetReference[] | undefined;
-}
-
-/**
- * <p>The source template of the template.</p>
- * @public
- */
-export interface TemplateSourceTemplate {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * <p>The source entity of the template.</p>
- * @public
- */
-export interface TemplateSourceEntity {
-  /**
-   * <p>The source analysis, if it is based on an analysis.</p>
-   * @public
-   */
-  SourceAnalysis?: TemplateSourceAnalysis;
-
-  /**
-   * <p>The source template, if it is based on an template.</p>
-   * @public
-   */
-  SourceTemplate?: TemplateSourceTemplate;
-}
-
-/**
- * @public
- */
-export interface CreateTemplateRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the template that you want to create. This template is unique per Amazon Web Services Region; in
-   * 			each Amazon Web Services account.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>A display name for the template.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>A list of resource permissions to be set on the template. </p>
-   * @public
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The entity that you are using as a source when you create the template. In
-   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
-   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
-   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
-   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
-   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
-   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
-   * 			in the original. The schema in each dataset must match its placeholder. </p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   * 			order for the request to be valid.</p>
-   * @public
-   */
-  SourceEntity?: TemplateSourceEntity;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A description of the current template version being created. This API operation creates the
-   * 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-   * 			version is created. Each version of the template maintains a description of the version
-   * 			in the <code>VersionDescription</code> field.</p>
-   * @public
-   */
-  VersionDescription?: string;
-
-  /**
-   * <p>The definition of a template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   * 			order for the request to be valid.</p>
-   * @public
-   */
-  Definition?: TemplateVersionDefinition;
-
-  /**
-   * <p>TThe option to relax the validation needed to create a template with definition objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy;
-}
-
-/**
- * @public
- */
-export interface CreateTemplateResponse {
-  /**
-   * <p>The ARN for the template.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ARN for the template, including the version information of
-   * 			the first version.</p>
-   * @public
-   */
-  VersionArn?: string;
-
-  /**
-   * <p>The ID of the template.</p>
-   * @public
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The template creation status.</p>
-   * @public
-   */
-  CreationStatus?: ResourceStatus;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface CreateTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you creating an alias for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The name that you want to give to the template alias that you're creating. Don't start the
-   * 			alias name with the <code>$</code> character. Alias names that start with <code>$</code>
-   * 			are reserved by Amazon QuickSight. </p>
-   * @public
-   */
-  AliasName: string | undefined;
-
-  /**
-   * <p>The version number of the template.</p>
-   * @public
-   */
-  TemplateVersionNumber: number | undefined;
-}
-
-/**
- * <p>The template alias.</p>
- * @public
- */
-export interface TemplateAlias {
-  /**
-   * <p>The display name of the template alias.</p>
-   * @public
-   */
-  AliasName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template alias.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The version number of the template alias.</p>
-   * @public
-   */
-  TemplateVersionNumber?: number;
-}
-
-/**
- * @public
- */
-export interface CreateTemplateAliasResponse {
-  /**
-   * <p>Information about the template alias.</p>
-   * @public
-   */
-  TemplateAlias?: TemplateAlias;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string;
-}
+export const WaterfallChartFieldWellsFilterSensitiveLog = (obj: WaterfallChartFieldWells): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9151,6 +8995,22 @@ export const AssetBundleImportSourceFilterSensitiveLog = (obj: AssetBundleImport
 export const AssetBundleImportSourceDescriptionFilterSensitiveLog = (obj: AssetBundleImportSourceDescription): any => ({
   ...obj,
   ...(obj.Body && { Body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TopicIRMetricFilterSensitiveLog = (obj: TopicIRMetric): any => ({
+  ...obj,
+  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TopicIRFilterSensitiveLog = (obj: TopicIR): any => ({
+  ...obj,
+  ...(obj.Metrics && { Metrics: obj.Metrics.map((item) => TopicIRMetricFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -9343,27 +9203,4 @@ export const CreateDataSourceRequestFilterSensitiveLog = (obj: CreateDataSourceR
   ...obj,
   ...(obj.DataSourceParameters && { DataSourceParameters: obj.DataSourceParameters }),
   ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TemplateVersionDefinitionFilterSensitiveLog = (obj: TemplateVersionDefinition): any => ({
-  ...obj,
-  ...(obj.CalculatedFields && {
-    CalculatedFields: obj.CalculatedFields.map((item) => CalculatedFieldFilterSensitiveLog(item)),
-  }),
-  ...(obj.ParameterDeclarations && {
-    ParameterDeclarations: obj.ParameterDeclarations.map((item) => ParameterDeclarationFilterSensitiveLog(item)),
-  }),
-  ...(obj.ColumnConfigurations && {
-    ColumnConfigurations: obj.ColumnConfigurations.map((item) => ColumnConfigurationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateRequest): any => ({
-  ...obj,
 });

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_2";
+import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_3";
 import { de_CreateTemplateAliasCommand, se_CreateTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

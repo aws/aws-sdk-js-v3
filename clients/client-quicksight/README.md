@@ -210,6 +210,22 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchCreateTopicReviewedAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/BatchCreateTopicReviewedAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchCreateTopicReviewedAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchCreateTopicReviewedAnswerCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchDeleteTopicReviewedAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/BatchDeleteTopicReviewedAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchDeleteTopicReviewedAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchDeleteTopicReviewedAnswerCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelIngestion
 </summary>
 
@@ -1182,6 +1198,14 @@ ListTopicRefreshSchedules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListTopicRefreshSchedulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListTopicRefreshSchedulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListTopicRefreshSchedulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTopicReviewedAnswers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListTopicReviewedAnswersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListTopicReviewedAnswersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListTopicReviewedAnswersCommandOutput/)
 
 </details>
 <details>

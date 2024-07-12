@@ -9,7 +9,7 @@ import {
   GetSessionEmbedUrlRequest,
   GetSessionEmbedUrlResponse,
   GetSessionEmbedUrlResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_GetSessionEmbedUrlCommand, se_GetSessionEmbedUrlCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

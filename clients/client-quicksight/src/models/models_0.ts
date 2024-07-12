@@ -223,6 +223,88 @@ export interface AdHocFilteringOption {
  * @public
  * @enum
  */
+export const AggType = {
+  AVERAGE: "AVERAGE",
+  COLUMN: "COLUMN",
+  COUNT: "COUNT",
+  CUSTOM: "CUSTOM",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  PERCENTILE: "PERCENTILE",
+  PTD_AVERAGE: "PTD_AVERAGE",
+  PTD_COUNT: "PTD_COUNT",
+  PTD_DISTINCT_COUNT: "PTD_DISTINCT_COUNT",
+  PTD_MAX: "PTD_MAX",
+  PTD_MIN: "PTD_MIN",
+  PTD_SUM: "PTD_SUM",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+} as const;
+
+/**
+ * @public
+ */
+export type AggType = (typeof AggType)[keyof typeof AggType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicTimeGranularity = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MINUTE: "MINUTE",
+  MONTH: "MONTH",
+  QUARTER: "QUARTER",
+  SECOND: "SECOND",
+  WEEK: "WEEK",
+  YEAR: "YEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicTimeGranularity = (typeof TopicTimeGranularity)[keyof typeof TopicTimeGranularity];
+
+/**
+ * <p>The definition of an Agg function.</p>
+ * @public
+ */
+export interface AggFunction {
+  /**
+   * <p>The aggregation of an Agg function.</p>
+   * @public
+   */
+  Aggregation?: AggType;
+
+  /**
+   * <p>The aggregation parameters for an Agg function.</p>
+   * @public
+   */
+  AggregationFunctionParameters?: Record<string, string>;
+
+  /**
+   * <p>The period of an Agg function.</p>
+   * @public
+   */
+  Period?: TopicTimeGranularity;
+
+  /**
+   * <p>The period field for an Agg function.</p>
+   * @public
+   */
+  PeriodField?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const SimpleAttributeAggregationFunction = {
   UNIQUE_VALUE: "UNIQUE_VALUE",
 } as const;
@@ -445,6 +527,45 @@ export interface AggregationFunction {
    * @public
    */
   AttributeAggregationFunction?: AttributeAggregationFunction;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeGranularity = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MILLISECOND: "MILLISECOND",
+  MINUTE: "MINUTE",
+  MONTH: "MONTH",
+  QUARTER: "QUARTER",
+  SECOND: "SECOND",
+  WEEK: "WEEK",
+  YEAR: "YEAR",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeGranularity = (typeof TimeGranularity)[keyof typeof TimeGranularity];
+
+/**
+ * <p>The definition of an <code>AggregationPartitionBy</code>.</p>
+ * @public
+ */
+export interface AggregationPartitionBy {
+  /**
+   * <p>The field Name for an <code>AggregationPartitionBy</code>.</p>
+   * @public
+   */
+  FieldName?: string;
+
+  /**
+   * <p>The <code>TimeGranularity</code> for an <code>AggregationPartitionBy</code>.</p>
+   * @public
+   */
+  TimeGranularity?: TimeGranularity;
 }
 
 /**
@@ -1967,6 +2088,18 @@ export interface DateTimePickerControlDisplayOptions {
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+
+  /**
+   * <p>The helper text visibility of the <code>DateTimePickerControlDisplayOptions</code>.</p>
+   * @public
+   */
+  HelperTextVisibility?: Visibility;
+
+  /**
+   * <p>The date icon visibility of the <code>DateTimePickerControlDisplayOptions</code>.</p>
+   * @public
+   */
+  DateIconVisibility?: Visibility;
 }
 
 /**
@@ -2805,27 +2938,6 @@ export interface AnchorDateConfiguration {
    */
   ParameterName?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const TimeGranularity = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  MILLISECOND: "MILLISECOND",
-  MINUTE: "MINUTE",
-  MONTH: "MONTH",
-  QUARTER: "QUARTER",
-  SECOND: "SECOND",
-  WEEK: "WEEK",
-  YEAR: "YEAR",
-} as const;
-
-/**
- * @public
- */
-export type TimeGranularity = (typeof TimeGranularity)[keyof typeof TimeGranularity];
 
 /**
  * @public
@@ -7410,117 +7522,6 @@ export interface FieldSort {
    * @public
    */
   Direction: SortDirection | undefined;
-}
-
-/**
- * <p>The field sort options in a chart configuration.</p>
- * @public
- */
-export interface FieldSortOptions {
-  /**
-   * <p>The sort configuration for a field in a field well.</p>
-   * @public
-   */
-  FieldSort?: FieldSort;
-
-  /**
-   * <p>The sort configuration for a column that is not used in a field well.</p>
-   * @public
-   */
-  ColumnSort?: ColumnSort;
-}
-
-/**
- * <p>sort-configuration-description</p>
- * @public
- */
-export interface BarChartSortConfiguration {
-  /**
-   * <p>The sort configuration of category fields.</p>
-   * @public
-   */
-  CategorySort?: FieldSortOptions[];
-
-  /**
-   * <p>The limit on the number of categories displayed in a bar chart.</p>
-   * @public
-   */
-  CategoryItemsLimit?: ItemsLimitConfiguration;
-
-  /**
-   * <p>The sort configuration of color fields in a bar chart.</p>
-   * @public
-   */
-  ColorSort?: FieldSortOptions[];
-
-  /**
-   * <p>The limit on the number of values displayed in a bar chart.</p>
-   * @public
-   */
-  ColorItemsLimit?: ItemsLimitConfiguration;
-
-  /**
-   * <p>The sort configuration of the small multiples field.</p>
-   * @public
-   */
-  SmallMultiplesSort?: FieldSortOptions[];
-
-  /**
-   * <p>The limit on the number of small multiples panels that are displayed.</p>
-   * @public
-   */
-  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
-}
-
-/**
- * @public
- * @enum
- */
-export const TooltipTarget = {
-  BAR: "BAR",
-  BOTH: "BOTH",
-  LINE: "LINE",
-} as const;
-
-/**
- * @public
- */
-export type TooltipTarget = (typeof TooltipTarget)[keyof typeof TooltipTarget];
-
-/**
- * <p>The tooltip item for the columns that are not part of a field well.</p>
- * @public
- */
-export interface ColumnTooltipItem {
-  /**
-   * <p>The target column of the tooltip item.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The label of the tooltip item.</p>
-   * @public
-   */
-  Label?: string;
-
-  /**
-   * <p>The visibility of the tooltip item.</p>
-   * @public
-   */
-  Visibility?: Visibility;
-
-  /**
-   * <p>The aggregation function of the column tooltip item.</p>
-   * @public
-   */
-  Aggregation?: AggregationFunction;
-
-  /**
-   * <p>Determines the target of the column tooltip item in a combo chart visual.</p>
-   * @public
-   */
-  TooltipTarget?: TooltipTarget;
 }
 
 /**

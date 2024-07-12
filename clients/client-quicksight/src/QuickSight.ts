@@ -3,6 +3,16 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchCreateTopicReviewedAnswerCommand,
+  BatchCreateTopicReviewedAnswerCommandInput,
+  BatchCreateTopicReviewedAnswerCommandOutput,
+} from "./commands/BatchCreateTopicReviewedAnswerCommand";
+import {
+  BatchDeleteTopicReviewedAnswerCommand,
+  BatchDeleteTopicReviewedAnswerCommandInput,
+  BatchDeleteTopicReviewedAnswerCommandOutput,
+} from "./commands/BatchDeleteTopicReviewedAnswerCommand";
+import {
   CancelIngestionCommand,
   CancelIngestionCommandInput,
   CancelIngestionCommandOutput,
@@ -572,6 +582,11 @@ import {
   ListTopicRefreshSchedulesCommandInput,
   ListTopicRefreshSchedulesCommandOutput,
 } from "./commands/ListTopicRefreshSchedulesCommand";
+import {
+  ListTopicReviewedAnswersCommand,
+  ListTopicReviewedAnswersCommandInput,
+  ListTopicReviewedAnswersCommandOutput,
+} from "./commands/ListTopicReviewedAnswersCommand";
 import { ListTopicsCommand, ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
 import {
   ListUserGroupsCommand,
@@ -807,6 +822,8 @@ import {
 import { QuickSightClient, QuickSightClientConfig } from "./QuickSightClient";
 
 const commands = {
+  BatchCreateTopicReviewedAnswerCommand,
+  BatchDeleteTopicReviewedAnswerCommand,
   CancelIngestionCommand,
   CreateAccountCustomizationCommand,
   CreateAccountSubscriptionCommand,
@@ -929,6 +946,7 @@ const commands = {
   ListThemesCommand,
   ListThemeVersionsCommand,
   ListTopicRefreshSchedulesCommand,
+  ListTopicReviewedAnswersCommand,
   ListTopicsCommand,
   ListUserGroupsCommand,
   ListUsersCommand,
@@ -984,6 +1002,40 @@ const commands = {
 };
 
 export interface QuickSight {
+  /**
+   * @see {@link BatchCreateTopicReviewedAnswerCommand}
+   */
+  batchCreateTopicReviewedAnswer(
+    args: BatchCreateTopicReviewedAnswerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateTopicReviewedAnswerCommandOutput>;
+  batchCreateTopicReviewedAnswer(
+    args: BatchCreateTopicReviewedAnswerCommandInput,
+    cb: (err: any, data?: BatchCreateTopicReviewedAnswerCommandOutput) => void
+  ): void;
+  batchCreateTopicReviewedAnswer(
+    args: BatchCreateTopicReviewedAnswerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateTopicReviewedAnswerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteTopicReviewedAnswerCommand}
+   */
+  batchDeleteTopicReviewedAnswer(
+    args: BatchDeleteTopicReviewedAnswerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteTopicReviewedAnswerCommandOutput>;
+  batchDeleteTopicReviewedAnswer(
+    args: BatchDeleteTopicReviewedAnswerCommandInput,
+    cb: (err: any, data?: BatchDeleteTopicReviewedAnswerCommandOutput) => void
+  ): void;
+  batchDeleteTopicReviewedAnswer(
+    args: BatchDeleteTopicReviewedAnswerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteTopicReviewedAnswerCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CancelIngestionCommand}
    */
@@ -2882,6 +2934,23 @@ export interface QuickSight {
     args: ListTopicRefreshSchedulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTopicRefreshSchedulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTopicReviewedAnswersCommand}
+   */
+  listTopicReviewedAnswers(
+    args: ListTopicReviewedAnswersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicReviewedAnswersCommandOutput>;
+  listTopicReviewedAnswers(
+    args: ListTopicReviewedAnswersCommandInput,
+    cb: (err: any, data?: ListTopicReviewedAnswersCommandOutput) => void
+  ): void;
+  listTopicReviewedAnswers(
+    args: ListTopicReviewedAnswersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTopicReviewedAnswersCommandOutput) => void
   ): void;
 
   /**

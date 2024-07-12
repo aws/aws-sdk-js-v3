@@ -33,6 +33,14 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  BatchCreateTopicReviewedAnswerCommandInput,
+  BatchCreateTopicReviewedAnswerCommandOutput,
+} from "../commands/BatchCreateTopicReviewedAnswerCommand";
+import {
+  BatchDeleteTopicReviewedAnswerCommandInput,
+  BatchDeleteTopicReviewedAnswerCommandOutput,
+} from "../commands/BatchDeleteTopicReviewedAnswerCommand";
 import { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "../commands/CancelIngestionCommand";
 import {
   CreateAccountCustomizationCommandInput,
@@ -365,6 +373,10 @@ import {
   ListTopicRefreshSchedulesCommandInput,
   ListTopicRefreshSchedulesCommandOutput,
 } from "../commands/ListTopicRefreshSchedulesCommand";
+import {
+  ListTopicReviewedAnswersCommandInput,
+  ListTopicReviewedAnswersCommandOutput,
+} from "../commands/ListTopicReviewedAnswersCommand";
 import { ListTopicsCommandInput, ListTopicsCommandOutput } from "../commands/ListTopicsCommand";
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "../commands/ListUserGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
@@ -502,7 +514,9 @@ import {
   AccessDeniedException,
   AccountCustomization,
   AdHocFilteringOption,
+  AggFunction,
   AggregationFunction,
+  AggregationPartitionBy,
   AggregationSortConfiguration,
   AllSheetsFilterScopeConfiguration,
   AmazonElasticsearchParameters,
@@ -525,7 +539,6 @@ import {
   AxisTickLabelOptions,
   BarChartAggregatedFieldWells,
   BarChartFieldWells,
-  BarChartSortConfiguration,
   BodySectionConfiguration,
   BodySectionContent,
   BodySectionDynamicCategoryDimensionConfiguration,
@@ -547,7 +560,6 @@ import {
   ColumnConfiguration,
   ColumnIdentifier,
   ColumnSort,
-  ColumnTooltipItem,
   ContextMenuOption,
   ContributionAnalysisDefault,
   CurrencyDisplayFormatConfiguration,
@@ -598,7 +610,6 @@ import {
   ExcludePeriodConfiguration,
   FieldLabelType,
   FieldSort,
-  FieldSortOptions,
   Filter,
   FilterControl,
   FilterCrossSheetControl,
@@ -735,6 +746,7 @@ import {
   ArcConfiguration,
   ArcOptions,
   BarChartConfiguration,
+  BarChartSortConfiguration,
   BarChartVisual,
   BinCountOptions,
   BinWidthOptions,
@@ -750,6 +762,7 @@ import {
   ClusterMarkerConfiguration,
   ColorScale,
   ColumnHierarchy,
+  ColumnTooltipItem,
   ComboChartAggregatedFieldWells,
   ComboChartConfiguration,
   ComboChartFieldWells,
@@ -784,6 +797,7 @@ import {
   ExplicitHierarchy,
   FieldBasedTooltip,
   FieldSeriesItem,
+  FieldSortOptions,
   FieldTooltipItem,
   FilledMapAggregatedFieldWells,
   FilledMapConditionalFormatting,
@@ -974,11 +988,7 @@ import {
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
-  WaterfallChartAggregatedFieldWells,
-  WaterfallChartColorConfiguration,
-  WaterfallChartFieldWells,
   WaterfallChartGroupColorConfiguration,
-  WaterfallChartSortConfiguration,
   WhatIfPointScenario,
   WhatIfRangeScenario,
   YAxisOptions,
@@ -990,6 +1000,7 @@ import {
   AnalysisSourceEntity,
   AnalysisSourceTemplate,
   AnalysisSummary,
+  Anchor,
   AnonymousUserDashboardEmbeddingConfiguration,
   AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
@@ -1054,6 +1065,7 @@ import {
   CastColumnTypeOperation,
   CellValueSynonym,
   CollectiveConstant,
+  CollectiveConstantEntry,
   ColumnDescription,
   ColumnGroup,
   ColumnGroupColumnSchema,
@@ -1065,6 +1077,8 @@ import {
   ComparativeOrder,
   ConcurrentUpdatingException,
   ConflictException,
+  ContributionAnalysisFactor,
+  ContributionAnalysisTimeRanges,
   CreateColumnsOperation,
   CredentialPair,
   CustomSql,
@@ -1078,10 +1092,8 @@ import {
   DataPointDrillUpDownOption,
   DataPointMenuLabelOption,
   DataPointTooltipOption,
-  DataSetConfiguration,
   DatasetParameter,
   DataSetReference,
-  DataSetSchema,
   DataSetUsageConfiguration,
   DataSourceCredentials,
   DataSourceParameters,
@@ -1091,13 +1103,16 @@ import {
   DecimalDatasetParameter,
   DecimalDatasetParameterDefaultValues,
   DecimalParameter,
+  DisplayFormatOptions,
   ExasolParameters,
   ExportHiddenFieldsOption,
   ExportToCSVOption,
   ExportWithHiddenFieldsOption,
   FieldFolder,
+  FilterAggMetrics,
   FilterOperation,
   GeoSpatialColumnGroup,
+  Identifier,
   IdentityCenterConfiguration,
   InputColumn,
   IntegerDatasetParameter,
@@ -1115,6 +1130,8 @@ import {
   ManifestFileLocation,
   MariaDbParameters,
   MySqlParameters,
+  NamedEntityRef,
+  NegativeFormat,
   NewDefaultValues,
   OracleParameters,
   OverrideDatasetParameterOperation,
@@ -1126,8 +1143,6 @@ import {
   RdsParameters,
   RedshiftIAMParameters,
   RedshiftParameters,
-  RefreshFrequency,
-  RefreshSchedule,
   RelationalTable,
   RenameColumnOperation,
   ResourceExistsException,
@@ -1140,11 +1155,11 @@ import {
   S3BucketConfiguration,
   S3Parameters,
   S3Source,
-  ScheduleRefreshOnEntity,
   ServiceNowParameters,
   SheetControlsOption,
   SheetDefinition,
   SheetLayoutElementMaximizationOption,
+  Slot,
   SnapshotFile,
   SnapshotFileSheetSelection,
   SnapshotS3DestinationConfiguration,
@@ -1158,12 +1173,17 @@ import {
   StringParameter,
   Tag,
   TagColumnOperation,
-  TemplateSourceAnalysis,
-  TemplateSourceEntity,
-  TemplateSourceTemplate,
-  TemplateVersionDefinition,
   TeradataParameters,
   ThrottlingException,
+  TopicConstantValue,
+  TopicIR,
+  TopicIRComparisonMethod,
+  TopicIRContributionAnalysis,
+  TopicIRFilterOption,
+  TopicIRGroupBy,
+  TopicIRMetric,
+  TopicSortClause,
+  TopicTemplate,
   TransformOperation,
   TrinoParameters,
   TwitterParameters,
@@ -1173,9 +1193,14 @@ import {
   ValidationStrategy,
   Visual,
   VisualAxisSortOption,
+  VisualOptions,
   VpcConnectionProperties,
+  WaterfallChartAggregatedFieldWells,
+  WaterfallChartColorConfiguration,
   WaterfallChartConfiguration,
+  WaterfallChartFieldWells,
   WaterfallChartOptions,
+  WaterfallChartSortConfiguration,
   WaterfallVisual,
   WordCloudAggregatedFieldWells,
   WordCloudChartConfiguration,
@@ -1193,55 +1218,45 @@ import {
   DataAggregation,
   DataColorPalette,
   DataSet,
+  DataSetConfiguration,
   DatasetMetadata,
   DataSetRefreshProperties,
+  DataSetSchema,
   DataSetSearchFilter,
   DataSetSummary,
   DataSource,
   DataSourceSearchFilter,
   DataSourceSummary,
   DefaultFormatting,
-  DisplayFormatOptions,
   DomainNotWhitelistedException,
   Folder,
-  FolderSearchFilter,
-  FolderSummary,
   Font,
-  GroupSearchFilter,
   GutterStyle,
-  IdentityTypeNotSupportedException,
   IncrementalRefresh,
   Ingestion,
   InvalidNextTokenException,
-  InvalidRequestException,
   LookbackWindow,
   MarginStyle,
   NamedEntityDefinition,
   NamedEntityDefinitionMetric,
-  NegativeFormat,
-  QuickSightUserNotFoundException,
   RangeConstant,
   RefreshConfiguration,
+  RefreshFrequency,
+  RefreshSchedule,
   RegisteredCustomerManagedKey,
-  RegisteredUserConsoleFeatureConfigurations,
-  RegisteredUserDashboardEmbeddingConfiguration,
-  RegisteredUserDashboardFeatureConfigurations,
-  RegisteredUserDashboardVisualEmbeddingConfiguration,
-  RegisteredUserEmbeddingExperienceConfiguration,
-  RegisteredUserGenerativeQnAEmbeddingConfiguration,
-  RegisteredUserQSearchBarEmbeddingConfiguration,
-  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  ScheduleRefreshOnEntity,
   SemanticEntityType,
   SemanticType,
-  SessionLifetimeInMinutesInvalidException,
-  SessionTag,
   SheetStyle,
   SnapshotConfiguration,
   SnapshotDestinationConfiguration,
   SnapshotFileGroup,
-  StatePersistenceConfigurations,
   Template,
+  TemplateSourceAnalysis,
+  TemplateSourceEntity,
+  TemplateSourceTemplate,
   TemplateVersion,
+  TemplateVersionDefinition,
   Theme,
   ThemeConfiguration,
   ThemeVersion,
@@ -1263,20 +1278,88 @@ import {
   TopicSingularFilterConstant,
   Typography,
   UIColorPalette,
-  UnsupportedPricingPlanException,
   VPCConnection,
 } from "../models/models_3";
 import {
+  CreateTopicReviewedAnswer,
+  FolderSearchFilter,
+  FolderSummary,
+  GroupSearchFilter,
+  IdentityTypeNotSupportedException,
+  InvalidRequestException,
+  QuickSightUserNotFoundException,
+  RegisteredUserConsoleFeatureConfigurations,
+  RegisteredUserDashboardEmbeddingConfiguration,
+  RegisteredUserDashboardFeatureConfigurations,
+  RegisteredUserDashboardVisualEmbeddingConfiguration,
+  RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserGenerativeQnAEmbeddingConfiguration,
+  RegisteredUserQSearchBarEmbeddingConfiguration,
+  RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  SessionLifetimeInMinutesInvalidException,
+  SessionTag,
   SnapshotAnonymousUser,
   SnapshotUserConfiguration,
+  StatePersistenceConfigurations,
   TemplateSummary,
   TemplateVersionSummary,
   ThemeSummary,
   ThemeVersionSummary,
   TopicRefreshScheduleSummary,
+  TopicReviewedAnswer,
+  TopicVisual,
+  UnsupportedPricingPlanException,
   VPCConnectionSummary,
 } from "../models/models_4";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
+
+/**
+ * serializeAws_restJson1BatchCreateTopicReviewedAnswerCommand
+ */
+export const se_BatchCreateTopicReviewedAnswerCommand = async (
+  input: BatchCreateTopicReviewedAnswerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Answers: (_) => se_CreateTopicReviewedAnswers(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchDeleteTopicReviewedAnswerCommand
+ */
+export const se_BatchDeleteTopicReviewedAnswerCommand = async (
+  input: BatchDeleteTopicReviewedAnswerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AnswerIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CancelIngestionCommand
@@ -3779,6 +3862,23 @@ export const se_ListTopicRefreshSchedulesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTopicReviewedAnswersCommand
+ */
+export const se_ListTopicReviewedAnswersCommand = async (
+  input: ListTopicReviewedAnswersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTopicsCommand
  */
 export const se_ListTopicsCommand = async (
@@ -5088,6 +5188,62 @@ export const se_UpdateVPCConnectionCommand = async (
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1BatchCreateTopicReviewedAnswerCommand
+ */
+export const de_BatchCreateTopicReviewedAnswerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateTopicReviewedAnswerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InvalidAnswers: _json,
+    RequestId: __expectString,
+    SucceededAnswers: _json,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDeleteTopicReviewedAnswerCommand
+ */
+export const de_BatchDeleteTopicReviewedAnswerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteTopicReviewedAnswerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InvalidAnswers: _json,
+    RequestId: __expectString,
+    SucceededAnswers: _json,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
 };
 
 /**
@@ -8289,6 +8445,33 @@ export const de_ListTopicRefreshSchedulesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTopicReviewedAnswersCommand
+ */
+export const de_ListTopicReviewedAnswersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTopicReviewedAnswersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Answers: (_) => de_TopicReviewedAnswers(_, context),
+    RequestId: __expectString,
+    TopicArn: __expectString,
+    TopicId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTopicsCommand
  */
 export const de_ListTopicsCommand = async (
@@ -9655,9 +9838,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -9667,6 +9847,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConflictException":
     case "com.amazonaws.quicksight#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.quicksight#ResourceUnavailableException":
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
@@ -10117,6 +10300,10 @@ const de_UnsupportedUserEditionExceptionRes = async (
 
 // se_AdHocFilteringOption omitted.
 
+// se_AggFunction omitted.
+
+// se_AggFunctionParamMap omitted.
+
 /**
  * serializeAws_restJson1AggregationFunction
  */
@@ -10130,6 +10317,10 @@ const se_AggregationFunction = (input: AggregationFunction, context: __SerdeCont
 };
 
 // se_AggregationFunctionParameters omitted.
+
+// se_AggregationPartitionBy omitted.
+
+// se_AggregationPartitionByList omitted.
 
 /**
  * serializeAws_restJson1AggregationSortConfiguration
@@ -10185,6 +10376,8 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 
 // se_AnalysisSourceTemplate omitted.
 
+// se_Anchor omitted.
+
 // se_AnchorDateConfiguration omitted.
 
 // se_AnonymousUserDashboardEmbeddingConfiguration omitted.
@@ -10196,6 +10389,8 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 // se_AnonymousUserGenerativeQnAEmbeddingConfiguration omitted.
 
 // se_AnonymousUserQSearchBarEmbeddingConfiguration omitted.
+
+// se_AnswerIds omitted.
 
 /**
  * serializeAws_restJson1ArcAxisConfiguration
@@ -10816,6 +11011,8 @@ const se_BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any =>
 
 // se_CalculatedField omitted.
 
+// se_CalculatedFieldReferenceList omitted.
+
 // se_CalculatedFields omitted.
 
 // se_CalculatedMeasureField omitted.
@@ -10872,6 +11069,10 @@ const se_CategoryInnerFilter = (input: CategoryInnerFilter, context: __SerdeCont
 // se_ClusterMarkerConfiguration omitted.
 
 // se_CollectiveConstant omitted.
+
+// se_CollectiveConstantEntry omitted.
+
+// se_CollectiveConstantEntryList omitted.
 
 // se_ColorList omitted.
 
@@ -11132,9 +11333,40 @@ const se_ConditionalFormattingGradientColor = (
 
 // se_ContributionAnalysisDefaultList omitted.
 
+// se_ContributionAnalysisFactor omitted.
+
+// se_ContributionAnalysisFactorsList omitted.
+
+// se_ContributionAnalysisTimeRanges omitted.
+
 // se_ContributorDimensionList omitted.
 
 // se_CreateColumnsOperation omitted.
+
+/**
+ * serializeAws_restJson1CreateTopicReviewedAnswer
+ */
+const se_CreateTopicReviewedAnswer = (input: CreateTopicReviewedAnswer, context: __SerdeContext): any => {
+  return take(input, {
+    AnswerId: [],
+    DatasetArn: [],
+    Mir: _json,
+    PrimaryVisual: (_) => se_TopicVisual(_, context),
+    Question: [],
+    Template: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateTopicReviewedAnswers
+ */
+const se_CreateTopicReviewedAnswers = (input: CreateTopicReviewedAnswer[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CreateTopicReviewedAnswer(entry, context);
+    });
+};
 
 // se_CredentialPair omitted.
 
@@ -11913,6 +12145,10 @@ const se_Filter = (input: Filter, context: __SerdeContext): any => {
   });
 };
 
+// se_FilterAggMetrics omitted.
+
+// se_FilterAggMetricsList omitted.
+
 /**
  * serializeAws_restJson1FilterControl
  */
@@ -12598,6 +12834,8 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
   });
 };
 
+// se_Identifier omitted.
+
 // se_IdentityCenterConfiguration omitted.
 
 // se_IdentityMap omitted.
@@ -13064,6 +13302,8 @@ const se_MetricComparisonComputation = (input: MetricComparisonComputation, cont
 
 // se_NamedEntityDefinitions omitted.
 
+// se_NamedEntityRef omitted.
+
 // se_NegativeFormat omitted.
 
 // se_NegativeValueConfiguration omitted.
@@ -13192,6 +13432,8 @@ const se_NumericRangeFilterValue = (input: NumericRangeFilterValue, context: __S
 };
 
 // se_NumericSeparatorConfiguration omitted.
+
+// se_OperandList omitted.
 
 // se_OracleParameters omitted.
 
@@ -14220,6 +14462,10 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
 
 // se_SliderControlDisplayOptions omitted.
 
+// se_Slot omitted.
+
+// se_Slots omitted.
+
 // se_SmallMultiplesAxisProperties omitted.
 
 // se_SmallMultiplesDimensionFieldList omitted.
@@ -14678,6 +14924,8 @@ const se_TopBottomRankedComputation = (input: TopBottomRankedComputation, contex
 
 // se_TopicColumns omitted.
 
+// se_TopicConstantValue omitted.
+
 // se_TopicDateRangeFilter omitted.
 
 // se_TopicDetails omitted.
@@ -14685,6 +14933,26 @@ const se_TopBottomRankedComputation = (input: TopBottomRankedComputation, contex
 // se_TopicFilter omitted.
 
 // se_TopicFilters omitted.
+
+// se_TopicIR omitted.
+
+// se_TopicIRComparisonMethod omitted.
+
+// se_TopicIRContributionAnalysis omitted.
+
+// se_TopicIRFilterEntry omitted.
+
+// se_TopicIRFilterList omitted.
+
+// se_TopicIRFilterOption omitted.
+
+// se_TopicIRGroupBy omitted.
+
+// se_TopicIRGroupByList omitted.
+
+// se_TopicIRMetric omitted.
+
+// se_TopicIRMetricList omitted.
 
 // se_TopicNamedEntities omitted.
 
@@ -14713,6 +14981,33 @@ const se_TopicRefreshSchedule = (input: TopicRefreshSchedule, context: __SerdeCo
 // se_TopicRelativeDateFilter omitted.
 
 // se_TopicSingularFilterConstant omitted.
+
+// se_TopicSortClause omitted.
+
+// se_TopicTemplate omitted.
+
+/**
+ * serializeAws_restJson1TopicVisual
+ */
+const se_TopicVisual = (input: TopicVisual, context: __SerdeContext): any => {
+  return take(input, {
+    Ir: _json,
+    Role: [],
+    SupportingVisuals: (_) => se_TopicVisuals(_, context),
+    VisualId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1TopicVisuals
+ */
+const se_TopicVisuals = (input: TopicVisual[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_TopicVisual(entry, context);
+    });
+};
 
 /**
  * serializeAws_restJson1TotalAggregationComputation
@@ -14970,6 +15265,8 @@ const se_VisualList = (input: Visual[], context: __SerdeContext): any => {
 
 // se_VisualMenuOption omitted.
 
+// se_VisualOptions omitted.
+
 // se_VisualPalette omitted.
 
 // se_VisualSubtitleLabelOptions omitted.
@@ -15163,6 +15460,10 @@ const se_WordCloudVisual = (input: WordCloudVisual, context: __SerdeContext): an
 
 // de_AdHocFilteringOption omitted.
 
+// de_AggFunction omitted.
+
+// de_AggFunctionParamMap omitted.
+
 /**
  * deserializeAws_restJson1AggregationFunction
  */
@@ -15176,6 +15477,10 @@ const de_AggregationFunction = (output: any, context: __SerdeContext): Aggregati
 };
 
 // de_AggregationFunctionParameters omitted.
+
+// de_AggregationPartitionBy omitted.
+
+// de_AggregationPartitionByList omitted.
 
 /**
  * deserializeAws_restJson1AggregationSortConfiguration
@@ -15271,6 +15576,8 @@ const de_AnalysisSummaryList = (output: any, context: __SerdeContext): AnalysisS
     });
   return retVal;
 };
+
+// de_Anchor omitted.
 
 // de_AnchorDateConfiguration omitted.
 
@@ -15963,6 +16270,8 @@ const de_BoxPlotVisual = (output: any, context: __SerdeContext): BoxPlotVisual =
 
 // de_CalculatedField omitted.
 
+// de_CalculatedFieldReferenceList omitted.
+
 // de_CalculatedFields omitted.
 
 // de_CalculatedMeasureField omitted.
@@ -16019,6 +16328,10 @@ const de_CategoryInnerFilter = (output: any, context: __SerdeContext): CategoryI
 // de_ClusterMarkerConfiguration omitted.
 
 // de_CollectiveConstant omitted.
+
+// de_CollectiveConstantEntry omitted.
+
+// de_CollectiveConstantEntryList omitted.
 
 // de_ColorList omitted.
 
@@ -16281,6 +16594,12 @@ const de_ConditionalFormattingGradientColor = (
 // de_ContributionAnalysisDefault omitted.
 
 // de_ContributionAnalysisDefaultList omitted.
+
+// de_ContributionAnalysisFactor omitted.
+
+// de_ContributionAnalysisFactorsList omitted.
+
+// de_ContributionAnalysisTimeRanges omitted.
 
 // de_ContributorDimensionList omitted.
 
@@ -17266,6 +17585,10 @@ const de_Filter = (output: any, context: __SerdeContext): Filter => {
   }) as any;
 };
 
+// de_FilterAggMetrics omitted.
+
+// de_FilterAggMetricsList omitted.
+
 /**
  * deserializeAws_restJson1FilterControl
  */
@@ -18011,6 +18334,8 @@ const de_HistogramVisual = (output: any, context: __SerdeContext): HistogramVisu
 
 // de_IAMPolicyAssignmentSummaryList omitted.
 
+// de_Identifier omitted.
+
 // de_IdentityCenterConfiguration omitted.
 
 // de_IdentityMap omitted.
@@ -18105,6 +18430,10 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
 // de_IntegerParameterList omitted.
 
 // de_IntegerValueWhenUnsetConfiguration omitted.
+
+// de_InvalidTopicReviewedAnswer omitted.
+
+// de_InvalidTopicReviewedAnswers omitted.
 
 // de_IpRestrictionRuleMap omitted.
 
@@ -18513,6 +18842,8 @@ const de_MetricComparisonComputation = (output: any, context: __SerdeContext): M
 
 // de_NamedEntityDefinitions omitted.
 
+// de_NamedEntityRef omitted.
+
 // de_NamespaceError omitted.
 
 // de_NamespaceInfoV2 omitted.
@@ -18651,6 +18982,8 @@ const de_NumericRangeFilterValue = (output: any, context: __SerdeContext): Numer
 };
 
 // de_NumericSeparatorConfiguration omitted.
+
+// de_OperandList omitted.
 
 // de_OracleParameters omitted.
 
@@ -19702,6 +20035,10 @@ const de_SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefi
 
 // de_SliderControlDisplayOptions omitted.
 
+// de_Slot omitted.
+
+// de_Slots omitted.
+
 // de_SmallMultiplesAxisProperties omitted.
 
 // de_SmallMultiplesDimensionFieldList omitted.
@@ -19798,6 +20135,10 @@ const de_SnapshotConfiguration = (output: any, context: __SerdeContext): Snapsho
 // de_SubnetIdList omitted.
 
 // de_SubtotalOptions omitted.
+
+// de_SucceededTopicReviewedAnswer omitted.
+
+// de_SucceededTopicReviewedAnswers omitted.
 
 // de_SuccessfulKeyRegistrationEntries omitted.
 
@@ -20357,6 +20698,8 @@ const de_TopBottomRankedComputation = (output: any, context: __SerdeContext): To
 
 // de_TopicColumns omitted.
 
+// de_TopicConstantValue omitted.
+
 // de_TopicDateRangeFilter omitted.
 
 // de_TopicDetails omitted.
@@ -20364,6 +20707,26 @@ const de_TopBottomRankedComputation = (output: any, context: __SerdeContext): To
 // de_TopicFilter omitted.
 
 // de_TopicFilters omitted.
+
+// de_TopicIR omitted.
+
+// de_TopicIRComparisonMethod omitted.
+
+// de_TopicIRContributionAnalysis omitted.
+
+// de_TopicIRFilterEntry omitted.
+
+// de_TopicIRFilterList omitted.
+
+// de_TopicIRFilterOption omitted.
+
+// de_TopicIRGroupBy omitted.
+
+// de_TopicIRGroupByList omitted.
+
+// de_TopicIRMetric omitted.
+
+// de_TopicIRMetricList omitted.
 
 // de_TopicNamedEntities omitted.
 
@@ -20417,11 +20780,66 @@ const de_TopicRefreshScheduleSummary = (output: any, context: __SerdeContext): T
 
 // de_TopicRelativeDateFilter omitted.
 
+/**
+ * deserializeAws_restJson1TopicReviewedAnswer
+ */
+const de_TopicReviewedAnswer = (output: any, context: __SerdeContext): TopicReviewedAnswer => {
+  return take(output, {
+    AnswerId: __expectString,
+    Arn: __expectString,
+    DatasetArn: __expectString,
+    Mir: _json,
+    PrimaryVisual: (_: any) => de_TopicVisual(_, context),
+    Question: __expectString,
+    Template: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TopicReviewedAnswers
+ */
+const de_TopicReviewedAnswers = (output: any, context: __SerdeContext): TopicReviewedAnswer[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TopicReviewedAnswer(entry, context);
+    });
+  return retVal;
+};
+
 // de_TopicSingularFilterConstant omitted.
+
+// de_TopicSortClause omitted.
 
 // de_TopicSummaries omitted.
 
 // de_TopicSummary omitted.
+
+// de_TopicTemplate omitted.
+
+/**
+ * deserializeAws_restJson1TopicVisual
+ */
+const de_TopicVisual = (output: any, context: __SerdeContext): TopicVisual => {
+  return take(output, {
+    Ir: _json,
+    Role: __expectString,
+    SupportingVisuals: (_: any) => de_TopicVisuals(_, context),
+    VisualId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TopicVisuals
+ */
+const de_TopicVisuals = (output: any, context: __SerdeContext): TopicVisual[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TopicVisual(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1TotalAggregationComputation
@@ -20712,6 +21130,8 @@ const de_VisualList = (output: any, context: __SerdeContext): Visual[] => {
 };
 
 // de_VisualMenuOption omitted.
+
+// de_VisualOptions omitted.
 
 // de_VisualPalette omitted.
 

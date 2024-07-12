@@ -189,6 +189,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   InfoIconText: "STRING_VALUE",
  *                 },
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *             },
  *             List: { // ParameterListControl
@@ -377,6 +379,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
  *             },
@@ -4581,6 +4585,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: { // DefaultFilterListControlOptions
@@ -4674,6 +4680,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: {
@@ -4752,6 +4760,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: {

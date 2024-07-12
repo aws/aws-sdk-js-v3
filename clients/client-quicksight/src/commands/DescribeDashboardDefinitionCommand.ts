@@ -116,6 +116,8 @@ export interface DescribeDashboardDefinitionCommandOutput
  * //                   Visibility: "HIDDEN" || "VISIBLE",
  * //                   InfoIconText: "STRING_VALUE",
  * //                 },
+ * //                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ * //                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //               },
  * //             },
  * //             List: { // ParameterListControl
@@ -304,6 +306,8 @@ export interface DescribeDashboardDefinitionCommandOutput
  * //                 TitleOptions: "<LabelOptions>",
  * //                 DateTimeFormat: "STRING_VALUE",
  * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ * //                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //               },
  * //               Type: "SINGLE_VALUED" || "DATE_RANGE",
  * //             },
@@ -4510,6 +4514,8 @@ export interface DescribeDashboardDefinitionCommandOutput
  * //                       TitleOptions: "<LabelOptions>",
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
  * //                   },
  * //                   DefaultListOptions: { // DefaultFilterListControlOptions
@@ -4603,6 +4609,8 @@ export interface DescribeDashboardDefinitionCommandOutput
  * //                       TitleOptions: "<LabelOptions>",
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
  * //                   },
  * //                   DefaultListOptions: {
@@ -4681,6 +4689,8 @@ export interface DescribeDashboardDefinitionCommandOutput
  * //                       TitleOptions: "<LabelOptions>",
  * //                       DateTimeFormat: "STRING_VALUE",
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ * //                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  * //                     },
  * //                   },
  * //                   DefaultListOptions: {

@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+export * from "./BatchCreateTopicReviewedAnswerCommand";
+export * from "./BatchDeleteTopicReviewedAnswerCommand";
 export * from "./CancelIngestionCommand";
 export * from "./CreateAccountCustomizationCommand";
 export * from "./CreateAccountSubscriptionCommand";
@@ -121,6 +123,7 @@ export * from "./ListThemeAliasesCommand";
 export * from "./ListThemeVersionsCommand";
 export * from "./ListThemesCommand";
 export * from "./ListTopicRefreshSchedulesCommand";
+export * from "./ListTopicReviewedAnswersCommand";
 export * from "./ListTopicsCommand";
 export * from "./ListUserGroupsCommand";
 export * from "./ListUsersCommand";

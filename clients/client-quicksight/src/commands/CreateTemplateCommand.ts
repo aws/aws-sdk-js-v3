@@ -9,7 +9,7 @@ import {
   CreateTemplateRequest,
   CreateTemplateRequestFilterSensitiveLog,
   CreateTemplateResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_CreateTemplateCommand, se_CreateTemplateCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -137,6 +137,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                   InfoIconText: "STRING_VALUE",
  *                 },
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *             },
  *             List: { // ParameterListControl
@@ -325,6 +327,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
  *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                 HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                 DateIconVisibility: "HIDDEN" || "VISIBLE",
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
  *             },
@@ -4531,6 +4535,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: { // DefaultFilterListControlOptions
@@ -4624,6 +4630,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: {
@@ -4702,6 +4710,8 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *                       TitleOptions: "<LabelOptions>",
  *                       DateTimeFormat: "STRING_VALUE",
  *                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ *                       HelperTextVisibility: "HIDDEN" || "VISIBLE",
+ *                       DateIconVisibility: "HIDDEN" || "VISIBLE",
  *                     },
  *                   },
  *                   DefaultListOptions: {
