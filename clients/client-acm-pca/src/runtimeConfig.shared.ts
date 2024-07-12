@@ -15,7 +15,7 @@ import { defaultEndpointResolver } from "./endpoint/endpointResolver";
  */
 export const getRuntimeConfig = (config: ACMPCAClientConfig) => {
   return {
-    apiVersion: "2017-08-22",
+    apiVersion: "",
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,

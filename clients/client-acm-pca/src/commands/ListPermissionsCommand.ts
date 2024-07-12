@@ -63,13 +63,14 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * // const { ACMPCAClient, ListPermissionsCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // ListPermissionsRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
  * // { // ListPermissionsResponse
+ * //   NextToken: "STRING_VALUE",
  * //   Permissions: [ // PermissionList
  * //     { // Permission
  * //       CertificateAuthorityArn: "STRING_VALUE",
@@ -82,7 +83,6 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * //       Policy: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

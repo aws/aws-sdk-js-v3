@@ -36,13 +36,14 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * // const { ACMPCAClient, ListCertificateAuthoritiesCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // ListCertificateAuthoritiesRequest
- *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  *   ResourceOwner: "SELF" || "OTHER_ACCOUNTS",
  * };
  * const command = new ListCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
  * // { // ListCertificateAuthoritiesResponse
+ * //   NextToken: "STRING_VALUE",
  * //   CertificateAuthorities: [ // CertificateAuthorities
  * //     { // CertificateAuthority
  * //       Arn: "STRING_VALUE",
@@ -160,7 +161,6 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * //       UsageMode: "GENERAL_PURPOSE" || "SHORT_LIVED_CERTIFICATE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

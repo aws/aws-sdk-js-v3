@@ -16,7 +16,7 @@ export interface CustomAttribute {
   ObjectIdentifier: string | undefined;
 
   /**
-   * <p></p>
+   * <p/>
    *          <p>Specifies the attribute value of relative distinguished name (RDN).</p>
    * @public
    */
@@ -130,7 +130,7 @@ export interface ASN1Subject {
   GenerationQualifier?: string;
 
   /**
-   * <p></p>
+   * <p/>
    *          <p>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of
    * 			which consists of an object identifier (OID) and a value. For more information, see
    * 			NIST’s definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
@@ -1886,7 +1886,7 @@ export interface PolicyInformation {
 }
 
 /**
- * <p></p>
+ * <p/>
  *          <p>Specifies the X.509 extension information for a certificate.</p>
  *          <p>Extensions present in <code>CustomExtensions</code> follow the
  * 				<code>ApiPassthrough</code>
@@ -1896,7 +1896,7 @@ export interface PolicyInformation {
  */
 export interface CustomExtension {
   /**
-   * <p></p>
+   * <p/>
    *          <p>Specifies the object identifier (OID) of the X.509 extension. For more information,
    * 			see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a>
    *          </p>
@@ -1905,14 +1905,14 @@ export interface CustomExtension {
   ObjectIdentifier: string | undefined;
 
   /**
-   * <p></p>
+   * <p/>
    *          <p>Specifies the base64-encoded value of the X.509 extension.</p>
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p></p>
+   * <p/>
    *          <p>Specifies the critical flag of the X.509 extension.</p>
    * @public
    */
@@ -2002,7 +2002,7 @@ export interface Extensions {
   SubjectAlternativeNames?: GeneralName[];
 
   /**
-   * <p></p>
+   * <p/>
    *          <p>Contains a sequence of one or more X.509 extensions, each of which consists of an
    * 			object identifier (OID), a base64-encoded value, and the critical flag. For more
    * 			information, see the <a href="https://oidref.com/2.5.29">Global OID reference
@@ -2327,14 +2327,6 @@ export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
  */
 export interface ListCertificateAuthoritiesRequest {
   /**
-   * <p>Use this parameter when paginating results in a subsequent request after you receive a
-   * 			response with truncated results. Set it to the value of the <code>NextToken</code>
-   * 			parameter from the response you just received.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    * 			return in the response on each page. If additional items exist beyond the number you
    * 			specify, the <code>NextToken</code> element is sent in the response. Use this
@@ -2344,6 +2336,14 @@ export interface ListCertificateAuthoritiesRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use this parameter when paginating results in a subsequent request after you receive a
+   * 			response with truncated results. Set it to the value of the <code>NextToken</code>
+   * 			parameter from the response you just received.</p>
+   * @public
+   */
+  NextToken?: string;
 
   /**
    * <p>Use this parameter to filter the returned set of certificate authorities based on
@@ -2358,39 +2358,23 @@ export interface ListCertificateAuthoritiesRequest {
  */
 export interface ListCertificateAuthoritiesResponse {
   /**
-   * <p>Summary information about each certificate authority you have created.</p>
-   * @public
-   */
-  CertificateAuthorities?: CertificateAuthority[];
-
-  /**
    * <p>When the list is truncated, this value is present and should be used for the
    * 				<code>NextToken</code> parameter in a subsequent pagination request.</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>Summary information about each certificate authority you have created.</p>
+   * @public
+   */
+  CertificateAuthorities?: CertificateAuthority[];
 }
 
 /**
  * @public
  */
 export interface ListPermissionsRequest {
-  /**
-   * <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by
-   * 			calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must be of the form:
-   * 				<code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
-   * 			You can get a private CA's ARN by running the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p>
-   * @public
-   */
-  CertificateAuthorityArn: string | undefined;
-
-  /**
-   * <p>When paginating results, use this parameter in a subsequent request after you receive
-   * 			a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
-   * @public
-   */
-  NextToken?: string;
-
   /**
    * <p>When paginating results, use this parameter to specify the maximum number of items to
    * 			return in the response. If additional items exist beyond the number you specify, the
@@ -2400,6 +2384,22 @@ export interface ListPermissionsRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>When paginating results, use this parameter in a subsequent request after you receive
+   * 			a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by
+   * 			calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must be of the form:
+   * 				<code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
+   * 			You can get a private CA's ARN by running the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p>
+   * @public
+   */
+  CertificateAuthorityArn: string | undefined;
 }
 
 /**
@@ -2457,41 +2457,24 @@ export interface Permission {
  */
 export interface ListPermissionsResponse {
   /**
-   * <p>Summary information about each permission assigned by the specified private CA,
-   * 			including the action enabled, the policy provided, and the time of creation.</p>
-   * @public
-   */
-  Permissions?: Permission[];
-
-  /**
    * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.
    * 		</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>Summary information about each permission assigned by the specified private CA,
+   * 			including the action enabled, the policy provided, and the time of creation.</p>
+   * @public
+   */
+  Permissions?: Permission[];
 }
 
 /**
  * @public
  */
 export interface ListTagsRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
-   *          <p>
-   *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
-   *             </code>
-   *          </p>
-   * @public
-   */
-  CertificateAuthorityArn: string | undefined;
-
-  /**
-   * <p>Use this parameter when paginating results in a subsequent request after you receive a
-   * 			response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
-   * @public
-   */
-  NextToken?: string;
-
   /**
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    * 			return in the response. If additional items exist beyond the number you specify, the
@@ -2501,6 +2484,23 @@ export interface ListTagsRequest {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use this parameter when paginating results in a subsequent request after you receive a
+   * 			response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
+   *          <p>
+   *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+   *             </code>
+   *          </p>
+   * @public
+   */
+  CertificateAuthorityArn: string | undefined;
 }
 
 /**
@@ -2508,17 +2508,17 @@ export interface ListTagsRequest {
  */
 export interface ListTagsResponse {
   /**
-   * <p>The tags associated with your private CA.</p>
-   * @public
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.
    * 		</p>
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>The tags associated with your private CA.</p>
+   * @public
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -2528,7 +2528,7 @@ export interface PutPolicyRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The
    * 			ARN of the CA can be found by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p>
-   *          <p></p>
+   *          <p/>
    * @public
    */
   ResourceArn: string | undefined;
