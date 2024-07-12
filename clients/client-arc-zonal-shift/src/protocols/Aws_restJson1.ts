@@ -33,6 +33,10 @@ import {
   DeletePracticeRunConfigurationCommandInput,
   DeletePracticeRunConfigurationCommandOutput,
 } from "../commands/DeletePracticeRunConfigurationCommand";
+import {
+  GetAutoshiftObserverNotificationStatusCommandInput,
+  GetAutoshiftObserverNotificationStatusCommandOutput,
+} from "../commands/GetAutoshiftObserverNotificationStatusCommand";
 import { GetManagedResourceCommandInput, GetManagedResourceCommandOutput } from "../commands/GetManagedResourceCommand";
 import { ListAutoshiftsCommandInput, ListAutoshiftsCommandOutput } from "../commands/ListAutoshiftsCommand";
 import {
@@ -41,6 +45,10 @@ import {
 } from "../commands/ListManagedResourcesCommand";
 import { ListZonalShiftsCommandInput, ListZonalShiftsCommandOutput } from "../commands/ListZonalShiftsCommand";
 import { StartZonalShiftCommandInput, StartZonalShiftCommandOutput } from "../commands/StartZonalShiftCommand";
+import {
+  UpdateAutoshiftObserverNotificationStatusCommandInput,
+  UpdateAutoshiftObserverNotificationStatusCommandOutput,
+} from "../commands/UpdateAutoshiftObserverNotificationStatusCommand";
 import {
   UpdatePracticeRunConfigurationCommandInput,
   UpdatePracticeRunConfigurationCommandOutput,
@@ -121,6 +129,21 @@ export const se_DeletePracticeRunConfigurationCommand = async (
   b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutoshiftObserverNotificationStatusCommand
+ */
+export const se_GetAutoshiftObserverNotificationStatusCommand = async (
+  input: GetAutoshiftObserverNotificationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/autoshift-observer-notification");
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -222,6 +245,28 @@ export const se_StartZonalShiftCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAutoshiftObserverNotificationStatusCommand
+ */
+export const se_UpdateAutoshiftObserverNotificationStatusCommand = async (
+  input: UpdateAutoshiftObserverNotificationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/autoshift-observer-notification");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      status: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -373,6 +418,27 @@ export const de_DeletePracticeRunConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAutoshiftObserverNotificationStatusCommand
+ */
+export const de_GetAutoshiftObserverNotificationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutoshiftObserverNotificationStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetManagedResourceCommand
  */
 export const de_GetManagedResourceCommand = async (
@@ -487,6 +553,27 @@ export const de_StartZonalShiftCommand = async (
     startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
     zonalShiftId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAutoshiftObserverNotificationStatusCommand
+ */
+export const de_UpdateAutoshiftObserverNotificationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutoshiftObserverNotificationStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

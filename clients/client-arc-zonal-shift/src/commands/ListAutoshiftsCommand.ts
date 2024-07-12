@@ -28,7 +28,10 @@ export interface ListAutoshiftsCommandInput extends ListAutoshiftsRequest {}
 export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the active autoshifts for a specified resource.</p>
+ * <p>Returns a list of autoshifts for an Amazon Web Services Region. By default, the call returns
+ * 			only <code>ACTIVE</code> autoshifts. Optionally, you can specify the <code>status</code> parameter to return
+ * 			<code>COMPLETED</code> autoshifts.
+ * 		</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

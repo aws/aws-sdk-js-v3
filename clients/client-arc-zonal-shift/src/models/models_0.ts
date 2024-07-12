@@ -109,7 +109,7 @@ export interface ListAutoshiftsRequest {
  */
 export interface AutoshiftSummary {
   /**
-   * <p>The Availability Zone that traffic is shifted away from for a resource when Amazon Web Services starts an autoshift.
+   * <p>The Availability Zone (for example, <code>use1-az1</code>) that traffic is shifted away from for a resource when Amazon Web Services starts an autoshift.
    * 			Until the autoshift ends, traffic for the resource is instead directed to other Availability Zones in the Amazon Web Services Region.
    * 			An autoshift can end for a resource, for example, when Amazon Web Services ends the autoshift for the Availability Zone or when
    * 			you disable zonal autoshift for the resource.</p>
@@ -248,13 +248,13 @@ export type AutoshiftAppliedStatus = (typeof AutoshiftAppliedStatus)[keyof typeo
 export interface AutoshiftInResource {
   /**
    * <p>The <code>appliedStatus</code> field specifies which application traffic shift is in effect for a
-   * 			resource when there is more than one traffic shift active. There can be more than one application traffic
-   * 			shift in progress at the same time - that is, practice run zonal shifts, customer-started zonal shifts,
-   * 			or an autoshift. The <code>appliedStatus</code> field for an autoshift for a resource can have one of two
-   * 			values: <code>APPLIED</code> or <code>NOT_APPLIED</code>. The zonal shift or autoshift
-   * 			that is currently in effect for the resource has an applied status set to <code>APPLIED</code>.</p>
+   * 			resource when there is more than one active traffic shift. There can be more than one application traffic
+   * 			shift in progress at the same time - that is, practice run zonal shifts, customer-initiated zonal shifts,
+   * 			or an autoshift. The <code>appliedStatus</code> field for a shift that is in progress for a resource can
+   * 			have one of two values: <code>APPLIED</code> or <code>NOT_APPLIED</code>. The zonal shift or autoshift
+   * 			that is currently in effect for the resource has an <code>appliedStatus</code> set to <code>APPLIED</code>.</p>
    *          <p>The overall principle for precedence is that zonal shifts that you start as a customer take precedence
-   * 			autoshifts, which take precedence over practice runs. That is, customer-started zonal shifts &gt; autoshifts &gt; practice run
+   * 			autoshifts, which take precedence over practice runs. That is, customer-initiated zonal shifts &gt; autoshifts &gt; practice run
    * 			zonal shifts.</p>
    *          <p>For more information, see
    * 			<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html">How zonal autoshift
@@ -264,7 +264,7 @@ export interface AutoshiftInResource {
   appliedStatus: AutoshiftAppliedStatus | undefined;
 
   /**
-   * <p>The Availability Zone that traffic is shifted away from for a resource, when Amazon Web Services starts an autoshift.
+   * <p>The Availability Zone (for example, <code>use1-az1</code>) that traffic is shifted away from for a resource, when Amazon Web Services starts an autoshift.
    * 			Until the autoshift ends, traffic for the resource is instead directed to other Availability Zones in the Amazon Web Services Region.
    * 			An autoshift can end for a resource, for example, when Amazon Web Services ends the autoshift for the Availability Zone or when
    * 			you disable zonal autoshift for the resource.</p>
@@ -277,6 +277,67 @@ export interface AutoshiftInResource {
    * @public
    */
   startTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutoshiftObserverNotificationStatusRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoshiftObserverNotificationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoshiftObserverNotificationStatus =
+  (typeof AutoshiftObserverNotificationStatus)[keyof typeof AutoshiftObserverNotificationStatus];
+
+/**
+ * @public
+ */
+export interface GetAutoshiftObserverNotificationStatusResponse {
+  /**
+   * <p>The status of autoshift observer notification. If the status is <code>ENABLED</code>,
+   * 			Route 53 ARC includes all autoshift events when you use the Amazon EventBridge pattern
+   * 			<code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>,
+   * 			Route 53 ARC includes only autoshift events for autoshifts when one or more of your
+   * 			resources is included in the autoshift. </p>
+   * @public
+   */
+  status: AutoshiftObserverNotificationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutoshiftObserverNotificationStatusRequest {
+  /**
+   * <p>The status to set for autoshift observer notification. If the status is <code>ENABLED</code>,
+   * 			Route 53 ARC includes all autoshift events when you use the Amazon EventBridge pattern
+   * 			<code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>,
+   * 			Route 53 ARC includes only autoshift events for autoshifts when one or more of your
+   * 			resources is included in the autoshift. </p>
+   * @public
+   */
+  status: AutoshiftObserverNotificationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutoshiftObserverNotificationStatusResponse {
+  /**
+   * <p>The status for autoshift observer notification.</p>
+   * @public
+   */
+  status: AutoshiftObserverNotificationStatus | undefined;
 }
 
 /**
@@ -388,21 +449,21 @@ export interface ZonalShift {
   zonalShiftId: string | undefined;
 
   /**
-   * <p>The identifier for the resource to shift away traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
+   * <p>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *          <p>At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    * @public
    */
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
+   * <p>The Availability Zone (for example, <code>use1-az1</code>) that traffic is moved away from for a resource when you start a zonal shift.
    * 			Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the Amazon Web Services Region.</p>
    * @public
    */
   awayFrom: string | undefined;
 
   /**
-   * <p>The expiry time (expiration time) for a customer-started zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
+   * <p>The expiry time (expiration time) for a customer-initiated zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    * 			You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    * 			to set a new expiration at any time. </p>
    *          <p>When you start a zonal shift, you specify how long you want it to be active, which Route 53 ARC converts
@@ -465,7 +526,8 @@ export type ControlConditionType = (typeof ControlConditionType)[keyof typeof Co
  * 			with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch
  * 			to use with the practice run. The alarms that you specify are an
  * 			<i>outcome alarm</i>, to monitor application health during practice runs and,
- * 			optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p>
+ * 			optionally, a <i>blocking alarm</i>, to block practice runs from starting or to interrupt
+ * 			a practice run in progress.</p>
  *          <p>Control condition alarms do not apply for autoshifts.</p>
  *          <p>For more information, see
  * 			<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html">
@@ -474,13 +536,14 @@ export type ControlConditionType = (typeof ControlConditionType)[keyof typeof Co
  */
 export interface ControlCondition {
   /**
-   * <p>The type of alarm specified for a practice run. The only valid value is <code>CLOUDWATCH</code>.</p>
+   * <p>The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the
+   * 			only valid value is <code>CLOUDWATCH</code>.</p>
    * @public
    */
   type: ControlConditionType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon CloudWatch alarm that you specify as a control condition for a practice run.</p>
+   * <p>The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.</p>
    * @public
    */
   alarmIdentifier: string | undefined;
@@ -491,8 +554,8 @@ export interface ControlCondition {
  */
 export interface CreatePracticeRunConfigurationRequest {
   /**
-   * <p>The identifier of the resource to shift away traffic for when a practice
-   * 			run starts a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
+   * <p>The identifier of the resource that Amazon Web Services shifts traffic for with a practice
+   * 			run zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *          <p>At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    * @public
    */
@@ -551,7 +614,10 @@ export interface CreatePracticeRunConfigurationRequest {
 
 /**
  * <p>A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice
- * 		run, as well as any blocked dates or blocked windows for the practice run.</p>
+ * 		run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run
+ * 		configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.</p>
+ *          <p>Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that
+ * 			shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p>
  *          <p>You can update or delete a practice run configuration. Before you delete a practice run configuration, you
  * 			must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.</p>
  * @public
@@ -620,11 +686,11 @@ export interface CreatePracticeRunConfigurationResponse {
   name: string | undefined;
 
   /**
-   * <p>The status for zonal autoshift for a resource. When you specify the
-   * 			autoshift status as <code>ENABLED</code>, Amazon Web Services shifts traffic
+   * <p>The status for zonal autoshift for a resource. When you specify <code>ENABLED</code>
+   * 			for the autoshift status, Amazon Web Services shifts traffic
    * 			away from shifts away application resource traffic from an Availability Zone,
-   * 			on your behalf, when Amazon Web Services determines that there's an issue in
-   * 			the Availability Zone that could potentially affect customers.</p>
+   * 			on your behalf, when internal telemetry indicates that there is an Availability
+   * 			Zone impairment that could potentially impact customers.</p>
    *          <p>When you enable zonal autoshift, you must also configure practice runs for
    * 			the resource.</p>
    * @public
@@ -682,7 +748,7 @@ export interface DeletePracticeRunConfigurationResponse {
  */
 export interface GetManagedResourceRequest {
   /**
-   * <p>The identifier for the resource to shift away traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
+   * <p>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *          <p>At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    * @public
    */
@@ -712,13 +778,13 @@ export type PracticeRunOutcome = (typeof PracticeRunOutcome)[keyof typeof Practi
 export interface ZonalShiftInResource {
   /**
    * <p>The <code>appliedStatus</code> field specifies which application traffic shift is in effect for a
-   *    		resource when there is more than one traffic shift active. There can be more than one application traffic
-   *    		shift in progress at the same time - that is, practice run zonal shifts, customer-started zonal shifts,
-   *    		or an autoshift. The <code>appliedStatus</code> field for an autoshift for a resource can have one of two
-   *    		values: <code>APPLIED</code> or <code>NOT_APPLIED</code>. The zonal shift or autoshift
-   *    		that is currently in effect for the resource has an applied status set to <code>APPLIED</code>.</p>
+   *    		resource when there is more than one active traffic shift. There can be more than one application traffic
+   *    		shift in progress at the same time - that is, practice run zonal shifts, customer-initiated zonal shifts,
+   *    		or an autoshift. The <code>appliedStatus</code> field for a shift that is in progress for a resource can
+   *    		have one of two values: <code>APPLIED</code> or <code>NOT_APPLIED</code>. The zonal shift or autoshift
+   *    		that is currently in effect for the resource has an <code>appliedStatus</code> set to <code>APPLIED</code>.</p>
    *          <p>The overall principle for precedence is that zonal shifts that you start as a customer take precedence
-   *    		autoshifts, which take precedence over practice runs. That is, customer-started zonal shifts &gt; autoshifts &gt; practice run
+   *    		autoshifts, which take precedence over practice runs. That is, customer-initiated zonal shifts &gt; autoshifts &gt; practice run
    *    		zonal shifts.</p>
    *          <p>For more information, see
    *    		<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html">How zonal autoshift
@@ -741,14 +807,14 @@ export interface ZonalShiftInResource {
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
+   * <p>The Availability Zone (for example, <code>use1-az1</code>) that traffic is moved away from for a resource when you start a zonal shift.
    *    		Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the Amazon Web Services Region.</p>
    * @public
    */
   awayFrom: string | undefined;
 
   /**
-   * <p>The expiry time (expiration time) for a customer-started zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
+   * <p>The expiry time (expiration time) for a customer-initiated zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    *    		You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    *    		to set a new expiration at any time. </p>
    *          <p>When you start a zonal shift, you specify how long you want it to be active, which Route 53 ARC converts
@@ -765,7 +831,7 @@ export interface ZonalShiftInResource {
   startTime: Date | undefined;
 
   /**
-   * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment
+   * <p>A comment that you enter for a customer-initiated zonal shift. Only the latest comment is retained; no comment
    *    		history is maintained. That is, a new comment overwrites any existing comment string.</p>
    * @public
    */
@@ -1014,7 +1080,7 @@ export interface ListZonalShiftsRequest {
 /**
  * <p>Lists information about zonal shifts in Amazon Route 53 Application Recovery Controller, including zonal shifts that you start yourself and zonal shifts that Route 53 ARC starts
  *    		on your behalf for practice runs with zonal autoshift.</p>
- *          <p>Zonal shifts are temporary, including customer-started zonal shifts and the zonal autoshift practice run zonal shifts that
+ *          <p>Zonal shifts are temporary, including customer-initiated zonal shifts and the zonal autoshift practice run zonal shifts that
  *    		Route 53 ARC starts weekly, on your behalf. A zonal shift that a customer starts can be active for up to three days (72 hours). A
  *    		practice run zonal shift has a 30 minute duration.</p>
  * @public
@@ -1034,14 +1100,14 @@ export interface ZonalShiftSummary {
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
+   * <p>The Availability Zone (for example, <code>use1-az1</code>) that traffic is moved away from for a resource when you start a zonal shift.
    *    		Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the Amazon Web Services Region.</p>
    * @public
    */
   awayFrom: string | undefined;
 
   /**
-   * <p>The expiry time (expiration time) for a customer-started zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
+   * <p>The expiry time (expiration time) for a customer-initiated zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    *    		You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    *    		to set a new expiration at any time. </p>
    *          <p>When you start a zonal shift, you specify how long you want it to be active, which Route 53 ARC converts
@@ -1150,7 +1216,9 @@ export interface UpdateZonalAutoshiftConfigurationRequest {
 
   /**
    * <p>The zonal autoshift status for the resource that you want to update the zonal
-   * 			autoshift configuration for.</p>
+   * 			autoshift configuration for. Choose <code>ENABLED</code> to authorize Amazon Web Services
+   * 			to shift away resource traffic for an application from an Availability Zone during events,
+   * 			on your behalf, to help reduce time to recovery.</p>
    * @public
    */
   zonalAutoshiftStatus: ZonalAutoshiftStatus | undefined;
@@ -1168,8 +1236,7 @@ export interface UpdateZonalAutoshiftConfigurationResponse {
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The zonal autoshift status for the resource that you updated the zonal
-   * 			autoshift configuration for.</p>
+   * <p>The updated zonal autoshift status for the resource.</p>
    * @public
    */
   zonalAutoshiftStatus: ZonalAutoshiftStatus | undefined;
@@ -1305,14 +1372,14 @@ export interface UpdateZonalShiftRequest {
  */
 export interface StartZonalShiftRequest {
   /**
-   * <p>The identifier for the resource to shift away traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
+   * <p>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *          <p>At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    * @public
    */
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
+   * <p>The Availability Zone (for example, <code>use1-az1</code>) that traffic is moved away from for a resource when you start a zonal shift.
    *    		Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the Amazon Web Services Region.</p>
    * @public
    */

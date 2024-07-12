@@ -29,7 +29,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
 
 /**
  * <p>Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region.
- *    		<code>ListZonalShifts</code> returns customer-started zonal shifts, as well as practice run zonal shifts that Route 53 ARC started on
+ *    		<code>ListZonalShifts</code> returns customer-initiated zonal shifts, as well as practice run zonal shifts that Route 53 ARC started on
  *    		your behalf for zonal autoshift.</p>
  *          <p>The <code>ListZonalShifts</code> operation does not list autoshifts. For more information about listing
  *    		autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.</p>

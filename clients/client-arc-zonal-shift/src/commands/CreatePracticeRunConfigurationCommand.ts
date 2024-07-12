@@ -38,6 +38,9 @@ export interface CreatePracticeRunConfigurationCommandOutput
  * 		and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an
  * 			<i>outcome alarm</i>, to monitor application health during practice runs and,
  * 			optionally, a <i>blocking alarm</i>, to block practice runs from starting.</p>
+ *          <p>When a resource has a practice run configuration, Route 53 ARC starts zonal shifts for the resource
+ * 			weekly, to shift traffic for practice runs. Practice runs help you to ensure that
+ * 			shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p>
  *          <p>For more information, see
  * 			<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html">
  * 				Considerations when you configure zonal autoshift</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
