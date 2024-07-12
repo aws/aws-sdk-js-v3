@@ -66,11 +66,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link AcceleratorNotFoundException} (client fault)
  *  <p>The accelerator that you specified doesn't exist.</p>
  *
+ * @throws {@link AttachmentNotFoundException} (client fault)
+ *  <p>No cross-account attachment was found.</p>
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>There was an internal error for Global Accelerator.</p>
  *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The listener that you specified doesn't exist.</p>
  *
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>

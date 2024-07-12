@@ -115,11 +115,17 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have access permission.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can't use both of those options.</p>
+ *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>There was an internal error for Global Accelerator.</p>
  *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link TransactionInProgressException} (client fault)
+ *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
  *
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
