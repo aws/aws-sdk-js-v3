@@ -1,15 +1,14 @@
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { toUtf8 } from "@smithy/util-utf8";
+import { Readable } from "stream";
 
 import { throw200ExceptionsMiddleware } from "./throw-200-exceptions";
 
 describe("throw200ExceptionsMiddlewareOptions", () => {
   const mockNextHandler = jest.fn();
-  const mockStreamCollector = jest.fn();
-  const mockUtf8Encoder = jest.fn();
   const mockResponse = jest.fn();
   const mockConfig = {
-    streamCollector: mockStreamCollector,
-    utf8Encoder: mockUtf8Encoder,
+    utf8Encoder: toUtf8,
   };
 
   beforeEach(() => {
@@ -17,9 +16,6 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
   });
 
   describe("tests for statusCode < 200 and >= 300", () => {
-    mockStreamCollector.mockResolvedValue(Buffer.from(""));
-    mockUtf8Encoder.mockReturnValue("");
-
     it.each([199, 300])("results for statusCode %i", async (statusCode) => {
       mockNextHandler.mockReturnValue({
         response: mockResponse,
@@ -39,13 +35,11 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
 
     it("should throw if response body is empty", async () => {
       expect.assertions(3);
-      mockStreamCollector.mockResolvedValue(Buffer.from(""));
-      mockUtf8Encoder.mockReturnValue("");
       mockNextHandler.mockReturnValue({
         response: new HttpResponse({
           statusCode: 200,
           headers: {},
-          body: "",
+          body: Readable.from(Buffer.from("")),
         }),
       });
       const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {
@@ -73,13 +67,11 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
       <RequestId>656c76696e6727732072657175657374</RequestId>
       <HostId>Uuag1LuByRx9e6j5Onimru9pO4ZVKnJ2Qz7/C1NPcfTWAtRPfTaOFg==</HostId>
     </Error>`;
-      mockStreamCollector.mockResolvedValue(Buffer.from(errorBody));
-      mockUtf8Encoder.mockReturnValue(errorBody);
       mockNextHandler.mockReturnValue({
         response: new HttpResponse({
           statusCode: 200,
           headers: {},
-          body: "",
+          body: Readable.from(Buffer.from(errorBody)),
         }),
       });
       const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
@@ -106,13 +98,40 @@ describe("throw200ExceptionsMiddlewareOptions", () => {
   <Message>Access Denied</Message>
  </Error>
 </DeleteResult>`;
-      mockStreamCollector.mockResolvedValue(Buffer.from(errorBody));
-      mockUtf8Encoder.mockReturnValue(errorBody);
       mockNextHandler.mockReturnValue({
         response: new HttpResponse({
           statusCode: 200,
           headers: {},
-          body: "",
+          body: Readable.from(Buffer.from(errorBody)),
+        }),
+      });
+      const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);
+      const { response } = await handler({
+        input: {},
+        request: new HttpRequest({
+          hostname: "s3.us-east-1.amazonaws.com",
+        }),
+      });
+      expect(HttpResponse.isInstance(response)).toBe(true);
+      // @ts-ignore
+      expect(response.statusCode).toEqual(200);
+    });
+
+    /**
+     * This is an exception to the specification. We cannot afford to read
+     * a streaming body for its entire duration just to check for an extremely unlikely
+     * terminating XML tag if the stream is very long.
+     */
+    it("should not throw if the Error tag is on an excessively long body", async () => {
+      const errorBody = `<?xml version="1.0" encoding="UTF-8"?>
+<Error xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+ ${"a".repeat(3000)}
+</Error>`;
+      mockNextHandler.mockReturnValue({
+        response: new HttpResponse({
+          statusCode: 200,
+          headers: {},
+          body: Readable.from(Buffer.from(errorBody)),
         }),
       });
       const handler = throw200ExceptionsMiddleware(mockConfig)(mockNextHandler, {} as any);

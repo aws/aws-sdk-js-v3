@@ -7,9 +7,9 @@ import {
   RelativeMiddlewareOptions,
   StreamCollector,
 } from "@smithy/types";
+import { headStream, splitStream } from "@smithy/util-stream";
 
 type PreviouslyResolved = {
-  streamCollector: StreamCollector;
   utf8Encoder: Encoder;
 };
 
@@ -21,6 +21,13 @@ const THROW_IF_EMPTY_BODY: Record<string, boolean> = {
   UploadPartCopyCommand: true,
   CompleteMultipartUploadCommand: true,
 };
+
+/**
+ * @internal
+ * We will check at most this many bytes from the stream when looking for
+ * an error-like 200 status.
+ */
+const MAX_BYTES_TO_INSPECT = 3000;
 
 /**
  * In case of an internal error/terminated connection, S3 operations may return 200 errors. CopyObject, UploadPartCopy,
@@ -36,12 +43,25 @@ export const throw200ExceptionsMiddleware =
     if (!HttpResponse.isInstance(response)) {
       return result;
     }
-    const { statusCode, body } = response;
+    const { statusCode, body: sourceBody } = response;
     if (statusCode < 200 || statusCode >= 300) {
       return result;
     }
 
-    const bodyBytes: Uint8Array = await collectBody(body, config);
+    let bodyCopy = sourceBody;
+    let body = sourceBody;
+
+    if (sourceBody && typeof sourceBody === "object" && !(sourceBody instanceof Uint8Array)) {
+      [bodyCopy, body] = await splitStream(sourceBody);
+    }
+    // restore split body to the response for deserialization.
+    response.body = body;
+
+    const bodyBytes: Uint8Array = await collectBody(bodyCopy, {
+      streamCollector: async (stream: any) => {
+        return headStream(stream, MAX_BYTES_TO_INSPECT);
+      },
+    });
     const bodyStringTail = config.utf8Encoder(bodyBytes.subarray(bodyBytes.length - 16));
 
     // Throw on 200 response with empty body, legacy behavior allowlist.
@@ -56,14 +76,16 @@ export const throw200ExceptionsMiddleware =
       response.statusCode = 400;
     }
 
-    // Body stream is consumed and paused at this point. So replace the response.body to the collected bytes.
-    // So that the deserializer can consume the body as normal.
-    response.body = bodyBytes;
     return result;
   };
 
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: PreviouslyResolved): Promise<Uint8Array> => {
+/**
+ * @internal
+ */
+const collectBody = (
+  streamBody: any = new Uint8Array(),
+  context: { streamCollector: StreamCollector }
+): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
