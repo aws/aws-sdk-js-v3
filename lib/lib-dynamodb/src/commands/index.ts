@@ -12,3 +12,4 @@ export * from "./ScanCommand";
 export * from "./TransactGetCommand";
 export * from "./TransactWriteCommand";
 export * from "./UpdateCommand";
+export { marshallInput, unmarshallOutput } from "./utils";
