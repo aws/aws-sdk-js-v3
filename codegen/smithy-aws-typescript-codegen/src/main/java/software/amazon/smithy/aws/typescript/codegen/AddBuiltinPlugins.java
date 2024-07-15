@@ -68,13 +68,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 .servicePredicate((m, s) -> isAwsService(s) && isEndpointsV2Service(s))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
-                .build(),
-            RuntimeClientPlugin.builder()
-                .withConventions(TypeScriptDependency.MIDDLEWARE_CONTENT_LENGTH.dependency, "ContentLength",
-                    HAS_MIDDLEWARE)
-                .build(),
-            RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.ACCEPT_HEADER.dependency, "AcceptHeader",
                     HAS_MIDDLEWARE)
                 .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
