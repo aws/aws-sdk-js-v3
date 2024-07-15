@@ -34,6 +34,12 @@ describe(defaultProvider.name, () => {
 
   const mockInit = {
     profile: "mockProfile",
+    logger: {
+      debug() {},
+      info() {},
+      warn() {},
+      error() {},
+    },
   };
 
   const mockEnvFn = jest.fn().mockImplementation(() => credentials());
