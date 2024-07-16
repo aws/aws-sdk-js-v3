@@ -239,7 +239,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  CustomEndpointsInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig &
   CustomEndpointsInputConfig &
@@ -259,7 +258,6 @@ export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  CustomEndpointsResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
   CustomEndpointsResolvedConfig &
@@ -289,15 +287,14 @@ export class WeatherClient extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
     let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveCustomEndpointsConfig(_config_1);
-    let _config_3 = resolveHostHeaderConfig(_config_2);
-    let _config_4 = resolveUserAgentConfig(_config_3);
-    let _config_5 = resolveCustomEndpointsConfig(_config_4);
-    let _config_6 = resolveRetryConfig(_config_5);
-    let _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    let _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    let _config_2 = resolveHostHeaderConfig(_config_1);
+    let _config_3 = resolveUserAgentConfig(_config_2);
+    let _config_4 = resolveCustomEndpointsConfig(_config_3);
+    let _config_5 = resolveRetryConfig(_config_4);
+    let _config_6 = resolveHttpAuthSchemeConfig(_config_5);
+    let _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));

@@ -137,7 +137,7 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .build())
                 .propertiesExtractor(s -> w -> w
                     .write("""
-                      (config: $T, context) => ({
+                      (config: Partial<$T>, context) => ({
                         /**
                          * @internal
                          */

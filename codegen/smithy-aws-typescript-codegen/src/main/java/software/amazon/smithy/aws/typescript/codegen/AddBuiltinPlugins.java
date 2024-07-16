@@ -51,16 +51,11 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
                 .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
                 .build(),
-            // Only one of Endpoints or CustomEndpoints should be used
+            // Only one of Endpoints or CustomEndpoints (provided by Smithy-TypeScript) should be used
             RuntimeClientPlugin.builder()
                 .withConventions(
                     TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
                 .servicePredicate((m, s) -> isAwsService(s) && !isEndpointsV2Service(s))
-                .build(),
-            RuntimeClientPlugin.builder()
-                .withConventions(
-                    TypeScriptDependency.CONFIG_RESOLVER.dependency, "CustomEndpoints", HAS_CONFIG)
-                .servicePredicate((m, s) -> !isAwsService(s) && !isEndpointsV2Service(s))
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(

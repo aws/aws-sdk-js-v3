@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: JSONRPC10HttpAuthSchem
       name: "jsonrpc10",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: JSONRPC10ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<JSONRPC10ClientConfig>, context) => ({
       /**
        * @internal
        */

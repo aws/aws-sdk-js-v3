@@ -168,7 +168,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type EchoServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  CustomEndpointsInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig &
   CustomEndpointsInputConfig &
@@ -186,7 +185,6 @@ export interface EchoServiceClientConfig extends EchoServiceClientConfigType {}
 export type EchoServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  CustomEndpointsResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
   CustomEndpointsResolvedConfig &
@@ -214,14 +212,13 @@ export class EchoServiceClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<EchoServiceClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
-    let _config_1 = resolveCustomEndpointsConfig(_config_0);
-    let _config_2 = resolveHostHeaderConfig(_config_1);
-    let _config_3 = resolveUserAgentConfig(_config_2);
-    let _config_4 = resolveCustomEndpointsConfig(_config_3);
-    let _config_5 = resolveRetryConfig(_config_4);
-    let _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_1 = resolveHostHeaderConfig(_config_0);
+    let _config_2 = resolveUserAgentConfig(_config_1);
+    let _config_3 = resolveCustomEndpointsConfig(_config_2);
+    let _config_4 = resolveRetryConfig(_config_3);
+    let _config_5 = resolveRuntimeExtensions(_config_4, configuration?.extensions || []);
+    super(_config_5);
+    this.config = _config_5;
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));

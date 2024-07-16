@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: JsonProtocolHttpAuthSc
       name: "jsonprotocol",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: JsonProtocolClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<JsonProtocolClientConfig>, context) => ({
       /**
        * @internal
        */
