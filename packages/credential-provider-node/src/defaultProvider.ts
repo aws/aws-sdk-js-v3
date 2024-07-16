@@ -84,11 +84,11 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
               );
               multipleCredentialSourceWarningEmitted = true;
             }
-            throw new CredentialsProviderError("AWS_PROFILE is set, skipping fromEnv provider.", {
-              logger: init.logger,
-              tryNextLink: true,
-            });
           }
+          throw new CredentialsProviderError("AWS_PROFILE is set, skipping fromEnv provider.", {
+            logger: init.logger,
+            tryNextLink: true,
+          });
         }
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
         return fromEnv(init)();
