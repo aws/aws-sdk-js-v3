@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RestJsonProtocolHttpAu
       name: "restjson",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RestJsonProtocolClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RestJsonProtocolClientConfig>, context) => ({
       /**
        * @internal
        */

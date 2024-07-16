@@ -239,10 +239,10 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  CustomEndpointsInputConfig &
-  RetryInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig &
+  CustomEndpointsInputConfig &
+  RetryInputConfig &
   HttpAuthSchemeInputConfig;
 /**
  * @public
@@ -258,10 +258,10 @@ export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  CustomEndpointsResolvedConfig &
-  RetryResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  CustomEndpointsResolvedConfig &
+  RetryResolvedConfig &
   HttpAuthSchemeResolvedConfig;
 /**
  * @public
@@ -287,20 +287,20 @@ export class WeatherClient extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
     let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveCustomEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveUserAgentConfig(_config_4);
+    let _config_2 = resolveHostHeaderConfig(_config_1);
+    let _config_3 = resolveUserAgentConfig(_config_2);
+    let _config_4 = resolveCustomEndpointsConfig(_config_3);
+    let _config_5 = resolveRetryConfig(_config_4);
     let _config_6 = resolveHttpAuthSchemeConfig(_config_5);
     let _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
     super(_config_7);
     this.config = _config_7;
-    this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getRetryPlugin(this.config));
+    this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemePlugin(this.config, {
         httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),

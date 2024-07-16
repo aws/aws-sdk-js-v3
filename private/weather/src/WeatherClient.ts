@@ -246,12 +246,12 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  CustomEndpointsInputConfig &
-  RetryInputConfig &
   HostHeaderInputConfig &
   SigV4AuthInputConfig &
   TokenInputConfig &
   UserAgentInputConfig &
+  CustomEndpointsInputConfig &
+  RetryInputConfig &
   HttpApiKeyAuthInputConfig;
 /**
  * @public
@@ -267,12 +267,12 @@ export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
   RegionResolvedConfig &
-  CustomEndpointsResolvedConfig &
-  RetryResolvedConfig &
   HostHeaderResolvedConfig &
   SigV4AuthResolvedConfig &
   TokenResolvedConfig &
   UserAgentResolvedConfig &
+  CustomEndpointsResolvedConfig &
+  RetryResolvedConfig &
   HttpApiKeyAuthResolvedConfig;
 /**
  * @public
@@ -298,23 +298,23 @@ export class WeatherClient extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
     let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveCustomEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveSigV4AuthConfig(_config_4);
-    let _config_6 = resolveTokenConfig(_config_5);
-    let _config_7 = resolveUserAgentConfig(_config_6);
+    let _config_2 = resolveHostHeaderConfig(_config_1);
+    let _config_3 = resolveSigV4AuthConfig(_config_2);
+    let _config_4 = resolveTokenConfig(_config_3);
+    let _config_5 = resolveUserAgentConfig(_config_4);
+    let _config_6 = resolveCustomEndpointsConfig(_config_5);
+    let _config_7 = resolveRetryConfig(_config_6);
     let _config_8 = resolveHttpApiKeyAuthConfig(_config_7);
     let _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     super(_config_9);
     this.config = _config_9;
-    this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getRetryPlugin(this.config));
+    this.middlewareStack.use(getContentLengthPlugin(this.config));
   }
 
   /**

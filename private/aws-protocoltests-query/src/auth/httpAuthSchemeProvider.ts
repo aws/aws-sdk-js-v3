@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: QueryProtocolHttpAuthS
       name: "awsquery",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: QueryProtocolClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<QueryProtocolClientConfig>, context) => ({
       /**
        * @internal
        */

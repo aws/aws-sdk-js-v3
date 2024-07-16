@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GlacierHttpAuthSchemeP
       name: "glacier",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GlacierClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GlacierClientConfig>, context) => ({
       /**
        * @internal
        */
