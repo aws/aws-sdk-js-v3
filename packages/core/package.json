@@ -69,7 +69,7 @@
   "dependencies": {
     "@smithy/core": "^2.2.7",
     "@smithy/protocol-http": "^4.0.4",
-    "@smithy/signature-v4": "^3.1.2",
+    "@smithy/signature-v4": "^4.0.0",
     "@smithy/smithy-client": "^3.1.8",
     "@smithy/types": "^3.3.0",
     "fast-xml-parser": "4.2.5",
