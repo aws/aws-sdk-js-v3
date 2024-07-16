@@ -22,9 +22,10 @@ const putObjectTaggingMock = jest.fn().mockResolvedValue({
 });
 
 let hostname = "s3.region.amazonaws.com";
+let port: number | undefined;
 const endpointMock = jest.fn().mockImplementation(() => ({
   hostname,
-  port: undefined,
+  port,
   protocol: "https:",
   path: "/",
   query: undefined,
@@ -249,6 +250,7 @@ describe(Upload.name, () => {
   describe("bucket hostname deduplication", () => {
     afterEach(() => {
       hostname = "s3.region.amazonaws.com";
+      port = undefined;
     });
     it("should dedupe bucket in endpoint hostname when forcePathStyle = false", async () => {
       hostname = "example-bucket.example-host.com";
@@ -280,20 +282,72 @@ describe(Upload.name, () => {
       expect(result.Bucket).toEqual("example-bucket");
       expect(result.Location).toEqual("https://example-bucket.example-host.com/example-key");
     });
+    it("should dedupe bucket in endpoint hostname and port when forcePathStyle = false and explicit port is provided", async () => {
+      hostname = "example-bucket.example-host.com";
+      port = 8443;
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({
+          forcePathStyle: false,
+        }),
+      });
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Key).toEqual("example-key");
+      expect(result.Bucket).toEqual("example-bucket");
+      expect(result.Location).toEqual("https://example-bucket.example-host.com:8443/example-key");
+    });
+    it("should prepend bucket in endpoint hostname and port when it does not already contain it and forcePathStyle = false and explicit port is provided", async () => {
+      hostname = "example-host.com";
+      port = 8443;
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({
+          forcePathStyle: false,
+        }),
+      });
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Key).toEqual("example-key");
+      expect(result.Bucket).toEqual("example-bucket");
+      expect(result.Location).toEqual("https://example-bucket.example-host.com:8443/example-key");
+    });
   });
 
-  it("should return a Location field formatted in path style when forcePathStyle is true", async () => {
-    const buffer = Buffer.from("");
-    const actionParams = { ...params, Body: buffer };
-    const s3Client = new S3({});
-    s3Client.config.forcePathStyle = true;
-    const upload = new Upload({
-      params: actionParams,
-      client: s3Client,
+  describe("forcePathStyle support", () => {
+    afterEach(() => {
+      port = undefined;
+    });
+    it("should return a Location field formatted in path style when forcePathStyle is true", async () => {
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const s3Client = new S3({});
+      s3Client.config.forcePathStyle = true;
+      const upload = new Upload({
+        params: actionParams,
+        client: s3Client,
+      });
+
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Location).toEqual("https://s3.region.amazonaws.com/example-bucket/example-key");
     });
 
-    const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
-    expect(result.Location).toEqual("https://s3.region.amazonaws.com/example-bucket/example-key");
+    it("should return a Location field with explicit port and formatted in path style when forcePathStyle is true and explicit port is provided", async () => {
+      port = 8443;
+      const buffer = Buffer.from("");
+      const actionParams = { ...params, Body: buffer };
+      const s3Client = new S3({});
+      s3Client.config.forcePathStyle = true;
+      const upload = new Upload({
+        params: actionParams,
+        client: s3Client,
+      });
+
+      const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+      expect(result.Location).toEqual("https://s3.region.amazonaws.com:8443/example-bucket/example-key");
+    });
   });
 
   it("should return a Location field with decoded slash symbols", async () => {
