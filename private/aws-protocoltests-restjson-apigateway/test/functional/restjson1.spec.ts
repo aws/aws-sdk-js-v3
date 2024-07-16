@@ -138,6 +138,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
 
 const clientParams = {
   region: "us-west-2",
+  endpoint: "https://localhost/",
   credentials: { accessKeyId: "key", secretAccessKey: "secret" },
 };
 
