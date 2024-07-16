@@ -293,6 +293,25 @@ describe("credential-provider-node integration test", () => {
         credentialScope: "us-env-1",
       });
     });
+
+    it("should (for now) resolve AWS_PROFILE instead of static credentials from ENV if both are set. However, this is subject to change.", async () => {
+      process.env.AWS_ACCESS_KEY_ID = "ENV_ACCESS_KEY";
+      process.env.AWS_SECRET_ACCESS_KEY = "ENV_SECRET_KEY";
+      process.env.AWS_PROFILE = "default";
+
+      Object.assign(iniProfileData.default, {
+        aws_access_key_id: "INI_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "INI_STATIC_SECRET_KEY",
+      });
+
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+
+      expect(credentials).toEqual({
+        accessKeyId: "INI_STATIC_ACCESS_KEY",
+        secretAccessKey: "INI_STATIC_SECRET_KEY",
+      });
+    });
   });
 
   describe("fromSSO", () => {
