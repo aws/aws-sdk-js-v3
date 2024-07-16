@@ -252,12 +252,12 @@ export type TranscribeStreamingClientConfigType = Partial<__SmithyConfiguration<
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   EventStreamInputConfig &
   WebSocketInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
   EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -275,12 +275,12 @@ export type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfig
   RuntimeExtensionsConfig &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   EventStreamResolvedConfig &
   WebSocketResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
   EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -332,24 +332,24 @@ export class TranscribeStreamingClient extends __Client<
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);
     const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
-    const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveAwsAuthConfig(_config_5);
-    const _config_7 = resolveEventStreamConfig(_config_6);
-    const _config_8 = resolveWebSocketConfig(_config_7);
-    const _config_9 = resolveUserAgentConfig(_config_8);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveEventStreamConfig(_config_5);
+    const _config_7 = resolveWebSocketConfig(_config_6);
+    const _config_8 = resolveUserAgentConfig(_config_7);
+    const _config_9 = resolveRetryConfig(_config_8);
     const _config_10 = resolveEventStreamSerdeConfig(_config_9);
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     super(_config_11);
     this.config = _config_11;
-    this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getTranscribeStreamingPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getRetryPlugin(this.config));
+    this.middlewareStack.use(getContentLengthPlugin(this.config));
   }
 
   /**
