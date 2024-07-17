@@ -31,7 +31,7 @@
     "@smithy/smithy-client": "^3.1.8",
     "@smithy/types": "^3.3.0",
     "@smithy/util-config-provider": "^3.0.0",
-    "@smithy/util-stream": "^3.0.6",
+    "@smithy/util-stream": "^3.1.0",
     "@smithy/util-utf8": "^3.0.0",
     "tslib": "^2.6.2"
   },
