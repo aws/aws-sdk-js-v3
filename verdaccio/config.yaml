@@ -15,7 +15,7 @@ web:
   title: Verdaccio
   # comment out to disable gravatar support
   # gravatar: false
-  # by default packages are ordered ascendant (asc|desc)
+  # by default packages are ordered ascending (asc|desc)
   # sort_packages: asc
 
 # auth:
