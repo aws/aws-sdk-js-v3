@@ -1464,6 +1464,9 @@ export interface UpdateAccountSettingsRequest {
 
   /**
    * <p>The pricing model for queries in an account.</p>
+   *          <note>
+   *             <p>The <code>QueryPricingModel</code> parameter is used by several Timestream operations; however, the <code>UpdateAccountSettings</code> API operation doesn't recognize any values other than <code>COMPUTE_UNITS</code>.</p>
+   *          </note>
    * @public
    */
   QueryPricingModel?: QueryPricingModel;
