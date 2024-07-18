@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IvschatHttpAuthSchemeP
       name: "ivschat",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IvschatClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IvschatClientConfig>, context) => ({
       /**
        * @internal
        */

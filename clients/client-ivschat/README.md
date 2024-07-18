@@ -15,6 +15,9 @@ API</a>, to enable users to interact with chat rooms in real time.</p>
 <p>The API is an AWS regional service. For a list of supported regions and Amazon IVS Chat
 HTTPS service endpoints, see the Amazon IVS Chat information on the <a href="https://docs.aws.amazon.com/general/latest/gr/ivs.html">Amazon IVS page</a> in the
 <i>AWS General Reference</i>. </p>
+<p>This document describes HTTP operations. There is a separate <i>messaging</i> API
+for managing Chat resources; see the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html"> Amazon IVS Chat Messaging API
+Reference</a>.</p>
 <p>
 <b>Notes on terminology:</b>
 </p>
@@ -29,16 +32,19 @@ Amazon IVS Chat Messaging API. We refer to these as <i>clients</i>. </p>
 </li>
 </ul>
 <p>
-<b>Key Concepts</b>
+<b>Resources</b>
 </p>
+<p>The following resources are part of Amazon IVS Chat:</p>
 <ul>
 <li>
 <p>
-<b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room.</p>
+<b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room. See the Logging Configuration endpoints for more information.</p>
 </li>
 <li>
 <p>
-<b>Room</b> — The central Amazon IVS Chat resource through which clients connect to and exchange chat messages.</p>
+<b>Room</b> — The central Amazon IVS Chat resource through
+which clients connect to and exchange chat messages. See the Room endpoints for more
+information.</p>
 </li>
 </ul>
 <p>
@@ -107,121 +113,6 @@ the Security page of the <i>Amazon IVS User Guide</i>.</p>
 resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
 information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
 Reference</i>.</p>
-<p>
-<b>Messaging Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>DeleteMessage</a> — Sends an event to a specific room which
-directs clients to delete a specific message; that is, unrender it from view and delete it
-from the client’s chat history. This event’s <code>EventName</code> is
-<code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
-DeleteMessage</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
-</li>
-<li>
-<p>
-<a>DisconnectUser</a> — Disconnects all connections using a specified
-user ID from a room. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
-DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
-</li>
-<li>
-<p>
-<a>SendEvent</a> — Sends an event to a room. Use this within your
-application’s business logic to send events to clients of a room; e.g., to notify clients
-to change the way the chat UI is rendered.</p>
-</li>
-</ul>
-<p>
-<b>Chat Token Endpoint</b>
-</p>
-<ul>
-<li>
-<p>
-<a>CreateChatToken</a> — Creates an encrypted token that is used by a chat participant to establish an
-individual WebSocket chat connection to a room. When the token is used to connect to chat,
-the connection is valid for the session duration specified in the request. The token
-becomes invalid at the token-expiration timestamp included in the response.</p>
-</li>
-</ul>
-<p>
-<b>Room Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>CreateRoom</a> — Creates a room that allows clients to connect and
-pass messages.</p>
-</li>
-<li>
-<p>
-<a>DeleteRoom</a> — Deletes the specified room.</p>
-</li>
-<li>
-<p>
-<a>GetRoom</a> — Gets the specified room.</p>
-</li>
-<li>
-<p>
-<a>ListRooms</a> — Gets summary information about all your rooms in
-the AWS region where the API request is processed. </p>
-</li>
-<li>
-<p>
-<a>UpdateRoom</a> — Updates a room’s configuration.</p>
-</li>
-</ul>
-<p>
-<b>Logging Configuration Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>CreateLoggingConfiguration</a> — Creates a logging configuration that allows clients to store and record sent messages.</p>
-</li>
-<li>
-<p>
-<a>DeleteLoggingConfiguration</a> — Deletes the specified logging
-configuration.</p>
-</li>
-<li>
-<p>
-<a>GetLoggingConfiguration</a> — Gets the specified logging
-configuration.</p>
-</li>
-<li>
-<p>
-<a>ListLoggingConfigurations</a> — Gets summary information about all
-your logging configurations in the AWS region where the API request is processed.</p>
-</li>
-<li>
-<p>
-<a>UpdateLoggingConfiguration</a> — Updates a specified logging configuration.</p>
-</li>
-</ul>
-<p>
-<b>Tags Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>ListTagsForResource</a> — Gets information about AWS tags for the
-specified ARN.</p>
-</li>
-<li>
-<p>
-<a>TagResource</a> — Adds or updates tags for the AWS resource with
-the specified ARN.</p>
-</li>
-<li>
-<p>
-<a>UntagResource</a> — Removes tags from the resource with the
-specified ARN.</p>
-</li>
-</ul>
-<p>All the above are HTTP operations. There is a separate <i>messaging</i> API
-for managing Chat resources; see the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html"> Amazon IVS Chat Messaging API
-Reference</a>.</p>
 
 ## Installing
 
