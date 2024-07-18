@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ACMPCAHttpAuthSchemePa
       name: "acm-pca",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ACMPCAClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ACMPCAClientConfig>, context) => ({
       /**
        * @internal
        */
