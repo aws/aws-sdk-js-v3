@@ -1310,6 +1310,24 @@ export interface AuthenticationConfiguration {
 }
 
 /**
+ * <p>
+ *          Describes the containers where the destination Apache Iceberg Tables are persisted.
+ *       </p>
+ *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+ * @public
+ */
+export interface CatalogConfiguration {
+  /**
+   * <p>
+   *          Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format <code>arn:aws:glue:region:account-id:catalog</code>.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  CatalogARN?: string;
+}
+
+/**
  * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
  *          it to update the destination.</p>
  * @public
@@ -2481,6 +2499,144 @@ export interface HttpEndpointDestinationConfiguration {
 }
 
 /**
+ * <p>
+ *          Describes the configuration of a destination in Apache Iceberg Tables.
+ *       </p>
+ *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+ * @public
+ */
+export interface DestinationTableConfiguration {
+  /**
+   * <p>
+   *         Specifies the name of the Apache Iceberg Table.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  DestinationTableName: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the Apache Iceberg database.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  DestinationDatabaseName: string | undefined;
+
+  /**
+   * <p>
+   *          A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create/Update/Delete operations on the given Iceberg table.
+   *
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  UniqueKeys?: string[];
+
+  /**
+   * <p>
+   *         The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+   *        </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  S3ErrorOutputPrefix?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IcebergS3BackupMode = {
+  AllData: "AllData",
+  FailedDataOnly: "FailedDataOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type IcebergS3BackupMode = (typeof IcebergS3BackupMode)[keyof typeof IcebergS3BackupMode];
+
+/**
+ * <p>
+ *          Specifies the destination configure settings for  Apache Iceberg Table.
+ *       </p>
+ *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+ * @public
+ */
+export interface IcebergDestinationConfiguration {
+  /**
+   * <p> Provides a list of <code>DestinationTableConfigurations</code> which Firehose uses
+   *          to deliver data to Apache Iceberg tables. </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  DestinationTableConfigurationList?: DestinationTableConfiguration[];
+
+  /**
+   * <p>Describes hints for the buffering to perform before delivering data to the
+   *          destination. These options are treated as hints, and therefore Firehose might
+   *          choose to use different values when it is optimal. The <code>SizeInMBs</code> and
+   *             <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for
+   *          one of them, you must also provide a value for the other.</p>
+   * @public
+   */
+  BufferingHints?: BufferingHints;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   * @public
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   * @public
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p> Describes how Firehose will backup records. Currently,Firehose only supports
+   *             <code>FailedDataOnly</code> for preview. </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  S3BackupMode?: IcebergS3BackupMode;
+
+  /**
+   * <p> The retry behavior in case Firehose is unable to deliver data to an Amazon
+   *          S3 prefix.</p>
+   * @public
+   */
+  RetryOptions?: RetryOptions;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the Apache Iceberg tables role.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * <p>
+   *          Configuration describing where the destination Apache Iceberg Tables are persisted.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  CatalogConfiguration: CatalogConfiguration | undefined;
+
+  /**
+   * <p>Describes the configuration of a destination in Amazon S3.</p>
+   * @public
+   */
+  S3Configuration: S3DestinationConfiguration | undefined;
+}
+
+/**
  * <p>The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as
  *          the source for a delivery stream.</p>
  * @public
@@ -2525,6 +2681,16 @@ export interface MSKSourceConfiguration {
    * @public
    */
   AuthenticationConfiguration: AuthenticationConfiguration | undefined;
+
+  /**
+   * <p>The start date and time in UTC for the offset position within your MSK topic from where
+   *          Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. </p>
+   *          <p>If you want to create a Firehose stream with Earliest start position from SDK or CLI,
+   *          you need to set the <code>ReadFromTimestamp</code> parameter to Epoch
+   *          (1970-01-01T00:00:00Z). </p>
+   * @public
+   */
+  ReadFromTimestamp?: Date;
 }
 
 /**
@@ -2646,6 +2812,30 @@ export interface RedshiftDestinationConfiguration {
    * @public
    */
   SecretsManagerConfiguration?: SecretsManagerConfiguration;
+}
+
+/**
+ * <p>
+ *          Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+ *       </p>
+ * @public
+ */
+export interface SnowflakeBufferingHints {
+  /**
+   * <p>
+   *          Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+   *       </p>
+   * @public
+   */
+  SizeInMBs?: number;
+
+  /**
+   * <p>
+   *          Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+   *       </p>
+   * @public
+   */
+  IntervalInSeconds?: number;
 }
 
 /**
@@ -2852,6 +3042,14 @@ export interface SnowflakeDestinationConfiguration {
    * @public
    */
   SecretsManagerConfiguration?: SecretsManagerConfiguration;
+
+  /**
+   * <p>
+   *          Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+   *       </p>
+   * @public
+   */
+  BufferingHints?: SnowflakeBufferingHints;
 }
 
 /**
@@ -3163,6 +3361,15 @@ export interface CreateDeliveryStreamInput {
    * @public
    */
   SnowflakeDestinationConfiguration?: SnowflakeDestinationConfiguration;
+
+  /**
+   * <p>
+   *          Configure Apache Iceberg Tables destination.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  IcebergDestinationConfiguration?: IcebergDestinationConfiguration;
 }
 
 /**
@@ -3743,6 +3950,84 @@ export interface HttpEndpointDestinationDescription {
 }
 
 /**
+ * <p>
+ *          Describes a destination in Apache Iceberg Tables.
+ *       </p>
+ *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+ * @public
+ */
+export interface IcebergDestinationDescription {
+  /**
+   * <p> Provides a list of <code>DestinationTableConfigurations</code> which Firehose uses
+   *          to deliver data to Apache Iceberg tables. </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  DestinationTableConfigurationList?: DestinationTableConfiguration[];
+
+  /**
+   * <p>Describes hints for the buffering to perform before delivering data to the
+   *          destination. These options are treated as hints, and therefore Firehose might
+   *          choose to use different values when it is optimal. The <code>SizeInMBs</code> and
+   *             <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for
+   *          one of them, you must also provide a value for the other.</p>
+   * @public
+   */
+  BufferingHints?: BufferingHints;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   * @public
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   * @public
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p> Describes how Firehose will backup records. Currently,Firehose only supports
+   *          <code>FailedDataOnly</code> for preview. </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  S3BackupMode?: IcebergS3BackupMode;
+
+  /**
+   * <p> The retry behavior in case Firehose is unable to deliver data to an Amazon
+   *          S3 prefix.</p>
+   * @public
+   */
+  RetryOptions?: RetryOptions;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the Apache Iceberg Tables role.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>
+   *          Configuration describing where the destination Iceberg tables are persisted.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  CatalogConfiguration?: CatalogConfiguration;
+
+  /**
+   * <p>Describes a destination in Amazon S3.</p>
+   * @public
+   */
+  S3DestinationDescription?: S3DestinationDescription;
+}
+
+/**
  * <p>Describes a destination in Amazon Redshift.</p>
  * @public
  */
@@ -3930,6 +4215,14 @@ export interface SnowflakeDestinationDescription {
    * @public
    */
   SecretsManagerConfiguration?: SecretsManagerConfiguration;
+
+  /**
+   * <p>
+   *          Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+   *       </p>
+   * @public
+   */
+  BufferingHints?: SnowflakeBufferingHints;
 }
 
 /**
@@ -4080,6 +4373,15 @@ export interface DestinationDescription {
    * @public
    */
   AmazonOpenSearchServerlessDestinationDescription?: AmazonOpenSearchServerlessDestinationDescription;
+
+  /**
+   * <p>
+   *          Describes a destination in Apache Iceberg Tables.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  IcebergDestinationDescription?: IcebergDestinationDescription;
 }
 
 /**
@@ -4142,6 +4444,16 @@ export interface MSKSourceDescription {
    * @public
    */
   DeliveryStartTimestamp?: Date;
+
+  /**
+   * <p>The start date and time in UTC for the offset position within your MSK topic from where
+   *          Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. </p>
+   *          <p>If you want to create a Firehose stream with Earliest start position from SDK or CLI,
+   *          you need to set the <code>ReadFromTimestampUTC</code> parameter to Epoch
+   *          (1970-01-01T00:00:00Z). </p>
+   * @public
+   */
+  ReadFromTimestamp?: Date;
 }
 
 /**
@@ -4945,6 +5257,84 @@ export interface HttpEndpointDestinationUpdate {
 }
 
 /**
+ * <p>
+ *          Describes an update for a destination in Apache Iceberg Tables.
+ *       </p>
+ *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+ * @public
+ */
+export interface IcebergDestinationUpdate {
+  /**
+   * <p> Provides a list of <code>DestinationTableConfigurations</code> which Firehose uses
+   *          to deliver data to Apache Iceberg tables. </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  DestinationTableConfigurationList?: DestinationTableConfiguration[];
+
+  /**
+   * <p>Describes hints for the buffering to perform before delivering data to the
+   *          destination. These options are treated as hints, and therefore Firehose might
+   *          choose to use different values when it is optimal. The <code>SizeInMBs</code> and
+   *             <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for
+   *          one of them, you must also provide a value for the other.</p>
+   * @public
+   */
+  BufferingHints?: BufferingHints;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   * @public
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   * @public
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p> Describes how Firehose will backup records. Currently,Firehose only supports
+   *          <code>FailedDataOnly</code> for preview. </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  S3BackupMode?: IcebergS3BackupMode;
+
+  /**
+   * <p> The retry behavior in case Firehose is unable to deliver data to an Amazon
+   *          S3 prefix.</p>
+   * @public
+   */
+  RetryOptions?: RetryOptions;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the Apache Iceberg Tables role.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>
+   *          Configuration describing where the destination Iceberg tables are persisted.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  CatalogConfiguration?: CatalogConfiguration;
+
+  /**
+   * <p>Describes the configuration of a destination in Amazon S3.</p>
+   * @public
+   */
+  S3Configuration?: S3DestinationConfiguration;
+}
+
+/**
  * <p>Describes an update for a destination in Amazon Redshift.</p>
  * @public
  */
@@ -5155,6 +5545,14 @@ export interface SnowflakeDestinationUpdate {
    * @public
    */
   SecretsManagerConfiguration?: SecretsManagerConfiguration;
+
+  /**
+   * <p>
+   *          Describes the buffering to perform before delivering data to the Snowflake destination.
+   *       </p>
+   * @public
+   */
+  BufferingHints?: SnowflakeBufferingHints;
 }
 
 /**
@@ -5326,6 +5724,15 @@ export interface UpdateDestinationInput {
    * @public
    */
   SnowflakeDestinationUpdate?: SnowflakeDestinationUpdate;
+
+  /**
+   * <p>
+   *          Describes an update for a destination in Apache Iceberg Tables.
+   *       </p>
+   *          <p>Amazon Data Firehose is in preview release and is subject to change.</p>
+   * @public
+   */
+  IcebergDestinationUpdate?: IcebergDestinationUpdate;
 }
 
 /**

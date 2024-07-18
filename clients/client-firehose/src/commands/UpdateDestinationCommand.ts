@@ -474,6 +474,43 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       RoleARN: "STRING_VALUE",
  *       Enabled: true || false, // required
  *     },
+ *     BufferingHints: { // SnowflakeBufferingHints
+ *       SizeInMBs: Number("int"),
+ *       IntervalInSeconds: Number("int"),
+ *     },
+ *   },
+ *   IcebergDestinationUpdate: { // IcebergDestinationUpdate
+ *     DestinationTableConfigurationList: [ // DestinationTableConfigurationList
+ *       { // DestinationTableConfiguration
+ *         DestinationTableName: "STRING_VALUE", // required
+ *         DestinationDatabaseName: "STRING_VALUE", // required
+ *         UniqueKeys: [
+ *           "STRING_VALUE",
+ *         ],
+ *         S3ErrorOutputPrefix: "STRING_VALUE",
+ *       },
+ *     ],
+ *     BufferingHints: "<BufferingHints>",
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     ProcessingConfiguration: "<ProcessingConfiguration>",
+ *     S3BackupMode: "FailedDataOnly" || "AllData",
+ *     RetryOptions: {
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     RoleARN: "STRING_VALUE",
+ *     CatalogConfiguration: { // CatalogConfiguration
+ *       CatalogARN: "STRING_VALUE",
+ *     },
+ *     S3Configuration: { // S3DestinationConfiguration
+ *       RoleARN: "STRING_VALUE", // required
+ *       BucketARN: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *       ErrorOutputPrefix: "STRING_VALUE",
+ *       BufferingHints: "<BufferingHints>",
+ *       CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *       EncryptionConfiguration: "<EncryptionConfiguration>",
+ *       CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     },
  *   },
  * };
  * const command = new UpdateDestinationCommand(input);

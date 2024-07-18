@@ -540,6 +540,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       RoleARN: "STRING_VALUE", // required
  *       Connectivity: "PUBLIC" || "PRIVATE", // required
  *     },
+ *     ReadFromTimestamp: new Date("TIMESTAMP"),
  *   },
  *   SnowflakeDestinationConfiguration: { // SnowflakeDestinationConfiguration
  *     AccountUrl: "STRING_VALUE", // required
@@ -572,6 +573,34 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       RoleARN: "STRING_VALUE",
  *       Enabled: true || false, // required
  *     },
+ *     BufferingHints: { // SnowflakeBufferingHints
+ *       SizeInMBs: Number("int"),
+ *       IntervalInSeconds: Number("int"),
+ *     },
+ *   },
+ *   IcebergDestinationConfiguration: { // IcebergDestinationConfiguration
+ *     DestinationTableConfigurationList: [ // DestinationTableConfigurationList
+ *       { // DestinationTableConfiguration
+ *         DestinationTableName: "STRING_VALUE", // required
+ *         DestinationDatabaseName: "STRING_VALUE", // required
+ *         UniqueKeys: [
+ *           "STRING_VALUE",
+ *         ],
+ *         S3ErrorOutputPrefix: "STRING_VALUE",
+ *       },
+ *     ],
+ *     BufferingHints: "<BufferingHints>",
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     ProcessingConfiguration: "<ProcessingConfiguration>",
+ *     S3BackupMode: "FailedDataOnly" || "AllData",
+ *     RetryOptions: {
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     RoleARN: "STRING_VALUE", // required
+ *     CatalogConfiguration: { // CatalogConfiguration
+ *       CatalogARN: "STRING_VALUE",
+ *     },
+ *     S3Configuration: "<S3DestinationConfiguration>", // required
  *   },
  * };
  * const command = new CreateDeliveryStreamCommand(input);

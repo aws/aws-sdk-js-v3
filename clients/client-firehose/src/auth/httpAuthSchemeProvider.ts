@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: FirehoseHttpAuthScheme
       name: "firehose",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: FirehoseClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<FirehoseClientConfig>, context) => ({
       /**
        * @internal
        */
