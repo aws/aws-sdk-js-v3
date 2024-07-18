@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+
+### Features
+
+* **client-connect:** Amazon Connect expands search API coverage for additional resources.  Search for hierarchy groups by name, ID, tag, or other criteria (new endpoint). Search for agent statuses by name, ID, tag, or other criteria (new endpoint). Search for users by their assigned proficiencies (enhanced endpoint) ([226e9c6](https://github.com/aws/aws-sdk-js-v3/commit/226e9c6fef555fcea844cff6fc002d5d3c052d9e))
+
+
+
+
+
 # [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+
+### Bug Fixes
+
+* **lib-storage:** location in upload result should include custom port ([#6282](https://github.com/aws/aws-sdk-js-v3/issues/6282)) ([9d3cbb6](https://github.com/aws/aws-sdk-js-v3/commit/9d3cbb6d9b9679a86f67f5da118e33e35e29ddb3))
+
+
+
+
+
 # [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

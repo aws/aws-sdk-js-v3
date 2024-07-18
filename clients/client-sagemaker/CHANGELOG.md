@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+
+### Features
+
+* **client-sagemaker:** SageMaker Training supports R5, T3 and R5D instances family. And SageMaker Processing supports G5 and R5D instances family. ([709db60](https://github.com/aws/aws-sdk-js-v3/commit/709db6085de9f0b28b8e91671bc8a4494ca0f095))
+
+
+
+
+
 # [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

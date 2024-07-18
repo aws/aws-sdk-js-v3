@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+
+### Bug Fixes
+
+* **lib-storage:** location in upload result should include custom port ([#6282](https://github.com/aws/aws-sdk-js-v3/issues/6282)) ([9d3cbb6](https://github.com/aws/aws-sdk-js-v3/commit/9d3cbb6d9b9679a86f67f5da118e33e35e29ddb3))
+* **middleware-sdk-s3:** set consistent dependency versions ([#6287](https://github.com/aws/aws-sdk-js-v3/issues/6287)) ([207cd84](https://github.com/aws/aws-sdk-js-v3/commit/207cd845f93181a7d6578b987d6670ccd4a6d435))
+
+
+### Features
+
+* **client-acm-pca:** Fix broken waiters for the acm-pca client.  Waiters broke in version 1.13.144 of the Boto3 SDK. ([a867f6e](https://github.com/aws/aws-sdk-js-v3/commit/a867f6e962955a4a4b76115f666f8127a97ffb27))
+* **client-connect:** Amazon Connect expands search API coverage for additional resources.  Search for hierarchy groups by name, ID, tag, or other criteria (new endpoint). Search for agent statuses by name, ID, tag, or other criteria (new endpoint). Search for users by their assigned proficiencies (enhanced endpoint) ([226e9c6](https://github.com/aws/aws-sdk-js-v3/commit/226e9c6fef555fcea844cff6fc002d5d3c052d9e))
+* **client-ec2:** Amazon VPC IP Address Manager (IPAM) now supports Bring-Your-Own-IP (BYOIP) for IP addresses registered with any Internet Registry. This feature uses DNS TXT records to validate ownership of a public IP address range. ([337c43d](https://github.com/aws/aws-sdk-js-v3/commit/337c43d0ad9dcd59b12a9d338c76c19a9e8bf11a))
+* **client-firehose:** This release 1) Add configurable buffering hints for Snowflake as destination. 2) Add ReadFromTimestamp for MSK As Source. Firehose will start reading data from MSK Cluster using offset associated with this timestamp. 3) Gated public beta release to add Apache Iceberg tables as destination. ([9a36c7e](https://github.com/aws/aws-sdk-js-v3/commit/9a36c7ed370d069455af4dcc5554a3428b1a6b22))
+* **client-medialive:** AWS Elemental MediaLive now supports the SRT protocol via the new SRT Caller input type. ([91134df](https://github.com/aws/aws-sdk-js-v3/commit/91134dfbe4a20433cc8949ba404fa58b3e64d4f1))
+* **client-sagemaker:** SageMaker Training supports R5, T3 and R5D instances family. And SageMaker Processing supports G5 and R5D instances family. ([709db60](https://github.com/aws/aws-sdk-js-v3/commit/709db6085de9f0b28b8e91671bc8a4494ca0f095))
+* **client-taxsettings:** Set default endpoint for aws partition. Requests from all regions in aws partition will be forward to us-east-1 endpoint. ([7927892](https://github.com/aws/aws-sdk-js-v3/commit/7927892af5781fc27b1a2b9b0434bf56b86c9e65))
+* **clients:** update client endpoints as of 2024-07-18 ([ac3e31b](https://github.com/aws/aws-sdk-js-v3/commit/ac3e31bdb9113c43959d8065ca5f432dde4b5c80))
+
+
+
+
+
 # [3.615.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.614.0...v3.615.0) (2024-07-12)
 
 

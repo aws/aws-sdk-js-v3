@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+
+### Features
+
+* **client-ec2:** Amazon VPC IP Address Manager (IPAM) now supports Bring-Your-Own-IP (BYOIP) for IP addresses registered with any Internet Registry. This feature uses DNS TXT records to validate ownership of a public IP address range. ([337c43d](https://github.com/aws/aws-sdk-js-v3/commit/337c43d0ad9dcd59b12a9d338c76c19a9e8bf11a))
+
+
+
+
+
 # [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
 
 

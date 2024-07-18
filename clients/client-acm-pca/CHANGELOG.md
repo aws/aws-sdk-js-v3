@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+
+### Features
+
+* **client-acm-pca:** Fix broken waiters for the acm-pca client.  Waiters broke in version 1.13.144 of the Boto3 SDK. ([a867f6e](https://github.com/aws/aws-sdk-js-v3/commit/a867f6e962955a4a4b76115f666f8127a97ffb27))
+
+
+
+
+
 # [3.615.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.614.0...v3.615.0) (2024-07-12)
 
 
