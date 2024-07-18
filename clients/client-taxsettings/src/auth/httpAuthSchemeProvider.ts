@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TaxSettingsHttpAuthSch
       name: "tax",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TaxSettingsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TaxSettingsClientConfig>, context) => ({
       /**
        * @internal
        */
