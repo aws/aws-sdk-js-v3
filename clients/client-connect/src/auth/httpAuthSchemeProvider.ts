@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ConnectHttpAuthSchemeP
       name: "connect",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ConnectClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ConnectClientConfig>, context) => ({
       /**
        * @internal
        */

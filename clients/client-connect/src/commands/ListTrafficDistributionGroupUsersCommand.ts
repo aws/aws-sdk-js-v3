@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListTrafficDistributionGroupUsersRequest,
   ListTrafficDistributionGroupUsersResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_ListTrafficDistributionGroupUsersCommand,
   se_ListTrafficDistributionGroupUsersCommand,

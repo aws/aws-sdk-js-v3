@@ -518,6 +518,10 @@ import {
   ResumeContactRecordingCommandOutput,
 } from "./commands/ResumeContactRecordingCommand";
 import {
+  SearchAgentStatusesCommandInput,
+  SearchAgentStatusesCommandOutput,
+} from "./commands/SearchAgentStatusesCommand";
+import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
@@ -550,6 +554,10 @@ import {
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
 } from "./commands/SearchSecurityProfilesCommand";
+import {
+  SearchUserHierarchyGroupsCommandInput,
+  SearchUserHierarchyGroupsCommandOutput,
+} from "./commands/SearchUserHierarchyGroupsCommand";
 import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
 import {
@@ -947,6 +955,7 @@ export type ServiceInputTypes =
   | ReplicateInstanceCommandInput
   | ResumeContactCommandInput
   | ResumeContactRecordingCommandInput
+  | SearchAgentStatusesCommandInput
   | SearchAvailablePhoneNumbersCommandInput
   | SearchContactFlowModulesCommandInput
   | SearchContactFlowsCommandInput
@@ -959,6 +968,7 @@ export type ServiceInputTypes =
   | SearchResourceTagsCommandInput
   | SearchRoutingProfilesCommandInput
   | SearchSecurityProfilesCommandInput
+  | SearchUserHierarchyGroupsCommandInput
   | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
   | SendChatIntegrationEventCommandInput
@@ -1205,6 +1215,7 @@ export type ServiceOutputTypes =
   | ReplicateInstanceCommandOutput
   | ResumeContactCommandOutput
   | ResumeContactRecordingCommandOutput
+  | SearchAgentStatusesCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
   | SearchContactFlowModulesCommandOutput
   | SearchContactFlowsCommandOutput
@@ -1217,6 +1228,7 @@ export type ServiceOutputTypes =
   | SearchResourceTagsCommandOutput
   | SearchRoutingProfilesCommandOutput
   | SearchSecurityProfilesCommandOutput
+  | SearchUserHierarchyGroupsCommandOutput
   | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
   | SendChatIntegrationEventCommandOutput
@@ -1461,14 +1473,13 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  * <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html">Amazon Connect
- *        actions</a>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html">Amazon Connect actions</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect
- *        data types</a>
+ *       data types</a>
  *                </p>
  *             </li>
  *          </ul>

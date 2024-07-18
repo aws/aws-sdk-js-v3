@@ -96,16 +96,44 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
+ *         ListCondition: { // ListCondition
+ *           TargetListType: "PROFICIENCIES",
+ *           Conditions: [ // Conditions
+ *             { // Condition
+ *               StringCondition: {
+ *                 FieldName: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *                 ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *               },
+ *               NumberCondition: { // NumberCondition
+ *                 FieldName: "STRING_VALUE",
+ *                 MinValue: Number("int"),
+ *                 MaxValue: Number("int"),
+ *                 ComparisonType: "GREATER_OR_EQUAL" || "GREATER" || "LESSER_OR_EQUAL" || "LESSER" || "EQUAL" || "NOT_EQUAL" || "RANGE",
+ *               },
+ *             },
+ *           ],
+ *         },
  *         HierarchyGroupCondition: "<HierarchyGroupCondition>",
  *       },
  *     ],
  *     AndConditions: [
  *       "<UserSearchCriteria>",
  *     ],
- *     StringCondition: {
- *       FieldName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *     StringCondition: "<StringCondition>",
+ *     ListCondition: {
+ *       TargetListType: "PROFICIENCIES",
+ *       Conditions: [
+ *         {
+ *           StringCondition: "<StringCondition>",
+ *           NumberCondition: {
+ *             FieldName: "STRING_VALUE",
+ *             MinValue: Number("int"),
+ *             MaxValue: Number("int"),
+ *             ComparisonType: "GREATER_OR_EQUAL" || "GREATER" || "LESSER_OR_EQUAL" || "LESSER" || "EQUAL" || "NOT_EQUAL" || "RANGE",
+ *           },
+ *         },
+ *       ],
  *     },
  *     HierarchyGroupCondition: "<HierarchyGroupCondition>",
  *   },

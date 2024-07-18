@@ -501,6 +501,10 @@ import {
   ResumeContactRecordingCommandOutput,
 } from "../commands/ResumeContactRecordingCommand";
 import {
+  SearchAgentStatusesCommandInput,
+  SearchAgentStatusesCommandOutput,
+} from "../commands/SearchAgentStatusesCommand";
+import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
@@ -533,6 +537,10 @@ import {
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
 } from "../commands/SearchSecurityProfilesCommand";
+import {
+  SearchUserHierarchyGroupsCommandInput,
+  SearchUserHierarchyGroupsCommandOutput,
+} from "../commands/SearchUserHierarchyGroupsCommand";
 import { SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "../commands/SearchVocabulariesCommand";
 import {
@@ -752,6 +760,7 @@ import {
   AgentQualityMetrics,
   AgentStatus,
   AgentStatusReference,
+  AgentStatusSearchFilter,
   AgentStatusSummary,
   AllowedCapabilities,
   Application,
@@ -761,9 +770,11 @@ import {
   AuthenticationProfile,
   Campaign,
   Channel,
+  CommonAttributeAndCondition,
   ContactDataRequest,
   ContactInitiationMethod,
   ContactState,
+  ControlPlaneAttributeFilter,
   CreateCaseActionDefinition,
   CreatedByInfo,
   CrossChannelBehavior,
@@ -775,8 +786,6 @@ import {
   EncryptionConfig,
   EndAssociatedTasksActionDefinition,
   Endpoint,
-  EvaluationAnswerData,
-  EvaluationAnswerOutput,
   EvaluationFormNumericQuestionAutomation,
   EvaluationFormNumericQuestionOption,
   EvaluationFormNumericQuestionProperties,
@@ -833,11 +842,12 @@ import {
   RuleAction,
   RuleTriggerEventSource,
   S3Config,
-  SegmentAttributeValue,
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
+  StringCondition,
   SubmitAutoEvaluationActionDefinition,
+  TagCondition,
   TaskActionDefinition,
   TaskTemplateConstraints,
   TaskTemplateDefaultFieldValue,
@@ -864,6 +874,8 @@ import {
   CurrentMetricResult,
   CurrentMetricSortCriteria,
   Evaluation,
+  EvaluationAnswerData,
+  EvaluationAnswerOutput,
   EvaluationFormSummary,
   EvaluationFormVersionSummary,
   EvaluationMetadata,
@@ -915,6 +927,7 @@ import {
   SecurityKey,
   SecurityProfile,
   SecurityProfileSummary,
+  SegmentAttributeValue,
   SignInConfig,
   SignInDistribution,
   TaskTemplateMetadata,
@@ -929,12 +942,14 @@ import {
   Vocabulary,
 } from "../models/models_1";
 import {
+  AgentStatusSearchCriteria,
   AnswerMachineDetectionConfig,
   AttributeAndCondition,
   ChatEvent,
   ChatMessage,
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
+  Condition,
   ConflictException,
   Contact,
   ContactAnalysis,
@@ -961,8 +976,10 @@ import {
   HierarchyStructureUpdate,
   HoursOfOperationSearchCriteria,
   HoursOfOperationSearchFilter,
+  ListCondition,
   MaximumResultReturnedException,
   NewSessionDetails,
+  NumberCondition,
   OutboundContactNotPermittedException,
   ParticipantDetails,
   ParticipantTimerConfiguration,
@@ -987,12 +1004,12 @@ import {
   SecurityProfilesSearchFilter,
   Sort,
   Step,
-  StringCondition,
-  TagCondition,
   TagSearchCondition,
   Transcript,
   TranscriptCriteria,
   UpdateParticipantRoleConfigChannelInfo,
+  UserHierarchyGroupSearchCriteria,
+  UserHierarchyGroupSearchFilter,
   UserSearchCriteria,
   UserSearchFilter,
   UserSummary,
@@ -4701,6 +4718,32 @@ export const se_ResumeContactRecordingCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchAgentStatusesCommand
+ */
+export const se_SearchAgentStatusesCommand = async (
+  input: SearchAgentStatusesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-agent-statuses");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_AgentStatusSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SearchAvailablePhoneNumbersCommand
  */
 export const se_SearchAvailablePhoneNumbersCommand = async (
@@ -5007,6 +5050,32 @@ export const se_SearchSecurityProfilesCommand = async (
       MaxResults: [],
       NextToken: [],
       SearchCriteria: (_) => se_SecurityProfileSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchUserHierarchyGroupsCommand
+ */
+export const se_SearchUserHierarchyGroupsCommand = async (
+  input: SearchUserHierarchyGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-user-hierarchy-groups");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_UserHierarchyGroupSearchCriteria(_, context),
       SearchFilter: (_) => _json(_),
     })
   );
@@ -10303,6 +10372,29 @@ export const de_ResumeContactRecordingCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchAgentStatusesCommand
+ */
+export const de_SearchAgentStatusesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchAgentStatusesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AgentStatuses: (_) => de_AgentStatusList(_, context),
+    ApproximateTotalCount: __expectLong,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchAvailablePhoneNumbersCommand
  */
 export const de_SearchAvailablePhoneNumbersCommand = async (
@@ -10571,6 +10663,29 @@ export const de_SearchSecurityProfilesCommand = async (
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
     SecurityProfiles: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchUserHierarchyGroupsCommand
+ */
+export const de_SearchUserHierarchyGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchUserHierarchyGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    NextToken: __expectString,
+    UserHierarchyGroups: (_) => de_UserHierarchyGroupList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -12440,6 +12555,30 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AgentsMinOneMaxHundred omitted.
 
+/**
+ * serializeAws_restJson1AgentStatusSearchConditionList
+ */
+const se_AgentStatusSearchConditionList = (input: AgentStatusSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AgentStatusSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1AgentStatusSearchCriteria
+ */
+const se_AgentStatusSearchCriteria = (input: AgentStatusSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_AgentStatusSearchConditionList(_, context),
+    OrConditions: (_) => se_AgentStatusSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_AgentStatusSearchFilter omitted.
+
 // se_AllowedAccessControlTags omitted.
 
 // se_AllowedCapabilities omitted.
@@ -12475,6 +12614,14 @@ const de_UserNotFoundExceptionRes = async (
 // se_ChatParticipantRoleConfig omitted.
 
 // se_ChatStreamingConfiguration omitted.
+
+// se_CommonAttributeAndCondition omitted.
+
+// se_CommonAttributeOrConditionList omitted.
+
+// se_Condition omitted.
+
+// se_Conditions omitted.
 
 // se_ContactAnalysis omitted.
 
@@ -12543,6 +12690,8 @@ const se_ContactFlowSearchCriteria = (input: ContactFlowSearchCriteria, context:
 // se_ContactStates omitted.
 
 // se_ContactTagMap omitted.
+
+// se_ControlPlaneAttributeFilter omitted.
 
 // se_ControlPlaneTagFilter omitted.
 
@@ -12835,6 +12984,8 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 
 // se_LexV2Bot omitted.
 
+// se_ListCondition omitted.
+
 // se_MediaConcurrencies omitted.
 
 // se_MediaConcurrency omitted.
@@ -12870,6 +13021,8 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 // se_NewSessionDetails omitted.
 
 // se_NotificationRecipientType omitted.
+
+// se_NumberCondition omitted.
 
 // se_NumericQuestionPropertyValueAutomation omitted.
 
@@ -13256,6 +13409,33 @@ const se_UpdateCaseActionDefinition = (input: UpdateCaseActionDefinition, contex
 
 // se_UserDataHierarchyGroups omitted.
 
+/**
+ * serializeAws_restJson1UserHierarchyGroupSearchConditionList
+ */
+const se_UserHierarchyGroupSearchConditionList = (
+  input: UserHierarchyGroupSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_UserHierarchyGroupSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1UserHierarchyGroupSearchCriteria
+ */
+const se_UserHierarchyGroupSearchCriteria = (input: UserHierarchyGroupSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_UserHierarchyGroupSearchConditionList(_, context),
+    OrConditions: (_) => se_UserHierarchyGroupSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_UserHierarchyGroupSearchFilter omitted.
+
 // se_UserIdentityInfo omitted.
 
 // se_UserIdList omitted.
@@ -13308,6 +13488,7 @@ const se_UserSearchCriteria = (input: UserSearchCriteria, context: __SerdeContex
   return take(input, {
     AndConditions: (_) => se_UserSearchConditionList(_, context),
     HierarchyGroupCondition: _json,
+    ListCondition: _json,
     OrConditions: (_) => se_UserSearchConditionList(_, context),
     StringCondition: _json,
   });
@@ -13401,6 +13582,18 @@ const de_AgentStatus = (output: any, context: __SerdeContext): AgentStatus => {
     Tags: _json,
     Type: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AgentStatusList
+ */
+const de_AgentStatusList = (output: any, context: __SerdeContext): AgentStatus[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AgentStatus(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -15427,6 +15620,18 @@ const de_UserDataList = (output: any, context: __SerdeContext): UserData[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_UserData(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1UserHierarchyGroupList
+ */
+const de_UserHierarchyGroupList = (output: any, context: __SerdeContext): HierarchyGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HierarchyGroup(entry, context);
     });
   return retVal;
 };

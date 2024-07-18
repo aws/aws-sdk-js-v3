@@ -20,7 +20,6 @@ import {
   CreatedByInfo,
   DirectoryType,
   Distribution,
-  EvaluationAnswerOutput,
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
@@ -50,7 +49,6 @@ import {
   TaskTemplateDefaults,
   TaskTemplateField,
   TaskTemplateStatus,
-  UseCaseType,
   UserIdentityInfo,
   UserIdentityInfoFilterSensitiveLog,
   UserPhoneConfig,
@@ -59,6 +57,155 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const RoutingCriteriaStepStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  INACTIVE: "INACTIVE",
+  JOINED: "JOINED",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingCriteriaStepStatus = (typeof RoutingCriteriaStepStatus)[keyof typeof RoutingCriteriaStepStatus];
+
+/**
+ * <p>A value for a segment attribute. This is structured as a map where the key is
+ *     <code>valueString</code> and the value is a string.</p>
+ * @public
+ */
+export interface SegmentAttributeValue {
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueString?: string;
+}
+
+/**
+ * <p>Information about Amazon Connect Wisdom.</p>
+ * @public
+ */
+export interface WisdomInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Wisdom session.</p>
+   * @public
+   */
+  SessionArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactEvaluationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+}
+
+/**
+ * <p>Information about answer data for a contact evaluation. Answer data must be either string,
+ *    numeric, or not applicable.</p>
+ * @public
+ */
+export type EvaluationAnswerData =
+  | EvaluationAnswerData.NotApplicableMember
+  | EvaluationAnswerData.NumericValueMember
+  | EvaluationAnswerData.StringValueMember
+  | EvaluationAnswerData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationAnswerData {
+  /**
+   * <p>The string value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    NumericValue?: never;
+    NotApplicable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The numeric value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  export interface NumericValueMember {
+    StringValue?: never;
+    NumericValue: number;
+    NotApplicable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The flag to mark the question as not applicable.</p>
+   * @public
+   */
+  export interface NotApplicableMember {
+    StringValue?: never;
+    NumericValue?: never;
+    NotApplicable: boolean;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    NumericValue?: never;
+    NotApplicable?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    NumericValue: (value: number) => T;
+    NotApplicable: (value: boolean) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EvaluationAnswerData, visitor: Visitor<T>): T => {
+    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
+    if (value.NumericValue !== undefined) return visitor.NumericValue(value.NumericValue);
+    if (value.NotApplicable !== undefined) return visitor.NotApplicable(value.NotApplicable);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Information about output answers for a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationAnswerOutput {
+  /**
+   * <p>The value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  Value?: EvaluationAnswerData;
+
+  /**
+   * <p>The system suggested value for an answer in a contact evaluation.</p>
+   * @public
+   */
+  SystemSuggestedValue?: EvaluationAnswerData;
+}
 
 /**
  * <p>Information about scores of a contact evaluation item (section or question).</p>
@@ -5080,7 +5227,8 @@ export interface GetMetricDataV2Request {
    *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
    *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
    *       "Less than").</p>
-   *                <p>UI name: This metric is not available in Amazon Connect admin website. </p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-removed-historical">Contacts removed from queue in X seconds</a>
+   *                </p>
    *             </dd>
    *             <dt>CONTACTS_RESOLVED_IN_X</dt>
    *             <dd>
@@ -9655,137 +9803,6 @@ export interface ListTrafficDistributionGroupsResponse {
    * @public
    */
   TrafficDistributionGroupSummaryList?: TrafficDistributionGroupSummary[];
-}
-
-/**
- * @public
- */
-export interface ListTrafficDistributionGroupUsersRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
-   * @public
-   */
-  TrafficDistributionGroupId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Summary information about a traffic distribution group user.</p>
- * @public
- */
-export interface TrafficDistributionGroupUserSummary {
-  /**
-   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
-   * @public
-   */
-  UserId?: string;
-}
-
-/**
- * @public
- */
-export interface ListTrafficDistributionGroupUsersResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of traffic distribution group users.</p>
-   * @public
-   */
-  TrafficDistributionGroupUserSummaryList?: TrafficDistributionGroupUserSummary[];
-}
-
-/**
- * <p>Provides summary information about the use cases for the specified integration
- *    association.</p>
- * @public
- */
-export interface ListUseCasesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   * @public
-   */
-  IntegrationAssociationId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Contains the
- *    use
- *    case.</p>
- * @public
- */
-export interface UseCase {
-  /**
-   * <p>The identifier for the use case.</p>
-   * @public
-   */
-  UseCaseId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the use case.</p>
-   * @public
-   */
-  UseCaseArn?: string;
-
-  /**
-   * <p>The type of use case to associate to the integration association. Each integration
-   *    association can have only one of each use case type.</p>
-   * @public
-   */
-  UseCaseType?: UseCaseType;
-}
-
-/**
- * @public
- */
-export interface ListUseCasesResponse {
-  /**
-   * <p>The use cases.</p>
-   * @public
-   */
-  UseCaseSummaryList?: UseCase[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**

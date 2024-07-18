@@ -8,6 +8,8 @@ import {
   AgentConfig,
   AgentHierarchyGroups,
   AgentInfo,
+  AgentStatus,
+  AgentStatusSearchFilter,
   AgentStatusState,
   AllowedCapabilities,
   AnsweringMachineDetectionStatus,
@@ -18,11 +20,11 @@ import {
   ContactFlowStatus,
   ContactFlowType,
   ContactInitiationMethod,
+  ControlPlaneAttributeFilter,
   CreatedByInfo,
   Customer,
   CustomerVoiceActivity,
   DisconnectDetails,
-  EvaluationAnswerData,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
   Expiry,
@@ -41,15 +43,17 @@ import {
   QuickConnectConfig,
   Reference,
   RehydrationType,
-  RoutingCriteriaStepStatus,
   RoutingProfileQueueConfig,
   RuleAction,
   RulePublishStatus,
-  SegmentAttributeValue,
+  StringComparisonType,
+  StringCondition,
+  TagCondition,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
   TaskTemplateField,
   TaskTemplateStatus,
+  UseCaseType,
   UserIdentityInfo,
   UserIdentityInfoFilterSensitiveLog,
   UserPhoneConfig,
@@ -62,7 +66,6 @@ import {
   ViewType,
   VocabularyLanguageCode,
   VocabularyState,
-  WisdomInfo,
 } from "./models_0";
 
 import {
@@ -71,8 +74,10 @@ import {
   ContactFlowModuleState,
   ContactFlowState,
   Evaluation,
+  EvaluationAnswerData,
   EvaluationFormVersionStatus,
   EvaluationNote,
+  HierarchyGroup,
   HierarchyGroupSummary,
   HoursOfOperation,
   InstanceAttributeType,
@@ -83,11 +88,145 @@ import {
   Queue,
   QueueStatus,
   QuickConnect,
+  RoutingCriteriaStepStatus,
   RoutingProfile,
+  SegmentAttributeValue,
   SignInConfig,
   SortOrder,
   TelephonyConfig,
+  WisdomInfo,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListTrafficDistributionGroupUsersRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   * @public
+   */
+  TrafficDistributionGroupId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Summary information about a traffic distribution group user.</p>
+ * @public
+ */
+export interface TrafficDistributionGroupUserSummary {
+  /**
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   * @public
+   */
+  UserId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTrafficDistributionGroupUsersResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of traffic distribution group users.</p>
+   * @public
+   */
+  TrafficDistributionGroupUserSummaryList?: TrafficDistributionGroupUserSummary[];
+}
+
+/**
+ * <p>Provides summary information about the use cases for the specified integration
+ *    association.</p>
+ * @public
+ */
+export interface ListUseCasesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains the
+ *    use
+ *    case.</p>
+ * @public
+ */
+export interface UseCase {
+  /**
+   * <p>The identifier for the use case.</p>
+   * @public
+   */
+  UseCaseId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the use case.</p>
+   * @public
+   */
+  UseCaseArn?: string;
+
+  /**
+   * <p>The type of use case to associate to the integration association. Each integration
+   *    association can have only one of each use case type.</p>
+   * @public
+   */
+  UseCaseType?: UseCaseType;
+}
+
+/**
+ * @public
+ */
+export interface ListUseCasesResponse {
+  /**
+   * <p>The use cases.</p>
+   * @public
+   */
+  UseCaseSummaryList?: UseCase[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -727,6 +866,29 @@ export interface ResumeContactRecordingResponse {}
 /**
  * @public
  */
+export interface SearchAgentStatusesResponse {
+  /**
+   * <p>The search criteria to be used to return agent statuses.</p>
+   * @public
+   */
+  AgentStatuses?: AgentStatus[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of agent statuses which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ */
 export interface SearchAvailablePhoneNumbersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
@@ -813,68 +975,6 @@ export interface SearchAvailablePhoneNumbersResponse {
    * @public
    */
   AvailableNumbersList?: AvailableNumberSummary[];
-}
-
-/**
- * @public
- * @enum
- */
-export const StringComparisonType = {
-  CONTAINS: "CONTAINS",
-  EXACT: "EXACT",
-  STARTS_WITH: "STARTS_WITH",
-} as const;
-
-/**
- * @public
- */
-export type StringComparisonType = (typeof StringComparisonType)[keyof typeof StringComparisonType];
-
-/**
- * <p>A leaf node condition which can be used to specify a string condition.</p>
- *          <note>
- *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
- *      <code>description</code>.</p>
- *          </note>
- * @public
- */
-export interface StringCondition {
-  /**
-   * <p>The name of the field in the string condition.</p>
-   * @public
-   */
-  FieldName?: string;
-
-  /**
-   * <p>The value of the string.</p>
-   * @public
-   */
-  Value?: string;
-
-  /**
-   * <p>The type of comparison to be made when evaluating the string condition.</p>
-   * @public
-   */
-  ComparisonType?: StringComparisonType;
-}
-
-/**
- * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
- *     BPO = 123</code>. </p>
- * @public
- */
-export interface TagCondition {
-  /**
-   * <p>The tag key in the tag condition.</p>
-   * @public
-   */
-  TagKey?: string;
-
-  /**
-   * <p>The tag value in the tag condition.</p>
-   * @public
-   */
-  TagValue?: string;
 }
 
 /**
@@ -1733,6 +1833,35 @@ export interface SearchResourceTagsRequest {
   /**
    * <p>The list of resource types to be used to search tags from. If not provided or if any empty
    *    list is provided, this API will search from all supported resource types.</p>
+   *          <p class="title">
+   *             <b>Supported resource types</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>AGENT</p>
+   *             </li>
+   *             <li>
+   *                <p>ROUTING_PROFILE</p>
+   *             </li>
+   *             <li>
+   *                <p>STANDARD_QUEUE</p>
+   *             </li>
+   *             <li>
+   *                <p>SECURITY_PROFILE</p>
+   *             </li>
+   *             <li>
+   *                <p>OPERATING_HOURS</p>
+   *             </li>
+   *             <li>
+   *                <p>PROMPT</p>
+   *             </li>
+   *             <li>
+   *                <p>CONTACT_FLOW</p>
+   *             </li>
+   *             <li>
+   *                <p>FLOW_MODULE</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceTypes?: string[];
@@ -1927,6 +2056,52 @@ export interface SearchSecurityProfilesResponse {
 }
 
 /**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface UserHierarchyGroupSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the SearchFilter. This accepts
+   *    an OR or AND (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator.</p>
+   *             </li>
+   *             <li>
+   *                <p>The inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributeFilter?: ControlPlaneAttributeFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchUserHierarchyGroupsResponse {
+  /**
+   * <p>Information about the userHierarchyGroups.</p>
+   * @public
+   */
+  UserHierarchyGroups?: HierarchyGroup[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of userHierarchyGroups which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1956,6 +2131,113 @@ export interface HierarchyGroupCondition {
    * @public
    */
   HierarchyGroupMatchType?: HierarchyGroupMatchType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NumberComparisonType = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESSER: "LESSER",
+  LESSER_OR_EQUAL: "LESSER_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+  RANGE: "RANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type NumberComparisonType = (typeof NumberComparisonType)[keyof typeof NumberComparisonType];
+
+/**
+ * <p>A leaf node condition which can be used to specify a numeric condition.</p>
+ *          <note>
+ *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
+ *          </note>
+ * @public
+ */
+export interface NumberCondition {
+  /**
+   * <p>The name of the field in the number condition.</p>
+   * @public
+   */
+  FieldName?: string;
+
+  /**
+   * <p>The minValue to be used while evaluating the number condition.</p>
+   * @public
+   */
+  MinValue?: number;
+
+  /**
+   * <p>The maxValue to be used while evaluating the number condition.</p>
+   * @public
+   */
+  MaxValue?: number;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the number condition.</p>
+   * @public
+   */
+  ComparisonType?: NumberComparisonType;
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a ProficiencyName, ProficiencyValue and
+ *    ProficiencyLimit.</p>
+ * @public
+ */
+export interface Condition {
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
+   *      <code>value</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a numeric condition.</p>
+   * @public
+   */
+  NumberCondition?: NumberCondition;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetListType = {
+  PROFICIENCIES: "PROFICIENCIES",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetListType = (typeof TargetListType)[keyof typeof TargetListType];
+
+/**
+ * <p>A leaf node condition which can be used to specify a List condition to search users with
+ *    attributes included in Lists like Proficiencies.</p>
+ * @public
+ */
+export interface ListCondition {
+  /**
+   * <p>The type of target list that will be used to filter the users.</p>
+   * @public
+   */
+  TargetListType?: TargetListType;
+
+  /**
+   * <p>A list of Condition objects which would be applied together with an AND condition.</p>
+   * @public
+   */
+  Conditions?: Condition[];
 }
 
 /**
@@ -5897,6 +6179,41 @@ export interface EvaluationFormSection {
 }
 
 /**
+ * <p>The search criteria to be used to return agent statuses.</p>
+ * @public
+ */
+export interface AgentStatusSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *    condition.</p>
+   * @public
+   */
+  OrConditions?: AgentStatusSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *      <code>description</code>, <code>state</code>, <code>type</code>, <code>displayOrder</code>,
+   *     and <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  AndConditions?: AgentStatusSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *      <code>description</code>, <code>state</code>, <code>type</code>, <code>displayOrder</code>,
+   *     and <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
  * <p>The search criteria to be used to return flow modules.</p>
  * @public
  */
@@ -5917,10 +6234,6 @@ export interface ContactFlowModuleSearchCriteria {
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
-   *      <code>description</code>.</p>
-   *          </note>
    * @public
    */
   StringCondition?: StringCondition;
@@ -5947,10 +6260,6 @@ export interface ContactFlowSearchCriteria {
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
-   *      <code>description</code>.</p>
-   *          </note>
    * @public
    */
   StringCondition?: StringCondition;
@@ -6229,10 +6538,6 @@ export interface PredefinedAttributeSearchCriteria {
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
-   *      <code>description</code>.</p>
-   *          </note>
    * @public
    */
   StringCondition?: StringCondition;
@@ -6391,10 +6696,6 @@ export interface SecurityProfileSearchCriteria {
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
-   *      <code>description</code>.</p>
-   *          </note>
    * @public
    */
   StringCondition?: StringCondition;
@@ -6463,6 +6764,34 @@ export interface UpdateEvaluationFormRequest {
 }
 
 /**
+ * <p>The search criteria to be used to return userHierarchyGroup.</p>
+ * @public
+ */
+export interface UserHierarchyGroupSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: UserHierarchyGroupSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: UserHierarchyGroupSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *      <code>parentId</code>, <code>levelId</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
  * <p>The search criteria to be used to return users.</p>
  *          <note>
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
@@ -6494,6 +6823,13 @@ export interface UserSearchCriteria {
    * @public
    */
   StringCondition?: StringCondition;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a List condition to search users with
+   *    attributes included in Lists like Proficiencies.</p>
+   * @public
+   */
+  ListCondition?: ListCondition;
 
   /**
    * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
@@ -6528,6 +6864,43 @@ export interface DescribeEvaluationFormResponse {
    * @public
    */
   EvaluationForm: EvaluationForm | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAgentStatusesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: AgentStatusSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return agent statuses.</p>
+   * @public
+   */
+  SearchCriteria?: AgentStatusSearchCriteria;
 }
 
 /**
@@ -6878,6 +7251,43 @@ export interface SearchSecurityProfilesRequest {
    * @public
    */
   SearchFilter?: SecurityProfilesSearchFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchUserHierarchyGroupsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of
+   *    the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: UserHierarchyGroupSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return UserHierarchyGroups.</p>
+   * @public
+   */
+  SearchCriteria?: UserHierarchyGroupSearchCriteria;
 }
 
 /**
