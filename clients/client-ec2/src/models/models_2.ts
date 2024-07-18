@@ -3,6 +3,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   ApplianceModeSupportValue,
+  AttachmentStatus,
   CurrencyCodeValues,
   DeviceTrustProviderType,
   DnsSupportValue,
@@ -32,33 +33,190 @@ import {
 } from "./models_0";
 
 import {
+  AttachmentEnaSrdUdpSpecification,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
-  ConnectionTrackingConfiguration,
   Ec2InstanceConnectEndpoint,
   GatewayType,
-  GroupIdentifier,
   Ipam,
+  IpamExternalResourceVerificationToken,
   IpamPool,
   IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
   LocalGatewayRoute,
-  LocalGatewayRouteTable,
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  LocalGatewayRouteTableVpcAssociation,
-  ManagedPrefixList,
   NetworkInterfaceAssociation,
-  NetworkInterfaceAttachment,
-  NetworkInterfaceType,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ * @public
+ */
+export interface AttachmentEnaSrdSpecification {
+  /**
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   * @public
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   * @public
+   */
+  EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification;
+}
+
+/**
+ * <p>Describes a network interface attachment.</p>
+ * @public
+ */
+export interface NetworkInterfaceAttachment {
+  /**
+   * <p>The timestamp indicating when the attachment initiated.</p>
+   * @public
+   */
+  AttachTime?: Date;
+
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   * @public
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   * @public
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The device index of the network interface attachment on the instance.</p>
+   * @public
+   */
+  DeviceIndex?: number;
+
+  /**
+   * <p>The index of the network card.</p>
+   * @public
+   */
+  NetworkCardIndex?: number;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the instance.</p>
+   * @public
+   */
+  InstanceOwnerId?: string;
+
+  /**
+   * <p>The attachment state.</p>
+   * @public
+   */
+  Status?: AttachmentStatus;
+
+  /**
+   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
+   * @public
+   */
+  EnaSrdSpecification?: AttachmentEnaSrdSpecification;
+}
+
+/**
+ * <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ConnectionTrackingConfiguration {
+  /**
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   * @public
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   * @public
+   */
+  UdpStreamTimeout?: number;
+
+  /**
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   * @public
+   */
+  UdpTimeout?: number;
+}
+
+/**
+ * <p>Describes a security group.</p>
+ * @public
+ */
+export interface GroupIdentifier {
+  /**
+   * <p>The name of the security group.</p>
+   * @public
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceType = {
+  api_gateway_managed: "api_gateway_managed",
+  aws_codestar_connections_managed: "aws_codestar_connections_managed",
+  branch: "branch",
+  efa: "efa",
+  gateway_load_balancer: "gateway_load_balancer",
+  gateway_load_balancer_endpoint: "gateway_load_balancer_endpoint",
+  global_accelerator_managed: "global_accelerator_managed",
+  interface: "interface",
+  iot_rules_managed: "iot_rules_managed",
+  lambda: "lambda",
+  load_balancer: "load_balancer",
+  natGateway: "natGateway",
+  network_load_balancer: "network_load_balancer",
+  quicksight: "quicksight",
+  transit_gateway: "transit_gateway",
+  trunk: "trunk",
+  vpc_endpoint: "vpc_endpoint",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
 
 /**
  * <p>Describes an IPv6 address associated with a network interface.</p>
@@ -8624,6 +8782,36 @@ export interface DeleteIpamResult {
 /**
  * @public
  */
+export interface DeleteIpamExternalResourceVerificationTokenRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token ID.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationTokenId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamExternalResourceVerificationTokenResult {
+  /**
+   * <p>The verification token.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationToken?: IpamExternalResourceVerificationToken;
+}
+
+/**
+ * @public
+ */
 export interface DeleteIpamPoolRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -9013,109 +9201,6 @@ export interface DeleteLocalGatewayRouteTableRequest {
    * @public
    */
   DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableResult {
-  /**
-   * <p>Information about the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTable?: LocalGatewayRouteTable;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
-  /**
-   * <p>
-   *          The ID of the local gateway route table virtual interface group association.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
-  /**
-   * <p>The ID of the association.</p>
-   * @public
-   */
-  LocalGatewayRouteTableVpcAssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation;
-}
-
-/**
- * @public
- */
-export interface DeleteManagedPrefixListRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteManagedPrefixListResult {
-  /**
-   * <p>Information about the prefix list.</p>
-   * @public
-   */
-  PrefixList?: ManagedPrefixList;
 }
 
 /**

@@ -262,6 +262,10 @@ import {
   CreateInternetGatewayCommandOutput,
 } from "../commands/CreateInternetGatewayCommand";
 import { CreateIpamCommandInput, CreateIpamCommandOutput } from "../commands/CreateIpamCommand";
+import {
+  CreateIpamExternalResourceVerificationTokenCommandInput,
+  CreateIpamExternalResourceVerificationTokenCommandOutput,
+} from "../commands/CreateIpamExternalResourceVerificationTokenCommand";
 import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "../commands/CreateIpamPoolCommand";
 import {
   CreateIpamResourceDiscoveryCommandInput,
@@ -500,6 +504,10 @@ import {
   DeleteInternetGatewayCommandOutput,
 } from "../commands/DeleteInternetGatewayCommand";
 import { DeleteIpamCommandInput, DeleteIpamCommandOutput } from "../commands/DeleteIpamCommand";
+import {
+  DeleteIpamExternalResourceVerificationTokenCommandInput,
+  DeleteIpamExternalResourceVerificationTokenCommandOutput,
+} from "../commands/DeleteIpamExternalResourceVerificationTokenCommand";
 import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "../commands/DeleteIpamPoolCommand";
 import {
   DeleteIpamResourceDiscoveryCommandInput,
@@ -918,6 +926,10 @@ import {
   DescribeInternetGatewaysCommandOutput,
 } from "../commands/DescribeInternetGatewaysCommand";
 import { DescribeIpamByoasnCommandInput, DescribeIpamByoasnCommandOutput } from "../commands/DescribeIpamByoasnCommand";
+import {
+  DescribeIpamExternalResourceVerificationTokensCommandInput,
+  DescribeIpamExternalResourceVerificationTokensCommandOutput,
+} from "../commands/DescribeIpamExternalResourceVerificationTokensCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "../commands/DescribeIpamPoolsCommand";
 import {
   DescribeIpamResourceDiscoveriesCommandInput,
@@ -2370,7 +2382,6 @@ import {
   VpcPeeringConnectionVpcInfo,
 } from "../models/models_0";
 import {
-  AttachmentEnaSrdSpecification,
   AttachmentEnaSrdUdpSpecification,
   AttributeValue,
   BaselineEbsBandwidthMbps,
@@ -2389,7 +2400,6 @@ import {
   CoipCidr,
   CoipPool,
   ConnectionLogOptions,
-  ConnectionTrackingConfiguration,
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
@@ -2431,6 +2441,8 @@ import {
   CreateInstanceExportTaskResult,
   CreateInternetGatewayRequest,
   CreateInternetGatewayResult,
+  CreateIpamExternalResourceVerificationTokenRequest,
+  CreateIpamExternalResourceVerificationTokenResult,
   CreateIpamPoolRequest,
   CreateIpamPoolResult,
   CreateIpamRequest,
@@ -2490,7 +2502,6 @@ import {
   FleetLaunchTemplateSpecificationRequest,
   FleetSpotCapacityRebalanceRequest,
   FleetSpotMaintenanceStrategiesRequest,
-  GroupIdentifier,
   IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
@@ -2502,6 +2513,7 @@ import {
   InternetGateway,
   InternetGatewayAttachment,
   Ipam,
+  IpamExternalResourceVerificationToken,
   IpamOperatingRegion,
   IpamPool,
   IpamPoolSourceResource,
@@ -2575,7 +2587,6 @@ import {
   NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
   NetworkInterfaceAssociation,
-  NetworkInterfaceAttachment,
   NetworkInterfaceCount,
   NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
@@ -2605,9 +2616,11 @@ import {
   Vpc,
 } from "../models/models_1";
 import {
+  AttachmentEnaSrdSpecification,
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  ConnectionTrackingConfiguration,
   CreateNetworkInterfacePermissionRequest,
   CreateNetworkInterfacePermissionResult,
   CreateNetworkInterfaceResult,
@@ -2729,6 +2742,8 @@ import {
   DeleteInstanceEventWindowRequest,
   DeleteInstanceEventWindowResult,
   DeleteInternetGatewayRequest,
+  DeleteIpamExternalResourceVerificationTokenRequest,
+  DeleteIpamExternalResourceVerificationTokenResult,
   DeleteIpamPoolRequest,
   DeleteIpamPoolResult,
   DeleteIpamRequest,
@@ -2748,16 +2763,10 @@ import {
   DeleteLocalGatewayRouteRequest,
   DeleteLocalGatewayRouteResult,
   DeleteLocalGatewayRouteTableRequest,
-  DeleteLocalGatewayRouteTableResult,
-  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
-  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
-  DeleteLocalGatewayRouteTableVpcAssociationRequest,
-  DeleteLocalGatewayRouteTableVpcAssociationResult,
-  DeleteManagedPrefixListRequest,
-  DeleteManagedPrefixListResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
+  GroupIdentifier,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
@@ -2765,6 +2774,7 @@ import {
   Ipv6PrefixSpecification,
   LastError,
   NetworkInterface,
+  NetworkInterfaceAttachment,
   NetworkInterfaceIpv6Address,
   NetworkInterfacePermission,
   NetworkInterfacePermissionState,
@@ -2867,6 +2877,13 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteLocalGatewayRouteTableResult,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
+  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
+  DeleteLocalGatewayRouteTableVpcAssociationRequest,
+  DeleteLocalGatewayRouteTableVpcAssociationResult,
+  DeleteManagedPrefixListRequest,
+  DeleteManagedPrefixListResult,
   DeleteNatGatewayRequest,
   DeleteNatGatewayResult,
   DeleteNetworkAclEntryRequest,
@@ -3052,9 +3069,6 @@ import {
   DescribeIdFormatResult,
   DescribeImageAttributeRequest,
   DescribeImagesRequest,
-  DescribeImagesResult,
-  DescribeImportImageTasksRequest,
-  DescribeImportImageTasksResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3086,8 +3100,6 @@ import {
   IdFormat,
   Image,
   ImageAttribute,
-  ImportImageLicenseConfigurationResponse,
-  ImportImageTask,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
   ImportVolumeTaskDetails,
@@ -3100,7 +3112,6 @@ import {
   OnDemandOptions,
   PciId,
   ProductCode,
-  SnapshotDetail,
   SpotOptions,
   Subscription,
   SuccessfulQueuedPurchaseDeletion,
@@ -3108,7 +3119,6 @@ import {
   TargetNetwork,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
-  UserBucketDetails,
   VirtualizationType,
 } from "../models/models_3";
 import {
@@ -3121,6 +3131,9 @@ import {
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   CreateVolumePermission,
+  DescribeImagesResult,
+  DescribeImportImageTasksRequest,
+  DescribeImportImageTasksResult,
   DescribeImportSnapshotTasksRequest,
   DescribeImportSnapshotTasksResult,
   DescribeInstanceAttributeRequest,
@@ -3146,6 +3159,8 @@ import {
   DescribeInternetGatewaysResult,
   DescribeIpamByoasnRequest,
   DescribeIpamByoasnResult,
+  DescribeIpamExternalResourceVerificationTokensRequest,
+  DescribeIpamExternalResourceVerificationTokensResult,
   DescribeIpamPoolsRequest,
   DescribeIpamPoolsResult,
   DescribeIpamResourceDiscoveriesRequest,
@@ -3247,9 +3262,6 @@ import {
   DescribeSpotFleetRequestHistoryRequest,
   DescribeSpotFleetRequestHistoryResponse,
   DescribeSpotFleetRequestsRequest,
-  DescribeSpotFleetRequestsResponse,
-  DescribeSpotInstanceRequestsRequest,
-  DescribeSpotInstanceRequestsResult,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3266,6 +3278,8 @@ import {
   GpuInfo,
   HibernationOptions,
   HistoryRecord,
+  ImportImageLicenseConfigurationResponse,
+  ImportImageTask,
   ImportSnapshotTask,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
@@ -3296,7 +3310,6 @@ import {
   InstanceTypeOffering,
   Ipv6Pool,
   KeyPairInfo,
-  LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LicenseConfiguration,
@@ -3341,7 +3354,6 @@ import {
   ReservedInstancesModificationResult,
   ReservedInstancesOffering,
   RootDeviceType,
-  RunInstancesMonitoringEnabled,
   ScheduledInstance,
   ScheduledInstanceAvailability,
   ScheduledInstanceRecurrence,
@@ -3350,22 +3362,21 @@ import {
   SecurityGroupReference,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
+  SnapshotDetail,
   SnapshotTaskDetail,
   SnapshotTierStatus,
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
   SpotFleetMonitoring,
-  SpotFleetRequestConfig,
   SpotFleetRequestConfigData,
   SpotFleetTagSpecification,
-  SpotInstanceRequest,
-  SpotInstanceStatus,
   SpotMaintenanceStrategies,
   SpotPlacement,
   SupportedAdditionalProcessorFeature,
   TargetGroup,
   TargetGroupsConfig,
   UsageClassType,
+  UserBucketDetails,
   VCpuInfo,
 } from "../models/models_4";
 import {
@@ -3377,6 +3388,9 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeSpotFleetRequestsResponse,
+  DescribeSpotInstanceRequestsRequest,
+  DescribeSpotInstanceRequestsResult,
   DescribeSpotPriceHistoryRequest,
   DescribeSpotPriceHistoryResult,
   DescribeStaleSecurityGroupsRequest,
@@ -3612,23 +3626,21 @@ import {
   GetInstanceMetadataDefaultsRequest,
   GetInstanceMetadataDefaultsResult,
   GetInstanceTpmEkPubRequest,
-  GetInstanceTpmEkPubResult,
-  GetInstanceTypesFromInstanceRequirementsRequest,
-  GetInstanceTypesFromInstanceRequirementsResult,
-  GetInstanceUefiDataRequest,
-  GetInstanceUefiDataResult,
-  GetIpamAddressHistoryRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
-  InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
   Ipv6CidrAssociation,
+  LaunchSpecification,
   MetricPoint,
   PrivateDnsDetails,
   Purchase,
+  RunInstancesMonitoringEnabled,
   ServiceDetail,
+  SpotFleetRequestConfig,
+  SpotInstanceRequest,
+  SpotInstanceStatus,
   SpotPrice,
   StaleIpPermission,
   StaleSecurityGroup,
@@ -3656,13 +3668,18 @@ import {
 import {
   BlobAttributeValue,
   CapacityReservationSpecification,
-  CidrAuthorizationContext,
   ClientData,
   CreateVolumePermissionModifications,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetInstanceTpmEkPubResult,
+  GetInstanceTypesFromInstanceRequirementsRequest,
+  GetInstanceTypesFromInstanceRequirementsResult,
+  GetInstanceUefiDataRequest,
+  GetInstanceUefiDataResult,
+  GetIpamAddressHistoryRequest,
   GetIpamAddressHistoryResult,
   GetIpamDiscoveredAccountsRequest,
   GetIpamDiscoveredAccountsResult,
@@ -3742,8 +3759,8 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
-  InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
+  InstanceTypeInfoFromInstanceRequirements,
   IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
   IpamDiscoveredPublicAddress,
@@ -3892,17 +3909,11 @@ import {
   ModifyVpnTunnelOptionsResult,
   ModifyVpnTunnelOptionsSpecification,
   MonitorInstancesRequest,
-  MonitorInstancesResult,
-  MoveAddressToVpcRequest,
-  MoveAddressToVpcResult,
-  MoveByoipCidrToIpamRequest,
-  MoveByoipCidrToIpamResult,
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
   PrefixListAssociation,
   PrefixListEntry,
-  ProvisionByoipCidrRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3938,6 +3949,7 @@ import {
 } from "../models/models_6";
 import {
   AsnAuthorizationContext,
+  CidrAuthorizationContext,
   CpuOptionsRequest,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
@@ -3945,11 +3957,18 @@ import {
   InstanceMaintenanceOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
+  InstanceMonitoring,
   InstanceStateChange,
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  MonitorInstancesResult,
+  MoveAddressToVpcRequest,
+  MoveAddressToVpcResult,
+  MoveByoipCidrToIpamRequest,
+  MoveByoipCidrToIpamResult,
   PrivateDnsNameOptionsRequest,
+  ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
   ProvisionIpamByoasnRequest,
   ProvisionIpamByoasnResult,
@@ -5386,6 +5405,23 @@ export const se_CreateIpamCommand = async (
 };
 
 /**
+ * serializeAws_ec2CreateIpamExternalResourceVerificationTokenCommand
+ */
+export const se_CreateIpamExternalResourceVerificationTokenCommand = async (
+  input: CreateIpamExternalResourceVerificationTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateIpamExternalResourceVerificationTokenRequest(input, context),
+    [_A]: _CIERVT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2CreateIpamPoolCommand
  */
 export const se_CreateIpamPoolCommand = async (
@@ -6672,6 +6708,23 @@ export const se_DeleteIpamCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteIpamRequest(input, context),
     [_A]: _DI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteIpamExternalResourceVerificationTokenCommand
+ */
+export const se_DeleteIpamExternalResourceVerificationTokenCommand = async (
+  input: DeleteIpamExternalResourceVerificationTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteIpamExternalResourceVerificationTokenRequest(input, context),
+    [_A]: _DIERVT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8780,6 +8833,23 @@ export const se_DescribeIpamByoasnCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeIpamByoasnRequest(input, context),
     [_A]: _DIBe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeIpamExternalResourceVerificationTokensCommand
+ */
+export const se_DescribeIpamExternalResourceVerificationTokensCommand = async (
+  input: DescribeIpamExternalResourceVerificationTokensCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeIpamExternalResourceVerificationTokensRequest(input, context),
+    [_A]: _DIERVTe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -16176,6 +16246,26 @@ export const de_CreateIpamCommand = async (
 };
 
 /**
+ * deserializeAws_ec2CreateIpamExternalResourceVerificationTokenCommand
+ */
+export const de_CreateIpamExternalResourceVerificationTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIpamExternalResourceVerificationTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateIpamExternalResourceVerificationTokenResult(data, context);
+  const response: CreateIpamExternalResourceVerificationTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2CreateIpamPoolCommand
  */
 export const de_CreateIpamPoolCommand = async (
@@ -17671,6 +17761,26 @@ export const de_DeleteIpamCommand = async (
   let contents: any = {};
   contents = de_DeleteIpamResult(data, context);
   const response: DeleteIpamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteIpamExternalResourceVerificationTokenCommand
+ */
+export const de_DeleteIpamExternalResourceVerificationTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIpamExternalResourceVerificationTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteIpamExternalResourceVerificationTokenResult(data, context);
+  const response: DeleteIpamExternalResourceVerificationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -20100,6 +20210,26 @@ export const de_DescribeIpamByoasnCommand = async (
   let contents: any = {};
   contents = de_DescribeIpamByoasnResult(data, context);
   const response: DescribeIpamByoasnCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeIpamExternalResourceVerificationTokensCommand
+ */
+export const de_DescribeIpamExternalResourceVerificationTokensCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpamExternalResourceVerificationTokensCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeIpamExternalResourceVerificationTokensResult(data, context);
+  const response: DescribeIpamExternalResourceVerificationTokensCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -30103,6 +30233,36 @@ const se_CreateInternetGatewayRequest = (input: CreateInternetGatewayRequest, co
 };
 
 /**
+ * serializeAws_ec2CreateIpamExternalResourceVerificationTokenRequest
+ */
+const se_CreateIpamExternalResourceVerificationTokenRequest = (
+  input: CreateIpamExternalResourceVerificationTokenRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IIp] != null) {
+    entries[_IIp] = input[_IIp];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreateIpamPoolRequest
  */
 const se_CreateIpamPoolRequest = (input: CreateIpamPoolRequest, context: __SerdeContext): any => {
@@ -32993,6 +33153,23 @@ const se_DeleteInternetGatewayRequest = (input: DeleteInternetGatewayRequest, co
 };
 
 /**
+ * serializeAws_ec2DeleteIpamExternalResourceVerificationTokenRequest
+ */
+const se_DeleteIpamExternalResourceVerificationTokenRequest = (
+  input: DeleteIpamExternalResourceVerificationTokenRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IERVTI] != null) {
+    entries[_IERVTI] = input[_IERVTI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DeleteIpamPoolRequest
  */
 const se_DeleteIpamPoolRequest = (input: DeleteIpamPoolRequest, context: __SerdeContext): any => {
@@ -35869,6 +36046,40 @@ const se_DescribeIpamByoasnRequest = (input: DescribeIpamByoasnRequest, context:
   }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeIpamExternalResourceVerificationTokensRequest
+ */
+const se_DescribeIpamExternalResourceVerificationTokensRequest = (
+  input: DescribeIpamExternalResourceVerificationTokensRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_IERVTIp] != null) {
+    const memberEntries = se_ValueStringList(input[_IERVTIp], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IpamExternalResourceVerificationTokenId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -48655,6 +48866,12 @@ const se_ProvisionIpamPoolCidrRequest = (input: ProvisionIpamPoolCidrRequest, co
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
+  if (input[_VM] != null) {
+    entries[_VM] = input[_VM];
+  }
+  if (input[_IERVTI] != null) {
+    entries[_IERVTI] = input[_IERVTI];
+  }
   return entries;
 };
 
@@ -57489,6 +57706,20 @@ const de_CreateInternetGatewayResult = (output: any, context: __SerdeContext): C
 };
 
 /**
+ * deserializeAws_ec2CreateIpamExternalResourceVerificationTokenResult
+ */
+const de_CreateIpamExternalResourceVerificationTokenResult = (
+  output: any,
+  context: __SerdeContext
+): CreateIpamExternalResourceVerificationTokenResult => {
+  const contents: any = {};
+  if (output[_iERVT] != null) {
+    contents[_IERVT] = de_IpamExternalResourceVerificationToken(output[_iERVT], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateIpamPoolResult
  */
 const de_CreateIpamPoolResult = (output: any, context: __SerdeContext): CreateIpamPoolResult => {
@@ -58575,6 +58806,20 @@ const de_DeleteInstanceEventWindowResult = (output: any, context: __SerdeContext
   const contents: any = {};
   if (output[_iEWS] != null) {
     contents[_IEWS] = de_InstanceEventWindowStateChange(output[_iEWS], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteIpamExternalResourceVerificationTokenResult
+ */
+const de_DeleteIpamExternalResourceVerificationTokenResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteIpamExternalResourceVerificationTokenResult => {
+  const contents: any = {};
+  if (output[_iERVT] != null) {
+    contents[_IERVT] = de_IpamExternalResourceVerificationToken(output[_iERVT], context);
   }
   return contents;
 };
@@ -60479,6 +60724,28 @@ const de_DescribeIpamByoasnResult = (output: any, context: __SerdeContext): Desc
 };
 
 /**
+ * deserializeAws_ec2DescribeIpamExternalResourceVerificationTokensResult
+ */
+const de_DescribeIpamExternalResourceVerificationTokensResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeIpamExternalResourceVerificationTokensResult => {
+  const contents: any = {};
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  if (output.ipamExternalResourceVerificationTokenSet === "") {
+    contents[_IERVTp] = [];
+  } else if (output[_iERVTS] != null && output[_iERVTS][_i] != null) {
+    contents[_IERVTp] = de_IpamExternalResourceVerificationTokenSet(
+      __getArrayIfSingleItem(output[_iERVTS][_i]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeIpamPoolsResult
  */
 const de_DescribeIpamPoolsResult = (output: any, context: __SerdeContext): DescribeIpamPoolsResult => {
@@ -61903,9 +62170,9 @@ const de_DescribeVolumesModificationsResult = (
 ): DescribeVolumesModificationsResult => {
   const contents: any = {};
   if (output.volumeModificationSet === "") {
-    contents[_VM] = [];
+    contents[_VMo] = [];
   } else if (output[_vMS] != null && output[_vMS][_i] != null) {
-    contents[_VM] = de_VolumeModificationList(__getArrayIfSingleItem(output[_vMS][_i]), context);
+    contents[_VMo] = de_VolumeModificationList(__getArrayIfSingleItem(output[_vMS][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -68932,6 +69199,66 @@ const de_IpamDiscoveryFailureReason = (output: any, context: __SerdeContext): Ip
 };
 
 /**
+ * deserializeAws_ec2IpamExternalResourceVerificationToken
+ */
+const de_IpamExternalResourceVerificationToken = (
+  output: any,
+  context: __SerdeContext
+): IpamExternalResourceVerificationToken => {
+  const contents: any = {};
+  if (output[_iERVTI] != null) {
+    contents[_IERVTI] = __expectString(output[_iERVTI]);
+  }
+  if (output[_iERVTA] != null) {
+    contents[_IERVTA] = __expectString(output[_iERVTA]);
+  }
+  if (output[_iIp] != null) {
+    contents[_IIp] = __expectString(output[_iIp]);
+  }
+  if (output[_iApa] != null) {
+    contents[_IApa] = __expectString(output[_iApa]);
+  }
+  if (output[_iRp] != null) {
+    contents[_IRpa] = __expectString(output[_iRp]);
+  }
+  if (output[_tV] != null) {
+    contents[_TVo] = __expectString(output[_tV]);
+  }
+  if (output[_tN] != null) {
+    contents[_TN] = __expectString(output[_tN]);
+  }
+  if (output[_nAo] != null) {
+    contents[_NAo] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_nAo]));
+  }
+  if (output[_sta] != null) {
+    contents[_Statu] = __expectString(output[_sta]);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2IpamExternalResourceVerificationTokenSet
+ */
+const de_IpamExternalResourceVerificationTokenSet = (
+  output: any,
+  context: __SerdeContext
+): IpamExternalResourceVerificationToken[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IpamExternalResourceVerificationToken(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2IpamOperatingRegion
  */
 const de_IpamOperatingRegion = (output: any, context: __SerdeContext): IpamOperatingRegion => {
@@ -72050,7 +72377,7 @@ const de_ModifyVerifiedAccessTrustProviderResult = (
 const de_ModifyVolumeResult = (output: any, context: __SerdeContext): ModifyVolumeResult => {
   const contents: any = {};
   if (output[_vM] != null) {
-    contents[_VMo] = de_VolumeModification(output[_vM], context);
+    contents[_VMol] = de_VolumeModification(output[_vM], context);
   }
   return contents;
 };
@@ -82283,6 +82610,7 @@ const _CGus = "CustomerGateways";
 const _CI = "CopyImage";
 const _CIBM = "CurrentInstanceBootMode";
 const _CICE = "CreateInstanceConnectEndpoint";
+const _CIERVT = "CreateIpamExternalResourceVerificationToken";
 const _CIET = "CreateInstanceExportTask";
 const _CIEW = "CreateInstanceEventWindow";
 const _CIG = "CreateInternetGateway";
@@ -82563,6 +82891,8 @@ const _DID = "DisableImageDeprecation";
 const _DIDP = "DisableImageDeregistrationProtection";
 const _DIENA = "DeregisterInstanceEventNotificationAttributes";
 const _DIENAe = "DescribeInstanceEventNotificationAttributes";
+const _DIERVT = "DeleteIpamExternalResourceVerificationToken";
+const _DIERVTe = "DescribeIpamExternalResourceVerificationTokens";
 const _DIEW = "DeleteInstanceEventWindow";
 const _DIEWe = "DescribeInstanceEventWindows";
 const _DIEWi = "DisassociateInstanceEventWindow";
@@ -83160,6 +83490,11 @@ const _IDs = "IsDefault";
 const _IE = "IsEgress";
 const _IED = "InstanceExportDetails";
 const _IEI = "InstanceEventId";
+const _IERVT = "IpamExternalResourceVerificationToken";
+const _IERVTA = "IpamExternalResourceVerificationTokenArn";
+const _IERVTI = "IpamExternalResourceVerificationTokenId";
+const _IERVTIp = "IpamExternalResourceVerificationTokenIds";
+const _IERVTp = "IpamExternalResourceVerificationTokens";
 const _IEW = "InstanceEventWindow";
 const _IEWI = "InstanceEventWindowId";
 const _IEWIn = "InstanceEventWindowIds";
@@ -84328,6 +84663,7 @@ const _TMT = "TrafficMirrorTarget";
 const _TMTI = "TrafficMirrorTargetId";
 const _TMTIr = "TrafficMirrorTargetIds";
 const _TMTr = "TrafficMirrorTargets";
+const _TN = "TokenName";
 const _TNC = "TargetNetworkCidr";
 const _TNDMIMB = "TotalNeuronDeviceMemoryInMiB";
 const _TNI = "TargetNetworkId";
@@ -84364,6 +84700,7 @@ const _TV = "TargetVersion";
 const _TVC = "TotalVCpus";
 const _TVSI = "TargetVpcSubnetId";
 const _TVT = "TargetVolumeType";
+const _TVo = "TokenValue";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Te = "Tenancy";
@@ -84472,8 +84809,9 @@ const _VIl = "VlanId";
 const _VIo = "VolumeId";
 const _VIol = "VolumeIds";
 const _VIp = "VpcIds";
-const _VM = "VolumesModifications";
-const _VMo = "VolumeModification";
+const _VM = "VerificationMethod";
+const _VMo = "VolumesModifications";
+const _VMol = "VolumeModification";
 const _VN = "VirtualName";
 const _VNI = "VirtualNetworkId";
 const _VNe = "VersionNumber";
@@ -85115,6 +85453,10 @@ const _iDRCS = "ipamDiscoveredResourceCidrSet";
 const _iDs = "isDefault";
 const _iE = "instanceExport";
 const _iEI = "instanceEventId";
+const _iERVT = "ipamExternalResourceVerificationToken";
+const _iERVTA = "ipamExternalResourceVerificationTokenArn";
+const _iERVTI = "ipamExternalResourceVerificationTokenId";
+const _iERVTS = "ipamExternalResourceVerificationTokenSet";
 const _iEW = "instanceEventWindow";
 const _iEWI = "instanceEventWindowId";
 const _iEWS = "instanceEventWindowState";
@@ -85995,6 +86337,7 @@ const _tMSS = "trafficMirrorSessionSet";
 const _tMT = "trafficMirrorTarget";
 const _tMTI = "trafficMirrorTargetId";
 const _tMTS = "trafficMirrorTargetSet";
+const _tN = "tokenName";
 const _tNDMIMB = "totalNeuronDeviceMemoryInMiB";
 const _tNI = "targetNetworkId";
 const _tOAT = "transferOfferAcceptedTimestamp";
@@ -86024,6 +86367,7 @@ const _tTC = "totalTargetCapacity";
 const _tTGAI = "transportTransitGatewayAttachmentId";
 const _tTa = "targetThroughput";
 const _tUP = "totalUpfrontPrice";
+const _tV = "tokenValue";
 const _tVC = "totalVCpus";
 const _tVT = "targetVolumeType";
 const _ta = "tags";

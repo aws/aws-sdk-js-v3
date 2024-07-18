@@ -291,6 +291,10 @@ import {
   CreateInternetGatewayCommandOutput,
 } from "./commands/CreateInternetGatewayCommand";
 import { CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
+import {
+  CreateIpamExternalResourceVerificationTokenCommandInput,
+  CreateIpamExternalResourceVerificationTokenCommandOutput,
+} from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
 import { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "./commands/CreateIpamPoolCommand";
 import {
   CreateIpamResourceDiscoveryCommandInput,
@@ -529,6 +533,10 @@ import {
   DeleteInternetGatewayCommandOutput,
 } from "./commands/DeleteInternetGatewayCommand";
 import { DeleteIpamCommandInput, DeleteIpamCommandOutput } from "./commands/DeleteIpamCommand";
+import {
+  DeleteIpamExternalResourceVerificationTokenCommandInput,
+  DeleteIpamExternalResourceVerificationTokenCommandOutput,
+} from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
 import { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "./commands/DeleteIpamPoolCommand";
 import {
   DeleteIpamResourceDiscoveryCommandInput,
@@ -947,6 +955,10 @@ import {
   DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
 import { DescribeIpamByoasnCommandInput, DescribeIpamByoasnCommandOutput } from "./commands/DescribeIpamByoasnCommand";
+import {
+  DescribeIpamExternalResourceVerificationTokensCommandInput,
+  DescribeIpamExternalResourceVerificationTokensCommandOutput,
+} from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
 import { DescribeIpamPoolsCommandInput, DescribeIpamPoolsCommandOutput } from "./commands/DescribeIpamPoolsCommand";
 import {
   DescribeIpamResourceDiscoveriesCommandInput,
@@ -2248,6 +2260,7 @@ export type ServiceInputTypes =
   | CreateInstanceExportTaskCommandInput
   | CreateInternetGatewayCommandInput
   | CreateIpamCommandInput
+  | CreateIpamExternalResourceVerificationTokenCommandInput
   | CreateIpamPoolCommandInput
   | CreateIpamResourceDiscoveryCommandInput
   | CreateIpamScopeCommandInput
@@ -2324,6 +2337,7 @@ export type ServiceInputTypes =
   | DeleteInstanceEventWindowCommandInput
   | DeleteInternetGatewayCommandInput
   | DeleteIpamCommandInput
+  | DeleteIpamExternalResourceVerificationTokenCommandInput
   | DeleteIpamPoolCommandInput
   | DeleteIpamResourceDiscoveryCommandInput
   | DeleteIpamScopeCommandInput
@@ -2448,6 +2462,7 @@ export type ServiceInputTypes =
   | DescribeInstancesCommandInput
   | DescribeInternetGatewaysCommandInput
   | DescribeIpamByoasnCommandInput
+  | DescribeIpamExternalResourceVerificationTokensCommandInput
   | DescribeIpamPoolsCommandInput
   | DescribeIpamResourceDiscoveriesCommandInput
   | DescribeIpamResourceDiscoveryAssociationsCommandInput
@@ -2875,6 +2890,7 @@ export type ServiceOutputTypes =
   | CreateInstanceExportTaskCommandOutput
   | CreateInternetGatewayCommandOutput
   | CreateIpamCommandOutput
+  | CreateIpamExternalResourceVerificationTokenCommandOutput
   | CreateIpamPoolCommandOutput
   | CreateIpamResourceDiscoveryCommandOutput
   | CreateIpamScopeCommandOutput
@@ -2951,6 +2967,7 @@ export type ServiceOutputTypes =
   | DeleteInstanceEventWindowCommandOutput
   | DeleteInternetGatewayCommandOutput
   | DeleteIpamCommandOutput
+  | DeleteIpamExternalResourceVerificationTokenCommandOutput
   | DeleteIpamPoolCommandOutput
   | DeleteIpamResourceDiscoveryCommandOutput
   | DeleteIpamScopeCommandOutput
@@ -3075,6 +3092,7 @@ export type ServiceOutputTypes =
   | DescribeInstancesCommandOutput
   | DescribeInternetGatewaysCommandOutput
   | DescribeIpamByoasnCommandOutput
+  | DescribeIpamExternalResourceVerificationTokensCommandOutput
   | DescribeIpamPoolsCommandOutput
   | DescribeIpamResourceDiscoveriesCommandOutput
   | DescribeIpamResourceDiscoveryAssociationsCommandOutput

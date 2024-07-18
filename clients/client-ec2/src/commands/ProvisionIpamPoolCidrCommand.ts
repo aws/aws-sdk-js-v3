@@ -47,6 +47,8 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  *   },
  *   NetmaskLength: Number("int"),
  *   ClientToken: "STRING_VALUE",
+ *   VerificationMethod: "remarks-x509" || "dns-token",
+ *   IpamExternalResourceVerificationTokenId: "STRING_VALUE",
  * };
  * const command = new ProvisionIpamPoolCidrCommand(input);
  * const response = await client.send(command);

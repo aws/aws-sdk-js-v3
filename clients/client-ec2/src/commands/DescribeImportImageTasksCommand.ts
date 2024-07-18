@@ -10,7 +10,7 @@ import {
   DescribeImportImageTasksRequest,
   DescribeImportImageTasksResult,
   DescribeImportImageTasksResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_DescribeImportImageTasksCommand, se_DescribeImportImageTasksCommand } from "../protocols/Aws_ec2";
 
 /**

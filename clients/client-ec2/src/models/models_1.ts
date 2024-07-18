@@ -2357,7 +2357,12 @@ export interface FleetLaunchTemplateOverridesRequest {
   AvailabilityZone?: string;
 
   /**
-   * <p>The number of units provided by the specified instance type.</p>
+   * <p>The number of units provided by the specified instance type. These are the same units
+   *          that you chose to set the target capacity in terms of instances, or a performance
+   *          characteristic such as vCPUs, memory, or I/O.</p>
+   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
+   *          number of instances to the next whole number. If this value is not specified, the default
+   *          is 1.</p>
    *          <note>
    *             <p>When specifying weights, the price used in the <code>lowest-price</code> and
    *                <code>price-capacity-optimized</code> allocation strategies is per
@@ -3684,7 +3689,12 @@ export interface FleetLaunchTemplateOverrides {
   AvailabilityZone?: string;
 
   /**
-   * <p>The number of units provided by the specified instance type.</p>
+   * <p>The number of units provided by the specified instance type. These are the same units
+   *          that you chose to set the target capacity in terms of instances, or a performance
+   *          characteristic such as vCPUs, memory, or I/O.</p>
+   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
+   *          number of instances to the next whole number. If this value is not specified, the default
+   *          is 1.</p>
    *          <note>
    *             <p>When specifying weights, the price used in the <code>lowest-price</code> and
    *             <code>price-capacity-optimized</code> allocation strategies is per
@@ -5361,6 +5371,154 @@ export interface CreateIpamResult {
 }
 
 /**
+ * @public
+ */
+export interface CreateIpamExternalResourceVerificationTokenRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the IPAM that will create the token.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>Token tags.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamExternalResourceVerificationTokenState = {
+  CREATE_COMPLETE: "create-complete",
+  CREATE_FAILED: "create-failed",
+  CREATE_IN_PROGRESS: "create-in-progress",
+  DELETE_COMPLETE: "delete-complete",
+  DELETE_FAILED: "delete-failed",
+  DELETE_IN_PROGRESS: "delete-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamExternalResourceVerificationTokenState =
+  (typeof IpamExternalResourceVerificationTokenState)[keyof typeof IpamExternalResourceVerificationTokenState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TokenState = {
+  expired: "expired",
+  valid: "valid",
+} as const;
+
+/**
+ * @public
+ */
+export type TokenState = (typeof TokenState)[keyof typeof TokenState];
+
+/**
+ * <p>A verification token is an Amazon Web Services-generated random value that you can use to prove ownership of an external resource. For example, you can use a verification token to validate that you control a public IP address range when you bring an IP address range to Amazon Web Services (BYOIP).
+ * </p>
+ * @public
+ */
+export interface IpamExternalResourceVerificationToken {
+  /**
+   * <p>The ID of the token.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationTokenId?: string;
+
+  /**
+   * <p>Token ARN.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationTokenArn?: string;
+
+  /**
+   * <p>The ID of the IPAM that created the token.</p>
+   * @public
+   */
+  IpamId?: string;
+
+  /**
+   * <p>ARN of the IPAM that created the token.</p>
+   * @public
+   */
+  IpamArn?: string;
+
+  /**
+   * <p>Region of the IPAM that created the token.</p>
+   * @public
+   */
+  IpamRegion?: string;
+
+  /**
+   * <p>Token value.</p>
+   * @public
+   */
+  TokenValue?: string;
+
+  /**
+   * <p>Token name.</p>
+   * @public
+   */
+  TokenName?: string;
+
+  /**
+   * <p>Token expiration.</p>
+   * @public
+   */
+  NotAfter?: Date;
+
+  /**
+   * <p>Token status.</p>
+   * @public
+   */
+  Status?: TokenState;
+
+  /**
+   * <p>Token tags.</p>
+   * @public
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Token state.</p>
+   * @public
+   */
+  State?: IpamExternalResourceVerificationTokenState;
+}
+
+/**
+ * @public
+ */
+export interface CreateIpamExternalResourceVerificationTokenResult {
+  /**
+   * <p>The verification token.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationToken?: IpamExternalResourceVerificationToken;
+}
+
+/**
  * <p>A tag on an IPAM resource.</p>
  * @public
  */
@@ -5467,8 +5625,17 @@ export interface CreateIpamPoolRequest {
   IpamScopeId: string | undefined;
 
   /**
-   * <p>In IPAM, the locale is the Amazon Web Services Region or, for IPAM IPv4 pools in the public scope, the network border group for an Amazon Web Services Local Zone where you want to make an IPAM pool available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported Local Zones</a>). If you do not choose a locale, resources in Regions others than the IPAM's home region cannot use CIDRs from this pool.</p>
-   *          <p>Possible values: Any Amazon Web Services Region, such as us-east-1.</p>
+   * <p>The locale for the pool should be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region where you want this IPAM pool to be available for allocations.</p>
+   *             </li>
+   *             <li>
+   *                <p>The network border group for an Amazon Web Services Local Zone where you want this IPAM pool to be available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported Local Zones</a>). This option is only available for IPAM IPv4 pools in the public scope.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you do not choose a locale, resources in Regions others than the IPAM's home region cannot use CIDRs from this pool.</p>
+   *          <p>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local Zone.</p>
    * @public
    */
   Locale?: string;
@@ -5711,7 +5878,17 @@ export interface IpamPool {
   IpamRegion?: string;
 
   /**
-   * <p>The locale of the IPAM pool. In IPAM, the locale is the Amazon Web Services Region or, for IPAM IPv4 pools in the public scope, the network border group for an Amazon Web Services Local Zone where you want to make an IPAM pool available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported Local Zones</a>). If you choose an Amazon Web Services Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.</p>
+   * <p>The locale of the IPAM pool.</p>
+   *          <p>The locale for the pool should be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region where you want this IPAM pool to be available for allocations.</p>
+   *             </li>
+   *             <li>
+   *                <p>The network border group for an Amazon Web Services Local Zone where you want this IPAM pool to be available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported Local Zones</a>). This option is only available for IPAM IPv4 pools in the public scope.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you choose an Amazon Web Services Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.</p>
    * @public
    */
   Locale?: string;
@@ -10980,169 +11157,6 @@ export interface AttachmentEnaSrdUdpSpecification {
    */
   EnaSrdUdpEnabled?: boolean;
 }
-
-/**
- * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
- * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
- * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
- * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
- *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
- * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
- * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
- * 			is enabled, you can specify whether UDP network traffic uses it.</p>
- * @public
- */
-export interface AttachmentEnaSrdSpecification {
-  /**
-   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
-   * @public
-   */
-  EnaSrdEnabled?: boolean;
-
-  /**
-   * <p>Configures ENA Express for UDP network traffic.</p>
-   * @public
-   */
-  EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification;
-}
-
-/**
- * <p>Describes a network interface attachment.</p>
- * @public
- */
-export interface NetworkInterfaceAttachment {
-  /**
-   * <p>The timestamp indicating when the attachment initiated.</p>
-   * @public
-   */
-  AttachTime?: Date;
-
-  /**
-   * <p>The ID of the network interface attachment.</p>
-   * @public
-   */
-  AttachmentId?: string;
-
-  /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
-   * @public
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The device index of the network interface attachment on the instance.</p>
-   * @public
-   */
-  DeviceIndex?: number;
-
-  /**
-   * <p>The index of the network card.</p>
-   * @public
-   */
-  NetworkCardIndex?: number;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the instance.</p>
-   * @public
-   */
-  InstanceOwnerId?: string;
-
-  /**
-   * <p>The attachment state.</p>
-   * @public
-   */
-  Status?: AttachmentStatus;
-
-  /**
-   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
-   * @public
-   */
-  EnaSrdSpecification?: AttachmentEnaSrdSpecification;
-}
-
-/**
- * <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface ConnectionTrackingConfiguration {
-  /**
-   * <p>Timeout (in seconds) for idle TCP
-   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
-   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
-   * @public
-   */
-  TcpEstablishedTimeout?: number;
-
-  /**
-   * <p>Timeout (in seconds) for idle UDP
-   * 						flows classified as streams which have seen more than one request-response
-   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
-   * 						seconds.</p>
-   * @public
-   */
-  UdpStreamTimeout?: number;
-
-  /**
-   * <p>Timeout (in seconds) for idle UDP flows that
-   * 						have seen traffic only in a single direction or a single request-response
-   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
-   * @public
-   */
-  UdpTimeout?: number;
-}
-
-/**
- * <p>Describes a security group.</p>
- * @public
- */
-export interface GroupIdentifier {
-  /**
-   * <p>The name of the security group.</p>
-   * @public
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfaceType = {
-  api_gateway_managed: "api_gateway_managed",
-  aws_codestar_connections_managed: "aws_codestar_connections_managed",
-  branch: "branch",
-  efa: "efa",
-  gateway_load_balancer: "gateway_load_balancer",
-  gateway_load_balancer_endpoint: "gateway_load_balancer_endpoint",
-  global_accelerator_managed: "global_accelerator_managed",
-  interface: "interface",
-  iot_rules_managed: "iot_rules_managed",
-  lambda: "lambda",
-  load_balancer: "load_balancer",
-  natGateway: "natGateway",
-  network_load_balancer: "network_load_balancer",
-  quicksight: "quicksight",
-  transit_gateway: "transit_gateway",
-  trunk: "trunk",
-  vpc_endpoint: "vpc_endpoint",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
 
 /**
  * @internal

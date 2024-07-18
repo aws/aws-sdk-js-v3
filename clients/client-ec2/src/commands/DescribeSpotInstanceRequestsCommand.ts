@@ -10,7 +10,7 @@ import {
   DescribeSpotInstanceRequestsRequest,
   DescribeSpotInstanceRequestsResult,
   DescribeSpotInstanceRequestsResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_DescribeSpotInstanceRequestsCommand, se_DescribeSpotInstanceRequestsCommand } from "../protocols/Aws_ec2";
 
 /**

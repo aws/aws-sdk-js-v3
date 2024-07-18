@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DeleteLocalGatewayRouteTableVpcAssociationCommand,
   se_DeleteLocalGatewayRouteTableVpcAssociationCommand,

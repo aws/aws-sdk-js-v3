@@ -170,6 +170,7 @@ export const ResourceType = {
   instance_event_window: "instance-event-window",
   internet_gateway: "internet-gateway",
   ipam: "ipam",
+  ipam_external_resource_verification_token: "ipam-external-resource-verification-token",
   ipam_pool: "ipam-pool",
   ipam_resource_discovery: "ipam-resource-discovery",
   ipam_resource_discovery_association: "ipam-resource-discovery-association",

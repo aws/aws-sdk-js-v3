@@ -65,22 +65,241 @@ import {
   InstanceMetadataTagsState,
   InstanceNetworkInterfaceSpecification,
   InstanceState,
+  Monitoring,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
   PublicIpv4PoolRange,
-  RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
-  SpotInstanceRequest,
-  SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_4";
 
-import { Purchase } from "./models_5";
+import {
+  Purchase,
+  RunInstancesMonitoringEnabled,
+  SpotInstanceRequest,
+  SpotInstanceRequestFilterSensitiveLog,
+} from "./models_5";
 
-import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
+import { CapacityReservationSpecification } from "./models_6";
+
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ * @public
+ */
+export interface InstanceMonitoring {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The monitoring for the instance.</p>
+   * @public
+   */
+  Monitoring?: Monitoring;
+}
+
+/**
+ * @public
+ */
+export interface MonitorInstancesResult {
+  /**
+   * <p>The monitoring information.</p>
+   * @public
+   */
+  InstanceMonitorings?: InstanceMonitoring[];
+}
+
+/**
+ * @public
+ */
+export interface MoveAddressToVpcRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   * @public
+   */
+  PublicIp: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  inClassic: "InClassic",
+  inVpc: "InVpc",
+  moveInProgress: "MoveInProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
+export interface MoveAddressToVpcResult {
+  /**
+   * <p>The allocation ID for the Elastic IP address.</p>
+   * @public
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>The status of the move of the IP address.</p>
+   * @public
+   */
+  Status?: Status;
+}
+
+/**
+ * @public
+ */
+export interface MoveByoipCidrToIpamRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The BYOIP CIDR.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The IPAM pool ID.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
+   * @public
+   */
+  IpamPoolOwner: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface MoveByoipCidrToIpamResult {
+  /**
+   * <p>The BYOIP CIDR.</p>
+   * @public
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+/**
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
+ *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface CidrAuthorizationContext {
+  /**
+   * <p>The plain-text authorization message for the prefix and account.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The signed authorization message for the prefix and account.</p>
+   * @public
+   */
+  Signature: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProvisionByoipCidrRequest {
+  /**
+   * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
+   *           specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've
+   *          brought to this or another Region.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>A signed document that proves that you are authorized to bring the specified IP address
+   *          range to Amazon using BYOIP.</p>
+   * @public
+   */
+  CidrAuthorizationContext?: CidrAuthorizationContext;
+
+  /**
+   * <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the
+   *             internet.</p>
+   *          <p>Default: true</p>
+   * @public
+   */
+  PubliclyAdvertisable?: boolean;
+
+  /**
+   * <p>A description for the address range and the address pool.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply to the address pool.</p>
+   * @public
+   */
+  PoolTagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  MultiRegion?: boolean;
+
+  /**
+   * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
+   *          <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p>
+   *          <ul>
+   *             <li>
+   *                <p>us-east-1-dfw-2</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-lax-1</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-phx-2</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p>
+   *          </note>
+   * @public
+   */
+  NetworkBorderGroup?: string;
+}
 
 /**
  * @public
@@ -174,6 +393,20 @@ export interface IpamCidrAuthorizationContext {
 
 /**
  * @public
+ * @enum
+ */
+export const VerificationMethod = {
+  dns_token: "dns-token",
+  remarks_x509: "remarks-x509",
+} as const;
+
+/**
+ * @public
+ */
+export type VerificationMethod = (typeof VerificationMethod)[keyof typeof VerificationMethod];
+
+/**
+ * @public
  */
 export interface ProvisionIpamPoolCidrRequest {
   /**
@@ -197,7 +430,7 @@ export interface ProvisionIpamPoolCidrRequest {
   Cidr?: string;
 
   /**
-   * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option applies to public pools only.</p>
+   * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
    * @public
    */
   CidrAuthorizationContext?: IpamCidrAuthorizationContext;
@@ -213,6 +446,18 @@ export interface ProvisionIpamPoolCidrRequest {
    * @public
    */
   ClientToken?: string;
+
+  /**
+   * <p>The method for verifying control of a public IP address range. Defaults to <code>remarks-x509</code> if not specified. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
+   * @public
+   */
+  VerificationMethod?: VerificationMethod;
+
+  /**
+   * <p>Verification token ID. This option only applies to IPv4 and IPv6 pools in the public scope.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationTokenId?: string;
 }
 
 /**

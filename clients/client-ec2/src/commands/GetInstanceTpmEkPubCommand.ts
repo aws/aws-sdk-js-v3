@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetInstanceTpmEkPubRequest,
-  GetInstanceTpmEkPubResult,
-  GetInstanceTpmEkPubResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetInstanceTpmEkPubRequest } from "../models/models_5";
+import { GetInstanceTpmEkPubResult, GetInstanceTpmEkPubResultFilterSensitiveLog } from "../models/models_6";
 import { de_GetInstanceTpmEkPubCommand, se_GetInstanceTpmEkPubCommand } from "../protocols/Aws_ec2";
 
 /**

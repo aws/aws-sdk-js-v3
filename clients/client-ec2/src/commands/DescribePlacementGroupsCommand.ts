@@ -28,8 +28,15 @@ export interface DescribePlacementGroupsCommandInput extends DescribePlacementGr
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified placement groups or all of your placement groups. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
+ * <p>Describes the specified placement groups or all of your placement groups.</p>
+ *          <note>
+ *             <p>To describe a specific placement group that is <i>shared</i> with
+ *                 your account, you must specify the ID of the placement group using the
+ *                     <code>GroupId</code> parameter. Specifying the name of a
+ *                     <i>shared</i> placement group using the <code>GroupNames</code>
+ *                 parameter will result in an error.</p>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

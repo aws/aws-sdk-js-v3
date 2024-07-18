@@ -367,6 +367,11 @@ import {
 } from "./commands/CreateInternetGatewayCommand";
 import { CreateIpamCommand, CreateIpamCommandInput, CreateIpamCommandOutput } from "./commands/CreateIpamCommand";
 import {
+  CreateIpamExternalResourceVerificationTokenCommand,
+  CreateIpamExternalResourceVerificationTokenCommandInput,
+  CreateIpamExternalResourceVerificationTokenCommandOutput,
+} from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
+import {
   CreateIpamPoolCommand,
   CreateIpamPoolCommandInput,
   CreateIpamPoolCommandOutput,
@@ -730,6 +735,11 @@ import {
   DeleteInternetGatewayCommandOutput,
 } from "./commands/DeleteInternetGatewayCommand";
 import { DeleteIpamCommand, DeleteIpamCommandInput, DeleteIpamCommandOutput } from "./commands/DeleteIpamCommand";
+import {
+  DeleteIpamExternalResourceVerificationTokenCommand,
+  DeleteIpamExternalResourceVerificationTokenCommandInput,
+  DeleteIpamExternalResourceVerificationTokenCommandOutput,
+} from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
 import {
   DeleteIpamPoolCommand,
   DeleteIpamPoolCommandInput,
@@ -1338,6 +1348,11 @@ import {
   DescribeIpamByoasnCommandInput,
   DescribeIpamByoasnCommandOutput,
 } from "./commands/DescribeIpamByoasnCommand";
+import {
+  DescribeIpamExternalResourceVerificationTokensCommand,
+  DescribeIpamExternalResourceVerificationTokensCommandInput,
+  DescribeIpamExternalResourceVerificationTokensCommandOutput,
+} from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
 import {
   DescribeIpamPoolsCommand,
   DescribeIpamPoolsCommandInput,
@@ -3123,6 +3138,7 @@ const commands = {
   CreateInstanceExportTaskCommand,
   CreateInternetGatewayCommand,
   CreateIpamCommand,
+  CreateIpamExternalResourceVerificationTokenCommand,
   CreateIpamPoolCommand,
   CreateIpamResourceDiscoveryCommand,
   CreateIpamScopeCommand,
@@ -3199,6 +3215,7 @@ const commands = {
   DeleteInstanceEventWindowCommand,
   DeleteInternetGatewayCommand,
   DeleteIpamCommand,
+  DeleteIpamExternalResourceVerificationTokenCommand,
   DeleteIpamPoolCommand,
   DeleteIpamResourceDiscoveryCommand,
   DeleteIpamScopeCommand,
@@ -3323,6 +3340,7 @@ const commands = {
   DescribeInstanceTypesCommand,
   DescribeInternetGatewaysCommand,
   DescribeIpamByoasnCommand,
+  DescribeIpamExternalResourceVerificationTokensCommand,
   DescribeIpamPoolsCommand,
   DescribeIpamResourceDiscoveriesCommand,
   DescribeIpamResourceDiscoveryAssociationsCommand,
@@ -4908,6 +4926,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateIpamExternalResourceVerificationTokenCommand}
+   */
+  createIpamExternalResourceVerificationToken(
+    args: CreateIpamExternalResourceVerificationTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamExternalResourceVerificationTokenCommandOutput>;
+  createIpamExternalResourceVerificationToken(
+    args: CreateIpamExternalResourceVerificationTokenCommandInput,
+    cb: (err: any, data?: CreateIpamExternalResourceVerificationTokenCommandOutput) => void
+  ): void;
+  createIpamExternalResourceVerificationToken(
+    args: CreateIpamExternalResourceVerificationTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamExternalResourceVerificationTokenCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateIpamPoolCommand}
    */
   createIpamPool(
@@ -6134,6 +6169,23 @@ export interface EC2 {
     args: DeleteIpamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIpamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIpamExternalResourceVerificationTokenCommand}
+   */
+  deleteIpamExternalResourceVerificationToken(
+    args: DeleteIpamExternalResourceVerificationTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamExternalResourceVerificationTokenCommandOutput>;
+  deleteIpamExternalResourceVerificationToken(
+    args: DeleteIpamExternalResourceVerificationTokenCommandInput,
+    cb: (err: any, data?: DeleteIpamExternalResourceVerificationTokenCommandOutput) => void
+  ): void;
+  deleteIpamExternalResourceVerificationToken(
+    args: DeleteIpamExternalResourceVerificationTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamExternalResourceVerificationTokenCommandOutput) => void
   ): void;
 
   /**
@@ -8233,6 +8285,24 @@ export interface EC2 {
     args: DescribeIpamByoasnCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIpamByoasnCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIpamExternalResourceVerificationTokensCommand}
+   */
+  describeIpamExternalResourceVerificationTokens(): Promise<DescribeIpamExternalResourceVerificationTokensCommandOutput>;
+  describeIpamExternalResourceVerificationTokens(
+    args: DescribeIpamExternalResourceVerificationTokensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamExternalResourceVerificationTokensCommandOutput>;
+  describeIpamExternalResourceVerificationTokens(
+    args: DescribeIpamExternalResourceVerificationTokensCommandInput,
+    cb: (err: any, data?: DescribeIpamExternalResourceVerificationTokensCommandOutput) => void
+  ): void;
+  describeIpamExternalResourceVerificationTokens(
+    args: DescribeIpamExternalResourceVerificationTokensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamExternalResourceVerificationTokensCommandOutput) => void
   ): void;
 
   /**

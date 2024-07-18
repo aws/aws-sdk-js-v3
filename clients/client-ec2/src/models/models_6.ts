@@ -11,7 +11,6 @@ import {
   Affinity,
   ApplianceModeSupportValue,
   AutoPlacement,
-  ByoipCidr,
   DnsSupportValue,
   EnaSrdSpecification,
   EndDateType,
@@ -115,12 +114,9 @@ import {
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
-  ImportImageLicenseConfigurationResponse,
   IpamPoolCidr,
   LaunchPermission,
   PermissionGroup,
-  SnapshotDetail,
-  SnapshotDetailFilterSensitiveLog,
   VirtualizationType,
 } from "./models_3";
 
@@ -131,6 +127,7 @@ import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   HttpTokensState,
+  ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
@@ -140,23 +137,251 @@ import {
   InstanceStatusEvent,
   LaunchTemplateConfig,
   LockState,
-  Monitoring,
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
+  SnapshotDetail,
+  SnapshotDetailFilterSensitiveLog,
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
 } from "./models_4";
 
 import {
+  EkPubKeyFormat,
+  EkPubKeyType,
   InstanceFamilyCreditSpecification,
-  IpamComplianceStatus,
-  IpamOverlapStatus,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetInstanceTpmEkPubResult {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The public endorsement key type.</p>
+   * @public
+   */
+  KeyType?: EkPubKeyType;
+
+  /**
+   * <p>The public endorsement key format.</p>
+   * @public
+   */
+  KeyFormat?: EkPubKeyFormat;
+
+  /**
+   * <p>The public endorsement key material.</p>
+   * @public
+   */
+  KeyValue?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceTypesFromInstanceRequirementsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The processor architecture type.</p>
+   * @public
+   */
+  ArchitectureTypes: ArchitectureType[] | undefined;
+
+  /**
+   * <p>The virtualization type.</p>
+   * @public
+   */
+  VirtualizationTypes: VirtualizationType[] | undefined;
+
+  /**
+   * <p>The attributes required for the instance types.</p>
+   * @public
+   */
+  InstanceRequirements: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>The list of instance types with the specified instance attributes.</p>
+ * @public
+ */
+export interface InstanceTypeInfoFromInstanceRequirements {
+  /**
+   * <p>The matching instance type.</p>
+   * @public
+   */
+  InstanceType?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceTypesFromInstanceRequirementsResult {
+  /**
+   * <p>The instance types with the specified instance attributes.</p>
+   * @public
+   */
+  InstanceTypes?: InstanceTypeInfoFromInstanceRequirements[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceUefiDataRequest {
+  /**
+   * <p>The ID of the instance from which to retrieve the UEFI data.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceUefiDataResult {
+  /**
+   * <p>The ID of the instance from which to retrieve the UEFI data.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>Base64 representation of the non-volatile UEFI variable store.</p>
+   * @public
+   */
+  UefiData?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamAddressHistoryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP address range.
+   *          If you enter a /16 IPv4 CIDR, you will get records that match it exactly. You will not get records for any subnets within the /16 CIDR.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM scope that the CIDR is in.</p>
+   * @public
+   */
+  IpamScopeId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC you want your history records filtered by.</p>
+   * @public
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The start of the time period for which you are looking for history. If you omit this option, it will default to the value of EndTime.</p>
+   * @public
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The end of the time period for which you are looking for history. If you omit this option, it will default to the current time.</p>
+   * @public
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The maximum number of historical results you would like returned per page. Defaults to 100.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamComplianceStatus = {
+  compliant: "compliant",
+  ignored: "ignored",
+  noncompliant: "noncompliant",
+  unmanaged: "unmanaged",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamComplianceStatus = (typeof IpamComplianceStatus)[keyof typeof IpamComplianceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamOverlapStatus = {
+  ignored: "ignored",
+  nonoverlapping: "nonoverlapping",
+  overlapping: "overlapping",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamOverlapStatus = (typeof IpamOverlapStatus)[keyof typeof IpamOverlapStatus];
 
 /**
  * @public
@@ -859,7 +1084,7 @@ export interface IpamDiscoveredResourceCidr {
   VpcId?: string;
 
   /**
-   * <p>For elastic IP addresses, this is the status of an attached network interface.</p>
+   * <p>For elastic network interfaces, this is the status of whether or not the elastic network interface is attached.</p>
    * @public
    */
   NetworkInterfaceAttachmentStatus?: IpamNetworkInterfaceAttachmentStatus;
@@ -9426,220 +9651,12 @@ export interface MonitorInstancesRequest {
 }
 
 /**
- * <p>Describes the monitoring of an instance.</p>
- * @public
+ * @internal
  */
-export interface InstanceMonitoring {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The monitoring for the instance.</p>
-   * @public
-   */
-  Monitoring?: Monitoring;
-}
-
-/**
- * @public
- */
-export interface MonitorInstancesResult {
-  /**
-   * <p>The monitoring information.</p>
-   * @public
-   */
-  InstanceMonitorings?: InstanceMonitoring[];
-}
-
-/**
- * @public
- */
-export interface MoveAddressToVpcRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Elastic IP address.</p>
-   * @public
-   */
-  PublicIp: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Status = {
-  inClassic: "InClassic",
-  inVpc: "InVpc",
-  moveInProgress: "MoveInProgress",
-} as const;
-
-/**
- * @public
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
-/**
- * @public
- */
-export interface MoveAddressToVpcResult {
-  /**
-   * <p>The allocation ID for the Elastic IP address.</p>
-   * @public
-   */
-  AllocationId?: string;
-
-  /**
-   * <p>The status of the move of the IP address.</p>
-   * @public
-   */
-  Status?: Status;
-}
-
-/**
- * @public
- */
-export interface MoveByoipCidrToIpamRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The BYOIP CIDR.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The IPAM pool ID.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
-   * @public
-   */
-  IpamPoolOwner: string | undefined;
-}
-
-/**
- * @public
- */
-export interface MoveByoipCidrToIpamResult {
-  /**
-   * <p>The BYOIP CIDR.</p>
-   * @public
-   */
-  ByoipCidr?: ByoipCidr;
-}
-
-/**
- * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
- *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface CidrAuthorizationContext {
-  /**
-   * <p>The plain-text authorization message for the prefix and account.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The signed authorization message for the prefix and account.</p>
-   * @public
-   */
-  Signature: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ProvisionByoipCidrRequest {
-  /**
-   * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
-   *           specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've
-   *          brought to this or another Region.</p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>A signed document that proves that you are authorized to bring the specified IP address
-   *          range to Amazon using BYOIP.</p>
-   * @public
-   */
-  CidrAuthorizationContext?: CidrAuthorizationContext;
-
-  /**
-   * <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the
-   *             internet.</p>
-   *          <p>Default: true</p>
-   * @public
-   */
-  PubliclyAdvertisable?: boolean;
-
-  /**
-   * <p>A description for the address range and the address pool.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to apply to the address pool.</p>
-   * @public
-   */
-  PoolTagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  MultiRegion?: boolean;
-
-  /**
-   * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
-   *          <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p>
-   *          <ul>
-   *             <li>
-   *                <p>us-east-1-dfw-2</p>
-   *             </li>
-   *             <li>
-   *                <p>us-west-2-lax-1</p>
-   *             </li>
-   *             <li>
-   *                <p>us-west-2-phx-2</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p>
-   *          </note>
-   * @public
-   */
-  NetworkBorderGroup?: string;
-}
+export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
+  ...obj,
+  ...(obj.KeyValue && { KeyValue: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
