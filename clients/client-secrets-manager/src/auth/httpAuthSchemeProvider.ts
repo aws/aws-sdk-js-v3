@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SecretsManagerHttpAuth
       name: "secretsmanager",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SecretsManagerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SecretsManagerClientConfig>, context) => ({
       /**
        * @internal
        */
