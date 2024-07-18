@@ -1135,7 +1135,7 @@ export interface Environment {
   tags?: Record<string, string>;
 
   /**
-   * <p>"The tag keys and optional values for the newly created devices for this environment."</p>
+   * <p>The tag keys and optional values for the newly created devices for this environment.</p>
    * @public
    */
   deviceCreationTags?: Record<string, string>;

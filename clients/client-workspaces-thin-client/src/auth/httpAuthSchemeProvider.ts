@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "thinclient",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WorkSpacesThinClientClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WorkSpacesThinClientClientConfig>, context) => ({
       /**
        * @internal
        */
