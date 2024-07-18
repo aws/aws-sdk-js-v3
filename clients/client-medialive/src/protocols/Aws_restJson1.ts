@@ -269,11 +269,8 @@ import {
   AacSettings,
   Ac3Settings,
   AncillarySourceSettings,
-  ArchiveCdnSettings,
   ArchiveContainerSettings,
-  ArchiveGroupSettings,
   ArchiveOutputSettings,
-  ArchiveS3Settings,
   AribDestinationSettings,
   AribSourceSettings,
   AudioChannelMapping,
@@ -399,6 +396,9 @@ import {
   Scte27DestinationSettings,
   Scte27SourceSettings,
   SmpteTtDestinationSettings,
+  SrtCallerDecryption,
+  SrtCallerSource,
+  SrtSettings,
   StandardHlsSettings,
   TeletextDestinationSettings,
   TeletextSourceSettings,
@@ -417,6 +417,9 @@ import {
 } from "../models/models_0";
 import {
   AccountConfiguration,
+  ArchiveCdnSettings,
+  ArchiveGroupSettings,
+  ArchiveS3Settings,
   AvailBlanking,
   AvailConfiguration,
   AvailSettings,
@@ -472,8 +475,6 @@ import {
   KeyProviderSettings,
   MaintenanceCreateSettings,
   MediaPackageGroupSettings,
-  MediaResource,
-  MonitorDeployment,
   MotionGraphicsActivateScheduleActionSettings,
   MotionGraphicsConfiguration,
   MotionGraphicsDeactivateScheduleActionSettings,
@@ -519,6 +520,9 @@ import {
   Scte35TimeSignalApos,
   Scte35TimeSignalScheduleActionSettings,
   SignalMapSummary,
+  SrtCallerDecryptionRequest,
+  SrtCallerSourceRequest,
+  SrtSettingsRequest,
   StartTimecode,
   StaticImageActivateScheduleActionSettings,
   StaticImageDeactivateScheduleActionSettings,
@@ -526,7 +530,6 @@ import {
   StaticImageOutputDeactivateScheduleActionSettings,
   StaticKeySettings,
   StopTimecode,
-  SuccessfulMonitorDeployment,
   TemporalFilterSettings,
   Thumbnail,
   ThumbnailConfiguration,
@@ -546,6 +549,9 @@ import {
   InputDeviceConfigurableSettings,
   InputDeviceMediaConnectConfigurableSettings,
   MaintenanceUpdateSettings,
+  MediaResource,
+  MonitorDeployment,
+  SuccessfulMonitorDeployment,
 } from "../models/models_2";
 
 /**
@@ -864,6 +870,7 @@ export const se_CreateInputCommand = async (
       requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
       roleArn: [, , `RoleArn`],
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
+      srtSettings: [, (_) => se_SrtSettingsRequest(_, context), `SrtSettings`],
       tags: [, (_) => _json(_), `Tags`],
       type: [, , `Type`],
       vpc: [, (_) => se_InputVpcRequest(_, context), `Vpc`],
@@ -2331,6 +2338,7 @@ export const se_UpdateInputCommand = async (
       name: [, , `Name`],
       roleArn: [, , `RoleArn`],
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
+      srtSettings: [, (_) => se_SrtSettingsRequest(_, context), `SrtSettings`],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -3276,6 +3284,7 @@ export const de_DescribeInputCommand = async (
     RoleArn: [, __expectString, `roleArn`],
     SecurityGroups: [, _json, `securityGroups`],
     Sources: [, (_) => de___listOfInputSource(_, context), `sources`],
+    SrtSettings: [, (_) => de_SrtSettings(_, context), `srtSettings`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -5325,6 +5334,17 @@ const se___listOfScte35Descriptor = (input: Scte35Descriptor[], context: __Serde
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_Scte35Descriptor(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfSrtCallerSourceRequest
+ */
+const se___listOfSrtCallerSourceRequest = (input: SrtCallerSourceRequest[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SrtCallerSourceRequest(entry, context);
     });
 };
 
@@ -7583,6 +7603,38 @@ const se_Scte35TimeSignalScheduleActionSettings = (
 // se_SmpteTtDestinationSettings omitted.
 
 /**
+ * serializeAws_restJson1SrtCallerDecryptionRequest
+ */
+const se_SrtCallerDecryptionRequest = (input: SrtCallerDecryptionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    algorithm: [, , `Algorithm`],
+    passphraseSecretArn: [, , `PassphraseSecretArn`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SrtCallerSourceRequest
+ */
+const se_SrtCallerSourceRequest = (input: SrtCallerSourceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    decryption: [, (_) => se_SrtCallerDecryptionRequest(_, context), `Decryption`],
+    minimumLatency: [, , `MinimumLatency`],
+    srtListenerAddress: [, , `SrtListenerAddress`],
+    srtListenerPort: [, , `SrtListenerPort`],
+    streamId: [, , `StreamId`],
+  });
+};
+
+/**
+ * serializeAws_restJson1SrtSettingsRequest
+ */
+const se_SrtSettingsRequest = (input: SrtSettingsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    srtCallerSources: [, (_) => se___listOfSrtCallerSourceRequest(_, context), `SrtCallerSources`],
+  });
+};
+
+/**
  * serializeAws_restJson1StandardHlsSettings
  */
 const se_StandardHlsSettings = (input: StandardHlsSettings, context: __SerdeContext): any => {
@@ -8491,6 +8543,18 @@ const de___listOfSignalMapSummary = (output: any, context: __SerdeContext): Sign
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SignalMapSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfSrtCallerSource
+ */
+const de___listOfSrtCallerSource = (output: any, context: __SerdeContext): SrtCallerSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SrtCallerSource(entry, context);
     });
   return retVal;
 };
@@ -9942,6 +10006,7 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     RoleArn: [, __expectString, `roleArn`],
     SecurityGroups: [, _json, `securityGroups`],
     Sources: [, (_: any) => de___listOfInputSource(_, context), `sources`],
+    SrtSettings: [, (_: any) => de_SrtSettings(_, context), `srtSettings`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -11329,6 +11394,38 @@ const de_SignalMapSummary = (output: any, context: __SerdeContext): SignalMapSum
 };
 
 // de_SmpteTtDestinationSettings omitted.
+
+/**
+ * deserializeAws_restJson1SrtCallerDecryption
+ */
+const de_SrtCallerDecryption = (output: any, context: __SerdeContext): SrtCallerDecryption => {
+  return take(output, {
+    Algorithm: [, __expectString, `algorithm`],
+    PassphraseSecretArn: [, __expectString, `passphraseSecretArn`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SrtCallerSource
+ */
+const de_SrtCallerSource = (output: any, context: __SerdeContext): SrtCallerSource => {
+  return take(output, {
+    Decryption: [, (_: any) => de_SrtCallerDecryption(_, context), `decryption`],
+    MinimumLatency: [, __expectInt32, `minimumLatency`],
+    SrtListenerAddress: [, __expectString, `srtListenerAddress`],
+    SrtListenerPort: [, __expectString, `srtListenerPort`],
+    StreamId: [, __expectString, `streamId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SrtSettings
+ */
+const de_SrtSettings = (output: any, context: __SerdeContext): SrtSettings => {
+  return take(output, {
+    SrtCallerSources: [, (_: any) => de___listOfSrtCallerSource(_, context), `srtCallerSources`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1StandardHlsSettings

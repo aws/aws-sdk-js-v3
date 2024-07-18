@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MediaLiveHttpAuthSchem
       name: "medialive",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MediaLiveClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MediaLiveClientConfig>, context) => ({
       /**
        * @internal
        */

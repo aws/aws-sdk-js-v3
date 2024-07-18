@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateSignalMapRequest, CreateSignalMapResponse } from "../models/models_1";
+import { CreateSignalMapRequest, CreateSignalMapResponse } from "../models/models_2";
 import { de_CreateSignalMapCommand, se_CreateSignalMapCommand } from "../protocols/Aws_restJson1";
 
 /**

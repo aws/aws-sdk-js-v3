@@ -93,7 +93,21 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER",
+ * //     SrtSettings: { // SrtSettings
+ * //       SrtCallerSources: [ // __listOfSrtCallerSource
+ * //         { // SrtCallerSource
+ * //           Decryption: { // SrtCallerDecryption
+ * //             Algorithm: "AES128" || "AES192" || "AES256",
+ * //             PassphraseSecretArn: "STRING_VALUE",
+ * //           },
+ * //           MinimumLatency: Number("int"),
+ * //           SrtListenerAddress: "STRING_VALUE",
+ * //           SrtListenerPort: "STRING_VALUE",
+ * //           StreamId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

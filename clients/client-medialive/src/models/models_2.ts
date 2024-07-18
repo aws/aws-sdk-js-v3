@@ -52,6 +52,7 @@ import {
   MaintenanceStatus,
   MediaConnectFlow,
   MediaConnectFlowRequest,
+  MediaResourceNeighbor,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
   MultiplexProgramSummary,
@@ -62,6 +63,7 @@ import {
   OfferingType,
   OutputDestination,
   ReservationResourceSpecification,
+  SrtSettings,
   VpcOutputSettingsDescription,
 } from "./models_0";
 
@@ -71,8 +73,6 @@ import {
   Channel,
   ContentType,
   EncoderSettings,
-  MediaResource,
-  MonitorDeployment,
   Multiplex,
   MultiplexProgram,
   MultiplexProgramPacketIdentifiersMap,
@@ -83,12 +83,265 @@ import {
   Reservation,
   ReservationState,
   ScheduleAction,
+  SignalMapMonitorDeploymentStatus,
   SignalMapStatus,
   SignalMapSummary,
-  SuccessfulMonitorDeployment,
+  SrtSettingsRequest,
   ThumbnailDetail,
   TransferringInputDeviceSummary,
 } from "./models_1";
+
+/**
+ * Placeholder documentation for CreateSignalMapRequest
+ * @public
+ */
+export interface CreateSignalMapRequest {
+  /**
+   * Placeholder documentation for __listOf__stringPatternS
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIdentifiers?: string[];
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn: string | undefined;
+
+  /**
+   * Placeholder documentation for __listOf__stringPatternS
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIdentifiers?: string[];
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * An AWS resource used in media workflows.
+ * @public
+ */
+export interface MediaResource {
+  /**
+   * Placeholder documentation for __listOfMediaResourceNeighbor
+   * @public
+   */
+  Destinations?: MediaResourceNeighbor[];
+
+  /**
+   * The logical name of an AWS media resource.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * Placeholder documentation for __listOfMediaResourceNeighbor
+   * @public
+   */
+  Sources?: MediaResourceNeighbor[];
+}
+
+/**
+ * Represents the latest successful monitor deployment of a signal map.
+ * @public
+ */
+export interface SuccessfulMonitorDeployment {
+  /**
+   * URI associated with a signal map's monitor deployment.
+   * @public
+   */
+  DetailsUri: string | undefined;
+
+  /**
+   * A signal map's monitor deployment status.
+   * @public
+   */
+  Status: SignalMapMonitorDeploymentStatus | undefined;
+}
+
+/**
+ * Represents the latest monitor deployment of a signal map.
+ * @public
+ */
+export interface MonitorDeployment {
+  /**
+   * URI associated with a signal map's monitor deployment.
+   * @public
+   */
+  DetailsUri?: string;
+
+  /**
+   * Error message associated with a failed monitor deployment of a signal map.
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * A signal map's monitor deployment status.
+   * @public
+   */
+  Status: SignalMapMonitorDeploymentStatus | undefined;
+}
+
+/**
+ * Placeholder documentation for CreateSignalMapResponse
+ * @public
+ */
+export interface CreateSignalMapResponse {
+  /**
+   * A signal map's ARN (Amazon Resource Name)
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  CloudWatchAlarmTemplateGroupIds?: string[];
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  CreatedAt?: Date;
+
+  /**
+   * A resource's optional description.
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * A top-level supported AWS resource ARN to discovery a signal map from.
+   * @public
+   */
+  DiscoveryEntryPointArn?: string;
+
+  /**
+   * Error message associated with a failed creation or failed update attempt of a signal map.
+   * @public
+   */
+  ErrorMessage?: string;
+
+  /**
+   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
+   * @public
+   */
+  EventBridgeRuleTemplateGroupIds?: string[];
+
+  /**
+   * A map representing an incomplete AWS media workflow as a graph.
+   * @public
+   */
+  FailedMediaResourceMap?: Record<string, MediaResource>;
+
+  /**
+   * A signal map's id.
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  LastDiscoveredAt?: Date;
+
+  /**
+   * Represents the latest successful monitor deployment of a signal map.
+   * @public
+   */
+  LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment;
+
+  /**
+   * A map representing an AWS media workflow as a graph.
+   * @public
+   */
+  MediaResourceMap?: Record<string, MediaResource>;
+
+  /**
+   * Placeholder documentation for __timestampIso8601
+   * @public
+   */
+  ModifiedAt?: Date;
+
+  /**
+   * If true, there are pending monitor changes for this signal map that can be deployed.
+   * @public
+   */
+  MonitorChangesPendingDeployment?: boolean;
+
+  /**
+   * Represents the latest monitor deployment of a signal map.
+   * @public
+   */
+  MonitorDeployment?: MonitorDeployment;
+
+  /**
+   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
+   * @public
+   */
+  Status?: SignalMapStatus;
+
+  /**
+   * Represents the tags associated with a resource.
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for CreateTagsRequest
+ * @public
+ */
+export interface CreateTagsRequest {
+  /**
+   * Placeholder documentation for __string
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * Placeholder documentation for Tags
+   * @public
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for DeleteChannelRequest
+ * @public
+ */
+export interface DeleteChannelRequest {
+  /**
+   * Unique ID of the channel.
+   * @public
+   */
+  ChannelId: string | undefined;
+}
 
 /**
  * Placeholder documentation for DeleteChannelResponse
@@ -862,6 +1115,12 @@ export interface DescribeInputResponse {
    * @public
    */
   Type?: InputType;
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettings;
 }
 
 /**
@@ -4564,6 +4823,12 @@ export interface UpdateInputRequest {
    * @public
    */
   Sources?: InputSourceRequest[];
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettingsRequest;
 }
 
 /**

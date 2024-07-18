@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { MediaLiveServiceException as __BaseException } from "./MediaLiveServiceException";
 
 import {
-  ArchiveGroupSettings,
+  Algorithm,
   AudioDescription,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
@@ -18,7 +18,6 @@ import {
   CloudWatchAlarmTemplateStatistic,
   CloudWatchAlarmTemplateTargetResourceType,
   CloudWatchAlarmTemplateTreatMissingData,
-  CmafNielsenId3Behavior,
   ColorCorrection,
   EventBridgeRuleTemplateEventType,
   EventBridgeRuleTemplateTarget,
@@ -38,7 +37,6 @@ import {
   MaintenanceDay,
   MaintenanceStatus,
   MediaConnectFlowRequest,
-  MediaResourceNeighbor,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
   MultiplexState,
@@ -51,6 +49,68 @@ import {
   S3CannedAcl,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Archive S3 Settings
+ * @public
+ */
+export interface ArchiveS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   * @public
+   */
+  CannedAcl?: S3CannedAcl;
+}
+
+/**
+ * Archive Cdn Settings
+ * @public
+ */
+export interface ArchiveCdnSettings {
+  /**
+   * Archive S3 Settings
+   * @public
+   */
+  ArchiveS3Settings?: ArchiveS3Settings;
+}
+
+/**
+ * Archive Group Settings
+ * @public
+ */
+export interface ArchiveGroupSettings {
+  /**
+   * Parameters that control interactions with the CDN.
+   * @public
+   */
+  ArchiveCdnSettings?: ArchiveCdnSettings;
+
+  /**
+   * A directory and base filename where archive files should be written.
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * Number of seconds to write to archive file before closing and starting a new one.
+   * @public
+   */
+  RolloverInterval?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafNielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafNielsenId3Behavior = (typeof CmafNielsenId3Behavior)[keyof typeof CmafNielsenId3Behavior];
 
 /**
  * @public
@@ -2817,6 +2877,60 @@ export interface SignalMapSummary {
 }
 
 /**
+ * Complete these parameters only if the content is encrypted.
+ * @public
+ */
+export interface SrtCallerDecryptionRequest {
+  /**
+   * The algorithm used to encrypt content.
+   * @public
+   */
+  Algorithm?: Algorithm;
+
+  /**
+   * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. This secret holds the passphrase that MediaLive will use to decrypt the source content.
+   * @public
+   */
+  PassphraseSecretArn?: string;
+}
+
+/**
+ * Configures the connection for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always the caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+ * @public
+ */
+export interface SrtCallerSourceRequest {
+  /**
+   * Complete these parameters only if the content is encrypted.
+   * @public
+   */
+  Decryption?: SrtCallerDecryptionRequest;
+
+  /**
+   * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT. Obtain this value from the operator at the upstream system.
+   * @public
+   */
+  MinimumLatency?: number;
+
+  /**
+   * The IP address at the upstream system (the listener) that MediaLive (the caller) will connect to.
+   * @public
+   */
+  SrtListenerAddress?: string;
+
+  /**
+   * The port at the upstream system (the listener) that MediaLive (the caller) will connect to.
+   * @public
+   */
+  SrtListenerPort?: string;
+
+  /**
+   * This value is required if the upstream system uses this identifier because without it, the SRT handshake between MediaLive (the caller) and the upstream system (the listener) might fail.
+   * @public
+   */
+  StreamId?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3572,7 +3686,14 @@ export interface H264Settings {
   EntropyEncoding?: H264EntropyEncoding;
 
   /**
-   * Optional filters that you can apply to an encode.
+   * Optional. Both filters reduce bandwidth by removing imperceptible details. You can enable one of the filters. We
+   * recommend that you try both filters and observe the results to decide which one to use.
+   *
+   * The Temporal Filter reduces bandwidth by removing imperceptible details in the content. It combines perceptual
+   * filtering and motion compensated temporal filtering (MCTF). It operates independently of the compression level.
+   *
+   * The Bandwidth Reduction filter is a perceptual filter located within the encoding loop. It adapts to the current
+   * compression level to filter imperceptible signals. This filter works only when the resolution is 1080p or lower.
    * @public
    */
   FilterSettings?: H264FilterSettings;
@@ -4169,7 +4290,14 @@ export interface H265Settings {
   ColorSpaceSettings?: H265ColorSpaceSettings;
 
   /**
-   * Optional filters that you can apply to an encode.
+   * Optional. Both filters reduce bandwidth by removing imperceptible details. You can enable one of the filters. We
+   * recommend that you try both filters and observe the results to decide which one to use.
+   *
+   * The Temporal Filter reduces bandwidth by removing imperceptible details in the content. It combines perceptual
+   * filtering and motion compensated temporal filtering (MCTF). It operates independently of the compression level.
+   *
+   * The Bandwidth Reduction filter is a perceptual filter located within the encoding loop. It adapts to the current
+   * compression level to filter imperceptible signals. This filter works only when the resolution is 1080p or lower.
    * @public
    */
   FilterSettings?: H265FilterSettings;
@@ -6790,6 +6918,18 @@ export interface CreateEventBridgeRuleTemplateGroupResponse {
 }
 
 /**
+ * Configures the sources for this SRT input. For a single-pipeline input, include one srtCallerSource in the array. For a standard-pipeline input, include two srtCallerSource.
+ * @public
+ */
+export interface SrtSettingsRequest {
+  /**
+   * Placeholder documentation for __listOfSrtCallerSourceRequest
+   * @public
+   */
+  SrtCallerSources?: SrtCallerSourceRequest[];
+}
+
+/**
  * Settings for a private VPC Input.
  * When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
  * This property requires setting the roleArn property on Input creation.
@@ -6890,6 +7030,12 @@ export interface CreateInputRequest {
    * @public
    */
   Vpc?: InputVpcRequest;
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettingsRequest;
 }
 
 /**
@@ -7384,256 +7530,4 @@ export interface CreatePartnerInputResponse {
    * @public
    */
   Input?: Input;
-}
-
-/**
- * Placeholder documentation for CreateSignalMapRequest
- * @public
- */
-export interface CreateSignalMapRequest {
-  /**
-   * Placeholder documentation for __listOf__stringPatternS
-   * @public
-   */
-  CloudWatchAlarmTemplateGroupIdentifiers?: string[];
-
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * A top-level supported AWS resource ARN to discovery a signal map from.
-   * @public
-   */
-  DiscoveryEntryPointArn: string | undefined;
-
-  /**
-   * Placeholder documentation for __listOf__stringPatternS
-   * @public
-   */
-  EventBridgeRuleTemplateGroupIdentifiers?: string[];
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * An AWS resource used in media workflows.
- * @public
- */
-export interface MediaResource {
-  /**
-   * Placeholder documentation for __listOfMediaResourceNeighbor
-   * @public
-   */
-  Destinations?: MediaResourceNeighbor[];
-
-  /**
-   * The logical name of an AWS media resource.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * Placeholder documentation for __listOfMediaResourceNeighbor
-   * @public
-   */
-  Sources?: MediaResourceNeighbor[];
-}
-
-/**
- * Represents the latest successful monitor deployment of a signal map.
- * @public
- */
-export interface SuccessfulMonitorDeployment {
-  /**
-   * URI associated with a signal map's monitor deployment.
-   * @public
-   */
-  DetailsUri: string | undefined;
-
-  /**
-   * A signal map's monitor deployment status.
-   * @public
-   */
-  Status: SignalMapMonitorDeploymentStatus | undefined;
-}
-
-/**
- * Represents the latest monitor deployment of a signal map.
- * @public
- */
-export interface MonitorDeployment {
-  /**
-   * URI associated with a signal map's monitor deployment.
-   * @public
-   */
-  DetailsUri?: string;
-
-  /**
-   * Error message associated with a failed monitor deployment of a signal map.
-   * @public
-   */
-  ErrorMessage?: string;
-
-  /**
-   * A signal map's monitor deployment status.
-   * @public
-   */
-  Status: SignalMapMonitorDeploymentStatus | undefined;
-}
-
-/**
- * Placeholder documentation for CreateSignalMapResponse
- * @public
- */
-export interface CreateSignalMapResponse {
-  /**
-   * A signal map's ARN (Amazon Resource Name)
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
-   * @public
-   */
-  CloudWatchAlarmTemplateGroupIds?: string[];
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  CreatedAt?: Date;
-
-  /**
-   * A resource's optional description.
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * A top-level supported AWS resource ARN to discovery a signal map from.
-   * @public
-   */
-  DiscoveryEntryPointArn?: string;
-
-  /**
-   * Error message associated with a failed creation or failed update attempt of a signal map.
-   * @public
-   */
-  ErrorMessage?: string;
-
-  /**
-   * Placeholder documentation for __listOf__stringMin7Max11PatternAws097
-   * @public
-   */
-  EventBridgeRuleTemplateGroupIds?: string[];
-
-  /**
-   * A map representing an incomplete AWS media workflow as a graph.
-   * @public
-   */
-  FailedMediaResourceMap?: Record<string, MediaResource>;
-
-  /**
-   * A signal map's id.
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  LastDiscoveredAt?: Date;
-
-  /**
-   * Represents the latest successful monitor deployment of a signal map.
-   * @public
-   */
-  LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment;
-
-  /**
-   * A map representing an AWS media workflow as a graph.
-   * @public
-   */
-  MediaResourceMap?: Record<string, MediaResource>;
-
-  /**
-   * Placeholder documentation for __timestampIso8601
-   * @public
-   */
-  ModifiedAt?: Date;
-
-  /**
-   * If true, there are pending monitor changes for this signal map that can be deployed.
-   * @public
-   */
-  MonitorChangesPendingDeployment?: boolean;
-
-  /**
-   * Represents the latest monitor deployment of a signal map.
-   * @public
-   */
-  MonitorDeployment?: MonitorDeployment;
-
-  /**
-   * A resource's name. Names must be unique within the scope of a resource type in a specific region.
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * A signal map's current status which is dependent on its lifecycle actions or associated jobs.
-   * @public
-   */
-  Status?: SignalMapStatus;
-
-  /**
-   * Represents the tags associated with a resource.
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for CreateTagsRequest
- * @public
- */
-export interface CreateTagsRequest {
-  /**
-   * Placeholder documentation for __string
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * Placeholder documentation for Tags
-   * @public
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * Placeholder documentation for DeleteChannelRequest
- * @public
- */
-export interface DeleteChannelRequest {
-  /**
-   * Unique ID of the channel.
-   * @public
-   */
-  ChannelId: string | undefined;
 }

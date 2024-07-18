@@ -649,7 +649,6 @@ export type Eac3AtmosDrcRf = (typeof Eac3AtmosDrcRf)[keyof typeof Eac3AtmosDrcRf
 export interface Eac3AtmosSettings {
   /**
    * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
-   * //  * @affectsRightSizing true
    * @public
    */
   Bitrate?: number;
@@ -4217,6 +4216,87 @@ export interface InputSource {
  * @public
  * @enum
  */
+export const Algorithm = {
+  AES128: "AES128",
+  AES192: "AES192",
+  AES256: "AES256",
+} as const;
+
+/**
+ * @public
+ */
+export type Algorithm = (typeof Algorithm)[keyof typeof Algorithm];
+
+/**
+ * The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+ * @public
+ */
+export interface SrtCallerDecryption {
+  /**
+   * The algorithm used to encrypt content.
+   * @public
+   */
+  Algorithm?: Algorithm;
+
+  /**
+   * The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+   * @public
+   */
+  PassphraseSecretArn?: string;
+}
+
+/**
+ * The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+ * @public
+ */
+export interface SrtCallerSource {
+  /**
+   * The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+   * @public
+   */
+  Decryption?: SrtCallerDecryption;
+
+  /**
+   * The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+   * @public
+   */
+  MinimumLatency?: number;
+
+  /**
+   * The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+   * @public
+   */
+  SrtListenerAddress?: string;
+
+  /**
+   * The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+   * @public
+   */
+  SrtListenerPort?: string;
+
+  /**
+   * The stream ID, if the upstream system uses this identifier.
+   * @public
+   */
+  StreamId?: string;
+}
+
+/**
+ * The configured sources for this SRT input.
+ * @public
+ */
+export interface SrtSettings {
+  /**
+   * Placeholder documentation for __listOfSrtCallerSource
+   * @public
+   */
+  SrtCallerSources?: SrtCallerSource[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InputState = {
   ATTACHED: "ATTACHED",
   CREATING: "CREATING",
@@ -4242,6 +4322,7 @@ export const InputType = {
   RTMP_PULL: "RTMP_PULL",
   RTMP_PUSH: "RTMP_PUSH",
   RTP_PUSH: "RTP_PUSH",
+  SRT_CALLER: "SRT_CALLER",
   TS_FILE: "TS_FILE",
   UDP_PUSH: "UDP_PUSH",
   URL_PULL: "URL_PULL",
@@ -4354,6 +4435,12 @@ export interface Input {
    * @public
    */
   Type?: InputType;
+
+  /**
+   * The settings associated with an SRT input.
+   * @public
+   */
+  SrtSettings?: SrtSettings;
 }
 
 /**
@@ -6910,65 +6997,3 @@ export const S3CannedAcl = {
  * @public
  */
 export type S3CannedAcl = (typeof S3CannedAcl)[keyof typeof S3CannedAcl];
-
-/**
- * Archive S3 Settings
- * @public
- */
-export interface ArchiveS3Settings {
-  /**
-   * Specify the canned ACL to apply to each S3 request. Defaults to none.
-   * @public
-   */
-  CannedAcl?: S3CannedAcl;
-}
-
-/**
- * Archive Cdn Settings
- * @public
- */
-export interface ArchiveCdnSettings {
-  /**
-   * Archive S3 Settings
-   * @public
-   */
-  ArchiveS3Settings?: ArchiveS3Settings;
-}
-
-/**
- * Archive Group Settings
- * @public
- */
-export interface ArchiveGroupSettings {
-  /**
-   * Parameters that control interactions with the CDN.
-   * @public
-   */
-  ArchiveCdnSettings?: ArchiveCdnSettings;
-
-  /**
-   * A directory and base filename where archive files should be written.
-   * @public
-   */
-  Destination: OutputLocationRef | undefined;
-
-  /**
-   * Number of seconds to write to archive file before closing and starting a new one.
-   * @public
-   */
-  RolloverInterval?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const CmafNielsenId3Behavior = {
-  NO_PASSTHROUGH: "NO_PASSTHROUGH",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type CmafNielsenId3Behavior = (typeof CmafNielsenId3Behavior)[keyof typeof CmafNielsenId3Behavior];
