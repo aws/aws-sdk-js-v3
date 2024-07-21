@@ -62,6 +62,11 @@ export const throw200ExceptionsMiddleware =
         return headStream(stream, MAX_BYTES_TO_INSPECT);
       },
     });
+    if (typeof bodyCopy?.destroy === "function") {
+      // discard partially-read Node.js Stream.
+      bodyCopy.destroy();
+    }
+
     const bodyStringTail = config.utf8Encoder(bodyBytes.subarray(bodyBytes.length - 16));
 
     // Throw on 200 response with empty body, legacy behavior allowlist.
