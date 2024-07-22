@@ -103,7 +103,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //       thumbnailConfiguration: { // ThumbnailConfiguration
  * //         recordingMode: "STRING_VALUE",
  * //         targetIntervalSeconds: Number("long"),
- * //         resolution: "STRING_VALUE",
+ * //         resolution: "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //         storage: [ // ThumbnailConfigurationStorageList
  * //           "STRING_VALUE",
  * //         ],
@@ -112,7 +112,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //       renditionConfiguration: { // RenditionConfiguration
  * //         renditionSelection: "STRING_VALUE",
  * //         renditions: [ // RenditionConfigurationRenditionList
- * //           "STRING_VALUE",
+ * //           "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //         ],
  * //       },
  * //     },

@@ -56,7 +56,7 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * //     thumbnailConfiguration: { // ThumbnailConfiguration
  * //       recordingMode: "STRING_VALUE",
  * //       targetIntervalSeconds: Number("long"),
- * //       resolution: "STRING_VALUE",
+ * //       resolution: "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //       storage: [ // ThumbnailConfigurationStorageList
  * //         "STRING_VALUE",
  * //       ],
@@ -65,7 +65,7 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * //     renditionConfiguration: { // RenditionConfiguration
  * //       renditionSelection: "STRING_VALUE",
  * //       renditions: [ // RenditionConfigurationRenditionList
- * //         "STRING_VALUE",
+ * //         "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //       ],
  * //     },
  * //   },

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IvsHttpAuthSchemeParam
       name: "ivs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IvsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IvsClientConfig>, context) => ({
       /**
        * @internal
        */
