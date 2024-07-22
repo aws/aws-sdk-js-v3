@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: NeptuneGraphHttpAuthSc
       name: "neptune-graph",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: NeptuneGraphClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<NeptuneGraphClientConfig>, context) => ({
       /**
        * @internal
        */
