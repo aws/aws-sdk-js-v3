@@ -64,6 +64,16 @@ export interface GetEnvironmentBlueprintConfigurationCommandOutput
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   provisioningConfigurations: [ // ProvisioningConfigurationList
+ * //     { // ProvisioningConfiguration Union: only one key present
+ * //       lakeFormationConfiguration: { // LakeFormationConfiguration
+ * //         locationRegistrationRole: "STRING_VALUE",
+ * //         locationRegistrationExcludeS3Locations: [ // S3LocationList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

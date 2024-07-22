@@ -56,6 +56,16 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   provisioningConfigurations: [ // ProvisioningConfigurationList
+ *     { // ProvisioningConfiguration Union: only one key present
+ *       lakeFormationConfiguration: { // LakeFormationConfiguration
+ *         locationRegistrationRole: "STRING_VALUE",
+ *         locationRegistrationExcludeS3Locations: [ // S3LocationList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new PutEnvironmentBlueprintConfigurationCommand(input);
  * const response = await client.send(command);
@@ -74,6 +84,16 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   provisioningConfigurations: [ // ProvisioningConfigurationList
+ * //     { // ProvisioningConfiguration Union: only one key present
+ * //       lakeFormationConfiguration: { // LakeFormationConfiguration
+ * //         locationRegistrationRole: "STRING_VALUE",
+ * //         locationRegistrationExcludeS3Locations: [ // S3LocationList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

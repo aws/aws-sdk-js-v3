@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteListingInput, DeleteListingOutput } from "../models/models_1";
-import { de_DeleteListingCommand, se_DeleteListingCommand } from "../protocols/Aws_restJson1";
+import { DeleteAssetFilterInput } from "../models/models_0";
+import { de_DeleteAssetFilterCommand, se_DeleteAssetFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,38 +17,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteListingCommand}.
+ * The input for {@link DeleteAssetFilterCommand}.
  */
-export interface DeleteListingCommandInput extends DeleteListingInput {}
+export interface DeleteAssetFilterCommandInput extends DeleteAssetFilterInput {}
 /**
  * @public
  *
- * The output of {@link DeleteListingCommand}.
+ * The output of {@link DeleteAssetFilterCommand}.
  */
-export interface DeleteListingCommandOutput extends DeleteListingOutput, __MetadataBearer {}
+export interface DeleteAssetFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a listing (a record of an asset at a given time).</p>
+ * <p>Deletes an asset filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, DeleteListingCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, DeleteListingCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, DeleteAssetFilterCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, DeleteAssetFilterCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // DeleteListingInput
+ * const input = { // DeleteAssetFilterInput
  *   domainIdentifier: "STRING_VALUE", // required
+ *   assetIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteListingCommand(input);
+ * const command = new DeleteAssetFilterCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteListingCommandInput - {@link DeleteListingCommandInput}
- * @returns {@link DeleteListingCommandOutput}
- * @see {@link DeleteListingCommandInput} for command's `input` shape.
- * @see {@link DeleteListingCommandOutput} for command's `response` shape.
+ * @param DeleteAssetFilterCommandInput - {@link DeleteAssetFilterCommandInput}
+ * @returns {@link DeleteAssetFilterCommandOutput}
+ * @see {@link DeleteAssetFilterCommandInput} for command's `input` shape.
+ * @see {@link DeleteAssetFilterCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -77,10 +78,10 @@ export interface DeleteListingCommandOutput extends DeleteListingOutput, __Metad
  *
  * @public
  */
-export class DeleteListingCommand extends $Command
+export class DeleteAssetFilterCommand extends $Command
   .classBuilder<
-    DeleteListingCommandInput,
-    DeleteListingCommandOutput,
+    DeleteAssetFilterCommandInput,
+    DeleteAssetFilterCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,9 +95,9 @@ export class DeleteListingCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "DeleteListing", {})
-  .n("DataZoneClient", "DeleteListingCommand")
+  .s("DataZone", "DeleteAssetFilter", {})
+  .n("DataZoneClient", "DeleteAssetFilterCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteListingCommand)
-  .de(de_DeleteListingCommand)
+  .ser(se_DeleteAssetFilterCommand)
+  .de(de_DeleteAssetFilterCommand)
   .build() {}

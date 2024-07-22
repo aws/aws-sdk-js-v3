@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetListingInput, GetListingOutput, GetListingOutputFilterSensitiveLog } from "../models/models_0";
+import { GetListingInput, GetListingOutput, GetListingOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetListingCommand, se_GetListingCommand } from "../protocols/Aws_restJson1";
 
 /**

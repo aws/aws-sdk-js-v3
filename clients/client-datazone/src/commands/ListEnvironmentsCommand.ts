@@ -10,7 +10,7 @@ import {
   ListEnvironmentsInput,
   ListEnvironmentsOutput,
   ListEnvironmentsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -10,7 +10,7 @@ import {
   ListEnvironmentBlueprintsInput,
   ListEnvironmentBlueprintsOutput,
   ListEnvironmentBlueprintsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListEnvironmentBlueprintsCommand, se_ListEnvironmentBlueprintsCommand } from "../protocols/Aws_restJson1";
 
 /**

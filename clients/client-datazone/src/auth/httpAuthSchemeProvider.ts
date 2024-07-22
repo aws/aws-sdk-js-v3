@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DataZoneHttpAuthScheme
       name: "datazone",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DataZoneClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DataZoneClientConfig>, context) => ({
       /**
        * @internal
        */

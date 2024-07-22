@@ -68,6 +68,7 @@ import {
 } from "./commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
+import { CreateAssetFilterCommandInput, CreateAssetFilterCommandOutput } from "./commands/CreateAssetFilterCommand";
 import {
   CreateAssetRevisionCommandInput,
   CreateAssetRevisionCommandOutput,
@@ -111,6 +112,7 @@ import {
 } from "./commands/CreateSubscriptionTargetCommand";
 import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
+import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "./commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
@@ -157,6 +159,7 @@ import {
   DisassociateEnvironmentRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentRoleCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
@@ -211,6 +214,7 @@ import {
   GetTimeSeriesDataPointCommandOutput,
 } from "./commands/GetTimeSeriesDataPointCommand";
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
+import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "./commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "./commands/ListAssetRevisionsCommand";
 import {
   ListDataSourceRunActivitiesCommandInput,
@@ -301,6 +305,7 @@ import {
 } from "./commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "./commands/UpdateAssetFilterCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
 import {
@@ -350,6 +355,7 @@ export type ServiceInputTypes =
   | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
   | CreateAssetCommandInput
+  | CreateAssetFilterCommandInput
   | CreateAssetRevisionCommandInput
   | CreateAssetTypeCommandInput
   | CreateDataSourceCommandInput
@@ -369,6 +375,7 @@ export type ServiceInputTypes =
   | CreateSubscriptionTargetCommandInput
   | CreateUserProfileCommandInput
   | DeleteAssetCommandInput
+  | DeleteAssetFilterCommandInput
   | DeleteAssetTypeCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
@@ -388,6 +395,7 @@ export type ServiceInputTypes =
   | DeleteTimeSeriesDataPointsCommandInput
   | DisassociateEnvironmentRoleCommandInput
   | GetAssetCommandInput
+  | GetAssetFilterCommandInput
   | GetAssetTypeCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceRunCommandInput
@@ -412,6 +420,7 @@ export type ServiceInputTypes =
   | GetSubscriptionTargetCommandInput
   | GetTimeSeriesDataPointCommandInput
   | GetUserProfileCommandInput
+  | ListAssetFiltersCommandInput
   | ListAssetRevisionsCommandInput
   | ListDataSourceRunActivitiesCommandInput
   | ListDataSourceRunsCommandInput
@@ -448,6 +457,7 @@ export type ServiceInputTypes =
   | StartMetadataGenerationRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAssetFilterCommandInput
   | UpdateDataSourceCommandInput
   | UpdateDomainCommandInput
   | UpdateEnvironmentActionCommandInput
@@ -472,6 +482,7 @@ export type ServiceOutputTypes =
   | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
   | CreateAssetCommandOutput
+  | CreateAssetFilterCommandOutput
   | CreateAssetRevisionCommandOutput
   | CreateAssetTypeCommandOutput
   | CreateDataSourceCommandOutput
@@ -491,6 +502,7 @@ export type ServiceOutputTypes =
   | CreateSubscriptionTargetCommandOutput
   | CreateUserProfileCommandOutput
   | DeleteAssetCommandOutput
+  | DeleteAssetFilterCommandOutput
   | DeleteAssetTypeCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput
@@ -510,6 +522,7 @@ export type ServiceOutputTypes =
   | DeleteTimeSeriesDataPointsCommandOutput
   | DisassociateEnvironmentRoleCommandOutput
   | GetAssetCommandOutput
+  | GetAssetFilterCommandOutput
   | GetAssetTypeCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceRunCommandOutput
@@ -534,6 +547,7 @@ export type ServiceOutputTypes =
   | GetSubscriptionTargetCommandOutput
   | GetTimeSeriesDataPointCommandOutput
   | GetUserProfileCommandOutput
+  | ListAssetFiltersCommandOutput
   | ListAssetRevisionsCommandOutput
   | ListDataSourceRunActivitiesCommandOutput
   | ListDataSourceRunsCommandOutput
@@ -570,6 +584,7 @@ export type ServiceOutputTypes =
   | StartMetadataGenerationRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAssetFilterCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateDomainCommandOutput
   | UpdateEnvironmentActionCommandOutput

@@ -29,6 +29,11 @@ import {
 } from "./commands/CancelSubscriptionCommand";
 import { CreateAssetCommand, CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
+  CreateAssetFilterCommand,
+  CreateAssetFilterCommandInput,
+  CreateAssetFilterCommandOutput,
+} from "./commands/CreateAssetFilterCommand";
+import {
   CreateAssetRevisionCommand,
   CreateAssetRevisionCommandInput,
   CreateAssetRevisionCommandOutput,
@@ -120,6 +125,11 @@ import {
 } from "./commands/CreateUserProfileCommand";
 import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
+  DeleteAssetFilterCommand,
+  DeleteAssetFilterCommandInput,
+  DeleteAssetFilterCommandOutput,
+} from "./commands/DeleteAssetFilterCommand";
+import {
   DeleteAssetTypeCommand,
   DeleteAssetTypeCommandInput,
   DeleteAssetTypeCommandOutput,
@@ -210,6 +220,11 @@ import {
   DisassociateEnvironmentRoleCommandOutput,
 } from "./commands/DisassociateEnvironmentRoleCommand";
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
+import {
+  GetAssetFilterCommand,
+  GetAssetFilterCommandInput,
+  GetAssetFilterCommandOutput,
+} from "./commands/GetAssetFilterCommand";
 import {
   GetAssetTypeCommand,
   GetAssetTypeCommandInput,
@@ -310,6 +325,11 @@ import {
   GetUserProfileCommandInput,
   GetUserProfileCommandOutput,
 } from "./commands/GetUserProfileCommand";
+import {
+  ListAssetFiltersCommand,
+  ListAssetFiltersCommandInput,
+  ListAssetFiltersCommandOutput,
+} from "./commands/ListAssetFiltersCommand";
 import {
   ListAssetRevisionsCommand,
   ListAssetRevisionsCommandInput,
@@ -475,6 +495,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAssetFilterCommand,
+  UpdateAssetFilterCommandInput,
+  UpdateAssetFilterCommandOutput,
+} from "./commands/UpdateAssetFilterCommand";
+import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
@@ -548,6 +573,7 @@ const commands = {
   CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
   CreateAssetCommand,
+  CreateAssetFilterCommand,
   CreateAssetRevisionCommand,
   CreateAssetTypeCommand,
   CreateDataSourceCommand,
@@ -567,6 +593,7 @@ const commands = {
   CreateSubscriptionTargetCommand,
   CreateUserProfileCommand,
   DeleteAssetCommand,
+  DeleteAssetFilterCommand,
   DeleteAssetTypeCommand,
   DeleteDataSourceCommand,
   DeleteDomainCommand,
@@ -586,6 +613,7 @@ const commands = {
   DeleteTimeSeriesDataPointsCommand,
   DisassociateEnvironmentRoleCommand,
   GetAssetCommand,
+  GetAssetFilterCommand,
   GetAssetTypeCommand,
   GetDataSourceCommand,
   GetDataSourceRunCommand,
@@ -610,6 +638,7 @@ const commands = {
   GetSubscriptionTargetCommand,
   GetTimeSeriesDataPointCommand,
   GetUserProfileCommand,
+  ListAssetFiltersCommand,
   ListAssetRevisionsCommand,
   ListDataSourceRunActivitiesCommand,
   ListDataSourceRunsCommand,
@@ -646,6 +675,7 @@ const commands = {
   StartMetadataGenerationRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAssetFilterCommand,
   UpdateDataSourceCommand,
   UpdateDomainCommand,
   UpdateEnvironmentCommand,
@@ -756,6 +786,23 @@ export interface DataZone {
     args: CreateAssetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAssetFilterCommand}
+   */
+  createAssetFilter(
+    args: CreateAssetFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssetFilterCommandOutput>;
+  createAssetFilter(
+    args: CreateAssetFilterCommandInput,
+    cb: (err: any, data?: CreateAssetFilterCommandOutput) => void
+  ): void;
+  createAssetFilter(
+    args: CreateAssetFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssetFilterCommandOutput) => void
   ): void;
 
   /**
@@ -1055,6 +1102,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link DeleteAssetFilterCommand}
+   */
+  deleteAssetFilter(
+    args: DeleteAssetFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetFilterCommandOutput>;
+  deleteAssetFilter(
+    args: DeleteAssetFilterCommandInput,
+    cb: (err: any, data?: DeleteAssetFilterCommandOutput) => void
+  ): void;
+  deleteAssetFilter(
+    args: DeleteAssetFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetFilterCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAssetTypeCommand}
    */
   deleteAssetType(
@@ -1342,6 +1406,20 @@ export interface DataZone {
     args: GetAssetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetFilterCommand}
+   */
+  getAssetFilter(
+    args: GetAssetFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetFilterCommandOutput>;
+  getAssetFilter(args: GetAssetFilterCommandInput, cb: (err: any, data?: GetAssetFilterCommandOutput) => void): void;
+  getAssetFilter(
+    args: GetAssetFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetFilterCommandOutput) => void
   ): void;
 
   /**
@@ -1690,6 +1768,23 @@ export interface DataZone {
     args: GetUserProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetFiltersCommand}
+   */
+  listAssetFilters(
+    args: ListAssetFiltersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetFiltersCommandOutput>;
+  listAssetFilters(
+    args: ListAssetFiltersCommandInput,
+    cb: (err: any, data?: ListAssetFiltersCommandOutput) => void
+  ): void;
+  listAssetFilters(
+    args: ListAssetFiltersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetFiltersCommandOutput) => void
   ): void;
 
   /**
@@ -2261,6 +2356,23 @@ export interface DataZone {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetFilterCommand}
+   */
+  updateAssetFilter(
+    args: UpdateAssetFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetFilterCommandOutput>;
+  updateAssetFilter(
+    args: UpdateAssetFilterCommandInput,
+    cb: (err: any, data?: UpdateAssetFilterCommandOutput) => void
+  ): void;
+  updateAssetFilter(
+    args: UpdateAssetFilterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetFilterCommandOutput) => void
   ): void;
 
   /**

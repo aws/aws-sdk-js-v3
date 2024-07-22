@@ -5,10 +5,13 @@ import {
   ActionParameters,
   AssetItem,
   AssetItemFilterSensitiveLog,
+  AssetListing,
+  AssetListingFilterSensitiveLog,
   AssetListingItem,
   AssetListingItemFilterSensitiveLog,
   AssetTypeItem,
   AssetTypeItemFilterSensitiveLog,
+  ColumnFilterConfiguration,
   ConfigurableEnvironmentAction,
   CustomParameter,
   CustomParameterFilterSensitiveLog,
@@ -19,6 +22,7 @@ import {
   EnvironmentParameter,
   EnvironmentStatus,
   FailureCause,
+  FilterStatus,
   FormEntryOutput,
   FormEntryOutputFilterSensitiveLog,
   FormTypeStatus,
@@ -28,13 +32,13 @@ import {
   GroupProfileStatus,
   Import,
   ImportFilterSensitiveLog,
+  ListingStatus,
   Model,
-  NotificationType,
   ProjectDeletionError,
   ProjectStatus,
   ProvisioningProperties,
   Resource,
-  SortOrder,
+  RowFilterExpression,
   SubscribedAsset,
   SubscribedListing,
   SubscribedListingFilterSensitiveLog,
@@ -45,7 +49,6 @@ import {
   SubscriptionRequestStatus,
   SubscriptionStatus,
   SubscriptionTargetForm,
-  TaskStatus,
   TermRelations,
   TimeSeriesDataPointFormOutput,
   TimeSeriesDataPointSummaryFormOutput,
@@ -56,6 +59,905 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListEnvironmentBlueprintsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of blueprints to return in a single call to
+   *             <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is
+   *          greater than the value of <code>MaxResults</code>, the response contains a
+   *             <code>NextToken</code> value that you can use in a subsequent call to
+   *             <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>When the number of blueprints in the environment is greater than the default value for
+   *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
+   *          the response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of the Amazon DataZone environment.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>Specifies whether the environment blueprint is managed by Amazon DataZone.</p>
+   * @public
+   */
+  managed?: boolean;
+}
+
+/**
+ * <p>The details of an environment blueprint summary.</p>
+ * @public
+ */
+export interface EnvironmentBlueprintSummary {
+  /**
+   * <p>The identifier of the blueprint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the blueprint.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of a blueprint.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The provider of the blueprint.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The provisioning properties of the blueprint.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The timestamp of when an environment blueprint was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The timestamp of when the blueprint was enabled.</p>
+   * @public
+   */
+  updatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentBlueprintsOutput {
+  /**
+   * <p>The results of the <code>ListEnvironmentBlueprints</code> action.</p>
+   * @public
+   */
+  items: EnvironmentBlueprintSummary[] | undefined;
+
+  /**
+   * <p>When the number of blueprints in the environment is greater than the default value for
+   *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
+   *          the response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentProfilesInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account where you want to list environment
+   *          profiles.</p>
+   * @public
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services region where you want to list environment profiles.</p>
+   * @public
+   */
+  awsAccountRegion?: string;
+
+  /**
+   * <p>The identifier of the blueprint that was used to create the environment profiles that
+   *          you want to list.</p>
+   * @public
+   */
+  environmentBlueprintIdentifier?: string;
+
+  /**
+   * <p>The identifier of the Amazon DataZone project.</p>
+   * @public
+   */
+  projectIdentifier?: string;
+
+  /**
+   * <p/>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>When the number of environment profiles is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of environment profiles, the
+   *          response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListEnvironmentProfiles</code> to list the next set of environment
+   *          profiles.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of environment profiles to return in a single call to
+   *             <code>ListEnvironmentProfiles</code>. When the number of environment profiles to be
+   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
+   *             <code>NextToken</code> value that you can use in a subsequent call to
+   *             <code>ListEnvironmentProfiles</code> to list the next set of environment
+   *          profiles.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>The details of an environment profile.</p>
+ * @public
+ */
+export interface EnvironmentProfileSummary {
+  /**
+   * <p>The identifier of the environment profile.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the environment profile exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of an Amazon Web Services account in which an environment profile exists.</p>
+   * @public
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services Region in which an environment profile exists.</p>
+   * @public
+   */
+  awsAccountRegion?: string;
+
+  /**
+   * <p>The Amazon DataZone user who created the environment profile.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp of when an environment profile was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The timestamp of when the environment profile was updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The name of the environment profile.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the environment profile.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier of a blueprint with which an environment profile is created.</p>
+   * @public
+   */
+  environmentBlueprintId: string | undefined;
+
+  /**
+   * <p>The identifier of a project in which an environment profile exists.</p>
+   * @public
+   */
+  projectId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentProfilesOutput {
+  /**
+   * <p>The results of the <code>ListEnvironmentProfiles</code> action. </p>
+   * @public
+   */
+  items: EnvironmentProfileSummary[] | undefined;
+
+  /**
+   * <p>When the number of environment profiles is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of environment profiles, the
+   *          response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListEnvironmentProfiles</code> to list the next set of environment
+   *          profiles.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account where you want to list
+   *          environments.</p>
+   * @public
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The status of the environments that you want to list.</p>
+   * @public
+   */
+  status?: EnvironmentStatus;
+
+  /**
+   * <p>The Amazon Web Services region where you want to list environments.</p>
+   * @public
+   */
+  awsAccountRegion?: string;
+
+  /**
+   * <p>The identifier of the Amazon DataZone project.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the environment profile.</p>
+   * @public
+   */
+  environmentProfileIdentifier?: string;
+
+  /**
+   * <p>The identifier of the Amazon DataZone blueprint.</p>
+   * @public
+   */
+  environmentBlueprintIdentifier?: string;
+
+  /**
+   * <p>The provider of the environment.</p>
+   * @public
+   */
+  provider?: string;
+
+  /**
+   * <p>The name of the environment.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The maximum number of environments to return in a single call to
+   *             <code>ListEnvironments</code>. When the number of environments to be listed is greater
+   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
+   *          value that you can use in a subsequent call to <code>ListEnvironments</code> to list the
+   *          next set of environments.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>When the number of environments is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of environments, the response
+   *          includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to
+   *          list the next set of environments.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The details of an environment.</p>
+ * @public
+ */
+export interface EnvironmentSummary {
+  /**
+   * <p>The identifier of the project in which the environment exists.</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The identifier of the environment.</p>
+   * @public
+   */
+  id?: string;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the environment exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the environment.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The timestamp of when the environment was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The timestamp of when the environment was updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The name of the environment.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the environment.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier of the environment profile with which the environment was created.</p>
+   * @public
+   */
+  environmentProfileId?: string;
+
+  /**
+   * <p>The identifier of the Amazon Web Services account in which an environment exists.</p>
+   * @public
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The Amazon Web Services Region in which an environment exists.</p>
+   * @public
+   */
+  awsAccountRegion?: string;
+
+  /**
+   * <p>The provider of the environment.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The status of the environment.</p>
+   * @public
+   */
+  status?: EnvironmentStatus;
+}
+
+/**
+ * @public
+ */
+export interface ListEnvironmentsOutput {
+  /**
+   * <p>The results of the <code>ListEnvironments</code> action.</p>
+   * @public
+   */
+  items: EnvironmentSummary[] | undefined;
+
+  /**
+   * <p>When the number of environments is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of environments, the response
+   *          includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to
+   *          list the next set of environments.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteListingInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the listing to be deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteListingOutput {}
+
+/**
+ * @public
+ */
+export interface GetListingInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the listing.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the listing.</p>
+   * @public
+   */
+  listingRevision?: string;
+}
+
+/**
+ * <p>The details of a listing (aka asset published in a Amazon DataZone catalog).</p>
+ * @public
+ */
+export type ListingItem = ListingItem.AssetListingMember | ListingItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ListingItem {
+  /**
+   * <p>An asset published in an Amazon DataZone catalog.</p>
+   * @public
+   */
+  export interface AssetListingMember {
+    assetListing: AssetListing;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    assetListing?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    assetListing: (value: AssetListing) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ListingItem, visitor: Visitor<T>): T => {
+    if (value.assetListing !== undefined) return visitor.assetListing(value.assetListing);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface GetListingOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the listing.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The revision of a listing.</p>
+   * @public
+   */
+  listingRevision: string | undefined;
+
+  /**
+   * <p>The timestamp of when the listing was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The timestamp of when the listing was updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The Amazon DataZone user who created the listing.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The Amazon DataZone user who updated the listing.</p>
+   * @public
+   */
+  updatedBy?: string;
+
+  /**
+   * <p>The details of a listing.</p>
+   * @public
+   */
+  item?: ListingItem;
+
+  /**
+   * <p>The name of the listing.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The description of the listing.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The status of the listing.</p>
+   * @public
+   */
+  status?: ListingStatus;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EdgeDirection = {
+  DOWNSTREAM: "DOWNSTREAM",
+  UPSTREAM: "UPSTREAM",
+} as const;
+
+/**
+ * @public
+ */
+export type EdgeDirection = (typeof EdgeDirection)[keyof typeof EdgeDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListLineageNodeHistoryInput {
+  /**
+   * <p>The ID of the domain where you want to list the history of the specified data lineage
+   *          node.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of history items to return in a single call to
+   *          ListLineageNodeHistory. When the number of memberships to be listed is greater than the
+   *          value of MaxResults, the response contains a NextToken value that you can use in a
+   *          subsequent call to ListLineageNodeHistory to list the next set of items.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>When the number of history items is greater than the default value for the MaxResults
+   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
+   *          of items, the response includes a pagination token named NextToken. You can specify this
+   *          NextToken value in a subsequent call to ListLineageNodeHistory to list the next set of
+   *          items.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The ID of the data lineage node whose history you want to list.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The direction of the data lineage node refers to the lineage node having neighbors in
+   *          that direction. For example, if direction is <code>UPSTREAM</code>, the
+   *             <code>ListLineageNodeHistory</code> API responds with historical versions with upstream
+   *          neighbors only.</p>
+   * @public
+   */
+  direction?: EdgeDirection;
+
+  /**
+   * <p>Specifies whether the action is to return data lineage node history from the time after
+   *          the event timestamp.</p>
+   * @public
+   */
+  eventTimestampGTE?: Date;
+
+  /**
+   * <p>Specifies whether the action is to return data lineage node history from the time prior
+   *          of the event timestamp.</p>
+   * @public
+   */
+  eventTimestampLTE?: Date;
+
+  /**
+   * <p>The order by which you want data lineage node history to be sorted.</p>
+   * @public
+   */
+  sortOrder?: SortOrder;
+}
+
+/**
+ * <p>The summary of the data lineage node.</p>
+ * @public
+ */
+export interface LineageNodeSummary {
+  /**
+   * <p>The ID of the domain of the data lineage node.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The name of the data lineage node.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The description of the data lineage node.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The timestamp at which the data lineage node was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the data lineage node.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The timestamp at which the data lineage node was updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The user who updated the data lineage node.</p>
+   * @public
+   */
+  updatedBy?: string;
+
+  /**
+   * <p>The ID of the data lineage node.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the type of the data lineage node.</p>
+   * @public
+   */
+  typeName: string | undefined;
+
+  /**
+   * <p>The type of the revision of the data lineage node.</p>
+   * @public
+   */
+  typeRevision?: string;
+
+  /**
+   * <p>The alternate ID of the data lineage node.</p>
+   * @public
+   */
+  sourceIdentifier?: string;
+
+  /**
+   * <p>The event timestamp of the data lineage node.</p>
+   * @public
+   */
+  eventTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListLineageNodeHistoryOutput {
+  /**
+   * <p>The nodes returned by the ListLineageNodeHistory action.</p>
+   * @public
+   */
+  nodes?: LineageNodeSummary[];
+
+  /**
+   * <p>When the number of history items is greater than the default value for the MaxResults
+   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
+   *          of items, the response includes a pagination token named NextToken. You can specify this
+   *          NextToken value in a subsequent call to ListLineageNodeHistory to list the next set of
+   *          items.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NotificationType = {
+  EVENT: "EVENT",
+  TASK: "TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
+
+/**
+ * @public
+ */
+export interface ListNotificationsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The type of notifications.</p>
+   * @public
+   */
+  type: NotificationType | undefined;
+
+  /**
+   * <p>The time after which you want to list notifications.</p>
+   * @public
+   */
+  afterTimestamp?: Date;
+
+  /**
+   * <p>The time before which you want to list notifications.</p>
+   * @public
+   */
+  beforeTimestamp?: Date;
+
+  /**
+   * <p>The subjects of notifications.</p>
+   * @public
+   */
+  subjects?: string[];
+
+  /**
+   * <p>The task status of notifications.</p>
+   * @public
+   */
+  taskStatus?: TaskStatus;
+
+  /**
+   * <p>The maximum number of notifications to return in a single call to
+   *             <code>ListNotifications</code>. When the number of notifications to be listed is greater
+   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
+   *          value that you can use in a subsequent call to <code>ListNotifications</code> to list the
+   *          next set of notifications.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>When the number of notifications is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of notifications, the response
+   *          includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to
+   *          list the next set of notifications.</p>
+   * @public
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -4148,6 +5050,96 @@ export namespace FilterClause {
 }
 
 /**
+ * <p>The row filter.</p>
+ * @public
+ */
+export type RowFilter =
+  | RowFilter.AndMember
+  | RowFilter.ExpressionMember
+  | RowFilter.OrMember
+  | RowFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RowFilter {
+  /**
+   * <p>The expression of the row filter.</p>
+   * @public
+   */
+  export interface ExpressionMember {
+    expression: RowFilterExpression;
+    and?: never;
+    or?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The 'and' clause of the row filter.</p>
+   * @public
+   */
+  export interface AndMember {
+    expression?: never;
+    and: RowFilter[];
+    or?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The 'or' clause of the row filter.</p>
+   * @public
+   */
+  export interface OrMember {
+    expression?: never;
+    and?: never;
+    or: RowFilter[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    expression?: never;
+    and?: never;
+    or?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    expression: (value: RowFilterExpression) => T;
+    and: (value: RowFilter[]) => T;
+    or: (value: RowFilter[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RowFilter, visitor: Visitor<T>): T => {
+    if (value.expression !== undefined) return visitor.expression(value.expression);
+    if (value.and !== undefined) return visitor.and(value.and);
+    if (value.or !== undefined) return visitor.or(value.or);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The row filter configuration details.</p>
+ * @public
+ */
+export interface RowFilterConfiguration {
+  /**
+   * <p>The row filter.</p>
+   * @public
+   */
+  rowFilter: RowFilter | undefined;
+
+  /**
+   * <p>Specifies whether the row filter is sensitive.</p>
+   * @public
+   */
+  sensitive?: boolean;
+}
+
+/**
  * @public
  */
 export interface SearchInput {
@@ -4349,6 +5341,434 @@ export interface SearchTypesInput {
    */
   managed: boolean | undefined;
 }
+
+/**
+ * <p>The configuration details of the asset filter.</p>
+ * @public
+ */
+export type AssetFilterConfiguration =
+  | AssetFilterConfiguration.ColumnConfigurationMember
+  | AssetFilterConfiguration.RowConfigurationMember
+  | AssetFilterConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AssetFilterConfiguration {
+  /**
+   * <p>The column configuration of the asset filter.</p>
+   * @public
+   */
+  export interface ColumnConfigurationMember {
+    columnConfiguration: ColumnFilterConfiguration;
+    rowConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The row configuration of the asset filter.</p>
+   * @public
+   */
+  export interface RowConfigurationMember {
+    columnConfiguration?: never;
+    rowConfiguration: RowFilterConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    columnConfiguration?: never;
+    rowConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    columnConfiguration: (value: ColumnFilterConfiguration) => T;
+    rowConfiguration: (value: RowFilterConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AssetFilterConfiguration, visitor: Visitor<T>): T => {
+    if (value.columnConfiguration !== undefined) return visitor.columnConfiguration(value.columnConfiguration);
+    if (value.rowConfiguration !== undefined) return visitor.rowConfiguration(value.rowConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateAssetFilterInput {
+  /**
+   * <p>The ID of the domain in which you want to create an asset filter.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the data asset.</p>
+   * @public
+   */
+  assetIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the asset filter.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the asset filter.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The configuration of the asset filter.</p>
+   * @public
+   */
+  configuration: AssetFilterConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAssetFilterOutput {
+  /**
+   * <p>The ID of the asset filter.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ID of the domain where the asset filter is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the asset.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The name of the asset filter.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the asset filter.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The status of the asset filter.</p>
+   * @public
+   */
+  status?: FilterStatus;
+
+  /**
+   * <p>The configuration of the asset filter.</p>
+   * @public
+   */
+  configuration: AssetFilterConfiguration | undefined;
+
+  /**
+   * <p>The timestamp at which the asset filter was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The error message that is displayed if the asset filter is not created
+   *          successfully.</p>
+   * @public
+   */
+  errorMessage?: string;
+
+  /**
+   * <p>The column names in the asset filter.</p>
+   * @public
+   */
+  effectiveColumnNames?: string[];
+
+  /**
+   * <p>The row filter in the asset filter.</p>
+   * @public
+   */
+  effectiveRowFilter?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAssetFilterOutput {
+  /**
+   * <p>The ID of the asset filter.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ID of the domain where you want to get an asset filter.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data asset.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The name of the asset filter.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the asset filter.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The status of the asset filter.</p>
+   * @public
+   */
+  status?: FilterStatus;
+
+  /**
+   * <p>The configuration of the asset filter.</p>
+   * @public
+   */
+  configuration: AssetFilterConfiguration | undefined;
+
+  /**
+   * <p>The timestamp at which the asset filter was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The error message that is displayed if the action does not complete successfully.</p>
+   * @public
+   */
+  errorMessage?: string;
+
+  /**
+   * <p>The column names of the asset filter.</p>
+   * @public
+   */
+  effectiveColumnNames?: string[];
+
+  /**
+   * <p>The row filter of the asset filter.</p>
+   * @public
+   */
+  effectiveRowFilter?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssetFilterInput {
+  /**
+   * <p>The ID of the domain where you want to update an asset filter.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the data asset.</p>
+   * @public
+   */
+  assetIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset filter.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the asset filter.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The description of the asset filter.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The configuration of the asset filter.</p>
+   * @public
+   */
+  configuration?: AssetFilterConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssetFilterOutput {
+  /**
+   * <p>The ID of the asset filter.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ID of the domain where the asset filter was created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data asset.</p>
+   * @public
+   */
+  assetId: string | undefined;
+
+  /**
+   * <p>The name of the asset filter.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the asset filter.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The status of the asset filter.</p>
+   * @public
+   */
+  status?: FilterStatus;
+
+  /**
+   * <p>The configuration of the asset filter.</p>
+   * @public
+   */
+  configuration: AssetFilterConfiguration | undefined;
+
+  /**
+   * <p>The timestamp at which the asset filter was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The error message that is displayed if the action is not completed successfully.</p>
+   * @public
+   */
+  errorMessage?: string;
+
+  /**
+   * <p>The column names of the asset filter.</p>
+   * @public
+   */
+  effectiveColumnNames?: string[];
+
+  /**
+   * <p>The row filter of the asset filter.</p>
+   * @public
+   */
+  effectiveRowFilter?: string;
+}
+
+/**
+ * @internal
+ */
+export const EnvironmentBlueprintSummaryFilterSensitiveLog = (obj: EnvironmentBlueprintSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentBlueprintsOutputFilterSensitiveLog = (obj: ListEnvironmentBlueprintsOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => EnvironmentBlueprintSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentProfilesInputFilterSensitiveLog = (obj: ListEnvironmentProfilesInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentProfileSummaryFilterSensitiveLog = (obj: EnvironmentProfileSummary): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentProfilesOutputFilterSensitiveLog = (obj: ListEnvironmentProfilesOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => EnvironmentProfileSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsOutputFilterSensitiveLog = (obj: ListEnvironmentsOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => EnvironmentSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListingItemFilterSensitiveLog = (obj: ListingItem): any => {
+  if (obj.assetListing !== undefined) return { assetListing: AssetListingFilterSensitiveLog(obj.assetListing) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GetListingOutputFilterSensitiveLog = (obj: GetListingOutput): any => ({
+  ...obj,
+  ...(obj.item && { item: ListingItemFilterSensitiveLog(obj.item) }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -4748,4 +6168,53 @@ export const UpdateSubscriptionTargetOutputFilterSensitiveLog = (obj: UpdateSubs
 export const UpdateUserProfileOutputFilterSensitiveLog = (obj: UpdateUserProfileOutput): any => ({
   ...obj,
   ...(obj.details && { details: UserProfileDetailsFilterSensitiveLog(obj.details) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssetFilterInputFilterSensitiveLog = (obj: CreateAssetFilterInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.configuration && { configuration: obj.configuration }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssetFilterOutputFilterSensitiveLog = (obj: CreateAssetFilterOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.configuration && { configuration: obj.configuration }),
+});
+
+/**
+ * @internal
+ */
+export const GetAssetFilterOutputFilterSensitiveLog = (obj: GetAssetFilterOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.configuration && { configuration: obj.configuration }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssetFilterInputFilterSensitiveLog = (obj: UpdateAssetFilterInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.configuration && { configuration: obj.configuration }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssetFilterOutputFilterSensitiveLog = (obj: UpdateAssetFilterOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.configuration && { configuration: obj.configuration }),
 });

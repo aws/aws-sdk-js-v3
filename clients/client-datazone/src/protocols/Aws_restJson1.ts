@@ -49,6 +49,7 @@ import {
 } from "../commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "../commands/CancelSubscriptionCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "../commands/CreateAssetCommand";
+import { CreateAssetFilterCommandInput, CreateAssetFilterCommandOutput } from "../commands/CreateAssetFilterCommand";
 import {
   CreateAssetRevisionCommandInput,
   CreateAssetRevisionCommandOutput,
@@ -92,6 +93,7 @@ import {
 } from "../commands/CreateSubscriptionTargetCommand";
 import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "../commands/CreateUserProfileCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
+import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "../commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "../commands/DeleteAssetTypeCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
@@ -138,6 +140,7 @@ import {
   DisassociateEnvironmentRoleCommandOutput,
 } from "../commands/DisassociateEnvironmentRoleCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
+import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "../commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "../commands/GetAssetTypeCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "../commands/GetDataSourceRunCommand";
@@ -192,6 +195,7 @@ import {
   GetTimeSeriesDataPointCommandOutput,
 } from "../commands/GetTimeSeriesDataPointCommand";
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "../commands/GetUserProfileCommand";
+import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "../commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "../commands/ListAssetRevisionsCommand";
 import {
   ListDataSourceRunActivitiesCommandInput,
@@ -282,6 +286,7 @@ import {
 } from "../commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAssetFilterCommandInput, UpdateAssetFilterCommandOutput } from "../commands/UpdateAssetFilterCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "../commands/UpdateDomainCommand";
 import {
@@ -316,6 +321,7 @@ import {
   AcceptRule,
   AccessDeniedException,
   ActionParameters,
+  AssetFilterSummary,
   AssetItem,
   AssetItemAdditionalAttributes,
   AssetListing,
@@ -326,6 +332,7 @@ import {
   AssetTypeItem,
   AwsConsoleLinkParameters,
   BusinessNameGenerationConfiguration,
+  ColumnFilterConfiguration,
   ConflictException,
   DataProductSummary,
   DataSourceConfigurationInput,
@@ -334,24 +341,33 @@ import {
   DataSourceSummary,
   DomainSummary,
   EnvironmentBlueprintConfigurationItem,
-  EnvironmentBlueprintSummary,
   EnvironmentParameter,
-  EnvironmentProfileSummary,
-  EnvironmentSummary,
+  EqualToExpression,
   FailureCause,
   FilterExpression,
   FormEntryInput,
   FormInput,
   GlueRunConfigurationInput,
   GrantedEntityInput,
+  GreaterThanExpression,
+  GreaterThanOrEqualToExpression,
+  InExpression,
   InternalServerException,
+  IsNotNullExpression,
+  IsNullExpression,
+  LakeFormationConfiguration,
+  LessThanExpression,
+  LessThanOrEqualToExpression,
+  LikeExpression,
   LineageNodeReference,
-  LineageNodeSummary,
-  ListingItem,
   ListingRevisionInput,
   Member,
   Model,
+  NotEqualToExpression,
+  NotInExpression,
+  NotLikeExpression,
   PredictionConfiguration,
+  ProvisioningConfiguration,
   RecommendationConfiguration,
   RedshiftClusterStorage,
   RedshiftCredentialConfiguration,
@@ -360,6 +376,7 @@ import {
   RedshiftStorage,
   RelationalFilterConfiguration,
   ResourceNotFoundException,
+  RowFilterExpression,
   ScheduleConfiguration,
   ServiceQuotaExceededException,
   SingleSignOn,
@@ -376,18 +393,26 @@ import {
   ValidationException,
 } from "../models/models_0";
 import {
+  AssetFilterConfiguration,
+  EnvironmentBlueprintSummary,
+  EnvironmentProfileSummary,
+  EnvironmentSummary,
   Filter,
   FilterClause,
   FormTypeData,
   GlossaryItem,
   GlossaryTermItem,
+  LineageNodeSummary,
   LineageNodeTypeItem,
+  ListingItem,
   MetadataGenerationRunItem,
   MetadataGenerationRunTarget,
   NotificationOutput,
   ProjectSummary,
   RejectChoice,
   RejectRule,
+  RowFilter,
+  RowFilterConfiguration,
   SearchInItem,
   SearchInventoryResultItem,
   SearchOutputAdditionalAttribute,
@@ -532,6 +557,33 @@ export const se_CreateAssetCommand = async (
       predictionConfiguration: (_) => _json(_),
       typeIdentifier: [],
       typeRevision: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAssetFilterCommand
+ */
+export const se_CreateAssetFilterCommand = async (
+  input: CreateAssetFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("assetIdentifier", () => input.assetIdentifier!, "{assetIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      configuration: (_) => se_AssetFilterConfiguration(_, context),
+      description: [],
+      name: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1053,6 +1105,24 @@ export const se_DeleteAssetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAssetFilterCommand
+ */
+export const se_DeleteAssetFilterCommand = async (
+  input: DeleteAssetFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("assetIdentifier", () => input.assetIdentifier!, "{assetIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteAssetTypeCommand
  */
 export const se_DeleteAssetTypeCommand = async (
@@ -1405,6 +1475,24 @@ export const se_GetAssetCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAssetFilterCommand
+ */
+export const se_GetAssetFilterCommand = async (
+  input: GetAssetFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("assetIdentifier", () => input.assetIdentifier!, "{assetIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1835,6 +1923,28 @@ export const se_GetUserProfileCommand = async (
   b.p("userIdentifier", () => input.userIdentifier!, "{userIdentifier}", false);
   const query: any = map({
     [_ty]: [, input[_ty]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAssetFiltersCommand
+ */
+export const se_ListAssetFiltersCommand = async (
+  input: ListAssetFiltersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("assetIdentifier", () => input.assetIdentifier!, "{assetIdentifier}", false);
+  const query: any = map({
+    [_s]: [, input[_s]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2402,6 +2512,7 @@ export const se_PutEnvironmentBlueprintConfigurationCommand = async (
     take(input, {
       enabledRegions: (_) => _json(_),
       manageAccessRoleArn: [],
+      provisioningConfigurations: (_) => _json(_),
       provisioningRoleArn: [],
       regionalParameters: (_) => _json(_),
     })
@@ -2718,6 +2829,33 @@ export const se_UntagResourceCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAssetFilterCommand
+ */
+export const se_UpdateAssetFilterCommand = async (
+  input: UpdateAssetFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("assetIdentifier", () => input.assetIdentifier!, "{assetIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => se_AssetFilterConfiguration(_, context),
+      description: [],
+      name: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -3229,6 +3367,37 @@ export const de_CreateAssetCommand = async (
     revision: __expectString,
     typeIdentifier: __expectString,
     typeRevision: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAssetFilterCommand
+ */
+export const de_CreateAssetFilterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAssetFilterCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetId: __expectString,
+    configuration: (_) => de_AssetFilterConfiguration(__expectUnion(_), context),
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainId: __expectString,
+    effectiveColumnNames: _json,
+    effectiveRowFilter: __expectString,
+    errorMessage: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3790,6 +3959,23 @@ export const de_DeleteAssetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAssetFilterCommand
+ */
+export const de_DeleteAssetFilterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAssetFilterCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteAssetTypeCommand
  */
 export const de_DeleteAssetTypeCommand = async (
@@ -4176,6 +4362,37 @@ export const de_GetAssetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAssetFilterCommand
+ */
+export const de_GetAssetFilterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAssetFilterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetId: __expectString,
+    configuration: (_) => de_AssetFilterConfiguration(__expectUnion(_), context),
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainId: __expectString,
+    effectiveColumnNames: _json,
+    effectiveRowFilter: __expectString,
+    errorMessage: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAssetTypeCommand
  */
 export const de_GetAssetTypeCommand = async (
@@ -4431,6 +4648,7 @@ export const de_GetEnvironmentBlueprintConfigurationCommand = async (
     enabledRegions: _json,
     environmentBlueprintId: __expectString,
     manageAccessRoleArn: __expectString,
+    provisioningConfigurations: _json,
     provisioningRoleArn: __expectString,
     regionalParameters: _json,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -4909,6 +5127,28 @@ export const de_GetUserProfileCommand = async (
     id: __expectString,
     status: __expectString,
     type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssetFiltersCommand
+ */
+export const de_ListAssetFiltersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetFiltersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_AssetFilters(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5436,6 +5676,7 @@ export const de_PutEnvironmentBlueprintConfigurationCommand = async (
     enabledRegions: _json,
     environmentBlueprintId: __expectString,
     manageAccessRoleArn: __expectString,
+    provisioningConfigurations: _json,
     provisioningRoleArn: __expectString,
     regionalParameters: _json,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -5734,6 +5975,37 @@ export const de_UntagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAssetFilterCommand
+ */
+export const de_UpdateAssetFilterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssetFilterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    assetId: __expectString,
+    configuration: (_) => de_AssetFilterConfiguration(__expectUnion(_), context),
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainId: __expectString,
+    effectiveColumnNames: _json,
+    effectiveRowFilter: __expectString,
+    errorMessage: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6349,6 +6621,17 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
 
 // se_ApplicableAssetTypes omitted.
 
+/**
+ * serializeAws_restJson1AssetFilterConfiguration
+ */
+const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: __SerdeContext): any => {
+  return AssetFilterConfiguration.visit(input, {
+    columnConfiguration: (value) => ({ columnConfiguration: _json(value) }),
+    rowConfiguration: (value) => ({ rowConfiguration: se_RowFilterConfiguration(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 // se_AssetTargetNameMap omitted.
 
 // se_AssetTargetNames omitted.
@@ -6359,6 +6642,10 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
 
 // se_BusinessNameGenerationConfiguration omitted.
 
+// se_ColumnFilterConfiguration omitted.
+
+// se_ColumnNameList omitted.
+
 // se_DataSourceConfigurationInput omitted.
 
 // se_EnabledRegionList omitted.
@@ -6366,6 +6653,8 @@ const se_AcceptRule = (input: AcceptRule, context: __SerdeContext): any => {
 // se_EnvironmentParameter omitted.
 
 // se_EnvironmentParametersList omitted.
+
+// se_EqualToExpression omitted.
 
 // se_FailureCause omitted.
 
@@ -6412,6 +6701,24 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_GrantedEntityInput omitted.
 
+// se_GreaterThanExpression omitted.
+
+// se_GreaterThanOrEqualToExpression omitted.
+
+// se_InExpression omitted.
+
+// se_IsNotNullExpression omitted.
+
+// se_IsNullExpression omitted.
+
+// se_LakeFormationConfiguration omitted.
+
+// se_LessThanExpression omitted.
+
+// se_LessThanOrEqualToExpression omitted.
+
+// se_LikeExpression omitted.
+
 // se_ListingRevisionInput omitted.
 
 // se_Member omitted.
@@ -6420,9 +6727,19 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_Model omitted.
 
+// se_NotEqualToExpression omitted.
+
+// se_NotInExpression omitted.
+
+// se_NotLikeExpression omitted.
+
 // se_PredictionChoices omitted.
 
 // se_PredictionConfiguration omitted.
+
+// se_ProvisioningConfiguration omitted.
+
+// se_ProvisioningConfigurationList omitted.
 
 // se_RecommendationConfiguration omitted.
 
@@ -6458,6 +6775,43 @@ const se_RejectRule = (input: RejectRule, context: __SerdeContext): any => {
 
 // se_RelationalFilterConfigurations omitted.
 
+/**
+ * serializeAws_restJson1RowFilter
+ */
+const se_RowFilter = (input: RowFilter, context: __SerdeContext): any => {
+  return RowFilter.visit(input, {
+    and: (value) => ({ and: se_RowFilterList(value, context) }),
+    expression: (value) => ({ expression: _json(value) }),
+    or: (value) => ({ or: se_RowFilterList(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1RowFilterConfiguration
+ */
+const se_RowFilterConfiguration = (input: RowFilterConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    rowFilter: (_) => se_RowFilter(_, context),
+    sensitive: [],
+  });
+};
+
+// se_RowFilterExpression omitted.
+
+/**
+ * serializeAws_restJson1RowFilterList
+ */
+const se_RowFilterList = (input: RowFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RowFilter(entry, context);
+    });
+};
+
+// se_S3LocationList omitted.
+
 // se_ScheduleConfiguration omitted.
 
 // se_SearchInItem omitted.
@@ -6469,6 +6823,8 @@ const se_RejectRule = (input: RejectRule, context: __SerdeContext): any => {
 // se_SearchSort omitted.
 
 // se_SingleSignOn omitted.
+
+// se_StringList omitted.
 
 // se_SubscribedListingInput omitted.
 
@@ -6515,6 +6871,53 @@ const se_TimeSeriesDataPointFormInputList = (input: TimeSeriesDataPointFormInput
 // de_ActionParameters omitted.
 
 // de_ApplicableAssetTypes omitted.
+
+/**
+ * deserializeAws_restJson1AssetFilterConfiguration
+ */
+const de_AssetFilterConfiguration = (output: any, context: __SerdeContext): AssetFilterConfiguration => {
+  if (output.columnConfiguration != null) {
+    return {
+      columnConfiguration: _json(output.columnConfiguration),
+    };
+  }
+  if (output.rowConfiguration != null) {
+    return {
+      rowConfiguration: de_RowFilterConfiguration(output.rowConfiguration, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1AssetFilters
+ */
+const de_AssetFilters = (output: any, context: __SerdeContext): AssetFilterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssetFilterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AssetFilterSummary
+ */
+const de_AssetFilterSummary = (output: any, context: __SerdeContext): AssetFilterSummary => {
+  return take(output, {
+    assetId: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainId: __expectString,
+    effectiveColumnNames: _json,
+    effectiveRowFilter: __expectString,
+    errorMessage: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AssetItem
@@ -6653,6 +7056,10 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 // de_BusinessNameGenerationConfiguration omitted.
 
 // de_CloudFormationProperties omitted.
+
+// de_ColumnFilterConfiguration omitted.
+
+// de_ColumnNameList omitted.
 
 // de_ConfigurableActionParameter omitted.
 
@@ -6844,6 +7251,7 @@ const de_EnvironmentBlueprintConfigurationItem = (
     enabledRegions: _json,
     environmentBlueprintId: __expectString,
     manageAccessRoleArn: __expectString,
+    provisioningConfigurations: _json,
     provisioningRoleArn: __expectString,
     regionalParameters: _json,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -6958,6 +7366,8 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
   }) as any;
 };
 
+// de_EqualToExpression omitted.
+
 // de_FailureCause omitted.
 
 // de_FailureReasons omitted.
@@ -7040,6 +7450,10 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_GrantedEntity omitted.
 
+// de_GreaterThanExpression omitted.
+
+// de_GreaterThanOrEqualToExpression omitted.
+
 // de_GroupDetails omitted.
 
 // de_GroupProfileSummaries omitted.
@@ -7051,6 +7465,20 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 // de_Import omitted.
 
 // de_ImportList omitted.
+
+// de_InExpression omitted.
+
+// de_IsNotNullExpression omitted.
+
+// de_IsNullExpression omitted.
+
+// de_LakeFormationConfiguration omitted.
+
+// de_LessThanExpression omitted.
+
+// de_LessThanOrEqualToExpression omitted.
+
+// de_LikeExpression omitted.
 
 /**
  * deserializeAws_restJson1LineageNodeReference
@@ -7175,6 +7603,8 @@ const de_MetadataGenerationRuns = (output: any, context: __SerdeContext): Metada
 
 // de_Model omitted.
 
+// de_NotEqualToExpression omitted.
+
 /**
  * deserializeAws_restJson1NotificationOutput
  */
@@ -7207,6 +7637,10 @@ const de_NotificationsList = (output: any, context: __SerdeContext): Notificatio
     });
   return retVal;
 };
+
+// de_NotInExpression omitted.
+
+// de_NotLikeExpression omitted.
 
 // de_PredictionConfiguration omitted.
 
@@ -7245,6 +7679,10 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
   }) as any;
 };
 
+// de_ProvisioningConfiguration omitted.
+
+// de_ProvisioningConfigurationList omitted.
+
 // de_ProvisioningProperties omitted.
 
 // de_RecommendationConfiguration omitted.
@@ -7273,7 +7711,55 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 
 // de_ResourceList omitted.
 
+/**
+ * deserializeAws_restJson1RowFilter
+ */
+const de_RowFilter = (output: any, context: __SerdeContext): RowFilter => {
+  if (output.and != null) {
+    return {
+      and: de_RowFilterList(output.and, context),
+    };
+  }
+  if (output.expression != null) {
+    return {
+      expression: _json(__expectUnion(output.expression)),
+    };
+  }
+  if (output.or != null) {
+    return {
+      or: de_RowFilterList(output.or, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1RowFilterConfiguration
+ */
+const de_RowFilterConfiguration = (output: any, context: __SerdeContext): RowFilterConfiguration => {
+  return take(output, {
+    rowFilter: (_: any) => de_RowFilter(__expectUnion(_), context),
+    sensitive: __expectBoolean,
+  }) as any;
+};
+
+// de_RowFilterExpression omitted.
+
+/**
+ * deserializeAws_restJson1RowFilterList
+ */
+const de_RowFilterList = (output: any, context: __SerdeContext): RowFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RowFilter(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
 // de_RunStatisticsForAssets omitted.
+
+// de_S3LocationList omitted.
 
 // de_ScheduleConfiguration omitted.
 
@@ -7383,6 +7869,8 @@ const de_SearchTypesResultItems = (output: any, context: __SerdeContext): Search
 // de_SingleSignOn omitted.
 
 // de_SsoUserProfileDetails omitted.
+
+// de_StringList omitted.
 
 /**
  * deserializeAws_restJson1SubscribedAsset

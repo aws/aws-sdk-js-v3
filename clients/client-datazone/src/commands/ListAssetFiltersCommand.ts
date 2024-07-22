@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListLineageNodeHistoryInput, ListLineageNodeHistoryOutput } from "../models/models_1";
-import { de_ListLineageNodeHistoryCommand, se_ListLineageNodeHistoryCommand } from "../protocols/Aws_restJson1";
+import {
+  ListAssetFiltersInput,
+  ListAssetFiltersOutput,
+  ListAssetFiltersOutputFilterSensitiveLog,
+} from "../models/models_0";
+import { de_ListAssetFiltersCommand, se_ListAssetFiltersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,51 +21,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListLineageNodeHistoryCommand}.
+ * The input for {@link ListAssetFiltersCommand}.
  */
-export interface ListLineageNodeHistoryCommandInput extends ListLineageNodeHistoryInput {}
+export interface ListAssetFiltersCommandInput extends ListAssetFiltersInput {}
 /**
  * @public
  *
- * The output of {@link ListLineageNodeHistoryCommand}.
+ * The output of {@link ListAssetFiltersCommand}.
  */
-export interface ListLineageNodeHistoryCommandOutput extends ListLineageNodeHistoryOutput, __MetadataBearer {}
+export interface ListAssetFiltersCommandOutput extends ListAssetFiltersOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the history of the specified data lineage node.</p>
+ * <p>Lists asset filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, ListLineageNodeHistoryCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, ListLineageNodeHistoryCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, ListAssetFiltersCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, ListAssetFiltersCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // ListLineageNodeHistoryInput
+ * const input = { // ListAssetFiltersInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   maxResults: Number("int"),
+ *   assetIdentifier: "STRING_VALUE", // required
+ *   status: "VALID" || "INVALID",
  *   nextToken: "STRING_VALUE",
- *   identifier: "STRING_VALUE", // required
- *   direction: "UPSTREAM" || "DOWNSTREAM",
- *   eventTimestampGTE: new Date("TIMESTAMP"),
- *   eventTimestampLTE: new Date("TIMESTAMP"),
- *   sortOrder: "ASCENDING" || "DESCENDING",
+ *   maxResults: Number("int"),
  * };
- * const command = new ListLineageNodeHistoryCommand(input);
+ * const command = new ListAssetFiltersCommand(input);
  * const response = await client.send(command);
- * // { // ListLineageNodeHistoryOutput
- * //   nodes: [ // LineageNodeSummaries
- * //     { // LineageNodeSummary
- * //       domainId: "STRING_VALUE", // required
- * //       name: "STRING_VALUE",
- * //       description: "STRING_VALUE",
- * //       createdAt: new Date("TIMESTAMP"),
- * //       createdBy: "STRING_VALUE",
- * //       updatedAt: new Date("TIMESTAMP"),
- * //       updatedBy: "STRING_VALUE",
+ * // { // ListAssetFiltersOutput
+ * //   items: [ // AssetFilters // required
+ * //     { // AssetFilterSummary
  * //       id: "STRING_VALUE", // required
- * //       typeName: "STRING_VALUE", // required
- * //       typeRevision: "STRING_VALUE",
- * //       sourceIdentifier: "STRING_VALUE",
- * //       eventTimestamp: new Date("TIMESTAMP"),
+ * //       domainId: "STRING_VALUE", // required
+ * //       assetId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       status: "VALID" || "INVALID",
+ * //       effectiveColumnNames: [ // ColumnNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       effectiveRowFilter: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       errorMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -69,10 +70,10 @@ export interface ListLineageNodeHistoryCommandOutput extends ListLineageNodeHist
  *
  * ```
  *
- * @param ListLineageNodeHistoryCommandInput - {@link ListLineageNodeHistoryCommandInput}
- * @returns {@link ListLineageNodeHistoryCommandOutput}
- * @see {@link ListLineageNodeHistoryCommandInput} for command's `input` shape.
- * @see {@link ListLineageNodeHistoryCommandOutput} for command's `response` shape.
+ * @param ListAssetFiltersCommandInput - {@link ListAssetFiltersCommandInput}
+ * @returns {@link ListAssetFiltersCommandOutput}
+ * @see {@link ListAssetFiltersCommandInput} for command's `input` shape.
+ * @see {@link ListAssetFiltersCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -98,10 +99,10 @@ export interface ListLineageNodeHistoryCommandOutput extends ListLineageNodeHist
  *
  * @public
  */
-export class ListLineageNodeHistoryCommand extends $Command
+export class ListAssetFiltersCommand extends $Command
   .classBuilder<
-    ListLineageNodeHistoryCommandInput,
-    ListLineageNodeHistoryCommandOutput,
+    ListAssetFiltersCommandInput,
+    ListAssetFiltersCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,9 +116,9 @@ export class ListLineageNodeHistoryCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "ListLineageNodeHistory", {})
-  .n("DataZoneClient", "ListLineageNodeHistoryCommand")
-  .f(void 0, void 0)
-  .ser(se_ListLineageNodeHistoryCommand)
-  .de(de_ListLineageNodeHistoryCommand)
+  .s("DataZone", "ListAssetFilters", {})
+  .n("DataZoneClient", "ListAssetFiltersCommand")
+  .f(void 0, ListAssetFiltersOutputFilterSensitiveLog)
+  .ser(se_ListAssetFiltersCommand)
+  .de(de_ListAssetFiltersCommand)
   .build() {}
