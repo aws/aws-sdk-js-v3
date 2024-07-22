@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RedshiftServerlessHttp
       name: "redshift-serverless",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RedshiftServerlessClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RedshiftServerlessClientConfig>, context) => ({
       /**
        * @internal
        */

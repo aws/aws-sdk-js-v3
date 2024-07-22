@@ -70,6 +70,7 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * //           subnetId: "STRING_VALUE",
  * //           privateIpAddress: "STRING_VALUE",
  * //           availabilityZone: "STRING_VALUE",
+ * //           ipv6Address: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

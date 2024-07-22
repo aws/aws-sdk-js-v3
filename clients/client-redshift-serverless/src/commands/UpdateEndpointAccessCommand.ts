@@ -73,6 +73,7 @@ export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessR
  * //           subnetId: "STRING_VALUE",
  * //           privateIpAddress: "STRING_VALUE",
  * //           availabilityZone: "STRING_VALUE",
+ * //           ipv6Address: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

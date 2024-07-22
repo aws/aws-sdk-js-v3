@@ -78,6 +78,7 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //               subnetId: "STRING_VALUE",
  * //               privateIpAddress: "STRING_VALUE",
  * //               availabilityZone: "STRING_VALUE",
+ * //               ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -95,6 +96,7 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //     crossAccountVpcs: [ // VpcIds
  * //       "STRING_VALUE",
  * //     ],
+ * //     ipAddressType: "STRING_VALUE",
  * //   },
  * // };
  *

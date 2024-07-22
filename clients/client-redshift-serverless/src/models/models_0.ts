@@ -572,6 +572,12 @@ export interface NetworkInterface {
    * @public
    */
   availabilityZone?: string;
+
+  /**
+   * <p>The IPv6 address of the network interface within the subnet.</p>
+   * @public
+   */
+  ipv6Address?: string;
 }
 
 /**
@@ -1072,7 +1078,7 @@ export interface CreateScheduledActionRequest {
    * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
    *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
    *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
-   *             Amazon Redshift</a> in the Amazon Redshift Cluster Management Guide</p>
+   *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
   roleArn: string | undefined;
@@ -1165,7 +1171,7 @@ export interface ScheduledActionResponse {
    * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
    *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots. (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
    *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
-   *             Amazon Redshift</a> in the Amazon Redshift Cluster Management Guide</p>
+   *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
   roleArn?: string;
@@ -1556,6 +1562,12 @@ export interface CreateWorkgroupRequest {
    * @public
    */
   maxCapacity?: number;
+
+  /**
+   * <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   * @public
+   */
+  ipAddressType?: string;
 }
 
 /**
@@ -1733,6 +1745,12 @@ export interface Workgroup {
    * @public
    */
   crossAccountVpcs?: string[];
+
+  /**
+   * <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   * @public
+   */
+  ipAddressType?: string;
 }
 
 /**
@@ -1764,6 +1782,26 @@ export class InsufficientCapacityException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
+  }
+}
+
+/**
+ * <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ * @public
+ */
+export class Ipv6CidrBlockNotFoundException extends __BaseException {
+  readonly name: "Ipv6CidrBlockNotFoundException" = "Ipv6CidrBlockNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<Ipv6CidrBlockNotFoundException, __BaseException>) {
+    super({
+      name: "Ipv6CidrBlockNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, Ipv6CidrBlockNotFoundException.prototype);
   }
 }
 
@@ -3343,7 +3381,7 @@ export interface UpdateScheduledActionRequest {
    * <p>The ARN of the IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift Serverless API operation in the scheduled action.
    *          This IAM role must allow the Amazon Redshift scheduler to schedule creating snapshots (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
    *          For more information about the IAM role to use with the Amazon Redshift scheduler, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">Using Identity-Based Policies for
-   *             Amazon Redshift</a> in the Amazon Redshift Cluster Management Guide</p>
+   *             Amazon Redshift</a> in the Amazon Redshift Management Guide</p>
    * @public
    */
   roleArn?: string;
@@ -3788,6 +3826,12 @@ export interface UpdateWorkgroupRequest {
    * @public
    */
   maxCapacity?: number;
+
+  /**
+   * <p>The IP address type that the workgroup supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   * @public
+   */
+  ipAddressType?: string;
 }
 
 /**

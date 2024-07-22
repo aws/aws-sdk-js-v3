@@ -219,6 +219,7 @@ import {
   InsufficientCapacityException,
   InternalServerException,
   InvalidPaginationException,
+  Ipv6CidrBlockNotFoundException,
   ListCustomDomainAssociationsRequest,
   ListCustomDomainAssociationsResponse,
   ListEndpointAccessRequest,
@@ -2132,6 +2133,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InsufficientCapacityException":
     case "com.amazonaws.redshiftserverless#InsufficientCapacityException":
       throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
+    case "Ipv6CidrBlockNotFoundException":
+    case "com.amazonaws.redshiftserverless#Ipv6CidrBlockNotFoundException":
+      throw await de_Ipv6CidrBlockNotFoundExceptionRes(parsedOutput, context);
     case "InvalidPaginationException":
     case "com.amazonaws.redshiftserverless#InvalidPaginationException":
       throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
@@ -2216,6 +2220,22 @@ const de_InvalidPaginationExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InvalidPaginationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1Ipv6CidrBlockNotFoundExceptionRes
+ */
+const de_Ipv6CidrBlockNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<Ipv6CidrBlockNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new Ipv6CidrBlockNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2794,6 +2814,8 @@ const de_GetWorkgroupResponse = (output: any, context: __SerdeContext): GetWorkg
 
 // de_InvalidPaginationException omitted.
 
+// de_Ipv6CidrBlockNotFoundException omitted.
+
 /**
  * deserializeAws_json1_1ListCustomDomainAssociationsResponse
  */
@@ -3240,6 +3262,7 @@ const de_Workgroup = (output: any, context: __SerdeContext): Workgroup => {
     customDomainName: __expectString,
     endpoint: _json,
     enhancedVpcRouting: __expectBoolean,
+    ipAddressType: __expectString,
     maxCapacity: __expectInt32,
     namespaceName: __expectString,
     patchVersion: __expectString,

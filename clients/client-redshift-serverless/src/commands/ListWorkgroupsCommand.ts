@@ -82,6 +82,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * //                 subnetId: "STRING_VALUE",
  * //                 privateIpAddress: "STRING_VALUE",
  * //                 availabilityZone: "STRING_VALUE",
+ * //                 ipv6Address: "STRING_VALUE",
  * //               },
  * //             ],
  * //           },
@@ -99,6 +100,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * //       crossAccountVpcs: [ // VpcIds
  * //         "STRING_VALUE",
  * //       ],
+ * //       ipAddressType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
