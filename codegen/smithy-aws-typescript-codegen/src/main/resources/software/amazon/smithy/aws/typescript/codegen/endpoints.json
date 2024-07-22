@@ -26357,8 +26357,6 @@
           },
           "endpoints": {
             "us-gov-east-1": {
-              "hostname": "autoscaling-plans.us-gov-east-1.amazonaws.com",
-              "protocols": ["http", "https"],
               "variants": [
                 {
                   "hostname": "autoscaling-plans.us-gov-east-1.amazonaws.com",
@@ -26372,8 +26370,6 @@
               "protocols": ["http", "https"]
             },
             "us-gov-west-1": {
-              "hostname": "autoscaling-plans.us-gov-west-1.amazonaws.com",
-              "protocols": ["http", "https"],
               "variants": [
                 {
                   "hostname": "autoscaling-plans.us-gov-west-1.amazonaws.com",
