@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.617.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.616.0...v3.617.0) (2024-07-22)
+
+
+### Features
+
+* **client-datazone:** This release adds 1/ support of register S3 locations of assets in AWS Lake Formation hybrid access mode for DefaultDataLake blueprint. 2/ support of CRUD operations for Asset Filters. ([caa7750](https://github.com/aws/aws-sdk-js-v3/commit/caa775021ad6fd9302a44ffab87345e92d121d1f))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

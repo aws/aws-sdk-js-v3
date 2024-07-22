@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.617.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.616.0...v3.617.0) (2024-07-22)
+
+
+### Features
+
+* **client-ivs:** Documentation update for IVS Low Latency API Reference. ([e9a221e](https://github.com/aws/aws-sdk-js-v3/commit/e9a221e5623c3b581c452102cc7aeebac7739939))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs

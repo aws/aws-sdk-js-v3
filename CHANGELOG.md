@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.617.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.616.0...v3.617.0) (2024-07-22)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** fix error with partially-read Node.js streams ([#6294](https://github.com/aws/aws-sdk-js-v3/issues/6294)) ([e11de23](https://github.com/aws/aws-sdk-js-v3/commit/e11de230e80b6df2fa0a8a4d444604e49d6194bf))
+
+
+### Features
+
+* **client-datazone:** This release adds 1/ support of register S3 locations of assets in AWS Lake Formation hybrid access mode for DefaultDataLake blueprint. 2/ support of CRUD operations for Asset Filters. ([caa7750](https://github.com/aws/aws-sdk-js-v3/commit/caa775021ad6fd9302a44ffab87345e92d121d1f))
+* **client-ivs:** Documentation update for IVS Low Latency API Reference. ([e9a221e](https://github.com/aws/aws-sdk-js-v3/commit/e9a221e5623c3b581c452102cc7aeebac7739939))
+* **client-neptune-graph:** Amazon Neptune Analytics provides new options for customers to start with smaller graphs at a lower cost. CreateGraph, CreaateGraphImportTask, UpdateGraph and StartImportTask APIs will now allow 32 and 64 for `provisioned-memory` ([c35926b](https://github.com/aws/aws-sdk-js-v3/commit/c35926b04be83314cedadbed85f0f6e29f9f290a))
+* **client-redshift-serverless:** Adds dualstack support for Redshift Serverless workgroup. ([b6495b0](https://github.com/aws/aws-sdk-js-v3/commit/b6495b090c1a9e0b4b6a27a9cabb089de9bd32ea))
+* **clients:** update client endpoints as of 2024-07-22 ([1597efa](https://github.com/aws/aws-sdk-js-v3/commit/1597efaf61f07cab47fc0219a2efb3a7855a736d))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 
