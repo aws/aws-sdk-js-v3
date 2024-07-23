@@ -90,7 +90,8 @@
                                      TypeScriptDependency.NODE_CONFIG_PROVIDER);
                                  writer.addDependency(AwsDependency.AWS_SDK_CORE);
                                  // TODO: change to addImportSubmodule when available
-                                writer.addImport("NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS", "NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
+                                writer.addImport("NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
+                                 "NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
                                 "@aws-sdk/core/account-id-endpoint");
                                  writer.write(
                                      "loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS)");
