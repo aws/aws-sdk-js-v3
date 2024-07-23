@@ -48,7 +48,9 @@
                  RuleSetParameterFinder ruleSetParameterFinder = new RuleSetParameterFinder(service);
                  if (ruleSetParameterFinder.getBuiltInParams().containsKey("AccountIdEndpointMode")) {
                      writer.addDependency(AwsDependency.AWS_SDK_CORE);
-                     writer.addImport("AccountIdEndpointMode", "AccountIdEndpointMode", AwsDependency.AWS_SDK_CORE);
+                     // TODO: change to addImportSubmodule when available; smithy-ts, #pull-1280
+                     writer.addImport("AccountIdEndpointMode", "AccountIdEndpointMode",
+                     "@aws-sdk/core/account-id-endpoint");
                      writer.writeDocs("Defines if the AWS AccountId will be used for endpoint routing.");
                      writer.write("accountIdEndpointMode?: AccountIdEndpointMode | "
                      + "__Provider<AccountIdEndpointMode>;\n");
@@ -75,9 +77,9 @@
                          case BROWSER:
                              runtimeConfigs.put("accountIdEndpointMode", writer -> {
                                  writer.addDependency(AwsDependency.AWS_SDK_CORE);
-                                 writer.addImport("DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
-                                 "DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
-                                 AwsDependency.AWS_SDK_CORE);
+                                 // TODO: change to addImportSubmodule when available
+                                writer.addImport("DEFAULT_ACCOUNT_ID_ENDPOINT_MODE", "DEFAULT_ACCOUNT_ID_ENDPOINT_MODE",
+                                "@aws-sdk/core/account-id-endpoint");
                                  writer.write("(() => Promise.resolve(DEFAULT_ACCOUNT_ID_ENDPOINT_MODE))");
                              });
                              break;
@@ -87,8 +89,9 @@
                                  writer.addImport("loadConfig", "loadNodeConfig",
                                      TypeScriptDependency.NODE_CONFIG_PROVIDER);
                                  writer.addDependency(AwsDependency.AWS_SDK_CORE);
-                                 writer.addImport("NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
-                                     "NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS", AwsDependency.AWS_SDK_CORE);
+                                 // TODO: change to addImportSubmodule when available
+                                writer.addImport("NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS", "NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS",
+                                "@aws-sdk/core/account-id-endpoint");
                                  writer.write(
                                      "loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS)");
                              });
