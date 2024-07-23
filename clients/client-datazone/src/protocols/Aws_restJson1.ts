@@ -334,13 +334,13 @@ import {
   BusinessNameGenerationConfiguration,
   ColumnFilterConfiguration,
   ConflictException,
-  DataProductSummary,
   DataSourceConfigurationInput,
   DataSourceRunActivity,
   DataSourceRunSummary,
   DataSourceSummary,
   DomainSummary,
   EnvironmentBlueprintConfigurationItem,
+  EnvironmentBlueprintSummary,
   EnvironmentParameter,
   EqualToExpression,
   FailureCause,
@@ -394,7 +394,6 @@ import {
 } from "../models/models_0";
 import {
   AssetFilterConfiguration,
-  EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
   EnvironmentSummary,
   Filter,
@@ -7071,29 +7070,6 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 
 // de_CustomParameterList omitted.
 
-// de_DataProductItem omitted.
-
-// de_DataProductItems omitted.
-
-/**
- * deserializeAws_restJson1DataProductSummary
- */
-const de_DataProductSummary = (output: any, context: __SerdeContext): DataProductSummary => {
-  return take(output, {
-    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    createdBy: __expectString,
-    dataProductItems: _json,
-    description: __expectString,
-    domainId: __expectString,
-    glossaryTerms: _json,
-    id: __expectString,
-    name: __expectString,
-    owningProjectId: __expectString,
-    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    updatedBy: __expectString,
-  }) as any;
-};
-
 // de_DataSourceConfigurationOutput omitted.
 
 // de_DataSourceErrorMessage omitted.
@@ -7770,11 +7746,6 @@ const de_SearchInventoryResultItem = (output: any, context: __SerdeContext): Sea
   if (output.assetItem != null) {
     return {
       assetItem: de_AssetItem(output.assetItem, context),
-    };
-  }
-  if (output.dataProductItem != null) {
-    return {
-      dataProductItem: de_DataProductSummary(output.dataProductItem, context),
     };
   }
   if (output.glossaryItem != null) {

@@ -161,26 +161,6 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //           ],
  * //         },
  * //       },
- * //       dataProductItem: { // DataProductSummary
- * //         domainId: "STRING_VALUE", // required
- * //         id: "STRING_VALUE", // required
- * //         name: "STRING_VALUE", // required
- * //         owningProjectId: "STRING_VALUE", // required
- * //         description: "STRING_VALUE",
- * //         glossaryTerms: [
- * //           "STRING_VALUE",
- * //         ],
- * //         dataProductItems: [ // DataProductItems
- * //           { // DataProductItem
- * //             itemId: "STRING_VALUE",
- * //             domainId: "STRING_VALUE",
- * //           },
- * //         ],
- * //         createdAt: new Date("TIMESTAMP"),
- * //         createdBy: "STRING_VALUE",
- * //         updatedAt: new Date("TIMESTAMP"),
- * //         updatedBy: "STRING_VALUE",
- * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

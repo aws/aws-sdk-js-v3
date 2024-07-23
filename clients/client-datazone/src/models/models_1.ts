@@ -15,10 +15,10 @@ import {
   ConfigurableEnvironmentAction,
   CustomParameter,
   CustomParameterFilterSensitiveLog,
-  DataProductSummary,
-  DataProductSummaryFilterSensitiveLog,
   Deployment,
   DeploymentProperties,
+  EnvironmentBlueprintSummary,
+  EnvironmentBlueprintSummaryFilterSensitiveLog,
   EnvironmentParameter,
   EnvironmentStatus,
   FailureCause,
@@ -59,98 +59,6 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_0";
-
-/**
- * @public
- */
-export interface ListEnvironmentBlueprintsInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The maximum number of blueprints to return in a single call to
-   *             <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is
-   *          greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>When the number of blueprints in the environment is greater than the default value for
-   *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
-   *          the response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The name of the Amazon DataZone environment.</p>
-   * @public
-   */
-  name?: string;
-
-  /**
-   * <p>Specifies whether the environment blueprint is managed by Amazon DataZone.</p>
-   * @public
-   */
-  managed?: boolean;
-}
-
-/**
- * <p>The details of an environment blueprint summary.</p>
- * @public
- */
-export interface EnvironmentBlueprintSummary {
-  /**
-   * <p>The identifier of the blueprint.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the blueprint.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of a blueprint.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The provider of the blueprint.</p>
-   * @public
-   */
-  provider: string | undefined;
-
-  /**
-   * <p>The provisioning properties of the blueprint.</p>
-   * @public
-   */
-  provisioningProperties: ProvisioningProperties | undefined;
-
-  /**
-   * <p>The timestamp of when an environment blueprint was created.</p>
-   * @public
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The timestamp of when the blueprint was enabled.</p>
-   * @public
-   */
-  updatedAt?: Date;
-}
 
 /**
  * @public
@@ -3262,7 +3170,6 @@ export interface GlossaryTermItem {
  */
 export type SearchInventoryResultItem =
   | SearchInventoryResultItem.AssetItemMember
-  | SearchInventoryResultItem.DataProductItemMember
   | SearchInventoryResultItem.GlossaryItemMember
   | SearchInventoryResultItem.GlossaryTermItemMember
   | SearchInventoryResultItem.$UnknownMember;
@@ -3279,7 +3186,6 @@ export namespace SearchInventoryResultItem {
     glossaryItem: GlossaryItem;
     glossaryTermItem?: never;
     assetItem?: never;
-    dataProductItem?: never;
     $unknown?: never;
   }
 
@@ -3291,7 +3197,6 @@ export namespace SearchInventoryResultItem {
     glossaryItem?: never;
     glossaryTermItem: GlossaryTermItem;
     assetItem?: never;
-    dataProductItem?: never;
     $unknown?: never;
   }
 
@@ -3303,21 +3208,6 @@ export namespace SearchInventoryResultItem {
     glossaryItem?: never;
     glossaryTermItem?: never;
     assetItem: AssetItem;
-    dataProductItem?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * @deprecated
-   *
-   * <p>The data product item included in the search results.</p>
-   * @public
-   */
-  export interface DataProductItemMember {
-    glossaryItem?: never;
-    glossaryTermItem?: never;
-    assetItem?: never;
-    dataProductItem: DataProductSummary;
     $unknown?: never;
   }
 
@@ -3328,7 +3218,6 @@ export namespace SearchInventoryResultItem {
     glossaryItem?: never;
     glossaryTermItem?: never;
     assetItem?: never;
-    dataProductItem?: never;
     $unknown: [string, any];
   }
 
@@ -3336,7 +3225,6 @@ export namespace SearchInventoryResultItem {
     glossaryItem: (value: GlossaryItem) => T;
     glossaryTermItem: (value: GlossaryTermItem) => T;
     assetItem: (value: AssetItem) => T;
-    dataProductItem: (value: DataProductSummary) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3344,7 +3232,6 @@ export namespace SearchInventoryResultItem {
     if (value.glossaryItem !== undefined) return visitor.glossaryItem(value.glossaryItem);
     if (value.glossaryTermItem !== undefined) return visitor.glossaryTermItem(value.glossaryTermItem);
     if (value.assetItem !== undefined) return visitor.assetItem(value.assetItem);
-    if (value.dataProductItem !== undefined) return visitor.dataProductItem(value.dataProductItem);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5697,15 +5584,6 @@ export interface UpdateAssetFilterOutput {
 /**
  * @internal
  */
-export const EnvironmentBlueprintSummaryFilterSensitiveLog = (obj: EnvironmentBlueprintSummary): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
-});
-
-/**
- * @internal
- */
 export const ListEnvironmentBlueprintsOutputFilterSensitiveLog = (obj: ListEnvironmentBlueprintsOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => EnvironmentBlueprintSummaryFilterSensitiveLog(item)) }),
@@ -5942,8 +5820,6 @@ export const SearchInventoryResultItemFilterSensitiveLog = (obj: SearchInventory
   if (obj.glossaryTermItem !== undefined)
     return { glossaryTermItem: GlossaryTermItemFilterSensitiveLog(obj.glossaryTermItem) };
   if (obj.assetItem !== undefined) return { assetItem: AssetItemFilterSensitiveLog(obj.assetItem) };
-  if (obj.dataProductItem !== undefined)
-    return { dataProductItem: DataProductSummaryFilterSensitiveLog(obj.dataProductItem) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
