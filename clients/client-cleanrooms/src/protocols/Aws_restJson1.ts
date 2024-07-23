@@ -27,6 +27,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -65,6 +66,14 @@ import {
   CreateConfiguredTableCommandInput,
   CreateConfiguredTableCommandOutput,
 } from "../commands/CreateConfiguredTableCommand";
+import {
+  CreateIdMappingTableCommandInput,
+  CreateIdMappingTableCommandOutput,
+} from "../commands/CreateIdMappingTableCommand";
+import {
+  CreateIdNamespaceAssociationCommandInput,
+  CreateIdNamespaceAssociationCommandOutput,
+} from "../commands/CreateIdNamespaceAssociationCommand";
 import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "../commands/CreateMembershipCommand";
 import {
   CreatePrivacyBudgetTemplateCommandInput,
@@ -94,6 +103,14 @@ import {
   DeleteConfiguredTableCommandInput,
   DeleteConfiguredTableCommandOutput,
 } from "../commands/DeleteConfiguredTableCommand";
+import {
+  DeleteIdMappingTableCommandInput,
+  DeleteIdMappingTableCommandOutput,
+} from "../commands/DeleteIdMappingTableCommand";
+import {
+  DeleteIdNamespaceAssociationCommandInput,
+  DeleteIdNamespaceAssociationCommandOutput,
+} from "../commands/DeleteIdNamespaceAssociationCommand";
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "../commands/DeleteMemberCommand";
 import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "../commands/DeleteMembershipCommand";
 import {
@@ -114,6 +131,10 @@ import {
   GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
 } from "../commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
 import {
+  GetCollaborationIdNamespaceAssociationCommandInput,
+  GetCollaborationIdNamespaceAssociationCommandOutput,
+} from "../commands/GetCollaborationIdNamespaceAssociationCommand";
+import {
   GetCollaborationPrivacyBudgetTemplateCommandInput,
   GetCollaborationPrivacyBudgetTemplateCommandOutput,
 } from "../commands/GetCollaborationPrivacyBudgetTemplateCommand";
@@ -130,6 +151,11 @@ import {
   GetConfiguredTableAssociationCommandOutput,
 } from "../commands/GetConfiguredTableAssociationCommand";
 import { GetConfiguredTableCommandInput, GetConfiguredTableCommandOutput } from "../commands/GetConfiguredTableCommand";
+import { GetIdMappingTableCommandInput, GetIdMappingTableCommandOutput } from "../commands/GetIdMappingTableCommand";
+import {
+  GetIdNamespaceAssociationCommandInput,
+  GetIdNamespaceAssociationCommandOutput,
+} from "../commands/GetIdNamespaceAssociationCommand";
 import { GetMembershipCommandInput, GetMembershipCommandOutput } from "../commands/GetMembershipCommand";
 import {
   GetPrivacyBudgetTemplateCommandInput,
@@ -154,6 +180,10 @@ import {
   ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
 } from "../commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
 import {
+  ListCollaborationIdNamespaceAssociationsCommandInput,
+  ListCollaborationIdNamespaceAssociationsCommandOutput,
+} from "../commands/ListCollaborationIdNamespaceAssociationsCommand";
+import {
   ListCollaborationPrivacyBudgetsCommandInput,
   ListCollaborationPrivacyBudgetsCommandOutput,
 } from "../commands/ListCollaborationPrivacyBudgetsCommand";
@@ -174,6 +204,14 @@ import {
   ListConfiguredTablesCommandInput,
   ListConfiguredTablesCommandOutput,
 } from "../commands/ListConfiguredTablesCommand";
+import {
+  ListIdMappingTablesCommandInput,
+  ListIdMappingTablesCommandOutput,
+} from "../commands/ListIdMappingTablesCommand";
+import {
+  ListIdNamespaceAssociationsCommandInput,
+  ListIdNamespaceAssociationsCommandOutput,
+} from "../commands/ListIdNamespaceAssociationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "../commands/ListMembershipsCommand";
 import { ListPrivacyBudgetsCommandInput, ListPrivacyBudgetsCommandOutput } from "../commands/ListPrivacyBudgetsCommand";
@@ -190,6 +228,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  PopulateIdMappingTableCommandInput,
+  PopulateIdMappingTableCommandOutput,
+} from "../commands/PopulateIdMappingTableCommand";
 import {
   PreviewPrivacyImpactCommandInput,
   PreviewPrivacyImpactCommandOutput,
@@ -224,6 +266,14 @@ import {
   UpdateConfiguredTableCommandInput,
   UpdateConfiguredTableCommandOutput,
 } from "../commands/UpdateConfiguredTableCommand";
+import {
+  UpdateIdMappingTableCommandInput,
+  UpdateIdMappingTableCommandOutput,
+} from "../commands/UpdateIdMappingTableCommand";
+import {
+  UpdateIdNamespaceAssociationCommandInput,
+  UpdateIdNamespaceAssociationCommandOutput,
+} from "../commands/UpdateIdNamespaceAssociationCommand";
 import { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "../commands/UpdateMembershipCommand";
 import {
   UpdatePrivacyBudgetTemplateCommandInput,
@@ -251,6 +301,8 @@ import {
   CollaborationAnalysisTemplateSummary,
   CollaborationConfiguredAudienceModelAssociation,
   CollaborationConfiguredAudienceModelAssociationSummary,
+  CollaborationIdNamespaceAssociation,
+  CollaborationIdNamespaceAssociationSummary,
   CollaborationPrivacyBudgetSummary,
   CollaborationPrivacyBudgetTemplate,
   CollaborationPrivacyBudgetTemplateSummary,
@@ -274,6 +326,14 @@ import {
   DifferentialPrivacyTemplateParametersInput,
   DifferentialPrivacyTemplateUpdateParameters,
   GlueTableReference,
+  IdMappingConfig,
+  IdMappingTable,
+  IdMappingTableInputReferenceConfig,
+  IdMappingTableSummary,
+  IdNamespaceAssociation,
+  IdNamespaceAssociationInputReferenceConfig,
+  IdNamespaceAssociationInputReferenceProperties,
+  IdNamespaceAssociationSummary,
   InternalServerException,
   JoinOperator,
   MemberAbility,
@@ -543,6 +603,60 @@ export const se_CreateConfiguredTableAssociationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateIdMappingTableCommand
+ */
+export const se_CreateIdMappingTableCommand = async (
+  input: CreateIdMappingTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/idmappingtables");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      inputReferenceConfig: (_) => _json(_),
+      kmsKeyArn: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateIdNamespaceAssociationCommand
+ */
+export const se_CreateIdNamespaceAssociationCommand = async (
+  input: CreateIdNamespaceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/idnamespaceassociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      idMappingConfig: (_) => _json(_),
+      inputReferenceConfig: (_) => _json(_),
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateMembershipCommand
  */
 export const se_CreateMembershipCommand = async (
@@ -707,6 +821,45 @@ export const se_DeleteConfiguredTableAssociationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteIdMappingTableCommand
+ */
+export const se_DeleteIdMappingTableCommand = async (
+  input: DeleteIdMappingTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}");
+  b.p("idMappingTableIdentifier", () => input.idMappingTableIdentifier!, "{idMappingTableIdentifier}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteIdNamespaceAssociationCommand
+ */
+export const se_DeleteIdNamespaceAssociationCommand = async (
+  input: DeleteIdNamespaceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/idnamespaceassociations/{idNamespaceAssociationIdentifier}");
+  b.p(
+    "idNamespaceAssociationIdentifier",
+    () => input.idNamespaceAssociationIdentifier!,
+    "{idNamespaceAssociationIdentifier}",
+    false
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteMemberCommand
  */
 export const se_DeleteMemberCommand = async (
@@ -836,6 +989,28 @@ export const se_GetCollaborationConfiguredAudienceModelAssociationCommand = asyn
 };
 
 /**
+ * serializeAws_restJson1GetCollaborationIdNamespaceAssociationCommand
+ */
+export const se_GetCollaborationIdNamespaceAssociationCommand = async (
+  input: GetCollaborationIdNamespaceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/idnamespaceassociations/{idNamespaceAssociationIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p(
+    "idNamespaceAssociationIdentifier",
+    () => input.idNamespaceAssociationIdentifier!,
+    "{idNamespaceAssociationIdentifier}",
+    false
+  );
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommand
  */
 export const se_GetCollaborationPrivacyBudgetTemplateCommand = async (
@@ -928,6 +1103,45 @@ export const se_GetConfiguredTableAssociationCommand = async (
     "configuredTableAssociationIdentifier",
     () => input.configuredTableAssociationIdentifier!,
     "{configuredTableAssociationIdentifier}",
+    false
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetIdMappingTableCommand
+ */
+export const se_GetIdMappingTableCommand = async (
+  input: GetIdMappingTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}");
+  b.p("idMappingTableIdentifier", () => input.idMappingTableIdentifier!, "{idMappingTableIdentifier}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetIdNamespaceAssociationCommand
+ */
+export const se_GetIdNamespaceAssociationCommand = async (
+  input: GetIdNamespaceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/idnamespaceassociations/{idNamespaceAssociationIdentifier}");
+  b.p(
+    "idNamespaceAssociationIdentifier",
+    () => input.idNamespaceAssociationIdentifier!,
+    "{idNamespaceAssociationIdentifier}",
     false
   );
   b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
@@ -1087,6 +1301,26 @@ export const se_ListCollaborationConfiguredAudienceModelAssociationsCommand = as
 };
 
 /**
+ * serializeAws_restJson1ListCollaborationIdNamespaceAssociationsCommand
+ */
+export const se_ListCollaborationIdNamespaceAssociationsCommand = async (
+  input: ListCollaborationIdNamespaceAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/idnamespaceassociations");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListCollaborationPrivacyBudgetsCommand
  */
 export const se_ListCollaborationPrivacyBudgetsCommand = async (
@@ -1197,6 +1431,46 @@ export const se_ListConfiguredTablesCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/configuredTables");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListIdMappingTablesCommand
+ */
+export const se_ListIdMappingTablesCommand = async (
+  input: ListIdMappingTablesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/idmappingtables");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListIdNamespaceAssociationsCommand
+ */
+export const se_ListIdNamespaceAssociationsCommand = async (
+  input: ListIdNamespaceAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/idnamespaceassociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -1342,6 +1616,23 @@ export const se_ListTagsForResourceCommand = async (
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PopulateIdMappingTableCommand
+ */
+export const se_PopulateIdMappingTableCommand = async (
+  input: PopulateIdMappingTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}/populate");
+  b.p("idMappingTableIdentifier", () => input.idMappingTableIdentifier!, "{idMappingTableIdentifier}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1590,6 +1881,62 @@ export const se_UpdateConfiguredTableAssociationCommand = async (
     take(input, {
       description: [],
       roleArn: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateIdMappingTableCommand
+ */
+export const se_UpdateIdMappingTableCommand = async (
+  input: UpdateIdMappingTableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/idmappingtables/{idMappingTableIdentifier}");
+  b.p("idMappingTableIdentifier", () => input.idMappingTableIdentifier!, "{idMappingTableIdentifier}", false);
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      kmsKeyArn: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateIdNamespaceAssociationCommand
+ */
+export const se_UpdateIdNamespaceAssociationCommand = async (
+  input: UpdateIdNamespaceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/idnamespaceassociations/{idNamespaceAssociationIdentifier}");
+  b.p(
+    "idNamespaceAssociationIdentifier",
+    () => input.idNamespaceAssociationIdentifier!,
+    "{idNamespaceAssociationIdentifier}",
+    false
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      idMappingConfig: (_) => _json(_),
+      name: [],
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -1867,6 +2214,48 @@ export const de_CreateConfiguredTableAssociationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateIdMappingTableCommand
+ */
+export const de_CreateIdMappingTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIdMappingTableCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idMappingTable: (_) => de_IdMappingTable(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateIdNamespaceAssociationCommand
+ */
+export const de_CreateIdNamespaceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIdNamespaceAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idNamespaceAssociation: (_) => de_IdNamespaceAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateMembershipCommand
  */
 export const de_CreateMembershipCommand = async (
@@ -2000,6 +2389,40 @@ export const de_DeleteConfiguredTableAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfiguredTableAssociationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteIdMappingTableCommand
+ */
+export const de_DeleteIdMappingTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdMappingTableCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteIdNamespaceAssociationCommand
+ */
+export const de_DeleteIdNamespaceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdNamespaceAssociationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2147,6 +2570,27 @@ export const de_GetCollaborationConfiguredAudienceModelAssociationCommand = asyn
 };
 
 /**
+ * deserializeAws_restJson1GetCollaborationIdNamespaceAssociationCommand
+ */
+export const de_GetCollaborationIdNamespaceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationIdNamespaceAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdNamespaceAssociation: (_) => de_CollaborationIdNamespaceAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommand
  */
 export const de_GetCollaborationPrivacyBudgetTemplateCommand = async (
@@ -2246,6 +2690,48 @@ export const de_GetConfiguredTableAssociationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configuredTableAssociation: (_) => de_ConfiguredTableAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetIdMappingTableCommand
+ */
+export const de_GetIdMappingTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdMappingTableCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idMappingTable: (_) => de_IdMappingTable(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetIdNamespaceAssociationCommand
+ */
+export const de_GetIdNamespaceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdNamespaceAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idNamespaceAssociation: (_) => de_IdNamespaceAssociation(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2424,6 +2910,28 @@ export const de_ListCollaborationConfiguredAudienceModelAssociationsCommand = as
 };
 
 /**
+ * deserializeAws_restJson1ListCollaborationIdNamespaceAssociationsCommand
+ */
+export const de_ListCollaborationIdNamespaceAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationIdNamespaceAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationIdNamespaceAssociationSummaries: (_) => de_CollaborationIdNamespaceAssociationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListCollaborationPrivacyBudgetsCommand
  */
 export const de_ListCollaborationPrivacyBudgetsCommand = async (
@@ -2549,6 +3057,50 @@ export const de_ListConfiguredTablesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configuredTableSummaries: (_) => de_ConfiguredTableSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIdMappingTablesCommand
+ */
+export const de_ListIdMappingTablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdMappingTablesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idMappingTableSummaries: (_) => de_IdMappingTableSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIdNamespaceAssociationsCommand
+ */
+export const de_ListIdNamespaceAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdNamespaceAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idNamespaceAssociationSummaries: (_) => de_IdNamespaceAssociationSummaryList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2703,6 +3255,27 @@ export const de_ListTagsForResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PopulateIdMappingTableCommand
+ */
+export const de_PopulateIdMappingTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PopulateIdMappingTableCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idMappingJobId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2905,6 +3478,48 @@ export const de_UpdateConfiguredTableAssociationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configuredTableAssociation: (_) => de_ConfiguredTableAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateIdMappingTableCommand
+ */
+export const de_UpdateIdMappingTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIdMappingTableCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idMappingTable: (_) => de_IdMappingTable(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateIdNamespaceAssociationCommand
+ */
+export const de_UpdateIdNamespaceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIdNamespaceAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    idNamespaceAssociation: (_) => de_IdNamespaceAssociation(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3208,6 +3823,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_GlueTableReference omitted.
 
+// se_IdMappingConfig omitted.
+
+// se_IdMappingTableInputReferenceConfig omitted.
+
+// se_IdNamespaceAssociationInputReferenceConfig omitted.
+
 // se_JoinOperatorsList omitted.
 
 // se_MemberAbilities omitted.
@@ -3295,6 +3916,8 @@ const de_AnalysisRule = (output: any, context: __SerdeContext): AnalysisRule => 
 // de_AnalysisRuleColumnNameList omitted.
 
 // de_AnalysisRuleCustom omitted.
+
+// de_AnalysisRuleIdMappingTable omitted.
 
 // de_AnalysisRuleList omitted.
 
@@ -3526,6 +4149,66 @@ const de_CollaborationConfiguredAudienceModelAssociationSummaryList = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_CollaborationConfiguredAudienceModelAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationIdNamespaceAssociation
+ */
+const de_CollaborationIdNamespaceAssociation = (
+  output: any,
+  context: __SerdeContext
+): CollaborationIdNamespaceAssociation => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    id: __expectString,
+    idMappingConfig: _json,
+    inputReferenceConfig: _json,
+    inputReferenceProperties: (_: any) => de_IdNamespaceAssociationInputReferenceProperties(_, context),
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationIdNamespaceAssociationSummary
+ */
+const de_CollaborationIdNamespaceAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationIdNamespaceAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    id: __expectString,
+    inputReferenceConfig: _json,
+    inputReferenceProperties: _json,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationIdNamespaceAssociationSummaryList
+ */
+const de_CollaborationIdNamespaceAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationIdNamespaceAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationIdNamespaceAssociationSummary(entry, context);
     });
   return retVal;
 };
@@ -3897,6 +4580,155 @@ const de_DifferentialPrivacySensitivityParametersList = (
 
 // de_GlueTableReference omitted.
 
+// de_IdMappingConfig omitted.
+
+/**
+ * deserializeAws_restJson1IdMappingTable
+ */
+const de_IdMappingTable = (output: any, context: __SerdeContext): IdMappingTable => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    inputReferenceConfig: _json,
+    inputReferenceProperties: _json,
+    kmsKeyArn: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_IdMappingTableInputReferenceConfig omitted.
+
+// de_IdMappingTableInputReferenceProperties omitted.
+
+// de_IdMappingTableInputSource omitted.
+
+// de_IdMappingTableInputSourceList omitted.
+
+// de_IdMappingTableSchemaTypeProperties omitted.
+
+/**
+ * deserializeAws_restJson1IdMappingTableSummary
+ */
+const de_IdMappingTableSummary = (output: any, context: __SerdeContext): IdMappingTableSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    inputReferenceConfig: _json,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IdMappingTableSummaryList
+ */
+const de_IdMappingTableSummaryList = (output: any, context: __SerdeContext): IdMappingTableSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdMappingTableSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1IdMappingWorkflowsSupported
+ */
+const de_IdMappingWorkflowsSupported = (output: any, context: __SerdeContext): __DocumentType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Document(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1IdNamespaceAssociation
+ */
+const de_IdNamespaceAssociation = (output: any, context: __SerdeContext): IdNamespaceAssociation => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    idMappingConfig: _json,
+    inputReferenceConfig: _json,
+    inputReferenceProperties: (_: any) => de_IdNamespaceAssociationInputReferenceProperties(_, context),
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_IdNamespaceAssociationInputReferenceConfig omitted.
+
+/**
+ * deserializeAws_restJson1IdNamespaceAssociationInputReferenceProperties
+ */
+const de_IdNamespaceAssociationInputReferenceProperties = (
+  output: any,
+  context: __SerdeContext
+): IdNamespaceAssociationInputReferenceProperties => {
+  return take(output, {
+    idMappingWorkflowsSupported: (_: any) => de_IdMappingWorkflowsSupported(_, context),
+    idNamespaceType: __expectString,
+  }) as any;
+};
+
+// de_IdNamespaceAssociationInputReferencePropertiesSummary omitted.
+
+/**
+ * deserializeAws_restJson1IdNamespaceAssociationSummary
+ */
+const de_IdNamespaceAssociationSummary = (output: any, context: __SerdeContext): IdNamespaceAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    inputReferenceConfig: _json,
+    inputReferenceProperties: _json,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IdNamespaceAssociationSummaryList
+ */
+const de_IdNamespaceAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): IdNamespaceAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdNamespaceAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_JoinOperatorsList omitted.
 
 // de_MemberAbilities omitted.
@@ -4149,6 +4981,12 @@ const de_ProtectedQuerySummaryList = (output: any, context: __SerdeContext): Pro
 
 // de_QueryComputePaymentConfig omitted.
 
+// de_QueryConstraint omitted.
+
+// de_QueryConstraintList omitted.
+
+// de_QueryConstraintRequireOverlap omitted.
+
 // de_QueryTables omitted.
 
 // de_ScalarFunctionsList omitted.
@@ -4169,6 +5007,7 @@ const de_Schema = (output: any, context: __SerdeContext): Schema => {
     name: __expectString,
     partitionKeys: _json,
     schemaStatusDetails: _json,
+    schemaTypeProperties: (_: any) => _json(__expectUnion(_)),
     type: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -4237,6 +5076,8 @@ const de_SchemaSummaryList = (output: any, context: __SerdeContext): SchemaSumma
   return retVal;
 };
 
+// de_SchemaTypeProperties omitted.
+
 // de_TableReference omitted.
 
 // de_TagMap omitted.
@@ -4244,6 +5085,13 @@ const de_SchemaSummaryList = (output: any, context: __SerdeContext): SchemaSumma
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFieldList omitted.
+
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -86,6 +86,14 @@ import {
   CreateConfiguredTableCommandInput,
   CreateConfiguredTableCommandOutput,
 } from "./commands/CreateConfiguredTableCommand";
+import {
+  CreateIdMappingTableCommandInput,
+  CreateIdMappingTableCommandOutput,
+} from "./commands/CreateIdMappingTableCommand";
+import {
+  CreateIdNamespaceAssociationCommandInput,
+  CreateIdNamespaceAssociationCommandOutput,
+} from "./commands/CreateIdNamespaceAssociationCommand";
 import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
 import {
   CreatePrivacyBudgetTemplateCommandInput,
@@ -115,6 +123,14 @@ import {
   DeleteConfiguredTableCommandInput,
   DeleteConfiguredTableCommandOutput,
 } from "./commands/DeleteConfiguredTableCommand";
+import {
+  DeleteIdMappingTableCommandInput,
+  DeleteIdMappingTableCommandOutput,
+} from "./commands/DeleteIdMappingTableCommand";
+import {
+  DeleteIdNamespaceAssociationCommandInput,
+  DeleteIdNamespaceAssociationCommandOutput,
+} from "./commands/DeleteIdNamespaceAssociationCommand";
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
 import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "./commands/DeleteMembershipCommand";
 import {
@@ -135,6 +151,10 @@ import {
   GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
 } from "./commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
 import {
+  GetCollaborationIdNamespaceAssociationCommandInput,
+  GetCollaborationIdNamespaceAssociationCommandOutput,
+} from "./commands/GetCollaborationIdNamespaceAssociationCommand";
+import {
   GetCollaborationPrivacyBudgetTemplateCommandInput,
   GetCollaborationPrivacyBudgetTemplateCommandOutput,
 } from "./commands/GetCollaborationPrivacyBudgetTemplateCommand";
@@ -151,6 +171,11 @@ import {
   GetConfiguredTableAssociationCommandOutput,
 } from "./commands/GetConfiguredTableAssociationCommand";
 import { GetConfiguredTableCommandInput, GetConfiguredTableCommandOutput } from "./commands/GetConfiguredTableCommand";
+import { GetIdMappingTableCommandInput, GetIdMappingTableCommandOutput } from "./commands/GetIdMappingTableCommand";
+import {
+  GetIdNamespaceAssociationCommandInput,
+  GetIdNamespaceAssociationCommandOutput,
+} from "./commands/GetIdNamespaceAssociationCommand";
 import { GetMembershipCommandInput, GetMembershipCommandOutput } from "./commands/GetMembershipCommand";
 import {
   GetPrivacyBudgetTemplateCommandInput,
@@ -175,6 +200,10 @@ import {
   ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
 } from "./commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
 import {
+  ListCollaborationIdNamespaceAssociationsCommandInput,
+  ListCollaborationIdNamespaceAssociationsCommandOutput,
+} from "./commands/ListCollaborationIdNamespaceAssociationsCommand";
+import {
   ListCollaborationPrivacyBudgetsCommandInput,
   ListCollaborationPrivacyBudgetsCommandOutput,
 } from "./commands/ListCollaborationPrivacyBudgetsCommand";
@@ -195,6 +224,14 @@ import {
   ListConfiguredTablesCommandInput,
   ListConfiguredTablesCommandOutput,
 } from "./commands/ListConfiguredTablesCommand";
+import {
+  ListIdMappingTablesCommandInput,
+  ListIdMappingTablesCommandOutput,
+} from "./commands/ListIdMappingTablesCommand";
+import {
+  ListIdNamespaceAssociationsCommandInput,
+  ListIdNamespaceAssociationsCommandOutput,
+} from "./commands/ListIdNamespaceAssociationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
 import { ListPrivacyBudgetsCommandInput, ListPrivacyBudgetsCommandOutput } from "./commands/ListPrivacyBudgetsCommand";
@@ -211,6 +248,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PopulateIdMappingTableCommandInput,
+  PopulateIdMappingTableCommandOutput,
+} from "./commands/PopulateIdMappingTableCommand";
 import {
   PreviewPrivacyImpactCommandInput,
   PreviewPrivacyImpactCommandOutput,
@@ -245,6 +286,14 @@ import {
   UpdateConfiguredTableCommandInput,
   UpdateConfiguredTableCommandOutput,
 } from "./commands/UpdateConfiguredTableCommand";
+import {
+  UpdateIdMappingTableCommandInput,
+  UpdateIdMappingTableCommandOutput,
+} from "./commands/UpdateIdMappingTableCommand";
+import {
+  UpdateIdNamespaceAssociationCommandInput,
+  UpdateIdNamespaceAssociationCommandOutput,
+} from "./commands/UpdateIdNamespaceAssociationCommand";
 import { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "./commands/UpdateMembershipCommand";
 import {
   UpdatePrivacyBudgetTemplateCommandInput,
@@ -278,6 +327,8 @@ export type ServiceInputTypes =
   | CreateConfiguredTableAnalysisRuleCommandInput
   | CreateConfiguredTableAssociationCommandInput
   | CreateConfiguredTableCommandInput
+  | CreateIdMappingTableCommandInput
+  | CreateIdNamespaceAssociationCommandInput
   | CreateMembershipCommandInput
   | CreatePrivacyBudgetTemplateCommandInput
   | DeleteAnalysisTemplateCommandInput
@@ -286,6 +337,8 @@ export type ServiceInputTypes =
   | DeleteConfiguredTableAnalysisRuleCommandInput
   | DeleteConfiguredTableAssociationCommandInput
   | DeleteConfiguredTableCommandInput
+  | DeleteIdMappingTableCommandInput
+  | DeleteIdNamespaceAssociationCommandInput
   | DeleteMemberCommandInput
   | DeleteMembershipCommandInput
   | DeletePrivacyBudgetTemplateCommandInput
@@ -293,11 +346,14 @@ export type ServiceInputTypes =
   | GetCollaborationAnalysisTemplateCommandInput
   | GetCollaborationCommandInput
   | GetCollaborationConfiguredAudienceModelAssociationCommandInput
+  | GetCollaborationIdNamespaceAssociationCommandInput
   | GetCollaborationPrivacyBudgetTemplateCommandInput
   | GetConfiguredAudienceModelAssociationCommandInput
   | GetConfiguredTableAnalysisRuleCommandInput
   | GetConfiguredTableAssociationCommandInput
   | GetConfiguredTableCommandInput
+  | GetIdMappingTableCommandInput
+  | GetIdNamespaceAssociationCommandInput
   | GetMembershipCommandInput
   | GetPrivacyBudgetTemplateCommandInput
   | GetProtectedQueryCommandInput
@@ -306,12 +362,15 @@ export type ServiceInputTypes =
   | ListAnalysisTemplatesCommandInput
   | ListCollaborationAnalysisTemplatesCommandInput
   | ListCollaborationConfiguredAudienceModelAssociationsCommandInput
+  | ListCollaborationIdNamespaceAssociationsCommandInput
   | ListCollaborationPrivacyBudgetTemplatesCommandInput
   | ListCollaborationPrivacyBudgetsCommandInput
   | ListCollaborationsCommandInput
   | ListConfiguredAudienceModelAssociationsCommandInput
   | ListConfiguredTableAssociationsCommandInput
   | ListConfiguredTablesCommandInput
+  | ListIdMappingTablesCommandInput
+  | ListIdNamespaceAssociationsCommandInput
   | ListMembersCommandInput
   | ListMembershipsCommandInput
   | ListPrivacyBudgetTemplatesCommandInput
@@ -319,6 +378,7 @@ export type ServiceInputTypes =
   | ListProtectedQueriesCommandInput
   | ListSchemasCommandInput
   | ListTagsForResourceCommandInput
+  | PopulateIdMappingTableCommandInput
   | PreviewPrivacyImpactCommandInput
   | StartProtectedQueryCommandInput
   | TagResourceCommandInput
@@ -329,6 +389,8 @@ export type ServiceInputTypes =
   | UpdateConfiguredTableAnalysisRuleCommandInput
   | UpdateConfiguredTableAssociationCommandInput
   | UpdateConfiguredTableCommandInput
+  | UpdateIdMappingTableCommandInput
+  | UpdateIdNamespaceAssociationCommandInput
   | UpdateMembershipCommandInput
   | UpdatePrivacyBudgetTemplateCommandInput
   | UpdateProtectedQueryCommandInput;
@@ -346,6 +408,8 @@ export type ServiceOutputTypes =
   | CreateConfiguredTableAnalysisRuleCommandOutput
   | CreateConfiguredTableAssociationCommandOutput
   | CreateConfiguredTableCommandOutput
+  | CreateIdMappingTableCommandOutput
+  | CreateIdNamespaceAssociationCommandOutput
   | CreateMembershipCommandOutput
   | CreatePrivacyBudgetTemplateCommandOutput
   | DeleteAnalysisTemplateCommandOutput
@@ -354,6 +418,8 @@ export type ServiceOutputTypes =
   | DeleteConfiguredTableAnalysisRuleCommandOutput
   | DeleteConfiguredTableAssociationCommandOutput
   | DeleteConfiguredTableCommandOutput
+  | DeleteIdMappingTableCommandOutput
+  | DeleteIdNamespaceAssociationCommandOutput
   | DeleteMemberCommandOutput
   | DeleteMembershipCommandOutput
   | DeletePrivacyBudgetTemplateCommandOutput
@@ -361,11 +427,14 @@ export type ServiceOutputTypes =
   | GetCollaborationAnalysisTemplateCommandOutput
   | GetCollaborationCommandOutput
   | GetCollaborationConfiguredAudienceModelAssociationCommandOutput
+  | GetCollaborationIdNamespaceAssociationCommandOutput
   | GetCollaborationPrivacyBudgetTemplateCommandOutput
   | GetConfiguredAudienceModelAssociationCommandOutput
   | GetConfiguredTableAnalysisRuleCommandOutput
   | GetConfiguredTableAssociationCommandOutput
   | GetConfiguredTableCommandOutput
+  | GetIdMappingTableCommandOutput
+  | GetIdNamespaceAssociationCommandOutput
   | GetMembershipCommandOutput
   | GetPrivacyBudgetTemplateCommandOutput
   | GetProtectedQueryCommandOutput
@@ -374,12 +443,15 @@ export type ServiceOutputTypes =
   | ListAnalysisTemplatesCommandOutput
   | ListCollaborationAnalysisTemplatesCommandOutput
   | ListCollaborationConfiguredAudienceModelAssociationsCommandOutput
+  | ListCollaborationIdNamespaceAssociationsCommandOutput
   | ListCollaborationPrivacyBudgetTemplatesCommandOutput
   | ListCollaborationPrivacyBudgetsCommandOutput
   | ListCollaborationsCommandOutput
   | ListConfiguredAudienceModelAssociationsCommandOutput
   | ListConfiguredTableAssociationsCommandOutput
   | ListConfiguredTablesCommandOutput
+  | ListIdMappingTablesCommandOutput
+  | ListIdNamespaceAssociationsCommandOutput
   | ListMembersCommandOutput
   | ListMembershipsCommandOutput
   | ListPrivacyBudgetTemplatesCommandOutput
@@ -387,6 +459,7 @@ export type ServiceOutputTypes =
   | ListProtectedQueriesCommandOutput
   | ListSchemasCommandOutput
   | ListTagsForResourceCommandOutput
+  | PopulateIdMappingTableCommandOutput
   | PreviewPrivacyImpactCommandOutput
   | StartProtectedQueryCommandOutput
   | TagResourceCommandOutput
@@ -397,6 +470,8 @@ export type ServiceOutputTypes =
   | UpdateConfiguredTableAnalysisRuleCommandOutput
   | UpdateConfiguredTableAssociationCommandOutput
   | UpdateConfiguredTableCommandOutput
+  | UpdateIdMappingTableCommandOutput
+  | UpdateIdNamespaceAssociationCommandOutput
   | UpdateMembershipCommandOutput
   | UpdatePrivacyBudgetTemplateCommandOutput
   | UpdateProtectedQueryCommandOutput;

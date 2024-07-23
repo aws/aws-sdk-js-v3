@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSchemasInput, ListSchemasOutput } from "../models/models_0";
-import { de_ListSchemasCommand, se_ListSchemasCommand } from "../protocols/Aws_restJson1";
+import { ListIdMappingTablesInput, ListIdMappingTablesOutput } from "../models/models_0";
+import { de_ListIdMappingTablesCommand, se_ListIdMappingTablesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,46 +17,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListSchemasCommand}.
+ * The input for {@link ListIdMappingTablesCommand}.
  */
-export interface ListSchemasCommandInput extends ListSchemasInput {}
+export interface ListIdMappingTablesCommandInput extends ListIdMappingTablesInput {}
 /**
  * @public
  *
- * The output of {@link ListSchemasCommand}.
+ * The output of {@link ListIdMappingTablesCommand}.
  */
-export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataBearer {}
+export interface ListIdMappingTablesCommandOutput extends ListIdMappingTablesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the schemas for relations within a collaboration.</p>
+ * <p>Returns a list of ID mapping tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListSchemasCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListSchemasCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, ListIdMappingTablesCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
+ * // const { CleanRoomsClient, ListIdMappingTablesCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = { // ListSchemasInput
- *   collaborationIdentifier: "STRING_VALUE", // required
- *   schemaType: "TABLE" || "ID_MAPPING_TABLE",
+ * const input = { // ListIdMappingTablesInput
+ *   membershipIdentifier: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListSchemasCommand(input);
+ * const command = new ListIdMappingTablesCommand(input);
  * const response = await client.send(command);
- * // { // ListSchemasOutput
- * //   schemaSummaries: [ // SchemaSummaryList // required
- * //     { // SchemaSummary
- * //       name: "STRING_VALUE", // required
- * //       type: "TABLE" || "ID_MAPPING_TABLE", // required
- * //       creatorAccountId: "STRING_VALUE", // required
+ * // { // ListIdMappingTablesOutput
+ * //   idMappingTableSummaries: [ // IdMappingTableSummaryList // required
+ * //     { // IdMappingTableSummary
+ * //       collaborationArn: "STRING_VALUE", // required
+ * //       collaborationId: "STRING_VALUE", // required
+ * //       membershipId: "STRING_VALUE", // required
+ * //       membershipArn: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
- * //       collaborationId: "STRING_VALUE", // required
- * //       collaborationArn: "STRING_VALUE", // required
- * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
- * //         "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
- * //       ],
- * //       analysisMethod: "STRING_VALUE",
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       inputReferenceConfig: { // IdMappingTableInputReferenceConfig
+ * //         inputReferenceArn: "STRING_VALUE", // required
+ * //         manageResourcePolicies: true || false, // required
+ * //       },
+ * //       name: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -64,10 +66,10 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  *
  * ```
  *
- * @param ListSchemasCommandInput - {@link ListSchemasCommandInput}
- * @returns {@link ListSchemasCommandOutput}
- * @see {@link ListSchemasCommandInput} for command's `input` shape.
- * @see {@link ListSchemasCommandOutput} for command's `response` shape.
+ * @param ListIdMappingTablesCommandInput - {@link ListIdMappingTablesCommandInput}
+ * @returns {@link ListIdMappingTablesCommandOutput}
+ * @see {@link ListIdMappingTablesCommandInput} for command's `input` shape.
+ * @see {@link ListIdMappingTablesCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -90,10 +92,10 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  *
  * @public
  */
-export class ListSchemasCommand extends $Command
+export class ListIdMappingTablesCommand extends $Command
   .classBuilder<
-    ListSchemasCommandInput,
-    ListSchemasCommandOutput,
+    ListIdMappingTablesCommandInput,
+    ListIdMappingTablesCommandOutput,
     CleanRoomsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,9 +109,9 @@ export class ListSchemasCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSBastionControlPlaneServiceLambda", "ListSchemas", {})
-  .n("CleanRoomsClient", "ListSchemasCommand")
+  .s("AWSBastionControlPlaneServiceLambda", "ListIdMappingTables", {})
+  .n("CleanRoomsClient", "ListIdMappingTablesCommand")
   .f(void 0, void 0)
-  .ser(se_ListSchemasCommand)
-  .de(de_ListSchemasCommand)
+  .ser(se_ListIdMappingTablesCommand)
+  .de(de_ListIdMappingTablesCommand)
   .build() {}

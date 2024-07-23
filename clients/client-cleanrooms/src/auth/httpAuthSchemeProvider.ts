@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CleanRoomsHttpAuthSche
       name: "cleanrooms",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CleanRoomsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CleanRoomsClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -59,7 +59,7 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * //         },
  * //       ],
  * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
- * //         "AGGREGATION" || "LIST" || "CUSTOM",
+ * //         "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //       ],
  * //       analysisMethod: "STRING_VALUE",
  * //       creatorAccountId: "STRING_VALUE", // required
@@ -69,22 +69,32 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * //       description: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
- * //       type: "TABLE", // required
+ * //       type: "TABLE" || "ID_MAPPING_TABLE", // required
  * //       schemaStatusDetails: [ // SchemaStatusDetailList // required
  * //         { // SchemaStatusDetail
  * //           status: "READY" || "NOT_READY", // required
  * //           reasons: [ // SchemaStatusReasonList
  * //             { // SchemaStatusReason
- * //               code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED", // required
+ * //               code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED", // required
  * //               message: "STRING_VALUE", // required
  * //             },
  * //           ],
- * //           analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM",
+ * //           analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //           configurations: [ // SchemaConfigurationList
- * //             "DIFFERENTIAL_PRIVACY",
+ * //             "DIFFERENTIAL_PRIVACY" || "CUSTOM_ANALYSIS_NOT_ALLOWED" || "NO_MEMBER_ACCOUNT_ALLOWED_TO_PROVIDE_ANALYSIS" || "DIFFERENTIAL_PRIVACY_BUDGET_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED",
  * //           ],
  * //         },
  * //       ],
+ * //       schemaTypeProperties: { // SchemaTypeProperties Union: only one key present
+ * //         idMappingTable: { // IdMappingTableSchemaTypeProperties
+ * //           idMappingTableInputSource: [ // IdMappingTableInputSourceList // required
+ * //             { // IdMappingTableInputSource
+ * //               idNamespaceAssociationId: "STRING_VALUE", // required
+ * //               type: "SOURCE" || "TARGET", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // BatchGetSchemaErrorList // required

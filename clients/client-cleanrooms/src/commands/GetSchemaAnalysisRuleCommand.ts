@@ -38,14 +38,14 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * const input = { // GetSchemaAnalysisRuleInput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   type: "AGGREGATION" || "LIST" || "CUSTOM", // required
+ *   type: "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE", // required
  * };
  * const command = new GetSchemaAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * // { // GetSchemaAnalysisRuleOutput
  * //   analysisRule: { // AnalysisRule
  * //     collaborationId: "STRING_VALUE", // required
- * //     type: "AGGREGATION" || "LIST" || "CUSTOM", // required
+ * //     type: "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE", // required
  * //     name: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
@@ -106,6 +106,19 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //               },
  * //             ],
  * //           },
+ * //         },
+ * //         idMappingTable: { // AnalysisRuleIdMappingTable
+ * //           joinColumns: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           queryConstraints: [ // QueryConstraintList // required
+ * //             { // QueryConstraint Union: only one key present
+ * //               requireOverlap: { // QueryConstraintRequireOverlap
+ * //                 columns: "<AnalysisRuleColumnList>",
+ * //               },
+ * //             },
+ * //           ],
+ * //           dimensionColumns: "<AnalysisRuleColumnList>",
  * //         },
  * //       },
  * //     },
