@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.618.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.617.0...v3.618.0) (2024-07-23)
+
+
+### Features
+
+* **client-connect-contact-lens:** Added PostContactSummary segment type on ListRealTimeContactAnalysisSegments API ([272c2b4](https://github.com/aws/aws-sdk-js-v3/commit/272c2b4a9f5763972fd6f5ae6ffb7e7f0cb076db))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-connect-contact-lens

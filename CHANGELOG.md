@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.618.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.617.0...v3.618.0) (2024-07-23)
+
+
+### Features
+
+* **client-appsync:** Adding support for paginators in AppSync list APIs ([4e3f479](https://github.com/aws/aws-sdk-js-v3/commit/4e3f47989d2519737c4f88d764f2af3bfbc37edd))
+* **client-cleanroomsml:** Adds SQL query as the source of seed audience for audience generation job. ([94d08be](https://github.com/aws/aws-sdk-js-v3/commit/94d08be36aeeab83bacba99b84ef40eeb55d4576))
+* **client-cleanrooms:** This release adds AWS Entity Resolution integration to associate ID namespaces & ID mapping workflow resources as part of ID namespace association and  ID mapping table  in AWS Clean Rooms. It also introduces a new ID_MAPPING_TABLE analysis rule to manage the protection on ID mapping table. ([0be56cb](https://github.com/aws/aws-sdk-js-v3/commit/0be56cb68247577cda27d735bec93281762b295c))
+* **client-connect-contact-lens:** Added PostContactSummary segment type on ListRealTimeContactAnalysisSegments API ([272c2b4](https://github.com/aws/aws-sdk-js-v3/commit/272c2b4a9f5763972fd6f5ae6ffb7e7f0cb076db))
+* **client-connect:** Added PostContactSummary segment type on ListRealTimeContactAnalysisSegmentsV2 API ([6f51a36](https://github.com/aws/aws-sdk-js-v3/commit/6f51a3626e04dbac8938d35894d761afc29bb575))
+* **client-datazone:** This release removes the deprecated dataProductItem field from Search API output. ([e2fc559](https://github.com/aws/aws-sdk-js-v3/commit/e2fc559c4b7612e6599c83162dff7f8a44368a1a))
+* **client-entityresolution:** Support First Party ID Mapping ([9175354](https://github.com/aws/aws-sdk-js-v3/commit/917535454d6af735f760dd17643116f3192c2775))
+
+
+
+
+
 # [3.617.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.616.0...v3.617.0) (2024-07-22)
 
 

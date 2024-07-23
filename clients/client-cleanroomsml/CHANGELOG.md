@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.618.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.617.0...v3.618.0) (2024-07-23)
+
+
+### Features
+
+* **client-cleanroomsml:** Adds SQL query as the source of seed audience for audience generation job. ([94d08be](https://github.com/aws/aws-sdk-js-v3/commit/94d08be36aeeab83bacba99b84ef40eeb55d4576))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanroomsml

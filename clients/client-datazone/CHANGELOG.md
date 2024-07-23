@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.618.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.617.0...v3.618.0) (2024-07-23)
+
+
+### Features
+
+* **client-datazone:** This release removes the deprecated dataProductItem field from Search API output. ([e2fc559](https://github.com/aws/aws-sdk-js-v3/commit/e2fc559c4b7612e6599c83162dff7f8a44368a1a))
+
+
+
+
+
 # [3.617.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.616.0...v3.617.0) (2024-07-22)
 
 
