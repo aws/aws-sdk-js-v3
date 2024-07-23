@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AppSyncHttpAuthSchemeP
       name: "appsync",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AppSyncClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AppSyncClientConfig>, context) => ({
       /**
        * @internal
        */

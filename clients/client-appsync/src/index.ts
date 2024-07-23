@@ -12,6 +12,7 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AppSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { AppSyncServiceException } from "./models/AppSyncServiceException";
