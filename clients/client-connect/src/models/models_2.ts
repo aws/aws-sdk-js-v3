@@ -94,8 +94,126 @@ import {
   SignInConfig,
   SortOrder,
   TelephonyConfig,
+  TrafficDistributionGroupStatus,
   WisdomInfo,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListTrafficDistributionGroupsRequest {
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId?: string;
+}
+
+/**
+ * <p>Information about traffic distribution groups.</p>
+ * @public
+ */
+export interface TrafficDistributionGroupSummary {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the traffic distribution group.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   * @public
+   */
+  InstanceArn?: string;
+
+  /**
+   * <p>The status of the traffic distribution group. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *      completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *      completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet
+   *      completed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: TrafficDistributionGroupStatus;
+
+  /**
+   * <p>Whether this is the default traffic distribution group created during instance
+   *    replication. The default traffic distribution group cannot be deleted by the
+   *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
+   *    part of the process for deleting a replica.</p>
+   * @public
+   */
+  IsDefault?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListTrafficDistributionGroupsResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of traffic distribution groups.</p>
+   * @public
+   */
+  TrafficDistributionGroupSummaryList?: TrafficDistributionGroupSummary[];
+}
 
 /**
  * @public

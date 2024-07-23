@@ -51,7 +51,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  *   NextToken: "STRING_VALUE",
  *   OutputType: "Raw" || "Redacted", // required
  *   SegmentTypes: [ // RealTimeContactAnalysisSegmentTypes // required
- *     "Transcript" || "Categories" || "Issues" || "Event" || "Attachments",
+ *     "Transcript" || "Categories" || "Issues" || "Event" || "Attachments" || "PostContactSummary",
  *   ],
  * };
  * const command = new ListRealtimeContactAnalysisSegmentsV2Command(input);
@@ -139,6 +139,11 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  * //         Time: {//  Union: only one key present
  * //           AbsoluteTime: new Date("TIMESTAMP"),
  * //         },
+ * //       },
+ * //       PostContactSummary: { // RealTimeContactAnalysisSegmentPostContactSummary
+ * //         Content: "STRING_VALUE",
+ * //         Status: "FAILED" || "COMPLETED", // required
+ * //         FailureCode: "QUOTA_EXCEEDED" || "INSUFFICIENT_CONVERSATION_CONTENT" || "FAILED_SAFETY_GUIDELINES" || "INVALID_ANALYSIS_CONFIGURATION" || "INTERNAL_ERROR",
  * //       },
  * //     },
  * //   ],

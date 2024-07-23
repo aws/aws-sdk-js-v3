@@ -15073,6 +15073,11 @@ const de_RealtimeContactAnalysisSegment = (output: any, context: __SerdeContext)
       Issues: _json(output.Issues),
     };
   }
+  if (output.PostContactSummary != null) {
+    return {
+      PostContactSummary: _json(output.PostContactSummary),
+    };
+  }
   if (output.Transcript != null) {
     return {
       Transcript: de_RealTimeContactAnalysisSegmentTranscript(output.Transcript, context),
@@ -15118,6 +15123,8 @@ const de_RealTimeContactAnalysisSegmentEvent = (
 };
 
 // de_RealTimeContactAnalysisSegmentIssues omitted.
+
+// de_RealTimeContactAnalysisSegmentPostContactSummary omitted.
 
 /**
  * deserializeAws_restJson1RealtimeContactAnalysisSegments

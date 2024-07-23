@@ -4570,7 +4570,8 @@ export interface MetricFilterV2 {
  */
 export interface ThresholdV2 {
   /**
-   * <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
+   * <p>The type of comparison. Only "less than" (LT) and "greater than" (GT) comparisons are
+   *    supported.</p>
    * @public
    */
   Comparison?: string;
@@ -4700,6 +4701,9 @@ export interface GetMetricDataV2Request {
    *                <p>Agents</p>
    *             </li>
    *             <li>
+   *                <p>Campaigns</p>
+   *             </li>
+   *             <li>
    *                <p>Channels</p>
    *             </li>
    *             <li>
@@ -4720,6 +4724,8 @@ export interface GetMetricDataV2Request {
    *          </ul>
    *          <p>At least one filter must be passed from queues, routing profiles, agents, or user hierarchy
    *    groups.</p>
+   *          <p>For metrics for outbound campaigns analytics, you can also use campaigns to satisfy at least
+   *    one filter requirement.</p>
    *          <p>To filter by phone number, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-historical-metrics-report.html">Create a historical
    *     metrics report</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
@@ -4731,15 +4737,15 @@ export interface GetMetricDataV2Request {
    *      a single request. Valid filter keys: <code>AGENT</code> |
    *       <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> |
    *       <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> |
-   *       <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>CASE_TEMPLATE_ARN</code> |
-   *       <code>CASE_STATUS</code> | <code>CHANNEL</code> |
-   *       <code>contact/segmentAttributes/connect:Subtype</code> | <code>FEATURE</code> |
-   *       <code>FLOW_TYPE</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> |
-   *       <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> |
-   *       <code>FLOWS_RESOURCE_ID</code> | <code>INITIATION_METHOD</code> |
-   *       <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> |
-   *       <code>ROUTING_STEP_EXPRESSION</code> | <code>QUEUE</code> | <code>Q_CONNECT_ENABLED</code> |
-   *     </p>
+   *       <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> |
+   *       <code>CAMPAIGN</code> | <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> |
+   *       <code>CHANNEL</code> | <code>contact/segmentAttributes/connect:Subtype</code> |
+   *       <code>DISCONNECT_REASON</code> | <code>FEATURE</code> | <code>FLOW_TYPE</code> |
+   *       <code>FLOWS_NEXT_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> |
+   *       <code>FLOWS_OUTCOME_TYPE</code> | <code>FLOWS_RESOURCE_ID</code> |
+   *       <code>INITIATION_METHOD</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> |
+   *       <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>QUEUE</code> |
+   *       <code>Q_CONNECT_ENABLED</code> | </p>
    *             </li>
    *             <li>
    *                <p>
@@ -4772,6 +4778,9 @@ export interface GetMetricDataV2Request {
    *                   </li>
    *                </ul>
    *                <p>This filter is available only for contact record-driven metrics. </p>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns_Campaign.html">Campaign</a> ARNs are valid <code>filterValues</code> for the <code>CAMPAIGN</code>
+   *      filter key.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4786,12 +4795,13 @@ export interface GetMetricDataV2Request {
    *          <p>Valid grouping keys: <code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> |
    *     <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> |
    *     <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> |
+   *     <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>CAMPAIGN</code> |
    *     <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> |
-   *     <code>contact/segmentAttributes/connect:Subtype</code> | <code>FLOWS_RESOURCE_ID</code> |
-   *     <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code>
-   *    | <code>INITIATION_METHOD</code> | <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> |
-   *     <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> |
-   *     <code>ROUTING_STEP_EXPRESSION</code>
+   *     <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> |
+   *     <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_TYPE</code>
+   *    | <code>FLOWS_OUTCOME_TYPE</code> | <code>INITIATION_METHOD</code> |
+   *     <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code>
+   *    | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code>
    *          </p>
    * @public
    */
@@ -4956,6 +4966,15 @@ export interface GetMetricDataV2Request {
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-conversation-duration-historical">Average conversation duration</a>
    *                </p>
    *             </dd>
+   *             <dt>AVG_DIALS_PER_MINUTE</dt>
+   *             <dd>
+   *                <p>This metric is available only for contacts analyzed by outbound campaigns
+   *       analytics.</p>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Campaign, Agent, Queue, Routing Profile</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-dials-historical">Average dials per minute</a>
+   *                </p>
+   *             </dd>
    *             <dt>AVG_FLOW_TIME</dt>
    *             <dd>
    *                <p>Unit: Seconds</p>
@@ -5116,12 +5135,45 @@ export interface GetMetricDataV2Request {
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-customer-historical">Average customer talk time</a>
    *                </p>
    *             </dd>
+   *             <dt>AVG_WAIT_TIME_AFTER_CUSTOMER_CONNECTION</dt>
+   *             <dd>
+   *                <p>This metric is available only for contacts analyzed by outbound campaigns
+   *       analytics.</p>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Campaign</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-wait-time-historical">Average wait time after customer connection</a>
+   *                </p>
+   *             </dd>
+   *             <dt>CAMPAIGN_CONTACTS_ABANDONED_AFTER_X</dt>
+   *             <dd>
+   *                <p>This metric is available only for contacts analyzed by outbound campaigns
+   *       analytics.</p>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Campaign, Agent </p>
+   *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
+   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>GT</code> (for
+   *        <i>Greater than</i>).</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#campaign-contacts-abandoned-historical">Campaign contacts abandoned after X</a>
+   *                </p>
+   *             </dd>
+   *             <dt>CAMPAIGN_CONTACTS_ABANDONED_AFTER_X_RATE</dt>
+   *             <dd>
+   *                <p>This metric is available only for contacts analyzed by outbound campaigns
+   *       analytics.</p>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Campaign, Agent </p>
+   *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
+   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>GT</code> (for
+   *        <i>Greater than</i>).</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#campaign-contacts-abandoned-rate-historical">Campaign contacts abandoned after X rate</a>
+   *                </p>
+   *             </dd>
    *             <dt>CASES_CREATED</dt>
    *             <dd>
    *                <p>Unit: Count</p>
    *                <p>Required filter key: CASE_TEMPLATE_ARN</p>
    *                <p>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</p>
-   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html##cases-created-historical">Cases created</a>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#cases-created-historical">Cases created</a>
    *                </p>
    *             </dd>
    *             <dt>CONTACTS_CREATED</dt>
@@ -5276,6 +5328,35 @@ export interface GetMetricDataV2Request {
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#current-cases-historical">Current cases</a>
    *                </p>
    *             </dd>
+   *             <dt>DELIVERY_ATTEMPTS</dt>
+   *             <dd>
+   *                <p>This metric is available only for contacts analyzed by outbound campaigns
+   *       analytics.</p>
+   *                <p>Unit: Count</p>
+   *                <p>Valid metric filter key: <code>ANSWERING_MACHINE_DETECTION_STATUS</code>,
+   *        <code>DISCONNECT_REASON</code>
+   *                </p>
+   *                <p>Valid groupings and filters: Campaign, Agent, Queue, Routing Profile, Answering Machine Detection Status,
+   *       Disconnect Reason</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#delivery-attempts-historical">Delivery attempts</a>
+   *                </p>
+   *             </dd>
+   *             <dt>DELIVERY_ATTEMPT_DISPOSITION_RATE</dt>
+   *             <dd>
+   *                <p>This metric is available only for contacts analyzed by outbound campaigns analytics, and
+   *       with the answering machine detection enabled.</p>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid metric filter key: <code>ANSWERING_MACHINE_DETECTION_STATUS</code>,
+   *        <code>DISCONNECT_REASON</code>
+   *                </p>
+   *                <p>Valid groupings and filters: Campaign, Agent, Answering Machine Detection Status, Disconnect Reason</p>
+   *                <note>
+   *                   <p>Answering Machine Detection Status and Disconnect Reason are valid filters but not valid
+   *        groupings.</p>
+   *                </note>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#delivery-attempt-disposition-rate-historical">Delivery attempt disposition rate</a>
+   *                </p>
+   *             </dd>
    *             <dt>FLOWS_OUTCOME</dt>
    *             <dd>
    *                <p>Unit: Count</p>
@@ -5291,6 +5372,15 @@ export interface GetMetricDataV2Request {
    *                <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow type, Flows module
    *       resource ID, Flows resource ID, Initiation method, Resource published timestamp</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#flows-started-historical">Flows started</a>
+   *                </p>
+   *             </dd>
+   *             <dt>HUMAN_ANSWERED_CALLS</dt>
+   *             <dd>
+   *                <p>This metric is available only for contacts analyzed by outbound campaigns analytics, and
+   *       with the answering machine detection enabled.</p>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Campaign, Agent</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#human-answered-historical">Human answered</a>
    *                </p>
    *             </dd>
    *             <dt>MAX_FLOW_TIME</dt>
@@ -8356,6 +8446,7 @@ export const RealTimeContactAnalysisSegmentType = {
   Categories: "Categories",
   Event: "Event",
   Issues: "Issues",
+  PostContactSummary: "PostContactSummary",
   Transcript: "Transcript",
 } as const;
 
@@ -8728,6 +8819,94 @@ export interface RealTimeContactAnalysisSegmentIssues {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisPostContactSummaryFailureCode = {
+  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
+  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ANALYSIS_CONFIGURATION: "INVALID_ANALYSIS_CONFIGURATION",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisPostContactSummaryFailureCode =
+  (typeof RealTimeContactAnalysisPostContactSummaryFailureCode)[keyof typeof RealTimeContactAnalysisPostContactSummaryFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisPostContactSummaryStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisPostContactSummaryStatus =
+  (typeof RealTimeContactAnalysisPostContactSummaryStatus)[keyof typeof RealTimeContactAnalysisPostContactSummaryStatus];
+
+/**
+ * <p>Information about the post-contact summary for a real-time contact segment.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentPostContactSummary {
+  /**
+   * <p>The content of the summary.</p>
+   * @public
+   */
+  Content?: string;
+
+  /**
+   * <p>Whether the summary was successfully COMPLETED or FAILED to be generated.</p>
+   * @public
+   */
+  Status: RealTimeContactAnalysisPostContactSummaryStatus | undefined;
+
+  /**
+   * <p>If the summary failed to be generated, one of the following failure codes
+   *    occurs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached
+   *      your service quota.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: The conversation needs to have
+   *      at least one turn from both the participants in order to generate the
+   *      summary.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The generated summary cannot be
+   *      provided because it failed to meet system safety guidelines.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for
+   *      example, you're using a
+   *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a>
+   *      that isn't supported by generative AI-powered post-contact summaries.
+   *     </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERNAL_ERROR</code>: Internal system error.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureCode?: RealTimeContactAnalysisPostContactSummaryFailureCode;
+}
+
+/**
  * <p>Object describing redaction applied to the segment.</p>
  * @public
  */
@@ -8827,6 +9006,7 @@ export type RealtimeContactAnalysisSegment =
   | RealtimeContactAnalysisSegment.CategoriesMember
   | RealtimeContactAnalysisSegment.EventMember
   | RealtimeContactAnalysisSegment.IssuesMember
+  | RealtimeContactAnalysisSegment.PostContactSummaryMember
   | RealtimeContactAnalysisSegment.TranscriptMember
   | RealtimeContactAnalysisSegment.$UnknownMember;
 
@@ -8844,6 +9024,7 @@ export namespace RealtimeContactAnalysisSegment {
     Issues?: never;
     Event?: never;
     Attachments?: never;
+    PostContactSummary?: never;
     $unknown?: never;
   }
 
@@ -8857,6 +9038,7 @@ export namespace RealtimeContactAnalysisSegment {
     Issues?: never;
     Event?: never;
     Attachments?: never;
+    PostContactSummary?: never;
     $unknown?: never;
   }
 
@@ -8870,6 +9052,7 @@ export namespace RealtimeContactAnalysisSegment {
     Issues: RealTimeContactAnalysisSegmentIssues;
     Event?: never;
     Attachments?: never;
+    PostContactSummary?: never;
     $unknown?: never;
   }
 
@@ -8883,6 +9066,7 @@ export namespace RealtimeContactAnalysisSegment {
     Issues?: never;
     Event: RealTimeContactAnalysisSegmentEvent;
     Attachments?: never;
+    PostContactSummary?: never;
     $unknown?: never;
   }
 
@@ -8896,6 +9080,21 @@ export namespace RealtimeContactAnalysisSegment {
     Issues?: never;
     Event?: never;
     Attachments: RealTimeContactAnalysisSegmentAttachments;
+    PostContactSummary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the post-contact summary.</p>
+   * @public
+   */
+  export interface PostContactSummaryMember {
+    Transcript?: never;
+    Categories?: never;
+    Issues?: never;
+    Event?: never;
+    Attachments?: never;
+    PostContactSummary: RealTimeContactAnalysisSegmentPostContactSummary;
     $unknown?: never;
   }
 
@@ -8908,6 +9107,7 @@ export namespace RealtimeContactAnalysisSegment {
     Issues?: never;
     Event?: never;
     Attachments?: never;
+    PostContactSummary?: never;
     $unknown: [string, any];
   }
 
@@ -8917,6 +9117,7 @@ export namespace RealtimeContactAnalysisSegment {
     Issues: (value: RealTimeContactAnalysisSegmentIssues) => T;
     Event: (value: RealTimeContactAnalysisSegmentEvent) => T;
     Attachments: (value: RealTimeContactAnalysisSegmentAttachments) => T;
+    PostContactSummary: (value: RealTimeContactAnalysisSegmentPostContactSummary) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -8926,6 +9127,7 @@ export namespace RealtimeContactAnalysisSegment {
     if (value.Issues !== undefined) return visitor.Issues(value.Issues);
     if (value.Event !== undefined) return visitor.Event(value.Event);
     if (value.Attachments !== undefined) return visitor.Attachments(value.Attachments);
+    if (value.PostContactSummary !== undefined) return visitor.PostContactSummary(value.PostContactSummary);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -9686,123 +9888,6 @@ export interface ListTaskTemplatesResponse {
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListTrafficDistributionGroupsRequest {
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId?: string;
-}
-
-/**
- * <p>Information about traffic distribution groups.</p>
- * @public
- */
-export interface TrafficDistributionGroupSummary {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the traffic distribution group.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
-   * @public
-   */
-  InstanceArn?: string;
-
-  /**
-   * <p>The status of the traffic distribution group. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet
-   *      completed.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: TrafficDistributionGroupStatus;
-
-  /**
-   * <p>Whether this is the default traffic distribution group created during instance
-   *    replication. The default traffic distribution group cannot be deleted by the
-   *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
-   *    part of the process for deleting a replica.</p>
-   * @public
-   */
-  IsDefault?: boolean;
-}
-
-/**
- * @public
- */
-export interface ListTrafficDistributionGroupsResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A list of traffic distribution groups.</p>
-   * @public
-   */
-  TrafficDistributionGroupSummaryList?: TrafficDistributionGroupSummary[];
 }
 
 /**
