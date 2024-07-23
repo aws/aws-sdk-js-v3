@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ConnectContactLensHttp
       name: "connect",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ConnectContactLensClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ConnectContactLensClientConfig>, context) => ({
       /**
        * @internal
        */

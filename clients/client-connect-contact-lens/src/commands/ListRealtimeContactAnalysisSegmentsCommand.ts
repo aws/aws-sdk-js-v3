@@ -90,6 +90,11 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * //           },
  * //         },
  * //       },
+ * //       PostContactSummary: { // PostContactSummary
+ * //         Content: "STRING_VALUE",
+ * //         Status: "FAILED" || "COMPLETED", // required
+ * //         FailureCode: "QUOTA_EXCEEDED" || "INSUFFICIENT_CONVERSATION_CONTENT" || "FAILED_SAFETY_GUIDELINES" || "INVALID_ANALYSIS_CONFIGURATION" || "INTERNAL_ERROR",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

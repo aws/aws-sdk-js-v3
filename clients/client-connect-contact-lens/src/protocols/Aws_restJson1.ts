@@ -230,6 +230,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_PointsOfInterest omitted.
 
+// de_PostContactSummary omitted.
+
 // de_RealtimeContactAnalysisSegment omitted.
 
 // de_RealtimeContactAnalysisSegments omitted.
