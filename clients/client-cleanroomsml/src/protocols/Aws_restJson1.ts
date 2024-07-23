@@ -131,6 +131,7 @@ import {
   DatasetInputConfig,
   DataSource,
   GlueDataSource,
+  ProtectedQuerySQLParameters,
   RelevanceMetric,
   ResourceNotFoundException,
   S3ConfigMap,
@@ -820,6 +821,7 @@ export const de_GetAudienceGenerationJobCommand = async (
     includeSeedInOutput: __expectBoolean,
     metrics: (_) => de_AudienceQualityMetrics(_, context),
     name: __expectString,
+    protectedQueryIdentifier: __expectString,
     seedAudience: _json,
     startedBy: __expectString,
     status: __expectString,
@@ -1354,6 +1356,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_MetricsList omitted.
 
+// se_ParameterMap omitted.
+
+// se_ProtectedQuerySQLParameters omitted.
+
 // se_S3ConfigMap omitted.
 
 // se_TagMap omitted.
@@ -1510,6 +1516,10 @@ const de_ConfiguredAudienceModelSummary = (output: any, context: __SerdeContext)
 // de_GlueDataSource omitted.
 
 // de_MetricsList omitted.
+
+// de_ParameterMap omitted.
+
+// de_ProtectedQuerySQLParameters omitted.
 
 /**
  * deserializeAws_restJson1RelevanceMetric

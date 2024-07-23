@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartAudienceGenerationJobRequest, StartAudienceGenerationJobResponse } from "../models/models_0";
+import {
+  StartAudienceGenerationJobRequest,
+  StartAudienceGenerationJobRequestFilterSensitiveLog,
+  StartAudienceGenerationJobResponse,
+} from "../models/models_0";
 import { de_StartAudienceGenerationJobCommand, se_StartAudienceGenerationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -43,6 +47,13 @@ export interface StartAudienceGenerationJobCommandOutput extends StartAudienceGe
  *       s3Uri: "STRING_VALUE", // required
  *     },
  *     roleArn: "STRING_VALUE", // required
+ *     sqlParameters: { // ProtectedQuerySQLParameters
+ *       queryString: "STRING_VALUE",
+ *       analysisTemplateArn: "STRING_VALUE",
+ *       parameters: { // ParameterMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   includeSeedInOutput: true || false,
  *   collaborationId: "STRING_VALUE",
@@ -104,7 +115,7 @@ export class StartAudienceGenerationJobCommand extends $Command
   })
   .s("AWSStarkControlService", "StartAudienceGenerationJob", {})
   .n("CleanRoomsMLClient", "StartAudienceGenerationJobCommand")
-  .f(void 0, void 0)
+  .f(StartAudienceGenerationJobRequestFilterSensitiveLog, void 0)
   .ser(se_StartAudienceGenerationJobCommand)
   .de(de_StartAudienceGenerationJobCommand)
   .build() {}

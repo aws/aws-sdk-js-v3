@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CleanRoomsMLServiceException as __BaseException } from "./CleanRoomsMLServiceException";
 
@@ -384,6 +384,31 @@ export interface AudienceQualityMetrics {
 }
 
 /**
+ * <p>The parameters for the SQL type Protected Query.</p>
+ * @public
+ */
+export interface ProtectedQuerySQLParameters {
+  /**
+   * <p>The query string to be submitted.</p>
+   * @public
+   */
+  queryString?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a
+   *          collaboration.</p>
+   * @public
+   */
+  analysisTemplateArn?: string;
+
+  /**
+   * <p>The protected query SQL parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, string>;
+}
+
+/**
  * <p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored.</p>
  * @public
  */
@@ -401,13 +426,19 @@ export interface AudienceGenerationJobDataSource {
    *          </p>
    * @public
    */
-  dataSource: S3ConfigMap | undefined;
+  dataSource?: S3ConfigMap;
 
   /**
-   * <p>The ARN of the IAM role that can read the Amazon S3 bucket where the training data is stored.</p>
+   * <p>The ARN of the IAM role that can read the Amazon S3 bucket where the seed audience is stored.</p>
    * @public
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The protected SQL query parameters.</p>
+   * @public
+   */
+  sqlParameters?: ProtectedQuerySQLParameters;
 }
 
 /**
@@ -517,6 +548,12 @@ export interface GetAudienceGenerationJobResponse {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The unique identifier of the protected query for this audience generation job.</p>
+   * @public
+   */
+  protectedQueryIdentifier?: string;
 }
 
 /**
@@ -990,7 +1027,8 @@ export interface ListAudienceModelsResponse {
 }
 
 /**
- * <p>Configure the list of audience output sizes that can be created. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
+ * <p>Returns the relevance scores at these audience sizes when used in the <a>GetAudienceGenerationJob</a> for a specified audience generation job and configured audience model.</p>
+ *          <p>Specifies the list of allowed <code>audienceSize</code> values when used in the <a>StartAudienceExportJob</a> for an audience generation job. You can use the <code>ABSOLUTE</code>
  *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
  *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
  * @public
@@ -1974,3 +2012,34 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @internal
+ */
+export const ProtectedQuerySQLParametersFilterSensitiveLog = (obj: ProtectedQuerySQLParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudienceGenerationJobDataSourceFilterSensitiveLog = (obj: AudienceGenerationJobDataSource): any => ({
+  ...obj,
+  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetAudienceGenerationJobResponseFilterSensitiveLog = (obj: GetAudienceGenerationJobResponse): any => ({
+  ...obj,
+  ...(obj.seedAudience && { seedAudience: AudienceGenerationJobDataSourceFilterSensitiveLog(obj.seedAudience) }),
+});
+
+/**
+ * @internal
+ */
+export const StartAudienceGenerationJobRequestFilterSensitiveLog = (obj: StartAudienceGenerationJobRequest): any => ({
+  ...obj,
+  ...(obj.seedAudience && { seedAudience: AudienceGenerationJobDataSourceFilterSensitiveLog(obj.seedAudience) }),
+});

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CleanRoomsMLHttpAuthSc
       name: "cleanrooms-ml",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CleanRoomsMLClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CleanRoomsMLClientConfig>, context) => ({
       /**
        * @internal
        */
