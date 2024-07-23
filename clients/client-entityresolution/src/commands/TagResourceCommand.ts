@@ -64,17 +64,13 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ *          service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
- *          </p>
+ *  <p>The resource could not be found. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
- *             Status Code: 400</code>
- *          </p>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
  *
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>

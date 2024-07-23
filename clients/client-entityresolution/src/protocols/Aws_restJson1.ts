@@ -125,9 +125,11 @@ import {
   ConflictException,
   ExceedsLimitException,
   IdMappingJobOutputSource,
+  IdMappingRuleBasedProperties,
   IdMappingTechniques,
   IdMappingWorkflowInputSource,
   IdMappingWorkflowOutputSource,
+  IdMappingWorkflowRuleDefinitionType,
   IdMappingWorkflowSummary,
   IdNamespaceIdMappingWorkflowProperties,
   IdNamespaceInputSource,
@@ -139,10 +141,12 @@ import {
   JobSummary,
   MatchingWorkflowSummary,
   NamespaceProviderProperties,
+  NamespaceRuleBasedProperties,
   OutputAttribute,
   OutputSource,
   ProviderIdNameSpaceConfiguration,
   ProviderProperties,
+  RecordMatchingModel,
   ResolutionTechniques,
   ResourceNotFoundException,
   Rule,
@@ -1988,6 +1992,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_IdMappingJobOutputSourceConfig omitted.
 
+// se_IdMappingRuleBasedProperties omitted.
+
 /**
  * serializeAws_restJson1IdMappingTechniques
  */
@@ -1995,6 +2001,7 @@ const se_IdMappingTechniques = (input: IdMappingTechniques, context: __SerdeCont
   return take(input, {
     idMappingType: [],
     providerProperties: (_) => se_ProviderProperties(_, context),
+    ruleBasedProperties: _json,
   });
 };
 
@@ -2006,6 +2013,8 @@ const se_IdMappingTechniques = (input: IdMappingTechniques, context: __SerdeCont
 
 // se_IdMappingWorkflowOutputSourceConfig omitted.
 
+// se_IdMappingWorkflowRuleDefinitionTypeList omitted.
+
 /**
  * serializeAws_restJson1IdNamespaceIdMappingWorkflowProperties
  */
@@ -2016,6 +2025,7 @@ const se_IdNamespaceIdMappingWorkflowProperties = (
   return take(input, {
     idMappingType: [],
     providerProperties: (_) => se_NamespaceProviderProperties(_, context),
+    ruleBasedProperties: _json,
   });
 };
 
@@ -2057,6 +2067,8 @@ const se_NamespaceProviderProperties = (input: NamespaceProviderProperties, cont
   });
 };
 
+// se_NamespaceRuleBasedProperties omitted.
+
 // se_OutputAttribute omitted.
 
 // se_OutputAttributes omitted.
@@ -2077,6 +2089,8 @@ const se_ProviderProperties = (input: ProviderProperties, context: __SerdeContex
 };
 
 // se_RecordAttributeMap omitted.
+
+// se_RecordMatchingModelList omitted.
 
 /**
  * serializeAws_restJson1ResolutionTechniques
@@ -2132,6 +2146,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_IdMappingJobOutputSourceConfig omitted.
 
+// de_IdMappingRuleBasedProperties omitted.
+
 /**
  * deserializeAws_restJson1IdMappingTechniques
  */
@@ -2139,6 +2155,7 @@ const de_IdMappingTechniques = (output: any, context: __SerdeContext): IdMapping
   return take(output, {
     idMappingType: __expectString,
     providerProperties: (_: any) => de_ProviderProperties(_, context),
+    ruleBasedProperties: _json,
   }) as any;
 };
 
@@ -2162,6 +2179,8 @@ const de_IdMappingWorkflowList = (output: any, context: __SerdeContext): IdMappi
 
 // de_IdMappingWorkflowOutputSourceConfig omitted.
 
+// de_IdMappingWorkflowRuleDefinitionTypeList omitted.
+
 /**
  * deserializeAws_restJson1IdMappingWorkflowSummary
  */
@@ -2174,6 +2193,10 @@ const de_IdMappingWorkflowSummary = (output: any, context: __SerdeContext): IdMa
   }) as any;
 };
 
+// de_IdNamespaceIdMappingWorkflowMetadata omitted.
+
+// de_IdNamespaceIdMappingWorkflowMetadataList omitted.
+
 /**
  * deserializeAws_restJson1IdNamespaceIdMappingWorkflowProperties
  */
@@ -2184,6 +2207,7 @@ const de_IdNamespaceIdMappingWorkflowProperties = (
   return take(output, {
     idMappingType: __expectString,
     providerProperties: (_: any) => de_NamespaceProviderProperties(_, context),
+    ruleBasedProperties: _json,
   }) as any;
 };
 
@@ -2225,6 +2249,7 @@ const de_IdNamespaceSummary = (output: any, context: __SerdeContext): IdNamespac
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    idMappingWorkflowProperties: _json,
     idNamespaceArn: __expectString,
     idNamespaceName: __expectString,
     type: __expectString,
@@ -2307,6 +2332,8 @@ const de_NamespaceProviderProperties = (output: any, context: __SerdeContext): N
   }) as any;
 };
 
+// de_NamespaceRuleBasedProperties omitted.
+
 // de_OutputAttribute omitted.
 
 // de_OutputAttributes omitted.
@@ -2355,6 +2382,8 @@ const de_ProviderProperties = (output: any, context: __SerdeContext): ProviderPr
 // de_ProviderServiceList omitted.
 
 // de_ProviderServiceSummary omitted.
+
+// de_RecordMatchingModelList omitted.
 
 // de_RequiredBucketActionsList omitted.
 

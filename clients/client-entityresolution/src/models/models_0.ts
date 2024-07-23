@@ -6,9 +6,7 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { EntityResolutionServiceException as __BaseException } from "./EntityResolutionServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
- *             403</code>
- *          </p>
+ * <p>You do not have sufficient access to perform this action. </p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -62,6 +60,12 @@ export interface AddPolicyStatementInput {
   /**
    * <p>Determines whether the permissions specified in the policy are to be allowed
    *             (<code>Allow</code>) or denied (<code>Deny</code>).</p>
+   *          <important>
+   *             <p> If you set the value of the <code>effect</code> parameter to <code>Deny</code> for
+   *             the <code>AddPolicyStatement</code> operation, you must also set the value of the
+   *                <code>effect</code> parameter in the <code>policy</code> to <code>Deny</code> for the
+   *                <code>PutPolicy</code> operation.</p>
+   *          </important>
    * @public
    */
   effect: StatementEffect | undefined;
@@ -115,8 +119,7 @@ export interface AddPolicyStatementOutput {
 /**
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. <code>HTTP Status Code: 400</code>
- *          </p>
+ *          running, etc. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -137,8 +140,7 @@ export class ConflictException extends __BaseException {
 
 /**
  * <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ *          service. </p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -159,8 +161,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found. <code>HTTP Status Code: 404</code>
- *          </p>
+ * <p>The resource could not be found. </p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -180,9 +181,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. <code>HTTP Status Code:
- *          429</code>
- *          </p>
+ * <p>The request was denied due to request throttling. </p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -205,9 +204,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
- *             Status Code: 400</code>
- *          </p>
+ * <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -356,6 +353,7 @@ export interface BatchDeleteUniqueIdOutput {
  */
 export const IdMappingType = {
   PROVIDER: "PROVIDER",
+  RULE_BASED: "RULE_BASED",
 } as const;
 
 /**
@@ -406,7 +404,102 @@ export interface ProviderProperties {
 }
 
 /**
- * <p>An object which defines the ID mapping techniques and provider configurations.</p>
+ * @public
+ * @enum
+ */
+export const RecordMatchingModel = {
+  MANY_SOURCE_TO_ONE_TARGET: "MANY_SOURCE_TO_ONE_TARGET",
+  ONE_SOURCE_TO_ONE_TARGET: "ONE_SOURCE_TO_ONE_TARGET",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordMatchingModel = (typeof RecordMatchingModel)[keyof typeof RecordMatchingModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const IdMappingWorkflowRuleDefinitionType = {
+  SOURCE: "SOURCE",
+  TARGET: "TARGET",
+} as const;
+
+/**
+ * @public
+ */
+export type IdMappingWorkflowRuleDefinitionType =
+  (typeof IdMappingWorkflowRuleDefinitionType)[keyof typeof IdMappingWorkflowRuleDefinitionType];
+
+/**
+ * <p>An object containing <code>RuleName</code>, and <code>MatchingKeys</code>.</p>
+ * @public
+ */
+export interface Rule {
+  /**
+   * <p>A name for the matching rule.</p>
+   * @public
+   */
+  ruleName: string | undefined;
+
+  /**
+   * <p>A list of <code>MatchingKeys</code>. The <code>MatchingKeys</code> must have been
+   *          defined in the <code>SchemaMapping</code>. Two records are considered to match according to
+   *          this rule if all of the <code>MatchingKeys</code> match.</p>
+   * @public
+   */
+  matchingKeys: string[] | undefined;
+}
+
+/**
+ * <p> An object that defines the list of matching rules to run in an ID mapping
+ *          workflow.</p>
+ * @public
+ */
+export interface IdMappingRuleBasedProperties {
+  /**
+   * <p> The rules that can be used for ID mapping.</p>
+   * @public
+   */
+  rules?: Rule[];
+
+  /**
+   * <p> The set of rules you can use in an ID mapping workflow. The limitations specified for
+   *          the source or target to define the match rules must be compatible.</p>
+   * @public
+   */
+  ruleDefinitionType: IdMappingWorkflowRuleDefinitionType | undefined;
+
+  /**
+   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or
+   *             <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p>
+   *          <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the
+   *          sub-types of an attribute type. For example, if the value of the <code>Email</code> field
+   *          of Profile A matches the value of the <code>BusinessEmail</code> field of Profile B, the
+   *          two profiles are matched on the <code>Email</code> attribute type. </p>
+   *          <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the
+   *          sub-types are an exact match. For example, for the <code>Email</code> attribute type, the
+   *          system will only consider it a match if the value of the <code>Email</code> field of
+   *          Profile A matches the value of the <code>Email</code> field of Profile B.</p>
+   * @public
+   */
+  attributeMatchingModel: AttributeMatchingModel | undefined;
+
+  /**
+   * <p> The type of matching record that is allowed to be used in an ID mapping workflow. </p>
+   *          <p>If the value is set to <code>ONE_SOURCE_TO_ONE_TARGET</code>, only one record in the
+   *          source can be matched to the same record in the target.</p>
+   *          <p>If the value is set to <code>MANY_SOURCE_TO_ONE_TARGET</code>, multiple records in the
+   *          source can be matched to one record in the target.</p>
+   * @public
+   */
+  recordMatchingModel: RecordMatchingModel | undefined;
+}
+
+/**
+ * <p>An object which defines the ID mapping technique and any additional
+ *          configurations.</p>
  * @public
  */
 export interface IdMappingTechniques {
@@ -415,6 +508,13 @@ export interface IdMappingTechniques {
    * @public
    */
   idMappingType: IdMappingType | undefined;
+
+  /**
+   * <p> An object which defines any additional configurations required by rule-based
+   *          matching.</p>
+   * @public
+   */
+  ruleBasedProperties?: IdMappingRuleBasedProperties;
 
   /**
    * <p>An object which defines any additional configurations required by the provider
@@ -445,7 +545,8 @@ export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceT
  */
 export interface IdMappingWorkflowInputSource {
   /**
-   * <p>An Glue table ARN for the input source table.</p>
+   * <p>An Glue table Amazon Resource Name (ARN) or a matching workflow ARN for
+   *          the input source table.</p>
    * @public
    */
   inputSourceARN: string | undefined;
@@ -461,7 +562,7 @@ export interface IdMappingWorkflowInputSource {
    *             <code>TARGET</code>. </p>
    *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
    *          be processed in an ID mapping workflow. </p>
-   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> which all
    *             <code>sourceIds</code> will resolve to.</p>
    * @public
    */
@@ -519,8 +620,8 @@ export interface CreateIdMappingWorkflowInput {
   outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
-   * <p>An object which defines the <code>idMappingType</code> and the
-   *             <code>providerProperties</code>.</p>
+   * <p>An object which defines the ID mapping technique and any additional
+   *          configurations.</p>
    * @public
    */
   idMappingTechniques: IdMappingTechniques | undefined;
@@ -530,7 +631,7 @@ export interface CreateIdMappingWorkflowInput {
    *          this role to create resources on your behalf as part of workflow execution.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -577,8 +678,8 @@ export interface CreateIdMappingWorkflowOutput {
   outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
-   * <p>An object which defines the <code>idMappingType</code> and the
-   *             <code>providerProperties</code>.</p>
+   * <p>An object which defines the ID mapping technique and any additional
+   *          configurations.</p>
    * @public
    */
   idMappingTechniques: IdMappingTechniques | undefined;
@@ -588,14 +689,13 @@ export interface CreateIdMappingWorkflowOutput {
    *          this role to create resources on your behalf as part of workflow execution.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 }
 
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current
  *             Entity Resolution account limits. The error message describes the limit exceeded.
- *             <code>HTTP Status Code: 402</code>
- *          </p>
+ *       </p>
  * @public
  */
 export class ExceedsLimitException extends __BaseException {
@@ -649,8 +749,53 @@ export interface NamespaceProviderProperties {
 }
 
 /**
- * <p>An object containing <code>IdMappingType</code> and
- *          <code>ProviderProperties</code>.</p>
+ * <p> The rule-based properties of an ID namespace. These properties define how the ID
+ *          namespace can be used in an ID mapping workflow.</p>
+ * @public
+ */
+export interface NamespaceRuleBasedProperties {
+  /**
+   * <p> The rules for the ID namespace.</p>
+   * @public
+   */
+  rules?: Rule[];
+
+  /**
+   * <p> The sets of rules you can use in an ID mapping workflow. The limitations specified for
+   *          the source and target must be compatible.</p>
+   * @public
+   */
+  ruleDefinitionTypes?: IdMappingWorkflowRuleDefinitionType[];
+
+  /**
+   * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or
+   *             <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p>
+   *          <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the
+   *          sub-types of an attribute type. For example, if the value of the <code>Email</code> field
+   *          of Profile A matches the value of <code>BusinessEmail</code> field of Profile B, the two
+   *          profiles are matched on the <code>Email</code> attribute type. </p>
+   *          <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the
+   *          sub-types are an exact match. For example, for the <code>Email</code> attribute type, the
+   *          system will only consider it a match if the value of the <code>Email</code> field of
+   *          Profile A matches the value of the <code>Email</code> field of Profile B.</p>
+   * @public
+   */
+  attributeMatchingModel?: AttributeMatchingModel;
+
+  /**
+   * <p> The type of matching record that is allowed to be used in an ID mapping workflow. </p>
+   *          <p>If the value is set to <code>ONE_SOURCE_TO_ONE_TARGET</code>, only one record in the
+   *          source is matched to one record in the target. </p>
+   *          <p>If the value is set to <code>MANY_SOURCE_TO_ONE_TARGET</code>, all matching records in
+   *          the source are matched to one record in the target.</p>
+   * @public
+   */
+  recordMatchingModels?: RecordMatchingModel[];
+}
+
+/**
+ * <p>An object containing <code>IdMappingType</code>, <code>ProviderProperties</code>, and
+ *             <code>RuleBasedProperties</code>.</p>
  * @public
  */
 export interface IdNamespaceIdMappingWorkflowProperties {
@@ -659,6 +804,13 @@ export interface IdNamespaceIdMappingWorkflowProperties {
    * @public
    */
   idMappingType: IdMappingType | undefined;
+
+  /**
+   * <p> An object which defines any additional configurations required by rule-based
+   *          matching.</p>
+   * @public
+   */
+  ruleBasedProperties?: NamespaceRuleBasedProperties;
 
   /**
    * <p>An object which defines any additional configurations required by the provider
@@ -674,7 +826,8 @@ export interface IdNamespaceIdMappingWorkflowProperties {
  */
 export interface IdNamespaceInputSource {
   /**
-   * <p>An Glue table ARN for the input source table.</p>
+   * <p>An Glue table Amazon Resource Name (ARN) or a matching workflow ARN for
+   *          the input source table.</p>
    * @public
    */
   inputSourceARN: string | undefined;
@@ -851,7 +1004,8 @@ export interface IncrementalRunConfig {
  */
 export interface InputSource {
   /**
-   * <p>An Glue table ARN for the input source table.</p>
+   * <p>An Glue table Amazon Resource Name (ARN) for the input source
+   *          table.</p>
    * @public
    */
   inputSourceARN: string | undefined;
@@ -946,28 +1100,23 @@ export const ResolutionType = {
 export type ResolutionType = (typeof ResolutionType)[keyof typeof ResolutionType];
 
 /**
- * <p>An object containing <code>RuleName</code>, and <code>MatchingKeys</code>.</p>
  * @public
+ * @enum
  */
-export interface Rule {
-  /**
-   * <p>A name for the matching rule.</p>
-   * @public
-   */
-  ruleName: string | undefined;
-
-  /**
-   * <p>A list of <code>MatchingKeys</code>. The <code>MatchingKeys</code> must have been
-   *          defined in the <code>SchemaMapping</code>. Two records are considered to match according to
-   *          this rule if all of the <code>MatchingKeys</code> match.</p>
-   * @public
-   */
-  matchingKeys: string[] | undefined;
-}
+export const MatchPurpose = {
+  IDENTIFIER_GENERATION: "IDENTIFIER_GENERATION",
+  INDEXING: "INDEXING",
+} as const;
 
 /**
- * <p>An object which defines the list of matching rules to run and has a field
- *             <code>Rules</code>, which is a list of rule objects.</p>
+ * @public
+ */
+export type MatchPurpose = (typeof MatchPurpose)[keyof typeof MatchPurpose];
+
+/**
+ * <p>An object which defines the list of matching rules to run in a matching workflow.
+ *          RuleBasedProperties contain a <code>Rules</code> field, which is a list of rule
+ *          objects.</p>
  * @public
  */
 export interface RuleBasedProperties {
@@ -980,17 +1129,28 @@ export interface RuleBasedProperties {
 
   /**
    * <p>The comparison type. You can either choose <code>ONE_TO_ONE</code> or
-   *             <code>MANY_TO_MANY</code> as the AttributeMatchingModel. When choosing
-   *             <code>MANY_TO_MANY</code>, the system can match attributes across the sub-types of an
-   *          attribute type. For example, if the value of the <code>Email</code> field of Profile A and
-   *          the value of <code>BusinessEmail</code> field of Profile B matches, the two profiles are
-   *          matched on the <code>Email</code> type. When choosing <code>ONE_TO_ONE</code> ,the system
-   *          can only match if the sub-types are exact matches. For example, only when the value of the
-   *             <code>Email</code> field of Profile A and the value of the <code>Email</code> field of
-   *          Profile B matches, the two profiles are matched on the <code>Email</code> type.</p>
+   *             <code>MANY_TO_MANY</code> as the <code>attributeMatchingModel</code>. </p>
+   *          <p>If you choose <code>MANY_TO_MANY</code>, the system can match attributes across the
+   *          sub-types of an attribute type. For example, if the value of the <code>Email</code> field
+   *          of Profile A and the value of <code>BusinessEmail</code> field of Profile B matches, the
+   *          two profiles are matched on the <code>Email</code> attribute type. </p>
+   *          <p>If you choose <code>ONE_TO_ONE</code>, the system can only match attributes if the
+   *          sub-types are an exact match. For example, for the <code>Email</code> attribute type, the
+   *          system will only consider it a match if the value of the <code>Email</code> field of
+   *          Profile A matches the value of the <code>Email</code> field of Profile B.</p>
    * @public
    */
   attributeMatchingModel: AttributeMatchingModel | undefined;
+
+  /**
+   * <p> An indicator of whether to generate IDs and index the data or not.</p>
+   *          <p>If you choose <code>IDENTIFIER_GENERATION</code>, the process generates IDs and indexes
+   *          the data.</p>
+   *          <p>If you choose <code>INDEXING</code>, the process indexes the data without generating
+   *          IDs.</p>
+   * @public
+   */
+  matchPurpose?: MatchPurpose;
 }
 
 /**
@@ -1174,7 +1334,7 @@ export type SchemaAttributeType = (typeof SchemaAttributeType)[keyof typeof Sche
 
 /**
  * <p>An object containing <code>FieldName</code>, <code>Type</code>, <code>GroupName</code>,
- *          <code>MatchKey</code>, and <code>SubType</code>.</p>
+ *             <code>MatchKey</code>, <code>Hashing</code>, and <code>SubType</code>.</p>
  * @public
  */
 export interface SchemaInputAttribute {
@@ -1202,12 +1362,12 @@ export interface SchemaInputAttribute {
   groupName?: string;
 
   /**
-   * <p>A key that allows grouping of multiple input attributes into a unified matching group.
-   *          For example, consider a scenario where the source table contains various addresses, such as
-   *             <code>business_address</code> and <code>shipping_address</code>. By assigning a
-   *             <code>matchKey</code>  called <code>address</code> to both attributes, Entity Resolution
-   *          will match records across these fields to create a consolidated matching group. If no
-   *             <code>matchKey</code> is specified for a column, it won't be utilized for matching
+   * <p>A key that allows grouping of multiple input attributes into a unified matching group. </p>
+   *          <p>For example, consider a scenario where the source table contains various addresses, such
+   *          as <code>business_address</code> and <code>shipping_address</code>.  By assigning a
+   *             <code>matchKey</code> called <code>address</code> to both attributes, Entity Resolution
+   *          will match records across these fields to create a consolidated matching group.</p>
+   *          <p>If no <code>matchKey</code> is specified for a column, it won't be utilized for matching
    *          purposes but will still be included in the output table.</p>
    * @public
    */
@@ -1218,6 +1378,14 @@ export interface SchemaInputAttribute {
    * @public
    */
   subType?: string;
+
+  /**
+   * <p> Indicates if the column values are hashed in the schema input. If the value is set to
+   *             <code>TRUE</code>, the column values are hashed. If the value is set to
+   *             <code>FALSE</code>, the column values are cleartext.</p>
+   * @public
+   */
+  hashed?: boolean;
 }
 
 /**
@@ -1443,19 +1611,20 @@ export interface ErrorDetails {
 }
 
 /**
- * <p>An object containing <code>InputRecords</code>, <code>TotalRecordsProcessed</code>,
- *             <code>MatchIDs</code>, and <code>RecordsNotProcessed</code>.</p>
+ * <p>An object containing <code>InputRecords</code>, <code>RecordsNotProcessed</code>,
+ *             <code>TotalRecordsProcessed</code>, <code>TotalMappedRecords</code>,
+ *             <code>TotalMappedSourceRecords</code>, and <code>TotalMappedTargetRecords</code>.</p>
  * @public
  */
 export interface IdMappingJobMetrics {
   /**
-   * <p>The total number of input records.</p>
+   * <p>The total number of records that were input for processing.</p>
    * @public
    */
   inputRecords?: number;
 
   /**
-   * <p>The total number of records processed.</p>
+   * <p>The total number of records that were processed.</p>
    * @public
    */
   totalRecordsProcessed?: number;
@@ -1465,6 +1634,24 @@ export interface IdMappingJobMetrics {
    * @public
    */
   recordsNotProcessed?: number;
+
+  /**
+   * <p> The total number of records that were mapped.</p>
+   * @public
+   */
+  totalMappedRecords?: number;
+
+  /**
+   * <p> The total number of mapped source records.</p>
+   * @public
+   */
+  totalMappedSourceRecords?: number;
+
+  /**
+   * <p> The total number of distinct mapped target records.</p>
+   * @public
+   */
+  totalMappedTargetRecords?: number;
 }
 
 /**
@@ -1608,8 +1795,8 @@ export interface GetIdMappingWorkflowOutput {
   outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
-   * <p>An object which defines the <code>idMappingType</code> and the
-   *             <code>providerProperties</code>.</p>
+   * <p>An object which defines the ID mapping technique and any additional
+   *          configurations.</p>
    * @public
    */
   idMappingTechniques: IdMappingTechniques | undefined;
@@ -1631,7 +1818,7 @@ export interface GetIdMappingWorkflowOutput {
    *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -2165,7 +2352,7 @@ export interface ProviderIdNameSpaceConfiguration {
   description?: string;
 
   /**
-   * <p>Configurations required for the target  ID namespace.</p>
+   * <p>Configurations required for the target ID namespace.</p>
    * @public
    */
   providerTargetConfigurationDefinition?: __DocumentType;
@@ -2523,6 +2710,18 @@ export interface ListIdNamespacesInput {
 }
 
 /**
+ * <p>The settings for the ID namespace for the ID mapping workflow job.</p>
+ * @public
+ */
+export interface IdNamespaceIdMappingWorkflowMetadata {
+  /**
+   * <p>The type of ID mapping.</p>
+   * @public
+   */
+  idMappingType: IdMappingType | undefined;
+}
+
+/**
  * <p>A summary of ID namespaces.</p>
  * @public
  */
@@ -2546,11 +2745,18 @@ export interface IdNamespaceSummary {
   description?: string;
 
   /**
+   * <p>An object which defines any additional configurations required by the ID mapping
+   *          workflow.</p>
+   * @public
+   */
+  idMappingWorkflowProperties?: IdNamespaceIdMappingWorkflowMetadata[];
+
+  /**
    * <p>The type of ID namespace. There are two types: <code>SOURCE</code> and
    *             <code>TARGET</code>.</p>
    *          <p>The <code>SOURCE</code> contains configurations for <code>sourceId</code> data that will
    *          be processed in an ID mapping workflow. </p>
-   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> to which all
+   *          <p>The <code>TARGET</code> contains a configuration of <code>targetId</code> which all
    *             <code>sourceIds</code> will resolve to.</p>
    * @public
    */
@@ -2897,6 +3103,12 @@ export interface PutPolicyInput {
 
   /**
    * <p>The resource-based policy.</p>
+   *          <important>
+   *             <p>If you set the value of the <code>effect</code> parameter in the <code>policy</code>
+   *             to <code>Deny</code> for the <code>PutPolicy</code> operation, you must also set the
+   *             value of the <code>effect</code> parameter to <code>Deny</code> for the
+   *                <code>AddPolicyStatement</code> operation.</p>
+   *          </important>
    * @public
    */
   policy: string | undefined;
@@ -3056,8 +3268,8 @@ export interface UpdateIdMappingWorkflowInput {
   outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
-   * <p>An object which defines the <code>idMappingType</code> and the
-   *             <code>providerProperties</code>.</p>
+   * <p>An object which defines the ID mapping technique and any additional
+   *          configurations.</p>
    * @public
    */
   idMappingTechniques: IdMappingTechniques | undefined;
@@ -3067,7 +3279,7 @@ export interface UpdateIdMappingWorkflowInput {
    *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 }
 
 /**
@@ -3108,8 +3320,8 @@ export interface UpdateIdMappingWorkflowOutput {
   outputSourceConfig?: IdMappingWorkflowOutputSource[];
 
   /**
-   * <p>An object which defines the <code>idMappingType</code> and the
-   *             <code>providerProperties</code>.</p>
+   * <p>An object which defines the ID mapping technique and any additional
+   *          configurations.</p>
    * @public
    */
   idMappingTechniques: IdMappingTechniques | undefined;
@@ -3119,7 +3331,7 @@ export interface UpdateIdMappingWorkflowOutput {
    *          this role to access Amazon Web Services resources on your behalf.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 }
 
 /**

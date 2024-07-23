@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EntityResolutionHttpAu
       name: "entityresolution",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EntityResolutionClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EntityResolutionClientConfig>, context) => ({
       /**
        * @internal
        */

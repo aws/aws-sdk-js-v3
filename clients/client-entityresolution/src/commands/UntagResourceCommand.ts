@@ -56,12 +56,10 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ *          service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
- *          </p>
+ *  <p>The resource could not be found. </p>
  *
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
