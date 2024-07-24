@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.619.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.618.0...v3.619.0) (2024-07-24)
+
+
+### Features
+
+* **client-medical-imaging:** CopyImageSet API adds copying selected instances between image sets, and overriding inconsistent metadata with a force parameter. UpdateImageSetMetadata API enables reverting to prior versions; updates to Study, Series, and SOP Instance UIDs; and updates to private elements, with a force parameter. ([03a9eeb](https://github.com/aws/aws-sdk-js-v3/commit/03a9eeb0a1c7d2a1c517d5e5ad3d6e9553b62c7a))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-medical-imaging

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.619.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.618.0...v3.619.0) (2024-07-24)
+
+
+### Features
+
+* **client-cleanrooms:** Three enhancements to the AWS Clean Rooms: Disallowed Output Columns, Flexible Result Receivers, SQL as a Seed ([42b8fd5](https://github.com/aws/aws-sdk-js-v3/commit/42b8fd514b53f3051f0571e7e02759bd18263828))
+* **client-iotsitewise:** Adds support for creating SiteWise Edge gateways that run on a Siemens Industrial Edge Device. ([f1138f7](https://github.com/aws/aws-sdk-js-v3/commit/f1138f7f2e8e9fe37413fbbbee7f0e2cdc3ed33f))
+* **client-mediapackagev2:** This release adds support for Irdeto DRM encryption in DASH manifests. ([5a269c4](https://github.com/aws/aws-sdk-js-v3/commit/5a269c4303dcc6e55391884f51eca8f05426be20))
+* **client-medical-imaging:** CopyImageSet API adds copying selected instances between image sets, and overriding inconsistent metadata with a force parameter. UpdateImageSetMetadata API enables reverting to prior versions; updates to Study, Series, and SOP Instance UIDs; and updates to private elements, with a force parameter. ([03a9eeb](https://github.com/aws/aws-sdk-js-v3/commit/03a9eeb0a1c7d2a1c517d5e5ad3d6e9553b62c7a))
+* **clients:** update client endpoints as of 2024-07-24 ([c3ba9a1](https://github.com/aws/aws-sdk-js-v3/commit/c3ba9a1b1935738060001f2560359382d2f8e8ca))
+* **codegen:** specify endpoint param names to be omitted from generation in the client interface ([#6035](https://github.com/aws/aws-sdk-js-v3/issues/6035)) ([a673c81](https://github.com/aws/aws-sdk-js-v3/commit/a673c815f5e34942b0393bba2012e39fd8ba14be))
+* **core:** add AccountIdEndpointMode config option ([#6036](https://github.com/aws/aws-sdk-js-v3/issues/6036)) ([1cb4edc](https://github.com/aws/aws-sdk-js-v3/commit/1cb4edcdbf7da5f0cf645a5911da529c5c20ce73))
+* **credential-providers:** source accountId from credential providers ([#6019](https://github.com/aws/aws-sdk-js-v3/issues/6019)) ([83cd253](https://github.com/aws/aws-sdk-js-v3/commit/83cd2537bd6e9bfbd6e6535012c913b017a26bca))
+
+
+
+
+
 # [3.618.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.617.0...v3.618.0) (2024-07-23)
 
 
