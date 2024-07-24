@@ -33,8 +33,8 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *          <important>
  *             <p>Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
  *         For more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
- *             <p>Bulk import is designed to store historical data to IoT SiteWise. It does not trigger computations or notifications on
- *         IoT SiteWise warm or cold tier storage.</p>
+ *             <p>Bulk import is designed to store historical data to IoT SiteWise. It does not trigger
+ *         computations or notifications on IoT SiteWise warm or cold tier storage.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

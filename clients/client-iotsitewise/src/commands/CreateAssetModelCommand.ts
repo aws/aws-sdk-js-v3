@@ -33,17 +33,20 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *       that have standardized definitions. Each asset created from a model inherits the asset model's
  *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
- *          <p>You can create two types of asset models, <code>ASSET_MODEL</code> or <code>COMPONENT_MODEL</code>.</p>
+ *          <p>You can create two types of asset models, <code>ASSET_MODEL</code> or
+ *         <code>COMPONENT_MODEL</code>.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
- *         Can't be included as a component in another asset model.</p>
+ *                   <b>ASSET_MODEL</b> – (default) An asset model that
+ *           you can use to create assets. Can't be included as a component in another asset
+ *           model.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
- *         models of other asset models. You can't create assets directly from this type of asset model. </p>
+ *                   <b>COMPONENT_MODEL</b> – A reusable component that
+ *           you can include in the composite models of other asset models. You can't create
+ *           assets directly from this type of asset model. </p>
  *             </li>
  *          </ul>
  * @example

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTSiteWiseHttpAuthSch
       name: "iotsitewise",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTSiteWiseClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTSiteWiseClientConfig>, context) => ({
       /**
        * @internal
        */

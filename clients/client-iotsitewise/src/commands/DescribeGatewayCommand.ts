@@ -51,11 +51,14 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * //     greengrassV2: { // GreengrassV2
  * //       coreDeviceThingName: "STRING_VALUE", // required
  * //     },
+ * //     siemensIE: { // SiemensIE
+ * //       iotCoreThingName: "STRING_VALUE", // required
+ * //     },
  * //   },
  * //   gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries // required
  * //     { // GatewayCapabilitySummary
  * //       capabilityNamespace: "STRING_VALUE", // required
- * //       capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * //       capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN" || "NOT_APPLICABLE", // required
  * //     },
  * //   ],
  * //   creationDate: new Date("TIMESTAMP"), // required

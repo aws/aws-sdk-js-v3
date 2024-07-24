@@ -303,6 +303,7 @@ import {
   ResourceNotFoundException,
   RetentionPeriod,
   ServiceUnavailableException,
+  SiemensIE,
   TargetResource,
   ThrottlingException,
   TimeInNanos,
@@ -5310,6 +5311,8 @@ const se_PutAssetPropertyValueEntry = (input: PutAssetPropertyValueEntry, contex
 
 // se_RetentionPeriod omitted.
 
+// se_SiemensIE omitted.
+
 // se_TagMap omitted.
 
 // se_TargetResource omitted.
@@ -6121,6 +6124,8 @@ const de_Rows = (output: any, context: __SerdeContext): Row[] => {
     });
   return retVal;
 };
+
+// de_SiemensIE omitted.
 
 // de_TagMap omitted.
 

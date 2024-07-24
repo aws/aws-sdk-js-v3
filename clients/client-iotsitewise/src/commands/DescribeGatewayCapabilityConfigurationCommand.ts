@@ -58,7 +58,7 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * //   gatewayId: "STRING_VALUE", // required
  * //   capabilityNamespace: "STRING_VALUE", // required
  * //   capabilityConfiguration: "STRING_VALUE", // required
- * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN" || "NOT_APPLICABLE", // required
  * // };
  *
  * ```

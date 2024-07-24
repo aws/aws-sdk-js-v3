@@ -46,6 +46,9 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *     greengrassV2: { // GreengrassV2
  *       coreDeviceThingName: "STRING_VALUE", // required
  *     },
+ *     siemensIE: { // SiemensIE
+ *       iotCoreThingName: "STRING_VALUE", // required
+ *     },
  *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",

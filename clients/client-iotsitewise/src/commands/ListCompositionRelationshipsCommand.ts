@@ -33,7 +33,8 @@ export interface ListCompositionRelationshipsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of composition relationships for an asset model of type <code>COMPONENT_MODEL</code>.</p>
+ * <p>Retrieves a paginated list of composition relationships for an asset model of type
+ *         <code>COMPONENT_MODEL</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

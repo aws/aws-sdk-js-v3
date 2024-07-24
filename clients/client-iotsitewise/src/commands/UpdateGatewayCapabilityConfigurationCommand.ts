@@ -56,7 +56,7 @@ export interface UpdateGatewayCapabilityConfigurationCommandOutput
  * const response = await client.send(command);
  * // { // UpdateGatewayCapabilityConfigurationResponse
  * //   capabilityNamespace: "STRING_VALUE", // required
- * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN" || "NOT_APPLICABLE", // required
  * // };
  *
  * ```

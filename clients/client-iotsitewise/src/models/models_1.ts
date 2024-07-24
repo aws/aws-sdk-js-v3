@@ -26,9 +26,27 @@ import {
   Resource,
   RetentionPeriod,
   StorageType,
+  TimeSeriesSummary,
   WarmTierRetentionPeriod,
   WarmTierState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListTimeSeriesResponse {
+  /**
+   * <p>One or more time series summaries to list.</p>
+   * @public
+   */
+  TimeSeriesSummaries: TimeSeriesSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -382,7 +400,8 @@ export interface UpdateAssetRequest {
   assetDescription?: string;
 
   /**
-   * <p>An external ID to assign to the asset. The asset must not already have an external ID. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * <p>An external ID to assign to the asset. The asset must not already have an external ID.
+   *       The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
   assetExternalId?: string;
@@ -412,7 +431,7 @@ export interface UpdateAssetModelRequest {
   assetModelId: string | undefined;
 
   /**
-   * <p>A unique, friendly name for the asset model.</p>
+   * <p>A unique name for the asset model.</p>
    * @public
    */
   assetModelName: string | undefined;
@@ -449,7 +468,8 @@ export interface UpdateAssetModelRequest {
    *       properties that the composite model supports. Use composite models to define alarms on this asset model.</p>
    *          <note>
    *             <p>When creating custom composite models, you need to use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html">CreateAssetModelCompositeModel</a>. For more information,
-   *       see <LINK>.</p>
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-custom-composite-models.html">Creating custom composite models (Components)</a> in the
+   *       <i>IoT SiteWise User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -462,7 +482,8 @@ export interface UpdateAssetModelRequest {
   clientToken?: string;
 
   /**
-   * <p>An external ID to assign to the asset model. The asset model must not already have an external ID. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * <p>An external ID to assign to the asset model. The asset model must not already have an
+   *       external ID. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
   assetModelExternalId?: string;
@@ -497,8 +518,9 @@ export interface UpdateAssetModelCompositeModelRequest {
   assetModelCompositeModelId: string | undefined;
 
   /**
-   * <p>An external ID to assign to the asset model. You can only set the external ID of the asset model if it wasn't set when it was created, or you're setting it to
-   *     the exact same thing as when it was created.</p>
+   * <p>An external ID to assign to the asset model. You can only set the external ID of the asset
+   *       model if it wasn't set when it was created, or you're setting it to the exact same thing as
+   *       when it was created.</p>
    * @public
    */
   assetModelCompositeModelExternalId?: string;
@@ -510,7 +532,7 @@ export interface UpdateAssetModelCompositeModelRequest {
   assetModelCompositeModelDescription?: string;
 
   /**
-   * <p>A unique, friendly name for the composite model.</p>
+   * <p>A unique name for the composite model.</p>
    * @public
    */
   assetModelCompositeModelName: string | undefined;
@@ -522,7 +544,8 @@ export interface UpdateAssetModelCompositeModelRequest {
   clientToken?: string;
 
   /**
-   * <p>The property definitions of the composite model. For more information, see <LINK>.</p>
+   * <p>The property definitions of the composite model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html#inline-composite-models">
+   *         Inline custom composite models</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>You can specify up to 200 properties per composite model. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
@@ -652,7 +675,7 @@ export interface UpdateGatewayRequest {
   gatewayId: string | undefined;
 
   /**
-   * <p>A unique, friendly name for the gateway.</p>
+   * <p>A unique name for the gateway.</p>
    * @public
    */
   gatewayName: string | undefined;
@@ -868,7 +891,8 @@ export interface UpdateProjectResponse {}
  */
 export interface Datum {
   /**
-   * <p>Indicates if the data point is a scalar value such as integer, string, double, or Boolean. </p>
+   * <p>Indicates if the data point is a scalar value such as integer, string, double, or Boolean.
+   *     </p>
    * @public
    */
   scalarValue?: string;

@@ -51,6 +51,10 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
+ * @throws {@link ConflictingOperationException} (client fault)
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
  *

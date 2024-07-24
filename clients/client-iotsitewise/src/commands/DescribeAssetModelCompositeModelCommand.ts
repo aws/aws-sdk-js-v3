@@ -33,7 +33,9 @@ export interface DescribeAssetModelCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an asset model composite model (also known as an asset model component). For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * <p>Retrieves information about an asset model composite model (also known as an asset model
+ *       component). For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models
+ *         (Components)</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

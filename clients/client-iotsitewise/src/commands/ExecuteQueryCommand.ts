@@ -29,7 +29,8 @@ export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Run SQL queries to retrieve metadata and time-series data from asset models, assets, measurements, metrics, transforms, and aggregates.</p>
+ * <p>Run SQL queries to retrieve metadata and time-series data from asset models, assets,
+ *       measurements, metrics, transforms, and aggregates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

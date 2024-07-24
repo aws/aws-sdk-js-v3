@@ -34,10 +34,10 @@ export interface DeleteAssetModelCompositeModelCommandOutput
 
 /**
  * <p>Deletes a composite model. This action can't be undone. You must delete all assets created
- *       from a  composite model before you can delete the model. Also, you can't delete a composite model if
- *       a parent asset model exists that contains a property formula expression that depends on the
- *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
- *       <i>IoT SiteWise User Guide</i>.</p>
+ *       from a composite model before you can delete the model. Also, you can't delete a composite
+ *       model if a parent asset model exists that contains a property formula expression that depends
+ *       on the asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
+ *         models</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

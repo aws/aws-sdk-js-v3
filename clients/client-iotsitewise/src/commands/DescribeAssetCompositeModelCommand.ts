@@ -33,8 +33,10 @@ export interface DescribeAssetCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an asset composite model (also known as an asset component).  An <code>AssetCompositeModel</code> is an instance of an <code>AssetModelCompositeModel</code>. If you want to see information about the model this is based on, call
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html">DescribeAssetModelCompositeModel</a>.</p>
+ * <p>Retrieves information about an asset composite model (also known as an asset component).
+ *       An <code>AssetCompositeModel</code> is an instance of an
+ *       <code>AssetModelCompositeModel</code>. If you want to see information about the model this is
+ *       based on, call <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html">DescribeAssetModelCompositeModel</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
