@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TranslateHttpAuthSchem
       name: "translate",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TranslateClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TranslateClientConfig>, context) => ({
       /**
        * @internal
        */

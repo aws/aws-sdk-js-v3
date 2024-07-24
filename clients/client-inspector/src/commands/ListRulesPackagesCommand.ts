@@ -70,28 +70,6 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example List rules packages
- * ```javascript
- * // Lists all available Amazon Inspector rules packages.
- * const input = {
- *   "maxResults": 123
- * };
- * const command = new ListRulesPackagesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "nextToken": "1",
- *   "rulesPackageArns": [
- *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
- *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
- *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
- *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"
- *   ]
- * }
- * *\/
- * // example id: list-rules-packages-1481066954883
- * ```
- *
  */
 export class ListRulesPackagesCommand extends $Command
   .classBuilder<

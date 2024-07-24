@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudTrailHttpAuthSche
       name: "cloudtrail",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudTrailClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudTrailClientConfig>, context) => ({
       /**
        * @internal
        */

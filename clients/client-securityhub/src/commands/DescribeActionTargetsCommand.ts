@@ -80,30 +80,6 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @example To return custom action targets
- * ```javascript
- * // The following example returns a list of custom action targets. You use custom actions on findings and insights in Security Hub to trigger target actions in Amazon CloudWatch Events.
- * const input = {
- *   "ActionTargetArns": [
- *     "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
- *   ]
- * };
- * const command = new DescribeActionTargetsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ActionTargets": [
- *     {
- *       "ActionTargetArn": "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation",
- *       "Description": "Action to send the finding for remediation tracking",
- *       "Name": "Send to remediation"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-return-custom-action-targets-1675883682038
- * ```
- *
  */
 export class DescribeActionTargetsCommand extends $Command
   .classBuilder<

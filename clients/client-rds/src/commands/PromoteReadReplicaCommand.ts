@@ -305,27 +305,6 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To promote a read replica
- * ```javascript
- * // The following example promotes the specified read replica to become a standalone DB instance.
- * const input = {
- *   "DBInstanceIdentifier": "test-instance-repl"
- * };
- * const command = new PromoteReadReplicaCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBInstance": {
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
- *     "DBInstanceStatus": "modifying",
- *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance",
- *     "StorageType": "standard"
- *   }
- * }
- * *\/
- * // example id: to-promote-a-read-replica-1680263877808
- * ```
- *
  */
 export class PromoteReadReplicaCommand extends $Command
   .classBuilder<

@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "refactor-spaces",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MigrationHubRefactorSpacesClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MigrationHubRefactorSpacesClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MediaConvertHttpAuthSc
       name: "mediaconvert",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MediaConvertClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MediaConvertClientConfig>, context) => ({
       /**
        * @internal
        */

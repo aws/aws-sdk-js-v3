@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AppFabricHttpAuthSchem
       name: "appfabric",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AppFabricClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AppFabricClientConfig>, context) => ({
       /**
        * @internal
        */

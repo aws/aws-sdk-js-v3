@@ -82,17 +82,6 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To delete bucket replication configuration
- * ```javascript
- * // The following example deletes replication configuration set on bucket.
- * const input = {
- *   "Bucket": "example"
- * };
- * const command = new DeleteBucketReplicationCommand(input);
- * await client.send(command);
- * // example id: to-delete-bucket-replication-configuration-1483043684668
- * ```
- *
  */
 export class DeleteBucketReplicationCommand extends $Command
   .classBuilder<

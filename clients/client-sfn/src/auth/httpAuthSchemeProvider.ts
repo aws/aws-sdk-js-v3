@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SFNHttpAuthSchemeParam
       name: "states",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SFNClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SFNClientConfig>, context) => ({
       /**
        * @internal
        */

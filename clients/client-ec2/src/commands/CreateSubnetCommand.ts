@@ -134,30 +134,6 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To create a subnet
- * ```javascript
- * // This example creates a subnet in the specified VPC with the specified CIDR block. We recommend that you let us select an Availability Zone for you.
- * const input = {
- *   "CidrBlock": "10.0.1.0/24",
- *   "VpcId": "vpc-a01106c2"
- * };
- * const command = new CreateSubnetCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Subnet": {
- *     "AvailabilityZone": "us-west-2c",
- *     "AvailableIpAddressCount": 251,
- *     "CidrBlock": "10.0.1.0/24",
- *     "State": "pending",
- *     "SubnetId": "subnet-9d4a7b6c",
- *     "VpcId": "vpc-a01106c2"
- *   }
- * }
- * *\/
- * // example id: ec2-create-subnet-1
- * ```
- *
  */
 export class CreateSubnetCommand extends $Command
   .classBuilder<

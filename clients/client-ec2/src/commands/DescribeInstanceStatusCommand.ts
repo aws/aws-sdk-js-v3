@@ -144,51 +144,6 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe the status of an instance
- * ```javascript
- * // This example describes the current status of the specified instance.
- * const input = {
- *   "InstanceIds": [
- *     "i-1234567890abcdef0"
- *   ]
- * };
- * const command = new DescribeInstanceStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "InstanceStatuses": [
- *     {
- *       "AvailabilityZone": "us-east-1d",
- *       "InstanceId": "i-1234567890abcdef0",
- *       "InstanceState": {
- *         "Code": 16,
- *         "Name": "running"
- *       },
- *       "InstanceStatus": {
- *         "Details": [
- *           {
- *             "Name": "reachability",
- *             "Status": "passed"
- *           }
- *         ],
- *         "Status": "ok"
- *       },
- *       "SystemStatus": {
- *         "Details": [
- *           {
- *             "Name": "reachability",
- *             "Status": "passed"
- *           }
- *         ],
- *         "Status": "ok"
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-the-status-of-an-instance-1529025696830
- * ```
- *
  */
 export class DescribeInstanceStatusCommand extends $Command
   .classBuilder<

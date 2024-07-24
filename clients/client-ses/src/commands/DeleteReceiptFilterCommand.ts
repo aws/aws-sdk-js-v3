@@ -57,17 +57,6 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example DeleteReceiptFilter
- * ```javascript
- * // The following example deletes an IP address filter:
- * const input = {
- *   "FilterName": "MyFilter"
- * };
- * const command = new DeleteReceiptFilterCommand(input);
- * await client.send(command);
- * // example id: deletereceiptfilter-1469055456835
- * ```
- *
  */
 export class DeleteReceiptFilterCommand extends $Command
   .classBuilder<

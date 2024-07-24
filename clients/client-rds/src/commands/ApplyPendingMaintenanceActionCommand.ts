@@ -84,34 +84,6 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To apply pending maintenance actions
- * ```javascript
- * // The following example applies the pending maintenance actions for a DB cluster.
- * const input = {
- *   "ApplyAction": "system-update",
- *   "OptInType": "immediate",
- *   "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster:my-db-cluster"
- * };
- * const command = new ApplyPendingMaintenanceActionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ResourcePendingMaintenanceActions": {
- *     "PendingMaintenanceActionDetails": [
- *       {
- *         "Action": "system-update",
- *         "CurrentApplyDate": "2021-01-23T01:07:36.100Z",
- *         "Description": "Upgrade to Aurora PostgreSQL 3.3.2",
- *         "OptInStatus": "immediate"
- *       }
- *     ],
- *     "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster:my-db-cluster"
- *   }
- * }
- * *\/
- * // example id: to-apply-pending-maintenance-actions-1679692228896
- * ```
- *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command
   .classBuilder<

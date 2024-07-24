@@ -86,29 +86,6 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @public
- * @example UpdateEnvironmentMembership
- * ```javascript
- * //
- * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *   "permissions": "read-only",
- *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
- * };
- * const command = new UpdateEnvironmentMembershipCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "membership": {
- *     "environmentId": "8d9967e2f0624182b74e7690ad69eb31",
- *     "permissions": "read-only",
- *     "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
- *     "userId": "AIDAJ3BA6O2FMJWCWXHEX"
- *   }
- * }
- * *\/
- * // example id: updateenvironmentmembership-1516823876645
- * ```
- *
  */
 export class UpdateEnvironmentMembershipCommand extends $Command
   .classBuilder<

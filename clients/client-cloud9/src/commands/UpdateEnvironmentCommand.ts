@@ -82,19 +82,6 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @public
- * @example UpdateEnvironment
- * ```javascript
- * //
- * const input = {
- *   "name": "my-changed-demo-environment",
- *   "description": "This is my changed demonstration environment.",
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
- * };
- * const command = new UpdateEnvironmentCommand(input);
- * await client.send(command);
- * // example id: updateenvironment-1516823781910
- * ```
- *
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<

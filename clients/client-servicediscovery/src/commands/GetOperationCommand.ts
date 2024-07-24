@@ -78,31 +78,6 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
- * @example Example: Get operation result
- * ```javascript
- * // Example: Get operation result
- * const input = {
- *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
- * };
- * const command = new GetOperationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Operation": {
- *     "CreateDate": 1587055860.121,
- *     "Id": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd",
- *     "Status": "SUCCESS",
- *     "Targets": {
- *       "NAMESPACE": "ns-ylexjili4cdxy3xm"
- *     },
- *     "Type": "CREATE_NAMESPACE",
- *     "UpdateDate": 1587055900.469
- *   }
- * }
- * *\/
- * // example id: example-get-operation-result-1587073807124
- * ```
- *
  */
 export class GetOperationCommand extends $Command
   .classBuilder<

@@ -63,18 +63,6 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @public
- * @example To delete a draft configuration
- * ```javascript
- * // The following operation deletes a draft configuration for an environment named my-env:
- * const input = {
- *   "ApplicationName": "my-app",
- *   "EnvironmentName": "my-env"
- * };
- * const command = new DeleteEnvironmentConfigurationCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-draft-configuration-1456269886654
- * ```
- *
  */
 export class DeleteEnvironmentConfigurationCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: OrganizationsHttpAuthS
       name: "organizations",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OrganizationsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OrganizationsClientConfig>, context) => ({
       /**
        * @internal
        */

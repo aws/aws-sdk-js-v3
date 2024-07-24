@@ -85,31 +85,6 @@ export interface StartTransformerJobCommandOutput extends StartTransformerJobRes
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
- * @example Sample StartTransformerJob call
- * ```javascript
- * //
- * const input = {
- *   "clientToken": "foo",
- *   "inputFile": {
- *     "key": "input/inputFile.txt",
- *     "bucketName": "test-bucket"
- *   },
- *   "outputLocation": {
- *     "key": "output/",
- *     "bucketName": "test-bucket"
- *   },
- *   "transformerId": "tr-974c129999f84d8c9"
- * };
- * const command = new StartTransformerJobCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "transformerJobId": "tj-vpYxfV7yQOqjMSYllEslLw"
- * }
- * *\/
- * // example id: example-1
- * ```
- *
  */
 export class StartTransformerJobCommand extends $Command
   .classBuilder<

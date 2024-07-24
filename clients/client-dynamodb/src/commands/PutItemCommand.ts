@@ -252,37 +252,6 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @public
- * @example To add an item to a table
- * ```javascript
- * // This example adds a new item to the Music table.
- * const input = {
- *   "Item": {
- *     "AlbumTitle": {
- *       "S": "Somewhat Famous"
- *     },
- *     "Artist": {
- *       "S": "No One You Know"
- *     },
- *     "SongTitle": {
- *       "S": "Call Me Today"
- *     }
- *   },
- *   "ReturnConsumedCapacity": "TOTAL",
- *   "TableName": "Music"
- * };
- * const command = new PutItemCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ConsumedCapacity": {
- *     "CapacityUnits": 1,
- *     "TableName": "Music"
- *   }
- * }
- * *\/
- * // example id: to-add-an-item-to-a-table-1476116191110
- * ```
- *
  */
 export class PutItemCommand extends $Command
   .classBuilder<

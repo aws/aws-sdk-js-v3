@@ -57,17 +57,6 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To disassociate an Elastic IP address
- * ```javascript
- * // This example disassociates an Elastic IP address from an instance.
- * const input = {
- *   "AssociationId": "eipassoc-2bebb745"
- * };
- * const command = new DisassociateAddressCommand(input);
- * await client.send(command);
- * // example id: ec2-disassociate-address-1
- * ```
- *
  */
 export class DisassociateAddressCommand extends $Command
   .classBuilder<

@@ -81,22 +81,6 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @public
- * @example To get information about a device pool
- * ```javascript
- * // The following example returns information about a specific device pool, given a project ARN.
- * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
- * };
- * const command = new GetDevicePoolCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "devicePool": {}
- * }
- * *\/
- * // example id: getdevicepool-example-1470870873136
- * ```
- *
  */
 export class GetDevicePoolCommand extends $Command
   .classBuilder<

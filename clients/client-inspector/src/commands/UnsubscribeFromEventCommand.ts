@@ -74,19 +74,6 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example Unsubscribe from event
- * ```javascript
- * // Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
- * const input = {
- *   "event": "ASSESSMENT_RUN_COMPLETED",
- *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
- *   "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
- * };
- * const command = new UnsubscribeFromEventCommand(input);
- * await client.send(command);
- * // example id: unsubscribe-from-event-1481067781705
- * ```
- *
  */
 export class UnsubscribeFromEventCommand extends $Command
   .classBuilder<

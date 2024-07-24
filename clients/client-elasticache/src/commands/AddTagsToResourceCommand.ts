@@ -132,41 +132,6 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @public
- * @example AddTagsToResource
- * ```javascript
- * // Adds up to 10 tags, key/value pairs, to a cluster or snapshot resource.
- * const input = {
- *   "ResourceName": "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
- *   "Tags": [
- *     {
- *       "Key": "APIVersion",
- *       "Value": "20150202"
- *     },
- *     {
- *       "Key": "Service",
- *       "Value": "ElastiCache"
- *     }
- *   ]
- * };
- * const command = new AddTagsToResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagList": [
- *     {
- *       "Key": "APIVersion",
- *       "Value": "20150202"
- *     },
- *     {
- *       "Key": "Service",
- *       "Value": "ElastiCache"
- *     }
- *   ]
- * }
- * *\/
- * // example id: addtagstoresource-1482430264385
- * ```
- *
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<

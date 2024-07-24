@@ -90,23 +90,6 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  * @public
- * @example To delete a backup
- * ```javascript
- * // This operation deletes an Amazon FSx file system backup.
- * const input = {
- *   "BackupId": "backup-03e3c82e0183b7b6b"
- * };
- * const command = new DeleteBackupCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "BackupId": "backup-03e3c82e0183b7b6b",
- *   "Lifecycle": "DELETED"
- * }
- * *\/
- * // example id: to-delete-a-file-system-1481847318399
- * ```
- *
  */
 export class DeleteBackupCommand extends $Command
   .classBuilder<

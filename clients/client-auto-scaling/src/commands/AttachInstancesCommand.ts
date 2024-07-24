@@ -73,20 +73,6 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To attach an instance to an Auto Scaling group
- * ```javascript
- * // This example attaches the specified instance to the specified Auto Scaling group.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
- *     "i-93633f9b"
- *   ]
- * };
- * const command = new AttachInstancesCommand(input);
- * await client.send(command);
- * // example id: autoscaling-attach-instances-1
- * ```
- *
  */
 export class AttachInstancesCommand extends $Command
   .classBuilder<

@@ -87,36 +87,6 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
- * @example Sample GetTransformer call
- * ```javascript
- * //
- * const input = {
- *   "transformerId": "tr-974c129999f84d8c9"
- * };
- * const command = new GetTransformerCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "name": "transformJSON",
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "ediType": {
- *     "x12Details": {
- *       "version": "VERSION_4010",
- *       "transactionSet": "X12_110"
- *     }
- *   },
- *   "fileFormat": "JSON",
- *   "mappingTemplate": "$",
- *   "modifiedAt": "2023-11-01T21:51:05.504Z",
- *   "sampleDocument": "s3://test-bucket/sampleDoc.txt",
- *   "status": "inactive",
- *   "transformerArn": "arn:aws:b2bi:us-west-2:123456789012:transformer/tr-974c129999f84d8c9",
- *   "transformerId": "tr-974c129999f84d8c9"
- * }
- * *\/
- * // example id: example-1
- * ```
- *
  */
 export class GetTransformerCommand extends $Command
   .classBuilder<

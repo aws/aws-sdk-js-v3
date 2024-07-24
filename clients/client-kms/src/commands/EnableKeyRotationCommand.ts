@@ -162,18 +162,6 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @public
- * @example To enable automatic rotation of key material
- * ```javascript
- * // The following example enables automatic rotation with a rotation period of 365 days for the specified KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "RotationPeriodInDays": 365
- * };
- * const command = new EnableKeyRotationCommand(input);
- * await client.send(command);
- * // example id: to-enable-automatic-rotation-of-key-material-1712499675853
- * ```
- *
  */
 export class EnableKeyRotationCommand extends $Command
   .classBuilder<

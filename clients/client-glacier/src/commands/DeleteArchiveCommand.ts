@@ -95,19 +95,6 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To delete an archive
- * ```javascript
- * // The example deletes the archive specified by the archive ID.
- * const input = {
- *   "accountId": "-",
- *   "archiveId": "NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId",
- *   "vaultName": "examplevault"
- * };
- * const command = new DeleteArchiveCommand(input);
- * await client.send(command);
- * // example id: delete-archive-1481667809463
- * ```
- *
  */
 export class DeleteArchiveCommand extends $Command
   .classBuilder<

@@ -67,24 +67,6 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To list the tags of an application
- * ```javascript
- * // The following list-tags-for-resource example lists the tags of a specified application.
- * const input = {
- *   "ResourceArn": "arn:aws:appconfig:us-east-1:111122223333:application/339ohji"
- * };
- * const command = new ListTagsForResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Tags": {
- *     "group1": "1"
- *   }
- * }
- * *\/
- * // example id: to-list-the-tags-of-an-application-1632328796560
- * ```
- *
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WorkLinkHttpAuthScheme
       name: "worklink",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WorkLinkClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WorkLinkClientConfig>, context) => ({
       /**
        * @internal
        */

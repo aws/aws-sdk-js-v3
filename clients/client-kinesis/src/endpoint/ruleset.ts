@@ -1,54 +1,1850 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/kinesis.json */
-
-const H="required",
-I="type",
-J="rules",
-K="conditions",
-L="fn",
-M="argv",
-N="ref",
-O="assign",
-P="url",
-Q="properties",
-R="headers";
-const a=true,
-b="isSet",
-c="stringEquals",
-d="aws.parseArn",
-e="arn",
-f="booleanEquals",
-g="endpoint",
-h="tree",
-i="error",
-j={[H]:false,[I]:"String"},
-k={[H]:true,"default":false,[I]:"Boolean"},
-l={[L]:"not",[M]:[{[L]:b,[M]:[{[N]:"Endpoint"}]}]},
-m={[N]:"Endpoint"},
-n={[L]:b,[M]:[{[N]:"Region"}]},
-o={[L]:"aws.partition",[M]:[{[N]:"Region"}],[O]:"PartitionResult"},
-p={[L]:"not",[M]:[{[L]:c,[M]:[{[L]:"getAttr",[M]:[{[N]:"PartitionResult"},"name"]},"aws-iso"]}]},
-q={[L]:"getAttr",[M]:[{[N]:"PartitionResult"},"name"]},
-r={[L]:"not",[M]:[{[L]:c,[M]:[q,"aws-iso-b"]}]},
-s={[L]:"getAttr",[M]:[{[N]:"PartitionResult"},"supportsFIPS"]},
-t={},
-u={[i]:"FIPS is enabled but this partition does not support FIPS",[I]:i},
-v={[i]:"DualStack is enabled but this partition does not support DualStack",[I]:i},
-w={[i]:"Invalid ARN: Failed to parse ARN.",[I]:i},
-x={[L]:f,[M]:[true,{[L]:"getAttr",[M]:[{[N]:"PartitionResult"},"supportsDualStack"]}]},
-y=[{[N]:"StreamARN"}],
-z=[{[L]:b,[M]:[m]}],
-A=[{[K]:[{[L]:"isValidHostLabel",[M]:[{[L]:"getAttr",[M]:[{[N]:e},"accountId"]},false]}],[J]:[{[K]:[{[L]:"isValidHostLabel",[M]:[{[L]:"getAttr",[M]:[{[N]:e},"region"]},false]}],[J]:[{[K]:[{[L]:c,[M]:[{[L]:"getAttr",[M]:[{[N]:e},"service"]},"kinesis"]}],[J]:[{[K]:[{[L]:"getAttr",[M]:[{[N]:e},"resourceId[0]"],[O]:"arnType"},{[L]:"not",[M]:[{[L]:c,[M]:[{[N]:"arnType"},""]}]}],[J]:[{[K]:[{[L]:c,[M]:[{[N]:"arnType"},"stream"]}],[J]:[{[K]:[{[L]:c,[M]:[q,"{arn#partition}"]}],[J]:[{[K]:[{[L]:b,[M]:[{[N]:"OperationType"}]}],[J]:[{[K]:[{[L]:f,[M]:[{[N]:"UseFIPS"},true]},{[L]:f,[M]:[{[N]:"UseDualStack"},true]}],[J]:[{[K]:[{[L]:f,[M]:[s,true]}],[J]:[{[K]:[{[L]:f,[M]:[{[L]:"getAttr",[M]:[{[N]:"PartitionResult"},"supportsDualStack"]},true]}],[J]:[{[g]:{[P]:"https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",[Q]:{},[R]:{}},[I]:g}],[I]:h},{[i]:"DualStack is enabled, but this partition does not support DualStack.",[I]:i}],[I]:h},{[i]:"FIPS is enabled, but this partition does not support FIPS.",[I]:i}],[I]:h},{[K]:[{[L]:f,[M]:[{[N]:"UseFIPS"},true]}],[J]:[{[K]:[{[L]:f,[M]:[s,true]}],[J]:[{[g]:{[P]:"https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",[Q]:{},[R]:{}},[I]:g}],[I]:h},u],[I]:h},{[K]:[{[L]:f,[M]:[{[N]:"UseDualStack"},true]}],[J]:[{[K]:[{[L]:f,[M]:[{[L]:"getAttr",[M]:[{[N]:"PartitionResult"},"supportsDualStack"]},true]}],[J]:[{[g]:{[P]:"https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",[Q]:{},[R]:{}},[I]:g}],[I]:h},v],[I]:h},{[g]:{[P]:"https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dnsSuffix}",[Q]:{},[R]:{}},[I]:g}],[I]:h},{[i]:"Operation Type is not set. Please contact service team for resolution.",[I]:i}],[I]:h},{[i]:"Partition: {arn#partition} from ARN doesn't match with partition name: {PartitionResult#name}.",[I]:i}],[I]:h},{[i]:"Invalid ARN: Kinesis ARNs don't support `{arnType}` arn types.",[I]:i}],[I]:h},{[i]:"Invalid ARN: No ARN type specified",[I]:i}],[I]:h},{[i]:"Invalid ARN: The ARN was not for the Kinesis service, found: {arn#service}.",[I]:i}],[I]:h},{[i]:"Invalid ARN: Invalid region.",[I]:i}],[I]:h},{[i]:"Invalid ARN: Invalid account id.",[I]:i}],
-B=[{[L]:f,[M]:[{[N]:"UseFIPS"},true]},{[L]:f,[M]:[{[N]:"UseDualStack"},true]}],
-C=[{[L]:f,[M]:[s,true]}],
-D=[{[L]:f,[M]:[{[N]:"UseFIPS"},true]}],
-E=[{[L]:f,[M]:[{[N]:"UseDualStack"},true]}],
-F=[{[N]:"ConsumerARN"}],
-G=[{[N]:"ResourceARN"}];
-const _data={version:"1.0",parameters:{Region:j,UseDualStack:k,UseFIPS:k,Endpoint:j,StreamARN:j,OperationType:j,ConsumerARN:j,ResourceARN:j},[J]:[{[K]:[{[L]:b,[M]:y},l,n,o,p,r],[J]:[{[K]:[{[L]:d,[M]:y,[O]:e}],[J]:A,[I]:h},w],[I]:h},{[K]:[{[L]:b,[M]:F},l,n,o,p,r],[J]:[{[K]:[{[L]:d,[M]:F,[O]:e}],[J]:A,[I]:h},w],[I]:h},{[K]:[{[L]:b,[M]:G},l,n,o,p,r],[J]:[{[K]:[{[L]:d,[M]:G,[O]:e}],[J]:A,[I]:h},w],[I]:h},{[K]:z,[J]:[{[K]:D,error:"Invalid Configuration: FIPS and custom endpoint are not supported",[I]:i},{[K]:E,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",[I]:i},{endpoint:{[P]:m,[Q]:t,[R]:t},[I]:g}],[I]:h},{[K]:[n],[J]:[{[K]:[o],[J]:[{[K]:B,[J]:[{[K]:[{[L]:f,[M]:[a,s]},x],[J]:[{endpoint:{[P]:"https://kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",[Q]:t,[R]:t},[I]:g}],[I]:h},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",[I]:i}],[I]:h},{[K]:D,[J]:[{[K]:C,[J]:[{[K]:[{[L]:c,[M]:[q,"aws-us-gov"]}],endpoint:{[P]:"https://kinesis.{Region}.amazonaws.com",[Q]:t,[R]:t},[I]:g},{endpoint:{[P]:"https://kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",[Q]:t,[R]:t},[I]:g}],[I]:h},u],[I]:h},{[K]:E,[J]:[{[K]:[x],[J]:[{endpoint:{[P]:"https://kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",[Q]:t,[R]:t},[I]:g}],[I]:h},v],[I]:h},{endpoint:{[P]:"https://kinesis.{Region}.{PartitionResult#dnsSuffix}",[Q]:t,[R]:t},[I]:g}],[I]:h}],[I]:h},{error:"Invalid Configuration: Missing Region",[I]:i}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+    UseDualStack: {
+      builtIn: "AWS::UseDualStack",
+      required: true,
+      default: false,
+      documentation:
+        "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+      type: "Boolean",
+    },
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+    StreamARN: {
+      required: false,
+      documentation: "The ARN of the Kinesis stream",
+      type: "String",
+    },
+    OperationType: {
+      required: false,
+      documentation:
+        "Internal parameter to distinguish between Control/Data plane API and accordingly generate control/data plane endpoint",
+      type: "String",
+    },
+    ConsumerARN: {
+      required: false,
+      documentation: "The ARN of the Kinesis consumer",
+      type: "String",
+    },
+    ResourceARN: {
+      required: false,
+      documentation: "The ARN of the Kinesis resource",
+      type: "String",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "StreamARN",
+            },
+          ],
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "Endpoint",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+        {
+          fn: "aws.partition",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+          assign: "PartitionResult",
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "stringEquals",
+              argv: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "PartitionResult",
+                    },
+                    "name",
+                  ],
+                },
+                "aws-iso",
+              ],
+            },
+          ],
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "stringEquals",
+              argv: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "PartitionResult",
+                    },
+                    "name",
+                  ],
+                },
+                "aws-iso-b",
+              ],
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.parseArn",
+              argv: [
+                {
+                  ref: "StreamARN",
+                },
+              ],
+              assign: "arn",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "isValidHostLabel",
+                  argv: [
+                    {
+                      fn: "getAttr",
+                      argv: [
+                        {
+                          ref: "arn",
+                        },
+                        "accountId",
+                      ],
+                    },
+                    false,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "isValidHostLabel",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "arn",
+                            },
+                            "region",
+                          ],
+                        },
+                        false,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "arn",
+                                },
+                                "service",
+                              ],
+                            },
+                            "kinesis",
+                          ],
+                        },
+                      ],
+                      rules: [
+                        {
+                          conditions: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "arn",
+                                },
+                                "resourceId[0]",
+                              ],
+                              assign: "arnType",
+                            },
+                            {
+                              fn: "not",
+                              argv: [
+                                {
+                                  fn: "stringEquals",
+                                  argv: [
+                                    {
+                                      ref: "arnType",
+                                    },
+                                    "",
+                                  ],
+                                },
+                              ],
+                            },
+                          ],
+                          rules: [
+                            {
+                              conditions: [
+                                {
+                                  fn: "stringEquals",
+                                  argv: [
+                                    {
+                                      ref: "arnType",
+                                    },
+                                    "stream",
+                                  ],
+                                },
+                              ],
+                              rules: [
+                                {
+                                  conditions: [
+                                    {
+                                      fn: "stringEquals",
+                                      argv: [
+                                        {
+                                          fn: "getAttr",
+                                          argv: [
+                                            {
+                                              ref: "PartitionResult",
+                                            },
+                                            "name",
+                                          ],
+                                        },
+                                        "{arn#partition}",
+                                      ],
+                                    },
+                                  ],
+                                  rules: [
+                                    {
+                                      conditions: [
+                                        {
+                                          fn: "isSet",
+                                          argv: [
+                                            {
+                                              ref: "OperationType",
+                                            },
+                                          ],
+                                        },
+                                      ],
+                                      rules: [
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseFIPS",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseDualStack",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsFIPS",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [
+                                                    {
+                                                      fn: "booleanEquals",
+                                                      argv: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "PartitionResult",
+                                                            },
+                                                            "supportsDualStack",
+                                                          ],
+                                                        },
+                                                        true,
+                                                      ],
+                                                    },
+                                                  ],
+                                                  rules: [
+                                                    {
+                                                      conditions: [],
+                                                      endpoint: {
+                                                        url: "https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                        properties: {},
+                                                        headers: {},
+                                                      },
+                                                      type: "endpoint",
+                                                    },
+                                                  ],
+                                                  type: "tree",
+                                                },
+                                                {
+                                                  conditions: [],
+                                                  error:
+                                                    "DualStack is enabled, but this partition does not support DualStack.",
+                                                  type: "error",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "FIPS is enabled, but this partition does not support FIPS.",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseFIPS",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsFIPS",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [],
+                                                  endpoint: {
+                                                    url: "https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                    properties: {},
+                                                    headers: {},
+                                                  },
+                                                  type: "endpoint",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "FIPS is enabled but this partition does not support FIPS",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseDualStack",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsDualStack",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [],
+                                                  endpoint: {
+                                                    url: "https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                    properties: {},
+                                                    headers: {},
+                                                  },
+                                                  type: "endpoint",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error:
+                                                "DualStack is enabled but this partition does not support DualStack",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [],
+                                          endpoint: {
+                                            url: "https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dnsSuffix}",
+                                            properties: {},
+                                            headers: {},
+                                          },
+                                          type: "endpoint",
+                                        },
+                                      ],
+                                      type: "tree",
+                                    },
+                                    {
+                                      conditions: [],
+                                      error: "Operation Type is not set. Please contact service team for resolution.",
+                                      type: "error",
+                                    },
+                                  ],
+                                  type: "tree",
+                                },
+                                {
+                                  conditions: [],
+                                  error:
+                                    "Partition: {arn#partition} from ARN doesn't match with partition name: {PartitionResult#name}.",
+                                  type: "error",
+                                },
+                              ],
+                              type: "tree",
+                            },
+                            {
+                              conditions: [],
+                              error: "Invalid ARN: Kinesis ARNs don't support `{arnType}` arn types.",
+                              type: "error",
+                            },
+                          ],
+                          type: "tree",
+                        },
+                        {
+                          conditions: [],
+                          error: "Invalid ARN: No ARN type specified",
+                          type: "error",
+                        },
+                      ],
+                      type: "tree",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid ARN: The ARN was not for the Kinesis service, found: {arn#service}.",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "Invalid ARN: Invalid region.",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              error: "Invalid ARN: Invalid account id.",
+              type: "error",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [],
+          error: "Invalid ARN: Failed to parse ARN.",
+          type: "error",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "ConsumerARN",
+            },
+          ],
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "Endpoint",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+        {
+          fn: "aws.partition",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+          assign: "PartitionResult",
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "stringEquals",
+              argv: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "PartitionResult",
+                    },
+                    "name",
+                  ],
+                },
+                "aws-iso",
+              ],
+            },
+          ],
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "stringEquals",
+              argv: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "PartitionResult",
+                    },
+                    "name",
+                  ],
+                },
+                "aws-iso-b",
+              ],
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.parseArn",
+              argv: [
+                {
+                  ref: "ConsumerARN",
+                },
+              ],
+              assign: "arn",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "isValidHostLabel",
+                  argv: [
+                    {
+                      fn: "getAttr",
+                      argv: [
+                        {
+                          ref: "arn",
+                        },
+                        "accountId",
+                      ],
+                    },
+                    false,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "isValidHostLabel",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "arn",
+                            },
+                            "region",
+                          ],
+                        },
+                        false,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "arn",
+                                },
+                                "service",
+                              ],
+                            },
+                            "kinesis",
+                          ],
+                        },
+                      ],
+                      rules: [
+                        {
+                          conditions: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "arn",
+                                },
+                                "resourceId[0]",
+                              ],
+                              assign: "arnType",
+                            },
+                            {
+                              fn: "not",
+                              argv: [
+                                {
+                                  fn: "stringEquals",
+                                  argv: [
+                                    {
+                                      ref: "arnType",
+                                    },
+                                    "",
+                                  ],
+                                },
+                              ],
+                            },
+                          ],
+                          rules: [
+                            {
+                              conditions: [
+                                {
+                                  fn: "stringEquals",
+                                  argv: [
+                                    {
+                                      ref: "arnType",
+                                    },
+                                    "stream",
+                                  ],
+                                },
+                              ],
+                              rules: [
+                                {
+                                  conditions: [
+                                    {
+                                      fn: "stringEquals",
+                                      argv: [
+                                        {
+                                          fn: "getAttr",
+                                          argv: [
+                                            {
+                                              ref: "PartitionResult",
+                                            },
+                                            "name",
+                                          ],
+                                        },
+                                        "{arn#partition}",
+                                      ],
+                                    },
+                                  ],
+                                  rules: [
+                                    {
+                                      conditions: [
+                                        {
+                                          fn: "isSet",
+                                          argv: [
+                                            {
+                                              ref: "OperationType",
+                                            },
+                                          ],
+                                        },
+                                      ],
+                                      rules: [
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseFIPS",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseDualStack",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsFIPS",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [
+                                                    {
+                                                      fn: "booleanEquals",
+                                                      argv: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "PartitionResult",
+                                                            },
+                                                            "supportsDualStack",
+                                                          ],
+                                                        },
+                                                        true,
+                                                      ],
+                                                    },
+                                                  ],
+                                                  rules: [
+                                                    {
+                                                      conditions: [],
+                                                      endpoint: {
+                                                        url: "https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                        properties: {},
+                                                        headers: {},
+                                                      },
+                                                      type: "endpoint",
+                                                    },
+                                                  ],
+                                                  type: "tree",
+                                                },
+                                                {
+                                                  conditions: [],
+                                                  error:
+                                                    "DualStack is enabled, but this partition does not support DualStack.",
+                                                  type: "error",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "FIPS is enabled, but this partition does not support FIPS.",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseFIPS",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsFIPS",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [],
+                                                  endpoint: {
+                                                    url: "https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                    properties: {},
+                                                    headers: {},
+                                                  },
+                                                  type: "endpoint",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "FIPS is enabled but this partition does not support FIPS",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseDualStack",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsDualStack",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [],
+                                                  endpoint: {
+                                                    url: "https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                    properties: {},
+                                                    headers: {},
+                                                  },
+                                                  type: "endpoint",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error:
+                                                "DualStack is enabled but this partition does not support DualStack",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [],
+                                          endpoint: {
+                                            url: "https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dnsSuffix}",
+                                            properties: {},
+                                            headers: {},
+                                          },
+                                          type: "endpoint",
+                                        },
+                                      ],
+                                      type: "tree",
+                                    },
+                                    {
+                                      conditions: [],
+                                      error: "Operation Type is not set. Please contact service team for resolution.",
+                                      type: "error",
+                                    },
+                                  ],
+                                  type: "tree",
+                                },
+                                {
+                                  conditions: [],
+                                  error:
+                                    "Partition: {arn#partition} from ARN doesn't match with partition name: {PartitionResult#name}.",
+                                  type: "error",
+                                },
+                              ],
+                              type: "tree",
+                            },
+                            {
+                              conditions: [],
+                              error: "Invalid ARN: Kinesis ARNs don't support `{arnType}` arn types.",
+                              type: "error",
+                            },
+                          ],
+                          type: "tree",
+                        },
+                        {
+                          conditions: [],
+                          error: "Invalid ARN: No ARN type specified",
+                          type: "error",
+                        },
+                      ],
+                      type: "tree",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid ARN: The ARN was not for the Kinesis service, found: {arn#service}.",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "Invalid ARN: Invalid region.",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              error: "Invalid ARN: Invalid account id.",
+              type: "error",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [],
+          error: "Invalid ARN: Failed to parse ARN.",
+          type: "error",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "ResourceARN",
+            },
+          ],
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "Endpoint",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+        {
+          fn: "aws.partition",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+          assign: "PartitionResult",
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "stringEquals",
+              argv: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "PartitionResult",
+                    },
+                    "name",
+                  ],
+                },
+                "aws-iso",
+              ],
+            },
+          ],
+        },
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "stringEquals",
+              argv: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "PartitionResult",
+                    },
+                    "name",
+                  ],
+                },
+                "aws-iso-b",
+              ],
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.parseArn",
+              argv: [
+                {
+                  ref: "ResourceARN",
+                },
+              ],
+              assign: "arn",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "isValidHostLabel",
+                  argv: [
+                    {
+                      fn: "getAttr",
+                      argv: [
+                        {
+                          ref: "arn",
+                        },
+                        "accountId",
+                      ],
+                    },
+                    false,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "isValidHostLabel",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "arn",
+                            },
+                            "region",
+                          ],
+                        },
+                        false,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "arn",
+                                },
+                                "service",
+                              ],
+                            },
+                            "kinesis",
+                          ],
+                        },
+                      ],
+                      rules: [
+                        {
+                          conditions: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "arn",
+                                },
+                                "resourceId[0]",
+                              ],
+                              assign: "arnType",
+                            },
+                            {
+                              fn: "not",
+                              argv: [
+                                {
+                                  fn: "stringEquals",
+                                  argv: [
+                                    {
+                                      ref: "arnType",
+                                    },
+                                    "",
+                                  ],
+                                },
+                              ],
+                            },
+                          ],
+                          rules: [
+                            {
+                              conditions: [
+                                {
+                                  fn: "stringEquals",
+                                  argv: [
+                                    {
+                                      ref: "arnType",
+                                    },
+                                    "stream",
+                                  ],
+                                },
+                              ],
+                              rules: [
+                                {
+                                  conditions: [
+                                    {
+                                      fn: "stringEquals",
+                                      argv: [
+                                        {
+                                          fn: "getAttr",
+                                          argv: [
+                                            {
+                                              ref: "PartitionResult",
+                                            },
+                                            "name",
+                                          ],
+                                        },
+                                        "{arn#partition}",
+                                      ],
+                                    },
+                                  ],
+                                  rules: [
+                                    {
+                                      conditions: [
+                                        {
+                                          fn: "isSet",
+                                          argv: [
+                                            {
+                                              ref: "OperationType",
+                                            },
+                                          ],
+                                        },
+                                      ],
+                                      rules: [
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseFIPS",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseDualStack",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsFIPS",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [
+                                                    {
+                                                      fn: "booleanEquals",
+                                                      argv: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "PartitionResult",
+                                                            },
+                                                            "supportsDualStack",
+                                                          ],
+                                                        },
+                                                        true,
+                                                      ],
+                                                    },
+                                                  ],
+                                                  rules: [
+                                                    {
+                                                      conditions: [],
+                                                      endpoint: {
+                                                        url: "https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                        properties: {},
+                                                        headers: {},
+                                                      },
+                                                      type: "endpoint",
+                                                    },
+                                                  ],
+                                                  type: "tree",
+                                                },
+                                                {
+                                                  conditions: [],
+                                                  error:
+                                                    "DualStack is enabled, but this partition does not support DualStack.",
+                                                  type: "error",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "FIPS is enabled, but this partition does not support FIPS.",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseFIPS",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsFIPS",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [],
+                                                  endpoint: {
+                                                    url: "https://{arn#accountId}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                                    properties: {},
+                                                    headers: {},
+                                                  },
+                                                  type: "endpoint",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "FIPS is enabled but this partition does not support FIPS",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "booleanEquals",
+                                              argv: [
+                                                {
+                                                  ref: "UseDualStack",
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "booleanEquals",
+                                                  argv: [
+                                                    {
+                                                      fn: "getAttr",
+                                                      argv: [
+                                                        {
+                                                          ref: "PartitionResult",
+                                                        },
+                                                        "supportsDualStack",
+                                                      ],
+                                                    },
+                                                    true,
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [],
+                                                  endpoint: {
+                                                    url: "https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                                    properties: {},
+                                                    headers: {},
+                                                  },
+                                                  type: "endpoint",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error:
+                                                "DualStack is enabled but this partition does not support DualStack",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [],
+                                          endpoint: {
+                                            url: "https://{arn#accountId}.{OperationType}-kinesis.{Region}.{PartitionResult#dnsSuffix}",
+                                            properties: {},
+                                            headers: {},
+                                          },
+                                          type: "endpoint",
+                                        },
+                                      ],
+                                      type: "tree",
+                                    },
+                                    {
+                                      conditions: [],
+                                      error: "Operation Type is not set. Please contact service team for resolution.",
+                                      type: "error",
+                                    },
+                                  ],
+                                  type: "tree",
+                                },
+                                {
+                                  conditions: [],
+                                  error:
+                                    "Partition: {arn#partition} from ARN doesn't match with partition name: {PartitionResult#name}.",
+                                  type: "error",
+                                },
+                              ],
+                              type: "tree",
+                            },
+                            {
+                              conditions: [],
+                              error: "Invalid ARN: Kinesis ARNs don't support `{arnType}` arn types.",
+                              type: "error",
+                            },
+                          ],
+                          type: "tree",
+                        },
+                        {
+                          conditions: [],
+                          error: "Invalid ARN: No ARN type specified",
+                          type: "error",
+                        },
+                      ],
+                      type: "tree",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid ARN: The ARN was not for the Kinesis service, found: {arn#service}.",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "Invalid ARN: Invalid region.",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              error: "Invalid ARN: Invalid account id.",
+              type: "error",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [],
+          error: "Invalid ARN: Failed to parse ARN.",
+          type: "error",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Endpoint",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseDualStack",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: Dualstack and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: {
+              ref: "Endpoint",
+            },
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.partition",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+              assign: "PartitionResult",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS and DualStack are enabled, but this partition does not support one or both",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "PartitionResult",
+                                },
+                                "name",
+                              ],
+                            },
+                            "aws-us-gov",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://kinesis.{Region}.amazonaws.com",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS is enabled but this partition does not support FIPS",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "DualStack is enabled but this partition does not support DualStack",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              endpoint: {
+                url: "https://kinesis.{Region}.{PartitionResult#dnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+          ],
+          type: "tree",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [],
+      error: "Invalid Configuration: Missing Region",
+      type: "error",
+    },
+  ],
+};

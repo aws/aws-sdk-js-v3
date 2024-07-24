@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AppflowHttpAuthSchemeP
       name: "appflow",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AppflowClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AppflowClientConfig>, context) => ({
       /**
        * @internal
        */

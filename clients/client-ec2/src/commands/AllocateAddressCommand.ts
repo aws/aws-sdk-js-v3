@@ -90,24 +90,6 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To allocate an Elastic IP address
- * ```javascript
- * // This example allocates an Elastic IP address.
- * const input = {};
- * const command = new AllocateAddressCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AllocationId": "eipalloc-64d5890a",
- *   "Domain": "vpc",
- *   "NetworkBorderGroup": "us-east-1",
- *   "PublicIp": "203.0.113.0",
- *   "PublicIpv4Pool": "amazon"
- * }
- * *\/
- * // example id: ec2-allocate-address-1
- * ```
- *
  */
 export class AllocateAddressCommand extends $Command
   .classBuilder<

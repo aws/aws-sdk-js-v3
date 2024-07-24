@@ -73,27 +73,6 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example ListIdentities
- * ```javascript
- * // The following example lists the email address identities that have been submitted for verification with Amazon SES:
- * const input = {
- *   "IdentityType": "EmailAddress",
- *   "MaxItems": 123,
- *   "NextToken": ""
- * };
- * const command = new ListIdentitiesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Identities": [
- *     "user@example.com"
- *   ],
- *   "NextToken": ""
- * }
- * *\/
- * // example id: listidentities-1469048638493
- * ```
- *
  */
 export class ListIdentitiesCommand extends $Command
   .classBuilder<

@@ -1,37 +1,370 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/billingconductor.json */
-
-const x="required",
-y="fn",
-z="argv",
-A="ref";
-const a=false,
-b=true,
-c="isSet",
-d="booleanEquals",
-e="error",
-f="endpoint",
-g="tree",
-h="PartitionResult",
-i="getAttr",
-j={[x]:false,"type":"String"},
-k={[x]:true,"default":false,"type":"Boolean"},
-l={[A]:"Endpoint"},
-m={[y]:d,[z]:[{[A]:"UseFIPS"},true]},
-n={[A]:"UseFIPS"},
-o={[y]:d,[z]:[{[A]:"UseDualStack"},true]},
-p={[A]:"UseDualStack"},
-q={},
-r={[A]:h},
-s={[y]:i,[z]:[r,"supportsFIPS"]},
-t={[y]:d,[z]:[true,{[y]:i,[z]:[r,"supportsDualStack"]}]},
-u=[m],
-v=[o],
-w=[{[A]:"Region"}];
-const _data={version:"1.0",parameters:{Region:j,UseDualStack:k,UseFIPS:k,Endpoint:j},rules:[{conditions:[{[y]:c,[z]:[l]}],rules:[{conditions:u,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:e},{conditions:v,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:e},{endpoint:{url:l,properties:q,headers:q},type:f}],type:g},{conditions:[{[y]:c,[z]:w}],rules:[{conditions:[{[y]:"aws.partition",[z]:w,assign:h}],rules:[{conditions:[{[y]:"stringEquals",[z]:[{[y]:i,[z]:[r,"name"]},"aws"]},{[y]:d,[z]:[n,a]},{[y]:d,[z]:[p,a]}],endpoint:{url:"https://billingconductor.us-east-1.amazonaws.com",properties:{authSchemes:[{name:"sigv4",signingName:"billingconductor",signingRegion:"us-east-1"}]},headers:q},type:f},{conditions:[m,o],rules:[{conditions:[{[y]:d,[z]:[b,s]},t],rules:[{endpoint:{url:"https://billingconductor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:q,headers:q},type:f}],type:g},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:e}],type:g},{conditions:u,rules:[{conditions:[{[y]:d,[z]:[s,b]}],rules:[{endpoint:{url:"https://billingconductor-fips.{Region}.{PartitionResult#dnsSuffix}",properties:q,headers:q},type:f}],type:g},{error:"FIPS is enabled but this partition does not support FIPS",type:e}],type:g},{conditions:v,rules:[{conditions:[t],rules:[{endpoint:{url:"https://billingconductor.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:q,headers:q},type:f}],type:g},{error:"DualStack is enabled but this partition does not support DualStack",type:e}],type:g},{endpoint:{url:"https://billingconductor.{Region}.{PartitionResult#dnsSuffix}",properties:q,headers:q},type:f}],type:g}],type:g},{error:"Invalid Configuration: Missing Region",type:e}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+    UseDualStack: {
+      builtIn: "AWS::UseDualStack",
+      required: true,
+      default: false,
+      documentation:
+        "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+      type: "Boolean",
+    },
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Endpoint",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseDualStack",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: Dualstack and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: {
+              ref: "Endpoint",
+            },
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.partition",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+              assign: "PartitionResult",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "stringEquals",
+                  argv: [
+                    {
+                      fn: "getAttr",
+                      argv: [
+                        {
+                          ref: "PartitionResult",
+                        },
+                        "name",
+                      ],
+                    },
+                    "aws",
+                  ],
+                },
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    false,
+                  ],
+                },
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    false,
+                  ],
+                },
+              ],
+              endpoint: {
+                url: "https://billingconductor.us-east-1.amazonaws.com",
+                properties: {
+                  authSchemes: [
+                    {
+                      name: "sigv4",
+                      signingName: "billingconductor",
+                      signingRegion: "us-east-1",
+                    },
+                  ],
+                },
+                headers: {},
+              },
+              type: "endpoint",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://billingconductor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS and DualStack are enabled, but this partition does not support one or both",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://billingconductor-fips.{Region}.{PartitionResult#dnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS is enabled but this partition does not support FIPS",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://billingconductor.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "DualStack is enabled but this partition does not support DualStack",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              endpoint: {
+                url: "https://billingconductor.{Region}.{PartitionResult#dnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+          ],
+          type: "tree",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [],
+      error: "Invalid Configuration: Missing Region",
+      type: "error",
+    },
+  ],
+};

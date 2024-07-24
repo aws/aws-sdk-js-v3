@@ -55,17 +55,6 @@ export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a subnet
- * ```javascript
- * // This example deletes the specified subnet.
- * const input = {
- *   "SubnetId": "subnet-9d4a7b6c"
- * };
- * const command = new DeleteSubnetCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-subnet-1
- * ```
- *
  */
 export class DeleteSubnetCommand extends $Command
   .classBuilder<

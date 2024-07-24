@@ -259,32 +259,6 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To start a DB cluster
- * ```javascript
- * // The following example starts a DB cluster and its DB instances.
- * const input = {
- *   "DBClusterIdentifier": "mydbcluster"
- * };
- * const command = new StartDBClusterCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AvailabilityZones": [
- *       "us-east-1a",
- *       "us-east-1e",
- *       "us-east-1b"
- *     ],
- *     "BackupRetentionPeriod": 1,
- *     "DBClusterIdentifier": "mydbcluster",
- *     "DatabaseName": "mydb"
- *   }
- * }
- * *\/
- * // example id: to-start-a-db-cluster-1680035521632
- * ```
- *
  */
 export class StartDBClusterCommand extends $Command
   .classBuilder<

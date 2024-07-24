@@ -67,18 +67,6 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To delete an Auto Scaling policy
- * ```javascript
- * // This example deletes the specified Auto Scaling policy.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "PolicyName": "my-step-scale-out-policy"
- * };
- * const command = new DeletePolicyCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-policy-1
- * ```
- *
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

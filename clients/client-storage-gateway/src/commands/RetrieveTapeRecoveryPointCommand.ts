@@ -74,23 +74,6 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To retrieve the recovery point of a virtual tape
- * ```javascript
- * // Retrieves the recovery point for the specified virtual tape.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
- * };
- * const command = new RetrieveTapeRecoveryPointCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
- * }
- * *\/
- * // example id: to-retrieve-the-recovery-point-of-a-virtual-tape-1472150014805
- * ```
- *
  */
 export class RetrieveTapeRecoveryPointCommand extends $Command
   .classBuilder<

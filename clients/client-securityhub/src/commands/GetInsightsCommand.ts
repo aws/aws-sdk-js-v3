@@ -352,44 +352,6 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @example To get details of a Security Hub insight
- * ```javascript
- * // The following example returns details of the Security Hub insight with the specified ARN.
- * const input = {
- *   "InsightArns": [
- *     "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
- *   ]
- * };
- * const command = new GetInsightsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Insights": [
- *     {
- *       "Filters": {
- *         "ResourceType": [
- *           {
- *             "Comparison": "EQUALS",
- *             "Value": "AwsIamRole"
- *           }
- *         ],
- *         "SeverityLabel": [
- *           {
- *             "Comparison": "EQUALS",
- *             "Value": "CRITICAL"
- *           }
- *         ]
- *       },
- *       "GroupByAttribute": "ResourceId",
- *       "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "Name": "Critical role findings"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-details-of-a-security-hub-insight-1677774127203
- * ```
- *
  */
 export class GetInsightsCommand extends $Command
   .classBuilder<

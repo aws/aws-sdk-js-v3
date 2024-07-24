@@ -232,24 +232,6 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To update an Auto Scaling group
- * ```javascript
- * // This example updates multiple properties at the same time.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LaunchTemplate": {
- *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "2"
- *   },
- *   "MaxSize": 5,
- *   "MinSize": 1,
- *   "NewInstancesProtectedFromScaleIn": true
- * };
- * const command = new UpdateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-update-auto-scaling-group-1
- * ```
- *
  */
 export class UpdateAutoScalingGroupCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CognitoIdentityHttpAut
       name: "cognito-identity",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CognitoIdentityClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CognitoIdentityClientConfig>, context) => ({
       /**
        * @internal
        */

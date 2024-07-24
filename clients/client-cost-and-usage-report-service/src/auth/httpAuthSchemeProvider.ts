@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "cur",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CostAndUsageReportServiceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CostAndUsageReportServiceClientConfig>, context) => ({
       /**
        * @internal
        */

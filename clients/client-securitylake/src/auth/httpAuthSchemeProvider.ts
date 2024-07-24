@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SecurityLakeHttpAuthSc
       name: "securitylake",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SecurityLakeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SecurityLakeClientConfig>, context) => ({
       /**
        * @internal
        */

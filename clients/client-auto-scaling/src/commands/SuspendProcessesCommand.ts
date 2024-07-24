@@ -70,20 +70,6 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To suspend Auto Scaling processes
- * ```javascript
- * // This example suspends the specified scaling process for the specified Auto Scaling group.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "ScalingProcesses": [
- *     "AlarmNotification"
- *   ]
- * };
- * const command = new SuspendProcessesCommand(input);
- * await client.send(command);
- * // example id: autoscaling-suspend-processes-1
- * ```
- *
  */
 export class SuspendProcessesCommand extends $Command
   .classBuilder<

@@ -113,29 +113,6 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To upload a signing certificate for an IAM user
- * ```javascript
- * // The following command uploads a signing certificate for the IAM user named Bob.
- * const input = {
- *   "CertificateBody": "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
- *   "UserName": "Bob"
- * };
- * const command = new UploadSigningCertificateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Certificate": {
- *     "CertificateBody": "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
- *     "CertificateId": "ID123456789012345EXAMPLE",
- *     "Status": "Active",
- *     "UploadDate": "2015-06-06T21:40:08.121Z",
- *     "UserName": "Bob"
- *   }
- * }
- * *\/
- * // example id: e67489b6-7b73-4e30-9ed3-9a9e0231e458
- * ```
- *
  */
 export class UploadSigningCertificateCommand extends $Command
   .classBuilder<

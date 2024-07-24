@@ -73,23 +73,6 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To describe the available types of lifecycle hooks
- * ```javascript
- * // This example describes the available lifecycle hook types.
- * const input = {};
- * const command = new DescribeLifecycleHookTypesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "LifecycleHookTypes": [
- *     "autoscaling:EC2_INSTANCE_LAUNCHING",
- *     "autoscaling:EC2_INSTANCE_TERMINATING"
- *   ]
- * }
- * *\/
- * // example id: autoscaling-describe-lifecycle-hook-types-1
- * ```
- *
  */
 export class DescribeLifecycleHookTypesCommand extends $Command
   .classBuilder<

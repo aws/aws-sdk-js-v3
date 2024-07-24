@@ -104,36 +104,6 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To stop a running EC2 instance
- * ```javascript
- * // This example stops the specified EC2 instance.
- * const input = {
- *   "InstanceIds": [
- *     "i-1234567890abcdef0"
- *   ]
- * };
- * const command = new StopInstancesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "StoppingInstances": [
- *     {
- *       "CurrentState": {
- *         "Code": 64,
- *         "Name": "stopping"
- *       },
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PreviousState": {
- *         "Code": 16,
- *         "Name": "running"
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-stop-a-running-ec2-instance-1529358905540
- * ```
- *
  */
 export class StopInstancesCommand extends $Command
   .classBuilder<

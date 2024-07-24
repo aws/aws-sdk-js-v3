@@ -87,27 +87,6 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @public
- * @example To describe the tags for a file system
- * ```javascript
- * // This operation describes all of a file system's tags.
- * const input = {
- *   "FileSystemId": "fs-01234567"
- * };
- * const command = new DescribeTagsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Tags": [
- *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-the-tags-for-a-file-system-1481850497090
- * ```
- *
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

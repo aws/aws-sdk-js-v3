@@ -68,26 +68,6 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To describe termination policy types
- * ```javascript
- * // This example describes the available termination policy types.
- * const input = {};
- * const command = new DescribeTerminationPolicyTypesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TerminationPolicyTypes": [
- *     "ClosestToNextInstanceHour",
- *     "Default",
- *     "NewestInstance",
- *     "OldestInstance",
- *     "OldestLaunchConfiguration"
- *   ]
- * }
- * *\/
- * // example id: autoscaling-describe-termination-policy-types-1
- * ```
- *
  */
 export class DescribeTerminationPolicyTypesCommand extends $Command
   .classBuilder<

@@ -124,27 +124,6 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To add a tag key and value to an IAM role
- * ```javascript
- * // The following example shows how to add tags to an existing role.
- * const input = {
- *   "RoleName": "taggedrole",
- *   "Tags": [
- *     {
- *       "Key": "Dept",
- *       "Value": "Accounting"
- *     },
- *     {
- *       "Key": "CostCenter",
- *       "Value": "12345"
- *     }
- *   ]
- * };
- * const command = new TagRoleCommand(input);
- * await client.send(command);
- * // example id: to-add-a-tag-key-and-value-to-an-iam-role-1506718791513
- * ```
- *
  */
 export class TagRoleCommand extends $Command
   .classBuilder<

@@ -109,33 +109,6 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @public
- * @example To update a configuration template
- * ```javascript
- * // The following operation removes the configured CloudWatch custom health metrics configuration ConfigDocument from a saved configuration template named my-template:
- * const input = {
- *   "ApplicationName": "my-app",
- *   "OptionsToRemove": [
- *     {
- *       "Namespace": "aws:elasticbeanstalk:healthreporting:system",
- *       "OptionName": "ConfigDocument"
- *     }
- *   ],
- *   "TemplateName": "my-template"
- * };
- * const command = new UpdateConfigurationTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ApplicationName": "my-app",
- *   "DateCreated": "2015-08-20T22:39:31Z",
- *   "DateUpdated": "2015-08-20T22:43:11Z",
- *   "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
- *   "TemplateName": "my-template"
- * }
- * *\/
- * // example id: to-update-a-configuration-template-1456278075300
- * ```
- *
  */
 export class UpdateConfigurationTemplateCommand extends $Command
   .classBuilder<

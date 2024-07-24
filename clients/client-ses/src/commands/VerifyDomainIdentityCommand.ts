@@ -61,22 +61,6 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example VerifyDomainIdentity
- * ```javascript
- * // The following example starts the domain verification process with Amazon SES:
- * const input = {
- *   "Domain": "example.com"
- * };
- * const command = new VerifyDomainIdentityCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VerificationToken": "eoEmxw+YaYhb3h3iVJHuXMJXqeu1q1/wwmvjuEXAMPLE"
- * }
- * *\/
- * // example id: verifydomainidentity-1469049165936
- * ```
- *
  */
 export class VerifyDomainIdentityCommand extends $Command
   .classBuilder<

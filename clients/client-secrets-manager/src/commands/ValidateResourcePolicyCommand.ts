@@ -114,24 +114,6 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @public
- * @example To validate a resource-based policy to a secret
- * ```javascript
- * // The following example shows how to validate a resource-based policy to a secret.
- * const input = {
- *   "ResourcePolicy": "{\n\"Version\":\"2012-10-17\",\n\"Statement\":[{\n\"Effect\":\"Allow\",\n\"Principal\":{\n\"AWS\":\"arn:aws:iam::123456789012:root\"\n},\n\"Action\":\"secretsmanager:GetSecretValue\",\n\"Resource\":\"*\"\n}]\n}",
- *   "SecretId": "MyTestDatabaseSecret"
- * };
- * const command = new ValidateResourcePolicyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "PolicyValidationPassed": true,
- *   "ValidationErrors": []
- * }
- * *\/
- * // example id: to-validate-the-resource-policy-of-a-secret-1524000138629
- * ```
- *
  */
 export class ValidateResourcePolicyCommand extends $Command
   .classBuilder<

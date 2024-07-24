@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MediaTailorHttpAuthSch
       name: "mediatailor",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MediaTailorClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MediaTailorClientConfig>, context) => ({
       /**
        * @internal
        */

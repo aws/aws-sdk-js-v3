@@ -70,18 +70,6 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To download a DB log file
- * ```javascript
- * // The following example downloads only the latest part of your log file.
- * const input = {
- *   "DBInstanceIdentifier": "test-instance",
- *   "LogFileName": "log.txt"
- * };
- * const command = new DownloadDBLogFilePortionCommand(input);
- * await client.send(command);
- * // example id: to-download-a-db-log-file-1680284895898
- * ```
- *
  */
 export class DownloadDBLogFilePortionCommand extends $Command
   .classBuilder<

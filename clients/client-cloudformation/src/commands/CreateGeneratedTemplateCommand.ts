@@ -84,36 +84,6 @@ export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTem
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  * @public
- * @example To create a generated template
- * ```javascript
- * // This example creates a generated template with a resources file.
- * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate",
- *   "Resources": [
- *     {
- *       "ResourceIdentifier": {
- *         "BucketName": "jazz-bucket"
- *       },
- *       "ResourceType": "AWS::S3::Bucket"
- *     },
- *     {
- *       "ResourceIdentifier": {
- *         "DhcpOptionsId": "random-id123"
- *       },
- *       "ResourceType": "AWS::EC2::DHCPOptions"
- *     }
- *   ]
- * };
- * const command = new CreateGeneratedTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
- * }
- * *\/
- * // example id: to-create-a-generated-template
- * ```
- *
  */
 export class CreateGeneratedTemplateCommand extends $Command
   .classBuilder<

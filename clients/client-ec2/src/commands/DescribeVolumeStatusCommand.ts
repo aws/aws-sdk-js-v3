@@ -146,67 +146,6 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe the status of a single volume
- * ```javascript
- * // This example describes the status for the volume ``vol-1234567890abcdef0``.
- * const input = {
- *   "VolumeIds": [
- *     "vol-1234567890abcdef0"
- *   ]
- * };
- * const command = new DescribeVolumeStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VolumeStatuses": [
- *     {
- *       "Actions": [],
- *       "AvailabilityZone": "us-east-1a",
- *       "Events": [],
- *       "VolumeId": "vol-1234567890abcdef0",
- *       "VolumeStatus": {
- *         "Details": [
- *           {
- *             "Name": "io-enabled",
- *             "Status": "passed"
- *           },
- *           {
- *             "Name": "io-performance",
- *             "Status": "not-applicable"
- *           }
- *         ],
- *         "Status": "ok"
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-the-status-of-a-single-volume-1472507016193
- * ```
- *
- * @example To describe the status of impaired volumes
- * ```javascript
- * // This example describes the status for all volumes that are impaired. In this example output, there are no impaired volumes.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "volume-status.status",
- *       "Values": [
- *         "impaired"
- *       ]
- *     }
- *   ]
- * };
- * const command = new DescribeVolumeStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VolumeStatuses": []
- * }
- * *\/
- * // example id: to-describe-the-status-of-impaired-volumes-1472507239821
- * ```
- *
  */
 export class DescribeVolumeStatusCommand extends $Command
   .classBuilder<

@@ -84,25 +84,6 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To stop a database activity stream
- * ```javascript
- * // The following example stops an activity stream in an Aurora cluster named my-pg-cluster.
- * const input = {
- *   "ApplyImmediately": true,
- *   "ResourceArn": "arn:aws:rds:us-east-1:1234567890123:cluster:my-pg-cluster"
- * };
- * const command = new StopActivityStreamCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KinesisStreamName": "aws-rds-das-cluster-0ABCDEFGHI1JKLM2NOPQ3R4S",
- *   "KmsKeyId": "arn:aws:kms:us-east-1:1234567890123:key/a12c345d-6ef7-890g-h123-456i789jk0l1",
- *   "Status": "stopping"
- * }
- * *\/
- * // example id: to-stop-a-database-activity-stream-1679945843823
- * ```
- *
  */
 export class StopActivityStreamCommand extends $Command
   .classBuilder<

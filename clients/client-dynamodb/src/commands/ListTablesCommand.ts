@@ -67,25 +67,6 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @public
- * @example To list tables
- * ```javascript
- * // This example lists all of the tables associated with the current AWS account and endpoint.
- * const input = {};
- * const command = new ListTablesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TableNames": [
- *     "Forum",
- *     "ProductCatalog",
- *     "Reply",
- *     "Thread"
- *   ]
- * }
- * *\/
- * // example id: to-list-tables-1475884741238
- * ```
- *
  */
 export class ListTablesCommand extends $Command
   .classBuilder<

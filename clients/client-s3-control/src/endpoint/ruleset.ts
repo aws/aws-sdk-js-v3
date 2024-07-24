@@ -1,107 +1,2387 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/s3-control.json */
-
-const aF="required",
-aG="type",
-aH="conditions",
-aI="fn",
-aJ="argv",
-aK="ref",
-aL="assign",
-aM="authSchemes",
-aN="disableDoubleEncoding",
-aO="name",
-aP="signingName",
-aQ="signingRegion",
-aR="x-amz-account-id",
-aS="x-amz-outpost-id";
-const a=false,
-b=true,
-c="isSet",
-d="stringEquals",
-e="aws.partition",
-f="error",
-g="{Region}",
-h="endpoint",
-i="tree",
-j="getAttr",
-k="not",
-l="isValidHostLabel",
-m="Invalid Configuration: DualStack and custom endpoint are not supported",
-n="{url#scheme}://{url#authority}{url#path}",
-o="s3-outposts",
-p="aws.parseArn",
-q="accessPointArn",
-r="resourceId[0]",
-s="arnType",
-t="service",
-u="resourceId[1]",
-v="outpostId",
-w="arnPartition",
-x="{accessPointArn#accountId}",
-y="resourceId[2]",
-z="outpostType",
-A="resourceId[3]",
-B="bucketArn",
-C="{bucketArn#accountId}",
-D={[aF]:false,[aG]:"String"},
-E={[aF]:true,"default":false,[aG]:"Boolean"},
-F={[aF]:false,[aG]:"Boolean"},
-G={[aK]:"Region"},
-H={[aI]:c,[aJ]:[{[aK]:"Endpoint"}]},
-I={[aI]:"parseURL",[aJ]:[{[aK]:"Endpoint"}],[aL]:"url"},
-J={[aI]:"booleanEquals",[aJ]:[{[aK]:"UseDualStack"},true]},
-K={[aI]:"booleanEquals",[aJ]:[{[aK]:"UseFIPS"},true]},
-L={[aM]:[{[aN]:true,[aO]:"sigv4",[aP]:"s3",[aQ]:g}]},
-M={},
-N={[aK]:"OutpostId"},
-O={[aH]:[K,{[aI]:d,[aJ]:[{[aI]:j,[aJ]:[{[aK]:"partitionResult"},"name"]},"aws-cn"]}],[f]:"Partition does not support FIPS",[aG]:f},
-P={[aH]:[{[aI]:c,[aJ]:[{[aK]:"RequiresAccountId"}]},{[aI]:"booleanEquals",[aJ]:[{[aK]:"RequiresAccountId"},true]},{[aI]:k,[aJ]:[{[aI]:c,[aJ]:[{[aK]:"AccountId"}]}]}],[f]:"AccountId is required but not set",[aG]:f},
-Q={[aI]:c,[aJ]:[{[aK]:"RequiresAccountId"}]},
-R={[aI]:"booleanEquals",[aJ]:[{[aK]:"RequiresAccountId"},true]},
-S={[aI]:c,[aJ]:[{[aK]:"AccountId"}]},
-T={[aK]:"AccountId"},
-U={[aH]:[S,{[aI]:k,[aJ]:[{[aI]:l,[aJ]:[T,false]}]}],[f]:"AccountId must only contain a-z, A-Z, 0-9 and `-`.",[aG]:f},
-V={[aH]:[H,J],[f]:m,[aG]:f},
-W={[aM]:[{[aN]:true,[aO]:"sigv4",[aP]:o,[aQ]:g}]},
-X={[f]:"Invalid region: region was not a valid DNS name.",[aG]:f},
-Y={[aK]:q},
-Z={[aI]:k,[aJ]:[{[aI]:d,[aJ]:[{[aK]:s},""]}]},
-aa={[aI]:c,[aJ]:[{[aK]:"UseArnRegion"}]},
-ab={[aI]:"booleanEquals",[aJ]:[{[aK]:"UseArnRegion"},false]},
-ac={[aI]:j,[aJ]:[Y,"region"]},
-ad={[aI]:j,[aJ]:[Y,"accountId"]},
-ae={[aK]:z},
-af={[aM]:[{[aN]:true,[aO]:"sigv4",[aP]:o,[aQ]:"{accessPointArn#region}"}]},
-ag={[aR]:[x],[aS]:["{outpostId}"]},
-ah={[f]:"Invalid ARN: Expected a 4-component resource",[aG]:f},
-ai={[f]:"Invalid ARN: missing account ID",[aG]:f},
-aj={[f]:"Client was configured for partition `{partitionResult#name}` but ARN has `{arnPartition#name}`",[aG]:f},
-ak={[f]:"Invalid ARN: The outpost Id must only contain a-z, A-Z, 0-9 and `-`., found: `{outpostId}`",[aG]:f},
-al={[f]:"Invalid ARN: The Outpost Id was not set",[aG]:f},
-am={[f]:"Invalid ARN: No ARN type specified",[aG]:f},
-an={[aK]:B},
-ao={[aI]:j,[aJ]:[an,"region"]},
-ap={[aI]:j,[aJ]:[an,"accountId"]},
-aq={[aM]:[{[aN]:true,[aO]:"sigv4",[aP]:o,[aQ]:"{bucketArn#region}"}]},
-ar={[aR]:[C],[aS]:["{outpostId}"]},
-as={[aI]:"booleanEquals",[aJ]:[{[aK]:"UseDualStack"},false]},
-at={[aI]:"booleanEquals",[aJ]:[{[aK]:"UseFIPS"},false]},
-au=[G],
-av=[{[aI]:e,[aJ]:[G],[aL]:"partitionResult"}],
-aw=[J],
-ax=[K],
-ay=[{[aI]:l,[aJ]:[G,true]}],
-az=[H,I],
-aA=[K,J],
-aB=[{[aK]:"AccessPointName"}],
-aC=[{[aI]:l,[aJ]:[{[aK]:v},false]}],
-aD=[{[aI]:d,[aJ]:[{[aI]:j,[aJ]:[{[aK]:w},"name"]},{[aI]:j,[aJ]:[{[aK]:"partitionResult"},"name"]}]}],
-aE=[{[aK]:"Bucket"}];
-const _data={version:"1.0",parameters:{Region:D,UseFIPS:E,UseDualStack:E,Endpoint:D,AccountId:D,RequiresAccountId:F,OutpostId:D,Bucket:D,AccessPointName:D,UseArnRegion:F},rules:[{[aH]:[{[aI]:c,[aJ]:au}],rules:[{[aH]:[{[aI]:d,[aJ]:[G,"snow"]},H,I],rules:[{[aH]:av,rules:[{[aH]:aw,error:"S3 Snow does not support DualStack",[aG]:f},{[aH]:ax,error:"S3 Snow does not support FIPS",[aG]:f},{endpoint:{url:"{url#scheme}://{url#authority}",properties:L,headers:M},[aG]:h}],[aG]:i}],[aG]:i},{[aH]:[{[aI]:c,[aJ]:[N]}],rules:[{[aH]:av,rules:[O,P,U,{[aH]:[{[aI]:k,[aJ]:[{[aI]:l,[aJ]:[N,a]}]}],error:"OutpostId must only contain a-z, A-Z, 0-9 and `-`.",[aG]:f},V,{[aH]:ay,rules:[{[aH]:az,endpoint:{url:n,properties:W,headers:M},[aG]:h},{[aH]:aA,endpoint:{url:"https://s3-outposts-fips.{Region}.{partitionResult#dualStackDnsSuffix}",properties:W,headers:M},[aG]:h},{[aH]:ax,endpoint:{url:"https://s3-outposts-fips.{Region}.{partitionResult#dnsSuffix}",properties:W,headers:M},[aG]:h},{[aH]:aw,endpoint:{url:"https://s3-outposts.{Region}.{partitionResult#dualStackDnsSuffix}",properties:W,headers:M},[aG]:h},{endpoint:{url:"https://s3-outposts.{Region}.{partitionResult#dnsSuffix}",properties:W,headers:M},[aG]:h}],[aG]:i},X],[aG]:i}],[aG]:i},{[aH]:[{[aI]:c,[aJ]:aB},{[aI]:p,[aJ]:aB,[aL]:q}],rules:[{[aH]:[{[aI]:j,[aJ]:[Y,r],[aL]:s},Z],rules:[{[aH]:[{[aI]:d,[aJ]:[{[aI]:j,[aJ]:[Y,t]},o]}],rules:[{[aH]:[{[aI]:j,[aJ]:[Y,u],[aL]:v}],rules:[{[aH]:aC,rules:[V,{[aH]:[aa,ab,{[aI]:k,[aJ]:[{[aI]:d,[aJ]:[ac,g]}]}],error:"Invalid configuration: region from ARN `{accessPointArn#region}` does not match client region `{Region}` and UseArnRegion is `false`",[aG]:f},{[aH]:av,rules:[{[aH]:[{[aI]:e,[aJ]:[ac],[aL]:w}],rules:[{[aH]:aD,rules:[{[aH]:[{[aI]:l,[aJ]:[ac,b]}],rules:[{[aH]:[{[aI]:k,[aJ]:[{[aI]:d,[aJ]:[ad,""]}]}],rules:[{[aH]:[{[aI]:l,[aJ]:[ad,a]}],rules:[{[aH]:[S,{[aI]:k,[aJ]:[{[aI]:d,[aJ]:[T,x]}]}],error:"Invalid ARN: the accountId specified in the ARN (`{accessPointArn#accountId}`) does not match the parameter (`{AccountId}`)",[aG]:f},{[aH]:[{[aI]:j,[aJ]:[Y,y],[aL]:z}],rules:[{[aH]:[{[aI]:j,[aJ]:[Y,A],[aL]:"accessPointName"}],rules:[{[aH]:[{[aI]:d,[aJ]:[ae,"accesspoint"]}],rules:[{[aH]:aA,endpoint:{url:"https://s3-outposts-fips.{accessPointArn#region}.{arnPartition#dualStackDnsSuffix}",properties:af,headers:ag},[aG]:h},{[aH]:ax,endpoint:{url:"https://s3-outposts-fips.{accessPointArn#region}.{arnPartition#dnsSuffix}",properties:af,headers:ag},[aG]:h},{[aH]:aw,endpoint:{url:"https://s3-outposts.{accessPointArn#region}.{arnPartition#dualStackDnsSuffix}",properties:af,headers:ag},[aG]:h},{[aH]:az,endpoint:{url:n,properties:af,headers:ag},[aG]:h},{endpoint:{url:"https://s3-outposts.{accessPointArn#region}.{arnPartition#dnsSuffix}",properties:af,headers:ag},[aG]:h}],[aG]:i},{error:"Expected an outpost type `accesspoint`, found `{outpostType}`",[aG]:f}],[aG]:i},{error:"Invalid ARN: expected an access point name",[aG]:f}],[aG]:i},ah],[aG]:i},{error:"Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `{accessPointArn#accountId}`",[aG]:f}],[aG]:i},ai],[aG]:i},{error:"Invalid region in ARN: `{accessPointArn#region}` (invalid DNS name)",[aG]:f}],[aG]:i},aj],[aG]:i}],[aG]:i}],[aG]:i},ak],[aG]:i},al],[aG]:i}],[aG]:i},am],[aG]:i},{[aH]:[{[aI]:c,[aJ]:aE},{[aI]:p,[aJ]:aE,[aL]:B}],rules:[{[aH]:[{[aI]:j,[aJ]:[an,r],[aL]:s},Z],rules:[{[aH]:[{[aI]:d,[aJ]:[{[aI]:j,[aJ]:[an,t]},o]}],rules:[{[aH]:[{[aI]:j,[aJ]:[an,u],[aL]:v}],rules:[{[aH]:aC,rules:[V,{[aH]:[aa,ab,{[aI]:k,[aJ]:[{[aI]:d,[aJ]:[ao,g]}]}],error:"Invalid configuration: region from ARN `{bucketArn#region}` does not match client region `{Region}` and UseArnRegion is `false`",[aG]:f},{[aH]:[{[aI]:e,[aJ]:[ao],[aL]:w}],rules:[{[aH]:av,rules:[{[aH]:aD,rules:[{[aH]:[{[aI]:l,[aJ]:[ao,b]}],rules:[{[aH]:[{[aI]:k,[aJ]:[{[aI]:d,[aJ]:[ap,""]}]}],rules:[{[aH]:[{[aI]:l,[aJ]:[ap,a]}],rules:[{[aH]:[S,{[aI]:k,[aJ]:[{[aI]:d,[aJ]:[T,C]}]}],error:"Invalid ARN: the accountId specified in the ARN (`{bucketArn#accountId}`) does not match the parameter (`{AccountId}`)",[aG]:f},{[aH]:[{[aI]:j,[aJ]:[an,y],[aL]:z}],rules:[{[aH]:[{[aI]:j,[aJ]:[an,A],[aL]:"bucketName"}],rules:[{[aH]:[{[aI]:d,[aJ]:[ae,"bucket"]}],rules:[{[aH]:aA,endpoint:{url:"https://s3-outposts-fips.{bucketArn#region}.{arnPartition#dualStackDnsSuffix}",properties:aq,headers:ar},[aG]:h},{[aH]:ax,endpoint:{url:"https://s3-outposts-fips.{bucketArn#region}.{arnPartition#dnsSuffix}",properties:aq,headers:ar},[aG]:h},{[aH]:aw,endpoint:{url:"https://s3-outposts.{bucketArn#region}.{arnPartition#dualStackDnsSuffix}",properties:aq,headers:ar},[aG]:h},{[aH]:az,endpoint:{url:n,properties:aq,headers:ar},[aG]:h},{endpoint:{url:"https://s3-outposts.{bucketArn#region}.{arnPartition#dnsSuffix}",properties:aq,headers:ar},[aG]:h}],[aG]:i},{error:"Invalid ARN: Expected an outpost type `bucket`, found `{outpostType}`",[aG]:f}],[aG]:i},{error:"Invalid ARN: expected a bucket name",[aG]:f}],[aG]:i},ah],[aG]:i},{error:"Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `{bucketArn#accountId}`",[aG]:f}],[aG]:i},ai],[aG]:i},{error:"Invalid region in ARN: `{bucketArn#region}` (invalid DNS name)",[aG]:f}],[aG]:i},aj],[aG]:i}],[aG]:i}],[aG]:i},ak],[aG]:i},al],[aG]:i}],[aG]:i},am],[aG]:i},{[aH]:av,rules:[{[aH]:ay,rules:[O,P,U,{[aH]:az,rules:[{[aH]:aw,error:m,[aG]:f},{[aH]:[Q,R,S],endpoint:{url:"{url#scheme}://{AccountId}.{url#authority}{url#path}",properties:L,headers:M},[aG]:h},{endpoint:{url:n,properties:L,headers:M},[aG]:h}],[aG]:i},{[aH]:[K,J,Q,R,S],endpoint:{url:"https://{AccountId}.s3-control-fips.dualstack.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h},{[aH]:aA,endpoint:{url:"https://s3-control-fips.dualstack.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h},{[aH]:[K,as,Q,R,S],endpoint:{url:"https://{AccountId}.s3-control-fips.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h},{[aH]:[K,as],endpoint:{url:"https://s3-control-fips.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h},{[aH]:[at,J,Q,R,S],endpoint:{url:"https://{AccountId}.s3-control.dualstack.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h},{[aH]:[at,J],endpoint:{url:"https://s3-control.dualstack.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h},{[aH]:[at,as,Q,R,S],endpoint:{url:"https://{AccountId}.s3-control.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h},{[aH]:[at,as],endpoint:{url:"https://s3-control.{Region}.{partitionResult#dnsSuffix}",properties:L,headers:M},[aG]:h}],[aG]:i},X],[aG]:i}],[aG]:i},{error:"Region must be set",[aG]:f}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    UseDualStack: {
+      builtIn: "AWS::UseDualStack",
+      required: true,
+      default: false,
+      documentation:
+        "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+      type: "Boolean",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+    AccountId: {
+      required: false,
+      documentation:
+        "The Account ID used to send the request. This is an optional parameter that will be set automatically for operations that require it.",
+      type: "String",
+    },
+    RequiresAccountId: {
+      required: false,
+      documentation: "Internal parameter for operations that require account id host prefix.",
+      type: "Boolean",
+    },
+    OutpostId: {
+      required: false,
+      documentation:
+        "The Outpost ID.  Some operations have an optional OutpostId which should be used in endpoint construction.",
+      type: "String",
+    },
+    Bucket: {
+      required: false,
+      documentation:
+        "The S3 bucket used to send the request. This is an optional parameter that will be set automatically for operations that are scoped to an S3 bucket.",
+      type: "String",
+    },
+    AccessPointName: {
+      required: false,
+      documentation:
+        "The S3 AccessPointName used to send the request. This is an optional parameter that will be set automatically for operations that are scoped to an S3 AccessPoint.",
+      type: "String",
+    },
+    UseArnRegion: {
+      builtIn: "AWS::S3Control::UseArnRegion",
+      required: false,
+      documentation:
+        "When an Access Point ARN is provided and this flag is enabled, the SDK MUST use the ARN's region when constructing the endpoint instead of the client's configured region.",
+      type: "Boolean",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "stringEquals",
+              argv: [
+                {
+                  ref: "Region",
+                },
+                "snow",
+              ],
+            },
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "Endpoint",
+                },
+              ],
+            },
+            {
+              fn: "parseURL",
+              argv: [
+                {
+                  ref: "Endpoint",
+                },
+              ],
+              assign: "url",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "aws.partition",
+                  argv: [
+                    {
+                      ref: "Region",
+                    },
+                  ],
+                  assign: "partitionResult",
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  error: "S3 Snow does not support DualStack",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  error: "S3 Snow does not support FIPS",
+                  type: "error",
+                },
+                {
+                  conditions: [],
+                  endpoint: {
+                    url: "{url#scheme}://{url#authority}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+              ],
+              type: "tree",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "OutpostId",
+                },
+              ],
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "aws.partition",
+                  argv: [
+                    {
+                      ref: "Region",
+                    },
+                  ],
+                  assign: "partitionResult",
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "stringEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "partitionResult",
+                            },
+                            "name",
+                          ],
+                        },
+                        "aws-cn",
+                      ],
+                    },
+                  ],
+                  error: "Partition does not support FIPS",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "not",
+                      argv: [
+                        {
+                          fn: "isSet",
+                          argv: [
+                            {
+                              ref: "AccountId",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  error: "AccountId is required but not set",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "AccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "not",
+                      argv: [
+                        {
+                          fn: "isValidHostLabel",
+                          argv: [
+                            {
+                              ref: "AccountId",
+                            },
+                            false,
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  error: "AccountId must only contain a-z, A-Z, 0-9 and `-`.",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "not",
+                      argv: [
+                        {
+                          fn: "isValidHostLabel",
+                          argv: [
+                            {
+                              ref: "OutpostId",
+                            },
+                            false,
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  error: "OutpostId must only contain a-z, A-Z, 0-9 and `-`.",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "Endpoint",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  error: "Invalid Configuration: DualStack and custom endpoint are not supported",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "isValidHostLabel",
+                      argv: [
+                        {
+                          ref: "Region",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "isSet",
+                          argv: [
+                            {
+                              ref: "Endpoint",
+                            },
+                          ],
+                        },
+                        {
+                          fn: "parseURL",
+                          argv: [
+                            {
+                              ref: "Endpoint",
+                            },
+                          ],
+                          assign: "url",
+                        },
+                      ],
+                      endpoint: {
+                        url: "{url#scheme}://{url#authority}{url#path}",
+                        properties: {
+                          authSchemes: [
+                            {
+                              disableDoubleEncoding: true,
+                              name: "sigv4",
+                              signingName: "s3-outposts",
+                              signingRegion: "{Region}",
+                            },
+                          ],
+                        },
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "booleanEquals",
+                          argv: [
+                            {
+                              ref: "UseFIPS",
+                            },
+                            true,
+                          ],
+                        },
+                        {
+                          fn: "booleanEquals",
+                          argv: [
+                            {
+                              ref: "UseDualStack",
+                            },
+                            true,
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://s3-outposts-fips.{Region}.{partitionResult#dualStackDnsSuffix}",
+                        properties: {
+                          authSchemes: [
+                            {
+                              disableDoubleEncoding: true,
+                              name: "sigv4",
+                              signingName: "s3-outposts",
+                              signingRegion: "{Region}",
+                            },
+                          ],
+                        },
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "booleanEquals",
+                          argv: [
+                            {
+                              ref: "UseFIPS",
+                            },
+                            true,
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://s3-outposts-fips.{Region}.{partitionResult#dnsSuffix}",
+                        properties: {
+                          authSchemes: [
+                            {
+                              disableDoubleEncoding: true,
+                              name: "sigv4",
+                              signingName: "s3-outposts",
+                              signingRegion: "{Region}",
+                            },
+                          ],
+                        },
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "booleanEquals",
+                          argv: [
+                            {
+                              ref: "UseDualStack",
+                            },
+                            true,
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://s3-outposts.{Region}.{partitionResult#dualStackDnsSuffix}",
+                        properties: {
+                          authSchemes: [
+                            {
+                              disableDoubleEncoding: true,
+                              name: "sigv4",
+                              signingName: "s3-outposts",
+                              signingRegion: "{Region}",
+                            },
+                          ],
+                        },
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://s3-outposts.{Region}.{partitionResult#dnsSuffix}",
+                        properties: {
+                          authSchemes: [
+                            {
+                              disableDoubleEncoding: true,
+                              name: "sigv4",
+                              signingName: "s3-outposts",
+                              signingRegion: "{Region}",
+                            },
+                          ],
+                        },
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "Invalid region: region was not a valid DNS name.",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "AccessPointName",
+                },
+              ],
+            },
+            {
+              fn: "aws.parseArn",
+              argv: [
+                {
+                  ref: "AccessPointName",
+                },
+              ],
+              assign: "accessPointArn",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "accessPointArn",
+                    },
+                    "resourceId[0]",
+                  ],
+                  assign: "arnType",
+                },
+                {
+                  fn: "not",
+                  argv: [
+                    {
+                      fn: "stringEquals",
+                      argv: [
+                        {
+                          ref: "arnType",
+                        },
+                        "",
+                      ],
+                    },
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "stringEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "accessPointArn",
+                            },
+                            "service",
+                          ],
+                        },
+                        "s3-outposts",
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "accessPointArn",
+                            },
+                            "resourceId[1]",
+                          ],
+                          assign: "outpostId",
+                        },
+                      ],
+                      rules: [
+                        {
+                          conditions: [
+                            {
+                              fn: "isValidHostLabel",
+                              argv: [
+                                {
+                                  ref: "outpostId",
+                                },
+                                false,
+                              ],
+                            },
+                          ],
+                          rules: [
+                            {
+                              conditions: [
+                                {
+                                  fn: "isSet",
+                                  argv: [
+                                    {
+                                      ref: "Endpoint",
+                                    },
+                                  ],
+                                },
+                                {
+                                  fn: "booleanEquals",
+                                  argv: [
+                                    {
+                                      ref: "UseDualStack",
+                                    },
+                                    true,
+                                  ],
+                                },
+                              ],
+                              error: "Invalid Configuration: DualStack and custom endpoint are not supported",
+                              type: "error",
+                            },
+                            {
+                              conditions: [
+                                {
+                                  fn: "isSet",
+                                  argv: [
+                                    {
+                                      ref: "UseArnRegion",
+                                    },
+                                  ],
+                                },
+                                {
+                                  fn: "booleanEquals",
+                                  argv: [
+                                    {
+                                      ref: "UseArnRegion",
+                                    },
+                                    false,
+                                  ],
+                                },
+                                {
+                                  fn: "not",
+                                  argv: [
+                                    {
+                                      fn: "stringEquals",
+                                      argv: [
+                                        {
+                                          fn: "getAttr",
+                                          argv: [
+                                            {
+                                              ref: "accessPointArn",
+                                            },
+                                            "region",
+                                          ],
+                                        },
+                                        "{Region}",
+                                      ],
+                                    },
+                                  ],
+                                },
+                              ],
+                              error:
+                                "Invalid configuration: region from ARN `{accessPointArn#region}` does not match client region `{Region}` and UseArnRegion is `false`",
+                              type: "error",
+                            },
+                            {
+                              conditions: [
+                                {
+                                  fn: "aws.partition",
+                                  argv: [
+                                    {
+                                      ref: "Region",
+                                    },
+                                  ],
+                                  assign: "partitionResult",
+                                },
+                              ],
+                              rules: [
+                                {
+                                  conditions: [
+                                    {
+                                      fn: "aws.partition",
+                                      argv: [
+                                        {
+                                          fn: "getAttr",
+                                          argv: [
+                                            {
+                                              ref: "accessPointArn",
+                                            },
+                                            "region",
+                                          ],
+                                        },
+                                      ],
+                                      assign: "arnPartition",
+                                    },
+                                  ],
+                                  rules: [
+                                    {
+                                      conditions: [
+                                        {
+                                          fn: "stringEquals",
+                                          argv: [
+                                            {
+                                              fn: "getAttr",
+                                              argv: [
+                                                {
+                                                  ref: "arnPartition",
+                                                },
+                                                "name",
+                                              ],
+                                            },
+                                            {
+                                              fn: "getAttr",
+                                              argv: [
+                                                {
+                                                  ref: "partitionResult",
+                                                },
+                                                "name",
+                                              ],
+                                            },
+                                          ],
+                                        },
+                                      ],
+                                      rules: [
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "isValidHostLabel",
+                                              argv: [
+                                                {
+                                                  fn: "getAttr",
+                                                  argv: [
+                                                    {
+                                                      ref: "accessPointArn",
+                                                    },
+                                                    "region",
+                                                  ],
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "not",
+                                                  argv: [
+                                                    {
+                                                      fn: "stringEquals",
+                                                      argv: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "accessPointArn",
+                                                            },
+                                                            "accountId",
+                                                          ],
+                                                        },
+                                                        "",
+                                                      ],
+                                                    },
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [
+                                                    {
+                                                      fn: "isValidHostLabel",
+                                                      argv: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "accessPointArn",
+                                                            },
+                                                            "accountId",
+                                                          ],
+                                                        },
+                                                        false,
+                                                      ],
+                                                    },
+                                                  ],
+                                                  rules: [
+                                                    {
+                                                      conditions: [
+                                                        {
+                                                          fn: "isSet",
+                                                          argv: [
+                                                            {
+                                                              ref: "AccountId",
+                                                            },
+                                                          ],
+                                                        },
+                                                        {
+                                                          fn: "not",
+                                                          argv: [
+                                                            {
+                                                              fn: "stringEquals",
+                                                              argv: [
+                                                                {
+                                                                  ref: "AccountId",
+                                                                },
+                                                                "{accessPointArn#accountId}",
+                                                              ],
+                                                            },
+                                                          ],
+                                                        },
+                                                      ],
+                                                      error:
+                                                        "Invalid ARN: the accountId specified in the ARN (`{accessPointArn#accountId}`) does not match the parameter (`{AccountId}`)",
+                                                      type: "error",
+                                                    },
+                                                    {
+                                                      conditions: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "accessPointArn",
+                                                            },
+                                                            "resourceId[2]",
+                                                          ],
+                                                          assign: "outpostType",
+                                                        },
+                                                      ],
+                                                      rules: [
+                                                        {
+                                                          conditions: [
+                                                            {
+                                                              fn: "getAttr",
+                                                              argv: [
+                                                                {
+                                                                  ref: "accessPointArn",
+                                                                },
+                                                                "resourceId[3]",
+                                                              ],
+                                                              assign: "accessPointName",
+                                                            },
+                                                          ],
+                                                          rules: [
+                                                            {
+                                                              conditions: [
+                                                                {
+                                                                  fn: "stringEquals",
+                                                                  argv: [
+                                                                    {
+                                                                      ref: "outpostType",
+                                                                    },
+                                                                    "accesspoint",
+                                                                  ],
+                                                                },
+                                                              ],
+                                                              rules: [
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseFIPS",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseDualStack",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts-fips.{accessPointArn#region}.{arnPartition#dualStackDnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{accessPointArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": [
+                                                                        "{accessPointArn#accountId}",
+                                                                      ],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseFIPS",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts-fips.{accessPointArn#region}.{arnPartition#dnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{accessPointArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": [
+                                                                        "{accessPointArn#accountId}",
+                                                                      ],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseDualStack",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts.{accessPointArn#region}.{arnPartition#dualStackDnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{accessPointArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": [
+                                                                        "{accessPointArn#accountId}",
+                                                                      ],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "isSet",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "Endpoint",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    {
+                                                                      fn: "parseURL",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "Endpoint",
+                                                                        },
+                                                                      ],
+                                                                      assign: "url",
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "{url#scheme}://{url#authority}{url#path}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{accessPointArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": [
+                                                                        "{accessPointArn#accountId}",
+                                                                      ],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts.{accessPointArn#region}.{arnPartition#dnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{accessPointArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": [
+                                                                        "{accessPointArn#accountId}",
+                                                                      ],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                              ],
+                                                              type: "tree",
+                                                            },
+                                                            {
+                                                              conditions: [],
+                                                              error:
+                                                                "Expected an outpost type `accesspoint`, found `{outpostType}`",
+                                                              type: "error",
+                                                            },
+                                                          ],
+                                                          type: "tree",
+                                                        },
+                                                        {
+                                                          conditions: [],
+                                                          error: "Invalid ARN: expected an access point name",
+                                                          type: "error",
+                                                        },
+                                                      ],
+                                                      type: "tree",
+                                                    },
+                                                    {
+                                                      conditions: [],
+                                                      error: "Invalid ARN: Expected a 4-component resource",
+                                                      type: "error",
+                                                    },
+                                                  ],
+                                                  type: "tree",
+                                                },
+                                                {
+                                                  conditions: [],
+                                                  error:
+                                                    "Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `{accessPointArn#accountId}`",
+                                                  type: "error",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "Invalid ARN: missing account ID",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [],
+                                          error: "Invalid region in ARN: `{accessPointArn#region}` (invalid DNS name)",
+                                          type: "error",
+                                        },
+                                      ],
+                                      type: "tree",
+                                    },
+                                    {
+                                      conditions: [],
+                                      error:
+                                        "Client was configured for partition `{partitionResult#name}` but ARN has `{arnPartition#name}`",
+                                      type: "error",
+                                    },
+                                  ],
+                                  type: "tree",
+                                },
+                              ],
+                              type: "tree",
+                            },
+                          ],
+                          type: "tree",
+                        },
+                        {
+                          conditions: [],
+                          error:
+                            "Invalid ARN: The outpost Id must only contain a-z, A-Z, 0-9 and `-`., found: `{outpostId}`",
+                          type: "error",
+                        },
+                      ],
+                      type: "tree",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid ARN: The Outpost Id was not set",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              error: "Invalid ARN: No ARN type specified",
+              type: "error",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "Bucket",
+                },
+              ],
+            },
+            {
+              fn: "aws.parseArn",
+              argv: [
+                {
+                  ref: "Bucket",
+                },
+              ],
+              assign: "bucketArn",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "getAttr",
+                  argv: [
+                    {
+                      ref: "bucketArn",
+                    },
+                    "resourceId[0]",
+                  ],
+                  assign: "arnType",
+                },
+                {
+                  fn: "not",
+                  argv: [
+                    {
+                      fn: "stringEquals",
+                      argv: [
+                        {
+                          ref: "arnType",
+                        },
+                        "",
+                      ],
+                    },
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "stringEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "bucketArn",
+                            },
+                            "service",
+                          ],
+                        },
+                        "s3-outposts",
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "bucketArn",
+                            },
+                            "resourceId[1]",
+                          ],
+                          assign: "outpostId",
+                        },
+                      ],
+                      rules: [
+                        {
+                          conditions: [
+                            {
+                              fn: "isValidHostLabel",
+                              argv: [
+                                {
+                                  ref: "outpostId",
+                                },
+                                false,
+                              ],
+                            },
+                          ],
+                          rules: [
+                            {
+                              conditions: [
+                                {
+                                  fn: "isSet",
+                                  argv: [
+                                    {
+                                      ref: "Endpoint",
+                                    },
+                                  ],
+                                },
+                                {
+                                  fn: "booleanEquals",
+                                  argv: [
+                                    {
+                                      ref: "UseDualStack",
+                                    },
+                                    true,
+                                  ],
+                                },
+                              ],
+                              error: "Invalid Configuration: DualStack and custom endpoint are not supported",
+                              type: "error",
+                            },
+                            {
+                              conditions: [
+                                {
+                                  fn: "isSet",
+                                  argv: [
+                                    {
+                                      ref: "UseArnRegion",
+                                    },
+                                  ],
+                                },
+                                {
+                                  fn: "booleanEquals",
+                                  argv: [
+                                    {
+                                      ref: "UseArnRegion",
+                                    },
+                                    false,
+                                  ],
+                                },
+                                {
+                                  fn: "not",
+                                  argv: [
+                                    {
+                                      fn: "stringEquals",
+                                      argv: [
+                                        {
+                                          fn: "getAttr",
+                                          argv: [
+                                            {
+                                              ref: "bucketArn",
+                                            },
+                                            "region",
+                                          ],
+                                        },
+                                        "{Region}",
+                                      ],
+                                    },
+                                  ],
+                                },
+                              ],
+                              error:
+                                "Invalid configuration: region from ARN `{bucketArn#region}` does not match client region `{Region}` and UseArnRegion is `false`",
+                              type: "error",
+                            },
+                            {
+                              conditions: [
+                                {
+                                  fn: "aws.partition",
+                                  argv: [
+                                    {
+                                      fn: "getAttr",
+                                      argv: [
+                                        {
+                                          ref: "bucketArn",
+                                        },
+                                        "region",
+                                      ],
+                                    },
+                                  ],
+                                  assign: "arnPartition",
+                                },
+                              ],
+                              rules: [
+                                {
+                                  conditions: [
+                                    {
+                                      fn: "aws.partition",
+                                      argv: [
+                                        {
+                                          ref: "Region",
+                                        },
+                                      ],
+                                      assign: "partitionResult",
+                                    },
+                                  ],
+                                  rules: [
+                                    {
+                                      conditions: [
+                                        {
+                                          fn: "stringEquals",
+                                          argv: [
+                                            {
+                                              fn: "getAttr",
+                                              argv: [
+                                                {
+                                                  ref: "arnPartition",
+                                                },
+                                                "name",
+                                              ],
+                                            },
+                                            {
+                                              fn: "getAttr",
+                                              argv: [
+                                                {
+                                                  ref: "partitionResult",
+                                                },
+                                                "name",
+                                              ],
+                                            },
+                                          ],
+                                        },
+                                      ],
+                                      rules: [
+                                        {
+                                          conditions: [
+                                            {
+                                              fn: "isValidHostLabel",
+                                              argv: [
+                                                {
+                                                  fn: "getAttr",
+                                                  argv: [
+                                                    {
+                                                      ref: "bucketArn",
+                                                    },
+                                                    "region",
+                                                  ],
+                                                },
+                                                true,
+                                              ],
+                                            },
+                                          ],
+                                          rules: [
+                                            {
+                                              conditions: [
+                                                {
+                                                  fn: "not",
+                                                  argv: [
+                                                    {
+                                                      fn: "stringEquals",
+                                                      argv: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "bucketArn",
+                                                            },
+                                                            "accountId",
+                                                          ],
+                                                        },
+                                                        "",
+                                                      ],
+                                                    },
+                                                  ],
+                                                },
+                                              ],
+                                              rules: [
+                                                {
+                                                  conditions: [
+                                                    {
+                                                      fn: "isValidHostLabel",
+                                                      argv: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "bucketArn",
+                                                            },
+                                                            "accountId",
+                                                          ],
+                                                        },
+                                                        false,
+                                                      ],
+                                                    },
+                                                  ],
+                                                  rules: [
+                                                    {
+                                                      conditions: [
+                                                        {
+                                                          fn: "isSet",
+                                                          argv: [
+                                                            {
+                                                              ref: "AccountId",
+                                                            },
+                                                          ],
+                                                        },
+                                                        {
+                                                          fn: "not",
+                                                          argv: [
+                                                            {
+                                                              fn: "stringEquals",
+                                                              argv: [
+                                                                {
+                                                                  ref: "AccountId",
+                                                                },
+                                                                "{bucketArn#accountId}",
+                                                              ],
+                                                            },
+                                                          ],
+                                                        },
+                                                      ],
+                                                      error:
+                                                        "Invalid ARN: the accountId specified in the ARN (`{bucketArn#accountId}`) does not match the parameter (`{AccountId}`)",
+                                                      type: "error",
+                                                    },
+                                                    {
+                                                      conditions: [
+                                                        {
+                                                          fn: "getAttr",
+                                                          argv: [
+                                                            {
+                                                              ref: "bucketArn",
+                                                            },
+                                                            "resourceId[2]",
+                                                          ],
+                                                          assign: "outpostType",
+                                                        },
+                                                      ],
+                                                      rules: [
+                                                        {
+                                                          conditions: [
+                                                            {
+                                                              fn: "getAttr",
+                                                              argv: [
+                                                                {
+                                                                  ref: "bucketArn",
+                                                                },
+                                                                "resourceId[3]",
+                                                              ],
+                                                              assign: "bucketName",
+                                                            },
+                                                          ],
+                                                          rules: [
+                                                            {
+                                                              conditions: [
+                                                                {
+                                                                  fn: "stringEquals",
+                                                                  argv: [
+                                                                    {
+                                                                      ref: "outpostType",
+                                                                    },
+                                                                    "bucket",
+                                                                  ],
+                                                                },
+                                                              ],
+                                                              rules: [
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseFIPS",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseDualStack",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts-fips.{bucketArn#region}.{arnPartition#dualStackDnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{bucketArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": ["{bucketArn#accountId}"],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseFIPS",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts-fips.{bucketArn#region}.{arnPartition#dnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{bucketArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": ["{bucketArn#accountId}"],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "booleanEquals",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "UseDualStack",
+                                                                        },
+                                                                        true,
+                                                                      ],
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts.{bucketArn#region}.{arnPartition#dualStackDnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{bucketArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": ["{bucketArn#accountId}"],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [
+                                                                    {
+                                                                      fn: "isSet",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "Endpoint",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    {
+                                                                      fn: "parseURL",
+                                                                      argv: [
+                                                                        {
+                                                                          ref: "Endpoint",
+                                                                        },
+                                                                      ],
+                                                                      assign: "url",
+                                                                    },
+                                                                  ],
+                                                                  endpoint: {
+                                                                    url: "{url#scheme}://{url#authority}{url#path}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{bucketArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": ["{bucketArn#accountId}"],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                                {
+                                                                  conditions: [],
+                                                                  endpoint: {
+                                                                    url: "https://s3-outposts.{bucketArn#region}.{arnPartition#dnsSuffix}",
+                                                                    properties: {
+                                                                      authSchemes: [
+                                                                        {
+                                                                          disableDoubleEncoding: true,
+                                                                          name: "sigv4",
+                                                                          signingName: "s3-outposts",
+                                                                          signingRegion: "{bucketArn#region}",
+                                                                        },
+                                                                      ],
+                                                                    },
+                                                                    headers: {
+                                                                      "x-amz-account-id": ["{bucketArn#accountId}"],
+                                                                      "x-amz-outpost-id": ["{outpostId}"],
+                                                                    },
+                                                                  },
+                                                                  type: "endpoint",
+                                                                },
+                                                              ],
+                                                              type: "tree",
+                                                            },
+                                                            {
+                                                              conditions: [],
+                                                              error:
+                                                                "Invalid ARN: Expected an outpost type `bucket`, found `{outpostType}`",
+                                                              type: "error",
+                                                            },
+                                                          ],
+                                                          type: "tree",
+                                                        },
+                                                        {
+                                                          conditions: [],
+                                                          error: "Invalid ARN: expected a bucket name",
+                                                          type: "error",
+                                                        },
+                                                      ],
+                                                      type: "tree",
+                                                    },
+                                                    {
+                                                      conditions: [],
+                                                      error: "Invalid ARN: Expected a 4-component resource",
+                                                      type: "error",
+                                                    },
+                                                  ],
+                                                  type: "tree",
+                                                },
+                                                {
+                                                  conditions: [],
+                                                  error:
+                                                    "Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `{bucketArn#accountId}`",
+                                                  type: "error",
+                                                },
+                                              ],
+                                              type: "tree",
+                                            },
+                                            {
+                                              conditions: [],
+                                              error: "Invalid ARN: missing account ID",
+                                              type: "error",
+                                            },
+                                          ],
+                                          type: "tree",
+                                        },
+                                        {
+                                          conditions: [],
+                                          error: "Invalid region in ARN: `{bucketArn#region}` (invalid DNS name)",
+                                          type: "error",
+                                        },
+                                      ],
+                                      type: "tree",
+                                    },
+                                    {
+                                      conditions: [],
+                                      error:
+                                        "Client was configured for partition `{partitionResult#name}` but ARN has `{arnPartition#name}`",
+                                      type: "error",
+                                    },
+                                  ],
+                                  type: "tree",
+                                },
+                              ],
+                              type: "tree",
+                            },
+                          ],
+                          type: "tree",
+                        },
+                        {
+                          conditions: [],
+                          error:
+                            "Invalid ARN: The outpost Id must only contain a-z, A-Z, 0-9 and `-`., found: `{outpostId}`",
+                          type: "error",
+                        },
+                      ],
+                      type: "tree",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid ARN: The Outpost Id was not set",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              error: "Invalid ARN: No ARN type specified",
+              type: "error",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [
+            {
+              fn: "aws.partition",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+              assign: "partitionResult",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "isValidHostLabel",
+                  argv: [
+                    {
+                      ref: "Region",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "stringEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "partitionResult",
+                            },
+                            "name",
+                          ],
+                        },
+                        "aws-cn",
+                      ],
+                    },
+                  ],
+                  error: "Partition does not support FIPS",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "not",
+                      argv: [
+                        {
+                          fn: "isSet",
+                          argv: [
+                            {
+                              ref: "AccountId",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  error: "AccountId is required but not set",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "AccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "not",
+                      argv: [
+                        {
+                          fn: "isValidHostLabel",
+                          argv: [
+                            {
+                              ref: "AccountId",
+                            },
+                            false,
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  error: "AccountId must only contain a-z, A-Z, 0-9 and `-`.",
+                  type: "error",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "Endpoint",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "parseURL",
+                      argv: [
+                        {
+                          ref: "Endpoint",
+                        },
+                      ],
+                      assign: "url",
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "booleanEquals",
+                          argv: [
+                            {
+                              ref: "UseDualStack",
+                            },
+                            true,
+                          ],
+                        },
+                      ],
+                      error: "Invalid Configuration: DualStack and custom endpoint are not supported",
+                      type: "error",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "isSet",
+                          argv: [
+                            {
+                              ref: "RequiresAccountId",
+                            },
+                          ],
+                        },
+                        {
+                          fn: "booleanEquals",
+                          argv: [
+                            {
+                              ref: "RequiresAccountId",
+                            },
+                            true,
+                          ],
+                        },
+                        {
+                          fn: "isSet",
+                          argv: [
+                            {
+                              ref: "AccountId",
+                            },
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "{url#scheme}://{AccountId}.{url#authority}{url#path}",
+                        properties: {
+                          authSchemes: [
+                            {
+                              disableDoubleEncoding: true,
+                              name: "sigv4",
+                              signingName: "s3",
+                              signingRegion: "{Region}",
+                            },
+                          ],
+                        },
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "{url#scheme}://{url#authority}{url#path}",
+                        properties: {
+                          authSchemes: [
+                            {
+                              disableDoubleEncoding: true,
+                              name: "sigv4",
+                              signingName: "s3",
+                              signingRegion: "{Region}",
+                            },
+                          ],
+                        },
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "AccountId",
+                        },
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://{AccountId}.s3-control-fips.dualstack.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://s3-control-fips.dualstack.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        false,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "AccountId",
+                        },
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://{AccountId}.s3-control-fips.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        false,
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://s3-control-fips.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        false,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "AccountId",
+                        },
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://{AccountId}.s3-control.dualstack.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        false,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://s3-control.dualstack.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        false,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        false,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "RequiresAccountId",
+                        },
+                        true,
+                      ],
+                    },
+                    {
+                      fn: "isSet",
+                      argv: [
+                        {
+                          ref: "AccountId",
+                        },
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://{AccountId}.s3-control.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        false,
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseDualStack",
+                        },
+                        false,
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://s3-control.{Region}.{partitionResult#dnsSuffix}",
+                    properties: {
+                      authSchemes: [
+                        {
+                          disableDoubleEncoding: true,
+                          name: "sigv4",
+                          signingName: "s3",
+                          signingRegion: "{Region}",
+                        },
+                      ],
+                    },
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              error: "Invalid region: region was not a valid DNS name.",
+              type: "error",
+            },
+          ],
+          type: "tree",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [],
+      error: "Region must be set",
+      type: "error",
+    },
+  ],
+};

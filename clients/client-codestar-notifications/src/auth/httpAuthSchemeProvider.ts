@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "codestar-notifications",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodestarNotificationsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodestarNotificationsClientConfig>, context) => ({
       /**
        * @internal
        */

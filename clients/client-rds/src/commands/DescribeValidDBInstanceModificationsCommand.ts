@@ -121,40 +121,6 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To describe valid modifications for a DB instance
- * ```javascript
- * // The following example retrieves details about the valid modifications for the specified DB instance.
- * const input = {
- *   "DBInstanceIdentifier": "database-test1"
- * };
- * const command = new DescribeValidDBInstanceModificationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ValidDBInstanceModificationsMessage": {
- *     "Storage": [
- *       {
- *         "StorageSize": [
- *           {
- *             "From": 20,
- *             "Step": 1,
- *             "To": 20
- *           },
- *           {
- *             "From": 22,
- *             "Step": 1,
- *             "To": 6144
- *           }
- *         ],
- *         "StorageType": "gp2"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-describe-valid-modifications-for-a-db-instance-1680284230997
- * ```
- *
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command
   .classBuilder<

@@ -74,19 +74,6 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
- * @example Creating a Channel Policy
- * ```javascript
- * //
- * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "Policy": "{...}"
- * };
- * const command = new PutChannelPolicyCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
 export class PutChannelPolicyCommand extends $Command
   .classBuilder<

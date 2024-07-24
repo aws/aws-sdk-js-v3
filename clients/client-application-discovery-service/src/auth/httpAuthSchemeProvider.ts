@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "discovery",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ApplicationDiscoveryServiceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ApplicationDiscoveryServiceClientConfig>, context) => ({
       /**
        * @internal
        */

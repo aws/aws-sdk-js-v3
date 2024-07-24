@@ -102,42 +102,6 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To make an AMI public
- * ```javascript
- * // This example makes the specified AMI public.
- * const input = {
- *   "ImageId": "ami-5731123e",
- *   "LaunchPermission": {
- *     "Add": [
- *       {
- *         "Group": "all"
- *       }
- *     ]
- *   }
- * };
- * const command = new ModifyImageAttributeCommand(input);
- * await client.send(command);
- * // example id: to-make-an-ami-public-1529357395278
- * ```
- *
- * @example To grant launch permissions
- * ```javascript
- * // This example grants launch permissions for the specified AMI to the specified AWS account.
- * const input = {
- *   "ImageId": "ami-5731123e",
- *   "LaunchPermission": {
- *     "Add": [
- *       {
- *         "UserId": "123456789012"
- *       }
- *     ]
- *   }
- * };
- * const command = new ModifyImageAttributeCommand(input);
- * await client.send(command);
- * // example id: to-grant-launch-permissions-1529357727906
- * ```
- *
  */
 export class ModifyImageAttributeCommand extends $Command
   .classBuilder<

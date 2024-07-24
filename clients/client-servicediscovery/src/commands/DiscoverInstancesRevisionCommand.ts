@@ -72,23 +72,6 @@ export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstance
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
- * @example To discover the revision for a registered instance
- * ```javascript
- * // The following example discovers the revision ID for a registered instance.
- * const input = {
- *   "NamespaceName": "example-namespace",
- *   "ServiceName": "example-service"
- * };
- * const command = new DiscoverInstancesRevisionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "InstancesRevision": 123456
- * }
- * *\/
- * // example id: to-discover-the-revision-for-a-registered-instance-1712867460953
- * ```
- *
  */
 export class DiscoverInstancesRevisionCommand extends $Command
   .classBuilder<

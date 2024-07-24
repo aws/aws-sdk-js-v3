@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AccessAnalyzerHttpAuth
       name: "access-analyzer",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AccessAnalyzerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AccessAnalyzerClientConfig>, context) => ({
       /**
        * @internal
        */

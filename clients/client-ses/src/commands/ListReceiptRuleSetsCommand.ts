@@ -68,28 +68,6 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example ListReceiptRuleSets
- * ```javascript
- * // The following example lists the receipt rule sets that exist under an AWS account:
- * const input = {
- *   "NextToken": ""
- * };
- * const command = new ListReceiptRuleSetsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "NextToken": "",
- *   "RuleSets": [
- *     {
- *       "CreatedTimestamp": "2016-07-15T16:25:59.607Z",
- *       "Name": "MyRuleSet"
- *     }
- *   ]
- * }
- * *\/
- * // example id: listreceiptrulesets-1469121037235
- * ```
- *
  */
 export class ListReceiptRuleSetsCommand extends $Command
   .classBuilder<

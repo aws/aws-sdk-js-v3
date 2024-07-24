@@ -57,18 +57,6 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a placement group
- * ```javascript
- * // This example deletes the specified placement group.
- * //
- * const input = {
- *   "GroupName": "my-cluster"
- * };
- * const command = new DeletePlacementGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-placement-group-1472712349959
- * ```
- *
  */
 export class DeletePlacementGroupCommand extends $Command
   .classBuilder<

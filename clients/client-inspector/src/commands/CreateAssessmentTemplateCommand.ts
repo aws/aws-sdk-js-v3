@@ -91,33 +91,6 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example Create assessment template
- * ```javascript
- * // Creates an assessment template for the assessment target that is specified by the ARN of the assessment target.
- * const input = {
- *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
- *   "assessmentTemplateName": "ExampleAssessmentTemplate",
- *   "durationInSeconds": 180,
- *   "rulesPackageArns": [
- *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-11B9DBXp"
- *   ],
- *   "userAttributesForFindings": [
- *     {
- *       "key": "Example",
- *       "value": "example"
- *     }
- *   ]
- * };
- * const command = new CreateAssessmentTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
- * }
- * *\/
- * // example id: create-assessment-template-1481064046719
- * ```
- *
  */
 export class CreateAssessmentTemplateCommand extends $Command
   .classBuilder<

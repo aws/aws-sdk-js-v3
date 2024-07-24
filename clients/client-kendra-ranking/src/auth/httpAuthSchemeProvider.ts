@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: KendraRankingHttpAuthS
       name: "kendra-ranking",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: KendraRankingClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<KendraRankingClientConfig>, context) => ({
       /**
        * @internal
        */

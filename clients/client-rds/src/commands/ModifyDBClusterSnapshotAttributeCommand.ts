@@ -106,36 +106,6 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To modify a DB cluster snapshot attribute
- * ```javascript
- * // The following example makes changes to the specified DB cluster snapshot attribute.
- * const input = {
- *   "AttributeName": "restore",
- *   "DBClusterSnapshotIdentifier": "myclustersnapshot",
- *   "ValuesToAdd": [
- *     "123456789012"
- *   ]
- * };
- * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBClusterSnapshotAttributesResult": {
- *     "DBClusterSnapshotAttributes": [
- *       {
- *         "AttributeName": "restore",
- *         "AttributeValues": [
- *           "123456789012"
- *         ]
- *       }
- *     ],
- *     "DBClusterSnapshotIdentifier": "myclustersnapshot"
- *   }
- * }
- * *\/
- * // example id: to-modify-a-db-cluster-snapshot-attribute-1680310358770
- * ```
- *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command
   .classBuilder<

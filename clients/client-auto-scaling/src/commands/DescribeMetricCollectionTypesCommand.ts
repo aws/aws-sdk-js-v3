@@ -72,50 +72,6 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To describe the Auto Scaling metric collection types
- * ```javascript
- * // This example describes the available metric collection types.
- * const input = {};
- * const command = new DescribeMetricCollectionTypesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Granularities": [
- *     {
- *       "Granularity": "1Minute"
- *     }
- *   ],
- *   "Metrics": [
- *     {
- *       "Metric": "GroupMinSize"
- *     },
- *     {
- *       "Metric": "GroupMaxSize"
- *     },
- *     {
- *       "Metric": "GroupDesiredCapacity"
- *     },
- *     {
- *       "Metric": "GroupInServiceInstances"
- *     },
- *     {
- *       "Metric": "GroupPendingInstances"
- *     },
- *     {
- *       "Metric": "GroupTerminatingInstances"
- *     },
- *     {
- *       "Metric": "GroupStandbyInstances"
- *     },
- *     {
- *       "Metric": "GroupTotalInstances"
- *     }
- *   ]
- * }
- * *\/
- * // example id: autoscaling-describe-metric-collection-types-1
- * ```
- *
  */
 export class DescribeMetricCollectionTypesCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TimestreamWriteHttpAut
       name: "timestream",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TimestreamWriteClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TimestreamWriteClientConfig>, context) => ({
       /**
        * @internal
        */

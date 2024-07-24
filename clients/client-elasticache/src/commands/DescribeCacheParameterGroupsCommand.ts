@@ -78,28 +78,6 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @public
- * @example DescribeCacheParameterGroups
- * ```javascript
- * // Returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list contains only the descriptions for that group.
- * const input = {
- *   "CacheParameterGroupName": "custom-mem1-4"
- * };
- * const command = new DescribeCacheParameterGroupsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CacheParameterGroups": [
- *     {
- *       "CacheParameterGroupFamily": "memcached1.4",
- *       "CacheParameterGroupName": "custom-mem1-4",
- *       "Description": "Custom memcache param group"
- *     }
- *   ]
- * }
- * *\/
- * // example id: describecacheparametergroups-1483045457557
- * ```
- *
  */
 export class DescribeCacheParameterGroupsCommand extends $Command
   .classBuilder<

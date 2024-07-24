@@ -85,18 +85,6 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To retrieve torrent files for an object
- * ```javascript
- * // The following example retrieves torrent files of an object.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectTorrentCommand(input);
- * await client.send(command);
- * // example id: to-retrieve-torrent-files-for-an-object-1481834115959
- * ```
- *
  */
 export class GetObjectTorrentCommand extends $Command
   .classBuilder<

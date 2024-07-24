@@ -130,54 +130,6 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To list policies that allow access to a service
- * ```javascript
- * // The following operation lists policies that allow ExampleUser01 to access IAM or EC2.
- * const input = {
- *   "Arn": "arn:aws:iam::123456789012:user/ExampleUser01",
- *   "ServiceNamespaces": [
- *     "iam",
- *     "ec2"
- *   ]
- * };
- * const command = new ListPoliciesGrantingServiceAccessCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "IsTruncated": false,
- *   "PoliciesGrantingServiceAccess": [
- *     {
- *       "Policies": [
- *         {
- *           "PolicyArn": "arn:aws:iam::123456789012:policy/ExampleIamPolicy",
- *           "PolicyName": "ExampleIamPolicy",
- *           "PolicyType": "MANAGED"
- *         },
- *         {
- *           "EntityName": "AWSExampleGroup1",
- *           "EntityType": "GROUP",
- *           "PolicyName": "ExampleGroup1Policy",
- *           "PolicyType": "INLINE"
- *         }
- *       ],
- *       "ServiceNamespace": "iam"
- *     },
- *     {
- *       "Policies": [
- *         {
- *           "PolicyArn": "arn:aws:iam::123456789012:policy/ExampleEc2Policy",
- *           "PolicyName": "ExampleEc2Policy",
- *           "PolicyType": "MANAGED"
- *         }
- *       ],
- *       "ServiceNamespace": "ec2"
- *     }
- *   ]
- * }
- * *\/
- * // example id: listpoliciesaccess-user-1541698749508
- * ```
- *
  */
 export class ListPoliciesGrantingServiceAccessCommand extends $Command
   .classBuilder<

@@ -59,17 +59,6 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a key pair
- * ```javascript
- * // This example deletes the specified key pair.
- * const input = {
- *   "KeyName": "my-key-pair"
- * };
- * const command = new DeleteKeyPairCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-key-pair-1
- * ```
- *
  */
 export class DeleteKeyPairCommand extends $Command
   .classBuilder<

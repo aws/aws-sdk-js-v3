@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "managedblockchain-query",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ManagedBlockchainQueryClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ManagedBlockchainQueryClientConfig>, context) => ({
       /**
        * @internal
        */

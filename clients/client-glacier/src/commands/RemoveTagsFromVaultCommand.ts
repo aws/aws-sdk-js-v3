@@ -74,22 +74,6 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To remove tags from a vault
- * ```javascript
- * // The example removes two tags from the vault named examplevault.
- * const input = {
- *   "TagKeys": [
- *     "examplekey1",
- *     "examplekey2"
- *   ],
- *   "accountId": "-",
- *   "vaultName": "examplevault"
- * };
- * const command = new RemoveTagsFromVaultCommand(input);
- * await client.send(command);
- * // example id: remove-tags-from-vault-1481754998801
- * ```
- *
  */
 export class RemoveTagsFromVaultCommand extends $Command
   .classBuilder<

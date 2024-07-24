@@ -61,18 +61,6 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example DeleteReceiptRule
- * ```javascript
- * // The following example deletes a receipt rule:
- * const input = {
- *   "RuleName": "MyRule",
- *   "RuleSetName": "MyRuleSet"
- * };
- * const command = new DeleteReceiptRuleCommand(input);
- * await client.send(command);
- * // example id: deletereceiptrule-1469055563599
- * ```
- *
  */
 export class DeleteReceiptRuleCommand extends $Command
   .classBuilder<

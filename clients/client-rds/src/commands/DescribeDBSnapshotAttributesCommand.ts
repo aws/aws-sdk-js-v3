@@ -79,33 +79,6 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To describe the attribute names and values for a DB snapshot
- * ```javascript
- * // The following example describes the attribute names and values for a DB snapshot.
- * const input = {
- *   "DBSnapshotIdentifier": "mydbsnapshot"
- * };
- * const command = new DescribeDBSnapshotAttributesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBSnapshotAttributesResult": {
- *     "DBSnapshotAttributes": [
- *       {
- *         "AttributeName": "restore",
- *         "AttributeValues": [
- *           "123456789012",
- *           "210987654321"
- *         ]
- *       }
- *     ],
- *     "DBSnapshotIdentifier": "mydbsnapshot"
- *   }
- * }
- * *\/
- * // example id: to-describe-the-attribute-names-and-values-for-a-db-snapshot-1680280194370
- * ```
- *
  */
 export class DescribeDBSnapshotAttributesCommand extends $Command
   .classBuilder<

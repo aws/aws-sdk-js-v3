@@ -80,18 +80,6 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To update the trust policy for an IAM role
- * ```javascript
- * // The following command updates the role trust policy for the role named Test-Role:
- * const input = {
- *   "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"ec2.amazonaws.com\"]},\"Action\":[\"sts:AssumeRole\"]}]}",
- *   "RoleName": "S3AccessForEC2Instances"
- * };
- * const command = new UpdateAssumeRolePolicyCommand(input);
- * await client.send(command);
- * // example id: c9150063-d953-4e99-9576-9685872006c6
- * ```
- *
  */
 export class UpdateAssumeRolePolicyCommand extends $Command
   .classBuilder<

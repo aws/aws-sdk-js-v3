@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SyntheticsHttpAuthSche
       name: "synthetics",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SyntheticsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SyntheticsClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -241,33 +241,6 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @public
- * @example To delete an item
- * ```javascript
- * // This example deletes an item from the Music table.
- * const input = {
- *   "Key": {
- *     "Artist": {
- *       "S": "No One You Know"
- *     },
- *     "SongTitle": {
- *       "S": "Scared of My Shadow"
- *     }
- *   },
- *   "TableName": "Music"
- * };
- * const command = new DeleteItemCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ConsumedCapacity": {
- *     "CapacityUnits": 1,
- *     "TableName": "Music"
- *   }
- * }
- * *\/
- * // example id: to-delete-an-item-1475884573758
- * ```
- *
  */
 export class DeleteItemCommand extends $Command
   .classBuilder<

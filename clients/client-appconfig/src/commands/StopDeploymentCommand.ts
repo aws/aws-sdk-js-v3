@@ -117,28 +117,6 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To stop configuration deployment
- * ```javascript
- * // The following stop-deployment example stops the deployment of an application configuration to the specified environment.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "DeploymentNumber": 2,
- *   "EnvironmentId": "54j1r29"
- * };
- * const command = new StopDeploymentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DeploymentDurationInMinutes": 15,
- *   "DeploymentNumber": 2,
- *   "FinalBakeTimeInMinutes": 0,
- *   "GrowthFactor": 25,
- *   "PercentageComplete": 1
- * }
- * *\/
- * // example id: to-stop-configuration-deployment-1632329139126
- * ```
- *
  */
 export class StopDeploymentCommand extends $Command
   .classBuilder<

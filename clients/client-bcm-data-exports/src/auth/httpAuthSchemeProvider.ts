@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BCMDataExportsHttpAuth
       name: "bcm-data-exports",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BCMDataExportsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BCMDataExportsClientConfig>, context) => ({
       /**
        * @internal
        */

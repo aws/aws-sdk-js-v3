@@ -86,33 +86,6 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Describe certificates
- * ```javascript
- * // Provides a description of the certificate.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "string",
- *       "Values": [
- *         "string",
- *         "string"
- *       ]
- *     }
- *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
- * };
- * const command = new DescribeCertificatesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Certificates": [],
- *   "Marker": ""
- * }
- * *\/
- * // example id: describe-certificates-1481753186244
- * ```
- *
  */
 export class DescribeCertificatesCommand extends $Command
   .classBuilder<

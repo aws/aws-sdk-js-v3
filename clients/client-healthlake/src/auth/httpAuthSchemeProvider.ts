@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: HealthLakeHttpAuthSche
       name: "healthlake",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: HealthLakeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<HealthLakeClientConfig>, context) => ({
       /**
        * @internal
        */

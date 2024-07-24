@@ -92,20 +92,6 @@ export interface UpdateModelCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  * @public
- * @example Updates a model
- * ```javascript
- * //
- * const input = {
- *   "LabelsInputConfiguration": {
- *     "LabelGroupName": "sample-label-group"
- *   },
- *   "ModelName": "sample-model"
- * };
- * const command = new UpdateModelCommand(input);
- * await client.send(command);
- * // example id: updates-a-model-1694020683458
- * ```
- *
  */
 export class UpdateModelCommand extends $Command
   .classBuilder<

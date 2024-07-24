@@ -75,25 +75,6 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example List assessment targets
- * ```javascript
- * // Lists the ARNs of the assessment targets within this AWS account.
- * const input = {
- *   "maxResults": 123
- * };
- * const command = new ListAssessmentTargetsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "assessmentTargetArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
- *   ],
- *   "nextToken": "1"
- * }
- * *\/
- * // example id: list-assessment-targets-1481066540849
- * ```
- *
  */
 export class ListAssessmentTargetsCommand extends $Command
   .classBuilder<

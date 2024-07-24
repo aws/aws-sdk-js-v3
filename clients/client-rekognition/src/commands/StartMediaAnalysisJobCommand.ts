@@ -118,38 +118,6 @@ export interface StartMediaAnalysisJobCommandOutput extends StartMediaAnalysisJo
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @public
- * @example StartMediaAnalysisJob
- * ```javascript
- * // Initiates a new media analysis job.
- * const input = {
- *   "Input": {
- *     "S3Object": {
- *       "Bucket": "input-bucket",
- *       "Name": "input-manifest.json"
- *     }
- *   },
- *   "JobName": "job-name",
- *   "OperationsConfig": {
- *     "DetectModerationLabels": {
- *       "MinConfidence": 50,
- *       "ProjectVersion": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
- *     }
- *   },
- *   "OutputConfig": {
- *     "S3Bucket": "output-bucket",
- *     "S3KeyPrefix": "output-location"
- *   }
- * };
- * const command = new StartMediaAnalysisJobCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "JobId": "861a0645d98ef88efb75477628c011c04942d9d5f58faf2703c393c8cf8c1537"
- * }
- * *\/
- * // example id: startmediaanalysisjob-1697651090922
- * ```
- *
  */
 export class StartMediaAnalysisJobCommand extends $Command
   .classBuilder<

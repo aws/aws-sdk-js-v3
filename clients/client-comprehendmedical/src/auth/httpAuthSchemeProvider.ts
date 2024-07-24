@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ComprehendMedicalHttpA
       name: "comprehendmedical",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ComprehendMedicalClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ComprehendMedicalClientConfig>, context) => ({
       /**
        * @internal
        */

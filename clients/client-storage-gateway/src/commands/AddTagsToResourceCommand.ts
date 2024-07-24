@@ -92,28 +92,6 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To add tags to resource
- * ```javascript
- * // Adds one or more tags to the specified resource.
- * const input = {
- *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
- *   "Tags": [
- *     {
- *       "Key": "Dev Gatgeway Region",
- *       "Value": "East Coast"
- *     }
- *   ]
- * };
- * const command = new AddTagsToResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
- * }
- * *\/
- * // example id: to-add-tags-to-resource-1471283689460
- * ```
- *
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<

@@ -96,29 +96,6 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To modify a DB parameter group
- * ```javascript
- * // The following example changes the value of the clr enabled parameter in a DB parameter group. The value of the ApplyMethod parameter causes the DB parameter group to be modified immediately, instead of waiting until the next maintenance window.
- * const input = {
- *   "DBParameterGroupName": "test-sqlserver-se-2017",
- *   "Parameters": [
- *     {
- *       "ApplyMethod": "immediate",
- *       "ParameterName": "clr enabled",
- *       "ParameterValue": "1"
- *     }
- *   ]
- * };
- * const command = new ModifyDBParameterGroupCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBParameterGroupName": "test-sqlserver-se-2017"
- * }
- * *\/
- * // example id: to-modify-a-db-parameter-group-1680382937235
- * ```
- *
  */
 export class ModifyDBParameterGroupCommand extends $Command
   .classBuilder<

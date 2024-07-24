@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RDSDataHttpAuthSchemeP
       name: "rds-data",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RDSDataClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RDSDataClientConfig>, context) => ({
       /**
        * @internal
        */

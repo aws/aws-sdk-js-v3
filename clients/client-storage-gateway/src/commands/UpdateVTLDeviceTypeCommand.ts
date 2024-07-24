@@ -68,23 +68,6 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To update a VTL device type
- * ```javascript
- * // Updates the type of medium changer in a gateway-VTL after a gateway-VTL is activated.
- * const input = {
- *   "DeviceType": "Medium Changer",
- *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
- * };
- * const command = new UpdateVTLDeviceTypeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
- * }
- * *\/
- * // example id: to-update-a-vtl-device-type-1472153012967
- * ```
- *
  */
 export class UpdateVTLDeviceTypeCommand extends $Command
   .classBuilder<

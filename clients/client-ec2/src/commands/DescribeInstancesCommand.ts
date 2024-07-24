@@ -331,55 +331,6 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe an Amazon EC2 instance
- * ```javascript
- * // This example describes the specified instance.
- * const input = {
- *   "InstanceIds": [
- *     "i-1234567890abcdef0"
- *   ]
- * };
- * const command = new DescribeInstancesCommand(input);
- * await client.send(command);
- * // example id: to-describe-an-amazon-ec2-instance-1529025982172
- * ```
- *
- * @example To describe the instances with a specific instance type
- * ```javascript
- * // This example describes the instances with the t2.micro instance type.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "instance-type",
- *       "Values": [
- *         "t2.micro"
- *       ]
- *     }
- *   ]
- * };
- * const command = new DescribeInstancesCommand(input);
- * await client.send(command);
- * // example id: to-describe-the-instances-with-the-instance-type-t2micro-1529026147602
- * ```
- *
- * @example To describe the instances with a specific tag
- * ```javascript
- * // This example describes the instances with the Purpose=test tag.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "tag:Purpose",
- *       "Values": [
- *         "test"
- *       ]
- *     }
- *   ]
- * };
- * const command = new DescribeInstancesCommand(input);
- * await client.send(command);
- * // example id: to-describe-the-instances-with-a-specific-tag-1529026251928
- * ```
- *
  */
 export class DescribeInstancesCommand extends $Command
   .classBuilder<

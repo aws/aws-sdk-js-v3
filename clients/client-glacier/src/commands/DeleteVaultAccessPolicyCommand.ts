@@ -74,18 +74,6 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To delete the vault access policy
- * ```javascript
- * // The example deletes the access policy associated with the vault named examplevault.
- * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
- * };
- * const command = new DeleteVaultAccessPolicyCommand(input);
- * await client.send(command);
- * // example id: to-delete-the-vault-access-policy-1481840424677
- * ```
- *
  */
 export class DeleteVaultAccessPolicyCommand extends $Command
   .classBuilder<

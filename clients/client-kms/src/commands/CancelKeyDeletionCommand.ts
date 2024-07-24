@@ -107,22 +107,6 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @public
- * @example To cancel deletion of a KMS key
- * ```javascript
- * // The following example cancels deletion of the specified KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
- * };
- * const command = new CancelKeyDeletionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
- * }
- * *\/
- * // example id: to-cancel-deletion-of-a-cmk-1477428535102
- * ```
- *
  */
 export class CancelKeyDeletionCommand extends $Command
   .classBuilder<

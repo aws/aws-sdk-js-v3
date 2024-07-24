@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GreengrassHttpAuthSche
       name: "greengrass",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GreengrassClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GreengrassClientConfig>, context) => ({
       /**
        * @internal
        */

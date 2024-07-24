@@ -421,17 +421,6 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @public
- * @example To remove an account from an organization as the master account
- * ```javascript
- * // The following example shows you how to remove an account from an organization:
- * const input = {
- *   "AccountId": "333333333333"
- * };
- * const command = new RemoveAccountFromOrganizationCommand(input);
- * await client.send(command);
- * // example id: to-remove-an-account-from-an-organization-as-the-master-account
- * ```
- *
  */
 export class RemoveAccountFromOrganizationCommand extends $Command
   .classBuilder<

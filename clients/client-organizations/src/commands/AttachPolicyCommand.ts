@@ -428,32 +428,6 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @public
- * @example To attach a policy to an OU
- * ```javascript
- * // The following example shows how to attach a service control policy (SCP) to an OU:
- * //
- * const input = {
- *   "PolicyId": "p-examplepolicyid111",
- *   "TargetId": "ou-examplerootid111-exampleouid111"
- * };
- * const command = new AttachPolicyCommand(input);
- * await client.send(command);
- * // example id: to-attach-a-policy-to-an-ou
- * ```
- *
- * @example To attach a policy to an account
- * ```javascript
- * // The following example shows how to attach a service control policy (SCP) to an account:
- * //
- * const input = {
- *   "PolicyId": "p-examplepolicyid111",
- *   "TargetId": "333333333333"
- * };
- * const command = new AttachPolicyCommand(input);
- * await client.send(command);
- * // example id: to-attach-a-policy-to-an-account
- * ```
- *
  */
 export class AttachPolicyCommand extends $Command
   .classBuilder<

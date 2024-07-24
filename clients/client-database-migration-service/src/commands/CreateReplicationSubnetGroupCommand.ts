@@ -118,33 +118,6 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Create replication subnet group
- * ```javascript
- * // Creates a replication subnet group given a list of the subnet IDs in a VPC.
- * const input = {
- *   "ReplicationSubnetGroupDescription": "US West subnet group",
- *   "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366",
- *   "SubnetIds": [
- *     "subnet-e145356n",
- *     "subnet-58f79200"
- *   ],
- *   "Tags": [
- *     {
- *       "Key": "Acount",
- *       "Value": "145235"
- *     }
- *   ]
- * };
- * const command = new CreateReplicationSubnetGroupCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ReplicationSubnetGroup": {}
- * }
- * *\/
- * // example id: create-replication-subnet-group-1481747297930
- * ```
- *
  */
 export class CreateReplicationSubnetGroupCommand extends $Command
   .classBuilder<

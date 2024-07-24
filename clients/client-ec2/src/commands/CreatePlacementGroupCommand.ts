@@ -94,18 +94,6 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To create a placement group
- * ```javascript
- * // This example creates a placement group with the specified name.
- * const input = {
- *   "GroupName": "my-cluster",
- *   "Strategy": "cluster"
- * };
- * const command = new CreatePlacementGroupCommand(input);
- * await client.send(command);
- * // example id: to-create-a-placement-group-1472712245768
- * ```
- *
  */
 export class CreatePlacementGroupCommand extends $Command
   .classBuilder<

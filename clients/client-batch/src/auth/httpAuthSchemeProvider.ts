@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BatchHttpAuthSchemePar
       name: "batch",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BatchClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BatchClientConfig>, context) => ({
       /**
        * @internal
        */

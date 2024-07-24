@@ -59,17 +59,6 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a volume
- * ```javascript
- * // This example deletes an available volume with the volume ID of ``vol-049df61146c4d7901``. If the command succeeds, no output is returned.
- * const input = {
- *   "VolumeId": "vol-049df61146c4d7901"
- * };
- * const command = new DeleteVolumeCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-volume-1472503111160
- * ```
- *
  */
 export class DeleteVolumeCommand extends $Command
   .classBuilder<

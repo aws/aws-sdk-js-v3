@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeDeployHttpAuthSche
       name: "codedeploy",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeDeployClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeDeployClientConfig>, context) => ({
       /**
        * @internal
        */

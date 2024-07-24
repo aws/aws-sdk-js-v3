@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PrivateNetworksHttpAut
       name: "private-networks",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PrivateNetworksClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PrivateNetworksClientConfig>, context) => ({
       /**
        * @internal
        */

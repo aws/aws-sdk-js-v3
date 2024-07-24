@@ -210,51 +210,6 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Create Data Provider
- * ```javascript
- * // Creates the data provider with the specified parameters.
- * const input = {
- *   "DataProviderName": "sqlServer-dev",
- *   "Description": "description",
- *   "Engine": "sqlserver",
- *   "Settings": {
- *     "MicrosoftSqlServerSettings": {
- *       "DatabaseName": "DatabaseName",
- *       "Port": 11112,
- *       "ServerName": "ServerName2",
- *       "SslMode": "none"
- *     }
- *   },
- *   "Tags": [
- *     {
- *       "Key": "access",
- *       "Value": "authorizedusers"
- *     }
- *   ]
- * };
- * const command = new CreateDataProviderCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DataProvider": {
- *     "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-dataprovider",
- *     "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
- *     "DataProviderName": "my-target-dataprovider",
- *     "Engine": "postgres",
- *     "Settings": {
- *       "PostgreSqlSettings": {
- *         "DatabaseName": "target",
- *         "Port": 5432,
- *         "ServerName": "postrgesql.a1b2c3d4e5f6.us-east-1.rds.amazonaws.com",
- *         "SslMode": "none"
- *       }
- *     }
- *   }
- * }
- * *\/
- * // example id: create-data-provider-1689726511871
- * ```
- *
  */
 export class CreateDataProviderCommand extends $Command
   .classBuilder<

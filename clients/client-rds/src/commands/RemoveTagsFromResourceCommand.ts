@@ -92,21 +92,6 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To remove tags from a resource
- * ```javascript
- * // The following example removes tags from a resource.
- * const input = {
- *   "ResourceName": "arn:aws:rds:us-east-1:123456789012:db:mydbinstance",
- *   "TagKeys": [
- *     "Name",
- *     "Environment"
- *   ]
- * };
- * const command = new RemoveTagsFromResourceCommand(input);
- * await client.send(command);
- * // example id: to-remove-tags-from-a-resource-1680070522922
- * ```
- *
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<

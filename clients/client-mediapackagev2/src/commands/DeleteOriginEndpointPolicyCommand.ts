@@ -71,19 +71,6 @@ export interface DeleteOriginEndpointPolicyCommandOutput extends DeleteOriginEnd
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
- * @example Deleting an Origin Endpoint Policy
- * ```javascript
- * //
- * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "OriginEndpointName": "exampleOriginEndpoint"
- * };
- * const command = new DeleteOriginEndpointPolicyCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
 export class DeleteOriginEndpointPolicyCommand extends $Command
   .classBuilder<

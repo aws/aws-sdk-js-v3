@@ -102,41 +102,6 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
- * @example Sample CreateProfile call
- * ```javascript
- * //
- * const input = {
- *   "name": "Shipping Profile",
- *   "businessName": "John's Shipping",
- *   "clientToken": "foo",
- *   "email": "john@example.com",
- *   "logging": "ENABLED",
- *   "phone": "5555555555",
- *   "tags": [
- *     {
- *       "Key": "sampleKey",
- *       "Value": "sampleValue"
- *     }
- *   ]
- * };
- * const command = new CreateProfileCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "name": "Shipping Profile",
- *   "businessName": "John's Trucking",
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "logGroupName": "b2bi/p-60fbc37c87f04fce9-Logs",
- *   "logging": "ENABLED",
- *   "phone": "5555555555",
- *   "profileArn": "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9",
- *   "profileId": "p-60fbc37c87f04fce9"
- * }
- * *\/
- * // example id: example-1
- * ```
- *
  */
 export class CreateProfileCommand extends $Command
   .classBuilder<

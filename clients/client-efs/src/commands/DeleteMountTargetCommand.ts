@@ -99,17 +99,6 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @public
- * @example To delete a mount target
- * ```javascript
- * // This operation deletes a mount target.
- * const input = {
- *   "MountTargetId": "fsmt-12340abc"
- * };
- * const command = new DeleteMountTargetCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-mount-target-1481847635607
- * ```
- *
  */
 export class DeleteMountTargetCommand extends $Command
   .classBuilder<

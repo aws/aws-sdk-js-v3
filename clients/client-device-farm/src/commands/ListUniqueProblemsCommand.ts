@@ -152,23 +152,6 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @public
- * @example To get information about unique problems
- * ```javascript
- * // The following example returns information about unique problems, given a specific Device Farm project.
- * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
- * };
- * const command = new ListUniqueProblemsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "uniqueProblems": {}
- * }
- * *\/
- * // example id: to-get-information-about-unique-problems-1472617781008
- * ```
- *
  */
 export class ListUniqueProblemsCommand extends $Command
   .classBuilder<

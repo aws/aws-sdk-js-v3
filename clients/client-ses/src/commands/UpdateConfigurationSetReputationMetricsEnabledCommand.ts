@@ -66,18 +66,6 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example UpdateConfigurationSetReputationMetricsEnabled
- * ```javascript
- * // Set the reputationMetricsEnabled flag for a specific configuration set.
- * const input = {
- *   "ConfigurationSetName": "foo",
- *   "Enabled": true
- * };
- * const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(input);
- * await client.send(command);
- * // example id: updateconfigurationsetreputationmetricsenabled-2362747741333
- * ```
- *
  */
 export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Command
   .classBuilder<

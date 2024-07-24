@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PIHttpAuthSchemeParame
       name: "pi",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PIClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PIClientConfig>, context) => ({
       /**
        * @internal
        */

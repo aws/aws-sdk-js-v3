@@ -1,22 +1,141 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/application-signals.json */
-
-const l="ref";
-const a=true,
-b=false,
-c="isSet",
-d="error",
-e="endpoint",
-f="tree",
-g={"required":false,"type":"String"},
-h={[l]:"Endpoint"},
-i={},
-j=[{"fn":"booleanEquals","argv":[{[l]:"UseFIPS"},true]}],
-k=[{[l]:"Region"}];
-const _data={version:"1.0",parameters:{UseFIPS:{required:a,default:b,type:"Boolean"},Endpoint:g,Region:g},rules:[{conditions:[{fn:c,argv:[h]}],rules:[{conditions:j,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{endpoint:{url:h,properties:i,headers:i},type:e}],type:f},{rules:[{conditions:[{fn:c,argv:k}],rules:[{conditions:[{fn:"aws.partition",argv:k,assign:"PartitionResult"}],rules:[{conditions:j,endpoint:{url:"https://application-signals-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:i,headers:i},type:e},{endpoint:{url:"https://application-signals.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:i,headers:i},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}],type:f}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Endpoint",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: {
+              ref: "Endpoint",
+            },
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "aws.partition",
+                  argv: [
+                    {
+                      ref: "Region",
+                    },
+                  ],
+                  assign: "PartitionResult",
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  endpoint: {
+                    url: "https://application-signals-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                    properties: {},
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+                {
+                  conditions: [],
+                  endpoint: {
+                    url: "https://application-signals.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                    properties: {},
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+              ],
+              type: "tree",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [],
+          error: "Invalid Configuration: Missing Region",
+          type: "error",
+        },
+      ],
+      type: "tree",
+    },
+  ],
+};

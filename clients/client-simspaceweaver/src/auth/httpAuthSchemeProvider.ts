@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SimSpaceWeaverHttpAuth
       name: "simspaceweaver",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SimSpaceWeaverClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SimSpaceWeaverClientConfig>, context) => ({
       /**
        * @internal
        */

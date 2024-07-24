@@ -71,23 +71,6 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To retrieve an archived tape from the VTS
- * ```javascript
- * // Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL. Virtual tapes archived in the VTS are not associated with any gateway.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
- * };
- * const command = new RetrieveTapeArchiveCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
- * }
- * *\/
- * // example id: to-retrieve-an-archived-tape-from-the-vts-1472149812358
- * ```
- *
  */
 export class RetrieveTapeArchiveCommand extends $Command
   .classBuilder<

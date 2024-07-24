@@ -76,22 +76,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example List tags for resource
- * ```javascript
- * // Lists all tags for an AWS DMS resource.
- * const input = {
- *   "ResourceArn": ""
- * };
- * const command = new ListTagsForResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagList": []
- * }
- * *\/
- * // example id: list-tags-for-resource-1481761095501
- * ```
- *
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

@@ -64,17 +64,6 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete a DB parameter group
- * ```javascript
- * // The following example deletes a DB parameter group.
- * const input = {
- *   "DBParameterGroupName": "mydbparametergroup"
- * };
- * const command = new DeleteDBParameterGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-db-parameter-group-1679963369020
- * ```
- *
  */
 export class DeleteDBParameterGroupCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DevOpsGuruHttpAuthSche
       name: "devops-guru",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DevOpsGuruClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DevOpsGuruClientConfig>, context) => ({
       /**
        * @internal
        */

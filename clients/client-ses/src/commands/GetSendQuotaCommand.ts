@@ -57,22 +57,6 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example GetSendQuota
- * ```javascript
- * // The following example returns the Amazon SES sending limits for an AWS account:
- * const input = {};
- * const command = new GetSendQuotaCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Max24HourSend": 200,
- *   "MaxSendRate": 1,
- *   "SentLast24Hours": 1
- * }
- * *\/
- * // example id: getsendquota-1469047324508
- * ```
- *
  */
 export class GetSendQuotaCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: FraudDetectorHttpAuthS
       name: "frauddetector",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: FraudDetectorClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<FraudDetectorClientConfig>, context) => ({
       /**
        * @internal
        */

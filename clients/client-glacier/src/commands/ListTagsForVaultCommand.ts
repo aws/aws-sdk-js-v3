@@ -74,26 +74,6 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To list the tags for a vault
- * ```javascript
- * // The example lists all the tags attached to the vault examplevault.
- * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
- * };
- * const command = new ListTagsForVaultCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Tags": {
- *     "date": "july2015",
- *     "id": "1234"
- *   }
- * }
- * *\/
- * // example id: list-tags-for-vault-1481755839720
- * ```
- *
  */
 export class ListTagsForVaultCommand extends $Command
   .classBuilder<

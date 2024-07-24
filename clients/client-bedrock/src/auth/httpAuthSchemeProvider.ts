@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BedrockHttpAuthSchemeP
       name: "bedrock",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BedrockClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BedrockClientConfig>, context) => ({
       /**
        * @internal
        */

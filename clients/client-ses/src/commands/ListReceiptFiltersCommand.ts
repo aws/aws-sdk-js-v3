@@ -66,28 +66,6 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example ListReceiptFilters
- * ```javascript
- * // The following example lists the IP address filters that are associated with an AWS account:
- * const input = {};
- * const command = new ListReceiptFiltersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Filters": [
- *     {
- *       "IpFilter": {
- *         "Cidr": "1.2.3.4/24",
- *         "Policy": "Block"
- *       },
- *       "Name": "MyFilter"
- *     }
- *   ]
- * }
- * *\/
- * // example id: listreceiptfilters-1469120786789
- * ```
- *
  */
 export class ListReceiptFiltersCommand extends $Command
   .classBuilder<

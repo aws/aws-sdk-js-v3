@@ -64,21 +64,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
- * @example UntagResource example
- * ```javascript
- * // This example removes the "Department" and "Project" tags from a resource.
- * const input = {
- *   "ResourceARN": "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm",
- *   "TagKeys": [
- *     "Project",
- *     "Department"
- *   ]
- * };
- * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: untagresource-example-1590094024672
- * ```
- *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

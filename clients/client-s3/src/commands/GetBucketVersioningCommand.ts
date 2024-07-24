@@ -84,23 +84,6 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To get bucket versioning configuration
- * ```javascript
- * // The following example retrieves bucket versioning configuration.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new GetBucketVersioningCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "MFADelete": "Disabled",
- *   "Status": "Enabled"
- * }
- * *\/
- * // example id: to-get-bucket-versioning-configuration-1483037183929
- * ```
- *
  */
 export class GetBucketVersioningCommand extends $Command
   .classBuilder<

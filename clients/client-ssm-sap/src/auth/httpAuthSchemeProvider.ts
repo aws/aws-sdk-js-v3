@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SsmSapHttpAuthSchemePa
       name: "ssm-sap",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SsmSapClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SsmSapClientConfig>, context) => ({
       /**
        * @internal
        */

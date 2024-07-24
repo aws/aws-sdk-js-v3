@@ -67,23 +67,6 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To list details of an application
- * ```javascript
- * // The following get-application example lists the details of the specified application.
- * const input = {
- *   "ApplicationId": "339ohji"
- * };
- * const command = new GetApplicationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Id": "339ohji",
- *   "Name": "example-application"
- * }
- * *\/
- * // example id: to-list-details-of-an-application-1632265864702
- * ```
- *
  */
 export class GetApplicationCommand extends $Command
   .classBuilder<

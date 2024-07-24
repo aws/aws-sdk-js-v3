@@ -1,38 +1,411 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/greengrass.json */
-
-const y="required",
-z="fn",
-A="argv",
-B="ref";
-const a=true,
-b="isSet",
-c="booleanEquals",
-d="error",
-e="endpoint",
-f="tree",
-g="PartitionResult",
-h="stringEquals",
-i="us-gov-east-1",
-j="us-gov-west-1",
-k="sigv4",
-l="greengrass",
-m={[y]:false,"type":"String"},
-n={[y]:true,"default":false,"type":"Boolean"},
-o={[B]:"Endpoint"},
-p={[z]:c,[A]:[{[B]:"UseFIPS"},true]},
-q={[z]:c,[A]:[{[B]:"UseDualStack"},true]},
-r={},
-s={[B]:"Region"},
-t={[z]:"getAttr",[A]:[{[B]:g},"supportsFIPS"]},
-u={[z]:c,[A]:[true,{[z]:"getAttr",[A]:[{[B]:g},"supportsDualStack"]}]},
-v=[p],
-w=[q],
-x=[s];
-const _data={version:"1.0",parameters:{Region:m,UseDualStack:n,UseFIPS:n,Endpoint:m},rules:[{conditions:[{[z]:b,[A]:[o]}],rules:[{conditions:v,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{conditions:w,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:o,properties:r,headers:r},type:e}],type:f},{conditions:[{[z]:b,[A]:x}],rules:[{conditions:[{[z]:"aws.partition",[A]:x,assign:g}],rules:[{conditions:[p,q],rules:[{conditions:[{[z]:c,[A]:[a,t]},u],rules:[{endpoint:{url:"https://greengrass-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:r,headers:r},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:v,rules:[{conditions:[{[z]:c,[A]:[t,a]}],rules:[{conditions:[{[z]:h,[A]:[s,i]}],endpoint:{url:"https://greengrass.us-gov-east-1.amazonaws.com",properties:r,headers:r},type:e},{conditions:[{[z]:h,[A]:[s,j]}],endpoint:{url:"https://greengrass.us-gov-west-1.amazonaws.com",properties:r,headers:r},type:e},{endpoint:{url:"https://greengrass-fips.{Region}.{PartitionResult#dnsSuffix}",properties:r,headers:r},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:w,rules:[{conditions:[u],rules:[{endpoint:{url:"https://greengrass.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:r,headers:r},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{conditions:[{[z]:h,[A]:[s,"dataplane-us-gov-east-1"]}],endpoint:{url:"https://greengrass-ats.iot.us-gov-east-1.amazonaws.com",properties:{authSchemes:[{name:k,signingName:l,signingRegion:i}]},headers:r},type:e},{conditions:[{[z]:h,[A]:[s,"dataplane-us-gov-west-1"]}],endpoint:{url:"https://greengrass-ats.iot.us-gov-west-1.amazonaws.com",properties:{authSchemes:[{name:k,signingName:l,signingRegion:j}]},headers:r},type:e},{endpoint:{url:"https://greengrass.{Region}.{PartitionResult#dnsSuffix}",properties:r,headers:r},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+    UseDualStack: {
+      builtIn: "AWS::UseDualStack",
+      required: true,
+      default: false,
+      documentation:
+        "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+      type: "Boolean",
+    },
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Endpoint",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseDualStack",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: Dualstack and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: {
+              ref: "Endpoint",
+            },
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.partition",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+              assign: "PartitionResult",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://greengrass-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS and DualStack are enabled, but this partition does not support one or both",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "Region",
+                            },
+                            "us-gov-east-1",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://greengrass.us-gov-east-1.amazonaws.com",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "Region",
+                            },
+                            "us-gov-west-1",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://greengrass.us-gov-west-1.amazonaws.com",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://greengrass-fips.{Region}.{PartitionResult#dnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS is enabled but this partition does not support FIPS",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://greengrass.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "DualStack is enabled but this partition does not support DualStack",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "stringEquals",
+                  argv: [
+                    {
+                      ref: "Region",
+                    },
+                    "dataplane-us-gov-east-1",
+                  ],
+                },
+              ],
+              endpoint: {
+                url: "https://greengrass-ats.iot.us-gov-east-1.amazonaws.com",
+                properties: {
+                  authSchemes: [
+                    {
+                      name: "sigv4",
+                      signingName: "greengrass",
+                      signingRegion: "us-gov-east-1",
+                    },
+                  ],
+                },
+                headers: {},
+              },
+              type: "endpoint",
+            },
+            {
+              conditions: [
+                {
+                  fn: "stringEquals",
+                  argv: [
+                    {
+                      ref: "Region",
+                    },
+                    "dataplane-us-gov-west-1",
+                  ],
+                },
+              ],
+              endpoint: {
+                url: "https://greengrass-ats.iot.us-gov-west-1.amazonaws.com",
+                properties: {
+                  authSchemes: [
+                    {
+                      name: "sigv4",
+                      signingName: "greengrass",
+                      signingRegion: "us-gov-west-1",
+                    },
+                  ],
+                },
+                headers: {},
+              },
+              type: "endpoint",
+            },
+            {
+              conditions: [],
+              endpoint: {
+                url: "https://greengrass.{Region}.{PartitionResult#dnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+          ],
+          type: "tree",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [],
+      error: "Invalid Configuration: Missing Region",
+      type: "error",
+    },
+  ],
+};

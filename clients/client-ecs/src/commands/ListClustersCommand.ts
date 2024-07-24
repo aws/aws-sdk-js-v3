@@ -72,23 +72,6 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
- * @example To list your available clusters
- * ```javascript
- * // This example lists all of your available clusters in your default region.
- * const input = {};
- * const command = new ListClustersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "clusterArns": [
- *     "arn:aws:ecs:us-east-1:<aws_account_id>:cluster/test",
- *     "arn:aws:ecs:us-east-1:<aws_account_id>:cluster/default"
- *   ]
- * }
- * *\/
- * // example id: e337d059-134f-4125-ba8e-4f499139facf
- * ```
- *
  */
 export class ListClustersCommand extends $Command
   .classBuilder<

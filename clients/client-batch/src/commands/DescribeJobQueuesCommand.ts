@@ -96,39 +96,6 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
- * @example To describe a job queue
- * ```javascript
- * // This example describes the HighPriority job queue.
- * const input = {
- *   "jobQueues": [
- *     "HighPriority"
- *   ]
- * };
- * const command = new DescribeJobQueuesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "jobQueues": [
- *     {
- *       "computeEnvironmentOrder": [
- *         {
- *           "computeEnvironment": "arn:aws:batch:us-east-1:012345678910:compute-environment/C4OnDemand",
- *           "order": 1
- *         }
- *       ],
- *       "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
- *       "jobQueueName": "HighPriority",
- *       "priority": 1,
- *       "state": "ENABLED",
- *       "status": "VALID",
- *       "statusReason": "JobQueue Healthy"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-a-job-queue-1481153995804
- * ```
- *
  */
 export class DescribeJobQueuesCommand extends $Command
   .classBuilder<

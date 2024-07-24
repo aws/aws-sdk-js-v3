@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AmpHttpAuthSchemeParam
       name: "aps",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AmpClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AmpClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -130,36 +130,6 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To terminate an EC2 instance
- * ```javascript
- * // This example terminates the specified EC2 instance.
- * const input = {
- *   "InstanceIds": [
- *     "i-1234567890abcdef0"
- *   ]
- * };
- * const command = new TerminateInstancesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TerminatingInstances": [
- *     {
- *       "CurrentState": {
- *         "Code": 32,
- *         "Name": "shutting-down"
- *       },
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PreviousState": {
- *         "Code": 16,
- *         "Name": "running"
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-terminate-an-ec2-instance-1529359350660
- * ```
- *
  */
 export class TerminateInstancesCommand extends $Command
   .classBuilder<

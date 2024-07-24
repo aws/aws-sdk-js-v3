@@ -81,35 +81,6 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete a custom DB cluster endpoint
- * ```javascript
- * // The following example deletes the specified custom DB cluster endpoint.
- * const input = {
- *   "DBClusterEndpointIdentifier": "mycustomendpoint"
- * };
- * const command = new DeleteDBClusterEndpointCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CustomEndpointType": "READER",
- *   "DBClusterEndpointArn": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "DBClusterEndpointResourceIdentifier": "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
- *   "DBClusterIdentifier": "mydbcluster",
- *   "Endpoint": "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
- *   "EndpointType": "CUSTOM",
- *   "ExcludedMembers": [],
- *   "StaticMembers": [
- *     "dbinstance1",
- *     "dbinstance2",
- *     "dbinstance3"
- *   ],
- *   "Status": "deleting"
- * }
- * *\/
- * // example id: to-delete-a-custom-db-cluster-endpoint-1679960663390
- * ```
- *
  */
 export class DeleteDBClusterEndpointCommand extends $Command
   .classBuilder<

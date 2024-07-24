@@ -71,23 +71,6 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example CreateReceiptFilter
- * ```javascript
- * // The following example creates a new IP address filter:
- * const input = {
- *   "Filter": {
- *     "IpFilter": {
- *       "Cidr": "1.2.3.4/24",
- *       "Policy": "Allow"
- *     },
- *     "Name": "MyFilter"
- *   }
- * };
- * const command = new CreateReceiptFilterCommand(input);
- * await client.send(command);
- * // example id: createreceiptfilter-1469122681253
- * ```
- *
  */
 export class CreateReceiptFilterCommand extends $Command
   .classBuilder<

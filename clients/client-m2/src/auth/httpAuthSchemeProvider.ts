@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: M2HttpAuthSchemeParame
       name: "m2",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: M2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<M2ClientConfig>, context) => ({
       /**
        * @internal
        */

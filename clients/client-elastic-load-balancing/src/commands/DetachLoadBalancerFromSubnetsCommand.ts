@@ -79,27 +79,6 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @public
- * @example To detach a load balancer from a subnet
- * ```javascript
- * // This example detaches the specified load balancer from the specified subnet.
- * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "Subnets": [
- *     "subnet-0ecac448"
- *   ]
- * };
- * const command = new DetachLoadBalancerFromSubnetsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Subnets": [
- *     "subnet-15aaab61"
- *   ]
- * }
- * *\/
- * // example id: elb-detach-load-balancer-from-subnets-1
- * ```
- *
  */
 export class DetachLoadBalancerFromSubnetsCommand extends $Command
   .classBuilder<

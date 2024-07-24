@@ -61,7 +61,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: STSHttpAuthSchemeParam
       name: "sts",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: STSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<STSClientConfig>, context) => ({
       /**
        * @internal
        */

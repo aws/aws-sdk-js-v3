@@ -77,22 +77,6 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Describe refresh schema status
- * ```javascript
- * // Returns the status of the refresh-schemas operation.
- * const input = {
- *   "EndpointArn": ""
- * };
- * const command = new DescribeRefreshSchemasStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "RefreshSchemasStatus": {}
- * }
- * *\/
- * // example id: describe-refresh-schema-status-1481755303497
- * ```
- *
  */
 export class DescribeRefreshSchemasStatusCommand extends $Command
   .classBuilder<

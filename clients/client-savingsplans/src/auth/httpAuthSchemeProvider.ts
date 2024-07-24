@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SavingsplansHttpAuthSc
       name: "savingsplans",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SavingsplansClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SavingsplansClientConfig>, context) => ({
       /**
        * @internal
        */

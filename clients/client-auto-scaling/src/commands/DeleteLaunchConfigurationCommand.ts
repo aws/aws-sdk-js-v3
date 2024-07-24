@@ -63,17 +63,6 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To delete a launch configuration
- * ```javascript
- * // This example deletes the specified launch configuration.
- * const input = {
- *   "LaunchConfigurationName": "my-launch-config"
- * };
- * const command = new DeleteLaunchConfigurationCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-launch-configuration-1
- * ```
- *
  */
 export class DeleteLaunchConfigurationCommand extends $Command
   .classBuilder<

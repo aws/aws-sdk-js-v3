@@ -85,29 +85,6 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @public
- * @example CreateEnvironmentMembership
- * ```javascript
- * //
- * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *   "permissions": "read-write",
- *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
- * };
- * const command = new CreateEnvironmentMembershipCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "membership": {
- *     "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *     "permissions": "read-write",
- *     "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
- *     "userId": "AIDAJ3BA6O2FMJWCWXHEX"
- *   }
- * }
- * *\/
- * // example id: createenvironmentmembership-1516822583452
- * ```
- *
  */
 export class CreateEnvironmentMembershipCommand extends $Command
   .classBuilder<

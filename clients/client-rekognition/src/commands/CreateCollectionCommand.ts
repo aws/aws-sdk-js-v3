@@ -100,23 +100,6 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @public
- * @example To create a collection
- * ```javascript
- * // This operation creates a Rekognition collection for storing image data.
- * const input = {
- *   "CollectionId": "myphotos"
- * };
- * const command = new CreateCollectionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CollectionArn": "aws:rekognition:us-west-2:123456789012:collection/myphotos",
- *   "StatusCode": 200
- * }
- * *\/
- * // example id: to-create-a-collection-1481833313674
- * ```
- *
  */
 export class CreateCollectionCommand extends $Command
   .classBuilder<

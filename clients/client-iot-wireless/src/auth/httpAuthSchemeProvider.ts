@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTWirelessHttpAuthSch
       name: "iotwireless",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTWirelessClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTWirelessClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ChimeSDKMessagingHttpA
       name: "chime",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ChimeSDKMessagingClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ChimeSDKMessagingClientConfig>, context) => ({
       /**
        * @internal
        */

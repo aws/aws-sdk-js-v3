@@ -66,18 +66,6 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
- * @example To terminate a job
- * ```javascript
- * // This example terminates a job with the specified job ID.
- * const input = {
- *   "jobId": "61e743ed-35e4-48da-b2de-5c8333821c84",
- *   "reason": "Terminating job."
- * };
- * const command = new TerminateJobCommand(input);
- * await client.send(command);
- * // example id: to-terminate-a-job-1481154558276
- * ```
- *
  */
 export class TerminateJobCommand extends $Command
   .classBuilder<

@@ -56,17 +56,6 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a customer gateway
- * ```javascript
- * // This example deletes the specified customer gateway.
- * const input = {
- *   "CustomerGatewayId": "cgw-0e11f167"
- * };
- * const command = new DeleteCustomerGatewayCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-customer-gateway-1
- * ```
- *
  */
 export class DeleteCustomerGatewayCommand extends $Command
   .classBuilder<

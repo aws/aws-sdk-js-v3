@@ -126,29 +126,6 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example Set tags on a bucket
- * ```javascript
- * // The following example sets tags on a bucket. Any existing tags are replaced.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Tagging": {
- *     "TagSet": [
- *       {
- *         "Key": "Key1",
- *         "Value": "Value1"
- *       },
- *       {
- *         "Key": "Key2",
- *         "Value": "Value2"
- *       }
- *     ]
- *   }
- * };
- * const command = new PutBucketTaggingCommand(input);
- * await client.send(command);
- * // example id: set-tags-on-a-bucket-1482346269066
- * ```
- *
  */
 export class PutBucketTaggingCommand extends $Command
   .classBuilder<

@@ -65,20 +65,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
- * @example UntagResource Example
- * ```javascript
- * // This demonstrates calling the UntagResource action.
- * const input = {
- *   "resourceArn": "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1",
- *   "tagKeys": [
- *     "Stage"
- *   ]
- * };
- * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: untagresource-example-1591292811042
- * ```
- *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

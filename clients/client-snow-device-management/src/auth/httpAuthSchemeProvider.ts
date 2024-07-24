@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "snow-device-management",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SnowDeviceManagementClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SnowDeviceManagementClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -75,47 +75,6 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
- * @example To delete your account setting
- * ```javascript
- * // This example deletes the account setting for your user for the specified resource type.
- * const input = {
- *   "name": "serviceLongArnFormat"
- * };
- * const command = new DeleteAccountSettingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "setting": {
- *     "name": "serviceLongArnFormat",
- *     "value": "enabled",
- *     "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *   }
- * }
- * *\/
- * // example id: to-delete-the-account-setting-for-your-user-account-1549524548115
- * ```
- *
- * @example To delete the account settings for a specific IAM user or IAM role
- * ```javascript
- * // This example deletes the account setting for a specific IAM user or IAM role for the specified resource type. Only the root user can view or modify the account settings for another user.
- * const input = {
- *   "name": "containerInstanceLongArnFormat",
- *   "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- * };
- * const command = new DeleteAccountSettingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "setting": {
- *     "name": "containerInstanceLongArnFormat",
- *     "value": "enabled",
- *     "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *   }
- * }
- * *\/
- * // example id: to-delete-the-account-setting-for-a-specific-iam-user-or-iam-role-1549524612917
- * ```
- *
  */
 export class DeleteAccountSettingCommand extends $Command
   .classBuilder<

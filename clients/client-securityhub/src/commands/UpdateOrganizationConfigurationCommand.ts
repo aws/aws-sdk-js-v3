@@ -89,21 +89,6 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @example To update organization configuration
- * ```javascript
- * // This operation updates the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.
- * const input = {
- *   "AutoEnable": false,
- *   "AutoEnableStandards": "NONE",
- *   "OrganizationConfiguration": {
- *     "ConfigurationType": "CENTRAL"
- *   }
- * };
- * const command = new UpdateOrganizationConfigurationCommand(input);
- * await client.send(command);
- * // example id: to-update-organization-configuration-1678911630846
- * ```
- *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command
   .classBuilder<

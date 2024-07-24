@@ -141,33 +141,6 @@ export interface DescribeReplicationInstancesCommandOutput
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Describe replication instances
- * ```javascript
- * // Returns the status of the refresh-schemas operation.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "string",
- *       "Values": [
- *         "string",
- *         "string"
- *       ]
- *     }
- *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
- * };
- * const command = new DescribeReplicationInstancesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Marker": "",
- *   "ReplicationInstances": []
- * }
- * *\/
- * // example id: describe-replication-instances-1481755443952
- * ```
- *
  */
 export class DescribeReplicationInstancesCommand extends $Command
   .classBuilder<

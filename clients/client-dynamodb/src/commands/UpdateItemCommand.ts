@@ -244,57 +244,6 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @public
- * @example To update an item in a table
- * ```javascript
- * // This example updates an item in the Music table. It adds a new attribute (Year) and modifies the AlbumTitle attribute.  All of the attributes in the item, as they appear after the update, are returned in the response.
- * const input = {
- *   "ExpressionAttributeNames": {
- *     "#AT": "AlbumTitle",
- *     "#Y": "Year"
- *   },
- *   "ExpressionAttributeValues": {
- *     ":t": {
- *       "S": "Louder Than Ever"
- *     },
- *     ":y": {
- *       "N": "2015"
- *     }
- *   },
- *   "Key": {
- *     "Artist": {
- *       "S": "Acme Band"
- *     },
- *     "SongTitle": {
- *       "S": "Happy Day"
- *     }
- *   },
- *   "ReturnValues": "ALL_NEW",
- *   "TableName": "Music",
- *   "UpdateExpression": "SET #Y = :y, #AT = :t"
- * };
- * const command = new UpdateItemCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Attributes": {
- *     "AlbumTitle": {
- *       "S": "Louder Than Ever"
- *     },
- *     "Artist": {
- *       "S": "Acme Band"
- *     },
- *     "SongTitle": {
- *       "S": "Happy Day"
- *     },
- *     "Year": {
- *       "N": "2015"
- *     }
- *   }
- * }
- * *\/
- * // example id: to-update-an-item-in-a-table-1476118250055
- * ```
- *
  */
 export class UpdateItemCommand extends $Command
   .classBuilder<

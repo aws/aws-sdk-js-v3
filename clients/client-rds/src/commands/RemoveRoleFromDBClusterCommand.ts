@@ -74,18 +74,6 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To disassociate an Identity and Access Management (IAM) role from a DB cluster
- * ```javascript
- * // The following example removes a role from a DB cluster.
- * const input = {
- *   "DBClusterIdentifier": "mydbcluster",
- *   "RoleArn": "arn:aws:iam::123456789012:role/RDSLoadFromS3"
- * };
- * const command = new RemoveRoleFromDBClusterCommand(input);
- * await client.send(command);
- * // example id: to-disassociate-an-identity-and-access-management-iam-role-from-a-db-cluster-1680072359521
- * ```
- *
  */
 export class RemoveRoleFromDBClusterCommand extends $Command
   .classBuilder<

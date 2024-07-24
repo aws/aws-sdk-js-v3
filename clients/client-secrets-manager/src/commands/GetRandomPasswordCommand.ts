@@ -101,24 +101,6 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @public
- * @example To generate a random password
- * ```javascript
- * // The following example shows how to request a randomly generated password. This example includes the optional flags to require spaces and at least one character of each included type. It specifies a length of 20 characters.
- * const input = {
- *   "IncludeSpace": true,
- *   "PasswordLength": 20,
- *   "RequireEachIncludedType": true
- * };
- * const command = new GetRandomPasswordCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "RandomPassword": "EXAMPLE-PASSWORD"
- * }
- * *\/
- * // example id: to-generate-a-random-password-1524000546092
- * ```
- *
  */
 export class GetRandomPasswordCommand extends $Command
   .classBuilder<

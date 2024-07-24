@@ -73,22 +73,6 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @example To delete a custom insight
- * ```javascript
- * // The following example deletes a custom insight in Security Hub.
- * const input = {
- *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
- * };
- * const command = new DeleteInsightCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "InsightArn": "arn:aws:securityhub:eu-central-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
- * }
- * *\/
- * // example id: to-delete-a-custom-insight-1675702697204
- * ```
- *
  */
 export class DeleteInsightCommand extends $Command
   .classBuilder<

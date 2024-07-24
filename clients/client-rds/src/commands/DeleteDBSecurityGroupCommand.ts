@@ -69,17 +69,6 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete a DB security group
- * ```javascript
- * // The following example deletes a DB security group.
- * const input = {
- *   "DBSecurityGroupName": "mysecgroup"
- * };
- * const command = new DeleteDBSecurityGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-db-security-group-1473960141889
- * ```
- *
  */
 export class DeleteDBSecurityGroupCommand extends $Command
   .classBuilder<

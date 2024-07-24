@@ -71,22 +71,6 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
- * @example Example: Delete namespace
- * ```javascript
- * // Example: Delete namespace
- * const input = {
- *   "Id": "ns-ylexjili4cdxy3xm"
- * };
- * const command = new DeleteNamespaceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k98y6drk"
- * }
- * *\/
- * // example id: example-delete-namespace-1587416093508
- * ```
- *
  */
 export class DeleteNamespaceCommand extends $Command
   .classBuilder<

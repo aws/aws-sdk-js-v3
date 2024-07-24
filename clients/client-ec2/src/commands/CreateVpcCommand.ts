@@ -124,28 +124,6 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To create a VPC
- * ```javascript
- * // This example creates a VPC with the specified CIDR block.
- * const input = {
- *   "CidrBlock": "10.0.0.0/16"
- * };
- * const command = new CreateVpcCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Vpc": {
- *     "CidrBlock": "10.0.0.0/16",
- *     "DhcpOptionsId": "dopt-7a8b9c2d",
- *     "InstanceTenancy": "default",
- *     "State": "pending",
- *     "VpcId": "vpc-a01106c2"
- *   }
- * }
- * *\/
- * // example id: ec2-create-vpc-1
- * ```
- *
  */
 export class CreateVpcCommand extends $Command
   .classBuilder<

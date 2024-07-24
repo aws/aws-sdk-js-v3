@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeStarConnectionsHtt
       name: "codestar-connections",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeStarConnectionsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeStarConnectionsClientConfig>, context) => ({
       /**
        * @internal
        */

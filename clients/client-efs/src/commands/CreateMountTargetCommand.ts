@@ -263,29 +263,6 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @public
- * @example To create a new mount target
- * ```javascript
- * // This operation creates a new mount target for an EFS file system.
- * const input = {
- *   "FileSystemId": "fs-01234567",
- *   "SubnetId": "subnet-1234abcd"
- * };
- * const command = new CreateMountTargetCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "FileSystemId": "fs-01234567",
- *   "IpAddress": "192.0.0.2",
- *   "LifeCycleState": "creating",
- *   "MountTargetId": "fsmt-12340abc",
- *   "NetworkInterfaceId": "eni-cedf6789",
- *   "OwnerId": "012345678912",
- *   "SubnetId": "subnet-1234abcd"
- * }
- * *\/
- * // example id: to-create-a-new-mount-target-1481842289329
- * ```
- *
  */
 export class CreateMountTargetCommand extends $Command
   .classBuilder<

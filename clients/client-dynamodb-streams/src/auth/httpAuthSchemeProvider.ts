@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DynamoDBStreamsHttpAut
       name: "dynamodb",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DynamoDBStreamsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DynamoDBStreamsClientConfig>, context) => ({
       /**
        * @internal
        */

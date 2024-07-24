@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SSOAdminHttpAuthScheme
       name: "sso",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SSOAdminClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SSOAdminClientConfig>, context) => ({
       /**
        * @internal
        */

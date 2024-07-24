@@ -76,17 +76,6 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @public
- * @example DeleteEnvironment
- * ```javascript
- * //
- * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
- * };
- * const command = new DeleteEnvironmentCommand(input);
- * await client.send(command);
- * // example id: deleteenvironment-1516822903149
- * ```
- *
  */
 export class DeleteEnvironmentCommand extends $Command
   .classBuilder<

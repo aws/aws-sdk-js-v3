@@ -85,33 +85,6 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  * @public
- * @example To get an XSS match set
- * ```javascript
- * // The following example returns the details of an XSS match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
- * const input = {
- *   "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
- * };
- * const command = new GetXssMatchSetCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "XssMatchSet": {
- *     "Name": "MySampleXssMatchSet",
- *     "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "XssMatchTuples": [
- *       {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
- *         },
- *         "TextTransformation": "URL_DECODE"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: getxssmatchset-1475187879017
- * ```
- *
  */
 export class GetXssMatchSetCommand extends $Command
   .classBuilder<

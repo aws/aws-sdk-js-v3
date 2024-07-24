@@ -67,17 +67,6 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete a DB subnet group
- * ```javascript
- * // The following example deletes the DB subnet group called mysubnetgroup.
- * const input = {
- *   "DBSubnetGroupName": "mysubnetgroup"
- * };
- * const command = new DeleteDBSubnetGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-db-subnet-group-1680127744982
- * ```
- *
  */
 export class DeleteDBSubnetGroupCommand extends $Command
   .classBuilder<

@@ -92,23 +92,6 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To create a new vault
- * ```javascript
- * // The following example creates a new vault named my-vault.
- * const input = {
- *   "accountId": "-",
- *   "vaultName": "my-vault"
- * };
- * const command = new CreateVaultCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "location": "/111122223333/vaults/my-vault"
- * }
- * *\/
- * // example id: 1dc0313d-ace1-4e6c-9d13-1ec7813b14b7
- * ```
- *
  */
 export class CreateVaultCommand extends $Command
   .classBuilder<

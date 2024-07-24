@@ -76,23 +76,6 @@ export interface ListEnabledProductsForImportCommandOutput
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @example To list ARNs for enabled integrations
- * ```javascript
- * // The following example returns a list of subscription Amazon Resource Names (ARNs) for the product integrations that you have currently enabled in Security Hub.
- * const input = {};
- * const command = new ListEnabledProductsForImportCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ProductSubscriptions": [
- *     "arn:aws:securityhub:us-east-1:517716713836:product-subscription/crowdstrike/crowdstrike-falcon",
- *     "arn:aws:securityhub:us-east-1::product/3coresec/3coresec"
- *   ]
- * }
- * *\/
- * // example id: to-list-arns-for-enabled-integrations-1678294870020
- * ```
- *
  */
 export class ListEnabledProductsForImportCommand extends $Command
   .classBuilder<

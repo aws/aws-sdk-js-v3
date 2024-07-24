@@ -131,23 +131,6 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @public
- * @example To determine capacity limits per table and account, in the current AWS region
- * ```javascript
- * // The following example returns the maximum read and write capacity units per table, and for the AWS account, in the current AWS region.
- * const input = {};
- * const command = new DescribeLimitsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AccountMaxReadCapacityUnits": 20000,
- *   "AccountMaxWriteCapacityUnits": 20000,
- *   "TableMaxReadCapacityUnits": 10000,
- *   "TableMaxWriteCapacityUnits": 10000
- * }
- * *\/
- * // example id: to-determine-capacity-limits-per-table-and-account-in-the-current-aws-region-1475884162064
- * ```
- *
  */
 export class DescribeLimitsCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EFSHttpAuthSchemeParam
       name: "elasticfilesystem",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EFSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EFSClientConfig>, context) => ({
       /**
        * @internal
        */

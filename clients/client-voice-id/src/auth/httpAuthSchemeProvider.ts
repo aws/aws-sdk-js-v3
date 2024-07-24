@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: VoiceIDHttpAuthSchemeP
       name: "voiceid",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: VoiceIDClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<VoiceIDClientConfig>, context) => ({
       /**
        * @internal
        */

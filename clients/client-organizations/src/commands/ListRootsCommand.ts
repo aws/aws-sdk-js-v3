@@ -211,32 +211,6 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  * @public
- * @example To retrieve a list of roots in the organization
- * ```javascript
- * // The following example shows how to get the list of the roots in the current organization:/n/n
- * const input = {};
- * const command = new ListRootsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Roots": [
- *     {
- *       "Arn": "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
- *       "Id": "r-examplerootid111",
- *       "Name": "Root",
- *       "PolicyTypes": [
- *         {
- *           "Status": "ENABLED",
- *           "Type": "SERVICE_CONTROL_POLICY"
- *         }
- *       ]
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-retrieve-a-list-of-roots-in-the-organization
- * ```
- *
  */
 export class ListRootsCommand extends $Command
   .classBuilder<

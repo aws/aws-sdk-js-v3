@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PipesHttpAuthSchemePar
       name: "pipes",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PipesClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PipesClientConfig>, context) => ({
       /**
        * @internal
        */

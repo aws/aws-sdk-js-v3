@@ -96,58 +96,6 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To describe a DB subnet group
- * ```javascript
- * // The following example retrieves the details of the specified DB subnet group.
- * const input = {};
- * const command = new DescribeDBSubnetGroupsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBSubnetGroups": [
- *     {
- *       "DBSubnetGroupArn": "arn:aws:rds:us-east-1:123456789012:subgrp:mydbsubnetgroup",
- *       "DBSubnetGroupDescription": "My DB Subnet Group",
- *       "DBSubnetGroupName": "mydbsubnetgroup",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1a"
- *           },
- *           "SubnetIdentifier": "subnet-d8c8e7f4",
- *           "SubnetStatus": "Active"
- *         },
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1f"
- *           },
- *           "SubnetIdentifier": "subnet-718fdc7d",
- *           "SubnetStatus": "Active"
- *         },
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1a"
- *           },
- *           "SubnetIdentifier": "subnet-cbc8e7e7",
- *           "SubnetStatus": "Active"
- *         },
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1a"
- *           },
- *           "SubnetIdentifier": "subnet-0ccde220",
- *           "SubnetStatus": "Active"
- *         }
- *       ],
- *       "VpcId": "vpc-971c12ee"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-a-db-subnet-group-1680280764611
- * ```
- *
  */
 export class DescribeDBSubnetGroupsCommand extends $Command
   .classBuilder<

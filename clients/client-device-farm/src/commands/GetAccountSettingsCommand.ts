@@ -85,26 +85,6 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @public
- * @example To get information about account settings
- * ```javascript
- * // The following example returns information about your Device Farm account settings.
- * const input = {};
- * const command = new GetAccountSettingsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "accountSettings": {
- *     "awsAccountNumber": "123456789101",
- *     "unmeteredDevices": {
- *       "ANDROID": 1,
- *       "IOS": 2
- *     }
- *   }
- * }
- * *\/
- * // example id: to-get-information-about-account-settings-1472567568189
- * ```
- *
  */
 export class GetAccountSettingsCommand extends $Command
   .classBuilder<

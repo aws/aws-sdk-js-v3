@@ -71,25 +71,6 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe the datafeed for your AWS account
- * ```javascript
- * // This example describes the Spot Instance datafeed subscription for your AWS account.
- * const input = {};
- * const command = new DescribeSpotDatafeedSubscriptionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "SpotDatafeedSubscription": {
- *     "Bucket": "my-s3-bucket",
- *     "OwnerId": "123456789012",
- *     "Prefix": "spotdata",
- *     "State": "Active"
- *   }
- * }
- * *\/
- * // example id: ec2-describe-spot-datafeed-subscription-1
- * ```
- *
  */
 export class DescribeSpotDatafeedSubscriptionCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudFormationHttpAuth
       name: "cloudformation",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudFormationClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudFormationClientConfig>, context) => ({
       /**
        * @internal
        */

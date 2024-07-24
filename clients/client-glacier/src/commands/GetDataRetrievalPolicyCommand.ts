@@ -74,29 +74,6 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To get the current data retrieval policy for an account
- * ```javascript
- * // The example returns the current data retrieval policy for the account.
- * const input = {
- *   "accountId": "-"
- * };
- * const command = new GetDataRetrievalPolicyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Policy": {
- *     "Rules": [
- *       {
- *         "BytesPerHour": 10737418240,
- *         "Strategy": "BytesPerHour"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-get-the-current-data-retrieval-policy-for-the-account-1481851580439
- * ```
- *
  */
 export class GetDataRetrievalPolicyCommand extends $Command
   .classBuilder<

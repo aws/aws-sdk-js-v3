@@ -67,23 +67,6 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To cancel virtual tape retrieval
- * ```javascript
- * // Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
- * };
- * const command = new CancelRetrievalCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
- * }
- * *\/
- * // example id: to-cancel-virtual-tape-retrieval-1471295704491
- * ```
- *
  */
 export class CancelRetrievalCommand extends $Command
   .classBuilder<

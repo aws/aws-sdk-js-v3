@@ -66,24 +66,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  * @public
- * @example To list tags for a cluster
- * ```javascript
- * // This example lists all of the tags for the `beta` cluster.
- * const input = {
- *   "resourceArn": "arn:aws:eks:us-west-2:012345678910:cluster/beta"
- * };
- * const command = new ListTagsForResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "tags": {
- *     "aws:tag:domain": "beta"
- *   }
- * }
- * *\/
- * // example id: to-list-tags-for-a-cluster-1568666903378
- * ```
- *
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

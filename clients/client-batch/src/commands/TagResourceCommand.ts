@@ -69,20 +69,6 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
- * @example TagResource Example
- * ```javascript
- * // This demonstrates calling the TagResource action.
- * const input = {
- *   "resourceArn": "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1",
- *   "tags": {
- *     "Stage": "Alpha"
- *   }
- * };
- * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: tagresource-example-1591291959952
- * ```
- *
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

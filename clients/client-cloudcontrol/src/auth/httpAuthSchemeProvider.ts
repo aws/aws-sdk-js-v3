@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudControlHttpAuthSc
       name: "cloudcontrolapi",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudControlClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudControlClientConfig>, context) => ({
       /**
        * @internal
        */

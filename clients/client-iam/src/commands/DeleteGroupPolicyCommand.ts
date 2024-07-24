@@ -72,18 +72,6 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To delete a policy from an IAM group
- * ```javascript
- * // The following command deletes the policy named ExamplePolicy from the group named Admins:
- * const input = {
- *   "GroupName": "Admins",
- *   "PolicyName": "ExamplePolicy"
- * };
- * const command = new DeleteGroupPolicyCommand(input);
- * await client.send(command);
- * // example id: e683f2bd-98a4-4fe0-bb66-33169c692d4a
- * ```
- *
  */
 export class DeleteGroupPolicyCommand extends $Command
   .classBuilder<

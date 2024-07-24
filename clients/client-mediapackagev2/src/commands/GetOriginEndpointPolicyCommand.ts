@@ -76,27 +76,6 @@ export interface GetOriginEndpointPolicyCommandOutput extends GetOriginEndpointP
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
  * @public
- * @example Getting an Origin Endpoint Policy
- * ```javascript
- * //
- * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "OriginEndpointName": "exampleOriginEndpoint"
- * };
- * const command = new GetOriginEndpointPolicyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "OriginEndpointName": "exampleOriginEndpoint",
- *   "Policy": "{...}"
- * }
- * *\/
- * // example id: example-1
- * ```
- *
  */
 export class GetOriginEndpointPolicyCommand extends $Command
   .classBuilder<

@@ -76,23 +76,6 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
- * @example Example: Deregister a service instance
- * ```javascript
- * // Example: Deregister a service instance
- * const input = {
- *   "InstanceId": "myservice-53",
- *   "ServiceId": "srv-p5zdwlg5uvvzjita"
- * };
- * const command = new DeregisterInstanceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k98rnaiq"
- * }
- * *\/
- * // example id: example-deregister-a-service-instance-1587416305738
- * ```
- *
  */
 export class DeregisterInstanceCommand extends $Command
   .classBuilder<

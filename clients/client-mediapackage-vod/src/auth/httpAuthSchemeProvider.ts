@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MediaPackageVodHttpAut
       name: "mediapackage-vod",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MediaPackageVodClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MediaPackageVodClientConfig>, context) => ({
       /**
        * @internal
        */

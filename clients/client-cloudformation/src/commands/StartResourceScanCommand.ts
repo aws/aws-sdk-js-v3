@@ -75,20 +75,6 @@ export interface StartResourceScanCommandOutput extends StartResourceScanOutput,
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  * @public
- * @example To start a resource scan
- * ```javascript
- * // This example shows how to start a new resource scan
- * const input = {};
- * const command = new StartResourceScanCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ResourceScanId": "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/88f09db1-d211-4cb7-964b-434e2b8469ca"
- * }
- * *\/
- * // example id: to-start-a-generated-template
- * ```
- *
  */
 export class StartResourceScanCommand extends $Command
   .classBuilder<

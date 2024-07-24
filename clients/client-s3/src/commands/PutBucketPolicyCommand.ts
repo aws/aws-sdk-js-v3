@@ -126,18 +126,6 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example Set bucket policy
- * ```javascript
- * // The following example sets a permission policy on a bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{ \"Sid\": \"id-1\",\"Effect\": \"Allow\",\"Principal\": {\"AWS\": \"arn:aws:iam::123456789012:root\"}, \"Action\": [ \"s3:PutObject\",\"s3:PutObjectAcl\"], \"Resource\": [\"arn:aws:s3:::acl3/*\" ] } ]}"
- * };
- * const command = new PutBucketPolicyCommand(input);
- * await client.send(command);
- * // example id: set-bucket-policy-1482448903302
- * ```
- *
  */
 export class PutBucketPolicyCommand extends $Command
   .classBuilder<

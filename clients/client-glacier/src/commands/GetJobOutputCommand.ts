@@ -116,28 +116,6 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To get the output of a previously initiated job
- * ```javascript
- * // The example downloads the output of a previously initiated inventory retrieval job that is identified by the job ID.
- * const input = {
- *   "accountId": "-",
- *   "jobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
- *   "range": "",
- *   "vaultName": "my-vaul"
- * };
- * const command = new GetJobOutputCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "acceptRanges": "bytes",
- *   "body": "inventory-data",
- *   "contentType": "application/json",
- *   "status": 200
- * }
- * *\/
- * // example id: to-get-the-output-of-a-previously-initiated-job-1481848550859
- * ```
- *
  */
 export class GetJobOutputCommand extends $Command
   .classBuilder<

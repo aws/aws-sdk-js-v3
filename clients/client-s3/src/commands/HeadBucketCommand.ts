@@ -113,17 +113,6 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
- * @example To determine if bucket exists
- * ```javascript
- * // This operation checks to see if a bucket exists.
- * const input = {
- *   "Bucket": "acl1"
- * };
- * const command = new HeadBucketCommand(input);
- * await client.send(command);
- * // example id: to-determine-if-bucket-exists-1473110292262
- * ```
- *
  */
 export class HeadBucketCommand extends $Command
   .classBuilder<

@@ -81,24 +81,6 @@ export interface StartRetrainingSchedulerCommandOutput extends StartRetrainingSc
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  * @public
- * @example Starts a retraining scheduler
- * ```javascript
- * //
- * const input = {
- *   "ModelName": "sample-model"
- * };
- * const command = new StartRetrainingSchedulerCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ModelName": "sample-model",
- *   "Status": "PENDING"
- * }
- * *\/
- * // example id: starts-a-retraining-scheduler-1694019629413
- * ```
- *
  */
 export class StartRetrainingSchedulerCommand extends $Command
   .classBuilder<

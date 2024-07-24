@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DataBrewHttpAuthScheme
       name: "databrew",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DataBrewClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DataBrewClientConfig>, context) => ({
       /**
        * @internal
        */

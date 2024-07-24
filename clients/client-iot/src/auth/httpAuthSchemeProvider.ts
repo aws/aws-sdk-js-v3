@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTHttpAuthSchemeParam
       name: "iot",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTClientConfig>, context) => ({
       /**
        * @internal
        */

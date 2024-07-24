@@ -69,24 +69,6 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To delete a tag from an Auto Scaling group
- * ```javascript
- * // This example deletes the specified tag from the specified Auto Scaling group.
- * const input = {
- *   "Tags": [
- *     {
- *       "Key": "Dept",
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "Research"
- *     }
- *   ]
- * };
- * const command = new DeleteTagsCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-tags-1
- * ```
- *
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

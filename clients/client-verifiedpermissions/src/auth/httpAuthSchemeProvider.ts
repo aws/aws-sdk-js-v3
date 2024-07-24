@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: VerifiedPermissionsHtt
       name: "verifiedpermissions",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: VerifiedPermissionsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<VerifiedPermissionsClientConfig>, context) => ({
       /**
        * @internal
        */

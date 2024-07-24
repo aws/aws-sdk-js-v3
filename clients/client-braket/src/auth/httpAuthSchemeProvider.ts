@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BraketHttpAuthSchemePa
       name: "braket",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BraketClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BraketClientConfig>, context) => ({
       /**
        * @internal
        */

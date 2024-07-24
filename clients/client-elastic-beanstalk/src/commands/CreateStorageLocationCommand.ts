@@ -68,20 +68,6 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @public
- * @example To create a new environment for an application
- * ```javascript
- * // The following operation creates a new environment for version v1 of a java application named my-app:
- * const input = {};
- * const command = new CreateStorageLocationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "S3Bucket": "elasticbeanstalk-us-west-2-0123456789012"
- * }
- * *\/
- * // example id: to-create-a-new-environment-for-an-application-1456269380396
- * ```
- *
  */
 export class CreateStorageLocationCommand extends $Command
   .classBuilder<

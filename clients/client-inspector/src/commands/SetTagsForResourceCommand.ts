@@ -78,23 +78,6 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example Set tags for resource
- * ```javascript
- * // Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.
- * const input = {
- *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
- *   "tags": [
- *     {
- *       "key": "Example",
- *       "value": "example"
- *     }
- *   ]
- * };
- * const command = new SetTagsForResourceCommand(input);
- * await client.send(command);
- * // example id: set-tags-for-resource-1481067329646
- * ```
- *
  */
 export class SetTagsForResourceCommand extends $Command
   .classBuilder<

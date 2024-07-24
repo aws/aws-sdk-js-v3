@@ -56,17 +56,6 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To detach a network interface from an instance
- * ```javascript
- * // This example detaches the specified network interface from its attached instance.
- * const input = {
- *   "AttachmentId": "eni-attach-66c4350a"
- * };
- * const command = new DetachNetworkInterfaceCommand(input);
- * await client.send(command);
- * // example id: ec2-detach-network-interface-1
- * ```
- *
  */
 export class DetachNetworkInterfaceCommand extends $Command
   .classBuilder<

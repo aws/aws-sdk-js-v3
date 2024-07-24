@@ -73,17 +73,6 @@ export interface DeletePartnershipCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
- * @example Sample DeletePartnership call
- * ```javascript
- * //
- * const input = {
- *   "partnershipId": "ps-219fa02f5b4242af8"
- * };
- * const command = new DeletePartnershipCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
 export class DeletePartnershipCommand extends $Command
   .classBuilder<

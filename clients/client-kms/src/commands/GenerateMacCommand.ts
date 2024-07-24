@@ -158,26 +158,6 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @public
- * @example To generate an HMAC for a message
- * ```javascript
- * // This example generates an HMAC for a message, an HMAC KMS key, and a MAC algorithm. The algorithm must be supported by the specified HMAC KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "MacAlgorithm": "HMAC_SHA_384",
- *   "Message": "Hello World"
- * };
- * const command = new GenerateMacCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Mac": "<HMAC_TAG>",
- *   "MacAlgorithm": "HMAC_SHA_384"
- * }
- * *\/
- * // example id: to-generate-an-hmac-for-a-message-1631570135665
- * ```
- *
  */
 export class GenerateMacCommand extends $Command
   .classBuilder<

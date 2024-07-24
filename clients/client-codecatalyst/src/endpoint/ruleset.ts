@@ -1,29 +1,209 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/codecatalyst.json */
-
-const n="type",
-o="conditions",
-p="argv",
-q="ref",
-r="properties",
-s="headers";
-const a=true,
-b=false,
-c="isSet",
-d="endpoint",
-e="aws.partition",
-f="PartitionResult",
-g="tree",
-h={"required":false,[n]:"String"},
-i={[q]:"Endpoint"},
-j={},
-k={"fn":c,[p]:[{[q]:"Region"}]},
-l=[{[q]:"Region"}],
-m=[{[o]:[{"fn":"booleanEquals",[p]:[{[q]:"UseFIPS"},true]}],"rules":[{[o]:[{"fn":"booleanEquals",[p]:[{"fn":"getAttr",[p]:[{[q]:f},"supportsFIPS"]},false]}],"error":"Partition does not support FIPS.",[n]:"error"},{[d]:{"url":"https://codecatalyst-fips.global.{PartitionResult#dualStackDnsSuffix}",[r]:{},[s]:{}},[n]:d}],[n]:g},{[d]:{"url":"https://codecatalyst.global.{PartitionResult#dualStackDnsSuffix}",[r]:{},[s]:{}},[n]:d}];
-const _data={version:"1.0",parameters:{UseFIPS:{required:a,default:b,[n]:"Boolean"},Region:h,Endpoint:h},rules:[{[o]:[{fn:c,[p]:[i]}],endpoint:{url:i,[r]:j,[s]:j},[n]:d},{[o]:[{fn:"not",[p]:[k]},{fn:e,[p]:["us-west-2"],assign:f}],rules:m,[n]:g},{[o]:[k,{fn:e,[p]:l,assign:f}],rules:m,[n]:g}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Endpoint",
+            },
+          ],
+        },
+      ],
+      endpoint: {
+        url: {
+          ref: "Endpoint",
+        },
+        properties: {},
+        headers: {},
+      },
+      type: "endpoint",
+    },
+    {
+      conditions: [
+        {
+          fn: "not",
+          argv: [
+            {
+              fn: "isSet",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          fn: "aws.partition",
+          argv: ["us-west-2"],
+          assign: "PartitionResult",
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      fn: "getAttr",
+                      argv: [
+                        {
+                          ref: "PartitionResult",
+                        },
+                        "supportsFIPS",
+                      ],
+                    },
+                    false,
+                  ],
+                },
+              ],
+              error: "Partition does not support FIPS.",
+              type: "error",
+            },
+            {
+              conditions: [],
+              endpoint: {
+                url: "https://codecatalyst-fips.global.{PartitionResult#dualStackDnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: "https://codecatalyst.global.{PartitionResult#dualStackDnsSuffix}",
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+        {
+          fn: "aws.partition",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+          assign: "PartitionResult",
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      fn: "getAttr",
+                      argv: [
+                        {
+                          ref: "PartitionResult",
+                        },
+                        "supportsFIPS",
+                      ],
+                    },
+                    false,
+                  ],
+                },
+              ],
+              error: "Partition does not support FIPS.",
+              type: "error",
+            },
+            {
+              conditions: [],
+              endpoint: {
+                url: "https://codecatalyst-fips.global.{PartitionResult#dualStackDnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+          ],
+          type: "tree",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: "https://codecatalyst.global.{PartitionResult#dualStackDnsSuffix}",
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+  ],
+};

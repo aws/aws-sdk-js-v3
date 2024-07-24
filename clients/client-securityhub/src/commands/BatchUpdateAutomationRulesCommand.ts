@@ -272,35 +272,6 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @example To update one ore more automation rules
- * ```javascript
- * // The following example updates the specified automation rules.
- * const input = {
- *   "UpdateAutomationRulesRequestItems": [
- *     {
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "RuleOrder": 15,
- *       "RuleStatus": "ENABLED"
- *     },
- *     {
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "RuleStatus": "DISABLED"
- *     }
- *   ]
- * };
- * const command = new BatchUpdateAutomationRulesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ProcessedAutomationRules": [
- *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
- *   ]
- * }
- * *\/
- * // example id: to-update-one-ore-more-automation-rules-1684771025347
- * ```
- *
  */
 export class BatchUpdateAutomationRulesCommand extends $Command
   .classBuilder<

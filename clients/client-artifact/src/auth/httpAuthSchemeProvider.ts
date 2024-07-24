@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ArtifactHttpAuthScheme
       name: "artifact",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ArtifactClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ArtifactClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTTwinMakerHttpAuthSc
       name: "iottwinmaker",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTTwinMakerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTTwinMakerClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: Cloud9HttpAuthSchemePa
       name: "cloud9",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: Cloud9ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<Cloud9ClientConfig>, context) => ({
       /**
        * @internal
        */

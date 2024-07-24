@@ -90,29 +90,6 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To get the notification-configuration for the specified vault
- * ```javascript
- * // The example retrieves the notification-configuration for the vault named my-vault.
- * const input = {
- *   "accountId": "-",
- *   "vaultName": "my-vault"
- * };
- * const command = new GetVaultNotificationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "vaultNotificationConfig": {
- *     "Events": [
- *       "InventoryRetrievalCompleted",
- *       "ArchiveRetrievalCompleted"
- *     ],
- *     "SNSTopic": "arn:aws:sns:us-west-2:0123456789012:my-vault"
- *   }
- * }
- * *\/
- * // example id: to-get-the-notification-configuration-for-the-specified-vault-1481918746677
- * ```
- *
  */
 export class GetVaultNotificationsCommand extends $Command
   .classBuilder<

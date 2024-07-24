@@ -99,36 +99,6 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To modify an event subscription
- * ```javascript
- * // The following example turns off the specified event subscription, so that it no longer publishes notifications to the specified Amazon Simple Notification Service topic.
- * const input = {
- *   "Enabled": false,
- *   "SubscriptionName": "my-instance-events"
- * };
- * const command = new ModifyEventSubscriptionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "EventSubscription": {
- *     "CustSubscriptionId": "my-instance-events",
- *     "CustomerAwsId": "123456789012",
- *     "Enabled": false,
- *     "EventCategoriesList": [
- *       "backup",
- *       "recovery"
- *     ],
- *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
- *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
- *     "SourceType": "db-instance",
- *     "Status": "modifying",
- *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
- *   }
- * }
- * *\/
- * // example id: to-modify-an-event-subscription-1680383930434
- * ```
- *
  */
 export class ModifyEventSubscriptionCommand extends $Command
   .classBuilder<

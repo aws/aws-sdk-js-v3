@@ -89,27 +89,6 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example Remove attributes from findings
- * ```javascript
- * // Removes entire attributes (key and value pairs) from the findings that are specified by the ARNs of the findings where an attribute with the specified key exists.
- * const input = {
- *   "attributeKeys": [
- *     "key=Example,value=example"
- *   ],
- *   "findingArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-8l1VIE0D/run/0-Z02cjjug/finding/0-T8yM9mEU"
- *   ]
- * };
- * const command = new RemoveAttributesFromFindingsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "failedItems": {}
- * }
- * *\/
- * // example id: remove-attributes-from-findings-1481067246548
- * ```
- *
  */
 export class RemoveAttributesFromFindingsCommand extends $Command
   .classBuilder<

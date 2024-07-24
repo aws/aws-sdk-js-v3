@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "es",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ElasticsearchServiceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ElasticsearchServiceClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: XRayHttpAuthSchemePara
       name: "xray",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: XRayClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<XRayClientConfig>, context) => ({
       /**
        * @internal
        */

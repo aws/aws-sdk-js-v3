@@ -89,38 +89,6 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @public
- * @example To describe the tags assigned to a load balancer
- * ```javascript
- * // This example describes the tags assigned to the specified load balancer.
- * const input = {
- *   "ResourceArns": [
- *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
- *   ]
- * };
- * const command = new DescribeTagsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagDescriptions": [
- *     {
- *       "ResourceArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *       "Tags": [
- *         {
- *           "Key": "project",
- *           "Value": "lima"
- *         },
- *         {
- *           "Key": "department",
- *           "Value": "digital-media"
- *         }
- *       ]
- *     }
- *   ]
- * }
- * *\/
- * // example id: elbv2-describe-tags-1
- * ```
- *
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

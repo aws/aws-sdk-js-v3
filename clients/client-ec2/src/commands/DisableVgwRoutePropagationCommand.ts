@@ -57,18 +57,6 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To disable route propagation
- * ```javascript
- * // This example disables the specified virtual private gateway from propagating static routes to the specified route table.
- * const input = {
- *   "GatewayId": "vgw-9a4cacf3",
- *   "RouteTableId": "rtb-22574640"
- * };
- * const command = new DisableVgwRoutePropagationCommand(input);
- * await client.send(command);
- * // example id: ec2-disable-vgw-route-propagation-1
- * ```
- *
  */
 export class DisableVgwRoutePropagationCommand extends $Command
   .classBuilder<

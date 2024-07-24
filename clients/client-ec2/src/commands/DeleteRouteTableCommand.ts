@@ -55,17 +55,6 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a route table
- * ```javascript
- * // This example deletes the specified route table.
- * const input = {
- *   "RouteTableId": "rtb-22574640"
- * };
- * const command = new DeleteRouteTableCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-route-table-1
- * ```
- *
  */
 export class DeleteRouteTableCommand extends $Command
   .classBuilder<

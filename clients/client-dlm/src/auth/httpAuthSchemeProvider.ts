@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DLMHttpAuthSchemeParam
       name: "dlm",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DLMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DLMClientConfig>, context) => ({
       /**
        * @internal
        */

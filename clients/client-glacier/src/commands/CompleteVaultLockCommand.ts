@@ -82,19 +82,6 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To complete a vault lock
- * ```javascript
- * // The example completes the vault locking process by transitioning the vault lock from the InProgress state to the Locked state.
- * const input = {
- *   "accountId": "-",
- *   "lockId": "AE863rKkWZU53SLW5be4DUcW",
- *   "vaultName": "example-vault"
- * };
- * const command = new CompleteVaultLockCommand(input);
- * await client.send(command);
- * // example id: to-complete-a-vault-lock-1481839721312
- * ```
- *
  */
 export class CompleteVaultLockCommand extends $Command
   .classBuilder<

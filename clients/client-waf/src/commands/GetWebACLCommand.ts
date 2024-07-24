@@ -99,38 +99,6 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @public
- * @example To get a web ACL
- * ```javascript
- * // The following example returns the details of a web ACL with the ID createwebacl-1472061481310.
- * const input = {
- *   "WebACLId": "createwebacl-1472061481310"
- * };
- * const command = new GetWebACLCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "WebACL": {
- *     "DefaultAction": {
- *       "Type": "ALLOW"
- *     },
- *     "MetricName": "CreateExample",
- *     "Name": "CreateExample",
- *     "Rules": [
- *       {
- *         "Action": {
- *           "Type": "ALLOW"
- *         },
- *         "Priority": 1,
- *         "RuleId": "WAFRule-1-Example"
- *       }
- *     ],
- *     "WebACLId": "createwebacl-1472061481310"
- *   }
- * }
- * *\/
- * // example id: getwebacl-1475006348525
- * ```
- *
  */
 export class GetWebACLCommand extends $Command
   .classBuilder<

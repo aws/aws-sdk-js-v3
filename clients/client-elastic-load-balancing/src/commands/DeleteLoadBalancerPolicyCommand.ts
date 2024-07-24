@@ -65,18 +65,6 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @public
- * @example To delete a policy from your load balancer
- * ```javascript
- * // This example deletes the specified policy from the specified load balancer. The policy must not be enabled on any listener.
- * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyName": "my-duration-cookie-policy"
- * };
- * const command = new DeleteLoadBalancerPolicyCommand(input);
- * await client.send(command);
- * // example id: elb-delete-load-balancer-policy-1
- * ```
- *
  */
 export class DeleteLoadBalancerPolicyCommand extends $Command
   .classBuilder<

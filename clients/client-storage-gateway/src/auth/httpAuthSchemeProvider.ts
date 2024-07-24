@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: StorageGatewayHttpAuth
       name: "storagegateway",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: StorageGatewayClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<StorageGatewayClientConfig>, context) => ({
       /**
        * @internal
        */

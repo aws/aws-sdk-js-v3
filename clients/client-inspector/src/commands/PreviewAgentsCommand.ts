@@ -89,28 +89,6 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example Preview agents
- * ```javascript
- * // Previews the agents installed on the EC2 instances that are part of the specified assessment target.
- * const input = {
- *   "maxResults": 123,
- *   "previewAgentsArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
- * };
- * const command = new PreviewAgentsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "agentPreviews": [
- *     {
- *       "agentId": "i-49113b93"
- *     }
- *   ],
- *   "nextToken": "1"
- * }
- * *\/
- * // example id: preview-agents-1481067101888
- * ```
- *
  */
 export class PreviewAgentsCommand extends $Command
   .classBuilder<

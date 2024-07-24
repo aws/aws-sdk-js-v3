@@ -75,20 +75,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
- * @example To untag a cluster.
- * ```javascript
- * // This example deletes the 'team' tag from the 'dev' cluster.
- * const input = {
- *   "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev",
- *   "tagKeys": [
- *     "team"
- *   ]
- * };
- * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: to-untag-a-cluster-1540582546056
- * ```
- *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

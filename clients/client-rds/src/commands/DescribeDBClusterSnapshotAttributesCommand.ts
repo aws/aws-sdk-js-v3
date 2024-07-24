@@ -85,32 +85,6 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To describe the attribute names and values for a DB cluster snapshot
- * ```javascript
- * // The following example retrieves details of the attribute names and values for the specified DB cluster snapshot.
- * const input = {
- *   "DBClusterSnapshotIdentifier": "myclustersnapshot"
- * };
- * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBClusterSnapshotAttributesResult": {
- *     "DBClusterSnapshotAttributes": [
- *       {
- *         "AttributeName": "restore",
- *         "AttributeValues": [
- *           "123456789012"
- *         ]
- *       }
- *     ],
- *     "DBClusterSnapshotIdentifier": "myclustersnapshot"
- *   }
- * }
- * *\/
- * // example id: to-describe-the-attribute-names-and-values-for-a-db-cluster-snapshot-1680216238905
- * ```
- *
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command
   .classBuilder<

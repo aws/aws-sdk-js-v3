@@ -80,25 +80,6 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To update a volume snapshot schedule
- * ```javascript
- * // Updates a snapshot schedule configured for a gateway volume.
- * const input = {
- *   "Description": "Hourly snapshot",
- *   "RecurrenceInHours": 1,
- *   "StartAt": 0,
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
- * };
- * const command = new UpdateSnapshotScheduleCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
- * }
- * *\/
- * // example id: to-update-a-volume-snapshot-schedule-1472152757068
- * ```
- *
  */
 export class UpdateSnapshotScheduleCommand extends $Command
   .classBuilder<

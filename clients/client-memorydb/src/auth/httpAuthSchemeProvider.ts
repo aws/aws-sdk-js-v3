@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MemoryDBHttpAuthScheme
       name: "memorydb",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MemoryDBClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MemoryDBClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -75,18 +75,6 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To delete a signing certificate for an IAM user
- * ```javascript
- * // The following command deletes the specified signing certificate for the IAM user named Anika.
- * const input = {
- *   "CertificateId": "TA7SMP42TDN5Z26OBPJE7EXAMPLE",
- *   "UserName": "Anika"
- * };
- * const command = new DeleteSigningCertificateCommand(input);
- * await client.send(command);
- * // example id: e3357586-ba9c-4070-b35b-d1a899b71987
- * ```
- *
  */
 export class DeleteSigningCertificateCommand extends $Command
   .classBuilder<

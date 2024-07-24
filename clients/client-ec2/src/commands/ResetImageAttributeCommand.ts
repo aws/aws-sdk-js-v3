@@ -56,18 +56,6 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To reset the launchPermission attribute
- * ```javascript
- * // This example resets the launchPermission attribute for the specified AMI. By default, AMIs are private.
- * const input = {
- *   "Attribute": "launchPermission",
- *   "ImageId": "ami-5731123e"
- * };
- * const command = new ResetImageAttributeCommand(input);
- * await client.send(command);
- * // example id: to-reset-the-launchpermission-attribute-1529359519534
- * ```
- *
  */
 export class ResetImageAttributeCommand extends $Command
   .classBuilder<

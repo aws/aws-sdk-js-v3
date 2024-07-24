@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTThingsGraphHttpAuth
       name: "iotthingsgraph",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTThingsGraphClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTThingsGraphClientConfig>, context) => ({
       /**
        * @internal
        */

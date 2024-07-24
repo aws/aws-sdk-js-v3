@@ -66,23 +66,6 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To cancel virtual tape archiving
- * ```javascript
- * // Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
- * };
- * const command = new CancelArchivalCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
- * }
- * *\/
- * // example id: to-cancel-virtual-tape-archiving-1471294865203
- * ```
- *
  */
 export class CancelArchivalCommand extends $Command
   .classBuilder<

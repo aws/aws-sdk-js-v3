@@ -327,27 +327,6 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete a DB instance
- * ```javascript
- * // The following example deletes the specified DB instance after creating a final DB snapshot named test-instance-final-snap.
- * const input = {
- *   "DBInstanceIdentifier": "test-instance",
- *   "FinalDBSnapshotIdentifier": "test-instance-final-snap",
- *   "SkipFinalSnapshot": false
- * };
- * const command = new DeleteDBInstanceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBInstance": {
- *     "DBInstanceIdentifier": "test-instance",
- *     "DBInstanceStatus": "deleting"
- *   }
- * }
- * *\/
- * // example id: to-delete-a-db-instance-1680197458232
- * ```
- *
  */
 export class DeleteDBInstanceCommand extends $Command
   .classBuilder<

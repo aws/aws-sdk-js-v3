@@ -78,19 +78,6 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To activate or deactivate an access key for an IAM user
- * ```javascript
- * // The following command deactivates the specified access key (access key ID and secret access key) for the IAM user named Bob.
- * const input = {
- *   "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *   "Status": "Inactive",
- *   "UserName": "Bob"
- * };
- * const command = new UpdateAccessKeyCommand(input);
- * await client.send(command);
- * // example id: 02b556fd-e673-49b7-ab6b-f2f9035967d0
- * ```
- *
  */
 export class UpdateAccessKeyCommand extends $Command
   .classBuilder<

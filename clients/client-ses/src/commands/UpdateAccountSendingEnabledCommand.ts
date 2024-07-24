@@ -59,17 +59,6 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example UpdateAccountSendingEnabled
- * ```javascript
- * // The following example updated the sending status for this account.
- * const input = {
- *   "Enabled": true
- * };
- * const command = new UpdateAccountSendingEnabledCommand(input);
- * await client.send(command);
- * // example id: updateaccountsendingenabled-1469047741333
- * ```
- *
  */
 export class UpdateAccountSendingEnabledCommand extends $Command
   .classBuilder<

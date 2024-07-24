@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "serverlessrepo",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ServerlessApplicationRepositoryClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ServerlessApplicationRepositoryClientConfig>, context) => ({
       /**
        * @internal
        */

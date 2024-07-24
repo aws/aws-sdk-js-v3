@@ -109,24 +109,6 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
- * @example To update a compute environment
- * ```javascript
- * // This example disables the P2OnDemand compute environment so it can be deleted.
- * const input = {
- *   "computeEnvironment": "P2OnDemand",
- *   "state": "DISABLED"
- * };
- * const command = new UpdateComputeEnvironmentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
- *   "computeEnvironmentName": "P2OnDemand"
- * }
- * *\/
- * // example id: to-update-a-compute-environment-1481154702731
- * ```
- *
  */
 export class UpdateComputeEnvironmentCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RAMHttpAuthSchemeParam
       name: "ram",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RAMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RAMClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudWatchLogsHttpAuth
       name: "logs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudWatchLogsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudWatchLogsClientConfig>, context) => ({
       /**
        * @internal
        */

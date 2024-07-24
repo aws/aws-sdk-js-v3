@@ -110,39 +110,6 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe a VPC
- * ```javascript
- * // This example describes the specified VPC.
- * const input = {
- *   "VpcIds": [
- *     "vpc-a01106c2"
- *   ]
- * };
- * const command = new DescribeVpcsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Vpcs": [
- *     {
- *       "CidrBlock": "10.0.0.0/16",
- *       "DhcpOptionsId": "dopt-7a8b9c2d",
- *       "InstanceTenancy": "default",
- *       "IsDefault": false,
- *       "State": "available",
- *       "Tags": [
- *         {
- *           "Key": "Name",
- *           "Value": "MyVPC"
- *         }
- *       ],
- *       "VpcId": "vpc-a01106c2"
- *     }
- *   ]
- * }
- * *\/
- * // example id: ec2-describe-vpcs-1
- * ```
- *
  */
 export class DescribeVpcsCommand extends $Command
   .classBuilder<

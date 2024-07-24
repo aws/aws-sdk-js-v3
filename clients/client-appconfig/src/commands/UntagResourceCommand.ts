@@ -66,20 +66,6 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To remove a tag from an application
- * ```javascript
- * // The following untag-resource example removes the group1 tag from the specified application.
- * const input = {
- *   "ResourceArn": "arn:aws:appconfig:us-east-1:111122223333:application/339ohji",
- *   "TagKeys": [
- *     "group1"
- *   ]
- * };
- * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: to-remove-a-tag-from-an-application-1632330429881
- * ```
- *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

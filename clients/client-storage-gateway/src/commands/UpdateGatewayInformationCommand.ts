@@ -76,25 +76,6 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To update a gateway's metadata
- * ```javascript
- * // Updates a gateway's metadata, which includes the gateway's name and time zone.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "GatewayName": "MyGateway2",
- *   "GatewayTimezone": "GMT-12:00"
- * };
- * const command = new UpdateGatewayInformationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "GatewayName": ""
- * }
- * *\/
- * // example id: to-update-a-gateways-metadata-1472151688693
- * ```
- *
  */
 export class UpdateGatewayInformationCommand extends $Command
   .classBuilder<

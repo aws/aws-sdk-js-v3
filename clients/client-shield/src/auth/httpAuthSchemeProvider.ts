@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ShieldHttpAuthSchemePa
       name: "shield",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ShieldClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ShieldClientConfig>, context) => ({
       /**
        * @internal
        */

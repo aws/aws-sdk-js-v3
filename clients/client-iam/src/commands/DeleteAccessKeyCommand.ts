@@ -71,18 +71,6 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To delete an access key for an IAM user
- * ```javascript
- * // The following command deletes one access key (access key ID and secret access key) assigned to the IAM user named Bob.
- * const input = {
- *   "AccessKeyId": "AKIDPMS9RO4H3FEXAMPLE",
- *   "UserName": "Bob"
- * };
- * const command = new DeleteAccessKeyCommand(input);
- * await client.send(command);
- * // example id: 61a785a7-d30a-415a-ae18-ab9236e56871
- * ```
- *
  */
 export class DeleteAccessKeyCommand extends $Command
   .classBuilder<

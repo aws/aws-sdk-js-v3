@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SESHttpAuthSchemeParam
       name: "ses",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SESClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SESClientConfig>, context) => ({
       /**
        * @internal
        */

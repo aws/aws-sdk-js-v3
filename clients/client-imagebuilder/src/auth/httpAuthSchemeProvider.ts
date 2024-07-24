@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ImagebuilderHttpAuthSc
       name: "imagebuilder",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ImagebuilderClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ImagebuilderClientConfig>, context) => ({
       /**
        * @internal
        */

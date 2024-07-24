@@ -105,32 +105,6 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To describe global DB clusters
- * ```javascript
- * // The following example lists Aurora global DB clusters in the current AWS Region.
- * const input = {};
- * const command = new DescribeGlobalClustersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GlobalClusters": [
- *     {
- *       "DeletionProtection": false,
- *       "Engine": "aurora-mysql",
- *       "EngineVersion": "5.7.mysql_aurora.2.07.2",
- *       "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *       "GlobalClusterIdentifier": "myglobalcluster",
- *       "GlobalClusterMembers": [],
- *       "GlobalClusterResourceId": "cluster-f5982077e3b5aabb",
- *       "Status": "available",
- *       "StorageEncrypted": false
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-global-db-clusters-1680282459184
- * ```
- *
  */
 export class DescribeGlobalClustersCommand extends $Command
   .classBuilder<

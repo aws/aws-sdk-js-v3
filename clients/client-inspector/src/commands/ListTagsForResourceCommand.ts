@@ -75,27 +75,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  * @public
- * @example List tags for resource
- * ```javascript
- * // Lists all tags associated with an assessment template.
- * const input = {
- *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-gcwFliYu"
- * };
- * const command = new ListTagsForResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "tags": [
- *     {
- *       "key": "Name",
- *       "value": "Example"
- *     }
- *   ]
- * }
- * *\/
- * // example id: list-tags-for-resource-1481067025240
- * ```
- *
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

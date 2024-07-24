@@ -75,30 +75,6 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example GetIdentityMailFromDomainAttributes
- * ```javascript
- * // The following example returns the custom MAIL FROM attributes for an identity:
- * const input = {
- *   "Identities": [
- *     "example.com"
- *   ]
- * };
- * const command = new GetIdentityMailFromDomainAttributesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "MailFromDomainAttributes": {
- *     "example.com": {
- *       "BehaviorOnMXFailure": "UseDefaultValue",
- *       "MailFromDomain": "bounces.example.com",
- *       "MailFromDomainStatus": "Success"
- *     }
- *   }
- * }
- * *\/
- * // example id: getidentitymailfromdomainattributes-1469123114860
- * ```
- *
  */
 export class GetIdentityMailFromDomainAttributesCommand extends $Command
   .classBuilder<

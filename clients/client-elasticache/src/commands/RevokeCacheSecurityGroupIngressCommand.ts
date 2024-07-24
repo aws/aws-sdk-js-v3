@@ -93,19 +93,6 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @public
- * @example DescribeCacheSecurityGroups
- * ```javascript
- * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
- * const input = {
- *   "CacheSecurityGroupName": "my-sec-grp",
- *   "EC2SecurityGroupName": "my-ec2-sec-grp",
- *   "EC2SecurityGroupOwnerId": "1234567890"
- * };
- * const command = new RevokeCacheSecurityGroupIngressCommand(input);
- * await client.send(command);
- * // example id: describecachesecuritygroups-1483047200801
- * ```
- *
  */
 export class RevokeCacheSecurityGroupIngressCommand extends $Command
   .classBuilder<

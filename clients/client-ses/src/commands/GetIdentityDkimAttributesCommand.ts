@@ -89,39 +89,6 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example GetIdentityDkimAttributes
- * ```javascript
- * // The following example retrieves the Amazon SES Easy DKIM attributes for a list of identities:
- * const input = {
- *   "Identities": [
- *     "example.com",
- *     "user@example.com"
- *   ]
- * };
- * const command = new GetIdentityDkimAttributesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DkimAttributes": {
- *     "example.com": {
- *       "DkimEnabled": true,
- *       "DkimTokens": [
- *         "EXAMPLEjcs5xoyqytjsotsijas7236gr",
- *         "EXAMPLEjr76cvoc6mysspnioorxsn6ep",
- *         "EXAMPLEkbmkqkhlm2lyz77ppkulerm4k"
- *       ],
- *       "DkimVerificationStatus": "Success"
- *     },
- *     "user@example.com": {
- *       "DkimEnabled": false,
- *       "DkimVerificationStatus": "NotStarted"
- *     }
- *   }
- * }
- * *\/
- * // example id: getidentitydkimattributes-1469050695628
- * ```
- *
  */
 export class GetIdentityDkimAttributesCommand extends $Command
   .classBuilder<

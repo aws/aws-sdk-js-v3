@@ -59,17 +59,6 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To disassociate a route table
- * ```javascript
- * // This example disassociates the specified route table from its associated subnet.
- * const input = {
- *   "AssociationId": "rtbassoc-781d0d1a"
- * };
- * const command = new DisassociateRouteTableCommand(input);
- * await client.send(command);
- * // example id: ec2-disassociate-route-table-1
- * ```
- *
  */
 export class DisassociateRouteTableCommand extends $Command
   .classBuilder<

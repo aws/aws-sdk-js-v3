@@ -55,17 +55,6 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a VPC
- * ```javascript
- * // This example deletes the specified VPC.
- * const input = {
- *   "VpcId": "vpc-a01106c2"
- * };
- * const command = new DeleteVpcCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-vpc-1
- * ```
- *
  */
 export class DeleteVpcCommand extends $Command
   .classBuilder<

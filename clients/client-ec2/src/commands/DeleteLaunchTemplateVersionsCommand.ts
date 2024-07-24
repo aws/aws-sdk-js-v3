@@ -88,32 +88,6 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a launch template version
- * ```javascript
- * // This example deletes the specified launch template version.
- * const input = {
- *   "LaunchTemplateId": "lt-0abcd290751193123",
- *   "Versions": [
- *     "1"
- *   ]
- * };
- * const command = new DeleteLaunchTemplateVersionsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "SuccessfullyDeletedLaunchTemplateVersions": [
- *     {
- *       "LaunchTemplateId": "lt-0abcd290751193123",
- *       "LaunchTemplateName": "my-template",
- *       "VersionNumber": 1
- *     }
- *   ],
- *   "UnsuccessfullyDeletedLaunchTemplateVersions": []
- * }
- * *\/
- * // example id: to-delete-a-launch-template-version-1529024790864
- * ```
- *
  */
 export class DeleteLaunchTemplateVersionsCommand extends $Command
   .classBuilder<

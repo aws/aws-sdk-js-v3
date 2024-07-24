@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "application-cost-profiler",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ApplicationCostProfilerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ApplicationCostProfilerClientConfig>, context) => ({
       /**
        * @internal
        */

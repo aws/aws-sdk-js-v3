@@ -321,65 +321,6 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @public
- * @example To add multiple items to a table
- * ```javascript
- * // This example adds three new items to the Music table using a batch of three PutItem requests.
- * const input = {
- *   "RequestItems": {
- *     "Music": [
- *       {
- *         "PutRequest": {
- *           "Item": {
- *             "AlbumTitle": {
- *               "S": "Somewhat Famous"
- *             },
- *             "Artist": {
- *               "S": "No One You Know"
- *             },
- *             "SongTitle": {
- *               "S": "Call Me Today"
- *             }
- *           }
- *         }
- *       },
- *       {
- *         "PutRequest": {
- *           "Item": {
- *             "AlbumTitle": {
- *               "S": "Songs About Life"
- *             },
- *             "Artist": {
- *               "S": "Acme Band"
- *             },
- *             "SongTitle": {
- *               "S": "Happy Day"
- *             }
- *           }
- *         }
- *       },
- *       {
- *         "PutRequest": {
- *           "Item": {
- *             "AlbumTitle": {
- *               "S": "Blue Sky Blues"
- *             },
- *             "Artist": {
- *               "S": "No One You Know"
- *             },
- *             "SongTitle": {
- *               "S": "Scared of My Shadow"
- *             }
- *           }
- *         }
- *       }
- *     ]
- *   }
- * };
- * const command = new BatchWriteItemCommand(input);
- * await client.send(command);
- * // example id: to-add-multiple-items-to-a-table-1476118519747
- * ```
- *
  */
 export class BatchWriteItemCommand extends $Command
   .classBuilder<

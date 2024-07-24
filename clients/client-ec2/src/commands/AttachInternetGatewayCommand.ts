@@ -58,18 +58,6 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To attach an Internet gateway to a VPC
- * ```javascript
- * // This example attaches the specified Internet gateway to the specified VPC.
- * const input = {
- *   "InternetGatewayId": "igw-c0a643a9",
- *   "VpcId": "vpc-a01106c2"
- * };
- * const command = new AttachInternetGatewayCommand(input);
- * await client.send(command);
- * // example id: ec2-attach-internet-gateway-1
- * ```
- *
  */
 export class AttachInternetGatewayCommand extends $Command
   .classBuilder<

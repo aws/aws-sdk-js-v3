@@ -1,37 +1,452 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/neptune-graph.json */
-
-const w="required",
-x="type",
-y="fn",
-z="argv",
-A="ref";
-const a=true,
-b="String",
-c="isSet",
-d="error",
-e="endpoint",
-f="tree",
-g="PartitionResult",
-h={[w]:false,[x]:b},
-i={[w]:true,"default":false,[x]:"Boolean"},
-j={[A]:"Endpoint"},
-k={[y]:"booleanEquals",[z]:[{[A]:"UseFIPS"},true]},
-l={[y]:"booleanEquals",[z]:[{[A]:"UseDualStack"},true]},
-m={},
-n={[y]:"booleanEquals",[z]:[true,{[y]:"getAttr",[z]:[{[A]:g},"supportsFIPS"]}]},
-o={[y]:"booleanEquals",[z]:[true,{[y]:"getAttr",[z]:[{[A]:g},"supportsDualStack"]}]},
-p={"conditions":[{[y]:"stringEquals",[z]:[{[A]:"ApiType"},"DataPlane"]}],[d]:"Invalid Configuration: fips endpoint is not supported for this API",[x]:d},
-q={[d]:"Invalid Configuration: Unknown ApiType",[x]:d},
-r=[k],
-s=[l],
-t=[{[A]:"Region"}],
-u=[{[y]:"stringEquals",[z]:[{[A]:"ApiType"},"ControlPlane"]}],
-v=[{[y]:"stringEquals",[z]:[{[A]:"ApiType"},"DataPlane"]}];
-const _data={version:"1.0",parameters:{Region:h,UseFIPS:i,UseDualStack:i,Endpoint:h,ApiType:{[w]:a,[x]:b}},rules:[{conditions:[{[y]:c,[z]:[j]}],rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",[x]:d},{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",[x]:d},{endpoint:{url:j,properties:m,headers:m},[x]:e}],[x]:f},{conditions:[{[y]:c,[z]:t}],rules:[{conditions:[{[y]:"aws.partition",[z]:t,assign:g}],rules:[{conditions:[k,l],rules:[{conditions:[n,o],rules:[{conditions:u,endpoint:{url:"https://neptune-graph-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},[x]:e},p,q],[x]:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",[x]:d}],[x]:f},{conditions:r,rules:[{conditions:[n],rules:[{conditions:u,endpoint:{url:"https://neptune-graph-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},[x]:e},p,q],[x]:f},{error:"FIPS is enabled but this partition does not support FIPS",[x]:d}],[x]:f},{conditions:s,rules:[{conditions:[o],rules:[{conditions:u,endpoint:{url:"https://neptune-graph.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},[x]:e},{conditions:v,endpoint:{url:"https://neptune-graph.{Region}.on.aws",properties:m,headers:m},[x]:e},q],[x]:f},{error:"DualStack is enabled but this partition does not support DualStack",[x]:d}],[x]:f},{conditions:u,endpoint:{url:"https://neptune-graph.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},[x]:e},{conditions:v,endpoint:{url:"https://{Region}.neptune-graph.{PartitionResult#dnsSuffix}",properties:m,headers:m},[x]:e},q],[x]:f}],[x]:f},{error:"Invalid Configuration: Missing Region",[x]:d}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    UseDualStack: {
+      builtIn: "AWS::UseDualStack",
+      required: true,
+      default: false,
+      documentation:
+        "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+      type: "Boolean",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+    ApiType: {
+      required: true,
+      documentation: "Parameter to determine whether current API is a control plane or dataplane API",
+      type: "String",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Endpoint",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseDualStack",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: Dualstack and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: {
+              ref: "Endpoint",
+            },
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.partition",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+              assign: "PartitionResult",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "ApiType",
+                            },
+                            "ControlPlane",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://neptune-graph-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "ApiType",
+                            },
+                            "DataPlane",
+                          ],
+                        },
+                      ],
+                      error: "Invalid Configuration: fips endpoint is not supported for this API",
+                      type: "error",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid Configuration: Unknown ApiType",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS and DualStack are enabled, but this partition does not support one or both",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "ApiType",
+                            },
+                            "ControlPlane",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://neptune-graph-fips.{Region}.{PartitionResult#dnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "ApiType",
+                            },
+                            "DataPlane",
+                          ],
+                        },
+                      ],
+                      error: "Invalid Configuration: fips endpoint is not supported for this API",
+                      type: "error",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid Configuration: Unknown ApiType",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS is enabled but this partition does not support FIPS",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseDualStack",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        true,
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsDualStack",
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "ApiType",
+                            },
+                            "ControlPlane",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://neptune-graph.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "ApiType",
+                            },
+                            "DataPlane",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://neptune-graph.{Region}.on.aws",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [],
+                      error: "Invalid Configuration: Unknown ApiType",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "DualStack is enabled but this partition does not support DualStack",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "stringEquals",
+                  argv: [
+                    {
+                      ref: "ApiType",
+                    },
+                    "ControlPlane",
+                  ],
+                },
+              ],
+              endpoint: {
+                url: "https://neptune-graph.{Region}.{PartitionResult#dnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+            {
+              conditions: [
+                {
+                  fn: "stringEquals",
+                  argv: [
+                    {
+                      ref: "ApiType",
+                    },
+                    "DataPlane",
+                  ],
+                },
+              ],
+              endpoint: {
+                url: "https://{Region}.neptune-graph.{PartitionResult#dnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+            {
+              conditions: [],
+              error: "Invalid Configuration: Unknown ApiType",
+              type: "error",
+            },
+          ],
+          type: "tree",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [],
+      error: "Invalid Configuration: Missing Region",
+      type: "error",
+    },
+  ],
+};

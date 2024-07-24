@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeConnectionsHttpAut
       name: "codeconnections",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeConnectionsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeConnectionsClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -62,18 +62,6 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To delete a lifecycle hook
- * ```javascript
- * // This example deletes the specified lifecycle hook.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LifecycleHookName": "my-lifecycle-hook"
- * };
- * const command = new DeleteLifecycleHookCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-lifecycle-hook-1
- * ```
- *
  */
 export class DeleteLifecycleHookCommand extends $Command
   .classBuilder<

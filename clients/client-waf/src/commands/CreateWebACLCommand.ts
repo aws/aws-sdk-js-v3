@@ -199,44 +199,6 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @public
- * @example To create a web ACL
- * ```javascript
- * // The following example creates a web ACL named CreateExample.
- * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "DefaultAction": {
- *     "Type": "ALLOW"
- *   },
- *   "MetricName": "CreateExample",
- *   "Name": "CreateExample"
- * };
- * const command = new CreateWebACLCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "WebACL": {
- *     "DefaultAction": {
- *       "Type": "ALLOW"
- *     },
- *     "MetricName": "CreateExample",
- *     "Name": "CreateExample",
- *     "Rules": [
- *       {
- *         "Action": {
- *           "Type": "ALLOW"
- *         },
- *         "Priority": 1,
- *         "RuleId": "WAFRule-1-Example"
- *       }
- *     ],
- *     "WebACLId": "example-46da-4444-5555-example"
- *   }
- * }
- * *\/
- * // example id: createwebacl-1472061481310
- * ```
- *
  */
 export class CreateWebACLCommand extends $Command
   .classBuilder<

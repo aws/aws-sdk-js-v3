@@ -95,29 +95,6 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To create a DB parameter group
- * ```javascript
- * // The following example creates a DB parameter group.
- * const input = {
- *   "DBParameterGroupFamily": "MySQL8.0",
- *   "DBParameterGroupName": "mydbparametergroup",
- *   "Description": "My new parameter group"
- * };
- * const command = new CreateDBParameterGroupCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBParameterGroup": {
- *     "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:mydbparametergroup",
- *     "DBParameterGroupFamily": "mysql8.0",
- *     "DBParameterGroupName": "mydbparametergroup",
- *     "Description": "My new parameter group"
- *   }
- * }
- * *\/
- * // example id: to-create-a-db-parameter-group-1679939227970
- * ```
- *
  */
 export class CreateDBParameterGroupCommand extends $Command
   .classBuilder<

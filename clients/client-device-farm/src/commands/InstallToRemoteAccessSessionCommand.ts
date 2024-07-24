@@ -91,23 +91,6 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  * @public
- * @example To install to a remote access session
- * ```javascript
- * // The following example installs a specific app to a device in a specific remote access session.
- * const input = {
- *   "appArn": "arn:aws:devicefarm:us-west-2:123456789101:app:EXAMPLE-GUID-123-456",
- *   "remoteAccessSessionArn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
- * };
- * const command = new InstallToRemoteAccessSessionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "appUpload": {}
- * }
- * *\/
- * // example id: to-install-to-a-remote-access-session-1471634453818
- * ```
- *
  */
 export class InstallToRemoteAccessSessionCommand extends $Command
   .classBuilder<

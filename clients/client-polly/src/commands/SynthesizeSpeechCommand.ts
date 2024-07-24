@@ -124,31 +124,6 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
  * @public
- * @example To synthesize speech
- * ```javascript
- * // Synthesizes plain text or SSML into a file of human-like speech.
- * const input = {
- *   "LexiconNames": [
- *     "example"
- *   ],
- *   "OutputFormat": "mp3",
- *   "SampleRate": "8000",
- *   "Text": "All Gaul is divided into three parts",
- *   "TextType": "text",
- *   "VoiceId": "Joanna"
- * };
- * const command = new SynthesizeSpeechCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AudioStream": "TEXT",
- *   "ContentType": "audio/mpeg",
- *   "RequestCharacters": 37
- * }
- * *\/
- * // example id: to-synthesize-speech-1482186064046
- * ```
- *
  */
 export class SynthesizeSpeechCommand extends $Command
   .classBuilder<

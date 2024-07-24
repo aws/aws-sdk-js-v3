@@ -60,17 +60,6 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete an option group
- * ```javascript
- * // The following example deletes the specified option group.
- * const input = {
- *   "OptionGroupName": "myoptiongroup"
- * };
- * const command = new DeleteOptionGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-option-group-1680128894360
- * ```
- *
  */
 export class DeleteOptionGroupCommand extends $Command
   .classBuilder<

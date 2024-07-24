@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TransferHttpAuthScheme
       name: "transfer",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TransferClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TransferClientConfig>, context) => ({
       /**
        * @internal
        */

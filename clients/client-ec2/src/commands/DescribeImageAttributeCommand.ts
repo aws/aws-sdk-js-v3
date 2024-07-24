@@ -115,28 +115,6 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe the launch permissions for an AMI
- * ```javascript
- * // This example describes the launch permissions for the specified AMI.
- * const input = {
- *   "Attribute": "launchPermission",
- *   "ImageId": "ami-5731123e"
- * };
- * const command = new DescribeImageAttributeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ImageId": "ami-5731123e",
- *   "LaunchPermissions": [
- *     {
- *       "UserId": "123456789012"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-the-launch-permissions-for-an-ami-1529025296264
- * ```
- *
  */
 export class DescribeImageAttributeCommand extends $Command
   .classBuilder<

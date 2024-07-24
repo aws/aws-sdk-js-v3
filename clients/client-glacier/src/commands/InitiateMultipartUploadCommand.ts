@@ -106,25 +106,6 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
  * @public
- * @example To initiate a multipart upload
- * ```javascript
- * // The example initiates a multipart upload to a vault named my-vault with a part size of 1 MiB (1024 x 1024 bytes) per file.
- * const input = {
- *   "accountId": "-",
- *   "partSize": "1048576",
- *   "vaultName": "my-vault"
- * };
- * const command = new InitiateMultipartUploadCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "location": "/111122223333/vaults/my-vault/multipart-uploads/19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ",
- *   "uploadId": "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ"
- * }
- * *\/
- * // example id: 72f2db19-3d93-4c74-b2ed-38703baacf49
- * ```
- *
  */
 export class InitiateMultipartUploadCommand extends $Command
   .classBuilder<

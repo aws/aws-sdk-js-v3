@@ -89,44 +89,6 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To describe tags
- * ```javascript
- * // This example describes the tags for the specified Auto Scaling group.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "auto-scaling-group",
- *       "Values": [
- *         "my-auto-scaling-group"
- *       ]
- *     }
- *   ]
- * };
- * const command = new DescribeTagsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Tags": [
- *     {
- *       "Key": "Dept",
- *       "PropagateAtLaunch": true,
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "Research"
- *     },
- *     {
- *       "Key": "Role",
- *       "PropagateAtLaunch": true,
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "WebServer"
- *     }
- *   ]
- * }
- * *\/
- * // example id: autoscaling-describe-tags-1
- * ```
- *
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

@@ -97,18 +97,6 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @public
- * @example CreateCacheSecurityGroup
- * ```javascript
- * // Creates an ElastiCache security group. ElastiCache security groups are only for clusters not running in an AWS VPC.
- * const input = {
- *   "CacheSecurityGroupName": "my-cache-sec-grp",
- *   "Description": "Example ElastiCache security group."
- * };
- * const command = new CreateCacheSecurityGroupCommand(input);
- * await client.send(command);
- * // example id: createcachesecuritygroup-1483041506604
- * ```
- *
  */
 export class CreateCacheSecurityGroupCommand extends $Command
   .classBuilder<

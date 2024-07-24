@@ -76,18 +76,6 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @public
- * @example DeleteEnvironmentMembership
- * ```javascript
- * //
- * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *   "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser"
- * };
- * const command = new DeleteEnvironmentMembershipCommand(input);
- * await client.send(command);
- * // example id: deleteenvironmentmembership-1516822975655
- * ```
- *
  */
 export class DeleteEnvironmentMembershipCommand extends $Command
   .classBuilder<

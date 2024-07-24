@@ -87,39 +87,6 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To remove a source identifier from a subscription
- * ```javascript
- * // The following example removes the specified source identifier from an existing subscription.
- * const input = {
- *   "SourceIdentifier": "test-instance-repl",
- *   "SubscriptionName": "my-instance-events"
- * };
- * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "EventSubscription": {
- *     "CustSubscriptionId": "my-instance-events",
- *     "CustomerAwsId": "123456789012",
- *     "Enabled": false,
- *     "EventCategoriesList": [
- *       "backup",
- *       "recovery"
- *     ],
- *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
- *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
- *     "SourceIdsList": [
- *       "test-instance"
- *     ],
- *     "SourceType": "db-instance",
- *     "Status": "modifying",
- *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
- *   }
- * }
- * *\/
- * // example id: to-remove-a-source-identifier-from-a-subscription-1680072062459
- * ```
- *
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command
   .classBuilder<

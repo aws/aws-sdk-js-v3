@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PollyHttpAuthSchemePar
       name: "polly",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PollyClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PollyClientConfig>, context) => ({
       /**
        * @internal
        */

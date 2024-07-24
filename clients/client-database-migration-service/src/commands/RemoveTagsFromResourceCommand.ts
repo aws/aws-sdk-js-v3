@@ -69,18 +69,6 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Remove tags from resource
- * ```javascript
- * // Removes metadata tags from an AWS DMS resource.
- * const input = {
- *   "ResourceArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E",
- *   "TagKeys": []
- * };
- * const command = new RemoveTagsFromResourceCommand(input);
- * await client.send(command);
- * // example id: remove-tags-from-resource-1481762571330
- * ```
- *
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<

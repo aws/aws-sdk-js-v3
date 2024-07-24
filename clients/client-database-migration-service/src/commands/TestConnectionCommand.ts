@@ -84,23 +84,6 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Test conection
- * ```javascript
- * // Tests the connection between the replication instance and the endpoint.
- * const input = {
- *   "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
- *   "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ"
- * };
- * const command = new TestConnectionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Connection": {}
- * }
- * *\/
- * // example id: test-conection-1481763017636
- * ```
- *
  */
 export class TestConnectionCommand extends $Command
   .classBuilder<

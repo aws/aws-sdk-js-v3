@@ -77,22 +77,6 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Delete Certificate
- * ```javascript
- * // Deletes the specified certificate.
- * const input = {
- *   "CertificateArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUSM457DE6XFJCJQ"
- * };
- * const command = new DeleteCertificateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Certificate": {}
- * }
- * *\/
- * // example id: delete-certificate-1481751957981
- * ```
- *
  */
 export class DeleteCertificateCommand extends $Command
   .classBuilder<

@@ -85,42 +85,6 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe the tags for a single resource
- * ```javascript
- * // This example describes the tags for the specified instance.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "resource-id",
- *       "Values": [
- *         "i-1234567890abcdef8"
- *       ]
- *     }
- *   ]
- * };
- * const command = new DescribeTagsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Tags": [
- *     {
- *       "Key": "Stack",
- *       "ResourceId": "i-1234567890abcdef8",
- *       "ResourceType": "instance",
- *       "Value": "test"
- *     },
- *     {
- *       "Key": "Name",
- *       "ResourceId": "i-1234567890abcdef8",
- *       "ResourceType": "instance",
- *       "Value": "Beta Server"
- *     }
- *   ]
- * }
- * *\/
- * // example id: ec2-describe-tags-1
- * ```
- *
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

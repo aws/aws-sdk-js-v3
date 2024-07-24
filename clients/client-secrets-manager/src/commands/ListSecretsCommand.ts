@@ -140,43 +140,6 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
  * @public
- * @example To list the secrets in your account
- * ```javascript
- * // The following example shows how to list all of the secrets in your account.
- * const input = {};
- * const command = new ListSecretsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "SecretList": [
- *     {
- *       "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *       "Description": "My test database secret",
- *       "LastChangedDate": 1523477145.729,
- *       "Name": "MyTestDatabaseSecret",
- *       "SecretVersionsToStages": {
- *         "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE": [
- *           "AWSCURRENT"
- *         ]
- *       }
- *     },
- *     {
- *       "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret1-d4e5f6",
- *       "Description": "Another secret created for a different database",
- *       "LastChangedDate": 1523482025.685,
- *       "Name": "MyTestDatabaseSecret1",
- *       "SecretVersionsToStages": {
- *         "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE": [
- *           "AWSCURRENT"
- *         ]
- *       }
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-the-secrets-in-your-account-1524001246087
- * ```
- *
  */
 export class ListSecretsCommand extends $Command
   .classBuilder<

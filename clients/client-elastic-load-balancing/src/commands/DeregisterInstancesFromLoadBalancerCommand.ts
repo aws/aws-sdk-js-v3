@@ -83,34 +83,6 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @public
- * @example To deregister instances from a load balancer
- * ```javascript
- * // This example deregisters the specified instance from the specified load balancer.
- * const input = {
- *   "Instances": [
- *     {
- *       "InstanceId": "i-d6f6fae3"
- *     }
- *   ],
- *   "LoadBalancerName": "my-load-balancer"
- * };
- * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Instances": [
- *     {
- *       "InstanceId": "i-207d9717"
- *     },
- *     {
- *       "InstanceId": "i-afefb49b"
- *     }
- *   ]
- * }
- * *\/
- * // example id: elb-deregister-instances-from-load-balancer-1
- * ```
- *
  */
 export class DeregisterInstancesFromLoadBalancerCommand extends $Command
   .classBuilder<

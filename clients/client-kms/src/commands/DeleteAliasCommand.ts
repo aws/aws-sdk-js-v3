@@ -136,17 +136,6 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @public
- * @example To delete an alias
- * ```javascript
- * // The following example deletes the specified alias.
- * const input = {
- *   "AliasName": "alias/ExampleAlias"
- * };
- * const command = new DeleteAliasCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-alias-1478285209338
- * ```
- *
  */
 export class DeleteAliasCommand extends $Command
   .classBuilder<

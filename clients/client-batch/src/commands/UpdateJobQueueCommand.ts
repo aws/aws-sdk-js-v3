@@ -82,24 +82,6 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
- * @example To update a job queue
- * ```javascript
- * // This example disables a job queue so that it can be deleted.
- * const input = {
- *   "jobQueue": "GPGPU",
- *   "state": "DISABLED"
- * };
- * const command = new UpdateJobQueueCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/GPGPU",
- *   "jobQueueName": "GPGPU"
- * }
- * *\/
- * // example id: to-update-a-job-queue-1481154806981
- * ```
- *
  */
 export class UpdateJobQueueCommand extends $Command
   .classBuilder<

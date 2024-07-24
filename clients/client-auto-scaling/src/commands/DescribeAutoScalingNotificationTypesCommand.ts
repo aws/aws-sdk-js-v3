@@ -65,26 +65,6 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To describe the Auto Scaling notification types
- * ```javascript
- * // This example describes the available notification types.
- * const input = {};
- * const command = new DescribeAutoScalingNotificationTypesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AutoScalingNotificationTypes": [
- *     "autoscaling:EC2_INSTANCE_LAUNCH",
- *     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
- *     "autoscaling:EC2_INSTANCE_TERMINATE",
- *     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
- *     "autoscaling:TEST_NOTIFICATION"
- *   ]
- * }
- * *\/
- * // example id: autoscaling-describe-auto-scaling-notification-types-1
- * ```
- *
  */
 export class DescribeAutoScalingNotificationTypesCommand extends $Command
   .classBuilder<

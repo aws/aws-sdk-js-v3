@@ -57,19 +57,6 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a network ACL entry
- * ```javascript
- * // This example deletes ingress rule number 100 from the specified network ACL.
- * const input = {
- *   "Egress": true,
- *   "NetworkAclId": "acl-5fb85d36",
- *   "RuleNumber": 100
- * };
- * const command = new DeleteNetworkAclEntryCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-network-acl-entry-1
- * ```
- *
  */
 export class DeleteNetworkAclEntryCommand extends $Command
   .classBuilder<

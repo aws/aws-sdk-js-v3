@@ -83,19 +83,6 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
  * @public
- * @example To deregister a scalable target
- * ```javascript
- * // This example deregisters a scalable target for an Amazon ECS service called web-app that is running in the default cluster.
- * const input = {
- *   "ResourceId": "service/default/web-app",
- *   "ScalableDimension": "ecs:service:DesiredCount",
- *   "ServiceNamespace": "ecs"
- * };
- * const command = new DeregisterScalableTargetCommand(input);
- * await client.send(command);
- * // example id: to-deregister-a-scalable-target-1470864164895
- * ```
- *
  */
 export class DeregisterScalableTargetCommand extends $Command
   .classBuilder<

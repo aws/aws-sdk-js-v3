@@ -64,18 +64,6 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To delete an application
- * ```javascript
- * // The following delete-application example deletes the specified application.
- * //
- * const input = {
- *   "ApplicationId": "339ohji"
- * };
- * const command = new DeleteApplicationCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-application-1632265343951
- * ```
- *
  */
 export class DeleteApplicationCommand extends $Command
   .classBuilder<

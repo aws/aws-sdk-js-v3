@@ -146,31 +146,6 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @public
- * @example Creates a new lifecycleconfiguration object for a file system
- * ```javascript
- * // This operation enables lifecycle management on a file system by creating a new LifecycleConfiguration object. A LifecycleConfiguration object defines when files in an Amazon EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class. A LifecycleConfiguration applies to all files in a file system.
- * const input = {
- *   "FileSystemId": "fs-01234567",
- *   "LifecyclePolicies": [
- *     {
- *       "TransitionToIA": "AFTER_30_DAYS"
- *     }
- *   ]
- * };
- * const command = new PutLifecycleConfigurationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "LifecyclePolicies": [
- *     {
- *       "TransitionToIA": "AFTER_30_DAYS"
- *     }
- *   ]
- * }
- * *\/
- * // example id: creates-a-new-lifecycleconfiguration-object-for-a-file-system-1551201594692
- * ```
- *
  */
 export class PutLifecycleConfigurationCommand extends $Command
   .classBuilder<

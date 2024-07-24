@@ -69,19 +69,6 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To delete a hosted configuration version
- * ```javascript
- * // The following delete-hosted-configuration-version example deletes a configuration version hosted in the AWS AppConfig configuration store.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "VersionNumber": 1
- * };
- * const command = new DeleteHostedConfigurationVersionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-hosted-configuration-version-1632265720740
- * ```
- *
  */
 export class DeleteHostedConfigurationVersionCommand extends $Command
   .classBuilder<

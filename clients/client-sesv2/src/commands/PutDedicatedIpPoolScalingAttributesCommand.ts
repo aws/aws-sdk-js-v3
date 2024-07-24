@@ -79,18 +79,6 @@ export interface PutDedicatedIpPoolScalingAttributesCommandOutput
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  * @public
- * @example Used to convert a dedicated IP pool to a different scaling mode.
- * ```javascript
- * // This example converts a dedicated IP pool from STANDARD to MANAGED.
- * const input = {
- *   "PoolName": "sample-ses-pool",
- *   "ScalingMode": "MANAGED"
- * };
- * const command = new PutDedicatedIpPoolScalingAttributesCommand(input);
- * await client.send(command);
- * // example id: put-dedicated-ip-pool-scaling-attributes-example-1683639172
- * ```
- *
  */
 export class PutDedicatedIpPoolScalingAttributesCommand extends $Command
   .classBuilder<

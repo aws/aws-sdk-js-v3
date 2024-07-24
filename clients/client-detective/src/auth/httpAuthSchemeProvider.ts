@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DetectiveHttpAuthSchem
       name: "detective",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DetectiveClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DetectiveClientConfig>, context) => ({
       /**
        * @internal
        */

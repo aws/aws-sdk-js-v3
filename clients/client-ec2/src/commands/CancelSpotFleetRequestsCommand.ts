@@ -90,56 +90,6 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To cancel a Spot fleet request
- * ```javascript
- * // This example cancels the specified Spot fleet request and terminates its associated Spot Instances.
- * const input = {
- *   "SpotFleetRequestIds": [
- *     "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
- *   ],
- *   "TerminateInstances": true
- * };
- * const command = new CancelSpotFleetRequestsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "SuccessfulFleetRequests": [
- *     {
- *       "CurrentSpotFleetRequestState": "cancelled_running",
- *       "PreviousSpotFleetRequestState": "active",
- *       "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: ec2-cancel-spot-fleet-requests-1
- * ```
- *
- * @example To cancel a Spot fleet request without terminating its Spot Instances
- * ```javascript
- * // This example cancels the specified Spot fleet request without terminating its associated Spot Instances.
- * const input = {
- *   "SpotFleetRequestIds": [
- *     "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
- *   ],
- *   "TerminateInstances": false
- * };
- * const command = new CancelSpotFleetRequestsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "SuccessfulFleetRequests": [
- *     {
- *       "CurrentSpotFleetRequestState": "cancelled_terminating",
- *       "PreviousSpotFleetRequestState": "active",
- *       "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: ec2-cancel-spot-fleet-requests-2
- * ```
- *
  */
 export class CancelSpotFleetRequestsCommand extends $Command
   .classBuilder<

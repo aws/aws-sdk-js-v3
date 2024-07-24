@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LexRuntimeServiceHttpA
       name: "lex",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LexRuntimeServiceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LexRuntimeServiceClientConfig>, context) => ({
       /**
        * @internal
        */

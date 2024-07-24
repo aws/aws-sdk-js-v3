@@ -1,29 +1,251 @@
-// @ts-nocheck
-// generated code, do not edit
+// smithy-typescript generated code
 import { RuleSetObject } from "@smithy/types";
 
-/* This file is compressed. Log this object
-   or see "smithy.rules#endpointRuleSet"
-   in codegen/sdk-codegen/aws-models/eks-auth.json */
-
-const r="argv",
-s="ref";
-const a=false,
-b=true,
-c="isSet",
-d="booleanEquals",
-e="error",
-f="endpoint",
-g="tree",
-h="PartitionResult",
-i="getAttr",
-j={"required":false,"type":"String"},
-k={[s]:"Endpoint"},
-l={},
-m={[s]:h},
-n={[e]:"FIPS is enabled but this partition does not support FIPS","type":e},
-o=[{"fn":d,[r]:[{[s]:"UseFIPS"},true]}],
-p=[{[s]:"Region"}],
-q=[{"fn":d,[r]:[{"fn":i,[r]:[m,"supportsFIPS"]},true]}];
-const _data={version:"1.0",parameters:{Region:j,UseFIPS:{required:b,default:a,type:"Boolean"},Endpoint:j},rules:[{conditions:[{fn:c,[r]:[k]}],rules:[{conditions:o,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:e},{endpoint:{url:k,properties:l,headers:l},type:f}],type:g},{conditions:[{fn:c,[r]:p}],rules:[{conditions:[{fn:"aws.partition",[r]:p,assign:h}],rules:[{conditions:[{fn:d,[r]:[b,{fn:i,[r]:[m,"supportsDualStack"]}]}],rules:[{conditions:o,rules:[{conditions:q,rules:[{endpoint:{url:"https://eks-auth-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:f}],type:g},n],type:g},{endpoint:{url:"https://eks-auth.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:f}],type:g},{conditions:o,rules:[{conditions:q,rules:[{endpoint:{url:"https://eks-auth-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:f}],type:g},n],type:g},{endpoint:{url:"https://eks-auth.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:f}],type:g}],type:g},{error:"Invalid Configuration: Missing Region",type:e}]};
-export const ruleSet: RuleSetObject = _data;
+export const ruleSet: RuleSetObject = {
+  version: "1.0",
+  parameters: {
+    Region: {
+      builtIn: "AWS::Region",
+      required: false,
+      documentation: "The AWS region used to dispatch the request.",
+      type: "String",
+    },
+    UseFIPS: {
+      builtIn: "AWS::UseFIPS",
+      required: true,
+      default: false,
+      documentation:
+        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+      type: "Boolean",
+    },
+    Endpoint: {
+      builtIn: "SDK::Endpoint",
+      required: false,
+      documentation: "Override the endpoint used to send this request",
+      type: "String",
+    },
+  },
+  rules: [
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Endpoint",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "booleanEquals",
+              argv: [
+                {
+                  ref: "UseFIPS",
+                },
+                true,
+              ],
+            },
+          ],
+          error: "Invalid Configuration: FIPS and custom endpoint are not supported",
+          type: "error",
+        },
+        {
+          conditions: [],
+          endpoint: {
+            url: {
+              ref: "Endpoint",
+            },
+            properties: {},
+            headers: {},
+          },
+          type: "endpoint",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [
+        {
+          fn: "isSet",
+          argv: [
+            {
+              ref: "Region",
+            },
+          ],
+        },
+      ],
+      rules: [
+        {
+          conditions: [
+            {
+              fn: "aws.partition",
+              argv: [
+                {
+                  ref: "Region",
+                },
+              ],
+              assign: "PartitionResult",
+            },
+          ],
+          rules: [
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    true,
+                    {
+                      fn: "getAttr",
+                      argv: [
+                        {
+                          ref: "PartitionResult",
+                        },
+                        "supportsDualStack",
+                      ],
+                    },
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          ref: "UseFIPS",
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [
+                        {
+                          fn: "booleanEquals",
+                          argv: [
+                            {
+                              fn: "getAttr",
+                              argv: [
+                                {
+                                  ref: "PartitionResult",
+                                },
+                                "supportsFIPS",
+                              ],
+                            },
+                            true,
+                          ],
+                        },
+                      ],
+                      rules: [
+                        {
+                          conditions: [],
+                          endpoint: {
+                            url: "https://eks-auth-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            properties: {},
+                            headers: {},
+                          },
+                          type: "endpoint",
+                        },
+                      ],
+                      type: "tree",
+                    },
+                    {
+                      conditions: [],
+                      error: "FIPS is enabled but this partition does not support FIPS",
+                      type: "error",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  endpoint: {
+                    url: "https://eks-auth.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                    properties: {},
+                    headers: {},
+                  },
+                  type: "endpoint",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [
+                {
+                  fn: "booleanEquals",
+                  argv: [
+                    {
+                      ref: "UseFIPS",
+                    },
+                    true,
+                  ],
+                },
+              ],
+              rules: [
+                {
+                  conditions: [
+                    {
+                      fn: "booleanEquals",
+                      argv: [
+                        {
+                          fn: "getAttr",
+                          argv: [
+                            {
+                              ref: "PartitionResult",
+                            },
+                            "supportsFIPS",
+                          ],
+                        },
+                        true,
+                      ],
+                    },
+                  ],
+                  rules: [
+                    {
+                      conditions: [],
+                      endpoint: {
+                        url: "https://eks-auth-fips.{Region}.{PartitionResult#dnsSuffix}",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                  ],
+                  type: "tree",
+                },
+                {
+                  conditions: [],
+                  error: "FIPS is enabled but this partition does not support FIPS",
+                  type: "error",
+                },
+              ],
+              type: "tree",
+            },
+            {
+              conditions: [],
+              endpoint: {
+                url: "https://eks-auth.{Region}.{PartitionResult#dnsSuffix}",
+                properties: {},
+                headers: {},
+              },
+              type: "endpoint",
+            },
+          ],
+          type: "tree",
+        },
+      ],
+      type: "tree",
+    },
+    {
+      conditions: [],
+      error: "Invalid Configuration: Missing Region",
+      type: "error",
+    },
+  ],
+};

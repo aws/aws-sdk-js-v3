@@ -108,26 +108,6 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Describe table statistics
- * ```javascript
- * // Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.
- * const input = {
- *   "Marker": "",
- *   "MaxRecords": 123,
- *   "ReplicationTaskArn": ""
- * };
- * const command = new DescribeTableStatisticsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Marker": "",
- *   "ReplicationTaskArn": "",
- *   "TableStatistics": []
- * }
- * *\/
- * // example id: describe-table-statistics-1481756071890
- * ```
- *
  */
 export class DescribeTableStatisticsCommand extends $Command
   .classBuilder<

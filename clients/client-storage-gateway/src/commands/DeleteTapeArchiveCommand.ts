@@ -66,22 +66,6 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To delete a virtual tape from the shelf (VTS)
- * ```javascript
- * // Deletes the specified virtual tape from the virtual tape shelf (VTS).
- * const input = {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
- * };
- * const command = new DeleteTapeArchiveCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
- * }
- * *\/
- * // example id: to-delete-a-virtual-tape-from-the-shelf-vts-1471383964329
- * ```
- *
  */
 export class DeleteTapeArchiveCommand extends $Command
   .classBuilder<

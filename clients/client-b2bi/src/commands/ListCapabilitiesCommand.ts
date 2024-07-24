@@ -78,32 +78,6 @@ export interface ListCapabilitiesCommandOutput extends ListCapabilitiesResponse,
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
- * @example Sample ListCapabilities call
- * ```javascript
- * //
- * const input = {
- *   "maxResults": 50,
- *   "nextToken": "foo"
- * };
- * const command = new ListCapabilitiesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "capabilities": [
- *     {
- *       "name": "b2biexample",
- *       "type": "edi",
- *       "capabilityId": "ca-963a8121e4fc4e348",
- *       "createdAt": "2023-11-01T21:51:05.504Z",
- *       "modifiedAt": "2023-11-01T21:51:05.504Z"
- *     }
- *   ],
- *   "nextToken": "foo"
- * }
- * *\/
- * // example id: example-1
- * ```
- *
  */
 export class ListCapabilitiesCommand extends $Command
   .classBuilder<

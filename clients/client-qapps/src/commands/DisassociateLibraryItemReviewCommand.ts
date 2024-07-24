@@ -81,18 +81,6 @@ export interface DisassociateLibraryItemReviewCommandOutput extends __MetadataBe
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
  * @public
- * @example Decrease the rating counter by 1 for the related app for this user
- * ```javascript
- * //
- * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316"
- * };
- * const command = new DisassociateLibraryItemReviewCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
 export class DisassociateLibraryItemReviewCommand extends $Command
   .classBuilder<

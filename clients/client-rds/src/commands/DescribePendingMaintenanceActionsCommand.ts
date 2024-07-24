@@ -94,30 +94,6 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To list resources with at least one pending maintenance action
- * ```javascript
- * // The following example lists the pending maintenace action for a DB instance.
- * const input = {};
- * const command = new DescribePendingMaintenanceActionsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "PendingMaintenanceActions": [
- *     {
- *       "PendingMaintenanceActionDetails": [
- *         {
- *           "Action": "system-update",
- *           "Description": "Upgrade to Aurora PostgreSQL 2.4.2"
- *         }
- *       ],
- *       "ResourceIdentifier": "arn:aws:rds:us-west-2:123456789012:cluster:global-db1-cl1"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-resources-with-at-least-one-pending-maintenance-action-1680283544475
- * ```
- *
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command
   .classBuilder<

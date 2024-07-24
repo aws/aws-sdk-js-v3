@@ -78,35 +78,6 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
  * @public
- * @example To describe the health of the instances for a load balancer
- * ```javascript
- * // This example describes the health of the instances for the specified load balancer.
- * const input = {
- *   "LoadBalancerName": "my-load-balancer"
- * };
- * const command = new DescribeInstanceHealthCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "InstanceStates": [
- *     {
- *       "Description": "N/A",
- *       "InstanceId": "i-207d9717",
- *       "ReasonCode": "N/A",
- *       "State": "InService"
- *     },
- *     {
- *       "Description": "N/A",
- *       "InstanceId": "i-afefb49b",
- *       "ReasonCode": "N/A",
- *       "State": "InService"
- *     }
- *   ]
- * }
- * *\/
- * // example id: elb-describe-instance-health-1
- * ```
- *
  */
 export class DescribeInstanceHealthCommand extends $Command
   .classBuilder<

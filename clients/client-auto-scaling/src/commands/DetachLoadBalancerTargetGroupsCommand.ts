@@ -83,20 +83,6 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
  * @public
- * @example To detach a target group from an Auto Scaling group
- * ```javascript
- * // This example detaches the specified target group from the specified Auto Scaling group
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "TargetGroupARNs": [
- *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
- *   ]
- * };
- * const command = new DetachLoadBalancerTargetGroupsCommand(input);
- * await client.send(command);
- * // example id: autoscaling-detach-load-balancer-target-groups-1
- * ```
- *
  */
 export class DetachLoadBalancerTargetGroupsCommand extends $Command
   .classBuilder<

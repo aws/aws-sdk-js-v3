@@ -111,38 +111,6 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  * @public
- * @example To obtain multiple images in a single request
- * ```javascript
- * // This example obtains information for an image with a specified image digest ID from the repository named ubuntu in the current account.
- * const input = {
- *   "imageIds": [
- *     {
- *       "imageTag": "precise"
- *     }
- *   ],
- *   "repositoryName": "ubuntu"
- * };
- * const command = new BatchGetImageCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "failures": [],
- *   "images": [
- *     {
- *       "imageId": {
- *         "imageDigest": "sha256:example76bdff6d83a09ba2a818f0d00000063724a9ac3ba5019c56f74ebf42a",
- *         "imageTag": "precise"
- *       },
- *       "imageManifest": "{\n \"schemaVersion\": 1,\n \"name\": \"ubuntu\",\n \"tag\": \"precise\",\n...",
- *       "registryId": "244698725403",
- *       "repositoryName": "ubuntu"
- *     }
- *   ]
- * }
- * *\/
- * // example id: batchgetimage-example-1470862771437
- * ```
- *
  */
 export class BatchGetImageCommand extends $Command
   .classBuilder<

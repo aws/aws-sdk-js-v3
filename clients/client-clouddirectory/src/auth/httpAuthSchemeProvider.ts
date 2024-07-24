@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudDirectoryHttpAuth
       name: "clouddirectory",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudDirectoryClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudDirectoryClientConfig>, context) => ({
       /**
        * @internal
        */

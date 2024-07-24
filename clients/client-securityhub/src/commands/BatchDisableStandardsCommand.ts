@@ -90,31 +90,6 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @example To disable one or more security standards
- * ```javascript
- * // The following example disables a security standard in Security Hub.
- * const input = {
- *   "StandardsSubscriptionArns": [
- *     "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
- *   ]
- * };
- * const command = new BatchDisableStandardsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "StandardsSubscriptions": [
- *     {
- *       "StandardsArn": "arn:aws:securityhub:eu-central-1::standards/pci-dss/v/3.2.1",
- *       "StandardsInput": {},
- *       "StandardsStatus": "DELETING",
- *       "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-disable-one-or-more-security-standards-1674851507200
- * ```
- *
  */
 export class BatchDisableStandardsCommand extends $Command
   .classBuilder<

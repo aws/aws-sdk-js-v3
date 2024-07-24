@@ -156,18 +156,6 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @public
- * @example To update an alias
- * ```javascript
- * // The following example updates the specified alias to refer to the specified KMS key.
- * const input = {
- *   "AliasName": "alias/ExampleAlias",
- *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
- * };
- * const command = new UpdateAliasCommand(input);
- * await client.send(command);
- * // example id: to-update-an-alias-1481572726920
- * ```
- *
  */
 export class UpdateAliasCommand extends $Command
   .classBuilder<

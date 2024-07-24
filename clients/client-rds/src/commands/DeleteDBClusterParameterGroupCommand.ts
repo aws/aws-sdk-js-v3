@@ -73,17 +73,6 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete a DB cluster parameter group
- * ```javascript
- * // The following example deletes the specified DB cluster parameter group.
- * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup"
- * };
- * const command = new DeleteDBClusterParameterGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-db-cluster-parameter-group-1679962185718
- * ```
- *
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command
   .classBuilder<

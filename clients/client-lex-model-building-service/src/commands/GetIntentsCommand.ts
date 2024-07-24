@@ -100,31 +100,6 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  * @public
- * @example To get a list of intents
- * ```javascript
- * // This example shows how to get a list of all of the intents in your account.
- * const input = {
- *   "maxResults": 10,
- *   "nextToken": ""
- * };
- * const command = new GetIntentsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "intents": [
- *     {
- *       "version": "$LATEST",
- *       "name": "DocOrderPizza",
- *       "createdDate": 1494359783.453,
- *       "description": "Order a pizza from a local pizzeria.",
- *       "lastUpdatedDate": 1494359783.453
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-a-list-of-intents-1494432416363
- * ```
- *
  */
 export class GetIntentsCommand extends $Command
   .classBuilder<

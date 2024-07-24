@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTFleetHubHttpAuthSch
       name: "iotfleethub",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTFleetHubClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTFleetHubClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -65,17 +65,6 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @public
- * @example To delete a target group
- * ```javascript
- * // This example deletes the specified target group.
- * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
- * };
- * const command = new DeleteTargetGroupCommand(input);
- * await client.send(command);
- * // example id: elbv2-delete-target-group-1
- * ```
- *
  */
 export class DeleteTargetGroupCommand extends $Command
   .classBuilder<

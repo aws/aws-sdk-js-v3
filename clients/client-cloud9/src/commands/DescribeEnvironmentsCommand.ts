@@ -99,48 +99,6 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
  * @public
- * @example DescribeEnvironments
- * ```javascript
- * //
- * const input = {
- *   "environmentIds": [
- *     "8d9967e2f0624182b74e7690ad69ebEX",
- *     "349c86d4579e4e7298d500ff57a6b2EX"
- *   ]
- * };
- * const command = new DescribeEnvironmentsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "environments": [
- *     {
- *       "name": "my-demo-environment",
- *       "type": "ec2",
- *       "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:8d9967e2f0624182b74e7690ad69ebEX",
- *       "description": "This is my demonstration environment.",
- *       "id": "8d9967e2f0624182b74e7690ad69ebEX",
- *       "lifecycle": {
- *         "status": "CREATED"
- *       },
- *       "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser"
- *     },
- *     {
- *       "name": "another-demo-environment",
- *       "type": "ssh",
- *       "arn": "arn:aws:cloud9:us-east-2:123456789012:environment:349c86d4579e4e7298d500ff57a6b2EX",
- *       "description": "",
- *       "id": "349c86d4579e4e7298d500ff57a6b2EX",
- *       "lifecycle": {
- *         "status": "CREATED"
- *       },
- *       "ownerArn": "arn:aws:sts::123456789012:assumed-role/AnotherDemoUser/AnotherDemoUser"
- *     }
- *   ]
- * }
- * *\/
- * // example id: describeenvironments-1516823568291
- * ```
- *
  */
 export class DescribeEnvironmentsCommand extends $Command
   .classBuilder<

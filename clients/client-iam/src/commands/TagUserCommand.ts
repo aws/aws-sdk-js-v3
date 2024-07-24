@@ -123,27 +123,6 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To add a tag key and value to an IAM user
- * ```javascript
- * // The following example shows how to add tags to an existing user.
- * const input = {
- *   "Tags": [
- *     {
- *       "Key": "Dept",
- *       "Value": "Accounting"
- *     },
- *     {
- *       "Key": "CostCenter",
- *       "Value": "12345"
- *     }
- *   ],
- *   "UserName": "anika"
- * };
- * const command = new TagUserCommand(input);
- * await client.send(command);
- * // example id: to-add-a-tag-key-and-value-to-an-iam-user-1506719044227
- * ```
- *
  */
 export class TagUserCommand extends $Command
   .classBuilder<

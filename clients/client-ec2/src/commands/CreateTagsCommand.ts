@@ -71,25 +71,6 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To add a tag to a resource
- * ```javascript
- * // This example adds the tag Stack=production to the specified image, or overwrites an existing tag for the AMI where the tag key is Stack.
- * const input = {
- *   "Resources": [
- *     "ami-78a54011"
- *   ],
- *   "Tags": [
- *     {
- *       "Key": "Stack",
- *       "Value": "production"
- *     }
- *   ]
- * };
- * const command = new CreateTagsCommand(input);
- * await client.send(command);
- * // example id: ec2-create-tags-1
- * ```
- *
  */
 export class CreateTagsCommand extends $Command
   .classBuilder<

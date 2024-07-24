@@ -94,22 +94,6 @@ export interface StartExtensionPackAssociationCommandOutput
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  * @public
- * @example Start Extension Pack Association
- * ```javascript
- * // Applies the extension pack to your target database.
- * const input = {
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
- * };
- * const command = new StartExtensionPackAssociationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef"
- * }
- * *\/
- * // example id: start-extension-pack-association-1689721897266
- * ```
- *
  */
 export class StartExtensionPackAssociationCommand extends $Command
   .classBuilder<

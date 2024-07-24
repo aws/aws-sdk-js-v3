@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ElasticBeanstalkHttpAu
       name: "elasticbeanstalk",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ElasticBeanstalkClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ElasticBeanstalkClientConfig>, context) => ({
       /**
        * @internal
        */

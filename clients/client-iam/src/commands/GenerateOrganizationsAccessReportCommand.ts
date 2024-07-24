@@ -199,22 +199,6 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To generate a service last accessed data report for an organizational unit
- * ```javascript
- * // The following operation generates a report for the organizational unit ou-rge0-awexample
- * const input = {
- *   "EntityPath": "o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-1a2b3c-k9l8m7n6o5example"
- * };
- * const command = new GenerateOrganizationsAccessReportCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "JobId": "examplea-1234-b567-cde8-90fg123abcd4"
- * }
- * *\/
- * // example id: generateorganizationsaccessreport-ou
- * ```
- *
  */
 export class GenerateOrganizationsAccessReportCommand extends $Command
   .classBuilder<

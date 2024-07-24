@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CostOptimizationHubHtt
       name: "cost-optimization-hub",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CostOptimizationHubClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CostOptimizationHubClientConfig>, context) => ({
       /**
        * @internal
        */

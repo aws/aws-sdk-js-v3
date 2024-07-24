@@ -68,17 +68,6 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To release an Elastic IP address
- * ```javascript
- * // This example releases the specified Elastic IP address.
- * const input = {
- *   "AllocationId": "eipalloc-64d5890a"
- * };
- * const command = new ReleaseAddressCommand(input);
- * await client.send(command);
- * // example id: ec2-release-address-1
- * ```
- *
  */
 export class ReleaseAddressCommand extends $Command
   .classBuilder<

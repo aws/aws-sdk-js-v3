@@ -55,17 +55,6 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a network interface
- * ```javascript
- * // This example deletes the specified network interface.
- * const input = {
- *   "NetworkInterfaceId": "eni-e5aa89a3"
- * };
- * const command = new DeleteNetworkInterfaceCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-network-interface-1
- * ```
- *
  */
 export class DeleteNetworkInterfaceCommand extends $Command
   .classBuilder<

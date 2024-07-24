@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SSOHttpAuthSchemeParam
       name: "awsssoportal",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SSOClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SSOClientConfig>, context) => ({
       /**
        * @internal
        */

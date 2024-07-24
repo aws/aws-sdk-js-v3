@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LakeFormationHttpAuthS
       name: "lakeformation",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LakeFormationClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LakeFormationClientConfig>, context) => ({
       /**
        * @internal
        */

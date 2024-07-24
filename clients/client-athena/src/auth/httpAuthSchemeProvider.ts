@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AthenaHttpAuthSchemePa
       name: "athena",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AthenaClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AthenaClientConfig>, context) => ({
       /**
        * @internal
        */

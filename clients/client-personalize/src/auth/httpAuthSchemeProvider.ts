@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PersonalizeHttpAuthSch
       name: "personalize",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PersonalizeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PersonalizeClientConfig>, context) => ({
       /**
        * @internal
        */

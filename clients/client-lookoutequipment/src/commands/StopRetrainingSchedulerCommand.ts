@@ -81,24 +81,6 @@ export interface StopRetrainingSchedulerCommandOutput extends StopRetrainingSche
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  * @public
- * @example Stops a retraining scheduler
- * ```javascript
- * //
- * const input = {
- *   "ModelName": "sample-model"
- * };
- * const command = new StopRetrainingSchedulerCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ModelName": "sample-model",
- *   "Status": "STOPPING"
- * }
- * *\/
- * // example id: stops-a-retraining-scheduler-1694019734149
- * ```
- *
  */
 export class StopRetrainingSchedulerCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeGuruReviewerHttpAu
       name: "codeguru-reviewer",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeGuruReviewerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeGuruReviewerClientConfig>, context) => ({
       /**
        * @internal
        */

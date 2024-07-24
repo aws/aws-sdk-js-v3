@@ -26,17 +26,3 @@ export * from "./pagination";
 export * from "./models";
 
 export { WorkSpacesThinClientServiceException } from "./models/WorkSpacesThinClientServiceException";
-
-import { WorkSpacesThinClient } from "./WorkSpacesThinClient";
-
-/**
- * @deprecated use {WorkSpacesThinClient} (renamed) instead.
- * The aggregated client is called WorkSpacesThinClient,
- * and the barebones client is called WorkSpacesThinClientClient.
- *
- * Due to some code generation issues with the word "Client" in the service name,
- * we are maintaining a few backwards compatible aliases here.
- */
-export const WorkSpacesThin = WorkSpacesThinClient;
-
-export type { WorkSpacesThinClientPaginationConfiguration as WorkSpacesThinPaginationConfiguration } from "./pagination/Interfaces";

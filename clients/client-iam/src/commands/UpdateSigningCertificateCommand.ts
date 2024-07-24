@@ -75,19 +75,6 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To change the active status of a signing certificate for an IAM user
- * ```javascript
- * // The following command changes the status of a signing certificate for a user named Bob to Inactive.
- * const input = {
- *   "CertificateId": "TA7SMP42TDN5Z26OBPJE7EXAMPLE",
- *   "Status": "Inactive",
- *   "UserName": "Bob"
- * };
- * const command = new UpdateSigningCertificateCommand(input);
- * await client.send(command);
- * // example id: 829aee7b-efc5-4b3b-84a5-7f899b38018d
- * ```
- *
  */
 export class UpdateSigningCertificateCommand extends $Command
   .classBuilder<

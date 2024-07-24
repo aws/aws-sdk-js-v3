@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodePipelineHttpAuthSc
       name: "codepipeline",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodePipelineClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodePipelineClientConfig>, context) => ({
       /**
        * @internal
        */

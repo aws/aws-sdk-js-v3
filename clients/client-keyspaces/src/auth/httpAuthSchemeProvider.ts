@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: KeyspacesHttpAuthSchem
       name: "cassandra",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: KeyspacesClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<KeyspacesClientConfig>, context) => ({
       /**
        * @internal
        */

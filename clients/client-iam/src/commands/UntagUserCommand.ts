@@ -70,20 +70,6 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To remove a tag from an IAM user
- * ```javascript
- * // The following example shows how to remove tags that are attached to a user named 'anika'.
- * const input = {
- *   "TagKeys": [
- *     "Dept"
- *   ],
- *   "UserName": "anika"
- * };
- * const command = new UntagUserCommand(input);
- * await client.send(command);
- * // example id: to-remove-a-tag-from-an-iam-user-1506719725554
- * ```
- *
  */
 export class UntagUserCommand extends $Command
   .classBuilder<

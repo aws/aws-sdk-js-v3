@@ -63,17 +63,6 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
  * @public
- * @example To deregister a job definition
- * ```javascript
- * // This example deregisters a job definition called sleep10.
- * const input = {
- *   "jobDefinition": "sleep10"
- * };
- * const command = new DeregisterJobDefinitionCommand(input);
- * await client.send(command);
- * // example id: to-deregister-a-job-definition-1481153579565
- * ```
- *
  */
 export class DeregisterJobDefinitionCommand extends $Command
   .classBuilder<

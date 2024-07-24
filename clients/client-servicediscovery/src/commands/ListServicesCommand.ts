@@ -100,36 +100,6 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
  * @public
- * @example Example: List services
- * ```javascript
- * // Example: List services
- * const input = {};
- * const command = new ListServicesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Services": [
- *     {
- *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
- *       "CreateDate": 1587081768.334,
- *       "DnsConfig": {
- *         "DnsRecords": [
- *           {
- *             "TTL": 60,
- *             "Type": "A"
- *           }
- *         ],
- *         "RoutingPolicy": "MULTIVALUE"
- *       },
- *       "Id": "srv-p5zdwlg5uvvzjita",
- *       "Name": "myservice"
- *     }
- *   ]
- * }
- * *\/
- * // example id: example-list-services-1587236889840
- * ```
- *
  */
 export class ListServicesCommand extends $Command
   .classBuilder<

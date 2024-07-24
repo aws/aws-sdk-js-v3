@@ -72,23 +72,6 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To set a password for your VM
- * ```javascript
- * // Sets the password for your VM local console.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "LocalConsolePassword": "PassWordMustBeAtLeast6Chars."
- * };
- * const command = new SetLocalConsolePasswordCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
- * }
- * *\/
- * // example id: to-set-a-password-for-your-vm-1472150202632
- * ```
- *
  */
 export class SetLocalConsolePasswordCommand extends $Command
   .classBuilder<

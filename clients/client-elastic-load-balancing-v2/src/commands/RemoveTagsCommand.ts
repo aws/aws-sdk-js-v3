@@ -83,23 +83,6 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  * @public
- * @example To remove tags from a load balancer
- * ```javascript
- * // This example removes the specified tags from the specified load balancer.
- * const input = {
- *   "ResourceArns": [
- *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
- *   ],
- *   "TagKeys": [
- *     "project",
- *     "department"
- *   ]
- * };
- * const command = new RemoveTagsCommand(input);
- * await client.send(command);
- * // example id: elbv2-remove-tags-1
- * ```
- *
  */
 export class RemoveTagsCommand extends $Command
   .classBuilder<

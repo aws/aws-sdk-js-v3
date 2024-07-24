@@ -55,17 +55,6 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a DHCP options set
- * ```javascript
- * // This example deletes the specified DHCP options set.
- * const input = {
- *   "DhcpOptionsId": "dopt-d9070ebb"
- * };
- * const command = new DeleteDhcpOptionsCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-dhcp-options-1
- * ```
- *
  */
 export class DeleteDhcpOptionsCommand extends $Command
   .classBuilder<

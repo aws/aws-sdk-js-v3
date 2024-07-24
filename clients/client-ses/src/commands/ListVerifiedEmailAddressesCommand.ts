@@ -57,23 +57,6 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example ListVerifiedEmailAddresses
- * ```javascript
- * // The following example lists all email addresses that have been submitted for verification with Amazon SES:
- * const input = {};
- * const command = new ListVerifiedEmailAddressesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VerifiedEmailAddresses": [
- *     "user1@example.com",
- *     "user2@example.com"
- *   ]
- * }
- * *\/
- * // example id: listverifiedemailaddresses-1469051402570
- * ```
- *
  */
 export class ListVerifiedEmailAddressesCommand extends $Command
   .classBuilder<

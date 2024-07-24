@@ -143,45 +143,6 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To create a DHCP options set
- * ```javascript
- * // This example creates a DHCP options set.
- * const input = {
- *   "DhcpConfigurations": [
- *     {
- *       "Key": "domain-name-servers",
- *       "Values": [
- *         "10.2.5.1",
- *         "10.2.5.2"
- *       ]
- *     }
- *   ]
- * };
- * const command = new CreateDhcpOptionsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DhcpOptions": {
- *     "DhcpConfigurations": [
- *       {
- *         "Key": "domain-name-servers",
- *         "Values": [
- *           {
- *             "Value": "10.2.5.2"
- *           },
- *           {
- *             "Value": "10.2.5.1"
- *           }
- *         ]
- *       }
- *     ],
- *     "DhcpOptionsId": "dopt-d9070ebb"
- *   }
- * }
- * *\/
- * // example id: ec2-create-dhcp-options-1
- * ```
- *
  */
 export class CreateDhcpOptionsCommand extends $Command
   .classBuilder<

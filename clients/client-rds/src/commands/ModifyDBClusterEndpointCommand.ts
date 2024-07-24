@@ -96,40 +96,6 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To modify a custom DB cluster endpoint
- * ```javascript
- * // The following example modifies the specified custom DB cluster endpoint.
- * const input = {
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "StaticMembers": [
- *     "dbinstance1",
- *     "dbinstance2",
- *     "dbinstance3"
- *   ]
- * };
- * const command = new ModifyDBClusterEndpointCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CustomEndpointType": "READER",
- *   "DBClusterEndpointArn": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "DBClusterEndpointResourceIdentifier": "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
- *   "DBClusterIdentifier": "mydbcluster",
- *   "Endpoint": "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
- *   "EndpointType": "CUSTOM",
- *   "ExcludedMembers": [],
- *   "StaticMembers": [
- *     "dbinstance1",
- *     "dbinstance2",
- *     "dbinstance3"
- *   ],
- *   "Status": "modifying"
- * }
- * *\/
- * // example id: to-modify-a-custom-db-cluster-endpoint-1680307652958
- * ```
- *
  */
 export class ModifyDBClusterEndpointCommand extends $Command
   .classBuilder<

@@ -75,28 +75,6 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To create a Spot Instance datafeed
- * ```javascript
- * // This example creates a Spot Instance data feed for your AWS account.
- * const input = {
- *   "Bucket": "my-s3-bucket",
- *   "Prefix": "spotdata"
- * };
- * const command = new CreateSpotDatafeedSubscriptionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "SpotDatafeedSubscription": {
- *     "Bucket": "my-s3-bucket",
- *     "OwnerId": "123456789012",
- *     "Prefix": "spotdata",
- *     "State": "Active"
- *   }
- * }
- * *\/
- * // example id: ec2-create-spot-datafeed-subscription-1
- * ```
- *
  */
 export class CreateSpotDatafeedSubscriptionCommand extends $Command
   .classBuilder<

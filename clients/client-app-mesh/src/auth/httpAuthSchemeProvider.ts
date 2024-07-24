@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AppMeshHttpAuthSchemeP
       name: "appmesh",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AppMeshClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AppMeshClientConfig>, context) => ({
       /**
        * @internal
        */

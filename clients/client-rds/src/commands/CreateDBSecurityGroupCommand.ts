@@ -102,23 +102,6 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To create a DB security group.
- * ```javascript
- * // This example creates a DB security group.
- * const input = {
- *   "DBSecurityGroupDescription": "My DB security group",
- *   "DBSecurityGroupName": "mydbsecuritygroup"
- * };
- * const command = new CreateDBSecurityGroupCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBSecurityGroup": {}
- * }
- * *\/
- * // example id: create-db-security-group-41b6786a-539e-42a5-a645-a8bc3cf99353
- * ```
- *
  */
 export class CreateDBSecurityGroupCommand extends $Command
   .classBuilder<

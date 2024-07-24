@@ -89,17 +89,6 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To create a key pair
- * ```javascript
- * // This example creates a key pair named my-key-pair.
- * const input = {
- *   "KeyName": "my-key-pair"
- * };
- * const command = new CreateKeyPairCommand(input);
- * await client.send(command);
- * // example id: ec2-create-key-pair-1
- * ```
- *
  */
 export class CreateKeyPairCommand extends $Command
   .classBuilder<

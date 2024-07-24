@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "cognito-idp",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CognitoIdentityProviderClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CognitoIdentityProviderClientConfig>, context) => ({
       /**
        * @internal
        */

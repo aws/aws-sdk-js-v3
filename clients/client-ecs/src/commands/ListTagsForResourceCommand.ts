@@ -76,27 +76,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  * @public
- * @example To list the tags for a cluster.
- * ```javascript
- * // This example lists the tags for the 'dev' cluster.
- * const input = {
- *   "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev"
- * };
- * const command = new ListTagsForResourceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "tags": [
- *     {
- *       "key": "team",
- *       "value": "dev"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-the-tags-for-a-cluster-1540582700259
- * ```
- *
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

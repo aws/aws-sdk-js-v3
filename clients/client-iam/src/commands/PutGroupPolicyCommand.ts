@@ -90,19 +90,6 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
- * @example To add a policy to a group
- * ```javascript
- * // The following command adds a policy named AllPerms to the IAM group named Admins.
- * const input = {
- *   "GroupName": "Admins",
- *   "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"*\",\"Resource\":\"*\"}}",
- *   "PolicyName": "AllPerms"
- * };
- * const command = new PutGroupPolicyCommand(input);
- * await client.send(command);
- * // example id: 4bc17418-758f-4d0f-ab0c-4d00265fec2e
- * ```
- *
  */
 export class PutGroupPolicyCommand extends $Command
   .classBuilder<

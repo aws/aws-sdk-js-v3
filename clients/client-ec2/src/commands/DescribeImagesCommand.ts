@@ -160,52 +160,6 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe an AMI
- * ```javascript
- * // This example describes the specified AMI.
- * const input = {
- *   "ImageIds": [
- *     "ami-5731123e"
- *   ]
- * };
- * const command = new DescribeImagesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Images": [
- *     {
- *       "Architecture": "x86_64",
- *       "BlockDeviceMappings": [
- *         {
- *           "DeviceName": "/dev/sda1",
- *           "Ebs": {
- *             "DeleteOnTermination": true,
- *             "SnapshotId": "snap-1234567890abcdef0",
- *             "VolumeSize": 8,
- *             "VolumeType": "standard"
- *           }
- *         }
- *       ],
- *       "Description": "An AMI for my server",
- *       "Hypervisor": "xen",
- *       "ImageId": "ami-5731123e",
- *       "ImageLocation": "123456789012/My server",
- *       "ImageType": "machine",
- *       "KernelId": "aki-88aa75e1",
- *       "Name": "My server",
- *       "OwnerId": "123456789012",
- *       "Public": false,
- *       "RootDeviceName": "/dev/sda1",
- *       "RootDeviceType": "ebs",
- *       "State": "available",
- *       "VirtualizationType": "paravirtual"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-an-ami-1529025482866
- * ```
- *
  */
 export class DescribeImagesCommand extends $Command
   .classBuilder<

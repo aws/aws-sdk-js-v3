@@ -97,37 +97,6 @@ export interface UpdatePartnershipCommandOutput extends UpdatePartnershipRespons
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
- * @example Sample UpdatePartnership call
- * ```javascript
- * //
- * const input = {
- *   "name": "b2bipartner",
- *   "capabilities": [
- *     "ca-963a8121e4fc4e348"
- *   ],
- *   "partnershipId": "ps-219fa02f5b4242af8"
- * };
- * const command = new UpdatePartnershipCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "name": "b2bipartner",
- *   "capabilities": [
- *     "ca-963a8121e4fc4e348"
- *   ],
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "modifiedAt": "2023-11-01T21:51:05.504Z",
- *   "partnershipArn": "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-60fbc37c87f04fce9",
- *   "partnershipId": "ps-219fa02f5b4242af8",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9",
- *   "tradingPartnerId": "tp-2a17ca447f6f4a8a8"
- * }
- * *\/
- * // example id: example-1
- * ```
- *
  */
 export class UpdatePartnershipCommand extends $Command
   .classBuilder<

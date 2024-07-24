@@ -91,27 +91,6 @@ export interface GetHostedConfigurationVersionCommandOutput
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To retrieve hosted configuration details
- * ```javascript
- * // The following get-hosted-configuration-version example retrieves the configuration details of the AWS AppConfig hosted configuration.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "VersionNumber": 1
- * };
- * const command = new GetHostedConfigurationVersionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ContentType": "application/json",
- *   "VersionNumber": 1
- * }
- * *\/
- * // example id: to-retrieve-hosted-configuration-details-1632267003527
- * ```
- *
  */
 export class GetHostedConfigurationVersionCommand extends $Command
   .classBuilder<

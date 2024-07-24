@@ -55,17 +55,6 @@ export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To delete a network ACL
- * ```javascript
- * // This example deletes the specified network ACL.
- * const input = {
- *   "NetworkAclId": "acl-5fb85d36"
- * };
- * const command = new DeleteNetworkAclCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-network-acl-1
- * ```
- *
  */
 export class DeleteNetworkAclCommand extends $Command
   .classBuilder<

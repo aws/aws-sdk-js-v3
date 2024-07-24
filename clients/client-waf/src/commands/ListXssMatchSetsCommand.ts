@@ -77,27 +77,6 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  * @public
- * @example To list XSS match sets
- * ```javascript
- * // The following example returns an array of up to 100 XSS match sets.
- * const input = {
- *   "Limit": 100
- * };
- * const command = new ListXssMatchSetsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "XssMatchSets": [
- *     {
- *       "Name": "MySampleXssMatchSet",
- *       "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
- *     }
- *   ]
- * }
- * *\/
- * // example id: listxssmatchsets-1474561481168
- * ```
- *
  */
 export class ListXssMatchSetsCommand extends $Command
   .classBuilder<

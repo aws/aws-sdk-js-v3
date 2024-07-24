@@ -92,68 +92,6 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To describe DB cluster endpoints
- * ```javascript
- * // The following example retrieves details for your DB cluster endpoints. The most common kinds of Aurora clusters have two endpoints. One endpoint has type WRITER. You can use this endpoint for all SQL statements. The other endpoint has type READER. You can use this endpoint only for SELECT and other read-only SQL statements.
- * const input = {};
- * const command = new DescribeDBClusterEndpointsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBClusterEndpoints": [
- *     {
- *       "DBClusterIdentifier": "my-database-1",
- *       "Endpoint": "my-database-1.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "WRITER",
- *       "Status": "creating"
- *     },
- *     {
- *       "DBClusterIdentifier": "my-database-1",
- *       "Endpoint": "my-database-1.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "READER",
- *       "Status": "creating"
- *     },
- *     {
- *       "DBClusterIdentifier": "mydbcluster",
- *       "Endpoint": "mydbcluster.cluster-cnpexamle.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "WRITER",
- *       "Status": "available"
- *     },
- *     {
- *       "DBClusterIdentifier": "mydbcluster",
- *       "Endpoint": "mydbcluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "READER",
- *       "Status": "available"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-db-cluster-endpoints-1680212701970
- * ```
- *
- * @example To describe DB cluster endpoints of a single DB cluster
- * ```javascript
- * // The following example retrieves details for the DB cluster endpoints of a single specified DB cluster. Aurora Serverless clusters have only a single endpoint with a type of WRITER.
- * const input = {
- *   "DBClusterIdentifier": "serverless-cluster"
- * };
- * const command = new DescribeDBClusterEndpointsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBClusterEndpoints": [
- *     {
- *       "DBClusterIdentifier": "serverless-cluster",
- *       "Endpoint": "serverless-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "WRITER",
- *       "Status": "available"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-db-cluster-endpoints-of-a-single-db-cluster-1680212863842
- * ```
- *
  */
 export class DescribeDBClusterEndpointsCommand extends $Command
   .classBuilder<

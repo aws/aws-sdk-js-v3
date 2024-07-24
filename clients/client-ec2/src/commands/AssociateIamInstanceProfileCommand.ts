@@ -70,33 +70,6 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To associate an IAM instance profile with an instance
- * ```javascript
- * // This example associates an IAM instance profile named admin-role with the specified instance.
- * const input = {
- *   "IamInstanceProfile": {
- *     "Name": "admin-role"
- *   },
- *   "InstanceId": "i-123456789abcde123"
- * };
- * const command = new AssociateIamInstanceProfileCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "IamInstanceProfileAssociation": {
- *     "AssociationId": "iip-assoc-0e7736511a163c209",
- *     "IamInstanceProfile": {
- *       "Arn": "arn:aws:iam::123456789012:instance-profile/admin-role",
- *       "Id": "AIPAJBLK7RKJKWDXVHIEC"
- *     },
- *     "InstanceId": "i-123456789abcde123",
- *     "State": "associating"
- *   }
- * }
- * *\/
- * // example id: to-associate-an-iam-instance-profile-with-an-instance-1528928429850
- * ```
- *
  */
 export class AssociateIamInstanceProfileCommand extends $Command
   .classBuilder<

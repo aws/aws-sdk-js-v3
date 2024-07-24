@@ -104,23 +104,6 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
  * @public
- * @example To retrieve a key policy
- * ```javascript
- * // The following example retrieves the key policy for the specified KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "PolicyName": "default"
- * };
- * const command = new GetKeyPolicyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Policy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",\n  \"Statement\" : [ {\n    \"Sid\" : \"Enable IAM User Permissions\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n      \"AWS\" : \"arn:aws:iam::111122223333:root\"\n    },\n    \"Action\" : \"kms:*\",\n    \"Resource\" : \"*\"\n  } ]\n}"
- * }
- * *\/
- * // example id: to-retrieve-a-key-policy-1479170128325
- * ```
- *
  */
 export class GetKeyPolicyCommand extends $Command
   .classBuilder<

@@ -72,17 +72,6 @@ export interface DeleteCapabilityCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  * @public
- * @example Sample DeleteCapabilty call
- * ```javascript
- * //
- * const input = {
- *   "capabilityId": "ca-963a8121e4fc4e348"
- * };
- * const command = new DeleteCapabilityCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
 export class DeleteCapabilityCommand extends $Command
   .classBuilder<

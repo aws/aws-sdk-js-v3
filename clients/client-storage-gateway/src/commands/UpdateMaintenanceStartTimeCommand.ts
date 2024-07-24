@@ -86,25 +86,6 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To update a gateway's maintenance start time
- * ```javascript
- * // Updates a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is in your gateway's time zone.
- * const input = {
- *   "DayOfWeek": 2,
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "HourOfDay": 0,
- *   "MinuteOfHour": 30
- * };
- * const command = new UpdateMaintenanceStartTimeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
- * }
- * *\/
- * // example id: to-update-a-gateways-maintenance-start-time-1472152552031
- * ```
- *
  */
 export class UpdateMaintenanceStartTimeCommand extends $Command
   .classBuilder<

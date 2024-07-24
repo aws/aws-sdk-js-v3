@@ -65,19 +65,6 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
  * @public
- * @example SetReceiptRulePosition
- * ```javascript
- * // The following example sets the position of a receipt rule in a receipt rule set:
- * const input = {
- *   "After": "PutRuleAfterThisRule",
- *   "RuleName": "RuleToReposition",
- *   "RuleSetName": "MyRuleSet"
- * };
- * const command = new SetReceiptRulePositionCommand(input);
- * await client.send(command);
- * // example id: setreceiptruleposition-1469058530550
- * ```
- *
  */
 export class SetReceiptRulePositionCommand extends $Command
   .classBuilder<

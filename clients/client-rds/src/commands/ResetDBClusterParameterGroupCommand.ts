@@ -101,23 +101,6 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To reset all parameters to their default values
- * ```javascript
- * // The following example resets all parameter values in a customer-created DB cluster parameter group to their default values.
- * const input = {
- *   "DBClusterParameterGroupName": "mydbclpg",
- *   "ResetAllParameters": true
- * };
- * const command = new ResetDBClusterParameterGroupCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DBClusterParameterGroupName": "mydbclpg"
- * }
- * *\/
- * // example id: to-reset-all-parameters-to-their-default-values-1680070254216
- * ```
- *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command
   .classBuilder<

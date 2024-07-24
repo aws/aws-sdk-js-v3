@@ -74,18 +74,6 @@ export interface DeleteQAppCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
  * @public
- * @example Delete an Amazon Q App
- * ```javascript
- * //
- * const input = {
- *   "appId": "393e77fb-0a30-4f47-ad30-75d71aeaed8a",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
- * };
- * const command = new DeleteQAppCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
 export class DeleteQAppCommand extends $Command
   .classBuilder<

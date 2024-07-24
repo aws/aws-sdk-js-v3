@@ -112,54 +112,6 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To describe a network ACL
- * ```javascript
- * // This example describes the specified network ACL.
- * const input = {
- *   "NetworkAclIds": [
- *     "acl-5fb85d36"
- *   ]
- * };
- * const command = new DescribeNetworkAclsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "NetworkAcls": [
- *     {
- *       "Associations": [
- *         {
- *           "NetworkAclAssociationId": "aclassoc-66ea5f0b",
- *           "NetworkAclId": "acl-9aeb5ef7",
- *           "SubnetId": "subnet-65ea5f08"
- *         }
- *       ],
- *       "Entries": [
- *         {
- *           "CidrBlock": "0.0.0.0/0",
- *           "Egress": true,
- *           "Protocol": "-1",
- *           "RuleAction": "deny",
- *           "RuleNumber": 32767
- *         },
- *         {
- *           "CidrBlock": "0.0.0.0/0",
- *           "Egress": false,
- *           "Protocol": "-1",
- *           "RuleAction": "deny",
- *           "RuleNumber": 32767
- *         }
- *       ],
- *       "IsDefault": false,
- *       "NetworkAclId": "acl-5fb85d36",
- *       "Tags": [],
- *       "VpcId": "vpc-a01106c2"
- *     }
- *   ]
- * }
- * *\/
- * // example id: ec2-
- * ```
- *
  */
 export class DescribeNetworkAclsCommand extends $Command
   .classBuilder<

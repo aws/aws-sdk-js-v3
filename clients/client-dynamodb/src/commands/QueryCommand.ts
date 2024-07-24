@@ -282,38 +282,6 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  * @public
- * @example To query an item
- * ```javascript
- * // This example queries items in the Music table. The table has a partition key and sort key (Artist and SongTitle), but this query only specifies the partition key value. It returns song titles by the artist named "No One You Know".
- * const input = {
- *   "ExpressionAttributeValues": {
- *     ":v1": {
- *       "S": "No One You Know"
- *     }
- *   },
- *   "KeyConditionExpression": "Artist = :v1",
- *   "ProjectionExpression": "SongTitle",
- *   "TableName": "Music"
- * };
- * const command = new QueryCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ConsumedCapacity": {},
- *   "Count": 2,
- *   "Items": [
- *     {
- *       "SongTitle": {
- *         "S": "Call Me Today"
- *       }
- *     }
- *   ],
- *   "ScannedCount": 2
- * }
- * *\/
- * // example id: to-query-an-item-1475883874631
- * ```
- *
  */
 export class QueryCommand extends $Command
   .classBuilder<

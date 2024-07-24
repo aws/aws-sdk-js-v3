@@ -70,26 +70,6 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  * @public
- * @example To add a cache
- * ```javascript
- * // The following example shows a request that activates a gateway-stored volume.
- * const input = {
- *   "DiskIds": [
- *     "pci-0000:03:00.0-scsi-0:0:0:0",
- *     "pci-0000:03:00.0-scsi-0:0:1:0"
- *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
- * };
- * const command = new AddCacheCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
- * }
- * *\/
- * // example id: to-add-a-cache-1471043606854
- * ```
- *
  */
 export class AddCacheCommand extends $Command
   .classBuilder<

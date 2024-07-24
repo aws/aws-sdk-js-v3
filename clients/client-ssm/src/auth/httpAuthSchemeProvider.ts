@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SSMHttpAuthSchemeParam
       name: "ssm",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SSMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SSMClientConfig>, context) => ({
       /**
        * @internal
        */

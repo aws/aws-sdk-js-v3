@@ -80,29 +80,6 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @example To list the available configuration profiles
- * ```javascript
- * // The following list-configuration-profiles example lists the available configuration profiles for the specified application.
- * const input = {
- *   "ApplicationId": "339ohji"
- * };
- * const command = new ListConfigurationProfilesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Items": [
- *     {
- *       "ApplicationId": "339ohji",
- *       "Id": "ur8hx2f",
- *       "LocationUri": "ssm-parameter://Example-Parameter",
- *       "Name": "Example-Configuration-Profile"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-the-available-configuration-profiles-1632267193265
- * ```
- *
  */
 export class ListConfigurationProfilesCommand extends $Command
   .classBuilder<

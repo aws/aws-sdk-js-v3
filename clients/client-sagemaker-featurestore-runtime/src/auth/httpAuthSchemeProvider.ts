@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "sagemaker",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SageMakerFeatureStoreRuntimeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SageMakerFeatureStoreRuntimeClientConfig>, context) => ({
       /**
        * @internal
        */

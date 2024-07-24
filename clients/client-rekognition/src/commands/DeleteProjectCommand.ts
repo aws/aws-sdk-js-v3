@@ -87,22 +87,6 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  * @public
- * @example To delete an Amazon Rekognition Custom Labels project
- * ```javascript
- * // Deletes an Amazon Rekognition Custom Labels projects.
- * const input = {
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690405809285"
- * };
- * const command = new DeleteProjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Status": "DELETING"
- * }
- * *\/
- * // example id: to-delete-an-amazon-rekognition-custom-labels-project-1690409093478
- * ```
- *
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

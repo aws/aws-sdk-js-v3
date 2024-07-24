@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SnowballHttpAuthScheme
       name: "snowball",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SnowballClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SnowballClientConfig>, context) => ({
       /**
        * @internal
        */

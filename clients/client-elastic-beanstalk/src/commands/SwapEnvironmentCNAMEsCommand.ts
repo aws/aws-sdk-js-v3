@@ -57,18 +57,6 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  * @public
- * @example To swap environment CNAMES
- * ```javascript
- * // The following operation swaps the assigned subdomains of two environments:
- * const input = {
- *   "DestinationEnvironmentName": "my-env-green",
- *   "SourceEnvironmentName": "my-env-blue"
- * };
- * const command = new SwapEnvironmentCNAMEsCommand(input);
- * await client.send(command);
- * // example id: to-swap-environment-cnames-1456277839438
- * ```
- *
  */
 export class SwapEnvironmentCNAMEsCommand extends $Command
   .classBuilder<

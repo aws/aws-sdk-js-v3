@@ -71,17 +71,6 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  * @public
- * @example DeleteCacheSecurityGroup
- * ```javascript
- * // Deletes a cache security group.
- * const input = {
- *   "CacheSecurityGroupName": "my-sec-group"
- * };
- * const command = new DeleteCacheSecurityGroupCommand(input);
- * await client.send(command);
- * // example id: deletecachesecuritygroup-1483046967507
- * ```
- *
  */
 export class DeleteCacheSecurityGroupCommand extends $Command
   .classBuilder<

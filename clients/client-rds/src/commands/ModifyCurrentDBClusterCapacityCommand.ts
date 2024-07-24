@@ -96,27 +96,6 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To scale the capacity of an Aurora Serverless DB cluster
- * ```javascript
- * // The following example scales the capacity of an Aurora Serverless DB cluster to 8.
- * const input = {
- *   "Capacity": 8,
- *   "DBClusterIdentifier": "mydbcluster"
- * };
- * const command = new ModifyCurrentDBClusterCapacityCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CurrentCapacity": 1,
- *   "DBClusterIdentifier": "mydbcluster",
- *   "PendingCapacity": 8,
- *   "SecondsBeforeTimeout": 300,
- *   "TimeoutAction": "ForceApplyCapacityChange"
- * }
- * *\/
- * // example id: to-scale-the-capacity-of-an-aurora-serverless-db-cluster-1680307179599
- * ```
- *
  */
 export class ModifyCurrentDBClusterCapacityCommand extends $Command
   .classBuilder<

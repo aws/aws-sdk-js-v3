@@ -112,30 +112,6 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  * @public
- * @example To update an inbound security group rule description
- * ```javascript
- * // This example updates the description for the specified security group rule.
- * const input = {
- *   "GroupId": "sg-123abc12",
- *   "IpPermissions": [
- *     {
- *       "FromPort": 22,
- *       "IpProtocol": "tcp",
- *       "IpRanges": [
- *         {
- *           "CidrIp": "203.0.113.0/16",
- *           "Description": "SSH access from the LA office"
- *         }
- *       ],
- *       "ToPort": 22
- *     }
- *   ]
- * };
- * const command = new UpdateSecurityGroupRuleDescriptionsIngressCommand(input);
- * await client.send(command);
- * // example id: to-update-an-inbound-security-group-rule-description-1529360820372
- * ```
- *
  */
 export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command
   .classBuilder<

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: Macie2HttpAuthSchemePa
       name: "macie2",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: Macie2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<Macie2ClientConfig>, context) => ({
       /**
        * @internal
        */

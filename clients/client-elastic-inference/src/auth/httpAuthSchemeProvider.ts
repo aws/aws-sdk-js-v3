@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ElasticInferenceHttpAu
       name: "elastic-inference",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ElasticInferenceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ElasticInferenceClientConfig>, context) => ({
       /**
        * @internal
        */
