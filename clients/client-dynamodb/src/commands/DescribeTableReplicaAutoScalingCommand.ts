@@ -35,7 +35,8 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
 /**
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).</p>
+ *             <p>For global tables, this operation only applies to global tables using Version
+ *                 2019.11.21 (Current version).</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

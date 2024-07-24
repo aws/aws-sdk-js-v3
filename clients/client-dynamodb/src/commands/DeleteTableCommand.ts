@@ -37,13 +37,14 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *             returns a <code>ResourceNotFoundException</code>. If table is already in the
  *                 <code>DELETING</code> state, no error is returned. </p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
- *             </p>
+ *             <p>For global tables, this operation only applies to
+ *                 global tables using Version 2019.11.21 (Current version). </p>
  *          </important>
  *          <note>
  *             <p>DynamoDB might continue to accept data read and write operations, such as
  *                     <code>GetItem</code> and <code>PutItem</code>, on a table in the
- *                     <code>DELETING</code> state until the table deletion is complete.</p>
+ *                     <code>DELETING</code> state until the table deletion is complete. For the full
+ *                 list of table states, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TableDescription.html#DDB-Type-TableDescription-TableStatus">TableStatus</a>.</p>
  *          </note>
  *          <p>When you delete a table, any indexes on that table are also deleted.</p>
  *          <p>If you have DynamoDB Streams enabled on the table, then the corresponding stream on

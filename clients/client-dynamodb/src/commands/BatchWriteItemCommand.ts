@@ -36,10 +36,10 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *             for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
  *          <note>
  *             <p>
- *                <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>
- *                 operation on an existing item, that item's values will be overwritten by the
- *                 operation and it will appear like it was updated. To update items, we recommend you
- *                 use the <code>UpdateItem</code> action.</p>
+ *                <code>BatchWriteItem</code> cannot update items. If you perform a
+ *                     <code>BatchWriteItem</code> operation on an existing item, that item's values
+ *                 will be overwritten by the operation and it will appear like it was updated. To
+ *                 update items, we recommend you use the <code>UpdateItem</code> action.</p>
  *          </note>
  *          <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified
  *             in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a
@@ -50,10 +50,13 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *                 <code>BatchWriteItem</code> in a loop. Each iteration would check for unprocessed
  *             items and submit a new <code>BatchWriteItem</code> request with those unprocessed items
  *             until all items have been processed.</p>
- *          <p>If <i>none</i> of the items can be processed due to insufficient
- *             provisioned throughput on all of the tables in the request, then
- *                 <code>BatchWriteItem</code> returns a
- *                 <code>ProvisionedThroughputExceededException</code>.</p>
+ *          <p>For tables and indexes with provisioned capacity, if none of the items can be
+ *             processed due to insufficient provisioned throughput on all of the tables in the
+ *             request, then <code>BatchWriteItem</code> returns a
+ *                 <code>ProvisionedThroughputExceededException</code>. For all tables and indexes, if
+ *             none of the items can be processed due to other throttling scenarios (such as exceeding
+ *             partition level limits), then <code>BatchWriteItem</code> returns a
+ *                 <code>ThrottlingException</code>.</p>
  *          <important>
  *             <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on
  *                 those items. However, <i>we strongly recommend that you use an exponential

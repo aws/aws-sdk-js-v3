@@ -31,8 +31,8 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * <p>Returns information about the table, including the current status of the table, when
  *             it was created, the primary key schema, and any indexes on the table.</p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
- *             </p>
+ *             <p>For global tables, this operation only applies to global tables using Version
+ *                 2019.11.21 (Current version). </p>
  *          </important>
  *          <note>
  *             <p>If you issue a <code>DescribeTable</code> request immediately after a

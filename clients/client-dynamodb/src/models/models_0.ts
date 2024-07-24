@@ -1696,7 +1696,8 @@ export interface ContributorInsightsSummary {
  */
 export interface CreateBackupInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -2453,7 +2454,8 @@ export interface CreateTableInput {
   AttributeDefinitions: AttributeDefinition[] | undefined;
 
   /**
-   * <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -2729,24 +2731,35 @@ export interface CreateTableInput {
   TableClass?: TableClass;
 
   /**
-   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
+   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on
+   *             the table.</p>
    * @public
    */
   DeletionProtectionEnabled?: boolean;
 
   /**
-   * <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p>
-   *          <p>When you attach a resource-based policy while creating a table, the policy application is <i>strongly consistent</i>.</p>
-   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   * <p>An Amazon Web Services resource-based policy document in JSON format that will be
+   *             attached to the table.</p>
+   *          <p>When you attach a resource-based policy while creating a table, the policy application
+   *             is <i>strongly consistent</i>.</p>
+   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this
+   *             limit. For a full list of all considerations that apply for resource-based policies, see
+   *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based
+   *                 policy considerations</a>.</p>
    *          <note>
-   *             <p>You need to specify the <code>CreateTable</code> and <code>PutResourcePolicy</code> IAM actions for authorizing a user to create a table with a resource-based policy.</p>
+   *             <p>You need to specify the <code>CreateTable</code> and
+   *                     <code>PutResourcePolicy</code>
+   *                 IAM actions for authorizing a user to create a table with a
+   *                 resource-based policy.</p>
    *          </note>
    * @public
    */
   ResourcePolicy?: string;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified table in on-demand
+   *             capacity mode. If you use this parameter, you must specify
+   *                 <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput;
@@ -3649,13 +3662,20 @@ export interface DeleteReplicationGroupMemberAction {
  */
 export interface DeleteResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be removed. The resources you can specify include tables and streams. If you remove the policy of a table, it will also remove the permissions for the table's indexes defined in that policy document. This is because index permissions are defined in the table's policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be
+   *             removed. The resources you can specify include tables and streams. If you remove the
+   *             policy of a table, it will also remove the permissions for the table's indexes defined
+   *             in that policy document. This is because index permissions are defined in the table's
+   *             policy.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A string value that you can use to conditionally delete your policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, the request will fail and return a <code>PolicyNotFoundException</code>.</p>
+   * <p>A string value that you can use to conditionally delete your policy. When you provide
+   *             an expected revision ID, if the revision ID of the existing policy on the resource
+   *             doesn't match or if there's no policy attached to the resource, the request will fail
+   *             and return a <code>PolicyNotFoundException</code>.</p>
    * @public
    */
   ExpectedRevisionId?: string;
@@ -3667,7 +3687,8 @@ export interface DeleteResourcePolicyInput {
 export interface DeleteResourcePolicyOutput {
   /**
    * <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
-   *          <p>This value will be empty if you make a request against a resource without a policy.</p>
+   *          <p>This value will be empty if you make a request against a resource without a
+   *             policy.</p>
    * @public
    */
   RevisionId?: string;
@@ -3700,7 +3721,8 @@ export class PolicyNotFoundException extends __BaseException {
  */
 export interface DeleteTableInput {
   /**
-   * <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -3770,7 +3792,8 @@ export interface DescribeContinuousBackupsOutput {
  */
 export interface DescribeContributorInsightsInput {
   /**
-   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4733,7 +4756,8 @@ export class ImportNotFoundException extends __BaseException {
  */
 export interface DescribeKinesisStreamingDestinationInput {
   /**
-   * <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table
+   *             in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4853,7 +4877,8 @@ export interface DescribeLimitsOutput {
  */
 export interface DescribeTableInput {
   /**
-   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4876,7 +4901,8 @@ export interface DescribeTableOutput {
  */
 export interface DescribeTableReplicaAutoScalingInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -5049,7 +5075,8 @@ export interface DescribeTableReplicaAutoScalingOutput {
  */
 export interface DescribeTimeToLiveInput {
   /**
-   * <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table
+   *             in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -5083,7 +5110,8 @@ export interface EnableKinesisStreamingConfiguration {
  */
 export interface KinesisStreamingDestinationInput {
   /**
-   * <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -5321,7 +5349,8 @@ export interface ExportTableToPointInTimeInput {
    * <p>The ID of the Amazon Web Services account that owns the bucket the export will be
    *             stored in.</p>
    *          <note>
-   *             <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</p>
+   *             <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another
+   *                 account.</p>
    *          </note>
    * @public
    */
@@ -5368,7 +5397,10 @@ export interface ExportTableToPointInTimeInput {
   ExportFormat?: ExportFormat;
 
   /**
-   * <p>Choice of whether to execute as a full export or incremental export. Valid values are FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be used.</p>
+   * <p>Choice of whether to execute as a full export or incremental export. Valid values are
+   *             FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If
+   *             INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be
+   *             used.</p>
    * @public
    */
   ExportType?: ExportType;
@@ -5437,7 +5469,8 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
  */
 export interface GetResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The resources you can specify include tables and streams.</p>
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The
+   *             resources you can specify include tables and streams.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -5448,7 +5481,8 @@ export interface GetResourcePolicyInput {
  */
 export interface GetResourcePolicyOutput {
   /**
-   * <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
+   * <p>The resource-based policy document attached to the resource, which can be a table or
+   *             stream, in JSON format.</p>
    * @public
    */
   Policy?: string;
@@ -5553,7 +5587,8 @@ export interface ImportTableOutput {
  */
 export interface ListBackupsInput {
   /**
-   * <p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Lists the backups from the table specified in <code>TableName</code>. You can also
+   *             provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName?: string;
@@ -5642,7 +5677,8 @@ export interface ListBackupsOutput {
  */
 export interface ListContributorInsightsInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName?: string;
@@ -6004,7 +6040,8 @@ export interface ListTagsOfResourceOutput {
  */
 export interface PutResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams.</p>
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached.
+   *             The resources you can specify include tables and streams.</p>
    *          <p>You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the <code>Resource</code> field of a given <code>Statement</code> in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple <code>Statement</code> fields in your policy document.</p>
    * @public
    */
@@ -6014,29 +6051,42 @@ export interface PutResourcePolicyInput {
    * <p>An Amazon Web Services resource-based policy document in JSON format.</p>
    *          <ul>
    *             <li>
-   *                <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.</p>
+   *                <p>The maximum size supported for a resource-based policy document is 20 KB.
+   *                         DynamoDB counts whitespaces when calculating the size of a policy
+   *                     against this limit.</p>
    *             </li>
    *             <li>
-   *                <p>Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.</p>
+   *                <p>Within a resource-based policy, if the action for a DynamoDB
+   *                     service-linked role (SLR) to replicate data for a global table is denied, adding
+   *                     or deleting a replica will fail with an error.</p>
    *             </li>
    *          </ul>
-   *          <p>For a full list of all considerations that apply while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   *          <p>For a full list of all considerations that apply while attaching a resource-based
+   *             policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based
+   *                 policy considerations</a>.</p>
    * @public
    */
   Policy: string | undefined;
 
   /**
-   * <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p>
+   * <p>A string value that you can use to conditionally update your policy. You can provide
+   *             the revision ID of your existing policy to make mutating requests against that
+   *             policy.</p>
    *          <note>
-   *             <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
+   *             <p>When you provide an expected revision ID, if the revision ID of the existing
+   *                 policy on the resource doesn't match or if there's no policy attached to the
+   *                 resource, your request will be rejected with a
+   *                 <code>PolicyNotFoundException</code>.</p>
    *          </note>
-   *          <p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
+   *          <p>To conditionally attach a policy when no policy exists for the resource, specify
+   *                 <code>NO_POLICY</code> for the revision ID.</p>
    * @public
    */
   ExpectedRevisionId?: string;
 
   /**
-   * <p>Set this parameter to <code>true</code> to confirm that you want to remove your permissions to change the policy of this resource in the future.</p>
+   * <p>Set this parameter to <code>true</code> to confirm that you want to remove your
+   *             permissions to change the policy of this resource in the future.</p>
    * @public
    */
   ConfirmRemoveSelfResourceAccess?: boolean;
@@ -6321,7 +6371,8 @@ export interface PointInTimeRecoverySpecification {
  */
 export interface UpdateContinuousBackupsInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6350,7 +6401,8 @@ export interface UpdateContinuousBackupsOutput {
  */
 export interface UpdateContributorInsightsInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6700,7 +6752,8 @@ export interface UpdateKinesisStreamingConfiguration {
  */
 export interface UpdateKinesisStreamingDestinationInput {
   /**
-   * <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
+   * <p>The table name for the Kinesis streaming destination input. You can also provide the
+   *             ARN of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6948,7 +7001,8 @@ export interface UpdateTableInput {
   AttributeDefinitions?: AttributeDefinition[];
 
   /**
-   * <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table
+   *             in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -7029,8 +7083,8 @@ export interface UpdateTableInput {
   /**
    * <p>A list of replica update actions (create, delete, or update) for the table.</p>
    *          <note>
-   *             <p>For global tables, this property only applies to global tables using Version 2019.11.21 (Current version).
-   *             </p>
+   *             <p>For global tables, this property only applies to global tables using Version
+   *                 2019.11.21 (Current version). </p>
    *          </note>
    * @public
    */
@@ -7044,13 +7098,16 @@ export interface UpdateTableInput {
   TableClass?: TableClass;
 
   /**
-   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
+   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on
+   *             the table.</p>
    * @public
    */
   DeletionProtectionEnabled?: boolean;
 
   /**
-   * <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Updates the maximum number of read and write units for the specified table in
+   *             on-demand capacity mode. If you use this parameter, you must specify
+   *                 <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput;
@@ -7146,7 +7203,8 @@ export interface UpdateTableReplicaAutoScalingInput {
   GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexAutoScalingUpdate[];
 
   /**
-   * <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -7203,7 +7261,8 @@ export interface TimeToLiveSpecification {
  */
 export interface UpdateTimeToLiveInput {
   /**
-   * <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -8068,7 +8127,7 @@ export interface ExecuteStatementInput {
 
   /**
    * <p>An optional parameter that returns the item attributes for an
-   *             <code>ExecuteStatement</code> operation that failed a condition check.</p>
+   *                 <code>ExecuteStatement</code> operation that failed a condition check.</p>
    *          <p>There is no additional cost associated with requesting a return value aside from the
    *             small network and processing overhead of receiving a larger response. No read capacity
    *             units are consumed.</p>
@@ -8119,7 +8178,8 @@ export interface Get {
  */
 export interface GetItemInput {
   /**
-   * <p>The name of the table containing the requested item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table containing the requested item. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -8267,8 +8327,8 @@ export interface GetItemOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity;
@@ -8857,9 +8917,9 @@ export class TransactionCanceledException extends __BaseException {
  */
 export interface BatchGetItemInput {
   /**
-   * <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more
-   *             items to retrieve from that table. Each table name or ARN can be used only once per
-   *                 <code>BatchGetItem</code> request.</p>
+   * <p>A map of one or more table names or table ARNs and, for each table, a map that
+   *             describes one or more items to retrieve from that table. Each table name or ARN can be
+   *             used only once per <code>BatchGetItem</code> request.</p>
    *          <p>Each element in the map of items to retrieve consists of the following:</p>
    *          <ul>
    *             <li>
@@ -9660,8 +9720,8 @@ export interface PutItemOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity;
@@ -9722,7 +9782,7 @@ export interface QueryOutput {
   /**
    * <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high
    *                 <code>ScannedCount</code> value with few, or no, <code>Count</code> results
-   *             indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and
+   *             indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Count">Count and
    *                 ScannedCount</a> in the <i>Amazon DynamoDB Developer
    *             Guide</i>.</p>
    *          <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same
@@ -9749,8 +9809,8 @@ export interface QueryOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity;
@@ -9809,8 +9869,8 @@ export interface ScanOutput {
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see
-   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity;
@@ -9824,9 +9884,9 @@ export interface UpdateItemOutput {
   /**
    * <p>A map of attribute values as they appear before or after the <code>UpdateItem</code>
    *             operation, as determined by the <code>ReturnValues</code> parameter.</p>
-   *          <p>The <code>Attributes</code> map is only present if the update was successful and <code>ReturnValues</code> was
-   *             specified as something other than <code>NONE</code> in the request. Each element
-   *             represents one attribute.</p>
+   *          <p>The <code>Attributes</code> map is only present if the update was successful and
+   *                 <code>ReturnValues</code> was specified as something other than <code>NONE</code> in
+   *             the request. Each element represents one attribute.</p>
    * @public
    */
   Attributes?: Record<string, AttributeValue>;
@@ -9836,8 +9896,8 @@ export interface UpdateItemOutput {
    *             returned includes the total provisioned throughput consumed, along with statistics for
    *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity;
@@ -9918,9 +9978,9 @@ export interface BatchExecuteStatementOutput {
  */
 export interface BatchGetItemOutput {
   /**
-   * <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists
-   *             of a table name or ARN, along with a map of attribute data consisting of the data type and
-   *             attribute value.</p>
+   * <p>A map of table name or table ARN to a list of items. Each object in
+   *                 <code>Responses</code> consists of a table name or ARN, along with a map of
+   *             attribute data consisting of the data type and attribute value.</p>
    * @public
    */
   Responses?: Record<string, Record<string, AttributeValue>[]>;
@@ -9984,7 +10044,7 @@ export interface BatchGetItemOutput {
 export interface ScanInput {
   /**
    * <p>The name of the table containing the requested items or if you provide
-   *             <code>IndexName</code>, the name of the table to which that index belongs.</p>
+   *                 <code>IndexName</code>, the name of the table to which that index belongs.</p>
    *          <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
@@ -10044,8 +10104,9 @@ export interface ScanInput {
    *             <li>
    *                <p>
    *                   <code>COUNT</code> - Returns the number of matching items, rather than the
-   *                     matching items themselves. Note that this uses the same quantity of read capacity units
-   *                     as getting the items, and is subject to the same item size calculations.</p>
+   *                     matching items themselves. Note that this uses the same quantity of read
+   *                     capacity units as getting the items, and is subject to the same item size
+   *                     calculations.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10192,8 +10253,9 @@ export interface ScanInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter
+   *                 Expressions</a> in the <i>Amazon DynamoDB Developer
+   *             Guide</i>.</p>
    * @public
    */
   FilterExpression?: string;
@@ -10308,9 +10370,9 @@ export interface ScanInput {
  */
 export interface BatchWriteItemInput {
   /**
-   * <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be
-   *             performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the
-   *             map consists of the following:</p>
+   * <p>A map of one or more table names or table ARNs and, for each table, a list of
+   *             operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each
+   *             element in the map consists of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -10401,7 +10463,8 @@ export interface BatchWriteItemInput {
  */
 export interface DeleteItemInput {
   /**
-   * <p>The name of the table from which to delete the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table from which to delete the item. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10624,7 +10687,8 @@ export interface DeleteItemInput {
  */
 export interface PutItemInput {
   /**
-   * <p>The name of the table to contain the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to contain the item. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10861,7 +10925,8 @@ export interface PutItemInput {
  */
 export interface QueryInput {
   /**
-   * <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table containing the requested items. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10899,8 +10964,9 @@ export interface QueryInput {
    *             <li>
    *                <p>
    *                   <code>COUNT</code> - Returns the number of matching items, rather than the
-   *                     matching items themselves. Note that this uses the same quantity of read capacity units
-   *                     as getting the items, and is subject to the same item size calculations.</p>
+   *                     matching items themselves. Note that this uses the same quantity of read
+   *                     capacity units as getting the items, and is subject to the same item size
+   *                     calculations.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -11068,8 +11134,9 @@ export interface QueryInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter
+   *                 Expressions</a> in the <i>Amazon DynamoDB Developer
+   *             Guide</i>.</p>
    * @public
    */
   FilterExpression?: string;
@@ -11284,9 +11351,9 @@ export interface BatchWriteItemOutput {
    *             <code>RequestItems</code>, so you can provide this value directly to a subsequent
    *                 <code>BatchWriteItem</code> operation. For more information, see
    *                 <code>RequestItems</code> in the Request Parameters section.</p>
-   *          <p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN and, for that table,
-   *             a list of operations to perform (<code>DeleteRequest</code> or
-   *             <code>PutRequest</code>).</p>
+   *          <p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN
+   *             and, for that table, a list of operations to perform (<code>DeleteRequest</code> or
+   *                 <code>PutRequest</code>).</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -11382,7 +11449,8 @@ export interface BatchWriteItemOutput {
  */
 export interface UpdateItemInput {
   /**
-   * <p>The name of the table containing the item to update. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table containing the item to update. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -11424,8 +11492,8 @@ export interface UpdateItemInput {
 
   /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear
-   *             before or after they are successfully updated. For <code>UpdateItem</code>, the valid values
-   *             are:</p>
+   *             before or after they are successfully updated. For <code>UpdateItem</code>, the valid
+   *             values are:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -11717,8 +11785,8 @@ export interface UpdateItemInput {
   ExpressionAttributeValues?: Record<string, AttributeValue>;
 
   /**
-   * <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a
-   *             condition check.</p>
+   * <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code>
+   *             operation that failed a condition check.</p>
    *          <p>There is no additional cost associated with requesting a return value aside from the
    *             small network and processing overhead of receiving a larger response. No read capacity
    *             units are consumed.</p>

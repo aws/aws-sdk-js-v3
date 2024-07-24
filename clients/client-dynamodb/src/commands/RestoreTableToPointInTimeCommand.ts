@@ -34,8 +34,8 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *             users can execute up to 50 concurrent restores (any type of restore) in a given account. </p>
  *          <p>When you restore using point in time recovery, DynamoDB restores your table data to
  *             the state based on the selected date and time (day:hour:minute:second) to a new table. </p>
- *          <p>Along with data, the following are also included on the new restored table using
- *             point in time recovery: </p>
+ *          <p>Along with data, the following are also included on the new restored table using point
+ *             in time recovery: </p>
  *          <ul>
  *             <li>
  *                <p>Global secondary indexes (GSIs)</p>

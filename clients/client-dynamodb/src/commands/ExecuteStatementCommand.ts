@@ -39,8 +39,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *             items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any
  *             filtering to the results using <code>WHERE</code> clause). If
  *                 <code>LastEvaluatedKey</code> is present in the response, you need to paginate the
- *             result set. If <code>NextToken</code> is present, you need to paginate the result set and include
- *             <code>NextToken</code>.</p>
+ *             result set. If <code>NextToken</code> is present, you need to paginate the result set
+ *             and include <code>NextToken</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

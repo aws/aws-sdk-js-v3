@@ -28,16 +28,27 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyIn
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the resource-based policy attached to the resource, which can be a table or stream.</p>
+ * <p>Deletes the resource-based policy attached to the resource, which can be a table or
+ *             stream.</p>
  *          <p>
- *             <code>DeleteResourcePolicy</code> is an idempotent operation; running it multiple times on the same resource <i>doesn't</i> result in an error response, unless you specify an <code>ExpectedRevisionId</code>, which will then return a <code>PolicyNotFoundException</code>.</p>
+ *             <code>DeleteResourcePolicy</code> is an idempotent operation; running it multiple
+ *             times on the same resource <i>doesn't</i> result in an error response,
+ *             unless you specify an <code>ExpectedRevisionId</code>, which will then return a
+ *                 <code>PolicyNotFoundException</code>.</p>
  *          <important>
- *             <p>To make sure that you don't inadvertently lock yourself out of your own resources, the root principal in your Amazon Web Services account can perform <code>DeleteResourcePolicy</code> requests, even if your resource-based policy explicitly denies the root principal's access.
- *             </p>
+ *             <p>To make sure that you don't inadvertently lock yourself out of your own resources,
+ *                 the root principal in your Amazon Web Services account can perform
+ *                     <code>DeleteResourcePolicy</code> requests, even if your resource-based policy
+ *                 explicitly denies the root principal's access. </p>
  *          </important>
  *          <note>
  *             <p>
- *                <code>DeleteResourcePolicy</code> is an asynchronous operation. If you issue a <code>GetResourcePolicy</code> request immediately after running the <code>DeleteResourcePolicy</code> request, DynamoDB might still return the deleted policy. This is because the policy for your resource might not have been deleted yet. Wait for a few seconds, and then try the <code>GetResourcePolicy</code> request again.</p>
+ *                <code>DeleteResourcePolicy</code> is an asynchronous operation. If you issue a
+ *                     <code>GetResourcePolicy</code> request immediately after running the
+ *                     <code>DeleteResourcePolicy</code> request, DynamoDB might still return
+ *                 the deleted policy. This is because the policy for your resource might not have been
+ *                 deleted yet. Wait for a few seconds, and then try the <code>GetResourcePolicy</code>
+ *                 request again.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

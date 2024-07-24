@@ -28,15 +28,17 @@ export interface ListBackupsCommandInput extends ListBackupsInput {}
 export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataBearer {}
 
 /**
- * <p>List DynamoDB backups that are associated with an Amazon Web Services account and weren't made with Amazon Web Services Backup.
- *             To list these backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
- *             paginated list of results with at most 1 MB worth of items in a page. You can also
- *             specify a maximum number of entries to be returned in a page.</p>
+ * <p>List DynamoDB backups that are associated with an Amazon Web Services account and
+ *             weren't made with Amazon Web Services Backup. To list these backups for a given table,
+ *             specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list of
+ *             results with at most 1 MB worth of items in a page. You can also specify a maximum
+ *             number of entries to be returned in a page.</p>
  *          <p>In the request, start time is inclusive, but end time is exclusive. Note that these
  *             boundaries are for the time at which the original backup was requested.</p>
  *          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
- *          <p>If you want to retrieve the complete list of backups made with Amazon Web Services Backup, use the
- *             <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon Web Services Backup list API.</a>
+ *          <p>If you want to retrieve the complete list of backups made with Amazon Web Services
+ *             Backup, use the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon Web Services Backup
+ *                 list API.</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
