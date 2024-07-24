@@ -28,7 +28,7 @@ export const resolveProcessCredentials = async (
         } catch {
           throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
         }
-        return getValidatedProcessCredentials(profileName, data as ProcessCredentials, profiles);
+        return getValidatedProcessCredentials(profileName, data as ProcessCredentials);
       } catch (error) {
         throw new CredentialsProviderError(error.message, { logger });
       }

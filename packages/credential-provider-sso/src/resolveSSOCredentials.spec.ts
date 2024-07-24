@@ -42,7 +42,6 @@ describe(resolveSSOCredentials.name, () => {
     secretAccessKey: "mockSecretAccessKey",
     sessionToken: "mockSessionToken",
     expiration: Date.now(),
-    accountId: "mock_sso_account_id",
   };
 
   beforeEach(() => {
@@ -162,23 +161,6 @@ describe(resolveSSOCredentials.name, () => {
       (SSOClient as jest.Mock).mockReturnValue({ send: mockCustomSsoSend });
 
       await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
-      expect(mockCustomSsoSend).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe("returns valid credentials including accountId", () => {
-    it("returns valid credentials with accountId from sso.getRoleCredentials", async () => {
-      const result = await resolveSSOCredentials(mockOptions);
-      expect(result).toHaveProperty("accountId", mockOptions.ssoAccountId);
-      expect(mockSsoSend).toHaveBeenCalledTimes(1);
-    });
-
-    it("creates SSO client with provided region, if client is not passed, and includes accountId", async () => {
-      const mockCustomSsoSend = jest.fn().mockResolvedValue({ roleCredentials: mockCreds });
-      (SSOClient as jest.Mock).mockReturnValue({ send: mockCustomSsoSend });
-
-      const result = await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
-      expect(result).toHaveProperty("accountId", mockOptions.ssoAccountId);
       expect(mockCustomSsoSend).toHaveBeenCalledTimes(1);
     });
   });

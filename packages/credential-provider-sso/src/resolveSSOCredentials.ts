@@ -83,18 +83,16 @@ export const resolveSSOCredentials = async ({
     });
   }
 
-  const {
-    roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration, credentialScope, accountId } = {},
-  } = ssoResp as unknown as {
-    roleCredentials: {
-      accessKeyId?: string;
-      secretAccessKey?: string;
-      sessionToken?: string;
-      expiration?: Date | string;
-      credentialScope?: string;
-      accountId?: string;
+  const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration, credentialScope } = {} } =
+    ssoResp as unknown as {
+      roleCredentials: {
+        accessKeyId?: string;
+        secretAccessKey?: string;
+        sessionToken?: string;
+        expiration?: Date | string;
+        credentialScope?: string;
+      };
     };
-  };
 
   if (!accessKeyId || !secretAccessKey || !sessionToken || !expiration) {
     throw new CredentialsProviderError("SSO returns an invalid temporary credential.", {
@@ -103,12 +101,5 @@ export const resolveSSOCredentials = async ({
     });
   }
 
-  return {
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-    expiration: new Date(expiration),
-    ...(credentialScope && { credentialScope }),
-    ...(accountId && { accountId }),
-  };
+  return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration), credentialScope };
 };

@@ -1,4 +1,4 @@
-import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
+import { AwsCredentialIdentity } from "@smithy/types";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
@@ -9,13 +9,6 @@ describe(getValidatedProcessCredentials.name, () => {
   const mockSecretAccessKey = "mockSecretAccessKey";
   const mockSessionToken = "mockSessionToken";
   const mockExpiration = Date.now() + 24 * 60 * 60 * 1000;
-  const mockAccountId = "123456789012";
-
-  const mockProfiles: ParsedIniData = {
-    [mockProfileName]: {
-      aws_account_id: mockAccountId,
-    },
-  };
 
   const getMockProcessCreds = (): ProcessCredentials => ({
     Version: 1,
@@ -23,46 +16,33 @@ describe(getValidatedProcessCredentials.name, () => {
     SecretAccessKey: mockSecretAccessKey,
     SessionToken: mockSessionToken,
     Expiration: mockExpiration,
-    AccountId: mockAccountId,
   });
 
   it.each([2])("throws Error when Version is %s", (Version) => {
     expect(() => {
-      getValidatedProcessCredentials(
-        mockProfileName,
-        {
-          ...getMockProcessCreds(),
-          Version,
-        },
-        mockProfiles
-      );
+      getValidatedProcessCredentials(mockProfileName, {
+        ...getMockProcessCreds(),
+        Version,
+      });
     }).toThrow(`Profile ${mockProfileName} credential_process did not return Version 1.`);
   });
 
   it.each(["AccessKeyId", "SecretAccessKey"])("throws Error when '%s' is not defined", (key) => {
     expect(() => {
-      getValidatedProcessCredentials(
-        mockProfileName,
-        {
-          ...getMockProcessCreds(),
-          [key]: undefined,
-        },
-        mockProfiles
-      );
+      getValidatedProcessCredentials(mockProfileName, {
+        ...getMockProcessCreds(),
+        [key]: undefined,
+      });
     }).toThrow(`Profile ${mockProfileName} credential_process returned invalid credentials.`);
   });
 
   it("throws error when credentials are expired", () => {
     const expirationDayBefore = Date.now() - 24 * 60 * 60 * 1000;
     expect(() => {
-      getValidatedProcessCredentials(
-        mockProfileName,
-        {
-          ...getMockProcessCreds(),
-          Expiration: expirationDayBefore,
-        },
-        mockProfiles
-      );
+      getValidatedProcessCredentials(mockProfileName, {
+        ...getMockProcessCreds(),
+        Expiration: expirationDayBefore,
+      });
     }).toThrow(`Profile ${mockProfileName} credential_process returned expired credentials.`);
   });
 
@@ -72,23 +52,18 @@ describe(getValidatedProcessCredentials.name, () => {
       secretAccessKey: data.SecretAccessKey,
       ...(data.SessionToken && { sessionToken: data.SessionToken }),
       ...(data.Expiration && { expiration: new Date(data.Expiration) }),
-      ...(data.AccountId && { accountId: data.AccountId }),
     });
 
     it("with all values", () => {
       const mockProcessCreds = getMockProcessCreds();
       const mockOutputCreds = getValidatedCredentials(mockProcessCreds);
-      expect(getValidatedProcessCredentials(mockProfileName, mockProcessCreds, mockProfiles)).toStrictEqual(
-        mockOutputCreds
-      );
+      expect(getValidatedProcessCredentials(mockProfileName, mockProcessCreds)).toStrictEqual(mockOutputCreds);
     });
 
     it.each(["SessionToken", "Expiration"])("without '%s'", (key) => {
       const mockProcessCreds = { ...getMockProcessCreds(), [key]: undefined };
       const mockOutputCreds = getValidatedCredentials(mockProcessCreds);
-      expect(getValidatedProcessCredentials(mockProfileName, mockProcessCreds, mockProfiles)).toStrictEqual(
-        mockOutputCreds
-      );
+      expect(getValidatedProcessCredentials(mockProfileName, mockProcessCreds)).toStrictEqual(mockOutputCreds);
     });
   });
 });
