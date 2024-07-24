@@ -8,5 +8,4 @@ export type ProcessCredentials = {
   SessionToken?: string;
   Expiration?: number;
   CredentialScope?: string;
-  AccountId?: string;
 };
