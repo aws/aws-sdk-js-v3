@@ -67,6 +67,13 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
 
     private static final Logger LOGGER = Logger.getLogger(AddAwsAuthPlugin.class.getName());
 
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddEndpointsPlugin.class.getCanonicalName()
+        );
+    }
+
     /**
      * Integration should only be used if the `useLegacyAuth` flag is true.
      */

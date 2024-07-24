@@ -128,8 +128,8 @@ tasks.register("generate-smithy-build") {
                                     .withMember("packageJson", manifestOverwrites)
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
                                         + clientName + " Client for Node.js, Browser and React Native")
-                                    .withMember("experimentalIdentityAndAuth",
-                                        !nonExperimentalIdentityAndAuthServices.contains(serviceTrait.sdkId))
+                                    .withMember("useLegacyAuth",
+                                        nonExperimentalIdentityAndAuthServices.contains(serviceTrait.sdkId))
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
