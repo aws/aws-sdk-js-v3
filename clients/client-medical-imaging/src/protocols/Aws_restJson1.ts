@@ -85,6 +85,7 @@ import {
   ImageSetProperties,
   ImageSetsMetadataSummary,
   InternalServerException,
+  MetadataCopies,
   MetadataUpdates,
   ResourceNotFoundException,
   SearchByAttributeValue,
@@ -110,6 +111,9 @@ export const se_CopyImageSetCommand = async (
   b.bp("/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet");
   b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
   b.p("sourceImageSetId", () => input.sourceImageSetId!, "{sourceImageSetId}", false);
+  const query: any = map({
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
+  });
   let body: any;
   if (input.copyImageSetInformation !== undefined) {
     body = _json(input.copyImageSetInformation);
@@ -126,7 +130,7 @@ export const se_CopyImageSetCommand = async (
     }
   }
   b.hn(resolvedHostname);
-  b.m("POST").h(headers).b(body);
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -531,6 +535,7 @@ export const se_UpdateImageSetMetadataCommand = async (
   b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   const query: any = map({
     [_lV]: [, __expectNonNull(input[_lVI]!, `latestVersionId`)],
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
   });
   let body: any;
   if (input.updateImageSetMetadataUpdates !== undefined) {
@@ -728,6 +733,7 @@ export const de_GetImageSetCommand = async (
     imageSetState: __expectString,
     imageSetWorkflowStatus: __expectString,
     message: __expectString,
+    overrides: _json,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     versionId: __expectString,
   });
@@ -1145,12 +1151,15 @@ const se_DICOMUpdates = (input: DICOMUpdates, context: __SerdeContext): any => {
 
 // se_ImageFrameInformation omitted.
 
+// se_MetadataCopies omitted.
+
 /**
  * serializeAws_restJson1MetadataUpdates
  */
 const se_MetadataUpdates = (input: MetadataUpdates, context: __SerdeContext): any => {
   return MetadataUpdates.visit(input, {
     DICOMUpdates: (value) => ({ DICOMUpdates: se_DICOMUpdates(value, context) }),
+    revertToVersionId: (value) => ({ revertToVersionId: value }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -1351,6 +1360,7 @@ const de_ImageSetProperties = (output: any, context: __SerdeContext): ImageSetPr
     imageSetId: __expectString,
     imageSetState: __expectString,
     message: __expectString,
+    overrides: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     versionId: __expectString,
   }) as any;
@@ -1393,6 +1403,8 @@ const de_ImageSetsMetadataSummary = (output: any, context: __SerdeContext): Imag
   }) as any;
 };
 
+// de_Overrides omitted.
+
 // de_Sort omitted.
 
 // de_TagMap omitted.
@@ -1421,6 +1433,7 @@ const _cT = "contentType";
 const _ce = "content-encoding";
 const _ct = "content-type";
 const _dS = "datastoreStatus";
+const _f = "force";
 const _jS = "jobStatus";
 const _lV = "latestVersion";
 const _lVI = "latestVersionId";

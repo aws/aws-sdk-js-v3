@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MedicalImagingHttpAuth
       name: "medical-imaging",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MedicalImagingClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MedicalImagingClientConfig>, context) => ({
       /**
        * @internal
        */

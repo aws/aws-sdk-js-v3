@@ -64,6 +64,19 @@ export interface CopyDestinationImageSet {
 }
 
 /**
+ * <p>Contains copiable <code>Attributes</code> structure and wraps information related to specific copy use cases.
+ *             For example, when copying subsets.</p>
+ * @public
+ */
+export interface MetadataCopies {
+  /**
+   * <p>The JSON string used to specify a subset of SOP Instances to copy from source to destination image set.</p>
+   * @public
+   */
+  copiableAttributes: string | undefined;
+}
+
+/**
  * <p>Copy source image set information.</p>
  * @public
  */
@@ -73,6 +86,13 @@ export interface CopySourceImageSetInformation {
    * @public
    */
   latestVersionId: string | undefined;
+
+  /**
+   * <p>Contains <code>MetadataCopies</code> structure and wraps information related to specific copy use cases.
+   *             For example, when copying subsets.</p>
+   * @public
+   */
+  DICOMCopies?: MetadataCopies;
 }
 
 /**
@@ -114,6 +134,13 @@ export interface CopyImageSetRequest {
    * @public
    */
   copyImageSetInformation: CopyImageSetInformation | undefined;
+
+  /**
+   * <p>Setting this flag will force the <code>CopyImageSet</code> operation, even if Patient, Study, or Series level
+   *             metadata are mismatched across the <code>sourceImageSet</code> and <code>destinationImageSet</code>.</p>
+   * @public
+   */
+  force?: boolean;
 }
 
 /**
@@ -848,6 +875,20 @@ export interface GetImageSetRequest {
 }
 
 /**
+ * <p>Specifies the overrides used in image set modification calls to <code>CopyImageSet</code> and
+ *                 <code>UpdateImageSetMetadata</code>.</p>
+ * @public
+ */
+export interface Overrides {
+  /**
+   * <p>Setting this flag will force the <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code>
+   *             operations, even if Patient, Study, or Series level metadata are mismatched.</p>
+   * @public
+   */
+  forced?: boolean;
+}
+
+/**
  * @public
  */
 export interface GetImageSetResponse {
@@ -910,6 +951,14 @@ export interface GetImageSetResponse {
    * @public
    */
   imageSetArn?: string;
+
+  /**
+   * <p>This object contains the details of any overrides used while creating a specific image set version.
+   *             If an image set was copied or updated using the <code>force</code> flag, this object will contain the
+   *             <code>forced</code> flag.</p>
+   * @public
+   */
+  overrides?: Overrides;
 }
 
 /**
@@ -1139,6 +1188,14 @@ export interface ImageSetProperties {
    * @public
    */
   message?: string;
+
+  /**
+   * <p>Contains details on overrides used when creating the returned version of an image set.
+   *             For example, if <code>forced</code> exists, the <code>forced</code> flag was used when
+   *             creating the image set.</p>
+   * @public
+   */
+  overrides?: Overrides;
 }
 
 /**
@@ -1817,7 +1874,10 @@ export interface DICOMUpdates {
  * <p>Contains DICOMUpdates.</p>
  * @public
  */
-export type MetadataUpdates = MetadataUpdates.DICOMUpdatesMember | MetadataUpdates.$UnknownMember;
+export type MetadataUpdates =
+  | MetadataUpdates.DICOMUpdatesMember
+  | MetadataUpdates.RevertToVersionIdMember
+  | MetadataUpdates.$UnknownMember;
 
 /**
  * @public
@@ -1829,6 +1889,21 @@ export namespace MetadataUpdates {
    */
   export interface DICOMUpdatesMember {
     DICOMUpdates: DICOMUpdates;
+    revertToVersionId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the previous image set version ID to revert the current image set back to.</p>
+   *          <note>
+   *             <p>You must provide either <code>revertToVersionId</code> or <code>DICOMUpdates</code> in your request. A
+   *                 <code>ValidationException</code> error is thrown if both parameters are provided at the same time.</p>
+   *          </note>
+   * @public
+   */
+  export interface RevertToVersionIdMember {
+    DICOMUpdates?: never;
+    revertToVersionId: string;
     $unknown?: never;
   }
 
@@ -1837,16 +1912,19 @@ export namespace MetadataUpdates {
    */
   export interface $UnknownMember {
     DICOMUpdates?: never;
+    revertToVersionId?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     DICOMUpdates: (value: DICOMUpdates) => T;
+    revertToVersionId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: MetadataUpdates, visitor: Visitor<T>): T => {
     if (value.DICOMUpdates !== undefined) return visitor.DICOMUpdates(value.DICOMUpdates);
+    if (value.revertToVersionId !== undefined) return visitor.revertToVersionId(value.revertToVersionId);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1872,6 +1950,22 @@ export interface UpdateImageSetMetadataRequest {
    * @public
    */
   latestVersionId: string | undefined;
+
+  /**
+   * <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Adding, removing, or updating private tags for an individual SOP Instance</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  force?: boolean;
 
   /**
    * <p>Update image set metadata updates.</p>
@@ -1932,6 +2026,40 @@ export interface UpdateImageSetMetadataResponse {
    */
   message?: string;
 }
+
+/**
+ * @internal
+ */
+export const MetadataCopiesFilterSensitiveLog = (obj: MetadataCopies): any => ({
+  ...obj,
+  ...(obj.copiableAttributes && { copiableAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CopySourceImageSetInformationFilterSensitiveLog = (obj: CopySourceImageSetInformation): any => ({
+  ...obj,
+  ...(obj.DICOMCopies && { DICOMCopies: MetadataCopiesFilterSensitiveLog(obj.DICOMCopies) }),
+});
+
+/**
+ * @internal
+ */
+export const CopyImageSetInformationFilterSensitiveLog = (obj: CopyImageSetInformation): any => ({
+  ...obj,
+  ...(obj.sourceImageSet && { sourceImageSet: CopySourceImageSetInformationFilterSensitiveLog(obj.sourceImageSet) }),
+});
+
+/**
+ * @internal
+ */
+export const CopyImageSetRequestFilterSensitiveLog = (obj: CopyImageSetRequest): any => ({
+  ...obj,
+  ...(obj.copyImageSetInformation && {
+    copyImageSetInformation: CopyImageSetInformationFilterSensitiveLog(obj.copyImageSetInformation),
+  }),
+});
 
 /**
  * @internal
@@ -2051,6 +2179,7 @@ export const DICOMUpdatesFilterSensitiveLog = (obj: DICOMUpdates): any => ({
  */
 export const MetadataUpdatesFilterSensitiveLog = (obj: MetadataUpdates): any => {
   if (obj.DICOMUpdates !== undefined) return { DICOMUpdates: DICOMUpdatesFilterSensitiveLog(obj.DICOMUpdates) };
+  if (obj.revertToVersionId !== undefined) return { revertToVersionId: obj.revertToVersionId };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

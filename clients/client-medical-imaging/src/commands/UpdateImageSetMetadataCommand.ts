@@ -43,11 +43,13 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  *   datastoreId: "STRING_VALUE", // required
  *   imageSetId: "STRING_VALUE", // required
  *   latestVersionId: "STRING_VALUE", // required
+ *   force: true || false,
  *   updateImageSetMetadataUpdates: { // MetadataUpdates Union: only one key present
  *     DICOMUpdates: { // DICOMUpdates
  *       removableAttributes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       updatableAttributes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     },
+ *     revertToVersionId: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateImageSetMetadataCommand(input);

@@ -54,6 +54,9 @@ export interface ListImageSetVersionsCommandOutput extends ListImageSetVersionsR
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       deletedAt: new Date("TIMESTAMP"),
  * //       message: "STRING_VALUE",
+ * //       overrides: { // Overrides
+ * //         forced: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

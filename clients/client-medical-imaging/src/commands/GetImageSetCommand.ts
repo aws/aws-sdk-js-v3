@@ -53,6 +53,9 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * //   deletedAt: new Date("TIMESTAMP"),
  * //   message: "STRING_VALUE",
  * //   imageSetArn: "STRING_VALUE",
+ * //   overrides: { // Overrides
+ * //     forced: true || false,
+ * //   },
  * // };
  *
  * ```

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
-import { CopyImageSetRequest, CopyImageSetResponse } from "../models/models_0";
+import { CopyImageSetRequest, CopyImageSetRequestFilterSensitiveLog, CopyImageSetResponse } from "../models/models_0";
 import { de_CopyImageSetCommand, se_CopyImageSetCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -41,12 +41,16 @@ export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __Metad
  *   copyImageSetInformation: { // CopyImageSetInformation
  *     sourceImageSet: { // CopySourceImageSetInformation
  *       latestVersionId: "STRING_VALUE", // required
+ *       DICOMCopies: { // MetadataCopies
+ *         copiableAttributes: "STRING_VALUE", // required
+ *       },
  *     },
  *     destinationImageSet: { // CopyDestinationImageSet
  *       imageSetId: "STRING_VALUE", // required
  *       latestVersionId: "STRING_VALUE", // required
  *     },
  *   },
+ *   force: true || false,
  * };
  * const command = new CopyImageSetCommand(input);
  * const response = await client.send(command);
@@ -125,7 +129,7 @@ export class CopyImageSetCommand extends $Command
   })
   .s("AHIGatewayService", "CopyImageSet", {})
   .n("MedicalImagingClient", "CopyImageSetCommand")
-  .f(void 0, void 0)
+  .f(CopyImageSetRequestFilterSensitiveLog, void 0)
   .ser(se_CopyImageSetCommand)
   .de(de_CopyImageSetCommand)
   .build() {}
