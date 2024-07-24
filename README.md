@@ -103,10 +103,13 @@ to add and import following polyfills in your react-native application:
 
 - [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values)
 - [react-native-url-polyfill](https://www.npmjs.com/package/react-native-url-polyfill)
+- [web-streams-polyfill](https://www.npmjs.com/package/web-streams-polyfill)
 
 ```js
 import "react-native-get-random-values";
 import "react-native-url-polyfill/auto";
+import "web-streams-polyfill/dist/polyfill";
+
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 ```
 
