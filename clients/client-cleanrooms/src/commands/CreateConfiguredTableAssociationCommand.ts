@@ -64,6 +64,9 @@ export interface CreateConfiguredTableAssociationCommandOutput
  * //     roleArn: "STRING_VALUE", // required
  * //     name: "STRING_VALUE", // required
  * //     description: "STRING_VALUE",
+ * //     analysisRuleTypes: [ // ConfiguredTableAssociationAnalysisRuleTypeList
+ * //       "AGGREGATION" || "LIST" || "CUSTOM",
+ * //     ],
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //   },

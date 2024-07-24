@@ -66,6 +66,9 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
  * //         },
+ * //         member: { // ProtectedQueryMemberOutputConfiguration
+ * //           accountId: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //     statistics: { // ProtectedQueryStatistics

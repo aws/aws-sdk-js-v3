@@ -79,6 +79,10 @@ import {
   CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/CreateConfiguredTableAnalysisRuleCommand";
 import {
+  CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+  CreateConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/CreateConfiguredTableAssociationAnalysisRuleCommand";
+import {
   CreateConfiguredTableAssociationCommandInput,
   CreateConfiguredTableAssociationCommandOutput,
 } from "./commands/CreateConfiguredTableAssociationCommand";
@@ -115,6 +119,10 @@ import {
   DeleteConfiguredTableAnalysisRuleCommandInput,
   DeleteConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/DeleteConfiguredTableAnalysisRuleCommand";
+import {
+  DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+  DeleteConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/DeleteConfiguredTableAssociationAnalysisRuleCommand";
 import {
   DeleteConfiguredTableAssociationCommandInput,
   DeleteConfiguredTableAssociationCommandOutput,
@@ -166,6 +174,10 @@ import {
   GetConfiguredTableAnalysisRuleCommandInput,
   GetConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/GetConfiguredTableAnalysisRuleCommand";
+import {
+  GetConfiguredTableAssociationAnalysisRuleCommandInput,
+  GetConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/GetConfiguredTableAssociationAnalysisRuleCommand";
 import {
   GetConfiguredTableAssociationCommandInput,
   GetConfiguredTableAssociationCommandOutput,
@@ -279,6 +291,10 @@ import {
   UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/UpdateConfiguredTableAnalysisRuleCommand";
 import {
+  UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+  UpdateConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/UpdateConfiguredTableAssociationAnalysisRuleCommand";
+import {
   UpdateConfiguredTableAssociationCommandInput,
   UpdateConfiguredTableAssociationCommandOutput,
 } from "./commands/UpdateConfiguredTableAssociationCommand";
@@ -325,6 +341,7 @@ export type ServiceInputTypes =
   | CreateCollaborationCommandInput
   | CreateConfiguredAudienceModelAssociationCommandInput
   | CreateConfiguredTableAnalysisRuleCommandInput
+  | CreateConfiguredTableAssociationAnalysisRuleCommandInput
   | CreateConfiguredTableAssociationCommandInput
   | CreateConfiguredTableCommandInput
   | CreateIdMappingTableCommandInput
@@ -335,6 +352,7 @@ export type ServiceInputTypes =
   | DeleteCollaborationCommandInput
   | DeleteConfiguredAudienceModelAssociationCommandInput
   | DeleteConfiguredTableAnalysisRuleCommandInput
+  | DeleteConfiguredTableAssociationAnalysisRuleCommandInput
   | DeleteConfiguredTableAssociationCommandInput
   | DeleteConfiguredTableCommandInput
   | DeleteIdMappingTableCommandInput
@@ -350,6 +368,7 @@ export type ServiceInputTypes =
   | GetCollaborationPrivacyBudgetTemplateCommandInput
   | GetConfiguredAudienceModelAssociationCommandInput
   | GetConfiguredTableAnalysisRuleCommandInput
+  | GetConfiguredTableAssociationAnalysisRuleCommandInput
   | GetConfiguredTableAssociationCommandInput
   | GetConfiguredTableCommandInput
   | GetIdMappingTableCommandInput
@@ -387,6 +406,7 @@ export type ServiceInputTypes =
   | UpdateCollaborationCommandInput
   | UpdateConfiguredAudienceModelAssociationCommandInput
   | UpdateConfiguredTableAnalysisRuleCommandInput
+  | UpdateConfiguredTableAssociationAnalysisRuleCommandInput
   | UpdateConfiguredTableAssociationCommandInput
   | UpdateConfiguredTableCommandInput
   | UpdateIdMappingTableCommandInput
@@ -406,6 +426,7 @@ export type ServiceOutputTypes =
   | CreateCollaborationCommandOutput
   | CreateConfiguredAudienceModelAssociationCommandOutput
   | CreateConfiguredTableAnalysisRuleCommandOutput
+  | CreateConfiguredTableAssociationAnalysisRuleCommandOutput
   | CreateConfiguredTableAssociationCommandOutput
   | CreateConfiguredTableCommandOutput
   | CreateIdMappingTableCommandOutput
@@ -416,6 +437,7 @@ export type ServiceOutputTypes =
   | DeleteCollaborationCommandOutput
   | DeleteConfiguredAudienceModelAssociationCommandOutput
   | DeleteConfiguredTableAnalysisRuleCommandOutput
+  | DeleteConfiguredTableAssociationAnalysisRuleCommandOutput
   | DeleteConfiguredTableAssociationCommandOutput
   | DeleteConfiguredTableCommandOutput
   | DeleteIdMappingTableCommandOutput
@@ -431,6 +453,7 @@ export type ServiceOutputTypes =
   | GetCollaborationPrivacyBudgetTemplateCommandOutput
   | GetConfiguredAudienceModelAssociationCommandOutput
   | GetConfiguredTableAnalysisRuleCommandOutput
+  | GetConfiguredTableAssociationAnalysisRuleCommandOutput
   | GetConfiguredTableAssociationCommandOutput
   | GetConfiguredTableCommandOutput
   | GetIdMappingTableCommandOutput
@@ -468,6 +491,7 @@ export type ServiceOutputTypes =
   | UpdateCollaborationCommandOutput
   | UpdateConfiguredAudienceModelAssociationCommandOutput
   | UpdateConfiguredTableAnalysisRuleCommandOutput
+  | UpdateConfiguredTableAssociationAnalysisRuleCommandOutput
   | UpdateConfiguredTableAssociationCommandOutput
   | UpdateConfiguredTableCommandOutput
   | UpdateIdMappingTableCommandOutput

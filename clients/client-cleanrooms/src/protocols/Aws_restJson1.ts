@@ -59,6 +59,10 @@ import {
   CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/CreateConfiguredTableAnalysisRuleCommand";
 import {
+  CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+  CreateConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "../commands/CreateConfiguredTableAssociationAnalysisRuleCommand";
+import {
   CreateConfiguredTableAssociationCommandInput,
   CreateConfiguredTableAssociationCommandOutput,
 } from "../commands/CreateConfiguredTableAssociationCommand";
@@ -95,6 +99,10 @@ import {
   DeleteConfiguredTableAnalysisRuleCommandInput,
   DeleteConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/DeleteConfiguredTableAnalysisRuleCommand";
+import {
+  DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+  DeleteConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "../commands/DeleteConfiguredTableAssociationAnalysisRuleCommand";
 import {
   DeleteConfiguredTableAssociationCommandInput,
   DeleteConfiguredTableAssociationCommandOutput,
@@ -146,6 +154,10 @@ import {
   GetConfiguredTableAnalysisRuleCommandInput,
   GetConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/GetConfiguredTableAnalysisRuleCommand";
+import {
+  GetConfiguredTableAssociationAnalysisRuleCommandInput,
+  GetConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "../commands/GetConfiguredTableAssociationAnalysisRuleCommand";
 import {
   GetConfiguredTableAssociationCommandInput,
   GetConfiguredTableAssociationCommandOutput,
@@ -259,6 +271,10 @@ import {
   UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/UpdateConfiguredTableAnalysisRuleCommand";
 import {
+  UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+  UpdateConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "../commands/UpdateConfiguredTableAssociationAnalysisRuleCommand";
+import {
   UpdateConfiguredTableAssociationCommandInput,
   UpdateConfiguredTableAssociationCommandOutput,
 } from "../commands/UpdateConfiguredTableAssociationCommand";
@@ -314,6 +330,12 @@ import {
   ConfiguredTableAnalysisRulePolicy,
   ConfiguredTableAnalysisRulePolicyV1,
   ConfiguredTableAssociation,
+  ConfiguredTableAssociationAnalysisRule,
+  ConfiguredTableAssociationAnalysisRuleAggregation,
+  ConfiguredTableAssociationAnalysisRuleCustom,
+  ConfiguredTableAssociationAnalysisRuleList,
+  ConfiguredTableAssociationAnalysisRulePolicy,
+  ConfiguredTableAssociationAnalysisRulePolicyV1,
   ConfiguredTableAssociationSummary,
   ConfiguredTableSummary,
   ConflictException,
@@ -323,8 +345,6 @@ import {
   DifferentialPrivacyParameters,
   DifferentialPrivacyPreviewParametersInput,
   DifferentialPrivacySensitivityParameters,
-  DifferentialPrivacyTemplateParametersInput,
-  DifferentialPrivacyTemplateUpdateParameters,
   GlueTableReference,
   IdMappingConfig,
   IdMappingTable,
@@ -348,11 +368,8 @@ import {
   PaymentConfiguration,
   PreviewPrivacyImpactParametersInput,
   PrivacyBudgetSummary,
-  PrivacyBudgetTemplate,
-  PrivacyBudgetTemplateParametersInput,
-  PrivacyBudgetTemplateSummary,
-  PrivacyBudgetTemplateUpdateParameters,
   ProtectedQuery,
+  ProtectedQueryMemberOutputConfiguration,
   ProtectedQueryOutputConfiguration,
   ProtectedQueryResultConfiguration,
   ProtectedQueryS3OutputConfiguration,
@@ -369,6 +386,14 @@ import {
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+import {
+  DifferentialPrivacyTemplateParametersInput,
+  DifferentialPrivacyTemplateUpdateParameters,
+  PrivacyBudgetTemplate,
+  PrivacyBudgetTemplateParametersInput,
+  PrivacyBudgetTemplateSummary,
+  PrivacyBudgetTemplateUpdateParameters,
+} from "../models/models_1";
 
 /**
  * serializeAws_restJson1BatchGetCollaborationAnalysisTemplateCommand
@@ -603,6 +628,38 @@ export const se_CreateConfiguredTableAssociationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const se_CreateConfiguredTableAssociationAnalysisRuleCommand = async (
+  input: CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}/analysisRule"
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
+    "configuredTableAssociationIdentifier",
+    () => input.configuredTableAssociationIdentifier!,
+    "{configuredTableAssociationIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      analysisRulePolicy: (_) => _json(_),
+      analysisRuleType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateIdMappingTableCommand
  */
 export const se_CreateIdMappingTableCommand = async (
@@ -815,6 +872,31 @@ export const se_DeleteConfiguredTableAssociationCommand = async (
     false
   );
   b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const se_DeleteConfiguredTableAssociationAnalysisRuleCommand = async (
+  input: DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}/analysisRule/{analysisRuleType}"
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
+    "configuredTableAssociationIdentifier",
+    () => input.configuredTableAssociationIdentifier!,
+    "{configuredTableAssociationIdentifier}",
+    false
+  );
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1106,6 +1188,31 @@ export const se_GetConfiguredTableAssociationCommand = async (
     false
   );
   b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const se_GetConfiguredTableAssociationAnalysisRuleCommand = async (
+  input: GetConfiguredTableAssociationAnalysisRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}/analysisRule/{analysisRuleType}"
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
+    "configuredTableAssociationIdentifier",
+    () => input.configuredTableAssociationIdentifier!,
+    "{configuredTableAssociationIdentifier}",
+    false
+  );
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1888,6 +1995,38 @@ export const se_UpdateConfiguredTableAssociationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const se_UpdateConfiguredTableAssociationAnalysisRuleCommand = async (
+  input: UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}/analysisRule/{analysisRuleType}"
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
+    "configuredTableAssociationIdentifier",
+    () => input.configuredTableAssociationIdentifier!,
+    "{configuredTableAssociationIdentifier}",
+    false
+  );
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      analysisRulePolicy: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateIdMappingTableCommand
  */
 export const se_UpdateIdMappingTableCommand = async (
@@ -2214,6 +2353,27 @@ export const de_CreateConfiguredTableAssociationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const de_CreateConfiguredTableAssociationAnalysisRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfiguredTableAssociationAnalysisRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisRule: (_) => de_ConfiguredTableAssociationAnalysisRule(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateIdMappingTableCommand
  */
 export const de_CreateIdMappingTableCommand = async (
@@ -2389,6 +2549,23 @@ export const de_DeleteConfiguredTableAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfiguredTableAssociationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const de_DeleteConfiguredTableAssociationAnalysisRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfiguredTableAssociationAnalysisRuleCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2690,6 +2867,27 @@ export const de_GetConfiguredTableAssociationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     configuredTableAssociation: (_) => de_ConfiguredTableAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const de_GetConfiguredTableAssociationAnalysisRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfiguredTableAssociationAnalysisRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisRule: (_) => de_ConfiguredTableAssociationAnalysisRule(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3484,6 +3682,27 @@ export const de_UpdateConfiguredTableAssociationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateConfiguredTableAssociationAnalysisRuleCommand
+ */
+export const de_UpdateConfiguredTableAssociationAnalysisRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfiguredTableAssociationAnalysisRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisRule: (_) => de_ConfiguredTableAssociationAnalysisRule(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateIdMappingTableCommand
  */
 export const de_UpdateIdMappingTableCommand = async (
@@ -3779,11 +3998,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AggregationConstraints omitted.
 
+// se_AllowedAdditionalAnalyses omitted.
+
 // se_AllowedAnalysesList omitted.
 
 // se_AllowedAnalysisProviderList omitted.
 
 // se_AllowedColumnList omitted.
+
+// se_AllowedResultReceivers omitted.
 
 // se_AnalysisParameter omitted.
 
@@ -3806,6 +4029,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ConfiguredTableAnalysisRulePolicy omitted.
 
 // se_ConfiguredTableAnalysisRulePolicyV1 omitted.
+
+// se_ConfiguredTableAssociationAnalysisRuleAggregation omitted.
+
+// se_ConfiguredTableAssociationAnalysisRuleCustom omitted.
+
+// se_ConfiguredTableAssociationAnalysisRuleList omitted.
+
+// se_ConfiguredTableAssociationAnalysisRulePolicy omitted.
+
+// se_ConfiguredTableAssociationAnalysisRulePolicyV1 omitted.
 
 // se_DataEncryptionMetadata omitted.
 
@@ -3855,6 +4088,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_PrivacyBudgetTemplateUpdateParameters omitted.
 
+// se_ProtectedQueryMemberOutputConfiguration omitted.
+
 // se_ProtectedQueryOutputConfiguration omitted.
 
 // se_ProtectedQueryResultConfiguration omitted.
@@ -3885,11 +4120,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AggregationConstraints omitted.
 
+// de_AllowedAdditionalAnalyses omitted.
+
 // de_AllowedAnalysesList omitted.
 
 // de_AllowedAnalysisProviderList omitted.
 
 // de_AllowedColumnList omitted.
+
+// de_AllowedResultReceivers omitted.
 
 // de_AnalysisParameter omitted.
 
@@ -4338,6 +4577,8 @@ const de_CollaborationSummaryList = (output: any, context: __SerdeContext): Coll
 
 // de_ColumnList omitted.
 
+// de_ConfigurationDetails omitted.
+
 /**
  * deserializeAws_restJson1ConfiguredAudienceModelAssociation
  */
@@ -4441,6 +4682,7 @@ const de_ConfiguredTableAnalysisRule = (output: any, context: __SerdeContext): C
  */
 const de_ConfiguredTableAssociation = (output: any, context: __SerdeContext): ConfiguredTableAssociation => {
   return take(output, {
+    analysisRuleTypes: _json,
     arn: __expectString,
     configuredTableArn: __expectString,
     configuredTableId: __expectString,
@@ -4454,6 +4696,36 @@ const de_ConfiguredTableAssociation = (output: any, context: __SerdeContext): Co
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+/**
+ * deserializeAws_restJson1ConfiguredTableAssociationAnalysisRule
+ */
+const de_ConfiguredTableAssociationAnalysisRule = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredTableAssociationAnalysisRule => {
+  return take(output, {
+    configuredTableAssociationArn: __expectString,
+    configuredTableAssociationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    membershipIdentifier: __expectString,
+    policy: (_: any) => _json(__expectUnion(_)),
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ConfiguredTableAssociationAnalysisRuleAggregation omitted.
+
+// de_ConfiguredTableAssociationAnalysisRuleCustom omitted.
+
+// de_ConfiguredTableAssociationAnalysisRuleList omitted.
+
+// de_ConfiguredTableAssociationAnalysisRulePolicy omitted.
+
+// de_ConfiguredTableAssociationAnalysisRulePolicyV1 omitted.
+
+// de_ConfiguredTableAssociationAnalysisRuleTypeList omitted.
 
 /**
  * deserializeAws_restJson1ConfiguredTableAssociationSummary
@@ -4577,6 +4849,8 @@ const de_DifferentialPrivacySensitivityParametersList = (
 };
 
 // de_DifferentialPrivacyTemplateParametersOutput omitted.
+
+// de_DirectAnalysisConfigurationDetails omitted.
 
 // de_GlueTableReference omitted.
 
@@ -4934,6 +5208,8 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
 
 // de_ProtectedQueryError omitted.
 
+// de_ProtectedQueryMemberOutputConfiguration omitted.
+
 // de_ProtectedQueryMemberOutputList omitted.
 
 // de_ProtectedQueryOutput omitted.
@@ -4963,6 +5239,7 @@ const de_ProtectedQuerySummary = (output: any, context: __SerdeContext): Protect
     id: __expectString,
     membershipArn: __expectString,
     membershipId: __expectString,
+    receiverConfigurations: _json,
     status: __expectString,
   }) as any;
 };
@@ -4988,6 +5265,12 @@ const de_ProtectedQuerySummaryList = (output: any, context: __SerdeContext): Pro
 // de_QueryConstraintRequireOverlap omitted.
 
 // de_QueryTables omitted.
+
+// de_ReceiverAccountIds omitted.
+
+// de_ReceiverConfiguration omitted.
+
+// de_ReceiverConfigurationsList omitted.
 
 // de_ScalarFunctionsList omitted.
 

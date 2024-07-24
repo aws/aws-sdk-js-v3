@@ -52,6 +52,18 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * //       membershipArn: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       status: "STRING_VALUE", // required
+ * //       receiverConfigurations: [ // ReceiverConfigurationsList // required
+ * //         { // ReceiverConfiguration
+ * //           analysisType: "DIRECT_ANALYSIS" || "ADDITIONAL_ANALYSIS", // required
+ * //           configurationDetails: { // ConfigurationDetails Union: only one key present
+ * //             directAnalysisConfigurationDetails: { // DirectAnalysisConfigurationDetails
+ * //               receiverAccountIds: [ // ReceiverAccountIds
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import { TagResourceInput, TagResourceOutput } from "../models/models_1";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**

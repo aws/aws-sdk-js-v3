@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetPrivacyBudgetTemplateInput, GetPrivacyBudgetTemplateOutput } from "../models/models_0";
+import { GetPrivacyBudgetTemplateInput, GetPrivacyBudgetTemplateOutput } from "../models/models_1";
 import { de_GetPrivacyBudgetTemplateCommand, se_GetPrivacyBudgetTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**

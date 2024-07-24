@@ -57,6 +57,9 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  *         bucket: "STRING_VALUE", // required
  *         keyPrefix: "STRING_VALUE",
  *       },
+ *       member: { // ProtectedQueryMemberOutputConfiguration
+ *         accountId: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  * };
@@ -82,6 +85,9 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //           resultFormat: "STRING_VALUE", // required
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
+ * //         },
+ * //         member: { // ProtectedQueryMemberOutputConfiguration
+ * //           accountId: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

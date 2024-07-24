@@ -66,6 +66,7 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //             listColumns: [ // required
  * //               "STRING_VALUE",
  * //             ],
+ * //             additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  * //           },
  * //           aggregation: { // AnalysisRuleAggregation
  * //             aggregateColumns: [ // AggregateColumnList // required
@@ -96,12 +97,17 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //                 type: "STRING_VALUE", // required
  * //               },
  * //             ],
+ * //             additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  * //           },
  * //           custom: { // AnalysisRuleCustom
  * //             allowedAnalyses: [ // AllowedAnalysesList // required
  * //               "STRING_VALUE",
  * //             ],
  * //             allowedAnalysisProviders: [ // AllowedAnalysisProviderList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //             disallowedOutputColumns: [
  * //               "STRING_VALUE",
  * //             ],
  * //             differentialPrivacy: { // DifferentialPrivacyConfiguration
@@ -113,9 +119,7 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //             },
  * //           },
  * //           idMappingTable: { // AnalysisRuleIdMappingTable
- * //             joinColumns: [ // required
- * //               "STRING_VALUE",
- * //             ],
+ * //             joinColumns: "<AnalysisRuleColumnList>", // required
  * //             queryConstraints: [ // QueryConstraintList // required
  * //               { // QueryConstraint Union: only one key present
  * //                 requireOverlap: { // QueryConstraintRequireOverlap

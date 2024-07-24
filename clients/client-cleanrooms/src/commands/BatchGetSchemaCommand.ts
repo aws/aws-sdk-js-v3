@@ -75,14 +75,15 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * //           status: "READY" || "NOT_READY", // required
  * //           reasons: [ // SchemaStatusReasonList
  * //             { // SchemaStatusReason
- * //               code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED", // required
+ * //               code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED" || "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_CONFIGURED" || "RESULT_RECEIVERS_NOT_CONFIGURED" || "ADDITIONAL_ANALYSES_NOT_ALLOWED" || "RESULT_RECEIVERS_NOT_ALLOWED" || "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE", // required
  * //               message: "STRING_VALUE", // required
  * //             },
  * //           ],
  * //           analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //           configurations: [ // SchemaConfigurationList
- * //             "DIFFERENTIAL_PRIVACY" || "CUSTOM_ANALYSIS_NOT_ALLOWED" || "NO_MEMBER_ACCOUNT_ALLOWED_TO_PROVIDE_ANALYSIS" || "DIFFERENTIAL_PRIVACY_BUDGET_NOT_CONFIGURED" || "ID_MAPPING_TABLE_NOT_POPULATED",
+ * //             "DIFFERENTIAL_PRIVACY",
  * //           ],
+ * //           analysisType: "DIRECT_ANALYSIS" || "ADDITIONAL_ANALYSIS", // required
  * //         },
  * //       ],
  * //       schemaTypeProperties: { // SchemaTypeProperties Union: only one key present

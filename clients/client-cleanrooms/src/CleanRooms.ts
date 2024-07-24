@@ -39,6 +39,11 @@ import {
   CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/CreateConfiguredTableAnalysisRuleCommand";
 import {
+  CreateConfiguredTableAssociationAnalysisRuleCommand,
+  CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+  CreateConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/CreateConfiguredTableAssociationAnalysisRuleCommand";
+import {
   CreateConfiguredTableAssociationCommand,
   CreateConfiguredTableAssociationCommandInput,
   CreateConfiguredTableAssociationCommandOutput,
@@ -88,6 +93,11 @@ import {
   DeleteConfiguredTableAnalysisRuleCommandInput,
   DeleteConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/DeleteConfiguredTableAnalysisRuleCommand";
+import {
+  DeleteConfiguredTableAssociationAnalysisRuleCommand,
+  DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+  DeleteConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/DeleteConfiguredTableAssociationAnalysisRuleCommand";
 import {
   DeleteConfiguredTableAssociationCommand,
   DeleteConfiguredTableAssociationCommandInput,
@@ -163,6 +173,11 @@ import {
   GetConfiguredTableAnalysisRuleCommandInput,
   GetConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/GetConfiguredTableAnalysisRuleCommand";
+import {
+  GetConfiguredTableAssociationAnalysisRuleCommand,
+  GetConfiguredTableAssociationAnalysisRuleCommandInput,
+  GetConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/GetConfiguredTableAssociationAnalysisRuleCommand";
 import {
   GetConfiguredTableAssociationCommand,
   GetConfiguredTableAssociationCommandInput,
@@ -333,6 +348,11 @@ import {
   UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "./commands/UpdateConfiguredTableAnalysisRuleCommand";
 import {
+  UpdateConfiguredTableAssociationAnalysisRuleCommand,
+  UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+  UpdateConfiguredTableAssociationAnalysisRuleCommandOutput,
+} from "./commands/UpdateConfiguredTableAssociationAnalysisRuleCommand";
+import {
   UpdateConfiguredTableAssociationCommand,
   UpdateConfiguredTableAssociationCommandInput,
   UpdateConfiguredTableAssociationCommandOutput,
@@ -378,6 +398,7 @@ const commands = {
   CreateConfiguredTableCommand,
   CreateConfiguredTableAnalysisRuleCommand,
   CreateConfiguredTableAssociationCommand,
+  CreateConfiguredTableAssociationAnalysisRuleCommand,
   CreateIdMappingTableCommand,
   CreateIdNamespaceAssociationCommand,
   CreateMembershipCommand,
@@ -388,6 +409,7 @@ const commands = {
   DeleteConfiguredTableCommand,
   DeleteConfiguredTableAnalysisRuleCommand,
   DeleteConfiguredTableAssociationCommand,
+  DeleteConfiguredTableAssociationAnalysisRuleCommand,
   DeleteIdMappingTableCommand,
   DeleteIdNamespaceAssociationCommand,
   DeleteMemberCommand,
@@ -403,6 +425,7 @@ const commands = {
   GetConfiguredTableCommand,
   GetConfiguredTableAnalysisRuleCommand,
   GetConfiguredTableAssociationCommand,
+  GetConfiguredTableAssociationAnalysisRuleCommand,
   GetIdMappingTableCommand,
   GetIdNamespaceAssociationCommand,
   GetMembershipCommand,
@@ -440,6 +463,7 @@ const commands = {
   UpdateConfiguredTableCommand,
   UpdateConfiguredTableAnalysisRuleCommand,
   UpdateConfiguredTableAssociationCommand,
+  UpdateConfiguredTableAssociationAnalysisRuleCommand,
   UpdateIdMappingTableCommand,
   UpdateIdNamespaceAssociationCommand,
   UpdateMembershipCommand,
@@ -596,6 +620,23 @@ export interface CleanRooms {
     args: CreateConfiguredTableAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateConfiguredTableAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConfiguredTableAssociationAnalysisRuleCommand}
+   */
+  createConfiguredTableAssociationAnalysisRule(
+    args: CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfiguredTableAssociationAnalysisRuleCommandOutput>;
+  createConfiguredTableAssociationAnalysisRule(
+    args: CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+    cb: (err: any, data?: CreateConfiguredTableAssociationAnalysisRuleCommandOutput) => void
+  ): void;
+  createConfiguredTableAssociationAnalysisRule(
+    args: CreateConfiguredTableAssociationAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
   /**
@@ -766,6 +807,23 @@ export interface CleanRooms {
     args: DeleteConfiguredTableAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfiguredTableAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConfiguredTableAssociationAnalysisRuleCommand}
+   */
+  deleteConfiguredTableAssociationAnalysisRule(
+    args: DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfiguredTableAssociationAnalysisRuleCommandOutput>;
+  deleteConfiguredTableAssociationAnalysisRule(
+    args: DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+    cb: (err: any, data?: DeleteConfiguredTableAssociationAnalysisRuleCommandOutput) => void
+  ): void;
+  deleteConfiguredTableAssociationAnalysisRule(
+    args: DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1015,6 +1073,23 @@ export interface CleanRooms {
     args: GetConfiguredTableAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetConfiguredTableAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfiguredTableAssociationAnalysisRuleCommand}
+   */
+  getConfiguredTableAssociationAnalysisRule(
+    args: GetConfiguredTableAssociationAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfiguredTableAssociationAnalysisRuleCommandOutput>;
+  getConfiguredTableAssociationAnalysisRule(
+    args: GetConfiguredTableAssociationAnalysisRuleCommandInput,
+    cb: (err: any, data?: GetConfiguredTableAssociationAnalysisRuleCommandOutput) => void
+  ): void;
+  getConfiguredTableAssociationAnalysisRule(
+    args: GetConfiguredTableAssociationAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1608,6 +1683,23 @@ export interface CleanRooms {
     args: UpdateConfiguredTableAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConfiguredTableAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConfiguredTableAssociationAnalysisRuleCommand}
+   */
+  updateConfiguredTableAssociationAnalysisRule(
+    args: UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfiguredTableAssociationAnalysisRuleCommandOutput>;
+  updateConfiguredTableAssociationAnalysisRule(
+    args: UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+    cb: (err: any, data?: UpdateConfiguredTableAssociationAnalysisRuleCommandOutput) => void
+  ): void;
+  updateConfiguredTableAssociationAnalysisRule(
+    args: UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
   /**
