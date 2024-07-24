@@ -87,6 +87,17 @@ describe("getDefaultRoleAssumer", () => {
     );
   });
 
+  it("should return accountId in the credentials", async () => {
+    const roleAssumer = getDefaultRoleAssumer();
+    const params: AssumeRoleCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+    };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    const assumedRole = await roleAssumer(sourceCred, params);
+    expect(assumedRole.accountId).toEqual("123");
+  });
+
   it("should use the STS client config", async () => {
     const logger = console;
     const region = "some-region";
@@ -167,6 +178,10 @@ describe("getDefaultRoleAssumer", () => {
 describe("getDefaultRoleAssumerWithWebIdentity", () => {
   const assumeRoleResponse = `<Response xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
   <AssumeRoleWithWebIdentityResult>
+  <AssumedRoleUser>
+      <AssumedRoleId>AROAZOX2IL27GNRBJHWC2:session</AssumedRoleId>
+      <Arn>arn:aws:sts::123456789012:assumed-role/assume-role-test/session</Arn>
+    </AssumedRoleUser>
     <Credentials>
       <AccessKeyId>key</AccessKeyId>
       <SecretAccessKey>secrete</SecretAccessKey>
@@ -205,6 +220,17 @@ describe("getDefaultRoleAssumerWithWebIdentity", () => {
       requestHandler: handler,
       region,
     });
+  });
+
+  it("should return accountId in the credentials", async () => {
+    const roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity();
+    const params: AssumeRoleWithWebIdentityCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+      WebIdentityToken: "token",
+    };
+    const assumedRole = await roleAssumerWithWebIdentity(params);
+    expect(assumedRole.accountId).toEqual("123456789012");
   });
 
   it("should use the STS client middleware", async () => {
