@@ -73,7 +73,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         },
  * //         ResourceId: "STRING_VALUE", // required
  * //         DrmSystems: [ // DrmSystems // required
- * //           "CLEAR_KEY_AES_128" || "FAIRPLAY" || "PLAYREADY" || "WIDEVINE",
+ * //           "CLEAR_KEY_AES_128" || "FAIRPLAY" || "PLAYREADY" || "WIDEVINE" || "IRDETO",
  * //         ],
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required

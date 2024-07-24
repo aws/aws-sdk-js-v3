@@ -1233,6 +1233,7 @@ export interface EncryptionMethod {
 export const DrmSystem = {
   CLEAR_KEY_AES_128: "CLEAR_KEY_AES_128",
   FAIRPLAY: "FAIRPLAY",
+  IRDETO: "IRDETO",
   PLAYREADY: "PLAYREADY",
   WIDEVINE: "WIDEVINE",
 } as const;

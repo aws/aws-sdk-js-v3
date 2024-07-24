@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MediaPackageV2HttpAuth
       name: "mediapackagev2",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MediaPackageV2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MediaPackageV2ClientConfig>, context) => ({
       /**
        * @internal
        */
