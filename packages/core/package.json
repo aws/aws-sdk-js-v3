@@ -46,13 +46,6 @@
       "require": "./dist-cjs/submodules/httpAuthSchemes/index.js",
       "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts"
     },
-    "./account-id-endpoint": {
-      "module": "./dist-es/submodules/account-id-endpoint/index.js",
-      "node": "./dist-cjs/submodules/account-id-endpoint/index.js",
-      "import": "./dist-es/submodules/account-id-endpoint/index.js",
-      "require": "./dist-cjs/submodules/account-id-endpoint/index.js",
-      "types": "./dist-types/submodules/account-id-endpoint/index.d.ts"
-    },
     "./protocols": {
       "module": "./dist-es/submodules/protocols/index.js",
       "node": "./dist-cjs/submodules/protocols/index.js",
@@ -65,8 +58,7 @@
     "dist-*/**",
     "./client.js",
     "./httpAuthSchemes.js",
-    "./protocols.js",
-    "./account-id-endpoint.js"
+    "./protocols.js"
   ],
   "sideEffects": false,
   "author": {
@@ -81,9 +73,7 @@
     "@smithy/smithy-client": "^3.1.8",
     "@smithy/types": "^3.3.0",
     "fast-xml-parser": "4.2.5",
-    "tslib": "^2.6.2",
-    "@smithy/node-config-provider": "^3.1.4",
-    "@smithy/util-middleware": "^3.0.3"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
