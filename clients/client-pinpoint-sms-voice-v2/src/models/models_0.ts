@@ -720,16 +720,16 @@ export const MessageType = {
 export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
- * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with a Kinesis Data Firehose event
+ * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with a Firehose event
  *             destination.</p>
- *          <p>Event destinations, such as Kinesis Data Firehose, are associated with configuration
+ *          <p>Event destinations, such as Firehose, are associated with configuration
  *             sets, which enable you to publish message sending events.</p>
  * @public
  */
 export interface KinesisFirehoseDestination {
   /**
    * <p>The ARN of an Identity and Access Management role that is able to write
-   *             event data to an Amazon Kinesis Data Firehose destination.</p>
+   *             event data to an Amazon Data Firehose destination.</p>
    * @public
    */
   IamRoleArn: string | undefined;
@@ -812,7 +812,7 @@ export interface SnsDestination {
 /**
  * <p>Contains information about an event destination.</p>
  *          <p>Event destinations are associated with configuration sets, which enable you to publish
- *             message sending events to CloudWatch, Kinesis Data Firehose, or Amazon SNS.</p>
+ *             message sending events to CloudWatch, Firehose, or Amazon SNS.</p>
  * @public
  */
 export interface EventDestination {
@@ -845,7 +845,7 @@ export interface EventDestination {
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Amazon Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Amazon Data Firehose.</p>
    * @public
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
@@ -1002,7 +1002,7 @@ export interface CreateEventDestinationRequest {
 
   /**
    * <p>An array of event types that determine which events to log. If "ALL" is used, then
-   *                 Amazon Pinpoint logs every event type.</p>
+   *             AWS End User Messaging SMS and Voice logs every event type.</p>
    *          <note>
    *             <p>The <code>TEXT_SENT</code> event type is not supported.</p>
    *          </note>
@@ -1017,7 +1017,7 @@ export interface CreateEventDestinationRequest {
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Amazon Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Amazon Data Firehose.</p>
    * @public
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
@@ -1123,6 +1123,7 @@ export interface CreatePoolRequest {
    *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for
    *             PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used
    *             to get the values for SenderId and SenderIdArn.</p>
+   *          <p>After the pool is created you can add more origination identities to the pool by using <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_AssociateOriginationIdentity.html">AssociateOriginationIdentity</a>.</p>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -1137,7 +1138,7 @@ export interface CreatePoolRequest {
   /**
    * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   *             time-sensitive. After the pool is created the MessageType can't be changed.</p>
    * @public
    */
   MessageType: MessageType | undefined;
@@ -1240,7 +1241,7 @@ export interface CreatePoolResult {
 
   /**
    * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
+   *             with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
    *             set to true you're responsible for responding to HELP and STOP requests. You're also
    *             responsible for tracking and honoring opt-out requests.</p>
@@ -1255,7 +1256,7 @@ export interface CreatePoolResult {
   OptOutListName?: string;
 
   /**
-   * <p>Indicates whether shared routes are enabled for the pool.</p>
+   * <p>Indicates whether shared routes are enabled for the pool. Set to false and only origination identities in this pool are used to send messages. </p>
    * @public
    */
   SharedRoutesEnabled?: boolean;
@@ -2319,7 +2320,7 @@ export interface DeletePoolResult {
 
   /**
    * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
+   *             with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
    *             set to true you're responsible for responding to HELP and STOP requests. You're also
    *             responsible for tracking and honoring opt-out requests.</p>
@@ -3338,7 +3339,7 @@ export interface PhoneNumberInformation {
 
   /**
    * <p>When set to false an end recipient sends a message that begins with HELP or STOP to
-   *             one of your dedicated numbers, Amazon Pinpoint automatically replies with a
+   *             one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a
    *             customizable message and adds the end recipient to the OptOutList. When set to true
    *             you're responsible for responding to HELP and STOP requests. You're also responsible for
    *             tracking and honoring opt-out request. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a>
@@ -3518,7 +3519,7 @@ export interface PoolInformation {
 
   /**
    * <p>When set to false, an end recipient sends a message that begins with HELP or STOP to
-   *             one of your dedicated numbers, Amazon Pinpoint automatically replies with a
+   *             one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a
    *             customizable message and adds the end recipient to the OptOutList. When set to true
    *             you're responsible for responding to HELP and STOP requests. You're also responsible for
    *             tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a>
@@ -3537,7 +3538,7 @@ export interface PoolInformation {
    * <p>Allows you to enable shared routes on your pool.</p>
    *          <p>By default, this is set to <code>False</code>. If you set this value to
    *                 <code>True</code>, your messages are sent using phone numbers or sender IDs
-   *             (depending on the country) that are shared with other Amazon Pinpoint users. In some
+   *             (depending on the country) that are shared with other users. In some
    *             countries, such as the United States, senders aren't allowed to use shared routes and
    *             must use a dedicated phone number or short code.</p>
    * @public
@@ -4960,9 +4961,8 @@ export interface SenderIdFilter {
 
 /**
  * <p> The alphanumeric sender ID in a specific country that you want to describe. For more
- *             information on sender IDs see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-sender-id.html">Requesting
- *                 sender IDs for SMS messaging with Amazon Pinpoint
- *             </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
+ *             information on sender IDs see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sender-id-request.html">Requesting
+ *                 sender IDs </a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @public
  */
 export interface SenderIdAndCountry {
@@ -5120,10 +5120,10 @@ export const SpendLimitName = {
 export type SpendLimitName = (typeof SpendLimitName)[keyof typeof SpendLimitName];
 
 /**
- * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
- *             text messages. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-spend-threshold.html">
- *                 Requesting increases to your monthly SMS spending quota for Amazon Pinpoint
- *             </a> in the <i>Amazon Pinpoint User Guide</i>. </p>
+ * <p>Describes the current monthly spend limits for sending voice and
+ *             text messages. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html">
+ *                 Requesting a spending quota increase
+ *             </a> in the <i>AWS End User Messaging SMS User Guide</i>. </p>
  * @public
  */
 export interface SpendLimit {
@@ -5589,7 +5589,7 @@ export interface GetProtectConfigurationCountryRuleSetResult {
 
   /**
    * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the
-   *             details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the Amazon Pinpoint SMS user guide.</p>
+   *             details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the AWS End User Messaging SMS User Guide.</p>
    * @public
    */
   CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
@@ -6222,7 +6222,7 @@ export interface ReleasePhoneNumberResult {
 
   /**
    * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
+   *             with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
    *             set to true you're responsible for responding to HELP and STOP requests. You're also
    *             responsible for tracking and honoring opt-out requests.</p>
@@ -6488,7 +6488,7 @@ export interface RequestPhoneNumberResult {
 
   /**
    * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
+   *             with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
    *             set to true you're responsible for responding to HELP and STOP requests. You're also
    *             responsible for tracking and honoring opt-out requests.</p>
@@ -6841,14 +6841,13 @@ export interface SendTextMessageRequest {
   ConfigurationSetName?: string;
 
   /**
-   * <p>The maximum amount that you want to spend, in US dollars, per each text message part.
-   *             A text message can contain multiple parts.</p>
+   * <p>The maximum amount that you want to spend, in US dollars, per each text message. If the calculated amount to send the text message is greater than <code>MaxPrice</code>, the message is not sent and an error is returned.</p>
    * @public
    */
   MaxPrice?: string;
 
   /**
-   * <p>How long the text message is valid for. By default this is 72 hours.</p>
+   * <p>How long the text message is valid for, in seconds. By default this is 72 hours. If the messages isn't handed off before the TTL expires we stop attempting to hand off the message and return <code>TTL_EXPIRED</code> event.</p>
    * @public
    */
   TimeToLive?: number;
@@ -6865,13 +6864,38 @@ export interface SendTextMessageRequest {
    *             setting is only used when you send messages to recipients in India using a sender ID.
    *             For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>.
    *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_ENTITY_ID</code> The entity ID or Principal
+   *                     Entity (PE) ID that you received after completing the sender ID
+   *                     registration process.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_TEMPLATE_ID</code> The template ID that you
+   *                     received after completing the sender ID registration
+   *                     process.</p>
+   *                <important>
+   *                   <p>Make sure that the Template ID that you specify matches
+   *                         your message template exactly. If your message doesn't match
+   *                         the template that you provided during the registration
+   *                         process, the mobile carriers might reject your
+   *                         message.</p>
+   *                </important>
+   *             </li>
+   *          </ul>
    * @public
    */
   DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>>;
 
   /**
    * <p>When set to true, the message is checked and validated, but isn't sent to the end
-   *             recipient.</p>
+   *             recipient. You are not charged for using <code>DryRun</code>.</p>
+   *          <p>The Message Parts per Second (MPS) limit when using <code>DryRun</code> is five. If
+   *             your origination identity has a lower MPS limit then the lower MPS limit is used. For
+   *             more information about MPS limits, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html">Message Parts per
+   *                 Second (MPS) limits</a> in the <i>AWS End User Messaging SMS User Guide</i>..</p>
    * @public
    */
   DryRun?: boolean;
@@ -7423,7 +7447,7 @@ export interface UpdateEventDestinationRequest {
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Firehose.</p>
    * @public
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
@@ -7492,7 +7516,7 @@ export interface UpdatePhoneNumberRequest {
 
   /**
    * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
+   *             with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
    *             set to true you're responsible for responding to HELP and STOP requests. You're also
    *             responsible for tracking and honoring opt-out requests.</p>
@@ -7658,7 +7682,7 @@ export interface UpdatePoolRequest {
 
   /**
    * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
+   *             with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically
    *             replies with a customizable message and adds the end recipient to the OptOutList. When
    *             set to true you're responsible for responding to HELP and STOP requests. You're also
    *             responsible for tracking and honoring opt-out requests.</p>
@@ -7735,7 +7759,7 @@ export interface UpdatePoolResult {
 
   /**
    * <p>When an end recipient sends a message that begins with HELP or STOP to one of your
-   *             dedicated numbers, Amazon Pinpoint automatically replies with a customizable message
+   *             dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message
    *             and adds the end recipient to the OptOutList. When set to true you're responsible for
    *             responding to HELP and STOP requests. You're also responsible for tracking and honoring
    *             opt-out requests.</p>
@@ -7840,7 +7864,7 @@ export interface UpdateProtectConfigurationCountryRuleSetRequest {
 
   /**
    * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the
-   *            details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the Amazon Pinpoint SMS user guide.</p>
+   *            details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the AWS End User Messaging SMS User Guide.</p>
    * @public
    */
   CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;

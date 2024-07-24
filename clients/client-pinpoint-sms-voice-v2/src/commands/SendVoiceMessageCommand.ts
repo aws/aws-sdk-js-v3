@@ -32,7 +32,7 @@ export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
 export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResult, __MetadataBearer {}
 
 /**
- * <p>Allows you to send a request that sends a voice message through Amazon Pinpoint.
+ * <p>Allows you to send a request that sends a voice message.
  *             This operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to
  *             convert a text script into a voice message.</p>
  * @example

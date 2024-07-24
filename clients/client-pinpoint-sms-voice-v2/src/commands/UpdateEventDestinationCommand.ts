@@ -33,11 +33,11 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
 
 /**
  * <p>Updates an existing event destination in a configuration set. You can update the
- *                 IAM role ARN for CloudWatch Logs and Kinesis Data Firehose. You can
+ *                 IAM role ARN for CloudWatch Logs and Firehose. You can
  *             also enable or disable the event destination.</p>
  *          <p>You may want to update an event destination to change its matching event types or
  *             updating the destination resource ARN. You can't change an event destination's type
- *             between CloudWatch Logs, Kinesis Data Firehose, and Amazon SNS.</p>
+ *             between CloudWatch Logs, Firehose, and Amazon SNS.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

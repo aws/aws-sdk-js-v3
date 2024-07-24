@@ -36,7 +36,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *             attributes include account tier, which indicates whether your account is in the sandbox
  *             or production environment. When you're ready to move your account out of the sandbox,
  *             create an Amazon Web Services Support case for a service limit increase request.</p>
- *          <p>New Amazon Pinpoint accounts are placed into an SMS or voice sandbox. The sandbox
+ *          <p>New accounts are placed into an SMS or voice sandbox. The sandbox
  *             protects both Amazon Web Services end recipients and SMS or voice recipients from fraud
  *             and abuse. </p>
  * @example

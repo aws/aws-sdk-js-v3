@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PinpointSMSVoiceV2Http
       name: "sms-voice",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PinpointSMSVoiceV2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PinpointSMSVoiceV2ClientConfig>, context) => ({
       /**
        * @internal
        */

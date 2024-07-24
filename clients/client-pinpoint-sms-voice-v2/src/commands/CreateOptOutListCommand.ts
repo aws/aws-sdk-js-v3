@@ -39,8 +39,7 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  *             the phone number is added to the opt-out list. In addition to STOP, your recipients can
  *             use any supported opt-out keyword, such as CANCEL or OPTOUT. For a list of supported
  *             opt-out keywords, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-manage.html#channels-sms-manage-optout">
- *                 SMS opt out </a> in the <i>Amazon Pinpoint User
- *             Guide</i>.</p>
+ *                 SMS opt out </a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

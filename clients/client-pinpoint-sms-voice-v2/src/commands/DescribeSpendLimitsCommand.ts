@@ -32,13 +32,13 @@ export interface DescribeSpendLimitsCommandInput extends DescribeSpendLimitsRequ
 export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
+ * <p>Describes the current monthly spend limits for sending voice and
  *             text messages.</p>
  *          <p>When you establish an Amazon Web Services account, the account has initial monthly
  *             spend limit in a given Region. For more information on increasing your monthly spend
- *             limit, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-spend-threshold.html">
- *                 Requesting increases to your monthly SMS spending quota for Amazon Pinpoint
- *             </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
+ *             limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html">
+ *                 Requesting increases to your monthly SMS, MMS, or Voice spending quota
+ *             </a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -33,8 +33,7 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
 
 /**
  * <p>Request an origination phone number for use in your account. For more information on
- *             phone number request see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-request-number.html"> Requesting a
- *                 number </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
+ *             phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request a phone number</a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
