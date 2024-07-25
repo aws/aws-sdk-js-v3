@@ -522,6 +522,7 @@ export const de_GetServiceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     EndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogGroupReferences: _json,
     Service: _json,
     StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
@@ -1031,6 +1032,8 @@ const de_Interval = (output: any, context: __SerdeContext): Interval => {
   }
   return { $unknown: Object.entries(output)[0] };
 };
+
+// de_LogGroupReferences omitted.
 
 // de_Metric omitted.
 

@@ -736,6 +736,7 @@ export interface GetServiceInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -744,6 +745,7 @@ export interface GetServiceInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -937,6 +939,30 @@ export interface Service {
    * @public
    */
   MetricReferences: MetricReference[] | undefined;
+
+  /**
+   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each
+   *          string-to-string map includes the following fields:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"Type": "AWS::Resource"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"ResourceType": "AWS::Logs::LogGroup"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Identifier": "<i>name-of-log-group</i>"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogGroupReferences?: Record<string, string>[];
 }
 
 /**
@@ -952,6 +978,8 @@ export interface GetServiceOutput {
   /**
    * <p>The start time of the data included in the response. In a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>.</p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -959,9 +987,35 @@ export interface GetServiceOutput {
   /**
    * <p>The end time of the data included in the response. In a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>.</p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
+
+  /**
+   * <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each
+   *          string-to-string map includes the following fields:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"Type": "AWS::Resource"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"ResourceType": "AWS::Logs::LogGroup"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Identifier": "<i>name-of-log-group</i>"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogGroupReferences?: Record<string, string>[];
 }
 
 /**
@@ -972,6 +1026,7 @@ export interface ListServiceDependenciesInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -980,6 +1035,7 @@ export interface ListServiceDependenciesInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested end time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1101,6 +1157,8 @@ export interface ListServiceDependenciesOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1109,6 +1167,8 @@ export interface ListServiceDependenciesOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1135,6 +1195,7 @@ export interface ListServiceDependentsInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1143,6 +1204,7 @@ export interface ListServiceDependentsInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1266,6 +1328,8 @@ export interface ListServiceDependentsOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1274,6 +1338,8 @@ export interface ListServiceDependentsOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1300,6 +1366,7 @@ export interface ListServiceOperationsInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1308,6 +1375,7 @@ export interface ListServiceOperationsInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested end time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1392,6 +1460,8 @@ export interface ListServiceOperationsOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1400,6 +1470,8 @@ export interface ListServiceOperationsOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1426,6 +1498,7 @@ export interface ListServicesInput {
    * <p>The start of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1434,6 +1507,7 @@ export interface ListServicesInput {
    * <p>The end of the time period to retrieve information about. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>Your requested start time will be rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1587,6 +1661,8 @@ export interface ListServicesOutput {
    * <p>The start of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   StartTime: Date | undefined;
@@ -1595,6 +1671,8 @@ export interface ListServicesOutput {
    * <p>The end of the time period that the returned information applies to. When used in a raw HTTP Query API, it is formatted as
    *          be epoch time in seconds. For example: <code>1698778057</code>
    *          </p>
+   *          <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because
+   *          it was rounded to the nearest hour.</p>
    * @public
    */
   EndTime: Date | undefined;
@@ -1677,7 +1755,7 @@ export class ResourceNotFoundException extends __BaseException {
   ResourceType: string | undefined;
 
   /**
-   * <p>Cannot find the resource id.</p>
+   * <p>Can't find the resource id.</p>
    * @public
    */
   ResourceId: string | undefined;
