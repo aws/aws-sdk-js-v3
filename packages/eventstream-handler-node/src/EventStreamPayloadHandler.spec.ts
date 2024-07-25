@@ -9,6 +9,15 @@ jest.mock("./EventSigningStream");
 jest.mock("@smithy/eventstream-codec");
 
 describe(EventStreamPayloadHandler.name, () => {
+  const collectData = (stream: Readable) => {
+    const chunks: any = [];
+    return new Promise((resolve, reject) => {
+      stream.on("data", (chunk) => chunks.push(chunk));
+      stream.on("error", reject);
+      stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    });
+  };
+
   const mockMessageSigner: MessageSigner = {
     sign: jest.fn(),
     signMessage: jest.fn(),
@@ -49,7 +58,7 @@ describe(EventStreamPayloadHandler.name, () => {
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
-    const mockRequest = { body: new Readable() } as HttpRequest;
+    const mockRequest = { body: new PassThrough() } as HttpRequest;
 
     try {
       await handler.handle(mockNextHandler, {
@@ -126,6 +135,42 @@ describe(EventStreamPayloadHandler.name, () => {
     });
   });
 
+  it("should start piping regardless of whether the downstream resolves", async () => {
+    const authorization =
+      "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
+    const originalPayload = new PassThrough();
+    const mockRequest = {
+      body: originalPayload,
+      headers: { authorization },
+    } as any;
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockMessageSigner),
+      utf8Decoder: mockUtf8Decoder,
+      utf8Encoder: mockUtf8encoder,
+    });
+
+    (mockNextHandler as any).mockImplementationOnce(async (args: FinalizeHandlerArguments<any>) => {
+      const handledRequest = args.request as HttpRequest;
+
+      originalPayload.end("Some Data");
+      const collected = await collectData(handledRequest.body);
+
+      // this means the stream is flowing without this downstream middleware
+      // having resolved yet.
+      expect(collected).toEqual("Some Data");
+
+      return Promise.resolve({ output: { handledRequest } });
+    });
+
+    const {
+      output: { handledRequest },
+    } = await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+    expect(handledRequest.body).not.toBe(originalPayload);
+  });
+
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {
     const authorization =
       "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
@@ -155,14 +200,6 @@ describe(EventStreamPayloadHandler.name, () => {
     expect(handledRequest.body).not.toBe(originalPayload);
     // Expect the data from the output payload from eventstream payload handler the same as from the
     // stream supplied to the handler.
-    const collectData = (stream: Readable) => {
-      const chunks: any = [];
-      return new Promise((resolve, reject) => {
-        stream.on("data", (chunk) => chunks.push(chunk));
-        stream.on("error", reject);
-        stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
-      });
-    };
     originalPayload.end("Some Data");
     const collected = await collectData(handledRequest.body);
     expect(collected).toEqual("Some Data");
