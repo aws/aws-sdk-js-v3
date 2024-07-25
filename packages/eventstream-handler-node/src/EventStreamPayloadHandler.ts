@@ -64,20 +64,9 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       objectMode: true,
     });
 
-    let result: FinalizeHandlerOutput<any>;
-    try {
-      result = await next(args);
-    } catch (e) {
-      // Close the payload stream otherwise the retry would hang
-      // because of the previous connection.
-      request.body.end();
-      throw e;
-    }
-
-    // If response is successful, start piping the payload stream
-    const match = (request.headers["authorization"] || "").match(/Signature=([\w]+)$/);
+    const match = request.headers?.authorization?.match(/Signature=([\w]+)$/);
     // Sign the eventstream based on the signature from initial request.
-    const priorSignature = (match || [])[1] || (query && (query["X-Amz-Signature"] as string)) || "";
+    const priorSignature = match?.[1] ?? (query?.["X-Amz-Signature"] as string) ?? "";
     const signingStream = new EventSigningStream({
       priorSignature,
       eventStreamCodec: this.eventStreamCodec,
@@ -90,6 +79,16 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
         throw err;
       }
     });
+
+    let result: FinalizeHandlerOutput<any>;
+    try {
+      result = await next(args);
+    } catch (e) {
+      // Close the payload stream otherwise the retry would hang
+      // because of the previous connection.
+      request.body.end();
+      throw e;
+    }
 
     return result;
   }
