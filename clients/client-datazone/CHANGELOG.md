@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+
+### Features
+
+* **client-datazone:** Introduces GetEnvironmentCredentials operation to SDK ([2156a87](https://github.com/aws/aws-sdk-js-v3/commit/2156a8766771e6a6bc10aa3ee8380b69cb823b96))
+
+
+
+
+
 # [3.618.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.617.0...v3.618.0) (2024-07-23)
 
 

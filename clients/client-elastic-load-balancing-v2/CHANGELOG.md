@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release adds support for sharing trust stores across accounts and organizations through integration with AWS Resource Access Manager. ([4a753d9](https://github.com/aws/aws-sdk-js-v3/commit/4a753d9e76ed9debb6f5ed56b3a7b98a6f3a8824))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

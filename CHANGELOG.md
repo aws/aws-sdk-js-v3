@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+
+### Bug Fixes
+
+* **eventstream-handler-node:** start streaming without waiting for response ([#6311](https://github.com/aws/aws-sdk-js-v3/issues/6311)) ([0072f42](https://github.com/aws/aws-sdk-js-v3/commit/0072f426732e3e361839ea0b34545ff1f6e800da))
+
+
+### Features
+
+* **client-application-auto-scaling:** Application Auto Scaling is now more responsive to the changes in demand of your SageMaker Inference endpoints. To get started, create or update a Target Tracking policy based on High Resolution CloudWatch metrics. ([961af9b](https://github.com/aws/aws-sdk-js-v3/commit/961af9b24f3eabd22c9fe285805c2849bf23eeb2))
+* **client-application-signals:** CloudWatch Application Signals now supports application logs correlation with traces and operational health metrics of applications running on EC2 instances. Users can view the most relevant telemetry to troubleshoot application health anomalies such as spikes in latency, errors, and availability. ([ef30775](https://github.com/aws/aws-sdk-js-v3/commit/ef30775db61a332d181e43ea12e0abdec0dd8fcc))
+* **client-bedrock-runtime:** Provides ServiceUnavailableException error message ([690bc7f](https://github.com/aws/aws-sdk-js-v3/commit/690bc7f848c59958ce107628d424aa5c750a2120))
+* **client-codecommit:** CreateRepository API now throws OperationNotAllowedException when the account has been restricted from creating a repository. ([9195ee7](https://github.com/aws/aws-sdk-js-v3/commit/9195ee76c570baed8b7feebd7805c878f87c89ca))
+* **client-datazone:** Introduces GetEnvironmentCredentials operation to SDK ([2156a87](https://github.com/aws/aws-sdk-js-v3/commit/2156a8766771e6a6bc10aa3ee8380b69cb823b96))
+* **client-ec2:** EC2 Fleet now supports using custom identifiers to reference Amazon Machine Images (AMI) in launch requests that are configured to choose from a diversified list of instance types. ([88cbe69](https://github.com/aws/aws-sdk-js-v3/commit/88cbe697deec217c20b874a5208a763a4f89143d))
+* **client-ecr:** API and documentation updates for Amazon ECR, adding support for creating, updating, describing and deleting ECR Repository Creation Template. ([83e5411](https://github.com/aws/aws-sdk-js-v3/commit/83e5411c28b0df7a7360432e87b140c42d88a456))
+* **client-eks:** This release adds support for EKS cluster to manage extended support. ([45cb022](https://github.com/aws/aws-sdk-js-v3/commit/45cb022d03089680b92e963944ec28e24766ff5d))
+* **client-elastic-load-balancing-v2:** This release adds support for sharing trust stores across accounts and organizations through integration with AWS Resource Access Manager. ([4a753d9](https://github.com/aws/aws-sdk-js-v3/commit/4a753d9e76ed9debb6f5ed56b3a7b98a6f3a8824))
+* **client-network-firewall:** You can now log events that are related to TLS inspection, in addition to the existing alert and flow logging. ([ab0e00e](https://github.com/aws/aws-sdk-js-v3/commit/ab0e00ecd3230b4b7ca8dd7eb1e2014972348c64))
+* **client-outposts:** Adding default vCPU information to GetOutpostSupportedInstanceTypes and GetOutpostInstanceTypes responses ([2e67698](https://github.com/aws/aws-sdk-js-v3/commit/2e67698220904d4887e68dec4f8e39cf1315bd8b))
+* **client-sfn:** This release adds support to customer managed KMS key encryption in AWS Step Functions. ([895cc68](https://github.com/aws/aws-sdk-js-v3/commit/895cc687003d4a27d231595a05f6e59fbfe17a57))
+
+
+
+
+
 # [3.619.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.618.0...v3.619.0) (2024-07-24)
 
 

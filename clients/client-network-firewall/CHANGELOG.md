@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+
+### Features
+
+* **client-network-firewall:** You can now log events that are related to TLS inspection, in addition to the existing alert and flow logging. ([ab0e00e](https://github.com/aws/aws-sdk-js-v3/commit/ab0e00ecd3230b4b7ca8dd7eb1e2014972348c64))
+
+
+
+
+
 # [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall
