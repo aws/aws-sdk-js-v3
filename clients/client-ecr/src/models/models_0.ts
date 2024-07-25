@@ -855,11 +855,6 @@ export interface CreatePullThroughCacheRuleRequest {
    *                         <code><custom>.azurecr.io</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>GitLab Container Registry (<code>gitlab-container-registry</code>) -
-   *                         <code>registry.gitlab.com</code>
-   *                </p>
-   *             </li>
    *          </ul>
    * @public
    */
@@ -1052,7 +1047,7 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  *             your repository are encrypted at rest.</p>
  *          <p>By default, when no encryption configuration is set or the <code>AES256</code>
  *             encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption
- *             keys which encrypts your data at rest using an AES-256 encryption algorithm. This does
+ *             keys which encrypts your data at rest using an AES256 encryption algorithm. This does
  *             not require any action on your part.</p>
  *          <p>For more control over the encryption of the contents of your repository, you can use
  *             server-side encryption with Key Management Service key stored in Key Management Service (KMS) to encrypt your
@@ -1072,7 +1067,7 @@ export interface EncryptionConfiguration {
    *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
    *          <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
    *             with Amazon S3-managed encryption keys which encrypts the images in the repository using an
-   *             AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting data using
+   *             AES256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting data using
    *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
    *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
    * @public
@@ -1326,6 +1321,260 @@ export class TooManyTagsException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const RCTAppliedFor = {
+  PULL_THROUGH_CACHE: "PULL_THROUGH_CACHE",
+  REPLICATION: "REPLICATION",
+} as const;
+
+/**
+ * @public
+ */
+export type RCTAppliedFor = (typeof RCTAppliedFor)[keyof typeof RCTAppliedFor];
+
+/**
+ * <p>The encryption configuration to associate with the repository creation
+ *             template.</p>
+ * @public
+ */
+export interface EncryptionConfigurationForRepositoryCreationTemplate {
+  /**
+   * <p>The encryption type to use.</p>
+   *          <p>If you use the <code>KMS</code> encryption type, the contents of the repository will
+   *             be encrypted using server-side encryption with Key Management Service key stored in KMS. When you
+   *             use KMS to encrypt your data, you can either use the default Amazon Web Services managed KMS key
+   *             for Amazon ECR, or specify your own KMS key, which you already created. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting data using server-side
+   *                 encryption with an KMS key stored in Key Management Service (SSE-KMS)</a> in the
+   *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
+   *          <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
+   *             with Amazon S3-managed encryption keys which encrypts the images in the repository using an
+   *             AES256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting data using
+   *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
+   *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
+   * @public
+   */
+  encryptionType: EncryptionType | undefined;
+
+  /**
+   * <p>If you use the <code>KMS</code> encryption type, specify the KMS key to use for
+   *             encryption. The full ARN of the KMS key must be specified. The key must exist in the
+   *             same Region as the repository. If no key is specified, the default Amazon Web Services managed KMS
+   *             key for Amazon ECR will be used.</p>
+   * @public
+   */
+  kmsKey?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateRepositoryCreationTemplateRequest {
+  /**
+   * <p>The repository namespace prefix to associate with the template. All repositories
+   *             created using this namespace prefix will have the settings defined in this template
+   *             applied. For example, a prefix of <code>prod</code> would apply to all repositories
+   *             beginning with <code>prod/</code>. Similarly, a prefix of <code>prod/team</code> would
+   *             apply to all repositories beginning with <code>prod/team/</code>.</p>
+   *          <p>To apply a template to all repositories in your registry that don't have an associated
+   *             creation template, you can use <code>ROOT</code> as the prefix.</p>
+   *          <important>
+   *             <p>There is always an assumed <code>/</code> applied to the end of the prefix. If you
+   *                 specify <code>ecr-public</code> as the prefix, Amazon ECR treats that as
+   *                     <code>ecr-public/</code>. When using a pull through cache rule, the repository
+   *                 prefix you specify during rule creation is what you should specify as your
+   *                 repository creation template prefix as well.</p>
+   *          </important>
+   * @public
+   */
+  prefix: string | undefined;
+
+  /**
+   * <p>A description for the repository creation template.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The encryption configuration to use for repositories created using the
+   *             template.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfigurationForRepositoryCreationTemplate;
+
+  /**
+   * <p>The metadata to apply to the repository to help you categorize and organize. Each tag
+   *             consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have
+   *             a maximum length of 256 characters.</p>
+   * @public
+   */
+  resourceTags?: Tag[];
+
+  /**
+   * <p>The tag mutability setting for the repository. If this parameter is omitted, the
+   *             default setting of <code>MUTABLE</code> will be used which will allow image tags to be
+   *             overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the
+   *             repository will be immutable which will prevent them from being overwritten.</p>
+   * @public
+   */
+  imageTagMutability?: ImageTagMutability;
+
+  /**
+   * <p>The repository policy to apply to repositories created using the template. A
+   *             repository policy is a permissions policy associated with a repository to control access
+   *             permissions. </p>
+   * @public
+   */
+  repositoryPolicy?: string;
+
+  /**
+   * <p>The lifecycle policy to use for repositories created using the template.</p>
+   * @public
+   */
+  lifecyclePolicy?: string;
+
+  /**
+   * <p>A list of enumerable strings representing the Amazon ECR repository creation scenarios that
+   *             this template will apply towards. The two supported scenarios are
+   *                 <code>PULL_THROUGH_CACHE</code> and <code>REPLICATION</code>
+   *          </p>
+   * @public
+   */
+  appliedFor: RCTAppliedFor[] | undefined;
+
+  /**
+   * <p>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account as
+   *             the registry that you are configuring.</p>
+   * @public
+   */
+  customRoleArn?: string;
+}
+
+/**
+ * <p>The details of the repository creation template associated with the request.</p>
+ * @public
+ */
+export interface RepositoryCreationTemplate {
+  /**
+   * <p>The repository namespace prefix associated with the repository creation
+   *             template.</p>
+   * @public
+   */
+  prefix?: string;
+
+  /**
+   * <p>The description associated with the repository creation template.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The encryption configuration associated with the repository creation template.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfigurationForRepositoryCreationTemplate;
+
+  /**
+   * <p>The metadata to apply to the repository to help you categorize and organize. Each tag
+   *             consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have
+   *             a maximum length of 256 characters.</p>
+   * @public
+   */
+  resourceTags?: Tag[];
+
+  /**
+   * <p>The tag mutability setting for the repository. If this parameter is omitted, the
+   *             default setting of MUTABLE will be used which will allow image tags to be overwritten.
+   *             If IMMUTABLE is specified, all image tags within the repository will be immutable which
+   *             will prevent them from being overwritten.</p>
+   * @public
+   */
+  imageTagMutability?: ImageTagMutability;
+
+  /**
+   * <p>he repository policy to apply to repositories created using the template. A repository
+   *             policy is a permissions policy associated with a repository to control access
+   *             permissions. </p>
+   * @public
+   */
+  repositoryPolicy?: string;
+
+  /**
+   * <p>The lifecycle policy to use for repositories created using the template.</p>
+   * @public
+   */
+  lifecyclePolicy?: string;
+
+  /**
+   * <p>A list of enumerable Strings representing the repository creation scenarios that this
+   *             template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and
+   *             REPLICATION</p>
+   * @public
+   */
+  appliedFor?: RCTAppliedFor[];
+
+  /**
+   * <p>The ARN of the role to be assumed by Amazon ECR.</p>
+   * @public
+   */
+  customRoleArn?: string;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the repository creation template
+   *             was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The date and time, in JavaScript date format, when the repository creation template
+   *             was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface CreateRepositoryCreationTemplateResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string;
+
+  /**
+   * <p>The details of the repository creation template associated with the request.</p>
+   * @public
+   */
+  repositoryCreationTemplate?: RepositoryCreationTemplate;
+}
+
+/**
+ * <p>The repository creation template already exists. Specify a unique prefix and try
+ *             again.</p>
+ * @public
+ */
+export class TemplateAlreadyExistsException extends __BaseException {
+  readonly name: "TemplateAlreadyExistsException" = "TemplateAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TemplateAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TemplateAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TemplateAlreadyExistsException.prototype);
+  }
+}
+
+/**
+ * @public
  */
 export interface DeleteLifecyclePolicyRequest {
   /**
@@ -1564,6 +1813,56 @@ export class RepositoryNotEmptyException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, RepositoryNotEmptyException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteRepositoryCreationTemplateRequest {
+  /**
+   * <p>The repository namespace prefix associated with the repository creation
+   *             template.</p>
+   * @public
+   */
+  prefix: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRepositoryCreationTemplateResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string;
+
+  /**
+   * <p>The details of the repository creation template that was deleted.</p>
+   * @public
+   */
+  repositoryCreationTemplate?: RepositoryCreationTemplate;
+}
+
+/**
+ * <p>The specified repository creation template can't be found. Verify the registry ID and
+ *             prefix and try again.</p>
+ * @public
+ */
+export class TemplateNotFoundException extends __BaseException {
+  readonly name: "TemplateNotFoundException" = "TemplateNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TemplateNotFoundException, __BaseException>) {
+    super({
+      name: "TemplateNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TemplateNotFoundException.prototype);
   }
 }
 
@@ -2884,7 +3183,7 @@ export interface ReplicationConfiguration {
  */
 export interface DescribeRegistryResponse {
   /**
-   * <p>The ID of the registry.</p>
+   * <p>The registry ID associated with the request.</p>
    * @public
    */
   registryId?: string;
@@ -2961,6 +3260,78 @@ export interface DescribeRepositoriesResponse {
    *                 <code>DescribeRepositories</code> request exceed <code>maxResults</code>, this value
    *             can be used to retrieve the next page of results. This value is <code>null</code> when
    *             there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRepositoryCreationTemplatesRequest {
+  /**
+   * <p>The repository namespace prefixes associated with the repository creation templates to
+   *             describe. If this value is not specified, all repository creation templates are
+   *             returned.</p>
+   * @public
+   */
+  prefixes?: string[];
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>DescribeRepositoryCreationTemplates</code> request where
+   *                 <code>maxResults</code> was used and the results exceeded the value of that
+   *             parameter. Pagination continues from the end of the previous results that returned the
+   *                 <code>nextToken</code> value. This value is <code>null</code> when there are no more
+   *             results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of repository results returned by
+   *                 <code>DescribeRepositoryCreationTemplatesRequest</code> in paginated output. When
+   *             this parameter is used, <code>DescribeRepositoryCreationTemplatesRequest</code> only
+   *             returns <code>maxResults</code> results in a single page along with a
+   *                 <code>nextToken</code> response element. The remaining results of the initial
+   *             request can be seen by sending another
+   *                 <code>DescribeRepositoryCreationTemplatesRequest</code> request with the returned
+   *                 <code>nextToken</code> value. This value can be between 1 and
+   *             1000. If this parameter is not used, then
+   *                 <code>DescribeRepositoryCreationTemplatesRequest</code> returns up to
+   *             100 results and a <code>nextToken</code> value, if applicable.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRepositoryCreationTemplatesResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string;
+
+  /**
+   * <p>The details of the repository creation templates.</p>
+   * @public
+   */
+  repositoryCreationTemplates?: RepositoryCreationTemplate[];
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>DescribeRepositoryCreationTemplates</code> request. When the results of a
+   *                 <code>DescribeRepositoryCreationTemplates</code> request exceed
+   *                 <code>maxResults</code>, this value can be used to retrieve the next page of
+   *             results. This value is <code>null</code> when there are no more results to
+   *             return.</p>
    * @public
    */
   nextToken?: string;
@@ -3416,7 +3787,7 @@ export interface GetRegistryPolicyRequest {}
  */
 export interface GetRegistryPolicyResponse {
   /**
-   * <p>The ID of the registry.</p>
+   * <p>The registry ID associated with the request.</p>
    * @public
    */
   registryId?: string;
@@ -3494,7 +3865,7 @@ export interface RegistryScanningConfiguration {
  */
 export interface GetRegistryScanningConfigurationResponse {
   /**
-   * <p>The ID of the registry.</p>
+   * <p>The registry ID associated with the request.</p>
    * @public
    */
   registryId?: string;
@@ -3999,7 +4370,7 @@ export interface PutRegistryPolicyRequest {
  */
 export interface PutRegistryPolicyResponse {
   /**
-   * <p>The registry ID.</p>
+   * <p>The registry ID associated with the request.</p>
    * @public
    */
   registryId?: string;
@@ -4378,6 +4749,101 @@ export interface UpdatePullThroughCacheRuleResponse {
    * @public
    */
   credentialArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRepositoryCreationTemplateRequest {
+  /**
+   * <p>The repository namespace prefix that matches an existing repository creation template
+   *             in the registry. All repositories created using this namespace prefix will have the
+   *             settings defined in this template applied. For example, a prefix of <code>prod</code>
+   *             would apply to all repositories beginning with <code>prod/</code>. This includes a
+   *             repository named <code>prod/team1</code> as well as a repository named
+   *                 <code>prod/repository1</code>.</p>
+   *          <p>To apply a template to all repositories in your registry that don't have an associated
+   *             creation template, you can use <code>ROOT</code> as the prefix.</p>
+   * @public
+   */
+  prefix: string | undefined;
+
+  /**
+   * <p>A description for the repository creation template.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The encryption configuration to associate with the repository creation
+   *             template.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfigurationForRepositoryCreationTemplate;
+
+  /**
+   * <p>The metadata to apply to the repository to help you categorize and organize. Each tag
+   *             consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have
+   *             a maximum length of 256 characters.</p>
+   * @public
+   */
+  resourceTags?: Tag[];
+
+  /**
+   * <p>Updates the tag mutability setting for the repository. If this parameter is omitted,
+   *             the default setting of <code>MUTABLE</code> will be used which will allow image tags to
+   *             be overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the
+   *             repository will be immutable which will prevent them from being overwritten.</p>
+   * @public
+   */
+  imageTagMutability?: ImageTagMutability;
+
+  /**
+   * <p>Updates the repository policy created using the template. A repository policy is a
+   *             permissions policy associated with a repository to control access permissions. </p>
+   * @public
+   */
+  repositoryPolicy?: string;
+
+  /**
+   * <p>Updates the lifecycle policy associated with the specified repository creation
+   *             template.</p>
+   * @public
+   */
+  lifecyclePolicy?: string;
+
+  /**
+   * <p>Updates the list of enumerable strings representing the Amazon ECR repository creation
+   *             scenarios that this template will apply towards. The two supported scenarios are
+   *                 <code>PULL_THROUGH_CACHE</code> and <code>REPLICATION</code>
+   *          </p>
+   * @public
+   */
+  appliedFor?: RCTAppliedFor[];
+
+  /**
+   * <p>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account as
+   *             the registry that you are configuring.</p>
+   * @public
+   */
+  customRoleArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRepositoryCreationTemplateResponse {
+  /**
+   * <p>The registry ID associated with the request.</p>
+   * @public
+   */
+  registryId?: string;
+
+  /**
+   * <p>The details of the repository creation template associated with the request.</p>
+   * @public
+   */
+  repositoryCreationTemplate?: RepositoryCreationTemplate;
 }
 
 /**

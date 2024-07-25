@@ -6,6 +6,8 @@ export * from "./DescribePullThroughCacheRulesPaginator";
 
 export * from "./DescribeRepositoriesPaginator";
 
+export * from "./DescribeRepositoryCreationTemplatesPaginator";
+
 export * from "./GetLifecyclePolicyPreviewPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";

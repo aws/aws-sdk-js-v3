@@ -42,6 +42,10 @@ import {
 } from "../commands/CreatePullThroughCacheRuleCommand";
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "../commands/CreateRepositoryCommand";
 import {
+  CreateRepositoryCreationTemplateCommandInput,
+  CreateRepositoryCreationTemplateCommandOutput,
+} from "../commands/CreateRepositoryCreationTemplateCommand";
+import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "../commands/DeleteLifecyclePolicyCommand";
@@ -54,6 +58,10 @@ import {
   DeleteRegistryPolicyCommandOutput,
 } from "../commands/DeleteRegistryPolicyCommand";
 import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "../commands/DeleteRepositoryCommand";
+import {
+  DeleteRepositoryCreationTemplateCommandInput,
+  DeleteRepositoryCreationTemplateCommandOutput,
+} from "../commands/DeleteRepositoryCreationTemplateCommand";
 import {
   DeleteRepositoryPolicyCommandInput,
   DeleteRepositoryPolicyCommandOutput,
@@ -76,6 +84,10 @@ import {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "../commands/DescribeRepositoriesCommand";
+import {
+  DescribeRepositoryCreationTemplatesCommandInput,
+  DescribeRepositoryCreationTemplatesCommandOutput,
+} from "../commands/DescribeRepositoryCreationTemplatesCommand";
 import {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -141,6 +153,10 @@ import {
   UpdatePullThroughCacheRuleCommandInput,
   UpdatePullThroughCacheRuleCommandOutput,
 } from "../commands/UpdatePullThroughCacheRuleCommand";
+import {
+  UpdateRepositoryCreationTemplateCommandInput,
+  UpdateRepositoryCreationTemplateCommandOutput,
+} from "../commands/UpdateRepositoryCreationTemplateCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "../commands/UploadLayerPartCommand";
 import {
   ValidatePullThroughCacheRuleCommandInput,
@@ -157,6 +173,8 @@ import {
   CompleteLayerUploadRequest,
   CreatePullThroughCacheRuleRequest,
   CreatePullThroughCacheRuleResponse,
+  CreateRepositoryCreationTemplateRequest,
+  CreateRepositoryCreationTemplateResponse,
   CreateRepositoryRequest,
   CreateRepositoryResponse,
   CvssScore,
@@ -166,6 +184,8 @@ import {
   DeletePullThroughCacheRuleRequest,
   DeletePullThroughCacheRuleResponse,
   DeleteRegistryPolicyRequest,
+  DeleteRepositoryCreationTemplateRequest,
+  DeleteRepositoryCreationTemplateResponse,
   DeleteRepositoryPolicyRequest,
   DeleteRepositoryRequest,
   DeleteRepositoryResponse,
@@ -180,8 +200,11 @@ import {
   DescribeRegistryRequest,
   DescribeRepositoriesRequest,
   DescribeRepositoriesResponse,
+  DescribeRepositoryCreationTemplatesRequest,
+  DescribeRepositoryCreationTemplatesResponse,
   EmptyUploadException,
   EncryptionConfiguration,
+  EncryptionConfigurationForRepositoryCreationTemplate,
   EnhancedImageScanFinding,
   GetAuthorizationTokenRequest,
   GetAuthorizationTokenResponse,
@@ -232,6 +255,7 @@ import {
   PutRegistryPolicyRequest,
   PutRegistryScanningConfigurationRequest,
   PutReplicationConfigurationRequest,
+  RCTAppliedFor,
   ReferencedImagesNotFoundException,
   RegistryPolicyNotFoundException,
   RegistryScanningRule,
@@ -240,6 +264,7 @@ import {
   ReplicationRule,
   Repository,
   RepositoryAlreadyExistsException,
+  RepositoryCreationTemplate,
   RepositoryFilter,
   RepositoryNotEmptyException,
   RepositoryNotFoundException,
@@ -256,6 +281,8 @@ import {
   StartLifecyclePolicyPreviewRequest,
   Tag,
   TagResourceRequest,
+  TemplateAlreadyExistsException,
+  TemplateNotFoundException,
   TooManyTagsException,
   UnableToAccessSecretException,
   UnableToDecryptSecretValueException,
@@ -266,6 +293,8 @@ import {
   UntagResourceRequest,
   UpdatePullThroughCacheRuleRequest,
   UpdatePullThroughCacheRuleResponse,
+  UpdateRepositoryCreationTemplateRequest,
+  UpdateRepositoryCreationTemplateResponse,
   UploadLayerPartRequest,
   UploadNotFoundException,
   ValidatePullThroughCacheRuleRequest,
@@ -364,6 +393,19 @@ export const se_CreateRepositoryCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateRepositoryCreationTemplateCommand
+ */
+export const se_CreateRepositoryCreationTemplateCommand = async (
+  input: CreateRepositoryCreationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRepositoryCreationTemplate");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteLifecyclePolicyCommand
  */
 export const se_DeleteLifecyclePolicyCommand = async (
@@ -410,6 +452,19 @@ export const se_DeleteRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRepository");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteRepositoryCreationTemplateCommand
+ */
+export const se_DeleteRepositoryCreationTemplateCommand = async (
+  input: DeleteRepositoryCreationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRepositoryCreationTemplate");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -501,6 +556,19 @@ export const se_DescribeRepositoriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeRepositories");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeRepositoryCreationTemplatesCommand
+ */
+export const se_DescribeRepositoryCreationTemplatesCommand = async (
+  input: DescribeRepositoryCreationTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRepositoryCreationTemplates");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -806,6 +874,19 @@ export const se_UpdatePullThroughCacheRuleCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateRepositoryCreationTemplateCommand
+ */
+export const se_UpdateRepositoryCreationTemplateCommand = async (
+  input: UpdateRepositoryCreationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateRepositoryCreationTemplate");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UploadLayerPartCommand
  */
 export const se_UploadLayerPartCommand = async (
@@ -972,6 +1053,26 @@ export const de_CreateRepositoryCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateRepositoryCreationTemplateCommand
+ */
+export const de_CreateRepositoryCreationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRepositoryCreationTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRepositoryCreationTemplateResponse(data, context);
+  const response: CreateRepositoryCreationTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DeleteLifecyclePolicyCommand
  */
 export const de_DeleteLifecyclePolicyCommand = async (
@@ -1045,6 +1146,26 @@ export const de_DeleteRepositoryCommand = async (
   let contents: any = {};
   contents = de_DeleteRepositoryResponse(data, context);
   const response: DeleteRepositoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteRepositoryCreationTemplateCommand
+ */
+export const de_DeleteRepositoryCreationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRepositoryCreationTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRepositoryCreationTemplateResponse(data, context);
+  const response: DeleteRepositoryCreationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1185,6 +1306,26 @@ export const de_DescribeRepositoriesCommand = async (
   let contents: any = {};
   contents = de_DescribeRepositoriesResponse(data, context);
   const response: DescribeRepositoriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeRepositoryCreationTemplatesCommand
+ */
+export const de_DescribeRepositoryCreationTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRepositoryCreationTemplatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRepositoryCreationTemplatesResponse(data, context);
+  const response: DescribeRepositoryCreationTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1652,6 +1793,26 @@ export const de_UpdatePullThroughCacheRuleCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateRepositoryCreationTemplateCommand
+ */
+export const de_UpdateRepositoryCreationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRepositoryCreationTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateRepositoryCreationTemplateResponse(data, context);
+  const response: UpdateRepositoryCreationTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UploadLayerPartCommand
  */
 export const de_UploadLayerPartCommand = async (
@@ -1761,6 +1922,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyTagsException":
     case "com.amazonaws.ecr#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "TemplateAlreadyExistsException":
+    case "com.amazonaws.ecr#TemplateAlreadyExistsException":
+      throw await de_TemplateAlreadyExistsExceptionRes(parsedOutput, context);
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
       throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
@@ -1773,6 +1937,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "RepositoryNotEmptyException":
     case "com.amazonaws.ecr#RepositoryNotEmptyException":
       throw await de_RepositoryNotEmptyExceptionRes(parsedOutput, context);
+    case "TemplateNotFoundException":
+    case "com.amazonaws.ecr#TemplateNotFoundException":
+      throw await de_TemplateNotFoundExceptionRes(parsedOutput, context);
     case "RepositoryPolicyNotFoundException":
     case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
       throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
@@ -2284,6 +2451,38 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_json1_1TemplateAlreadyExistsExceptionRes
+ */
+const de_TemplateAlreadyExistsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TemplateAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TemplateAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1TemplateNotFoundExceptionRes
+ */
+const de_TemplateNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TemplateNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TemplateNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1TooManyTagsExceptionRes
  */
 const de_TooManyTagsExceptionRes = async (
@@ -2438,6 +2637,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreatePullThroughCacheRuleRequest omitted.
 
+// se_CreateRepositoryCreationTemplateRequest omitted.
+
 // se_CreateRepositoryRequest omitted.
 
 // se_DeleteLifecyclePolicyRequest omitted.
@@ -2445,6 +2646,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeletePullThroughCacheRuleRequest omitted.
 
 // se_DeleteRegistryPolicyRequest omitted.
+
+// se_DeleteRepositoryCreationTemplateRequest omitted.
 
 // se_DeleteRepositoryPolicyRequest omitted.
 
@@ -2464,7 +2667,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeRepositoriesRequest omitted.
 
+// se_DescribeRepositoryCreationTemplatesRequest omitted.
+
 // se_EncryptionConfiguration omitted.
+
+// se_EncryptionConfigurationForRepositoryCreationTemplate omitted.
 
 // se_GetAuthorizationTokenRegistryIdList omitted.
 
@@ -2502,6 +2709,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_MediaTypeList omitted.
 
+// se_PrefixList omitted.
+
 // se_PullThroughCacheRuleRepositoryPrefixList omitted.
 
 // se_PutImageRequest omitted.
@@ -2517,6 +2726,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_PutRegistryScanningConfigurationRequest omitted.
 
 // se_PutReplicationConfigurationRequest omitted.
+
+// se_RCTAppliedForList omitted.
 
 // se_RegistryScanningRule omitted.
 
@@ -2561,6 +2772,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_UntagResourceRequest omitted.
 
 // se_UpdatePullThroughCacheRuleRequest omitted.
+
+// se_UpdateRepositoryCreationTemplateRequest omitted.
 
 /**
  * serializeAws_json1_1UploadLayerPartRequest
@@ -2649,6 +2862,19 @@ const de_CreatePullThroughCacheRuleResponse = (
 };
 
 /**
+ * deserializeAws_json1_1CreateRepositoryCreationTemplateResponse
+ */
+const de_CreateRepositoryCreationTemplateResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateRepositoryCreationTemplateResponse => {
+  return take(output, {
+    registryId: __expectString,
+    repositoryCreationTemplate: (_: any) => de_RepositoryCreationTemplate(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateRepositoryResponse
  */
 const de_CreateRepositoryResponse = (output: any, context: __SerdeContext): CreateRepositoryResponse => {
@@ -2728,6 +2954,19 @@ const de_DeletePullThroughCacheRuleResponse = (
 
 // de_DeleteRegistryPolicyResponse omitted.
 
+/**
+ * deserializeAws_json1_1DeleteRepositoryCreationTemplateResponse
+ */
+const de_DeleteRepositoryCreationTemplateResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteRepositoryCreationTemplateResponse => {
+  return take(output, {
+    registryId: __expectString,
+    repositoryCreationTemplate: (_: any) => de_RepositoryCreationTemplate(_, context),
+  }) as any;
+};
+
 // de_DeleteRepositoryPolicyResponse omitted.
 
 /**
@@ -2793,9 +3032,25 @@ const de_DescribeRepositoriesResponse = (output: any, context: __SerdeContext): 
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1DescribeRepositoryCreationTemplatesResponse
+ */
+const de_DescribeRepositoryCreationTemplatesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRepositoryCreationTemplatesResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    registryId: __expectString,
+    repositoryCreationTemplates: (_: any) => de_RepositoryCreationTemplateList(_, context),
+  }) as any;
+};
+
 // de_EmptyUploadException omitted.
 
 // de_EncryptionConfiguration omitted.
+
+// de_EncryptionConfigurationForRepositoryCreationTemplate omitted.
 
 /**
  * deserializeAws_json1_1EnhancedImageScanFinding
@@ -3104,6 +3359,8 @@ const de_PullThroughCacheRuleList = (output: any, context: __SerdeContext): Pull
 
 // de_PutReplicationConfigurationResponse omitted.
 
+// de_RCTAppliedForList omitted.
+
 // de_Recommendation omitted.
 
 // de_ReferencedImagesNotFoundException omitted.
@@ -3149,6 +3406,37 @@ const de_Repository = (output: any, context: __SerdeContext): Repository => {
 };
 
 // de_RepositoryAlreadyExistsException omitted.
+
+/**
+ * deserializeAws_json1_1RepositoryCreationTemplate
+ */
+const de_RepositoryCreationTemplate = (output: any, context: __SerdeContext): RepositoryCreationTemplate => {
+  return take(output, {
+    appliedFor: _json,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    customRoleArn: __expectString,
+    description: __expectString,
+    encryptionConfiguration: _json,
+    imageTagMutability: __expectString,
+    lifecyclePolicy: __expectString,
+    prefix: __expectString,
+    repositoryPolicy: __expectString,
+    resourceTags: _json,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RepositoryCreationTemplateList
+ */
+const de_RepositoryCreationTemplateList = (output: any, context: __SerdeContext): RepositoryCreationTemplate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RepositoryCreationTemplate(entry, context);
+    });
+  return retVal;
+};
 
 // de_RepositoryFilter omitted.
 
@@ -3246,6 +3534,10 @@ const de_ScoreDetails = (output: any, context: __SerdeContext): ScoreDetails => 
 
 // de_Tags omitted.
 
+// de_TemplateAlreadyExistsException omitted.
+
+// de_TemplateNotFoundException omitted.
+
 // de_TooManyTagsException omitted.
 
 // de_UnableToAccessSecretException omitted.
@@ -3274,6 +3566,19 @@ const de_UpdatePullThroughCacheRuleResponse = (
     ecrRepositoryPrefix: __expectString,
     registryId: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateRepositoryCreationTemplateResponse
+ */
+const de_UpdateRepositoryCreationTemplateResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateRepositoryCreationTemplateResponse => {
+  return take(output, {
+    registryId: __expectString,
+    repositoryCreationTemplate: (_: any) => de_RepositoryCreationTemplate(_, context),
   }) as any;
 };
 

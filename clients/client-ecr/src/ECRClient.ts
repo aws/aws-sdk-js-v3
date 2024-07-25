@@ -73,6 +73,10 @@ import {
 } from "./commands/CreatePullThroughCacheRuleCommand";
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import {
+  CreateRepositoryCreationTemplateCommandInput,
+  CreateRepositoryCreationTemplateCommandOutput,
+} from "./commands/CreateRepositoryCreationTemplateCommand";
+import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
@@ -85,6 +89,10 @@ import {
   DeleteRegistryPolicyCommandOutput,
 } from "./commands/DeleteRegistryPolicyCommand";
 import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
+import {
+  DeleteRepositoryCreationTemplateCommandInput,
+  DeleteRepositoryCreationTemplateCommandOutput,
+} from "./commands/DeleteRepositoryCreationTemplateCommand";
 import {
   DeleteRepositoryPolicyCommandInput,
   DeleteRepositoryPolicyCommandOutput,
@@ -107,6 +115,10 @@ import {
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "./commands/DescribeRepositoriesCommand";
+import {
+  DescribeRepositoryCreationTemplatesCommandInput,
+  DescribeRepositoryCreationTemplatesCommandOutput,
+} from "./commands/DescribeRepositoryCreationTemplatesCommand";
 import {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -172,6 +184,10 @@ import {
   UpdatePullThroughCacheRuleCommandInput,
   UpdatePullThroughCacheRuleCommandOutput,
 } from "./commands/UpdatePullThroughCacheRuleCommand";
+import {
+  UpdateRepositoryCreationTemplateCommandInput,
+  UpdateRepositoryCreationTemplateCommandOutput,
+} from "./commands/UpdateRepositoryCreationTemplateCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
 import {
   ValidatePullThroughCacheRuleCommandInput,
@@ -199,10 +215,12 @@ export type ServiceInputTypes =
   | CompleteLayerUploadCommandInput
   | CreatePullThroughCacheRuleCommandInput
   | CreateRepositoryCommandInput
+  | CreateRepositoryCreationTemplateCommandInput
   | DeleteLifecyclePolicyCommandInput
   | DeletePullThroughCacheRuleCommandInput
   | DeleteRegistryPolicyCommandInput
   | DeleteRepositoryCommandInput
+  | DeleteRepositoryCreationTemplateCommandInput
   | DeleteRepositoryPolicyCommandInput
   | DescribeImageReplicationStatusCommandInput
   | DescribeImageScanFindingsCommandInput
@@ -210,6 +228,7 @@ export type ServiceInputTypes =
   | DescribePullThroughCacheRulesCommandInput
   | DescribeRegistryCommandInput
   | DescribeRepositoriesCommandInput
+  | DescribeRepositoryCreationTemplatesCommandInput
   | GetAuthorizationTokenCommandInput
   | GetDownloadUrlForLayerCommandInput
   | GetLifecyclePolicyCommandInput
@@ -233,6 +252,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdatePullThroughCacheRuleCommandInput
+  | UpdateRepositoryCreationTemplateCommandInput
   | UploadLayerPartCommandInput
   | ValidatePullThroughCacheRuleCommandInput;
 
@@ -247,10 +267,12 @@ export type ServiceOutputTypes =
   | CompleteLayerUploadCommandOutput
   | CreatePullThroughCacheRuleCommandOutput
   | CreateRepositoryCommandOutput
+  | CreateRepositoryCreationTemplateCommandOutput
   | DeleteLifecyclePolicyCommandOutput
   | DeletePullThroughCacheRuleCommandOutput
   | DeleteRegistryPolicyCommandOutput
   | DeleteRepositoryCommandOutput
+  | DeleteRepositoryCreationTemplateCommandOutput
   | DeleteRepositoryPolicyCommandOutput
   | DescribeImageReplicationStatusCommandOutput
   | DescribeImageScanFindingsCommandOutput
@@ -258,6 +280,7 @@ export type ServiceOutputTypes =
   | DescribePullThroughCacheRulesCommandOutput
   | DescribeRegistryCommandOutput
   | DescribeRepositoriesCommandOutput
+  | DescribeRepositoryCreationTemplatesCommandOutput
   | GetAuthorizationTokenCommandOutput
   | GetDownloadUrlForLayerCommandOutput
   | GetLifecyclePolicyCommandOutput
@@ -281,6 +304,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdatePullThroughCacheRuleCommandOutput
+  | UpdateRepositoryCreationTemplateCommandOutput
   | UploadLayerPartCommandOutput
   | ValidatePullThroughCacheRuleCommandOutput;
 
