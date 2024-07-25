@@ -55,6 +55,7 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
  * //   InstanceTypes: [ // InstanceTypeListDefinition
  * //     { // InstanceTypeItem
  * //       InstanceType: "STRING_VALUE",
+ * //       VCPUs: Number("int"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -1799,6 +1799,12 @@ export interface InstanceTypeItem {
    * @public
    */
   InstanceType?: string;
+
+  /**
+   * <p>The number of default VCPUs in an instance type.</p>
+   * @public
+   */
+  VCPUs?: number;
 }
 
 /**
