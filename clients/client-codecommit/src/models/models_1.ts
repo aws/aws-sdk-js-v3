@@ -8,17 +8,48 @@ import {
   ApprovalRuleTemplate,
   ApprovalState,
   Comment,
+  Commit,
   ConflictDetailLevelTypeEnum,
   ConflictResolution,
   ConflictResolutionStrategyTypeEnum,
   FileModeTypeEnum,
-  FileVersion,
   Location,
   OverrideStatus,
   PullRequest,
   PullRequestStatusEnum,
   RepositoryTrigger,
 } from "./models_0";
+
+/**
+ * <p>Information about a version of a file.</p>
+ * @public
+ */
+export interface FileVersion {
+  /**
+   * <p>Returns information about a specific commit.</p>
+   * @public
+   */
+  commit?: Commit;
+
+  /**
+   * <p>The blob ID of the object that represents the content of the file in this version.</p>
+   * @public
+   */
+  blobId?: string;
+
+  /**
+   * <p>The name and path of the file at which this blob is indexed which contains the data for this version of the file. This value will
+   *         vary between file versions if a file is renamed or if its path changes.</p>
+   * @public
+   */
+  path?: string;
+
+  /**
+   * <p>An array of commit IDs that contain more recent versions of this file. If there are no additional versions of the file, this array will be empty.</p>
+   * @public
+   */
+  revisionChildren?: string[];
+}
 
 /**
  * @public
@@ -2509,7 +2540,7 @@ export interface UpdateRepositoryEncryptionKeyInput {
   /**
    * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
    *             programmatically retrieve a key ID. For more information about acceptable values for keyID, see
-   *             <a href="https://docs.aws.amazon.com/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
+   *             <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
    *         the <i>Key Management Service API Reference</i>.</p>
    * @public
    */

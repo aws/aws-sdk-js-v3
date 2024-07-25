@@ -108,6 +108,9 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @throws {@link InvalidTagsMapException} (client fault)
  *  <p>The map of tags is not valid.</p>
  *
+ * @throws {@link OperationNotAllowedException} (client fault)
+ *  <p>The requested action is not allowed.</p>
+ *
  * @throws {@link RepositoryLimitExceededException} (client fault)
  *  <p>A repository resource limit was exceeded.</p>
  *

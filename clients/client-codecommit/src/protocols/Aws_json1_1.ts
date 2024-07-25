@@ -432,6 +432,7 @@ import {
   NoChangeException,
   NumberOfRulesExceededException,
   NumberOfRuleTemplatesExceededException,
+  OperationNotAllowedException,
   ParentCommitDoesNotExistException,
   ParentCommitIdOutdatedException,
   ParentCommitIdRequiredException,
@@ -3452,6 +3453,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidTagsMapException":
     case "com.amazonaws.codecommit#InvalidTagsMapException":
       throw await de_InvalidTagsMapExceptionRes(parsedOutput, context);
+    case "OperationNotAllowedException":
+    case "com.amazonaws.codecommit#OperationNotAllowedException":
+      throw await de_OperationNotAllowedExceptionRes(parsedOutput, context);
     case "RepositoryLimitExceededException":
     case "com.amazonaws.codecommit#RepositoryLimitExceededException":
       throw await de_RepositoryLimitExceededExceptionRes(parsedOutput, context);
@@ -5951,6 +5955,22 @@ const de_NumberOfRuleTemplatesExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1OperationNotAllowedExceptionRes
+ */
+const de_OperationNotAllowedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OperationNotAllowedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new OperationNotAllowedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1OverrideAlreadySetExceptionRes
  */
 const de_OverrideAlreadySetExceptionRes = async (
@@ -7905,6 +7925,8 @@ const de_MergePullRequestByThreeWayOutput = (
 // de_NumberOfRuleTemplatesExceededException omitted.
 
 // de_ObjectTypes omitted.
+
+// de_OperationNotAllowedException omitted.
 
 // de_OriginApprovalRuleTemplate omitted.
 

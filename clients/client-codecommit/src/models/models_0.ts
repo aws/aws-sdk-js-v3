@@ -4034,7 +4034,7 @@ export interface CreateRepositoryInput {
   /**
    * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
    *             programmatically retrieve a key ID. For more information about acceptable values for kmsKeyID, see
-   *             <a href="https://docs.aws.amazon.com/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
+   *             <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
    *             the <i>Key Management Service API Reference</i>.</p>
    *          <p>If no key is specified, the default <code>aws/codecommit</code> Amazon Web Services managed key is used.</p>
    * @public
@@ -4152,6 +4152,26 @@ export class InvalidTagsMapException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidTagsMapException.prototype);
+  }
+}
+
+/**
+ * <p>The requested action is not allowed.</p>
+ * @public
+ */
+export class OperationNotAllowedException extends __BaseException {
+  readonly name: "OperationNotAllowedException" = "OperationNotAllowedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotAllowedException, __BaseException>) {
+    super({
+      name: "OperationNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotAllowedException.prototype);
   }
 }
 
@@ -7181,35 +7201,4 @@ export interface ListFileCommitHistoryRequest {
    * @public
    */
   nextToken?: string;
-}
-
-/**
- * <p>Information about a version of a file.</p>
- * @public
- */
-export interface FileVersion {
-  /**
-   * <p>Returns information about a specific commit.</p>
-   * @public
-   */
-  commit?: Commit;
-
-  /**
-   * <p>The blob ID of the object that represents the content of the file in this version.</p>
-   * @public
-   */
-  blobId?: string;
-
-  /**
-   * <p>The name and path of the file at which this blob is indexed which contains the data for this version of the file. This value will
-   *         vary between file versions if a file is renamed or if its path changes.</p>
-   * @public
-   */
-  path?: string;
-
-  /**
-   * <p>An array of commit IDs that contain more recent versions of this file. If there are no additional versions of the file, this array will be empty.</p>
-   * @public
-   */
-  revisionChildren?: string[];
 }
