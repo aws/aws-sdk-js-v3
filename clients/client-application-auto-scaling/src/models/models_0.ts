@@ -2534,7 +2534,10 @@ export const MetricType = {
   NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
   RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
   RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+  SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution:
+    "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution",
   SageMakerInferenceComponentInvocationsPerCopy: "SageMakerInferenceComponentInvocationsPerCopy",
+  SageMakerVariantConcurrentRequestsPerModelHighResolution: "SageMakerVariantConcurrentRequestsPerModelHighResolution",
   SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
   SageMakerVariantProvisionedConcurrencyUtilization: "SageMakerVariantProvisionedConcurrencyUtilization",
   WorkSpacesAverageUserSessionsCapacityUtilization: "WorkSpacesAverageUserSessionsCapacityUtilization",
