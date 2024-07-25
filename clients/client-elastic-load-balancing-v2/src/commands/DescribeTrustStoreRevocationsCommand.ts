@@ -37,8 +37,8 @@ export interface DescribeTrustStoreRevocationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the revocation files in use by the specified
- *       trust store arn, or revocation ID.</p>
+ * <p>Describes the revocation files in use by the specified trust store or revocation
+ *       files.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

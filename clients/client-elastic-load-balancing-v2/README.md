@@ -322,6 +322,14 @@ DeleteRule
 </details>
 <details>
 <summary>
+DeleteSharedTrustStoreAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DeleteSharedTrustStoreAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/DeleteSharedTrustStoreAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/DeleteSharedTrustStoreAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteTargetGroup
 </summary>
 
@@ -454,6 +462,14 @@ DescribeTrustStores
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeTrustStoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/DescribeTrustStoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/DescribeTrustStoresCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/GetResourcePolicyCommandOutput/)
 
 </details>
 <details>

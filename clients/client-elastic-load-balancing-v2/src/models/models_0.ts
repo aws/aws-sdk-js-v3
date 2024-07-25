@@ -1139,6 +1139,21 @@ export interface Cipher {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TrustStoreAssociationStatusEnum = {
+  ACTIVE: "active",
+  REMOVED: "removed",
+} as const;
+
+/**
+ * @public
+ */
+export type TrustStoreAssociationStatusEnum =
+  (typeof TrustStoreAssociationStatusEnum)[keyof typeof TrustStoreAssociationStatusEnum];
+
+/**
  * <p>Information about the mutual authentication attributes of a listener.</p>
  * @public
  */
@@ -1162,6 +1177,12 @@ export interface MutualAuthenticationAttributes {
    * @public
    */
   IgnoreClientCertificateExpiry?: boolean;
+
+  /**
+   * <p>Indicates a shared trust stores association status.</p>
+   * @public
+   */
+  TrustStoreAssociationStatus?: TrustStoreAssociationStatusEnum;
 }
 
 /**
@@ -3155,6 +3176,28 @@ export class TooManyTrustStoresException extends __BaseException {
 }
 
 /**
+ * <p>The specified association cannot be within the same account.</p>
+ * @public
+ */
+export class DeleteAssociationSameAccountException extends __BaseException {
+  readonly name: "DeleteAssociationSameAccountException" = "DeleteAssociationSameAccountException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeleteAssociationSameAccountException, __BaseException>) {
+    super({
+      name: "DeleteAssociationSameAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeleteAssociationSameAccountException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  */
 export interface DeleteListenerInput {
@@ -3201,6 +3244,50 @@ export interface DeleteRuleInput {
  * @public
  */
 export interface DeleteRuleOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteSharedTrustStoreAssociationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   * @public
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSharedTrustStoreAssociationOutput {}
+
+/**
+ * <p>The specified association does not exist.</p>
+ * @public
+ */
+export class TrustStoreAssociationNotFoundException extends __BaseException {
+  readonly name: "TrustStoreAssociationNotFoundException" = "TrustStoreAssociationNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustStoreAssociationNotFoundException, __BaseException>) {
+    super({
+      name: "TrustStoreAssociationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustStoreAssociationNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -4313,7 +4400,7 @@ export interface DescribeTargetHealthInput {
   Targets?: TargetDescription[];
 
   /**
-   * <p>Used to inclue anomaly detection information.</p>
+   * <p>Used to include anomaly detection information.</p>
    * @public
    */
   Include?: DescribeTargetHealthInputIncludeEnum[];
@@ -4737,6 +4824,50 @@ export interface DescribeTrustStoresOutput {
    * @public
    */
   NextMarker?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyOutput {
+  /**
+   * <p>The content of the resource policy.</p>
+   * @public
+   */
+  Policy?: string;
+}
+
+/**
+ * <p>The specified resource does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5218,6 +5349,10 @@ export interface SetIpAddressTypeInput {
    *       <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and
    *       IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public
    *       addresses, with private IPv4 and IPv6 addresses).</p>
+   *          <p>Note: Application Load Balancer authentication only supports IPv4 addresses when
+   *       connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public
+   *       IPv4 address the load balancer cannot complete the authentication process, resulting
+   *       in HTTP 500 errors.</p>
    *          <p>[Network Load Balancers] The IP address type. The possible values are
    *       <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code>
    *       (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code>

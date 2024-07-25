@@ -70,6 +70,10 @@ import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./c
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
 import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "./commands/DeleteLoadBalancerCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import {
+  DeleteSharedTrustStoreAssociationCommandInput,
+  DeleteSharedTrustStoreAssociationCommandOutput,
+} from "./commands/DeleteSharedTrustStoreAssociationCommand";
 import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "./commands/DeleteTargetGroupCommand";
 import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
 import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "./commands/DeregisterTargetsCommand";
@@ -120,6 +124,7 @@ import {
   DescribeTrustStoresCommandInput,
   DescribeTrustStoresCommandOutput,
 } from "./commands/DescribeTrustStoresCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   GetTrustStoreCaCertificatesBundleCommandInput,
   GetTrustStoreCaCertificatesBundleCommandOutput,
@@ -180,6 +185,7 @@ export type ServiceInputTypes =
   | DeleteListenerCommandInput
   | DeleteLoadBalancerCommandInput
   | DeleteRuleCommandInput
+  | DeleteSharedTrustStoreAssociationCommandInput
   | DeleteTargetGroupCommandInput
   | DeleteTrustStoreCommandInput
   | DeregisterTargetsCommandInput
@@ -197,6 +203,7 @@ export type ServiceInputTypes =
   | DescribeTrustStoreAssociationsCommandInput
   | DescribeTrustStoreRevocationsCommandInput
   | DescribeTrustStoresCommandInput
+  | GetResourcePolicyCommandInput
   | GetTrustStoreCaCertificatesBundleCommandInput
   | GetTrustStoreRevocationContentCommandInput
   | ModifyListenerCommandInput
@@ -229,6 +236,7 @@ export type ServiceOutputTypes =
   | DeleteListenerCommandOutput
   | DeleteLoadBalancerCommandOutput
   | DeleteRuleCommandOutput
+  | DeleteSharedTrustStoreAssociationCommandOutput
   | DeleteTargetGroupCommandOutput
   | DeleteTrustStoreCommandOutput
   | DeregisterTargetsCommandOutput
@@ -246,6 +254,7 @@ export type ServiceOutputTypes =
   | DescribeTrustStoreAssociationsCommandOutput
   | DescribeTrustStoreRevocationsCommandOutput
   | DescribeTrustStoresCommandOutput
+  | GetResourcePolicyCommandOutput
   | GetTrustStoreCaCertificatesBundleCommandOutput
   | GetTrustStoreRevocationContentCommandOutput
   | ModifyListenerCommandOutput

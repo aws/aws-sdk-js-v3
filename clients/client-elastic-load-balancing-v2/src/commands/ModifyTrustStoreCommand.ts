@@ -32,7 +32,7 @@ export interface ModifyTrustStoreCommandInput extends ModifyTrustStoreInput {}
 export interface ModifyTrustStoreCommandOutput extends ModifyTrustStoreOutput, __MetadataBearer {}
 
 /**
- * <p>Update the ca certificate bundle for a given trust store.</p>
+ * <p>Update the ca certificate bundle for the specified trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

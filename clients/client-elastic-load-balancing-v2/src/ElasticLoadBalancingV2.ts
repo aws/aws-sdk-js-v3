@@ -46,6 +46,11 @@ import {
 } from "./commands/DeleteLoadBalancerCommand";
 import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
+  DeleteSharedTrustStoreAssociationCommand,
+  DeleteSharedTrustStoreAssociationCommandInput,
+  DeleteSharedTrustStoreAssociationCommandOutput,
+} from "./commands/DeleteSharedTrustStoreAssociationCommand";
+import {
   DeleteTargetGroupCommand,
   DeleteTargetGroupCommandInput,
   DeleteTargetGroupCommandOutput,
@@ -131,6 +136,11 @@ import {
   DescribeTrustStoresCommandOutput,
 } from "./commands/DescribeTrustStoresCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreCaCertificatesBundleCommandInput,
   GetTrustStoreCaCertificatesBundleCommandOutput,
@@ -212,6 +222,7 @@ const commands = {
   DeleteListenerCommand,
   DeleteLoadBalancerCommand,
   DeleteRuleCommand,
+  DeleteSharedTrustStoreAssociationCommand,
   DeleteTargetGroupCommand,
   DeleteTrustStoreCommand,
   DeregisterTargetsCommand,
@@ -229,6 +240,7 @@ const commands = {
   DescribeTrustStoreAssociationsCommand,
   DescribeTrustStoreRevocationsCommand,
   DescribeTrustStoresCommand,
+  GetResourcePolicyCommand,
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreRevocationContentCommand,
   ModifyListenerCommand,
@@ -409,6 +421,23 @@ export interface ElasticLoadBalancingV2 {
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSharedTrustStoreAssociationCommand}
+   */
+  deleteSharedTrustStoreAssociation(
+    args: DeleteSharedTrustStoreAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSharedTrustStoreAssociationCommandOutput>;
+  deleteSharedTrustStoreAssociation(
+    args: DeleteSharedTrustStoreAssociationCommandInput,
+    cb: (err: any, data?: DeleteSharedTrustStoreAssociationCommandOutput) => void
+  ): void;
+  deleteSharedTrustStoreAssociation(
+    args: DeleteSharedTrustStoreAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSharedTrustStoreAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -693,6 +722,23 @@ export interface ElasticLoadBalancingV2 {
     args: DescribeTrustStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTrustStoresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**

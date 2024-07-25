@@ -32,8 +32,7 @@ export interface DescribeTrustStoresCommandInput extends DescribeTrustStoresInpu
 export interface DescribeTrustStoresCommandOutput extends DescribeTrustStoresOutput, __MetadataBearer {}
 
 /**
- * <p>Describes all trust stores for a given account
- *       by trust store arn’s or name.</p>
+ * <p>Describes all trust stores for the specified account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
