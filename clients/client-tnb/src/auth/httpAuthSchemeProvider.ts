@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TnbHttpAuthSchemeParam
       name: "tnb",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TnbClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TnbClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ACMHttpAuthSchemeParam
       name: "acm",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ACMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ACMClientConfig>, context) => ({
       /**
        * @internal
        */

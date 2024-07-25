@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ControlTowerHttpAuthSc
       name: "controltower",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ControlTowerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ControlTowerClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DrsHttpAuthSchemeParam
       name: "drs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DrsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DrsClientConfig>, context) => ({
       /**
        * @internal
        */

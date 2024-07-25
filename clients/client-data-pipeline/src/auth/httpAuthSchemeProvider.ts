@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DataPipelineHttpAuthSc
       name: "datapipeline",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DataPipelineClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DataPipelineClientConfig>, context) => ({
       /**
        * @internal
        */

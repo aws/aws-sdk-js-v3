@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "dms",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DatabaseMigrationServiceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DatabaseMigrationServiceClientConfig>, context) => ({
       /**
        * @internal
        */

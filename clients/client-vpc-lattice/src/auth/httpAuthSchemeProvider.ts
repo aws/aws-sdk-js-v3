@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: VPCLatticeHttpAuthSche
       name: "vpc-lattice",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: VPCLatticeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<VPCLatticeClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "license-manager-linux-subscriptions",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LicenseManagerLinuxSubscriptionsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LicenseManagerLinuxSubscriptionsClientConfig>, context) => ({
       /**
        * @internal
        */

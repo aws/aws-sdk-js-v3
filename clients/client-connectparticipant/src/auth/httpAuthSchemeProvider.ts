@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ConnectParticipantHttp
       name: "execute-api",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ConnectParticipantClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ConnectParticipantClientConfig>, context) => ({
       /**
        * @internal
        */

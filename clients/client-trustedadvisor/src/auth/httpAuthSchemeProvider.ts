@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TrustedAdvisorHttpAuth
       name: "trustedadvisor",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TrustedAdvisorClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TrustedAdvisorClientConfig>, context) => ({
       /**
        * @internal
        */

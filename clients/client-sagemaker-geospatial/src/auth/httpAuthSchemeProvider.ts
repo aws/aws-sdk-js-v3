@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SageMakerGeospatialHtt
       name: "sagemaker-geospatial",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SageMakerGeospatialClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SageMakerGeospatialClientConfig>, context) => ({
       /**
        * @internal
        */

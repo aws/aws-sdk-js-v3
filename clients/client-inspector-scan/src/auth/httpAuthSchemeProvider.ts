@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: InspectorScanHttpAuthS
       name: "inspector-scan",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: InspectorScanClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<InspectorScanClientConfig>, context) => ({
       /**
        * @internal
        */

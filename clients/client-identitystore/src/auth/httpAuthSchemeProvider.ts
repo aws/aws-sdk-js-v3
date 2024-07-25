@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IdentitystoreHttpAuthS
       name: "identitystore",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IdentitystoreClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IdentitystoreClientConfig>, context) => ({
       /**
        * @internal
        */

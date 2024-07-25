@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BedrockAgentRuntimeHtt
       name: "bedrock",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BedrockAgentRuntimeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BedrockAgentRuntimeClientConfig>, context) => ({
       /**
        * @internal
        */

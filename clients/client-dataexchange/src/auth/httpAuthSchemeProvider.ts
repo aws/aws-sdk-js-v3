@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DataExchangeHttpAuthSc
       name: "dataexchange",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DataExchangeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DataExchangeClientConfig>, context) => ({
       /**
        * @internal
        */

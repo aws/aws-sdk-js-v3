@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DataSyncHttpAuthScheme
       name: "datasync",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DataSyncClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DataSyncClientConfig>, context) => ({
       /**
        * @internal
        */

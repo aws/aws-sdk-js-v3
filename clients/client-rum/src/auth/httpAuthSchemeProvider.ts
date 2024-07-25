@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RUMHttpAuthSchemeParam
       name: "rum",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RUMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RUMClientConfig>, context) => ({
       /**
        * @internal
        */

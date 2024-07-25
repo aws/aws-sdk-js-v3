@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PaymentCryptographyHtt
       name: "payment-cryptography",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PaymentCryptographyClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PaymentCryptographyClientConfig>, context) => ({
       /**
        * @internal
        */

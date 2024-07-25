@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AppTestHttpAuthSchemeP
       name: "apptest",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AppTestClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AppTestClientConfig>, context) => ({
       /**
        * @internal
        */

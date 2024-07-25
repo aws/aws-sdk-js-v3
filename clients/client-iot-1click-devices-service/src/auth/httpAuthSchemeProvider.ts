@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "iot1click",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoT1ClickDevicesServiceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoT1ClickDevicesServiceClientConfig>, context) => ({
       /**
        * @internal
        */

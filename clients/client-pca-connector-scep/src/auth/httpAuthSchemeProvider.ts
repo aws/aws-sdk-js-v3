@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PcaConnectorScepHttpAu
       name: "pca-connector-scep",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PcaConnectorScepClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PcaConnectorScepClientConfig>, context) => ({
       /**
        * @internal
        */

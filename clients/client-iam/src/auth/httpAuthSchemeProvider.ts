@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IAMHttpAuthSchemeParam
       name: "iam",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IAMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IAMClientConfig>, context) => ({
       /**
        * @internal
        */

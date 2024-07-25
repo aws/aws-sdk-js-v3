@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MachineLearningHttpAut
       name: "machinelearning",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MachineLearningClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MachineLearningClientConfig>, context) => ({
       /**
        * @internal
        */

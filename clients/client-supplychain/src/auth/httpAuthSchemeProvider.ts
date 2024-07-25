@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SupplyChainHttpAuthSch
       name: "scn",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SupplyChainClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SupplyChainClientConfig>, context) => ({
       /**
        * @internal
        */

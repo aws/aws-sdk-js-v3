@@ -2901,7 +2901,7 @@ const se_ChatInputStream = (input: any, context: __SerdeContext & __EventStreamS
 };
 const se_ActionExecutionEvent_event = (input: ActionExecutionEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "ActionExecutionEvent" },
+    ":event-type": { type: "string", value: "actionExecutionEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2912,7 +2912,7 @@ const se_ActionExecutionEvent_event = (input: ActionExecutionEvent, context: __S
 };
 const se_AttachmentInputEvent_event = (input: AttachmentInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "AttachmentInputEvent" },
+    ":event-type": { type: "string", value: "attachmentEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2923,7 +2923,7 @@ const se_AttachmentInputEvent_event = (input: AttachmentInputEvent, context: __S
 };
 const se_AuthChallengeResponseEvent_event = (input: AuthChallengeResponseEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "AuthChallengeResponseEvent" },
+    ":event-type": { type: "string", value: "authChallengeResponseEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2934,7 +2934,7 @@ const se_AuthChallengeResponseEvent_event = (input: AuthChallengeResponseEvent, 
 };
 const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "ConfigurationEvent" },
+    ":event-type": { type: "string", value: "configurationEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2945,7 +2945,7 @@ const se_ConfigurationEvent_event = (input: ConfigurationEvent, context: __Serde
 };
 const se_EndOfInputEvent_event = (input: EndOfInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "EndOfInputEvent" },
+    ":event-type": { type: "string", value: "endOfInputEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };
@@ -2956,7 +2956,7 @@ const se_EndOfInputEvent_event = (input: EndOfInputEvent, context: __SerdeContex
 };
 const se_TextInputEvent_event = (input: TextInputEvent, context: __SerdeContext): __Message => {
   const headers: __MessageHeaders = {
-    ":event-type": { type: "string", value: "TextInputEvent" },
+    ":event-type": { type: "string", value: "textEvent" },
     ":message-type": { type: "string", value: "event" },
     ":content-type": { type: "string", value: "application/json" },
   };

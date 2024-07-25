@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TextractHttpAuthScheme
       name: "textract",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TextractClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TextractClientConfig>, context) => ({
       /**
        * @internal
        */

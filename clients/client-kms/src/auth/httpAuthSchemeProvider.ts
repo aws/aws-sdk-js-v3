@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: KMSHttpAuthSchemeParam
       name: "kms",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: KMSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<KMSClientConfig>, context) => ({
       /**
        * @internal
        */

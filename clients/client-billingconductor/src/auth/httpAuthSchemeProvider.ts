@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BillingconductorHttpAu
       name: "billingconductor",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BillingconductorClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BillingconductorClientConfig>, context) => ({
       /**
        * @internal
        */

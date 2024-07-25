@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: NetworkMonitorHttpAuth
       name: "networkmonitor",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: NetworkMonitorClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<NetworkMonitorClientConfig>, context) => ({
       /**
        * @internal
        */

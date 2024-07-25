@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DeadlineHttpAuthScheme
       name: "deadline",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DeadlineClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DeadlineClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "aoss",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OpenSearchServerlessClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OpenSearchServerlessClientConfig>, context) => ({
       /**
        * @internal
        */

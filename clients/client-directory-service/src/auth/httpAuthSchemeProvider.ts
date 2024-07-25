@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DirectoryServiceHttpAu
       name: "ds",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DirectoryServiceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DirectoryServiceClientConfig>, context) => ({
       /**
        * @internal
        */

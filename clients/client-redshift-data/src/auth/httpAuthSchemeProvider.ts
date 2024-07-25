@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RedshiftDataHttpAuthSc
       name: "redshift-data",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RedshiftDataClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RedshiftDataClientConfig>, context) => ({
       /**
        * @internal
        */

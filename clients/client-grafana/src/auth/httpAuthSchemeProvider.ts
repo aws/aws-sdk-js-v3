@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GrafanaHttpAuthSchemeP
       name: "grafana",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GrafanaClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GrafanaClientConfig>, context) => ({
       /**
        * @internal
        */

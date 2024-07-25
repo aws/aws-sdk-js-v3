@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: QConnectHttpAuthScheme
       name: "wisdom",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: QConnectClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<QConnectClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EMRServerlessHttpAuthS
       name: "emr-serverless",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EMRServerlessClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EMRServerlessClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SWFHttpAuthSchemeParam
       name: "swf",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SWFClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SWFClientConfig>, context) => ({
       /**
        * @internal
        */

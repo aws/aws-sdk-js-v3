@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SSMContactsHttpAuthSch
       name: "ssm-contacts",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SSMContactsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SSMContactsClientConfig>, context) => ({
       /**
        * @internal
        */

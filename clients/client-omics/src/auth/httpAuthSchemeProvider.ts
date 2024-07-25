@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: OmicsHttpAuthSchemePar
       name: "omics",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OmicsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OmicsClientConfig>, context) => ({
       /**
        * @internal
        */

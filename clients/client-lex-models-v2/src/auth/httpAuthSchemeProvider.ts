@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LexModelsV2HttpAuthSch
       name: "lex",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LexModelsV2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LexModelsV2ClientConfig>, context) => ({
       /**
        * @internal
        */

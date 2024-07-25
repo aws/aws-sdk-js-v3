@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RepostspaceHttpAuthSch
       name: "repostspace",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RepostspaceClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RepostspaceClientConfig>, context) => ({
       /**
        * @internal
        */

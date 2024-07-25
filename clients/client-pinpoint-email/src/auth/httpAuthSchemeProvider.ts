@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PinpointEmailHttpAuthS
       name: "ses",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PinpointEmailClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PinpointEmailClientConfig>, context) => ({
       /**
        * @internal
        */

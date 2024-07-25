@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: S3OutpostsHttpAuthSche
       name: "s3-outposts",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: S3OutpostsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<S3OutpostsClientConfig>, context) => ({
       /**
        * @internal
        */

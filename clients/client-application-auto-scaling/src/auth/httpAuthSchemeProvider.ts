@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "application-autoscaling",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ApplicationAutoScalingClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ApplicationAutoScalingClientConfig>, context) => ({
       /**
        * @internal
        */

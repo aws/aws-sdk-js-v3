@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WAFV2HttpAuthSchemePar
       name: "wafv2",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WAFV2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WAFV2ClientConfig>, context) => ({
       /**
        * @internal
        */

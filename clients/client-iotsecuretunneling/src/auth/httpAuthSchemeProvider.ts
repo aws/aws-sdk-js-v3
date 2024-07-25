@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTSecureTunnelingHttp
       name: "IoTSecuredTunneling",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTSecureTunnelingClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTSecureTunnelingClientConfig>, context) => ({
       /**
        * @internal
        */

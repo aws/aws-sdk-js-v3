@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeartifactHttpAuthSc
       name: "codeartifact",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeartifactClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeartifactClientConfig>, context) => ({
       /**
        * @internal
        */

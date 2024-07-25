@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: KendraHttpAuthSchemePa
       name: "kendra",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: KendraClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<KendraClientConfig>, context) => ({
       /**
        * @internal
        */

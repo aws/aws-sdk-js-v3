@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: OSISHttpAuthSchemePara
       name: "osis",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OSISClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OSISClientConfig>, context) => ({
       /**
        * @internal
        */

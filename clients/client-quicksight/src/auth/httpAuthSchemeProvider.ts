@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: QuickSightHttpAuthSche
       name: "quicksight",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: QuickSightClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<QuickSightClientConfig>, context) => ({
       /**
        * @internal
        */

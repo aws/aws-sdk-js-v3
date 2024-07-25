@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AuditManagerHttpAuthSc
       name: "auditmanager",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AuditManagerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AuditManagerClientConfig>, context) => ({
       /**
        * @internal
        */

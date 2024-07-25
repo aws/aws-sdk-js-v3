@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: NetworkFirewallHttpAut
       name: "network-firewall",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: NetworkFirewallClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<NetworkFirewallClientConfig>, context) => ({
       /**
        * @internal
        */

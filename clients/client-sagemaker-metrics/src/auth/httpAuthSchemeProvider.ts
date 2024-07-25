@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SageMakerMetricsHttpAu
       name: "sagemaker",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SageMakerMetricsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SageMakerMetricsClientConfig>, context) => ({
       /**
        * @internal
        */

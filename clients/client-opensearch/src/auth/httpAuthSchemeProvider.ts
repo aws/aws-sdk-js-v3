@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: OpenSearchHttpAuthSche
       name: "es",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OpenSearchClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OpenSearchClientConfig>, context) => ({
       /**
        * @internal
        */

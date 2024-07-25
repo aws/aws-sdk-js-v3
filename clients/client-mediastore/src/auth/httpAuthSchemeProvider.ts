@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MediaStoreHttpAuthSche
       name: "mediastore",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MediaStoreClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MediaStoreClientConfig>, context) => ({
       /**
        * @internal
        */

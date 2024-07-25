@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SchedulerHttpAuthSchem
       name: "scheduler",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SchedulerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SchedulerClientConfig>, context) => ({
       /**
        * @internal
        */

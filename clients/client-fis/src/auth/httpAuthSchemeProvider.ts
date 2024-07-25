@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: FisHttpAuthSchemeParam
       name: "fis",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: FisClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<FisClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: FinspaceDataHttpAuthSc
       name: "finspace-api",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: FinspaceDataClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<FinspaceDataClientConfig>, context) => ({
       /**
        * @internal
        */

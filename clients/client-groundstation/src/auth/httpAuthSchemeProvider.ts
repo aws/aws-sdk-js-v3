@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GroundStationHttpAuthS
       name: "groundstation",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GroundStationClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GroundStationClientConfig>, context) => ({
       /**
        * @internal
        */

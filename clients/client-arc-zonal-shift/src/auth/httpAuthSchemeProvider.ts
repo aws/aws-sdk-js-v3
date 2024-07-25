@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ARCZonalShiftHttpAuthS
       name: "arc-zonal-shift",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ARCZonalShiftClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ARCZonalShiftClientConfig>, context) => ({
       /**
        * @internal
        */

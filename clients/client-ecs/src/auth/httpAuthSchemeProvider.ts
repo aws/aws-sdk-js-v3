@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ECSHttpAuthSchemeParam
       name: "ecs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ECSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ECSClientConfig>, context) => ({
       /**
        * @internal
        */

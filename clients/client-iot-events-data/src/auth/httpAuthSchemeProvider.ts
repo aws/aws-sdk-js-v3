@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTEventsDataHttpAuthS
       name: "ioteventsdata",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTEventsDataClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTEventsDataClientConfig>, context) => ({
       /**
        * @internal
        */

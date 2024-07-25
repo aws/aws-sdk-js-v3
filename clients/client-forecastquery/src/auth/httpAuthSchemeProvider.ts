@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ForecastqueryHttpAuthS
       name: "forecast",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ForecastqueryClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ForecastqueryClientConfig>, context) => ({
       /**
        * @internal
        */

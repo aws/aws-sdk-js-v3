@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: QBusinessHttpAuthSchem
       name: "qbusiness",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: QBusinessClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<QBusinessClientConfig>, context) => ({
       /**
        * @internal
        */

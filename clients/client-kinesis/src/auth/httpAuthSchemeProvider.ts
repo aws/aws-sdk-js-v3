@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: KinesisHttpAuthSchemeP
       name: "kinesis",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: KinesisClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<KinesisClientConfig>, context) => ({
       /**
        * @internal
        */

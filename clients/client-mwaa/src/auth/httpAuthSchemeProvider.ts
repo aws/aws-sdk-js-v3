@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MWAAHttpAuthSchemePara
       name: "airflow",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MWAAClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MWAAClientConfig>, context) => ({
       /**
        * @internal
        */

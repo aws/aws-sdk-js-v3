@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ConnectCampaignsHttpAu
       name: "connect-campaigns",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ConnectCampaignsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ConnectCampaignsClientConfig>, context) => ({
       /**
        * @internal
        */

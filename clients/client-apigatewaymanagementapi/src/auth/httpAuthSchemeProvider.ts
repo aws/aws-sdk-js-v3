@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "execute-api",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ApiGatewayManagementApiClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ApiGatewayManagementApiClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ConnectCasesHttpAuthSc
       name: "cases",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ConnectCasesClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ConnectCasesClientConfig>, context) => ({
       /**
        * @internal
        */

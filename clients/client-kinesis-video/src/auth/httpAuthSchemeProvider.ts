@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: KinesisVideoHttpAuthSc
       name: "kinesisvideo",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: KinesisVideoClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<KinesisVideoClientConfig>, context) => ({
       /**
        * @internal
        */

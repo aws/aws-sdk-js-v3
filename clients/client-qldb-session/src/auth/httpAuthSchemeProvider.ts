@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: QLDBSessionHttpAuthSch
       name: "qldb",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: QLDBSessionClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<QLDBSessionClientConfig>, context) => ({
       /**
        * @internal
        */

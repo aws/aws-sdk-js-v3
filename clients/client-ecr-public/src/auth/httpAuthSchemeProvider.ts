@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ECRPUBLICHttpAuthSchem
       name: "ecr-public",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ECRPUBLICClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ECRPUBLICClientConfig>, context) => ({
       /**
        * @internal
        */

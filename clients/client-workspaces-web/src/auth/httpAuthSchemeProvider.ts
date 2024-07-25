@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WorkSpacesWebHttpAuthS
       name: "workspaces-web",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WorkSpacesWebClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WorkSpacesWebClientConfig>, context) => ({
       /**
        * @internal
        */

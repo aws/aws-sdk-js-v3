@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RekognitionHttpAuthSch
       name: "rekognition",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RekognitionClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RekognitionClientConfig>, context) => ({
       /**
        * @internal
        */

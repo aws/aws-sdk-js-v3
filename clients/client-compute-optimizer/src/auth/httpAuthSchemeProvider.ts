@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ComputeOptimizerHttpAu
       name: "compute-optimizer",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ComputeOptimizerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ComputeOptimizerClientConfig>, context) => ({
       /**
        * @internal
        */

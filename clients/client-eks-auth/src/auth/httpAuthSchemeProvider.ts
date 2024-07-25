@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EKSAuthHttpAuthSchemeP
       name: "eks-auth",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EKSAuthClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EKSAuthClientConfig>, context) => ({
       /**
        * @internal
        */

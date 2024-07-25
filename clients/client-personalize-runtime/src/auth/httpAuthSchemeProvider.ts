@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PersonalizeRuntimeHttp
       name: "personalize",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PersonalizeRuntimeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PersonalizeRuntimeClientConfig>, context) => ({
       /**
        * @internal
        */

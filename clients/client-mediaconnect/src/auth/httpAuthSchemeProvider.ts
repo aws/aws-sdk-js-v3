@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MediaConnectHttpAuthSc
       name: "mediaconnect",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MediaConnectClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MediaConnectClientConfig>, context) => ({
       /**
        * @internal
        */

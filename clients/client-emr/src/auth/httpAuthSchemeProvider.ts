@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EMRHttpAuthSchemeParam
       name: "elasticmapreduce",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EMRClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EMRClientConfig>, context) => ({
       /**
        * @internal
        */

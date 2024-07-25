@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MarketplaceMeteringHtt
       name: "aws-marketplace",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MarketplaceMeteringClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MarketplaceMeteringClientConfig>, context) => ({
       /**
        * @internal
        */

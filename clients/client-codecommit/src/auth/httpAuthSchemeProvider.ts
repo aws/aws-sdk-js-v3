@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeCommitHttpAuthSche
       name: "codecommit",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeCommitClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeCommitClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "marketplacecommerceanalytics",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MarketplaceCommerceAnalyticsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MarketplaceCommerceAnalyticsClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WellArchitectedHttpAut
       name: "wellarchitected",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WellArchitectedClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WellArchitectedClientConfig>, context) => ({
       /**
        * @internal
        */

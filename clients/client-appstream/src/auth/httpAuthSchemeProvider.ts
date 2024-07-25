@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AppStreamHttpAuthSchem
       name: "appstream",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AppStreamClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AppStreamClientConfig>, context) => ({
       /**
        * @internal
        */

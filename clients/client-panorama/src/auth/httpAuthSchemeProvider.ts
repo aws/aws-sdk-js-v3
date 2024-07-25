@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PanoramaHttpAuthScheme
       name: "panorama",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PanoramaClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PanoramaClientConfig>, context) => ({
       /**
        * @internal
        */

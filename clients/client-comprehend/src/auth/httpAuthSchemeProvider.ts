@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ComprehendHttpAuthSche
       name: "comprehend",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ComprehendClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ComprehendClientConfig>, context) => ({
       /**
        * @internal
        */

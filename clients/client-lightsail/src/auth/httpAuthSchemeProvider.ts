@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LightsailHttpAuthSchem
       name: "lightsail",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LightsailClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LightsailClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudFrontHttpAuthSche
       name: "cloudfront",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudFrontClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudFrontClientConfig>, context) => ({
       /**
        * @internal
        */

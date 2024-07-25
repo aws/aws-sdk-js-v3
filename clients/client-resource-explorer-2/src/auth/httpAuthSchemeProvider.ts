@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ResourceExplorer2HttpA
       name: "resource-explorer-2",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ResourceExplorer2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ResourceExplorer2ClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AmplifyUIBuilderHttpAu
       name: "amplifyuibuilder",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AmplifyUIBuilderClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AmplifyUIBuilderClientConfig>, context) => ({
       /**
        * @internal
        */

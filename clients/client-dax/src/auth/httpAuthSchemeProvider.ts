@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DAXHttpAuthSchemeParam
       name: "dax",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DAXClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DAXClientConfig>, context) => ({
       /**
        * @internal
        */

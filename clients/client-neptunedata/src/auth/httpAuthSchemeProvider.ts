@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: NeptunedataHttpAuthSch
       name: "neptune-db",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: NeptunedataClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<NeptunedataClientConfig>, context) => ({
       /**
        * @internal
        */

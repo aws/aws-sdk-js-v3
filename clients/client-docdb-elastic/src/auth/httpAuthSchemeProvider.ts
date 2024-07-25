@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DocDBElasticHttpAuthSc
       name: "docdb-elastic",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DocDBElasticClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DocDBElasticClientConfig>, context) => ({
       /**
        * @internal
        */
