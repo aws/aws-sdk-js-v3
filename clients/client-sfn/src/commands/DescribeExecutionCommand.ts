@@ -47,6 +47,7 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * const client = new SFNClient(config);
  * const input = { // DescribeExecutionInput
  *   executionArn: "STRING_VALUE", // required
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
@@ -90,6 +91,15 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  *
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>

@@ -47,6 +47,11 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * //   activityArn: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   creationDate: new Date("TIMESTAMP"), // required
+ * //   encryptionConfiguration: { // EncryptionConfiguration
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     kmsDataKeyReusePeriodSeconds: Number("int"),
+ * //     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ * //   },
  * // };
  *
  * ```

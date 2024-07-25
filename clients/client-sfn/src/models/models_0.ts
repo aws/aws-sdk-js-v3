@@ -4,6 +4,26 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SFNServiceException as __BaseException } from "./SFNServiceException";
 
 /**
+ * <p>Activity already exists. <code>EncryptionConfiguration</code> may not be updated.</p>
+ * @public
+ */
+export class ActivityAlreadyExists extends __BaseException {
+  readonly name: "ActivityAlreadyExists" = "ActivityAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActivityAlreadyExists, __BaseException>) {
+    super({
+      name: "ActivityAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActivityAlreadyExists.prototype);
+  }
+}
+
+/**
  * <p>The specified activity does not exist.</p>
  * @public
  */
@@ -248,6 +268,52 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  AWS_OWNED_KEY: "AWS_OWNED_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * <p>Settings to configure server-side encryption. </p>
+ *          <p>
+ *         For additional control over security, you can encrypt your data using a <b>customer-managed key</b> for  Step Functions state machines and activities. You can configure a symmetric KMS key and data key reuse period when creating or updating a <b>State Machine</b>, and when creating an <b>Activity</b>. The execution history and state machine definition will be encrypted with the key applied to the State Machine. Activity inputs will be encrypted with the key applied to the Activity.
+ *     </p>
+ *          <note>
+ *             <p> Step Functions automatically enables encryption at rest using  Amazon Web Services owned keys at no charge. However, KMS charges apply when using a customer managed key. For more information about pricing, see <a href="https://aws.amazon.com/kms/pricing/">Key Management Service pricing</a>.</p>
+ *          </note>
+ *          <p>For more information on KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/overview.html">What is  Key Management Service?</a>
+ *          </p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>An alias, alias ARN, key ID, or key ARN of a symmetric encryption KMS key to encrypt data. To specify a KMS key in a different Amazon Web Services  account, you must use the key ARN or alias ARN.</p>
+   * @public
+   */
+  kmsKeyId?: string;
+
+  /**
+   * <p>Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call <code>GenerateDataKey</code>. Only applies to customer managed keys.</p>
+   * @public
+   */
+  kmsDataKeyReusePeriodSeconds?: number;
+
+  /**
+   * <p>Encryption type</p>
+   * @public
+   */
+  type: EncryptionType | undefined;
+}
+
+/**
  * <p>Tags are key-value pairs that can be associated with Step Functions state machines and
  *       activities.</p>
  *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
@@ -315,6 +381,12 @@ export interface CreateActivityInput {
    * @public
    */
   tags?: Tag[];
+
+  /**
+   * <p>Settings to configure server-side encryption.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration;
 }
 
 /**
@@ -335,6 +407,26 @@ export interface CreateActivityOutput {
 }
 
 /**
+ * <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ * @public
+ */
+export class InvalidEncryptionConfiguration extends __BaseException {
+  readonly name: "InvalidEncryptionConfiguration" = "InvalidEncryptionConfiguration";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEncryptionConfiguration, __BaseException>) {
+    super({
+      name: "InvalidEncryptionConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEncryptionConfiguration.prototype);
+  }
+}
+
+/**
  * <p>The provided name is not valid.</p>
  * @public
  */
@@ -351,6 +443,46 @@ export class InvalidName extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidName.prototype);
+  }
+}
+
+/**
+ * <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ * @public
+ */
+export class KmsAccessDeniedException extends __BaseException {
+  readonly name: "KmsAccessDeniedException" = "KmsAccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsAccessDeniedException, __BaseException>) {
+    super({
+      name: "KmsAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsAccessDeniedException.prototype);
+  }
+}
+
+/**
+ * <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ * @public
+ */
+export class KmsThrottlingException extends __BaseException {
+  readonly name: "KmsThrottlingException" = "KmsThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsThrottlingException, __BaseException>) {
+    super({
+      name: "KmsThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsThrottlingException.prototype);
   }
 }
 
@@ -586,6 +718,12 @@ export interface CreateStateMachineInput {
    * @public
    */
   versionDescription?: string;
+
+  /**
+   * <p>Settings to configure server-side encryption.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration;
 }
 
 /**
@@ -652,7 +790,7 @@ export class InvalidDefinition extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>Configuration is not valid.</p>
  * @public
  */
 export class InvalidLoggingConfiguration extends __BaseException {
@@ -755,7 +893,7 @@ export class StateMachineLimitExceeded extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>State machine type is not supported.</p>
  * @public
  */
 export class StateMachineTypeNotSupported extends __BaseException {
@@ -832,9 +970,8 @@ export interface RoutingConfigurationListItem {
   stateMachineVersionArn: string | undefined;
 
   /**
-   * <p>The percentage of traffic you want to route to a state machine
-   *       version. The sum of the weights in the routing
-   *       configuration must be equal to 100.</p>
+   * <p>The percentage of traffic you want to route to a state machine version. The sum of the
+   *       weights in the routing configuration must be equal to 100.</p>
    * @public
    */
   weight: number | undefined;
@@ -1046,7 +1183,27 @@ export interface DescribeActivityOutput {
    * @public
    */
   creationDate: Date | undefined;
+
+  /**
+   * <p>Settings for configured server-side encryption.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const IncludedData = {
+  ALL_DATA: "ALL_DATA",
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
 
 /**
  * @public
@@ -1057,6 +1214,12 @@ export interface DescribeExecutionInput {
    * @public
    */
   executionArn: string | undefined;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call DescribeStateMachine API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   * @public
+   */
+  includedData?: IncludedData;
 }
 
 /**
@@ -1333,6 +1496,50 @@ export class ExecutionDoesNotExist extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const KmsKeyState = {
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  PENDING_DELETION: "PENDING_DELETION",
+  PENDING_IMPORT: "PENDING_IMPORT",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type KmsKeyState = (typeof KmsKeyState)[keyof typeof KmsKeyState];
+
+/**
+ * <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ * @public
+ */
+export class KmsInvalidStateException extends __BaseException {
+  readonly name: "KmsInvalidStateException" = "KmsInvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Current status of the KMS; key. For example: <code>DISABLED</code>, <code>PENDING_DELETION</code>, <code>PENDING_IMPORT</code>, <code>UNAVAILABLE</code>, <code>CREATING</code>.</p>
+   * @public
+   */
+  kmsKeyState?: KmsKeyState;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsInvalidStateException, __BaseException>) {
+    super({
+      name: "KmsInvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsInvalidStateException.prototype);
+    this.kmsKeyState = opts.kmsKeyState;
+  }
+}
+
+/**
+ * @public
  */
 export interface DescribeMapRunInput {
   /**
@@ -1577,6 +1784,17 @@ export interface DescribeStateMachineInput {
    * @public
    */
   stateMachineArn: string | undefined;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   *          <note>
+   *             <p>
+   *             When calling a labelled ARN for an encrypted state machine, the <code>includedData = METADATA_ONLY</code> parameter will not apply because Step Functions needs to decrypt the entire state machine definition to get the Distributed Map state’s definition. In this case, the API caller needs to have <code>kms:Decrypt</code> permission.
+   *         </p>
+   *          </note>
+   * @public
+   */
+  includedData?: IncludedData;
 }
 
 /**
@@ -1640,6 +1858,7 @@ export interface DescribeStateMachineOutput {
 
   /**
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
+   *          <p>If called with <code>includedData = METADATA_ONLY</code>, the returned definition will be <code>\{\}</code>.</p>
    * @public
    */
   definition: string | undefined;
@@ -1698,6 +1917,12 @@ export interface DescribeStateMachineOutput {
    * @public
    */
   description?: string;
+
+  /**
+   * <p>Settings to configure server-side encryption. </p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration;
 }
 
 /**
@@ -1782,6 +2007,12 @@ export interface DescribeStateMachineForExecutionInput {
    * @public
    */
   executionArn: string | undefined;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   * @public
+   */
+  includedData?: IncludedData;
 }
 
 /**
@@ -1850,6 +2081,12 @@ export interface DescribeStateMachineForExecutionOutput {
    * @public
    */
   revisionId?: string;
+
+  /**
+   * <p>Settings to configure server-side encryption. </p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration;
 }
 
 /**
@@ -3817,8 +4054,7 @@ export interface StartExecutionInput {
   stateMachineArn: string | undefined;
 
   /**
-   * <p>Optional name of the execution.
-   *       This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
+   * <p>Optional name of the execution. This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
    *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>If you don't provide a name for the execution, Step Functions automatically generates a universally unique identifier (UUID) as the execution name.</p>
@@ -3925,6 +4161,12 @@ export interface StartSyncExecutionInput {
    * @public
    */
   traceHeader?: string;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   * @public
+   */
+  includedData?: IncludedData;
 }
 
 /**
@@ -4487,6 +4729,12 @@ export interface UpdateStateMachineInput {
    * @public
    */
   versionDescription?: string;
+
+  /**
+   * <p>Settings to configure server-side encryption. </p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration;
 }
 
 /**

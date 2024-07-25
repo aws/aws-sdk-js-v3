@@ -74,6 +74,7 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * const client = new SFNClient(config);
  * const input = { // DescribeStateMachineInput
  *   stateMachineArn: "STRING_VALUE", // required
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new DescribeStateMachineCommand(input);
  * const response = await client.send(command);
@@ -102,6 +103,11 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * //   label: "STRING_VALUE",
  * //   revisionId: "STRING_VALUE",
  * //   description: "STRING_VALUE",
+ * //   encryptionConfiguration: { // EncryptionConfiguration
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     kmsDataKeyReusePeriodSeconds: Number("int"),
+ * //     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ * //   },
  * // };
  *
  * ```
@@ -114,6 +120,15 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  *
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
  *
  * @throws {@link StateMachineDoesNotExist} (client fault)
  *  <p>The specified state machine does not exist.</p>

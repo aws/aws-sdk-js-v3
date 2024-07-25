@@ -118,6 +118,15 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @throws {@link InvalidName} (client fault)
  *  <p>The provided name is not valid.</p>
  *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
  * @throws {@link StateMachineDeleting} (client fault)
  *  <p>The specified state machine is being deleted.</p>
  *

@@ -95,7 +95,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  *  <p>The specified state machine does not exist.</p>
  *
  * @throws {@link StateMachineTypeNotSupported} (client fault)
- *  <p></p>
+ *  <p>State machine type is not supported.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>

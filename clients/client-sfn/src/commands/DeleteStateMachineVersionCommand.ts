@@ -30,9 +30,7 @@ export interface DeleteStateMachineVersionCommandOutput extends DeleteStateMachi
 /**
  * <p>Deletes a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>. After
  *       you delete a version, you can't call <a>StartExecution</a> using that version's ARN
- *       or use
- *       the
- *       version with a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.</p>
+ *       or use the version with a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.</p>
  *          <note>
  *             <p>Deleting a state machine version won't terminate its in-progress executions.</p>
  *          </note>
