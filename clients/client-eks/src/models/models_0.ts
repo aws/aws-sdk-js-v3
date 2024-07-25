@@ -1047,6 +1047,7 @@ export const UpdateParamType = {
   SUBNETS: "Subnets",
   TAINTS_TO_ADD: "TaintsToAdd",
   TAINTS_TO_REMOVE: "TaintsToRemove",
+  UPGRADE_POLICY: "UpgradePolicy",
   VERSION: "Version",
 } as const;
 
@@ -1102,6 +1103,7 @@ export const UpdateType = {
   DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
   ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
   LOGGING_UPDATE: "LoggingUpdate",
+  UPGRADE_POLICY_UPDATE: "UpgradePolicyUpdate",
   VERSION_UPDATE: "VersionUpdate",
   VPC_CONFIG_UPDATE: "VpcConfigUpdate",
 } as const;
@@ -1944,6 +1946,38 @@ export interface VpcConfigRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const SupportType = {
+  EXTENDED: "EXTENDED",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportType = (typeof SupportType)[keyof typeof SupportType];
+
+/**
+ * <p>The support policy to use for the cluster. Extended support allows you to remain on specific Kubernetes versions for longer. Clusters in extended support have higher costs. The default value is <code>EXTENDED</code>. Use <code>STANDARD</code> to disable extended support.</p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the EKS User Guide.</a>
+ *          </p>
+ * @public
+ */
+export interface UpgradePolicyRequest {
+  /**
+   * <p>If the cluster is set to <code>EXTENDED</code>, it will enter extended support at the end of standard support. If the cluster is set to <code>STANDARD</code>, it will be automatically upgraded at the end of standard support.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the EKS User Guide.</a>
+   *          </p>
+   * @public
+   */
+  supportType?: SupportType;
+}
+
+/**
+ * @public
  */
 export interface CreateClusterRequest {
   /**
@@ -2049,6 +2083,12 @@ export interface CreateClusterRequest {
    * @public
    */
   bootstrapSelfManagedAddons?: boolean;
+
+  /**
+   * <p>New clusters, by default, have extended support enabled. You can disable extended support when creating a cluster by setting this value to <code>STANDARD</code>.</p>
+   * @public
+   */
+  upgradePolicy?: UpgradePolicyRequest;
 }
 
 /**
@@ -2362,6 +2402,24 @@ export const ClusterStatus = {
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
 /**
+ * <p>This value indicates if extended support is enabled or disabled for the cluster.</p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the EKS User Guide.</a>
+ *          </p>
+ * @public
+ */
+export interface UpgradePolicyResponse {
+  /**
+   * <p>If the cluster is set to <code>EXTENDED</code>, it will enter extended support at the end of standard support. If the cluster is set to <code>STANDARD</code>, it will be automatically upgraded at the end of standard support.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the EKS User Guide.</a>
+   *          </p>
+   * @public
+   */
+  supportType?: SupportType;
+}
+
+/**
  * <p>An object representing an Amazon EKS cluster.</p>
  * @public
  */
@@ -2510,6 +2568,15 @@ export interface Cluster {
    * @public
    */
   accessConfig?: AccessConfigResponse;
+
+  /**
+   * <p>This value indicates if extended support is enabled or disabled for the cluster.</p>
+   *          <p>
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn more about EKS Extended Support in the EKS User Guide.</a>
+   *          </p>
+   * @public
+   */
+  upgradePolicy?: UpgradePolicyResponse;
 }
 
 /**
@@ -6451,6 +6518,12 @@ export interface UpdateClusterConfigRequest {
    * @public
    */
   accessConfig?: UpdateAccessConfigRequest;
+
+  /**
+   * <p>You can enable or disable extended support for clusters currently on standard support. You cannot disable extended support once it starts. You must enable extended support before your cluster exits standard support.</p>
+   * @public
+   */
+  upgradePolicy?: UpgradePolicyRequest;
 }
 
 /**

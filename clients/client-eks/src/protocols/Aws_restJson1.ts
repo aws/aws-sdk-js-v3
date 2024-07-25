@@ -229,6 +229,7 @@ import {
   UpdateAccessConfigRequest,
   UpdateLabelsPayload,
   UpdateTaintsPayload,
+  UpgradePolicyRequest,
   VpcConfigRequest,
 } from "../models/models_0";
 
@@ -390,6 +391,7 @@ export const se_CreateClusterCommand = async (
       resourcesVpcConfig: (_) => _json(_),
       roleArn: [],
       tags: (_) => _json(_),
+      upgradePolicy: (_) => _json(_),
       version: [],
     })
   );
@@ -1329,6 +1331,7 @@ export const se_UpdateClusterConfigCommand = async (
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logging: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
+      upgradePolicy: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -3060,6 +3063,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_UpdateTaintsPayload omitted.
 
+// se_UpgradePolicyRequest omitted.
+
 // se_VpcConfigRequest omitted.
 
 // de_AccessConfigResponse omitted.
@@ -3208,6 +3213,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     roleArn: __expectString,
     status: __expectString,
     tags: _json,
+    upgradePolicy: _json,
     version: __expectString,
   }) as any;
 };
@@ -3523,6 +3529,8 @@ const de_Update = (output: any, context: __SerdeContext): Update => {
 // de_UpdateParam omitted.
 
 // de_UpdateParams omitted.
+
+// de_UpgradePolicyResponse omitted.
 
 // de_VpcConfigResponse omitted.
 

@@ -133,6 +133,9 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //       bootstrapClusterCreatorAdminPermissions: true || false,
  * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
+ * //     upgradePolicy: { // UpgradePolicyResponse
+ * //       supportType: "STANDARD" || "EXTENDED",
+ * //     },
  * //   },
  * // };
  *

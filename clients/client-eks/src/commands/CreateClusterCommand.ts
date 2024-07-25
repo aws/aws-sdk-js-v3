@@ -131,6 +131,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  *   },
  *   bootstrapSelfManagedAddons: true || false,
+ *   upgradePolicy: { // UpgradePolicyRequest
+ *     supportType: "STANDARD" || "EXTENDED",
+ *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -223,6 +226,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     accessConfig: { // AccessConfigResponse
  * //       bootstrapClusterCreatorAdminPermissions: true || false,
  * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
+ * //     },
+ * //     upgradePolicy: { // UpgradePolicyResponse
+ * //       supportType: "STANDARD" || "EXTENDED",
  * //     },
  * //   },
  * // };

@@ -151,6 +151,9 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * //       bootstrapClusterCreatorAdminPermissions: true || false,
  * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
+ * //     upgradePolicy: { // UpgradePolicyResponse
+ * //       supportType: "STANDARD" || "EXTENDED",
+ * //     },
  * //   },
  * // };
  *
