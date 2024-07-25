@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SQSHttpAuthSchemeParam
       name: "sqs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SQSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SQSClientConfig>, context) => ({
       /**
        * @internal
        */

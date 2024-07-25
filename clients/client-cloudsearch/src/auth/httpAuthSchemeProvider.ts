@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudSearchHttpAuthSch
       name: "cloudsearch",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudSearchClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudSearchClientConfig>, context) => ({
       /**
        * @internal
        */

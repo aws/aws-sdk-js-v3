@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: B2biHttpAuthSchemePara
       name: "b2bi",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: B2biClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<B2biClientConfig>, context) => ({
       /**
        * @internal
        */

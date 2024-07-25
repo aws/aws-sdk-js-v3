@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RolesAnywhereHttpAuthS
       name: "rolesanywhere",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RolesAnywhereClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RolesAnywhereClientConfig>, context) => ({
       /**
        * @internal
        */

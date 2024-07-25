@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DeviceFarmHttpAuthSche
       name: "devicefarm",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DeviceFarmClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DeviceFarmClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ServiceQuotasHttpAuthS
       name: "servicequotas",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ServiceQuotasClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ServiceQuotasClientConfig>, context) => ({
       /**
        * @internal
        */

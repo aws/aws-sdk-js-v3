@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CustomerProfilesHttpAu
       name: "profile",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CustomerProfilesClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CustomerProfilesClientConfig>, context) => ({
       /**
        * @internal
        */

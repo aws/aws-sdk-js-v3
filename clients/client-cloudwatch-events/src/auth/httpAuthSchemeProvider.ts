@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudWatchEventsHttpAu
       name: "events",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudWatchEventsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudWatchEventsClientConfig>, context) => ({
       /**
        * @internal
        */

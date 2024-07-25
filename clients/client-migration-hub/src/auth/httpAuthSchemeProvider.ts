@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MigrationHubHttpAuthSc
       name: "mgh",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MigrationHubClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MigrationHubClientConfig>, context) => ({
       /**
        * @internal
        */

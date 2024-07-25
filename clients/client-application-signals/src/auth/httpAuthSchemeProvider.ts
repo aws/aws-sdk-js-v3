@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ApplicationSignalsHttp
       name: "application-signals",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ApplicationSignalsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ApplicationSignalsClientConfig>, context) => ({
       /**
        * @internal
        */

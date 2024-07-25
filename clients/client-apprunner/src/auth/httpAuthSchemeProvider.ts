@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AppRunnerHttpAuthSchem
       name: "apprunner",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AppRunnerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AppRunnerClientConfig>, context) => ({
       /**
        * @internal
        */

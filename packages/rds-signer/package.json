@@ -33,8 +33,8 @@
     "@smithy/hash-node": "^3.0.3",
     "@smithy/invalid-dependency": "^3.0.3",
     "@smithy/node-config-provider": "^3.1.4",
-    "@smithy/protocol-http": "^4.0.4",
-    "@smithy/signature-v4": "^4.0.0",
+    "@smithy/protocol-http": "^4.1.0",
+    "@smithy/signature-v4": "^4.1.0",
     "@smithy/types": "^3.3.0",
     "tslib": "^2.6.2"
   },

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PinpointHttpAuthScheme
       name: "mobiletargeting",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PinpointClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PinpointClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "tagging",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ResourceGroupsTaggingAPIClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ResourceGroupsTaggingAPIClientConfig>, context) => ({
       /**
        * @internal
        */

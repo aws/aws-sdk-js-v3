@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: OpsWorksCMHttpAuthSche
       name: "opsworks-cm",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OpsWorksCMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OpsWorksCMClientConfig>, context) => ({
       /**
        * @internal
        */

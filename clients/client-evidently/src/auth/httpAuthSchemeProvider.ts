@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EvidentlyHttpAuthSchem
       name: "evidently",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EvidentlyClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EvidentlyClientConfig>, context) => ({
       /**
        * @internal
        */

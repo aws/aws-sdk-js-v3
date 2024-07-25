@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MTurkHttpAuthSchemePar
       name: "mturk-requester",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MTurkClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MTurkClientConfig>, context) => ({
       /**
        * @internal
        */

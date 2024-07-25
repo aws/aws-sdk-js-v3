@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GuardDutyHttpAuthSchem
       name: "guardduty",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GuardDutyClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GuardDutyClientConfig>, context) => ({
       /**
        * @internal
        */

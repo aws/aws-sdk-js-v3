@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: Route53ResolverHttpAut
       name: "route53resolver",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: Route53ResolverClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<Route53ResolverClientConfig>, context) => ({
       /**
        * @internal
        */

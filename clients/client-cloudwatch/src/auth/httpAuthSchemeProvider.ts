@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudWatchHttpAuthSche
       name: "monitoring",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudWatchClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudWatchClientConfig>, context) => ({
       /**
        * @internal
        */

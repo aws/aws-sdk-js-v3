@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MailManagerHttpAuthSch
       name: "ses",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MailManagerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MailManagerClientConfig>, context) => ({
       /**
        * @internal
        */

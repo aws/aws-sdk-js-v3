@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: FMSHttpAuthSchemeParam
       name: "fms",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: FMSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<FMSClientConfig>, context) => ({
       /**
        * @internal
        */

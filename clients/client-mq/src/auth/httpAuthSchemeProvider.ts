@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MqHttpAuthSchemeParame
       name: "mq",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MqClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MqClientConfig>, context) => ({
       /**
        * @internal
        */

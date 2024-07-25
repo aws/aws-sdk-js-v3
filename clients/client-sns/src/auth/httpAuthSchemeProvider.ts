@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SNSHttpAuthSchemeParam
       name: "sns",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SNSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SNSClientConfig>, context) => ({
       /**
        * @internal
        */

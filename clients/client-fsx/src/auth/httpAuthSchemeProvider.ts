@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: FSxHttpAuthSchemeParam
       name: "fsx",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: FSxClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<FSxClientConfig>, context) => ({
       /**
        * @internal
        */

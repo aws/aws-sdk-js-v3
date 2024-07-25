@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ChatbotHttpAuthSchemeP
       name: "chatbot",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ChatbotClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ChatbotClientConfig>, context) => ({
       /**
        * @internal
        */

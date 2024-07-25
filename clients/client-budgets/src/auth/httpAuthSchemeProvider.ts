@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BudgetsHttpAuthSchemeP
       name: "budgets",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BudgetsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BudgetsClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CostExplorerHttpAuthSc
       name: "ce",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CostExplorerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CostExplorerClientConfig>, context) => ({
       /**
        * @internal
        */

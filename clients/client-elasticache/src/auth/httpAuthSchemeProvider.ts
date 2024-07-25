@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ElastiCacheHttpAuthSch
       name: "elasticache",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ElastiCacheClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ElastiCacheClientConfig>, context) => ({
       /**
        * @internal
        */

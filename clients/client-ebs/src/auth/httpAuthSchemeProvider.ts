@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EBSHttpAuthSchemeParam
       name: "ebs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EBSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EBSClientConfig>, context) => ({
       /**
        * @internal
        */

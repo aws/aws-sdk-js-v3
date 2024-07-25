@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ServiceDiscoveryHttpAu
       name: "servicediscovery",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ServiceDiscoveryClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ServiceDiscoveryClientConfig>, context) => ({
       /**
        * @internal
        */

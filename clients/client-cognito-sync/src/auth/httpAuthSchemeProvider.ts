@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CognitoSyncHttpAuthSch
       name: "cognito-sync",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CognitoSyncClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CognitoSyncClientConfig>, context) => ({
       /**
        * @internal
        */

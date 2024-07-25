@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: OutpostsHttpAuthScheme
       name: "outposts",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OutpostsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OutpostsClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: FreeTierHttpAuthScheme
       name: "freetier",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: FreeTierClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<FreeTierClientConfig>, context) => ({
       /**
        * @internal
        */

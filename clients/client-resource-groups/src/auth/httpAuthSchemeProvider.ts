@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ResourceGroupsHttpAuth
       name: "resource-groups",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ResourceGroupsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ResourceGroupsClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ElasticTranscoderHttpA
       name: "elastictranscoder",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ElasticTranscoderClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ElasticTranscoderClientConfig>, context) => ({
       /**
        * @internal
        */

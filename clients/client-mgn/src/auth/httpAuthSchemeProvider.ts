@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MgnHttpAuthSchemeParam
       name: "mgn",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MgnClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MgnClientConfig>, context) => ({
       /**
        * @internal
        */

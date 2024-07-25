@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SupportAppHttpAuthSche
       name: "supportapp",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SupportAppClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SupportAppClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: PricingHttpAuthSchemeP
       name: "pricing",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: PricingClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<PricingClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: QAppsHttpAuthSchemePar
       name: "qapps",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: QAppsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<QAppsClientConfig>, context) => ({
       /**
        * @internal
        */

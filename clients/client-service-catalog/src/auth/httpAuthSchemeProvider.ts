@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ServiceCatalogHttpAuth
       name: "servicecatalog",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ServiceCatalogClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ServiceCatalogClientConfig>, context) => ({
       /**
        * @internal
        */

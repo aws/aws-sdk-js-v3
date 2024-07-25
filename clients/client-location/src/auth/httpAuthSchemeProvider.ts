@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LocationHttpAuthScheme
       name: "geo",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LocationClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LocationClientConfig>, context) => ({
       /**
        * @internal
        */

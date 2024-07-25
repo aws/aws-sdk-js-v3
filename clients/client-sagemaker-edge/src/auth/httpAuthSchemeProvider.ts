@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SagemakerEdgeHttpAuthS
       name: "sagemaker",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SagemakerEdgeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SagemakerEdgeClientConfig>, context) => ({
       /**
        * @internal
        */

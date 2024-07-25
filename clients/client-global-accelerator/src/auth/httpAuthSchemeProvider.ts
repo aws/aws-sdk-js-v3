@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GlobalAcceleratorHttpA
       name: "globalaccelerator",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GlobalAcceleratorClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GlobalAcceleratorClientConfig>, context) => ({
       /**
        * @internal
        */

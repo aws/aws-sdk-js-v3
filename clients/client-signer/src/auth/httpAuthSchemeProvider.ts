@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SignerHttpAuthSchemePa
       name: "signer",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SignerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SignerClientConfig>, context) => ({
       /**
        * @internal
        */

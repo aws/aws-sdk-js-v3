@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeBuildHttpAuthSchem
       name: "codebuild",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeBuildClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeBuildClientConfig>, context) => ({
       /**
        * @internal
        */

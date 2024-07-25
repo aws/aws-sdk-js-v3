@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: OAMHttpAuthSchemeParam
       name: "oam",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: OAMClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<OAMClientConfig>, context) => ({
       /**
        * @internal
        */

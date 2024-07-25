@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: S3ControlHttpAuthSchem
       name: "s3",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: S3ControlClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<S3ControlClientConfig>, context) => ({
       /**
        * @internal
        */

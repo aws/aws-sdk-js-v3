@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "route53-recovery-cluster",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: Route53RecoveryClusterClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<Route53RecoveryClusterClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SMSHttpAuthSchemeParam
       name: "sms",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SMSClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SMSClientConfig>, context) => ({
       /**
        * @internal
        */

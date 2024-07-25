@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EMRContainersHttpAuthS
       name: "emr-containers",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EMRContainersClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EMRContainersClientConfig>, context) => ({
       /**
        * @internal
        */

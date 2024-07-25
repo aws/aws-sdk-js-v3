@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DocDBHttpAuthSchemePar
       name: "rds",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DocDBClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DocDBClientConfig>, context) => ({
       /**
        * @internal
        */

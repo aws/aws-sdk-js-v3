@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RoboMakerHttpAuthSchem
       name: "robomaker",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RoboMakerClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RoboMakerClientConfig>, context) => ({
       /**
        * @internal
        */

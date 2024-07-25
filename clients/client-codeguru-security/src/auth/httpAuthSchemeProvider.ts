@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CodeGuruSecurityHttpAu
       name: "codeguru-security",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CodeGuruSecurityClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CodeGuruSecurityClientConfig>, context) => ({
       /**
        * @internal
        */

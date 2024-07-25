@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LambdaHttpAuthSchemePa
       name: "lambda",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LambdaClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LambdaClientConfig>, context) => ({
       /**
        * @internal
        */

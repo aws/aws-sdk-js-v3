@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "aws-marketplace",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: MarketplaceAgreementClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<MarketplaceAgreementClientConfig>, context) => ({
       /**
        * @internal
        */

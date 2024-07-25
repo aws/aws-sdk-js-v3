@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SSOOIDCHttpAuthSchemeP
       name: "sso-oauth",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SSOOIDCClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SSOOIDCClientConfig>, context) => ({
       /**
        * @internal
        */

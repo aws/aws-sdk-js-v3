@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ApplicationInsightsHtt
       name: "applicationinsights",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ApplicationInsightsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ApplicationInsightsClientConfig>, context) => ({
       /**
        * @internal
        */

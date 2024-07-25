@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ProtonHttpAuthSchemePa
       name: "proton",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ProtonClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ProtonClientConfig>, context) => ({
       /**
        * @internal
        */

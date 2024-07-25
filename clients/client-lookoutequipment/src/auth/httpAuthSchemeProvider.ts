@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LookoutEquipmentHttpAu
       name: "lookoutequipment",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LookoutEquipmentClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LookoutEquipmentClientConfig>, context) => ({
       /**
        * @internal
        */

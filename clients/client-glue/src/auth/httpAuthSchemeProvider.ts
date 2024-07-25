@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GlueHttpAuthSchemePara
       name: "glue",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GlueClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GlueClientConfig>, context) => ({
       /**
        * @internal
        */

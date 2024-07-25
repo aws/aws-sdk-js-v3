@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: RbinHttpAuthSchemePara
       name: "rbin",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: RbinClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<RbinClientConfig>, context) => ({
       /**
        * @internal
        */

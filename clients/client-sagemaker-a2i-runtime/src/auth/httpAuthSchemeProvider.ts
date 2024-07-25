@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SageMakerA2IRuntimeHtt
       name: "sagemaker",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SageMakerA2IRuntimeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SageMakerA2IRuntimeClientConfig>, context) => ({
       /**
        * @internal
        */

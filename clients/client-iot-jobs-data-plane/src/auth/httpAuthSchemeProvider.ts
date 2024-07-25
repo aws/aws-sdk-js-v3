@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTJobsDataPlaneHttpAu
       name: "iot-jobs-data",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTJobsDataPlaneClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTJobsDataPlaneClientConfig>, context) => ({
       /**
        * @internal
        */

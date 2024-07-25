@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SSMIncidentsHttpAuthSc
       name: "ssm-incidents",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SSMIncidentsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SSMIncidentsClientConfig>, context) => ({
       /**
        * @internal
        */

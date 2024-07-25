@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IoTAnalyticsHttpAuthSc
       name: "iotanalytics",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IoTAnalyticsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IoTAnalyticsClientConfig>, context) => ({
       /**
        * @internal
        */

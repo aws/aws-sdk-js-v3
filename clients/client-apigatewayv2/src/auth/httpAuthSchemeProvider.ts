@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ApiGatewayV2HttpAuthSc
       name: "apigateway",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ApiGatewayV2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ApiGatewayV2ClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WisdomHttpAuthSchemePa
       name: "wisdom",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WisdomClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WisdomClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -65,7 +65,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "elasticloadbalancing",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ElasticLoadBalancingV2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ElasticLoadBalancingV2ClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: AutoScalingPlansHttpAu
       name: "autoscaling-plans",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: AutoScalingPlansClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<AutoScalingPlansClientConfig>, context) => ({
       /**
        * @internal
        */

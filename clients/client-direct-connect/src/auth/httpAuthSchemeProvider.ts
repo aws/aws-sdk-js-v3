@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: DirectConnectHttpAuthS
       name: "directconnect",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: DirectConnectClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<DirectConnectClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: EC2InstanceConnectHttp
       name: "ec2-instance-connect",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: EC2InstanceConnectClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<EC2InstanceConnectClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TimestreamInfluxDBHttp
       name: "timestream-influxdb",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TimestreamInfluxDBClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TimestreamInfluxDBClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IotDeviceAdvisorHttpAu
       name: "iotdeviceadvisor",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IotDeviceAdvisorClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IotDeviceAdvisorClientConfig>, context) => ({
       /**
        * @internal
        */

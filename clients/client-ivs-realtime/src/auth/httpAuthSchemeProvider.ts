@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: IVSRealTimeHttpAuthSch
       name: "ivs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: IVSRealTimeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<IVSRealTimeClientConfig>, context) => ({
       /**
        * @internal
        */

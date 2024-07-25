@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: NeptuneHttpAuthSchemeP
       name: "rds",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: NeptuneClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<NeptuneClientConfig>, context) => ({
       /**
        * @internal
        */

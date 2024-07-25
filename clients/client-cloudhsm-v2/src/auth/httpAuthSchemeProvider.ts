@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: CloudHSMV2HttpAuthSche
       name: "cloudhsm",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CloudHSMV2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CloudHSMV2ClientConfig>, context) => ({
       /**
        * @internal
        */

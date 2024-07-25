@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: BackupGatewayHttpAuthS
       name: "backup-gateway",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: BackupGatewayClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<BackupGatewayClientConfig>, context) => ({
       /**
        * @internal
        */

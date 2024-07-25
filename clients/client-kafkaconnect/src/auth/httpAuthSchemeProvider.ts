@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: KafkaConnectHttpAuthSc
       name: "kafkaconnect",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: KafkaConnectClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<KafkaConnectClientConfig>, context) => ({
       /**
        * @internal
        */

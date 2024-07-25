@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: TranscribeHttpAuthSche
       name: "transcribe",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: TranscribeClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<TranscribeClientConfig>, context) => ({
       /**
        * @internal
        */

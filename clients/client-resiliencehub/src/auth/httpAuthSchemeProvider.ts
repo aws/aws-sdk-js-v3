@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: ResiliencehubHttpAuthS
       name: "resiliencehub",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: ResiliencehubClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<ResiliencehubClientConfig>, context) => ({
       /**
        * @internal
        */

@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WorkDocsHttpAuthScheme
       name: "workdocs",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WorkDocsClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WorkDocsClientConfig>, context) => ({
       /**
        * @internal
        */

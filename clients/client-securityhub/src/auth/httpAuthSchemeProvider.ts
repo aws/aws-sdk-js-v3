@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: SecurityHubHttpAuthSch
       name: "securityhub",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: SecurityHubClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<SecurityHubClientConfig>, context) => ({
       /**
        * @internal
        */

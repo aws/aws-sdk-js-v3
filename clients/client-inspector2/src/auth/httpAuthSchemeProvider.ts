@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: Inspector2HttpAuthSche
       name: "inspector2",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: Inspector2ClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<Inspector2ClientConfig>, context) => ({
       /**
        * @internal
        */

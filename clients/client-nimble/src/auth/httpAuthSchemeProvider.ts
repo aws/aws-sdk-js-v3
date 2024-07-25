@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: NimbleHttpAuthSchemePa
       name: "nimble",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: NimbleClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<NimbleClientConfig>, context) => ({
       /**
        * @internal
        */

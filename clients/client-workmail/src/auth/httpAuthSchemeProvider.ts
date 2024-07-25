@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: WorkMailHttpAuthScheme
       name: "workmail",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: WorkMailClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<WorkMailClientConfig>, context) => ({
       /**
        * @internal
        */

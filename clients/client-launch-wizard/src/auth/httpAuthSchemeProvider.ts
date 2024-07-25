@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: LaunchWizardHttpAuthSc
       name: "launchwizard",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: LaunchWizardClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<LaunchWizardClientConfig>, context) => ({
       /**
        * @internal
        */

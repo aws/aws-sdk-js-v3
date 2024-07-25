@@ -60,7 +60,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: GameLiftHttpAuthScheme
       name: "gamelift",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: GameLiftClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<GameLiftClientConfig>, context) => ({
       /**
        * @internal
        */
