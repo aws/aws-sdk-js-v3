@@ -649,6 +649,14 @@ GetEnvironmentBlueprintConfiguration
 </details>
 <details>
 <summary>
+GetEnvironmentCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/GetEnvironmentCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/GetEnvironmentCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/GetEnvironmentCredentialsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetEnvironmentProfile
 </summary>
 

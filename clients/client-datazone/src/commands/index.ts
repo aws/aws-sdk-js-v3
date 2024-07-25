@@ -54,6 +54,7 @@ export * from "./GetEnvironmentActionCommand";
 export * from "./GetEnvironmentBlueprintCommand";
 export * from "./GetEnvironmentBlueprintConfigurationCommand";
 export * from "./GetEnvironmentCommand";
+export * from "./GetEnvironmentCredentialsCommand";
 export * from "./GetEnvironmentProfileCommand";
 export * from "./GetFormTypeCommand";
 export * from "./GetGlossaryCommand";

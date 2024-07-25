@@ -159,6 +159,10 @@ import {
 } from "../commands/GetEnvironmentBlueprintConfigurationCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "../commands/GetEnvironmentCommand";
 import {
+  GetEnvironmentCredentialsCommandInput,
+  GetEnvironmentCredentialsCommandOutput,
+} from "../commands/GetEnvironmentCredentialsCommand";
+import {
   GetEnvironmentProfileCommandInput,
   GetEnvironmentProfileCommandOutput,
 } from "../commands/GetEnvironmentProfileCommand";
@@ -340,7 +344,6 @@ import {
   DataSourceSummary,
   DomainSummary,
   EnvironmentBlueprintConfigurationItem,
-  EnvironmentBlueprintSummary,
   EnvironmentParameter,
   EqualToExpression,
   FailureCause,
@@ -394,6 +397,7 @@ import {
 } from "../models/models_0";
 import {
   AssetFilterConfiguration,
+  EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
   EnvironmentSummary,
   Filter,
@@ -1634,6 +1638,23 @@ export const se_GetEnvironmentBlueprintConfigurationCommand = async (
     "{environmentBlueprintIdentifier}",
     false
   );
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetEnvironmentCredentialsCommand
+ */
+export const se_GetEnvironmentCredentialsCommand = async (
+  input: GetEnvironmentCredentialsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/credentials");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("environmentIdentifier", () => input.environmentIdentifier!, "{environmentIdentifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -4651,6 +4672,30 @@ export const de_GetEnvironmentBlueprintConfigurationCommand = async (
     provisioningRoleArn: __expectString,
     regionalParameters: _json,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEnvironmentCredentialsCommand
+ */
+export const de_GetEnvironmentCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEnvironmentCredentialsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessKeyId: __expectString,
+    expiration: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    secretAccessKey: __expectString,
+    sessionToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

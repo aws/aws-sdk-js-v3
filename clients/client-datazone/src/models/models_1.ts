@@ -17,8 +17,6 @@ import {
   CustomParameterFilterSensitiveLog,
   Deployment,
   DeploymentProperties,
-  EnvironmentBlueprintSummary,
-  EnvironmentBlueprintSummaryFilterSensitiveLog,
   EnvironmentParameter,
   EnvironmentStatus,
   FailureCause,
@@ -59,6 +57,98 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListEnvironmentBlueprintsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of blueprints to return in a single call to
+   *             <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is
+   *          greater than the value of <code>MaxResults</code>, the response contains a
+   *             <code>NextToken</code> value that you can use in a subsequent call to
+   *             <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>When the number of blueprints in the environment is greater than the default value for
+   *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
+   *          the response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of the Amazon DataZone environment.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>Specifies whether the environment blueprint is managed by Amazon DataZone.</p>
+   * @public
+   */
+  managed?: boolean;
+}
+
+/**
+ * <p>The details of an environment blueprint summary.</p>
+ * @public
+ */
+export interface EnvironmentBlueprintSummary {
+  /**
+   * <p>The identifier of the blueprint.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the blueprint.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of a blueprint.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The provider of the blueprint.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>The provisioning properties of the blueprint.</p>
+   * @public
+   */
+  provisioningProperties: ProvisioningProperties | undefined;
+
+  /**
+   * <p>The timestamp of when an environment blueprint was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The timestamp of when the blueprint was enabled.</p>
+   * @public
+   */
+  updatedAt?: Date;
+}
 
 /**
  * @public
@@ -5580,6 +5670,15 @@ export interface UpdateAssetFilterOutput {
    */
   effectiveRowFilter?: string;
 }
+
+/**
+ * @internal
+ */
+export const EnvironmentBlueprintSummaryFilterSensitiveLog = (obj: EnvironmentBlueprintSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+});
 
 /**
  * @internal

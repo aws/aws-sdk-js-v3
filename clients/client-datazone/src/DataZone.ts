@@ -262,6 +262,11 @@ import {
   GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  GetEnvironmentCredentialsCommand,
+  GetEnvironmentCredentialsCommandInput,
+  GetEnvironmentCredentialsCommandOutput,
+} from "./commands/GetEnvironmentCredentialsCommand";
+import {
   GetEnvironmentProfileCommand,
   GetEnvironmentProfileCommandInput,
   GetEnvironmentProfileCommandOutput,
@@ -622,6 +627,7 @@ const commands = {
   GetEnvironmentActionCommand,
   GetEnvironmentBlueprintCommand,
   GetEnvironmentBlueprintConfigurationCommand,
+  GetEnvironmentCredentialsCommand,
   GetEnvironmentProfileCommand,
   GetFormTypeCommand,
   GetGlossaryCommand,
@@ -1535,6 +1541,23 @@ export interface DataZone {
     args: GetEnvironmentBlueprintConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentBlueprintConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEnvironmentCredentialsCommand}
+   */
+  getEnvironmentCredentials(
+    args: GetEnvironmentCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEnvironmentCredentialsCommandOutput>;
+  getEnvironmentCredentials(
+    args: GetEnvironmentCredentialsCommandInput,
+    cb: (err: any, data?: GetEnvironmentCredentialsCommandOutput) => void
+  ): void;
+  getEnvironmentCredentials(
+    args: GetEnvironmentCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEnvironmentCredentialsCommandOutput) => void
   ): void;
 
   /**

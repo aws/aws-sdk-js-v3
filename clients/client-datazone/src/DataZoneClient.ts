@@ -178,6 +178,10 @@ import {
 } from "./commands/GetEnvironmentBlueprintConfigurationCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
 import {
+  GetEnvironmentCredentialsCommandInput,
+  GetEnvironmentCredentialsCommandOutput,
+} from "./commands/GetEnvironmentCredentialsCommand";
+import {
   GetEnvironmentProfileCommandInput,
   GetEnvironmentProfileCommandOutput,
 } from "./commands/GetEnvironmentProfileCommand";
@@ -404,6 +408,7 @@ export type ServiceInputTypes =
   | GetEnvironmentBlueprintCommandInput
   | GetEnvironmentBlueprintConfigurationCommandInput
   | GetEnvironmentCommandInput
+  | GetEnvironmentCredentialsCommandInput
   | GetEnvironmentProfileCommandInput
   | GetFormTypeCommandInput
   | GetGlossaryCommandInput
@@ -531,6 +536,7 @@ export type ServiceOutputTypes =
   | GetEnvironmentBlueprintCommandOutput
   | GetEnvironmentBlueprintConfigurationCommandOutput
   | GetEnvironmentCommandOutput
+  | GetEnvironmentCredentialsCommandOutput
   | GetEnvironmentProfileCommandOutput
   | GetFormTypeCommandOutput
   | GetGlossaryCommandOutput
