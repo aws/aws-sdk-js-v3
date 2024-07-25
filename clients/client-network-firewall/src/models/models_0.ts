@@ -1618,7 +1618,8 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 /**
  * <p>Stateful inspection criteria for a domain list rule group. </p>
  *          <p>For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.</p>
- *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and
+ *       <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
  * @public
  */
 export interface RulesSourceList {
@@ -1851,6 +1852,10 @@ export interface StatefulRule {
    *                <p>You can use this action to test a rule that you intend to use to drop traffic. You
    *                can enable the rule with <code>ALERT</code> action, verify in the logs that the rule
    *                is filtering as you want, then change the action to <code>DROP</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>REJECT</b> - Drops traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and an RST bit contained in the TCP header flags. REJECT is available only for TCP traffic. This option doesn't support FTP or IMAP protocols.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2343,8 +2348,7 @@ export interface CreateRuleGroupRequest {
    *          <p>
    *             <b>Capacity for a stateful rule group</b>
    *          </p>
-   *          <p>For
-   *          a stateful rule group, the minimum capacity required is the number of individual rules that
+   *          <p>For a stateful rule group, the minimum capacity required is the number of individual rules that
    *          you expect to have in the rule group. </p>
    * @public
    */
@@ -3081,6 +3085,7 @@ export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDes
 export const LogType = {
   ALERT: "ALERT",
   FLOW: "FLOW",
+  TLS: "TLS",
 } as const;
 
 /**
@@ -3090,24 +3095,37 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
 
 /**
  * <p>Defines where Network Firewall sends logs for the firewall for one log type. This is used
- *          in <a>LoggingConfiguration</a>. You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.</p>
- *          <p>Network Firewall generates logs for stateful rule groups. You can save alert and flow log
- *           types. The stateful rules engine records flow logs for all network traffic that it receives.
- *           It records alert logs for traffic that matches stateful rules that have the rule
- *           action set to <code>DROP</code> or <code>ALERT</code>. </p>
+ *          in <a>LoggingConfiguration</a>. You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.</p>
+ *          <p>Network Firewall generates logs for stateful rule groups. You can save alert, flow, and TLS log
+ *           types. </p>
  * @public
  */
 export interface LogDestinationConfig {
   /**
-   * <p>The type of log to send. Alert logs report traffic that matches a <a>StatefulRule</a> with an action setting that sends an alert log message. Flow logs are
-   *          standard network traffic flow logs. </p>
+   * <p>The type of log to record. You can record the following types of logs from your Network Firewall stateful engine.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Logs for traffic that matches your stateful rules and that have an action that sends an alert. A stateful rule sends alerts for the rule actions DROP, ALERT, and REJECT. For more information, see <a>StatefulRule</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FLOW</code> - Standard network traffic flow logs. The stateful rules engine records flow logs for all network traffic that it receives. Each flow log record captures the network flow for a specific standard stateless rule group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS</code> - Logs for events that are related to TLS inspection. For more information, see
+   *           <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-configurations.html">Inspecting SSL/TLS traffic with TLS inspection configurations</a>
+   *               in the <i>Network Firewall Developer Guide</i>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LogType: LogType | undefined;
 
   /**
    * <p>The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket,
-   *          a CloudWatch log group, or a Kinesis Data Firehose delivery stream.</p>
+   *          a CloudWatch log group, or a Firehose delivery stream.</p>
    * @public
    */
   LogDestinationType: LogDestinationType | undefined;
@@ -3118,9 +3136,8 @@ export interface LogDestinationConfig {
    *          <ul>
    *             <li>
    *                <p>For an Amazon S3 bucket, provide the name of the bucket, with key <code>bucketName</code>,
-   *                and optionally provide a prefix, with key <code>prefix</code>. The following example
-   *                specifies an Amazon S3 bucket named
-   *                <code>DOC-EXAMPLE-BUCKET</code> and the prefix <code>alerts</code>: </p>
+   *             and optionally provide a prefix, with key <code>prefix</code>. </p>
+   *                <p>The following example specifies an Amazon S3 bucket named <code>DOC-EXAMPLE-BUCKET</code> and the prefix <code>alerts</code>: </p>
    *                <p>
    *                   <code>"LogDestination": \{ "bucketName": "DOC-EXAMPLE-BUCKET", "prefix": "alerts"
    *                   \}</code>
@@ -3135,7 +3152,7 @@ export interface LogDestinationConfig {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For a Kinesis Data Firehose delivery stream, provide the name of the delivery stream, with key
+   *                <p>For a Firehose delivery stream, provide the name of the delivery stream, with key
    *                   <code>deliveryStream</code>. The following example specifies a delivery stream
    *                named <code>alert-delivery-stream</code>: </p>
    *                <p>

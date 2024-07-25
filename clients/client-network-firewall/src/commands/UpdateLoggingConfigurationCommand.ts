@@ -66,7 +66,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  *   LoggingConfiguration: { // LoggingConfiguration
  *     LogDestinationConfigs: [ // LogDestinationConfigs // required
  *       { // LogDestinationConfig
- *         LogType: "ALERT" || "FLOW", // required
+ *         LogType: "ALERT" || "FLOW" || "TLS", // required
  *         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
  *         LogDestination: { // LogDestinationMap // required
  *           "<keys>": "STRING_VALUE",
@@ -83,7 +83,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * //   LoggingConfiguration: { // LoggingConfiguration
  * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
  * //       { // LogDestinationConfig
- * //         LogType: "ALERT" || "FLOW", // required
+ * //         LogType: "ALERT" || "FLOW" || "TLS", // required
  * //         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
  * //         LogDestination: { // LogDestinationMap // required
  * //           "<keys>": "STRING_VALUE",
