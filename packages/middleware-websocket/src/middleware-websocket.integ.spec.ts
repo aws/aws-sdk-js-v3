@@ -47,11 +47,7 @@ describe("middleware-websocket", () => {
         VideoWidth: "1024",
         VideoHeight: "1024",
         ChallengeVersions: "a,b,c",
-        LivenessRequestStream: {
-          [Symbol.asyncIterator]() {
-            return this as any;
-          },
-        },
+        LivenessRequestStream: (async function* () {})(),
       });
     });
   });
