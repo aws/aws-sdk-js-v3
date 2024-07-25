@@ -748,7 +748,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -768,7 +768,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * <p>Your request was throttled because of service-wide limitations. Resubmit your request later or in a different region. You can also purchase <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> to increase the rate or number of tokens you can process.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -2105,6 +2105,26 @@ export class ModelTimeoutException extends __BaseException {
 }
 
 /**
+ * <p>The service isn't currently available. Try again later.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
  * @public
  * @enum
  */
@@ -2533,6 +2553,7 @@ export type ConverseStreamOutput =
   | ConverseStreamOutput.MessageStopMember
   | ConverseStreamOutput.MetadataMember
   | ConverseStreamOutput.ModelStreamErrorExceptionMember
+  | ConverseStreamOutput.ServiceUnavailableExceptionMember
   | ConverseStreamOutput.ThrottlingExceptionMember
   | ConverseStreamOutput.ValidationExceptionMember
   | ConverseStreamOutput.$UnknownMember;
@@ -2556,6 +2577,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2574,6 +2596,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2592,6 +2615,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2610,6 +2634,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2628,6 +2653,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2646,6 +2672,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2664,6 +2691,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2682,6 +2710,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException: ModelStreamErrorException;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2700,6 +2729,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException: ValidationException;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -2718,6 +2748,26 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException: ThrottlingException;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The service isn't currently available. Try again later.</p>
+   * @public
+   */
+  export interface ServiceUnavailableExceptionMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    serviceUnavailableException: ServiceUnavailableException;
     $unknown?: never;
   }
 
@@ -2735,6 +2785,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException?: never;
     validationException?: never;
     throttlingException?: never;
+    serviceUnavailableException?: never;
     $unknown: [string, any];
   }
 
@@ -2749,6 +2800,7 @@ export namespace ConverseStreamOutput {
     modelStreamErrorException: (value: ModelStreamErrorException) => T;
     validationException: (value: ValidationException) => T;
     throttlingException: (value: ThrottlingException) => T;
+    serviceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2765,6 +2817,8 @@ export namespace ConverseStreamOutput {
       return visitor.modelStreamErrorException(value.modelStreamErrorException);
     if (value.validationException !== undefined) return visitor.validationException(value.validationException);
     if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
+    if (value.serviceUnavailableException !== undefined)
+      return visitor.serviceUnavailableException(value.serviceUnavailableException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2979,6 +3033,7 @@ export type ResponseStream =
   | ResponseStream.InternalServerExceptionMember
   | ResponseStream.ModelStreamErrorExceptionMember
   | ResponseStream.ModelTimeoutExceptionMember
+  | ResponseStream.ServiceUnavailableExceptionMember
   | ResponseStream.ThrottlingExceptionMember
   | ResponseStream.ValidationExceptionMember
   | ResponseStream.$UnknownMember;
@@ -2998,6 +3053,7 @@ export namespace ResponseStream {
     validationException?: never;
     throttlingException?: never;
     modelTimeoutException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -3012,6 +3068,7 @@ export namespace ResponseStream {
     validationException?: never;
     throttlingException?: never;
     modelTimeoutException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -3026,6 +3083,7 @@ export namespace ResponseStream {
     validationException?: never;
     throttlingException?: never;
     modelTimeoutException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -3040,11 +3098,12 @@ export namespace ResponseStream {
     validationException: ValidationException;
     throttlingException?: never;
     modelTimeoutException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>The number or frequency of requests exceeds the limit. Resubmit your request later.</p>
+   * <p>Your request was throttled because of service-wide limitations. Resubmit your request later or in a different region. You can also purchase <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> to increase the rate or number of tokens you can process.</p>
    * @public
    */
   export interface ThrottlingExceptionMember {
@@ -3054,6 +3113,7 @@ export namespace ResponseStream {
     validationException?: never;
     throttlingException: ThrottlingException;
     modelTimeoutException?: never;
+    serviceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -3068,6 +3128,22 @@ export namespace ResponseStream {
     validationException?: never;
     throttlingException?: never;
     modelTimeoutException: ModelTimeoutException;
+    serviceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The service isn't currently available. Try again later.</p>
+   * @public
+   */
+  export interface ServiceUnavailableExceptionMember {
+    chunk?: never;
+    internalServerException?: never;
+    modelStreamErrorException?: never;
+    validationException?: never;
+    throttlingException?: never;
+    modelTimeoutException?: never;
+    serviceUnavailableException: ServiceUnavailableException;
     $unknown?: never;
   }
 
@@ -3081,6 +3157,7 @@ export namespace ResponseStream {
     validationException?: never;
     throttlingException?: never;
     modelTimeoutException?: never;
+    serviceUnavailableException?: never;
     $unknown: [string, any];
   }
 
@@ -3091,6 +3168,7 @@ export namespace ResponseStream {
     validationException: (value: ValidationException) => T;
     throttlingException: (value: ThrottlingException) => T;
     modelTimeoutException: (value: ModelTimeoutException) => T;
+    serviceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3103,6 +3181,8 @@ export namespace ResponseStream {
     if (value.validationException !== undefined) return visitor.validationException(value.validationException);
     if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
     if (value.modelTimeoutException !== undefined) return visitor.modelTimeoutException(value.modelTimeoutException);
+    if (value.serviceUnavailableException !== undefined)
+      return visitor.serviceUnavailableException(value.serviceUnavailableException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3138,6 +3218,8 @@ export const ConverseStreamOutputFilterSensitiveLog = (obj: ConverseStreamOutput
   if (obj.modelStreamErrorException !== undefined) return { modelStreamErrorException: obj.modelStreamErrorException };
   if (obj.validationException !== undefined) return { validationException: obj.validationException };
   if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.serviceUnavailableException !== undefined)
+    return { serviceUnavailableException: obj.serviceUnavailableException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -3193,6 +3275,8 @@ export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
   if (obj.validationException !== undefined) return { validationException: obj.validationException };
   if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
   if (obj.modelTimeoutException !== undefined) return { modelTimeoutException: obj.modelTimeoutException };
+  if (obj.serviceUnavailableException !== undefined)
+    return { serviceUnavailableException: obj.serviceUnavailableException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

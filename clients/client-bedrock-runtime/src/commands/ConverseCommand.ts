@@ -31,8 +31,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * <p>Sends messages to the specified Amazon Bedrock model. <code>Converse</code> provides
  *          a consistent interface that works with all models that
  *          support messages. This allows you to write code once and use it with different models.
- *          Should a model have unique inference parameters, you can also pass those unique parameters
+ *          If a model has unique inference parameters, you can also pass those unique parameters
  *          to the model.</p>
+ *          <p>Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.</p>
  *          <p>For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
  *             To use a guardrail, see  <i>Use a guardrail with the Converse API</i> in the <i>Amazon Bedrock User Guide</i>.
  *             To use a tool with a model, see <i>Tool use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i>
@@ -395,8 +396,11 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service isn't currently available. Try again later.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *  <p>Your request was throttled because of service-wide limitations. Resubmit your request later or in a different region. You can also purchase <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> to increase the rate or number of tokens you can process.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Input validation failed. Check your request parameters and retry the request.</p>
