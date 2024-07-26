@@ -180,6 +180,12 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * Default credentials provider; Not available in browser runtime.
    * @internal
    */
@@ -190,12 +196,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -235,14 +235,14 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type RekognitionStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
+  UserAgentInputConfig &
+  RetryInputConfig &
   RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
   HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   AwsAuthInputConfig &
   EventStreamInputConfig &
   WebSocketInputConfig &
-  UserAgentInputConfig &
-  RetryInputConfig &
   EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -258,14 +258,14 @@ export interface RekognitionStreamingClientConfig extends RekognitionStreamingCl
 export type RekognitionStreamingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
+  UserAgentResolvedConfig &
+  RetryResolvedConfig &
   RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
   HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   AwsAuthResolvedConfig &
   EventStreamResolvedConfig &
   WebSocketResolvedConfig &
-  UserAgentResolvedConfig &
-  RetryResolvedConfig &
   EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -314,25 +314,25 @@ export class RekognitionStreamingClient extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<RekognitionStreamingClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveEventStreamConfig(_config_5);
-    const _config_7 = resolveWebSocketConfig(_config_6);
-    const _config_8 = resolveUserAgentConfig(_config_7);
-    const _config_9 = resolveRetryConfig(_config_8);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveAwsAuthConfig(_config_6);
+    const _config_8 = resolveEventStreamConfig(_config_7);
+    const _config_9 = resolveWebSocketConfig(_config_8);
     const _config_10 = resolveEventStreamSerdeConfig(_config_9);
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     super(_config_11);
     this.config = _config_11;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getRetryPlugin(this.config));
+    this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
-    this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getContentLengthPlugin(this.config));
   }
 
   /**

@@ -45,6 +45,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.AddEventStreamDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
@@ -71,6 +72,14 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     public List<String> runAfter() {
         return List.of(
             AddEndpointsPlugin.class.getCanonicalName()
+        );
+    }
+
+    @Override
+    public List<String> runBefore() {
+        return List.of(
+            AddEventStreamDependency.class.getCanonicalName(),
+            AddEventStreamHandlingDependency.class.getCanonicalName()
         );
     }
 

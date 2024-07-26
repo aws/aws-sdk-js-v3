@@ -79,6 +79,14 @@ public final class AddS3Config implements TypeScriptIntegration {
         + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
     @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddBuiltinPlugins.class.getCanonicalName(),
+            AddEndpointsPlugin.class.getCanonicalName()
+        );
+    }
+
+    @Override
     public Model preprocessModel(Model model, TypeScriptSettings settings) {
         ServiceShape serviceShape = settings.getService(model);
         if (!isS3(serviceShape)) {

@@ -14,13 +14,10 @@ import {
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import {
-  CustomEndpointsInputConfig,
-  CustomEndpointsResolvedConfig,
   EndpointsInputConfig,
   EndpointsResolvedConfig,
   RegionInputConfig,
   RegionResolvedConfig,
-  resolveCustomEndpointsConfig,
   resolveEndpointsConfig,
   resolveRegionConfig,
 } from "@smithy/config-resolver";
@@ -317,12 +314,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type EC2ProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointsInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
-  CustomEndpointsInputConfig &
   RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointsInputConfig &
   HttpAuthSchemeInputConfig &
   CompressionInputConfig;
 /**
@@ -338,12 +334,11 @@ export interface EC2ProtocolClientConfig extends EC2ProtocolClientConfigType {}
 export type EC2ProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointsResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
-  CustomEndpointsResolvedConfig &
   RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointsResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   CompressionResolvedConfig;
 /**
@@ -370,27 +365,29 @@ export class EC2ProtocolClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<EC2ProtocolClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveHostHeaderConfig(_config_2);
-    const _config_4 = resolveUserAgentConfig(_config_3);
-    const _config_5 = resolveCustomEndpointsConfig(_config_4);
-    const _config_6 = resolveRetryConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveCompressionConfig(_config_7);
-    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    super(_config_9);
-    this.config = _config_9;
-    this.middlewareStack.use(getHostHeaderPlugin(this.config));
-    this.middlewareStack.use(getLoggerPlugin(this.config));
-    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
+    const _config_1 = resolveUserAgentConfig(_config_0);
+    const _config_2 = resolveRetryConfig(_config_1);
+    const _config_3 = resolveRegionConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveEndpointsConfig(_config_4);
+    const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
+    const _config_7 = resolveCompressionConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
+    this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemePlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultEC2ProtocolHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: EC2ProtocolClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -403,14 +400,5 @@ export class EC2ProtocolClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultEC2ProtocolHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: EC2ProtocolClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

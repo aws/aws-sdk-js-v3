@@ -48,6 +48,14 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public class AddS3ControlDependency implements TypeScriptIntegration {
 
     @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddBuiltinPlugins.class.getCanonicalName(),
+            AddEndpointsPlugin.class.getCanonicalName()
+        );
+    }
+
+    @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()

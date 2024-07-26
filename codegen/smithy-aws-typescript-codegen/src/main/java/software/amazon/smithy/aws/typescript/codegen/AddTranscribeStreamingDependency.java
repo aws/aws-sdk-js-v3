@@ -38,6 +38,15 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  **/
 @SmithyInternalApi
 public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
+
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddBuiltinPlugins.class.getCanonicalName(),
+            AddEndpointsPlugin.class.getCanonicalName()
+        );
+    }
+
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
