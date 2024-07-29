@@ -517,7 +517,7 @@ describe("credential-provider-node integration test", () => {
       iniProfileData.default.source_profile = "credential_source_profile";
       iniProfileData.default.role_arn = "ROLE_ARN";
       iniProfileData.credential_source_profile = {
-        credential_source: "EcsContainer",
+        credential_source: "Http",
       };
       const spy = jest.spyOn(credentialProviderHttp, "fromHttp");
       sts = new STS({
