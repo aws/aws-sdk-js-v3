@@ -59,7 +59,6 @@ public enum AwsDependency implements Dependency {
     BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser"),
     BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder"),
-    XML_PARSER(NORMAL_DEPENDENCY, "fast-xml-parser", "4.2.5"),
     UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
     UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^9.0.4"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream"),
