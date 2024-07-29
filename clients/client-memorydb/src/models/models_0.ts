@@ -450,13 +450,13 @@ export interface Cluster {
   NodeType?: string;
 
   /**
-   * <p>The Redis engine version used by the cluster</p>
+   * <p>The Redis OSS engine version used by the cluster</p>
    * @public
    */
   EngineVersion?: string;
 
   /**
-   * <p>The Redis engine patch version used by the cluster</p>
+   * <p>The Redis OSS engine patch version used by the cluster</p>
    * @public
    */
   EnginePatchVersion?: string;
@@ -772,7 +772,7 @@ export interface ClusterConfiguration {
   NodeType?: string;
 
   /**
-   * <p>The Redis engine version used by the cluster</p>
+   * <p>The Redis OSS engine version used by the cluster</p>
    * @public
    */
   EngineVersion?: string;
@@ -1336,7 +1336,7 @@ export interface CreateClusterRequest {
   ACLName: string | undefined;
 
   /**
-   * <p>The version number of the Redis engine to be used for the cluster.</p>
+   * <p>The version number of the Redis OSS engine to be used for the cluster.</p>
    * @public
    */
   EngineVersion?: string;
@@ -2435,7 +2435,7 @@ export interface DescribeClustersResponse {
  */
 export interface DescribeEngineVersionsRequest {
   /**
-   * <p>The Redis engine version</p>
+   * <p>The Redis OSS engine version</p>
    * @public
    */
   EngineVersion?: string;
@@ -2466,7 +2466,7 @@ export interface DescribeEngineVersionsRequest {
 }
 
 /**
- * <p>Provides details of the Redis engine version</p>
+ * <p>Provides details of the Redis OSS engine version</p>
  * @public
  */
 export interface EngineVersionInfo {
