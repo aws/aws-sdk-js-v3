@@ -25,9 +25,7 @@ describe(resolveCredentialSource.name, () => {
   beforeEach(() => {
     (fromEnv as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
     (fromContainerMetadata as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
-    (fromHttp as jest.Mock).mockReturnValue(() => {
-      throw new CredentialsProviderError("try next", {});
-    });
+    (fromHttp as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
     (fromInstanceMetadata as jest.Mock).mockReturnValue(() => Promise.resolve(mockFakeCreds));
   });
 
@@ -39,6 +37,7 @@ describe(resolveCredentialSource.name, () => {
     ["EcsContainer", fromContainerMetadata],
     ["Ec2InstanceMetadata", fromInstanceMetadata],
     ["Environment", fromEnv],
+    ["HTTP", fromHttp],
   ])("when credentialSource=%s, calls %p", async (credentialSource, fromFn) => {
     (fromFn as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
     const providerFactory = resolveCredentialSource(credentialSource, mockProfileName);
@@ -58,7 +57,7 @@ describe(resolveCredentialSource.name, () => {
       });
   });
 
-  it("throws error if credentialSource is not one of ['EcsContainer','Ec2InstanceMetadata','Environment']", async () => {
+  it("throws error if credentialSource is not one of ['EcsContainer','Ec2InstanceMetadata','Environment','HTTP']", async () => {
     const mockCredentialSource = "mockCredentialSource";
     const expectedError = new CredentialsProviderError(
       `Unsupported credential source in profile ${mockProfileName}. Got ${mockCredentialSource}, ` +
@@ -72,7 +71,7 @@ describe(resolveCredentialSource.name, () => {
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
-    [fromContainerMetadata, fromInstanceMetadata, fromEnv].forEach((fnNotCalled) => {
+    [fromContainerMetadata, fromInstanceMetadata, fromEnv, fromHttp].forEach((fnNotCalled) => {
       expect(fnNotCalled).not.toHaveBeenCalled();
     });
   });

@@ -18,10 +18,9 @@ export const resolveCredentialSource = (
 ): ((options?: CredentialProviderOptions) => Promise<AwsCredentialIdentityProvider>) => {
   const sourceProvidersMap = {
     EcsContainer: async (options?: CredentialProviderOptions) => {
-      const { fromHttp } = await import("@aws-sdk/credential-provider-http");
       const { fromContainerMetadata } = await import("@smithy/credential-provider-imds");
       logger?.debug("@aws-sdk/credential-provider-ini - credential_source is EcsContainer");
-      return chain(fromHttp(options ?? {}), fromContainerMetadata(options));
+      return fromContainerMetadata(options);
     },
     Ec2InstanceMetadata: async (options?: CredentialProviderOptions) => {
       logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Ec2InstanceMetadata");
@@ -32,6 +31,11 @@ export const resolveCredentialSource = (
       logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
       const { fromEnv } = await import("@aws-sdk/credential-provider-env");
       return fromEnv(options);
+    },
+    HTTP: async (options?: CredentialProviderOptions) => {
+      logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
+      const { fromHttp } = await import("@aws-sdk/credential-provider-http");
+      return fromHttp(options ?? {});
     },
   };
   if (credentialSource in sourceProvidersMap) {
