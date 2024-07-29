@@ -18,7 +18,8 @@ const AWS_CONTAINER_AUTHORIZATION_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
  * Creates a provider that gets credentials via HTTP request.
  */
 export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityProvider => {
-  options.logger?.debug("@aws-sdk/credential-provider-http - fromHttp");
+  const { logger } = options;
+  logger?.debug("@aws-sdk/credential-provider-http - fromHttp");
   let host: string;
 
   const relative = options.awsContainerCredentialsRelativeUri ?? process.env[AWS_CONTAINER_CREDENTIALS_RELATIVE_URI];
@@ -27,7 +28,7 @@ export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityPr
   const tokenFile = options.awsContainerAuthorizationTokenFile ?? process.env[AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE];
 
   const warn: (warning: string) => void =
-    options.logger?.constructor?.name === "NoOpLogger" || !options.logger ? console.warn : options.logger.warn;
+    logger?.constructor?.name === "NoOpLogger" || !logger ? console.warn : logger.warn;
 
   if (relative && full) {
     warn(
@@ -53,7 +54,7 @@ export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityPr
     throw new CredentialsProviderError(
       `No HTTP credential provider host provided.
 Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI.`,
-      { logger: options.logger }
+      { logger }
     );
   }
 
@@ -61,7 +62,7 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   const url = new URL(host);
 
   // throws if not to spec for provider.
-  checkUrl(url, options.logger);
+  checkUrl(url, logger);
 
   const requestHandler = new NodeHttpHandler({
     requestTimeout: options.timeout ?? 1000,
@@ -83,10 +84,9 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
         const result = await requestHandler.handle(request);
         return getCredentials(result.response);
       } catch (e: unknown) {
-        throw new CredentialsProviderError(String(e), { logger: options.logger });
+        throw new CredentialsProviderError(String(e), { logger: logger });
       }
     },
-    options.maxRetries ?? 3,
-    options.timeout ?? 1000
+    { maxRetries: options.maxRetries ?? 3, delayMs: options.timeout ?? 1000, logger }
   );
 };
