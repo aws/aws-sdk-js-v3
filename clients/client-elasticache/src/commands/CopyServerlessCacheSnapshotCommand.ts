@@ -30,7 +30,7 @@ export interface CopyServerlessCacheSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a copy of an existing serverless cache’s snapshot. Available for Redis only.</p>
+ * <p>Creates a copy of an existing serverless cache’s snapshot. Available for Redis OSS and Serverless Memcached only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,16 +83,16 @@ export interface CopyServerlessCacheSnapshotCommandOutput
  *  <p>The value for a parameter is invalid.</p>
  *
  * @throws {@link InvalidServerlessCacheSnapshotStateFault} (client fault)
- *  <p>The state of the serverless cache snapshot was not received. Available for Redis only.</p>
+ *  <p>The state of the serverless cache snapshot was not received. Available for Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServerlessCacheSnapshotAlreadyExistsFault} (client fault)
- *  <p>A serverless cache snapshot with this name already exists. Available for Redis only.</p>
+ *  <p>A serverless cache snapshot with this name already exists. Available for Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Redis only.</p>
+ *  <p>This serverless cache snapshot could not be found or does not exist. Available for Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServerlessCacheSnapshotQuotaExceededFault} (client fault)
- *  <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Redis only.</p>
+ *  <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>

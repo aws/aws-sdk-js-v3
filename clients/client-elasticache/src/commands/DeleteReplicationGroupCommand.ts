@@ -37,7 +37,7 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  *             immediately begins deleting the selected resources; you cannot cancel or revert this
  *             operation.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -202,12 +202,12 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  *  <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a
+ *                <p>Creating a snapshot of a Redis OSS cluster running on a
  *                         <code>cache.t1.micro</code> cache node.</p>
  *             </li>
  *             <li>
  *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Redis.</p>
+ *                     Redis OSS.</p>
  *             </li>
  *          </ul>
  *          <p>Neither of these are supported by ElastiCache.</p>

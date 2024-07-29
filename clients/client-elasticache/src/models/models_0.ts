@@ -175,7 +175,7 @@ export class InvalidReplicationGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The state of the serverless cache snapshot was not received. Available for Redis only.</p>
+ * <p>The state of the serverless cache snapshot was not received. Available for Redis OSS and Serverless Memcached only.</p>
  * @public
  */
 export class InvalidServerlessCacheSnapshotStateFault extends __BaseException {
@@ -275,7 +275,7 @@ export class ServerlessCacheNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>This serverless cache snapshot could not be found or does not exist. Available for Redis only.</p>
+ * <p>This serverless cache snapshot could not be found or does not exist. Available for Redis OSS and Serverless Memcached only.</p>
  * @public
  */
 export class ServerlessCacheSnapshotNotFoundFault extends __BaseException {
@@ -399,7 +399,7 @@ export interface AllowedNodeTypeModificationsMessage {
   /**
    * <p>A string list, each element of which specifies a cache node type which you can use to
    *             scale your cluster or replication group.</p>
-   *          <p>When scaling up a Redis cluster or replication group using
+   *          <p>When scaling up a Redis OSS cluster or replication group using
    *                 <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code>, use a value
    *             from this list for the <code>CacheNodeType</code> parameter.</p>
    * @public
@@ -408,7 +408,7 @@ export interface AllowedNodeTypeModificationsMessage {
 
   /**
    * <p>A string list, each element of which specifies a cache node type which you can use to
-   *             scale your cluster or replication group. When scaling down a Redis cluster or
+   *             scale your cluster or replication group. When scaling down a Redis OSS cluster or
    *             replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from
    *             this list for the CacheNodeType parameter. </p>
    * @public
@@ -718,7 +718,7 @@ export interface ProcessedUpdateAction {
   ServiceUpdateName?: string;
 
   /**
-   * <p>The status of the update action on the Redis cluster</p>
+   * <p>The status of the update action on the Redis OSS cluster</p>
    * @public
    */
   UpdateActionStatus?: UpdateActionStatus;
@@ -1118,7 +1118,7 @@ export interface NodeGroupMember {
 
   /**
    * <p>The information required for client programs to connect to a node for read operations.
-   *             The read endpoint is only applicable on Redis (cluster mode disabled) clusters.</p>
+   *             The read endpoint is only applicable on Redis OSS (cluster mode disabled) clusters.</p>
    * @public
    */
   ReadEndpoint?: Endpoint;
@@ -1137,7 +1137,7 @@ export interface NodeGroupMember {
 
   /**
    * <p>The role that is currently assigned to the node - <code>primary</code> or
-   *                 <code>replica</code>. This member is only applicable for Redis (cluster mode
+   *                 <code>replica</code>. This member is only applicable for Redis OSS (cluster mode
    *             disabled) replication groups.</p>
    * @public
    */
@@ -1152,9 +1152,8 @@ export interface NodeGroupMember {
  */
 export interface NodeGroup {
   /**
-   * <p>The identifier for the node group (shard). A Redis (cluster mode disabled) replication
-   *             group contains only 1 node group; therefore, the node group ID is 0001. A Redis (cluster
-   *             mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090.
+   * <p>The identifier for the node group (shard). A Redis OSS (cluster mode disabled) replication
+   *             group contains only 1 node group; therefore, the node group ID is 0001. A Redis OSS (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090.
    *             Optionally, the user can provide the id for a node group. </p>
    * @public
    */
@@ -1311,7 +1310,7 @@ export interface UserGroupsUpdateStatus {
 }
 
 /**
- * <p>The settings to be applied to the Redis replication group, either immediately or
+ * <p>The settings to be applied to the Redis OSS replication group, either immediately or
  *             during the next maintenance window.</p>
  * @public
  */
@@ -1325,7 +1324,7 @@ export interface ReplicationGroupPendingModifiedValues {
   PrimaryClusterId?: string;
 
   /**
-   * <p>Indicates the status of automatic failover for this Redis replication group.</p>
+   * <p>Indicates the status of automatic failover for this Redis OSS replication group.</p>
    * @public
    */
   AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;
@@ -1369,8 +1368,8 @@ export interface ReplicationGroupPendingModifiedValues {
 
   /**
    * <p>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
-   *             set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect
-   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis
+   *             set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect
+   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    * @public
@@ -1379,7 +1378,7 @@ export interface ReplicationGroupPendingModifiedValues {
 }
 
 /**
- * <p>Contains all of the attributes of a specific Redis replication group.</p>
+ * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
  * @public
  */
 export interface ReplicationGroup {
@@ -1424,8 +1423,8 @@ export interface ReplicationGroup {
   MemberClusters?: string[];
 
   /**
-   * <p>A list of node groups in this replication group. For Redis (cluster mode disabled)
-   *             replication groups, this is a single-element list. For Redis (cluster mode enabled)
+   * <p>A list of node groups in this replication group. For Redis OSS (cluster mode disabled)
+   *             replication groups, this is a single-element list. For Redis OSS (cluster mode enabled)
    *             replication groups, the list contains an entry for each node group (shard).</p>
    * @public
    */
@@ -1439,7 +1438,7 @@ export interface ReplicationGroup {
   SnapshottingClusterId?: string;
 
   /**
-   * <p>Indicates the status of automatic failover for this Redis replication group.</p>
+   * <p>Indicates the status of automatic failover for this Redis OSS replication group.</p>
    * @public
    */
   AutomaticFailover?: AutomaticFailoverStatus;
@@ -1504,7 +1503,7 @@ export interface ReplicationGroup {
   CacheNodeType?: string;
 
   /**
-   * <p>A flag that enables using an <code>AuthToken</code> (password) when issuing Redis
+   * <p>A flag that enables using an <code>AuthToken</code> (password) when issuing Redis OSS
    *             commands.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -1522,7 +1521,7 @@ export interface ReplicationGroup {
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -1538,7 +1537,7 @@ export interface ReplicationGroup {
    *             cluster.</p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -1591,7 +1590,7 @@ export interface ReplicationGroup {
   DataTiering?: DataTieringStatus;
 
   /**
-   * <p>If you are running Redis engine version 6.0 or later, set this parameter to yes if you
+   * <p>If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if you
    *             want to opt-in to the next auto minor version upgrade campaign. This parameter is
    *             disabled for previous versions. </p>
    * @public
@@ -1600,7 +1599,7 @@ export interface ReplicationGroup {
 
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
-   *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
+   *             is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -1608,7 +1607,7 @@ export interface ReplicationGroup {
 
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
-   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
+   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis OSS engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -1623,8 +1622,8 @@ export interface ReplicationGroup {
 
   /**
    * <p>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
-   *             set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect
-   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis
+   *             set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect
+   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    * @public
@@ -1637,7 +1636,7 @@ export interface ReplicationGroup {
  */
 export interface CompleteMigrationResponse {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -1668,25 +1667,25 @@ export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
  */
 export interface CopyServerlessCacheSnapshotRequest {
   /**
-   * <p>The identifier of the existing serverless cache’s snapshot to be copied. Available for Redis only.</p>
+   * <p>The identifier of the existing serverless cache’s snapshot to be copied. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   SourceServerlessCacheSnapshotName: string | undefined;
 
   /**
-   * <p>The identifier for the snapshot to be created. Available for Redis only.</p>
+   * <p>The identifier for the snapshot to be created. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   TargetServerlessCacheSnapshotName: string | undefined;
 
   /**
-   * <p>The identifier of the KMS key used to encrypt the target snapshot. Available for Redis only.</p>
+   * <p>The identifier of the KMS key used to encrypt the target snapshot. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   KmsKeyId?: string;
 
   /**
-   * <p>A list of tags to be added to the target snapshot resource. A tag is a key-value pair. Available for Redis only. Default: NULL</p>
+   * <p>A list of tags to be added to the target snapshot resource. A tag is a key-value pair. Available for Redis OSS and Serverless Memcached only. Default: NULL</p>
    * @public
    */
   Tags?: Tag[];
@@ -1717,61 +1716,61 @@ export interface ServerlessCacheConfiguration {
 }
 
 /**
- * <p>The resource representing a serverless cache snapshot. Available for Redis only.</p>
+ * <p>The resource representing a serverless cache snapshot. Available for Redis OSS and Serverless Memcached only.</p>
  * @public
  */
 export interface ServerlessCacheSnapshot {
   /**
-   * <p>The identifier of a serverless cache snapshot. Available for Redis only.</p>
+   * <p>The identifier of a serverless cache snapshot. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshotName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a serverless cache snapshot. Available for Redis only.</p>
+   * <p>The Amazon Resource Name (ARN) of a serverless cache snapshot. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ARN?: string;
 
   /**
-   * <p>The ID of the Amazon Web Services Key Management Service (KMS) key of a serverless cache snapshot. Available for Redis only.</p>
+   * <p>The ID of the Amazon Web Services Key Management Service (KMS) key of a serverless cache snapshot. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The type of snapshot of serverless cache. Available for Redis only.</p>
+   * <p>The type of snapshot of serverless cache. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   SnapshotType?: string;
 
   /**
-   * <p>The current status of the serverless cache. Available for Redis only.</p>
+   * <p>The current status of the serverless cache. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   Status?: string;
 
   /**
    * <p>The date and time that the source serverless cache's metadata and cache data set was obtained for
-   *            the snapshot. Available for Redis only.</p>
+   *            the snapshot. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   CreateTime?: Date;
 
   /**
-   * <p>The time that the serverless cache snapshot will expire. Available for Redis only.</p>
+   * <p>The time that the serverless cache snapshot will expire. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ExpiryTime?: Date;
 
   /**
-   * <p>The total size of a serverless cache snapshot, in bytes. Available for Redis only.</p>
+   * <p>The total size of a serverless cache snapshot, in bytes. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   BytesUsedForCache?: string;
 
   /**
-   * <p>The configuration of the serverless cache, at the time the snapshot was taken. Available for Redis only.</p>
+   * <p>The configuration of the serverless cache, at the time the snapshot was taken. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheConfiguration?: ServerlessCacheConfiguration;
@@ -1782,14 +1781,14 @@ export interface ServerlessCacheSnapshot {
  */
 export interface CopyServerlessCacheSnapshotResponse {
   /**
-   * <p>The response for the attempt to copy the serverless cache snapshot. Available for Redis only.</p>
+   * <p>The response for the attempt to copy the serverless cache snapshot. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshot?: ServerlessCacheSnapshot;
 }
 
 /**
- * <p>A serverless cache snapshot with this name already exists. Available for Redis only.</p>
+ * <p>A serverless cache snapshot with this name already exists. Available for Redis OSS and Serverless Memcached only.</p>
  * @public
  */
 export class ServerlessCacheSnapshotAlreadyExistsFault extends __BaseException {
@@ -1809,7 +1808,7 @@ export class ServerlessCacheSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Redis only.</p>
+ * <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Redis OSS and Serverless Memcached only.</p>
  * @public
  */
 export class ServerlessCacheSnapshotQuotaExceededFault extends __BaseException {
@@ -1901,7 +1900,7 @@ export interface CopySnapshotMessage {
  */
 export interface NodeGroupConfiguration {
   /**
-   * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the
+   * <p>Either the ElastiCache (Redis OSS) supplied 4-digit id or a user supplied id for the
    *             node group these configuration values apply to.</p>
    * @public
    */
@@ -2000,7 +1999,7 @@ export interface NodeSnapshot {
 }
 
 /**
- * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was
+ * <p>Represents a copy of an entire Redis OSS cluster as of the time when the snapshot was
  *             taken.</p>
  * @public
  */
@@ -2071,7 +2070,7 @@ export interface Snapshot {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -2099,7 +2098,7 @@ export interface Snapshot {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -2172,7 +2171,7 @@ export interface Snapshot {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -2229,15 +2228,15 @@ export interface Snapshot {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -2260,7 +2259,7 @@ export interface Snapshot {
 
   /**
    * <p>The number of cache nodes in the source cluster.</p>
-   *          <p>For clusters running Redis, this value must be 1. For clusters running Memcached, this
+   *          <p>For clusters running Redis OSS, this value must be 1. For clusters running Memcached, this
    *             value must be between 1 and 40.</p>
    * @public
    */
@@ -2365,7 +2364,7 @@ export interface Snapshot {
   VpcId?: string;
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if
+   * <p> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if
    *             you want to opt-in to the next auto minor version upgrade campaign. This parameter is
    *             disabled for previous versions.  </p>
    * @public
@@ -2402,7 +2401,7 @@ export interface Snapshot {
   NumNodeGroups?: number;
 
   /**
-   * <p>Indicates the status of automatic failover for the source Redis replication
+   * <p>Indicates the status of automatic failover for the source Redis OSS replication
    *             group.</p>
    * @public
    */
@@ -2440,7 +2439,7 @@ export interface Snapshot {
  */
 export interface CopySnapshotResult {
   /**
-   * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was
+   * <p>Represents a copy of an entire Redis OSS cluster as of the time when the snapshot was
    *             taken.</p>
    * @public
    */
@@ -2701,7 +2700,7 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>The initial number of cache nodes that the cluster has.</p>
-   *          <p>For clusters running Redis, this value must be 1. For clusters running Memcached, this
+   *          <p>For clusters running Redis OSS, this value must be 1. For clusters running Memcached, this
    *             value must be between 1 and 40.</p>
    *          <p>If you need more than 40 nodes for your Memcached cluster, please fill out the
    *             ElastiCache Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</p>
@@ -2735,7 +2734,7 @@ export interface CreateCacheClusterMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -2763,7 +2762,7 @@ export interface CreateCacheClusterMessage {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -2836,7 +2835,7 @@ export interface CreateCacheClusterMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -2893,15 +2892,15 @@ export interface CreateCacheClusterMessage {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -2976,7 +2975,7 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>A single-element string list containing an Amazon Resource Name (ARN) that uniquely
-   *             identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file is used to
+   *             identifies a Redis OSS RDB snapshot file stored in Amazon S3. The snapshot file is used to
    *             populate the node group (shard). The Amazon S3 object name in the ARN cannot contain any
    *             commas.</p>
    *          <note>
@@ -2990,7 +2989,7 @@ export interface CreateCacheClusterMessage {
   SnapshotArns?: string[];
 
   /**
-   * <p>The name of a Redis snapshot from which to restore data into the new node group
+   * <p>The name of a Redis OSS snapshot from which to restore data into the new node group
    *             (shard). The snapshot status changes to <code>restoring</code> while the new node group
    *             (shard) is being created.</p>
    *          <note>
@@ -3026,7 +3025,7 @@ export interface CreateCacheClusterMessage {
   NotificationTopicArn?: string;
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if
+   * <p> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if
    *             you want to opt-in to the next auto minor version upgrade campaign. This parameter is
    *             disabled for previous versions.  </p>
    * @public
@@ -3119,7 +3118,7 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
-   *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
+   *             is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>. </p>
    * @public
    */
@@ -3127,7 +3126,7 @@ export interface CreateCacheClusterMessage {
 
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
-   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
+   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis OSS engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -3137,7 +3136,7 @@ export interface CreateCacheClusterMessage {
 /**
  * <p>Represents an individual cache node within a cluster. Each cache node runs its own
  *             instance of the cluster's protocol-compliant caching software - either Memcached or
- *             Redis.</p>
+ *             Redis OSS.</p>
  *          <p>The following node types are supported by ElastiCache. Generally speaking, the current
  *             generation types provide more memory and computational power at lower cost when compared
  *             to their equivalent previous generation counterparts.</p>
@@ -3162,7 +3161,7 @@ export interface CreateCacheClusterMessage {
  *                         </p>
  *                      </note>
  *                      <p>
- *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+ *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
  *
  * 					 	<code>cache.m6g.large</code>,
  * 							<code>cache.m6g.xlarge</code>,
@@ -3190,7 +3189,7 @@ export interface CreateCacheClusterMessage {
  *     						<code>cache.m4.10xlarge</code>
  *                      </p>
  *                      <p>
- *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+ *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
  * 					        <code>cache.t4g.micro</code>,
  * 					        <code>cache.t4g.small</code>,
  * 					        <code>cache.t4g.medium</code>
@@ -3263,7 +3262,7 @@ export interface CreateCacheClusterMessage {
  *                         </p>
  *                      </note>
  *                      <p>
- *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+ *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
  * 							<code>cache.r6g.large</code>,
  * 							<code>cache.r6g.xlarge</code>,
  * 							<code>cache.r6g.2xlarge</code>,
@@ -3320,15 +3319,15 @@ export interface CreateCacheClusterMessage {
  *                     default.</p>
  *             </li>
  *             <li>
- *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+ *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
  *             </li>
  *             <li>
- *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+ *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
  *                     instances.</p>
  *             </li>
  *             <li>
- *                <p>Redis configuration variables <code>appendonly</code> and
- *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+ *                <p>Redis OSS configuration variables <code>appendonly</code> and
+ *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
  *                     later.</p>
  *             </li>
  *          </ul>
@@ -3462,7 +3461,7 @@ export interface NotificationConfiguration {
 export interface PendingModifiedValues {
   /**
    * <p>The new number of cache nodes for the cluster.</p>
-   *          <p>For clusters running Redis, this value must be 1. For clusters running Memcached, this
+   *          <p>For clusters running Redis OSS, this value must be 1. For clusters running Memcached, this
    *             value must be between 1 and 40.</p>
    * @public
    */
@@ -3588,7 +3587,7 @@ export interface CacheCluster {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -3616,7 +3615,7 @@ export interface CacheCluster {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -3689,7 +3688,7 @@ export interface CacheCluster {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -3746,15 +3745,15 @@ export interface CacheCluster {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -3787,7 +3786,7 @@ export interface CacheCluster {
 
   /**
    * <p>The number of cache nodes in the cluster.</p>
-   *          <p>For clusters running Redis, this value must be 1. For clusters running Memcached, this
+   *          <p>For clusters running Redis OSS, this value must be 1. For clusters running Memcached, this
    *             value must be between 1 and 40.</p>
    * @public
    */
@@ -3901,7 +3900,7 @@ export interface CacheCluster {
   CacheNodes?: CacheNode[];
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if
+   * <p> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if
    *             you want to opt-in to the next auto minor version upgrade campaign. This parameter is
    *             disabled for previous versions.  </p>
    * @public
@@ -3943,7 +3942,7 @@ export interface CacheCluster {
   SnapshotWindow?: string;
 
   /**
-   * <p>A flag that enables using an <code>AuthToken</code> (password) when issuing Redis
+   * <p>A flag that enables using an <code>AuthToken</code> (password) when issuing Redis OSS
    *             commands.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -3961,7 +3960,7 @@ export interface CacheCluster {
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -3977,7 +3976,7 @@ export interface CacheCluster {
    *             cluster.</p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -4006,7 +4005,7 @@ export interface CacheCluster {
 
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
-   *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
+   *             is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -4014,7 +4013,7 @@ export interface CacheCluster {
 
   /**
    * <p>The network type associated with the cluster, either <code>ipv4</code> |
-   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
+   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis OSS engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -4520,7 +4519,7 @@ export interface Subnet {
 
   /**
    * <p>Either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is
-   *             supported for workloads using Redis engine version 6.2 onward or Memcached engine
+   *             supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -4576,7 +4575,7 @@ export interface CacheSubnetGroup {
 
   /**
    * <p>Either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is
-   *             supported for workloads using Redis engine version 6.2 onward or Memcached engine
+   *             supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -4774,13 +4773,13 @@ export interface GlobalReplicationGroup {
   CacheNodeType?: string;
 
   /**
-   * <p>The Elasticache engine. For Redis only.</p>
+   * <p>The Elasticache engine. For Redis OSS only.</p>
    * @public
    */
   Engine?: string;
 
   /**
-   * <p>The Elasticache Redis engine version.</p>
+   * <p>The Elasticache (Redis OSS) engine version.</p>
    * @public
    */
   EngineVersion?: string;
@@ -4804,7 +4803,7 @@ export interface GlobalReplicationGroup {
   GlobalNodeGroups?: GlobalNodeGroup[];
 
   /**
-   * <p>A flag that enables using an <code>AuthToken</code> (password) when issuing Redis
+   * <p>A flag that enables using an <code>AuthToken</code> (password) when issuing Redis OSS
    *             commands.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -4816,7 +4815,7 @@ export interface GlobalReplicationGroup {
    * <p>A flag that enables in-transit encryption when set to true.</p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    * @public
    */
@@ -4830,7 +4829,7 @@ export interface GlobalReplicationGroup {
    *             replication group. </p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    * @public
    */
@@ -4933,7 +4932,7 @@ export interface CreateReplicationGroupMessage {
    * <p>Specifies whether a read-only replica is automatically promoted to read/write primary
    *             if the existing primary fails.</p>
    *          <p>
-   *             <code>AutomaticFailoverEnabled</code> must be enabled for Redis (cluster mode enabled)
+   *             <code>AutomaticFailoverEnabled</code> must be enabled for Redis OSS (cluster mode enabled)
    *             replication groups.</p>
    *          <p>Default: false</p>
    * @public
@@ -4980,8 +4979,7 @@ export interface CreateReplicationGroupMessage {
   PreferredCacheClusterAZs?: string[];
 
   /**
-   * <p>An optional parameter that specifies the number of node groups (shards) for this Redis
-   *             (cluster mode enabled) replication group. For Redis (cluster mode disabled) either omit
+   * <p>An optional parameter that specifies the number of node groups (shards) for this Redis OSS (cluster mode enabled) replication group. For Redis OSS (cluster mode disabled) either omit
    *             this parameter or set it to 1.</p>
    *          <p>Default: 1</p>
    * @public
@@ -5000,10 +4998,9 @@ export interface CreateReplicationGroupMessage {
    *             configuration has the following members: <code>PrimaryAvailabilityZone</code>,
    *                 <code>ReplicaAvailabilityZones</code>, <code>ReplicaCount</code>, and
    *                 <code>Slots</code>.</p>
-   *          <p>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
+   *          <p>If you're creating a Redis OSS (cluster mode disabled) or a Redis OSS (cluster mode enabled)
    *             replication group, you can use this parameter to individually configure each node group
-   *             (shard), or you can omit this parameter. However, it is required when seeding a Redis
-   *             (cluster mode enabled) cluster from a S3 rdb file. You must configure each node group
+   *             (shard), or you can omit this parameter. However, it is required when seeding a Redis OSS (cluster mode enabled) cluster from a S3 rdb file. You must configure each node group
    *             (shard) using this parameter because you must specify the slots for each node
    *             group.</p>
    * @public
@@ -5036,7 +5033,7 @@ export interface CreateReplicationGroupMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -5064,7 +5061,7 @@ export interface CreateReplicationGroupMessage {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -5137,7 +5134,7 @@ export interface CreateReplicationGroupMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -5194,15 +5191,15 @@ export interface CreateReplicationGroupMessage {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -5236,16 +5233,16 @@ export interface CreateReplicationGroupMessage {
    * <p>The name of the parameter group to associate with this replication group. If this
    *             argument is omitted, the default cache parameter group for the specified engine is
    *             used.</p>
-   *          <p>If you are running Redis version 3.2.4 or later, only one node group (shard), and want
+   *          <p>If you are running Redis OSS version 3.2.4 or later, only one node group (shard), and want
    *             to use a default parameter group, we recommend that you specify the parameter group by
    *             name. </p>
    *          <ul>
    *             <li>
-   *                <p>To create a Redis (cluster mode disabled) replication group, use
+   *                <p>To create a Redis OSS (cluster mode disabled) replication group, use
    *                         <code>CacheParameterGroupName=default.redis3.2</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To create a Redis (cluster mode enabled) replication group, use
+   *                <p>To create a Redis OSS (cluster mode enabled) replication group, use
    *                         <code>CacheParameterGroupName=default.redis3.2.cluster.on</code>.</p>
    *             </li>
    *          </ul>
@@ -5288,7 +5285,7 @@ export interface CreateReplicationGroupMessage {
   Tags?: Tag[];
 
   /**
-   * <p>A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot
+   * <p>A list of Amazon Resource Names (ARN) that uniquely identify the Redis OSS RDB snapshot
    *             files stored in Amazon S3. The snapshot files are used to populate the new replication
    *             group. The Amazon S3 object name in the ARN cannot contain any commas. The new
    *             replication group will have the number of node groups (console: shards) specified by the
@@ -5375,7 +5372,7 @@ export interface CreateReplicationGroupMessage {
   NotificationTopicArn?: string;
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if
+   * <p> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if
    *             you want to opt-in to the next auto minor version upgrade campaign. This parameter is
    *             disabled for previous versions.  </p>
    * @public
@@ -5444,7 +5441,7 @@ export interface CreateReplicationGroupMessage {
    *                 <code>CacheSubnetGroup</code>.</p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -5465,7 +5462,7 @@ export interface CreateReplicationGroupMessage {
    *             replication group. </p>
    *          <p>
    *             <b>Required:</b> Only available when creating a replication
-   *             group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or
+   *             group in an Amazon VPC using Redis OSS version <code>3.2.6</code>, <code>4.x</code> or
    *             later.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -5501,7 +5498,7 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
-   *             is supported for workloads using Redis engine version 6.2 onward or Memcached engine
+   *             is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine
    *             version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -5509,7 +5506,7 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>The network type you choose when creating a replication group, either
-   *                 <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis
+   *                 <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis OSS
    *             engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on
    *             the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
@@ -5522,7 +5519,7 @@ export interface CreateReplicationGroupMessage {
    *          <p>When setting <code>TransitEncryptionEnabled</code> to <code>true</code>, you can set
    *             your <code>TransitEncryptionMode</code> to <code>preferred</code> in the same request,
    *             to allow both encrypted and unencrypted connections at the same time. Once you migrate
-   *             all your Redis clients to use encrypted connections you can modify the value to
+   *             all your Redis OSS clients to use encrypted connections you can modify the value to
    *                 <code>required</code> to allow encrypted connections only.</p>
    *          <p>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
    *             process that requires you to first set the <code>TransitEncryptionMode</code> to
@@ -5535,8 +5532,8 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
-   *             set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect
-   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis
+   *             set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect
+   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    * @public
@@ -5544,7 +5541,7 @@ export interface CreateReplicationGroupMessage {
   ClusterMode?: ClusterMode;
 
   /**
-   * <p>The name of the snapshot used to create a replication group. Available for Redis only.</p>
+   * <p>The name of the snapshot used to create a replication group. Available for Redis OSS only.</p>
    * @public
    */
   ServerlessCacheSnapshotName?: string;
@@ -5555,7 +5552,7 @@ export interface CreateReplicationGroupMessage {
  */
 export interface CreateReplicationGroupResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -5809,7 +5806,7 @@ export interface CreateServerlessCacheRequest {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>The ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.</p>
+   * <p>The ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   SnapshotArnsToRestore?: string[];
@@ -5821,7 +5818,7 @@ export interface CreateServerlessCacheRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The identifier of the UserGroup to be associated with the serverless cache.  Available for Redis only. Default is NULL.</p>
+   * <p>The identifier of the UserGroup to be associated with the serverless cache.  Available for Redis OSS only. Default is NULL.</p>
    * @public
    */
   UserGroupId?: string;
@@ -5835,14 +5832,14 @@ export interface CreateServerlessCacheRequest {
 
   /**
    * <p>The number of snapshots that will be retained for the serverless cache that is being created.
-   *            As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.</p>
+   *            As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   SnapshotRetentionLimit?: number;
 
   /**
    * <p>The daily time that snapshots will be created from the new serverless cache. By default this number is populated with
-   *            0, i.e. no snapshots will be created on an automatic daily basis. Available for Redis only.</p>
+   *            0, i.e. no snapshots will be created on an automatic daily basis. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   DailySnapshotTime?: string;
@@ -5935,7 +5932,7 @@ export interface ServerlessCache {
   ARN?: string;
 
   /**
-   * <p>The identifier of the user group associated with the serverless cache. Available for Redis only. Default is NULL.</p>
+   * <p>The identifier of the user group associated with the serverless cache. Available for Redis OSS only. Default is NULL.</p>
    * @public
    */
   UserGroupId?: string;
@@ -5948,14 +5945,14 @@ export interface ServerlessCache {
   SubnetIds?: string[];
 
   /**
-   * <p>The current setting for the number of serverless cache snapshots the system will retain. Available for Redis only.</p>
+   * <p>The current setting for the number of serverless cache snapshots the system will retain. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   SnapshotRetentionLimit?: number;
 
   /**
    * <p>The daily time that a cache snapshot will be created. Default is NULL, i.e. snapshots will not be created at a
-   *            specific time on a daily basis. Available for Redis only.</p>
+   *            specific time on a daily basis. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   DailySnapshotTime?: string;
@@ -6037,26 +6034,26 @@ export class ServerlessCacheQuotaForCustomerExceededFault extends __BaseExceptio
  */
 export interface CreateServerlessCacheSnapshotRequest {
   /**
-   * <p>The name for the snapshot being created. Must be unique for the customer account. Available for Redis only.
+   * <p>The name for the snapshot being created. Must be unique for the customer account. Available for Redis OSS and Serverless Memcached only.
    *            Must be between 1 and 255 characters.</p>
    * @public
    */
   ServerlessCacheSnapshotName: string | undefined;
 
   /**
-   * <p>The name of an existing serverless cache. The snapshot is created from this cache. Available for Redis only.</p>
+   * <p>The name of an existing serverless cache. The snapshot is created from this cache. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheName: string | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt the snapshot.  Available for Redis only. Default: NULL</p>
+   * <p>The ID of the KMS key used to encrypt the snapshot.  Available for Redis OSS and Serverless Memcached only. Default: NULL</p>
    * @public
    */
   KmsKeyId?: string;
 
   /**
-   * <p>A list of tags to be added to the snapshot resource. A tag is a key-value pair. Available for Redis only.</p>
+   * <p>A list of tags to be added to the snapshot resource. A tag is a key-value pair. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   Tags?: Tag[];
@@ -6067,7 +6064,7 @@ export interface CreateServerlessCacheSnapshotRequest {
  */
 export interface CreateServerlessCacheSnapshotResponse {
   /**
-   * <p>The state of a serverless cache snapshot at a specific point in time, to the millisecond. Available for Redis only.</p>
+   * <p>The state of a serverless cache snapshot at a specific point in time, to the millisecond. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshot?: ServerlessCacheSnapshot;
@@ -6117,7 +6114,7 @@ export interface CreateSnapshotMessage {
  */
 export interface CreateSnapshotResult {
   /**
-   * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was
+   * <p>Represents a copy of an entire Redis OSS cluster as of the time when the snapshot was
    *             taken.</p>
    * @public
    */
@@ -6128,12 +6125,12 @@ export interface CreateSnapshotResult {
  * <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a
+ *                <p>Creating a snapshot of a Redis OSS cluster running on a
  *                         <code>cache.t1.micro</code> cache node.</p>
  *             </li>
  *             <li>
  *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Redis.</p>
+ *                     Redis OSS.</p>
  *             </li>
  *          </ul>
  *          <p>Neither of these are supported by ElastiCache.</p>
@@ -6326,7 +6323,7 @@ export interface User {
   Engine?: string;
 
   /**
-   * <p>The minimum engine version required, which is Redis 6.0</p>
+   * <p>The minimum engine version required, which is Redis OSS 6.0</p>
    * @public
    */
   MinimumEngineVersion?: string;
@@ -6407,7 +6404,7 @@ export interface CreateUserGroupMessage {
   UserGroupId: string | undefined;
 
   /**
-   * <p>The current supported value is Redis. </p>
+   * <p>The current supported value is Redis user. </p>
    * @public
    */
   Engine: string | undefined;
@@ -6420,7 +6417,7 @@ export interface CreateUserGroupMessage {
 
   /**
    * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must
-   *             be accompanied by a tag value, although null is accepted. Available for Redis only.</p>
+   *             be accompanied by a tag value, although null is accepted. Available for Redis OSS only.</p>
    * @public
    */
   Tags?: Tag[];
@@ -6482,7 +6479,7 @@ export interface UserGroup {
   Status?: string;
 
   /**
-   * <p>The current supported value is Redis. </p>
+   * <p>The current supported value is Redis user. </p>
    * @public
    */
   Engine?: string;
@@ -6494,7 +6491,7 @@ export interface UserGroup {
   UserIds?: string[];
 
   /**
-   * <p>The minimum engine version required, which is Redis 6.0</p>
+   * <p>The minimum engine version required, which is Redis OSS 6.0</p>
    * @public
    */
   MinimumEngineVersion?: string;
@@ -6512,7 +6509,7 @@ export interface UserGroup {
   ReplicationGroups?: string[];
 
   /**
-   * <p>Indicates which serverless caches the specified user group is associated with. Available for Redis only.</p>
+   * <p>Indicates which serverless caches the specified user group is associated with. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCaches?: string[];
@@ -6585,7 +6582,7 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
    * <p>If the value of NodeGroupCount is less than the current number of node groups
    *             (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required.
    *             GlobalNodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
-   *             ElastiCache for Redis will attempt to remove all node groups listed by
+   *             ElastiCache (Redis OSS) will attempt to remove all node groups listed by
    *             GlobalNodeGroupsToRemove from the cluster. </p>
    * @public
    */
@@ -6595,7 +6592,7 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
    * <p>If the value of NodeGroupCount is less than the current number of node groups
    *             (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required.
    *             GlobalNodeGroupsToRetain is a list of NodeGroupIds to retain from the cluster.
-   *             ElastiCache for Redis will attempt to retain all node groups listed by
+   *             ElastiCache (Redis OSS) will attempt to retain all node groups listed by
    *             GlobalNodeGroupsToRetain from the cluster. </p>
    * @public
    */
@@ -6637,9 +6634,8 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
  */
 export interface ConfigureShard {
   /**
-   * <p>The 4-digit id for the node group you are configuring. For Redis (cluster mode
-   *             disabled) replication groups, the node group id is always 0001. To find a Redis (cluster
-   *             mode enabled)'s node group's (shard's) id, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html">Finding a Shard's
+   * <p>The 4-digit id for the node group you are configuring. For Redis OSS (cluster mode
+   *             disabled) replication groups, the node group id is always 0001. To find a Redis OSS (cluster mode enabled)'s node group's (shard's) id, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html">Finding a Shard's
    *                 Id</a>.</p>
    * @public
    */
@@ -6648,11 +6644,11 @@ export interface ConfigureShard {
   /**
    * <p>The number of replicas you want in this node group at the end of this operation.
    *             The maximum value for <code>NewReplicaCount</code> is 5. The minimum value depends upon
-   *             the type of Redis replication group you are working with.</p>
+   *             the type of Redis OSS replication group you are working with.</p>
    *          <p>The minimum number of replicas in a shard or replication group is:</p>
    *          <ul>
    *             <li>
-   *                <p>Redis (cluster mode disabled)</p>
+   *                <p>Redis OSS (cluster mode disabled)</p>
    *                <ul>
    *                   <li>
    *                      <p>If Multi-AZ: 1</p>
@@ -6663,7 +6659,7 @@ export interface ConfigureShard {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Redis (cluster mode enabled): 0 (though you will not be able to failover to
+   *                <p>Redis OSS (cluster mode enabled): 0 (though you will not be able to failover to
    *                     a replica if your primary node fails)</p>
    *             </li>
    *          </ul>
@@ -6676,7 +6672,7 @@ export interface ConfigureShard {
    *             availability zones the replication group's nodes are to be in. The nummber of
    *                 <code>PreferredAvailabilityZone</code> values must equal the value of
    *                 <code>NewReplicaCount</code> plus 1 to account for the primary node. If this member
-   *             of <code>ReplicaConfiguration</code> is omitted, ElastiCache for Redis selects the
+   *             of <code>ReplicaConfiguration</code> is omitted, ElastiCache (Redis OSS) selects the
    *             availability zone for each of the replicas.</p>
    * @public
    */
@@ -6701,14 +6697,13 @@ export interface DecreaseReplicaCountMessage {
   ReplicationGroupId: string | undefined;
 
   /**
-   * <p>The number of read replica nodes you want at the completion of this operation. For
-   *             Redis (cluster mode disabled) replication groups, this is the number of replica nodes in
-   *             the replication group. For Redis (cluster mode enabled) replication groups, this is the
+   * <p>The number of read replica nodes you want at the completion of this operation. For Redis OSS (cluster mode disabled) replication groups, this is the number of replica nodes in
+   *             the replication group. For Redis OSS (cluster mode enabled) replication groups, this is the
    *             number of replica nodes in each of the replication group's node groups.</p>
    *          <p>The minimum number of replicas in a shard or replication group is:</p>
    *          <ul>
    *             <li>
-   *                <p>Redis (cluster mode disabled)</p>
+   *                <p>Redis OSS (cluster mode disabled)</p>
    *                <ul>
    *                   <li>
    *                      <p>If Multi-AZ is enabled: 1</p>
@@ -6719,7 +6714,7 @@ export interface DecreaseReplicaCountMessage {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Redis (cluster mode enabled): 0 (though you will not be able to failover to
+   *                <p>Redis OSS (cluster mode enabled): 0 (though you will not be able to failover to
    *                     a replica if your primary node fails)</p>
    *             </li>
    *          </ul>
@@ -6729,7 +6724,7 @@ export interface DecreaseReplicaCountMessage {
 
   /**
    * <p>A list of <code>ConfigureShard</code> objects that can be used to configure each
-   *             shard in a Redis (cluster mode enabled) replication group. The
+   *             shard in a Redis OSS (cluster mode enabled) replication group. The
    *                 <code>ConfigureShard</code> has three members: <code>NewReplicaCount</code>,
    *                 <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
    * @public
@@ -6756,7 +6751,7 @@ export interface DecreaseReplicaCountMessage {
  */
 export interface DecreaseReplicaCountResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -6949,7 +6944,7 @@ export interface DeleteReplicationGroupMessage {
  */
 export interface DeleteReplicationGroupResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -6966,7 +6961,7 @@ export interface DeleteServerlessCacheRequest {
   ServerlessCacheName: string | undefined;
 
   /**
-   * <p>Name of the final snapshot to be taken before the serverless cache is deleted.  Available for Redis only.
+   * <p>Name of the final snapshot to be taken before the serverless cache is deleted.  Available for Redis OSS and Serverless Memcached only.
    *            Default: NULL, i.e. a final snapshot is not taken.</p>
    * @public
    */
@@ -6989,7 +6984,7 @@ export interface DeleteServerlessCacheResponse {
  */
 export interface DeleteServerlessCacheSnapshotRequest {
   /**
-   * <p>Idenfitier of the snapshot to be deleted. Available for Redis only.</p>
+   * <p>Idenfitier of the snapshot to be deleted. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshotName: string | undefined;
@@ -7000,7 +6995,7 @@ export interface DeleteServerlessCacheSnapshotRequest {
  */
 export interface DeleteServerlessCacheSnapshotResponse {
   /**
-   * <p>The snapshot to be deleted. Available for Redis only.</p>
+   * <p>The snapshot to be deleted. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshot?: ServerlessCacheSnapshot;
@@ -7023,7 +7018,7 @@ export interface DeleteSnapshotMessage {
  */
 export interface DeleteSnapshotResult {
   /**
-   * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was
+   * <p>Represents a copy of an entire Redis OSS cluster as of the time when the snapshot was
    *             taken.</p>
    * @public
    */
@@ -7151,7 +7146,7 @@ export interface DescribeCacheClustersMessage {
   /**
    * <p>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
    *             to show only nodes (API/CLI: clusters) that are not members of a replication group. In
-   *             practice, this mean Memcached and single node Redis clusters.</p>
+   *             practice, this mean Memcached and single node Redis OSS clusters.</p>
    * @public
    */
   ShowCacheClustersNotInReplicationGroups?: boolean;
@@ -7371,7 +7366,7 @@ export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
 
 /**
  * <p>A parameter that has a different value for each cache node type it is applied to. For
- *             example, in a Redis cluster, a <code>cache.m1.large</code> cache node type would have a
+ *             example, in a Redis OSS cluster, a <code>cache.m1.large</code> cache node type would have a
  *             larger <code>maxmemory</code> value than a <code>cache.m1.small</code> type.</p>
  * @public
  */
@@ -8036,7 +8031,7 @@ export interface DescribeReservedCacheNodesMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -8064,7 +8059,7 @@ export interface DescribeReservedCacheNodesMessage {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -8137,7 +8132,7 @@ export interface DescribeReservedCacheNodesMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -8194,15 +8189,15 @@ export interface DescribeReservedCacheNodesMessage {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -8318,7 +8313,7 @@ export interface ReservedCacheNode {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -8346,7 +8341,7 @@ export interface ReservedCacheNode {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -8419,7 +8414,7 @@ export interface ReservedCacheNode {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -8476,15 +8471,15 @@ export interface ReservedCacheNode {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -8617,7 +8612,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -8645,7 +8640,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -8718,7 +8713,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -8775,15 +8770,15 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -8873,7 +8868,7 @@ export interface ReservedCacheNodesOffering {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
    * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
@@ -8901,7 +8896,7 @@ export interface ReservedCacheNodesOffering {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *                      <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -8974,7 +8969,7 @@ export interface ReservedCacheNodesOffering {
    *                         </p>
    *                      </note>
    *                      <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 							<code>cache.r6g.large</code>,
    * 							<code>cache.r6g.xlarge</code>,
    * 							<code>cache.r6g.2xlarge</code>,
@@ -9031,15 +9026,15 @@ export interface ReservedCacheNodesOffering {
    *                     default.</p>
    *             </li>
    *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *                <p>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1
+   *                <p>Redis OSS Multi-AZ with automatic failover is not supported on T1
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   *                         <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   *                <p>Redis OSS configuration variables <code>appendonly</code> and
+   *                         <code>appendfsync</code> are not supported on Redis OSS version 2.8.22 and
    *                     later.</p>
    *             </li>
    *          </ul>
@@ -9177,20 +9172,20 @@ export interface DescribeServerlessCachesResponse {
 export interface DescribeServerlessCacheSnapshotsRequest {
   /**
    * <p>The identifier of serverless cache. If this parameter is specified,
-   *            only snapshots associated with that specific serverless cache are described. Available for Redis only.</p>
+   *            only snapshots associated with that specific serverless cache are described. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheName?: string;
 
   /**
    * <p>The identifier of the serverless cache’s snapshot.
-   *            If this parameter is specified, only this snapshot is described. Available for Redis only.</p>
+   *            If this parameter is specified, only this snapshot is described. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshotName?: string;
 
   /**
-   * <p>The type of snapshot that is being described. Available for Redis only.</p>
+   * <p>The type of snapshot that is being described. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   SnapshotType?: string;
@@ -9198,7 +9193,7 @@ export interface DescribeServerlessCacheSnapshotsRequest {
   /**
    * <p>An optional marker returned from a prior request to support pagination of results from this operation.
    *            If this parameter is specified, the response includes only records beyond the marker,
-   *            up to the value specified by max-results. Available for Redis only.</p>
+   *            up to the value specified by max-results. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   NextToken?: string;
@@ -9206,7 +9201,7 @@ export interface DescribeServerlessCacheSnapshotsRequest {
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
    *            the specified max-results value, a market is included in the response so that remaining results
-   *            can be retrieved. Available for Redis only.The default is 50. The Validation Constraints are a maximum of 50.</p>
+   *            can be retrieved. Available for Redis OSS and Serverless Memcached only.The default is 50. The Validation Constraints are a maximum of 50.</p>
    * @public
    */
   MaxResults?: number;
@@ -9219,13 +9214,13 @@ export interface DescribeServerlessCacheSnapshotsResponse {
   /**
    * <p>An optional marker returned from a prior request to support pagination of results from this operation.
    *            If this parameter is specified, the response includes only records beyond the marker,
-   *            up to the value specified by max-results. Available for Redis only.</p>
+   *            up to the value specified by max-results. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   NextToken?: string;
 
   /**
-   * <p>The serverless caches snapshots associated with a given description request. Available for Redis only.</p>
+   * <p>The serverless caches snapshots associated with a given description request. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshots?: ServerlessCacheSnapshot[];
@@ -9307,7 +9302,7 @@ export const ServiceUpdateType = {
 export type ServiceUpdateType = (typeof ServiceUpdateType)[keyof typeof ServiceUpdateType];
 
 /**
- * <p>An update that you can apply to your Redis clusters.</p>
+ * <p>An update that you can apply to your Redis OSS clusters.</p>
  * @public
  */
 export interface ServiceUpdate {
@@ -9361,14 +9356,14 @@ export interface ServiceUpdate {
   ServiceUpdateType?: ServiceUpdateType;
 
   /**
-   * <p>The Elasticache engine to which the update applies. Either Redis or Memcached</p>
+   * <p>The Elasticache engine to which the update applies. Either Redis OSS or Memcached.</p>
    * @public
    */
   Engine?: string;
 
   /**
-   * <p>The Elasticache engine version to which the update applies. Either Redis or Memcached
-   *             engine version</p>
+   * <p>The Elasticache engine version to which the update applies. Either Redis OSS or Memcached
+   *             engine version.</p>
    * @public
    */
   EngineVersion?: string;
@@ -9530,7 +9525,7 @@ export interface DescribeUpdateActionsMessage {
   CacheClusterIds?: string[];
 
   /**
-   * <p>The Elasticache engine to which the update applies. Either Redis or Memcached </p>
+   * <p>The Elasticache engine to which the update applies. Either Redis OSS or Memcached.</p>
    * @public
    */
   Engine?: string;
@@ -9862,7 +9857,7 @@ export interface UpdateAction {
   EstimatedUpdateTime?: string;
 
   /**
-   * <p>The Elasticache engine to which the update applies. Either Redis or Memcached</p>
+   * <p>The Elasticache engine to which the update applies. Either Redis OSS or Memcached.</p>
    * @public
    */
   Engine?: string;
@@ -9956,7 +9951,7 @@ export interface Filter {
  */
 export interface DescribeUsersMessage {
   /**
-   * <p>The Redis engine. </p>
+   * <p>The Redis OSS engine. </p>
    * @public
    */
   Engine?: string;
@@ -10058,14 +10053,14 @@ export interface DisassociateGlobalReplicationGroupResult {
  */
 export interface ExportServerlessCacheSnapshotRequest {
   /**
-   * <p>The identifier of the serverless cache snapshot to be exported to S3. Available for Redis only.</p>
+   * <p>The identifier of the serverless cache snapshot to be exported to S3. Available for Redis OSS only.</p>
    * @public
    */
   ServerlessCacheSnapshotName: string | undefined;
 
   /**
    * <p>Name of the Amazon S3 bucket to export the snapshot to. The Amazon S3 bucket must also be in same region
-   *            as the snapshot. Available for Redis only.</p>
+   *            as the snapshot. Available for Redis OSS only.</p>
    * @public
    */
   S3BucketName: string | undefined;
@@ -10076,7 +10071,7 @@ export interface ExportServerlessCacheSnapshotRequest {
  */
 export interface ExportServerlessCacheSnapshotResponse {
   /**
-   * <p>The state of a serverless cache at a specific point in time, to the millisecond. Available for Redis only.</p>
+   * <p>The state of a serverless cache at a specific point in time, to the millisecond. Available for Redis OSS and Serverless Memcached only.</p>
    * @public
    */
   ServerlessCacheSnapshot?: ServerlessCacheSnapshot;
@@ -10132,7 +10127,7 @@ export interface FailoverGlobalReplicationGroupResult {
  */
 export interface ReshardingConfiguration {
   /**
-   * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the
+   * <p>Either the ElastiCache (Redis OSS) supplied 4-digit id or a user supplied id for the
    *             node group these configuration values apply to.</p>
    * @public
    */
@@ -10232,9 +10227,8 @@ export interface IncreaseReplicaCountMessage {
   ReplicationGroupId: string | undefined;
 
   /**
-   * <p>The number of read replica nodes you want at the completion of this operation. For
-   *             Redis (cluster mode disabled) replication groups, this is the number of replica nodes in
-   *             the replication group. For Redis (cluster mode enabled) replication groups, this is the
+   * <p>The number of read replica nodes you want at the completion of this operation. For Redis OSS (cluster mode disabled) replication groups, this is the number of replica nodes in
+   *             the replication group. For Redis OSS (cluster mode enabled) replication groups, this is the
    *             number of replica nodes in each of the replication group's node groups.</p>
    * @public
    */
@@ -10242,7 +10236,7 @@ export interface IncreaseReplicaCountMessage {
 
   /**
    * <p>A list of <code>ConfigureShard</code> objects that can be used to configure each
-   *             shard in a Redis (cluster mode enabled) replication group. The
+   *             shard in a Redis OSS (cluster mode enabled) replication group. The
    *                 <code>ConfigureShard</code> has three members: <code>NewReplicaCount</code>,
    *                 <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
    * @public
@@ -10262,7 +10256,7 @@ export interface IncreaseReplicaCountMessage {
  */
 export interface IncreaseReplicaCountResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -10373,7 +10367,7 @@ export interface ModifyCacheClusterMessage {
    *             requests are canceled.</p>
    *          <p>If you are removing cache nodes, you must use the <code>CacheNodeIdsToRemove</code>
    *             parameter to provide the IDs of the specific cache nodes to remove.</p>
-   *          <p>For clusters running Redis, this value must be 1. For clusters running Memcached, this
+   *          <p>For clusters running Redis OSS, this value must be 1. For clusters running Memcached, this
    *             value must be between 1 and 40.</p>
    *          <note>
    *             <p>Adding or removing Memcached cache nodes can be applied immediately or as a
@@ -10669,7 +10663,7 @@ export interface ModifyCacheClusterMessage {
   EngineVersion?: string;
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if
+   * <p> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if
    *             you want to opt-in to the next auto minor version upgrade campaign. This parameter is
    *             disabled for previous versions.  </p>
    * @public
@@ -10736,7 +10730,7 @@ export interface ModifyCacheClusterMessage {
    *                <p>DELETE - allowed only when transitioning to RBAC</p>
    *             </li>
    *          </ul>
-   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
+   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis OSS AUTH</a>
    *          </p>
    * @public
    */
@@ -10750,7 +10744,7 @@ export interface ModifyCacheClusterMessage {
 
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
-   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
+   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis OSS engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -11002,7 +10996,7 @@ export interface ModifyReplicationGroupMessage {
 
   /**
    * <p>The cluster ID that is used as the daily snapshot source for the replication group.
-   *             This parameter cannot be set for Redis (cluster mode enabled) replication groups.</p>
+   *             This parameter cannot be set for Redis OSS (cluster mode enabled) replication groups.</p>
    * @public
    */
   SnapshottingClusterId?: string;
@@ -11154,7 +11148,7 @@ export interface ModifyReplicationGroupMessage {
   EngineVersion?: string;
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if
+   * <p> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes if
    *             you want to opt-in to the next auto minor version upgrade campaign. This parameter is
    *             disabled for previous versions.  </p>
    * @public
@@ -11225,7 +11219,7 @@ export interface ModifyReplicationGroupMessage {
    *                <p>DELETE - allowed only when transitioning to RBAC</p>
    *             </li>
    *          </ul>
-   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
+   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis OSS AUTH</a>
    *          </p>
    * @public
    */
@@ -11258,7 +11252,7 @@ export interface ModifyReplicationGroupMessage {
 
   /**
    * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> |
-   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
+   *                 <code>ipv6</code>. IPv6 is supported for workloads using Redis OSS engine version 6.2
    *             onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
    * @public
    */
@@ -11278,7 +11272,7 @@ export interface ModifyReplicationGroupMessage {
    *          <p>You must set <code>TransitEncryptionEnabled</code> to <code>true</code>, for your
    *             existing cluster, and set <code>TransitEncryptionMode</code> to <code>preferred</code>
    *             in the same request to allow both encrypted and unencrypted connections at the same
-   *             time. Once you migrate all your Redis clients to use encrypted connections you can set
+   *             time. Once you migrate all your Redis OSS clients to use encrypted connections you can set
    *             the value to <code>required</code> to allow encrypted connections only.</p>
    *          <p>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
    *             process that requires you to first set the <code>TransitEncryptionMode</code> to
@@ -11290,8 +11284,8 @@ export interface ModifyReplicationGroupMessage {
 
   /**
    * <p>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
-   *             set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect
-   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis
+   *             set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect
+   *             using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS
    *             clients to use cluster mode enabled, you can then complete cluster mode configuration
    *             and set the cluster mode to Enabled.</p>
    * @public
@@ -11304,7 +11298,7 @@ export interface ModifyReplicationGroupMessage {
  */
 export interface ModifyReplicationGroupResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -11317,7 +11311,7 @@ export interface ModifyReplicationGroupResult {
  */
 export interface ModifyReplicationGroupShardConfigurationMessage {
   /**
-   * <p>The name of the Redis (cluster mode enabled) cluster (replication group) on which the
+   * <p>The name of the Redis OSS (cluster mode enabled) cluster (replication group) on which the
    *             shards are to be configured.</p>
    * @public
    */
@@ -11355,7 +11349,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *             groups (shards), then either <code>NodeGroupsToRemove</code> or
    *                 <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is a
    *             list of <code>NodeGroupId</code>s to remove from the cluster.</p>
-   *          <p>ElastiCache for Redis will attempt to remove all node groups listed by
+   *          <p>ElastiCache (Redis OSS) will attempt to remove all node groups listed by
    *                 <code>NodeGroupsToRemove</code> from the cluster.</p>
    * @public
    */
@@ -11366,7 +11360,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *             groups (shards), then either <code>NodeGroupsToRemove</code> or
    *                 <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is a
    *             list of <code>NodeGroupId</code>s to retain in the cluster.</p>
-   *          <p>ElastiCache for Redis will attempt to remove all node groups except those listed by
+   *          <p>ElastiCache (Redis OSS) will attempt to remove all node groups except those listed by
    *                 <code>NodeGroupsToRetain</code> from the cluster.</p>
    * @public
    */
@@ -11378,7 +11372,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
  */
 export interface ModifyReplicationGroupShardConfigurationResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -11409,13 +11403,13 @@ export interface ModifyServerlessCacheRequest {
   CacheUsageLimits?: CacheUsageLimits;
 
   /**
-   * <p>The identifier of the UserGroup to be removed from association with the Redis serverless cache.  Available for Redis only. Default is NULL.</p>
+   * <p>The identifier of the UserGroup to be removed from association with the Redis OSS serverless cache.  Available for Redis OSS only. Default is NULL.</p>
    * @public
    */
   RemoveUserGroup?: boolean;
 
   /**
-   * <p>The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only.
+   * <p>The identifier of the UserGroup to be associated with the serverless cache. Available for Redis OSS only.
    *            Default is NULL -  the existing UserGroup is not removed.</p>
    * @public
    */
@@ -11432,7 +11426,7 @@ export interface ModifyServerlessCacheRequest {
 
   /**
    * <p>The number of days for which Elasticache retains automatic snapshots before deleting them.
-   *            Available for Redis only.
+   *            Available for Redis OSS and Serverless Memcached only.
    *            Default = NULL, i.e. the existing snapshot-retention-limit will not be removed or modified.
    *            The maximum value allowed is 35 days.</p>
    * @public
@@ -11440,7 +11434,7 @@ export interface ModifyServerlessCacheRequest {
   SnapshotRetentionLimit?: number;
 
   /**
-   * <p>The daily time during which Elasticache begins taking a daily snapshot of the serverless cache.  Available for Redis only.
+   * <p>The daily time during which Elasticache begins taking a daily snapshot of the serverless cache.  Available for Redis OSS and Serverless Memcached only.
    *            The default is NULL, i.e. the existing snapshot time configured for the cluster is not removed.</p>
    * @public
    */

@@ -28,18 +28,18 @@ export interface CreateReplicationGroupCommandInput extends CreateReplicationGro
 export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication
+ * <p>Creates a Redis OSS (cluster mode disabled) or a Redis OSS (cluster mode enabled) replication
  *             group.</p>
  *          <p>This API can be used to create a standalone regional replication group or a secondary
  *             replication group associated with a Global datastore.</p>
- *          <p>A Redis (cluster mode disabled) replication group is a collection of nodes, where
+ *          <p>A Redis OSS (cluster mode disabled) replication group is a collection of nodes, where
  *             one of the nodes is a read/write primary and the others are read-only replicas.
  *             Writes to the primary are asynchronously propagated to the replicas.</p>
- *          <p>A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
+ *          <p>A Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
  *             node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
  *             configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which
  *             is the maximum number or replicas allowed. </p>
- *          <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Redis
+ *          <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Redis OSS
  *             engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node
  *             cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500
  *             shards (single primary and no replicas). Make sure there are enough available IP
@@ -50,14 +50,14 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *          <p>To request a limit increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Service Limits</a> and
  *             choose the limit type <b>Nodes per cluster per instance
  *                 type</b>. </p>
- *          <p>When a Redis (cluster mode disabled) replication group has been successfully created,
+ *          <p>When a Redis OSS (cluster mode disabled) replication group has been successfully created,
  *             you can add one or more read replicas to it, up to a total of 5 read replicas. If you
- *             need to increase or decrease the number of node groups (console: shards), you can avail
- *             yourself of ElastiCache for Redis' scaling. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling
- *                 ElastiCache for Redis Clusters</a> in the <i>ElastiCache User
+ *             need to increase or decrease the number of node groups (console: shards), you can use ElastiCache (Redis OSS) scaling.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling
+ *                 ElastiCache (Redis OSS) Clusters</a> in the <i>ElastiCache User
  *                 Guide</i>.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -35,10 +35,10 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *          <p>This operation is not valid for:</p>
  *          <ul>
  *             <li>
- *                <p>Redis (cluster mode enabled) clusters</p>
+ *                <p>Redis OSS (cluster mode enabled) clusters</p>
  *             </li>
  *             <li>
- *                <p>Redis (cluster mode disabled) clusters</p>
+ *                <p>Redis OSS (cluster mode disabled) clusters</p>
  *             </li>
  *             <li>
  *                <p>A cluster that is the last read replica of a replication group</p>
@@ -50,7 +50,7 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *                <p>A node group (shard) that has Multi-AZ mode enabled</p>
  *             </li>
  *             <li>
- *                <p>A cluster from a Redis (cluster mode enabled) replication group</p>
+ *                <p>A cluster from a Redis OSS (cluster mode enabled) replication group</p>
  *             </li>
  *             <li>
  *                <p>A cluster that is not in the <code>available</code> state</p>
@@ -210,12 +210,12 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *  <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a
+ *                <p>Creating a snapshot of a Redis OSS cluster running on a
  *                         <code>cache.t1.micro</code> cache node.</p>
  *             </li>
  *             <li>
  *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Redis.</p>
+ *                     Redis OSS.</p>
  *             </li>
  *          </ul>
  *          <p>Neither of these are supported by ElastiCache.</p>

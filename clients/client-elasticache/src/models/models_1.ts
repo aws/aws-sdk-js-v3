@@ -54,7 +54,7 @@ export interface StartMigrationMessage {
   ReplicationGroupId: string | undefined;
 
   /**
-   * <p>List of endpoints from which data should be migrated. For Redis (cluster mode
+   * <p>List of endpoints from which data should be migrated. For Redis OSS (cluster mode
    *             disabled), list should have only one element.</p>
    * @public
    */
@@ -66,7 +66,7 @@ export interface StartMigrationMessage {
  */
 export interface StartMigrationResponse {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -159,7 +159,7 @@ export class TestFailoverNotAvailableFault extends __BaseException {
  */
 export interface TestFailoverResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;
@@ -188,7 +188,7 @@ export interface TestMigrationMessage {
  */
 export interface TestMigrationResponse {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Redis OSS replication group.</p>
    * @public
    */
   ReplicationGroup?: ReplicationGroup;

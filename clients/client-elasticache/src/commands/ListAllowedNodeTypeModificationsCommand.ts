@@ -33,7 +33,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists all available node types that you can scale your Redis cluster's or replication
+ * <p>Lists all available node types that you can scale your Redis OSS cluster's or replication
  *             group's current node type.</p>
  *          <p>When you use the <code>ModifyCacheCluster</code> or
  *                 <code>ModifyReplicationGroup</code> operations to scale your cluster or replication

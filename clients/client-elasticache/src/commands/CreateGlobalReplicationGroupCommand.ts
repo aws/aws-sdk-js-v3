@@ -30,9 +30,9 @@ export interface CreateGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Global Datastore for Redis offers fully managed, fast, reliable and secure
- *             cross-region replication. Using Global Datastore for Redis, you can create cross-region
- *             read replica clusters for ElastiCache for Redis to enable low-latency reads and disaster
+ * <p>Global Datastore for Redis OSS offers fully managed, fast, reliable and secure
+ *             cross-region replication. Using Global Datastore for Redis OSS, you can create cross-region
+ *             read replica clusters for ElastiCache (Redis OSS) to enable low-latency reads and disaster
  *             recovery across regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication
  *                 Across Regions Using Global Datastore</a>. </p>
  *          <ul>

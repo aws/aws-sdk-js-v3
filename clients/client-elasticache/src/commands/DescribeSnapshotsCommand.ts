@@ -33,7 +33,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  *             describe a single snapshot, or just the snapshots associated with a particular cache
  *             cluster.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

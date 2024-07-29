@@ -30,7 +30,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
 /**
  * <p>Makes a copy of an existing snapshot.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Redis OSS only.</p>
  *          </note>
  *          <important>
  *             <p>Users or groups that have permissions to use the <code>CopySnapshot</code>

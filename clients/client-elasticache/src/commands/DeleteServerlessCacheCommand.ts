@@ -107,7 +107,7 @@ export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCach
  *  <p>The serverless cache was not found or does not exist.</p>
  *
  * @throws {@link ServerlessCacheSnapshotAlreadyExistsFault} (client fault)
- *  <p>A serverless cache snapshot with this name already exists. Available for Redis only.</p>
+ *  <p>A serverless cache snapshot with this name already exists. Available for Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>

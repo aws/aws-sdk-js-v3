@@ -33,7 +33,7 @@ export interface CreateServerlessCacheSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Redis only.</p>
+ * <p>This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Redis OSS and Serverless Memcached only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,10 +92,10 @@ export interface CreateServerlessCacheSnapshotCommandOutput
  *  <p>The serverless cache was not found or does not exist.</p>
  *
  * @throws {@link ServerlessCacheSnapshotAlreadyExistsFault} (client fault)
- *  <p>A serverless cache snapshot with this name already exists. Available for Redis only.</p>
+ *  <p>A serverless cache snapshot with this name already exists. Available for Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServerlessCacheSnapshotQuotaExceededFault} (client fault)
- *  <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Redis only.</p>
+ *  <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
