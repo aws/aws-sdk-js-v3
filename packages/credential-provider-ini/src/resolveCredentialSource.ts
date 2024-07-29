@@ -32,7 +32,7 @@ export const resolveCredentialSource = (
       const { fromEnv } = await import("@aws-sdk/credential-provider-env");
       return fromEnv(options);
     },
-    HTTP: async (options?: CredentialProviderOptions) => {
+    Http: async (options?: CredentialProviderOptions) => {
       logger?.debug("@aws-sdk/credential-provider-ini - credential_source is Environment");
       const { fromHttp } = await import("@aws-sdk/credential-provider-http");
       return fromHttp(options ?? {});
