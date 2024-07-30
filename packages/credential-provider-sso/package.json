@@ -54,7 +54,7 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-sso",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-sso",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
