@@ -618,4 +618,30 @@ new S3Client({
 
 ### SQS
 
-TODO e.g. `useQueueUrlAsEndpoint`
+#### Using Queue Names with SQS Client
+
+When using the SQS client, set the `useQueueUrlAsEndpoint` configuration to `false` to allow for providing the `QueueUrl` parameter as a queue name rather than a full queue URL.
+
+```js
+import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
+
+const sqs = new SQSClient({
+  region: "us-east-1",
+  useQueueUrlAsEndpoint: false,
+});
+
+const QueueName = "foo"; // directly use the queue name
+// const QueueUrl = "https://sqs.us-east-1.amazonaws.com/123456789012/foo"; // full URL for reference
+
+try {
+  await sqs.send(
+    new SendMessageCommand({
+      QueueUrl: QueueName,
+      MessageBody: "Sample message",
+    })
+  );
+  console.log("message sent successfully");
+} catch (error) {
+  console.log("SendMessage Failure", error);
+}
+```
