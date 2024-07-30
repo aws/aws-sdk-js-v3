@@ -29,6 +29,11 @@ export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCach
 
 /**
  * <p>Deletes a specified existing serverless cache.</p>
+ *          <note>
+ *             <p>
+ *                <code>CreateServerlessCacheSnapshot</code> permission is required to create a final snapshot.
+ *            Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

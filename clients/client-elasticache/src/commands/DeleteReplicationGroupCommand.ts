@@ -37,7 +37,16 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  *             immediately begins deleting the selected resources; you cannot cancel or revert this
  *             operation.</p>
  *          <note>
- *             <p>This operation is valid for Redis OSS only.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>CreateSnapshot</code> permission is required to create a final snapshot.
+ *                     Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p>
+ *                </li>
+ *                <li>
+ *                   <p>This operation is valid for Redis OSS only.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
