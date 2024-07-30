@@ -13,14 +13,6 @@ const credentials = {
 
 const mockToken = "abcd";
 
-const mockResponse = {
-  AccessKeyId: credentials.accessKeyId,
-  SecretAccessKey: credentials.secretAccessKey,
-  Token: credentials.sessionToken,
-  AccountId: "123",
-  Expiration: new Date(credentials.expiration).toISOString(), // rfc3339
-};
-
 const mockHandle = jest.fn().mockResolvedValue({
   response: new HttpResponse({
     statusCode: 200,
