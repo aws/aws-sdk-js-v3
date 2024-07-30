@@ -98,4 +98,18 @@ describe("getSignedUrl", () => {
     expect(mockPresign).toBeCalled();
     expect(mockPresign.mock.calls[0][1]).toMatchObject(options);
   });
+  it("should not throw if called concurrently", async () => {
+    const mockPresigned = "a presigned url";
+    mockPresign.mockReturnValue(mockPresigned);
+    const client = new PollyClient(clientParams);
+    const command = new SynthesizeSpeechCommand({
+      Text: "hello world, this is alex",
+      OutputFormat: "mp3",
+      VoiceId: "Kimberly",
+    });
+    const result = await Promise.all([getSignedUrl(client, command), getSignedUrl(client, command)]);
+    expect(result).toBeInstanceOf(Array);
+    expect(result).toHaveLength(2);
+    expect(mockPresign).toHaveBeenCalledTimes(2);
+  });
 });
