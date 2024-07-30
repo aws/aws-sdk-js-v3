@@ -72,11 +72,17 @@ import {
   ListPipelineExecutionsCommandOutput,
 } from "../commands/ListPipelineExecutionsCommand";
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
+import { ListRuleExecutionsCommandInput, ListRuleExecutionsCommandOutput } from "../commands/ListRuleExecutionsCommand";
+import { ListRuleTypesCommandInput, ListRuleTypesCommandOutput } from "../commands/ListRuleTypesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "../commands/ListWebhooksCommand";
+import {
+  OverrideStageConditionCommandInput,
+  OverrideStageConditionCommandOutput,
+} from "../commands/OverrideStageConditionCommand";
 import { PollForJobsCommandInput, PollForJobsCommandOutput } from "../commands/PollForJobsCommand";
 import {
   PollForThirdPartyJobsCommandInput,
@@ -149,12 +155,18 @@ import {
   ArtifactDetails,
   ArtifactRevision,
   ArtifactStore,
+  BeforeEntryConditions,
   BlockerDeclaration,
   ConcurrentModificationException,
   ConcurrentPipelineExecutionsLimitExceededException,
+  Condition,
+  ConditionExecution,
+  ConditionNotOverridableException,
+  ConditionState,
   ConflictException,
   CreateCustomActionTypeInput,
   CreatePipelineInput,
+  CreatePipelineOutput,
   CurrentRevision,
   DeleteCustomActionTypeInput,
   DeletePipelineInput,
@@ -211,6 +223,9 @@ import {
   ListPipelineExecutionsOutput,
   ListPipelinesInput,
   ListPipelinesOutput,
+  ListRuleExecutionsInput,
+  ListRuleExecutionsOutput,
+  ListRuleTypesInput,
   ListTagsForResourceInput,
   ListWebhookItem,
   ListWebhooksInput,
@@ -218,6 +233,7 @@ import {
   NotLatestPipelineExecutionException,
   OutputArtifact,
   OutputVariablesSizeExceededException,
+  OverrideStageConditionInput,
   PipelineDeclaration,
   PipelineExecution,
   PipelineExecutionFilter,
@@ -249,7 +265,15 @@ import {
   ResourceNotFoundException,
   RetryStageExecutionInput,
   RollbackStageInput,
+  RuleDeclaration,
+  RuleExecution,
+  RuleExecutionDetail,
+  RuleExecutionFilter,
+  RuleRevision,
+  RuleState,
+  RuleTypeId,
   SourceRevisionOverride,
+  StageConditionState,
   StageDeclaration,
   StageNotFoundException,
   StageNotRetryableException,
@@ -257,6 +281,7 @@ import {
   StartPipelineExecutionInput,
   StopPipelineExecutionInput,
   SucceededInStageFilter,
+  SuccessConditions,
   Tag,
   TagResourceInput,
   TooManyTagsException,
@@ -265,6 +290,7 @@ import {
   UntagResourceInput,
   UpdateActionTypeInput,
   UpdatePipelineInput,
+  UpdatePipelineOutput,
   ValidationException,
   WebhookAuthConfiguration,
   WebhookDefinition,
@@ -320,7 +346,7 @@ export const se_CreatePipelineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreatePipeline");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreatePipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -533,6 +559,32 @@ export const se_ListPipelinesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListRuleExecutionsCommand
+ */
+export const se_ListRuleExecutionsCommand = async (
+  input: ListRuleExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRuleExecutions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListRuleTypesCommand
+ */
+export const se_ListRuleTypesCommand = async (
+  input: ListRuleTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRuleTypes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -553,6 +605,19 @@ export const se_ListWebhooksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListWebhooks");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1OverrideStageConditionCommand
+ */
+export const se_OverrideStageConditionCommand = async (
+  input: OverrideStageConditionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("OverrideStageCondition");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -788,7 +853,7 @@ export const se_UpdatePipelineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePipeline");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdatePipelineInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -864,7 +929,7 @@ export const de_CreatePipelineCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_CreatePipelineOutput(data, context);
   const response: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1181,6 +1246,46 @@ export const de_ListPipelinesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListRuleExecutionsCommand
+ */
+export const de_ListRuleExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRuleExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRuleExecutionsOutput(data, context);
+  const response: ListRuleExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRuleTypesCommand
+ */
+export const de_ListRuleTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRuleTypesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListRuleTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1216,6 +1321,23 @@ export const de_ListWebhooksCommand = async (
   const response: ListWebhooksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1OverrideStageConditionCommand
+ */
+export const de_OverrideStageConditionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OverrideStageConditionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: OverrideStageConditionCommandOutput = {
+    $metadata: deserializeMetadata(output),
   };
   return response;
 };
@@ -1557,7 +1679,7 @@ export const de_UpdatePipelineCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_UpdatePipelineOutput(data, context);
   const response: UpdatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1644,6 +1766,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.codepipeline#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ConcurrentPipelineExecutionsLimitExceededException":
+    case "com.amazonaws.codepipeline#ConcurrentPipelineExecutionsLimitExceededException":
+      throw await de_ConcurrentPipelineExecutionsLimitExceededExceptionRes(parsedOutput, context);
+    case "ConditionNotOverridableException":
+    case "com.amazonaws.codepipeline#ConditionNotOverridableException":
+      throw await de_ConditionNotOverridableExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "NotLatestPipelineExecutionException":
+    case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
+      throw await de_NotLatestPipelineExecutionExceptionRes(parsedOutput, context);
     case "ActionNotFoundException":
     case "com.amazonaws.codepipeline#ActionNotFoundException":
       throw await de_ActionNotFoundExceptionRes(parsedOutput, context);
@@ -1665,12 +1799,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidWebhookFilterPatternException":
     case "com.amazonaws.codepipeline#InvalidWebhookFilterPatternException":
       throw await de_InvalidWebhookFilterPatternExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codepipeline#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotLatestPipelineExecutionException":
-    case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
-      throw await de_NotLatestPipelineExecutionExceptionRes(parsedOutput, context);
     case "StageNotRetryableException":
     case "com.amazonaws.codepipeline#StageNotRetryableException":
       throw await de_StageNotRetryableExceptionRes(parsedOutput, context);
@@ -1680,9 +1808,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnableToRollbackStageException":
     case "com.amazonaws.codepipeline#UnableToRollbackStageException":
       throw await de_UnableToRollbackStageExceptionRes(parsedOutput, context);
-    case "ConcurrentPipelineExecutionsLimitExceededException":
-    case "com.amazonaws.codepipeline#ConcurrentPipelineExecutionsLimitExceededException":
-      throw await de_ConcurrentPipelineExecutionsLimitExceededExceptionRes(parsedOutput, context);
     case "DuplicatedStopRequestException":
     case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
       throw await de_DuplicatedStopRequestExceptionRes(parsedOutput, context);
@@ -1776,6 +1901,22 @@ const de_ConcurrentPipelineExecutionsLimitExceededExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ConcurrentPipelineExecutionsLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ConditionNotOverridableExceptionRes
+ */
+const de_ConditionNotOverridableExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConditionNotOverridableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConditionNotOverridableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2369,11 +2510,25 @@ const se_ActionRevision = (input: ActionRevision, context: __SerdeContext): any 
 
 // se_ArtifactStoreMap omitted.
 
+// se_BeforeEntryConditions omitted.
+
 // se_BlockerDeclaration omitted.
+
+// se_Condition omitted.
+
+// se_ConditionList omitted.
 
 // se_CreateCustomActionTypeInput omitted.
 
-// se_CreatePipelineInput omitted.
+/**
+ * serializeAws_json1_1CreatePipelineInput
+ */
+const se_CreatePipelineInput = (input: CreatePipelineInput, context: __SerdeContext): any => {
+  return take(input, {
+    pipeline: _json,
+    tags: _json,
+  });
+};
 
 /**
  * serializeAws_json1_1CurrentRevision
@@ -2463,6 +2618,10 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 
 // se_ListPipelinesInput omitted.
 
+// se_ListRuleExecutionsInput omitted.
+
+// se_ListRuleTypesInput omitted.
+
 // se_ListTagsForResourceInput omitted.
 
 // se_ListWebhooksInput omitted.
@@ -2472,6 +2631,8 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 // se_OutputArtifactList omitted.
 
 // se_OutputVariablesMap omitted.
+
+// se_OverrideStageConditionInput omitted.
 
 // se_PipelineDeclaration omitted.
 
@@ -2556,6 +2717,16 @@ const se_PutThirdPartyJobSuccessResultInput = (
 
 // se_RollbackStageInput omitted.
 
+// se_RuleConfigurationMap omitted.
+
+// se_RuleDeclaration omitted.
+
+// se_RuleDeclarationList omitted.
+
+// se_RuleExecutionFilter omitted.
+
+// se_RuleTypeId omitted.
+
 // se_SourceRevisionOverride omitted.
 
 // se_SourceRevisionOverrideList omitted.
@@ -2582,6 +2753,8 @@ const se_StartPipelineExecutionInput = (input: StartPipelineExecutionInput, cont
 
 // se_SucceededInStageFilter omitted.
 
+// se_SuccessConditions omitted.
+
 // se_Tag omitted.
 
 // se_TagKeyList omitted.
@@ -2594,7 +2767,14 @@ const se_StartPipelineExecutionInput = (input: StartPipelineExecutionInput, cont
 
 // se_UpdateActionTypeInput omitted.
 
-// se_UpdatePipelineInput omitted.
+/**
+ * serializeAws_json1_1UpdatePipelineInput
+ */
+const se_UpdatePipelineInput = (input: UpdatePipelineInput, context: __SerdeContext): any => {
+  return take(input, {
+    pipeline: _json,
+  });
+};
 
 // se_WebhookAuthConfiguration omitted.
 
@@ -2787,17 +2967,66 @@ const de_ArtifactRevisionList = (output: any, context: __SerdeContext): Artifact
 
 // de_AWSSessionCredentials omitted.
 
+// de_BeforeEntryConditions omitted.
+
 // de_BlockerDeclaration omitted.
 
 // de_ConcurrentModificationException omitted.
 
 // de_ConcurrentPipelineExecutionsLimitExceededException omitted.
 
+// de_Condition omitted.
+
+/**
+ * deserializeAws_json1_1ConditionExecution
+ */
+const de_ConditionExecution = (output: any, context: __SerdeContext): ConditionExecution => {
+  return take(output, {
+    lastStatusChange: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    summary: __expectString,
+  }) as any;
+};
+
+// de_ConditionList omitted.
+
+// de_ConditionNotOverridableException omitted.
+
+/**
+ * deserializeAws_json1_1ConditionState
+ */
+const de_ConditionState = (output: any, context: __SerdeContext): ConditionState => {
+  return take(output, {
+    latestExecution: (_: any) => de_ConditionExecution(_, context),
+    ruleStates: (_: any) => de_RuleStateList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ConditionStateList
+ */
+const de_ConditionStateList = (output: any, context: __SerdeContext): ConditionState[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConditionState(entry, context);
+    });
+  return retVal;
+};
+
 // de_ConflictException omitted.
 
 // de_CreateCustomActionTypeOutput omitted.
 
-// de_CreatePipelineOutput omitted.
+/**
+ * deserializeAws_json1_1CreatePipelineOutput
+ */
+const de_CreatePipelineOutput = (output: any, context: __SerdeContext): CreatePipelineOutput => {
+  return take(output, {
+    pipeline: _json,
+    tags: _json,
+  }) as any;
+};
 
 // de_DeleteWebhookOutput omitted.
 
@@ -2956,6 +3185,18 @@ const de_ListPipelinesOutput = (output: any, context: __SerdeContext): ListPipel
     pipelines: (_: any) => de_PipelineList(_, context),
   }) as any;
 };
+
+/**
+ * deserializeAws_json1_1ListRuleExecutionsOutput
+ */
+const de_ListRuleExecutionsOutput = (output: any, context: __SerdeContext): ListRuleExecutionsOutput => {
+  return take(output, {
+    nextToken: __expectString,
+    ruleExecutionDetails: (_: any) => de_RuleExecutionDetailList(_, context),
+  }) as any;
+};
+
+// de_ListRuleTypesOutput omitted.
 
 // de_ListTagsForResourceOutput omitted.
 
@@ -3148,11 +3389,121 @@ const de_PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOu
 
 // de_ResolvedPipelineVariableList omitted.
 
+// de_ResolvedRuleConfigurationMap omitted.
+
 // de_ResourceNotFoundException omitted.
 
 // de_RetryStageExecutionOutput omitted.
 
 // de_RollbackStageOutput omitted.
+
+// de_RuleConfigurationMap omitted.
+
+// de_RuleConfigurationProperty omitted.
+
+// de_RuleConfigurationPropertyList omitted.
+
+// de_RuleDeclaration omitted.
+
+// de_RuleDeclarationList omitted.
+
+/**
+ * deserializeAws_json1_1RuleExecution
+ */
+const de_RuleExecution = (output: any, context: __SerdeContext): RuleExecution => {
+  return take(output, {
+    errorDetails: _json,
+    externalExecutionId: __expectString,
+    externalExecutionUrl: __expectString,
+    lastStatusChange: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedBy: __expectString,
+    ruleExecutionId: __expectString,
+    status: __expectString,
+    summary: __expectString,
+    token: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RuleExecutionDetail
+ */
+const de_RuleExecutionDetail = (output: any, context: __SerdeContext): RuleExecutionDetail => {
+  return take(output, {
+    input: _json,
+    lastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    output: _json,
+    pipelineExecutionId: __expectString,
+    pipelineVersion: __expectInt32,
+    ruleExecutionId: __expectString,
+    ruleName: __expectString,
+    stageName: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    updatedBy: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RuleExecutionDetailList
+ */
+const de_RuleExecutionDetailList = (output: any, context: __SerdeContext): RuleExecutionDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RuleExecutionDetail(entry, context);
+    });
+  return retVal;
+};
+
+// de_RuleExecutionInput omitted.
+
+// de_RuleExecutionOutput omitted.
+
+// de_RuleExecutionResult omitted.
+
+/**
+ * deserializeAws_json1_1RuleRevision
+ */
+const de_RuleRevision = (output: any, context: __SerdeContext): RuleRevision => {
+  return take(output, {
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    revisionChangeId: __expectString,
+    revisionId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RuleState
+ */
+const de_RuleState = (output: any, context: __SerdeContext): RuleState => {
+  return take(output, {
+    currentRevision: (_: any) => de_RuleRevision(_, context),
+    entityUrl: __expectString,
+    latestExecution: (_: any) => de_RuleExecution(_, context),
+    revisionUrl: __expectString,
+    ruleName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RuleStateList
+ */
+const de_RuleStateList = (output: any, context: __SerdeContext): RuleState[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RuleState(entry, context);
+    });
+  return retVal;
+};
+
+// de_RuleType omitted.
+
+// de_RuleTypeId omitted.
+
+// de_RuleTypeList omitted.
+
+// de_RuleTypeSettings omitted.
 
 // de_S3ArtifactLocation omitted.
 
@@ -3165,6 +3516,18 @@ const de_PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOu
 // de_StageActionDeclarationList omitted.
 
 // de_StageBlockerDeclarationList omitted.
+
+// de_StageConditionsExecution omitted.
+
+/**
+ * deserializeAws_json1_1StageConditionState
+ */
+const de_StageConditionState = (output: any, context: __SerdeContext): StageConditionState => {
+  return take(output, {
+    conditionStates: (_: any) => de_ConditionStateList(_, context),
+    latestExecution: _json,
+  }) as any;
+};
 
 // de_StageContext omitted.
 
@@ -3184,10 +3547,13 @@ const de_PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOu
 const de_StageState = (output: any, context: __SerdeContext): StageState => {
   return take(output, {
     actionStates: (_: any) => de_ActionStateList(_, context),
+    beforeEntryConditionState: (_: any) => de_StageConditionState(_, context),
     inboundExecution: _json,
     inboundExecutions: _json,
     inboundTransitionState: (_: any) => de_TransitionState(_, context),
     latestExecution: _json,
+    onFailureConditionState: (_: any) => de_StageConditionState(_, context),
+    onSuccessConditionState: (_: any) => de_StageConditionState(_, context),
     stageName: __expectString,
   }) as any;
 };
@@ -3209,6 +3575,8 @@ const de_StageStateList = (output: any, context: __SerdeContext): StageState[] =
 // de_StopExecutionTrigger omitted.
 
 // de_StopPipelineExecutionOutput omitted.
+
+// de_SuccessConditions omitted.
 
 // de_Tag omitted.
 
@@ -3242,7 +3610,14 @@ const de_TransitionState = (output: any, context: __SerdeContext): TransitionSta
 
 // de_UntagResourceOutput omitted.
 
-// de_UpdatePipelineOutput omitted.
+/**
+ * deserializeAws_json1_1UpdatePipelineOutput
+ */
+const de_UpdatePipelineOutput = (output: any, context: __SerdeContext): UpdatePipelineOutput => {
+  return take(output, {
+    pipeline: _json,
+  }) as any;
+};
 
 // de_ValidationException omitted.
 

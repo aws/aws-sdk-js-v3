@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/models_0";
-import { de_RetryStageExecutionCommand, se_RetryStageExecutionCommand } from "../protocols/Aws_json1_1";
+import { OverrideStageConditionInput } from "../models/models_0";
+import { de_OverrideStageConditionCommand, se_OverrideStageConditionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,53 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RetryStageExecutionCommand}.
+ * The input for {@link OverrideStageConditionCommand}.
  */
-export interface RetryStageExecutionCommandInput extends RetryStageExecutionInput {}
+export interface OverrideStageConditionCommandInput extends OverrideStageConditionInput {}
 /**
  * @public
  *
- * The output of {@link RetryStageExecutionCommand}.
+ * The output of {@link OverrideStageConditionCommand}.
  */
-export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOutput, __MetadataBearer {}
+export interface OverrideStageConditionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>You can retry a stage that has failed without having to run a pipeline again from
- *             the beginning. You do this by either retrying the failed actions in a stage or by
- *             retrying all actions in the stage starting from the first action in the stage. When you
- *             retry the failed actions in a stage, all actions that are still in progress continue
- *             working, and failed actions are triggered again. When you retry a failed stage from the
- *             first action in the stage, the stage cannot have any actions in progress. Before a stage
- *             can be retried, it must either have all actions failed or some actions failed and some
- *             succeeded.</p>
+ * <p>Used to override a stage condition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodePipelineClient, RetryStageExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
- * // const { CodePipelineClient, RetryStageExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * import { CodePipelineClient, OverrideStageConditionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, OverrideStageConditionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
- * const input = { // RetryStageExecutionInput
+ * const input = { // OverrideStageConditionInput
  *   pipelineName: "STRING_VALUE", // required
  *   stageName: "STRING_VALUE", // required
  *   pipelineExecutionId: "STRING_VALUE", // required
- *   retryMode: "FAILED_ACTIONS" || "ALL_ACTIONS", // required
+ *   conditionType: "BEFORE_ENTRY" || "ON_SUCCESS", // required
  * };
- * const command = new RetryStageExecutionCommand(input);
+ * const command = new OverrideStageConditionCommand(input);
  * const response = await client.send(command);
- * // { // RetryStageExecutionOutput
- * //   pipelineExecutionId: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param RetryStageExecutionCommandInput - {@link RetryStageExecutionCommandInput}
- * @returns {@link RetryStageExecutionCommandOutput}
- * @see {@link RetryStageExecutionCommandInput} for command's `input` shape.
- * @see {@link RetryStageExecutionCommandOutput} for command's `response` shape.
+ * @param OverrideStageConditionCommandInput - {@link OverrideStageConditionCommandInput}
+ * @returns {@link OverrideStageConditionCommandOutput}
+ * @see {@link OverrideStageConditionCommandInput} for command's `input` shape.
+ * @see {@link OverrideStageConditionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentPipelineExecutionsLimitExceededException} (client fault)
  *  <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ *
+ * @throws {@link ConditionNotOverridableException} (client fault)
+ *  <p>Unable to override because the condition does not allow overrides.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Your request cannot be handled because the pipeline is busy handling ongoing
@@ -80,11 +74,6 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @throws {@link StageNotFoundException} (client fault)
  *  <p>The stage was specified in an invalid format or cannot be found.</p>
  *
- * @throws {@link StageNotRetryableException} (client fault)
- *  <p>Unable to retry. The pipeline structure or stage state might have changed while
- *             actions awaited retry, or the stage contains no failed
- *             actions.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>The validation was specified in an invalid format.</p>
  *
@@ -93,10 +82,10 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  *
  * @public
  */
-export class RetryStageExecutionCommand extends $Command
+export class OverrideStageConditionCommand extends $Command
   .classBuilder<
-    RetryStageExecutionCommandInput,
-    RetryStageExecutionCommandOutput,
+    OverrideStageConditionCommandInput,
+    OverrideStageConditionCommandOutput,
     CodePipelineClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -110,9 +99,9 @@ export class RetryStageExecutionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("CodePipeline_20150709", "RetryStageExecution", {})
-  .n("CodePipelineClient", "RetryStageExecutionCommand")
+  .s("CodePipeline_20150709", "OverrideStageCondition", {})
+  .n("CodePipelineClient", "OverrideStageConditionCommand")
   .f(void 0, void 0)
-  .ser(se_RetryStageExecutionCommand)
-  .de(de_RetryStageExecutionCommand)
+  .ser(se_OverrideStageConditionCommand)
+  .de(de_OverrideStageConditionCommand)
   .build() {}

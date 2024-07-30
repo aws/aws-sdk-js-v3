@@ -1749,6 +1749,171 @@ export interface AWSSessionCredentials {
  * @public
  * @enum
  */
+export const Result = {
+  FAIL: "FAIL",
+  ROLLBACK: "ROLLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type Result = (typeof Result)[keyof typeof Result];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleCategory = {
+  Rule: "Rule",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleCategory = (typeof RuleCategory)[keyof typeof RuleCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleOwner = {
+  AWS: "AWS",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleOwner = (typeof RuleOwner)[keyof typeof RuleOwner];
+
+/**
+ * <p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+ * @public
+ */
+export interface RuleTypeId {
+  /**
+   * <p>A category defines what kind of rule can be run in the stage, and constrains
+   *             the provider type for the rule. Valid categories are limited to one of the following
+   *             values. </p>
+   *          <ul>
+   *             <li>
+   *                <p>INVOKE</p>
+   *             </li>
+   *             <li>
+   *                <p>Approval</p>
+   *             </li>
+   *             <li>
+   *                <p>Rule</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  category: RuleCategory | undefined;
+
+  /**
+   * <p>The creator of the rule being called. The valid value for the
+   *                 <code>Owner</code> field in the rule category is <code>AWS</code>. </p>
+   * @public
+   */
+  owner?: RuleOwner;
+
+  /**
+   * <p>The provider of the service being called by the rule. Valid providers are
+   *             determined by the rulecategory. For example, a managed rule in the Rule category type
+   *             has an owner of AWS, which would be specified as
+   *             <code>AWS</code>.</p>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>A string that describes the rule version.</p>
+   * @public
+   */
+  version?: string;
+}
+
+/**
+ * <p>Represents information about the rule to be created for an associated condition. An example would be creating a new rule for an entry condition, such as a rule that checks for a test result before allowing the run to enter the deployment stage.</p>
+ * @public
+ */
+export interface RuleDeclaration {
+  /**
+   * <p>The name of the rule that is created for the condition, such as CheckAllResults.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+   * @public
+   */
+  ruleTypeId: RuleTypeId | undefined;
+
+  /**
+   * <p>The action configuration fields for the rule.</p>
+   * @public
+   */
+  configuration?: Record<string, string>;
+
+  /**
+   * <p>The input artifacts fields for the rule, such as specifying an input file for the rule.</p>
+   * @public
+   */
+  inputArtifacts?: InputArtifact[];
+
+  /**
+   * <p>The pipeline role ARN associated with the rule.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The Region for the condition associated with the rule.</p>
+   * @public
+   */
+  region?: string;
+
+  /**
+   * <p>The action timeout for the rule.</p>
+   * @public
+   */
+  timeoutInMinutes?: number;
+}
+
+/**
+ * <p>The condition for the stage. A condition is made up of the rules and the result for the condition.</p>
+ * @public
+ */
+export interface Condition {
+  /**
+   * <p>The action to be done when the condition is met. For example, rolling back an execution for a failure condition.</p>
+   * @public
+   */
+  result?: Result;
+
+  /**
+   * <p>The rules that make up the condition.</p>
+   * @public
+   */
+  rules?: RuleDeclaration[];
+}
+
+/**
+ * <p>The conditions for making checks for entry to a stage. </p>
+ * @public
+ */
+export interface BeforeEntryConditions {
+  /**
+   * <p>The conditions that are configured as entry conditions.</p>
+   * @public
+   */
+  conditions: Condition[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const BlockerType = {
   Schedule: "Schedule",
 } as const;
@@ -1986,19 +2151,6 @@ export const PipelineType = {
 export type PipelineType = (typeof PipelineType)[keyof typeof PipelineType];
 
 /**
- * @public
- * @enum
- */
-export const Result = {
-  ROLLBACK: "ROLLBACK",
-} as const;
-
-/**
- * @public
- */
-export type Result = (typeof Result)[keyof typeof Result];
-
-/**
  * <p>The configuration that specifies the result, such as rollback, to occur upon stage
  *             failure. </p>
  * @public
@@ -2010,6 +2162,24 @@ export interface FailureConditions {
    * @public
    */
   result?: Result;
+
+  /**
+   * <p>The conditions that are configured as failure conditions.</p>
+   * @public
+   */
+  conditions?: Condition[];
+}
+
+/**
+ * <p>The conditions for making checks that, if met, succeed a stage.</p>
+ * @public
+ */
+export interface SuccessConditions {
+  /**
+   * <p>The conditions that are success conditions.</p>
+   * @public
+   */
+  conditions: Condition[] | undefined;
 }
 
 /**
@@ -2042,6 +2212,19 @@ export interface StageDeclaration {
    * @public
    */
   onFailure?: FailureConditions;
+
+  /**
+   * <p>The method to use when a stage has succeeded. For example,
+   *             configuring this field for conditions will allow the stage to succeed when the conditions are met.</p>
+   * @public
+   */
+  onSuccess?: SuccessConditions;
+
+  /**
+   * <p>The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.</p>
+   * @public
+   */
+  beforeEntry?: BeforeEntryConditions;
 }
 
 /**
@@ -3365,6 +3548,248 @@ export interface GetPipelineStateInput {
  * @public
  * @enum
  */
+export const ConditionExecutionStatus = {
+  Abandoned: "Abandoned",
+  Cancelled: "Cancelled",
+  Errored: "Errored",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Overridden: "Overridden",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionExecutionStatus = (typeof ConditionExecutionStatus)[keyof typeof ConditionExecutionStatus];
+
+/**
+ * <p>The run of a condition.</p>
+ * @public
+ */
+export interface ConditionExecution {
+  /**
+   * <p>The status of the run for a condition.</p>
+   * @public
+   */
+  status?: ConditionExecutionStatus;
+
+  /**
+   * <p>The summary of information about a run for a condition.</p>
+   * @public
+   */
+  summary?: string;
+
+  /**
+   * <p>The last status change of the condition.</p>
+   * @public
+   */
+  lastStatusChange?: Date;
+}
+
+/**
+ * <p>The change to a rule that creates a revision of the rule.</p>
+ * @public
+ */
+export interface RuleRevision {
+  /**
+   * <p>The system-generated unique ID that identifies the revision number of the
+   *             rule.</p>
+   * @public
+   */
+  revisionId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the change that set the state to this revision (for
+   *             example, a deployment ID or timestamp).</p>
+   * @public
+   */
+  revisionChangeId: string | undefined;
+
+  /**
+   * <p>The date and time when the most recent version of the rule was created, in
+   *             timestamp format.</p>
+   * @public
+   */
+  created: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleExecutionStatus = {
+  Abandoned: "Abandoned",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleExecutionStatus = (typeof RuleExecutionStatus)[keyof typeof RuleExecutionStatus];
+
+/**
+ * <p>Represents information about each time a rule is run as part of the pipeline execution for a pipeline configured with conditions.</p>
+ * @public
+ */
+export interface RuleExecution {
+  /**
+   * <p>The execution ID for the run of the rule.</p>
+   * @public
+   */
+  ruleExecutionId?: string;
+
+  /**
+   * <p>The status of the run of the rule, such as FAILED.</p>
+   * @public
+   */
+  status?: RuleExecutionStatus;
+
+  /**
+   * <p>A summary of the run of the rule.</p>
+   * @public
+   */
+  summary?: string;
+
+  /**
+   * <p>The last status change of the rule.</p>
+   * @public
+   */
+  lastStatusChange?: Date;
+
+  /**
+   * <p>The system-generated token used to identify a unique request.</p>
+   * @public
+   */
+  token?: string;
+
+  /**
+   * <p>The ARN of the user who last changed the rule.</p>
+   * @public
+   */
+  lastUpdatedBy?: string;
+
+  /**
+   * <p>The external ID of the run of the rule.</p>
+   * @public
+   */
+  externalExecutionId?: string;
+
+  /**
+   * <p>The URL of a resource external to Amazon Web Services that is used when running the
+   *             rule (for example, an external repository URL).</p>
+   * @public
+   */
+  externalExecutionUrl?: string;
+
+  /**
+   * <p>Represents information about an error in CodePipeline.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetails;
+}
+
+/**
+ * <p>Returns information about the state of a rule.</p>
+ *          <note>
+ *             <p>Values returned in the <code>revisionId</code> field indicate the rule revision information, such as the commit ID, for the current state.</p>
+ *          </note>
+ * @public
+ */
+export interface RuleState {
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  ruleName?: string;
+
+  /**
+   * <p>The ID of the current revision of the artifact successfully worked on by the
+   *             job.</p>
+   * @public
+   */
+  currentRevision?: RuleRevision;
+
+  /**
+   * <p>Represents information about the latest run of an rule.</p>
+   * @public
+   */
+  latestExecution?: RuleExecution;
+
+  /**
+   * <p>A URL link for more information about the state of the action, such as a details page.</p>
+   * @public
+   */
+  entityUrl?: string;
+
+  /**
+   * <p>A URL link for more information about the revision, such as a commit details
+   *             page.</p>
+   * @public
+   */
+  revisionUrl?: string;
+}
+
+/**
+ * <p>Information about the state of the condition.</p>
+ * @public
+ */
+export interface ConditionState {
+  /**
+   * <p>The state of the latest run of the rule.</p>
+   * @public
+   */
+  latestExecution?: ConditionExecution;
+
+  /**
+   * <p>The state of the rules for the condition.</p>
+   * @public
+   */
+  ruleStates?: RuleState[];
+}
+
+/**
+ * <p>Represents information about the run of a condition for a stage.</p>
+ * @public
+ */
+export interface StageConditionsExecution {
+  /**
+   * <p>The status of a run of a condition for a stage.</p>
+   * @public
+   */
+  status?: ConditionExecutionStatus;
+
+  /**
+   * <p>A summary of the run of the condition for a stage.</p>
+   * @public
+   */
+  summary?: string;
+}
+
+/**
+ * <p>The state of a run of a condition for a stage.</p>
+ * @public
+ */
+export interface StageConditionState {
+  /**
+   * <p>Represents information about the latest run of a condition for a stage.</p>
+   * @public
+   */
+  latestExecution?: StageConditionsExecution;
+
+  /**
+   * <p>The states of the conditions for a run of a condition for a stage.</p>
+   * @public
+   */
+  conditionStates?: ConditionState[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const StageExecutionStatus = {
   Cancelled: "Cancelled",
   Failed: "Failed",
@@ -3483,6 +3908,24 @@ export interface StageState {
    * @public
    */
   latestExecution?: StageExecution;
+
+  /**
+   * <p>The state of the entry conditions for a stage.</p>
+   * @public
+   */
+  beforeEntryConditionState?: StageConditionState;
+
+  /**
+   * <p>The state of the success conditions for a stage.</p>
+   * @public
+   */
+  onSuccessConditionState?: StageConditionState;
+
+  /**
+   * <p>The state of the failure conditions for a stage.</p>
+   * @public
+   */
+  onFailureConditionState?: StageConditionState;
 }
 
 /**
@@ -4130,6 +4573,417 @@ export interface ListPipelinesOutput {
 }
 
 /**
+ * <p>Filter values for the rule execution.</p>
+ * @public
+ */
+export interface RuleExecutionFilter {
+  /**
+   * <p>The pipeline execution ID used to filter rule execution history.</p>
+   * @public
+   */
+  pipelineExecutionId?: string;
+
+  /**
+   * <p>The field that specifies to filter on the latest execution in the
+   *             pipeline.</p>
+   *          <note>
+   *             <p>Filtering on the latest execution is available for executions run on or after
+   *                 February 08, 2024.</p>
+   *          </note>
+   * @public
+   */
+  latestInPipelineExecution?: LatestInPipelineExecutionFilter;
+}
+
+/**
+ * @public
+ */
+export interface ListRuleExecutionsInput {
+  /**
+   * <p>The name of the pipeline for which you want to get execution summary
+   *             information.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>Input information used to filter rule execution history.</p>
+   * @public
+   */
+  filter?: RuleExecutionFilter;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned nextToken value. Pipeline history is
+   *             limited to the most recent 12 months, based on pipeline execution start times. Default
+   *             value is 100.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token that was returned from the previous <code>ListRuleExecutions</code>
+   *             call, which can be used to return the next set of rule executions in the
+   *             list.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Input information used for a rule execution.</p>
+ * @public
+ */
+export interface RuleExecutionInput {
+  /**
+   * <p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+   * @public
+   */
+  ruleTypeId?: RuleTypeId;
+
+  /**
+   * <p>Configuration data for a rule execution, such as the resolved values for that run.</p>
+   * @public
+   */
+  configuration?: Record<string, string>;
+
+  /**
+   * <p>Configuration data for a rule execution with all variable references replaced with
+   *             their real values for the execution.</p>
+   * @public
+   */
+  resolvedConfiguration?: Record<string, string>;
+
+  /**
+   * <p>The ARN of the IAM service role that performs the declared rule. This is assumed
+   *             through the roleArn for the pipeline.</p>
+   * @public
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The Amazon Web Services Region for the rule, such as us-east-1.</p>
+   * @public
+   */
+  region?: string;
+
+  /**
+   * <p>Details of input artifacts of the rule that correspond to the rule
+   *             execution.</p>
+   * @public
+   */
+  inputArtifacts?: ArtifactDetail[];
+}
+
+/**
+ * <p>Execution result information, such as the external execution ID.</p>
+ * @public
+ */
+export interface RuleExecutionResult {
+  /**
+   * <p>The external ID for the rule execution.</p>
+   * @public
+   */
+  externalExecutionId?: string;
+
+  /**
+   * <p>The external provider summary for the rule execution.</p>
+   * @public
+   */
+  externalExecutionSummary?: string;
+
+  /**
+   * <p>The deepest external link to the external resource (for example, a repository URL or
+   *             deployment endpoint) that is used when running the rule.</p>
+   * @public
+   */
+  externalExecutionUrl?: string;
+
+  /**
+   * <p>Represents information about an error in CodePipeline.</p>
+   * @public
+   */
+  errorDetails?: ErrorDetails;
+}
+
+/**
+ * <p>Output details listed for a rule execution, such as the rule execution
+ *             result.</p>
+ * @public
+ */
+export interface RuleExecutionOutput {
+  /**
+   * <p>Execution result information listed in the output details for a rule
+   *             execution.</p>
+   * @public
+   */
+  executionResult?: RuleExecutionResult;
+}
+
+/**
+ * <p>The details of the runs for a rule and the results produced on an artifact as it passes
+ *             through stages in the pipeline.</p>
+ * @public
+ */
+export interface RuleExecutionDetail {
+  /**
+   * <p>The ID of the pipeline execution in the stage where the rule was run. Use the <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of
+   *             the stage.</p>
+   * @public
+   */
+  pipelineExecutionId?: string;
+
+  /**
+   * <p>The ID of the run for the rule.</p>
+   * @public
+   */
+  ruleExecutionId?: string;
+
+  /**
+   * <p>The version number of the pipeline with the stage where the rule was run.</p>
+   * @public
+   */
+  pipelineVersion?: number;
+
+  /**
+   * <p>The name of the stage where the rule was run.</p>
+   * @public
+   */
+  stageName?: string;
+
+  /**
+   * <p>The name of the rule that was run in the stage.</p>
+   * @public
+   */
+  ruleName?: string;
+
+  /**
+   * <p>The start time of the rule execution.</p>
+   * @public
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The date and time of the last change to the rule execution, in timestamp
+   *             format.</p>
+   * @public
+   */
+  lastUpdateTime?: Date;
+
+  /**
+   * <p>The ARN of the user who changed the rule execution details.</p>
+   * @public
+   */
+  updatedBy?: string;
+
+  /**
+   * <p>The status of the rule execution. Status categories are <code>InProgress</code>,
+   *                 <code>Succeeded</code>, and <code>Failed</code>.
+   * </p>
+   * @public
+   */
+  status?: RuleExecutionStatus;
+
+  /**
+   * <p>Input details for the rule execution, such as role ARN, Region, and input
+   *             artifacts.</p>
+   * @public
+   */
+  input?: RuleExecutionInput;
+
+  /**
+   * <p>Output details for the rule execution, such as the rule execution result.</p>
+   * @public
+   */
+  output?: RuleExecutionOutput;
+}
+
+/**
+ * @public
+ */
+export interface ListRuleExecutionsOutput {
+  /**
+   * <p>Details about the output for listing rule executions.</p>
+   * @public
+   */
+  ruleExecutionDetails?: RuleExecutionDetail[];
+
+  /**
+   * <p>A token that can be used in the next <code>ListRuleExecutions</code> call. To
+   *             view all items in the list, continue to call this operation with each subsequent token
+   *             until no more nextToken values are returned.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRuleTypesInput {
+  /**
+   * <p>The rule owner to filter on.</p>
+   * @public
+   */
+  ruleOwnerFilter?: RuleOwner;
+
+  /**
+   * <p>The rule Region to filter on.</p>
+   * @public
+   */
+  regionFilter?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleConfigurationPropertyType = {
+  Boolean: "Boolean",
+  Number: "Number",
+  String: "String",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleConfigurationPropertyType =
+  (typeof RuleConfigurationPropertyType)[keyof typeof RuleConfigurationPropertyType];
+
+/**
+ * <p>Represents information about a rule configuration property.</p>
+ * @public
+ */
+export interface RuleConfigurationProperty {
+  /**
+   * <p>The name of the rule configuration property.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Whether the configuration property is a required value.</p>
+   * @public
+   */
+  required: boolean | undefined;
+
+  /**
+   * <p>Whether the configuration property is a key.</p>
+   * @public
+   */
+  key: boolean | undefined;
+
+  /**
+   * <p>Whether the configuration property is secret.</p>
+   *          <p>When updating a pipeline, passing * * * * * without changing any other values of
+   *             the action preserves the previous value of the secret.</p>
+   * @public
+   */
+  secret: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the property can be queried.</p>
+   *          <p>If you create a pipeline with a condition and rule, and that rule contains a queryable property, the value for that configuration property is subject to other
+   *             restrictions. The value must be less than or equal to twenty (20) characters. The value
+   *             can contain only alphanumeric characters, underscores, and hyphens.</p>
+   * @public
+   */
+  queryable?: boolean;
+
+  /**
+   * <p>The description of the action configuration property that is displayed to
+   *             users.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The type of the configuration property.</p>
+   * @public
+   */
+  type?: RuleConfigurationPropertyType;
+}
+
+/**
+ * <p>Returns information about the settings for a rule type.</p>
+ * @public
+ */
+export interface RuleTypeSettings {
+  /**
+   * <p>The URL of a sign-up page where users can sign up for an external service and
+   *             perform initial configuration of the action provided by that service.</p>
+   * @public
+   */
+  thirdPartyConfigurationUrl?: string;
+
+  /**
+   * <p>The URL returned to the CodePipeline console that provides a deep link to the
+   *             resources of the external system, such as the configuration page for a CodeDeploy
+   *             deployment group. This link is provided as part of the action display in the
+   *             pipeline.</p>
+   * @public
+   */
+  entityUrlTemplate?: string;
+
+  /**
+   * <p>The URL returned to the CodePipeline console that contains a link to the
+   *             top-level landing page for the external system, such as the console page for CodeDeploy.
+   *             This link is shown on the pipeline view page in the CodePipeline console and
+   *             provides a link to the execution entity of the external action.</p>
+   * @public
+   */
+  executionUrlTemplate?: string;
+
+  /**
+   * <p>The URL returned to the CodePipeline console that contains a link to the page
+   *             where customers can update or change the configuration of the external action.</p>
+   * @public
+   */
+  revisionUrlTemplate?: string;
+}
+
+/**
+ * <p>The rule type, which is made up of the combined values for category, owner, provider, and version.</p>
+ * @public
+ */
+export interface RuleType {
+  /**
+   * <p>Represents information about a rule type.</p>
+   * @public
+   */
+  id: RuleTypeId | undefined;
+
+  /**
+   * <p>Returns information about the settings for a rule type.</p>
+   * @public
+   */
+  settings?: RuleTypeSettings;
+
+  /**
+   * <p>The configuration properties for the rule type.</p>
+   * @public
+   */
+  ruleConfigurationProperties?: RuleConfigurationProperty[];
+
+  /**
+   * <p>Returns information about the details of an artifact.</p>
+   * @public
+   */
+  inputArtifactDetails: ArtifactDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuleTypesOutput {
+  /**
+   * <p>Lists the rules that are configured for the condition.</p>
+   * @public
+   */
+  ruleTypes: RuleType[] | undefined;
+}
+
+/**
  * <p>The specified resource ARN is invalid.</p>
  * @public
  */
@@ -4436,6 +5290,133 @@ export interface ListWebhooksOutput {
    * @public
    */
   NextToken?: string;
+}
+
+/**
+ * <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ * @public
+ */
+export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseException {
+  readonly name: "ConcurrentPipelineExecutionsLimitExceededException" =
+    "ConcurrentPipelineExecutionsLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentPipelineExecutionsLimitExceededException, __BaseException>) {
+    super({
+      name: "ConcurrentPipelineExecutionsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentPipelineExecutionsLimitExceededException.prototype);
+  }
+}
+
+/**
+ * <p>Unable to override because the condition does not allow overrides.</p>
+ * @public
+ */
+export class ConditionNotOverridableException extends __BaseException {
+  readonly name: "ConditionNotOverridableException" = "ConditionNotOverridableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConditionNotOverridableException, __BaseException>) {
+    super({
+      name: "ConditionNotOverridableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConditionNotOverridableException.prototype);
+  }
+}
+
+/**
+ * <p>Your request cannot be handled because the pipeline is busy handling ongoing
+ *             activities. Try again later.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * <p>The stage has failed in a later run of the pipeline and the
+ *                 <code>pipelineExecutionId</code> associated with the request is out of
+ *             date.</p>
+ * @public
+ */
+export class NotLatestPipelineExecutionException extends __BaseException {
+  readonly name: "NotLatestPipelineExecutionException" = "NotLatestPipelineExecutionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotLatestPipelineExecutionException, __BaseException>) {
+    super({
+      name: "NotLatestPipelineExecutionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotLatestPipelineExecutionException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConditionType = {
+  BEFORE_ENTRY: "BEFORE_ENTRY",
+  ON_SUCCESS: "ON_SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
+
+/**
+ * @public
+ */
+export interface OverrideStageConditionInput {
+  /**
+   * <p>The name of the pipeline with the stage that will override the condition.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The name of the stage for the override.</p>
+   * @public
+   */
+  stageName: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline execution for the override.</p>
+   * @public
+   */
+  pipelineExecutionId: string | undefined;
+
+  /**
+   * <p>The type of condition to override for the stage, such as entry conditions, failure conditions, or success conditions.</p>
+   * @public
+   */
+  conditionType: ConditionType | undefined;
 }
 
 /**
@@ -5043,49 +6024,6 @@ export interface RegisterWebhookWithThirdPartyInput {
 export interface RegisterWebhookWithThirdPartyOutput {}
 
 /**
- * <p>Your request cannot be handled because the pipeline is busy handling ongoing
- *             activities. Try again later.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
-/**
- * <p>The stage has failed in a later run of the pipeline and the
- *                 <code>pipelineExecutionId</code> associated with the request is out of
- *             date.</p>
- * @public
- */
-export class NotLatestPipelineExecutionException extends __BaseException {
-  readonly name: "NotLatestPipelineExecutionException" = "NotLatestPipelineExecutionException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NotLatestPipelineExecutionException, __BaseException>) {
-    super({
-      name: "NotLatestPipelineExecutionException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NotLatestPipelineExecutionException.prototype);
-  }
-}
-
-/**
  * @public
  * @enum
  */
@@ -5239,27 +6177,6 @@ export class UnableToRollbackStageException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnableToRollbackStageException.prototype);
-  }
-}
-
-/**
- * <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
- * @public
- */
-export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseException {
-  readonly name: "ConcurrentPipelineExecutionsLimitExceededException" =
-    "ConcurrentPipelineExecutionsLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConcurrentPipelineExecutionsLimitExceededException, __BaseException>) {
-    super({
-      name: "ConcurrentPipelineExecutionsLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConcurrentPipelineExecutionsLimitExceededException.prototype);
   }
 }
 

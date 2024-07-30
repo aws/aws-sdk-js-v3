@@ -64,6 +64,9 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
  * @throws {@link ActionNotFoundException} (client fault)
  *  <p>The specified action cannot be found.</p>
  *
+ * @throws {@link ConcurrentPipelineExecutionsLimitExceededException} (client fault)
+ *  <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ *
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
  *

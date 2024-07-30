@@ -99,7 +99,92 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *           },
  *         ],
  *         onFailure: { // FailureConditions
- *           result: "ROLLBACK",
+ *           result: "ROLLBACK" || "FAIL",
+ *           conditions: [ // ConditionList
+ *             { // Condition
+ *               result: "ROLLBACK" || "FAIL",
+ *               rules: [ // RuleDeclarationList
+ *                 { // RuleDeclaration
+ *                   name: "STRING_VALUE", // required
+ *                   ruleTypeId: { // RuleTypeId
+ *                     category: "Rule", // required
+ *                     owner: "AWS",
+ *                     provider: "STRING_VALUE", // required
+ *                     version: "STRING_VALUE",
+ *                   },
+ *                   configuration: { // RuleConfigurationMap
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   inputArtifacts: [
+ *                     {
+ *                       name: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   roleArn: "STRING_VALUE",
+ *                   region: "STRING_VALUE",
+ *                   timeoutInMinutes: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *         onSuccess: { // SuccessConditions
+ *           conditions: [ // required
+ *             {
+ *               result: "ROLLBACK" || "FAIL",
+ *               rules: [
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   ruleTypeId: {
+ *                     category: "Rule", // required
+ *                     owner: "AWS",
+ *                     provider: "STRING_VALUE", // required
+ *                     version: "STRING_VALUE",
+ *                   },
+ *                   configuration: {
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   inputArtifacts: [
+ *                     {
+ *                       name: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   roleArn: "STRING_VALUE",
+ *                   region: "STRING_VALUE",
+ *                   timeoutInMinutes: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *         beforeEntry: { // BeforeEntryConditions
+ *           conditions: [ // required
+ *             {
+ *               result: "ROLLBACK" || "FAIL",
+ *               rules: [
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   ruleTypeId: {
+ *                     category: "Rule", // required
+ *                     owner: "AWS",
+ *                     provider: "STRING_VALUE", // required
+ *                     version: "STRING_VALUE",
+ *                   },
+ *                   configuration: {
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   inputArtifacts: [
+ *                     {
+ *                       name: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   roleArn: "STRING_VALUE",
+ *                   region: "STRING_VALUE",
+ *                   timeoutInMinutes: Number("int"),
+ *                 },
+ *               ],
+ *             },
+ *           ],
  *         },
  *       },
  *     ],
@@ -237,7 +322,92 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * //           },
  * //         ],
  * //         onFailure: { // FailureConditions
- * //           result: "ROLLBACK",
+ * //           result: "ROLLBACK" || "FAIL",
+ * //           conditions: [ // ConditionList
+ * //             { // Condition
+ * //               result: "ROLLBACK" || "FAIL",
+ * //               rules: [ // RuleDeclarationList
+ * //                 { // RuleDeclaration
+ * //                   name: "STRING_VALUE", // required
+ * //                   ruleTypeId: { // RuleTypeId
+ * //                     category: "Rule", // required
+ * //                     owner: "AWS",
+ * //                     provider: "STRING_VALUE", // required
+ * //                     version: "STRING_VALUE",
+ * //                   },
+ * //                   configuration: { // RuleConfigurationMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   inputArtifacts: [
+ * //                     {
+ * //                       name: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                   roleArn: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                   timeoutInMinutes: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //         onSuccess: { // SuccessConditions
+ * //           conditions: [ // required
+ * //             {
+ * //               result: "ROLLBACK" || "FAIL",
+ * //               rules: [
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   ruleTypeId: {
+ * //                     category: "Rule", // required
+ * //                     owner: "AWS",
+ * //                     provider: "STRING_VALUE", // required
+ * //                     version: "STRING_VALUE",
+ * //                   },
+ * //                   configuration: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   inputArtifacts: [
+ * //                     {
+ * //                       name: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                   roleArn: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                   timeoutInMinutes: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //         beforeEntry: { // BeforeEntryConditions
+ * //           conditions: [ // required
+ * //             {
+ * //               result: "ROLLBACK" || "FAIL",
+ * //               rules: [
+ * //                 {
+ * //                   name: "STRING_VALUE", // required
+ * //                   ruleTypeId: {
+ * //                     category: "Rule", // required
+ * //                     owner: "AWS",
+ * //                     provider: "STRING_VALUE", // required
+ * //                     version: "STRING_VALUE",
+ * //                   },
+ * //                   configuration: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   inputArtifacts: [
+ * //                     {
+ * //                       name: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                   roleArn: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                   timeoutInMinutes: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //     ],

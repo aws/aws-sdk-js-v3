@@ -103,11 +103,17 @@ import {
   ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
+import { ListRuleExecutionsCommandInput, ListRuleExecutionsCommandOutput } from "./commands/ListRuleExecutionsCommand";
+import { ListRuleTypesCommandInput, ListRuleTypesCommandOutput } from "./commands/ListRuleTypesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
+import {
+  OverrideStageConditionCommandInput,
+  OverrideStageConditionCommandOutput,
+} from "./commands/OverrideStageConditionCommand";
 import { PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
 import {
   PollForThirdPartyJobsCommandInput,
@@ -188,8 +194,11 @@ export type ServiceInputTypes =
   | ListActionTypesCommandInput
   | ListPipelineExecutionsCommandInput
   | ListPipelinesCommandInput
+  | ListRuleExecutionsCommandInput
+  | ListRuleTypesCommandInput
   | ListTagsForResourceCommandInput
   | ListWebhooksCommandInput
+  | OverrideStageConditionCommandInput
   | PollForJobsCommandInput
   | PollForThirdPartyJobsCommandInput
   | PutActionRevisionCommandInput
@@ -233,8 +242,11 @@ export type ServiceOutputTypes =
   | ListActionTypesCommandOutput
   | ListPipelineExecutionsCommandOutput
   | ListPipelinesCommandOutput
+  | ListRuleExecutionsCommandOutput
+  | ListRuleTypesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWebhooksCommandOutput
+  | OverrideStageConditionCommandOutput
   | PollForJobsCommandOutput
   | PollForThirdPartyJobsCommandOutput
   | PutActionRevisionCommandOutput

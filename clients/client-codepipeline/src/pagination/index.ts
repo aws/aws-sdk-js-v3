@@ -4,5 +4,6 @@ export * from "./ListActionExecutionsPaginator";
 export * from "./ListActionTypesPaginator";
 export * from "./ListPipelineExecutionsPaginator";
 export * from "./ListPipelinesPaginator";
+export * from "./ListRuleExecutionsPaginator";
 export * from "./ListTagsForResourcePaginator";
 export * from "./ListWebhooksPaginator";
