@@ -62,7 +62,10 @@ export class OnlyHttpApiKeyAndBearerAuthReversedCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getSigV4AuthPlugin(config),
-      getHttpApiKeyAuthPlugin(config, { in: "header", name: "X-Api-Key" }),
+      getHttpApiKeyAuthPlugin(config, {
+        in: "header",
+        name: "X-Api-Key",
+      }),
     ];
   })
   .s("Weather", "OnlyHttpApiKeyAndBearerAuthReversed", {})

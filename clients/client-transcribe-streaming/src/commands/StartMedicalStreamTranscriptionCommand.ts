@@ -226,7 +226,9 @@ export class StartMedicalStreamTranscriptionCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
-      getWebSocketPlugin(config, { headerPrefix: "x-amzn-transcribe-" }),
+      getWebSocketPlugin(config, {
+        headerPrefix: "x-amzn-transcribe-",
+      }),
     ];
   })
   .s("Transcribe", "StartMedicalStreamTranscription", {

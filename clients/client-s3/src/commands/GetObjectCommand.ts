@@ -353,14 +353,14 @@ export class GetObjectCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getSsecPlugin(config),
-      getS3ExpiresMiddlewarePlugin(config),
       getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestChecksumRequired: false,
         requestValidationModeMember: "ChecksumMode",
         responseAlgorithms: ["CRC32", "CRC32C", "SHA256", "SHA1"],
       }),
+      getSsecPlugin(config),
+      getS3ExpiresMiddlewarePlugin(config),
     ];
   })
   .s("AmazonS3", "GetObject", {})

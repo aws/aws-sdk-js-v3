@@ -152,7 +152,9 @@ export class PutMetricDataCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCompressionPlugin(config, { encodings: ["gzip"] }),
+      getCompressionPlugin(config, {
+        encodings: ["gzip"],
+      }),
     ];
   })
   .s("GraniteServiceVersion20100801", "PutMetricData", {})

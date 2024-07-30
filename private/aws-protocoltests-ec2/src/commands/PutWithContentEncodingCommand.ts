@@ -66,7 +66,9 @@ export class PutWithContentEncodingCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
-      getCompressionPlugin(config, { encodings: ["gzip"] }),
+      getCompressionPlugin(config, {
+        encodings: ["gzip"],
+      }),
     ];
   })
   .s("AwsEc2", "PutWithContentEncoding", {})

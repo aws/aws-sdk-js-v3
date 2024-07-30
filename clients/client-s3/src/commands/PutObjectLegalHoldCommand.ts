@@ -90,12 +90,12 @@ export class PutObjectLegalHoldCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
       getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
       }),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "PutObjectLegalHold", {})

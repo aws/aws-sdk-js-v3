@@ -133,7 +133,11 @@ export class ListTablesCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "ListTables", {})
