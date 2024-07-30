@@ -1168,8 +1168,7 @@ export interface BundleResourceAssociation {
  */
 export interface Capacity {
   /**
-   * <p>The desired number of user sessions for a multi-session pool.
-   *          This is not allowed for single-session pools.</p>
+   * <p>The desired number of user sessions for the WorkSpaces in the pool.</p>
    * @public
    */
   DesiredUserSessions: number | undefined;
@@ -1181,7 +1180,8 @@ export interface Capacity {
  */
 export interface CapacityStatus {
   /**
-   * <p>The number of user sessions currently being used for pool sessions. This only applies to multi-session pools.</p>
+   * <p>The number of user sessions currently available for streaming from your pool.</p>
+   *          <p>AvailableUserSessions = ActualUserSessions - ActiveUserSessions</p>
    * @public
    */
   AvailableUserSessions: number | undefined;
@@ -1195,13 +1195,15 @@ export interface CapacityStatus {
   DesiredUserSessions: number | undefined;
 
   /**
-   * <p>The total number of session slots that are available for a pool of WorkSpaces.</p>
+   * <p>The total number of user sessions that are available for streaming or are currently
+   *          streaming in your pool.</p>
+   *          <p>ActualUserSessions = AvailableUserSessions + ActiveUserSessions</p>
    * @public
    */
   ActualUserSessions: number | undefined;
 
   /**
-   * <p>The number of user sessions currently being used for pool sessions. This only applies to multi-session pools.</p>
+   * <p>The number of user sessions currently being used for your pool.</p>
    * @public
    */
   ActiveUserSessions: number | undefined;
@@ -2244,6 +2246,9 @@ export interface WorkspaceProperties {
    *             your account team to be allow-listed to use this value. For more information, see
    *             <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
+   *          <p>Review your running mode to ensure you are using one that is optimal for your needs and
+   *          budget. For more information on switching running modes, see <a href="http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F"> Can I switch between hourly and monthly billing?</a>
+   *          </p>
    * @public
    */
   RunningMode?: RunningMode;
