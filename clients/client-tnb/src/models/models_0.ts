@@ -97,7 +97,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ * <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -750,7 +751,7 @@ export interface GetSolFunctionPackageOutput {
   usageState: UsageState | undefined;
 
   /**
-   * <p>Function package descriptor  ID.</p>
+   * <p>Function package descriptor ID.</p>
    * @public
    */
   vnfdId?: string;
@@ -845,7 +846,8 @@ export interface GetSolFunctionPackageDescriptorInput {
   vnfPkgId: string | undefined;
 
   /**
-   * <p>Indicates which content types, expressed as MIME types, the client is able to understand.</p>
+   * <p>Indicates which content types, expressed as MIME types, the client is able to
+   *          understand.</p>
    * @public
    */
   accept: DescriptorContentType | undefined;
@@ -933,9 +935,12 @@ export const NsState = {
   IMPAIRED: "IMPAIRED",
   INSTANTIATED: "INSTANTIATED",
   INSTANTIATE_IN_PROGRESS: "INSTANTIATE_IN_PROGRESS",
+  INTENT_TO_UPDATE_IN_PROGRESS: "INTENT_TO_UPDATE_IN_PROGRESS",
   NOT_INSTANTIATED: "NOT_INSTANTIATED",
   STOPPED: "STOPPED",
   TERMINATE_IN_PROGRESS: "TERMINATE_IN_PROGRESS",
+  UPDATED: "UPDATED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
 
@@ -1056,11 +1061,89 @@ export const LcmOperationType = {
 export type LcmOperationType = (typeof LcmOperationType)[keyof typeof LcmOperationType];
 
 /**
+ * <p>Metadata related to the configuration properties used during instantiation of the network instance.</p>
+ * @public
+ */
+export interface InstantiateMetadata {
+  /**
+   * <p>The network service descriptor used for instantiating the network instance.</p>
+   * @public
+   */
+  nsdInfoId: string | undefined;
+
+  /**
+   * <p>The configurable properties used during instantiation.</p>
+   * @public
+   */
+  additionalParamsForNs?: __DocumentType;
+}
+
+/**
+ * <p>Metadata related to the configuration properties used during update of a specific
+ *          network function in a network instance.</p>
+ * @public
+ */
+export interface ModifyVnfInfoMetadata {
+  /**
+   * <p>The network function instance that was updated in the network instance.</p>
+   * @public
+   */
+  vnfInstanceId: string | undefined;
+
+  /**
+   * <p>The configurable properties used during update of the network function instance.</p>
+   * @public
+   */
+  vnfConfigurableProperties: __DocumentType | undefined;
+}
+
+/**
+ * <p>Metadata related to the configuration properties used during update of a network instance.</p>
+ * @public
+ */
+export interface UpdateNsMetadata {
+  /**
+   * <p>The network service descriptor used for updating the network instance.</p>
+   * @public
+   */
+  nsdInfoId: string | undefined;
+
+  /**
+   * <p>The configurable properties used during update.</p>
+   * @public
+   */
+  additionalParamsForNs?: __DocumentType;
+}
+
+/**
  * <p>Metadata related to a network operation occurrence.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @public
  */
 export interface GetSolNetworkOperationMetadata {
+  /**
+   * <p>Metadata related to the network operation occurrence for network instance updates.
+   *          This is populated only if the lcmOperationType is <code>UPDATE</code> and the
+   *          updateType is <code>UPDATE_NS</code>.</p>
+   * @public
+   */
+  updateNsMetadata?: UpdateNsMetadata;
+
+  /**
+   * <p>Metadata related to the network operation occurrence for network function updates in a network instance.
+   *          This is populated only if the lcmOperationType is <code>UPDATE</code> and the
+   *          updateType is <code>MODIFY_VNF_INFORMATION</code>.</p>
+   * @public
+   */
+  modifyVnfInfoMetadata?: ModifyVnfInfoMetadata;
+
+  /**
+   * <p>Metadata related to the network operation occurrence for network instantiation.
+   *          This is populated only if the lcmOperationType is <code>INSTANTIATE</code>.</p>
+   * @public
+   */
+  instantiateMetadata?: InstantiateMetadata;
+
   /**
    * <p>The date that the resource was created.</p>
    * @public
@@ -1155,6 +1238,20 @@ export interface GetSolNetworkOperationTaskDetails {
 
 /**
  * @public
+ * @enum
+ */
+export const UpdateSolNetworkType = {
+  MODIFY_VNF_INFORMATION: "MODIFY_VNF_INFORMATION",
+  UPDATE_NS: "UPDATE_NS",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateSolNetworkType = (typeof UpdateSolNetworkType)[keyof typeof UpdateSolNetworkType];
+
+/**
+ * @public
  */
 export interface GetSolNetworkOperationOutput {
   /**
@@ -1186,6 +1283,13 @@ export interface GetSolNetworkOperationOutput {
    * @public
    */
   lcmOperationType?: LcmOperationType;
+
+  /**
+   * <p>Type of the update. Only present if the network operation
+   *          lcmOperationType is <code>UPDATE</code>.</p>
+   * @public
+   */
+  updateType?: UpdateSolNetworkType;
 
   /**
    * <p>Error related to this specific network operation occurrence.</p>
@@ -1243,7 +1347,8 @@ export interface NetworkArtifactMeta {
  */
 export interface GetSolNetworkPackageMetadata {
   /**
-   * <p>Metadata related to the onboarded network service descriptor in the network package.</p>
+   * <p>Metadata related to the onboarded network service descriptor in the network
+   *          package.</p>
    * @public
    */
   nsd?: NetworkArtifactMeta;
@@ -1314,7 +1419,8 @@ export interface GetSolNetworkPackageOutput {
   nsdVersion: string | undefined;
 
   /**
-   * <p>Identifies the function package for the function package descriptor referenced by the onboarded network package.</p>
+   * <p>Identifies the function package for the function package descriptor referenced by the
+   *          onboarded network package.</p>
    * @public
    */
   vnfPkgIds: string[] | undefined;
@@ -1420,7 +1526,7 @@ export interface InstantiateSolNetworkInstanceInput {
   additionalParamsForNs?: __DocumentType;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -1437,7 +1543,7 @@ export interface InstantiateSolNetworkInstanceOutput {
   nsLcmOpOccId: string | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -1785,6 +1891,12 @@ export interface ListSolNetworkInstancesOutput {
  */
 export interface ListSolNetworkOperationsInput {
   /**
+   * <p>Network instance id filter, to retrieve network operations associated to a network instance.</p>
+   * @public
+   */
+  nsInstanceId?: string;
+
+  /**
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
@@ -1803,6 +1915,20 @@ export interface ListSolNetworkOperationsInput {
  * @public
  */
 export interface ListSolNetworkOperationsMetadata {
+  /**
+   * <p>The network service descriptor id used for the operation.</p>
+   *          <p>Only present if the updateType is <code>UPDATE_NS</code>.</p>
+   * @public
+   */
+  nsdInfoId?: string;
+
+  /**
+   * <p>The network function id used for the operation.</p>
+   *          <p>Only present if the updateType is <code>MODIFY_VNF_INFO</code>.</p>
+   * @public
+   */
+  vnfInstanceId?: string;
+
   /**
    * <p>The date that the resource was created.</p>
    * @public
@@ -1850,6 +1976,12 @@ export interface ListSolNetworkOperationsInfo {
    * @public
    */
   lcmOperationType: LcmOperationType | undefined;
+
+  /**
+   * <p>Type of the update. Only present if the network operation lcmOperationType is <code>UPDATE</code>.</p>
+   * @public
+   */
+  updateType?: UpdateSolNetworkType;
 
   /**
    * <p>Error related to this specific network operation.</p>
@@ -1967,7 +2099,8 @@ export interface ListSolNetworkPackageInfo {
   nsdInvariantId?: string;
 
   /**
-   * <p>Identifies the function package for the function package descriptor referenced by the onboarded network package.</p>
+   * <p>Identifies the function package for the function package descriptor referenced by the
+   *          onboarded network package.</p>
    * @public
    */
   vnfPkgIds?: string[];
@@ -2230,7 +2363,7 @@ export interface TerminateSolNetworkInstanceInput {
   nsInstanceId: string | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -2247,7 +2380,7 @@ export interface TerminateSolNetworkInstanceOutput {
   nsLcmOpOccId?: string;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -2317,24 +2450,30 @@ export interface UpdateSolNetworkModify {
   vnfInstanceId: string | undefined;
 
   /**
-   * <p>Provides values for the configurable properties declared in the function package descriptor.</p>
+   * <p>Provides values for the configurable properties declared in the function package
+   *          descriptor.</p>
    * @public
    */
   vnfConfigurableProperties: __DocumentType | undefined;
 }
 
 /**
+ * <p>Information parameters and/or the configurable properties for a network descriptor used for update.</p>
  * @public
- * @enum
  */
-export const UpdateSolNetworkType = {
-  MODIFY_VNF_INFORMATION: "MODIFY_VNF_INFORMATION",
-} as const;
+export interface UpdateSolNetworkServiceData {
+  /**
+   * <p>ID of the network service descriptor.</p>
+   * @public
+   */
+  nsdInfoId: string | undefined;
 
-/**
- * @public
- */
-export type UpdateSolNetworkType = (typeof UpdateSolNetworkType)[keyof typeof UpdateSolNetworkType];
+  /**
+   * <p>Values for the configurable properties declared in the network service descriptor.</p>
+   * @public
+   */
+  additionalParamsForNs?: __DocumentType;
+}
 
 /**
  * @public
@@ -2348,18 +2487,38 @@ export interface UpdateSolNetworkInstanceInput {
 
   /**
    * <p>The type of update.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use the <code>MODIFY_VNF_INFORMATION</code> update type, to update a specific network function
+   *                configuration, in the network instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>UPDATE_NS</code> update type, to update the network instance to a
+   *                new network service descriptor.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   updateType: UpdateSolNetworkType | undefined;
 
   /**
-   * <p>Identifies the network function information parameters and/or the configurable properties of the network function to be modified.</p>
+   * <p>Identifies the network function information parameters and/or the configurable
+   *          properties of the network function to be modified.</p>
+   *          <p>Include this property only if the update type is <code>MODIFY_VNF_INFORMATION</code>.</p>
    * @public
    */
   modifyVnfInfoData?: UpdateSolNetworkModify;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>Identifies the network service descriptor and the configurable
+   *          properties of the descriptor, to be used for the update.</p>
+   *          <p>Include this property only if the update type is <code>UPDATE_NS</code>.</p>
+   * @public
+   */
+  updateNs?: UpdateSolNetworkServiceData;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -2376,7 +2535,7 @@ export interface UpdateSolNetworkInstanceOutput {
   nsLcmOpOccId?: string;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -2689,6 +2848,22 @@ export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForReso
 /**
  * @internal
  */
+export const PutSolFunctionPackageContentInputFilterSensitiveLog = (obj: PutSolFunctionPackageContentInput): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSolNetworkPackageContentInputFilterSensitiveLog = (obj: PutSolNetworkPackageContentInput): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -2724,4 +2899,24 @@ export const UpdateSolNetworkInstanceInputFilterSensitiveLog = (obj: UpdateSolNe
 export const UpdateSolNetworkInstanceOutputFilterSensitiveLog = (obj: UpdateSolNetworkInstanceOutput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateSolFunctionPackageContentInputFilterSensitiveLog = (
+  obj: ValidateSolFunctionPackageContentInput
+): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateSolNetworkPackageContentInputFilterSensitiveLog = (
+  obj: ValidateSolNetworkPackageContentInput
+): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
 });

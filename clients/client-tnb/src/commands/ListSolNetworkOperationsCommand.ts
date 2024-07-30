@@ -28,7 +28,8 @@ export interface ListSolNetworkOperationsCommandInput extends ListSolNetworkOper
 export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOperationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists details for a network operation, including when the operation started and the status of the operation.</p>
+ * <p>Lists details for a network operation, including when the operation started and the
+ *          status of the operation.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,6 +38,7 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * // const { TnbClient, ListSolNetworkOperationsCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
  * const input = { // ListSolNetworkOperationsInput
+ *   nsInstanceId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -51,11 +53,14 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * //       operationState: "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
  * //       nsInstanceId: "STRING_VALUE", // required
  * //       lcmOperationType: "INSTANTIATE" || "UPDATE" || "TERMINATE", // required
+ * //       updateType: "MODIFY_VNF_INFORMATION" || "UPDATE_NS",
  * //       error: { // ProblemDetails
  * //         detail: "STRING_VALUE", // required
  * //         title: "STRING_VALUE",
  * //       },
  * //       metadata: { // ListSolNetworkOperationsMetadata
+ * //         nsdInfoId: "STRING_VALUE",
+ * //         vnfInstanceId: "STRING_VALUE",
  * //         createdAt: new Date("TIMESTAMP"), // required
  * //         lastModified: new Date("TIMESTAMP"), // required
  * //       },
@@ -81,7 +86,8 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>

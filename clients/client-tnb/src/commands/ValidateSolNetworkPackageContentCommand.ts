@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
+import {
+  ValidateSolNetworkPackageContentInput,
+  ValidateSolNetworkPackageContentInputFilterSensitiveLog,
+  ValidateSolNetworkPackageContentOutput,
+} from "../models/models_0";
 import {
   de_ValidateSolNetworkPackageContentCommand,
   se_ValidateSolNetworkPackageContentCommand,
@@ -41,7 +45,8 @@ export interface ValidateSolNetworkPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Validates network package content. This can be used as a dry run before uploading network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.</p>
+ * <p>Validates network package content. This can be used as a dry run before uploading
+ *          network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,7 +103,8 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
@@ -124,7 +130,7 @@ export class ValidateSolNetworkPackageContentCommand extends $Command
   })
   .s("TNB", "ValidateSolNetworkPackageContent", {})
   .n("TnbClient", "ValidateSolNetworkPackageContentCommand")
-  .f(void 0, void 0)
+  .f(ValidateSolNetworkPackageContentInputFilterSensitiveLog, void 0)
   .ser(se_ValidateSolNetworkPackageContentCommand)
   .de(de_ValidateSolNetworkPackageContentCommand)
   .build() {}

@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutSolFunctionPackageContentInput, PutSolFunctionPackageContentOutput } from "../models/models_0";
+import {
+  PutSolFunctionPackageContentInput,
+  PutSolFunctionPackageContentInputFilterSensitiveLog,
+  PutSolFunctionPackageContentOutput,
+} from "../models/models_0";
 import {
   de_PutSolFunctionPackageContentCommand,
   se_PutSolFunctionPackageContentCommand,
@@ -94,7 +98,8 @@ export interface PutSolFunctionPackageContentCommandOutput
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
@@ -120,7 +125,7 @@ export class PutSolFunctionPackageContentCommand extends $Command
   })
   .s("TNB", "PutSolFunctionPackageContent", {})
   .n("TnbClient", "PutSolFunctionPackageContentCommand")
-  .f(void 0, void 0)
+  .f(PutSolFunctionPackageContentInputFilterSensitiveLog, void 0)
   .ser(se_PutSolFunctionPackageContentCommand)
   .de(de_PutSolFunctionPackageContentCommand)
   .build() {}

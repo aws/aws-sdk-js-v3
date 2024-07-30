@@ -35,6 +35,7 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
 /**
  * <p>Update a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
+ *          <p>Choose the <i>updateType</i> parameter to target the necessary update of the network instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,10 +44,14 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * const client = new TnbClient(config);
  * const input = { // UpdateSolNetworkInstanceInput
  *   nsInstanceId: "STRING_VALUE", // required
- *   updateType: "MODIFY_VNF_INFORMATION", // required
+ *   updateType: "MODIFY_VNF_INFORMATION" || "UPDATE_NS", // required
  *   modifyVnfInfoData: { // UpdateSolNetworkModify
  *     vnfInstanceId: "STRING_VALUE", // required
  *     vnfConfigurableProperties: "DOCUMENT_VALUE", // required
+ *   },
+ *   updateNs: { // UpdateSolNetworkServiceData
+ *     nsdInfoId: "STRING_VALUE", // required
+ *     additionalParamsForNs: "DOCUMENT_VALUE",
  *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -85,7 +90,8 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>

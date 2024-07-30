@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ValidateSolFunctionPackageContentInput, ValidateSolFunctionPackageContentOutput } from "../models/models_0";
+import {
+  ValidateSolFunctionPackageContentInput,
+  ValidateSolFunctionPackageContentInputFilterSensitiveLog,
+  ValidateSolFunctionPackageContentOutput,
+} from "../models/models_0";
 import {
   de_ValidateSolFunctionPackageContentCommand,
   se_ValidateSolFunctionPackageContentCommand,
@@ -41,7 +45,8 @@ export interface ValidateSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Validates function package content. This can be used as a dry run before uploading function package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.</p>
+ * <p>Validates function package content. This can be used as a dry run before uploading
+ *          function package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,7 +100,8 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
@@ -121,7 +127,7 @@ export class ValidateSolFunctionPackageContentCommand extends $Command
   })
   .s("TNB", "ValidateSolFunctionPackageContent", {})
   .n("TnbClient", "ValidateSolFunctionPackageContentCommand")
-  .f(void 0, void 0)
+  .f(ValidateSolFunctionPackageContentInputFilterSensitiveLog, void 0)
   .ser(se_ValidateSolFunctionPackageContentCommand)
   .de(de_ValidateSolFunctionPackageContentCommand)
   .build() {}

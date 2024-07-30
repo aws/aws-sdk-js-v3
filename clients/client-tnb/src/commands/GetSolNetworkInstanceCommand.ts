@@ -52,7 +52,7 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  * //   nsInstanceDescription: "STRING_VALUE", // required
  * //   nsdId: "STRING_VALUE", // required
  * //   nsdInfoId: "STRING_VALUE", // required
- * //   nsState: "INSTANTIATED" || "NOT_INSTANTIATED" || "IMPAIRED" || "STOPPED" || "DELETED" || "INSTANTIATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "TERMINATE_IN_PROGRESS",
+ * //   nsState: "INSTANTIATED" || "NOT_INSTANTIATED" || "UPDATED" || "IMPAIRED" || "UPDATE_FAILED" || "STOPPED" || "DELETED" || "INSTANTIATE_IN_PROGRESS" || "INTENT_TO_UPDATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "TERMINATE_IN_PROGRESS",
  * //   lcmOpInfo: { // LcmOperationInfo
  * //     nsLcmOpOccId: "STRING_VALUE", // required
  * //   },
@@ -86,7 +86,8 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
