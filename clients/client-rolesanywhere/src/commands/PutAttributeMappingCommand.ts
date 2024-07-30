@@ -65,6 +65,7 @@ export interface PutAttributeMappingCommandOutput extends PutAttributeMappingRes
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     durationSeconds: Number("int"),
+ * //     acceptRoleSessionName: true || false,
  * //     attributeMappings: [ // AttributeMappings
  * //       { // AttributeMapping
  * //         certificateField: "STRING_VALUE",

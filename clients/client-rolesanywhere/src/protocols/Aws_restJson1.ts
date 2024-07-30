@@ -105,6 +105,7 @@ export const se_CreateProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      acceptRoleSessionName: [],
       durationSeconds: [],
       enabled: [],
       managedPolicyArns: (_) => _json(_),
@@ -646,6 +647,7 @@ export const se_UpdateProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      acceptRoleSessionName: [],
       durationSeconds: [],
       managedPolicyArns: (_) => _json(_),
       name: [],
@@ -1541,6 +1543,7 @@ const de_InstanceProperty = (output: any, context: __SerdeContext): InstanceProp
  */
 const de_ProfileDetail = (output: any, context: __SerdeContext): ProfileDetail => {
   return take(output, {
+    acceptRoleSessionName: __expectBoolean,
     attributeMappings: _json,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     createdBy: __expectString,

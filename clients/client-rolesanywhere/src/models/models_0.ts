@@ -139,6 +139,12 @@ export interface CreateProfileRequest {
    * @public
    */
   tags?: Tag[];
+
+  /**
+   * <p>Used to determine if a custom role session name will be accepted in a temporary credential request.</p>
+   * @public
+   */
+  acceptRoleSessionName?: boolean;
 }
 
 /**
@@ -219,6 +225,12 @@ export interface ProfileDetail {
    * @public
    */
   durationSeconds?: number;
+
+  /**
+   * <p>Used to determine if a custom role session name will be accepted in a temporary credential request.</p>
+   * @public
+   */
+  acceptRoleSessionName?: boolean;
 
   /**
    * <p>A mapping applied to the authenticating end-entity certificate.</p>
@@ -1164,6 +1176,12 @@ export interface UpdateProfileRequest {
    * @public
    */
   durationSeconds?: number;
+
+  /**
+   * <p>Used to determine if a custom role session name will be accepted in a temporary credential request.</p>
+   * @public
+   */
+  acceptRoleSessionName?: boolean;
 }
 
 /**

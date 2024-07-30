@@ -61,6 +61,7 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   acceptRoleSessionName: true || false,
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
@@ -82,6 +83,7 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     durationSeconds: Number("int"),
+ * //     acceptRoleSessionName: true || false,
  * //     attributeMappings: [ // AttributeMappings
  * //       { // AttributeMapping
  * //         certificateField: "STRING_VALUE",
