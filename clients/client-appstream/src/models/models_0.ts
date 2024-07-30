@@ -531,6 +531,7 @@ export type AppBlockBuilderAttribute = (typeof AppBlockBuilderAttribute)[keyof t
  */
 export const PlatformType = {
   AMAZON_LINUX2: "AMAZON_LINUX2",
+  RHEL8: "RHEL8",
   WINDOWS: "WINDOWS",
   WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
   WINDOWS_SERVER_2019: "WINDOWS_SERVER_2019",
@@ -2253,7 +2254,7 @@ export interface CreateFleetRequest {
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *          <p>Specify a value between 60 and 360000.</p>
+   *          <p>Specify a value between 60 and 36000.</p>
    * @public
    */
   DisconnectTimeoutInSeconds?: number;
@@ -2303,7 +2304,7 @@ export interface CreateFleetRequest {
    *             and pixels changing do not qualify as user activity. If users continue to be idle after
    *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
    *             disconnected.</p>
-   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
+   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.</p>
    *          <note>
    *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
    *          </note>
@@ -2574,7 +2575,7 @@ export interface Fleet {
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
-   *          <p>Specify a value between 60 and 360000.</p>
+   *          <p>Specify a value between 60 and 36000.</p>
    * @public
    */
   DisconnectTimeoutInSeconds?: number;
@@ -2626,7 +2627,7 @@ export interface Fleet {
    *             and pixels changing do not qualify as user activity. If users continue to be idle after
    *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
    *             disconnected.</p>
-   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
+   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.</p>
    *          <note>
    *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
    *          </note>
@@ -3315,7 +3316,6 @@ export interface UserSetting {
    * <p>Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session.</p>
    *          <p>This can be specified only for the <code>CLIPBOARD_COPY_FROM_LOCAL_DEVICE</code> and <code>CLIPBOARD_COPY_TO_LOCAL_DEVICE</code> actions.</p>
    *          <p>This defaults to 20,971,520 (20 MB) when unspecified and the permission is <code>ENABLED</code>. This can't be specified when the permission is <code>DISABLED</code>. </p>
-   *          <p>This can only be specified for AlwaysOn and OnDemand fleets. The attribute is not supported on Elastic fleets.</p>
    *          <p>The value can be between 1 and 20,971,520 (20 MB).</p>
    * @public
    */
@@ -6116,7 +6116,7 @@ export interface UpdateFleetRequest {
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *          <p>Specify a value between 60 and 360000.</p>
+   *          <p>Specify a value between 60 and 36000.</p>
    * @public
    */
   DisconnectTimeoutInSeconds?: number;
@@ -6164,7 +6164,7 @@ export interface UpdateFleetRequest {
    *             and pixels changing do not qualify as user activity. If users continue to be idle after
    *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
    *             disconnected. </p>
-   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
+   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.</p>
    *          <note>
    *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
    *          </note>
