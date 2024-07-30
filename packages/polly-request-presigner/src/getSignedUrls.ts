@@ -55,6 +55,7 @@ export const getSignedUrl = async (
     name: "presignInterceptMiddleware",
     relation: "before",
     toMiddleware: "awsAuthMiddleware",
+    override: true,
   });
 
   let presigned: HttpRequest;
