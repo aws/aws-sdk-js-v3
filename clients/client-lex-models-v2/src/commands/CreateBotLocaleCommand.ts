@@ -54,6 +54,12 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *         enabled: true || false, // required
  *         bedrockModelSpecification: { // BedrockModelSpecification
  *           modelArn: "STRING_VALUE", // required
+ *           guardrail: { // BedrockGuardrailConfiguration
+ *             identifier: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *           },
+ *           traceStatus: "ENABLED" || "DISABLED",
+ *           customPrompt: "STRING_VALUE",
  *         },
  *       },
  *     },
@@ -62,12 +68,24 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *         enabled: true || false, // required
  *         bedrockModelSpecification: {
  *           modelArn: "STRING_VALUE", // required
+ *           guardrail: {
+ *             identifier: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *           },
+ *           traceStatus: "ENABLED" || "DISABLED",
+ *           customPrompt: "STRING_VALUE",
  *         },
  *       },
  *       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
  *         enabled: true || false, // required
  *         bedrockModelSpecification: {
  *           modelArn: "STRING_VALUE", // required
+ *           guardrail: {
+ *             identifier: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *           },
+ *           traceStatus: "ENABLED" || "DISABLED",
+ *           customPrompt: "STRING_VALUE",
  *         },
  *       },
  *     },
@@ -94,6 +112,12 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: { // BedrockModelSpecification
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: { // BedrockGuardrailConfiguration
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
@@ -102,12 +126,24 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: {
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: {
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: {
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: {
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //     },

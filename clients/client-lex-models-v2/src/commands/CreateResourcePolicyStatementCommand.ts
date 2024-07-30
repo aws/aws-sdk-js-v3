@@ -38,6 +38,8 @@ export interface CreateResourcePolicyStatementCommandOutput
  *          policy. If a policy doesn't exist, a new policy is created.</p>
  *          <p>You can't create a resource policy statement that allows
  *          cross-account access.</p>
+ *          <p>You need to add the <code>CreateResourcePolicy</code> or <code>UpdateResourcePolicy</code>
+ *          action to the bot role in order to call the API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

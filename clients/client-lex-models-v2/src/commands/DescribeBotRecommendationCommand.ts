@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotRecommendationRequest } from "../models/models_0";
 import {
+  DescribeBotRecommendationRequest,
   DescribeBotRecommendationResponse,
   DescribeBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_1";

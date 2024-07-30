@@ -503,10 +503,20 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * //       },
  * //       bedrockKnowledgeStoreConfiguration: { // BedrockKnowledgeStoreConfiguration
  * //         bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ * //         exactResponse: true || false,
+ * //         exactResponseFields: { // BedrockKnowledgeStoreExactResponseFields
+ * //           answerField: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     bedrockModelConfiguration: { // BedrockModelSpecification
  * //       modelArn: "STRING_VALUE", // required
+ * //       guardrail: { // BedrockGuardrailConfiguration
+ * //         identifier: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       traceStatus: "ENABLED" || "DISABLED",
+ * //       customPrompt: "STRING_VALUE",
  * //     },
  * //   },
  * // };

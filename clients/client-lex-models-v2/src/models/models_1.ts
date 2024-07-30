@@ -42,6 +42,7 @@ import {
   BotFilter,
   BotImportSpecification,
   BotLocaleFilter,
+  BotLocaleHistoryEvent,
   BotLocaleImportSpecification,
   BotLocaleSortBy,
   BotLocaleStatus,
@@ -80,8 +81,6 @@ import {
   DialogAction,
   DialogCodeHookSettings,
   ElicitationCodeHookInvocationSetting,
-  EncryptionSetting,
-  EncryptionSettingFilterSensitiveLog,
   ExecutionErrorDetails,
   ExportResourceSpecification,
   ExportStatus,
@@ -116,6 +115,185 @@ import {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DescribeBotLocaleResponse {
+  /**
+   * <p>The identifier of the bot associated with the locale.</p>
+   * @public
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot associated with the
+   *          locale.</p>
+   * @public
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The unique identifier of the described locale.</p>
+   * @public
+   */
+  localeId?: string;
+
+  /**
+   * <p>The name of the locale.</p>
+   * @public
+   */
+  localeName?: string;
+
+  /**
+   * <p>The description of the locale.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The confidence threshold where Amazon Lex inserts the
+   *             <code>AMAZON.FallbackIntent</code> and
+   *             <code>AMAZON.KendraSearchIntent</code> intents in the list of
+   *          possible intents for an utterance.</p>
+   * @public
+   */
+  nluIntentConfidenceThreshold?: number;
+
+  /**
+   * <p>The Amazon Polly voice Amazon Lex uses for voice interaction with the
+   *          user.</p>
+   * @public
+   */
+  voiceSettings?: VoiceSettings;
+
+  /**
+   * <p>The number of intents defined for the locale.</p>
+   * @public
+   */
+  intentsCount?: number;
+
+  /**
+   * <p>The number of slot types defined for the locale.</p>
+   * @public
+   */
+  slotTypesCount?: number;
+
+  /**
+   * <p>The status of the bot. If the status is <code>Failed</code>, the
+   *          reasons for the failure are listed in the <code>failureReasons</code>
+   *          field.</p>
+   * @public
+   */
+  botLocaleStatus?: BotLocaleStatus;
+
+  /**
+   * <p>if <code>botLocaleStatus</code> is <code>Failed</code>, Amazon Lex
+   *          explains why it failed to build the bot.</p>
+   * @public
+   */
+  failureReasons?: string[];
+
+  /**
+   * <p>The date and time that the locale was created.</p>
+   * @public
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the locale was last updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The date and time that the locale was last submitted for
+   *          building.</p>
+   * @public
+   */
+  lastBuildSubmittedDateTime?: Date;
+
+  /**
+   * <p>History of changes, such as when a locale is used in an alias, that
+   *          have taken place for the locale.</p>
+   * @public
+   */
+  botLocaleHistoryEvents?: BotLocaleHistoryEvent[];
+
+  /**
+   * <p>Recommended actions to take to resolve an error in the
+   *             <code>failureReasons</code> field.</p>
+   * @public
+   */
+  recommendedActions?: string[];
+
+  /**
+   * <p>Contains settings for Amazon Bedrock's generative AI features for your bot locale.</p>
+   * @public
+   */
+  generativeAISettings?: GenerativeAISettings;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBotRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot associated with the bot
+   *          recommendation.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot associated with the bot
+   *          recommendation.</p>
+   * @public
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to describe. The string must match one of the supported locales. For
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   * @public
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot recommendation to describe.</p>
+   * @public
+   */
+  botRecommendationId: string | undefined;
+}
+
+/**
+ * <p>The object representing the passwords that were used to encrypt the
+ *             data related to the bot recommendation, as well as the KMS key ARN used
+ *             to encrypt the associated metadata.</p>
+ * @public
+ */
+export interface EncryptionSetting {
+  /**
+   * <p>The KMS key ARN used to encrypt the metadata associated with the bot
+   *             recommendation.</p>
+   * @public
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>The password used to encrypt the recommended bot recommendation
+   *             file.</p>
+   * @public
+   */
+  botLocaleExportPassword?: string;
+
+  /**
+   * <p>The password used to encrypt the associated transcript file.</p>
+   * @public
+   */
+  associatedTranscriptsPassword?: string;
+}
 
 /**
  * <p>The object that contains a path format that will be applied when
@@ -9941,6 +10119,15 @@ export interface UpdateIntentResponse {
    */
   qnAIntentConfiguration?: QnAIntentConfiguration;
 }
+
+/**
+ * @internal
+ */
+export const EncryptionSettingFilterSensitiveLog = (obj: EncryptionSetting): any => ({
+  ...obj,
+  ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
+  ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

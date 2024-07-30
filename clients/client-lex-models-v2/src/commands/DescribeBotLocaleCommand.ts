@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotLocaleRequest, DescribeBotLocaleResponse } from "../models/models_0";
+import { DescribeBotLocaleRequest } from "../models/models_0";
+import { DescribeBotLocaleResponse } from "../models/models_1";
 import { de_DescribeBotLocaleCommand, se_DescribeBotLocaleCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -77,6 +78,12 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: { // BedrockModelSpecification
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: { // BedrockGuardrailConfiguration
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
@@ -85,12 +92,24 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: {
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: {
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: {
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: {
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //     },

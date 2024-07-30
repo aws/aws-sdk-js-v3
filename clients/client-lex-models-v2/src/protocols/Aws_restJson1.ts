@@ -280,7 +280,9 @@ import {
   AudioLogDestination,
   AudioLogSetting,
   AudioSpecification,
+  BedrockGuardrailConfiguration,
   BedrockKnowledgeStoreConfiguration,
+  BedrockKnowledgeStoreExactResponseFields,
   BedrockModelSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
@@ -332,7 +334,6 @@ import {
   DialogCodeHookSettings,
   DTMFSpecification,
   ElicitationCodeHookInvocationSetting,
-  EncryptionSetting,
   ExactResponseFields,
   ExportResourceSpecification,
   ExternalSourceSetting,
@@ -402,6 +403,7 @@ import {
   DefaultConditionalBranch,
   DialogCodeHookInvocationSetting,
   DialogState,
+  EncryptionSetting,
   ExportFilter,
   ExportSortBy,
   ExportSummary,
@@ -5772,7 +5774,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AudioSpecification omitted.
 
+// se_BedrockGuardrailConfiguration omitted.
+
 // se_BedrockKnowledgeStoreConfiguration omitted.
+
+// se_BedrockKnowledgeStoreExactResponseFields omitted.
 
 // se_BedrockModelSpecification omitted.
 
@@ -6726,7 +6732,11 @@ const de_AnalyticsUtteranceResults = (output: any, context: __SerdeContext): Ana
 
 // de_AudioSpecification omitted.
 
+// de_BedrockGuardrailConfiguration omitted.
+
 // de_BedrockKnowledgeStoreConfiguration omitted.
+
+// de_BedrockKnowledgeStoreExactResponseFields omitted.
 
 // de_BedrockModelSpecification omitted.
 
