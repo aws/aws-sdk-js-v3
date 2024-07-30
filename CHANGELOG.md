@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+
+### Bug Fixes
+
+* package.json `homepage` links to use the `main` branch ([#6336](https://github.com/aws/aws-sdk-js-v3/issues/6336)) ([e332230](https://github.com/aws/aws-sdk-js-v3/commit/e33223023c48451533cc0bd8dbe3dd2c62e12317))
+* **polly-request-presigner:** override middleware name to allow concurrent presigning ([#6335](https://github.com/aws/aws-sdk-js-v3/issues/6335)) ([54990fa](https://github.com/aws/aws-sdk-js-v3/commit/54990fa2f2500bd7c82814f65394f09622db49df))
+
+
+### Features
+
+* **client-appstream:** Added support for Red Hat Enterprise Linux 8 on Amazon AppStream 2.0 ([bbb4450](https://github.com/aws/aws-sdk-js-v3/commit/bbb4450b91ceaf6140ec59f98fdd636117752181))
+* **client-auto-scaling:** Increase the length limit for VPCZoneIdentifier from 2047 to 5000 ([2347163](https://github.com/aws/aws-sdk-js-v3/commit/23471630bc06deed7474a742d21ab245382080c2))
+* **client-cloudwatch-logs:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([88b6a41](https://github.com/aws/aws-sdk-js-v3/commit/88b6a41c4193e217b2f404b39f7db83d70efcf8e))
+* **client-codepipeline:** AWS CodePipeline V2 type pipelines now support stage level conditions to enable development teams to safely release changes that meet quality and compliance requirements. ([5e8b92d](https://github.com/aws/aws-sdk-js-v3/commit/5e8b92d3ad100d0a2a75fbddb18205b6154c778c))
+* **client-elastic-load-balancing:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([6cbe7bf](https://github.com/aws/aws-sdk-js-v3/commit/6cbe7bf601f3ef926cd6bbf5ae5f48fb48ec0d6e))
+* **client-eventbridge:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([65290c8](https://github.com/aws/aws-sdk-js-v3/commit/65290c8130eb3b5a581bdf77ce2da29858f3a7ad))
+* **client-lex-models-v2:** This release adds new capabilities to the AMAZON.QnAIntent: Custom prompting, Guardrails integration and ExactResponse support for Bedrock Knowledge Base. ([4d9c7a1](https://github.com/aws/aws-sdk-js-v3/commit/4d9c7a12e3b68a83156aa7dd063183cae1c11ed2))
+* **client-rolesanywhere:** IAM RolesAnywhere now supports custom role session name on the CreateSession. This release adds the acceptRoleSessionName option to a profile to control whether a role session name will be accepted in a session request with a given profile. ([5bc3008](https://github.com/aws/aws-sdk-js-v3/commit/5bc30087750ef62b067fb310e7d4fd86c6021dae))
+* **client-tnb:** This release adds Network Service Update, through which customers will be able to update their instantiated networks to a new network package. See the documentation for limitations. The release also enhances the Get network operation API to return parameter overrides used during the operation. ([cee6948](https://github.com/aws/aws-sdk-js-v3/commit/cee6948a0b747b200aee7b1ead4d3b0840ef983e))
+* **clients:** update client endpoints as of 2024-07-30 ([ecc97a2](https://github.com/aws/aws-sdk-js-v3/commit/ecc97a25cbd88d79cb965400aec61892cf1d2976))
+
+
+
+
+
 ## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
 
 

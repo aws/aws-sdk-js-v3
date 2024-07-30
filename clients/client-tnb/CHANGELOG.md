@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+
+### Features
+
+* **client-tnb:** This release adds Network Service Update, through which customers will be able to update their instantiated networks to a new network package. See the documentation for limitations. The release also enhances the Get network operation API to return parameter overrides used during the operation. ([cee6948](https://github.com/aws/aws-sdk-js-v3/commit/cee6948a0b747b200aee7b1ead4d3b0840ef983e))
+
+
+
+
+
 ## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-tnb

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+
+### Features
+
+* **client-codepipeline:** AWS CodePipeline V2 type pipelines now support stage level conditions to enable development teams to safely release changes that meet quality and compliance requirements. ([5e8b92d](https://github.com/aws/aws-sdk-js-v3/commit/5e8b92d3ad100d0a2a75fbddb18205b6154c778c))
+
+
+
+
+
 ## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+
+### Features
+
+* **client-appstream:** Added support for Red Hat Enterprise Linux 8 on Amazon AppStream 2.0 ([bbb4450](https://github.com/aws/aws-sdk-js-v3/commit/bbb4450b91ceaf6140ec59f98fdd636117752181))
+
+
+
+
+
 ## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

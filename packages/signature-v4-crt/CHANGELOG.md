@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+
+### Bug Fixes
+
+* package.json `homepage` links to use the `main` branch ([#6336](https://github.com/aws/aws-sdk-js-v3/issues/6336)) ([e332230](https://github.com/aws/aws-sdk-js-v3/commit/e33223023c48451533cc0bd8dbe3dd2c62e12317))
+
+
+
+
+
 # [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
 
 **Note:** Version bump only for package @aws-sdk/signature-v4-crt

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+
+### Bug Fixes
+
+* **polly-request-presigner:** override middleware name to allow concurrent presigning ([#6335](https://github.com/aws/aws-sdk-js-v3/issues/6335)) ([54990fa](https://github.com/aws/aws-sdk-js-v3/commit/54990fa2f2500bd7c82814f65394f09622db49df))
+
+
+
+
+
 ## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
 
 **Note:** Version bump only for package @aws-sdk/polly-request-presigner
