@@ -11,7 +11,8 @@ import { retryWrapper } from "./retry-wrapper";
  * Creates a provider that gets credentials via HTTP request.
  */
 export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityProvider => {
-  options.logger?.debug("@aws-sdk/credential-provider-http - fromHttp");
+  const { logger } = options;
+  logger?.debug("@aws-sdk/credential-provider-http - fromHttp");
   let host: string;
 
   const full = options.credentialsFullUri;
@@ -19,14 +20,14 @@ export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityPr
   if (full) {
     host = full;
   } else {
-    throw new CredentialsProviderError("No HTTP credential provider host provided.", { logger: options.logger });
+    throw new CredentialsProviderError("No HTTP credential provider host provided.", { logger });
   }
 
   // throws if invalid format.
   const url = new URL(host);
 
   // throws if not to spec for provider.
-  checkUrl(url, options.logger);
+  checkUrl(url, logger);
 
   const requestHandler = new FetchHttpHandler();
 
@@ -39,7 +40,6 @@ export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityPr
       const result = await requestHandler.handle(request);
       return getCredentials(result.response);
     },
-    options.maxRetries ?? 3,
-    options.timeout ?? 1000
+    { maxRetries: options.maxRetries ?? 3, delayMs: options.timeout ?? 1000, logger }
   );
 };
