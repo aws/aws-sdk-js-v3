@@ -13,23 +13,19 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { resolveWebSocketConfig, WebSocketInputConfig, WebSocketResolvedConfig } from "@aws-sdk/middleware-websocket";
-import {
-  Credentials as __Credentials,
-  EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider,
-} from "@aws-sdk/types";
+import { EventStreamPayloadHandlerProvider as __EventStreamPayloadHandlerProvider } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import {
   EventStreamSerdeInputConfig,
   EventStreamSerdeResolvedConfig,
@@ -46,6 +42,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   ChecksumConstructor as __ChecksumConstructor,
@@ -63,6 +60,12 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  defaultRekognitionStreamingHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import {
   StartFaceLivenessSessionCommandInput,
   StartFaceLivenessSessionCommandOutput,
@@ -187,15 +190,10 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @deprecated
    * @internal
    */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * The function that provides necessary utilities for handling request event stream.
-   * @internal
-   */
-  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -228,6 +226,12 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
+
+  /**
+   * The function that provides necessary utilities for handling request event stream.
+   * @internal
+   */
+  eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
 }
 
 /**
@@ -240,10 +244,10 @@ export type RekognitionStreamingClientConfigType = Partial<__SmithyConfiguration
   RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
-  AwsAuthInputConfig &
+  EventStreamSerdeInputConfig &
+  HttpAuthSchemeInputConfig &
   EventStreamInputConfig &
   WebSocketInputConfig &
-  EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -263,10 +267,10 @@ export type RekognitionStreamingClientResolvedConfigType = __SmithyResolvedConfi
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
-  AwsAuthResolvedConfig &
+  EventStreamSerdeResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   EventStreamResolvedConfig &
   WebSocketResolvedConfig &
-  EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -319,10 +323,10 @@ export class RekognitionStreamingClient extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveAwsAuthConfig(_config_6);
-    const _config_8 = resolveEventStreamConfig(_config_7);
-    const _config_9 = resolveWebSocketConfig(_config_8);
-    const _config_10 = resolveEventStreamSerdeConfig(_config_9);
+    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveEventStreamConfig(_config_8);
+    const _config_10 = resolveWebSocketConfig(_config_9);
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     super(_config_11);
     this.config = _config_11;
@@ -332,7 +336,16 @@ export class RekognitionStreamingClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: defaultRekognitionStreamingHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: RekognitionStreamingClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
