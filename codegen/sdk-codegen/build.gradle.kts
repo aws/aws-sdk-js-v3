@@ -107,17 +107,12 @@ tasks.register("generate-smithy-build") {
                             .readText()
             ).expectObjectNode()
             val nonExperimentalIdentityAndAuthServices = setOf(
-                // Services with EventStream input
-                "Lex Runtime V2",
-                "RekognitionStreaming",
-                "Transcribe Streaming",
                 // Endpoint Ruleset Auth Scheme Resolvers
                 "EventBridge",
                 "CloudFront KeyValueStore",
                 // S3
                 "S3",
             )
-            check(nonExperimentalIdentityAndAuthServices.size == 6)
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
