@@ -408,14 +408,14 @@ export class PutObjectCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCheckContentLengthHeaderPlugin(config),
-      getThrow200ExceptionsPlugin(config),
-      getSsecPlugin(config),
       getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: false,
       }),
+      getCheckContentLengthHeaderPlugin(config),
+      getThrow200ExceptionsPlugin(config),
+      getSsecPlugin(config),
     ];
   })
   .s("AmazonS3", "PutObject", {})

@@ -21,7 +21,7 @@ structure fakeProtocol {}
 service Weather {
     version: "2006-03-01"
     operations: [
-        // experimentalIdentityAndAuth
+        // Identity and Auth
         OnlyHttpApiKeyAuth
         OnlyHttpApiKeyAuthOptional
         OnlyHttpBearerAuth

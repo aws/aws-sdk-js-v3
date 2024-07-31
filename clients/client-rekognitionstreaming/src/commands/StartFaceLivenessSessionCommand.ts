@@ -235,7 +235,9 @@ export class StartFaceLivenessSessionCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
-      getWebSocketPlugin(config, { headerPrefix: "x-amz-rekognition-streaming-liveness-" }),
+      getWebSocketPlugin(config, {
+        headerPrefix: "x-amz-rekognition-streaming-liveness-",
+      }),
     ];
   })
   .s("RekognitionStreamingService", "StartFaceLivenessSession", {

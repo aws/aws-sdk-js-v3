@@ -629,21 +629,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Whether to escape request path when signing the request.
-   */
-  signingEscapePath?: boolean;
-
-  /**
-   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
-   */
-  useArnRegion?: boolean | Provider<boolean>;
-  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -676,6 +661,21 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    */
   getAwsChunkedEncodingStream?: GetAwsChunkedEncodingStream;
 
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * Whether to escape request path when signing the request.
+   */
+  signingEscapePath?: boolean;
+
+  /**
+   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
+   */
+  useArnRegion?: boolean | Provider<boolean>;
   /**
    * Value for how many times a request will be made at most in case of retry.
    */
@@ -720,13 +720,13 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  HostHeaderInputConfig &
-  AwsAuthInputConfig &
-  S3InputConfig &
   UserAgentInputConfig &
   RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
+  AwsAuthInputConfig &
+  S3InputConfig &
   EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -742,13 +742,13 @@ export interface S3ClientConfig extends S3ClientConfigType {}
 export type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
-  S3ResolvedConfig &
   UserAgentResolvedConfig &
   RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  AwsAuthResolvedConfig &
+  S3ResolvedConfig &
   EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -776,17 +776,20 @@ export class S3Client extends __Client<
   constructor(...[configuration]: __CheckOptionalClientConfig<S3ClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveS3Config(_config_5, { session: [() => this, CreateSessionCommand] });
-    const _config_7 = resolveUserAgentConfig(_config_6);
-    const _config_8 = resolveRetryConfig(_config_7);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveAwsAuthConfig(_config_6);
+    const _config_8 = resolveS3Config(_config_7, { session: [() => this, CreateSessionCommand] });
     const _config_9 = resolveEventStreamSerdeConfig(_config_8);
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
     super(_config_10);
     this.config = _config_10;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getRetryPlugin(this.config));
+    this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
@@ -795,9 +798,6 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
     this.middlewareStack.use(getRegionRedirectMiddlewarePlugin(this.config));
     this.middlewareStack.use(getS3ExpressPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
-    this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getContentLengthPlugin(this.config));
   }
 
   /**

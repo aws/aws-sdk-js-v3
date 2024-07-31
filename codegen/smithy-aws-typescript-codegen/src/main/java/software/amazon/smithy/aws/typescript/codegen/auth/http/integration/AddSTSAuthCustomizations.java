@@ -42,8 +42,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Add STS Auth customizations.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 @SuppressWarnings("AbbreviationAsWordInName")
@@ -66,11 +64,11 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
     private static final String ROLE_ASSUMERS_TEST_FILE = "defaultRoleAssumers.spec";
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth() && isSTSService(settings.getService());
+        return !settings.useLegacyAuth() && isSTSService(settings.getService());
     }
 
     @Override

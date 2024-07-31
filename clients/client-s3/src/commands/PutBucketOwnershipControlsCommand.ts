@@ -103,7 +103,10 @@ export class PutBucketOwnershipControlsCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, { input: this.input, requestChecksumRequired: true }),
+      getFlexibleChecksumsPlugin(config, {
+        input: this.input,
+        requestChecksumRequired: true,
+      }),
     ];
   })
   .s("AmazonS3", "PutBucketOwnershipControls", {})
