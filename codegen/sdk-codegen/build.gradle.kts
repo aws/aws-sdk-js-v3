@@ -106,7 +106,7 @@ tasks.register("generate-smithy-build") {
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
                             .readText()
             ).expectObjectNode()
-            val useLegacyAuthServices = setOf(
+            val useLegacyAuthServices = setOf<String>(
                 // e.g. "S3" - use this as exclusion list if needed.
             )
             val projectionContents = Node.objectNodeBuilder()
