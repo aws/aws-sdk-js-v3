@@ -239,7 +239,10 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
       let schemeId;
       if (name === "sigv4a") {
         schemeId = "aws.auth#sigv4a";
-        const sigv4Present = authSchemes.find((s) => s.name.toLowerCase().startsWith("sigv4"));
+        const sigv4Present = authSchemes.find((s) => {
+          const name = s.name.toLowerCase();
+          return name !== "sigv4a" && name.startsWith("sigv4");
+        });
         if (!signatureV4CrtContainer.CrtSignerV4 && sigv4Present) {
           // sigv4a -> sigv4 fallback.
           continue;

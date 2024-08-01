@@ -237,16 +237,14 @@ public final class AddS3Config implements TypeScriptIntegration {
         }
         switch (target) {
             case SHARED:
-                return MapUtils.of("signingEscapePath", writer -> {
-                    writer.write("false");
-                }, "useArnRegion", writer -> {
-                    writer.write("false");
-                }, "signerConstructor", writer -> {
-                    writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
-                        .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                            AwsDependency.SIGNATURE_V4_MULTIREGION)
-                        .write("SignatureV4MultiRegion");
-                });
+                return MapUtils.of(
+                    "signingEscapePath", writer -> {
+                        writer.write("false");
+                    },
+                    "useArnRegion", writer -> {
+                        writer.write("false");
+                    }
+                );
             case NODE:
                 return MapUtils.of(
                     "useArnRegion", writer -> {
