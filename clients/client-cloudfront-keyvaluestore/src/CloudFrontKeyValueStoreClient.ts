@@ -8,19 +8,17 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -32,6 +30,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   ChecksumConstructor as __ChecksumConstructor,
@@ -48,6 +47,12 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  defaultCloudFrontKeyValueStoreHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import { DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
 import {
   DescribeKeyValueStoreCommandInput,
@@ -189,9 +194,10 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @deprecated
    * @internal
    */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -231,7 +237,7 @@ export type CloudFrontKeyValueStoreClientConfigType = Partial<__SmithyConfigurat
   RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
-  AwsAuthInputConfig &
+  HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -251,7 +257,7 @@ export type CloudFrontKeyValueStoreClientResolvedConfigType = __SmithyResolvedCo
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
-  AwsAuthResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -283,7 +289,7 @@ export class CloudFrontKeyValueStoreClient extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveAwsAuthConfig(_config_6);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
@@ -293,7 +299,17 @@ export class CloudFrontKeyValueStoreClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: defaultCloudFrontKeyValueStoreHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: CloudFrontKeyValueStoreClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+            "aws.auth#sigv4a": config.credentials,
+          }),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**

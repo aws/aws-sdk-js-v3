@@ -6,6 +6,7 @@
 package software.amazon.smithy.aws.typescript.codegen.auth.http.integration;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4AsymmetricService;
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
 
 import java.util.Collections;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
+import software.amazon.smithy.aws.traits.auth.SigV4ATrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.aws.typescript.codegen.AwsCredentialProviderUtils;
 import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
@@ -172,6 +174,19 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .write("new AwsSdkSigV4Signer()"))
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
+
+            if (isSigV4AsymmetricService(model, settings)) {
+                HttpAuthScheme authSchemeSigV4a = supportedHttpAuthSchemesIndex
+                    .getHttpAuthScheme(SigV4Trait.ID)
+                    .toBuilder()
+                    .schemeId(SigV4ATrait.ID)
+                    .putDefaultSigner(LanguageTarget.SHARED, w -> w
+                        .addDependency(AwsDependency.AWS_SDK_CORE)
+                        .addImport("AwsSdkSigV4ASigner", null, AwsDependency.AWS_SDK_CORE)
+                        .write("new AwsSdkSigV4ASigner()"))
+                    .build();
+                supportedHttpAuthSchemesIndex.putHttpAuthScheme(authSchemeSigV4a.getSchemeId(), authSchemeSigV4a);
+            }
         }
     }
 

@@ -107,9 +107,6 @@ tasks.register("generate-smithy-build") {
                             .readText()
             ).expectObjectNode()
             val nonExperimentalIdentityAndAuthServices = setOf(
-                // Endpoint Ruleset Auth Scheme Resolvers
-                "EventBridge",
-                "CloudFront KeyValueStore",
                 // S3
                 "S3",
             )
