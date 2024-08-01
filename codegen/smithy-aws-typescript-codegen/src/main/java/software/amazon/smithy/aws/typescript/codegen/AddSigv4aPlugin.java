@@ -27,7 +27,7 @@ public final class AddSigv4aPlugin implements TypeScriptIntegration {
 
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return !!settings.useLegacyAuth();
+        return settings.useLegacyAuth();
     }
 
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(

@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+import software.amazon.smithy.aws.traits.auth.SigV4ATrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.aws.typescript.codegen.AwsCredentialProviderUtils;
 import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
@@ -22,6 +25,7 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
@@ -172,6 +176,18 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .write("new AwsSdkSigV4Signer()"))
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
+
+            if (AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider.ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES
+                .contains(service.getId())) {
+                HttpAuthScheme authSchemeSigV4a = supportedHttpAuthSchemesIndex.getHttpAuthScheme(SigV4Trait.ID).toBuilder()
+                    .schemeId(SigV4ATrait.ID)
+                    .putDefaultSigner(LanguageTarget.SHARED, w -> w
+                        .addDependency(AwsDependency.AWS_SDK_CORE)
+                        .addImport("AwsSdkSigV4ASigner", null, AwsDependency.AWS_SDK_CORE)
+                        .write("new AwsSdkSigV4ASigner()"))
+                    .build();
+                supportedHttpAuthSchemesIndex.putHttpAuthScheme(authSchemeSigV4a.getSchemeId(), authSchemeSigV4a);
+            }
         }
     }
 

@@ -37,6 +37,7 @@ interface AwsSdkSigV4AuthSigningProperties {
   config: AwsSdkSigV4Config;
   signer: RequestSigner;
   signingRegion?: string;
+  signingRegionSet?: string[];
   signingName?: string;
 }
 
@@ -53,7 +54,7 @@ interface AwsSdkSigV4Exception extends ServiceException {
 /**
  * @internal
  */
-const validateSigningProperties = async (
+export const validateSigningProperties = async (
   signingProperties: Record<string, unknown>
 ): Promise<AwsSdkSigV4AuthSigningProperties> => {
   const context = throwSigningPropertyError(
@@ -68,17 +69,21 @@ const validateSigningProperties = async (
   );
   const signer = await signerFunction(authScheme);
   const signingRegion: string | undefined = signingProperties?.signingRegion as string | undefined;
+  const signingRegionSet: string[] | undefined = signingProperties?.signingRegionSet as string[] | undefined;
   const signingName = signingProperties?.signingName as string | undefined;
   return {
     config,
     signer,
     signingRegion,
+    signingRegionSet,
     signingName,
   };
 };
 
 /**
  * @internal
+ * Note: this is not a signing algorithm implementation. The sign method
+ * accepts the real signer as an input parameter.
  */
 export class AwsSdkSigV4Signer implements HttpSigner {
   async sign(
@@ -93,7 +98,6 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
     }
     const { config, signer, signingRegion, signingName } = await validateSigningProperties(signingProperties);
-
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: signingRegion,
