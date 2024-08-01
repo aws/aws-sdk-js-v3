@@ -17,7 +17,7 @@ import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from 
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
-import { EndpointV2 } from "@smithy/types";
+import { EndpointV2, HttpAuthSchemeProvider } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
@@ -104,6 +104,8 @@ export const initializeWithMaximalConfiguration = () => {
     streamHasher: streamHasher,
     utf8Decoder: fromUtf8,
     utf8Encoder: toUtf8,
+    httpAuthSchemes: [],
+    httpAuthSchemeProvider: (() => null) as unknown as HttpAuthSchemeProvider<any>,
     // END internal options
 
     // S3 specific options below
