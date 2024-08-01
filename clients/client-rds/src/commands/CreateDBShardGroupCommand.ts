@@ -41,6 +41,7 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   ComputeRedundancy: Number("int"),
  *   MaxACU: Number("double"), // required
+ *   MinACU: Number("double"),
  *   PubliclyAccessible: true || false,
  * };
  * const command = new CreateDBShardGroupCommand(input);
@@ -50,6 +51,7 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   DBShardGroupIdentifier: "STRING_VALUE",
  * //   DBClusterIdentifier: "STRING_VALUE",
  * //   MaxACU: Number("double"),
+ * //   MinACU: Number("double"),
  * //   ComputeRedundancy: Number("int"),
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,

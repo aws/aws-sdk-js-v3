@@ -48,6 +48,7 @@ export interface RebootDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   DBShardGroupIdentifier: "STRING_VALUE",
  * //   DBClusterIdentifier: "STRING_VALUE",
  * //   MaxACU: Number("double"),
+ * //   MinACU: Number("double"),
  * //   ComputeRedundancy: Number("int"),
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,

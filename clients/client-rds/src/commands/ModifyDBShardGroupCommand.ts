@@ -40,6 +40,7 @@ export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * const input = { // ModifyDBShardGroupMessage
  *   DBShardGroupIdentifier: "STRING_VALUE", // required
  *   MaxACU: Number("double"),
+ *   MinACU: Number("double"),
  * };
  * const command = new ModifyDBShardGroupCommand(input);
  * const response = await client.send(command);
@@ -48,6 +49,7 @@ export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * //   DBShardGroupIdentifier: "STRING_VALUE",
  * //   DBClusterIdentifier: "STRING_VALUE",
  * //   MaxACU: Number("double"),
+ * //   MinACU: Number("double"),
  * //   ComputeRedundancy: Number("int"),
  * //   Status: "STRING_VALUE",
  * //   PubliclyAccessible: true || false,

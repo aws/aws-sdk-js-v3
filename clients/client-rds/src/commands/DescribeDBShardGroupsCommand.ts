@@ -57,6 +57,7 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  * //       DBShardGroupIdentifier: "STRING_VALUE",
  * //       DBClusterIdentifier: "STRING_VALUE",
  * //       MaxACU: Number("double"),
+ * //       MinACU: Number("double"),
  * //       ComputeRedundancy: Number("int"),
  * //       Status: "STRING_VALUE",
  * //       PubliclyAccessible: true || false,

@@ -11239,6 +11239,9 @@ const se_CreateDBShardGroupMessage = (input: CreateDBShardGroupMessage, context:
   if (input[_MACU] != null) {
     entries[_MACU] = __serializeFloat(input[_MACU]);
   }
+  if (input[_MACUi] != null) {
+    entries[_MACUi] = __serializeFloat(input[_MACUi]);
+  }
   if (input[_PA] != null) {
     entries[_PA] = input[_PA];
   }
@@ -14160,6 +14163,9 @@ const se_ModifyDBShardGroupMessage = (input: ModifyDBShardGroupMessage, context:
   }
   if (input[_MACU] != null) {
     entries[_MACU] = __serializeFloat(input[_MACU]);
+  }
+  if (input[_MACUi] != null) {
+    entries[_MACUi] = __serializeFloat(input[_MACUi]);
   }
   return entries;
 };
@@ -19754,6 +19760,9 @@ const de_DBShardGroup = (output: any, context: __SerdeContext): DBShardGroup => 
   }
   if (output[_MACU] != null) {
     contents[_MACU] = __strictParseFloat(output[_MACU]) as number;
+  }
+  if (output[_MACUi] != null) {
+    contents[_MACUi] = __strictParseFloat(output[_MACUi]) as number;
   }
   if (output[_CR] != null) {
     contents[_CR] = __strictParseInt32(output[_CR]) as number;
@@ -25402,6 +25411,7 @@ const _Li = "Links";
 const _Lim = "Limit";
 const _M = "Manifest";
 const _MACU = "MaxACU";
+const _MACUi = "MinACU";
 const _MAS = "ModifyActivityStream";
 const _MASa = "MaxAllocatedStorage";
 const _MAZ = "MultiAZ";
