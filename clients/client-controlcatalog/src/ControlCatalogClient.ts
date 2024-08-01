@@ -53,7 +53,9 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
 import { ListCommonControlsCommandInput, ListCommonControlsCommandOutput } from "./commands/ListCommonControlsCommand";
+import { ListControlsCommandInput, ListControlsCommandOutput } from "./commands/ListControlsCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListObjectivesCommandInput, ListObjectivesCommandOutput } from "./commands/ListObjectivesCommand";
 import {
@@ -70,13 +72,20 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = ListCommonControlsCommandInput | ListDomainsCommandInput | ListObjectivesCommandInput;
+export type ServiceInputTypes =
+  | GetControlCommandInput
+  | ListCommonControlsCommandInput
+  | ListControlsCommandInput
+  | ListDomainsCommandInput
+  | ListObjectivesCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | GetControlCommandOutput
   | ListCommonControlsCommandOutput
+  | ListControlsCommandOutput
   | ListDomainsCommandOutput
   | ListObjectivesCommandOutput;
 
