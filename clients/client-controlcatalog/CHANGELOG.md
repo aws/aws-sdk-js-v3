@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
+
+
+### Features
+
+* **client-controlcatalog:** AWS Control Tower provides two new public APIs controlcatalog:ListControls and controlcatalog:GetControl under controlcatalog service namespace, which enable customers to programmatically retrieve control metadata of available controls. ([c897818](https://github.com/aws/aws-sdk-js-v3/commit/c897818b5a3c43e075b4aa299ad380f8692ca4d1))
+
+
+
+
+
 # [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-controlcatalog

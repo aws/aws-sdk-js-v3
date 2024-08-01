@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
+
+
+### Features
+
+* **client-bedrock:** API and Documentation for Bedrock Model Copy feature. This feature lets you share and copy a custom model from one region to another or one account to another. ([b85315c](https://github.com/aws/aws-sdk-js-v3/commit/b85315c55b42c36c15cca0bc05c4b28e377379a7))
+* **client-controlcatalog:** AWS Control Tower provides two new public APIs controlcatalog:ListControls and controlcatalog:GetControl under controlcatalog service namespace, which enable customers to programmatically retrieve control metadata of available controls. ([c897818](https://github.com/aws/aws-sdk-js-v3/commit/c897818b5a3c43e075b4aa299ad380f8692ca4d1))
+* **client-iam:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([b754d41](https://github.com/aws/aws-sdk-js-v3/commit/b754d411a0bc97874aa6cdcdd7f66d2dd877f296))
+* **client-rds:** This release adds support for specifying optional MinACU parameter in CreateDBShardGroup and ModifyDBShardGroup API. DBShardGroup response will contain MinACU if specified. ([d2d3328](https://github.com/aws/aws-sdk-js-v3/commit/d2d3328a8c081342e9ee073db628985f58b555af))
+* **client-sagemaker:** This release adds support for Amazon EMR Serverless applications in SageMaker Studio for running data processing jobs. ([b43bb89](https://github.com/aws/aws-sdk-js-v3/commit/b43bb894c4a1689f1863e7d1aa09beecf9311840))
+* **client-ssm-quicksetup:** This release adds API support for the QuickSetup feature of AWS Systems Manager ([71f373d](https://github.com/aws/aws-sdk-js-v3/commit/71f373db6be51dbc2833da4c9222882590762036))
+
+
+
+
+
 # [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
 
 

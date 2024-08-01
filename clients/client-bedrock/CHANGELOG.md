@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
+
+
+### Features
+
+* **client-bedrock:** API and Documentation for Bedrock Model Copy feature. This feature lets you share and copy a custom model from one region to another or one account to another. ([b85315c](https://github.com/aws/aws-sdk-js-v3/commit/b85315c55b42c36c15cca0bc05c4b28e377379a7))
+
+
+
+
+
 # [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock
