@@ -62,6 +62,7 @@ import {
   CreateGuardrailVersionCommandInput,
   CreateGuardrailVersionCommandOutput,
 } from "./commands/CreateGuardrailVersionCommand";
+import { CreateModelCopyJobCommandInput, CreateModelCopyJobCommandOutput } from "./commands/CreateModelCopyJobCommand";
 import {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
@@ -84,6 +85,7 @@ import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./comma
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./commands/GetEvaluationJobCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
+import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "./commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
@@ -103,6 +105,7 @@ import {
   ListFoundationModelsCommandOutput,
 } from "./commands/ListFoundationModelsCommand";
 import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "./commands/ListGuardrailsCommand";
+import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "./commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
@@ -149,6 +152,7 @@ export type ServiceInputTypes =
   | CreateEvaluationJobCommandInput
   | CreateGuardrailCommandInput
   | CreateGuardrailVersionCommandInput
+  | CreateModelCopyJobCommandInput
   | CreateModelCustomizationJobCommandInput
   | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
@@ -159,6 +163,7 @@ export type ServiceInputTypes =
   | GetEvaluationJobCommandInput
   | GetFoundationModelCommandInput
   | GetGuardrailCommandInput
+  | GetModelCopyJobCommandInput
   | GetModelCustomizationJobCommandInput
   | GetModelInvocationLoggingConfigurationCommandInput
   | GetProvisionedModelThroughputCommandInput
@@ -166,6 +171,7 @@ export type ServiceInputTypes =
   | ListEvaluationJobsCommandInput
   | ListFoundationModelsCommandInput
   | ListGuardrailsCommandInput
+  | ListModelCopyJobsCommandInput
   | ListModelCustomizationJobsCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
@@ -184,6 +190,7 @@ export type ServiceOutputTypes =
   | CreateEvaluationJobCommandOutput
   | CreateGuardrailCommandOutput
   | CreateGuardrailVersionCommandOutput
+  | CreateModelCopyJobCommandOutput
   | CreateModelCustomizationJobCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
@@ -194,6 +201,7 @@ export type ServiceOutputTypes =
   | GetEvaluationJobCommandOutput
   | GetFoundationModelCommandOutput
   | GetGuardrailCommandOutput
+  | GetModelCopyJobCommandOutput
   | GetModelCustomizationJobCommandOutput
   | GetModelInvocationLoggingConfigurationCommandOutput
   | GetProvisionedModelThroughputCommandOutput
@@ -201,6 +209,7 @@ export type ServiceOutputTypes =
   | ListEvaluationJobsCommandOutput
   | ListFoundationModelsCommandOutput
   | ListGuardrailsCommandOutput
+  | ListModelCopyJobsCommandOutput
   | ListModelCustomizationJobsCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput

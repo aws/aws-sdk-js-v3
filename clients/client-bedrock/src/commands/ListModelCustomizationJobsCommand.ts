@@ -29,8 +29,8 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
 
 /**
  * <p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on
- *          one or more criteria.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ *       one or more criteria.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -42,6 +42,7 @@ import {
   CreateGuardrailVersionCommandInput,
   CreateGuardrailVersionCommandOutput,
 } from "../commands/CreateGuardrailVersionCommand";
+import { CreateModelCopyJobCommandInput, CreateModelCopyJobCommandOutput } from "../commands/CreateModelCopyJobCommand";
 import {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
@@ -64,6 +65,7 @@ import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "../comm
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "../commands/GetEvaluationJobCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "../commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "../commands/GetGuardrailCommand";
+import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "../commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
@@ -83,6 +85,7 @@ import {
   ListFoundationModelsCommandOutput,
 } from "../commands/ListFoundationModelsCommand";
 import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "../commands/ListGuardrailsCommand";
+import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "../commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
@@ -147,6 +150,7 @@ import {
   HumanWorkflowConfig,
   InternalServerException,
   LoggingConfig,
+  ModelCopyJobSummary,
   ModelCustomizationJobSummary,
   OutputDataConfig,
   ProvisionedModelSummary,
@@ -246,6 +250,32 @@ export const se_CreateGuardrailVersionCommand = async (
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateModelCopyJobCommand
+ */
+export const se_CreateModelCopyJobCommand = async (
+  input: CreateModelCopyJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/model-copy-jobs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      modelKmsKeyId: [],
+      sourceModelArn: [],
+      targetModelName: [],
+      targetModelTags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -448,6 +478,22 @@ export const se_GetGuardrailCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetModelCopyJobCommand
+ */
+export const se_GetModelCopyJobCommand = async (
+  input: GetModelCopyJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-copy-jobs/{jobArn}");
+  b.p("jobArn", () => input.jobArn!, "{jobArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetModelCustomizationJobCommand
  */
 export const se_GetModelCustomizationJobCommand = async (
@@ -514,6 +560,7 @@ export const se_ListCustomModelsCommand = async (
     [_nT]: [, input[_nT]!],
     [_sB]: [, input[_sB]!],
     [_sO]: [, input[_sO]!],
+    [_iO]: [() => input.isOwned !== void 0, () => input[_iO]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -580,6 +627,33 @@ export const se_ListGuardrailsCommand = async (
     [_gI]: [, input[_gI]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListModelCopyJobsCommand
+ */
+export const se_ListModelCopyJobsCommand = async (
+  input: ListModelCopyJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/model-copy-jobs");
+  const query: any = map({
+    [_cTA]: [() => input.creationTimeAfter !== void 0, () => __serializeDateTime(input[_cTA]!).toString()],
+    [_cTB]: [() => input.creationTimeBefore !== void 0, () => __serializeDateTime(input[_cTB]!).toString()],
+    [_sE]: [, input[_sE]!],
+    [_sAE]: [, input[_sAE]!],
+    [_sMAE]: [, input[_sMAE]!],
+    [_oMNC]: [, input[_tMNC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -883,6 +957,27 @@ export const de_CreateGuardrailVersionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateModelCopyJobCommand
+ */
+export const de_CreateModelCopyJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateModelCopyJobCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateModelCustomizationJobCommand
  */
 export const de_CreateModelCustomizationJobCommand = async (
@@ -1119,6 +1214,37 @@ export const de_GetGuardrailCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetModelCopyJobCommand
+ */
+export const de_GetModelCopyJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetModelCopyJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureMessage: __expectString,
+    jobArn: __expectString,
+    sourceAccountId: __expectString,
+    sourceModelArn: __expectString,
+    sourceModelName: __expectString,
+    status: __expectString,
+    targetModelArn: __expectString,
+    targetModelKmsKeyArn: __expectString,
+    targetModelName: __expectString,
+    targetModelTags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetModelCustomizationJobCommand
  */
 export const de_GetModelCustomizationJobCommand = async (
@@ -1294,6 +1420,28 @@ export const de_ListGuardrailsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     guardrails: (_) => de_GuardrailSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListModelCopyJobsCommand
+ */
+export const de_ListModelCopyJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelCopyJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    modelCopyJobSummaries: (_) => de_ModelCopyJobSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -1838,6 +1986,7 @@ const de_CustomModelSummary = (output: any, context: __SerdeContext): CustomMode
     customizationType: __expectString,
     modelArn: __expectString,
     modelName: __expectString,
+    ownerAccountId: __expectString,
   }) as any;
 };
 
@@ -2034,6 +2183,37 @@ const de_GuardrailSummary = (output: any, context: __SerdeContext): GuardrailSum
 
 // de_LoggingConfig omitted.
 
+/**
+ * deserializeAws_restJson1ModelCopyJobSummaries
+ */
+const de_ModelCopyJobSummaries = (output: any, context: __SerdeContext): ModelCopyJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ModelCopyJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ModelCopyJobSummary
+ */
+const de_ModelCopyJobSummary = (output: any, context: __SerdeContext): ModelCopyJobSummary => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureMessage: __expectString,
+    jobArn: __expectString,
+    sourceAccountId: __expectString,
+    sourceModelArn: __expectString,
+    sourceModelName: __expectString,
+    status: __expectString,
+    targetModelArn: __expectString,
+    targetModelKmsKeyArn: __expectString,
+    targetModelName: __expectString,
+    targetModelTags: _json,
+  }) as any;
+};
+
 // de_ModelCustomizationHyperParameters omitted.
 
 /**
@@ -2183,10 +2363,15 @@ const _cTB = "creationTimeBefore";
 const _fMAE = "foundationModelArnEquals";
 const _gI = "guardrailIdentifier";
 const _gV = "guardrailVersion";
+const _iO = "isOwned";
 const _mAE = "modelArnEquals";
 const _mR = "maxResults";
 const _nC = "nameContains";
 const _nT = "nextToken";
+const _oMNC = "outputModelNameContains";
+const _sAE = "sourceAccountEquals";
 const _sB = "sortBy";
 const _sE = "statusEquals";
+const _sMAE = "sourceModelArnEquals";
 const _sO = "sortOrder";
+const _tMNC = "targetModelNameContains";

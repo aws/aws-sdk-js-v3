@@ -19,6 +19,11 @@ import {
   CreateGuardrailVersionCommandOutput,
 } from "./commands/CreateGuardrailVersionCommand";
 import {
+  CreateModelCopyJobCommand,
+  CreateModelCopyJobCommandInput,
+  CreateModelCopyJobCommandOutput,
+} from "./commands/CreateModelCopyJobCommand";
+import {
   CreateModelCustomizationJobCommand,
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
@@ -69,6 +74,11 @@ import {
   GetGuardrailCommandOutput,
 } from "./commands/GetGuardrailCommand";
 import {
+  GetModelCopyJobCommand,
+  GetModelCopyJobCommandInput,
+  GetModelCopyJobCommandOutput,
+} from "./commands/GetModelCopyJobCommand";
+import {
   GetModelCustomizationJobCommand,
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
@@ -103,6 +113,11 @@ import {
   ListGuardrailsCommandInput,
   ListGuardrailsCommandOutput,
 } from "./commands/ListGuardrailsCommand";
+import {
+  ListModelCopyJobsCommand,
+  ListModelCopyJobsCommandInput,
+  ListModelCopyJobsCommandOutput,
+} from "./commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommand,
   ListModelCustomizationJobsCommandInput,
@@ -154,6 +169,7 @@ const commands = {
   CreateEvaluationJobCommand,
   CreateGuardrailCommand,
   CreateGuardrailVersionCommand,
+  CreateModelCopyJobCommand,
   CreateModelCustomizationJobCommand,
   CreateProvisionedModelThroughputCommand,
   DeleteCustomModelCommand,
@@ -164,6 +180,7 @@ const commands = {
   GetEvaluationJobCommand,
   GetFoundationModelCommand,
   GetGuardrailCommand,
+  GetModelCopyJobCommand,
   GetModelCustomizationJobCommand,
   GetModelInvocationLoggingConfigurationCommand,
   GetProvisionedModelThroughputCommand,
@@ -171,6 +188,7 @@ const commands = {
   ListEvaluationJobsCommand,
   ListFoundationModelsCommand,
   ListGuardrailsCommand,
+  ListModelCopyJobsCommand,
   ListModelCustomizationJobsCommand,
   ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
@@ -230,6 +248,23 @@ export interface Bedrock {
     args: CreateGuardrailVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGuardrailVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateModelCopyJobCommand}
+   */
+  createModelCopyJob(
+    args: CreateModelCopyJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelCopyJobCommandOutput>;
+  createModelCopyJob(
+    args: CreateModelCopyJobCommandInput,
+    cb: (err: any, data?: CreateModelCopyJobCommandOutput) => void
+  ): void;
+  createModelCopyJob(
+    args: CreateModelCopyJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateModelCopyJobCommandOutput) => void
   ): void;
 
   /**
@@ -392,6 +427,20 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetModelCopyJobCommand}
+   */
+  getModelCopyJob(
+    args: GetModelCopyJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetModelCopyJobCommandOutput>;
+  getModelCopyJob(args: GetModelCopyJobCommandInput, cb: (err: any, data?: GetModelCopyJobCommandOutput) => void): void;
+  getModelCopyJob(
+    args: GetModelCopyJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetModelCopyJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetModelCustomizationJobCommand}
    */
   getModelCustomizationJob(
@@ -510,6 +559,24 @@ export interface Bedrock {
     args: ListGuardrailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListGuardrailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListModelCopyJobsCommand}
+   */
+  listModelCopyJobs(): Promise<ListModelCopyJobsCommandOutput>;
+  listModelCopyJobs(
+    args: ListModelCopyJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelCopyJobsCommandOutput>;
+  listModelCopyJobs(
+    args: ListModelCopyJobsCommandInput,
+    cb: (err: any, data?: ListModelCopyJobsCommandOutput) => void
+  ): void;
+  listModelCopyJobs(
+    args: ListModelCopyJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelCopyJobsCommandOutput) => void
   ): void;
 
   /**

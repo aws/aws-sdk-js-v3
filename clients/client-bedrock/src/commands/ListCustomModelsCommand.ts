@@ -29,7 +29,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
 
 /**
  * <p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +46,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  *   nextToken: "STRING_VALUE",
  *   sortBy: "CreationTime",
  *   sortOrder: "Ascending" || "Descending",
+ *   isOwned: true || false,
  * };
  * const command = new ListCustomModelsCommand(input);
  * const response = await client.send(command);
@@ -59,6 +60,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  * //       baseModelArn: "STRING_VALUE", // required
  * //       baseModelName: "STRING_VALUE", // required
  * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //       ownerAccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

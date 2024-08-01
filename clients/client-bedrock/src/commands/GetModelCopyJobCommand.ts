@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { GetModelCopyJobRequest, GetModelCopyJobResponse } from "../models/models_0";
+import { de_GetModelCopyJobCommand, se_GetModelCopyJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,45 +17,54 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link GetModelCopyJobCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface GetModelCopyJobCommandInput extends GetModelCopyJobRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link GetModelCopyJobCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface GetModelCopyJobCommandOutput extends GetModelCopyJobResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags associated with the specified resource.</p>
- *          <p>For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Retrieves information about a model copy job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html">Copy models to be used in other regions</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, ListTagsForResourceCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, ListTagsForResourceCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, GetModelCopyJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, GetModelCopyJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceARN: "STRING_VALUE", // required
+ * const input = { // GetModelCopyJobRequest
+ *   jobArn: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new GetModelCopyJobCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: [ // TagList
+ * // { // GetModelCopyJobResponse
+ * //   jobArn: "STRING_VALUE", // required
+ * //   status: "InProgress" || "Completed" || "Failed", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   targetModelArn: "STRING_VALUE", // required
+ * //   targetModelName: "STRING_VALUE",
+ * //   sourceAccountId: "STRING_VALUE", // required
+ * //   sourceModelArn: "STRING_VALUE", // required
+ * //   targetModelKmsKeyArn: "STRING_VALUE",
+ * //   targetModelTags: [ // TagList
  * //     { // Tag
  * //       key: "STRING_VALUE", // required
  * //       value: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   failureMessage: "STRING_VALUE",
+ * //   sourceModelName: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param GetModelCopyJobCommandInput - {@link GetModelCopyJobCommandInput}
+ * @returns {@link GetModelCopyJobCommandOutput}
+ * @see {@link GetModelCopyJobCommandInput} for command's `input` shape.
+ * @see {@link GetModelCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -78,10 +87,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class GetModelCopyJobCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    GetModelCopyJobCommandInput,
+    GetModelCopyJobCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,9 +104,9 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "ListTagsForResource", {})
-  .n("BedrockClient", "ListTagsForResourceCommand")
+  .s("AmazonBedrockControlPlaneService", "GetModelCopyJob", {})
+  .n("BedrockClient", "GetModelCopyJobCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_GetModelCopyJobCommand)
+  .de(de_GetModelCopyJobCommand)
   .build() {}

@@ -39,9 +39,9 @@ export interface CreateModelCustomizationJobCommandOutput
  *       </p>
  *          <p>For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare the datasets</a>.</p>
  *          <p>
- *          Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
- *          To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ *        Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
+ *        To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface CreateEvaluationJobCommandInput extends CreateEvaluationJobRequ
 export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>API operation for creating and managing Amazon Bedrock automatic model evaluation jobs and model evaluation jobs that use human workers. To learn more about the requirements for creating a model evaluation job see, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model evaluations</a>.</p>
+ * <p>API operation for creating and managing Amazon Bedrock automatic model evaluation jobs and model evaluation jobs that use human workers. To learn more about the requirements for creating a model evaluation job see, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model evaluation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

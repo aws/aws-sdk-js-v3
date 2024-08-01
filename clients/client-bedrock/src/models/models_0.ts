@@ -1908,7 +1908,7 @@ export interface GuardrailContextualGroundingPolicy {
  */
 export interface GuardrailPiiEntity {
   /**
-   * <p>The type of PII entity. For example, Social Security Number.</p>
+   * <p>The type of PII entity. For exampvle, Social Security Number.</p>
    * @public
    */
   type: GuardrailPiiEntityType | undefined;
@@ -2527,6 +2527,312 @@ export interface PutModelInvocationLoggingConfigurationResponse {}
 /**
  * @public
  */
+export interface CreateModelCopyJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model to be copied.</p>
+   * @public
+   */
+  sourceModelArn: string | undefined;
+
+  /**
+   * <p>A name for the copied model.</p>
+   * @public
+   */
+  targetModelName: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key that you use to encrypt the model copy.</p>
+   * @public
+   */
+  modelKmsKeyId?: string;
+
+  /**
+   * <p>Tags to associate with the target model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tag resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  targetModelTags?: Tag[];
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   * 	       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelCopyJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model copy job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetModelCopyJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model copy job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCopyJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCopyJobStatus = (typeof ModelCopyJobStatus)[keyof typeof ModelCopyJobStatus];
+
+/**
+ * @public
+ */
+export interface GetModelCopyJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model copy job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>The status of the model copy job.</p>
+   * @public
+   */
+  status: ModelCopyJobStatus | undefined;
+
+  /**
+   * <p>The time at which the model copy job was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the copied model.</p>
+   * @public
+   */
+  targetModelArn: string | undefined;
+
+  /**
+   * <p>The name of the copied model.</p>
+   * @public
+   */
+  targetModelName?: string;
+
+  /**
+   * <p>The unique identifier of the account that the model being copied originated from.</p>
+   * @public
+   */
+  sourceAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the original model being copied.</p>
+   * @public
+   */
+  sourceModelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key encrypting the copied model.</p>
+   * @public
+   */
+  targetModelKmsKeyArn?: string;
+
+  /**
+   * <p>The tags associated with the copied model.</p>
+   * @public
+   */
+  targetModelTags?: Tag[];
+
+  /**
+   * <p>An error message for why the model copy job failed.</p>
+   * @public
+   */
+  failureMessage?: string;
+
+  /**
+   * <p>The name of the original model being copied.</p>
+   * @public
+   */
+  sourceModelName?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCopyJobsRequest {
+  /**
+   * <p>Filters for model copy jobs created after the specified time.</p>
+   * @public
+   */
+  creationTimeAfter?: Date;
+
+  /**
+   * <p>Filters for model copy jobs created before the specified time. </p>
+   * @public
+   */
+  creationTimeBefore?: Date;
+
+  /**
+   * <p>Filters for model copy jobs whose status matches the value that you specify.</p>
+   * @public
+   */
+  statusEquals?: ModelCopyJobStatus;
+
+  /**
+   * <p>Filters for model copy jobs in which the account that the source model belongs to is equal to the value that you specify.</p>
+   * @public
+   */
+  sourceAccountEquals?: string;
+
+  /**
+   * <p>Filters for model copy jobs in which the Amazon Resource Name (ARN) of the source model to is equal to the value that you specify.</p>
+   * @public
+   */
+  sourceModelArnEquals?: string;
+
+  /**
+   * <p>Filters for model copy jobs in which the name of the copied model contains the string that you specify.</p>
+   * @public
+   */
+  targetModelNameContains?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The field to sort by in the returned list of model copy jobs.</p>
+   * @public
+   */
+  sortBy?: SortJobsBy;
+
+  /**
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   * @public
+   */
+  sortOrder?: SortOrder;
+}
+
+/**
+ * <p>Contains details about each model copy job.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelCopyJobs.html#API_ListModelCopyJobs_ResponseSyntax">ListModelCopyJobs response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ModelCopyJobSummary {
+  /**
+   * <p>The Amazon Resoource Name (ARN) of the model copy job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>The status of the model copy job.</p>
+   * @public
+   */
+  status: ModelCopyJobStatus | undefined;
+
+  /**
+   * <p>The time that the model copy job was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the copied model.</p>
+   * @public
+   */
+  targetModelArn: string | undefined;
+
+  /**
+   * <p>The name of the copied model.</p>
+   * @public
+   */
+  targetModelName?: string;
+
+  /**
+   * <p>The unique identifier of the account that the model being copied originated from.</p>
+   * @public
+   */
+  sourceAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the original model being copied.</p>
+   * @public
+   */
+  sourceModelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the copied model.</p>
+   * @public
+   */
+  targetModelKmsKeyArn?: string;
+
+  /**
+   * <p>Tags associated with the copied model.</p>
+   * @public
+   */
+  targetModelTags?: Tag[];
+
+  /**
+   * <p>If a model fails to be copied, a message describing why the job failed is included here.</p>
+   * @public
+   */
+  failureMessage?: string;
+
+  /**
+   * <p>The name of the original model being copied.</p>
+   * @public
+   */
+  sourceModelName?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListModelCopyJobsResponse {
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A list of information about each model copy job.</p>
+   * @public
+   */
+  modelCopyJobSummaries?: ModelCopyJobSummary[];
+}
+
+/**
+ * @public
+ */
 export interface DeleteCustomModelRequest {
   /**
    * <p>Name of the model to delete.</p>
@@ -2932,13 +3238,13 @@ export interface ListCustomModelsRequest {
   foundationModelArnEquals?: string;
 
   /**
-   * <p>Maximum number of results to return in the response.</p>
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
@@ -2954,6 +3260,12 @@ export interface ListCustomModelsRequest {
    * @public
    */
   sortOrder?: SortOrder;
+
+  /**
+   * <p>Return custom models depending on if the current account owns them (<code>true</code>) or if they were shared with the current account (<code>false</code>).</p>
+   * @public
+   */
+  isOwned?: boolean;
 }
 
 /**
@@ -2996,6 +3308,12 @@ export interface CustomModelSummary {
    * @public
    */
   customizationType?: CustomizationType;
+
+  /**
+   * <p>The unique identifier of the account that owns the model.</p>
+   * @public
+   */
+  ownerAccountId?: string;
 }
 
 /**
@@ -3003,7 +3321,7 @@ export interface CustomModelSummary {
  */
 export interface ListCustomModelsResponse {
   /**
-   * <p>Continuation token for the next request to list the next set of results.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
@@ -3026,7 +3344,7 @@ export interface ListFoundationModelsRequest {
   byProvider?: string;
 
   /**
-   * <p>Return models that support the customization type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+   * <p>Return models that support the customization type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
   byCustomizationType?: ModelCustomization;
@@ -3038,7 +3356,7 @@ export interface ListFoundationModelsRequest {
   byOutputModality?: ModelModality;
 
   /**
-   * <p>Return models that support the inference type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+   * <p>Return models that support the inference type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
   byInferenceType?: InferenceType;
@@ -3148,7 +3466,7 @@ export interface CreateProvisionedModelThroughputRequest {
 
   /**
    * <p>Number of model units to allocate. A model unit delivers a specific throughput level for the specified model. The throughput level of a model unit specifies the total number of input and output tokens that it can process and generate within a span of one minute. By default, your account has no model units for purchasing Provisioned Throughputs with commitment. You must first visit the <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">Amazon Web Services support center</a> to request MUs.</p>
-   *          <p>For model unit quotas, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html#prov-thru-quotas">Provisioned Throughput quotas</a> in the Amazon Bedrock User Guide.</p>
+   *          <p>For model unit quotas, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html#prov-thru-quotas">Provisioned Throughput quotas</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    *          <p>For more information about what an MU specifies, contact your Amazon Web Services account manager.</p>
    * @public
    */
@@ -3161,14 +3479,15 @@ export interface CreateProvisionedModelThroughputRequest {
   provisionedModelName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) or name of the model to associate with this Provisioned Throughput. For a list of models for which you can purchase Provisioned Throughput, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#prov-throughput-models">Amazon Bedrock model IDs for purchasing Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+   * <p>The Amazon Resource Name (ARN) or name of the model to associate with this Provisioned Throughput. For a list of models for which you can purchase Provisioned Throughput, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#prov-throughput-models">Amazon Bedrock model IDs for purchasing Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
   modelId: string | undefined;
 
   /**
    * <p>The commitment duration requested for the Provisioned Throughput. Billing occurs hourly and is discounted for longer commitment terms. To request a no-commit Provisioned Throughput, omit this field.</p>
-   *          <p>Custom models support all levels of commitment. To see which base models support no commitment, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/pt-supported.html">Supported regions and models for Provisioned Throughput</a> in the Amazon Bedrock User Guide</p>
+   *          <p>Custom models support all levels of commitment. To see which base models support no commitment, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/pt-supported.html">Supported regions and models for Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>
+   *          </p>
    * @public
    */
   commitmentDuration?: CommitmentDuration;
@@ -3703,7 +4022,7 @@ export interface CreateModelCustomizationJobRequest {
 
   /**
    * <p>VPC configuration (optional). Configuration parameters for the
-   *          private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
+   *            private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
    * @public
    */
   vpcConfig?: VpcConfig;
@@ -3791,7 +4110,7 @@ export interface GetModelCustomizationJobResponse {
 
   /**
    * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use.
-   *          If the job failed, the failure message contains information about why the job failed.</p>
+   *       If the job failed, the failure message contains information about why the job failed.</p>
    * @public
    */
   status?: ModelCustomizationJobStatus;
@@ -3927,13 +4246,13 @@ export interface ListModelCustomizationJobsRequest {
   nameContains?: string;
 
   /**
-   * <p>Maximum number of results to return in the response.</p>
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
@@ -4022,7 +4341,7 @@ export interface ModelCustomizationJobSummary {
  */
 export interface ListModelCustomizationJobsResponse {
   /**
-   * <p>Page continuation token to use in the next request.</p>
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;

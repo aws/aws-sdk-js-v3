@@ -34,7 +34,7 @@ export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse,
 
 /**
  * <p>Retrieves the properties associated with a model evaluation job, including the
- *          status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html">Model evaluations</a>.</p>
+ *          status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model evaluation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

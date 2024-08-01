@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
+import { CreateModelCopyJobRequest, CreateModelCopyJobResponse } from "../models/models_0";
+import { de_CreateModelCopyJobCommand, se_CreateModelCopyJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,43 +17,48 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link CreateModelCopyJobCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface CreateModelCopyJobCommandInput extends CreateModelCopyJobRequest {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link CreateModelCopyJobCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
+export interface CreateModelCopyJobCommandOutput extends CreateModelCopyJobResponse, __MetadataBearer {}
 
 /**
- * <p>Associate tags with a resource. For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+ * <p>Copies a model to another region so that it can be used there. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html">Copy models to be used in other regions</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockClient, TagResourceCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
- * // const { BedrockClient, TagResourceCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
+ * import { BedrockClient, CreateModelCopyJobCommand } from "@aws-sdk/client-bedrock"; // ES Modules import
+ * // const { BedrockClient, CreateModelCopyJobCommand } = require("@aws-sdk/client-bedrock"); // CommonJS import
  * const client = new BedrockClient(config);
- * const input = { // TagResourceRequest
- *   resourceARN: "STRING_VALUE", // required
- *   tags: [ // TagList // required
+ * const input = { // CreateModelCopyJobRequest
+ *   sourceModelArn: "STRING_VALUE", // required
+ *   targetModelName: "STRING_VALUE", // required
+ *   modelKmsKeyId: "STRING_VALUE",
+ *   targetModelTags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   clientRequestToken: "STRING_VALUE",
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new CreateModelCopyJobCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateModelCopyJobResponse
+ * //   jobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param CreateModelCopyJobCommandInput - {@link CreateModelCopyJobCommandInput}
+ * @returns {@link CreateModelCopyJobCommandOutput}
+ * @see {@link CreateModelCopyJobCommandInput} for command's `input` shape.
+ * @see {@link CreateModelCopyJobCommandOutput} for command's `response` shape.
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -65,25 +70,19 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
- *
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>The request contains more tags than can be associated with a resource (50 tags per resource).
  *          The maximum number of tags includes both existing tags and those included in your current request. </p>
- *
- * @throws {@link ValidationException} (client fault)
- *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
  * @public
  */
-export class TagResourceCommand extends $Command
+export class CreateModelCopyJobCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    CreateModelCopyJobCommandInput,
+    CreateModelCopyJobCommandOutput,
     BedrockClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -97,9 +96,9 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockControlPlaneService", "TagResource", {})
-  .n("BedrockClient", "TagResourceCommand")
+  .s("AmazonBedrockControlPlaneService", "CreateModelCopyJob", {})
+  .n("BedrockClient", "CreateModelCopyJobCommand")
   .f(void 0, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .ser(se_CreateModelCopyJobCommand)
+  .de(de_CreateModelCopyJobCommand)
   .build() {}
