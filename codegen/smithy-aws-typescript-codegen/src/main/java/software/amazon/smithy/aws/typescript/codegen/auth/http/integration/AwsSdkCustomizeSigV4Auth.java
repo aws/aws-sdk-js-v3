@@ -176,7 +176,9 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
 
             if (isSigV4AsymmetricService(model, settings)) {
-                HttpAuthScheme authSchemeSigV4a = supportedHttpAuthSchemesIndex.getHttpAuthScheme(SigV4Trait.ID).toBuilder()
+                HttpAuthScheme authSchemeSigV4a = supportedHttpAuthSchemesIndex
+                    .getHttpAuthScheme(SigV4Trait.ID)
+                    .toBuilder()
                     .schemeId(SigV4ATrait.ID)
                     .putDefaultSigner(LanguageTarget.SHARED, w -> w
                         .addDependency(AwsDependency.AWS_SDK_CORE)
