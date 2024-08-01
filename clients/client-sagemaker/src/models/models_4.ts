@@ -145,7 +145,7 @@ import {
   LambdaStepMetadata,
   LineageType,
   MetricData,
-  ModelMetadataFilter,
+  ModelMetadataFilterType,
   ModelPackageGroupStatus,
   ModelPackageStatusDetails,
   MonitoringExecutionSummary,
@@ -179,6 +179,25 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>Part of the search expression. You can specify the name and value
+ *           (domain, task, framework, framework version, task, and model).</p>
+ * @public
+ */
+export interface ModelMetadataFilter {
+  /**
+   * <p>The name of the of the model to filter by.</p>
+   * @public
+   */
+  Name: ModelMetadataFilterType | undefined;
+
+  /**
+   * <p>The value to filter the model metadata.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
 
 /**
  * <p>One or more filters that searches for the specified resource or resources in

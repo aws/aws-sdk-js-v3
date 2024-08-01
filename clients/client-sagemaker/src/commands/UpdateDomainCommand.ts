@@ -178,6 +178,14 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *           RepositoryUrl: "STRING_VALUE", // required
  *         },
  *       ],
+ *       EmrSettings: { // EmrSettings
+ *         AssumableRoleArns: [ // AssumableRoleArns
+ *           "STRING_VALUE",
+ *         ],
+ *         ExecutionRoleArns: [ // ExecutionRoleArns
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *     SpaceStorageSettings: { // DefaultSpaceStorageSettings
  *       DefaultEbsStorageSettings: { // DefaultEbsStorageSettings
@@ -267,6 +275,14 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *           RepositoryUrl: "STRING_VALUE", // required
  *         },
  *       ],
+ *       EmrSettings: {
+ *         AssumableRoleArns: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ExecutionRoleArns: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *     SpaceStorageSettings: {
  *       DefaultEbsStorageSettings: {

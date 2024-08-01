@@ -193,6 +193,14 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * //           RepositoryUrl: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       EmrSettings: { // EmrSettings
+ * //         AssumableRoleArns: [ // AssumableRoleArns
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ExecutionRoleArns: [ // ExecutionRoleArns
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //     SpaceStorageSettings: { // DefaultSpaceStorageSettings
  * //       DefaultEbsStorageSettings: { // DefaultEbsStorageSettings

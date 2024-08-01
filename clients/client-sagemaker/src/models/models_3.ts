@@ -147,7 +147,6 @@ import {
   MemberDefinition,
   ModelArtifacts,
   ModelCardExportArtifacts,
-  ModelCardExportJobStatus,
   ModelClientConfig,
   ModelConfiguration,
   NotificationConfiguration,
@@ -180,6 +179,21 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelCardExportJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCardExportJobStatus = (typeof ModelCardExportJobStatus)[keyof typeof ModelCardExportJobStatus];
 
 /**
  * @public
@@ -11573,25 +11587,6 @@ export const ModelMetadataFilterType = {
  * @public
  */
 export type ModelMetadataFilterType = (typeof ModelMetadataFilterType)[keyof typeof ModelMetadataFilterType];
-
-/**
- * <p>Part of the search expression. You can specify the name and value
- *           (domain, task, framework, framework version, task, and model).</p>
- * @public
- */
-export interface ModelMetadataFilter {
-  /**
-   * <p>The name of the of the model to filter by.</p>
-   * @public
-   */
-  Name: ModelMetadataFilterType | undefined;
-
-  /**
-   * <p>The value to filter the model metadata.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
 
 /**
  * @internal

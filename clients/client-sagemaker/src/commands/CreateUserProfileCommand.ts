@@ -193,6 +193,14 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *           RepositoryUrl: "STRING_VALUE", // required
  *         },
  *       ],
+ *       EmrSettings: { // EmrSettings
+ *         AssumableRoleArns: [ // AssumableRoleArns
+ *           "STRING_VALUE",
+ *         ],
+ *         ExecutionRoleArns: [ // ExecutionRoleArns
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *     SpaceStorageSettings: { // DefaultSpaceStorageSettings
  *       DefaultEbsStorageSettings: { // DefaultEbsStorageSettings

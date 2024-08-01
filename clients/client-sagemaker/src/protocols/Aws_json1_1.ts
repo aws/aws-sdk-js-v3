@@ -1232,6 +1232,7 @@ import {
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EFSFileSystemConfig,
+  EmrSettings,
   EndpointInfo,
   EndpointInput,
   EndpointInputConfiguration,
@@ -1850,7 +1851,6 @@ import {
   ModelCardExportJobSummary,
   ModelCardSummary,
   ModelCardVersionSummary,
-  ModelMetadataFilter,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   MonitoringExecutionSummary,
@@ -1957,6 +1957,7 @@ import {
   ModelDashboardModel,
   ModelDashboardModelCard,
   ModelDashboardMonitoringSchedule,
+  ModelMetadataFilter,
   ModelMetadataSearchExpression,
   ModelMetadataSummary,
   ModelPackage,
@@ -13156,6 +13157,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 
 // se_AssociateTrialComponentRequest omitted.
 
+// se_AssumableRoleArns omitted.
+
 // se_AsyncInferenceClientConfig omitted.
 
 // se_AsyncInferenceConfig omitted.
@@ -14135,6 +14138,8 @@ const se_DesiredWeightAndCapacityList = (input: DesiredWeightAndCapacity[], cont
 
 // se_EFSFileSystemConfig omitted.
 
+// se_EmrSettings omitted.
+
 // se_EnableSagemakerServicecatalogPortfolioInput omitted.
 
 // se_EndpointInfo omitted.
@@ -14167,6 +14172,8 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 // se_EnvironmentMap omitted.
 
 // se_EnvironmentParameterRanges omitted.
+
+// se_ExecutionRoleArns omitted.
 
 // se_ExperimentConfig omitted.
 
@@ -16993,6 +17000,18 @@ const de_AssociationSummary = (output: any, context: __SerdeContext): Associatio
     SourceName: __expectString,
     SourceType: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AssumableRoleArns
+ */
+const de_AssumableRoleArns = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 /**
@@ -21573,6 +21592,16 @@ const de_EFSFileSystemConfig = (output: any, context: __SerdeContext): EFSFileSy
 };
 
 /**
+ * deserializeAws_json1_1EmrSettings
+ */
+const de_EmrSettings = (output: any, context: __SerdeContext): EmrSettings => {
+  return take(output, {
+    AssumableRoleArns: (_: any) => de_AssumableRoleArns(_, context),
+    ExecutionRoleArns: (_: any) => de_ExecutionRoleArns(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1EMRStepMetadata
  */
 const de_EMRStepMetadata = (output: any, context: __SerdeContext): EMRStepMetadata => {
@@ -21814,6 +21843,18 @@ const de_EnvironmentParameters = (output: any, context: __SerdeContext): Environ
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_EnvironmentParameter(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ExecutionRoleArns
+ */
+const de_ExecutionRoleArns = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -23498,6 +23539,7 @@ const de_JupyterLabAppSettings = (output: any, context: __SerdeContext): Jupyter
     CodeRepositories: (_: any) => de_CodeRepositories(_, context),
     CustomImages: (_: any) => de_CustomImages(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
+    EmrSettings: (_: any) => de_EmrSettings(_, context),
     LifecycleConfigArns: (_: any) => de_LifecycleConfigArns(_, context),
   }) as any;
 };

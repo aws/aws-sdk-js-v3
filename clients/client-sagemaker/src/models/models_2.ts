@@ -133,7 +133,6 @@ import {
   OutputConfig,
   ProcessingInstanceType,
   ProcessingS3CompressionType,
-  ProcessingS3DataType,
   ProcessingS3UploadMode,
   Processor,
   ProductionVariant,
@@ -151,6 +150,20 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcessingS3DataType = {
+  MANIFEST_FILE: "ManifestFile",
+  S3_PREFIX: "S3Prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type ProcessingS3DataType = (typeof ProcessingS3DataType)[keyof typeof ProcessingS3DataType];
 
 /**
  * <p>Configuration for downloading input data from Amazon S3 into the processing container.</p>
@@ -9457,21 +9470,6 @@ export interface ModelCardExportArtifacts {
    */
   S3ExportArtifacts: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const ModelCardExportJobStatus = {
-  COMPLETED: "Completed",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-} as const;
-
-/**
- * @public
- */
-export type ModelCardExportJobStatus = (typeof ModelCardExportJobStatus)[keyof typeof ModelCardExportJobStatus];
 
 /**
  * @internal

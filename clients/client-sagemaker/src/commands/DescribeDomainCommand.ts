@@ -194,6 +194,14 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           RepositoryUrl: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       EmrSettings: { // EmrSettings
+ * //         AssumableRoleArns: [ // AssumableRoleArns
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ExecutionRoleArns: [ // ExecutionRoleArns
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //     SpaceStorageSettings: { // DefaultSpaceStorageSettings
  * //       DefaultEbsStorageSettings: { // DefaultEbsStorageSettings
@@ -291,6 +299,14 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //           RepositoryUrl: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       EmrSettings: {
+ * //         AssumableRoleArns: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ExecutionRoleArns: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //     SpaceStorageSettings: {
  * //       DefaultEbsStorageSettings: {
