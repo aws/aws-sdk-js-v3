@@ -32,13 +32,16 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You can only delete a manually added resource. To exclude non-manually added resources, use the <code>UpdateAppVersionResource</code> API.</p>
+ *                   <p>You can only delete a manually added resource. To exclude non-manually added
+ *             resources, use the <code>UpdateAppVersionResource</code> API.</p>
  *                </li>
  *                <li>
  *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this
+ *             resource for running resiliency assessments, you must publish the Resilience Hub
+ *             application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *             </ul>
  *          </note>

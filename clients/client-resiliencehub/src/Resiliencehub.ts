@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AcceptResourceGroupingRecommendationsCommand,
+  AcceptResourceGroupingRecommendationsCommandInput,
+  AcceptResourceGroupingRecommendationsCommandOutput,
+} from "./commands/AcceptResourceGroupingRecommendationsCommand";
+import {
   AddDraftAppVersionResourceMappingsCommand,
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
@@ -106,6 +111,11 @@ import {
   DescribeResiliencyPolicyCommandOutput,
 } from "./commands/DescribeResiliencyPolicyCommand";
 import {
+  DescribeResourceGroupingRecommendationTaskCommand,
+  DescribeResourceGroupingRecommendationTaskCommandInput,
+  DescribeResourceGroupingRecommendationTaskCommandOutput,
+} from "./commands/DescribeResourceGroupingRecommendationTaskCommand";
+import {
   ImportResourcesToDraftAppVersionCommand,
   ImportResourcesToDraftAppVersionCommandInput,
   ImportResourcesToDraftAppVersionCommandOutput,
@@ -177,6 +187,11 @@ import {
   ListResiliencyPoliciesCommandOutput,
 } from "./commands/ListResiliencyPoliciesCommand";
 import {
+  ListResourceGroupingRecommendationsCommand,
+  ListResourceGroupingRecommendationsCommandInput,
+  ListResourceGroupingRecommendationsCommandOutput,
+} from "./commands/ListResourceGroupingRecommendationsCommand";
+import {
   ListSopRecommendationsCommand,
   ListSopRecommendationsCommandInput,
   ListSopRecommendationsCommandOutput,
@@ -212,6 +227,11 @@ import {
   PutDraftAppVersionTemplateCommandOutput,
 } from "./commands/PutDraftAppVersionTemplateCommand";
 import {
+  RejectResourceGroupingRecommendationsCommand,
+  RejectResourceGroupingRecommendationsCommandInput,
+  RejectResourceGroupingRecommendationsCommandOutput,
+} from "./commands/RejectResourceGroupingRecommendationsCommand";
+import {
   RemoveDraftAppVersionResourceMappingsCommand,
   RemoveDraftAppVersionResourceMappingsCommandInput,
   RemoveDraftAppVersionResourceMappingsCommandOutput,
@@ -226,6 +246,11 @@ import {
   StartAppAssessmentCommandInput,
   StartAppAssessmentCommandOutput,
 } from "./commands/StartAppAssessmentCommand";
+import {
+  StartResourceGroupingRecommendationTaskCommand,
+  StartResourceGroupingRecommendationTaskCommandInput,
+  StartResourceGroupingRecommendationTaskCommandOutput,
+} from "./commands/StartResourceGroupingRecommendationTaskCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -256,6 +281,7 @@ import {
 import { ResiliencehubClient, ResiliencehubClientConfig } from "./ResiliencehubClient";
 
 const commands = {
+  AcceptResourceGroupingRecommendationsCommand,
   AddDraftAppVersionResourceMappingsCommand,
   BatchUpdateRecommendationStatusCommand,
   CreateAppCommand,
@@ -279,6 +305,7 @@ const commands = {
   DescribeAppVersionTemplateCommand,
   DescribeDraftAppVersionResourcesImportStatusCommand,
   DescribeResiliencyPolicyCommand,
+  DescribeResourceGroupingRecommendationTaskCommand,
   ImportResourcesToDraftAppVersionCommand,
   ListAlarmRecommendationsCommand,
   ListAppAssessmentComplianceDriftsCommand,
@@ -294,6 +321,7 @@ const commands = {
   ListAppVersionsCommand,
   ListRecommendationTemplatesCommand,
   ListResiliencyPoliciesCommand,
+  ListResourceGroupingRecommendationsCommand,
   ListSopRecommendationsCommand,
   ListSuggestedResiliencyPoliciesCommand,
   ListTagsForResourceCommand,
@@ -301,9 +329,11 @@ const commands = {
   ListUnsupportedAppVersionResourcesCommand,
   PublishAppVersionCommand,
   PutDraftAppVersionTemplateCommand,
+  RejectResourceGroupingRecommendationsCommand,
   RemoveDraftAppVersionResourceMappingsCommand,
   ResolveAppVersionResourcesCommand,
   StartAppAssessmentCommand,
+  StartResourceGroupingRecommendationTaskCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAppCommand,
@@ -314,6 +344,23 @@ const commands = {
 };
 
 export interface Resiliencehub {
+  /**
+   * @see {@link AcceptResourceGroupingRecommendationsCommand}
+   */
+  acceptResourceGroupingRecommendations(
+    args: AcceptResourceGroupingRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptResourceGroupingRecommendationsCommandOutput>;
+  acceptResourceGroupingRecommendations(
+    args: AcceptResourceGroupingRecommendationsCommandInput,
+    cb: (err: any, data?: AcceptResourceGroupingRecommendationsCommandOutput) => void
+  ): void;
+  acceptResourceGroupingRecommendations(
+    args: AcceptResourceGroupingRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptResourceGroupingRecommendationsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AddDraftAppVersionResourceMappingsCommand}
    */
@@ -688,6 +735,23 @@ export interface Resiliencehub {
   ): void;
 
   /**
+   * @see {@link DescribeResourceGroupingRecommendationTaskCommand}
+   */
+  describeResourceGroupingRecommendationTask(
+    args: DescribeResourceGroupingRecommendationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourceGroupingRecommendationTaskCommandOutput>;
+  describeResourceGroupingRecommendationTask(
+    args: DescribeResourceGroupingRecommendationTaskCommandInput,
+    cb: (err: any, data?: DescribeResourceGroupingRecommendationTaskCommandOutput) => void
+  ): void;
+  describeResourceGroupingRecommendationTask(
+    args: DescribeResourceGroupingRecommendationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourceGroupingRecommendationTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ImportResourcesToDraftAppVersionCommand}
    */
   importResourcesToDraftAppVersion(
@@ -938,6 +1002,24 @@ export interface Resiliencehub {
   ): void;
 
   /**
+   * @see {@link ListResourceGroupingRecommendationsCommand}
+   */
+  listResourceGroupingRecommendations(): Promise<ListResourceGroupingRecommendationsCommandOutput>;
+  listResourceGroupingRecommendations(
+    args: ListResourceGroupingRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceGroupingRecommendationsCommandOutput>;
+  listResourceGroupingRecommendations(
+    args: ListResourceGroupingRecommendationsCommandInput,
+    cb: (err: any, data?: ListResourceGroupingRecommendationsCommandOutput) => void
+  ): void;
+  listResourceGroupingRecommendations(
+    args: ListResourceGroupingRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceGroupingRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSopRecommendationsCommand}
    */
   listSopRecommendations(
@@ -1058,6 +1140,23 @@ export interface Resiliencehub {
   ): void;
 
   /**
+   * @see {@link RejectResourceGroupingRecommendationsCommand}
+   */
+  rejectResourceGroupingRecommendations(
+    args: RejectResourceGroupingRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectResourceGroupingRecommendationsCommandOutput>;
+  rejectResourceGroupingRecommendations(
+    args: RejectResourceGroupingRecommendationsCommandInput,
+    cb: (err: any, data?: RejectResourceGroupingRecommendationsCommandOutput) => void
+  ): void;
+  rejectResourceGroupingRecommendations(
+    args: RejectResourceGroupingRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectResourceGroupingRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RemoveDraftAppVersionResourceMappingsCommand}
    */
   removeDraftAppVersionResourceMappings(
@@ -1106,6 +1205,23 @@ export interface Resiliencehub {
     args: StartAppAssessmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAppAssessmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartResourceGroupingRecommendationTaskCommand}
+   */
+  startResourceGroupingRecommendationTask(
+    args: StartResourceGroupingRecommendationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartResourceGroupingRecommendationTaskCommandOutput>;
+  startResourceGroupingRecommendationTask(
+    args: StartResourceGroupingRecommendationTaskCommandInput,
+    cb: (err: any, data?: StartResourceGroupingRecommendationTaskCommandOutput) => void
+  ): void;
+  startResourceGroupingRecommendationTask(
+    args: StartResourceGroupingRecommendationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartResourceGroupingRecommendationTaskCommandOutput) => void
   ): void;
 
   /**

@@ -37,10 +37,13 @@ export interface DeleteAppVersionAppComponentCommandOutput
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this
+ *             Application Component for running assessments, you must publish the Resilience Hub
+ *             application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
- *                   <p>You will not be able to delete an Application Component if it has resources associated with it.</p>
+ *                   <p>You will not be able to delete an Application Component if it has resources associated
+ *             with it.</p>
  *                </li>
  *             </ul>
  *          </note>

@@ -5,8 +5,14 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAppAssessmentRequest, DeleteAppAssessmentResponse } from "../models/models_0";
-import { de_DeleteAppAssessmentCommand, se_DeleteAppAssessmentCommand } from "../protocols/Aws_restJson1";
+import {
+  StartResourceGroupingRecommendationTaskRequest,
+  StartResourceGroupingRecommendationTaskResponse,
+} from "../models/models_0";
+import {
+  de_StartResourceGroupingRecommendationTaskCommand,
+  se_StartResourceGroupingRecommendationTaskCommand,
+} from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -17,42 +23,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAppAssessmentCommand}.
+ * The input for {@link StartResourceGroupingRecommendationTaskCommand}.
  */
-export interface DeleteAppAssessmentCommandInput extends DeleteAppAssessmentRequest {}
+export interface StartResourceGroupingRecommendationTaskCommandInput
+  extends StartResourceGroupingRecommendationTaskRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAppAssessmentCommand}.
+ * The output of {@link StartResourceGroupingRecommendationTaskCommand}.
  */
-export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentResponse, __MetadataBearer {}
+export interface StartResourceGroupingRecommendationTaskCommandOutput
+  extends StartResourceGroupingRecommendationTaskResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes an Resilience Hub application assessment. This is a destructive action
- *       that can't be undone.</p>
+ * <p>Starts grouping recommendation task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, DeleteAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, DeleteAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, StartResourceGroupingRecommendationTaskCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
+ * // const { ResiliencehubClient, StartResourceGroupingRecommendationTaskCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = { // DeleteAppAssessmentRequest
- *   assessmentArn: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ * const input = { // StartResourceGroupingRecommendationTaskRequest
+ *   appArn: "STRING_VALUE", // required
  * };
- * const command = new DeleteAppAssessmentCommand(input);
+ * const command = new StartResourceGroupingRecommendationTaskCommand(input);
  * const response = await client.send(command);
- * // { // DeleteAppAssessmentResponse
- * //   assessmentArn: "STRING_VALUE", // required
- * //   assessmentStatus: "STRING_VALUE", // required
+ * // { // StartResourceGroupingRecommendationTaskResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   groupingId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   errorMessage: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DeleteAppAssessmentCommandInput - {@link DeleteAppAssessmentCommandInput}
- * @returns {@link DeleteAppAssessmentCommandOutput}
- * @see {@link DeleteAppAssessmentCommandInput} for command's `input` shape.
- * @see {@link DeleteAppAssessmentCommandOutput} for command's `response` shape.
+ * @param StartResourceGroupingRecommendationTaskCommandInput - {@link StartResourceGroupingRecommendationTaskCommandInput}
+ * @returns {@link StartResourceGroupingRecommendationTaskCommandOutput}
+ * @see {@link StartResourceGroupingRecommendationTaskCommandInput} for command's `input` shape.
+ * @see {@link StartResourceGroupingRecommendationTaskCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,10 +93,10 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  *
  * @public
  */
-export class DeleteAppAssessmentCommand extends $Command
+export class StartResourceGroupingRecommendationTaskCommand extends $Command
   .classBuilder<
-    DeleteAppAssessmentCommandInput,
-    DeleteAppAssessmentCommandOutput,
+    StartResourceGroupingRecommendationTaskCommandInput,
+    StartResourceGroupingRecommendationTaskCommandOutput,
     ResiliencehubClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,9 +110,9 @@ export class DeleteAppAssessmentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AwsResilienceHub", "DeleteAppAssessment", {})
-  .n("ResiliencehubClient", "DeleteAppAssessmentCommand")
+  .s("AwsResilienceHub", "StartResourceGroupingRecommendationTask", {})
+  .n("ResiliencehubClient", "StartResourceGroupingRecommendationTaskCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteAppAssessmentCommand)
-  .de(de_DeleteAppAssessmentCommand)
+  .ser(se_StartResourceGroupingRecommendationTaskCommand)
+  .de(de_StartResourceGroupingRecommendationTaskCommand)
   .build() {}

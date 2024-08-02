@@ -209,6 +209,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcceptResourceGroupingRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/AcceptResourceGroupingRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/AcceptResourceGroupingRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/AcceptResourceGroupingRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 AddDraftAppVersionResourceMappings
 </summary>
 
@@ -393,6 +401,14 @@ DescribeResiliencyPolicy
 </details>
 <details>
 <summary>
+DescribeResourceGroupingRecommendationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeResourceGroupingRecommendationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResourceGroupingRecommendationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResourceGroupingRecommendationTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 ImportResourcesToDraftAppVersion
 </summary>
 
@@ -513,6 +529,14 @@ ListResiliencyPolicies
 </details>
 <details>
 <summary>
+ListResourceGroupingRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListResourceGroupingRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResourceGroupingRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResourceGroupingRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListSopRecommendations
 </summary>
 
@@ -569,6 +593,14 @@ PutDraftAppVersionTemplate
 </details>
 <details>
 <summary>
+RejectResourceGroupingRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/RejectResourceGroupingRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/RejectResourceGroupingRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/RejectResourceGroupingRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 RemoveDraftAppVersionResourceMappings
 </summary>
 
@@ -589,6 +621,14 @@ StartAppAssessment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartAppAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartResourceGroupingRecommendationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartResourceGroupingRecommendationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartResourceGroupingRecommendationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartResourceGroupingRecommendationTaskCommandOutput/)
 
 </details>
 <details>

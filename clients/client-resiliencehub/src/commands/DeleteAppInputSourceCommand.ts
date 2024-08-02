@@ -28,7 +28,8 @@ export interface DeleteAppInputSourceCommandInput extends DeleteAppInputSourceRe
 export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the input source and all of its imported resources from the Resilience Hub application.</p>
+ * <p>Deletes the input source and all of its imported resources from the Resilience Hub
+ *       application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -4,6 +4,78 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ResiliencehubServiceException as __BaseException } from "./ResiliencehubServiceException";
 
 /**
+ * <p>Indicates the grouping recommendation you have accepted to include in your application.</p>
+ * @public
+ */
+export interface AcceptGroupingRecommendationEntry {
+  /**
+   * <p>Indicates the identifier of the grouping recommendation.</p>
+   * @public
+   */
+  groupingRecommendationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcceptResourceGroupingRecommendationsRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn: string | undefined;
+
+  /**
+   * <p>Indicates the list of resource grouping recommendations you want to include in your application.</p>
+   * @public
+   */
+  entries: AcceptGroupingRecommendationEntry[] | undefined;
+}
+
+/**
+ * <p>Indicates the accepted grouping recommendation whose implementation failed.</p>
+ * @public
+ */
+export interface FailedGroupingRecommendationEntry {
+  /**
+   * <p>Indicates the identifier of the grouping recommendation.</p>
+   * @public
+   */
+  groupingRecommendationId: string | undefined;
+
+  /**
+   * <p>Indicates the error that occurred while implementing a grouping recommendation.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcceptResourceGroupingRecommendationsResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn: string | undefined;
+
+  /**
+   * <p>Indicates the list of resource grouping recommendations that could not be included in your application.</p>
+   * @public
+   */
+  failedEntries: FailedGroupingRecommendationEntry[] | undefined;
+}
+
+/**
  * <p>You don't have permissions to perform the requested operation. The user or role that is
  *       making the request must have at least one IAM permissions policy attached that grants the
  *       required permissions.</p>
@@ -22,6 +94,108 @@ export class AccessDeniedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
+ * <p>This exception occurs when there is an internal failure in the Resilience Hub
+ *       service.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>This exception occurs when the specified resource could not be found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The identifier of the resource that the exception applies to.</p>
+   * @public
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The type of the resource that the exception applies to.</p>
+   * @public
+   */
+  resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The number of seconds to wait before retrying the operation.</p>
+   * @public
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * <p>This exception occurs when a request is not valid.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -373,104 +547,23 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when there is an internal failure in the Resilience Hub
- *       service.</p>
+ * <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use Service Quotas to request a service quota increase.</p>
  * @public
  */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>This exception occurs when the specified resource could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The identifier of the resource that the exception applies to.</p>
-   * @public
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The type of the resource that the exception applies to.</p>
-   * @public
-   */
-  resourceType?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
-   * @public
-   */
-  retryAfterSeconds?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.retryAfterSeconds = opts.retryAfterSeconds;
-  }
-}
-
-/**
- * <p>This exception occurs when a request is not valid.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
     super({
-      name: "ValidationException",
+      name: "ServiceQuotaExceededException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ValidationException.prototype);
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
   }
 }
 
@@ -654,6 +747,8 @@ export type AppAssessmentScheduleType = (typeof AppAssessmentScheduleType)[keyof
  */
 export const AppComplianceStatusType = {
   CHANGES_DETECTED: "ChangesDetected",
+  MISSING_POLICY: "MissingPolicy",
+  NOT_APPLICABLE: "NotApplicable",
   NOT_ASSESSED: "NotAssessed",
   POLICY_BREACHED: "PolicyBreached",
   POLICY_MET: "PolicyMet",
@@ -976,6 +1071,8 @@ export type DisruptionType = (typeof DisruptionType)[keyof typeof DisruptionType
  * @enum
  */
 export const ComplianceStatus = {
+  MISSING_POLICY: "MissingPolicy",
+  NOT_APPLICABLE: "NotApplicable",
   POLICY_BREACHED: "PolicyBreached",
   POLICY_MET: "PolicyMet",
 } as const;
@@ -1386,10 +1483,84 @@ export interface ResourceErrorsDetails {
   resourceErrors?: ResourceError[];
 
   /**
-   * <p> This indicates if there are more errors not listed in the resourceErrors list. </p>
+   * <p> This indicates if there are more errors not listed in the
+   *         <code>resourceErrors</code>
+   *       list. </p>
    * @public
    */
   hasMoreErrors?: boolean;
+}
+
+/**
+ * <p>Indicates a specific risk identified in the Resilience Hub assessment and the corresponding recommendation provided to address that risk.</p>
+ *          <note>
+ *             <p>The assessment summary generated by large language models (LLMs) on Amazon Bedrock are only suggestions.
+ *         The current level of generative AI technology is not perfect and LLMs are not infallible.
+ *         Bias and incorrect answers, although rare, should be expected. Review each recommendation in the assessment summary before you use the output from an LLM.
+ *       </p>
+ *          </note>
+ *          <note>
+ *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+ *          </note>
+ * @public
+ */
+export interface AssessmentRiskRecommendation {
+  /**
+   * <p>Indicates the description of the potential risk identified in the application as part of the Resilience Hub assessment.</p>
+   *          <note>
+   *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+   *          </note>
+   * @public
+   */
+  risk?: string;
+
+  /**
+   * <p>Indicates the recommendation provided by the Resilience Hub to address the identified
+   *       risks in the application.</p>
+   *          <note>
+   *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+   *          </note>
+   * @public
+   */
+  recommendation?: string;
+
+  /**
+   * <p>Indicates the Application Components (AppComponents) that were assessed as part of the
+   *       assessnent and are associated with the identified risk and recommendation.</p>
+   *          <note>
+   *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+   *          </note>
+   * @public
+   */
+  appComponents?: string[];
+}
+
+/**
+ * <p>Indicates the AI-generated summary for the Resilience Hub assessment, providing a concise overview that highlights the top risks and recommendations.</p>
+ *          <note>
+ *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+ *          </note>
+ * @public
+ */
+export interface AssessmentSummary {
+  /**
+   * <p>Indicates a concise summary that provides an overview of the Resilience Hub assessment.</p>
+   *          <note>
+   *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+   *          </note>
+   * @public
+   */
+  summary?: string;
+
+  /**
+   * <p>Indicates the top risks and recommendations identified by the Resilience Hub assessment,
+   *       each representing a specific risk and the corresponding recommendation to address it.</p>
+   *          <note>
+   *             <p>This property is available only in the US East (N. Virginia) Region.</p>
+   *          </note>
+   * @public
+   */
+  riskRecommendations?: AssessmentRiskRecommendation[];
 }
 
 /**
@@ -1515,6 +1686,12 @@ export interface AppAssessment {
    * @public
    */
   driftStatus?: DriftStatus;
+
+  /**
+   * <p>Indicates a concise summary that provides an overview of the Resilience Hub assessment.</p>
+   * @public
+   */
+  summary?: AssessmentSummary;
 }
 
 /**
@@ -1585,7 +1762,8 @@ export interface AppAssessmentSummary {
   assessmentArn: string | undefined;
 
   /**
-   * <p>TCurrent status of compliance for the resiliency policy.</p>
+   * <p>Current
+   *       status of compliance for the resiliency policy.</p>
    * @public
    */
   complianceStatus?: ComplianceStatus;
@@ -1967,7 +2145,8 @@ export interface BatchUpdateRecommendationStatusRequest {
   appArn: string | undefined;
 
   /**
-   * <p>Defines the list of operational recommendations that need to be included or excluded.</p>
+   * <p>Defines the list of operational recommendations that need to be included or
+   *       excluded.</p>
    * @public
    */
   requestEntries: UpdateRecommendationStatusRequestEntry[] | undefined;
@@ -2054,7 +2233,8 @@ export interface BatchUpdateRecommendationStatusResponse {
   successfulEntries: BatchUpdateRecommendationStatusSuccessfulEntry[] | undefined;
 
   /**
-   * <p>A list of items with error details about each item, which could not be included or excluded.</p>
+   * <p>A list of items with error details about each item, which could not be included or
+   *       excluded.</p>
    * @public
    */
   failedEntries: BatchUpdateRecommendationStatusFailedEntry[] | undefined;
@@ -2101,9 +2281,7 @@ export interface CreateAppRequest {
   clientToken?: string;
 
   /**
-   * <p>
-   *       Assessment execution schedule with 'Daily' or 'Disabled' values.
-   *     </p>
+   * <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    * @public
    */
   assessmentSchedule?: AppAssessmentScheduleType;
@@ -2116,7 +2294,9 @@ export interface CreateAppRequest {
   permissionModel?: PermissionModel;
 
   /**
-   * <p>The list of events you would like to subscribe and get notification for. Currently, Resilience Hub supports only <b>Drift detected</b> and <b>Scheduled assessment failure</b> events notification.</p>
+   * <p>The list of events you would like to subscribe and get notification for. Currently,
+   *         Resilience Hub supports only <b>Drift detected</b> and
+   *         <b>Scheduled assessment failure</b> events notification.</p>
    * @public
    */
   eventSubscriptions?: EventSubscription[];
@@ -2132,27 +2312,6 @@ export interface CreateAppResponse {
    * @public
    */
   app: App | undefined;
-}
-
-/**
- * <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use Service Quotas to request a service quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
 }
 
 /**
@@ -2894,7 +3053,7 @@ export interface DeleteAppInputSourceRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the imported resource you want to remove from the
-   *       Resilience Hub application. For more information about ARNs,
+   *         Resilience Hub application. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
@@ -2903,7 +3062,8 @@ export interface DeleteAppInputSourceRequest {
   sourceArn?: string;
 
   /**
-   * <p>The imported Terraform s3 state ﬁle you want to remove from the Resilience Hub application.</p>
+   * <p>The imported Terraform s3 state ﬁle you want to remove from the Resilience Hub
+   *       application.</p>
    * @public
    */
   terraformSource?: TerraformSource;
@@ -2916,7 +3076,8 @@ export interface DeleteAppInputSourceRequest {
   clientToken?: string;
 
   /**
-   * <p>The namespace on your Amazon Elastic Kubernetes Service cluster that you want to delete from the Resilience Hub application.</p>
+   * <p>The namespace on your Amazon Elastic Kubernetes Service cluster that you want to delete from the
+   *         Resilience Hub application.</p>
    * @public
    */
   eksSourceClusterNamespace?: EksSourceClusterNamespace;
@@ -3196,8 +3357,8 @@ export interface DescribeAppAssessmentRequest {
  */
 export interface DescribeAppAssessmentResponse {
   /**
-   * <p>The assessment for an Resilience Hub application, returned as an object. This object
-   *       includes Amazon Resource Names (ARNs), compliance information, compliance status, cost,
+   * <p>The assessment for an Resilience Hub application, returned as an object. This
+   *       object includes Amazon Resource Names (ARNs), compliance information, compliance status, cost,
    *       messages, resiliency scores, and more.</p>
    * @public
    */
@@ -3514,7 +3675,7 @@ export interface DescribeAppVersionTemplateResponse {
   /**
    * <p>A JSON string that provides information about your application structure. To learn more
    *       about the <code>appTemplateBody</code> template, see the sample template provided in the
-   *       <i>Examples</i> section.</p>
+   *         <i>Examples</i> section.</p>
    *          <p>The <code>appTemplateBody</code> JSON string has the following structure:</p>
    *          <ul>
    *             <li>
@@ -3876,6 +4037,67 @@ export interface DescribeResiliencyPolicyResponse {
 }
 
 /**
+ * @public
+ */
+export interface DescribeResourceGroupingRecommendationTaskRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn: string | undefined;
+
+  /**
+   * <p>Indicates the identifier of the grouping recommendation task.</p>
+   * @public
+   */
+  groupingId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourcesGroupingRecGenStatusType = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourcesGroupingRecGenStatusType =
+  (typeof ResourcesGroupingRecGenStatusType)[keyof typeof ResourcesGroupingRecGenStatusType];
+
+/**
+ * @public
+ */
+export interface DescribeResourceGroupingRecommendationTaskResponse {
+  /**
+   * <p>Indicates the identifier of the grouping recommendation task.</p>
+   * @public
+   */
+  groupingId: string | undefined;
+
+  /**
+   * <p>Status of the action.</p>
+   * @public
+   */
+  status: ResourcesGroupingRecGenStatusType | undefined;
+
+  /**
+   * <p>Indicates the error that occurred while generating a grouping recommendation.</p>
+   * @public
+   */
+  errorMessage?: string;
+}
+
+/**
  * <p>The input source of the Amazon Elastic Kubernetes Service cluster.</p>
  * @public
  */
@@ -3984,9 +4206,7 @@ export interface ImportResourcesToDraftAppVersionResponse {
   status: ResourceImportStatusType | undefined;
 
   /**
-   * <p>
-   *       A list of terraform file s3 URLs you have imported.
-   *     </p>
+   * <p> A list of terraform file s3 URLs you have imported. </p>
    * @public
    */
   terraformSources?: TerraformSource[];
@@ -4031,8 +4251,8 @@ export interface ListAlarmRecommendationsRequest {
  */
 export interface ListAlarmRecommendationsResponse {
   /**
-   * <p>The alarm recommendations for an Resilience Hub application, returned as an object. This
-   *       object includes Application Component names, descriptions, information about whether a
+   * <p>The alarm recommendations for an Resilience Hub application, returned as an
+   *       object. This object includes Application Component names, descriptions, information about whether a
    *       recommendation has already been implemented or not, prerequisites, and more.</p>
    * @public
    */
@@ -4060,13 +4280,13 @@ export interface ListAppAssessmentComplianceDriftsRequest {
   assessmentArn: string | undefined;
 
   /**
-   * <p>Indicates the unique token number of the next application to be checked for compliance and regulatory requirements from the list of applications.</p>
+   * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
   nextToken?: string;
 
   /**
-   * <p>Indicates the maximum number of applications requested.</p>
+   * <p>Indicates the maximum number of compliance drifts requested.</p>
    * @public
    */
   maxResults?: number;
@@ -4166,7 +4386,8 @@ export interface ComplianceDrift {
 
   /**
    * <p>Difference type between actual and expected recovery point objective (RPO) and recovery
-   *       time objective (RTO) values. Currently, Resilience Hub supports only <b>NotEqual</b> difference type.</p>
+   *       time objective (RTO) values. Currently, Resilience Hub supports only
+   *           <code>NotEqual</code> difference type.</p>
    * @public
    */
   diffType?: DifferenceType;
@@ -4177,13 +4398,14 @@ export interface ComplianceDrift {
  */
 export interface ListAppAssessmentComplianceDriftsResponse {
   /**
-   * <p>Indicates compliance drifts (recovery time objective (RTO) and recovery point objective (RPO)) detected for an assessed entity.</p>
+   * <p>Indicates compliance drifts (recovery time objective (RTO) and recovery point objective
+   *       (RPO)) detected for an assessed entity.</p>
    * @public
    */
   complianceDrifts: ComplianceDrift[] | undefined;
 
   /**
-   * <p>Token number of the next application to be checked for compliance and regulatory requirements from the list of applications.</p>
+   * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
   nextToken?: string;
@@ -4210,7 +4432,9 @@ export interface ListAppAssessmentResourceDriftsRequest {
   nextToken?: string;
 
   /**
-   * <p>Indicates the maximum number of drift results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * <p>Indicates the maximum number of drift results to include in the response. If more results
+   *       exist than the specified <code>MaxResults</code> value, a token is included in the response so
+   *       that the remaining results can be retrieved.</p>
    * @public
    */
   maxResults?: number;
@@ -4404,8 +4628,8 @@ export interface ListAppComponentCompliancesRequest {
 export interface ListAppComponentCompliancesResponse {
   /**
    * <p>The compliances for an Resilience Hub Application Component, returned as an object. This
-   *       object contains the names of the Application Components, compliances, costs, resiliency scores, outage scores, and
-   *       more.</p>
+   *       object contains the names of the Application Components, compliances, costs, resiliency scores,
+   *       outage scores, and more.</p>
    * @public
    */
   componentCompliances: AppComponentCompliance[] | undefined;
@@ -4595,6 +4819,7 @@ export const RecommendationComplianceStatus = {
   BREACHED_CAN_MEET: "BreachedCanMeet",
   BREACHED_UNATTAINABLE: "BreachedUnattainable",
   MET_CAN_IMPROVE: "MetCanImprove",
+  MISSING_POLICY: "MissingPolicy",
 } as const;
 
 /**
@@ -4634,9 +4859,9 @@ export interface ComponentRecommendation {
  */
 export interface ListAppComponentRecommendationsResponse {
   /**
-   * <p>The recommendations for an Resilience Hub Application Component, returned as an object. This
-   *       object contains the names of the Application Components, configuration recommendations, and recommendation
-   *       statuses.</p>
+   * <p>The recommendations for an Resilience Hub Application Component, returned as an object.
+   *       This object contains the names of the Application Components, configuration recommendations, and
+   *       recommendation statuses.</p>
    * @public
    */
   componentRecommendations: ComponentRecommendation[] | undefined;
@@ -4675,7 +4900,8 @@ export interface ListAppInputSourcesRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of input sources to be displayed per Resilience Hub application.</p>
+   * <p>Maximum number of input sources to be displayed per Resilience Hub
+   *       application.</p>
    * @public
    */
   maxResults?: number;
@@ -4732,19 +4958,24 @@ export interface ListAppsRequest {
   appArn?: string;
 
   /**
-   * <p>Indicates the lower limit of the range that is used to filter applications based on their last assessment times.</p>
+   * <p>Indicates the lower limit of the range that is used to filter applications based on their
+   *       last assessment times.</p>
    * @public
    */
   fromLastAssessmentTime?: Date;
 
   /**
-   * <p>Indicates the upper limit of the range that is used to filter the applications based on their last assessment times.</p>
+   * <p>Indicates the upper limit of the range that is used to filter the applications based on
+   *       their last assessment times.</p>
    * @public
    */
   toLastAssessmentTime?: Date;
 
   /**
-   * <p>The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted in ascending order. To sort the appliation list in descending order, set this field to <code>True</code>.</p>
+   * <p>The application list is sorted based on the values of
+   *         <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted
+   *       in ascending order. To sort the application list in descending order, set this field to
+   *         <code>True</code>.</p>
    * @public
    */
   reverseOrder?: boolean;
@@ -5114,6 +5345,218 @@ export interface ListResiliencyPoliciesResponse {
 
   /**
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceGroupingRecommendationsRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn?: string;
+
+  /**
+   * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Maximum number of grouping recommendations to be displayed per Resilience Hub application.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupingRecommendationConfidenceLevel = {
+  HIGH: "High",
+  MEDIUM: "Medium",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupingRecommendationConfidenceLevel =
+  (typeof GroupingRecommendationConfidenceLevel)[keyof typeof GroupingRecommendationConfidenceLevel];
+
+/**
+ * <p>Creates a new recommended Application Component (AppComponent).</p>
+ * @public
+ */
+export interface GroupingAppComponent {
+  /**
+   * <p>Indicates the identifier of an AppComponent.</p>
+   * @public
+   */
+  appComponentId: string | undefined;
+
+  /**
+   * <p>Indicates the type of an AppComponent.</p>
+   * @public
+   */
+  appComponentType: string | undefined;
+
+  /**
+   * <p>Indicates the name of an AppComponent.</p>
+   * @public
+   */
+  appComponentName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupingRecommendationRejectionReason = {
+  DISTINCT_BUSINESS_PURPOSE: "DistinctBusinessPurpose",
+  DISTINCT_USER_GROUP_HANDLING: "DistinctUserGroupHandling",
+  OTHER: "Other",
+  SEPARATE_DATA_CONCERN: "SeparateDataConcern",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupingRecommendationRejectionReason =
+  (typeof GroupingRecommendationRejectionReason)[keyof typeof GroupingRecommendationRejectionReason];
+
+/**
+ * <p>Indicates the resource that will be grouped in the recommended Application Component (AppComponent).</p>
+ * @public
+ */
+export interface GroupingResource {
+  /**
+   * <p>Indicates the resource name.</p>
+   * @public
+   */
+  resourceName: string | undefined;
+
+  /**
+   * <p>Indicates the resource type.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * <p>Indicates the physical identifier of the resource.</p>
+   * @public
+   */
+  physicalResourceId: PhysicalResourceId | undefined;
+
+  /**
+   * <p>Indicates the logical identifier of the resource.</p>
+   * @public
+   */
+  logicalResourceId: LogicalResourceId | undefined;
+
+  /**
+   * <p>Indicates the identifier of the source AppComponents in which the resources were previously grouped into.</p>
+   * @public
+   */
+  sourceAppComponentIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupingRecommendationStatusType = {
+  ACCEPTED: "Accepted",
+  PENDING_DECISION: "PendingDecision",
+  REJECTED: "Rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupingRecommendationStatusType =
+  (typeof GroupingRecommendationStatusType)[keyof typeof GroupingRecommendationStatusType];
+
+/**
+ * <p>Creates a new grouping recommendation.</p>
+ * @public
+ */
+export interface GroupingRecommendation {
+  /**
+   * <p>Indicates all the reasons available for rejecting a grouping recommendation.</p>
+   * @public
+   */
+  groupingRecommendationId: string | undefined;
+
+  /**
+   * <p>Indicates the name of the recommended Application Component (AppComponent).</p>
+   * @public
+   */
+  groupingAppComponent: GroupingAppComponent | undefined;
+
+  /**
+   * <p>Indicates the resources that are grouped in a recommended AppComponent.</p>
+   * @public
+   */
+  resources: GroupingResource[] | undefined;
+
+  /**
+   * <p>Indicates the confidence level of the grouping recommendation.</p>
+   * @public
+   */
+  score: number | undefined;
+
+  /**
+   * <p>Indicates all the reasons available for rejecting a grouping recommendation.</p>
+   * @public
+   */
+  recommendationReasons: string[] | undefined;
+
+  /**
+   * <p>Indicates the status of grouping resources into AppComponents.</p>
+   * @public
+   */
+  status: GroupingRecommendationStatusType | undefined;
+
+  /**
+   * <p>Indicates the confidence level of Resilience Hub on the grouping recommendation.</p>
+   * @public
+   */
+  confidenceLevel: GroupingRecommendationConfidenceLevel | undefined;
+
+  /**
+   * <p>Indicates the creation time of the grouping recommendation.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>Indicates the reason you had selected while rejecting a grouping recommendation.</p>
+   * @public
+   */
+  rejectionReason?: GroupingRecommendationRejectionReason;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceGroupingRecommendationsResponse {
+  /**
+   * <p>List of resource grouping recommendations generated by Resilience Hub.</p>
+   * @public
+   */
+  groupingRecommendations: GroupingRecommendation[] | undefined;
+
+  /**
+   * <p>Null, or the token from a previous call to get the next set of results.</p>
    * @public
    */
   nextToken?: string;
@@ -5901,6 +6344,66 @@ export interface PutDraftAppVersionTemplateResponse {
 }
 
 /**
+ * <p>Indicates the rejected grouping recommendation.</p>
+ * @public
+ */
+export interface RejectGroupingRecommendationEntry {
+  /**
+   * <p>Indicates the identifier of the grouping recommendation.</p>
+   * @public
+   */
+  groupingRecommendationId: string | undefined;
+
+  /**
+   * <p>Indicates the reason you had selected while rejecting a grouping recommendation.</p>
+   * @public
+   */
+  rejectionReason?: GroupingRecommendationRejectionReason;
+}
+
+/**
+ * @public
+ */
+export interface RejectResourceGroupingRecommendationsRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn: string | undefined;
+
+  /**
+   * <p>Indicates the list of resource grouping recommendations you have selected to exclude from your application.</p>
+   * @public
+   */
+  entries: RejectGroupingRecommendationEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectResourceGroupingRecommendationsResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn: string | undefined;
+
+  /**
+   * <p>Indicates the list of resource grouping recommendations that failed to get excluded in your application.</p>
+   * @public
+   */
+  failedEntries: FailedGroupingRecommendationEntry[] | undefined;
+}
+
+/**
  * @public
  */
 export interface RemoveDraftAppVersionResourceMappingsRequest {
@@ -5927,7 +6430,8 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
   logicalStackNames?: string[];
 
   /**
-   * <p>The names of the registered applications you want to remove from the resource mappings.</p>
+   * <p>The names of the registered applications you want to remove from the resource
+   *       mappings.</p>
    * @public
    */
   appRegistryAppNames?: string[];
@@ -5945,7 +6449,8 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
   terraformSourceNames?: string[];
 
   /**
-   * <p>The names of the Amazon Elastic Kubernetes Service clusters and namespaces you want to remove from the resource mappings.</p>
+   * <p>The names of the Amazon Elastic Kubernetes Service clusters and namespaces you want to remove from
+   *       the resource mappings.</p>
    *          <note>
    *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
    *          </note>
@@ -6084,6 +6589,54 @@ export interface StartAppAssessmentResponse {
 /**
  * @public
  */
+export interface StartResourceGroupingRecommendationTaskRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartResourceGroupingRecommendationTaskResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
+   */
+  appArn: string | undefined;
+
+  /**
+   * <p>Indicates the identifier of the grouping recommendation task.</p>
+   * @public
+   */
+  groupingId: string | undefined;
+
+  /**
+   * <p>Status of the action.</p>
+   * @public
+   */
+  status: ResourcesGroupingRecGenStatusType | undefined;
+
+  /**
+   * <p>Indicates the error that occurred while executing a grouping recommendation task.</p>
+   * @public
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the resource. </p>
@@ -6162,9 +6715,7 @@ export interface UpdateAppRequest {
   clearResiliencyPolicyArn?: boolean;
 
   /**
-   * <p>
-   *       Assessment execution schedule with 'Daily' or 'Disabled' values.
-   *     </p>
+   * <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
    * @public
    */
   assessmentSchedule?: AppAssessmentScheduleType;
@@ -6178,8 +6729,8 @@ export interface UpdateAppRequest {
   permissionModel?: PermissionModel;
 
   /**
-   * <p>The list of events you would like to subscribe and get notification for.
-   *       Currently, Resilience Hub supports notifications only for <b>Drift
+   * <p>The list of events you would like to subscribe and get notification for. Currently,
+   *         Resilience Hub supports notifications only for <b>Drift
    *         detected</b> and <b>Scheduled assessment failure</b>
    *       events.</p>
    * @public
@@ -6388,7 +6939,8 @@ export interface UpdateAppVersionResourceRequest {
   /**
    * <p>Indicates if a resource is excluded from an Resilience Hub application.</p>
    *          <note>
-   *             <p>You can exclude only imported resources from an Resilience Hub application.</p>
+   *             <p>You can exclude only imported resources from an Resilience Hub
+   *         application.</p>
    *          </note>
    * @public
    */

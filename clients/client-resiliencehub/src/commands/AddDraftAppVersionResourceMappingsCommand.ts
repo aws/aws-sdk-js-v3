@@ -36,7 +36,12 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Adds the source of resource-maps to the draft version of an application. During assessment, Resilience Hub will use these resource-maps to resolve the latest physical ID for each resource in the application template. For more information about different types of resources suported by Resilience Hub and how to add them in your application, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step 2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
+ * <p>Adds the source of resource-maps to the draft version of an application. During
+ *       assessment, Resilience Hub will use these resource-maps to resolve the latest physical
+ *       ID for each resource in the application template. For more information about different types
+ *       of resources supported by Resilience Hub and how to add them in your application, see
+ *         <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step
+ *         2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,6 +117,10 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use Service Quotas to request a service quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>

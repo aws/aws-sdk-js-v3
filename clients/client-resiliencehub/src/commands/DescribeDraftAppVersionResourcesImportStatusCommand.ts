@@ -41,7 +41,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  *          <note>
  *             <p>If you get a 404 error with
  *           <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must call
- *           <code>importResourcesToDraftAppVersion</code>  after creating the application and before
+ *           <code>importResourcesToDraftAppVersion</code> after creating the application and before
  *         calling <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the
  *         status.</p>
  *          </note>

@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AcceptResourceGroupingRecommendationsCommandInput,
+  AcceptResourceGroupingRecommendationsCommandOutput,
+} from "./commands/AcceptResourceGroupingRecommendationsCommand";
+import {
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
@@ -134,6 +138,10 @@ import {
   DescribeResiliencyPolicyCommandOutput,
 } from "./commands/DescribeResiliencyPolicyCommand";
 import {
+  DescribeResourceGroupingRecommendationTaskCommandInput,
+  DescribeResourceGroupingRecommendationTaskCommandOutput,
+} from "./commands/DescribeResourceGroupingRecommendationTaskCommand";
+import {
   ImportResourcesToDraftAppVersionCommandInput,
   ImportResourcesToDraftAppVersionCommandOutput,
 } from "./commands/ImportResourcesToDraftAppVersionCommand";
@@ -185,6 +193,10 @@ import {
   ListResiliencyPoliciesCommandOutput,
 } from "./commands/ListResiliencyPoliciesCommand";
 import {
+  ListResourceGroupingRecommendationsCommandInput,
+  ListResourceGroupingRecommendationsCommandOutput,
+} from "./commands/ListResourceGroupingRecommendationsCommand";
+import {
   ListSopRecommendationsCommandInput,
   ListSopRecommendationsCommandOutput,
 } from "./commands/ListSopRecommendationsCommand";
@@ -210,6 +222,10 @@ import {
   PutDraftAppVersionTemplateCommandOutput,
 } from "./commands/PutDraftAppVersionTemplateCommand";
 import {
+  RejectResourceGroupingRecommendationsCommandInput,
+  RejectResourceGroupingRecommendationsCommandOutput,
+} from "./commands/RejectResourceGroupingRecommendationsCommand";
+import {
   RemoveDraftAppVersionResourceMappingsCommandInput,
   RemoveDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/RemoveDraftAppVersionResourceMappingsCommand";
@@ -218,6 +234,10 @@ import {
   ResolveAppVersionResourcesCommandOutput,
 } from "./commands/ResolveAppVersionResourcesCommand";
 import { StartAppAssessmentCommandInput, StartAppAssessmentCommandOutput } from "./commands/StartAppAssessmentCommand";
+import {
+  StartResourceGroupingRecommendationTaskCommandInput,
+  StartResourceGroupingRecommendationTaskCommandOutput,
+} from "./commands/StartResourceGroupingRecommendationTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
@@ -249,6 +269,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AcceptResourceGroupingRecommendationsCommandInput
   | AddDraftAppVersionResourceMappingsCommandInput
   | BatchUpdateRecommendationStatusCommandInput
   | CreateAppCommandInput
@@ -272,6 +293,7 @@ export type ServiceInputTypes =
   | DescribeAppVersionTemplateCommandInput
   | DescribeDraftAppVersionResourcesImportStatusCommandInput
   | DescribeResiliencyPolicyCommandInput
+  | DescribeResourceGroupingRecommendationTaskCommandInput
   | ImportResourcesToDraftAppVersionCommandInput
   | ListAlarmRecommendationsCommandInput
   | ListAppAssessmentComplianceDriftsCommandInput
@@ -287,6 +309,7 @@ export type ServiceInputTypes =
   | ListAppsCommandInput
   | ListRecommendationTemplatesCommandInput
   | ListResiliencyPoliciesCommandInput
+  | ListResourceGroupingRecommendationsCommandInput
   | ListSopRecommendationsCommandInput
   | ListSuggestedResiliencyPoliciesCommandInput
   | ListTagsForResourceCommandInput
@@ -294,9 +317,11 @@ export type ServiceInputTypes =
   | ListUnsupportedAppVersionResourcesCommandInput
   | PublishAppVersionCommandInput
   | PutDraftAppVersionTemplateCommandInput
+  | RejectResourceGroupingRecommendationsCommandInput
   | RemoveDraftAppVersionResourceMappingsCommandInput
   | ResolveAppVersionResourcesCommandInput
   | StartAppAssessmentCommandInput
+  | StartResourceGroupingRecommendationTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAppCommandInput
@@ -309,6 +334,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AcceptResourceGroupingRecommendationsCommandOutput
   | AddDraftAppVersionResourceMappingsCommandOutput
   | BatchUpdateRecommendationStatusCommandOutput
   | CreateAppCommandOutput
@@ -332,6 +358,7 @@ export type ServiceOutputTypes =
   | DescribeAppVersionTemplateCommandOutput
   | DescribeDraftAppVersionResourcesImportStatusCommandOutput
   | DescribeResiliencyPolicyCommandOutput
+  | DescribeResourceGroupingRecommendationTaskCommandOutput
   | ImportResourcesToDraftAppVersionCommandOutput
   | ListAlarmRecommendationsCommandOutput
   | ListAppAssessmentComplianceDriftsCommandOutput
@@ -347,6 +374,7 @@ export type ServiceOutputTypes =
   | ListAppsCommandOutput
   | ListRecommendationTemplatesCommandOutput
   | ListResiliencyPoliciesCommandOutput
+  | ListResourceGroupingRecommendationsCommandOutput
   | ListSopRecommendationsCommandOutput
   | ListSuggestedResiliencyPoliciesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -354,9 +382,11 @@ export type ServiceOutputTypes =
   | ListUnsupportedAppVersionResourcesCommandOutput
   | PublishAppVersionCommandOutput
   | PutDraftAppVersionTemplateCommandOutput
+  | RejectResourceGroupingRecommendationsCommandOutput
   | RemoveDraftAppVersionResourceMappingsCommandOutput
   | ResolveAppVersionResourcesCommandOutput
   | StartAppAssessmentCommandOutput
+  | StartResourceGroupingRecommendationTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAppCommandOutput

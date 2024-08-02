@@ -129,6 +129,18 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * //     },
  * //     versionName: "STRING_VALUE",
  * //     driftStatus: "STRING_VALUE",
+ * //     summary: { // AssessmentSummary
+ * //       summary: "STRING_VALUE",
+ * //       riskRecommendations: [ // AssessmentRiskRecommendationList
+ * //         { // AssessmentRiskRecommendation
+ * //           risk: "STRING_VALUE",
+ * //           recommendation: "STRING_VALUE",
+ * //           appComponents: [ // AppComponentNameList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

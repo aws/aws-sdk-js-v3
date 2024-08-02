@@ -5,8 +5,14 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutDraftAppVersionTemplateRequest, PutDraftAppVersionTemplateResponse } from "../models/models_0";
-import { de_PutDraftAppVersionTemplateCommand, se_PutDraftAppVersionTemplateCommand } from "../protocols/Aws_restJson1";
+import {
+  DescribeResourceGroupingRecommendationTaskRequest,
+  DescribeResourceGroupingRecommendationTaskResponse,
+} from "../models/models_0";
+import {
+  de_DescribeResourceGroupingRecommendationTaskCommand,
+  se_DescribeResourceGroupingRecommendationTaskCommand,
+} from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -17,54 +23,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link PutDraftAppVersionTemplateCommand}.
+ * The input for {@link DescribeResourceGroupingRecommendationTaskCommand}.
  */
-export interface PutDraftAppVersionTemplateCommandInput extends PutDraftAppVersionTemplateRequest {}
+export interface DescribeResourceGroupingRecommendationTaskCommandInput
+  extends DescribeResourceGroupingRecommendationTaskRequest {}
 /**
  * @public
  *
- * The output of {@link PutDraftAppVersionTemplateCommand}.
+ * The output of {@link DescribeResourceGroupingRecommendationTaskCommand}.
  */
-export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVersionTemplateResponse, __MetadataBearer {}
+export interface DescribeResourceGroupingRecommendationTaskCommandOutput
+  extends DescribeResourceGroupingRecommendationTaskResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Adds or updates the app template for an Resilience Hub application draft
- *       version.</p>
+ * <p>Describes the resource grouping recommendation tasks run by Resilience Hub for your application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, PutDraftAppVersionTemplateCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, PutDraftAppVersionTemplateCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, DescribeResourceGroupingRecommendationTaskCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
+ * // const { ResiliencehubClient, DescribeResourceGroupingRecommendationTaskCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = { // PutDraftAppVersionTemplateRequest
+ * const input = { // DescribeResourceGroupingRecommendationTaskRequest
  *   appArn: "STRING_VALUE", // required
- *   appTemplateBody: "STRING_VALUE", // required
+ *   groupingId: "STRING_VALUE",
  * };
- * const command = new PutDraftAppVersionTemplateCommand(input);
+ * const command = new DescribeResourceGroupingRecommendationTaskCommand(input);
  * const response = await client.send(command);
- * // { // PutDraftAppVersionTemplateResponse
- * //   appArn: "STRING_VALUE",
- * //   appVersion: "STRING_VALUE",
+ * // { // DescribeResourceGroupingRecommendationTaskResponse
+ * //   groupingId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   errorMessage: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param PutDraftAppVersionTemplateCommandInput - {@link PutDraftAppVersionTemplateCommandInput}
- * @returns {@link PutDraftAppVersionTemplateCommandOutput}
- * @see {@link PutDraftAppVersionTemplateCommandInput} for command's `input` shape.
- * @see {@link PutDraftAppVersionTemplateCommandOutput} for command's `response` shape.
+ * @param DescribeResourceGroupingRecommendationTaskCommandInput - {@link DescribeResourceGroupingRecommendationTaskCommandInput}
+ * @returns {@link DescribeResourceGroupingRecommendationTaskCommandOutput}
+ * @see {@link DescribeResourceGroupingRecommendationTaskCommandInput} for command's `input` shape.
+ * @see {@link DescribeResourceGroupingRecommendationTaskCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to perform the requested operation. The user or role that is
  *       making the request must have at least one IAM permissions policy attached that grants the
  *       required permissions.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
- *       when the previous write did not have time to propagate to the host serving the current
- *       request. A retry (with appropriate backoff logic) is the recommended response to this
- *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Resilience Hub
@@ -84,10 +87,10 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  *
  * @public
  */
-export class PutDraftAppVersionTemplateCommand extends $Command
+export class DescribeResourceGroupingRecommendationTaskCommand extends $Command
   .classBuilder<
-    PutDraftAppVersionTemplateCommandInput,
-    PutDraftAppVersionTemplateCommandOutput,
+    DescribeResourceGroupingRecommendationTaskCommandInput,
+    DescribeResourceGroupingRecommendationTaskCommandOutput,
     ResiliencehubClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,9 +104,9 @@ export class PutDraftAppVersionTemplateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AwsResilienceHub", "PutDraftAppVersionTemplate", {})
-  .n("ResiliencehubClient", "PutDraftAppVersionTemplateCommand")
+  .s("AwsResilienceHub", "DescribeResourceGroupingRecommendationTask", {})
+  .n("ResiliencehubClient", "DescribeResourceGroupingRecommendationTaskCommand")
   .f(void 0, void 0)
-  .ser(se_PutDraftAppVersionTemplateCommand)
-  .de(de_PutDraftAppVersionTemplateCommand)
+  .ser(se_DescribeResourceGroupingRecommendationTaskCommand)
+  .de(de_DescribeResourceGroupingRecommendationTaskCommand)
   .build() {}

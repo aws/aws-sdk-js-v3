@@ -30,6 +30,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  AcceptResourceGroupingRecommendationsCommandInput,
+  AcceptResourceGroupingRecommendationsCommandOutput,
+} from "../commands/AcceptResourceGroupingRecommendationsCommand";
+import {
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "../commands/AddDraftAppVersionResourceMappingsCommand";
@@ -110,6 +114,10 @@ import {
   DescribeResiliencyPolicyCommandOutput,
 } from "../commands/DescribeResiliencyPolicyCommand";
 import {
+  DescribeResourceGroupingRecommendationTaskCommandInput,
+  DescribeResourceGroupingRecommendationTaskCommandOutput,
+} from "../commands/DescribeResourceGroupingRecommendationTaskCommand";
+import {
   ImportResourcesToDraftAppVersionCommandInput,
   ImportResourcesToDraftAppVersionCommandOutput,
 } from "../commands/ImportResourcesToDraftAppVersionCommand";
@@ -161,6 +169,10 @@ import {
   ListResiliencyPoliciesCommandOutput,
 } from "../commands/ListResiliencyPoliciesCommand";
 import {
+  ListResourceGroupingRecommendationsCommandInput,
+  ListResourceGroupingRecommendationsCommandOutput,
+} from "../commands/ListResourceGroupingRecommendationsCommand";
+import {
   ListSopRecommendationsCommandInput,
   ListSopRecommendationsCommandOutput,
 } from "../commands/ListSopRecommendationsCommand";
@@ -186,6 +198,10 @@ import {
   PutDraftAppVersionTemplateCommandOutput,
 } from "../commands/PutDraftAppVersionTemplateCommand";
 import {
+  RejectResourceGroupingRecommendationsCommandInput,
+  RejectResourceGroupingRecommendationsCommandOutput,
+} from "../commands/RejectResourceGroupingRecommendationsCommand";
+import {
   RemoveDraftAppVersionResourceMappingsCommandInput,
   RemoveDraftAppVersionResourceMappingsCommandOutput,
 } from "../commands/RemoveDraftAppVersionResourceMappingsCommand";
@@ -194,6 +210,10 @@ import {
   ResolveAppVersionResourcesCommandOutput,
 } from "../commands/ResolveAppVersionResourcesCommand";
 import { StartAppAssessmentCommandInput, StartAppAssessmentCommandOutput } from "../commands/StartAppAssessmentCommand";
+import {
+  StartResourceGroupingRecommendationTaskCommandInput,
+  StartResourceGroupingRecommendationTaskCommandOutput,
+} from "../commands/StartResourceGroupingRecommendationTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAppCommandInput, UpdateAppCommandOutput } from "../commands/UpdateAppCommand";
@@ -211,6 +231,7 @@ import {
   UpdateResiliencyPolicyCommandOutput,
 } from "../commands/UpdateResiliencyPolicyCommand";
 import {
+  AcceptGroupingRecommendationEntry,
   AccessDeniedException,
   App,
   AppAssessment,
@@ -227,11 +248,13 @@ import {
   EksSourceClusterNamespace,
   EventSubscription,
   FailurePolicy,
+  GroupingRecommendation,
   InternalServerException,
   LogicalResourceId,
   PermissionModel,
   PhysicalResourceId,
   RecommendationTemplate,
+  RejectGroupingRecommendationEntry,
   RenderRecommendationType,
   ResiliencyPolicy,
   ResiliencyScore,
@@ -247,6 +270,29 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { ResiliencehubServiceException as __BaseException } from "../models/ResiliencehubServiceException";
+
+/**
+ * serializeAws_restJson1AcceptResourceGroupingRecommendationsCommand
+ */
+export const se_AcceptResourceGroupingRecommendationsCommand = async (
+  input: AcceptResourceGroupingRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accept-resource-grouping-recommendations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      entries: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand
@@ -820,6 +866,29 @@ export const se_DescribeResiliencyPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeResourceGroupingRecommendationTaskCommand
+ */
+export const se_DescribeResourceGroupingRecommendationTaskCommand = async (
+  input: DescribeResourceGroupingRecommendationTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/describe-resource-grouping-recommendation-task");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      groupingId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ImportResourcesToDraftAppVersionCommand
  */
 export const se_ImportResourcesToDraftAppVersionCommand = async (
@@ -1186,6 +1255,26 @@ export const se_ListResiliencyPoliciesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListResourceGroupingRecommendationsCommand
+ */
+export const se_ListResourceGroupingRecommendationsCommand = async (
+  input: ListResourceGroupingRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/list-resource-grouping-recommendations");
+  const query: any = map({
+    [_aA]: [, input[_aA]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListSopRecommendationsCommand
  */
 export const se_ListSopRecommendationsCommand = async (
@@ -1341,6 +1430,29 @@ export const se_PutDraftAppVersionTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1RejectResourceGroupingRecommendationsCommand
+ */
+export const se_RejectResourceGroupingRecommendationsCommand = async (
+  input: RejectResourceGroupingRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reject-resource-grouping-recommendations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      entries: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand
  */
 export const se_RemoveDraftAppVersionResourceMappingsCommand = async (
@@ -1411,6 +1523,28 @@ export const se_StartAppAssessmentCommand = async (
       assessmentName: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartResourceGroupingRecommendationTaskCommand
+ */
+export const se_StartResourceGroupingRecommendationTaskCommand = async (
+  input: StartResourceGroupingRecommendationTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/start-resource-grouping-recommendation-task");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1595,6 +1729,28 @@ export const se_UpdateResiliencyPolicyCommand = async (
   );
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1AcceptResourceGroupingRecommendationsCommand
+ */
+export const de_AcceptResourceGroupingRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptResourceGroupingRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appArn: __expectString,
+    failedEntries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -2112,6 +2268,29 @@ export const de_DescribeResiliencyPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeResourceGroupingRecommendationTaskCommand
+ */
+export const de_DescribeResourceGroupingRecommendationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourceGroupingRecommendationTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errorMessage: __expectString,
+    groupingId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand
  */
 export const de_ImportResourcesToDraftAppVersionCommand = async (
@@ -2449,6 +2628,28 @@ export const de_ListResiliencyPoliciesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListResourceGroupingRecommendationsCommand
+ */
+export const de_ListResourceGroupingRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceGroupingRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    groupingRecommendations: (_) => de_GroupingRecommendationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListSopRecommendationsCommand
  */
 export const de_ListSopRecommendationsCommand = async (
@@ -2605,6 +2806,28 @@ export const de_PutDraftAppVersionTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1RejectResourceGroupingRecommendationsCommand
+ */
+export const de_RejectResourceGroupingRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectResourceGroupingRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appArn: __expectString,
+    failedEntries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand
  */
 export const de_RemoveDraftAppVersionResourceMappingsCommand = async (
@@ -2666,6 +2889,30 @@ export const de_StartAppAssessmentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     assessment: (_) => de_AppAssessment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartResourceGroupingRecommendationTaskCommand
+ */
+export const de_StartResourceGroupingRecommendationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceGroupingRecommendationTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appArn: __expectString,
+    errorMessage: __expectString,
+    groupingId: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2829,9 +3076,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.resiliencehub#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.resiliencehub#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.resiliencehub#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -2844,6 +3088,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.resiliencehub#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.resiliencehub#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -2994,6 +3241,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AcceptGroupingRecommendationEntries omitted.
+
+// se_AcceptGroupingRecommendationEntry omitted.
+
 // se_AdditionalInfoMap omitted.
 
 // se_AdditionalInfoValueList omitted.
@@ -3029,6 +3280,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_PhysicalResourceId omitted.
 
 // se_RecommendationIdList omitted.
+
+// se_RejectGroupingRecommendationEntries omitted.
+
+// se_RejectGroupingRecommendationEntry omitted.
 
 // se_RenderRecommendationTypeList omitted.
 
@@ -3107,6 +3362,7 @@ const de_AppAssessment = (output: any, context: __SerdeContext): AppAssessment =
     resiliencyScore: (_: any) => de_ResiliencyScore(_, context),
     resourceErrorsDetails: _json,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    summary: _json,
     tags: _json,
     versionName: __expectString,
   }) as any;
@@ -3230,6 +3486,12 @@ const de_AppVersionSummary = (output: any, context: __SerdeContext): AppVersionS
 
 // de_AssessmentCompliance omitted.
 
+// de_AssessmentRiskRecommendation omitted.
+
+// de_AssessmentRiskRecommendationList omitted.
+
+// de_AssessmentSummary omitted.
+
 // de_BatchUpdateRecommendationStatusFailedEntries omitted.
 
 // de_BatchUpdateRecommendationStatusFailedEntry omitted.
@@ -3350,7 +3612,46 @@ const de_DisruptionResiliencyScore = (
 
 // de_EventSubscriptionList omitted.
 
+// de_FailedGroupingRecommendationEntries omitted.
+
+// de_FailedGroupingRecommendationEntry omitted.
+
 // de_FailurePolicy omitted.
+
+// de_GroupingAppComponent omitted.
+
+/**
+ * deserializeAws_restJson1GroupingRecommendation
+ */
+const de_GroupingRecommendation = (output: any, context: __SerdeContext): GroupingRecommendation => {
+  return take(output, {
+    confidenceLevel: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    groupingAppComponent: _json,
+    groupingRecommendationId: __expectString,
+    recommendationReasons: _json,
+    rejectionReason: __expectString,
+    resources: _json,
+    score: __limitedParseDouble,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GroupingRecommendationList
+ */
+const de_GroupingRecommendationList = (output: any, context: __SerdeContext): GroupingRecommendation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GroupingRecommendation(entry, context);
+    });
+  return retVal;
+};
+
+// de_GroupingResource omitted.
+
+// de_GroupingResourceList omitted.
 
 // de_IamRoleArnList omitted.
 
@@ -3502,6 +3803,8 @@ const de_ScoringComponentResiliencyScores = (
 // de_SopRecommendation omitted.
 
 // de_SopRecommendationList omitted.
+
+// de_String255List omitted.
 
 // de_SuggestedChangesList omitted.
 

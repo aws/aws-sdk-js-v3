@@ -30,7 +30,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
 /**
  * <p>Describes a resource of the Resilience Hub application.</p>
  *          <note>
- *             <p>This API accepts only one of the following parameters to descibe the resource:</p>
+ *             <p>This API accepts only one of the following parameters to describe the resource:</p>
  *             <ul>
  *                <li>
  *                   <p>
@@ -44,8 +44,8 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  *                </li>
  *                <li>
  *                   <p>
- *                      <code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you can also
- *             provide <code>awsAccountId</code>, and <code>awsRegion</code>)</p>
+ *                      <code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you can
+ *             also provide <code>awsAccountId</code>, and <code>awsRegion</code>)</p>
  *                </li>
  *             </ul>
  *          </note>

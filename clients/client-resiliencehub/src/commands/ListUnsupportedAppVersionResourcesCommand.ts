@@ -36,9 +36,9 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the resources that are not currently supported in Resilience Hub. An unsupported
- *       resource is a resource that exists in the object that was used to create an app, but is not
- *       supported by Resilience Hub.</p>
+ * <p>Lists the resources that are not currently supported in Resilience Hub. An
+ *       unsupported resource is a resource that exists in the object that was used to create an app,
+ *       but is not supported by Resilience Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

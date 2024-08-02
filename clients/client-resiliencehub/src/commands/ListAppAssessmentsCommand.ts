@@ -28,8 +28,8 @@ export interface ListAppAssessmentsCommandInput extends ListAppAssessmentsReques
 export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the assessments for an Resilience Hub application. You can use request parameters to
- *       refine the results for the response object.</p>
+ * <p>Lists the assessments for an Resilience Hub application. You can use request
+ *       parameters to refine the results for the response object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

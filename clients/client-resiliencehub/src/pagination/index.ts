@@ -14,6 +14,7 @@ export * from "./ListAppVersionsPaginator";
 export * from "./ListAppsPaginator";
 export * from "./ListRecommendationTemplatesPaginator";
 export * from "./ListResiliencyPoliciesPaginator";
+export * from "./ListResourceGroupingRecommendationsPaginator";
 export * from "./ListSopRecommendationsPaginator";
 export * from "./ListSuggestedResiliencyPoliciesPaginator";
 export * from "./ListTestRecommendationsPaginator";

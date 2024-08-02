@@ -30,9 +30,9 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
 /**
  * <p>Updates the Resilience Hub application version.</p>
  *          <note>
- *             <p>This API updates the Resilience Hub application draft version. To use this information
- *         for running resiliency assessments, you must publish the Resilience Hub application using the
- *           <code>PublishAppVersion</code> API.</p>
+ *             <p>This API updates the Resilience Hub application draft version. To use this
+ *         information for running resiliency assessments, you must publish the Resilience Hub
+ *         application using the <code>PublishAppVersion</code> API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
