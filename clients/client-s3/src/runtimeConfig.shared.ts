@@ -1,11 +1,14 @@
 // smithy-typescript generated code
+import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { NoOpLogger } from "@smithy/smithy-client";
+import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@smithy/util-stream";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
+import { defaultS3HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { S3ClientConfig } from "./S3Client";
 
@@ -21,6 +24,19 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     getAwsChunkedEncodingStream: config?.getAwsChunkedEncodingStream ?? getAwsChunkedEncodingStream,
+    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultS3HttpAuthSchemeProvider,
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "aws.auth#sigv4",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        signer: new AwsSdkSigV4Signer(),
+      },
+      {
+        schemeId: "aws.auth#sigv4a",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4a"),
+        signer: new AwsSdkSigV4ASigner(),
+      },
+    ],
     logger: config?.logger ?? new NoOpLogger(),
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "S3",
