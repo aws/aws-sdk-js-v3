@@ -27,7 +27,7 @@ export const websocketPortMiddleware =
 export const websocketPortMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "websocketPortMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM", "PORT"],
-  relation: "after",
-  toMiddleware: "eventStreamHeaderMiddleware",
+  relation: "before",
+  toMiddleware: "httpSigningMiddleware",
   override: true,
 };
