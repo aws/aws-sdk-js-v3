@@ -12,7 +12,6 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
-import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
@@ -361,7 +360,6 @@ export class TranscribeStreamingClient extends __Client<
           }),
       })
     );
-    this.middlewareStack.use(getTranscribeStreamingPlugin(this.config));
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
