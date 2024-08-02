@@ -50,7 +50,6 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
-import software.amazon.smithy.typescript.codegen.auth.http.integration.AddHttpSigningPlugin;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -82,7 +81,6 @@ public final class AddS3Config implements TypeScriptIntegration {
     @Override
     public List<String> runAfter() {
         return List.of(
-            new AddHttpSigningPlugin().name(),
             AddBuiltinPlugins.class.getCanonicalName(),
             AddEndpointsPlugin.class.getCanonicalName()
         );
@@ -398,11 +396,6 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3Express",
-                    HAS_MIDDLEWARE)
-                .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
-                .build(),
-            RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3ExpressHttpSigning",
                     HAS_MIDDLEWARE)
                 .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
                 .build()

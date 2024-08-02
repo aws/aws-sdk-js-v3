@@ -97,24 +97,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
     if (!HttpRequest.isInstance(httpRequest)) {
       throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
     }
-
-    const validatedProps = await validateSigningProperties(signingProperties);
-
-    const { config, signer } = validatedProps;
-    let { signingRegion, signingName } = validatedProps;
-
-    const handlerExecutionContext = signingProperties.context as HandlerExecutionContext;
-
-    if (handlerExecutionContext?.authSchemes?.length ?? 0 > 1) {
-      const [first, second] = handlerExecutionContext.authSchemes!;
-      // since this is not the sigv4a signer, we accept the secondary authscheme's signing data
-      // if the first authscheme is sigv4a and second is sigv4.
-      if (first?.name === "sigv4a" && second?.name === "sigv4") {
-        signingRegion = second?.signingRegion ?? signingRegion;
-        signingName = second?.signingName ?? signingName;
-      }
-    }
-
+    const { config, signer, signingRegion, signingName } = await validateSigningProperties(signingProperties);
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: signingRegion,

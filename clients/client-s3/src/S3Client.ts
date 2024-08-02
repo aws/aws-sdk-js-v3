@@ -10,7 +10,6 @@ import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   getRegionRedirectMiddlewarePlugin,
-  getS3ExpressHttpSigningPlugin,
   getS3ExpressPlugin,
   getValidateBucketNamePlugin,
   resolveS3Config,
@@ -18,18 +17,19 @@ import {
   S3ResolvedConfig,
 } from "@aws-sdk/middleware-sdk-s3";
 import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { GetAwsChunkedEncodingStream } from "@aws-sdk/types";
+import { Credentials as __Credentials, GetAwsChunkedEncodingStream } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
-import {
-  DefaultIdentityProviderConfig,
-  getHttpAuthSchemeEndpointRuleSetPlugin,
-  getHttpSigningPlugin,
-} from "@smithy/core";
 import {
   EventStreamSerdeInputConfig,
   EventStreamSerdeResolvedConfig,
@@ -46,7 +46,6 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
-  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
@@ -69,12 +68,6 @@ import {
 } from "@smithy/types";
 import { Readable } from "stream";
 
-import {
-  defaultS3HttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
-  resolveHttpAuthSchemeConfig,
-} from "./auth/httpAuthSchemeProvider";
 import {
   AbortMultipartUploadCommandInput,
   AbortMultipartUploadCommandOutput,
@@ -670,11 +663,19 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * Default credentials provider; Not available in browser runtime.
-   * @deprecated
    * @internal
    */
-  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
+  /**
+   * Whether to escape request path when signing the request.
+   */
+  signingEscapePath?: boolean;
+
+  /**
+   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
+   */
+  useArnRegion?: boolean | Provider<boolean>;
   /**
    * Value for how many times a request will be made at most in case of retry.
    */
@@ -708,15 +709,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
   /**
-   * Whether to escape request path when signing the request.
-   */
-  signingEscapePath?: boolean;
-
-  /**
-   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
-   */
-  useArnRegion?: boolean | Provider<boolean>;
-  /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal
    */
@@ -733,9 +725,9 @@ export type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
-  EventStreamSerdeInputConfig &
-  HttpAuthSchemeInputConfig &
+  AwsAuthInputConfig &
   S3InputConfig &
+  EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -755,9 +747,9 @@ export type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
-  EventStreamSerdeResolvedConfig &
-  HttpAuthSchemeResolvedConfig &
+  AwsAuthResolvedConfig &
   S3ResolvedConfig &
+  EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -789,9 +781,9 @@ export class S3Client extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
-    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
-    const _config_9 = resolveS3Config(_config_8, { session: [() => this, CreateSessionCommand] });
+    const _config_7 = resolveAwsAuthConfig(_config_6);
+    const _config_8 = resolveS3Config(_config_7, { session: [() => this, CreateSessionCommand] });
+    const _config_9 = resolveEventStreamSerdeConfig(_config_8);
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
     super(_config_10);
     this.config = _config_10;
@@ -801,22 +793,11 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(
-      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: defaultS3HttpAuthSchemeParametersProvider,
-        identityProviderConfigProvider: async (config: S3ClientResolvedConfig) =>
-          new DefaultIdentityProviderConfig({
-            "aws.auth#sigv4": config.credentials,
-            "aws.auth#sigv4a": config.credentials,
-          }),
-      })
-    );
-    this.middlewareStack.use(getHttpSigningPlugin(this.config));
+    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
     this.middlewareStack.use(getRegionRedirectMiddlewarePlugin(this.config));
     this.middlewareStack.use(getS3ExpressPlugin(this.config));
-    this.middlewareStack.use(getS3ExpressHttpSigningPlugin(this.config));
   }
 
   /**

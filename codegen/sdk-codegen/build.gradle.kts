@@ -106,8 +106,9 @@ tasks.register("generate-smithy-build") {
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
                             .readText()
             ).expectObjectNode()
-            val useLegacyAuthServices = setOf<String>(
-                // e.g. "S3" - use this as exclusion list if needed.
+            val nonExperimentalIdentityAndAuthServices = setOf(
+                // S3
+                "S3",
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
@@ -120,7 +121,7 @@ tasks.register("generate-smithy-build") {
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
                                         + clientName + " Client for Node.js, Browser and React Native")
                                     .withMember("useLegacyAuth",
-                                        useLegacyAuthServices.contains(serviceTrait.sdkId))
+                                        nonExperimentalIdentityAndAuthServices.contains(serviceTrait.sdkId))
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
