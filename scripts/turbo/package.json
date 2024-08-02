@@ -1,6 +1,0 @@
-{
-  "private": true,
-  "dependencies": {
-    "@aws-sdk/client-secrets-manager": "^3.623.0"
-  }
-}
