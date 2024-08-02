@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
+import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
@@ -248,6 +249,7 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
       getWebSocketPlugin(config, {
         headerPrefix: "x-amzn-transcribe-",
       }),
+      getTranscribeStreamingPlugin(config),
     ];
   })
   .s("Transcribe", "StartCallAnalyticsStreamTranscription", {
