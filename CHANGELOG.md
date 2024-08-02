@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
+
+
+### Bug Fixes
+
+* **client-transcribe-streaming:** add plugin only for operations with streaming trait ([#6349](https://github.com/aws/aws-sdk-js-v3/issues/6349)) ([6043d79](https://github.com/aws/aws-sdk-js-v3/commit/6043d799e34725ca564963af4fdf965e8735fcbd))
+
+
+### Features
+
+* **client-cloudwatch:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([51a8423](https://github.com/aws/aws-sdk-js-v3/commit/51a8423c2ffe82d60761db4af3fe5b421889f36e))
+* **client-ecs:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([21bdf2a](https://github.com/aws/aws-sdk-js-v3/commit/21bdf2a90cfdfe588a6ea3b78ddddec3b83c80f5))
+* **client-glue:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([be78cf6](https://github.com/aws/aws-sdk-js-v3/commit/be78cf636d58c773dc908f6107bdd55ba2ad1783))
+* **client-ivs-realtime:** updates cloudtrail event source for SDKs ([6e9c35b](https://github.com/aws/aws-sdk-js-v3/commit/6e9c35b33af9ce8b8388551f657be14ec2ff762f))
+* **client-ivschat:** updates cloudtrail event source for SDKs ([deeea90](https://github.com/aws/aws-sdk-js-v3/commit/deeea907529f7e61df5fde40e02a0ec3522e4099))
+* **client-ivs:** updates cloudtrail event source for SDKs ([00374d5](https://github.com/aws/aws-sdk-js-v3/commit/00374d584abd349251c98cb72da92647aa1ff6cc))
+* **client-kinesis:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([86c28e0](https://github.com/aws/aws-sdk-js-v3/commit/86c28e0e1fa4f9f2e3de5a50542d15c2a08b4d81))
+* **client-resiliencehub:** Customers are presented with the grouping recommendations and can determine if the recommendations are accurate and apply to their case. This feature simplifies onboarding by organizing resources into appropriate AppComponents. ([b8d8c64](https://github.com/aws/aws-sdk-js-v3/commit/b8d8c647abda05b69e22a815f6f7bef6764a7afd))
+* **client-route-53:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([39096d9](https://github.com/aws/aws-sdk-js-v3/commit/39096d9a2d9ea2830180591946e7510c9cf1b292))
+* **client-ssm:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([ae83e77](https://github.com/aws/aws-sdk-js-v3/commit/ae83e7797a2608bfe0fbcbbe82e61081c4cc0b87))
+* **client-waf-regional:** Add v2 smoke tests and smithy smokeTests trait for SDK testing. ([52b9cf4](https://github.com/aws/aws-sdk-js-v3/commit/52b9cf433f172459eb8ee83bae4c28a0102ced39))
+
+
+
+
+
 # [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
 
 

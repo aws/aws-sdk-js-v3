@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
+
+
+### Features
+
+* **client-resiliencehub:** Customers are presented with the grouping recommendations and can determine if the recommendations are accurate and apply to their case. This feature simplifies onboarding by organizing resources into appropriate AppComponents. ([b8d8c64](https://github.com/aws/aws-sdk-js-v3/commit/b8d8c647abda05b69e22a815f6f7bef6764a7afd))
+
+
+
+
+
 # [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehub

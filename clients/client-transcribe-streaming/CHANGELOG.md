@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
+
+
+### Bug Fixes
+
+* **client-transcribe-streaming:** add plugin only for operations with streaming trait ([#6349](https://github.com/aws/aws-sdk-js-v3/issues/6349)) ([6043d79](https://github.com/aws/aws-sdk-js-v3/commit/6043d799e34725ca564963af4fdf965e8735fcbd))
+
+
+
+
+
 # [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe-streaming
