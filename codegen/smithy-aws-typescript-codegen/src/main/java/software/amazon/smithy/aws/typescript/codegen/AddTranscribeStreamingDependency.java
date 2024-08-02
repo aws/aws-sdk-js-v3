@@ -22,8 +22,6 @@ import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.knowledge.EventStreamIndex;
-import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -56,7 +54,8 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.dependency,
                                 "TranscribeStreaming", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> isTranscribeStreaming(s) && hasEventStreamInput(m, s, o))
+                        .operationPredicate((m, s, o) -> isTranscribeStreaming(s)
+                            && AddEventStreamHandlingDependency.hasEventStreamInput(m, o))
                         .build()
         );
     }
@@ -93,11 +92,6 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
     private static boolean isTranscribeStreaming(ServiceShape service) {
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         return serviceId.equals("Transcribe Streaming");
-    }
-
-    private static boolean hasEventStreamInput(Model model, ServiceShape service, OperationShape operation) {
-        EventStreamIndex eventStreamIndex = EventStreamIndex.of(model);
-        return eventStreamIndex.getInputInfo(operation).isPresent();
     }
 }
 
