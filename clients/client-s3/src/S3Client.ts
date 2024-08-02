@@ -10,6 +10,7 @@ import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   getRegionRedirectMiddlewarePlugin,
+  getS3ExpressHttpSigningPlugin,
   getS3ExpressPlugin,
   getValidateBucketNamePlugin,
   resolveS3Config,
@@ -675,15 +676,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
-   * Whether to escape request path when signing the request.
-   */
-  signingEscapePath?: boolean;
-
-  /**
-   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
-   */
-  useArnRegion?: boolean | Provider<boolean>;
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -716,6 +708,15 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 
   /**
+   * Whether to escape request path when signing the request.
+   */
+  signingEscapePath?: boolean;
+
+  /**
+   * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
+   */
+  useArnRegion?: boolean | Provider<boolean>;
+  /**
    * The internal function that inject utilities to runtime-specific stream to help users consume the data
    * @internal
    */
@@ -732,9 +733,9 @@ export type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpti
   RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
-  S3InputConfig &
   EventStreamSerdeInputConfig &
   HttpAuthSchemeInputConfig &
+  S3InputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -754,9 +755,9 @@ export type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
-  S3ResolvedConfig &
   EventStreamSerdeResolvedConfig &
   HttpAuthSchemeResolvedConfig &
+  S3ResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -788,9 +789,9 @@ export class S3Client extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveS3Config(_config_6, { session: [() => this, CreateSessionCommand] });
-    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
-    const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
+    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveS3Config(_config_8, { session: [() => this, CreateSessionCommand] });
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
     super(_config_10);
     this.config = _config_10;
@@ -800,10 +801,6 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
-    this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
-    this.middlewareStack.use(getRegionRedirectMiddlewarePlugin(this.config));
-    this.middlewareStack.use(getS3ExpressPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
         httpAuthSchemeParametersProvider: defaultS3HttpAuthSchemeParametersProvider,
@@ -815,6 +812,11 @@ export class S3Client extends __Client<
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
+    this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
+    this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
+    this.middlewareStack.use(getRegionRedirectMiddlewarePlugin(this.config));
+    this.middlewareStack.use(getS3ExpressPlugin(this.config));
+    this.middlewareStack.use(getS3ExpressHttpSigningPlugin(this.config));
   }
 
   /**

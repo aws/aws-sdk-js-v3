@@ -86,8 +86,9 @@ describe("Endpoints from ARN", () => {
       const OutpostId = "op-01234567890123456";
       const AccountId = "123456789012";
       const region = "us-west-2";
+      const clientRegion = "us-east-1";
       const credentials = { accessKeyId: "key", secretAccessKey: "secret" };
-      const client = new S3({ region: "us-east-1", credentials, useArnRegion: true });
+      const client = new S3({ region: clientRegion, credentials, useArnRegion: true });
       client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
       const result: any = await client.putObject({
         Bucket: `arn:aws:s3-outposts:${region}:${AccountId}:outpost/${OutpostId}/accesspoint/abc-111`,
@@ -96,6 +97,12 @@ describe("Endpoints from ARN", () => {
       });
       expect(result.request.hostname).to.eql(`abc-111-${AccountId}.${OutpostId}.s3-outposts.us-west-2.amazonaws.com`);
       const date = new Date().toISOString().slice(0, 10).replace(/-/g, ""); //20201029
+
+      /*
+       * Due to sigv4a -> sigv4 fallback, without a sigv4a implementation installed (it's optional)
+       * the credential should contain the ARN region, which is us-west-2, and not
+       * the us-east-1 region used by the client.
+       */
       expect(result.request.headers["authorization"]).contains(
         `Credential=${credentials.accessKeyId}/${date}/${region}/s3-outposts/aws4_request`
       );
