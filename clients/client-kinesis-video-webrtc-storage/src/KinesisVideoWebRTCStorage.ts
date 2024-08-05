@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  JoinStorageSessionAsViewerCommand,
+  JoinStorageSessionAsViewerCommandInput,
+  JoinStorageSessionAsViewerCommandOutput,
+} from "./commands/JoinStorageSessionAsViewerCommand";
+import {
   JoinStorageSessionCommand,
   JoinStorageSessionCommandInput,
   JoinStorageSessionCommandOutput,
@@ -14,6 +19,7 @@ import {
 
 const commands = {
   JoinStorageSessionCommand,
+  JoinStorageSessionAsViewerCommand,
 };
 
 export interface KinesisVideoWebRTCStorage {
@@ -33,10 +39,28 @@ export interface KinesisVideoWebRTCStorage {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: JoinStorageSessionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link JoinStorageSessionAsViewerCommand}
+   */
+  joinStorageSessionAsViewer(
+    args: JoinStorageSessionAsViewerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<JoinStorageSessionAsViewerCommandOutput>;
+  joinStorageSessionAsViewer(
+    args: JoinStorageSessionAsViewerCommandInput,
+    cb: (err: any, data?: JoinStorageSessionAsViewerCommandOutput) => void
+  ): void;
+  joinStorageSessionAsViewer(
+    args: JoinStorageSessionAsViewerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: JoinStorageSessionAsViewerCommandOutput) => void
+  ): void;
 }
 
 /**
- * <p>
+ * <fullname>webrtc</fullname>
+ *          <p>
  *     </p>
  * @public
  */

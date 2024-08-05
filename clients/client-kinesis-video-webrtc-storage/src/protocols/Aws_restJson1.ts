@@ -17,6 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  JoinStorageSessionAsViewerCommandInput,
+  JoinStorageSessionAsViewerCommandOutput,
+} from "../commands/JoinStorageSessionAsViewerCommand";
 import { JoinStorageSessionCommandInput, JoinStorageSessionCommandOutput } from "../commands/JoinStorageSessionCommand";
 import { KinesisVideoWebRTCStorageServiceException as __BaseException } from "../models/KinesisVideoWebRTCStorageServiceException";
 import {
@@ -49,12 +53,52 @@ export const se_JoinStorageSessionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1JoinStorageSessionAsViewerCommand
+ */
+export const se_JoinStorageSessionAsViewerCommand = async (
+  input: JoinStorageSessionAsViewerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/joinStorageSessionAsViewer");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      channelArn: [],
+      clientId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * deserializeAws_restJson1JoinStorageSessionCommand
  */
 export const de_JoinStorageSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JoinStorageSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1JoinStorageSessionAsViewerCommand
+ */
+export const de_JoinStorageSessionAsViewerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<JoinStorageSessionAsViewerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }

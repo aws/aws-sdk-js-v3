@@ -53,6 +53,10 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  JoinStorageSessionAsViewerCommandInput,
+  JoinStorageSessionAsViewerCommandOutput,
+} from "./commands/JoinStorageSessionAsViewerCommand";
 import { JoinStorageSessionCommandInput, JoinStorageSessionCommandOutput } from "./commands/JoinStorageSessionCommand";
 import {
   ClientInputEndpointParameters,
@@ -68,12 +72,12 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = JoinStorageSessionCommandInput;
+export type ServiceInputTypes = JoinStorageSessionAsViewerCommandInput | JoinStorageSessionCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = JoinStorageSessionCommandOutput;
+export type ServiceOutputTypes = JoinStorageSessionAsViewerCommandOutput | JoinStorageSessionCommandOutput;
 
 /**
  * @public
@@ -248,7 +252,8 @@ export interface KinesisVideoWebRTCStorageClientResolvedConfig
   extends KinesisVideoWebRTCStorageClientResolvedConfigType {}
 
 /**
- * <p>
+ * <fullname>webrtc</fullname>
+ *          <p>
  *     </p>
  * @public
  */

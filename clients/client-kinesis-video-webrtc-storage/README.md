@@ -6,6 +6,8 @@
 
 AWS SDK for JavaScript KinesisVideoWebRTCStorage Client for Node.js, Browser and React Native.
 
+<fullname>webrtc</fullname>
+
 <p>
 </p>
 
@@ -216,5 +218,13 @@ JoinStorageSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-webrtc-storage/command/JoinStorageSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-webrtc-storage/Interface/JoinStorageSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-webrtc-storage/Interface/JoinStorageSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
+JoinStorageSessionAsViewer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-webrtc-storage/command/JoinStorageSessionAsViewerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-webrtc-storage/Interface/JoinStorageSessionAsViewerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-webrtc-storage/Interface/JoinStorageSessionAsViewerCommandOutput/)
 
 </details>
