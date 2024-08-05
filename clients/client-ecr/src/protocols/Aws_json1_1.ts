@@ -88,6 +88,7 @@ import {
   DescribeRepositoryCreationTemplatesCommandInput,
   DescribeRepositoryCreationTemplatesCommandOutput,
 } from "../commands/DescribeRepositoryCreationTemplatesCommand";
+import { GetAccountSettingCommandInput, GetAccountSettingCommandOutput } from "../commands/GetAccountSettingCommand";
 import {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -119,6 +120,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutAccountSettingCommandInput, PutAccountSettingCommandOutput } from "../commands/PutAccountSettingCommand";
 import { PutImageCommandInput, PutImageCommandOutput } from "../commands/PutImageCommand";
 import {
   PutImageScanningConfigurationCommandInput,
@@ -206,6 +208,7 @@ import {
   EncryptionConfiguration,
   EncryptionConfigurationForRepositoryCreationTemplate,
   EnhancedImageScanFinding,
+  GetAccountSettingRequest,
   GetAuthorizationTokenRequest,
   GetAuthorizationTokenResponse,
   GetDownloadUrlForLayerRequest,
@@ -248,6 +251,7 @@ import {
   PullThroughCacheRule,
   PullThroughCacheRuleAlreadyExistsException,
   PullThroughCacheRuleNotFoundException,
+  PutAccountSettingRequest,
   PutImageRequest,
   PutImageScanningConfigurationRequest,
   PutImageTagMutabilityRequest,
@@ -575,6 +579,19 @@ export const se_DescribeRepositoryCreationTemplatesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetAccountSettingCommand
+ */
+export const se_GetAccountSettingCommand = async (
+  input: GetAccountSettingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAccountSetting");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetAuthorizationTokenCommand
  */
 export const se_GetAuthorizationTokenCommand = async (
@@ -699,6 +716,19 @@ export const se_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutAccountSettingCommand
+ */
+export const se_PutAccountSettingCommand = async (
+  input: PutAccountSettingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutAccountSetting");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1333,6 +1363,26 @@ export const de_DescribeRepositoryCreationTemplatesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetAccountSettingCommand
+ */
+export const de_GetAccountSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountSettingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetAccountSettingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetAuthorizationTokenCommand
  */
 export const de_GetAuthorizationTokenCommand = async (
@@ -1526,6 +1576,26 @@ export const de_ListTagsForResourceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutAccountSettingCommand
+ */
+export const de_PutAccountSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountSettingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutAccountSettingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2673,6 +2743,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EncryptionConfigurationForRepositoryCreationTemplate omitted.
 
+// se_GetAccountSettingRequest omitted.
+
 // se_GetAuthorizationTokenRegistryIdList omitted.
 
 // se_GetAuthorizationTokenRequest omitted.
@@ -2712,6 +2784,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_PrefixList omitted.
 
 // se_PullThroughCacheRuleRepositoryPrefixList omitted.
+
+// se_PutAccountSettingRequest omitted.
 
 // se_PutImageRequest omitted.
 
@@ -3089,6 +3163,8 @@ const de_EnhancedImageScanFindingList = (output: any, context: __SerdeContext): 
 
 // de_FindingSeverityCounts omitted.
 
+// de_GetAccountSettingResponse omitted.
+
 /**
  * deserializeAws_json1_1GetAuthorizationTokenResponse
  */
@@ -3344,6 +3420,8 @@ const de_PullThroughCacheRuleList = (output: any, context: __SerdeContext): Pull
 };
 
 // de_PullThroughCacheRuleNotFoundException omitted.
+
+// de_PutAccountSettingResponse omitted.
 
 // de_PutImageResponse omitted.
 

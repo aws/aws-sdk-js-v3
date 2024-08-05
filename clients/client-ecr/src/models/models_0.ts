@@ -1445,7 +1445,9 @@ export interface CreateRepositoryCreationTemplateRequest {
 
   /**
    * <p>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account as
-   *             the registry that you are configuring.</p>
+   *             the registry that you are configuring. Amazon ECR will assume your supplied role when
+   *             the customRoleArn is specified. When this field isn't specified, Amazon ECR will
+   *             use the service-linked role for the repository creation template.</p>
    * @public
    */
   customRoleArn?: string;
@@ -1515,7 +1517,9 @@ export interface RepositoryCreationTemplate {
   appliedFor?: RCTAppliedFor[];
 
   /**
-   * <p>The ARN of the role to be assumed by Amazon ECR.</p>
+   * <p>The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when
+   *             the customRoleArn is specified. When this field isn't specified, Amazon ECR will
+   *             use the service-linked role for the repository creation template.</p>
    * @public
    */
   customRoleArn?: string;
@@ -3340,6 +3344,35 @@ export interface DescribeRepositoryCreationTemplatesResponse {
 /**
  * @public
  */
+export interface GetAccountSettingRequest {
+  /**
+   * <p>Basic scan type version name. </p>
+   * @public
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAccountSettingResponse {
+  /**
+   * <p>Retrieves the basic scan type version name.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>Retrieves the value that specifies what basic scan type is being used:
+   *                 <code>AWS_NATIVE</code> or <code>CLAIR</code>.</p>
+   * @public
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetAuthorizationTokenRequest {
   /**
    * @deprecated
@@ -4062,6 +4095,42 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface PutAccountSettingRequest {
+  /**
+   * <p>Basic scan type version name. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Setting value that determines what basic scan type is being used:
+   *                 <code>AWS_NATIVE</code> or <code>CLAIR</code>.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccountSettingResponse {
+  /**
+   * <p>Retrieves the the basic scan type version name.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>Retrieves the basic scan type value, either <code>AWS_NATIVE</code> or
+   *             <code>-</code>.</p>
+   * @public
+   */
+  value?: string;
 }
 
 /**
@@ -4823,7 +4892,9 @@ export interface UpdateRepositoryCreationTemplateRequest {
 
   /**
    * <p>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account as
-   *             the registry that you are configuring.</p>
+   *             the registry that you are configuring. Amazon ECR will assume your supplied role when
+   *             the customRoleArn is specified. When this field isn't specified, Amazon ECR will
+   *             use the service-linked role for the repository creation template.</p>
    * @public
    */
   customRoleArn?: string;

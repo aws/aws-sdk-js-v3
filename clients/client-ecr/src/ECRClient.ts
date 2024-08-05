@@ -119,6 +119,7 @@ import {
   DescribeRepositoryCreationTemplatesCommandInput,
   DescribeRepositoryCreationTemplatesCommandOutput,
 } from "./commands/DescribeRepositoryCreationTemplatesCommand";
+import { GetAccountSettingCommandInput, GetAccountSettingCommandOutput } from "./commands/GetAccountSettingCommand";
 import {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -150,6 +151,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutAccountSettingCommandInput, PutAccountSettingCommandOutput } from "./commands/PutAccountSettingCommand";
 import { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
 import {
   PutImageScanningConfigurationCommandInput,
@@ -229,6 +231,7 @@ export type ServiceInputTypes =
   | DescribeRegistryCommandInput
   | DescribeRepositoriesCommandInput
   | DescribeRepositoryCreationTemplatesCommandInput
+  | GetAccountSettingCommandInput
   | GetAuthorizationTokenCommandInput
   | GetDownloadUrlForLayerCommandInput
   | GetLifecyclePolicyCommandInput
@@ -239,6 +242,7 @@ export type ServiceInputTypes =
   | InitiateLayerUploadCommandInput
   | ListImagesCommandInput
   | ListTagsForResourceCommandInput
+  | PutAccountSettingCommandInput
   | PutImageCommandInput
   | PutImageScanningConfigurationCommandInput
   | PutImageTagMutabilityCommandInput
@@ -281,6 +285,7 @@ export type ServiceOutputTypes =
   | DescribeRegistryCommandOutput
   | DescribeRepositoriesCommandOutput
   | DescribeRepositoryCreationTemplatesCommandOutput
+  | GetAccountSettingCommandOutput
   | GetAuthorizationTokenCommandOutput
   | GetDownloadUrlForLayerCommandOutput
   | GetLifecyclePolicyCommandOutput
@@ -291,6 +296,7 @@ export type ServiceOutputTypes =
   | InitiateLayerUploadCommandOutput
   | ListImagesCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutAccountSettingCommandOutput
   | PutImageCommandOutput
   | PutImageScanningConfigurationCommandOutput
   | PutImageTagMutabilityCommandOutput

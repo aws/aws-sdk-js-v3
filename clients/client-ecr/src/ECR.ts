@@ -108,6 +108,11 @@ import {
   DescribeRepositoryCreationTemplatesCommandOutput,
 } from "./commands/DescribeRepositoryCreationTemplatesCommand";
 import {
+  GetAccountSettingCommand,
+  GetAccountSettingCommandInput,
+  GetAccountSettingCommandOutput,
+} from "./commands/GetAccountSettingCommand";
+import {
   GetAuthorizationTokenCommand,
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -153,6 +158,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutAccountSettingCommand,
+  PutAccountSettingCommandInput,
+  PutAccountSettingCommandOutput,
+} from "./commands/PutAccountSettingCommand";
 import { PutImageCommand, PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
 import {
   PutImageScanningConfigurationCommand,
@@ -249,6 +259,7 @@ const commands = {
   DescribeRegistryCommand,
   DescribeRepositoriesCommand,
   DescribeRepositoryCreationTemplatesCommand,
+  GetAccountSettingCommand,
   GetAuthorizationTokenCommand,
   GetDownloadUrlForLayerCommand,
   GetLifecyclePolicyCommand,
@@ -259,6 +270,7 @@ const commands = {
   InitiateLayerUploadCommand,
   ListImagesCommand,
   ListTagsForResourceCommand,
+  PutAccountSettingCommand,
   PutImageCommand,
   PutImageScanningConfigurationCommand,
   PutImageTagMutabilityCommand,
@@ -632,6 +644,23 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link GetAccountSettingCommand}
+   */
+  getAccountSetting(
+    args: GetAccountSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountSettingCommandOutput>;
+  getAccountSetting(
+    args: GetAccountSettingCommandInput,
+    cb: (err: any, data?: GetAccountSettingCommandOutput) => void
+  ): void;
+  getAccountSetting(
+    args: GetAccountSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountSettingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAuthorizationTokenCommand}
    */
   getAuthorizationToken(): Promise<GetAuthorizationTokenCommandOutput>;
@@ -796,6 +825,23 @@ export interface ECR {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountSettingCommand}
+   */
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountSettingCommandOutput>;
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    cb: (err: any, data?: PutAccountSettingCommandOutput) => void
+  ): void;
+  putAccountSetting(
+    args: PutAccountSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountSettingCommandOutput) => void
   ): void;
 
   /**
