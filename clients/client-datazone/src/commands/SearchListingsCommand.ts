@@ -113,6 +113,39 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //           ],
  * //         },
  * //       },
+ * //       dataProductListing: { // DataProductListingItem
+ * //         listingId: "STRING_VALUE",
+ * //         listingRevision: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //         entityId: "STRING_VALUE",
+ * //         entityRevision: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         createdAt: new Date("TIMESTAMP"),
+ * //         listingCreatedBy: "STRING_VALUE",
+ * //         listingUpdatedBy: "STRING_VALUE",
+ * //         glossaryTerms: [
+ * //           {
+ * //             name: "STRING_VALUE",
+ * //             shortDescription: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         owningProjectId: "STRING_VALUE",
+ * //         additionalAttributes: { // DataProductListingItemAdditionalAttributes
+ * //           forms: "STRING_VALUE",
+ * //         },
+ * //         items: [ // ListingSummaryItems
+ * //           { // ListingSummaryItem
+ * //             listingId: "STRING_VALUE",
+ * //             listingRevision: "STRING_VALUE",
+ * //             glossaryTerms: [
+ * //               {
+ * //                 name: "STRING_VALUE",
+ * //                 shortDescription: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -41,6 +41,7 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  *   subscriptionTargetId: "STRING_VALUE",
  *   subscribedListingId: "STRING_VALUE",
  *   subscriptionId: "STRING_VALUE",
+ *   owningProjectId: "STRING_VALUE",
  *   sortBy: "CREATED_AT" || "UPDATED_AT",
  *   sortOrder: "ASCENDING" || "DESCENDING",
  *   maxResults: Number("int"),

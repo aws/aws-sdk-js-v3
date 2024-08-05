@@ -74,6 +74,11 @@ import {
   CreateAssetRevisionCommandOutput,
 } from "./commands/CreateAssetRevisionCommand";
 import { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "./commands/CreateAssetTypeCommand";
+import { CreateDataProductCommandInput, CreateDataProductCommandOutput } from "./commands/CreateDataProductCommand";
+import {
+  CreateDataProductRevisionCommandInput,
+  CreateDataProductRevisionCommandOutput,
+} from "./commands/CreateDataProductRevisionCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import {
@@ -114,6 +119,7 @@ import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from ".
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "./commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
+import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "./commands/DeleteDataProductCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
@@ -161,6 +167,7 @@ import {
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "./commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
+import { GetDataProductCommandInput, GetDataProductCommandOutput } from "./commands/GetDataProductCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "./commands/GetDataSourceRunCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
@@ -220,6 +227,10 @@ import {
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
 import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "./commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "./commands/ListAssetRevisionsCommand";
+import {
+  ListDataProductRevisionsCommandInput,
+  ListDataProductRevisionsCommandOutput,
+} from "./commands/ListDataProductRevisionsCommand";
 import {
   ListDataSourceRunActivitiesCommandInput,
   ListDataSourceRunActivitiesCommandOutput,
@@ -362,6 +373,8 @@ export type ServiceInputTypes =
   | CreateAssetFilterCommandInput
   | CreateAssetRevisionCommandInput
   | CreateAssetTypeCommandInput
+  | CreateDataProductCommandInput
+  | CreateDataProductRevisionCommandInput
   | CreateDataSourceCommandInput
   | CreateDomainCommandInput
   | CreateEnvironmentActionCommandInput
@@ -381,6 +394,7 @@ export type ServiceInputTypes =
   | DeleteAssetCommandInput
   | DeleteAssetFilterCommandInput
   | DeleteAssetTypeCommandInput
+  | DeleteDataProductCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
   | DeleteEnvironmentActionCommandInput
@@ -401,6 +415,7 @@ export type ServiceInputTypes =
   | GetAssetCommandInput
   | GetAssetFilterCommandInput
   | GetAssetTypeCommandInput
+  | GetDataProductCommandInput
   | GetDataSourceCommandInput
   | GetDataSourceRunCommandInput
   | GetDomainCommandInput
@@ -427,6 +442,7 @@ export type ServiceInputTypes =
   | GetUserProfileCommandInput
   | ListAssetFiltersCommandInput
   | ListAssetRevisionsCommandInput
+  | ListDataProductRevisionsCommandInput
   | ListDataSourceRunActivitiesCommandInput
   | ListDataSourceRunsCommandInput
   | ListDataSourcesCommandInput
@@ -490,6 +506,8 @@ export type ServiceOutputTypes =
   | CreateAssetFilterCommandOutput
   | CreateAssetRevisionCommandOutput
   | CreateAssetTypeCommandOutput
+  | CreateDataProductCommandOutput
+  | CreateDataProductRevisionCommandOutput
   | CreateDataSourceCommandOutput
   | CreateDomainCommandOutput
   | CreateEnvironmentActionCommandOutput
@@ -509,6 +527,7 @@ export type ServiceOutputTypes =
   | DeleteAssetCommandOutput
   | DeleteAssetFilterCommandOutput
   | DeleteAssetTypeCommandOutput
+  | DeleteDataProductCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput
   | DeleteEnvironmentActionCommandOutput
@@ -529,6 +548,7 @@ export type ServiceOutputTypes =
   | GetAssetCommandOutput
   | GetAssetFilterCommandOutput
   | GetAssetTypeCommandOutput
+  | GetDataProductCommandOutput
   | GetDataSourceCommandOutput
   | GetDataSourceRunCommandOutput
   | GetDomainCommandOutput
@@ -555,6 +575,7 @@ export type ServiceOutputTypes =
   | GetUserProfileCommandOutput
   | ListAssetFiltersCommandOutput
   | ListAssetRevisionsCommandOutput
+  | ListDataProductRevisionsCommandOutput
   | ListDataSourceRunActivitiesCommandOutput
   | ListDataSourceRunsCommandOutput
   | ListDataSourcesCommandOutput

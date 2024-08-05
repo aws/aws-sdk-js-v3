@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAssetRevisionsInput, ListAssetRevisionsOutput } from "../models/models_1";
-import { de_ListAssetRevisionsCommand, se_ListAssetRevisionsCommand } from "../protocols/Aws_restJson1";
+import { DeleteDataProductInput, DeleteDataProductOutput } from "../models/models_0";
+import { de_DeleteDataProductCommand, se_DeleteDataProductCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,55 +17,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListAssetRevisionsCommand}.
+ * The input for {@link DeleteDataProductCommand}.
  */
-export interface ListAssetRevisionsCommandInput extends ListAssetRevisionsInput {}
+export interface DeleteDataProductCommandInput extends DeleteDataProductInput {}
 /**
  * @public
  *
- * The output of {@link ListAssetRevisionsCommand}.
+ * The output of {@link DeleteDataProductCommand}.
  */
-export interface ListAssetRevisionsCommandOutput extends ListAssetRevisionsOutput, __MetadataBearer {}
+export interface DeleteDataProductCommandOutput extends DeleteDataProductOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the revisions for the asset.</p>
+ * <p>Deletes an data product in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, ListAssetRevisionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, ListAssetRevisionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, DeleteDataProductCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, DeleteDataProductCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // ListAssetRevisionsInput
+ * const input = { // DeleteDataProductInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
  * };
- * const command = new ListAssetRevisionsCommand(input);
+ * const command = new DeleteDataProductCommand(input);
  * const response = await client.send(command);
- * // { // ListAssetRevisionsOutput
- * //   items: [ // AssetRevisions
- * //     { // AssetRevision
- * //       domainId: "STRING_VALUE",
- * //       id: "STRING_VALUE",
- * //       revision: "STRING_VALUE",
- * //       createdBy: "STRING_VALUE",
- * //       createdAt: new Date("TIMESTAMP"),
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListAssetRevisionsCommandInput - {@link ListAssetRevisionsCommandInput}
- * @returns {@link ListAssetRevisionsCommandOutput}
- * @see {@link ListAssetRevisionsCommandInput} for command's `input` shape.
- * @see {@link ListAssetRevisionsCommandOutput} for command's `response` shape.
+ * @param DeleteDataProductCommandInput - {@link DeleteDataProductCommandInput}
+ * @returns {@link DeleteDataProductCommandOutput}
+ * @see {@link DeleteDataProductCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataProductCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
@@ -87,10 +77,10 @@ export interface ListAssetRevisionsCommandOutput extends ListAssetRevisionsOutpu
  *
  * @public
  */
-export class ListAssetRevisionsCommand extends $Command
+export class DeleteDataProductCommand extends $Command
   .classBuilder<
-    ListAssetRevisionsCommandInput,
-    ListAssetRevisionsCommandOutput,
+    DeleteDataProductCommandInput,
+    DeleteDataProductCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,9 +94,9 @@ export class ListAssetRevisionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "ListAssetRevisions", {})
-  .n("DataZoneClient", "ListAssetRevisionsCommand")
+  .s("DataZone", "DeleteDataProduct", {})
+  .n("DataZoneClient", "DeleteDataProductCommand")
   .f(void 0, void 0)
-  .ser(se_ListAssetRevisionsCommand)
-  .de(de_ListAssetRevisionsCommand)
+  .ser(se_DeleteDataProductCommand)
+  .de(de_DeleteDataProductCommand)
   .build() {}

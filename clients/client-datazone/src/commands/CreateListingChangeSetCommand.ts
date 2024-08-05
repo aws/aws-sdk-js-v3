@@ -39,7 +39,7 @@ export interface CreateListingChangeSetCommandOutput extends CreateListingChange
  * const input = { // CreateListingChangeSetInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   entityIdentifier: "STRING_VALUE", // required
- *   entityType: "ASSET", // required
+ *   entityType: "ASSET" || "DATA_PRODUCT", // required
  *   entityRevision: "STRING_VALUE",
  *   action: "PUBLISH" || "UNPUBLISH", // required
  *   clientToken: "STRING_VALUE",

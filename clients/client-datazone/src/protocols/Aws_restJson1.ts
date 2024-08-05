@@ -55,6 +55,11 @@ import {
   CreateAssetRevisionCommandOutput,
 } from "../commands/CreateAssetRevisionCommand";
 import { CreateAssetTypeCommandInput, CreateAssetTypeCommandOutput } from "../commands/CreateAssetTypeCommand";
+import { CreateDataProductCommandInput, CreateDataProductCommandOutput } from "../commands/CreateDataProductCommand";
+import {
+  CreateDataProductRevisionCommandInput,
+  CreateDataProductRevisionCommandOutput,
+} from "../commands/CreateDataProductRevisionCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import {
@@ -95,6 +100,7 @@ import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from ".
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
 import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "../commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "../commands/DeleteAssetTypeCommand";
+import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "../commands/DeleteDataProductCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import {
@@ -142,6 +148,7 @@ import {
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
 import { GetAssetFilterCommandInput, GetAssetFilterCommandOutput } from "../commands/GetAssetFilterCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "../commands/GetAssetTypeCommand";
+import { GetDataProductCommandInput, GetDataProductCommandOutput } from "../commands/GetDataProductCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
 import { GetDataSourceRunCommandInput, GetDataSourceRunCommandOutput } from "../commands/GetDataSourceRunCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
@@ -201,6 +208,10 @@ import {
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "../commands/GetUserProfileCommand";
 import { ListAssetFiltersCommandInput, ListAssetFiltersCommandOutput } from "../commands/ListAssetFiltersCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "../commands/ListAssetRevisionsCommand";
+import {
+  ListDataProductRevisionsCommandInput,
+  ListDataProductRevisionsCommandOutput,
+} from "../commands/ListDataProductRevisionsCommand";
 import {
   ListDataSourceRunActivitiesCommandInput,
   ListDataSourceRunActivitiesCommandOutput,
@@ -338,6 +349,11 @@ import {
   BusinessNameGenerationConfiguration,
   ColumnFilterConfiguration,
   ConflictException,
+  DataProductItem,
+  DataProductListing,
+  DataProductListingItem,
+  DataProductResultItem,
+  DataProductRevision,
   DataSourceConfigurationInput,
   DataSourceRunActivity,
   DataSourceRunSummary,
@@ -643,6 +659,64 @@ export const se_CreateAssetTypeCommand = async (
       formsInput: (_) => _json(_),
       name: [],
       owningProjectIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataProductCommand
+ */
+export const se_CreateDataProductCommand = async (
+  input: CreateDataProductCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/data-products");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      formsInput: (_) => _json(_),
+      glossaryTerms: (_) => _json(_),
+      items: (_) => _json(_),
+      name: [],
+      owningProjectIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataProductRevisionCommand
+ */
+export const se_CreateDataProductRevisionCommand = async (
+  input: CreateDataProductRevisionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/data-products/{identifier}/revisions");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      formsInput: (_) => _json(_),
+      glossaryTerms: (_) => _json(_),
+      items: (_) => _json(_),
+      name: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1143,6 +1217,23 @@ export const se_DeleteAssetTypeCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteDataProductCommand
+ */
+export const se_DeleteDataProductCommand = async (
+  input: DeleteDataProductCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/data-products/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteDataSourceCommand
  */
 export const se_DeleteDataSourceCommand = async (
@@ -1509,6 +1600,26 @@ export const se_GetAssetTypeCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/v2/domains/{domainIdentifier}/asset-types/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_r]: [, input[_r]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDataProductCommand
+ */
+export const se_GetDataProductCommand = async (
+  input: GetDataProductCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/data-products/{identifier}");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   const query: any = map({
@@ -1993,6 +2104,27 @@ export const se_ListAssetRevisionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListDataProductRevisionsCommand
+ */
+export const se_ListDataProductRevisionsCommand = async (
+  input: ListDataProductRevisionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/data-products/{identifier}/revisions");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDataSourceRunActivitiesCommand
  */
 export const se_ListDataSourceRunActivitiesCommand = async (
@@ -2331,6 +2463,7 @@ export const se_ListSubscriptionGrantsCommand = async (
     [_sTI]: [, input[_sTI]!],
     [_sLI]: [, input[_sLI]!],
     [_sI]: [, input[_sI]!],
+    [_oPI]: [, input[_oPI]!],
     [_sB]: [, input[_sB]!],
     [_sO]: [, input[_sO]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
@@ -3495,6 +3628,74 @@ export const de_CreateAssetTypeCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateDataProductCommand
+ */
+export const de_CreateDataProductCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataProductCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    firstRevisionCreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    firstRevisionCreatedBy: __expectString,
+    formsOutput: _json,
+    glossaryTerms: _json,
+    id: __expectString,
+    items: _json,
+    name: __expectString,
+    owningProjectId: __expectString,
+    revision: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDataProductRevisionCommand
+ */
+export const de_CreateDataProductRevisionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataProductRevisionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    firstRevisionCreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    firstRevisionCreatedBy: __expectString,
+    formsOutput: _json,
+    glossaryTerms: _json,
+    id: __expectString,
+    items: _json,
+    name: __expectString,
+    owningProjectId: __expectString,
+    revision: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateDataSourceCommand
  */
 export const de_CreateDataSourceCommand = async (
@@ -4013,6 +4214,23 @@ export const de_DeleteAssetTypeCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteDataProductCommand
+ */
+export const de_DeleteDataProductCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataProductCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteDataSourceCommand
  */
 export const de_DeleteDataSourceCommand = async (
@@ -4439,6 +4657,40 @@ export const de_GetAssetTypeCommand = async (
     revision: __expectString,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     updatedBy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataProductCommand
+ */
+export const de_GetDataProductCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProductCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    firstRevisionCreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    firstRevisionCreatedBy: __expectString,
+    formsOutput: _json,
+    glossaryTerms: _json,
+    id: __expectString,
+    items: _json,
+    name: __expectString,
+    owningProjectId: __expectString,
+    revision: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5214,6 +5466,28 @@ export const de_ListAssetRevisionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     items: (_) => de_AssetRevisions(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDataProductRevisionsCommand
+ */
+export const de_ListDataProductRevisionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDataProductRevisionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_DataProductRevisions(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -6690,6 +6964,10 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 
 // se_ColumnNameList omitted.
 
+// se_DataProductItem omitted.
+
+// se_DataProductItems omitted.
+
 // se_DataSourceConfigurationInput omitted.
 
 // se_EnabledRegionList omitted.
@@ -6754,6 +7032,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_IsNotNullExpression omitted.
 
 // se_IsNullExpression omitted.
+
+// se_ItemGlossaryTerms omitted.
 
 // se_LakeFormationConfiguration omitted.
 
@@ -6963,6 +7243,10 @@ const de_AssetFilterSummary = (output: any, context: __SerdeContext): AssetFilte
   }) as any;
 };
 
+// de_AssetInDataProductListingItem omitted.
+
+// de_AssetInDataProductListingItems omitted.
+
 /**
  * deserializeAws_restJson1AssetItem
  */
@@ -7114,6 +7398,91 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
 // de_CustomParameter omitted.
 
 // de_CustomParameterList omitted.
+
+// de_DataProductItem omitted.
+
+// de_DataProductItems omitted.
+
+/**
+ * deserializeAws_restJson1DataProductListing
+ */
+const de_DataProductListing = (output: any, context: __SerdeContext): DataProductListing => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataProductId: __expectString,
+    dataProductRevision: __expectString,
+    forms: __expectString,
+    glossaryTerms: _json,
+    items: _json,
+    owningProjectId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataProductListingItem
+ */
+const de_DataProductListingItem = (output: any, context: __SerdeContext): DataProductListingItem => {
+  return take(output, {
+    additionalAttributes: _json,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    entityId: __expectString,
+    entityRevision: __expectString,
+    glossaryTerms: _json,
+    items: _json,
+    listingCreatedBy: __expectString,
+    listingId: __expectString,
+    listingRevision: __expectString,
+    listingUpdatedBy: __expectString,
+    name: __expectString,
+    owningProjectId: __expectString,
+  }) as any;
+};
+
+// de_DataProductListingItemAdditionalAttributes omitted.
+
+/**
+ * deserializeAws_restJson1DataProductResultItem
+ */
+const de_DataProductResultItem = (output: any, context: __SerdeContext): DataProductResultItem => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    domainId: __expectString,
+    firstRevisionCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    firstRevisionCreatedBy: __expectString,
+    glossaryTerms: _json,
+    id: __expectString,
+    name: __expectString,
+    owningProjectId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataProductRevision
+ */
+const de_DataProductRevision = (output: any, context: __SerdeContext): DataProductRevision => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    revision: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DataProductRevisions
+ */
+const de_DataProductRevisions = (output: any, context: __SerdeContext): DataProductRevision[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataProductRevision(entry, context);
+    });
+  return retVal;
+};
 
 // de_DataSourceConfigurationOutput omitted.
 
@@ -7493,6 +7862,8 @@ const de_GlossaryTermItem = (output: any, context: __SerdeContext): GlossaryTerm
 
 // de_IsNullExpression omitted.
 
+// de_ItemGlossaryTerms omitted.
+
 // de_LakeFormationConfiguration omitted.
 
 // de_LessThanExpression omitted.
@@ -7583,10 +7954,23 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
       assetListing: de_AssetListing(output.assetListing, context),
     };
   }
+  if (output.dataProductListing != null) {
+    return {
+      dataProductListing: de_DataProductListing(output.dataProductListing, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
 // de_ListingRevision omitted.
+
+// de_ListingSummaries omitted.
+
+// de_ListingSummary omitted.
+
+// de_ListingSummaryItem omitted.
+
+// de_ListingSummaryItems omitted.
 
 // de_MemberDetails omitted.
 
@@ -7793,6 +8177,11 @@ const de_SearchInventoryResultItem = (output: any, context: __SerdeContext): Sea
       assetItem: de_AssetItem(output.assetItem, context),
     };
   }
+  if (output.dataProductItem != null) {
+    return {
+      dataProductItem: de_DataProductResultItem(output.dataProductItem, context),
+    };
+  }
   if (output.glossaryItem != null) {
     return {
       glossaryItem: de_GlossaryItem(output.glossaryItem, context),
@@ -7825,6 +8214,11 @@ const de_SearchResultItem = (output: any, context: __SerdeContext): SearchResult
   if (output.assetListing != null) {
     return {
       assetListing: de_AssetListingItem(output.assetListing, context),
+    };
+  }
+  if (output.dataProductListing != null) {
+    return {
+      dataProductListing: de_DataProductListingItem(output.dataProductListing, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -7926,6 +8320,8 @@ const de_SubscribedAssets = (output: any, context: __SerdeContext): SubscribedAs
 // de_SubscribedPrincipal omitted.
 
 // de_SubscribedPrincipals omitted.
+
+// de_SubscribedProductListing omitted.
 
 // de_SubscribedProject omitted.
 

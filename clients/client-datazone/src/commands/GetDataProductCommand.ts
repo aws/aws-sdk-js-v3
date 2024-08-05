@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetGlossaryTermInput,
-  GetGlossaryTermOutput,
-  GetGlossaryTermOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_GetGlossaryTermCommand, se_GetGlossaryTermCommand } from "../protocols/Aws_restJson1";
+import { GetDataProductInput, GetDataProductOutput, GetDataProductOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetDataProductCommand, se_GetDataProductCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,58 +17,72 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetGlossaryTermCommand}.
+ * The input for {@link GetDataProductCommand}.
  */
-export interface GetGlossaryTermCommandInput extends GetGlossaryTermInput {}
+export interface GetDataProductCommandInput extends GetDataProductInput {}
 /**
  * @public
  *
- * The output of {@link GetGlossaryTermCommand}.
+ * The output of {@link GetDataProductCommand}.
  */
-export interface GetGlossaryTermCommandOutput extends GetGlossaryTermOutput, __MetadataBearer {}
+export interface GetDataProductCommandOutput extends GetDataProductOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a business glossary term in Amazon DataZone.</p>
+ * <p>Gets the data product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetGlossaryTermCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetGlossaryTermCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, GetDataProductCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, GetDataProductCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // GetGlossaryTermInput
+ * const input = { // GetDataProductInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
+ *   revision: "STRING_VALUE",
  * };
- * const command = new GetGlossaryTermCommand(input);
+ * const command = new GetDataProductCommand(input);
  * const response = await client.send(command);
- * // { // GetGlossaryTermOutput
+ * // { // GetDataProductOutput
  * //   domainId: "STRING_VALUE", // required
- * //   glossaryId: "STRING_VALUE", // required
  * //   id: "STRING_VALUE", // required
+ * //   revision: "STRING_VALUE", // required
+ * //   owningProjectId: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   shortDescription: "STRING_VALUE",
- * //   longDescription: "STRING_VALUE",
- * //   termRelations: { // TermRelations
- * //     isA: [ // GlossaryTerms
- * //       "STRING_VALUE",
- * //     ],
- * //     classifies: [
- * //       "STRING_VALUE",
- * //     ],
- * //   },
- * //   status: "ENABLED" || "DISABLED", // required
+ * //   status: "CREATED" || "CREATING" || "CREATE_FAILED", // required
+ * //   description: "STRING_VALUE",
+ * //   glossaryTerms: [ // GlossaryTerms
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   items: [ // DataProductItems
+ * //     { // DataProductItem
+ * //       itemType: "ASSET", // required
+ * //       identifier: "STRING_VALUE", // required
+ * //       revision: "STRING_VALUE",
+ * //       glossaryTerms: [ // ItemGlossaryTerms
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   formsOutput: [ // FormOutputList
+ * //     { // FormOutput
+ * //       formName: "STRING_VALUE", // required
+ * //       typeName: "STRING_VALUE",
+ * //       typeRevision: "STRING_VALUE",
+ * //       content: "STRING_VALUE",
+ * //     },
+ * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",
- * //   updatedAt: new Date("TIMESTAMP"),
- * //   updatedBy: "STRING_VALUE",
+ * //   firstRevisionCreatedAt: new Date("TIMESTAMP"),
+ * //   firstRevisionCreatedBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetGlossaryTermCommandInput - {@link GetGlossaryTermCommandInput}
- * @returns {@link GetGlossaryTermCommandOutput}
- * @see {@link GetGlossaryTermCommandInput} for command's `input` shape.
- * @see {@link GetGlossaryTermCommandOutput} for command's `response` shape.
+ * @param GetDataProductCommandInput - {@link GetDataProductCommandInput}
+ * @returns {@link GetDataProductCommandOutput}
+ * @see {@link GetDataProductCommandInput} for command's `input` shape.
+ * @see {@link GetDataProductCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -98,10 +108,10 @@ export interface GetGlossaryTermCommandOutput extends GetGlossaryTermOutput, __M
  *
  * @public
  */
-export class GetGlossaryTermCommand extends $Command
+export class GetDataProductCommand extends $Command
   .classBuilder<
-    GetGlossaryTermCommandInput,
-    GetGlossaryTermCommandOutput,
+    GetDataProductCommandInput,
+    GetDataProductCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,9 +125,9 @@ export class GetGlossaryTermCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "GetGlossaryTerm", {})
-  .n("DataZoneClient", "GetGlossaryTermCommand")
-  .f(void 0, GetGlossaryTermOutputFilterSensitiveLog)
-  .ser(se_GetGlossaryTermCommand)
-  .de(de_GetGlossaryTermCommand)
+  .s("DataZone", "GetDataProduct", {})
+  .n("DataZoneClient", "GetDataProductCommand")
+  .f(void 0, GetDataProductOutputFilterSensitiveLog)
+  .ser(se_GetDataProductCommand)
+  .de(de_GetDataProductCommand)
   .build() {}

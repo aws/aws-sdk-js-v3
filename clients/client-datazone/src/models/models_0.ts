@@ -368,10 +368,79 @@ export interface SubscribedAssetListing {
 }
 
 /**
+ * <p>The listing of the asset in a data product.</p>
+ * @public
+ */
+export interface AssetInDataProductListingItem {
+  /**
+   * <p>The entity ID of the listing of the asset in a data product.</p>
+   * @public
+   */
+  entityId?: string;
+
+  /**
+   * <p>The entity revision of the listing of the asset in a data product.</p>
+   * @public
+   */
+  entityRevision?: string;
+
+  /**
+   * <p>The entity type of the listing of the asset in a data product.</p>
+   * @public
+   */
+  entityType?: string;
+}
+
+/**
+ * <p>The data product listing.</p>
+ * @public
+ */
+export interface SubscribedProductListing {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  entityId?: string;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  entityRevision?: string;
+
+  /**
+   * <p>The glossary terms of the data product listing.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[];
+
+  /**
+   * <p>The name of the data product listing.</p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The description of the data product listing.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The data assets of the data product listing.</p>
+   * @public
+   */
+  assetListings?: AssetInDataProductListingItem[];
+}
+
+/**
  * <p>The published asset for which the subscription grant is created.</p>
  * @public
  */
-export type SubscribedListingItem = SubscribedListingItem.AssetListingMember | SubscribedListingItem.$UnknownMember;
+export type SubscribedListingItem =
+  | SubscribedListingItem.AssetListingMember
+  | SubscribedListingItem.ProductListingMember
+  | SubscribedListingItem.$UnknownMember;
 
 /**
  * @public
@@ -383,6 +452,17 @@ export namespace SubscribedListingItem {
    */
   export interface AssetListingMember {
     assetListing: SubscribedAssetListing;
+    productListing?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The data product listing.</p>
+   * @public
+   */
+  export interface ProductListingMember {
+    assetListing?: never;
+    productListing: SubscribedProductListing;
     $unknown?: never;
   }
 
@@ -391,16 +471,19 @@ export namespace SubscribedListingItem {
    */
   export interface $UnknownMember {
     assetListing?: never;
+    productListing?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     assetListing: (value: SubscribedAssetListing) => T;
+    productListing: (value: SubscribedProductListing) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SubscribedListingItem, visitor: Visitor<T>): T => {
     if (value.assetListing !== undefined) return visitor.assetListing(value.assetListing);
+    if (value.productListing !== undefined) return visitor.productListing(value.productListing);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2917,6 +3000,350 @@ export interface ConfigurableEnvironmentAction {
  * @public
  * @enum
  */
+export const DataProductItemType = {
+  ASSET: "ASSET",
+} as const;
+
+/**
+ * @public
+ */
+export type DataProductItemType = (typeof DataProductItemType)[keyof typeof DataProductItemType];
+
+/**
+ * <p>The data product.</p>
+ * @public
+ */
+export interface DataProductItem {
+  /**
+   * <p>The type of the data product.</p>
+   * @public
+   */
+  itemType: DataProductItemType | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision?: string;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[];
+}
+
+/**
+ * @public
+ */
+export interface CreateDataProductInput {
+  /**
+   * <p>The ID of the domain where the data product is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[];
+
+  /**
+   * <p>The metadata forms of the data product.</p>
+   * @public
+   */
+  formsInput?: FormInput[];
+
+  /**
+   * <p>The data assets of the data product.</p>
+   * @public
+   */
+  items?: DataProductItem[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataProductStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DataProductStatus = (typeof DataProductStatus)[keyof typeof DataProductStatus];
+
+/**
+ * @public
+ */
+export interface CreateDataProductOutput {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the data product.</p>
+   * @public
+   */
+  status: DataProductStatus | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[];
+
+  /**
+   * <p>The data assets of the data product.</p>
+   * @public
+   */
+  items?: DataProductItem[];
+
+  /**
+   * <p>The metadata forms of the data product.</p>
+   * @public
+   */
+  formsOutput?: FormOutput[];
+
+  /**
+   * <p>The timestamp at which the data product was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the data product.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The timestamp at which the first revision of the data product was created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataProductRevisionInput {
+  /**
+   * <p>The ID of the domain where the data product revision is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the data product revision.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the data product revision.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the data product revision.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The glossary terms of the data product revision.</p>
+   * @public
+   */
+  glossaryTerms?: string[];
+
+  /**
+   * <p>The data assets of the data product revision.</p>
+   * @public
+   */
+  items?: DataProductItem[];
+
+  /**
+   * <p>The metadata forms of the data product revision.</p>
+   * @public
+   */
+  formsInput?: FormInput[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataProductRevisionOutput {
+  /**
+   * <p>The ID of the domain where data product revision is created.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product revision.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The revision of the data product revision.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product revision.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The name of the data product revision.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the data product revision.</p>
+   * @public
+   */
+  status: DataProductStatus | undefined;
+
+  /**
+   * <p>The description of the data product revision.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The glossary terms of the data product revision.</p>
+   * @public
+   */
+  glossaryTerms?: string[];
+
+  /**
+   * <p>The data assets of the data product revision.</p>
+   * @public
+   */
+  items?: DataProductItem[];
+
+  /**
+   * <p>The metadata forms of the data product revision.</p>
+   * @public
+   */
+  formsOutput?: FormOutput[];
+
+  /**
+   * <p>The timestamp at which the data product revision is created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the data product revision.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The timestamp at which the first revision of the data product is created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const FilterExpressionType = {
   EXCLUDE: "EXCLUDE",
   INCLUDE: "INCLUDE",
@@ -5037,6 +5464,7 @@ export interface CreateGroupProfileOutput {
  */
 export const EntityType = {
   ASSET: "ASSET",
+  DATA_PRODUCT: "DATA_PRODUCT",
 } as const;
 
 /**
@@ -5662,6 +6090,8 @@ export interface CreateSubscriptionGrantOutput {
   assets?: SubscribedAsset[];
 
   /**
+   * @deprecated
+   *
    * <p>The identifier of the subscription grant.</p>
    * @public
    */
@@ -6243,6 +6673,434 @@ export const DataAssetActivityStatus = {
  * @public
  */
 export type DataAssetActivityStatus = (typeof DataAssetActivityStatus)[keyof typeof DataAssetActivityStatus];
+
+/**
+ * @public
+ */
+export interface DeleteDataProductInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the data product is deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the data product that is deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataProductOutput {}
+
+/**
+ * @public
+ */
+export interface GetDataProductInput {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDataProductOutput {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The revision of the data product.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the data product.</p>
+   * @public
+   */
+  status: DataProductStatus | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[];
+
+  /**
+   * <p>The data assets of the data product.</p>
+   * @public
+   */
+  items?: DataProductItem[];
+
+  /**
+   * <p>The metadata forms of the data product.</p>
+   * @public
+   */
+  formsOutput?: FormOutput[];
+
+  /**
+   * <p>The timestamp at which the data product is created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the data product.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The timestamp at which the first revision of the data product is created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string;
+}
+
+/**
+ * <p>The summary of the listing of the data product.</p>
+ * @public
+ */
+export interface ListingSummary {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  listingId?: string;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  listingRevision?: string;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[];
+}
+
+/**
+ * <p>The data product listing.</p>
+ * @public
+ */
+export interface DataProductListing {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  dataProductId?: string;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  dataProductRevision?: string;
+
+  /**
+   * <p>The timestamp at which the data product listing was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The metadata forms of the data product listing.</p>
+   * @public
+   */
+  forms?: string;
+
+  /**
+   * <p>The glossary terms of the data product listing.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[];
+
+  /**
+   * <p>The ID of the owning project of the data product listing.</p>
+   * @public
+   */
+  owningProjectId?: string;
+
+  /**
+   * <p>The data assets of the data product listing.</p>
+   * @public
+   */
+  items?: ListingSummary[];
+}
+
+/**
+ * <p>The additional attributes of the asset of the data product. </p>
+ * @public
+ */
+export interface DataProductListingItemAdditionalAttributes {
+  /**
+   * <p>The metadata forms of the asset of the data product. </p>
+   * @public
+   */
+  forms?: string;
+}
+
+/**
+ * <p>The results of the data product summary.</p>
+ * @public
+ */
+export interface ListingSummaryItem {
+  /**
+   * <p>The ID of the data product listing.</p>
+   * @public
+   */
+  listingId?: string;
+
+  /**
+   * <p>The revision of the data product listing.</p>
+   * @public
+   */
+  listingRevision?: string;
+
+  /**
+   * <p>The glossary terms of the data product listing.</p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[];
+}
+
+/**
+ * <p>The asset of the data product listing.</p>
+ * @public
+ */
+export interface DataProductListingItem {
+  /**
+   * <p>The ID of the listing.</p>
+   * @public
+   */
+  listingId?: string;
+
+  /**
+   * <p>The revision of the listing.</p>
+   * @public
+   */
+  listingRevision?: string;
+
+  /**
+   * <p>The name of the asset of the data product. </p>
+   * @public
+   */
+  name?: string;
+
+  /**
+   * <p>The entity ID of the asset of the asset of the data product. </p>
+   * @public
+   */
+  entityId?: string;
+
+  /**
+   * <p>The revision of the asset of the asset of the data product. </p>
+   * @public
+   */
+  entityRevision?: string;
+
+  /**
+   * <p>The description of the asset of the asset of the data product. </p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The timestamp at which the asset of the data product listing was created. </p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The timestamp at which the listing was created.</p>
+   * @public
+   */
+  listingCreatedBy?: string;
+
+  /**
+   * <p>The user who updated the listing.</p>
+   * @public
+   */
+  listingUpdatedBy?: string;
+
+  /**
+   * <p>The glossary terms of the asset of the asset of the data product. </p>
+   * @public
+   */
+  glossaryTerms?: DetailedGlossaryTerm[];
+
+  /**
+   * <p>The ID of the owning project of the asset of the data product. </p>
+   * @public
+   */
+  owningProjectId?: string;
+
+  /**
+   * <p>The additional attributes of the asset of the data product.</p>
+   * @public
+   */
+  additionalAttributes?: DataProductListingItemAdditionalAttributes;
+
+  /**
+   * <p>The data of the asset of the data product. </p>
+   * @public
+   */
+  items?: ListingSummaryItem[];
+}
+
+/**
+ * <p>The data product.</p>
+ * @public
+ */
+export interface DataProductResultItem {
+  /**
+   * <p>The ID of the domain where the data product lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The ID of the data product.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the data product.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ID of the owning project of the data product.</p>
+   * @public
+   */
+  owningProjectId: string | undefined;
+
+  /**
+   * <p>The description of the data product.</p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The glossary terms of the data product.</p>
+   * @public
+   */
+  glossaryTerms?: string[];
+
+  /**
+   * <p>The timestamp at which the data product was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the data product.</p>
+   * @public
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The timestamp at which first revision of the data product was created.</p>
+   * @public
+   */
+  firstRevisionCreatedAt?: Date;
+
+  /**
+   * <p>The user who created the first revision of the data product.</p>
+   * @public
+   */
+  firstRevisionCreatedBy?: string;
+}
+
+/**
+ * <p>The data product revision.</p>
+ * @public
+ */
+export interface DataProductRevision {
+  /**
+   * <p>The ID of the domain where the data product revision lives.</p>
+   * @public
+   */
+  domainId?: string;
+
+  /**
+   * <p>The ID of the data product revision.</p>
+   * @public
+   */
+  id?: string;
+
+  /**
+   * <p>The data product revision.</p>
+   * @public
+   */
+  revision?: string;
+
+  /**
+   * <p>The timestamp at which the data product revision was created.</p>
+   * @public
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The user who created the data product revision.</p>
+   * @public
+   */
+  createdBy?: string;
+}
 
 /**
  * @public
@@ -7781,6 +8639,8 @@ export interface DeleteSubscriptionGrantOutput {
   assets?: SubscribedAsset[];
 
   /**
+   * @deprecated
+   *
    * <p>The identifier of the subsctiption whose subscription grant is to be deleted.</p>
    * @public
    */
@@ -9686,6 +10546,8 @@ export interface GetSubscriptionGrantOutput {
   assets?: SubscribedAsset[];
 
   /**
+   * @deprecated
+   *
    * <p>The identifier of the subscription.</p>
    * @public
    */
@@ -10096,705 +10958,6 @@ export interface DeleteGlossaryInput {
 }
 
 /**
- * @public
- */
-export interface DeleteGlossaryOutput {}
-
-/**
- * @public
- */
-export interface GetGlossaryInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the business glossary.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGlossaryOutput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the business glossary.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The ID of the project that owns this business glossary.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The name of the business glossary.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the business glossary.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The status of the business glossary.</p>
-   * @public
-   */
-  status: GlossaryStatus | undefined;
-
-  /**
-   * <p>The timestamp of when this business glossary was created.</p>
-   * @public
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The Amazon DataZone user who created this business glossary.</p>
-   * @public
-   */
-  createdBy?: string;
-
-  /**
-   * <p>The timestamp of when the business glossary was updated.</p>
-   * @public
-   */
-  updatedAt?: Date;
-
-  /**
-   * <p>The Amazon DataZone user who updated the business glossary.</p>
-   * @public
-   */
-  updatedBy?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateGlossaryInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be
-   *          updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the business glossary to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateGlossary</code> action.</p>
-   * @public
-   */
-  name?: string;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateGlossary</code> action.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
-   * @public
-   */
-  status?: GlossaryStatus;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
-   * @public
-   */
-  clientToken?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateGlossaryOutput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be
-   *          updated.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the business glossary that is to be updated.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateGlossary</code> action.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the project in which to update a business glossary.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateGlossary</code> action.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
-   * @public
-   */
-  status?: GlossaryStatus;
-}
-
-/**
- * @public
- */
-export interface DeleteGlossaryTermInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the business glossary term is deleted.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the business glossary term that is deleted.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGlossaryTermOutput {}
-
-/**
- * @public
- */
-export interface GetGlossaryTermInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary term exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the business glossary term.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGlossaryTermOutput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which this business glossary term exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the business glossary to which this term belongs.</p>
-   * @public
-   */
-  glossaryId: string | undefined;
-
-  /**
-   * <p>The ID of the business glossary term.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the business glossary term.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The short decription of the business glossary term.</p>
-   * @public
-   */
-  shortDescription?: string;
-
-  /**
-   * <p>The long description of the business glossary term.</p>
-   * @public
-   */
-  longDescription?: string;
-
-  /**
-   * <p>The relations of the business glossary term.</p>
-   * @public
-   */
-  termRelations?: TermRelations;
-
-  /**
-   * <p>The status of the business glossary term.</p>
-   * @public
-   */
-  status: GlossaryTermStatus | undefined;
-
-  /**
-   * <p>The timestamp of when the business glossary term was created.</p>
-   * @public
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The Amazon DataZone user who created the business glossary.</p>
-   * @public
-   */
-  createdBy?: string;
-
-  /**
-   * <p>The timestamp of when the business glossary term was updated.</p>
-   * @public
-   */
-  updatedAt?: Date;
-
-  /**
-   * <p>The Amazon DataZone user who updated the business glossary term.</p>
-   * @public
-   */
-  updatedBy?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateGlossaryTermInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be
-   *          updated.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the business glossary in which a term is to be updated.</p>
-   * @public
-   */
-  glossaryIdentifier?: string;
-
-  /**
-   * <p>The identifier of the business glossary term that is to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
-   * @public
-   */
-  name?: string;
-
-  /**
-   * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
-   * @public
-   */
-  shortDescription?: string;
-
-  /**
-   * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
-   * @public
-   */
-  longDescription?: string;
-
-  /**
-   * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
-   * @public
-   */
-  termRelations?: TermRelations;
-
-  /**
-   * <p>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
-   * @public
-   */
-  status?: GlossaryTermStatus;
-}
-
-/**
- * @public
- */
-export interface UpdateGlossaryTermOutput {
-  /**
-   * <p>The identifier of the business glossary term that is to be updated.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be
-   *          updated.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the business glossary in which a term is to be updated.</p>
-   * @public
-   */
-  glossaryId: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
-   * @public
-   */
-  status: GlossaryTermStatus | undefined;
-
-  /**
-   * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
-   * @public
-   */
-  shortDescription?: string;
-
-  /**
-   * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
-   * @public
-   */
-  longDescription?: string;
-
-  /**
-   * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
-   *          action.</p>
-   * @public
-   */
-  termRelations?: TermRelations;
-}
-
-/**
- * @public
- */
-export interface ListAssetFiltersInput {
-  /**
-   * <p>The ID of the domain where you want to list asset filters.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the data asset.</p>
-   * @public
-   */
-  assetIdentifier: string | undefined;
-
-  /**
-   * <p>The status of the asset filter.</p>
-   * @public
-   */
-  status?: FilterStatus;
-
-  /**
-   * <p>When the number of asset filters is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of asset filters, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListAssetFilters</code> to
-   *          list the next set of asset filters.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of asset filters to return in a single call to
-   *             <code>ListAssetFilters</code>. When the number of asset filters to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListAssetFilters</code> to list the
-   *          next set of asset filters.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListAssetFiltersOutput {
-  /**
-   * <p>The results of the <code>ListAssetFilters</code> action.</p>
-   * @public
-   */
-  items: AssetFilterSummary[] | undefined;
-
-  /**
-   * <p>When the number of asset filters is greater than the default value for the
-   *          <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *          <code>MaxResults</code> that is less than the number of asset filters, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *          <code>NextToken</code> value in a subsequent call to <code>ListAssetFilters</code> to
-   *          list the next set of asset filters.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListAssetRevisionsInput {
-  /**
-   * <p>The identifier of the domain.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the asset.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>When the number of revisions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of revisions, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to
-   *          list the next set of revisions.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of revisions to return in a single call to
-   *             <code>ListAssetRevisions</code>. When the number of revisions to be listed is greater
-   *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
-   *          value that you can use in a subsequent call to <code>ListAssetRevisions</code> to list the
-   *          next set of revisions.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListAssetRevisionsOutput {
-  /**
-   * <p>The results of the <code>ListAssetRevisions</code> action.</p>
-   * @public
-   */
-  items?: AssetRevision[];
-
-  /**
-   * <p>When the number of revisions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of revisions, the response includes
-   *          a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to
-   *          list the next set of revisions.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListDataSourceRunActivitiesInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which to list data source run
-   *          activities.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the data source run.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The status of the data source run.</p>
-   * @public
-   */
-  status?: DataAssetActivityStatus;
-
-  /**
-   * <p>When the number of activities is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of activities, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of activities to return in a single call to
-   *             <code>ListDataSourceRunActivities</code>. When the number of activities to be listed is
-   *          greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListDataSourceRunActivitiesOutput {
-  /**
-   * <p>The results of the <code>ListDataSourceRunActivities</code> action.</p>
-   * @public
-   */
-  items: DataSourceRunActivity[] | undefined;
-
-  /**
-   * <p>When the number of activities is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of activities, the response
-   *          includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListEnvironmentActionsInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the environment actions are listed.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the envrironment whose environment actions are listed.</p>
-   * @public
-   */
-  environmentIdentifier: string | undefined;
-
-  /**
-   * <p>When the number of environment actions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environment actions, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code>
-   *          to list the next set of environment actions.</p>
-   * @public
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of environment actions to return in a single call to
-   *             <code>ListEnvironmentActions</code>. When the number of environment actions to be listed
-   *          is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
-   * @public
-   */
-  maxResults?: number;
-}
-
-/**
- * <p>The details about the specified action configured for an environment. For example, the
- *          details of the specified console links for an analytics tool that is available in this
- *          environment.</p>
- * @public
- */
-export interface EnvironmentActionSummary {
-  /**
-   * <p>The Amazon DataZone domain ID of the environment action.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The environment ID of the environment action.</p>
-   * @public
-   */
-  environmentId: string | undefined;
-
-  /**
-   * <p>The ID of the environment action.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the environment action.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The parameters of the environment action.</p>
-   * @public
-   */
-  parameters: ActionParameters | undefined;
-
-  /**
-   * <p>The environment action description.</p>
-   * @public
-   */
-  description?: string;
-}
-
-/**
- * @public
- */
-export interface ListEnvironmentActionsOutput {
-  /**
-   * <p>The results of <code>ListEnvironmentActions</code>.</p>
-   * @public
-   */
-  items?: EnvironmentActionSummary[];
-
-  /**
-   * <p>When the number of environment actions is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of environment actions, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironmentActions</code>
-   *          to list the next set of environment actions.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -10840,9 +11003,21 @@ export const SubscribedAssetListingFilterSensitiveLog = (obj: SubscribedAssetLis
 /**
  * @internal
  */
+export const SubscribedProductListingFilterSensitiveLog = (obj: SubscribedProductListing): any => ({
+  ...obj,
+  ...(obj.glossaryTerms && {
+    glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const SubscribedListingItemFilterSensitiveLog = (obj: SubscribedListingItem): any => {
   if (obj.assetListing !== undefined)
     return { assetListing: SubscribedAssetListingFilterSensitiveLog(obj.assetListing) };
+  if (obj.productListing !== undefined)
+    return { productListing: SubscribedProductListingFilterSensitiveLog(obj.productListing) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -11097,6 +11272,46 @@ export const CancelSubscriptionOutputFilterSensitiveLog = (obj: CancelSubscripti
 /**
  * @internal
  */
+export const CreateDataProductInputFilterSensitiveLog = (obj: CreateDataProductInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.formsInput && { formsInput: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataProductOutputFilterSensitiveLog = (obj: CreateDataProductOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.formsOutput && { formsOutput: obj.formsOutput.map((item) => FormOutputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataProductRevisionInputFilterSensitiveLog = (obj: CreateDataProductRevisionInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.formsInput && { formsInput: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataProductRevisionOutputFilterSensitiveLog = (obj: CreateDataProductRevisionOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.formsOutput && { formsOutput: obj.formsOutput.map((item) => FormOutputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const ScheduleConfigurationFilterSensitiveLog = (obj: ScheduleConfiguration): any => ({
   ...obj,
 });
@@ -11325,6 +11540,67 @@ export const UserProfileDetailsFilterSensitiveLog = (obj: UserProfileDetails): a
 export const CreateUserProfileOutputFilterSensitiveLog = (obj: CreateUserProfileOutput): any => ({
   ...obj,
   ...(obj.details && { details: UserProfileDetailsFilterSensitiveLog(obj.details) }),
+});
+
+/**
+ * @internal
+ */
+export const GetDataProductOutputFilterSensitiveLog = (obj: GetDataProductOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.formsOutput && { formsOutput: obj.formsOutput.map((item) => FormOutputFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListingSummaryFilterSensitiveLog = (obj: ListingSummary): any => ({
+  ...obj,
+  ...(obj.glossaryTerms && {
+    glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataProductListingFilterSensitiveLog = (obj: DataProductListing): any => ({
+  ...obj,
+  ...(obj.glossaryTerms && {
+    glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListingSummaryItemFilterSensitiveLog = (obj: ListingSummaryItem): any => ({
+  ...obj,
+  ...(obj.glossaryTerms && {
+    glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataProductListingItemFilterSensitiveLog = (obj: DataProductListingItem): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.glossaryTerms && {
+    glossaryTerms: obj.glossaryTerms.map((item) => DetailedGlossaryTermFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataProductResultItemFilterSensitiveLog = (obj: DataProductResultItem): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
 });
 
 /**
@@ -11566,77 +11842,4 @@ export const GetSubscriptionTargetOutputFilterSensitiveLog = (obj: GetSubscripti
 export const GetUserProfileOutputFilterSensitiveLog = (obj: GetUserProfileOutput): any => ({
   ...obj,
   ...(obj.details && { details: UserProfileDetailsFilterSensitiveLog(obj.details) }),
-});
-
-/**
- * @internal
- */
-export const GetGlossaryOutputFilterSensitiveLog = (obj: GetGlossaryOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateGlossaryInputFilterSensitiveLog = (obj: UpdateGlossaryInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateGlossaryOutputFilterSensitiveLog = (obj: UpdateGlossaryOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetGlossaryTermOutputFilterSensitiveLog = (obj: GetGlossaryTermOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.shortDescription && { shortDescription: SENSITIVE_STRING }),
-  ...(obj.longDescription && { longDescription: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateGlossaryTermInputFilterSensitiveLog = (obj: UpdateGlossaryTermInput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.shortDescription && { shortDescription: SENSITIVE_STRING }),
-  ...(obj.longDescription && { longDescription: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateGlossaryTermOutputFilterSensitiveLog = (obj: UpdateGlossaryTermOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.shortDescription && { shortDescription: SENSITIVE_STRING }),
-  ...(obj.longDescription && { longDescription: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListAssetFiltersOutputFilterSensitiveLog = (obj: ListAssetFiltersOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => AssetFilterSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListDataSourceRunActivitiesOutputFilterSensitiveLog = (obj: ListDataSourceRunActivitiesOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => DataSourceRunActivityFilterSensitiveLog(item)) }),
 });

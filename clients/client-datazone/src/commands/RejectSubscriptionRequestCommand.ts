@@ -83,6 +83,25 @@ export interface RejectSubscriptionRequestCommandOutput extends RejectSubscripti
  * //             },
  * //           ],
  * //         },
+ * //         productListing: { // SubscribedProductListing
+ * //           entityId: "STRING_VALUE",
+ * //           entityRevision: "STRING_VALUE",
+ * //           glossaryTerms: [
+ * //             {
+ * //               name: "STRING_VALUE",
+ * //               shortDescription: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           name: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           assetListings: [ // AssetInDataProductListingItems
+ * //             { // AssetInDataProductListingItem
+ * //               entityId: "STRING_VALUE",
+ * //               entityRevision: "STRING_VALUE",
+ * //               entityType: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       ownerProjectId: "STRING_VALUE", // required
  * //       ownerProjectName: "STRING_VALUE",

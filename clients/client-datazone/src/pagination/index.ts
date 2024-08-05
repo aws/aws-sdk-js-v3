@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListAssetFiltersPaginator";
 export * from "./ListAssetRevisionsPaginator";
+export * from "./ListDataProductRevisionsPaginator";
 export * from "./ListDataSourceRunActivitiesPaginator";
 export * from "./ListDataSourceRunsPaginator";
 export * from "./ListDataSourcesPaginator";

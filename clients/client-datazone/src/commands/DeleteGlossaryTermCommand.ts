@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteGlossaryTermInput, DeleteGlossaryTermOutput } from "../models/models_0";
+import { DeleteGlossaryTermInput, DeleteGlossaryTermOutput } from "../models/models_1";
 import { de_DeleteGlossaryTermCommand, se_DeleteGlossaryTermCommand } from "../protocols/Aws_restJson1";
 
 /**

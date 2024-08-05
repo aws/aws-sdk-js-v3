@@ -44,6 +44,16 @@ import {
   CreateAssetTypeCommandOutput,
 } from "./commands/CreateAssetTypeCommand";
 import {
+  CreateDataProductCommand,
+  CreateDataProductCommandInput,
+  CreateDataProductCommandOutput,
+} from "./commands/CreateDataProductCommand";
+import {
+  CreateDataProductRevisionCommand,
+  CreateDataProductRevisionCommandInput,
+  CreateDataProductRevisionCommandOutput,
+} from "./commands/CreateDataProductRevisionCommand";
+import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
@@ -134,6 +144,11 @@ import {
   DeleteAssetTypeCommandInput,
   DeleteAssetTypeCommandOutput,
 } from "./commands/DeleteAssetTypeCommand";
+import {
+  DeleteDataProductCommand,
+  DeleteDataProductCommandInput,
+  DeleteDataProductCommandOutput,
+} from "./commands/DeleteDataProductCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
@@ -230,6 +245,11 @@ import {
   GetAssetTypeCommandInput,
   GetAssetTypeCommandOutput,
 } from "./commands/GetAssetTypeCommand";
+import {
+  GetDataProductCommand,
+  GetDataProductCommandInput,
+  GetDataProductCommandOutput,
+} from "./commands/GetDataProductCommand";
 import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
@@ -340,6 +360,11 @@ import {
   ListAssetRevisionsCommandInput,
   ListAssetRevisionsCommandOutput,
 } from "./commands/ListAssetRevisionsCommand";
+import {
+  ListDataProductRevisionsCommand,
+  ListDataProductRevisionsCommandInput,
+  ListDataProductRevisionsCommandOutput,
+} from "./commands/ListDataProductRevisionsCommand";
 import {
   ListDataSourceRunActivitiesCommand,
   ListDataSourceRunActivitiesCommandInput,
@@ -581,6 +606,8 @@ const commands = {
   CreateAssetFilterCommand,
   CreateAssetRevisionCommand,
   CreateAssetTypeCommand,
+  CreateDataProductCommand,
+  CreateDataProductRevisionCommand,
   CreateDataSourceCommand,
   CreateDomainCommand,
   CreateEnvironmentCommand,
@@ -600,6 +627,7 @@ const commands = {
   DeleteAssetCommand,
   DeleteAssetFilterCommand,
   DeleteAssetTypeCommand,
+  DeleteDataProductCommand,
   DeleteDataSourceCommand,
   DeleteDomainCommand,
   DeleteEnvironmentCommand,
@@ -620,6 +648,7 @@ const commands = {
   GetAssetCommand,
   GetAssetFilterCommand,
   GetAssetTypeCommand,
+  GetDataProductCommand,
   GetDataSourceCommand,
   GetDataSourceRunCommand,
   GetDomainCommand,
@@ -646,6 +675,7 @@ const commands = {
   GetUserProfileCommand,
   ListAssetFiltersCommand,
   ListAssetRevisionsCommand,
+  ListDataProductRevisionsCommand,
   ListDataSourceRunActivitiesCommand,
   ListDataSourceRunsCommand,
   ListDataSourcesCommand,
@@ -840,6 +870,40 @@ export interface DataZone {
     args: CreateAssetTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAssetTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataProductCommand}
+   */
+  createDataProduct(
+    args: CreateDataProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataProductCommandOutput>;
+  createDataProduct(
+    args: CreateDataProductCommandInput,
+    cb: (err: any, data?: CreateDataProductCommandOutput) => void
+  ): void;
+  createDataProduct(
+    args: CreateDataProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataProductCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataProductRevisionCommand}
+   */
+  createDataProductRevision(
+    args: CreateDataProductRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataProductRevisionCommandOutput>;
+  createDataProductRevision(
+    args: CreateDataProductRevisionCommandInput,
+    cb: (err: any, data?: CreateDataProductRevisionCommandOutput) => void
+  ): void;
+  createDataProductRevision(
+    args: CreateDataProductRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataProductRevisionCommandOutput) => void
   ): void;
 
   /**
@@ -1136,6 +1200,23 @@ export interface DataZone {
     args: DeleteAssetTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAssetTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataProductCommand}
+   */
+  deleteDataProduct(
+    args: DeleteDataProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataProductCommandOutput>;
+  deleteDataProduct(
+    args: DeleteDataProductCommandInput,
+    cb: (err: any, data?: DeleteDataProductCommandOutput) => void
+  ): void;
+  deleteDataProduct(
+    args: DeleteDataProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataProductCommandOutput) => void
   ): void;
 
   /**
@@ -1437,6 +1518,20 @@ export interface DataZone {
     args: GetAssetTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAssetTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataProductCommand}
+   */
+  getDataProduct(
+    args: GetDataProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataProductCommandOutput>;
+  getDataProduct(args: GetDataProductCommandInput, cb: (err: any, data?: GetDataProductCommandOutput) => void): void;
+  getDataProduct(
+    args: GetDataProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataProductCommandOutput) => void
   ): void;
 
   /**
@@ -1825,6 +1920,23 @@ export interface DataZone {
     args: ListAssetRevisionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssetRevisionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataProductRevisionsCommand}
+   */
+  listDataProductRevisions(
+    args: ListDataProductRevisionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataProductRevisionsCommandOutput>;
+  listDataProductRevisions(
+    args: ListDataProductRevisionsCommandInput,
+    cb: (err: any, data?: ListDataProductRevisionsCommandOutput) => void
+  ): void;
+  listDataProductRevisions(
+    args: ListDataProductRevisionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataProductRevisionsCommandOutput) => void
   ): void;
 
   /**

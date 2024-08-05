@@ -11,7 +11,7 @@ import {
   UpdateGlossaryTermInputFilterSensitiveLog,
   UpdateGlossaryTermOutput,
   UpdateGlossaryTermOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateGlossaryTermCommand, se_UpdateGlossaryTermCommand } from "../protocols/Aws_restJson1";
 
 /**

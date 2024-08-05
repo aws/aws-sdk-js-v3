@@ -10,7 +10,7 @@ import {
   ListDataSourceRunActivitiesInput,
   ListDataSourceRunActivitiesOutput,
   ListDataSourceRunActivitiesOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_ListDataSourceRunActivitiesCommand,
   se_ListDataSourceRunActivitiesCommand,

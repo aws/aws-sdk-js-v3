@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListAssetFiltersInput,
-  ListAssetFiltersOutput,
-  ListAssetFiltersOutputFilterSensitiveLog,
-} from "../models/models_1";
-import { de_ListAssetFiltersCommand, se_ListAssetFiltersCommand } from "../protocols/Aws_restJson1";
+import { ListDataProductRevisionsInput, ListDataProductRevisionsOutput } from "../models/models_1";
+import { de_ListDataProductRevisionsCommand, se_ListDataProductRevisionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,48 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListAssetFiltersCommand}.
+ * The input for {@link ListDataProductRevisionsCommand}.
  */
-export interface ListAssetFiltersCommandInput extends ListAssetFiltersInput {}
+export interface ListDataProductRevisionsCommandInput extends ListDataProductRevisionsInput {}
 /**
  * @public
  *
- * The output of {@link ListAssetFiltersCommand}.
+ * The output of {@link ListDataProductRevisionsCommand}.
  */
-export interface ListAssetFiltersCommandOutput extends ListAssetFiltersOutput, __MetadataBearer {}
+export interface ListDataProductRevisionsCommandOutput extends ListDataProductRevisionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists asset filters.</p>
+ * <p>Lists data product revisions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, ListAssetFiltersCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, ListAssetFiltersCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, ListDataProductRevisionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, ListDataProductRevisionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // ListAssetFiltersInput
+ * const input = { // ListDataProductRevisionsInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   assetIdentifier: "STRING_VALUE", // required
- *   status: "VALID" || "INVALID",
- *   nextToken: "STRING_VALUE",
+ *   identifier: "STRING_VALUE", // required
  *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListAssetFiltersCommand(input);
+ * const command = new ListDataProductRevisionsCommand(input);
  * const response = await client.send(command);
- * // { // ListAssetFiltersOutput
- * //   items: [ // AssetFilters // required
- * //     { // AssetFilterSummary
- * //       id: "STRING_VALUE", // required
- * //       domainId: "STRING_VALUE", // required
- * //       assetId: "STRING_VALUE", // required
- * //       name: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       status: "VALID" || "INVALID",
- * //       effectiveColumnNames: [ // ColumnNameList
- * //         "STRING_VALUE",
- * //       ],
- * //       effectiveRowFilter: "STRING_VALUE",
+ * // { // ListDataProductRevisionsOutput
+ * //   items: [ // DataProductRevisions // required
+ * //     { // DataProductRevision
+ * //       domainId: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       revision: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
- * //       errorMessage: "STRING_VALUE",
+ * //       createdBy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -70,10 +58,10 @@ export interface ListAssetFiltersCommandOutput extends ListAssetFiltersOutput, _
  *
  * ```
  *
- * @param ListAssetFiltersCommandInput - {@link ListAssetFiltersCommandInput}
- * @returns {@link ListAssetFiltersCommandOutput}
- * @see {@link ListAssetFiltersCommandInput} for command's `input` shape.
- * @see {@link ListAssetFiltersCommandOutput} for command's `response` shape.
+ * @param ListDataProductRevisionsCommandInput - {@link ListDataProductRevisionsCommandInput}
+ * @returns {@link ListDataProductRevisionsCommandOutput}
+ * @see {@link ListDataProductRevisionsCommandInput} for command's `input` shape.
+ * @see {@link ListDataProductRevisionsCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -99,10 +87,10 @@ export interface ListAssetFiltersCommandOutput extends ListAssetFiltersOutput, _
  *
  * @public
  */
-export class ListAssetFiltersCommand extends $Command
+export class ListDataProductRevisionsCommand extends $Command
   .classBuilder<
-    ListAssetFiltersCommandInput,
-    ListAssetFiltersCommandOutput,
+    ListDataProductRevisionsCommandInput,
+    ListDataProductRevisionsCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -116,9 +104,9 @@ export class ListAssetFiltersCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "ListAssetFilters", {})
-  .n("DataZoneClient", "ListAssetFiltersCommand")
-  .f(void 0, ListAssetFiltersOutputFilterSensitiveLog)
-  .ser(se_ListAssetFiltersCommand)
-  .de(de_ListAssetFiltersCommand)
+  .s("DataZone", "ListDataProductRevisions", {})
+  .n("DataZoneClient", "ListDataProductRevisionsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDataProductRevisionsCommand)
+  .de(de_ListDataProductRevisionsCommand)
   .build() {}

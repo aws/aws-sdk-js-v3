@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListEnvironmentActionsInput, ListEnvironmentActionsOutput } from "../models/models_0";
+import { ListEnvironmentActionsInput, ListEnvironmentActionsOutput } from "../models/models_1";
 import { de_ListEnvironmentActionsCommand, se_ListEnvironmentActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
