@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
+
+
+### Features
+
+* **client-datazone:** This releases Data Product feature. Data Products allow grouping data assets into cohesive, self-contained units for ease of publishing for data producers, and ease of finding and accessing for data consumers. ([91b2561](https://github.com/aws/aws-sdk-js-v3/commit/91b25612bf0db4cd594552843539a2b6f9e524dc))
+
+
+
+
+
 # [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

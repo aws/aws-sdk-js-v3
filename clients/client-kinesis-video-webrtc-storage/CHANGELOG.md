@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
+
+
+### Features
+
+* **client-kinesis-video-webrtc-storage:** Add JoinStorageSessionAsViewer API ([36c7cdd](https://github.com/aws/aws-sdk-js-v3/commit/36c7cddb0d5366a0548af40baad4609bad393377))
+
+
+
+
+
 # [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video-webrtc-storage

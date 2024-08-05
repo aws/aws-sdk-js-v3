@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
+
+
+### Features
+
+* **client-datazone:** This releases Data Product feature. Data Products allow grouping data assets into cohesive, self-contained units for ease of publishing for data producers, and ease of finding and accessing for data consumers. ([91b2561](https://github.com/aws/aws-sdk-js-v3/commit/91b25612bf0db4cd594552843539a2b6f9e524dc))
+* **client-ecr:** Released two new APIs along with documentation updates. The GetAccountSetting API is used to view the current basic scan type version setting for your registry, while the PutAccountSetting API is used to update the basic scan type version for your registry. ([6da4252](https://github.com/aws/aws-sdk-js-v3/commit/6da42523c72f6e25a176547f488fc4c50b064271))
+* **client-kinesis-video-webrtc-storage:** Add JoinStorageSessionAsViewer API ([36c7cdd](https://github.com/aws/aws-sdk-js-v3/commit/36c7cddb0d5366a0548af40baad4609bad393377))
+* **clients:** update client endpoints as of 2024-08-05 ([7cd8b7c](https://github.com/aws/aws-sdk-js-v3/commit/7cd8b7cf8f66c585b968f7cc1591d94ff42db620))
+
+
+
+
+
 # [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
 
 
