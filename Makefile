@@ -54,6 +54,10 @@ turbo-build:
 tpk:
 	npx turbo run build --filter='./packages/*'
 
+# Clears the Turborepo local build cache
+turbo-clean: 
+	find . -name '.turbo' -type d -prune -exec rm -rf '{}' +
+
 server-protocols:
 	yarn generate-clients -s
 	yarn test:server-protocols
