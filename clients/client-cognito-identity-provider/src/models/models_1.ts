@@ -23,6 +23,7 @@ import {
   GroupType,
   IdentityProviderType,
   LambdaConfigType,
+  LogConfigurationType,
   LogDeliveryConfigurationType,
   MFAOptionType,
   OAuthFlowType,
@@ -51,6 +52,64 @@ import {
   VerificationMessageTemplateType,
   VerifiedAttributeType,
 } from "./models_0";
+
+/**
+ * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
+ *             for the user pool client.</p>
+ * @public
+ */
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+  }
+}
+
+/**
+ * <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
+ * @public
+ */
+export class UnsupportedTokenTypeException extends __BaseException {
+  readonly name: "UnsupportedTokenTypeException" = "UnsupportedTokenTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedTokenTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedTokenTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedTokenTypeException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface SetLogDeliveryConfigurationRequest {
+  /**
+   * <p>The ID of the user pool where you want to configure logging.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>A collection of the logging configurations for a user pool.</p>
+   * @public
+   */
+  LogConfigurations: LogConfigurationType[] | undefined;
+}
 
 /**
  * @public
@@ -420,7 +479,7 @@ export interface SignUpResponse {
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
 
   /**
-   * <p>The UUID of the authenticated user. This isn't the same as
+   * <p>The 128-bit ID of the authenticated user. This isn't the same as
    *             <code>username</code>.</p>
    * @public
    */
@@ -1451,6 +1510,7 @@ export interface UpdateUserPoolClientRequest {
    *                     existence related errors aren't prevented.</p>
    *             </li>
    *          </ul>
+   *          <p>Defaults to <code>LEGACY</code> when you don't provide a value.</p>
    * @public
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;

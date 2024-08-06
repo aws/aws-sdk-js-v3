@@ -1128,7 +1128,7 @@ export class InvalidSmsRoleAccessPolicyException extends __BaseException {
 /**
  * <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  * @public
  */
@@ -3230,6 +3230,27 @@ export class ExpiredCodeException extends __BaseException {
 }
 
 /**
+ * <p>The message returned when a user's new password matches a previous password and
+ *             doesn't comply with the password-history policy.</p>
+ * @public
+ */
+export class PasswordHistoryPolicyViolationException extends __BaseException {
+  readonly name: "PasswordHistoryPolicyViolationException" = "PasswordHistoryPolicyViolationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PasswordHistoryPolicyViolationException, __BaseException>) {
+    super({
+      name: "PasswordHistoryPolicyViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PasswordHistoryPolicyViolationException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when the software token time-based one-time password (TOTP)
  *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
  * @public
@@ -5314,6 +5335,17 @@ export interface PasswordPolicyType {
   RequireSymbols?: boolean;
 
   /**
+   * <p>The number of previous passwords that you want Amazon Cognito to restrict each user from
+   *             reusing. Users can't set a password that matches any of <code>n</code> previous
+   *             passwords, where <code>n</code> is the value of <code>PasswordHistorySize</code>.</p>
+   *          <p>Password history isn't enforced and isn't displayed in <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a> responses when you set this value to
+   *                 <code>0</code> or don't provide it. To activate this setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+   *                      advanced security features</a> must be active in your user pool.</p>
+   * @public
+   */
+  PasswordHistorySize?: number;
+
+  /**
    * <p>The number of days a temporary password is valid in the password policy. If the user
    *             doesn't sign in during this time, an administrator must reset their password. Defaults
    *             to <code>7</code>. If you submit a value of <code>0</code>, Amazon Cognito treats it as a null
@@ -6508,6 +6540,7 @@ export interface CreateUserPoolClientRequest {
    *                     existence related errors aren't prevented.</p>
    *             </li>
    *          </ul>
+   *          <p>Defaults to <code>LEGACY</code> when you don't provide a value.</p>
    * @public
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
@@ -6882,10 +6915,11 @@ export interface UserPoolClientType {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>LEGACY</code> - This represents the old behavior of Amazon Cognito where user
+   *                   <code>LEGACY</code> - This represents the early behavior of Amazon Cognito where user
    *                     existence related errors aren't prevented.</p>
    *             </li>
    *          </ul>
+   *          <p>Defaults to <code>LEGACY</code> when you don't provide a value.</p>
    * @public
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
@@ -7866,16 +7900,16 @@ export interface GetIdentityProviderByIdentifierResponse {
  */
 export interface GetLogDeliveryConfigurationRequest {
   /**
-   * <p>The ID of the user pool where you want to view detailed activity logging
-   *             configuration.</p>
+   * <p>The ID of the user pool that has the logging configuration that you want to
+   *             view.</p>
    * @public
    */
   UserPoolId: string | undefined;
 }
 
 /**
- * <p>The CloudWatch logging destination of a user pool detailed activity logging
- *             configuration.</p>
+ * <p>Configuration for the CloudWatch log group destination of user pool detailed activity
+ *             logging, or of user activity log export with advanced security features.</p>
  * @public
  */
 export interface CloudWatchLogsConfigurationType {
@@ -7897,6 +7931,7 @@ export interface CloudWatchLogsConfigurationType {
  * @enum
  */
 export const EventSourceName = {
+  USER_AUTH_EVENTS: "userAuthEvents",
   USER_NOTIFICATION: "userNotification",
 } as const;
 
@@ -7906,11 +7941,26 @@ export const EventSourceName = {
 export type EventSourceName = (typeof EventSourceName)[keyof typeof EventSourceName];
 
 /**
+ * <p>Configuration for the Amazon Data Firehose stream destination of user activity log export with
+ *             advanced security features.</p>
+ * @public
+ */
+export interface FirehoseConfigurationType {
+  /**
+   * <p>The ARN of an Amazon Data Firehose stream that's the destination for advanced security
+   *             features log export.</p>
+   * @public
+   */
+  StreamArn?: string;
+}
+
+/**
  * @public
  * @enum
  */
 export const LogLevel = {
   ERROR: "ERROR",
+  INFO: "INFO",
 } as const;
 
 /**
@@ -7919,43 +7969,83 @@ export const LogLevel = {
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 /**
- * <p>The logging parameters of a user pool.</p>
+ * <p>Configuration for the Amazon S3 bucket destination of user activity log export with
+ *             advanced security features.</p>
  * @public
  */
-export interface LogConfigurationType {
+export interface S3ConfigurationType {
   /**
-   * <p>The <code>errorlevel</code> selection of logs that a user pool sends for detailed
-   *             activity logging.</p>
+   * <p>The ARN of an Amazon S3 bucket that's the destination for advanced security features
+   *             log export.</p>
    * @public
    */
-  LogLevel: LogLevel | undefined;
-
-  /**
-   * <p>The source of events that your user pool sends for detailed activity logging.</p>
-   * @public
-   */
-  EventSource: EventSourceName | undefined;
-
-  /**
-   * <p>The CloudWatch logging destination of a user pool.</p>
-   * @public
-   */
-  CloudWatchLogsConfiguration?: CloudWatchLogsConfigurationType;
+  BucketArn?: string;
 }
 
 /**
  * <p>The logging parameters of a user pool.</p>
  * @public
  */
+export interface LogConfigurationType {
+  /**
+   * <p>The <code>errorlevel</code> selection of logs that a user pool sends for detailed
+   *             activity logging. To send <code>userNotification</code> activity with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/tracking-quotas-and-usage-in-cloud-watch-logs.html">information about message delivery</a>, choose <code>ERROR</code> with
+   *                 <code>CloudWatchLogsConfiguration</code>. To send <code>userAuthEvents</code>
+   *             activity with user logs from advanced security features, choose <code>INFO</code> with
+   *             one of <code>CloudWatchLogsConfiguration</code>, <code>FirehoseConfiguration</code>, or
+   *                 <code>S3Configuration</code>.</p>
+   * @public
+   */
+  LogLevel: LogLevel | undefined;
+
+  /**
+   * <p>The source of events that your user pool sends for logging. To send error-level logs
+   *             about user notification activity, set to <code>userNotification</code>. To send
+   *             info-level logs about advanced security features user activity, set to
+   *                 <code>userAuthEvents</code>.</p>
+   * @public
+   */
+  EventSource: EventSourceName | undefined;
+
+  /**
+   * <p>The CloudWatch log group destination of user pool detailed activity logs, or of user
+   *             activity log export with advanced security features.</p>
+   * @public
+   */
+  CloudWatchLogsConfiguration?: CloudWatchLogsConfigurationType;
+
+  /**
+   * <p>The Amazon S3 bucket destination of user activity log export with advanced security
+   *             features. To activate this setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+   *                      advanced security features</a> must be active in your user pool.</p>
+   * @public
+   */
+  S3Configuration?: S3ConfigurationType;
+
+  /**
+   * <p>The Amazon Data Firehose stream destination of user activity log export with advanced security
+   *             features. To activate this setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+   *                      advanced security features</a> must be active in your user pool.</p>
+   * @public
+   */
+  FirehoseConfiguration?: FirehoseConfigurationType;
+}
+
+/**
+ * <p>The logging parameters of a user pool returned in response to
+ *                 <code>GetLogDeliveryConfiguration</code>.</p>
+ * @public
+ */
 export interface LogDeliveryConfigurationType {
   /**
-   * <p>The ID of the user pool where you configured detailed activity logging.</p>
+   * <p>The ID of the user pool where you configured logging.</p>
    * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * <p>The detailed activity logging destination of a user pool.</p>
+   * <p>A logging destination of a user pool. User pools can have multiple logging
+   *             destinations for message-delivery and user-activity logs.</p>
    * @public
    */
   LogConfigurations: LogConfigurationType[] | undefined;
@@ -7966,7 +8056,7 @@ export interface LogDeliveryConfigurationType {
  */
 export interface GetLogDeliveryConfigurationResponse {
   /**
-   * <p>The detailed activity logging configuration of the requested user pool.</p>
+   * <p>The logging configuration of the requested user pool.</p>
    * @public
    */
   LogDeliveryConfiguration?: LogDeliveryConfigurationType;
@@ -9596,65 +9686,6 @@ export class UnauthorizedException extends __BaseException {
     });
     Object.setPrototypeOf(this, UnauthorizedException.prototype);
   }
-}
-
-/**
- * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
- *             for the user pool client.</p>
- * @public
- */
-export class UnsupportedOperationException extends __BaseException {
-  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
-    super({
-      name: "UnsupportedOperationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-  }
-}
-
-/**
- * <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
- * @public
- */
-export class UnsupportedTokenTypeException extends __BaseException {
-  readonly name: "UnsupportedTokenTypeException" = "UnsupportedTokenTypeException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedTokenTypeException, __BaseException>) {
-    super({
-      name: "UnsupportedTokenTypeException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedTokenTypeException.prototype);
-  }
-}
-
-/**
- * @public
- */
-export interface SetLogDeliveryConfigurationRequest {
-  /**
-   * <p>The ID of the user pool where you want to configure detailed activity logging .</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>A collection of all of the detailed activity logging configurations for a user
-   *             pool.</p>
-   * @public
-   */
-  LogConfigurations: LogConfigurationType[] | undefined;
 }
 
 /**

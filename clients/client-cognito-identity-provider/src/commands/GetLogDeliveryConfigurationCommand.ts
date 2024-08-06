@@ -34,7 +34,7 @@ export interface GetLogDeliveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the detailed activity logging configuration for a user pool.</p>
+ * <p>Gets the logging configuration of a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,10 +51,16 @@ export interface GetLogDeliveryConfigurationCommandOutput
  * //     UserPoolId: "STRING_VALUE", // required
  * //     LogConfigurations: [ // LogConfigurationListType // required
  * //       { // LogConfigurationType
- * //         LogLevel: "ERROR", // required
- * //         EventSource: "userNotification", // required
+ * //         LogLevel: "ERROR" || "INFO", // required
+ * //         EventSource: "userNotification" || "userAuthEvents", // required
  * //         CloudWatchLogsConfiguration: { // CloudWatchLogsConfigurationType
  * //           LogGroupArn: "STRING_VALUE",
+ * //         },
+ * //         S3Configuration: { // S3ConfigurationType
+ * //           BucketArn: "STRING_VALUE",
+ * //         },
+ * //         FirehoseConfiguration: { // FirehoseConfigurationType
+ * //           StreamArn: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],
