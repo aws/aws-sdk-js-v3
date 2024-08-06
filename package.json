@@ -8,7 +8,7 @@
     "bootstrap": "yarn",
     "bootstrap:ci": "yarn install --frozen-lockfile",
     "build:all": "yarn build:crypto-dependencies && node ./scripts/turbo build",
-    "build:ci": "node ./scripts/turbo build -F=[origin/main...HEAD]...",
+    "build:ci": "node ./scripts/turbo build",
     "build:clients:generic": "node ./scripts/turbo build -F=@aws-sdk/aws-echo-service...",
     "build:clients:since:release": "yarn build:packages && node ./scripts/turbo build $(lerna changed | grep -e '@aws-sdk/[client|lib]-*' | sed 's/^/ -F=/' | tr '\n' ' ')",
     "build:crypto-dependencies": "node ./scripts/turbo build -F=@aws-sdk/types... -F=@aws-sdk/util-locate-window...",

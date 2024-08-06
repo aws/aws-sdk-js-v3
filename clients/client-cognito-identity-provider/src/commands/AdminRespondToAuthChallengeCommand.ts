@@ -179,7 +179,7 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link InvalidUserPoolConfigurationException} (client fault)
@@ -191,6 +191,10 @@ export interface AdminRespondToAuthChallengeCommandOutput
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link PasswordHistoryPolicyViolationException} (client fault)
+ *  <p>The message returned when a user's new password matches a previous password and
+ *             doesn't comply with the password-history policy.</p>
  *
  * @throws {@link PasswordResetRequiredException} (client fault)
  *  <p>This exception is thrown when a password reset is required.</p>

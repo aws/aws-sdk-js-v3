@@ -5991,6 +5991,7 @@ export const WorkspaceImageIngestionProcess = {
   BYOL_GRAPHICSPRO: "BYOL_GRAPHICSPRO",
   BYOL_GRAPHICS_G4DN: "BYOL_GRAPHICS_G4DN",
   BYOL_GRAPHICS_G4DN_BYOP: "BYOL_GRAPHICS_G4DN_BYOP",
+  BYOL_GRAPHICS_G4DN_WSP: "BYOL_GRAPHICS_G4DN_WSP",
   BYOL_REGULAR: "BYOL_REGULAR",
   BYOL_REGULAR_BYOP: "BYOL_REGULAR_BYOP",
   BYOL_REGULAR_WSP: "BYOL_REGULAR_WSP",
@@ -6055,10 +6056,13 @@ export interface ImportWorkspaceImageRequest {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Although this parameter is an array, only one item is allowed at this time.</p>
+   *                   <p>Although this parameter is an array, only one item is allowed at this
+   *                   time.</p>
    *                </li>
    *                <li>
-   *                   <p>Windows 11 only supports <code>Microsoft_Office_2019</code>.</p>
+   *                   <p>During the image import process, non-GPU WSP WorkSpaces with Windows 11 support
+   *                   only <code>Microsoft_Office_2019</code>. GPU WSP WorkSpaces with Windows 11 do not
+   *                   support Office installation.</p>
    *                </li>
    *             </ul>
    *          </note>

@@ -41,7 +41,7 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * const client = new WorkSpacesClient(config);
  * const input = { // ImportWorkspaceImageRequest
  *   Ec2ImageId: "STRING_VALUE", // required
- *   IngestionProcess: "BYOL_REGULAR" || "BYOL_GRAPHICS" || "BYOL_GRAPHICSPRO" || "BYOL_GRAPHICS_G4DN" || "BYOL_REGULAR_WSP" || "BYOL_REGULAR_BYOP" || "BYOL_GRAPHICS_G4DN_BYOP", // required
+ *   IngestionProcess: "BYOL_REGULAR" || "BYOL_GRAPHICS" || "BYOL_GRAPHICSPRO" || "BYOL_GRAPHICS_G4DN" || "BYOL_REGULAR_WSP" || "BYOL_GRAPHICS_G4DN_WSP" || "BYOL_REGULAR_BYOP" || "BYOL_GRAPHICS_G4DN_BYOP", // required
  *   ImageName: "STRING_VALUE", // required
  *   ImageDescription: "STRING_VALUE", // required
  *   Tags: [ // TagList

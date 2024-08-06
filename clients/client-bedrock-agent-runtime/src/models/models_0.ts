@@ -254,7 +254,7 @@ export type FlowInputContent = FlowInputContent.DocumentMember | FlowInputConten
  */
 export namespace FlowInputContent {
   /**
-   * <p>The input for the flow input node.</p>
+   * <p>The input to send to the prompt flow input node.</p>
    * @public
    */
   export interface DocumentMember {
@@ -282,7 +282,7 @@ export namespace FlowInputContent {
 }
 
 /**
- * <p>Contains information about an input into the flow and what to do with it.</p>
+ * <p>Contains information about an input into the prompt flow and where to send it.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -295,19 +295,19 @@ export namespace FlowInputContent {
  */
 export interface FlowInput {
   /**
-   * <p>A name for the input of the flow input node.</p>
+   * <p>The name of the flow input node that begins the prompt flow.</p>
    * @public
    */
   nodeName: string | undefined;
 
   /**
-   * <p>A name for the output of the flow input node.</p>
+   * <p>The name of the output from the flow input node that begins the prompt flow.</p>
    * @public
    */
   nodeOutputName: string | undefined;
 
   /**
-   * <p>Contains information about an input into the flow.</p>
+   * <p>Contains information about an input into the prompt flow.</p>
    * @public
    */
   content: FlowInputContent | undefined;
@@ -370,7 +370,7 @@ export interface FlowCompletionEvent {
 }
 
 /**
- * <p>Contains information about the output node.</p>
+ * <p>Contains information about the content in an output from prompt flow invocation.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -388,7 +388,7 @@ export type FlowOutputContent = FlowOutputContent.DocumentMember | FlowOutputCon
  */
 export namespace FlowOutputContent {
   /**
-   * <p>A name for the output of the flow.</p>
+   * <p>The content in the output.</p>
    * @public
    */
   export interface DocumentMember {
@@ -435,7 +435,7 @@ export const NodeType = {
 export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
- * <p>Contains information about an output from flow invoction.</p>
+ * <p>Contains information about an output from prompt flow invoction.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
@@ -448,19 +448,19 @@ export type NodeType = (typeof NodeType)[keyof typeof NodeType];
  */
 export interface FlowOutputEvent {
   /**
-   * <p>The name of the node to which input was provided.</p>
+   * <p>The name of the flow output node that the output is from.</p>
    * @public
    */
   nodeName: string | undefined;
 
   /**
-   * <p>The type of node to which input was provided.</p>
+   * <p>The type of the node that the output is from.</p>
    * @public
    */
   nodeType: NodeType | undefined;
 
   /**
-   * <p>The output of the node.</p>
+   * <p>The content in the output.</p>
    * @public
    */
   content: FlowOutputContent | undefined;
@@ -2378,7 +2378,7 @@ export interface InferenceConfiguration {
   temperature?: number;
 
   /**
-   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 80, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
+   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 0.8, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
    * @public
    */
   topP?: number;
@@ -2489,6 +2489,72 @@ export interface ModelInvocationInput {
    * @public
    */
   parserMode?: CreationMode;
+}
+
+/**
+ * <p>Contains information of the usage of the foundation model.</p>
+ * @public
+ */
+export interface Usage {
+  /**
+   * <p>Contains information about the input tokens from the foundation model usage.</p>
+   * @public
+   */
+  inputTokens?: number;
+
+  /**
+   * <p>Contains information about the output tokens from the foundation model usage.</p>
+   * @public
+   */
+  outputTokens?: number;
+}
+
+/**
+ * <p>Provides details of the foundation model.</p>
+ * @public
+ */
+export interface Metadata {
+  /**
+   * <p>Contains details of the foundation model usage.</p>
+   * @public
+   */
+  usage?: Usage;
+}
+
+/**
+ * <p>Contains the raw output from the foundation model.</p>
+ * @public
+ */
+export interface RawResponse {
+  /**
+   * <p>The foundation model's raw output content.</p>
+   * @public
+   */
+  content?: string;
+}
+
+/**
+ * <p>The foundation model output from the orchestration step.</p>
+ * @public
+ */
+export interface OrchestrationModelInvocationOutput {
+  /**
+   * <p>The unique identifier of the trace.</p>
+   * @public
+   */
+  traceId?: string;
+
+  /**
+   * <p>Contains details of the raw response from the foundation model output.</p>
+   * @public
+   */
+  rawResponse?: RawResponse;
+
+  /**
+   * <p>Contains information about the foundation model output.</p>
+   * @public
+   */
+  metadata?: Metadata;
 }
 
 /**
@@ -2690,6 +2756,7 @@ export interface Rationale {
 export type OrchestrationTrace =
   | OrchestrationTrace.InvocationInputMember
   | OrchestrationTrace.ModelInvocationInputMember
+  | OrchestrationTrace.ModelInvocationOutputMember
   | OrchestrationTrace.ObservationMember
   | OrchestrationTrace.RationaleMember
   | OrchestrationTrace.$UnknownMember;
@@ -2707,6 +2774,7 @@ export namespace OrchestrationTrace {
     invocationInput?: never;
     observation?: never;
     modelInvocationInput?: never;
+    modelInvocationOutput?: never;
     $unknown?: never;
   }
 
@@ -2719,6 +2787,7 @@ export namespace OrchestrationTrace {
     invocationInput: InvocationInput;
     observation?: never;
     modelInvocationInput?: never;
+    modelInvocationOutput?: never;
     $unknown?: never;
   }
 
@@ -2731,6 +2800,7 @@ export namespace OrchestrationTrace {
     invocationInput?: never;
     observation: Observation;
     modelInvocationInput?: never;
+    modelInvocationOutput?: never;
     $unknown?: never;
   }
 
@@ -2754,6 +2824,20 @@ export namespace OrchestrationTrace {
     invocationInput?: never;
     observation?: never;
     modelInvocationInput: ModelInvocationInput;
+    modelInvocationOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information pertaining to the output from the foundation model that is being invoked.</p>
+   * @public
+   */
+  export interface ModelInvocationOutputMember {
+    rationale?: never;
+    invocationInput?: never;
+    observation?: never;
+    modelInvocationInput?: never;
+    modelInvocationOutput: OrchestrationModelInvocationOutput;
     $unknown?: never;
   }
 
@@ -2765,6 +2849,7 @@ export namespace OrchestrationTrace {
     invocationInput?: never;
     observation?: never;
     modelInvocationInput?: never;
+    modelInvocationOutput?: never;
     $unknown: [string, any];
   }
 
@@ -2773,6 +2858,7 @@ export namespace OrchestrationTrace {
     invocationInput: (value: InvocationInput) => T;
     observation: (value: Observation) => T;
     modelInvocationInput: (value: ModelInvocationInput) => T;
+    modelInvocationOutput: (value: OrchestrationModelInvocationOutput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2781,6 +2867,7 @@ export namespace OrchestrationTrace {
     if (value.invocationInput !== undefined) return visitor.invocationInput(value.invocationInput);
     if (value.observation !== undefined) return visitor.observation(value.observation);
     if (value.modelInvocationInput !== undefined) return visitor.modelInvocationInput(value.modelInvocationInput);
+    if (value.modelInvocationOutput !== undefined) return visitor.modelInvocationOutput(value.modelInvocationOutput);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -5301,6 +5388,37 @@ export const ModelInvocationInputFilterSensitiveLog = (obj: ModelInvocationInput
 /**
  * @internal
  */
+export const UsageFilterSensitiveLog = (obj: Usage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataFilterSensitiveLog = (obj: Metadata): any => ({
+  ...obj,
+  ...(obj.usage && { usage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RawResponseFilterSensitiveLog = (obj: RawResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrchestrationModelInvocationOutputFilterSensitiveLog = (obj: OrchestrationModelInvocationOutput): any => ({
+  ...obj,
+  ...(obj.rawResponse && { rawResponse: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const FinalResponseFilterSensitiveLog = (obj: FinalResponse): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
@@ -5355,6 +5473,7 @@ export const OrchestrationTraceFilterSensitiveLog = (obj: OrchestrationTrace): a
   if (obj.invocationInput !== undefined) return { invocationInput: SENSITIVE_STRING };
   if (obj.observation !== undefined) return { observation: SENSITIVE_STRING };
   if (obj.modelInvocationInput !== undefined) return { modelInvocationInput: SENSITIVE_STRING };
+  if (obj.modelInvocationOutput !== undefined) return { modelInvocationOutput: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
