@@ -18,6 +18,10 @@ const runTurbo = async (task, args, apiSecret, apiEndpoint) => {
     return await spawnProcess("npx", command, { stdio: "inherit", cwd: turboRoot });
   } catch (error) {
     console.error("Error running turbo:", error);
+    if (args?.length > 0) {
+      // Retry without additional filters
+      return await runTurbo(task, null, apiSecret, apiEndpoint);
+    }
   }
 };
 
