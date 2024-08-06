@@ -507,6 +507,18 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
  * //           },
+ * //           modelInvocationOutput: { // OrchestrationModelInvocationOutput
+ * //             traceId: "STRING_VALUE",
+ * //             rawResponse: { // RawResponse
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: { // Metadata
+ * //               usage: { // Usage
+ * //                 inputTokens: Number("int"),
+ * //                 outputTokens: Number("int"),
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //         postProcessingTrace: { // PostProcessingTrace Union: only one key present
  * //           modelInvocationInput: {
