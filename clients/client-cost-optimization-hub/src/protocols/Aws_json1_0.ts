@@ -98,6 +98,7 @@ import {
   SavingsPlansCostCalculation,
   SavingsPlansPricing,
   StorageConfiguration,
+  SummaryMetrics,
   Tag,
   ThrottlingException,
   UpdateEnrollmentStatusRequest,
@@ -476,6 +477,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ResourceTypeList omitted.
 
+// se_SummaryMetricsList omitted.
+
 // se_Tag omitted.
 
 // se_TagList omitted.
@@ -749,6 +752,7 @@ const de_ListRecommendationSummariesResponse = (
     estimatedTotalDedupedSavings: __limitedParseDouble,
     groupBy: __expectString,
     items: (_: any) => de_RecommendationSummariesList(_, context),
+    metrics: _json,
     nextToken: __expectString,
   }) as any;
 };
@@ -1062,6 +1066,8 @@ const de_StorageConfiguration = (output: any, context: __SerdeContext): StorageC
     type: __expectString,
   }) as any;
 };
+
+// de_SummaryMetricsResult omitted.
 
 // de_Tag omitted.
 
