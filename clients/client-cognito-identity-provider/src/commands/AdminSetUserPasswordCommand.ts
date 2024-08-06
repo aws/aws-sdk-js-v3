@@ -114,6 +114,10 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *
+ * @throws {@link PasswordHistoryPolicyViolationException} (client fault)
+ *  <p>The message returned when a user's new password matches a previous password and
+ *             doesn't comply with the password-history policy.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>

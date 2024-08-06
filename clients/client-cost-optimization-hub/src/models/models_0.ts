@@ -2233,7 +2233,7 @@ export interface ListEnrollmentStatusesResponse {
 
   /**
    * <p>The enrollment status of all member accounts in the organization if the account is the
-   *       management account.</p>
+   *       management account or delegated administrator.</p>
    * @public
    */
   includeMemberAccounts?: boolean;
@@ -2538,6 +2538,19 @@ export interface ListRecommendationsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const SummaryMetrics = {
+  SAVINGS_PERCENTAGE: "SavingsPercentage",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryMetrics = (typeof SummaryMetrics)[keyof typeof SummaryMetrics];
+
+/**
+ * @public
  */
 export interface ListRecommendationSummariesRequest {
   /**
@@ -2554,10 +2567,17 @@ export interface ListRecommendationSummariesRequest {
   groupBy: string | undefined;
 
   /**
-   * <p>The maximum number of recommendations that are returned for the request.</p>
+   * <p>The maximum number of recommendations to be returned for the request.</p>
    * @public
    */
   maxResults?: number;
+
+  /**
+   * <p>Additional metrics to be returned for the request. The only valid value is
+   *         <code>savingsPercentage</code>.</p>
+   * @public
+   */
+  metrics?: SummaryMetrics[];
 
   /**
    * <p>The token to retrieve the next set of results.</p>
@@ -2592,6 +2612,24 @@ export interface RecommendationSummary {
 }
 
 /**
+ * <p>The results or descriptions for the additional metrics, based on whether the metrics were
+ *       or were not requested.</p>
+ * @public
+ */
+export interface SummaryMetricsResult {
+  /**
+   * <p>The savings percentage based on your Amazon Web Services spend over the past 30
+   *       days.</p>
+   *          <note>
+   *             <p>Savings percentage is only supported when filtering by Region, account ID, or
+   *         tags.</p>
+   *          </note>
+   * @public
+   */
+  savingsPercentage?: string;
+}
+
+/**
  * @public
  */
 export interface ListRecommendationSummariesResponse {
@@ -2602,7 +2640,7 @@ export interface ListRecommendationSummariesResponse {
   estimatedTotalDedupedSavings?: number;
 
   /**
-   * <p>List of all savings recommendations.</p>
+   * <p>A list of all savings recommendations.</p>
    * @public
    */
   items?: RecommendationSummary[];
@@ -2618,6 +2656,13 @@ export interface ListRecommendationSummariesResponse {
    * @public
    */
   currencyCode?: string;
+
+  /**
+   * <p>The results or descriptions for the additional metrics, based on whether the metrics were
+   *       or were not requested.</p>
+   * @public
+   */
+  metrics?: SummaryMetricsResult;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
@@ -2638,7 +2683,7 @@ export interface UpdateEnrollmentStatusRequest {
 
   /**
    * <p>Indicates whether to enroll member accounts of the organization if the account is the
-   *       management account.</p>
+   *       management account or delegated administrator.</p>
    * @public
    */
   includeMemberAccounts?: boolean;

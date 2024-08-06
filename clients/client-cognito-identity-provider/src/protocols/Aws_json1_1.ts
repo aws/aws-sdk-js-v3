@@ -402,6 +402,7 @@ import {
   EventFilterType,
   ExpiredCodeException,
   ExplicitAuthFlowsType,
+  FirehoseConfigurationType,
   ForbiddenException,
   ForgetDeviceRequest,
   ForgotPasswordRequest,
@@ -462,6 +463,7 @@ import {
   NotifyEmailType,
   NumberAttributeConstraintsType,
   OAuthFlowType,
+  PasswordHistoryPolicyViolationException,
   PasswordPolicyType,
   PasswordResetRequiredException,
   PreconditionNotMetException,
@@ -476,9 +478,9 @@ import {
   RevokeTokenRequest,
   RiskConfigurationType,
   RiskExceptionConfigurationType,
+  S3ConfigurationType,
   SchemaAttributeType,
   ScopeDoesNotExistException,
-  SetLogDeliveryConfigurationRequest,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -493,8 +495,6 @@ import {
   UnauthorizedException,
   UnexpectedLambdaException,
   UnsupportedIdentityProviderException,
-  UnsupportedOperationException,
-  UnsupportedTokenTypeException,
   UnsupportedUserStateException,
   UserAttributeUpdateSettingsType,
   UserContextDataType,
@@ -519,6 +519,7 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  SetLogDeliveryConfigurationRequest,
   SetRiskConfigurationRequest,
   SetRiskConfigurationResponse,
   SetUICustomizationRequest,
@@ -532,6 +533,8 @@ import {
   StopUserImportJobRequest,
   StopUserImportJobResponse,
   TagResourceRequest,
+  UnsupportedOperationException,
+  UnsupportedTokenTypeException,
   UntagResourceRequest,
   UpdateAuthEventFeedbackRequest,
   UpdateDeviceStatusRequest,
@@ -4006,6 +4009,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ExpiredCodeException":
     case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
       throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
+    case "PasswordHistoryPolicyViolationException":
+    case "com.amazonaws.cognitoidentityprovider#PasswordHistoryPolicyViolationException":
+      throw await de_PasswordHistoryPolicyViolationExceptionRes(parsedOutput, context);
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
       throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
@@ -4382,6 +4388,22 @@ const de_NotAuthorizedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new NotAuthorizedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1PasswordHistoryPolicyViolationExceptionRes
+ */
+const de_PasswordHistoryPolicyViolationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PasswordHistoryPolicyViolationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new PasswordHistoryPolicyViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4882,6 +4904,8 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_ExplicitAuthFlowsListType omitted.
 
+// se_FirehoseConfigurationType omitted.
+
 // se_ForgetDeviceRequest omitted.
 
 // se_ForgotPasswordRequest omitted.
@@ -4981,6 +5005,8 @@ const de_UserPoolTaggingExceptionRes = async (
 // se_RevokeTokenRequest omitted.
 
 // se_RiskExceptionConfigurationType omitted.
+
+// se_S3ConfigurationType omitted.
 
 // se_SchemaAttributesListType omitted.
 
@@ -5443,6 +5469,8 @@ const de_EventFeedbackType = (output: any, context: __SerdeContext): EventFeedba
 
 // de_ExplicitAuthFlowsListType omitted.
 
+// de_FirehoseConfigurationType omitted.
+
 // de_ForbiddenException omitted.
 
 // de_ForgotPasswordResponse omitted.
@@ -5677,6 +5705,8 @@ const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersRe
 
 // de_OAuthFlowsType omitted.
 
+// de_PasswordHistoryPolicyViolationException omitted.
+
 // de_PasswordPolicyType omitted.
 
 // de_PasswordResetRequiredException omitted.
@@ -5746,6 +5776,8 @@ const de_RiskConfigurationType = (output: any, context: __SerdeContext): RiskCon
 };
 
 // de_RiskExceptionConfigurationType omitted.
+
+// de_S3ConfigurationType omitted.
 
 // de_SchemaAttributesListType omitted.
 

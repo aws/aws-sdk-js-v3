@@ -83,6 +83,9 @@ export interface ListRecommendationSummariesCommandOutput
  *   },
  *   groupBy: "STRING_VALUE", // required
  *   maxResults: Number("int"),
+ *   metrics: [ // SummaryMetricsList
+ *     "SavingsPercentage",
+ *   ],
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListRecommendationSummariesCommand(input);
@@ -98,6 +101,9 @@ export interface ListRecommendationSummariesCommandOutput
  * //   ],
  * //   groupBy: "STRING_VALUE",
  * //   currencyCode: "STRING_VALUE",
+ * //   metrics: { // SummaryMetricsResult
+ * //     savingsPercentage: "STRING_VALUE",
+ * //   },
  * //   nextToken: "STRING_VALUE",
  * // };
  *
